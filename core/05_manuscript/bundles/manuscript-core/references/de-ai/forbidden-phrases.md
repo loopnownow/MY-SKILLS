@@ -13,13 +13,22 @@
 | comprehensive | complete / included X–Y |
 | leverage | use |
 | seamless | without additional steps / integrated |
-| groundbreaking / state-of-the-art / novel approach | drop or prove novelty with citation |
-| interestingly / surprisingly / remarkably | delete |
+| groundbreaking / state-of-the-art | drop or prove novelty with citation |
+| surprisingly / remarkably | delete |
 | proved | demonstrated |
 | superior | outperformed / higher AUC than |
 | will (prediction of clinical impact) | may / could |
-| It is worth noting that / Importantly, / Notably, | delete; state the fact |
+| It is worth noting that | delete; state the fact |
 | furthermore / moreover (stacked) | vary or cut |
+
+**Not banned — corpus-verified (do not re-add to this table):** *novel*
+(59 occurrences in the deduplicated corpus), *notably* (21), *interestingly*
+(13), *importantly* (9). These are used sparingly and purposefully in the
+edited, submission-ready manuscripts — e.g. flagging one genuinely
+unexpected result, or the single clinically load-bearing sentence in a
+paragraph — not as filler. Cut them when they're decorative throat-clearing;
+keep them when they're doing that flagging work. See
+`../corpus/corpus-phrase-bank.md` §8 for verified examples.
 
 ## Also cut (stop-slop / detector overlap)
 

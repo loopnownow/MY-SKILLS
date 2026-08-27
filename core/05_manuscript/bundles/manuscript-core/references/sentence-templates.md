@@ -3,10 +3,10 @@
 ## Abstract Templates
 
 ### Objective sentence
-- "To explore whether [technique] could [outcome] in [population]."
-- "To investigate the value of [technique] in [predicting/diagnosing] [condition]."
-- "This study aimed to [objective] using [method]."
-- "The purpose of this study was to [develop/evaluate/compare] [model] for [task]."
+- **"This study aimed to [objective] using [method]."** — corpus-dominant default (18/96 mss.).
+- **"The aim of this study was to [objective]."** — effectively tied default (17/96 mss.).
+- "To explore whether [technique] could [outcome] in [population]." — acceptable variant (bare infinitive, 13/96 combined), not the default.
+- "The purpose of this study was to [develop/evaluate/compare] [model] for [task]." — minority variant (4/96).
 
 ### Methods sentence
 - "A total of N patients with [condition] who underwent [imaging] were retrospectively/prospectively enrolled."
@@ -128,7 +128,8 @@
 - "This non-invasive imaging-based approach could serve as a preoperative tool for [task], thereby optimizing clinical workflows and reducing the burden of [invasive procedure]."
 
 ### Limitations paragraph
-- "This study has several limitations. First, the retrospective design may have introduced selection bias. Second, all patients were recruited from a single center, which may limit the generalizability of our findings. Third, the sample size was relatively small, and external validation in larger, multicenter cohorts is needed. Fourth, the manual delineation of ROIs is time-consuming and subject to interobserver variability; automated segmentation methods may improve reproducibility in future studies. Future prospective multicenter studies are warranted to validate and further refine the proposed model."
+- "This study has several limitations. First, the retrospective design may have introduced selection bias. Second, all patients were recruited from a single center, which may limit the generalizability of our findings. Third, the sample size was relatively small, and external validation in larger, multicenter cohorts is needed. Fourth, the manual delineation of ROIs is time-consuming and subject to interobserver variability; automated segmentation methods may improve reproducibility in future studies. **Future research should focus on larger, multicenter, prospective studies to validate and further refine the proposed model.**"
+- Closing-sentence default is **"Future research should…" / "Future studies should…"** (18/96 and 9/96 respectively — corpus-dominant), not "…are warranted…" (a minority form, 14/96 total across *any* use of "warrant," not specific to this slot).
 
 ### Conclusion sentence
 - "In conclusion, [technique] demonstrated [performance level] in [task], suggesting its potential as a [non-invasive/preoperative] tool for [clinical application] in [population]."

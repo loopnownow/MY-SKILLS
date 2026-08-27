@@ -6,8 +6,12 @@ wording.
 ## Overclaim patterns to flag
 - **Absolutes**: "accurate," "proves," "eliminates," "always/never" → soften to the measured
   performance with its CI.
-- **Unverified novelty**: "first to," "novel," "unprecedented" → remove unless verifiable;
-  replace with the concrete contribution.
+- **Unverified novelty**: "first to," "unprecedented" → remove unless verifiable;
+  replace with the concrete contribution. **"Novel" itself is not banned** — it's
+  corpus-verified (59 occurrences in the deduplicated manuscript corpus) as a normal,
+  sparingly-used word when the novelty claim is actually verifiable (e.g. describing a
+  genuinely new procedure). Flag "novel" only when the claim behind it is *unverified*,
+  not on sight. See `../../corpus/corpus-phrase-bank.md` §8.
 - **Scope creep**: single-center retrospective result → "clinically ready," "should be
   adopted." Bound to the evidence and call for validation.
 - **Reader/▢ comparison without statistic**: "outperformed radiologists" → give the

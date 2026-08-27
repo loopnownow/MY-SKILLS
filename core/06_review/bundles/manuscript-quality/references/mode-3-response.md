@@ -14,6 +14,9 @@
 3. 映射动作：改稿位置 + 英文回复句；**禁止编造未做实验**  
 4. 审计：每条 claimed change 可定位（`merged/radiology-response/response-audit-gate.md`）  
 5. 动作映射表：`merged/radiology-response/action-mapping.md`  
+6. **语气/措辞按用户个人风格**：`merged/radiology-response/personal-response-style.md`
+   ——开头信件模板、每条谢词分库、逐字引用+定位习惯、认错四步法、委婉不同意三段式、
+   收尾模板、措辞微习惯。骨架和事实核查仍以 1–5 为准，本文件只管"读起来像不像本人"。
 
 ## 3.3 信函骨架
 

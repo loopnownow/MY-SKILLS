@@ -24,6 +24,7 @@ Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
 | **Response to reviewers** | `bundles/manuscript-quality/MODULE.md` path C + `bundles/manuscript-quality/references/mode-3-response.md` |
 | Dealbreakers / hard gates | `bundles/manuscript-quality/references/merged/radiology-prereview/` |
 | Response action map / audit | `bundles/manuscript-quality/references/merged/radiology-response/` |
+| Personal reply tone/phrasing (response letters) | `bundles/manuscript-quality/references/merged/radiology-response/personal-response-style.md` |
 | Radiology pre-submission notes | `references/radiology/pre-submission.md` |
 | Radiology response notes | `references/radiology/response.md` |
 | Reporting / citation checklists (read-only) | `05_manuscript` `manuscript-core/references/merged/radiology-reporting/` and `radiology-citation/` |

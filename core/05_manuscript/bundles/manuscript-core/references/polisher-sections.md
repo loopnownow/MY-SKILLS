@@ -33,7 +33,7 @@ If the user provides raw text without labeling the section, infer from content s
 ## §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Opens with purpose-driven infinitive: *"To explore whether…"* / *"To investigate the value of…"* / *"This study aimed to…"*. Never a rhetorical question. State clinical need immediately.
+1. **Objective sentence** — Default to **"This study aimed to…"** (corpus-dominant, 18/96 mss.) or **"The aim of this study was to…"** (17/96, effectively tied) — these two cover the large majority of the corpus. Bare infinitive openers (*"To explore whether…"*, *"To investigate the value of…"*) are acceptable variation (13/96) but not the default. Never a rhetorical question. State clinical need immediately. See `references/corpus/corpus-phrase-bank.md` §1 for verified counts.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
 4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist"*, *"demonstrated potential"* — never absolute claims.
@@ -176,7 +176,7 @@ This is the most technically precise section. Follow all sub-rules below.
   3. Relatively small sample size
   4. Need for external multicenter validation
   5. (If applicable) manual ROI segmentation variability
-- Template: *"This study has several limitations. First,… Second,… Third,… Future prospective multicenter studies are warranted to validate these findings."*
+- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the corpus-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See `references/corpus/corpus-phrase-bank.md` §5.
 
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
@@ -224,14 +224,22 @@ This is the most technically precise section. Follow all sub-rules below.
 | Confirmed | demonstrated, showed, confirmed, revealed |
 | Suggested | suggested, indicated, found |
 | Speculative | may, might, could, possibly, potentially |
-| Future work | warrants, is needed, should be validated |
+| Future work | **should** (dominant: "Future research/studies should…", 27/96 combined), warrants, is needed, should be validated |
 
 ### Forbidden expressions
-- *"groundbreaking"*, *"novel approach"*, *"state-of-the-art"* (unless directly cited)
-- *"interestingly"*, *"surprisingly"*, *"remarkably"*
+- *"groundbreaking"*, *"state-of-the-art"* (unless directly cited)
 - *"proved"* (use *"demonstrated"*)
 - *"superior"* (use *"outperformed"* or *"showed higher AUC than"*)
 - *"will"* for predictions (use *"may"* or *"could"*)
+
+**NOT forbidden — corpus-verified, do not re-add:** *"novel"* (59 occurrences),
+*"notably"* (21), *"interestingly"* (13), *"importantly"* (9). These appear
+in the edited, submission-ready corpus used purposefully and sparingly — e.g.
+flagging one genuinely unexpected result or the single most clinically
+load-bearing sentence in a paragraph — never as filler repeated throughout.
+The editorial rule is "keep if it's doing real work, cut if it's decorative,"
+not "delete on sight." See `references/corpus/corpus-phrase-bank.md` §8 for
+verified in-context examples before deciding to cut one.
 
 ### Sentence structure targets
 - **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
