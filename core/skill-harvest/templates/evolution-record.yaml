@@ -1,0 +1,19 @@
+change_id: CHG-YYYYMMDD-001
+date: YYYY-MM-DD
+skill: 05_manuscript
+mode: manuscript-core
+from_version: 1.0.0
+to_version: 1.1.0
+change_class: optimize
+problem_observed: ""
+change: ""
+expected_benefit: ""
+evidence_level: E0
+metrics:
+  success_rate: null
+  correction_rate: null
+  rework_rate: null
+  routing_accuracy: null
+  median_turns: null
+  context_cost: null
+decision: observe

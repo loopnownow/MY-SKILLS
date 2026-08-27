@@ -1,128 +1,79 @@
-# Integration map — existing skills → MedicalResearch 7 skills
+# Integration map — MedicalResearch Lean v6
 
-## Source inventory
+This file records the current architecture, not the historical export tree.
 
-### From `C:\Users\loopn\.grok\skills`
+| Source capability | Active home |
+|---|---|
+| Excel/CSV / 0RAD workspace | `core/01_automation/` |
+| Soft-coding / dry-run | `archive/code-refactoring/` |
+| Clinical extraction | `archive/clinical-data-extraction/` |
+| Ethics form packs | `archive/ethics-application-forms/` |
+| MRI/fMRI / radiomics / habitat | `core/02_imaging/bundles/` |
+| Clinical translation / reader studies | `archive/clinical-translation/` |
+| Study design / radiology frontier | `03_research/bundles/` |
+| Clinical statistics / prediction | `04_analysis/bundles/` |
+| SCI writing / figures | `05_manuscript/bundles/` |
+| Manuscript audit / peer review / reviewer response | `06_review/bundles/` |
+| Skill lifecycle governance | `skill-harvest/` |
 
-| Source | Destination |
-|--------|-------------|
-| ly-literature | `01_research/bundles/ly-literature` |
-| radiology-skills/modules/radiology-design | `01_research/bundles/radiology-design` |
-| radiology-skills/modules/radiology-frontier | `01_research/bundles/radiology-frontier` |
-| radiology-skills/references (design/lit subset) | `01_research/references/radiology` |
-| ly-stats-ml | `02_analysis/bundles/ly-stats-ml` |
-| data-impute | `02_analysis/bundles/data-impute` |
-| radiology-skills radiomics/annotation/radiogenomics/translation/reader | `03_imaging/bundles/*` |
-| ly-imaging-ops | `03_imaging/bundles/ly-imaging-ops` |
-| ly-dl-libs | `03_imaging/bundles/ly-dl-libs` |
-| radiology-skills scripts/examples | `03_imaging/scripts|examples` |
-| ly-sci-writing | `04_writing/bundles/ly-sci-writing` |
-| ly-figures | `04_writing/bundles/ly-figures` |
-| ly-slides | archived 2026-08-15 → `D:\0Grok\0RAD\0del\skill_04_ly-slides` (use system `pptx`) |
-| ly-prereview | `05_review/bundles/ly-prereview` |
-| ly-response | `05_review/bundles/ly-response` |
-| ly-rules | `06_automation/bundles/code-refactoring` |
-| ethics-application-forms | `06_automation/bundles/ethics-application-forms` |
+Historical export paths are intentionally not retained in the active map.
 
-### From `C:\Users\loopn\.agents\skills`
+## Swap 2026-08-25 (user)
 
-| Source | Destination |
-|--------|-------------|
-| docx | archived 2026-08-15 → `D:\0Grok\0RAD\0del\skill_06_docx` (use system `docx`) |
-| pdf | archived 2026-08-15 → `D:\0Grok\0RAD\0del\skill_06_pdf` (use system `pdf`) |
-| xlsx | `06_automation/bundles/xlsx` |
-| markitdown | `06_automation/bundles/markitdown` |
-| pua | `06_automation/bundles/pua` |
+Replaced live `~\.grok\skills` with `skills-lean-v6.zip`. Pre-v6 tree archived at `D:\0Grok\0RAD\0scripts\skills_live_v1.3.1_20260825.zip`. Runtime XSD zip + extract: `D:\0Grok\0RAD\0scripts\skills-runtime-assets-v3.zip` and `D:\0Grok\0RAD\0scripts\runtime-assets\`.
 
-### From `files.zip`
+Active top-level: `00_orchestrator` … `06_review` + `skill-harvest` + `_medical-research-meta`. Review/response lives under `06_review/bundles/manuscript-quality`. Coding/Office under `01_automation`.
 
-| Source | Destination |
-|--------|-------------|
-| literature-review | `01_research/bundles/literature-review` |
-| pubmed-database | `01_research/bundles/pubmed-database` |
-| citation-management | `01_research/bundles/citation-management` |
-| radiomics-pipeline-toolkit | `03_imaging/bundles/radiomics-pipeline-toolkit` |
-| ying-li-polisher | `04_writing/bundles/ying-li-polisher` |
-| stop-slop | `04_writing/bundles/stop-slop` |
-| ai-writing-detector | `04_writing/bundles/ai-writing-detector` |
-| peer-review | `05_review/bundles/peer-review` |
+## Split 2026-08-25 (user)
 
-## Conflict resolution
+```text
+change_id: split-04-review-06
+date: 2026-08-25
+skill: 05_manuscript → 05_manuscript + 06_review
+from_version: Lean v6
+to_version: Lean v6.1
+problem: 04 mixed SCI 论著 writing with 评阅/回审; review triggers were buried and collided with writing.
+change: Promoted `manuscript-quality` (pre-review, peer review, response) to top-level `06_review`. `05_manuscript` keeps manuscript-core + figure-engine.
+expected_benefit: Distinct auto-invoke for 写论著 vs 评阅/回复审稿人; smaller 04 context on writing tasks.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Authorized 00–06 domain set. Do not add 07.
+decision: observe
+next_action: watch routing accuracy on 润色 vs 审稿 vs 回复审稿人
+```
 
-When two sources overlap:
+## Renumber 2026-08-25 (user)
 
-1. **Lab voice / Radiology QC** wins for imaging SCI manuscripts (`ly-sci-writing`, `ly-prereview`, `radiology-stats`).
-2. **Generic academic packs** (literature-review, peer-review, citation-management) supply broader methodology and scripts.
-3. **Never invent** data, ethics IDs, citations, or unrun experiments — all sources agree.
+```text
+change_id: renumber-01-to-06
+date: 2026-08-25
+skill: 00–06 domain folders
+from_version: Lean v6.1
+to_version: Lean v6.2
+problem: Folder numbers did not match the user's preferred order after the 04/06 writing–review split.
+change: Renamed live folders to 01_automation, 02_imaging, 03_research, 04_analysis, 05_manuscript, 06_review. 00_orchestrator and skill-harvest unchanged. Task pipeline order is still research → imaging → analysis → manuscript → review.
+expected_benefit: Directory numbers match the user's map; fewer routing mistakes from stale 01=research / 05=automation memory.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Same six business skills; numbers only. Do not add 07.
+decision: observe
+next_action: confirm auto-discovery after reload
+```
 
-## What stayed outside top-level skills
+## Core/archive split 2026-08-25 (user)
 
-Nothing critical: all lab capabilities are nested under the seven skills. Future topics must first become a mode/reference/tool adapter, not skill #8.
-
-
-## skills_export.zip (2026-08-11 merge)
-
-User decisions:
-
-| Export skill | Decision | Destination |
-|--------------|----------|-------------|
-| code-refactoring | **Overwrite** ly-rules | `06_automation/bundles/code-refactoring` (+ ly-rules redirect) |
-| dicom-nifti-conversion | Scripts into ly-imaging-ops | `03_imaging/bundles/ly-imaging-ops/scripts/from_skills_export/dicom-nifti-conversion/` |
-| file-batch-processing | Scripts into ly-imaging-ops | `.../from_skills_export/file-batch-processing/` |
-| habitat-analysis | Scripts into toolkit | `03_imaging/bundles/radiomics-pipeline-toolkit/scripts/from_skills_export/habitat-analysis/` |
-| radiomics-pipeline | Scripts into toolkit | `.../from_skills_export/radiomics-pipeline/` |
-| statistical-modeling | Scripts into stats | `02_analysis/scripts/from_skills_export/statistical-modeling/` + data-impute `export_*` |
-| paper-writing-review | Templates only | `04_writing/.../methods_template_export.md`, `05_review/.../review_checklist_export.md` |
-| clinical-data-extraction | Full bundle | `06_automation/bundles/clinical-data-extraction` |
-| fMRI-preprocessing | Full bundle | `03_imaging/bundles/fMRI-preprocessing` |
-| tool-environment-setup | Full bundle | `06_automation/bundles/tool-environment-setup` |
-
-## Session harvest (2026-08-19b)
-
-| Fact | Home |
-|------|------|
-| Table 1 = training vs test wide table (not all-cohort +/− as main table) | `04_writing/bundles/ly-sci-writing/references/Aitor-format.md` |
-
-## Session harvest (2026-08-19)
-
-Nine 0RAD house→later-polish manuscript pairs. User choices: keep one-fact / no em-dash / no disclaimer / training·test (validation = external); **drop *coded*/*displayed* prefix**.
-
-| Fact | Home |
-|------|------|
-| De-pipeline replacements; group `(A, n = ; B, n = )`; nomogram-row AUC; recheck incremental vs `*-results.html`; no *coded* prefix; later-polish corpus (do not copy fusion/em-dash/internal validation) | `04_writing/bundles/ly-sci-writing/references/Aitor-format.md` |
-| Second pass does not reorder IMRAD; inclusion inline; *concerns* / *eventually* | `04_writing/bundles/ly-sci-writing/references/polisher-sections.md` |
-
-Not written (user kept Aitor): sentence fusion, em-dash, disclaimer stacks, internal `development`/`validation`.
-
-## Session harvest (2026-08-15)
-
-Chat-locked lab rules written into existing skills (no new top-level skill):
-
-| Fact | Home |
-|------|------|
-| 0RAD folders / `0del` / `exc` / false-classification | `06_automation/references/0rad-workspace.md` |
-| `VAL_MODE`, pairwise groups, ID columns | `02_analysis/references/0rad-pipeline-rules.md` |
-
-## Session harvest (2026-08-18)
-
-| Fact | Home |
-|------|------|
-| 除 `dll_OV` 外默认全部组不筛；子结局分组来自该结局列；`FORCE_INTER` 缺键继承公共、结局间不互写；`SUBGROUP_COL` 只评估主列线图 | `02_analysis/references/0rad-pipeline-rules.md` |
-| 工程根 `qc.html` 整体数据 QC | `06_automation/references/0rad-workspace.md` |
-| Five console palettes | `04_writing/bundles/ly-figures/references/lab-palettes.md` |
-
-Already owned elsewhere — not rewritten: `Aitor-format.md`, `strobe-flowchart`, `ethics-application-forms`, `data-impute` methods.
-
-## Session harvest (2026-08-17)
-
-| Fact | Home |
-|------|------|
-| IHC from 病理全文; dash = Negative; ER ≠ HER2 | `06_automation/bundles/clinical-data-extraction/MODULE.md` |
-
-User picked only this row. Not written: write-to-xlsx-cln, first-date labs, mice+mode fallback, settings.ini seed, dll_OV handoff memo.
-
-## skill-harvest (2026-08-15)
-
-Maintenance skill at `~/.grok/skills/skill-harvest/` (not a domain skill).  
-Scan chats + extra skill packs → classify → user picks → write into 00–06 homes only.  
-Slash: `/skill-harvest`. Script: `scripts/harvest_scan.py`.
+```text
+change_id: core-archive-split
+date: 2026-08-25
+skill: layout
+from_version: Lean v6.2
+to_version: Lean v6.3
+problem: Nested packs were either bloating 01/02 or needed their own triggers.
+change: Moved 00–06 + harvest into skills/core/. Promoted ethics-application-forms, code-refactoring, clinical-data-extraction, clinical-translation to skills/archive/ as standalone SKILL.md. Deleted markitdown, tool-environment-setup, imaging-omics-ml. Kept data-impute and figure-engine nested.
+expected_benefit: Distinct auto-invoke for 软编码 / 填伦理 / 提取 / 转化; smaller 01 and 02.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Archive skills are extra homes, not 07_. data-impute and figure-engine remain modules.
+decision: observe
+next_action: watch routing on 软编码 vs 批处理, 转化 vs 02_imaging
+```

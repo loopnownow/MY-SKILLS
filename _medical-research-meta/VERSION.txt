@@ -1,7 +1,5 @@
-MedicalResearch-Skills v1.1.4-session-harvest
-Integrated with Ying Li lab skills (ly-*) + files.zip + office adapters
-Session harvest 2026-08-19: Aitor second-pass / no coded prefix
-Session harvest 2026-08-18: 0RAD grouping / subgroup-eval / project qc.html
-Session harvest 2026-08-17: clinical-data-extraction IHC parse
-Session harvest 2026-08-15: 0rad-workspace, 0rad-pipeline-rules, lab-palettes
-Built 2026-08-11, harvest 2026-08-19
+Lean v6.3 (2026-08-25)
+Layout: skills/core/ (00–06 + harvest) and skills/archive/ (four standalone skills)
+Nested modules (not skills): data-impute, figure-engine
+Removed: markitdown, tool-environment-setup, imaging-omics-ml
+Runtime XSD: D:\0Grok\0RAD\0scripts\runtime-assets\

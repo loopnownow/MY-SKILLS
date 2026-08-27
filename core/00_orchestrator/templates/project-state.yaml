@@ -1,0 +1,37 @@
+# Copy to D:\0Grok\0RAD\<project>\ref\project-state.yaml when starting a study.
+# Do NOT put VAL_MODE, column names, FIG_PALETTE, GROUP_KEEP here — those stay in ref/settings.ini.
+# Leave unknown fields empty. Never invent ethics IDs, n, or AUC.
+
+project: ""          # e.g. fyh_CAC
+updated: ""          # YYYY-MM-DD
+
+study_design:
+  question: ""
+  hypothesis: ""
+  population: ""
+  design: ""         # retrospective | prospective | ...
+  inclusion: []
+  exclusion: []
+  ethics_id: ""      # blank = yellow highlight in manuscript; do not invent
+
+analysis_plan:
+  endpoints: []      # display names; run keys live in settings.ini OUTCOME_COLS
+  predictors_intent: ""   # clinical / radiomics / combined — not the feature list
+  covariates_intent: ""
+  split: "patient-level training vs test"
+  models_intent: []  # e.g. [radscore, nomogram]
+  notes: ""
+
+manuscript:
+  target_journal: ""
+  format: "Aitor-format"
+  house_docx: ""     # Manuscript_<结局>_house.docx
+  polished_docx: ""
+  results_html: ""   # one HTML per endpoint; numbers only from here
+  intro_discussion_lit: pending   # pending | done
+  prereview: pending
+  reviewer_items: []
+  # reviewer_items example:
+  # - id: R1-1
+  #   status: open | done | cannot_invent
+  #   location: ""
