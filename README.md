@@ -25,10 +25,8 @@ SKILLS_map.html
 
 Nested modules (not top-level skills): `data-impute`, `figure-engine`.
 
-## Sync convention
+## Maintenance
 
-1. Canonical working copy: local `.grok/skills`
-2. Dropped polish/review markdown in `Downloads` gets mapped into `05_manuscript` / `06_review` paths
-3. Push to this repo (`main`) after meaningful updates
+This GitHub repo is the source of truth. Updates land here when requested; no local-folder scan.
 
 Maintained by Aitee for [loopnownow](https://github.com/loopnownow).
