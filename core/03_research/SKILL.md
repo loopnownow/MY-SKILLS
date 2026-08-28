@@ -2,8 +2,9 @@
 name: medical-research-design-and-evidence
 description: >
   Design studies and synthesize evidence. Use for 选题, 选刊, 研究设计, 样本量,
-  STROBE/CONSORT/TRIPOD/PRISMA, imaging feasibility, frontier, 国自然.
-  Do not use for 写稿, 润色, 写引言, 写讨论, 评阅, or 回复审稿人.
+  STROBE/CONSORT/TRIPOD/PRISMA, imaging feasibility, frontier, 国自然,
+  写自己的标书, 评别人的国自/面上.
+  Do not use for 写稿, 润色, 写引言, 写讨论, 英文期刊评阅, or 回复审稿人.
 ---
 
 # Medical Research Design and Evidence (integrated)
@@ -20,7 +21,10 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Frontier directions | `bundles/radiology-frontier/MODULE.md` |
 | Radiology design/lit checklists | `references/radiology/` |
 | 领域/期刊格局（选题用，不写引言） | `references/radiology/literature.md` |
-| 国自然 / NSFC 申报书结构 | `references/radiology/grant-writing.md` |
+| **Voice A 评别人的国自/面上**（系统五栏 + 评议口癖；不抄申请人科学） | `references/radiology/grant-review.md` |
+| **Voice B 写自己的标书** 句库（中英摘要、假说、入排） | `references/radiology/grant-writing.md` |
+| Voice B 章节骨架（立项五步、创新两栏、可行性三块、确定/阐明/探讨） | `bundles/radiology-design/references/grant-own-skeleton.md` |
+| Voice B 方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML） | `bundles/radiology-frontier/references/method-upgrade-into-grant.md` |
 
 ## Modes
 
@@ -36,6 +40,12 @@ Design-outcome mismatch, selection bias, immortal time, confounding, overadjustm
 
 ### Imaging design / frontier mode
 Use radiology-design + frontier modules; prefer problem+data over hype. Blocking: slice-level split as external validation, no labels, n too small for claim.
+
+### Grant-review mode (Voice A) — 评别人的
+NSFC/面上/交叉五栏 + 用户评议口癖. Load **only** `grant-review.md`. Do not mix Voice B 立项五步 or 摘要骨架. Do not copy applicants' hypotheses/pathways. English journal peer review stays in `06_review`.
+
+### Grant-writing mode (Voice B) — 写自己的
+Chapter skeleton in radiology-design; method upgrades into 立项 in radiology-frontier; CN/EN abstracts, hypothesis, inclusion/exclusion from `grant-writing.md` only. Never paste Voice A tics (「创新性有限」「可行性欠佳」) into own text. Placeholders `[Title]` `[疾病]` `[n]` `[PI]` only — no grant full texts, unpublished patient tables, ethics scans, or phone numbers.
 
 ## Evidence workflow
 
