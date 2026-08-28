@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
-"""Lab SCI Figure 1 — patient/analysis flowchart.
+"""Published STROBE Figure 1 — patient selection flowchart.
 
-Project entry:
-    python -m modules.stats.figure_strobe_flow --json spec.json --out output/PNG/Figure1_flow.png
+Gold standard: 2023 BJR POLE Fig.1 (type A). Not the 0RAD auto figure.
 
-White ground, black ink only. No Inclusion criteria box.
-Development/Validation connect down to the analysis row.
+    python draw_strobe_flow.py --json spec.json --out Figure1_flow.png
+
+White ground, black square boxes, Arial. Vertical spine.
+Right inclusion with arrow IN to the spine; right exclusion with arrow OUT
+and each reason (n=k). Bottom Training Cohort / Validation Cohort.
+No pipeline / analysis row. Never label a split "Development set".
+
+n-audit (fail-closed): exit nonzero if screened − Σ exclusion n ≠ analyzed
+or Σ split n ≠ analyzed. Do not invent n. Historical figures that fail
+arithmetic may pass --no-audit.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import re
+import sys
 import textwrap
 from pathlib import Path
 
@@ -26,13 +35,28 @@ LW = 1.05
 FS = 8.3
 FS_SMALL = 8.0
 
+DEFAULT_SPLIT_LABELS = ("Training Cohort", "Validation Cohort")
+DEFAULT_LEGEND = "Figure 1. Flowchart of patient selection and study design."
+
+_N_EQ = re.compile(r"\bn\s*=\s*(\d+)\b", re.I)
+_LEADING_COUNT = re.compile(
+    r"^\s*(\d+)\s+(?:patients?|subjects?|cases?|women|men)\b", re.I
+)
+
+
+class AuditError(ValueError):
+    """n-audit failed; CLI exits nonzero."""
+
 
 def _font():
-    for name in ("Arial", "Calibri", "DejaVu Sans", "Helvetica"):
+    for name in ("Arial", "Calibri", "Helvetica", "DejaVu Sans"):
         try:
             path = font_manager.findfont(name, fallback_to_default=False)
-            if path and "DejaVuSans.ttf" not in path or name == "DejaVu Sans":
-                return name
+            if not path:
+                continue
+            if name != "DejaVu Sans" and "DejaVuSans" in path.replace("\\", "/"):
+                continue
+            return name
         except Exception:
             continue
     return "DejaVu Sans"
@@ -66,15 +90,140 @@ def _fit(text: str, max_chars: int, fs: float = FS) -> tuple[str, float, float]:
     return t, w, h
 
 
-def _numbered(title: str, items: list, width: int = 32) -> str:
-    lines = [title]
-    for i, item in enumerate(items[:6], 1):
-        lines.append(_wrap(f"{i}. {item}", width))
-    return "\n".join(lines)
+def parse_n(value) -> int | None:
+    """Parse a count. Prefer n=N, then a leading '<N> patients' phrase. Never invent."""
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return int(value)
+    if isinstance(value, dict):
+        if value.get("n") not in (None, ""):
+            return parse_n(value.get("n"))
+        for key in ("text", "label", "reason", "screened", "analyzed"):
+            if key in value:
+                found = parse_n(value.get(key))
+                if found is not None:
+                    return found
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    match = _N_EQ.search(text)
+    if match:
+        return int(match.group(1))
+    match = _LEADING_COUNT.match(text)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def _exclusion_items(raw) -> list[tuple[str, int | None]]:
+    items = []
+    for entry in raw or []:
+        if isinstance(entry, dict):
+            reason = str(entry.get("reason") or entry.get("text") or "").strip()
+            n = parse_n(entry.get("n"))
+            if n is None:
+                n = parse_n(reason)
+            if n is not None and not _N_EQ.search(reason):
+                reason = f"{reason} (n={n})" if reason else f"(n={n})"
+            items.append((reason, n))
+        else:
+            text = str(entry).strip()
+            items.append((text, parse_n(text)))
+    return [(t, n) for t, n in items if t]
+
+
+def _numbered(title: str, lines: list[str], width: int = 36) -> str:
+    out = [title]
+    for i, line in enumerate(lines, 1):
+        out.append(_wrap(f"{i}. {line}", width))
+    return "\n".join(out)
+
+
+def _normalize_split_label(raw: str, index: int, n_splits: int) -> str:
+    label = (raw or "").strip()
+    if "development" in label.lower():
+        label = "Training Cohort"
+    if not label:
+        if n_splits == 2 and index < 2:
+            return DEFAULT_SPLIT_LABELS[index]
+        return f"Cohort {index + 1}"
+    return label
+
+
+def _split_items(raw) -> list[tuple[str, int | None]]:
+    entries = list(raw or [])
+    n_splits = len(entries)
+    items = []
+    for i, entry in enumerate(entries):
+        if isinstance(entry, dict):
+            label = _normalize_split_label(str(entry.get("label") or ""), i, n_splits)
+            n = parse_n(entry.get("n"))
+            if n is None:
+                n = parse_n(entry)
+        else:
+            text = str(entry).strip()
+            n = parse_n(text)
+            label = _normalize_split_label(text, i, n_splits)
+            if n is not None:
+                label = _N_EQ.sub("", label).strip(" ,;:-")
+                label = _normalize_split_label(label, i, n_splits)
+        display = label
+        if n is not None and not _N_EQ.search(display):
+            display = f"{display}\n(n={n})"
+        items.append((display, n))
+    return items
+
+
+def audit_n(spec: dict) -> None:
+    """Fail-closed n-audit. Raises AuditError; does not invent n."""
+    screened_n = parse_n(spec.get("screened"))
+    analyzed_n = parse_n(spec.get("analyzed"))
+    exclusions = _exclusion_items(spec.get("exclusion"))
+    splits = _split_items(spec.get("splits"))
+
+    problems = []
+    if spec.get("screened") and screened_n is None:
+        problems.append("cannot parse n from screened")
+    if spec.get("analyzed") and analyzed_n is None:
+        problems.append("cannot parse n from analyzed")
+
+    missing_exc = [i + 1 for i, (_, n) in enumerate(exclusions) if n is None]
+    if missing_exc:
+        problems.append(
+            "cannot parse n from exclusion item(s) " + ", ".join(map(str, missing_exc))
+        )
+    missing_split = [i + 1 for i, (_, n) in enumerate(splits) if n is None]
+    if missing_split:
+        problems.append(
+            "cannot parse n from split item(s) " + ", ".join(map(str, missing_split))
+        )
+
+    if problems:
+        raise AuditError("n-audit failed: " + "; ".join(problems) + ". Do not invent n.")
+
+    if screened_n is not None and analyzed_n is not None:
+        excl_sum = sum(n for _, n in exclusions if n is not None)
+        remainder = screened_n - excl_sum
+        if remainder != analyzed_n:
+            raise AuditError(
+                f"n-audit failed: screened ({screened_n}) − Σ exclusion n "
+                f"({excl_sum}) = {remainder}, not analyzed ({analyzed_n}). "
+                "Do not invent n."
+            )
+
+    if splits and analyzed_n is not None:
+        split_sum = sum(n for _, n in splits if n is not None)
+        if split_sum != analyzed_n:
+            raise AuditError(
+                f"n-audit failed: Σ splits n ({split_sum}) != analyzed ({analyzed_n}). "
+                "Do not invent n."
+            )
 
 
 class Canvas:
-    def __init__(self, width=10.4):
+    def __init__(self, width=11.0):
         self.width = width
         self.boxes = []
         self.arrows = []
@@ -89,9 +238,6 @@ class Canvas:
 
     def add_line(self, x1, y1, x2, y2):
         self.lines.append((x1, y1, x2, y2))
-
-    def v_arrow(self, b1, b2):
-        self.add_arrow(b1[0] + b1[2] / 2, b1[1] + b1[3], b2[0] + b2[2] / 2, b2[1])
 
     def render(self, out_path: Path):
         if not self.boxes:
@@ -144,39 +290,46 @@ class Canvas:
         plt.close(fig)
 
 
-def draw_strobe_flow(spec: dict, out_path) -> Path:
-    """Draw spec to PNG. Ignores any inclusion field."""
+def draw_strobe_flow(spec: dict, out_path, audit: bool = True) -> Path:
+    """Draw a type-A published STROBE patient-selection flowchart."""
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     spec = dict(spec or {})
-    spec.pop("inclusion", None)
-    spec.pop("met_inclusion", None)
+
+    pipeline = spec.get("pipeline")
+    if pipeline:
+        raise ValueError(
+            "spec.pipeline is a type-C methods row and must not be drawn by "
+            "draw_strobe_flow; see references/methods-pipeline.md"
+        )
+
+    if audit:
+        audit_n(spec)
 
     screened = (spec.get("screened") or "").strip()
-    exclusion = [str(x).strip() for x in (spec.get("exclusion") or []) if str(x).strip()]
+    inclusion = [str(x).strip() for x in (spec.get("inclusion") or []) if str(x).strip()]
+    excl_items = _exclusion_items(spec.get("exclusion"))
+    exclusion_lines = [text for text, _ in excl_items]
     analyzed = (spec.get("analyzed") or "").strip()
-    splits = spec.get("splits") or []
-    pipeline = [str(x).strip() for x in (spec.get("pipeline") or []) if str(x).strip()]
+    split_items = _split_items(spec.get("splits"))
+
     if not analyzed and not screened:
         raise ValueError("spec needs at least screened or analyzed text")
 
-    split_raw = [
-        (s.get("label") if isinstance(s, dict) else str(s)).strip() for s in splits[:3]
-    ]
-    pipe_raw = [str(t).strip() for t in pipeline[:4] if str(t).strip()]
     scr_txt, w_scr, h_scr = _fit(screened, 46) if screened else ("", 0.0, 0.0)
     ana_txt, w_ana, h_ana = _fit(analyzed, 46) if analyzed else ("", 0.0, 0.0)
-    exc_txt = _numbered("Exclusion criteria:", exclusion, width=36) if exclusion else ""
+    inc_txt = _numbered("Inclusion criteria:", inclusion, width=36) if inclusion else ""
+    exc_txt = _numbered("Exclusion criteria:", exclusion_lines, width=36) if exclusion_lines else ""
+    w_inc, h_inc = _box_wh(inc_txt, FS_SMALL, pad_x=0.28, max_w=4.8) if inc_txt else (0.0, 0.0)
     w_exc, h_exc = _box_wh(exc_txt, FS_SMALL, pad_x=0.28, max_w=4.8) if exc_txt else (0.0, 0.0)
-    split_fitted = [_fit(t, 28) for t in split_raw]
-    pipe_fitted = [_fit(t, 24) for t in pipe_raw]
-    split_span = (
-        sum(w for _, w, _ in split_fitted) + 0.18 * max(0, len(split_fitted) - 1)
-        if split_fitted else 0.0
-    )
+    split_fitted = [_fit(t, 28) for t, _ in split_items]
 
-    c = Canvas()
-    spine_x = 2.95
+    side_w = max(w_inc, w_exc)
+    spine_x = 3.15
+    canvas_w = max(11.0, spine_x + 0.55 + side_w + 0.35)
+    x_side = spine_x + 0.55
+    c = Canvas(width=canvas_w)
+
     y = 0.18
     last = None
 
@@ -187,116 +340,114 @@ def draw_strobe_flow(spec: dict, out_path) -> Path:
         last = place_center(scr_txt, w_scr, h_scr, y)
         y = y + h_scr
 
+    stem_need = 0.0
+    if inc_txt:
+        stem_need += h_inc
+    if exc_txt:
+        stem_need += h_exc
+    if inc_txt and exc_txt:
+        stem_need += 0.22
+    if inc_txt or exc_txt:
+        stem_need = max(0.70, stem_need + 0.28)
+
     if ana_txt:
-        if last and exc_txt:
-            stem = max(0.58, h_exc + 0.16)
-            ana_y = y + stem
-            x_exc = max(last[0] + last[2], spine_x + split_span / 2) + 0.40
-            b_exc = c.add_box(
-                x_exc, y + (stem - h_exc) / 2, w_exc, h_exc, exc_txt,
-                align="left", fs=FS_SMALL,
-            )
-            join_y = b_exc[1] + b_exc[3] / 2
+        if last and (inc_txt or exc_txt):
+            ana_y = y + stem_need
             c.add_line(spine_x, y, spine_x, ana_y)
-            c.add_arrow(spine_x, join_y, b_exc[0], join_y)
+            cursor = y + 0.14
+            if inc_txt:
+                b_inc = c.add_box(
+                    x_side, cursor, w_inc, h_inc, inc_txt, align="left", fs=FS_SMALL,
+                )
+                join_y = b_inc[1] + b_inc[3] / 2
+                # Arrow IN: head on the spine.
+                c.add_arrow(b_inc[0], join_y, spine_x, join_y)
+                cursor = b_inc[1] + b_inc[3] + 0.22
+            if exc_txt:
+                b_exc = c.add_box(
+                    x_side, cursor, w_exc, h_exc, exc_txt, align="left", fs=FS_SMALL,
+                )
+                join_y = b_exc[1] + b_exc[3] / 2
+                # Arrow OUT: head on the exclusion box.
+                c.add_arrow(spine_x, join_y, b_exc[0], join_y)
         elif last:
             ana_y = y + 0.48
             c.add_arrow(spine_x, y, spine_x, ana_y)
         else:
             ana_y = y
-        b_ana = place_center(ana_txt, w_ana, h_ana, ana_y)
-        if (not last) and exc_txt:
-            x_exc = max(b_ana[0] + b_ana[2], spine_x + split_span / 2) + 0.40
-            b_exc = c.add_box(
-                x_exc, ana_y + max(0.0, (h_ana - h_exc) / 2), w_exc, h_exc,
-                exc_txt, align="left", fs=FS_SMALL,
-            )
-            c.add_arrow(
-                b_ana[0] + b_ana[2], b_ana[1] + b_ana[3] / 2,
-                b_exc[0], b_exc[1] + b_exc[3] / 2,
-            )
-        last = b_ana
+            if inc_txt or exc_txt:
+                cursor = ana_y
+                if inc_txt:
+                    b_inc = c.add_box(
+                        x_side, cursor, w_inc, h_inc, inc_txt, align="left", fs=FS_SMALL,
+                    )
+                    join_y = b_inc[1] + min(h_ana, b_inc[3]) / 2
+                    c.add_arrow(b_inc[0], join_y, spine_x + w_ana / 2, ana_y + h_ana / 2)
+                    cursor = b_inc[1] + b_inc[3] + 0.22
+                if exc_txt:
+                    b_exc = c.add_box(
+                        x_side, cursor, w_exc, h_exc, exc_txt, align="left", fs=FS_SMALL,
+                    )
+                    c.add_arrow(
+                        spine_x + w_ana / 2, ana_y + h_ana / 2,
+                        b_exc[0], b_exc[1] + b_exc[3] / 2,
+                    )
+        last = place_center(ana_txt, w_ana, h_ana, ana_y)
         y = ana_y + h_ana
-    elif last and exc_txt:
-        x_exc = last[0] + last[2] + 0.42
-        b_exc = c.add_box(x_exc, y + 0.16, w_exc, h_exc, exc_txt, align="left", fs=FS_SMALL)
-        c.add_arrow(last[0] + last[2], last[1] + last[3] / 2, b_exc[0], b_exc[1] + b_exc[3] / 2)
-        y = max(y, b_exc[1] + b_exc[3])
+    elif last and (inc_txt or exc_txt):
+        cursor = y + 0.16
+        if inc_txt:
+            b_inc = c.add_box(x_side, cursor, w_inc, h_inc, inc_txt, align="left", fs=FS_SMALL)
+            c.add_arrow(b_inc[0], b_inc[1] + b_inc[3] / 2, last[0] + last[2], last[1] + last[3] / 2)
+            cursor = b_inc[1] + b_inc[3] + 0.22
+        if exc_txt:
+            b_exc = c.add_box(x_side, cursor, w_exc, h_exc, exc_txt, align="left", fs=FS_SMALL)
+            c.add_arrow(last[0] + last[2], last[1] + last[3] / 2, b_exc[0], b_exc[1] + b_exc[3] / 2)
+            y = max(y, b_exc[1] + b_exc[3])
 
-    split_boxes = []
     if split_fitted and last:
-        sg = 0.18
+        sg = 0.22
         widths = [w for _, w, _ in split_fitted]
         heights = [h for _, _, h in split_fitted]
         h = max(heights)
         total = sum(widths) + sg * (len(widths) - 1)
         x0 = spine_x - total / 2
-        fork_top = y + 0.40
+        fork_top = y + 0.46
         x_cursor = x0
         for t, w, _h0 in split_fitted:
-            sb = c.add_box(x_cursor, fork_top, w, h, t)
-            split_boxes.append(sb)
+            c.add_box(x_cursor, fork_top, w, h, t)
             c.add_arrow(spine_x, last[1] + last[3], x_cursor + w / 2, fork_top)
             x_cursor += w + sg
-        last = (x0, fork_top, total, h)
-        y = fork_top + h
-
-    if pipe_fitted:
-        pg = 0.22
-        widths = [w for _, w, _ in pipe_fitted]
-        heights = [h for _, _, h in pipe_fitted]
-        h = max(heights)
-        total = sum(widths) + pg * (len(widths) - 1)
-        x0 = max(0.28, (10.2 - total) / 2)
-        pipe_y = y + 0.48
-        pboxes = []
-        x_cursor = x0
-        for t, w, _h0 in pipe_fitted:
-            pboxes.append(c.add_box(x_cursor, pipe_y, w, h, t))
-            x_cursor += w + pg
-        target = pboxes[0]
-        if split_boxes:
-            bar_y = split_boxes[0][1] + split_boxes[0][3] + 0.16
-            xs = [sb[0] + sb[2] / 2 for sb in split_boxes]
-            for xx in xs:
-                c.add_line(xx, split_boxes[0][1] + split_boxes[0][3], xx, bar_y)
-            if len(xs) > 1:
-                c.add_line(min(xs), bar_y, max(xs), bar_y)
-            mid_x = (min(xs) + max(xs)) / 2 if len(xs) > 1 else xs[0]
-            hit_x = mid_x if target[0] <= mid_x <= target[0] + target[2] else target[0] + target[2] / 2
-            c.add_arrow(mid_x, bar_y, hit_x, pipe_y)
-        elif last:
-            c.v_arrow(last, target)
-        for a, b in zip(pboxes, pboxes[1:]):
-            c.add_arrow(a[0] + a[2], a[1] + a[3] / 2, b[0], b[1] + b[3] / 2)
 
     c.render(out_path)
     return out_path
 
 
 def default_legend(spec: dict | None = None) -> str:
-    spec = spec or {}
-    bits = ["Figure 1. Patient enrollment and analysis flowchart."]
-    analyzed = (spec.get("analyzed") or "").strip()
-    if analyzed:
-        bits.append(analyzed.rstrip(".") + ".")
-    if spec.get("splits"):
-        bits.append("The internal split is the allocation reported in Methods.")
-    bits.append("The lower row summarizes imaging, processing, and modelling.")
-    bits.append("Per-criterion exclusion counts are shown only when written in the text.")
-    bits.append("The figure does not depict an external test cohort.")
-    return " ".join(bits)
+    del spec
+    return DEFAULT_LEGEND
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Draw SCI Figure 1 enrollment/analysis flowchart")
+    ap = argparse.ArgumentParser(
+        description="Draw published STROBE Figure 1 (patient selection; no pipeline row)"
+    )
     ap.add_argument("--json", required=True, help="Path to spec JSON")
-    ap.add_argument("--out", required=True, help="Output PNG (use PNG/Figure1_flow.png)")
+    ap.add_argument("--out", required=True, help="Output PNG")
+    ap.add_argument(
+        "--no-audit",
+        action="store_true",
+        help="Skip n-audit. Only for documented historical figures whose printed n do not add up.",
+    )
     args = ap.parse_args(argv)
     spec = json.loads(Path(args.json).read_text(encoding="utf-8"))
     if isinstance(spec, dict) and "spec" in spec and "analyzed" not in spec:
         spec = spec["spec"]
-    print(draw_strobe_flow(spec, args.out))
+    try:
+        print(draw_strobe_flow(spec, args.out, audit=not args.no_audit))
+    except AuditError as err:
+        print(err, file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
