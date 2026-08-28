@@ -14,18 +14,22 @@
 - For continuous measurements, **kappa is wrong** — use ICC and Bland-Altman.
 
 ## ICC — you must specify the model
-Report the full specification (McGraw & Wong / Koo & Li form), e.g. *"ICC(2,1), two-way
-random-effects, absolute agreement, single rater."* Choices:
+Report the full specification (McGraw & Wong / Koo & Li form), e.g. *"ICC(A,1), two-way
+mixed-effects, absolute agreement, single rater."* Choices:
 - **Model**: one-way random / two-way random (raters are a sample) / two-way mixed (these
   specific raters).
 - **Type**: absolute agreement vs consistency.
 - **Unit**: single rater vs mean of k raters.
 Using "consistency" when you need "absolute agreement" silently hides systematic bias.
 
+Lab 0RAD radiomics filter: keep features with **ICC(A,1) ≥ 0.75**. Do not write an
+unspecified "ICC > 0.75" as the lab rule.
+
 ```python
 import pingouin as pg          # pip install pingouin
 icc = pg.intraclass_corr(data=long_df, targets="case", raters="reader", ratings="value")
-# select the row matching your design, e.g. ICC2 (two-way random, absolute agreement, single)
+# Lab radiomics filter uses ICC(A,1) ≥ 0.75 (absolute agreement, single rater).
+# pingouin ICC2 / ICC3-style rows must be matched to that McGraw & Wong label — do not pick ICC(C,k).
 ```
 
 ## Bland-Altman (continuous, two methods/readers)
@@ -55,13 +59,14 @@ result <- StSignificanceTesting(dataset, FOM = "Wilcoxon", method = "OR")
 ```
 
 ## Reporting sentences
-*"Inter-reader agreement was substantial (ICC, 0.82; 95% CI: 0.75, 0.87; two-way
-random-effects, absolute agreement, single rater)."*
+*"Radiomic features with ICC(A,1) < 0.75 were excluded. Inter-reader agreement was
+substantial (ICC(A,1) = 0.82; 95% CI: 0.75, 0.87; two-way mixed, absolute agreement, single
+rater)."*
 *"In the MRMC analysis (6 readers, 300 cases, fully crossed), reader-averaged AUC improved
 from 0.81 to 0.87 with AI assistance (difference 0.06; 95% CI: 0.02, 0.10; P = .005;
 Obuchowski-Rockette)."*
 
 ## Reviewer hot-spots
-ICC model unspecified; kappa used for continuous data; readers averaged then DeLong'd;
+ICC model unspecified (lab rule is ICC(A,1) ≥ 0.75); kappa used for continuous data; readers averaged then DeLong'd;
 fixed-reader conclusion generalised to all radiologists; no pre-study power for the reader
 study.
