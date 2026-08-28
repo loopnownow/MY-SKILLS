@@ -27,7 +27,7 @@ Turn repetitive file and table operations into **reproducible, inspectable** wor
 | Task | Path |
 |------|------|
 | Excel/CSV | `bundles/xlsx/MODULE.md`（只读该 MODULE；`scripts/office/schemas/*.xsd` 仅供 validate.py，不要读进上下文） |
-| **0RAD workspace** (folder names, `0del`/`0scripts`, `exc`, false-classification) | `references/0rad-workspace.md` |
+| **0RAD workspace** (folder names, `0scripts` factory vs `modules.pipeline`, `exc`, false-classification) | `references/0rad-workspace.md` |
 | Word / PDF / PPTX | system `docx` / `pdf` / `pptx` |
 | Coding conventions | `archive/code-refactoring` |
 | Harvest chats → update core/archive | `../skill-harvest/SKILL.md` |
