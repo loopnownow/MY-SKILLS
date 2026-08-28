@@ -52,6 +52,7 @@ Archive (standalone, not 00–06):
 - Imaging prediction paper: `03_research → 02_imaging → 04_analysis → 05_manuscript` then optional `06_review`
 - Manuscript revision: `05_manuscript` for prose; `06_review` for audit/response. Call another domain only for a factual/statistical/imaging defect.
 - Reviewer response: `06_review`; `05_manuscript` for changed sentences; call `04_analysis` or `02_imaging` only when the response requires new analysis or imaging verification.
+- Ethics forms: `ethics-application-forms` fills the hospital pack; pull design/n from `03_research` / `04_analysis` if missing; ICF long prose from `05_manuscript` only when the form needs new wording.
 
 ## Boundaries
 
