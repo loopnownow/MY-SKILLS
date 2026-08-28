@@ -45,7 +45,8 @@ forest/SROC, Kaplan-Meier, Bland-Altman), plus **de-identified** annotated imagi
   heatmaps.
 - Imaging panels: multi-row montages, before/after, arrows/insets, windowing labels, scale
   bars.
-- Flow diagrams: CONSORT / STARD / PRISMA patient-selection diagrams.
+- Patient-selection Figure 1: published STROBE (type A, default). CONSORT is not the default
+  (this lab's papers are observational). PRISMA only for actual systematic reviews.
 
 ## When to open extra files
 
@@ -63,6 +64,25 @@ forest/SROC, Kaplan-Meier, Bland-Altman), plus **de-identified** annotated imagi
 | [references/nature-figure-spec.md](references/nature-figure-spec.md) | Target is a Nature-portfolio venue instead of _Radiology_ — column widths (89/183 mm), lowercase panel letters, RGB, legend word cap, Extended Data/Source Data display-item split |
 | [references/figure-intent-and-render-qa.md](references/figure-intent-and-render-qa.md) | Full figure set planning, crowded/colliding labels, DCA/KM/heatmap layout problems, final-size render review, source-data crosswalk, or premium academic visual polish |
 | [references/journal-family-visual-style.md](references/journal-family-visual-style.md) | Target journal family is known, the user supplied author-guide PDFs/classic articles, or the figure set needs Nature/npj or European Radiology visual taste |
+| [references/patient-flow.md](references/patient-flow.md) | Type A published STROBE Figure 1 (default): 2023 BJR POLE layout, n-audit, Tao Yongqiong clinical variant, 0RAD auto as anti-pattern |
+| [references/study-workflow.md](references/study-workflow.md) | Type B study-workflow rules only (GGN-style enrolment + analysis steps). No drawing code. Do not force into draw_strobe_flow |
+| [references/methods-pipeline.md](references/methods-pipeline.md) | Type C methods pipeline / radiomics-step cartoon. Must **not** call draw_strobe_flow |
+| [references/style.md](references/style.md) | Type A box geometry (white, black squares, Arial, arrows IN/OUT) |
+| [scripts/draw_strobe_flow.py](scripts/draw_strobe_flow.py) | Draw type A only (`--json` `--out`; `--no-audit` solely for documented historical n mismatches) |
+
+## Figure 1 types (do not mix)
+
+| Type | When | Draw with |
+|---|---|---|
+| **A — published STROBE** (default) | Retrospective cohort / radiomics prediction patient selection | `scripts/draw_strobe_flow.py`. Gold standard: 2023 BJR POLE Fig.1. Inclusion arrow IN, exclusion arrow OUT with `(n=k)`, Training Cohort / Validation Cohort, no pipeline row. See `references/patient-flow.md`. |
+| **B — study workflow** | Chinese-journal "研究流程图" that mixes enrolment with Radscore/nomogram steps | Rules only: `references/study-workflow.md`. Do not extend `draw_strobe_flow`. |
+| **C — methods pipeline** | Radiomics steps, animal/mechanism panels, specimen-to-model cartoons | **Must not** call `draw_strobe_flow`. See `references/methods-pipeline.md`. |
+
+CONSORT randomisation arms are **not** the default. Draw CONSORT only for an actual RCT.
+
+Do not invent n. `draw_strobe_flow` exits nonzero if `screened − Σ exclusion n ≠ analyzed` or `Σ split n ≠ analyzed`. Historical printed figures that fail arithmetic may use `--no-audit` only when that mismatch is documented.
+
+Caption: `Figure 1. Flowchart of patient selection and study design.`
 
 ## Workflow
 
@@ -78,6 +98,8 @@ forest/SROC, Kaplan-Meier, Bland-Altman), plus **de-identified** annotated imagi
 2. **Pick the chart for the message** (chart-types.md). Discrimination → ROC; reliability →
    calibration; clinical value → decision-curve; agreement → Bland-Altman; time-to-event →
    Kaplan-Meier; meta-analysis → forest/SROC; whole-study summary → graphical abstract.
+   Patient selection → type A STROBE (`draw_strobe_flow`, `patient-flow.md`). Study-workflow
+   → type B rules only. Methods pipeline → type C, never `draw_strobe_flow`.
 3. **Start the script with the rcParams preamble and palette** from api.md.
 4. **Build the panel(s)** with helper functions; add CI bands, n, and clear axis labels with
    units; label panels via `panel_letter()`/`add_panel_letter()` (api.md) with the case set for
@@ -114,12 +136,14 @@ forest/SROC, Kaplan-Meier, Bland-Altman), plus **de-identified** annotated imagi
   clipping, or text crossing plot elements.
 - Venue-family rules satisfied when applicable (panel-letter case, background, legend length,
   graphical abstract blocks, Source Data/table expectations).
+- Type A Figure 1: inclusion IN, exclusion OUT with per-reason n, Training/Validation (never Development), no pipeline row, n-audit passed.
 
 ## Handoffs
 - The statistic behind the plot (AUC CI, DeLong, ICC, calibration metrics, net benefit) →
   `radiology-stats`.
-- Whether the figure satisfies a checklist item (flow diagram for STARD/CONSORT), or the
-  Reporting Summary/Nature Portfolio checklist → `radiology-reporting`.
+- Whether the figure satisfies a checklist item (flow diagram for STROBE; STARD/CONSORT
+  only when the study actually is DTA or an RCT), or the Reporting Summary/Nature Portfolio
+  checklist → `radiology-reporting`.
 - Figure legends/captions prose, display-item plan (main vs Extended Data) →
   `radiology-writing`.
 - Source Data files, Extended Data vs Supplementary Information wording → `radiology-data`.
