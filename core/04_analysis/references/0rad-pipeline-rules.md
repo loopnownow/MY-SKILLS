@@ -18,6 +18,25 @@ Calibration plots for `lock_threshold` / `refit` use the layer's predicted proba
 
 General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `bundles/radiology-stats/references/model-evaluation.md`. These three modes are how the lab implements it.
 
+## Live lab modules (v4.3.0, 2026-08-28)
+
+Do **not** vendor `D:\0Grok\0RAD` Python into this skill. Implementation stays in `modules/`.
+Paper numbers come from `python -m modules.pipeline` → `*-results.html`. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.
+
+| Topic | Live behavior | Not the lab |
+|-------|---------------|-------------|
+| AUC 95% CI | 1000-replicate bootstrap (`_boot_auc_ci`) | DeLong *intervals* |
+| DeLong | Paired model-comparison **p** (Sun & Xu 2014 midranks). `ROC_METRICS` columns `DeLong vs {model}`. Added 2026-08-28. | CI method; unpaired DeLong; pROC as the lab runner |
+| LASSO | StratifiedKFold **AUC path on TRAIN only** | Nested CV (not implemented) |
+| Survival | KM + log-rank always. Optional univariable Cox: `statsmodels` `PHReg`, Breslow. Library default `DO_COX = False`. Contrasts: High vs Low at **train-median** cut, and **per 1 SD**. Report HR, 95% CI, P, N, Events, Schoenfeld `PH_p`. | lifelines / `CoxPHFitter`; multivariate Cox (not implemented); Cox on by default |
+| Primary model | **Combined** (named primary; nomogram in manuscript prose) | Habitat-tree `LassoCV` as the headline model |
+| ICC | Radiomics keep if **ICC(A,1) ≥ 0.75** | Unspecified ICC model |
+| Clinical selection | Table 1 then **AIC backward** (`FORCE_MODEL_FEATURES` bypasses) | Nested CV for clinical covariates |
+| Youden | **Per split** on `refit` / `apply_formula`; training Youden only under `lock_threshold` | Cut tuned to maximise test accuracy |
+
+Nested CV and multivariate Cox may be named as *not implemented*. Never write them as lab defaults.
+
+
 ## Multi-group sheets
 
 A Group column may have 3, 4, or more levels (e.g. `dll_OV`). Modes:

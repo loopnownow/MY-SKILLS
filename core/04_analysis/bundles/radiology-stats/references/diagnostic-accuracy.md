@@ -13,6 +13,7 @@ From TP, FP, FN, TN against a reference standard:
 - Proportions (sens, spec, PPV, NPV): **Wilson** (good default) or **Clopper-Pearson**
   (exact, conservative). Avoid Wald near 0/1.
 - Likelihood ratios: log-based CI (or bootstrap).
+- Lab AUC 95% CI (when an ROC is run) is 1000 bootstrap (`_boot_auc_ci`), not a DeLong interval. See model-evaluation.md.
 - Report counts with each estimate (e.g. `0.87 (130/149)`).
 
 ```python
