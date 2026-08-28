@@ -30,6 +30,17 @@ paragraph — not as filler. Cut them when they're decorative throat-clearing;
 keep them when they're doing that flagging work. See
 `../corpus/corpus-phrase-bank.md` §8 for verified examples.
 
+## Lab-unused stock (0 hits in 389 unique drafts, 2026-08-28)
+
+These used to appear as recommended conclusion templates. Harvest of 389 unique drafts found **0** uses. Do not recommend; do not insert.
+
+| Avoid | Prefer |
+|-------|--------|
+| suggesting its potential | name the task (`could assist [task]`) or drop the clause |
+| demonstrated good performance | report `AUC of X (95% CI: X–X)` in training **and** test |
+
+See `../sentence-templates.md` and `../corpus/corpus-phrase-bank.md` §1c.
+
 ## Also cut (stop-slop / detector overlap)
 
 - Throat-clearing: "Here is…", "In this section we…"

@@ -1,27 +1,49 @@
 # Sentence Templates — Ying Li Style
 
+Purpose / methods / results templates refreshed 2026-08-28 from 389 unique drafts (324 English). Do not collapse the three purpose-sentence families below. Do not vendor unpublished full texts, title dumps, or patient identifiers.
+
+**Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test** (training cohort / test cohort). Only an other-hospital cohort is **external validation**. Figure 1 (figure-engine, already merged) uses published **Training Cohort / Validation Cohort** — do not rewrite figure-engine from this file. Never `Development set`. Never call a same-hospital random split external validation.
+
+**Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `de-ai/forbidden-phrases.md`.
+
 ## Abstract Templates
 
-### Objective sentence
-- **"This study aimed to [objective] using [method]."** — corpus-dominant default (18/96 mss.).
-- **"The aim of this study was to [objective]."** — effectively tied default (17/96 mss.).
-- "To explore whether [technique] could [outcome] in [population]." — acceptable variant (bare infinitive, 13/96 combined), not the default.
-- "The purpose of this study was to [develop/evaluate/compare] [model] for [task]." — minority variant (4/96).
+### Objective sentence — keep THREE families (do not collapse to one)
+
+Harvest 2026-08-28, 324 English unique drafts, full-text grep:
+
+| Family | Hits | Papers | Status |
+|---|---:|---:|---|
+| This study aimed to … | 45 | 44 | family 1 |
+| To explore/investigate/evaluate/determine/assess/compare/develop … | 35 | 34 | family 2 |
+| The aim of this study was to … | 22 | 14 | family 3 |
+| The purpose of this study was to … | 12 | 12 | minority |
+| We aimed to / We sought to … | 5 | 5 | rare |
+
+- **"This study aimed to [objective] using [method] in [population]."**
+- **"The aim of this study was to [objective]."**
+- **"To [investigate/explore/evaluate/determine/assess/compare/develop] whether [technique] could [outcome] in [population]."**
+- "The purpose of this study was to [develop/evaluate/compare] [model] for [task]." — minority; not a fourth default family.
 
 ### Methods sentence
-- "A total of N patients with [condition] who underwent [imaging] were retrospectively/prospectively enrolled."
+- "A total of N patients with [condition] who underwent [imaging] were retrospectively enrolled."
+- "Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N)."
+- "Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed."
 - "A total of N [subjects] were divided into [N] subgroups: [Group A] (n = N), [Group B] (n = N), [Group C] (n = N), and [Group D] (n = N)."
-- "From [date] to [date], N [patients] were retrospectively reviewed and randomly divided into the primary group (n = N) and validation group (n = N)."
+- Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels stay Training Cohort / Validation Cohort (published). Other-hospital only = external validation.
 
 ### Results sentence
-- "The AUC of the radiomics nomogram was X (95% CI: X–X) in the primary group, and X (95% CI: X–X) and X (95% CI: X–X) in validation groups 1 and 2, respectively."
-- "The combination model achieved an AUC of X (95% CI: X–X), outperforming the clinical model alone (AUC = X; P < 0.001)."
+Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
+- "The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."
+- "The nomogram exhibited good discrimination in the training cohort (AUC X [95% CI, X–X]) and the test cohort (AUC X [95% CI, X–X])."
+- Direct side-by-side AUCs are more common than `outperformed` (12 hits / 7 papers).
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
 ### Conclusion sentence
-- "[Technique] demonstrated good performance in [task], suggesting its potential as a [non-invasive/preoperative] tool for [clinical application]."
-- "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."
+Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `de-ai/forbidden-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
+- "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."
+- "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."
 
 ---
 
@@ -44,9 +66,11 @@
 - "Intravoxel incoherent motion (IVIM) imaging can simultaneously reflect the [diffusion and perfusion] properties of tissue, providing additional [physiological] information beyond conventional DWI."
 
 ### Closing aim
-- "Therefore, the purpose of this study was to [develop/evaluate/compare] [a radiomics nomogram/a combined model/IVIM-based parameters] for [task] in [population]."
-- "Thus, we hypothesized that [technique] could serve as a useful non-invasive tool for [task]."
-- "In this study, we aimed to [objective], with the goal of [clinical benefit]."
+Keep the same three purpose-sentence families as the abstract (do not collapse to one).
+- "This study aimed to [objective] using [method] in [population]."
+- "Therefore, the aim of this study was to [develop/evaluate/compare] [a radiomics nomogram/a combined model] for [task] in [population]."
+- "To [investigate/evaluate] whether [technique] could [outcome] in [population]."
+- "Thus, we hypothesized that [technique] could serve as a useful non-invasive tool for [task]." — hypothesis-framed variant, not a fourth family.
 
 ---
 
@@ -60,7 +84,7 @@
 ### Patient selection
 - "Inclusion criteria were as follows: (1) [criterion 1]; (2) [criterion 2]; (3) [criterion 3]."
 - "Patients were excluded if: (1) [criterion 1]; (2) [criterion 2]."
-- "Patients were randomly divided into the primary (training) cohort (n = N) and the validation cohort (n = N) at a ratio of X:X."
+- "Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Validation Cohort. Other-hospital only = external validation.
 
 ### Imaging protocol
 - "All MRI examinations were performed on a X.X-T MRI scanner ([Manufacturer, Model]) using a [body/pelvic/head] coil."
@@ -90,16 +114,17 @@
 ## Results Templates
 
 ### Baseline characteristics
-- "The clinical characteristics of the study population are summarized in Table 1. There were no significant differences in age, sex, or [variable] between the [primary and validation] groups (all P > 0.05)."
+- "The clinical characteristics of the study population are summarized in Table 1. There were no significant differences in age, sex, or [variable] between the training and test cohorts (all P > 0.05)."
 
 ### Feature selection
 - "After LASSO feature selection, N features with non-zero coefficients were retained and used to construct the radiomics signature (Figure X)."
 
 ### Model performance
-- "The radiomics nomogram achieved AUCs of X (95% CI: X–X), X (95% CI: X–X), and X (95% CI: X–X) in the primary, validation 1, and validation 2 cohorts, respectively, with sensitivity of X% and specificity of X% in the primary cohort."
-- "The combination model significantly outperformed the clinical model alone in the primary cohort (AUC: X vs. X; P < 0.001 by DeLong test)."
+Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI: X–X) for **both** training and test.
+- "The AUC of the radiomics nomogram was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort, with sensitivity of X% and specificity of X% in the training cohort."
+- "The combination model was compared with the clinical model alone in the training cohort (AUC: X vs. X; P < 0.001 by DeLong test) and in the test cohort (AUC: X vs. X)."
 - "The Hosmer-Lemeshow test indicated good calibration of the nomogram (P = X)."
-- "Decision curve analysis demonstrated that the radiomics nomogram provided greater net benefit than either the clinical model or the treat-all/treat-none strategies across a wide range of threshold probabilities (Figure X)."
+- "Decision curve analysis showed that the radiomics nomogram provided greater net benefit than either the clinical model or the treat-all/treat-none strategies across a wide range of threshold probabilities (Figure X)."
 
 ### Negative findings
 - "No significant difference was observed in [variable] between [group A] and [group B] (P = X)."
@@ -132,5 +157,6 @@
 - Closing-sentence default is **"Future research should…" / "Future studies should…"** (18/96 and 9/96 respectively — corpus-dominant), not "…are warranted…" (a minority form, 14/96 total across *any* use of "warrant," not specific to this slot).
 
 ### Conclusion sentence
-- "In conclusion, [technique] demonstrated [performance level] in [task], suggesting its potential as a [non-invasive/preoperative] tool for [clinical application] in [population]."
+Do **not** close with `demonstrated good performance` or `suggesting its potential`.
+- "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort and could assist [clinical application] in [population]."
 - "In summary, both [A] and [B] play roles in [condition], with [specific mechanistic conclusion], providing new insights into the pathogenesis of [disease]."

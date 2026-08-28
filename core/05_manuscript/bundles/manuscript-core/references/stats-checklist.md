@@ -29,19 +29,27 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Chi-square test for large samples (expected count ≥ 5 in each cell)
 - [ ] Fisher's exact test for small samples (expected count < 5)
 
+### Split wording (body vs Figure 1)
+- [ ] Manuscript **BODY** internal split is **training / test** (training cohort / test cohort)
+- [ ] Figure 1 (figure-engine, already merged) uses published **Training Cohort / Validation Cohort** — do not rewrite figure-engine from this checklist
+- [ ] **External validation** only for an other-hospital cohort; never a same-hospital random split
+- [ ] Never `Development set`; never `hold-out` as the test-set name
+
 ### Diagnostic performance
-- [ ] ROC curve AUC with 95% CI
-- [ ] AUC comparison via DeLong method (not Z-test)
-- [ ] Optimal threshold reported (typically Youden index)
+- [ ] Default: `AUC of X (95% CI: X–X)` reported for **both** training and test
+- [ ] ROC curve AUC with 95% CI (en-dash, `95% CI: X–X`)
+- [ ] AUC comparison via DeLong method (paired *P*, not the CI)
+- [ ] Optimal threshold reported (typically Youden index; disclose per split)
 - [ ] Sensitivity + specificity + PPV + NPV at threshold
 - [ ] Calibration: Hosmer-Lemeshow P value reported (P > 0.05 = good calibration)
 - [ ] DCA performed and net benefit described qualitatively
 
 ### Radiomics-specific
-- [ ] LASSO lambda selected by 10-fold CV (minimum criteria)
+- [ ] Default narrative: **training/test + LASSO + nomogram**
+- [ ] LASSO lambda selected by 10-fold CV on the **training** set (minimum criteria; not nested CV)
 - [ ] Number of features before and after selection both stated
-- [ ] Rad-score formula or coefficient table provided
-- [ ] Training cohort AUC + at least one independent validation AUC reported
+- [ ] Rad-score formula in prose (no LASSO-feature table)
+- [ ] Training **and** test AUC of X (95% CI: X–X) both reported
 - [ ] Feature stability: ICC or CV < 10% (if reported)
 
 ### Survival analysis (when applicable)
@@ -65,7 +73,7 @@ Use this checklist when polishing Results and Methods sections.
 | "P < 0.05" for all significant results | Report exact P (P = 0.003) |
 | "Wilcoxon test" | "Wilcoxon signed-rank test" (paired) or "Mann-Whitney U test" (unpaired) |
 | "95%CI: 0.80-0.93" | "95% CI: 0.80–0.93" (en-dash, space before/after %) |
-| "AUC=0.86" | "AUC was 0.86 (95% CI: 0.80–0.93)" |
+| "AUC=0.86" (one set only) | "AUC of X (95% CI: X–X)" in training **and** test |
 | Missing normality justification | Add Shapiro-Wilk result or note |
 | HR/OR without CI | Always add "(95% CI: X–X)" |
 | SD vs SEM confusion in figure legends | Clarify: "error bars represent SD" or "error bars represent SEM" |
