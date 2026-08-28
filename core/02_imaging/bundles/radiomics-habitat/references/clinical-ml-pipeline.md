@@ -1,10 +1,23 @@
 # Clinical + Radiomics ML Pipeline (R → Python ports and beyond)
 
+## Separator (read this first)
+
+| Job | Where |
+|---|---|
+| Habitat / delta **in-pipeline** selection | `radiomics.select_features` — sklearn **LassoCV only** (`selection-modelling.md`) |
+| Paper LASSO, nomogram, ROC/DCA/calibration, NRI, ICC, `VAL_MODE` | **`python -m modules.pipeline`** (modules under the 0RAD clinical stack) |
+
+Do **not** promote `delta_habitat_pipeline/utility/LASSO.py` (or habitat-tree copies of it) as
+the stats library. Do not import that utility when the user asks for a paper nomogram / locked
+formula / HTML report.
+
+ICC lives in **`modules/utils/u_icc.py`**, not in the habitat trees (`leakage-audit.md`).
+
 ## Reference module set
 
 A 14-script R pipeline has been ported to Python under this skill's conventions. Use this as the
 canonical module list when building or extending a clinical+radiomics prediction pipeline — either
-in Python from scratch, or when porting from R:
+in Python from scratch, or when porting from R. Orchestrate with `python -m modules.pipeline`:
 
 | Module | Purpose |
 |---|---|
@@ -14,7 +27,7 @@ in Python from scratch, or when porting from R:
 | `u_outlier_detection.py` | Outlier detection |
 | `u_impute.py` | Missing-value imputation |
 | `u_icc.py` | Inter/intra-class correlation for radiomics feature reproducibility |
-| `radiomics.py` | Radiomics feature handling (LASSO-based selection etc.) |
+| `radiomics.py` | Radiomics feature handling (paper LASSO-based selection etc.) |
 | `false_class.py` | Misclassification analysis |
 | `curves_roc.py` | ROC curve generation |
 | `curves_dca.py` | Decision curve analysis (DCA) |
@@ -25,7 +38,7 @@ in Python from scratch, or when porting from R:
 | `pipeline.py` | Orchestrates all modules; the only file that imports and runs everything together |
 
 Each module should remain independently runnable on its own inputs/outputs, per the shared conventions
-in the main SKILL.md — this was an explicit requirement for the original port and should carry forward
+in `MODULE.md` — this was an explicit requirement for the original port and should carry forward
 to any extension of this pipeline.
 
 ## R → Python port-specific caveats to check and flag
@@ -40,7 +53,8 @@ When converting from R (this pipeline was originally in R using packages like `r
   ordering, or explicit dummy-encoding reference group).
 - **glmnet vs. Python LASSO**: `glmnet`'s cross-validation and lambda selection (`lambda.min` vs
   `lambda.1se`) doesn't map 1:1 onto `sklearn`/`glmnet-python` defaults — confirm which lambda rule the
-  user wants and make it a config parameter, not a hard-coded choice.
+  user wants and make it a config parameter, not a hard-coded choice. This paper-level LASSO is
+  **not** the in-pipeline habitat `LassoCV`.
 - **rms::nomogram vs. Python nomogram construction**: Python has no drop-in equivalent; nomograms are
   typically hand-built from the fitted model's coefficients — the visual layout logic needs its own
   careful review against the original R output.

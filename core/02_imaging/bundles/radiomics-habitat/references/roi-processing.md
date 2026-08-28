@@ -1,5 +1,31 @@
 # ROI Expansion & Image-ROI File Matching
 
+## Delta habitats: 1 pre + 1 post, both with ROI
+
+`delta_habitat_pipeline.data_loader.load_patient_pairs` is a **pair** loader: each patient has
+exactly **one pre and one post**, and **both** timepoints must have an ROI (`roi_path`). There is
+no "post without mask, invent one" path.
+
+- Cluster **baseline only** (`build_habitats` on pre image + pre ROI).
+- Post habitat masks come from `registration.propagate_masks` (ANTs forward transform of the
+  baseline habitat list onto registered post space).
+- **Never re-cluster post.**
+
+`HABITAT["min_voxels"]` is the minimum voxels inside a habitat mask before Pictologics extraction
+(`extract_features_single_habitat` / `_sequence` raise `ValueError` below the threshold). Live
+default is `0` (still a config key — do not hard-code a different floor in function bodies).
+
+## propagate_masks is the source of truth
+
+`delta_habitat_pipeline/registration.py::propagate_masks` is how post habitats stay anatomically
+corresponding to baseline IDs.
+
+HTML / pipeline comments that say **"remove mask propagation"** / **"方案 A，删除传播"** (reuse
+`habitat_masks_t1` as `habitat_masks_t2` without a transform) are **wrong**. Do not document or
+re-implement that shortcut. Validation: `utility/validate_delta_habitat.py::propagate_masks_val`.
+
+`compute_delta_features` assumes pre/post habitat indices match because of `propagate_masks`.
+
 ## ROI expansion (dilation)
 
 Reference implementation pattern: `expand_roi_5mm.py` — expands a segmentation mask (ROI/VOI) by a
@@ -20,26 +46,23 @@ convert the mm margin to voxel units per-case using that case's actual spacing.
 
 ## Image-ROI file matching across heterogeneous datasets
 
-Reference implementation pattern: `match_img_roi_updated.py` — pairs imaging files with their
-corresponding segmentation/ROI files when filenames across a dataset don't follow one consistent
-convention. This script was refined through three iterative cycles to handle real-world naming
-messiness — treat naming-convention handling as inherently iterative and build for extensibility:
+Reference implementation: `habitat_pipeline/utility/match_img_ior_updated.py`.
 
-- Keep the matching rules (regex patterns, ID-extraction logic, suffix/prefix conventions) as a config
-  list/table at the top of the script rather than inline conditional logic, so new naming patterns can
-  be added without touching the matching algorithm itself.
-- Log/report unmatched files explicitly (both orphan images and orphan ROIs) rather than silently
-  dropping them — this is usually the fastest way to spot a new naming convention that needs a rule.
-- Prefer a matching strategy based on extracting a stable patient/case identifier from each filename
-  (via configurable regex) over pure string-similarity matching, which is fragile against real-world
-  naming inconsistency.
-- When multiple candidate matches are found for one image (e.g. multiple ROI files with similar names),
-  flag for manual review rather than guessing.
+This is **filename matching** (regex / ID extraction / suffix-prefix rules for pairing image files
+with IOR/ROI files). It is **not** HIS / EMR / hospital-information-system lookup. Do not describe
+it as pulling identifiers from HIS.
+
+Keep matching rules as a config list/table at the top of the script rather than inline conditionals.
+Log unmatched files (orphan images and orphan ROIs). Prefer extracting a stable patient/case id
+from each filename over pure string-similarity. Multiple candidates → flag for manual review, do
+not guess.
+
+(Older notes named this `match_img_roi_updated.py`; the live filename is `match_img_ior_updated.py`.)
 
 ## Batch medical record processing
 
 Reference implementation pattern: `pfkm.py` — batch processing of medical records; follows the same
-soft-coded-config-at-top convention. Recurring theme across this and the scripts above: code auditing
-and bug fixing sessions tend to surface hard-coded values that should be config — when asked to
-"review" or "fix" one of these scripts, proactively check for values that should be pulled out into the
-config block even if not explicitly flagged by the user.
+soft-coded-config-at-top convention. Recurring theme: code auditing sessions tend to surface
+hard-coded values that should be config — when asked to "review" or "fix" one of these scripts,
+proactively check for values that should be pulled out into the config block even if not explicitly
+flagged by the user.
