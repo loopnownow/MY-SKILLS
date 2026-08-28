@@ -17,17 +17,26 @@
 6. **语气/措辞按用户个人风格**：`merged/radiology-response/personal-response-style.md`
    ——开头信件模板、每条谢词分库、逐字引用+定位习惯、认错四步法、委婉不同意三段式、
    收尾模板、措辞微习惯。骨架和事实核查仍以 1–5 为准，本文件只管"读起来像不像本人"。
+   **开场默认 A**（thanks + point-by-point）。风格 B 全库几乎不用，不要因「大修/R2」自动切 B。
 
 ## 3.3 信函骨架
 
+默认开场 **A**（全库 42 封 response 里约一半原样/近原样；B 约 0–2，C 极少）：
+
 ```text
 Dear Editors and Reviewers:
-Thank you for considering our paper and for the valuable comments. We have carefully revised the manuscript accordingly.
+
+Thanks for the review of our manuscript and thanks for the suggestions. Those
+comments are valuable and helpful for revising and improving our paper. We have
+considered carefully these comments and have made relevant corrections
+point-by-point.
 
 Modifications for Reviewer #X:
 #n [optional restatement of the comment]
 Response: Thank you for the suggestion/inquiry. [What we changed]. [Key sentence or location: p.X / Methods / Table Y].
 ```
+
+A 的稳定变体（可原样用）：`Thank you for considering our paper and thanks to the suggestions. … as well as for our further studies.` 多轮修回仍留在 A 上，最多加一句 `Thank you for giving us an opportunity to resubmit`。
 
 一条对一条；不同意时先认关切，再给数据/文献，并尽量仍改表述。
 

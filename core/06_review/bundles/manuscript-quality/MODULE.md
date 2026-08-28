@@ -1,7 +1,7 @@
 ---
 name: "manuscript-quality"
 domain: "06_review"
-trigger: ["投稿前预审", "评阅", "审稿", "找洞", "回复审稿人"]
+trigger: ["投稿前预审", "评阅", "审稿", "找洞", "回复审稿人", "毕业论文评阅", "审稿单"]
 inputs: ["manuscript_docx", "results_html"]
 outputs: ["blocking_major_minor_report"]
 tools: ["dealbreakers"]
@@ -15,13 +15,13 @@ owner: "06_review/bundles/manuscript-quality/MODULE.md"
 
 **职责：** 找问题、写审稿意见、起草 point-by-point 回信；不重写全文（改句交给 `05_manuscript` `manuscript-core`）。
 
-详规：预审/评阅 [`references/mode-2-prereview.md`](references/mode-2-prereview.md)；回信 [`references/mode-3-response.md`](references/mode-3-response.md)
+详规：预审/英文 peer review [`references/mode-2-prereview.md`](references/mode-2-prereview.md)；回信 [`references/mode-3-response.md`](references/mode-3-response.md)；毕业论文 [`references/thesis-review.md`](references/thesis-review.md)；中文刊 A–F [`references/chinese-journal-score-sheet.md`](references/chinese-journal-score-sheet.md)
 
 **铁律：** 数据真实 > 期刊格式 > 李瀛语气；**不编造**补救实验或指标。
 
 ---
 
-## 三条路径
+## 路径
 
 ### A. 预审自己的稿
 
@@ -36,17 +36,21 @@ owner: "06_review/bundles/manuscript-quality/MODULE.md"
 ### B. 给别人写英文 Peer review
 
 - 触发：你作为审稿人批**他人**稿、写审稿意见、peer review  
-- 交付：可提交系统的英文审稿结构（Opening + 分节 #n）  
-- 每条：事实 → 为何问题 → 作者应做什么  
-- 禁止空夸 interesting；禁止只打分不写改法  
+- 交付：可提交系统的英文审稿结构（Opening 2–4 句 → Major Comments → 按章节出条）  
+- 声音：`references/merged/radiology-prereview/personal-review-style.md`  
+- 每条：事实 → 为何问题 → 作者应做什么；`#n` 不是默认  
+- 高频（自审 57）：讨论/局限、ROI 可重复性、样本偏倚、伦理占位符、未与常规方法比、过拟合、特征筛选泄漏、同院称作 external  
+- 禁止空夸 interesting；禁止只打分不写改法；禁止把毕业论文套话或中文 A–F 审稿单冲词写进英文信  
 
 ```text
 [Opening 2–4 sentences]
 
-Abstract / Introduction / Methods / Results / Discussion
-#n ...
+Major Comments
 
-Other Issues / Minor
+Abstract / Introduction / Methods / Results / Discussion / Limitations
+…
+
+Other / Minor
 ```
 
 ### C. 回复审稿人
@@ -54,7 +58,17 @@ Other Issues / Minor
 - 触发：已有 Reviewer 意见、修回、point-by-point、response letter  
 - 交付：可提交系统的英文回复信 + change log（`references/mode-3-response.md`）  
 - 打开：`merged/radiology-response/*`  
+- 开场**默认 A**（thanks + point-by-point）。风格 B 几乎不用；多轮修回仍留在 A 上加一句 resubmit。  
 - 禁止编造未做实验；改句交给 `05_manuscript`
+
+### D. 毕业论文评阅（与 B 分开）
+
+- 触发：评阅毕业论文 / 学位论文 / 是否同意答辩  
+- 交付：中文评阅表骨架（选题意义 → 不足 2–4 条 → 是否同意答辩）  
+- 打开：`references/thesis-review.md`  
+- **禁止**写成英文 Opening / Major Comments / Methods 长清单  
+
+中文期刊若发来 1–5 分项或 A–F 处理意见单：只用 `references/chinese-journal-score-sheet.md`，不要与 B 或 D 混用。
 
 ---
 
@@ -62,7 +76,7 @@ Other Issues / Minor
 
 ```text
 Skill: 06_review / manuscript-quality
-Path: own-manuscript | peer-review-others | response
+Path: own-manuscript | peer-review-others | response | thesis-review | chinese-score-sheet
 
 Blocking
 - [loc] problem → action
@@ -83,7 +97,7 @@ Next: 05_manuscript 改稿
 
 ## 触发语
 
-`/medical-manuscript-review` · 投稿前预审 · 找问题 · peer review · 回复审稿人  
+`/medical-manuscript-review` · 投稿前预审 · 找问题 · peer review · 回复审稿人 · 毕业论文评阅 · 中文刊审稿单  
 
 ---
 

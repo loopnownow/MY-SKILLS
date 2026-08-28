@@ -1,9 +1,11 @@
 ---
 name: medical-manuscript-review
 description: >
-  Peer review, pre-submission audit, and reviewer-response letters. Use for 评阅,
-  审稿, 投稿前预审, 找洞, dealbreaker, peer review, 写审稿意见, 模拟审稿, 回复审稿人,
-  回答审稿人问题, response letter, reviewer response, 修回, point-by-point.
+  Peer review, pre-submission audit, reviewer-response letters, and Chinese thesis
+  评阅 (separate from English peer review). Use for 审稿, 投稿前预审, 找洞,
+  dealbreaker, peer review, 写审稿意见, 模拟审稿, 回复审稿人, 回答审稿人问题,
+  response letter, 修回, point-by-point, 毕业论文评阅, 中文刊审稿单.
+  English peer review stays polite; do not import Chinese journal-form punch.
   Do not use for 写论著, 润色, 写引言, 写讨论, or figures — those stay in 05_manuscript.
 ---
 
@@ -24,7 +26,10 @@ Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
 | **Response to reviewers** | `bundles/manuscript-quality/MODULE.md` path C + `bundles/manuscript-quality/references/mode-3-response.md` |
 | Dealbreakers / hard gates | `bundles/manuscript-quality/references/merged/radiology-prereview/` |
 | Response action map / audit | `bundles/manuscript-quality/references/merged/radiology-response/` |
-| Personal reply tone/phrasing (response letters) | `bundles/manuscript-quality/references/merged/radiology-response/personal-response-style.md` |
+| Personal English peer-review voice (Opening → Major → sections) | `bundles/manuscript-quality/references/merged/radiology-prereview/personal-review-style.md` |
+| Personal reply tone/phrasing (response letters; **opening default A**, B almost unused) | `bundles/manuscript-quality/references/merged/radiology-response/personal-response-style.md` |
+| 毕业论文评阅（院内中文；**不要**混进英文 peer review） | `bundles/manuscript-quality/references/thesis-review.md` |
+| 中文刊审稿单 A–F / 1–5 分项（**单独模板**） | `bundles/manuscript-quality/references/chinese-journal-score-sheet.md` |
 | Radiology pre-submission notes | `references/radiology/pre-submission.md` |
 | Radiology response notes | `references/radiology/response.md` |
 | Reporting / citation checklists (read-only) | `05_manuscript` `manuscript-core/references/merged/radiology-reporting/` and `radiology-citation/` |
@@ -33,8 +38,10 @@ Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
 ## Modes
 
 - `pre-review` — Blocking / Major / Minor on the user's manuscript
-- `peer-review` — English reviewer report for another paper
-- `response` — point-by-point letter + change log
+- `peer-review` — English reviewer report for another paper (Opening 2–4 sentences → Major → section-wise; voice in `personal-review-style.md`)
+- `response` — point-by-point letter + change log (opening **A**; style B almost unused)
+- `thesis-review` — 毕业论文 / 学位论文评阅（中文评阅表；**与英文 peer review 分开**）
+- Chinese journal A–F score sheets — only `chinese-journal-score-sheet.md`; never mix into English peer review
 
 Load `bundles/manuscript-quality/MODULE.md`, then only the matching mode file.
 

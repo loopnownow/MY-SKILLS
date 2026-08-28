@@ -1,13 +1,12 @@
 # 个人回复审稿人风格（基于历史信函归纳）
 
-来源：对用户历史提交的近百份 response-to-reviewers / point-by-point 信件的比对归纳
-（Qiang lab、Ying Li/Ju lab 等多个课题组稿件）。用于让 Claude 起草的回信读起来像
-用户自己写的，而不是通用模板。**先套 `mode-3-response.md` 的骨架，再用本文件调声音、
-调措辞、调收尾。**
+来源：他审 response 全库去重 42 封（Qiang lab、Ying Li/Ju lab 等多个课题组）。只收骨架与
+谢词分布，不 dump 整信、不抄未刊结果。用于让起草的回信读起来像用户自己写的。
+**先套 `mode-3-response.md` 的骨架，再用本文件调声音、调措辞、调收尾。开场默认 A；B 几乎不用。**
 
 ---
 
-## 1. 开头信件模板（三选一，按正式程度）
+## 1. 开头信件模板（默认 A；B 几乎不用）
 
 **A. 标准型（最常用，中等正式）**
 ```text
@@ -19,7 +18,7 @@ considered carefully these comments and have made relevant corrections
 point-by-point.
 ```
 
-**B. 加强型（大修 / 多轮修回，语气更郑重）**
+**B. 加强型（几乎不用；不要当历史主体）**
 ```text
 Dear Editor and Reviewers,
 
@@ -38,7 +37,7 @@ response, with changes highlighted in bold or tracked in the attached document
 for clarity.
 ```
 
-默认用 A。审稿意见很尖锐/篇幅很长/是 R2 及以后时用 B。若用户明确说"简单回一下"用 C。
+**默认用 A。** 全库 42 封 response 实测：A 约 21；B（chance to revise / insightful comments）约 0–2，几乎不用；C 约 1。不要因为「大修 / 多轮 / R2」就切到 B——多轮修回仍在 A 上加一句 `Thank you for giving us an opportunity to resubmit`。仅当用户明确要求更郑重的英文才用 B。若用户明确说「简单回一下」用 C。
 
 ---
 
