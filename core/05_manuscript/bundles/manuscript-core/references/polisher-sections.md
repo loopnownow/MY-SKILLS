@@ -33,14 +33,14 @@ If the user provides raw text without labeling the section, infer from content s
 ## §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Default to **"This study aimed to…"** (corpus-dominant, 18/96 mss.) or **"The aim of this study was to…"** (17/96, effectively tied) — these two cover the large majority of the corpus. Bare infinitive openers (*"To explore whether…"*, *"To investigate the value of…"*) are acceptable variation (13/96) but not the default. Never a rhetorical question. State clinical need immediately. See `references/corpus/corpus-phrase-bank.md` §1 for verified counts.
+1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See `references/corpus/corpus-phrase-bank.md` §1 (389 unique drafts, 2026-08-28).
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
 4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist"*, *"demonstrated potential"* — never absolute claims.
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
-- *"The AUC was X (95% CI: X–X) in the primary group, and X (95% CI: X–X) in the validation group…"*
+- *"The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* BODY split is training/test; Figure 1 is Training Cohort / Validation Cohort; other-hospital only = external validation.
 - *"Both A and B play roles in…"*
 
 **Language rules for abstracts:**
@@ -181,7 +181,7 @@ This is the most technically precise section. Follow all sub-rules below.
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
 - Mirror the abstract objective + affirm clinical value.
-- Template: *"In conclusion, [technique] demonstrated [performance] in [task], suggesting its potential as a [non-invasive/cost-effective] tool for [clinical application] in [patient population]."*
+- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `de-ai/forbidden-phrases.md`).
 
 ---
 

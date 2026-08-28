@@ -1,11 +1,14 @@
 # Corpus Phrase Bank (rebuilt from source manuscripts)
 
-**Status:** rebuilt on 2026-08-27 after the original file (formerly at
-`/mnt/skills/user/ying-li-polisher/references/corpus-phrase-bank.md`) was lost
-during the merge of `ying-li-polisher` into `medical-scientific-writing`.
-Re-derived directly from the 96 deduplicated manuscripts in the project
-corpus (100 files, 4 exact-duplicate revision rounds removed by MD5 hash).
-Counts below are raw grep counts on that deduplicated corpus, not estimates.
+**Status:** purpose / methods / results openers refreshed 2026-08-28 from
+**389 unique drafts** (414 candidates → 409 extracted → 20 exact duplicates
+removed; English ≈ **324**). Counts in §1–§1c are full-text grep on those
+English drafts (Methods/Results repeats included), not abstract-only.
+Discussion / limitations / ethics slots below still carry the earlier
+96-manuscript grep where this harvest did not re-count.
+
+Do **not** vendor unpublished full texts, title dumps, `corpus-raw/`, or
+patient identifiers into this file. Templates are generic slots only.
 
 Use this file alongside `polisher-sections.md` and `sentence-templates.md`.
 Where a pattern here disagrees with either of those files, **this file wins**
@@ -14,27 +17,75 @@ still wins for hard formatting/QC rules (CI dashes, banned voice, etc.).
 
 ---
 
-## 1. Objective-sentence openers (Abstract / Intro close)
+## 1. Objective-sentence openers — keep THREE families
 
-Verified counts across the corpus:
+Do **not** collapse purpose sentences to one default. Three families are all
+in active use (harvest 2026-08-28, 324 English unique drafts):
 
-| Opener | Count |
-|---|---|
-| **"This study aimed to…"** | **18** |
-| "The aim of this study was to…" | 17 |
-| Bare infinitive ("To explore/investigate/evaluate/determine/assess…") | 13 |
-| "The purpose of this study was to…" | 4 |
-| "We aimed to…" | 1 |
-| "The objective of this study was to…" | 0 |
+| Family | Hits | Papers | Role |
+|---|---:|---:|---|
+| This study aimed to … | 45 | 44 | family 1 |
+| To explore/investigate/evaluate/determine/assess/compare/develop … | 35 | 34 | family 2 (bare infinitive) |
+| The aim of this study was to … | 22 | 14 | family 3 |
+| The purpose of this study was to … | 12 | 12 | minority, not a fourth family |
+| We aimed to / We sought to … | 5 | 5 | rare |
+| The objective of this study was to … | — | — | not used as a template |
 
-**Default / dominant form: "This study aimed to…"** — effectively tied with
-"The aim of this study was to…", both far more common than the others. Treat
-these two as the primary choices; the rest are acceptable variation, not the
-default.
+Templates (generic slots only):
+- `This study aimed to [objective] using [method] in [population].`
+- `The aim of this study was to [objective].`
+- `To [investigate/explore/evaluate/…] whether [technique] could [outcome] in [population].`
 
-Verbatim examples:
-- *"This study aimed to investigate whe[ther reduction of manganese intake improves neuropsychological manifestations in MHE rats]."*
-- *"In this study, we hypothesized that reduced EAAT-2 expression could lead to increased plasma glutamate levels…"* (hypothesis-framed variant, also legitimate)
+Purpose sentences often sit mid-abstract, not in the file's first 30 lines.
+
+## 1b. Methods / radiomics narrative (2026-08-28)
+
+| Pattern | Hits | Papers |
+|---|---:|---:|
+| A total of N … | 180 | 123 |
+| randomly divided / split into | 217 | 124 |
+| training … test/validation | 404 | 53 |
+| retrospectively enrolled/reviewed/collected | 22 | 21 |
+| prospectively enrolled/collected/recruited | 16 | 15 |
+| LASSO | 185 | 40 |
+| radiomics nomogram | 1039 | 52 |
+
+Retrospective far outnumbers prospective. Radiomics prediction papers default
+to **training/test + LASSO + nomogram**.
+
+Templates:
+- `A total of N patients with [condition] who underwent [imaging] were retrospectively enrolled.`
+- `Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N).`
+- `Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed.`
+
+**Split wording:** manuscript BODY internal split is training/test. Figure 1
+(figure-engine; already merged) uses published **Training Cohort /
+Validation Cohort**. Only an other-hospital cohort is external validation.
+Never `Development set`. Do not rewrite figure-engine from this file.
+
+## 1c. Results default + lab-unused stock (2026-08-28)
+
+| Pattern | Hits | Papers |
+|---|---:|---:|
+| 95% CI | 1080 | 123 |
+| AUC … 95% CI | 264 | 80 |
+| DeLong | 81 | 52 |
+| was/were associated with | 44 | 33 |
+| outperformed | 12 | 7 |
+| `demonstrated good performance` | **0** | 0 |
+| `suggesting its potential` | **0** | 0 |
+
+**Results default:** report `AUC of X (95% CI: X–X)` for **both** training
+and test.
+
+- `The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort.`
+- `The nomogram exhibited good discrimination in the training cohort (AUC X [95% CI, X–X]) and the test cohort (AUC X [95% CI, X–X]).`
+
+Direct side-by-side AUCs are more common than `outperformed`.
+
+**Do not use** as recommended stock: `suggesting its potential`,
+`demonstrated good performance` (0 hits in 389 unique drafts). Listed in
+`../de-ai/forbidden-phrases.md`.
 
 ---
 
@@ -168,12 +219,15 @@ Sample in-context uses kept in the corpus (for calibration, not for copying):
 
 ## Provenance / method
 
-Extracted with:
+§1–§1c: 2026-08-28 harvest on 389 unique drafts (324 English); phrase
+counts only — unpublished full texts and title dumps stay off GitHub.
+
+Older slots (discussion openers, limitations, ethics, §8 not-banned words)
+were grep-counted on the 96-manuscript deduplicated set:
+
 ```
-# copy manuscripts to text, hash-dedupe revision rounds
 md5sum *.txt | awk '{print $1}' -> keep first of each unique hash (96 of 100 kept)
-cat deduped/*.txt > full_corpus.txt
-grep -ohE '<pattern>' full_corpus.txt | sort | uniq -c | sort -rn
+grep -ohE '<pattern>' | sort | uniq -c | sort -rn
 ```
-Counts are exact grep matches, not samples — re-run against a larger or
-updated corpus if these files grow.
+
+Re-run against a larger corpus if these files grow. Do not commit `corpus-raw/`.
