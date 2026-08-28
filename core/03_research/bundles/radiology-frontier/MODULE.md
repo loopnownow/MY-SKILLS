@@ -1,7 +1,7 @@
 ---
 name: "radiology-frontier"
 domain: "03_research"
-trigger: ["frontier", "选题", "前沿"]
+trigger: ["frontier", "选题", "前沿", "立项方法", "超极化"]
 inputs: ["topic", "year_window"]
 outputs: ["evidence_gaps", "journal_fit_notes"]
 tools: ["pubmed_pages"]
@@ -51,6 +51,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 | [references/evidence-layer.md](references/evidence-layer.md) | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
 | [references/idea-to-question.md](references/idea-to-question.md) | Converting a trend into a concrete, executable, submittable research question; novelty framing |
 | [references/ai-radiogenomics-frontier-map.md](references/ai-radiogenomics-frontier-map.md) | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
+| [references/method-upgrade-into-grant.md](references/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
 
 ## Workflow
 
@@ -82,6 +83,18 @@ worth doing and likely to be accepted at a high-impact venue*.
 5. **`Verify now`** — the explicit list of claims/papers to confirm via live search today
    (handed to `radiology-search`); nothing here is presented as already-verified.
 
+
+## Method upgrades into 立项 (Voice B only)
+
+When the user is writing **their own** 立项 and the method is moving along
+**MRS → hyperpolarized 13C / metabolic flux → multimodal + interpretable ML**,
+open `method-upgrade-into-grant.md`. Put the technical gap **in 立项**, not only in 创新.
+
+- 立项小节标题用机制节点，方法是证据。
+- 点名缺口（1H-MRS 不能定量 [分子]；量表主观）→ 本研究用升级技术。
+- 不要把尚未开展的技术写成已完成基础。不要把 Voice A 评语写进立项。
+- Chapter skeleton / 确定·阐明·探讨 → `radiology-design`. 中英摘要句库 → `grant-writing.md`.
+
 ## Quality bar
 
 A good frontier read sounds like a mentor who reviews for these journals: it knows what each
@@ -96,6 +109,8 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 - Method-specific feasibility → `radiology-radiomics` / `radiology-deep-learning` /
   `radiology-radiogenomics`.
 - Citation export of verified seeds → `radiology-citation`.
-- The direction fits a funding proposal better than (or in addition to) a paper right now →
-  `radiology-grant`.
+- The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
+  `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
+- Reviewing **other people's** NSFC (Voice A) → `../../references/radiology/grant-review.md`.
+  Never mix 评议口癖 into 立项.
 - This skill advises on research strategy; specific recent claims must be verified live.

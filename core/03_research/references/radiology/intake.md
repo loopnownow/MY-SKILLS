@@ -3,7 +3,8 @@
 Use this file first when the user gives an incomplete, mixed, or high-level radiology
 AI request.
 
-Writing / figures → `05_manuscript`. Pre-submission / peer review / reviewer response → `06_review`.
+Writing / figures → `05_manuscript`. Pre-submission / **journal** peer review / reviewer response → `06_review`.
+国自评别人的标书 → Voice A `grant-review.md`（本技能，不是 06_review）。写自己的标书 → Voice B `grant-writing.md`。两套口癖禁止混用。
 Clinical translation / reader studies → `clinical-translation`. Ethics form packs → `ethics-application-forms`.
 
 ## Task modes
@@ -18,7 +19,8 @@ Clinical translation / reader studies → `clinical-translation`. Ethics form pa
 | `deep-learning` | User describes CNN, transformer, segmentation, classification, foundation models, or multimodal AI | 深度 |
 | `mechanism` | User asks how radiomics/deep learning model scores relate to genomics, transcriptomics, single-cell, spatial transcriptomics, pathways, immune microenvironment, or biological mechanisms | 机制 |
 | `study-design` | User gives data and asks what project can be done | 设计 |
-| `grant-writing` | User asks to write, polish, revise, or structure NSFC/national or provincial natural science foundation proposals | 基金 |
+| `grant-writing` | User asks to **write/polish their own** NSFC/省自然/院校标书、开题、方案、摘要（Voice B） | 基金（写自己的）→ `grant-writing.md` + design 骨架 + frontier 方法升级 |
+| `grant-review` | User asks to **review someone else's** 国自/面上/交叉申请（Voice A） | 基金（评别人的）→ `grant-review.md` only。不要用 06_review 英文套话 |
 | `annotation` | User asks about ROI, VOI, mask, lesion selection, segmentation annotation, reader agreement, or ICC/Dice | 标注 |
 | `statistics` | User asks about statistical analysis, sample size, feature selection, LASSO, Cox, C-index, calibration, DCA, confidence intervals, or survival analysis | 统计 |
 | `validation` | User asks whether the model or result is reliable | 验证 |
@@ -103,7 +105,8 @@ Ask before final wording when missing facts would otherwise fabricate:
 - "近三年影像 AI 前沿有哪些" -> 前沿 + 文献
 - "根据近三年高水平期刊发表规律帮我选题" -> 证据 + 前沿 + 文献 + 设计
 - "影像组学模型做完了，想结合转录组和单细胞解释机制" -> 机制 + 组学 + 文献 + 验证
-- "帮我润色国自然立项依据" -> 基金 + 前沿 + 设计 + 写作
+- "帮我润色国自然立项依据" -> Voice B 基金（写自己的）+ 设计骨架 + 前沿方法升级。禁止评议口癖
+- "帮我评这份国自/面上" -> Voice A `grant-review.md` 五栏。不要写立项五步或中英摘要骨架
 - "ROI 是两位医生勾画的，Methods 怎么写" -> 标注 + 组学 + 规范
 - "LASSO、Cox、DCA、C-index 这部分统计对不对" -> 统计 + 验证
 - "帮我看 Methods 是否符合 CLAIM" -> 规范 + 深度 + 验证

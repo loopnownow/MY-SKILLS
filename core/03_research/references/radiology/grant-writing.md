@@ -1,11 +1,19 @@
-# 基金
+# 基金（写自己的 — Voice B）
+
+**这是写自己的申请书 / 开题 / 方案 / 摘要。**
+评别人的国自 / 面上 / 交叉 → `grant-review.md`（Voice A）。两套口癖禁止混用：不要把「创新性有限」「可行性欠佳」「方案过于粗陋」写进本稿。
+
+章节骨架（立项五步、创新两栏、可行性三块、目标三档）→ `bundles/radiology-design/references/grant-own-skeleton.md`。
+方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML）→ `bundles/radiology-frontier/references/method-upgrade-into-grant.md`。
+中英摘要、假说、入排句式只用下面句库（占位 `[Title]` `[疾病]` `[n]` `[PI]`），不要从评议口癖抄。
 
 Use this file when the user asks to write, polish, restructure, or strengthen a
 grant/funding proposal for radiomics, medical imaging deep learning, or imaging AI
 projects, including 国家自然科学基金、国自然、省级自然科学基金、省自然、院校级课题、
 青年基金、面上项目、重点项目申报书等。For international schemes such as NIH R01,
-ERC, or Wellcome, load `modules/radiology-grant/SKILL.md`（沿用重组前的旧命名，当前无 radiology-grant bundle） and verify applicant and
-host-institution eligibility before drafting.
+ERC, or Wellcome, verify applicant and host-institution eligibility before drafting
+（无独立 radiology-grant bundle；国际通道资格不清时不要生成“可申报”承诺）。
+
 
 ## 核心原则
 
@@ -145,8 +153,98 @@ current_text:
 - [样本量、前期结果、团队基础、伦理、经费类型、字数限制等]
 ```
 
+
+## 句库（中英摘要 / 假说 / 入排）— 只用于 Voice B
+
+占位：`[Title]` `[疾病]` `[表型]` `[技术]` `[n]` `[PI]` `[假说]` `[动物模型]` `[平台]`。人名、电话、伦理号不要写进句中。
+
+### 中文摘要骨架
+
+```
+[疾病]（[英文缩写]）在[人群]中[发生率/危害]，[临床隐匿/缺乏客观指标]。
+[主流学说]作为传统发病机制，不能解释[血指标与临床表现相关性差 / 常规治疗不佳 / 指标正常仍发病]等现象。
+我们前期研究发现[关键临床或影像事实]。故推测[假说]。
+我们拟使用[无创技术]，在[患者 / [动物模型]大鼠]中检测[读出]，并通过[对照模型或干预]加以验证，
+期望完善[疾病]的发病机制，为[诊断/分级/治疗]提供新的思路。
+```
+
+区科委 / 影像组学变体（把「机制」换成「客观筛查」）：
+
+```
+目前[表型]的诊断缺乏客观评估手段，容易受主观因素影响。
+如果能使用无创的影像学手段对[系统/脑区]进行全面评估，则有望客观地对[表型]进行早期筛查。
+本研究拟使用[常规MRI/多模态]得到影像组学数据，通过[深度学习/机器学习]与临床信息相结合，
+建立[表型]预测模型，期望为早期筛查提供新的思路与方法。
+```
+
+国自摘要栏很短，2022 起可各用一句钉死创新：
+
+```
+技术上拟创新性使用[技术]对[分子/表型]进行定量。
+理论上创新性提出[分子]通过[通路]导致[细胞事件]，最终导致[表型]。
+```
+
+### 英文摘要骨架
+
+早期（青年）：
+
+```
+[Disease] is a common but covert complication of [population]. Conventional [theory] fails to explain [gap].
+The literature and our previous work showed that [finding]. We hypothesize that [hypothesis].
+In this study, [models] will be used. [Readouts] will be investigated by [technique].
+The study aims at clarifying the role of [factor] in [phenotype], and to explore the feasibility of using [marker] to diagnose [phenotype].
+```
+
+技术 / 理论双创新（面上）：
+
+```
+Technically, [technique] combined with [enhancement] could be used to quantify [analyte].
+Hypothetically, we propose that [analyte] may [mechanism] and eventually [phenotype].
+We plan to establish [animal] and [cell] models; [analyte] would be quantified by [labeling]; [intervention] would be used.
+Through systematic research, we hope to clarify the mechanism of [A] in regulating [B] in [phenotype].
+```
+
+关键词中英各 4–5 个，顺序：疾病、机制词、方法、表型。不要把医院名和基金类型写进关键词。
+
+### 假说
+
+- `故推测[因素]可能是导致[表型]的主要和起始因素。`
+- `基于前期研究提出如下假说：[表型]是由[因素A]与[因素B]共同驱动的[下游事件]所致。`
+- `我们假设：有[表型]时[底物]主要经[通路1]代谢，而无[表型]时主要经[通路2]代谢。`
+
+立项开场（定义句，一句话把对象关死）：
+
+- `[疾病]是由[原发]引起的、以代谢紊乱为基础的中枢神经系统功能失调综合征。`
+- `[表型]指没有典型临床表现及体征，但在某些认知领域已经发生异常的一种[疾病]亚型。`
+- `[表型]以[注意力/反应时间/工作记忆]缺陷为特征，严重影响患者生活质量。如不及早诊断和干预，将进展为更严重的[显性表型]，增加死亡率。`
+
+### 纳入 / 排除（临床方案用条目，不用段落）
+
+```
+纳入：（1）有[疾病]病史；（2）[影像]有[疾病]表现；（3）近期（[窗口]内）确诊[表型]。
+排除：（1）临床诊断为[需排除的鉴别]；（2）[MRI禁忌/严重并发症]；（3）无法完成[量表/随访]。
+```
+
+例数写在设计句：`收集[疾病]患者[n]例。` 不要把入排写成长段落。
+
+### 创新两栏 / 可行性三块（句式；章节节奏见 design 骨架）
+
+```
+技术方法创新：本课题组拟通过更高灵敏度、分辨率和特异度的[技术]，对[分子]进行精准定量。
+学术思想创新：在前期研究基础之上，提出[分子]通过[通路]介导[细胞事件]，最终导致[表型]，并拟通过系统性研究阐明上述机制。
+```
+
+```
+使用[动物模型]模拟[表型]是成熟模型（[指南或文献]推荐），大鼠在术后[时间]形成[表型]。
+[平台]拥有[仪器型号]，可进行[测量]，为[样本类型]研究提供技术支撑。
+[PI]掌握[小动物MRI/MRS/组学数据处理]及数据后处理技术；相关方向已发表 SCI 论文[n]篇。
+每年接诊[疾病]超过[n]例，积累了图像和临床诊断数据，为课题提供数据基础。
+```
+
 ## 红线
 
+- 不要把 Voice A 评议口癖（「创新性有限」「可行性欠佳」）写进自己的申请书。
+- 不要把申请书全文、未刊患者表、伦理批件扫描、手机号提交到 GitHub 或技能正文。
 - 不要编造前期结果、论文、专利、基金基础、团队成员、协作单位、伦理批件或设备平台。
 - 不要使用“国内外首次”“填补空白”“显著提高”等无法支撑的强表述。
 - 不要把临床应用承诺写得超过验证证据。
