@@ -2,6 +2,80 @@
 
 Produce a documented, versioned feature matrix that another lab could regenerate.
 
+**Engine (these trees):** Pictologics `RadiomicsPipeline` with `load_standard=True` and
+`RADIOMICS["config_names"] = ["standard_fbn_32", "standard_fbs_16"]`.
+
+- `standard_fbn_32` — IBSI fixed bin **number**, 32 bins (typical MRI / already-normalised).
+- `standard_fbs_16` — IBSI fixed bin **size**, bin width = range / 16 (typical HU-windowed CT).
+
+The two configs are **complementary**; both trees run them together. Conversion is
+`sitk_to_pictologics` then `pipeline.run(...)`.
+
+**Must not** describe this engine as PyRadiomics, and **must not** route extraction through
+`0scripts/organized/radiomics_ops.py`.
+
+## sitk_to_pictologics (Spacing / Origin axes flip)
+
+SimpleITK `GetArrayFromImage` is `(Z, Y, X)`. Pictologics `Image.array` is also `(Z, Y, X)` —
+**no array transpose**. Spacing and Origin are the opposite axis order, so flip them:
+
+```text
+spacing_zyx = tuple(reversed(sitk_image.GetSpacing()))
+origin_zyx  = tuple(reversed(sitk_image.GetOrigin()))
+```
+
+Pictologics modality field wants `"MR"` not `"MRI"` (habitat tree maps this inside
+`sitk_to_pictologics`).
+
+## Two column-name formulas (keep separate)
+
+Do **not** unify these. Habitat×sequence fusion and delta flattening use different prefixes on
+purpose.
+
+### 1) `habitat_pipeline` (`extract_features_single_habitat_sequence` → `aggregate_cohort_features`)
+
+Per Habitat × sequence extraction **does not** put `h{idx}_` on the column (that prefix used to
+make same-patient habitat rows mis-align into NaNs):
+
+```text
+{sequence}_{config_name}_{feature_name}
+# e.g. CT_arterial_standard_fbn_32_intensity_mean
+```
+
+`aggregate_cohort_features` flattens Habitat rows to one patient row by prefixing **once**:
+
+```text
+h{H}_{sequence}_{config_name}_{feature_name}
+# e.g. h0_CT_arterial_standard_fbn_32_intensity_mean
+```
+
+### 2) `delta_habitat_pipeline` (`extract_features_single_habitat` → `compute_delta_features` → `aggregate_delta_features`)
+
+Per-habitat extraction **does** prefix habitat id:
+
+```text
+h{habitat_idx}_{config_name}_{feature_name}
+# e.g. h0_standard_fbn_32_intensity_mean
+```
+
+Delta columns (`DELTA["compute_absolute"]` / `compute_relative`; rate if `--delta_t`):
+
+```text
+delta_abs_{name}
+delta_pct_{name}
+delta_rate_{name}
+```
+
+Cohort flatten:
+
+```text
+h{H}_{delta_feature_name}
+# e.g. h0_delta_abs_h0_standard_fbn_32_intensity_mean
+```
+
+Relative change uses `(|f_pre| + DELTA["epsilon"])` in the denominator. Habitat correspondence
+across timepoints is `propagate_masks`, not a second clustering.
+
 ## Feature families (IBSI nomenclature)
 
 | Family | Captures |
@@ -12,89 +86,50 @@ Produce a documented, versioned feature matrix that another lab could regenerate
 | **GLRLM / GLSZM / GLDM / NGTDM** | Run-length, size-zone, dependence, neighbouring-tone-difference textures |
 | **Filtered (LoG/wavelet/…)** | Any family computed on transformed images |
 
-## PyRadiomics settings to pin (or equivalent tool)
-
-- `binWidth` **or** `binCount` (match preprocessing-ibsi.md) — never both.
-- `resampledPixelSpacing`, `interpolator`.
-- `normalize`, `normalizeScale` (MRI).
-- `imageType` (Original, LoG with sigma, Wavelet, …).
-- Enabled feature classes.
-- `geometryTolerance` (alignment), `label` (mask value).
-- **Save the parameter file** (YAML) and the software version — share it (CLEAR open-science).
+Pin `RADIOMICS["config_names"]`, software + Pictologics version, and the live tree path. Share
+those with CLEAR.
 
 ## Aggregation
 
-- 2D vs 3D extraction; how directional texture matrices are averaged.
-- Per-region (whole tumour, sub-regions, peritumoral, habitats) — keep regions labelled.
+- 3D extraction inside each habitat mask; skip / error when voxel count `< HABITAT["min_voxels"]`.
+- Per-region labels must stay traceable via the formulas above — do not invent a third scheme.
 
 ## Output: the feature matrix
 
-- Rows = patients (or lesions, with the aggregation rule); columns = features with IBSI names.
+- Rows = patients after cohort flatten; columns = features with the tree-specific names.
 - Carry IDs that map to the data dictionary (→ radiology-data).
-- Version it; record the exact pipeline that produced it.
+- Version it; record which tree (`habitat_pipeline` vs `delta_habitat_pipeline`) produced it.
 
 ## Delta / longitudinal radiomics
 
-When the question is about **change** (treatment response, progression) rather than a single
-timepoint, extract features identically at each timepoint and derive delta features explicitly —
-don't bolt this on after the fact:
+When the question is **change**, use **flow 2** (`delta_habitat_pipeline`), not an after-the-fact
+subtraction on flow-1 tables:
 
-- **Identical pipeline at every timepoint** — same preprocessing, discretisation, filters,
-  software/version (preprocessing-ibsi.md); a pipeline change between baseline and follow-up
-  masquerades as biological change.
-- **Registration**: if comparing voxel/region-level change (not just whole-lesion aggregate
-  features), co-register timepoints and report the method and QC; state when only aggregate
-  (whole-lesion) delta is used specifically because registration is not reliable.
-- **Delta definition** — state it explicitly and keep it consistent: absolute difference
-  (`follow-up − baseline`), relative/percent change (`(follow-up − baseline) / baseline`), or a
-  rate (per week/cycle). Relative change is undefined near zero-valued baseline features — flag
-  or exclude those features rather than silently producing infinities/large outliers.
-- **Reproducibility of the delta itself**: a feature can be individually reproducible (high ICC at
-  one timepoint) yet the *difference* of two reproducible measurements can still be noisy —
-  before trusting a delta feature, its measurement error should be small relative to the
-  biological change of interest (→ test–retest below).
-- **Timepoint alignment with treatment**: record the exact interval and treatment exposure between
-  scans (same discipline as `radiology-radiogenomics/sample-to-image-mapping.md`（该模块尚未建立，暂无内容）'s timing rules);
-  don't compare patients whose baseline-to-follow-up interval or treatment exposure differs
-  systematically without accounting for it.
-- **Modelling**: decide whether delta features are used alone or alongside baseline features (the
-  two are often correlated); pre-specify which, and keep selection inside training only, same as
-  any other radiomics feature (→ `selection-modelling.md`).
+- Identical Pictologics configs at pre and post (`standard_fbn_32` + `standard_fbs_16`).
+- Cluster **baseline only**; `propagate_masks` to post; never re-cluster post
+  (`habitat-radiomics.md`).
+- `compute_delta_features`: absolute `f_post - f_pre`, relative percent, optional per-day rate.
+  **No Z-score here** (`leakage-audit.md`).
+- Relative change is undefined near zero-valued baseline features — epsilon is already in
+  `DELTA["epsilon"]`; still flag infinities if they appear.
+- Selection stays inside training (`select_features` / `selection-modelling.md`).
 
 ## Test–retest / phantom repeatability
 
-`../../imaging-preprocessing-qc/references/reproducibility-qc.md` covers **segmentation** reproducibility (does the
-mask change across readers). This is the complementary, less commonly done check: does the
-**feature value itself** change on a re-scan of the same object with no real change?
+ICC is **not** implemented in either habitat tree. Point to `modules/utils/u_icc.py` (clinical
+pipeline), not a habitat-local ICC helper (`leakage-audit.md`).
 
-- **Phantom repeatability**: scan a physical phantom (or digital phantom per IBSI) repeatedly, or
-  across scanners/protocols/sites, and compute per-feature reproducibility (e.g. concordance
-  correlation coefficient, coefficient of variation, or ICC across repeats) — this isolates
-  scanner/acquisition noise from segmentation variability.
-- **Test–retest in patients**: where feasible (and ethically/practically justified — this adds
-  scan burden), a short-interval repeat scan with no true biological change between scans, same
-  protocol, to estimate the combined acquisition + reconstruction + (if masks are refreshed)
-  segmentation noise floor for each feature.
-- **Use of the result**: features that fail a pre-specified repeatability threshold are dropped
-  or down-weighted **before** selection/modelling, the same way low-ICC segmentation-reproducibility
-  features are filtered in `../../imaging-preprocessing-qc/references/reproducibility-qc.md` — state whether the two
-  filters (segmentation ICC and test–retest/phantom repeatability) were combined or applied
-  separately.
-- **This is a scored RQS/RQS 2.0 item** ("test–retest / phantom" and "multiple segmentations") —
-  reporting it, even as "not performed, and here is why," is stronger than silence
+`../../imaging-preprocessing-qc/references/reproducibility-qc.md` covers **segmentation**
+reproducibility. Phantom / test–retest of the **feature value** is the complementary check.
+
+- Drop low-repeatability features **before** selection/modelling, inside training only.
+- This is a scored RQS/RQS 2.0 item — reporting "not performed, and why" is stronger than silence
   (→ `../../../../05_manuscript/bundles/manuscript-core/references/merged/radiology-reporting/clear-metrics-rqs.md`).
-
-## Quick PyRadiomics invocation (illustrative)
-
-```python
-from radiomics import featureextractor
-extractor = featureextractor.RadiomicsFeatureExtractor("params.yaml")  # pins all settings
-result = extractor.execute(image_path, mask_path, label=1)
-# persist result + params.yaml + pyradiomics.__version__ for reproducibility
-```
 
 ## Reporting sentence
 
-*"For each lesion, [N] IBSI-compliant features (first-order, shape, GLCM/GLRLM/GLSZM/GLDM/NGTDM,
-plus LoG- and wavelet-filtered) were extracted with PyRadiomics vX.Y using a fixed parameter
-file (provided in the supplement)."*
+*"For each habitat, IBSI-complementary features were extracted with Pictologics RadiomicsPipeline
+using standard_fbn_32 and standard_fbs_16 after sitk_to_pictologics (Spacing/Origin axes flip).
+Single-timepoint columns follow {sequence}_{config}_{feature} then h{H}_ flatten; delta columns
+follow h{idx}_{config}_{feature} then delta_abs_/delta_pct_ flatten. Software version and config
+names are recorded."*
