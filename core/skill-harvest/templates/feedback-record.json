@@ -1,0 +1,13 @@
+{
+  "record_id": "FB-YYYYMMDD-001",
+  "date": "YYYY-MM-DD",
+  "task": "",
+  "skill": "05_manuscript",
+  "taxonomy": "ERROR | OMISSION | PREFERENCE | OPTIMIZATION | NEW_PATTERN | REGRESSION",
+  "evidence_level": "E0",
+  "original_output_summary": "",
+  "user_correction": "",
+  "generalizable_principle_candidate": "",
+  "skill_vs_memory": "memory",
+  "notes": "No unpublished full texts, no PHI, no patient identifiers."
+}
