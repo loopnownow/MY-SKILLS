@@ -5,7 +5,11 @@
 removed; English ≈ **324**). Counts in §1–§1c are full-text grep on those
 English drafts (Methods/Results repeats included), not abstract-only.
 Discussion / limitations / ethics slots below still carry the earlier
-96-manuscript grep where this harvest did not re-count.
+96-manuscript grep where this harvest did not re-count. §2 and §2b carry a
+further, smaller 2026-08-29 50-draft spot-check addition (marked inline) —
+these are provisional and sit below even the 96-draft baseline in sample
+size; re-confirm against the full 389-draft harvest before treating them as
+settled.
 
 Do **not** vendor unpublished full texts, title dumps, `corpus-raw/`, or
 patient identifiers into this file. Templates are generic slots only.
@@ -97,6 +101,25 @@ Direct side-by-side AUCs are more common than `outperformed`.
 - *"The main finding[s] of [this/the present] study…"* pattern also occurs but
   is rare (1 instance) — don't over-rely on it as a default template; "In
   this study, we…" is the workhorse opener.
+- *"[This/Our] study showed that…"* — secondary opener alongside "In this
+  study, we…"; 8/50 in a smaller 2026-08-29 spot-check subset (not yet
+  re-counted against the full 389-draft harvest — treat as provisional
+  until confirmed at full scale).
+
+---
+
+## 2b. Gap-statement / novelty-claim opener (Introduction or Discussion ¶2)
+
+Added 2026-08-29 from a 50-draft spot-check subset (smaller than this
+section's existing 96-draft baseline — provisional, not yet confirmed
+against the full 389-draft harvest):
+
+- *"However, to our knowledge, [no prior study has / few studies have]…"* —
+  classic gap-statement immediately preceding the paper's own contribution.
+- *"One of the key challenges/aspects of [X] is…"* — used to frame why the
+  study's problem matters before stating the approach.
+- *"Given that [established fact], [this study/we] …"* — premise-then-move
+  connector, bridges known background into the paper's own rationale.
 
 ---
 
@@ -191,10 +214,17 @@ different manuscripts in this corpus:
 
 ---
 
-## 8. Words that are NOT banned (re-confirmed)
+## 8. Words that ARE banned (policy reversal, 2026-08-29)
 
-Raw occurrence counts in the deduplicated corpus — these are edited,
-submission-ready manuscripts, so their presence is not an oversight:
+**Status change:** as of 2026-08-29 these four words are **Forbidden** by
+explicit user editorial decision — see `../de-ai/forbidden-phrases.md`. This
+is a policy choice, not a correction of the corpus evidence below; the raw
+counts and in-context examples are kept as historical record and for
+calibration, not as license to re-add these words.
+
+Raw occurrence counts in the deduplicated corpus (still accurate as a
+description of the source manuscripts; no longer used as editorial
+justification):
 
 | Word | Count |
 |---|---|
@@ -203,11 +233,15 @@ submission-ready manuscripts, so their presence is not an oversight:
 | interestingly | 13 |
 | importantly | 9 |
 
+<details>
+<summary>Superseded reasoning (pre-2026-08-29, kept for history — do not act on this)</summary>
+
 These words show up used purposefully and sparingly (e.g. flagging a genuine
 methodological first, or drawing attention to one specific unexpected
-result among many) — never as filler in every paragraph. **Do not add these
-back to any forbidden-word list.** The right editorial move is not "delete
+result among many) — never as filler in every paragraph. Do not add these
+back to any forbidden-word list. The right editorial move is not "delete
 on sight" but "keep if it's doing real work; cut if it's decorative."
+</details>
 
 Sample in-context uses kept in the corpus (for calibration, not for copying):
 - *"…is a novel procedure."* (describing a genuinely new technique)

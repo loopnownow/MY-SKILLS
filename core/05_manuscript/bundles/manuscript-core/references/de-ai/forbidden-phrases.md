@@ -21,14 +21,34 @@
 | It is worth noting that | delete; state the fact |
 | furthermore / moreover (stacked) | vary or cut |
 
-**Not banned — corpus-verified (do not re-add to this table):** *novel*
-(59 occurrences in the deduplicated corpus), *notably* (21), *interestingly*
-(13), *importantly* (9). These are used sparingly and purposefully in the
-edited, submission-ready manuscripts — e.g. flagging one genuinely
-unexpected result, or the single clinically load-bearing sentence in a
-paragraph — not as filler. Cut them when they're decorative throat-clearing;
-keep them when they're doing that flagging work. See
-`../corpus/corpus-phrase-bank.md` §8 for verified examples.
+| novel | (drop, or name what changed) |
+| notably | delete; state the fact |
+| interestingly | delete; state the fact |
+| importantly | delete, or restructure so the load-bearing sentence carries its own weight |
+
+**Policy reversal, 2026-08-29 (user editorial decision, not a corpus
+contradiction):** *novel*, *notably*, *interestingly*, *importantly* are now
+**banned**. This overrides the prior "not banned — corpus-verified" entry
+below, which is kept for historical record, not as current guidance. The
+corpus evidence itself hasn't changed — these words are still genuinely
+attested, used sparingly and purposefully, in the source manuscripts (see
+counts and in-context examples preserved in `../corpus/corpus-phrase-bank.md`
+§8). The user has simply chosen, as an editorial stance independent of
+frequency data, to cut them regardless. Do not re-litigate this by
+re-citing the corpus counts as a reason to un-ban; the counts were never in
+dispute, the policy is a separate choice on top of them.
+
+<details>
+<summary>Superseded reasoning (pre-2026-08-29, kept for history — do not act on this)</summary>
+
+Not banned — corpus-verified: *novel* (59 occurrences in the deduplicated
+corpus), *notably* (21), *interestingly* (13), *importantly* (9). These are
+used sparingly and purposefully in the edited, submission-ready manuscripts
+— e.g. flagging one genuinely unexpected result, or the single clinically
+load-bearing sentence in a paragraph — not as filler. Cut them when they're
+decorative throat-clearing; keep them when they're doing that flagging work.
+See `../corpus/corpus-phrase-bank.md` §8 for verified examples.
+</details>
 
 ## Lab-unused stock (0 hits in 389 unique drafts, 2026-08-28)
 
