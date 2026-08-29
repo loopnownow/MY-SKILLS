@@ -167,6 +167,8 @@ For imported packs, also show what will be rejected, deduplicated, or archived.
 
 Do not write behavioral changes before the user selects the rows, unless the user explicitly requests autonomous application.
 
+**Silence is not approval.** Continuing the discussion, "不错", "可以考虑", or lack of objection does not authorize a Skill edit. Accept only an explicit grant: `approve` / `批准` / `把这个修改加入 Skill` / `批准这个 Proposal` (or an equally clear instruction to apply that named change).
+
 ## 8. Apply
 
 Apply only the approved changes.
@@ -300,3 +302,79 @@ Use `data/roi-ledger.csv` as the only local evidence ledger. Do not backfill inv
 Before promoting a new mode, require either ≥3 independent positive uses, a reproducible failure prevented by the rule, or a defined workflow requirement. If context cost rises while success/correction metrics do not improve, prefer `SIMPLIFY`, `MERGE`, or `ARCHIVE`.
 
 The repository should optimize for **benefit per context cost**, not file count or text volume.
+
+## Human-approved evolution protocol
+
+`skill-harvest` is an **Evolution Advisor**, not a self-modifying Skill. The user owns Skills; Git is the version/audit layer.
+
+### User Correction First
+
+Evidence priority (highest first):
+
+`用户实际编辑后的输出 > 用户明确纠正 > 用户明确评价 > 单次任务观察 > AI 自我反思`
+
+A user edit is Evidence. It does **not** change an active Skill by itself.
+
+### Evidence E0–E5
+
+| Level | Evidence | Default action | Enough to evolve? |
+|---|---|---|---|
+| E0 | AI self-reflection | may record | no |
+| E1 | Single-task issue | record | no |
+| E2 | User names a problem | record and watch | usually no |
+| E3 | User actually edits the output | high-value signal, still watch | usually no |
+| E4 | Same class of user edit across similar tasks | Candidate / Proposal | yes (default threshold) |
+| E5 | Repeated pattern + eval/golden-set improvement | strong promotion evidence | best |
+
+Default: **E4** before a formal Evolution Proposal. Prefer **E5** when a golden set or deterministic test exists. One event never evolves a Skill.
+
+### Feedback taxonomy
+
+| Type | Meaning | Handling |
+|---|---|---|
+| `ERROR` | wrong output | record; decide if it is a Skill defect |
+| `OMISSION` | missing required step/info | add a principle only if it repeats |
+| `PREFERENCE` | taste | Memory / Feedback, not Skill |
+| `OPTIMIZATION` | correct but could be cheaper | needs demonstrated benefit |
+| `NEW_PATTERN` | reusable method | Candidate after it repeats and generalizes |
+| `REGRESSION` | new version hurts old capability | protect old capability; propose rollback |
+
+### Pipeline
+
+```text
+OBSERVE → HARVEST → CLASSIFY → STORE EVIDENCE
+  → repeated and generalizable?
+       no  → keep observing / Memory
+       yes → EVALUATE → REGRESSION CHECK → EVOLUTION BUDGET
+             → EVOLUTION PROPOSAL → PENDING USER APPROVAL
+                  APPROVE → apply the exact approved change (Git PR)
+                  REJECT  → Skill unchanged
+                  MODIFY  → revise proposal
+```
+
+Controller **may**: observe, record corrections, classify, detect repeated patterns, evaluate, write a Proposal.
+
+Controller **must not**: modify, overwrite, promote, merge, or delete an active Skill; auto-merge a PR; treat silence as yes.
+
+### Evolution budget (per Proposal)
+
+- At most **1** core behavioral change.
+- At most **3** new rules.
+- Prefer not increasing Skill length; compress if a denser principle can replace several rules.
+- No duplicate rules; no expanding the Skill's job boundary.
+- `CHANGE_TOO_LARGE`: stop this pipeline and treat it as a separate human design task.
+
+### Skill vs Memory
+
+Stable, cross-task, procedural method with repeated user evidence → Skill.
+
+Project facts, one-off preference, temporary constraints, unconfirmed observation → Memory / Feedback, not Skill.
+
+### Rollback
+
+If a promoted version regresses, **propose** restore to the Git commit recorded as the rollback point. Do not auto-patch a second evolution on top.
+
+Use `templates/feedback-record.json` and `templates/evolution-proposal.md`. Store live proposals under `evolution/proposals/`. Do not invent a parallel JSON-ledger engine, and do not copy this governance into 00–06 domain skills. Corpus draft-vs-final diffs belong in `05_manuscript` `diff_harvest.py`, not here.
+
+Do not add top-level skills `07_skill-evolution`, `08_feedback`, `09_evaluator`, or similar. Those jobs stay inside `skill-harvest`.
+
