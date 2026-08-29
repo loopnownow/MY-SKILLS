@@ -77,3 +77,22 @@ boundary_effect: Archive skills are extra homes, not 07_. data-impute and figure
 decision: observe
 next_action: watch routing on 软编码 vs 批处理, 转化 vs 02_imaging
 ```
+## Forbidden-word policy reversal + corpus phrase bank spot-check + diff-harvest tool 2026-08-29 (user)
+
+```text
+change_id: CHG-20260829-001
+date: 2026-08-29
+skill: 05_manuscript
+mode: manuscript-core
+from_version: n/a
+to_version: n/a
+change_class: fix + extend + toolize
+problem: (1) User made an explicit editorial decision to ban novel/notably/interestingly/importantly, reversing the prior corpus-verified "not banned" status in forbidden-phrases.md and corpus-phrase-bank.md §8. (2) A separate 50-manuscript spot-check surfaced 4 candidate patterns not yet present in the 389-draft corpus-phrase-bank.md. (3) A standalone JSON-ledger evolution engine would have duplicated skill-harvest's governance role.
+change: (1) forbidden-phrases.md and corpus-phrase-bank.md §8 updated to Forbidden; prior "not banned" reasoning kept in <details> as historical record, not deleted. (2) Added §2 "[This/Our] study showed that…" and new §2b (gap-statement / novelty-claim openers) to corpus-phrase-bank.md, explicitly marked as a provisional 50-draft spot-check sample, smaller than the section's existing 96-draft baseline — not yet confirmed at the 389-draft scale. Declined TIPS/DIT-cluster-only candidates. (3) Ported diff-based capability into core/05_manuscript/bundles/manuscript-core/scripts/diff_harvest.py. The script appends one row per run to data/diff-evidence-log.csv and never auto-writes corpus-phrase-bank.md or forbidden-phrases.md.
+expected_benefit: Forbidden-word policy matches current user intent without silently losing the prior evidence trail. Corpus phrase bank gains a small, honestly-labeled increment rather than a false-confidence merge. Diff-based editing evidence accumulates in the owning skill instead of a parallel ungoverned system.
+observed_evidence: n/a (first use)
+metric_summary: n/a (first use)
+boundary_effect: No new top-level skill created. skill-harvest untouched; its governance role was followed, not duplicated.
+decision: keep (policy + phrase-bank edits), observe (diff_harvest.py)
+next_action: run diff_harvest.py against real AI-draft/human-final pairs; if data/diff-evidence-log.csv shows recurring new candidates across multiple manuscripts, fold them into the next full corpus-phrase-bank.md re-harvest rather than adding them ad hoc.
+```

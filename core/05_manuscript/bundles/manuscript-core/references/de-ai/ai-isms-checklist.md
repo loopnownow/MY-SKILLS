@@ -274,7 +274,12 @@ These slot-fill constructions signal that a sentence was generated, not written.
 ### Confidence calibration phrases
 - "It's worth noting that," "Interestingly," "Surprisingly," "Importantly," "Significantly," "Notably," "Certainly," "Undoubtedly," "Without a doubt" — AI uses these to signal how the reader should feel about a fact instead of letting the fact speak for itself.
 - "Here's what's interesting," "Here's the interesting part," "Here are the parts I found interesting" — reader-steering cue that pre-interprets importance. Works when followed by genuinely surprising data; fails when it introduces a restatement of something obvious (which is the AI default).
-- One "notably" in a 2,000-word piece is fine. Three in 500 words is AI-style emphasis stacking. Flag by density.
+- **Superseded 2026-08-29:** `forbidden-phrases.md` now hard-bans *notably*,
+  *interestingly*, *importantly*, and *novel* outright (density no longer
+  matters — zero is the target, not "one per 2,000 words"). This checklist
+  entry is kept for the general reasoning (why these phrases read as AI
+  emphasis-stacking) but the density threshold below is no longer the
+  operative rule for manuscript-core; treat any occurrence as a hit.
 
 ### Excessive structure
 - Too many headers in short text: more than 3 headings in under 300 words is almost always AI trying to look organized. Merge sections or use prose transitions instead.
