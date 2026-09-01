@@ -4,7 +4,7 @@ description: >
   Peer review, pre-submission audit, reviewer-response letters, and Chinese thesis
   评阅 (separate from English peer review). Use for 审稿, 投稿前预审, 找洞,
   dealbreaker, peer review, 写审稿意见, 模拟审稿, 回复审稿人, 回答审稿人问题,
-  response letter, 修回, point-by-point, 毕业论文评阅, 中文刊审稿单.
+  response letter, 修回, 落实审稿意见, point-by-point, 毕业论文评阅, 中文刊审稿单.
   English peer review stays polite; do not import Chinese journal-form punch.
   Do not use for 写论著, 润色, 写引言, 写讨论, or figures — those stay in 05_manuscript.
 ---
@@ -16,12 +16,14 @@ description: >
 Find defects, write journal-system peer reviews, and draft point-by-point responses.
 **Never invent** rescue experiments, missing AUCs, ethics IDs, or unrun analyses.
 Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
+Path A (`落实审稿意见` / revise an existing manuscript) **skips the entire title page**: ethics number, author block, target journal, and whether the paper declares “not generated”. Do not fill, yellow-highlight, or rewrite those fields. From-scratch title page stays in `05_manuscript` `Aitor-format.md`.
+When reviewing an already-written manuscript, do **not** delete genuine references to hit the Intro 10–15 / Discussion 10–15-new quota; note over-quota only. New-I/D quota and evidence retrieval stay in `05_manuscript`.
 
 ## Capability map
 
 | Task | Path |
 |------|------|
-| **Own-manuscript pre-submission audit** | `bundles/manuscript-quality/MODULE.md` path A + `bundles/manuscript-quality/references/mode-2-prereview.md` |
+| **Own-manuscript pre-submission audit / 落实审稿意见** | `bundles/manuscript-quality/MODULE.md` path A + `bundles/manuscript-quality/references/mode-2-prereview.md` (skip title page) |
 | **Peer review of others' papers** | `bundles/manuscript-quality/MODULE.md` path B + `bundles/manuscript-quality/references/mode-2-prereview.md` |
 | **Response to reviewers** | `bundles/manuscript-quality/MODULE.md` path C + `bundles/manuscript-quality/references/mode-3-response.md` |
 | Dealbreakers / hard gates | `bundles/manuscript-quality/references/merged/radiology-prereview/` |
@@ -37,7 +39,7 @@ Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
 
 ## Modes
 
-- `pre-review` — Blocking / Major / Minor on the user's manuscript
+- `pre-review` — Blocking / Major / Minor on the user's manuscript (Path A: skip title page; do not cut real refs to hit I/D quota)
 - `peer-review` — English reviewer report for another paper (Opening 2–4 sentences → Major → section-wise; voice in `personal-review-style.md`)
 - `response` — point-by-point letter + change log (opening **A**; style B almost unused)
 - `thesis-review` — 毕业论文 / 学位论文评阅（中文评阅表；**与英文 peer review 分开**）

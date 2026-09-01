@@ -96,3 +96,23 @@ boundary_effect: No new top-level skill created. skill-harvest untouched; its go
 decision: keep (policy + phrase-bank edits), observe (diff_harvest.py)
 next_action: run diff_harvest.py against real AI-draft/human-final pairs; if data/diff-evidence-log.csv shows recurring new candidates across multiple manuscripts, fold them into the next full corpus-phrase-bank.md re-harvest rather than adding them ad hoc.
 ```
+
+## Harvest 2026-08-30 — 06_review (user)
+
+```text
+change_id: CHG-20260902-002
+date: 2026-09-02
+skill: 06_review
+mode: manuscript-quality
+from_version: n/a
+to_version: n/a
+change_class: fix + policy
+problem: Harvest 2026-08-30 (author A, choice B): Path A review-implementation was filling title-page slots; reviewing already-written I/D was deleting genuine refs to hit 10–15 / 10–15-new.
+change: (C3-B) Path A (落实审稿意见 / revise existing MS) skips the entire title page: ethics number, author block, target journal, and whether the paper declares “not generated”. Do not fill, yellow-highlight, or rewrite those fields. From-scratch title page remains 05 Aitor-format (pointer only). (C6-B) Reviewing an already-written manuscript: do not delete genuine refs to hit Intro 10–15 / Discussion 10–15-new; note over-quota only. New-I/D quota stays in 05 (companion PR #11); 06 points at 05 evidence, does not duplicate retrieval.
+expected_benefit: Review implementation no longer overwrites title-page identity fields; already-written citations are preserved with an over-quota note instead of destructive quota trimming.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: 06_review / manuscript-quality only. 05_manuscript and 00_orchestrator untouched except this append. KEEP not in this PR: C1; C5 figure-vs-caption; C7; C8; C11 uncited figures as Major; C12 Table 1 vs literature range; no 00_orchestrator pointer; no 05 body/de-AI rules.
+decision: keep
+next_action: live Path A 落实审稿意见; confirm title page unchanged and over-quota notes instead of ref deletion
+```
