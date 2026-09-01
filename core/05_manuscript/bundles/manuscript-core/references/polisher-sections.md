@@ -60,7 +60,7 @@ If the user provides raw text without labeling the section, infer from content s
 - Precise, factual, not rhetorical.
 
 **¶2 — Knowledge gap identification**
-- Hedged language mandatory: *"has not been fully elucidated"*, *"remains controversial"*, *"the pathogenesis is complex"*, *"current diagnosis relies on invasive methods"*
+- Hedged language mandatory: *"remains unclear"*, *"remains controversial"*, *"the pathogenesis is complex"*, *"current diagnosis relies on invasive methods"*. Never *elucidate / elucidating / elucidated* (purpose/aim → *exploring*; mechanism-unknown → *remain unclear*, not *explain* / *clarify*).
 - Reference existing approaches comparatively without over-citation.
 
 **¶3 — Proposed approach / rationale**

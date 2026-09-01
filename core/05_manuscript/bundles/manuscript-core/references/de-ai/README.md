@@ -18,3 +18,6 @@
 - 不改数字、P 值、CI、术语、引用、伦理号
 - Methods 保持被动语态（实验室体例），不因"去 AI"而强改主动语态
 - Discussion 的 calibrated hedge（may/might/could/suggest）不算 AI 腔，不要删
+- 少用副词；统计 *significantly*（P 值用语）不禁
+- 禁 elucidat*；机制未知用 remain unclear（不用 explain/clarify 顶替）
+- 正文禁 COMMENTARY 读法指引（见 `forbidden-phrases.md`）

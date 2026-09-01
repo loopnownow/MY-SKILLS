@@ -59,16 +59,22 @@ owner: "05_manuscript/bundles/manuscript-core/MODULE.md"
 5. 短句（英文尽量 ≤55 词）
 6. 禁 AI 腔 → 见 `references/de-ai/forbidden-phrases.md`
 7. Results 不空套 hedge；Discussion 按证据强度 hedge
-8. **预测模型全文额外：** 禁 em-dash 作标点；`95% CI: X–X`；**training** 拟合 / **test** 只评估 / **validation set** = 外部队列；禁用 hold-out 与 development set；患者级划分；**nomogram**（即 Combined / combined logistic，正文不写流水线名）双集 AUC/NRI/IDI/DCA（未导出则写 not generated）；LASSO+RadScore 公式在正文、不设特征表；无免责声明、不重复同一句 hedge；留空一律黄底；正文不写 *coded*/*displayed* 前缀；第二遍润色只去管线词并对 `*-results.html` 数字、不并句、不改 IMRAD；Vancouver+DOI  
+8. **预测模型全文额外：** 禁 em-dash 作标点；`95% CI: X–X`；**training** 拟合 / **test** 只评估 / **validation set** = 外部队列；禁用 hold-out 与 development set；患者级划分；**nomogram**（即 Combined / combined logistic，正文不写流水线名）双集 AUC/NRI/IDI/DCA（未导出则 **Word 批注**，正文不写 not generated）；LASSO+RadScore 公式在正文、不设特征表；无免责声明、不重复同一句 hedge；**禁止黄底留空**（缺方法/产物进批注）；正文不写 *coded*/*displayed* 前缀；第二遍润色只去管线词并对 `*-results.html` 数字、不并句、不改 IMRAD；Vancouver+DOI  
 9. **不编造** 结果、文献、伦理号、未做实验  
 10. **英文 SCI 全文必须遵守** `references/Aitor-format.md`（金标准：`0del/lxf_LG/Response/Manuscript_Response_house.docx`：除表芯 11 磅外全稿 12 磅；题目/节标题 12 磅加粗；单位左齐不加粗）。不清楚就问用户。
+11. **缺项只批注：** 缺方法/产物事实、未测/未完成/`was not tested`、无外部验证集（*A validation set is required* / *No validation set was available*）一律 Word 批注，永不正文、永不黄底。不编造。新写与修订同规。批注/修订作者 **A**（禁 Grok）。
+12. **I/D 配额：** 新写仍 10–15 / 10–15-new。核已成稿不删真引用凑配额，只注明超额。
+13. **修订 Vancouver：** 按正文出现顺序重排角标。参考文献表重复项用已核 substitute 替换（作者 A）。
+14. **禁 COMMENTARY 读法指引**（they should not be summarized as / is not reported as / should not be read as / given this extent / should not be described as；修辞性 rather than、but not by）。观察性对比仍用 *associated with*；事实对比（e.g. but not by sex）不禁。
+15. **禁 elucidat*。** 目的/aim → exploring；机制未知 → remain unclear（不用 explain/clarify 顶替）。
+16. **少用副词**（新写与润色）。统计 *significantly*（已有 P 值规则）不禁。
 
 | 项 | 约定 |
 |----|------|
 | n | *(n = N)* |
 | P | 斜体 *P* |
 | CI | 95% CI: X–X（见 `Aitor-format.md`） |
-| 伦理 | 见 `Aitor-format.md`（回顾性默认 waiver；Date/NO 空则黄底） |
+| 伦理 | 见 `Aitor-format.md`（回顾性默认 waiver；Date/NO 空则 Word 批注，不黄底） |
 
 ---
 

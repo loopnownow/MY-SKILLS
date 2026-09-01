@@ -26,6 +26,8 @@ Lab SCI / Aitor wins when this list fights house rules: Methods stay **passive**
 
 Words are organized into three tiers based on how reliably they signal AI-generated text. This tiered approach — adapted from [brandonwise/humanizer](https://github.com/brandonwise/humanizer)'s vocabulary research — reduces false positives on words that are fine in isolation but suspicious in clusters.
 
+- **Adverbs (new writing and polish):** cut decorative *-ly* softeners/intensifiers. Do **not** ban statistical *significantly* when it is p-value language.
+- **Commentary voice:** body must not tell the reader how not to read the paper (*they should not be summarized as*; *is not reported as*; *should not be read as*; *given this extent*; *should not be described as*; rhetorical *rather than* / *but not by*). Observational contrast may still use *associated with*. Do not blanket-ban factual *rather than* / *but not by* (e.g. *but not by sex*). Detail: `forbidden-phrases.md`.
 - **Tier 1 — Always flag.** These words appear 5–20x more often in AI text than human text. Replace on sight.
 - **Tier 2 — Flag in clusters.** Individually fine, but two or more in the same paragraph is a strong AI signal. Flag when they appear together.
 - **Tier 3 — Flag by density.** Common words that AI simply overuses. Only flag when they make up a noticeable fraction of the text (roughly 3%+ of total words).
@@ -123,7 +125,7 @@ These words are legitimate on their own. When two or more show up together, the 
 | augment | add to, expand, supplement |
 | cultivate | build, develop, grow |
 | illuminate | clarify, explain, show |
-| elucidate | explain, clarify, spell out |
+| elucidate / elucidating / elucidated | BAN. Purpose/aim → exploring. Mechanism-unknown → remain unclear. Do **not** substitute explain / clarify / spell out. |
 | juxtapose | compare, contrast, set side by side |
 | paradigm-shifting | (describe what actually shifted) |
 | transformative / transformation | (describe what changed and how) |
@@ -142,7 +144,7 @@ These are normal words. Only flag them when the text is saturated with them — 
 
 | Word | What to do |
 |---|---|
-| significant / significantly | Replace some with specifics: numbers, comparisons, examples |
+| significant / significantly | Decorative density: replace some with specifics. Do **not** cut statistical *significantly* when it is p-value language (`stats-checklist.md`). |
 | innovative / innovation | Describe what's actually new |
 | effective / effectively | Say how or cite a metric |
 | dynamic / dynamics | Name the actual forces or changes |

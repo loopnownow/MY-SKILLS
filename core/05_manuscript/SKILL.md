@@ -40,7 +40,7 @@ If an Aitor-format rule is unclear, **ask the user**. Do not invent a second for
 
 ## Core rule
 
-Write from evidence and supplied results. Missing info → visible placeholder or stated limitation.
+Write from evidence and supplied results. Missing info → Word comment (author **A**); never yellow fill; never invent.
 
 ## Lab voice (Ying Li) — summary
 
@@ -49,7 +49,7 @@ Write from evidence and supplied results. Missing info → visible placeholder o
 - Observational → avoid causal overclaim (*associated with*)
 - Forbidden fluff: see `bundles/manuscript-core/references/de-ai/forbidden-phrases.md`
 - Methods/Results: short-moderate sentences; Discussion hedges calibrated to evidence
-- Prediction-model full papers: patient-level split (**training** / **test**; **validation set** = external only; never hold-out); dual-set main metrics; LASSO+RadScore formula in prose (no LASSO table); `95% CI: X–X`; no em-dash punctuation; no disclaimer / no repeated hedge; no *coded*/*displayed* endpoint prefix; blanks yellow-highlighted; Vancouver+DOI as required
+- Prediction-model full papers: patient-level split (**training** / **test**; **validation set** = external only; never hold-out); dual-set main metrics; LASSO+RadScore formula in prose (no LASSO table); `95% CI: X–X`; no em-dash punctuation; no disclaimer / no repeated hedge; no *coded*/*displayed* endpoint prefix; missing facts in Word comments (author **A**), no yellow slots; Vancouver+DOI as required
 
 ### Section shapes
 

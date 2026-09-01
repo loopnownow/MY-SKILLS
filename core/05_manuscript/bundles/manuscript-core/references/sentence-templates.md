@@ -55,7 +55,7 @@ Do **not** use `demonstrated good performance` or `suggesting its potential` (0 
 - "[Condition X] is a [clinical challenge] because [reason], affecting approximately N patients annually worldwide [1]."
 
 ### Gap identification
-- "However, the pathogenesis of [X] has not been fully elucidated."
+- "However, the pathogenesis of [X] remains unclear."
 - "Currently, [standard approach] remains the gold standard; however, it is limited by [limitation]."
 - "The accurate [preoperative/non-invasive] [prediction/diagnosis] of [X] remains challenging."
 - "Although [approach A] has been widely used, [limitation], which may lead to [adverse outcome]."

@@ -30,7 +30,8 @@ Voice and de-AI lists stay in `MODULE.md` / `de-ai/` / `stats-checklist.md`.
 - Numbers only from the latest `*-results.html` / locked tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
 - Canonical file: `Manuscript_<结局>_house.docx` (unpolished) or `Manuscript_<结局>_polished.docx` after archive. **Overwrite in place.**
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
-- **Any blank is yellow highlight** (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Never leave a gap that looks like finished text.
+- **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
+- Word **Track Changes** and **comments** author: **A**. Never `Grok`.
 
 ---
 
@@ -68,7 +69,7 @@ There is **no 16 pt title** and **no 14 pt section title**. Everything that is n
   - **training set** — internal fitting (never `development set` / `Dev`)  
   - **test set** — internal evaluation (never `hold-out`, `holdout`, or `hold out`)  
   - **validation set** — the external confirmation cohort (never `external test set`)  
-  Compound forms: `training-set`, `training-fitted`, `test-set`, `test AUC`, `validation-set`. Sentence start: `Training-set` / `Test-set` / `Validation-set`. Keep `10-fold cross-validation` (algorithm, not a cohort). If no external cohort exists, write `No validation set was available` or `A validation set is required` — still never `hold-out` or `external test set`.
+  Compound forms: `training-set`, `training-fitted`, `test-set`, `test AUC`, `validation-set`. Sentence start: `Training-set` / `Test-set` / `Validation-set`. Keep `10-fold cross-validation` (algorithm, not a cohort). If no external cohort exists, put `No validation set was available` or `A validation set is required` in a **Word comment only** (author **A**) — never in the body, Conclusion, Limitations, Highlights, or Figure 1. Still never `hold-out` or `external test set`.
 
 ---
 
@@ -90,7 +91,7 @@ Title → Authors → Affiliation →
 
 Delete pipeline banners. Hai-Feng Shi in **Funding only**.
 
-**Highlights (3 bullets).** Report findings, not missing data. Do **not** write “No validation set was available” as a highlight. A missing **product** may be a highlight when it is the scientific fact (e.g. no radiomics matrix, so no RadScore / nomogram). Typical order: main test-set metric → incremental value or its absence → incomplete later endpoint or planned validation set.
+**Highlights (3 bullets).** Report findings, not missing data. Do **not** write “No validation set was available” or “A validation set is required” as a highlight (comments only). A missing **product** (empty radiomics sheet, no RadScore / nomogram) is a **Word comment**, not a highlight and not body text. Typical order: main test-set metric → incremental value when it exists → a later endpoint that was analyzed.
 
 `Highlights` and `Abbreviations` may take a colon; bold through the colon.
 
@@ -102,7 +103,7 @@ Same-paragraph labels, **bold through the colon only**:
 `Objective:` `Methods:` `Results:` `Conclusion:` `Keywords:`  
 Flush left, no indent. Objective → Methods (*n*) → Results (AUC, CI) → hedged Conclusion.
 
-Lead Results with **test-set** AUC (training in parentheses if needed). If a nomogram, calibration, NRI, or RadScore was not exported, say so in Methods or Results. Do not invent those numbers.
+Lead Results with **test-set** AUC (training in parentheses if needed). If a nomogram, calibration, NRI, or RadScore was not exported, put that fact in a **Word comment** (author **A**); do not write it in Methods, Results, or Highlights. Do not invent those numbers.
 
 ---
 
@@ -122,6 +123,8 @@ Methods still opens with Ethics even if ethics is on the title page.
 - No `[1–3]` clusters.
 - Introduction 800–1000 words, 10–15 refs. **Last paragraph (aim / hypothesis): no citations.**
 - Discussion 800–1000 words, 10–15 **new** refs (no overlap with Introduction). **First paragraph: no citations.**
+- Those 10–15 / 10–15-new quotas apply when **writing new** Introduction / Discussion. When **checking an already-written** manuscript, do **not** delete genuine references to hit the quota; note over-quota only.
+- When **revising an existing** manuscript, reorder in-text Vancouver numbers to appearance order against the reference list. If the reference list contains a duplicate entry, replace that duplicate with an already-verified substitute (author **A**). This duplicate-list exception only.
 - **Methods: no citations.**
 - References: flush left, **no hanging indent**.
 
@@ -150,9 +153,9 @@ No current-study AUC dump. Expand abbreviations at first use.
 6. **Outcomes** — pathology **positive versus absent** (e.g. LVSI) or a **follow-up / RECIST** event (e.g. ORR = CR/PR versus SD/PD). Use the clinical name (stroke, recurrence, dedifferentiated). **Do not write *coded* or *displayed*** as an endpoint prefix. If labels were not locally re-adjudicated, say so **once** in Outcomes or Limitations (*labels followed the source field; they were not re-read against a local protocol*). Do not claim local re-adjudication.  
 7. **Laboratory tests** — pathologic endpoint: labs within **30 days** of pathology. Do not apply that sentence to pure survival / response-horizon papers.  
 8. **Imaging examinations** — MRI: primarily 3.0 T Magnetom Verio (Siemens Healthineers, Erlangen, Germany). CT: primarily Canon Aquilion (Canon Medical Systems, Otawara, Japan). Minority-of-scanners sentence allowed.  
-9. **Image processing** — method only. No QC field dumps. Lead-in fragments allowed (`Tumor segmentation.` `Preprocessing.`). Write what was **not** done (no ICC filter, no IBSI phantom, empty radiomics sheet). Habitats are imaging constructs, not histologic maps. Spatial ratios / subfield percentages are not a texture-radiomics panel unless that matrix exists.  
+9. **Image processing** — method only. No QC field dumps. Lead-in fragments allowed (`Tumor segmentation.` `Preprocessing.`). Write method choices that were actually locked (e.g. no ICC filter, no IBSI phantom). An **empty radiomics sheet** or other missing product is a **Word comment**, not body text. Habitats are imaging constructs, not histologic maps. Spatial ratios / subfield percentages are not a texture-radiomics panel unless that matrix exists.  
 10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually locked. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here.  
-11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, write **not generated / not exported**. Do not invent them.
+11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, put **not generated / not exported** in a **Word comment only**. Do not invent them. Do not write that sentence in the body.
 
 ---
 
@@ -191,7 +194,7 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 2. One block per finding — new literature; still no copied AUCs.  
 3. Clinical application — **one** short use-case sentence. No disclaimer stack (*It is not a replacement… A high score should not…*).  
 4. **Limitations: its own paragraph**, First… Second… Put label circularity **First** when a predictor is part of the endpoint. Facts only. No closer *rather than a ready clinical tool*.  
-5. **Conclusion** — 2–3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* **once** (here **or** in Limitations, not both; never in Highlights or Figure 1).
+5. **Conclusion** — 2–3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* / *No validation set was available* go in a **Word comment only** — never in Conclusion, Limitations, Highlights, or Figure 1.
 
 ---
 
@@ -237,6 +240,8 @@ One scientific bound, **one place**. Do not restate the same hedge in Highlights
 - `coded` / `displayed` as an endpoint prefix (`coded stroke`, `coded recurrence`, `displayed Stroke`)  
 - `median [interquartile range]` / `median [IQR]`  
 - “A sample-size calculation was not performed.”  
+- `was not tested` / `未测` / `未完成` (incomplete work → Word comments; never body)
+- `No validation set was available` / `A validation set is required` in the body, Conclusion, or Limitations (comments only)
 - Random seed / 66666  
 - “Histology fields were not applicable and were not used.”  
 - Result numbers in Discussion (especially paragraph 1) or Conclusion  
@@ -261,7 +266,7 @@ De-pipeline replacements (second polish pass; do not reorder IMRAD):
 | `outlined with ITK-SNAP` | `segmented using ITK-SNAP` |
 | `built inside the tumor mask` | `constructed within the tumor mask` |
 | `cases were split` | `patients were analyzed and divided` |
-| empty `[]` authors or `(Date: , NO: )` | yellow `[author name to be completed]` / `[Date to be completed]` / `[NO to be completed]` |
+| empty `[]` authors or `(Date: , NO: )` | Word comment (author **A**); do **not** yellow-fill `[author name to be completed]` / `[Date to be completed]` / `[NO to be completed]` |
 
 Do **not** take later-polish files as license to fuse sentences, add em-dashes, call the internal split a validation set, or stack *It is not a replacement…*.
 
@@ -274,7 +279,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 3. Per-split Youden: write that.  
 4. Cloned train/test 2×2: do not cite.  
 5. Never mention a random seed.  
-6. Specified but not generated (empty radiomics sheet, no nomogram, no calibration, no DCA): write **not generated**. Do not invent figures.  
+6. Specified but not generated (empty radiomics sheet, no nomogram, no calibration, no DCA): **Word comment only** (`not generated`). Do not invent figures. Do not put that sentence in the body.  
 7. A field that overlaps the endpoint (MMSE in the MCI label; a symptom code that already contains infarction) is a **coding / circular** result, not an independent imaging biomarker.  
 8. Worksheet group names (`non_Stroke`, `Negstive`) are cleaned in prose. Do not prefix the endpoint with *coded* / *displayed*. Un-readjudicated labels: one Methods or Limitations sentence, not a running prefix.
 
@@ -298,7 +303,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Highlights do not advertise a missing validation set  
 - Circular predictors named as circular  
 - No *coded* / *displayed* endpoint prefix  
-- Missing products written as not generated
+- Missing products: Word comment only, not body `not generated`
 - Intro last paragraph and Discussion first paragraph: no citations  
 - Methods: no `[n]`; no seed; `Python 3.13`  
 - Sample size: α, β, *p*, *n*, adequacy  
@@ -308,7 +313,8 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - `95% CI: X–X`; one fact per sentence  
 - Incremental *improved* only with same-sentence DeLong caveat  
 - Implausible labs: *P* = NC, note once  
-- Every blank yellow-highlighted  
+- No yellow empty slots; missing method/product facts in Word comments (author **A**)  
+- Word comments / Track Changes author **A** (never `Grok`)  
 - English punctuation  
-- Ethics Date/NO yellow if empty; email `dr.yingli@foxmail.com`  
+- Ethics Date/NO empty: Word comment, not yellow; email `dr.yingli@foxmail.com`  
 - Numbers match the latest results file (nomogram row, not a Combined-figure leftover)  
