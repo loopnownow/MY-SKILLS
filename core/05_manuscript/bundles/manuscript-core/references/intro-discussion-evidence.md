@@ -28,7 +28,8 @@ Claim | PMID/DOI | Design · n · effect | Intro or Discussion | Keep?
 - Intro last paragraph: aim/hypothesis, **no** citations
 - Discussion first paragraph: **no** citations, **no** result numbers
 - Intro vs Discussion reference lists do not overlap
-- Count within Aitor 10–15 / 10–15 new
+- New writing: count within Aitor 10–15 / 10–15 new
+- Checking an already-written manuscript: do **not** delete genuine refs to hit quota; note over-quota only
 - Methods still citation-free
 - Page/year/author checked when the user asks to 核对
 

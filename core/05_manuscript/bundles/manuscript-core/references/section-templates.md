@@ -75,4 +75,4 @@ This study has several limitations. First,… Second,…
 
 A combined clinical and habitat radiomics model fitted on the training set predicted [endpoint].  
 The model was displayed as a nomogram and evaluated on a patient-level internal test set.  
-A validation set is required.
+If no external cohort exists, put *A validation set is required* in a Word comment (author A) — never in this section.
