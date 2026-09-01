@@ -1,7 +1,7 @@
 ---
 name: "manuscript-quality"
 domain: "06_review"
-trigger: ["投稿前预审", "评阅", "审稿", "找洞", "回复审稿人", "毕业论文评阅", "审稿单"]
+trigger: ["投稿前预审", "评阅", "审稿", "找洞", "落实审稿意见", "回复审稿人", "毕业论文评阅", "审稿单"]
 inputs: ["manuscript_docx", "results_html"]
 outputs: ["blocking_major_minor_report"]
 tools: ["dealbreakers"]
@@ -25,11 +25,24 @@ owner: "06_review/bundles/manuscript-quality/MODULE.md"
 
 ### A. 预审自己的稿
 
-- 触发：投稿前预审、找洞、dealbreaker  
+- 触发：投稿前预审、找洞、dealbreaker、落实审稿意见、按审稿意见改已有稿  
 - 输出：Summary + Blocking/Major/Minor + 清单缺口 + 引用旗标（格式见 `references/merged/radiology-prereview/review-report-format.md`）  
-- 默认**不再**写 25–30 条问句。用户明确要「25-30条」时才用该格式。无法代决（伦理号、脏数据、终点范围、姓名）仍做成**选择题**问用户  
+- 默认**不再**写 25–30 条问句。用户明确要「25-30条」时才用该格式。无法代决（脏数据、终点范围、姓名）仍做成**选择题**问用户  
 - 打开：`merged/radiology-prereview/*`；清单/引用门只读 `05_manuscript` `manuscript-core/references/merged/radiology-reporting/` 与 `radiology-citation/`  
-- 版式/字数/title page 不在此改 → `05_manuscript` `Aitor-format.md`  
+- 版式/字数不在此改 → `05_manuscript` `Aitor-format.md`  
+
+**标题页整页跳过（落实审稿意见 / 改已有稿；不填、不黄标、不改写）：**
+
+| 项 | 动作 |
+|----|------|
+| 伦理号（Date/NO） | 跳过 |
+| 作者栏 | 跳过 |
+| 目标刊 | 跳过 |
+| 是否声明 “not generated” | 跳过 |
+
+从零写 title page 仍归 `05_manuscript` `Aitor-format.md`（此处不复制 Aitor）。
+
+**已成稿引用：** 核 Intro 10–15 / Discussion 10–15-new 时不删真引用凑配额，只注明超额。新写 I/D 配额与证据检索在 `05_manuscript` `Aitor-format.md` / `intro-discussion-evidence.md`，此处不重复检索步骤。
 
 优先查：泄漏 · 非患者级划分却声称 patient-level · 无验证 · 无法追溯 AUC · 过度临床宣称 · 预测模型未双集报告主模型  
 
@@ -97,7 +110,7 @@ Next: 05_manuscript 改稿
 
 ## 触发语
 
-`/medical-manuscript-review` · 投稿前预审 · 找问题 · peer review · 回复审稿人 · 毕业论文评阅 · 中文刊审稿单  
+`/medical-manuscript-review` · 投稿前预审 · 找问题 · 落实审稿意见 · peer review · 回复审稿人 · 毕业论文评阅 · 中文刊审稿单  
 
 ---
 

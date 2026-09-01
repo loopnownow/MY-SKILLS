@@ -5,8 +5,10 @@
 ## 2.1 何时用
 
 ### A. 预审自己的稿
-- 「投稿前找洞」「模拟审稿」「dealbreaker」  
+- 「投稿前找洞」「模拟审稿」「dealbreaker」「落实审稿意见」  
 - 全文或 Methods/Results 已齐，要 Blocking / Major / Minor  
+- **标题页整页跳过**（伦理号、作者栏、目标刊、是否声明 “not generated”）：落实审稿意见 / 改已有稿时不填、不黄标、不改写。从零写归 `05_manuscript` `Aitor-format.md`。  
+- **已成稿引用：** 不删真引用凑 Intro 10–15 / Discussion 10–15-new；只注明超额。新写配额与检索在 `05_manuscript`（`Aitor-format.md` / `intro-discussion-evidence.md`），此处不重复检索步骤。  
 
 ### B. 给别人写审稿意见
 - 你作为审稿人批**他人**稿  
@@ -14,7 +16,7 @@
 
 ## 2.2 工作流 — 预审自己的稿
 
-1. 确认稿件类型（诊断准确度 / 预测模型 / 组学 / 其他）与目标刊  
+1. 确认稿件类型（诊断准确度 / 预测模型 / 组学 / 其他）。落实审稿意见 / 改已有稿时**整页跳过 title page**（伦理号、作者栏、目标刊、“not generated”声明）——不填、不黄标、不改写。  
 2. 打开：  
    - `merged/radiology-prereview/dealbreakers.md`  
    - `merged/radiology-prereview/pre-submission-hard-gates.md`  
@@ -52,7 +54,7 @@ Reporting checklist gaps
 - CLAIM/TRIPOD/... item: missing | ok
 
 Citation flags
-- ...
+- ...（已成稿超额只注明，不删真引用凑 10–15 / 10–15-new）
 
 Recommended next: 改稿后回 `05_manuscript` `manuscript-core` 润色
 ```
@@ -139,5 +141,5 @@ Internal note: dealbreakers found — [list, or none]
 
 写英文意见用 §2.5；修自己的稿用本节预判。命中与自审侧不完全相同：他审更常抓讨论/局限/overclaim（30）、统计（29）、验证/过拟合（29）、方法写不清（21）；伦理占位符命中低于自审侧。
 
-预审时优先补上：伦理委员会名称+批号、样本量计算、局限段写全、缩写首次展开、图注、例数与流程图一致、多机扫描参数、测量次数/ICC。不要把推荐审稿人名单或期刊行政须知写进技能或仓库。
+预审时优先补上：样本量计算、局限段写全、缩写首次展开、图注、例数与流程图一致、多机扫描参数、测量次数/ICC。不要填、黄标或改写标题页（伦理号、作者栏、目标刊、“not generated”声明）。不要把推荐审稿人名单或期刊行政须知写进技能或仓库。
 
