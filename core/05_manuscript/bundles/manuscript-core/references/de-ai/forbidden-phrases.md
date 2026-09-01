@@ -20,6 +20,7 @@
 | will (prediction of clinical impact) | may / could |
 | It is worth noting that | delete; state the fact |
 | furthermore / moreover (stacked) | vary or cut |
+| elucidat* (elucidate / elucidating / elucidated) | purpose/aim: exploring; mechanism-unknown: remain unclear (not explain / clarify) |
 
 | novel | (drop, or name what changed) |
 | notably | delete; state the fact |
@@ -49,6 +50,23 @@ load-bearing sentence in a paragraph — not as filler. Cut them when they're
 decorative throat-clearing; keep them when they're doing that flagging work.
 See `../corpus/corpus-phrase-bank.md` §8 for verified examples.
 </details>
+
+## Commentary voice (body ban)
+
+Do not tell the reader how **not** to read the paper. Ban in the body:
+
+- they should not be summarized as
+- is not reported as
+- should not be read as
+- given this extent
+- should not be described as
+- rhetorical *rather than* / *but not by* that steer interpretation
+
+Observational contrast may still use *associated with*. Do **not** blanket-ban factual *rather than* / *but not by* (e.g. *but not by sex*).
+
+## Adverbs (new writing and polish)
+
+Reduce adverb use. Short rule, not a lexicon: cut decorative *-ly* softeners and intensifiers. Do **not** ban statistical *significantly* when it is p-value language (already governed in `../stats-checklist.md` / Results reporting).
 
 ## Lab-unused stock (0 hits in 389 unique drafts, 2026-08-28)
 

@@ -96,3 +96,22 @@ boundary_effect: No new top-level skill created. skill-harvest untouched; its go
 decision: keep (policy + phrase-bank edits), observe (diff_harvest.py)
 next_action: run diff_harvest.py against real AI-draft/human-final pairs; if data/diff-evidence-log.csv shows recurring new candidates across multiple manuscripts, fold them into the next full corpus-phrase-bank.md re-harvest rather than adding them ad hoc.
 ```
+## Harvest 2026-08-30 — 05_manuscript (user)
+
+```text
+change_id: CHG-20260902-001
+date: 2026-09-02
+skill: 05_manuscript
+mode: manuscript-core
+from_version: n/a
+to_version: n/a
+change_class: fix + policy
+problem: Harvest 2026-08-30 (author A): Track Changes author; yellow empty slots; I/D quota vs already-written refs; body was-not-tested / validation-set stock; Vancouver reorder on revision; COMMENTARY anti-reading voice; elucidat*; adverb load.
+change: (C2-B) Word Track Changes/comments author A, never Grok. Hunt under core/05_manuscript found no python/json default revision author (only path strings D:\0Grok\…, left unchanged); rule written in Aitor-format.md. (C4-C) Cancel yellow-highlight empty slots forever; missing method/product facts go in Word comments only, never body, never yellow fills; new writing and revision; do not fabricate. (C6-B) Writing new I/D still 10–15 / 10–15-new; checking an already-written manuscript: do not delete genuine refs to hit quota, note over-quota only. (C9-B) Body never contains was not tested / 未测 / 未完成; incomplete work → comments; Aitor “A validation set is required” and “No validation set was available” moved out of body/Conclusion/Limitations into comments-only. (C10-C) Revising existing MS: reorder in-text Vancouver numbers to appearance order vs the reference list; duplicate list entries → already-verified substitute (author A); this exception only — no general substitutes-in-comments rule. (C13-B) Ban COMMENTARY anti-reading phrasing in body (they should not be summarized as; is not reported as; should not be read as; given this extent; should not be described as; rhetorical rather than / but not by); observational contrast may still use associated with; do not blanket-ban factual rather than / but not by (e.g. but not by sex). (C14-C) Ban elucidat*; purpose/aim → exploring; mechanism-unknown → remain unclear (not explain/clarify); deleted template “has not been fully elucidated”. Adverb: new writing and polish reduce adverb use; do not ban statistical significantly (p-value language).
+expected_benefit: House DOCX marks and honesty boundaries match author A’s harvest; de-AI stops commentary/elucidate/adverb slop without breaking factual contrast or p-value English.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: 05_manuscript / manuscript-core only. 06_review and 00_orchestrator untouched. KEEP not in this PR: C1 polish-before-review order; C5 figure-vs-caption; C7 substitutes-only-in-comments as general rule; C8 _revised.docx layout; C11 uncited figures as Major; C12 Table 1 vs literature range; no 00_orchestrator pointer.
+decision: keep
+next_action: live full-paper write/polish; confirm Word comments author A and no yellow slots
+```

@@ -16,7 +16,7 @@ Do **not** draft long prose until plan accepted (unless user says skip plan).
 
 ## P1 — Introduction
 
-Follow `Aitor-format.md` (800–1000 words, 10–15 refs, one cite/sentence). Habitat papers still use stakes → prior tools → habitat gap → purpose. No AUC dump of the current study.
+Follow `Aitor-format.md` (800–1000 words, 10–15 refs when **writing new**, one cite/sentence). Checking an already-written Intro: do not delete genuine refs to hit quota. Habitat papers still use stakes → prior tools → habitat gap → purpose. No AUC dump of the current study.
 
 ## P2 — Methods
 
@@ -46,7 +46,7 @@ Required narrative for **combined (primary)**:
 
 - AUC (95% CI) training and test  
 - ACC/SEN/SPE at the Youden rule actually used (split-specific unless locked)  
-- NRI / IDI only if exported (else write not generated)  
+- NRI / IDI only if exported (else Word comment: not generated; not in body)  
 - Calibration + DCA both sets if exported  
 
 Incremental wording (including the DeLong caveat): **`Aitor-format.md`**.
@@ -55,7 +55,7 @@ Full **RadScore formula** in Results (or Methods + Results pointer).
 
 ## P4 — Discussion
 
-Follow `Aitor-format.md` (800–1000 words, 10–15 **new** refs, no Intro overlap). Prediction papers still expand:
+Follow `Aitor-format.md` (800–1000 words, 10–15 **new** refs when **writing new**, no Intro overlap). Checking an already-written Discussion: do not delete genuine refs to hit quota. Prediction papers still expand:
 
 - Add mechanism sentences for selected feature *families* (not every coefficient)  
 - Add 2–3 comparator studies with numbers when available  
