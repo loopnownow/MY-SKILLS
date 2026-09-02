@@ -32,6 +32,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Ethics (protocol-level) | `personal/ethics.md` |
 | Multicenter | `personal/multicenter.md` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
+| Ethics application **forms** (fill pack) | `ethics-application-forms/` (`scripts/`, `references/`) |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 
@@ -57,6 +58,7 @@ Until mounted, local copies remain under `literature/`, `design/`, `frontier/` (
 
 - Manuscript prose / I/D writing → `05_manuscript`
 - Statistics / figures → `04_analysis`
-- Data preprocessing / extraction / ethics forms (temp) → `02_data-processing`
+- Data preprocessing / extraction → `02_data-processing`
+- Ethics **forms** (fill pack) stay here (`ethics-application-forms/`); protocol-level ethics → `personal/ethics.md`
 - Translational / reader-study **design** stays here (`clinical-translation/`)
 - Reviewer response → `06_review`

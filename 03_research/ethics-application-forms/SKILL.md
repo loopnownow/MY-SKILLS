@@ -9,7 +9,7 @@ description: >
 
 # 伦理申请表格填报
 
-**暂时挂在 02**（`02_data-processing/ethics-application-forms/`）。真正家园仍是 **03 伦理设计**（protocol-level `03_research/personal/ethics.md`）；本技能只填院内表格，不发明研究设计。
+家园 `03_research/ethics-application-forms/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
 
 ## Purpose
 

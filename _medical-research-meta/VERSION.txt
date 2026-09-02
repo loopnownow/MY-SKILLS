@@ -1,5 +1,4 @@
-classify-extra-layer-20260902 (2026-09-02)
-A = framework + personal (skills at repo root; ≤4 path parts: skill/category/scripts|references/file)
-B = loopnownow/MY-SKILLS-capabilities (mountable; classified domain folders; not mounted)
-01 = skill-discovery-integration; 02 = data-processing; figures → 04
-Personal vs generic files classified inside 03/04/05/06; 02 packs restored scripts/references
+relocate-20260902 (2026-09-02)
+A personal/orchestrator; 05 de-ai + writing-generic and 06 review-generic live in B
+ethics-application-forms under 03; 04 radiology-stats merged into personal
+B = loopnownow/MY-SKILLS-capabilities (not mounted)

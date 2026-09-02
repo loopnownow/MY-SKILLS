@@ -22,8 +22,6 @@ Convert **validated** research information into precise, publication-ready origi
 
 **Mounted writing capability → 05 personal upper layer → 00 Final QC.**
 
-Generic writing files remaining locally are externalization candidates until a mount covers them.
-
 ## Personal assets
 
 | Task | Path |
@@ -35,14 +33,14 @@ Generic writing files remaining locally are externalization candidates until a m
 | Corpus phrase bank | `personal/corpus-phrase-bank.md` |
 | Citation and language | `personal/citation-and-language.md` |
 | I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
-| de-AI pack | `de-ai/` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 
-- `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (C4 lives in B, not here)
+- `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (B `05-manuscript/writing-generic/`)
+- `05-de-ai` — forbidden phrases / AI-isms (B `05-manuscript/de-ai/`)
 
-Until mounted, local generic copies remain under `writing-generic/` (see `EXTERNALIZATION_CANDIDATES.md`): `manuscript-core.md`, `mode-1-sci.md`, `section-templates.md`, reporting/citation files, etc. Journal-style files (`journal-family-writing-style`, `nature-family-shape`, `venue-voice-and-house-style`, `radiology-house-style`) are **not** kept in A; they live in B.
+These packs live in B only. `registry.yaml` `mounts: []` until an explicit mount. Do not recreate `writing-generic/` or `de-ai/` in A.
 
 ## Figures
 
@@ -61,7 +59,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: `de-ai/forbidden-phrases.md`
+- Forbidden fluff: mounted `05-de-ai` (`forbidden-phrases.md`)
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.
