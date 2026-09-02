@@ -8,19 +8,30 @@ Layout mirrors `C:\Users\loopn\.grok\skills`.
 ## Layout
 
 ```
-core/          Active skills 00–06 + skill-harvest  (max 3 directory levels)
-archive/       Standalone packs kept for reuse (not migrated this round)
+00_orchestrator/
+01_skill-discovery-integration/
+02_data-processing/
+03_research/
+04_analysis/
+05_manuscript/
+06_review/
+skill-harvest/
+archive/       Empty of skills; four packs rehomed 2026-09-02 (see archive/README.md)
 _medical-research-meta/  Architecture, integration map, tests
 ARCHITECTURE.md
 SKILLS_map.html
+MOUNTED_SKILLS.md
+EXTERNALIZATION_CANDIDATES.md
 ```
+
+Skill paths are at most three directories from repo root: `<skill>/<optional-one-folder>/file`. No `core/`, no `bundles/`, no `merged/`.
 
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Classification, routing, composite workflows, Final QC + local recovery |
 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills (not Excel) |
-| `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; no modeling |
-| `03_research` | Research framework + literature (03 only) + personal grant supplement |
+| `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; ethics forms (temp); no modeling |
+| `03_research` | Research framework + literature (03 only) + personal grant supplement + translational design |
 | `04_analysis` | Statistics, prediction, **figures** |
 | `05_manuscript` | Personal writing upper layer (not figure-engine) |
 | `06_review` | Personal review/response upper layer (reviewer response only here) |

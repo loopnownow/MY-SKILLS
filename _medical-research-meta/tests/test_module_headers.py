@@ -2,67 +2,74 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CORE = ROOT / "core"
 ARCHIVE = ROOT / "archive"
+SKILL_DIRS = (
+    "00_orchestrator",
+    "01_skill-discovery-integration",
+    "02_data-processing",
+    "03_research",
+    "04_analysis",
+    "05_manuscript",
+    "06_review",
+    "skill-harvest",
+)
 
 
 class ModuleHeaderTests(unittest.TestCase):
     def test_layout_core_and_archive(self):
-        self.assertTrue((ROOT / "core").is_dir())
+        self.assertFalse((ROOT / "core").exists(), "core/ must be lifted to repo root")
         self.assertTrue((ROOT / "archive").is_dir())
-        core_names = {p.name for p in CORE.iterdir() if p.is_dir()}
-        for expected in (
-            "00_orchestrator",
-            "01_skill-discovery-integration",
-            "02_data-processing",
-            "03_research",
-            "04_analysis",
-            "05_manuscript",
-            "06_review",
-            "skill-harvest",
-        ):
-            self.assertIn(expected, core_names)
-        self.assertNotIn("01_automation", core_names)
-        self.assertNotIn("02_imaging", core_names)
-        archive_names = {p.name for p in ARCHIVE.iterdir() if p.is_dir()}
-        for expected in (
+        root_dirs = {p.name for p in ROOT.iterdir() if p.is_dir()}
+        for expected in SKILL_DIRS:
+            self.assertIn(expected, root_dirs)
+        self.assertNotIn("01_automation", root_dirs)
+        self.assertNotIn("02_imaging", root_dirs)
+        archive_skill_dirs = {p.name for p in ARCHIVE.iterdir() if p.is_dir()}
+        for former in (
             "ethics-application-forms",
             "code-refactoring",
             "clinical-data-extraction",
             "clinical-translation",
         ):
-            self.assertIn(expected, archive_names)
-            self.assertTrue((ARCHIVE / expected / "SKILL.md").is_file())
-        self.assertTrue((CORE / "01_skill-discovery-integration" / "SKILL.md").is_file())
-        self.assertTrue((CORE / "01_skill-discovery-integration" / "registry.yaml").is_file())
+            self.assertNotIn(former, archive_skill_dirs)
+            self.assertFalse((ARCHIVE / former / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "archive" / "README.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "clinical-data-extraction" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "code-refactoring" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "ethics-application-forms" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "03_research" / "clinical-translation" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "01_skill-discovery-integration" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "01_skill-discovery-integration" / "registry.yaml").is_file())
         for banned in ("markitdown", "tool-environment-setup", "imaging-omics-ml"):
-            self.assertFalse(any(CORE.rglob(banned)), banned)
+            self.assertFalse(any(ROOT.rglob(banned)), banned)
 
     def test_no_forbidden_a_directories(self):
-        self.assertFalse((CORE / "01_automation").exists())
-        self.assertFalse((CORE / "02_imaging").exists())
-        self.assertFalse(any(CORE.rglob("bundles")), "A must not contain bundles/")
-        self.assertFalse((CORE / "05_manuscript" / "figure-engine").exists())
-        fig = list((CORE / "05_manuscript").rglob("*figure-engine*"))
+        self.assertFalse((ROOT / "01_automation").exists())
+        self.assertFalse((ROOT / "02_imaging").exists())
+        self.assertFalse((ROOT / "core").exists())
+        self.assertFalse(any(p for p in ROOT.rglob("bundles") if ".git" not in p.parts), "A must not contain bundles/")
+        self.assertFalse((ROOT / "05_manuscript" / "figure-engine").exists())
+        fig = [p for p in (ROOT / "05_manuscript").rglob("*figure-engine*") if ".git" not in p.parts]
         self.assertEqual(fig, [])
-        self.assertFalse((CORE / "skill-harvest" / "evolution" / "proposals").exists())
+        self.assertFalse((ROOT / "skill-harvest" / "evolution" / "proposals").exists())
 
     def test_core_max_three_directories(self):
-        """core + skill + optional one folder (+ file)."""
+        """skill + optional one folder + file (no core/, no fourth folder)."""
         violations = []
-        for p in CORE.rglob("*"):
-            if not p.is_file():
-                continue
-            rel = p.relative_to(CORE)
-            n_dirs_including_core = 1 + len(rel.parts) - 1  # core + parent dirs of file
-            # rel.parts = (skill, [folder], file) → dirs = core + parts[:-1]
-            n_dirs = 1 + len(rel.parts[:-1])
-            if n_dirs > 3:
-                violations.append((n_dirs, str(p.relative_to(ROOT))))
+        for skill in SKILL_DIRS:
+            base = ROOT / skill
+            for p in base.rglob("*"):
+                if not p.is_file():
+                    continue
+                if "__pycache__" in p.parts or ".git" in p.parts:
+                    continue
+                rel = p.relative_to(ROOT)
+                if len(rel.parts) > 3:
+                    violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
     def test_registry_not_mounted(self):
-        text = (CORE / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
         self.assertIn("mounts: []", text)
         self.assertIn("Imbad0202/academic-research-skills", text)
         self.assertIn("Aperivue/medsci-skills", text)
@@ -71,7 +78,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("backup-candidate", text)
 
     def test_personal_radiology_stats_stays_in_a(self):
-        rs = CORE / "04_analysis" / "radiology-stats"
+        rs = ROOT / "04_analysis" / "radiology-stats"
         self.assertTrue((rs / "MODULE.md").is_file())
         self.assertTrue((rs / "diagnostic-accuracy.md").is_file())
         self.assertEqual(len(list(rs.glob("*.md"))), 7)
@@ -86,8 +93,6 @@ class ModuleHeaderTests(unittest.TestCase):
         for p in ROOT.rglob("*.md"):
             if "__pycache__" in p.parts or ".git" in p.parts:
                 continue
-            if "archive" in p.parts:
-                continue  # archive not migrated this round
             if p.name in skip_names:
                 continue
             text = p.read_text(encoding="utf-8")

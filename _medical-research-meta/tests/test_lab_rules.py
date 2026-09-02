@@ -5,7 +5,7 @@ import re
 import unittest
 from pathlib import Path
 
-SKILLS = Path(__file__).resolve().parents[2] / "core"
+SKILLS = Path(__file__).resolve().parents[2]
 
 
 def read(*parts: str) -> str:
@@ -59,7 +59,7 @@ class ValMode(unittest.TestCase):
 
 class Routing(unittest.TestCase):
     def test_01_is_discovery_not_excel(self) -> None:
-        readme = (SKILLS.parent / "README.md").read_text(encoding="utf-8")
+        readme = (SKILLS / "README.md").read_text(encoding="utf-8")
         self.assertIn("01_skill-discovery-integration", readme)
         self.assertIn("Discover / evaluate / mount", readme)
         self.assertNotIn("01_automation", readme)

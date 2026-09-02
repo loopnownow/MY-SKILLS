@@ -1,6 +1,5 @@
-framework-a-20260902 (2026-09-02)
-A = framework + personal (core/ ≤3 directory levels)
-B = loopnownow/MY-SKILLS-capabilities (mountable; not mounted)
+rehome-archive-root-20260902 (2026-09-02)
+A = framework + personal (skills at repo root; ≤3 directory levels; no core/)
+B = loopnownow/MY-SKILLS-capabilities (mountable; classified domain folders; not mounted)
 01 = skill-discovery-integration; 02 = data-processing; figures → 04
-Removed from A identity: 01_automation, 02_imaging, nested figure-engine
-Archive four packs unchanged this round
+Four former archive packs rehomed: extraction/code-refactoring/ethics-forms → 02; clinical-translation → 03
