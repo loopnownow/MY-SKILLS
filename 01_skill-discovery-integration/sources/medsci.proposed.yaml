@@ -1,0 +1,9 @@
+source_id: med-sci-skills
+name: MedSci Skills
+role: backup-candidate
+repo: https://github.com/Aperivue/medsci-skills
+status: PROPOSED
+empty_mount: notify-then-research-confirm
+notes: >
+  Second backup. Same empty-mount protocol as ARS. Not a default.
+skills: []

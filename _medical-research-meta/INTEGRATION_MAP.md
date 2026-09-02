@@ -238,3 +238,16 @@ change: Canonical pointers only in 01 (`registry.yaml` + `MOUNTED_SKILLS.md`). D
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 01 mounts.html + per-source yaml 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-001
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface board
+problem: Mount pointers were yaml/md only; user asked for an HTML board of sources, available skills, A hook, and interface status, plus a recommendation on one-file-per-mount vs one-file-for-all.
+change: Added 01/mounts.html (human board). One yaml per external source under 01/sources/ (B default; ARS/MedSci proposed). registry.yaml remains canonical index. Recommended against one file per skill id and against mixing sources. 03 literature/design/frontier marked dual-track. de-ai not listed as a B mount.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

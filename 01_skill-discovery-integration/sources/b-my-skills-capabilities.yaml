@@ -1,0 +1,72 @@
+# One config file per external source (recommended).
+# Human board: ../mounts.html   Canonical index: ../registry.yaml
+source_id: my-skills-capabilities
+name: MY-SKILLS-capabilities
+role: default-mount
+repo: https://github.com/loopnownow/MY-SKILLS-capabilities
+status: MOUNTED
+empty_mount: notify-then-research-confirm
+notes: >
+  Default B pack. de-AI is not here (A 05_manuscript/personal).
+  03 literature/design/frontier still have A copies (dual-track).
+skills:
+  - id: 02-xlsx
+    path: 02-data-processing/xlsx/
+    a_hook: 02_data-processing
+    a_step: 原始表 / Excel / CSV → 分析可用表
+    interface: ready
+  - id: 02-imaging-qc
+    path: 02-data-processing/imaging-qc/
+    a_hook: 02_data-processing
+    a_step: 影像预处理与 QC
+    interface: ready
+  - id: 02-radiomics-habitat
+    path: 02-data-processing/radiomics-habitat/
+    a_hook: 02_data-processing
+    a_step: radiomics / 生境准备（建模交 04）
+    interface: ready
+  - id: 02-impute
+    path: 02-data-processing/impute/
+    a_hook: 02_data-processing
+    a_step: 缺失 / 异常值
+    interface: ready
+  - id: 02-generic-docs
+    path: 02-data-processing/generic-docs/
+    a_hook: 02_data-processing
+    a_step: 通用影像/数据说明
+    interface: ready
+  - id: 03-literature
+    path: 03-research/literature/
+    a_hook: 03_research
+    a_step: 文献 / 来源 / 选刊 / 公开数据集
+    interface: dual-track
+  - id: 03-design
+    path: 03-research/design/
+    a_hook: 03_research
+    a_step: 研究设计 / 验证 / 蓝图
+    interface: dual-track
+  - id: 03-frontier
+    path: 03-research/frontier/
+    a_hook: 03_research
+    a_step: 前沿主题 / 问题化
+    interface: dual-track
+  - id: 04-stats-generic
+    path: 04-analysis/stats-generic/
+    a_hook: 04_analysis
+    a_step: 通用统计百科（实验室口径仍用 personal/）
+    interface: ready
+  - id: 04-figure-engine
+    path: 04-analysis/figure-engine/
+    a_hook: 04_analysis
+    a_step: 出图（STROBE / 期刊图）
+    interface: ready
+  - id: 05-writing-generic
+    path: 05-manuscript/writing-generic/
+    a_hook: 05_manuscript
+    a_step: 通用写作 / 报告 / 引用 / 期刊体例；个人层 Aitor-format + de-AI
+    interface: ready
+  - id: 06-review-generic
+    path: 06-review/review-generic/
+    a_hook: 06_review
+    a_step: 预审 / 回复机械层；个人审稿声音留在 A
+    interface: ready
