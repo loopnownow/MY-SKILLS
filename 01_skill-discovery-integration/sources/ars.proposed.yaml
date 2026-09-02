@@ -1,0 +1,10 @@
+source_id: academic-research-skills
+name: Academic Research Skills
+role: backup-candidate
+repo: https://github.com/Imbad0202/academic-research-skills
+status: PROPOSED
+empty_mount: notify-then-research-confirm
+notes: >
+  Backup only. Do not mount unless a B pack is empty, the user is notified,
+  a re-search is done, and they confirm.
+skills: []

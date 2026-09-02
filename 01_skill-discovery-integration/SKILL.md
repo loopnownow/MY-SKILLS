@@ -14,7 +14,7 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here** (`registry.yaml`, `MOUNTED_SKILLS.md`). Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts.html`. Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 
@@ -56,5 +56,6 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 ## Registry
 
-`registry.yaml` = lifecycle + pointers (canonical). `interface.yaml` = capability contract.
+`registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts.html` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
+**Layout rule:** one external source → one yaml. Do not split B into 12 files; do not mix B + ARS + MedSci in one file.

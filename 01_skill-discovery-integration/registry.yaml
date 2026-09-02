@@ -1,4 +1,6 @@
 # Mount pointers live only in 01.
+# Human board: mounts.html
+# Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
 # Never auto-mount a non-B source. PROPOSED is not MOUNTED.
