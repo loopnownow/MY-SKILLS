@@ -4,16 +4,17 @@ This file records the current architecture, not the historical export tree.
 
 | Source capability | Active home |
 |---|---|
-| Excel/CSV / 0RAD workspace | `core/01_automation/` |
-| Soft-coding / dry-run | `archive/code-refactoring/` |
-| Clinical extraction | `archive/clinical-data-extraction/` |
-| Ethics form packs | `archive/ethics-application-forms/` |
-| MRI/fMRI / radiomics / habitat | `core/02_imaging/bundles/` |
-| Clinical translation / reader studies | `archive/clinical-translation/` |
-| Study design / radiology frontier | `03_research/bundles/` |
-| Clinical statistics / prediction | `04_analysis/bundles/` |
-| SCI writing / figures | `05_manuscript/bundles/` |
-| Manuscript audit / peer review / reviewer response | `06_review/bundles/` |
+| Skill discovery / mount | `01_skill-discovery-integration/` |
+| Excel/CSV / 0RAD workspace | `02_data-processing/` |
+| Soft-coding / dry-run | `02_data-processing/code-refactoring/` |
+| Clinical extraction | `02_data-processing/clinical-data-extraction/` |
+| Ethics form packs (temporary parking) | `02_data-processing/ethics-application-forms/` |
+| MRI/fMRI / radiomics / habitat prep | `02_data-processing/` |
+| Clinical translation / reader-study design | `03_research/clinical-translation/` |
+| Study design / literature / radiology frontier | `03_research/` |
+| Clinical statistics / prediction / figures | `04_analysis/` |
+| SCI writing | `05_manuscript/` |
+| Manuscript audit / peer review / reviewer response | `06_review/` |
 | Skill lifecycle governance | `skill-harvest/` |
 
 Historical export paths are intentionally not retained in the active map.
@@ -153,4 +154,23 @@ metric_summary: n/a
 boundary_effect: No bot profile edits (C5). Archive four packs not migrated. Do not delete A generic 03/05/06 copies until a mount covers them. Do not merge this PR automatically.
 decision: keep
 next_action: user reviews PR; mount only after explicit approval; then delete matching EXTERNALIZATION_CANDIDATES rows
+```
+
+## Rehome archive packs + lift skills to repo root 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-004
+date: 2026-09-02
+skill: layout (A root lift + archive rehome; B classified folders)
+from_version: framework-a-20260902
+to_version: rehome-archive-root-20260902
+change_class: architecture
+problem: Skills still lived under core/; four packs remained archive standalones; A depth counted core as a directory; B mountable pack was a flat list of 02-xlsx / 03-design ids rather than domain folders.
+change: Lifted A 00–06 + skill-harvest (and MOUNTED_SKILLS.md / EXTERNALIZATION_CANDIDATES.md) from core/ to repo root. Flattened four archive packs into domain skills at ≤3 directories: clinical-data-extraction, code-refactoring, ethics-application-forms → 02_data-processing/<pack>/ (files hoisted; ethics forms temporary parking, true home remains 03 ethics design); clinical-translation → 03_research/clinical-translation/ as personal translational DESIGN (not 02, not 04). archive/ kept with README only. Routing: Excel/extraction/ethics-forms(temp)/coding-principles → 02; translational/reader-study design → 03; no archive-as-standalone routes. B reorganized into 02-data-processing/ 03-research/ 04-analysis/ 05-manuscript/ 06-review/ domain folders; ids unchanged. 01 registry unchanged (ARS default candidate, MedSci backup, mounts []). Specialist bot profiles unchanged.
+expected_benefit: Discoverable skills at repo root; archive packs have domain homes; A depth rule is skill + optional folder + file; B layout matches A domains for mounting.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: No bot profile edits. Do not merge this PR automatically. Do not copy A personal files into B.
+decision: keep
+next_action: user reviews PRs; mount only after explicit approval
 ```

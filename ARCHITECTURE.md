@@ -2,20 +2,15 @@
 
 ```text
 skills/
-├── core/
-│   ├── 00_orchestrator
-│   ├── 01_skill-discovery-integration
-│   ├── 02_data-processing
-│   ├── 03_research
-│   ├── 04_analysis
-│   ├── 05_manuscript
-│   ├── 06_review
-│   └── skill-harvest
-├── archive/
-│   ├── ethics-application-forms
-│   ├── code-refactoring
-│   ├── clinical-data-extraction
-│   └── clinical-translation
+├── 00_orchestrator
+├── 01_skill-discovery-integration
+├── 02_data-processing
+├── 03_research
+├── 04_analysis
+├── 05_manuscript
+├── 06_review
+├── skill-harvest
+├── archive/          (empty of skills; packs rehomed)
 └── _medical-research-meta/
 ```
 
@@ -23,8 +18,8 @@ skills/
 
 1. `00_orchestrator` — classification, routing, composite workflow, Final QC, local recovery (re-run only the broken node).
 2. `01_skill-discovery-integration` — discover, evaluate, and mount external Skills; infrastructure only. Never literature/stats/writing/review. Never auto-mount.
-3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation. No modeling. Handoff → 04.
-4. `03_research` — research design, **literature (03 only)**, evidence, frontier, journals, grants. Personal grant/ethics files are a supplement, not an upper writing layer.
+3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles; ethics form packs (temporary parking). No modeling. Handoff → 04.
+4. `03_research` — research design, **literature (03 only)**, evidence, frontier, journals, grants, translational/reader-study **design**. Personal grant/ethics/translation files are a supplement, not an upper writing layer.
 5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role.
 6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities.
 7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only.
@@ -42,28 +37,25 @@ L3  Personal control: 02/03/04 supplements; 05/06 personal upper layers
 
 **Mounted Skill owns generic capability. MY-SKILLS owns orchestration, personalization, constraints, and final authority.**
 
-A `core/` path is at most three directories: `core/<skill>/<optional-one-folder>/file`. No `bundles/`, no `merged/`, no fourth folder.
+An A skill path is at most three directories from repo root: `<skill>/<optional-one-folder>/file`. No `core/`, no `bundles/`, no `merged/`, no fourth folder.
 
 ## Routing rules
 
 - Literature research → `03_research` only.
 - Reviewer response → `06_review` only.
-- Data preprocessing / Excel / 0RAD → `02_data-processing`.
+- Data preprocessing / Excel / 0RAD / extraction / coding principles / ethics forms (temp) → `02_data-processing`.
+- Translational / reader-study design → `03_research` (`clinical-translation`).
 - Statistics and figures → `04_analysis`.
 - Scientific writing/polishing → `05_manuscript`.
 - New external capability → `01_skill-discovery-integration` (network first, then ask for a local path).
 - Evolution proposals → `skill-harvest` and explicit user approval.
 
-## Archive
+## Rehomed packs (no longer standalone)
 
-Archive skills remain standalone optional capabilities this round (not migrated):
-
-- `code-refactoring` — soft-coding / dry-run / CONFIG on top
-- `ethics-application-forms` — ethics application forms
-- `clinical-data-extraction` — clinical/HIS extraction
-- `clinical-translation` — translation / reader studies
-
-00 may still route to archive.
+- `02_data-processing/code-refactoring` — soft-coding / dry-run / CONFIG on top
+- `02_data-processing/ethics-application-forms` — ethics application forms (**temporary**; true home is 03 ethics design)
+- `02_data-processing/clinical-data-extraction` — clinical/HIS extraction
+- `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at B `03-research/design`)
 
 ## Design rules
 

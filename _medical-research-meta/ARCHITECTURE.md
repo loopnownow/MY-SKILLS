@@ -7,13 +7,12 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Intent | Route |
 |---|---|
 | Skill discovery / new external capability | `01_skill-discovery-integration` |
-| Excel / 0RAD workspace / cleaning / imaging prep / impute | `02_data-processing` |
-| Literature research / evidence / study design / grants | `03_research` |
+| Excel / 0RAD workspace / cleaning / imaging prep / impute / extraction / coding principles / ethics forms (temp) | `02_data-processing` |
+| Literature research / evidence / study design / grants / translational design | `03_research` |
 | Statistics / prediction / **figures** | `04_analysis` |
 | Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / **reviewer response** | `06_review` |
 | Evolution governance | `skill-harvest` |
-| Soft-coding / ethics forms / HIS extract / reader study | `archive/` standalones |
 
 ### Lab-specific flows (Ying Li)
 
@@ -26,12 +25,12 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 选题 / 选刊 / 文献 | `03_research` |
 | AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
-| 软编码 / dry-run | `code-refactoring` |
+| 软编码 / dry-run | `02_data-processing` → `code-refactoring/` |
 | 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `0rad-workspace.md` |
 | VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `0rad-pipeline-rules.md` |
-| 伦理申请表填写 | `ethics-application-forms` |
-| 临床提取 / HIS | `clinical-data-extraction` |
-| 转化 / reader study | `clinical-translation` |
+| 伦理申请表填写 | `02_data-processing` → `ethics-application-forms/`（暂时挂在 02，真正家园仍是 03 伦理设计） |
+| 临床提取 / HIS | `02_data-processing` → `clinical-data-extraction/` |
+| 转化 / reader study | `03_research` → `clinical-translation/` |
 | 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-figure-engine` + `lab-palettes.md`) |
 | 新外接技能 | `01_skill-discovery-integration` |
 
@@ -71,15 +70,15 @@ Default candidate: `Imbad0202/academic-research-skills`. Backup: `Aperivue/medsc
 
 ## Externalization policy
 
-Generic local capabilities marked in `core/EXTERNALIZATION_CANDIDATES.md` remain available until an approved mounted Skill is confirmed to cover them. Personal rules, personal scripts, and personal style assets are not removed merely because a generic external capability exists.
+Generic local capabilities marked in `EXTERNALIZATION_CANDIDATES.md` remain available until an approved mounted Skill is confirmed to cover them. Personal rules, personal scripts, and personal style assets are not removed merely because a generic external capability exists.
 
-## Archive
+## Rehomed packs
 
-Archive skills remain standalone optional capabilities this round and are not default routes unless the task requires them. 00 may still route to archive.
+Former `archive/` standalones now live under domain skills (CHG-20260902-004). `archive/` is empty of skills.
 
 ## Invariants
 
 **One fact → one authoritative home.**
 **One task → one entry point.**
-**A core path ≤ 3 directories (`core/<skill>/<optional-folder>/file`).**
+**An A skill path ≤ 3 directories from repo root (`<skill>/<optional-folder>/file`). No `core/`.**
 **User approval is mandatory for mounting or evolution.**

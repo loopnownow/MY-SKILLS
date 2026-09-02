@@ -1,0 +1,55 @@
+---
+name: code-refactoring
+description: >
+  Lab code refactoring: CONFIG on top, dry-run, checkpoint, modular scripts.
+  Use for 软编码, dry-run, 配置置顶, 模块化, 方便调用, checkpoint, CUDA.
+  Do not use for 统计方法 (04_analysis), 图像方法/预处理 (02_data-processing 其他模块),
+  Excel 批处理 (02_data-processing / mounted 02-xlsx), or 伦理填表 (ethics-application-forms).
+---
+
+# 代码优化与重构
+
+编码原则 / 软编码补充，家园在 `02_data-processing/code-refactoring/`（从 archive 迁入，已压到三层）。
+
+## 适用场景
+- 代码软编码（配置置顶）
+- 大幅精简代码、去除无用部分
+- 断点续传功能
+- 并行 / CUDA 加速
+- 加强注释、规范命名
+- dry run（试运行）模式
+
+## 核心原则
+
+### 1. 软编码（配置置顶）
+- 所有路径、关键词、参数集中在文件顶部配置区
+- 避免硬编码在代码中
+- 关键参数添加注释说明
+
+### 2. 精简代码
+- 只写解决问题所需的最少代码
+- 去除无用 import、变量、函数
+- 不为单次使用创建抽象
+- 优先使用经过验证的库/方法
+
+### 3. 断点续传
+- 已处理的结果跳过，不重复处理
+- 检查中间文件或完成标记
+- 中断后可从中断处继续
+
+### 4. 并行 / CUDA 加速
+- 优先并行处理独立任务
+- GPU 加速可用时使用（如 CuPy、CUDA）
+- 注意内存优化
+
+### 5. 注释规范
+- 文件顶部写功能、用法说明
+- 关键逻辑加注释
+- 配置区加注释说明每个参数
+
+### 6. Dry Run 模式
+- 提供 dry run 开关，先试运行不实际执行
+- 打印将要执行的操作供用户确认
+
+## 附带的模板
+- `soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
