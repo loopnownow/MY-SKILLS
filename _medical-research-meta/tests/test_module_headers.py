@@ -73,14 +73,18 @@ class ModuleHeaderTests(unittest.TestCase):
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
-    def test_registry_not_mounted(self):
+    def test_registry_default_is_b(self):
         text = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
-        self.assertIn("mounts: []", text)
+        self.assertIn("my-skills-capabilities", text)
+        self.assertIn("default-mount", text)
+        self.assertIn("notify-then-research-confirm", text)
+        self.assertIn("05-writing-generic", text)
+        self.assertNotIn("05-de-ai", text)
         self.assertIn("Imbad0202/academic-research-skills", text)
         self.assertIn("Aperivue/medsci-skills", text)
-        self.assertIn("PROPOSED", text)
-        self.assertIn("default-candidate", text)
         self.assertIn("backup-candidate", text)
+        self.assertNotIn("role: default-candidate", text)
+        self.assertNotIn("mounts: []", text)
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"

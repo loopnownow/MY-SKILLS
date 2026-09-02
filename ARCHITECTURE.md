@@ -17,7 +17,7 @@ skills/
 ## Core layers
 
 1. `00_orchestrator` — classification, routing, composite workflow, Final QC, local recovery (re-run only the broken node).
-2. `01_skill-discovery-integration` — discover, evaluate, and mount external Skills; infrastructure only. Never literature/stats/writing/review. Never auto-mount.
+2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles; ethics form packs (temporary parking). No modeling. Handoff → 04.
 4. `03_research` — research design, **literature (03 only)**, evidence, frontier, journals, grants, translational/reader-study **design**. Personal grant/ethics/translation files are a supplement, not an upper writing layer.
 5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role.
@@ -47,7 +47,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - Ethics application forms + translational / reader-study design → `03_research`.
 - Statistics and figures → `04_analysis`.
 - Scientific writing/polishing → `05_manuscript`.
-- New external capability → `01_skill-discovery-integration` (network first, then ask for a local path).
+- New external capability → `01_skill-discovery-integration` (B first; empty → notify then re-search).
 - Evolution proposals → `skill-harvest` and explicit user approval.
 
 ## Rehomed packs (no longer standalone)
