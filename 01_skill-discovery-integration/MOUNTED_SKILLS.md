@@ -28,5 +28,7 @@ de-AI is personal (`05_manuscript/personal/`); not mounted from B.
 
 ## Backup candidates (not mounted; only after empty-mount notify + confirm)
 
-- `https://github.com/Imbad0202/academic-research-skills` (`PROPOSED`, backup)
-- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup)
+- `https://github.com/Imbad0202/academic-research-skills` (`PROPOSED`, backup). Preset map: `sources/ars.proposed.yaml` (scanned `9443623`). 4 mapped / 8 empty.
+- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup). Preset map: `sources/medsci.proposed.yaml` (scanned `912f7e8`). 12 mapped (4 partial) / 0 empty.
+
+Mapping is not a mount. Use the yaml path table instead of re-searching those repos for the 12 A ids.

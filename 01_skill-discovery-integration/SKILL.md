@@ -21,6 +21,9 @@ This layer only resolves **where a capability comes from**.
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
 ARS (`Imbad0202/academic-research-skills`) and MedSci (`Aperivue/medsci-skills`) are **backup candidates only**.
 
+Preset maps live in `sources/ars.proposed.yaml` and `sources/medsci.proposed.yaml` (scanned 2026-09-03). Use those A-id → path tables instead of re-searching the backup repos for the 12 ids. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a switch.
+
+
 ## Empty-mount protocol
 
 If a listed mount is empty (path missing, zero files, clone failed, id points nowhere):

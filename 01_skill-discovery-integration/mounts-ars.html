@@ -3,51 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>预设 ARS · 备份</title>
+<title>预设 ARS · 备份映射</title>
 <link rel="stylesheet" href="mounts.css">
 </head>
 <body>
 <nav class="presets"><a class="" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="on" href="mounts-ars.html">ARS · 备份</a><a class="" href="mounts-medsci.html">MedSci · 备份</a></nav>
 
 <header>
-  <h1>预设 ARS <span>备份 · 未挂</span></h1>
-  <p class="lead">仅用 Academic Research Skills。来源 <a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a> · 配置 <code>sources/ars.proposed.yaml</code></p>
+  <h1>预设 ARS <span>备份 · 已预扫 9443623</span></h1>
+  <p class="lead">仅用 Academic Research Skills（2026-09-01 HEAD）。仓库 <a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a> · 配置 <code>sources/ars.proposed.yaml</code></p>
 </header>
 <div class="stats">
   <div class="stat"><b>PROPOSED</b><span>备份候选</span></div>
-  <div class="stat"><b>0 / 12</b><span>已映射到 A id</span></div>
-  <div class="stat"><b>12</b><span>空挂</span></div>
+  <div class="stat"><b>4 / 12</b><span>已映射（含 1 部分）</span></div>
+  <div class="stat"><b>8</b><span>空挂</span></div>
 </div>
 <h2>挂载来源</h2>
 <table>
 <thead><tr><th>字段</th><th>值</th></tr></thead>
 <tbody>
 <tr><td>来源</td><td>Academic Research Skills</td></tr>
+<tr><td>扫描</td><td>2026-09-03 · <code>9443623</code></td></tr>
 <tr><td>角色</td><td>备份</td></tr>
-<tr><td>状态</td><td><span class="pill backup">PROPOSED</span></td></tr>
-<tr><td>仓库</td><td><a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a></td></tr>
-<tr><td>配置</td><td><code>sources/ars.proposed.yaml</code></td></tr>
+<tr><td>状态</td><td><span class="pill backup">PROPOSED</span> 映射已写好，仍未改挂</td></tr>
 </tbody>
 </table>
 <h2>可挂 skills 接到哪一环</h2>
-<p class="lead">ARS 还没有映射进 A 的 id。下表是 <em>仅用 ARS、不用 B</em> 时，A 仍期望接到的环节——全部空挂。</p>
-<table><thead><tr><th>Id</th><th>来源路径</th><th>接到 A</th><th>做什么</th><th>对接</th><th>仅用本套</th></tr></thead><tbody>
-<tr><td><code>02-xlsx</code></td><td><code>（ARS 未映射）</code></td><td><code>02_data-processing</code></td><td>Excel / CSV → 分析可用表</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>02-imaging-qc</code></td><td><code>（ARS 未映射）</code></td><td><code>02_data-processing</code></td><td>影像预处理与 QC</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>02-radiomics-habitat</code></td><td><code>（ARS 未映射）</code></td><td><code>02_data-processing</code></td><td>radiomics / 生境准备（建模交 04）</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>02-impute</code></td><td><code>（ARS 未映射）</code></td><td><code>02_data-processing</code></td><td>缺失 / 异常值</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>02-generic-docs</code></td><td><code>（ARS 未映射）</code></td><td><code>02_data-processing</code></td><td>通用影像/数据说明</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>03-literature</code></td><td><code>（ARS 未映射）</code></td><td><code>03_research</code></td><td>文献 / 来源 / 选刊</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>03-design</code></td><td><code>（ARS 未映射）</code></td><td><code>03_research</code></td><td>研究设计 / 验证 / 蓝图</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>03-frontier</code></td><td><code>（ARS 未映射）</code></td><td><code>03_research</code></td><td>前沿主题 / 问题化</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>04-stats-generic</code></td><td><code>（ARS 未映射）</code></td><td><code>04_analysis</code></td><td>通用统计百科</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>04-figure-engine</code></td><td><code>（ARS 未映射）</code></td><td><code>04_analysis</code></td><td>出图</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>05-writing-generic</code></td><td><code>（ARS 未映射）</code></td><td><code>05_manuscript</code></td><td>通用写作 / 报告 / 期刊体例</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
-<tr><td><code>06-review-generic</code></td><td><code>（ARS 未映射）</code></td><td><code>06_review</code></td><td>预审 / 回复机械层</td><td><span class="pill empty">空挂</span></td><td>0 文件 · 仅用本套则缺</td></tr>
+<table><thead><tr><th>A id</th><th>来源路径</th><th>接到 A</th><th>做什么</th><th>覆盖</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>02-xlsx</code></td><td><code>—</code></td><td><code>02_data-processing</code></td><td>Excel / CSV</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>02-imaging-qc</code></td><td><code>—</code></td><td><code>02_data-processing</code></td><td>影像 QC</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>02-radiomics-habitat</code></td><td><code>—</code></td><td><code>02_data-processing</code></td><td>radiomics / 生境准备</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>02-impute</code></td><td><code>—</code></td><td><code>02_data-processing</code></td><td>缺失 / 异常值</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>02-generic-docs</code></td><td><code>—</code></td><td><code>02_data-processing</code></td><td>通用数据说明</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>03-literature</code></td><td><code>deep-research/</code></td><td><code>03_research</code></td><td>文献 / 系统综述 / 核源</td><td><span class="pill ready">已映射</span></td><td>lit-review / systematic review</td></tr>
+<tr><td><code>03-design</code></td><td><code>deep-research/</code></td><td><code>03_research</code></td><td>方法学 / 问题化</td><td><span class="pill dual">部分</span></td><td>包在 deep-research 内，不是独立设计包</td></tr>
+<tr><td><code>03-frontier</code></td><td><code>—</code></td><td><code>03_research</code></td><td>前沿主题</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>04-stats-generic</code></td><td><code>—</code></td><td><code>04_analysis</code></td><td>通用统计</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>04-figure-engine</code></td><td><code>—</code></td><td><code>04_analysis</code></td><td>出图</td><td><span class="pill empty">空挂</span></td><td>无对应包</td></tr>
+<tr><td><code>05-writing-generic</code></td><td><code>academic-paper/</code></td><td><code>05_manuscript</code></td><td>写作 / 提纲 / 引用检查</td><td><span class="pill ready">已映射</span></td><td>不是 Aitor-format</td></tr>
+<tr><td><code>06-review-generic</code></td><td><code>academic-paper-reviewer/</code></td><td><code>06_review</code></td><td>多角色审稿 / 复审</td><td><span class="pill ready">已映射</span></td><td>rebuttal-audit 也在 academic-paper</td></tr>
 </tbody></table>
+<p class="lead" style="margin-top:12px">额外：<code>academic-pipeline/</code> 对应 00 调度（编排 analog），不计入 12 个领域 id。</p>
 <h2>仅用当前挂载 · 空挂</h2>
-<div class="protocol"><strong>12 / 12 空挂：</strong> <code>02-xlsx</code> · <code>02-imaging-qc</code> · <code>02-radiomics-habitat</code> · <code>02-impute</code> · <code>02-generic-docs</code> · <code>03-literature</code> · <code>03-design</code> · <code>03-frontier</code> · <code>04-stats-generic</code> · <code>04-figure-engine</code> · <code>05-writing-generic</code> · <code>06-review-generic</code>。<br>不要静默改挂。先通知，再检索确认。</div>
+<div class="protocol"><strong>8 个空挂：</strong> <code>02-xlsx</code> · <code>02-imaging-qc</code> · <code>02-radiomics-habitat</code> · <code>02-impute</code> · <code>02-generic-docs</code> · <code>03-frontier</code> · <code>04-stats-generic</code> · <code>04-figure-engine</code>。<br>这些在 ARS 里没有包。若只用 ARS，先通知再检索确认，不要静默改挂。已映射的 03/05/06 可直接按上表路径用。</div>
 
-<p class="foot">机器真源 <code>registry.yaml</code> · 来源配置 <code>sources/*.yaml</code> · 一外来源一页。空挂 = 仅启用本页这一套时，A 期望的 id 在该来源里没有文件。</p>
+<p class="foot">机器真源 <code>registry.yaml</code> · 来源配置 <code>sources/*.yaml</code> · 映射扫自公开 GitHub，不是静默改挂。空挂 = 仅用本套时该 A id 在来源里没有对应路径。</p>
 </body>
 </html>

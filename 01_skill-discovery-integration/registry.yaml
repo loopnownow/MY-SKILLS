@@ -73,9 +73,15 @@ mounts:
 proposals:
   - id: academic-research-skills
     source: https://github.com/Imbad0202/academic-research-skills
+    config: sources/ars.proposed.yaml
+    scanned: "2026-09-03"
+    scan_sha: "9443623"
     status: PROPOSED
     role: backup-candidate
   - id: med-sci-skills
     source: https://github.com/Aperivue/medsci-skills
+    config: sources/medsci.proposed.yaml
+    scanned: "2026-09-03"
+    scan_sha: "912f7e8"
     status: PROPOSED
     role: backup-candidate
