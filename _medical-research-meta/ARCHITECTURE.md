@@ -28,7 +28,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 软编码 / dry-run | `02_data-processing` → `code-refactoring/` |
 | 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `0rad-workspace.md` |
 | VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `personal/0rad-pipeline-rules.md` |
-| 伦理申请表填写 | `02_data-processing` → `ethics-application-forms/`（暂时挂在 02，真正家园仍是 03 伦理设计） |
+| 伦理申请表填写 | `03_research` → `ethics-application-forms/` |
 | 临床提取 / HIS | `02_data-processing` → `clinical-data-extraction/` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
 | 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-figure-engine` + `personal/lab-palettes.md`) |

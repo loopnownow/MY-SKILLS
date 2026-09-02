@@ -43,8 +43,8 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 
 - Literature research → `03_research` only.
 - Reviewer response → `06_review` only.
-- Data preprocessing / Excel / 0RAD / extraction / coding principles / ethics forms (temp) → `02_data-processing`.
-- Translational / reader-study design → `03_research` (`clinical-translation`).
+- Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.
+- Ethics application forms + translational / reader-study design → `03_research`.
 - Statistics and figures → `04_analysis`.
 - Scientific writing/polishing → `05_manuscript`.
 - New external capability → `01_skill-discovery-integration` (network first, then ask for a local path).
@@ -53,7 +53,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 ## Rehomed packs (no longer standalone)
 
 - `02_data-processing/code-refactoring` — soft-coding / dry-run / CONFIG on top
-- `02_data-processing/ethics-application-forms` — ethics application forms (**temporary**; true home is 03 ethics design)
+- `03_research/ethics-application-forms` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
 - `02_data-processing/clinical-data-extraction` — clinical/HIS extraction
 - `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at B `03-research/design`)
 
@@ -62,6 +62,6 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 **One fact → one authoritative home.**
 **One task → one entry point.**
 **Nested MODULE ≠ discoverable Skill.**
-**Do not delete local generic capability until an approved mounted replacement covers it.**
+**Do not delete local generic capability until the user moves it to B (or an approved mount covers it).**
 **User approval is mandatory for mounting or evolution.**
 **Never auto-mount.**

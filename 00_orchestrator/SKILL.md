@@ -20,8 +20,8 @@ Pick the smallest skill set. One bounded task → that domain skill, not 00.
 | Skill | Primary scope |
 |---|---|
 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills. Never literature, stats, writing, or review. |
-| `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation, **clinical extraction**, **coding principles**, **ethics form packs (temporary)**. No modeling. |
-| `03_research` | Study design, **literature**, evidence, frontier, journal/topic, grants, **translational / reader-study design**. Literature enters 03 only. |
+| `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation, **clinical extraction**, **coding principles**. No modeling. |
+| `03_research` | Study design, **literature**, evidence, frontier, journal/topic, grants, **translational / reader-study design**, **ethics application forms**. Literature enters 03 only. |
 | `04_analysis` | Statistics, prediction, survival, **figures**. Data repair is not its role. |
 | `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. |
 | `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. |
@@ -34,7 +34,7 @@ There are **no archive-as-standalone routes**. The four former archive packs liv
 - 新技能 / 外接 / 挂载 → `01_skill-discovery-integration`
 - Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`
 - 软编码 / dry-run / coding principles → `02_data-processing` (`code-refactoring`)
-- 伦理申请表 → `02_data-processing` (`ethics-application-forms`; **暂时挂在 02**，真正家园仍是 03 伦理设计)
+- 伦理申请表 → `03_research` (`ethics-application-forms`)
 - 提取检验 / HIS → `02_data-processing` (`clinical-data-extraction`)
 - 转化 / reader study / 前瞻部署 / 阈值到行动 → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`

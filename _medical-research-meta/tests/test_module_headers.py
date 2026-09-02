@@ -36,7 +36,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertTrue((ROOT / "archive" / "README.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "clinical-data-extraction" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "code-refactoring" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "02_data-processing" / "ethics-application-forms" / "SKILL.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing" / "ethics-application-forms" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "03_research" / "ethics-application-forms" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "03_research" / "clinical-translation" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "01_skill-discovery-integration" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "01_skill-discovery-integration" / "registry.yaml").is_file())
@@ -52,6 +53,10 @@ class ModuleHeaderTests(unittest.TestCase):
         fig = [p for p in (ROOT / "05_manuscript").rglob("*figure-engine*") if ".git" not in p.parts]
         self.assertEqual(fig, [])
         self.assertFalse((ROOT / "skill-harvest" / "evolution" / "proposals").exists())
+        self.assertFalse((ROOT / "05_manuscript" / "writing-generic").exists())
+        self.assertFalse((ROOT / "05_manuscript" / "de-ai").exists())
+        self.assertFalse((ROOT / "06_review" / "review-generic").exists())
+        self.assertFalse((ROOT / "04_analysis" / "radiology-stats").exists())
 
     def test_core_max_four_path_parts(self):
         """skill / category-or-pack / (scripts|references|personal) / file — no fifth folder."""
@@ -78,10 +83,11 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("backup-candidate", text)
 
     def test_personal_radiology_stats_stays_in_a(self):
-        rs = ROOT / "04_analysis" / "radiology-stats"
+        rs = ROOT / "04_analysis" / "personal"
         self.assertTrue((rs / "MODULE.md").is_file())
-        self.assertTrue((rs / "references" / "diagnostic-accuracy.md").is_file())
-        self.assertEqual(len(list(rs.rglob("*.md"))), 7)
+        self.assertTrue((rs / "diagnostic-accuracy.md").is_file())
+        self.assertTrue((rs / "0rad-pipeline-rules.md").is_file())
+        self.assertGreaterEqual(len(list(rs.glob("*.md"))), 11)
 
     def test_no_legacy_manuscript_paths(self):
         skip_names = {

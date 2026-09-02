@@ -8,7 +8,7 @@ This file records the current architecture, not the historical export tree.
 | Excel/CSV / 0RAD workspace | `02_data-processing/` |
 | Soft-coding / dry-run | `02_data-processing/code-refactoring/` |
 | Clinical extraction | `02_data-processing/clinical-data-extraction/` |
-| Ethics form packs (temporary parking) | `02_data-processing/ethics-application-forms/` |
+| Ethics form packs | `03_research/ethics-application-forms/` |
 | MRI/fMRI / radiomics / habitat prep | `02_data-processing/` |
 | Clinical translation / reader-study design | `03_research/clinical-translation/` |
 | Study design / literature / radiology frontier | `03_research/` |
@@ -192,4 +192,23 @@ metric_summary: n/a
 boundary_effect: No bot profile edits. Do not merge this PR automatically. Do not copy A personal files into B. Do not delete writing-generic/review-generic until a mount covers them.
 decision: keep
 next_action: user reviews PR; merge only when named
+```
+
+## Relocate generics to B + ethics to 03 + merge 04 personal 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-006
+date: 2026-09-02
+skill: layout (A relocate; B ingest)
+from_version: classify-extra-layer-20260902
+to_version: relocate-20260902
+change_class: architecture
+problem: User named remaining A generic folders that belong in B, ethics forms still parked in 02, and 04 split across radiology-stats vs personal.
+change: Moved 05 de-ai + writing-generic and 06 review-generic into B (ids 05-de-ai, 05-writing-generic, 06-review-generic). A copies deleted. Ethics-application-forms git-moved 02 → 03_research. Merged 04 radiology-stats into 04_analysis/personal (hoisted references). Registry still mounts: []. No auto-mount. Bots unchanged.
+expected_benefit: A is personal/orchestrator only for 05/06 generics; ethics fill lives with 03; 04 lab stats are one folder.
+observed_evidence: n/a
+metric_summary: n/a
+boundary_effect: Do not merge until named. Do not copy 04 personal or 03 ethics forms into B. Do not auto-mount.
+decision: keep
+next_action: user reviews PRs
 ```

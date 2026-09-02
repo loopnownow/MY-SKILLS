@@ -37,7 +37,7 @@ When reviewing an already-written manuscript, do **not** delete genuine referenc
 
 - `06-review-generic` — mode-2/3, dealbreakers, hard gates, review-report-format, action-mapping, response-audit-gate, checklist export
 
-Until mounted, local generic copies remain under `review-generic/` (see `EXTERNALIZATION_CANDIDATES.md`).
+Pack lives in B only (`06-review/review-generic/`). `mounts: []` until an explicit mount. Do not recreate `review-generic/` in A.
 
 ## Modes
 

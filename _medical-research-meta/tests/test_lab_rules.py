@@ -13,29 +13,11 @@ def read(*parts: str) -> str:
 
 
 class DeAI(unittest.TestCase):
-    SAMPLE = (
-        "This paper delves into the landscape of radiomics. "
-        "The pivotal and robust model is comprehensive. "
-        "Interestingly, we leverage a groundbreaking approach."
-    )
-
-    def test_sample_hits_forbidden_table(self) -> None:
-        table = read("05_manuscript", "de-ai", "forbidden-phrases.md").lower()
-        hits = []
-        for word in (
-            "delve",
-            "landscape",
-            "pivotal",
-            "robust",
-            "comprehensive",
-            "interestingly",
-            "leverage",
-            "groundbreaking",
-        ):
-            if word in self.SAMPLE.lower():
-                self.assertIn(word, table, f"{word} must be listed in forbidden-phrases")
-                hits.append(word)
-        self.assertGreaterEqual(len(hits), 6)
+    def test_de_ai_lives_in_b_not_a(self) -> None:
+        self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
+        five = read("05_manuscript", "SKILL.md")
+        self.assertIn("05-de-ai", five)
+        self.assertIn("05-writing-generic", five)
 
 
 class Aitor(unittest.TestCase):

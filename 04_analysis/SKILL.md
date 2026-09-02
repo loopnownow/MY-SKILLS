@@ -19,12 +19,12 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 | Task | Path |
 |---|---|
 | Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/0rad-pipeline-rules.md` |
-| Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `radiology-stats/` (`references/`) |
+| Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `personal/` (`MODULE.md` + diagnostic/survival/sample-size notes) |
 | Imaging statistics notes (lab) | `personal/statistics.md` |
 | Lab figure palettes | `personal/lab-palettes.md` |
 | Stats checklist | `personal/stats-checklist.md` |
 
-Do **not** put `radiology-stats` in the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
+Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
 
 ## Mounted capability ids (generic; not present until mounted)
 

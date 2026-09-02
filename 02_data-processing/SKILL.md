@@ -3,8 +3,7 @@ name: medical-data-processing
 description: >
   Raw-data to analysis-ready-data. Use for Excel/CSV, 0RAD workspace, cleaning,
   missing/outlier handling, imaging preprocessing/QC, radiomics/habitat preparation,
-  leakage/split checks, clinical extraction, coding principles, ethics form packs
-  (temporary parking), and the user's MATLAB/Python scripts. No feature selection
+  leakage/split checks, clinical extraction, coding principles, and the user's MATLAB/Python scripts. No feature selection
   or statistical modeling — hand off to 04_analysis. Literature → 03. Writing → 05.
 ---
 
@@ -25,7 +24,6 @@ Convert raw clinical, imaging, and table data into **analysis-ready** data with 
 - maintained personal MATLAB/Python scripts
 - clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
 - coding principles / soft-coding / dry-run (`code-refactoring/`)
-- ethics application form packs (`ethics-application-forms/` — **temporary parking**; true home is 03 ethics design)
 
 Never perform feature selection or statistical model fitting here.
 
@@ -38,7 +36,6 @@ Never perform feature selection or statistical model fitting here.
 | Leakage / split / radiology audit | `scripts/split_leakage_check.py`, `scripts/radiology_audit.py` |
 | Clinical / HIS extraction | `clinical-data-extraction/` (`scripts/`) |
 | Soft-coding / dry-run / CONFIG on top | `code-refactoring/` (`scripts/`) |
-| Ethics form packs (**temp**; true home is 03 ethics design) | `ethics-application-forms/` (`scripts/`, `references/`) |
 
 Personal scripts are not replaced by a mounted pack.
 
