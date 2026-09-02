@@ -1,5 +1,5 @@
 # Mount pointers live only in 01.
-# Human board: mounts.html
+# Human board: mounts/ (mounts.html index + per-preset pages + unmapped.html)
 # Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.

@@ -277,3 +277,16 @@ change: Scanned Imbad0202/academic-research-skills@9443623 and Aperivue/medsci-s
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 01 mounts folder + unmapped extras 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-004
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface board
+problem: Backup skills that exist but have no A mount id were only mentioned as extras; HTML pages sat next to yaml in 01.
+change: Moved all mounts HTML/CSS into 01/mounts/. Added unmapped.html listing ARS academic-pipeline and 19 MedSci skills with no A mount id (12 expansion / 7 analog). Wrote unmapped: tables into sources/ars.proposed.yaml and sources/medsci.proposed.yaml. Mapping ≠ mount. Default remains B.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

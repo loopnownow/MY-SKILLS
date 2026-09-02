@@ -32,3 +32,5 @@ de-AI is personal (`05_manuscript/personal/`); not mounted from B.
 - `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup). Preset map: `sources/medsci.proposed.yaml` (scanned `912f7e8`). 12 mapped (4 partial) / 0 empty.
 
 Mapping is not a mount. Use the yaml path table instead of re-searching those repos for the 12 A ids.
+
+Unmapped extras (ARS/MedSci skills with no A mount id): [`mounts/unmapped.html`](mounts/unmapped.html).

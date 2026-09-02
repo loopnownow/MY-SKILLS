@@ -68,14 +68,81 @@ skills:
     path: skills/peer-review/; skills/review-paper/; skills/self-review/; skills/revise/
     a_hook: 06_review
     coverage: full
-extras:
-  - path: skills/humanize/
-    a_hook: 05_manuscript/personal
-    note: not a substitute for A de-AI forbidden list
+unmapped:
+  - path: skills/academic-aio/
+    kind: expansion
+    future_hook: 05_or_03
+    note: AI-search / RAG paper optimization
+  - path: skills/author-strategy/
+    kind: expansion
+    future_hook: 03
+    note: PubMed author profile and publication strategy
+  - path: skills/cross-national/
+    kind: expansion
+    future_hook: 03_or_04
+    note: KNHANES / NHANES / CHNS harmonized comparison
+  - path: skills/explainability/
+    kind: expansion
+    future_hook: 04
+    note: Grad-CAM and imaging XAI
+  - path: skills/fill-icmje-coi/
+    kind: expansion
+    future_hook: 03
+    note: ICMJE COI forms; A ethics pack is hospital IRB, not this form
+  - path: skills/mllm-eval/
+    kind: expansion
+    future_hook: 04
+    note: clinical LLM/MLLM evaluation harness
+  - path: skills/model-card/
+    kind: expansion
+    future_hook: 04
+    note: Model Card / Datasheet
+  - path: skills/model-scaffold/
+    kind: expansion
+    future_hook: 02_or_04
+    note: PyTorch training-repo scaffold for imaging
+  - path: skills/model-sourcing/
+    kind: expansion
+    future_hook: 04
+    note: third-party checkpoint / revision vetting
+  - path: skills/obsidian-paper-vault/
+    kind: expansion
+    future_hook: 03
+    note: PDF to Obsidian literature vault
+  - path: skills/render-pdf-doc/
+    kind: expansion
+    future_hook: 05
+    note: Markdown to publication PDF
+  - path: skills/replicate-study/
+    kind: expansion
+    future_hook: 03
+    note: replicate a published cohort method on another database
   - path: skills/orchestrate/
-    a_hook: 00_orchestrator
-    note: analog only
+    kind: analog
+    future_hook: 00_orchestrator
+    note: MedSci router; 00 exists as a layer, not a mount id
+  - path: skills/manage-project/
+    kind: analog
+    future_hook: 00_orchestrator
+    note: project/manuscript management
+  - path: skills/setup-medsci/
+    kind: analog
+    future_hook: 01
+    note: runtime checklist for MedSci
+  - path: skills/contribute/
+    kind: analog
+    future_hook: skill-harvest
+    note: contribute local changes back
+  - path: skills/publish-skill/
+    kind: analog
+    future_hook: skill-harvest
+    note: package a personal skill for distribution
+  - path: skills/humanize/
+    kind: analog
+    future_hook: 05_manuscript/personal
+    note: not a substitute for A de-AI forbidden list; de-AI is not a mount id
   - path: skills/sync-submission/
-    a_hook: Bai
+    kind: analog
+    future_hook: Bai
     note: submission logistics; Bai still does not click 同意投稿 or pay
 empty: []

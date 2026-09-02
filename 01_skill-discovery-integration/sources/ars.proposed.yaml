@@ -33,12 +33,11 @@ skills:
     a_hook: 06_review
     coverage: full
     note: multi-persona peer review + re-review; rebuttal-audit also in academic-paper
-extras:
-  - id: 00-orchestrator-analog
-    path: academic-pipeline/
-    a_hook: 00_orchestrator
-    coverage: analog
-    note: research→write→review orchestrator; does not replace 00
+unmapped:
+  - path: academic-pipeline/
+    kind: analog
+    future_hook: 00_orchestrator
+    note: research-write-review orchestrator; 00 exists as a layer, not a mount id
 empty:
   - 02-xlsx
   - 02-imaging-qc

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="mounts.css">
 </head>
 <body>
-<nav class="presets"><a class="" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="on" href="mounts-ars.html">ARS · 备份</a><a class="" href="mounts-medsci.html">MedSci · 备份</a></nav>
+<nav class="presets"><a class="" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="on" href="mounts-ars.html">ARS · 备份</a><a class="" href="mounts-medsci.html">MedSci · 备份</a><a class="" href="unmapped.html">无接口 · 扩展</a></nav>
 
 <header>
   <h1>预设 ARS <span>备份 · 已预扫 9443623</span></h1>
@@ -46,6 +46,13 @@
 <p class="lead" style="margin-top:12px">额外：<code>academic-pipeline/</code> 对应 00 调度（编排 analog），不计入 12 个领域 id。</p>
 <h2>仅用当前挂载 · 空挂</h2>
 <div class="protocol"><strong>8 个空挂：</strong> <code>02-xlsx</code> · <code>02-imaging-qc</code> · <code>02-radiomics-habitat</code> · <code>02-impute</code> · <code>02-generic-docs</code> · <code>03-frontier</code> · <code>04-stats-generic</code> · <code>04-figure-engine</code>。<br>这些在 ARS 里没有包。若只用 ARS，先通知再检索确认，不要静默改挂。已映射的 03/05/06 可直接按上表路径用。</div>
+
+
+<h2>A 没有对应接口</h2>
+<p class="lead">这些 skill 在 ARS 里存在，但不在 12 个挂载 id 上。00 是调度层，不是可挂 id。</p>
+<table><thead><tr><th>路径</th><th>做什么</th><th>类型</th><th>以后可接到</th></tr></thead><tbody>
+<tr><td><code>academic-pipeline/</code></td><td>文献→写作→审稿编排</td><td><span class="pill backup">类比</span></td><td><code>00_orchestrator</code>（已有层，无挂载 id）</td></tr>
+</tbody></table>
 
 <p class="foot">机器真源 <code>registry.yaml</code> · 来源配置 <code>sources/*.yaml</code> · 映射扫自公开 GitHub，不是静默改挂。空挂 = 仅用本套时该 A id 在来源里没有对应路径。</p>
 </body>

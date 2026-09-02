@@ -29,7 +29,7 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Classification, routing, composite workflows, Final QC + local recovery |
-| `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts.html` live here; default source B |
+| `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts/` live here; default source B |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + personal grant supplement + translational design + ethics forms |
 | `04_analysis` | Statistics, prediction, **figures** |

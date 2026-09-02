@@ -88,10 +88,12 @@ class ModuleHeaderTests(unittest.TestCase):
 
     def test_mounts_html_board(self):
         d = ROOT / "01_skill-discovery-integration"
-        index = (d / "mounts.html").read_text(encoding="utf-8")
-        b = (d / "mounts-b.html").read_text(encoding="utf-8")
-        ars = (d / "mounts-ars.html").read_text(encoding="utf-8")
-        med = (d / "mounts-medsci.html").read_text(encoding="utf-8")
+        md = d / "mounts"
+        index = (md / "mounts.html").read_text(encoding="utf-8")
+        b = (md / "mounts-b.html").read_text(encoding="utf-8")
+        ars = (md / "mounts-ars.html").read_text(encoding="utf-8")
+        med = (md / "mounts-medsci.html").read_text(encoding="utf-8")
+        unmapped = (md / "unmapped.html").read_text(encoding="utf-8")
         self.assertIn("mounts-b.html", index)
         self.assertIn("mounts-ars.html", index)
         self.assertIn("mounts-medsci.html", index)
@@ -106,7 +108,11 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("preprocess-imaging", med)
         self.assertIn("analyze-stats", med)
         self.assertNotIn("12 / 12 空挂", med)
-        self.assertTrue((d / "mounts.css").is_file())
+        self.assertIn("unmapped.html", index)
+        self.assertIn("academic-pipeline", unmapped)
+        self.assertIn("academic-aio", unmapped)
+        self.assertTrue((md / "mounts.css").is_file())
+        self.assertFalse((d / "mounts.html").exists())
         self.assertTrue((d / "sources" / "b-my-skills-capabilities.yaml").is_file())
         ars_y = (d / "sources" / "ars.proposed.yaml").read_text(encoding="utf-8")
         med_y = (d / "sources" / "medsci.proposed.yaml").read_text(encoding="utf-8")
@@ -115,6 +121,9 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("scan_sha: \"912f7e8\"", med_y)
         self.assertIn("path: skills/make-figures/", med_y)
         self.assertIn("empty: []", med_y)
+        self.assertIn("kind: expansion", med_y)
+        self.assertIn("skills/academic-aio/", med_y)
+        self.assertIn("academic-pipeline/", ars_y)
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"
