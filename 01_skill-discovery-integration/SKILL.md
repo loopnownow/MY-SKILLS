@@ -14,7 +14,7 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts.html`. Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts.html` (index) plus one page per preset (`mounts-b.html`, `mounts-ars.html`, `mounts-medsci.html`). Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 

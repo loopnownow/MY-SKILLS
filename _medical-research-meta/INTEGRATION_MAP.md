@@ -251,3 +251,16 @@ change: Added 01/mounts.html (human board). One yaml per external source under 0
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 01 mounts.html preset pages 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-002
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface board
+problem: Single mounts.html mixed all sources. User asked for multi-page presets: each page one fixed mount set, with source, A-hook, and empty mounts if that set is used alone.
+change: mounts.html is the index. mounts-b.html (current default, 0 empty), mounts-ars.html and mounts-medsci.html (12/12 empty vs A ids). Shared mounts.css. File counts taken from B main 2026-09-03.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

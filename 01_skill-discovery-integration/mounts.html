@@ -3,138 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>01 挂载指针 · 接口看板</title>
-<style>
-:root {
-  --bg: #0b0f19; --panel: #151d2a; --card: #1e293b; --border: #334155;
-  --text: #f8fafc; --muted: #94a3b8; --blue: #38bdf8; --green: #10b981;
-  --amber: #f59e0b; --rose: #f43f5e; --violet: #a855f7;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.55; padding: 28px; max-width: 1200px; margin: 0 auto;
-}
-h1 { font-size: 22px; font-weight: 650; }
-h1 span { color: var(--blue); font-weight: 500; font-size: 13px; margin-left: 10px; }
-.lead { color: var(--muted); margin: 8px 0 22px; max-width: 72ch; }
-.rec {
-  background: #122033; border: 1px solid #1d4e75; border-radius: 10px;
-  padding: 14px 16px; margin-bottom: 22px; color: #dbeafe;
-}
-.rec strong { color: var(--blue); }
-.stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
-.stat { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; min-width: 140px; }
-.stat b { display: block; font-size: 20px; color: var(--blue); }
-.stat span { font-size: 12px; color: var(--muted); }
-h2 { font-size: 16px; margin: 26px 0 12px; display: flex; align-items: center; gap: 8px; }
-h2::before { content: ""; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; }
-table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-th, td { text-align: left; padding: 9px 12px; font-size: 13px; vertical-align: top; }
-th { background: #0f172a; color: var(--muted); font-weight: 600; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
-tr + tr td { border-top: 1px solid var(--border); }
-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; color: #7dd3fc; }
-a { color: var(--blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.pill { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 650; }
-.ready { background: #064e3b; color: #6ee7b7; }
-.dual { background: #78350f; color: #fcd34d; }
-.backup { background: #1e1b4b; color: #c4b5fd; }
-.personal { background: #3f1d2e; color: #fda4af; }
-.protocol { background: var(--card); border: 1px dashed var(--border); border-radius: 10px; padding: 14px 16px; color: var(--muted); font-size: 13px; }
-ol.protocol-list { margin: 8px 0 0 18px; }
-.foot { margin-top: 28px; font-size: 12px; color: var(--muted); }
-</style>
+<title>01 挂载指针 · 预设总览</title>
+<link rel="stylesheet" href="mounts.css">
 </head>
 <body>
+<nav class="presets"><a class="on" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="" href="mounts-ars.html">ARS · 备份</a><a class="" href="mounts-medsci.html">MedSci · 备份</a></nav>
+
 <header>
-  <h1>01 挂载指针 <span>接口看板 · 机器真源仍是 registry.yaml</span></h1>
-  <p class="lead">列出挂载来源、可用 skill、接到 MY-SKILLS 哪一环、接口对接情况。空包先通知，再检索确认，不悄悄改挂 ARS / MedSci。</p>
+  <h1>01 挂载指针 <span>预设分页 · 大部分时候固定</span></h1>
+  <p class="lead">每页一套预设。打开某一页 = 只启用那一套来源时：挂载从哪来、skill 接到 MY-SKILLS 哪一环、哪些 id 会空挂。</p>
 </header>
-
-<div class="rec">
-  <strong>配置怎么拆：</strong>一个外部来源一份 yaml（<code>sources/</code>），不要每个 skill 一个文件，也不要把 B / ARS / MedSci 揉进同一份。
-  同一来源共享仓库、版本和空包协议；多来源混在一个文件里，备份候选一开就会把默认 B 冲乱。
-  这张 HTML 是总览，不是第二份真源。
+<div class="cards">
+  <div class="card">
+    <h3>B · 当前默认</h3>
+    <p>loopnownow/MY-SKILLS-capabilities。12 个 A 期望 id 均有文件。03 三包双轨，不是空挂。</p>
+    <a href="mounts-b.html">打开 B 页</a>
+  </div>
+  <div class="card">
+    <h3>ARS · 备份</h3>
+    <p>Imbad0202/academic-research-skills。未映射到 A id。仅用这一套时 12/12 空挂。</p>
+    <a href="mounts-ars.html">打开 ARS 页</a>
+  </div>
+  <div class="card">
+    <h3>MedSci · 备份</h3>
+    <p>Aperivue/medsci-skills。未映射到 A id。仅用这一套时 12/12 空挂。</p>
+    <a href="mounts-medsci.html">打开 MedSci 页</a>
+  </div>
 </div>
+<div class="rec" style="margin-top:22px"><strong>空挂协议：</strong>先通知，再检索确认，不悄悄改挂。de-AI 在 A <code>05_manuscript/personal/</code>，不算 B 空挂。</div>
 
-<div class="stats">
-  <div class="stat"><b>1</b><span>默认来源（B）</span></div>
-  <div class="stat"><b>12</b><span>已挂 B skill</span></div>
-  <div class="stat"><b>3</b><span>双轨（03 A 仍留副本）</span></div>
-  <div class="stat"><b>2</b><span>备份候选未挂</span></div>
-</div>
-
-<h2>挂载来源</h2>
-<table>
-  <thead><tr><th>来源</th><th>角色</th><th>状态</th><th>配置文件</th><th>仓库</th></tr></thead>
-  <tbody>
-    <tr>
-      <td>MY-SKILLS-capabilities（B）</td>
-      <td>默认挂载</td>
-      <td><span class="pill ready">MOUNTED</span></td>
-      <td><code>sources/b-my-skills-capabilities.yaml</code></td>
-      <td><a href="https://github.com/loopnownow/MY-SKILLS-capabilities">loopnownow/MY-SKILLS-capabilities</a></td>
-    </tr>
-    <tr>
-      <td>Academic Research Skills</td>
-      <td>备份</td>
-      <td><span class="pill backup">PROPOSED</span></td>
-      <td><code>sources/ars.proposed.yaml</code></td>
-      <td><a href="https://github.com/Imbad0202/academic-research-skills">Imbad0202/academic-research-skills</a></td>
-    </tr>
-    <tr>
-      <td>MedSci Skills</td>
-      <td>备份</td>
-      <td><span class="pill backup">PROPOSED</span></td>
-      <td><code>sources/medsci.proposed.yaml</code></td>
-      <td><a href="https://github.com/Aperivue/medsci-skills">Aperivue/medsci-skills</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>已挂 skill（B）接到哪一环</h2>
-<table>
-  <thead><tr><th>Id</th><th>B 路径</th><th>A 环节</th><th>做什么</th><th>接口对接</th></tr></thead>
-  <tbody>
-    <tr><td><code>02-xlsx</code></td><td><code>02-data-processing/xlsx/</code></td><td><code>02_data-processing</code></td><td>Excel / CSV → 分析可用表</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>02-imaging-qc</code></td><td><code>02-data-processing/imaging-qc/</code></td><td><code>02_data-processing</code></td><td>影像预处理与 QC</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>02-radiomics-habitat</code></td><td><code>02-data-processing/radiomics-habitat/</code></td><td><code>02_data-processing</code></td><td>radiomics / 生境准备（建模交 04）</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>02-impute</code></td><td><code>02-data-processing/impute/</code></td><td><code>02_data-processing</code></td><td>缺失 / 异常值</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>02-generic-docs</code></td><td><code>02-data-processing/generic-docs/</code></td><td><code>02_data-processing</code></td><td>通用影像/数据说明</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>03-literature</code></td><td><code>03-research/literature/</code></td><td><code>03_research</code></td><td>文献 / 来源 / 选刊</td><td><span class="pill dual">双轨</span> A 仍留 <code>literature/</code></td></tr>
-    <tr><td><code>03-design</code></td><td><code>03-research/design/</code></td><td><code>03_research</code></td><td>研究设计 / 验证 / 蓝图</td><td><span class="pill dual">双轨</span> A 仍留 <code>design/</code></td></tr>
-    <tr><td><code>03-frontier</code></td><td><code>03-research/frontier/</code></td><td><code>03_research</code></td><td>前沿主题 / 问题化</td><td><span class="pill dual">双轨</span> A 仍留 <code>frontier/</code></td></tr>
-    <tr><td><code>04-stats-generic</code></td><td><code>04-analysis/stats-generic/</code></td><td><code>04_analysis</code></td><td>通用统计百科</td><td><span class="pill ready">就绪</span> 实验室口径在 A <code>personal/</code></td></tr>
-    <tr><td><code>04-figure-engine</code></td><td><code>04-analysis/figure-engine/</code></td><td><code>04_analysis</code></td><td>出图</td><td><span class="pill ready">就绪</span></td></tr>
-    <tr><td><code>05-writing-generic</code></td><td><code>05-manuscript/writing-generic/</code></td><td><code>05_manuscript</code></td><td>通用写作 / 报告 / 期刊体例</td><td><span class="pill ready">就绪</span> Aitor-format + de-AI 在 A</td></tr>
-    <tr><td><code>06-review-generic</code></td><td><code>06-review/review-generic/</code></td><td><code>06_review</code></td><td>预审 / 回复机械层</td><td><span class="pill ready">就绪</span> 个人审稿声音在 A</td></tr>
-  </tbody>
-</table>
-
-<h2>不经 B 的个人层</h2>
-<table>
-  <thead><tr><th>内容</th><th>A 位置</th><th>对接</th></tr></thead>
-  <tbody>
-    <tr><td>de-AI 禁词 / 语气</td><td><code>05_manuscript/personal/</code></td><td><span class="pill personal">个人层</span> 从 B 收回，无 <code>05-de-ai</code></td></tr>
-    <tr><td>Aitor-format / 句库</td><td><code>05_manuscript/personal/</code></td><td><span class="pill personal">个人层</span></td></tr>
-    <tr><td>实验室统计口径 / 0RAD 规则</td><td><code>04_analysis/personal/</code></td><td><span class="pill personal">个人层</span></td></tr>
-    <tr><td>伦理填表包</td><td><code>03_research/ethics-application-forms/</code></td><td><span class="pill personal">个人层</span> 不进 B</td></tr>
-    <tr><td>临床转化设计</td><td><code>03_research/clinical-translation/</code></td><td><span class="pill personal">个人层</span></td></tr>
-  </tbody>
-</table>
-
-<h2>空包协议</h2>
-<div class="protocol">
-  若某条 <code>MOUNTED</code> 的 B 路径不存在、0 文件、或 clone 失败：
-  <ol class="protocol-list">
-    <li>先通知用户，不静默跳过、不替换来源。</li>
-    <li>重新检索（先 B，再 GitHub / 网络；没网就问本地路径）。</li>
-    <li>用户确认后才改 <code>registry.yaml</code> 或改挂 ARS / MedSci。</li>
-  </ol>
-</div>
-
-<p class="foot">机器真源：<code>01_skill-discovery-integration/registry.yaml</code> · 来源配置：<code>sources/*.yaml</code> · 本页只做看板。<br>
-接口对接：就绪 = B 有文件且 A 按 id 调用；双轨 = B 已挂但 A 仍留同名副本；个人层 = 不经 B；PROPOSED = 未挂。</p>
+<p class="foot">机器真源 <code>registry.yaml</code> · 来源配置 <code>sources/*.yaml</code> · 一外来源一页。空挂 = 仅启用本页这一套时，A 期望的 id 在该来源里没有文件。</p>
 </body>
 </html>
