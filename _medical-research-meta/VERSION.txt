@@ -1,5 +1,6 @@
-Lean v6.3 (2026-08-25)
-Layout: skills/core/ (00–06 + harvest) and skills/archive/ (four standalone skills)
-Nested modules (not skills): data-impute, figure-engine
-Removed: markitdown, tool-environment-setup, imaging-omics-ml
-Runtime XSD: D:\0Grok\0RAD\0scripts\runtime-assets\
+framework-a-20260902 (2026-09-02)
+A = framework + personal (core/ ≤3 directory levels)
+B = loopnownow/MY-SKILLS-capabilities (mountable; not mounted)
+01 = skill-discovery-integration; 02 = data-processing; figures → 04
+Removed from A identity: 01_automation, 02_imaging, nested figure-engine
+Archive four packs unchanged this round

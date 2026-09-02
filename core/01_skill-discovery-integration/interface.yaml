@@ -1,0 +1,10 @@
+# Capability contract template for a proposed or mounted Skill
+capability_id: example.capability
+provides: []
+does_not_provide: []
+inputs: []
+outputs: []
+constraints: []
+dependencies: []
+target: null
+lifecycle: DISCOVERED  # DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED | DISABLED | REJECTED

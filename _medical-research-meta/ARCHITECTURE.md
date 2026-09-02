@@ -2,83 +2,84 @@
 
 ## Skill selection
 
-The orchestrator selects the **smallest** set of skills that can complete the task.
+The orchestrator classifies the task and selects the **smallest** set of skills that can complete it.
 
-### Typical flows
-
-| Flow | Route |
-|------|--------|
-| Intro/Discussion literature → manuscript | `05_manuscript` (`intro-discussion-evidence`) |
-| Literature → manuscript | `03_research` 选题选刊 → `05_manuscript` I/D 检索成文 |
-| Imaging study design | `03_research` → `02_imaging` → `04_analysis` → `05_manuscript` |
-| Prediction-model paper | `03_research` → `04_analysis` → `05_manuscript` → optional `06_review` |
-| Imaging prediction model | SOP `../core/00_orchestrator/workflows/radiomics-study.md` then `sci-manuscript.md` |
-| Pre-submission audit only | `06_review` (manuscript-quality) |
-| Response to reviewers | `06_review` (manuscript-quality) → `05_manuscript` polish |
-| Coding / batch / office | `01_automation` for Excel/workspace; `code-refactoring` for soft-coding |
-| Radiomics pipeline code | `02_imaging` (radiomics-habitat) + `code-refactoring` |
+| Intent | Route |
+|---|---|
+| Skill discovery / new external capability | `01_skill-discovery-integration` |
+| Excel / 0RAD workspace / cleaning / imaging prep / impute | `02_data-processing` |
+| Literature research / evidence / study design / grants | `03_research` |
+| Statistics / prediction / **figures** | `04_analysis` |
+| Scientific writing / personal style / de-AI | `05_manuscript` |
+| Peer review / **reviewer response** | `06_review` |
+| Evolution governance | `skill-harvest` |
+| Soft-coding / ethics forms / HIS extract / reader study | `archive/` standalones |
 
 ### Lab-specific flows (Ying Li)
 
 | Intent | Route |
 |--------|--------|
 | 按我的风格润色 / SCI 写作 | `05_manuscript` |
-| 写引言 / 写讨论 / 补文献 | `05_manuscript` → `intro-discussion-evidence.md` |
+| 写引言 / 写讨论（成文） | `03_research` retrieves; `05_manuscript` writes (`intro-discussion-evidence.md`) |
 | 投稿前找问题 / dealbreaker | `06_review` |
-| 回复审稿人 | `06_review` (`manuscript-quality`) |
-| 选题 / 选刊 | `03_research` |
-| AUC / DeLong / DCA / 统计计划 | `04_analysis` |
-| 组学 / ROI / 泄漏审计 | `02_imaging` |
+| 回复审稿人 | `06_review` only as entry |
+| 选题 / 选刊 / 文献 | `03_research` |
+| AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
+| 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
 | 软编码 / dry-run | `code-refactoring` |
-| 批处理 / Excel | `01_automation` |
-| 0RAD 文件夹 / exc / 假分类 | `01_automation` → `../core/01_automation/references/0rad-workspace.md` |
-| VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `../core/04_analysis/references/0rad-pipeline-rules.md` |
+| 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `0rad-workspace.md` |
+| VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `0rad-pipeline-rules.md` |
 | 伦理申请表填写 | `ethics-application-forms` |
 | 临床提取 / HIS | `clinical-data-extraction` |
 | 转化 / reader study | `clinical-translation` |
-| 期刊级 ROC/校准/DCA 图 | `05_manuscript` (`figure-engine` / `lab-palettes.md`) |
+| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-figure-engine` + `lab-palettes.md`) |
+| 新外接技能 | `01_skill-discovery-integration` |
 
-## Handoff contract
+## Final QC (handoff folded in)
 
-When handing work to another skill, provide:
+`00_orchestrator` owns the final QC gate. Completeness: deliverable exists; consistency checks pass; assumptions visible; limitations stated; files usable.
 
-- Objective
-- Inputs inspected
-- Decisions made
-- Assumptions
-- Completed outputs
-- Exclusions
-- Unresolved issues
-- Required downstream actions
+Handoff payload when crossing skills: objective, inputs inspected, decisions, assumptions, completed outputs, exclusions, unresolved issues, required downstream actions.
 
-## Completion contract
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and send **only the erroneous portion** back. Do not rerun already-correct stages.
 
-A task is complete only when:
+`workflow → final QC → localized defect → responsible skill → re-run that node → final QC → output`
 
-1. the requested deliverable exists;
-2. major internal consistency checks pass;
-3. important assumptions are visible;
-4. limitations or unresolved issues are stated;
-5. requested files are usable.
+## External Skill mounting
 
-## Boundary rules (do not create new top-level skills for)
+`01_skill-discovery-integration` resolves capabilities in this order:
 
-- diseases / organ systems
-- individual software packages (PyTorch, PyRadiomics, SPSS…)
-- individual manuscript sections
-- individual statistical tests
-- individual imaging metrics
+1. mounted Skills;
+2. approved default external mounts (none until APPROVED);
+3. network/GitHub discovery;
+4. if network is unavailable, request a local Skill/repository path;
+5. evaluate capability and boundaries;
+6. propose mount;
+7. require explicit user approval;
+8. mount.
 
-These are modes, tools, or reference files inside `core/01`–`06`, except the four `archive/` standalone skills.
+Default candidate: `Imbad0202/academic-research-skills`. Backup: `Aperivue/medsci-skills`.
+`mounts: []` — PROPOSED is not MOUNTED. No automatic mounting.
 
-`skill-harvest` writes into core/archive. It is not a research domain.
+## Domain boundaries
 
-## Frozen layout (P0)
+- `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role.
+- `03_research`: research design and literature/evidence. Manuscript prose is not its role.
+- `04_analysis`: statistical analysis and visualization. Upstream data repair is not its role.
+- `05_manuscript`: personal writing layer. Literature retrieval → `03_research`; figure generation → `04_analysis`.
+- `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
 
-Live tree: `skills/core/` (00–06 + harvest) and `skills/archive/` (four standalone skills). **Do not add `07_`.** Nested `data-impute` and `figure-engine` stay modules. New work is a bundle under an existing core domain, or an approved archive skill.
+## Externalization policy
 
-Target depth: `0X_domain/bundles/<package>/MODULE.md` (Domain → Bundle → Module). References and scripts live **inside that bundle**, not a second copy on the parent. Cross-bundle: relative path only, no file duplicate.
+Generic local capabilities marked in `core/EXTERNALIZATION_CANDIDATES.md` remain available until an approved mounted Skill is confirmed to cover them. Personal rules, personal scripts, and personal style assets are not removed merely because a generic external capability exists.
 
-P1: optional `ref/project-state.yaml` (template in `00_orchestrator/templates/`); SOPs in `00_orchestrator/workflows/` (`radiomics-study`, `sci-manuscript`). 「全线」still **asks which SOP**.
+## Archive
 
-P2: bundle `MODULE.md` YAML (`name/domain/trigger/inputs/outputs/tools/quality_control/owner`). `trigger` is documentation only. Evals: `_medical-research-meta/tests/` (no LLM). Nested `references/merged/**/MODULE.md` stay headerless.
+Archive skills remain standalone optional capabilities this round and are not default routes unless the task requires them. 00 may still route to archive.
+
+## Invariants
+
+**One fact → one authoritative home.**
+**One task → one entry point.**
+**A core path ≤ 3 directories (`core/<skill>/<optional-folder>/file`).**
+**User approval is mandatory for mounting or evolution.**

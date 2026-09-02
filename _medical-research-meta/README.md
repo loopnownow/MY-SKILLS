@@ -1,70 +1,36 @@
-# MedicalResearch Skills — Integrated 7-Skill Architecture (v1.1.0)
+# MedicalResearch Skills — framework A (2026-09-02)
 
-Deliberately compact **seven-skill** architecture for medical / imaging research,
-now **integrated with the Ying Li lab skill library** (`ly-*`, `radiology-skills`,
-office adapters) and the standalone packs from `files.zip`.
+Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (B) or an approved external Skill. Nothing is mounted yet (`mounts: []`).
 
-## Seven skills
+## Skills
 
-| # | Skill | Primary role | Integrated sources |
-|---|--------|--------------|--------------------|
-| 00 | `00_orchestrator` | Route & coordinate | shortcut map + `workflows/` + `templates/project-state.yaml` |
-| 01 | `01_automation` | Excel/CSV, 0RAD workspace, batch files | `xlsx`, `0rad-workspace.md` |
-| 02 | `02_imaging` | Radiomics, MRI, pipeline | radiomics-habitat, imaging-preprocessing-qc |
-| 03 | `03_research` | Design, journal, frontier, grant | radiology-design/frontier, grant-writing |
-| 04 | `04_analysis` | Stats, survival, ML, validation | `radiology-stats`, `statistical-analysis`, `data-impute` |
-| 05 | `05_manuscript` | SCI 论著 writing, polish, I/D literature, figures | `manuscript-core`, `figure-engine`, `lab-palettes.md` |
-| 06 | `06_review` | Pre-review, peer review, reviewer response | `manuscript-quality` |
+| # | Skill | Primary role |
+|---|--------|--------------|
+| 00 | `00_orchestrator` | Classify, route, composite workflow, Final QC + local recovery |
+| 01 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills |
+| 02 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep |
+| 03 | `03_research` | Design, literature (03 only), grants (personal supplement) |
+| 04 | `04_analysis` | Stats, prediction, figures; personal `radiology-stats` |
+| 05 | `05_manuscript` | Personal writing upper layer |
+| 06 | `06_review` | Personal review/response upper layer |
+| — | `skill-harvest` | Evolution governance |
 
-## Architectural rules (unchanged)
+## Rules
 
-- Software packages are **tools/adapters**, not separate top-level skills.
-- Diseases / topics are **knowledge domains**, not separate skills.
-- Manuscript sections are **modes** inside `05_manuscript`.
-- Peer review / pre-submission audit / reviewer response are **modes** inside `06_review`.
-- Statistical methods are **modes** inside `04_analysis`.
-- Imaging modalities are **modes** inside `02_imaging`.
-- Complex tasks are routed by `00_orchestrator`.
+- Software packages are tools, not top-level skills.
+- Literature → 03 only. Figures → 04. Reviewer response → 06 only. Excel/0RAD → 02.
+- A `core/` path ≤ 3 directories. No `bundles/` in A.
+- User approval required to mount or evolve. Never auto-mount.
+- Archive four packs stay this round; 00 may still route to them.
 
-## Progressive disclosure
-
-Each skill keeps a short `SKILL.md` entrypoint. Heavy material lives under:
-
-- `bundles/<source-skill>/` — full absorbed skill (read its `SKILL.md` first)
-- `references/` — domain checklists and radiology refs
-- `scripts/` — runnable helpers when present
-
-## Lab defaults (Ying Li / Jinshan Radiology)
-
-When the user is writing imaging SCI papers for this lab:
-
-1. Prose voice → `05_manuscript` → `bundles/manuscript-core` (+ ying-li-polisher)
-2. Intro/Discussion citations → `05_manuscript` → `intro-discussion-evidence.md`
-3. Pre-submission holes → `06_review` → `bundles/manuscript-quality`
-4. Response letters → `06_review` → `bundles/manuscript-quality`
-5. Code style → `archive/code-refactoring` (CONFIG on top, dry-run, checkpoint)
-6. Imaging methods design (not prose) → `02_imaging` + design bits in `03_research`
-7. Stats for Radiology-grade papers → `04_analysis` → `bundles/radiology-stats`
-
-## Installation
-
-Copy the active directories under your agent skills path, preserving names:
+## Tests
 
 ```
-skills/core/00_orchestrator
-...
-skills/core/06_review
-skills/archive/code-refactoring
-skills/archive/ethics-application-forms
-skills/archive/clinical-data-extraction
-skills/archive/clinical-translation
+python -m unittest discover -s _medical-research-meta/tests -v
 ```
-
-Optional: keep this package root `README.md` / `ARCHITECTURE.md` / `INTEGRATION_MAP.md` nearby for humans.
 
 ## See also
 
-- `ARCHITECTURE.md` — handoff contract and typical flows
-- `INTEGRATION_MAP.md` — full source → destination map
-- `tests/` — no-LLM skill-file evals (`python -m unittest discover -s _medical-research-meta/tests -v`)
-- `benchmarks/` — case table for those evals
+- `ARCHITECTURE.md` — handoff / QC / mount contract
+- `INTEGRATION_MAP.md` — changelog including CHG-20260902-003
+- `../core/MOUNTED_SKILLS.md`, `../core/EXTERNALIZATION_CANDIDATES.md`

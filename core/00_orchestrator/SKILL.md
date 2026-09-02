@@ -1,69 +1,80 @@
 ---
 name: medical-research-orchestrator
 description: >
-  Route multi-step medical-research work across the 01–06 domain skills. Use for end-to-end,
-  autonomous, multi-stage, or project-level tasks. Do not use for a single bounded task
-  when one domain skill is sufficient.
+  Classify the task, route it, run composite multi-skill workflows, and own Final QC
+  plus local recovery. Use for end-to-end or multi-stage work. Do not use when a
+  single domain skill is enough. Do not do literature, stats, writing, or review here.
 ---
 
 # Medical Research Orchestrator
 
-The orchestrator chooses the minimum skill set and preserves handoffs. It does not duplicate
-research, statistical, imaging, writing, or automation rules.
+The orchestrator **classifies**, **routes**, **sequences composite workflows**, and owns **Final QC + local recovery**.
+It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-## Active routes
+## Classification
 
-| Skill | Primary scope |
-|---|---|
-| `01_automation` | Excel/CSV, 0RAD workspace, batch file pipelines |
-| `02_imaging` | MRI/fMRI, DICOM/NIfTI, segmentation, preprocessing, radiomics, habitat, imaging QC |
-| `03_research` | Research question, study design, sample size, evidence, journal/topic selection, grant |
-| `04_analysis` | Statistics, prediction models, ML analysis, imputation, validation |
-| `05_manuscript` | SCI original-article writing, polishing, de-AI, figures |
-| `06_review` | Pre-submission audit, peer review of others, reviewer-response letters |
-| `skill-harvest` | Skill maintenance, routing, deduplication, ROI measurement, evolution |
+Pick the smallest skill set. One bounded task → that domain skill, not 00.
 
-Archive (standalone, not 00–06):
+## Routing
 
 | Skill | Primary scope |
 |---|---|
-| `code-refactoring` | Soft-coding, dry-run, CONFIG on top, modular scripts |
+| `01_skill-discovery-integration` | Discover / evaluate / mount external Skills. Never literature, stats, writing, or review. |
+| `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation. No modeling. |
+| `03_research` | Study design, **literature**, evidence, frontier, journal/topic, grants. Literature enters 03 only. |
+| `04_analysis` | Statistics, prediction, survival, **figures**. Data repair is not its role. |
+| `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. |
+| `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. |
+| `skill-harvest` | Evolution / ROI / boundaries. Not a research domain. |
+
+Archive (standalone, not 00–06; 00 may still route here):
+
+| Skill | Primary scope |
+|---|---|
+| `code-refactoring` | Soft-coding, dry-run, CONFIG on top |
 | `ethics-application-forms` | Hospital IRB / ethics form packs |
-| `clinical-data-extraction` | Labs, pathology text, HIS extraction |
-| `clinical-translation` | Reader studies, prospective/real-world translation |
+| `clinical-data-extraction` | Labs, pathology text, HIS |
+| `clinical-translation` | Reader studies, prospective translation |
 
-## Fast routing
+### Fast routing
 
-- Excel / 批处理 / 0RAD 文件夹 → `01_automation`
-- 软编码 / dry-run / 配置置顶 → `code-refactoring`
-- 伦理申请 / 填伦理 → `ethics-application-forms`
-- 提取检验 / HIS / 病理全文 → `clinical-data-extraction`
-- 转化 / reader study / 读者研究 → `clinical-translation`
-- MRI / fMRI / DICOM / NIfTI / registration / segmentation / radiomics / habitat → `02_imaging`
-- 选题 / 研究设计 / 选刊 / 样本量 / 文献证据 → `03_research`
-- 统计 / AUC / DeLong / DCA / LASSO / survival / imputation / prediction → `04_analysis`
-- 写作 / 润色 / 引言 / Discussion / figures → `05_manuscript`
-- 预审 / 审稿 / 评阅 / 回复审稿人 → `06_review`
-- 整理聊天 / 更新技能 / 技能迭代 / 收益评估 / 边界设计 → `skill-harvest`
+- 新技能 / 外接 / 挂载 → `01_skill-discovery-integration`
+- Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`
+- 软编码 / dry-run → `code-refactoring`
+- 伦理申请表 → `ethics-application-forms`
+- 提取检验 / HIS → `clinical-data-extraction`
+- 转化 / reader study → `clinical-translation`
+- MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`
+- 选题 / 研究设计 / **文献** / 选刊 / 样本量 → `03_research`
+- 统计 / AUC / DeLong / DCA / **出图** → `04_analysis`
+- 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`
+- 预审 / 审稿 / **回复审稿人** → `06_review`
+- 技能迭代 / 收益评估 → `skill-harvest`
 
-## Common composite routes
+## Composite workflows
 
-- Full research project: `03_research → 02_imaging (if imaging) → 04_analysis → 05_manuscript → 06_review → 01_automation as needed`
-- Imaging prediction paper: `03_research → 02_imaging → 04_analysis → 05_manuscript` then optional `06_review`
-- Manuscript revision: `05_manuscript` for prose; `06_review` for audit/response. Call another domain only for a factual/statistical/imaging defect.
-- Reviewer response: `06_review`; `05_manuscript` for changed sentences; call `04_analysis` or `02_imaging` only when the response requires new analysis or imaging verification.
-- Ethics forms: `ethics-application-forms` fills the hospital pack; pull design/n from `03_research` / `04_analysis` if missing; ICF long prose from `05_manuscript` only when the form needs new wording.
+SOPs live in `workflows/` (ask which SOP on 「全线」):
+
+- Full project: `03_research` → `02_data-processing` (if data/imaging) → `04_analysis` → `05_manuscript` → `06_review`
+- Imaging prediction paper: `03_research` → `02_data-processing` → `04_analysis` → `05_manuscript` → optional `06_review`
+- Manuscript revision: `05_manuscript` for prose; `06_review` for audit/response
+- Reviewer response: **`06_review` only as entry**; `05_manuscript` for changed sentences; `04_analysis` / `02_data-processing` only if new analysis or imaging verification is required
+- New capability: `01_skill-discovery-integration` (network first, then ask for a local path). Never auto-mount.
+
+Project state template: `templates/project-state.yaml`.
 
 ## Boundaries
 
-Do not create a top-level skill for a disease, package, manuscript section, statistical test,
-metric, or imaging modality. Add a mode, reference, workflow, or tool inside the existing home
-(`core/00`–`06`, `skill-harvest`, plus `archive/` standalone skills).
+Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality.
+Do not load all nested material. Load the selected `SKILL.md`, then only the required files.
+Mounted generic capability lives in `MY-SKILLS-capabilities` (ids in `MOUNTED_SKILLS.md`). Point at **mounted ids**, not deleted `bundles/` paths.
 
-Do not load all nested material. Load the selected `SKILL.md`, then only the required `MODULE.md`
-and references/scripts.
+## Final QC (includes handoff + local recovery)
 
-## Final QC
+00 owns the last gate. A task is complete only when the requested deliverable exists, major consistency checks pass, assumptions are visible, limitations are stated, and files are usable.
 
-Check objective completion, denominators, numerical claims, imaging parameters, citations,
-causality language, file usability, and requested output format.
+When handing work between skills, the payload is: objective, inputs inspected, decisions, assumptions, completed outputs, exclusions, unresolved issues, required downstream actions.
+
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Do not rerun already-correct stages.
+
+`workflow → final QC → localized defect → responsible skill → re-run that node → final QC → output`
