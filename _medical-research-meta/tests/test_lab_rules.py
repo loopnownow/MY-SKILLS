@@ -13,11 +13,36 @@ def read(*parts: str) -> str:
 
 
 class DeAI(unittest.TestCase):
-    def test_de_ai_lives_in_b_not_a(self) -> None:
-        self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
+    SAMPLE = (
+        "This paper delves into the landscape of radiomics. "
+        "The pivotal and robust model is comprehensive. "
+        "Interestingly, we leverage a groundbreaking approach."
+    )
+
+    def test_sample_hits_forbidden_table(self) -> None:
+        table = read("05_manuscript", "personal", "forbidden-phrases.md").lower()
+        hits = []
+        for word in (
+            "delve",
+            "landscape",
+            "pivotal",
+            "robust",
+            "comprehensive",
+            "interestingly",
+            "leverage",
+            "groundbreaking",
+        ):
+            if word in self.SAMPLE.lower():
+                self.assertIn(word, table, f"{word} must be listed in forbidden-phrases")
+                hits.append(word)
+        self.assertGreaterEqual(len(hits), 6)
+
+    def test_de_ai_is_personal_not_a_mount(self) -> None:
         five = read("05_manuscript", "SKILL.md")
-        self.assertIn("05-de-ai", five)
+        self.assertNotIn("05-de-ai", five)
         self.assertIn("05-writing-generic", five)
+        self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
+        self.assertTrue((SKILLS / "05_manuscript" / "personal" / "forbidden-phrases.md").is_file())
 
 
 class Aitor(unittest.TestCase):

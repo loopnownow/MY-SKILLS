@@ -212,3 +212,16 @@ boundary_effect: Do not merge until named. Do not copy 04 personal or 03 ethics 
 decision: keep
 next_action: user reviews PRs
 ```
+
+## Return de-ai to A personal 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-007
+date: 2026-09-02
+skill: 05_manuscript
+change_class: architecture
+problem: de-ai is personal Ying Li voice; user asked it back from B and merged into 05 personal.
+change: Copied B 05-manuscript/de-ai files into 05_manuscript/personal/ (README → de-ai.md). Removed B pack and id 05-de-ai. 05 SKILL.md points at personal/forbidden-phrases.md. writing-generic stays B-only. mounts still [].
+decision: keep
+next_action: user reviews PRs; do not merge until named
+```

@@ -20,7 +20,8 @@ Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clin
 - `02-xlsx`, `02-imaging-qc`, `02-radiomics-habitat`, `02-impute`, `02-generic-docs`
 - `04-stats-generic`, `04-figure-engine`
 - `05-writing-generic` (was `05_manuscript/writing-generic/`)
-- `05-de-ai` (was `05_manuscript/de-ai/`)
 - `06-review-generic` (was `06_review/review-generic/`)
 
 `04_analysis/personal/` (lab radiology-stats + 0RAD rules + palettes) stays in A. It is not in B.
+
+`05_manuscript/personal/` includes de-AI (returned from B 2026-09-02). It is not a B mount.

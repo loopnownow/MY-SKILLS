@@ -33,14 +33,14 @@ Convert **validated** research information into precise, publication-ready origi
 | Corpus phrase bank | `personal/corpus-phrase-bank.md` |
 | Citation and language | `personal/citation-and-language.md` |
 | I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
+| de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 
 - `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (B `05-manuscript/writing-generic/`)
-- `05-de-ai` — forbidden phrases / AI-isms (B `05-manuscript/de-ai/`)
 
-These packs live in B only. `registry.yaml` `mounts: []` until an explicit mount. Do not recreate `writing-generic/` or `de-ai/` in A.
+`writing-generic` lives in B only. `registry.yaml` `mounts: []` until an explicit mount. de-AI is personal and stays in A (`personal/`).
 
 ## Figures
 
@@ -59,7 +59,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: mounted `05-de-ai` (`forbidden-phrases.md`)
+- Forbidden fluff: `personal/forbidden-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.
