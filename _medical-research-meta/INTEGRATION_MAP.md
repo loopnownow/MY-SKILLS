@@ -135,3 +135,22 @@ boundary_effect: 06_review / manuscript-quality only. 05_manuscript and 00_orche
 decision: keep
 next_action: live Path A 落实审稿意见; confirm title page unchanged and over-quota notes instead of ref deletion
 ```
+
+## Framework / capabilities split 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-003
+date: 2026-09-02
+skill: layout (A framework vs B capabilities)
+from_version: Lean v6.3 + harvest CHG-20260902-001/002
+to_version: framework-a-20260902
+change_class: architecture split
+problem: One repo mixed orchestrator/personal lab rules with mountable generic capabilities; 01 was Excel; 05 nested figure-engine; core trees exceeded three directory levels (`bundles/`, `merged/`, `evolution/proposals/`).
+change: Split A (this repo: framework + personal) from B (MY-SKILLS-capabilities). Locked C1–C5 and M01–M34. 01 = Skill Discovery & Integration (not Excel). 02_imaging → 02_data-processing (raw→analysis-ready; Excel/0RAD here; no modeling). Literature → 03 only; figures → 04; reviewer response → 06 only. Flatten A core to ≤3 directories. Registry mounts: [] with PROPOSED default-candidate Imbad0202/academic-research-skills and backup Aperivue/medsci-skills. Never auto-mount. Journal-style files (C4) go to B only. radiology-stats stays in A/04. Freeze tag pre-split-2026-09-02 on origin/main. Specialist bot profiles unchanged.
+expected_benefit: A stays a personal orchestrator; B is a mountable capability pack; routing matches lab intent; depth limit is enforceable.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: No bot profile edits (C5). Archive four packs not migrated. Do not delete A generic 03/05/06 copies until a mount covers them. Do not merge this PR automatically.
+decision: keep
+next_action: user reviews PR; mount only after explicit approval; then delete matching EXTERNALIZATION_CANDIDATES rows
+```

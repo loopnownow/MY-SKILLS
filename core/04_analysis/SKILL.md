@@ -1,71 +1,62 @@
 ---
-name: medical-statistical-and-predictive-analysis
+name: medical-statistics-analysis-and-visualization
 description: >
-  Clinical/imaging statistics and prediction models. Use for 统计, 插补, AUC, DeLong,
-  DCA, LASSO, 列线图, 两两比较, Table 1.
-  Integrates radiology-stats, statistical-analysis, and data-impute. Do not use for 写论著, 图像处理, 评阅, or 回复审稿人.
+  Statistics, prediction, survival, diagnostic accuracy, and figure generation.
+  Use after data are analysis-ready. Cleaning/imputation → 02_data-processing.
+  Figure captions and manuscript prose → 05_manuscript. Literature → 03.
 ---
 
-# Medical Statistical and Predictive Analysis (integrated)
+# Analysis & Visualization
 
 ## Purpose
 
-Prioritize estimands, effect sizes, uncertainty, assumptions, validation, and reproducibility
-over isolated P values.
+Transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 
-Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox,
-lifelines, and DeLong *intervals* are **not** implemented as lab defaults — say so if asked;
-never write them as what the lab ran.
+Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults — say so if asked; never write them as what the lab ran.
 
-## Capability map
+## Personal layer (this repo)
 
 | Task | Path |
-|------|------|
-| **Radiology-grade** AUC/CI, DeLong p, kappa/ICC, MRMC, calibration, DCA, survival, sample size, high-dim | `bundles/radiology-stats/` |
-| Test selection / APA-style reporting / power | `bundles/statistical-analysis/` |
-| Group-stratified missing-value imputation | `bundles/data-impute/MODULE.md` |
-| **0RAD pipeline rules** (`VAL_MODE`, live modules v4.3.0, 全部组/不筛, 子结局分组, `SUBGROUP_COL`, `FORCE_INTER`) | `references/0rad-pipeline-rules.md` |
-| **Lab clinical stats pipeline** (Table 1 / LASSO / ROC HTML) | `python -m modules.pipeline` (not habitat-tree `LassoCV`; not `statistical-analysis/scripts/`) |
-| Export impute/outlier scripts (alongside data-impute) | `bundles/data-impute/scripts/export_*` |
+|---|---|
+| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `0rad-pipeline-rules.md` |
+| Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `radiology-stats/` |
+| Imaging statistics notes (lab) | `statistics.md` |
+| Lab figure palettes | `lab-palettes.md` |
+| Stats checklist | `stats-checklist.md` |
 
-## Analysis workflow
+Do **not** put `radiology-stats` in the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
 
-1. Define outcome, predictors, estimand, population, time origin.
-2. Inspect types, missingness, distributions, structure.
-3. Match model to design/outcome.
-4. Check assumptions; fit primary model.
-5. Report effect + 95% CI + P when appropriate.
-6. Performance + uncertainty; pre-specified sensitivity/subgroup.
-7. Validate (held-out / external); document software, seeds, exclusions.
+## Mounted capability ids (generic; not present until mounted)
+
+- `04-stats-generic` — test selection, Bayesian, power, reporting standards
+- `04-figure-engine` — STROBE/flow, plot templates, journal-family visual style, Nature figure spec
+
+Until `04-figure-engine` is mounted, do not invent a second figure stack inside 05.
 
 ## Imaging hard rules (non-negotiable)
 
 - Patient-level splits; never treat slice-level random split as external validation.
 - AUC 95% CI = **1000 bootstrap** (`_boot_auc_ci`). **Not** DeLong intervals.
-- Paired model-comparison **p** = DeLong (Sun & Xu 2014 midranks); `ROC_METRICS` columns `DeLong vs {model}` (added 2026-08-28). DeLong is a p, not a CI.
-- **Combined** is the named primary model. Youden is **per split** (`refit` / `apply_formula`); `lock_threshold` keeps the training Youden.
+- Paired model-comparison **p** = DeLong (Sun & Xu 2014 midranks). DeLong is a p, not a CI.
+- **Combined** is the named primary model. Youden is **per split**; `lock_threshold` keeps the training Youden.
 - Radiomics reproducibility filter: **ICC(A,1) ≥ 0.75**.
 - Clinical model: Table 1 then **AIC backward** (unless `FORCE_MODEL_FEATURES`).
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
-- Survival: KM + log-rank. Optional univariable Cox (`statsmodels` PHReg, Breslow; `DO_COX` library default **False**). Not multivariate; not lifelines.
-- Habitat-tree `LassoCV` ≠ paper primary. Primary numbers: `python -m modules.pipeline` → `*-results.html`.
+- Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
-- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `references/0rad-pipeline-rules.md`.
+- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `0rad-pipeline-rules.md`.
 
-## Core modes
+## Workflow
 
-Descriptive/group comparison · Regression · Survival · Prediction/diagnostic · Feature selection · Sensitivity · Imputation (`data-impute`)
+1. Confirm analysis-ready inputs from `02_data-processing`. Do not silently repair upstream data.
+2. Define outcome, predictors, estimand, population, time origin.
+3. Match model to design/outcome; fit on training only.
+4. Report effect + 95% CI + P when appropriate.
+5. Generate figures here (mounted `04-figure-engine` + `lab-palettes.md`). Caption prose → `05_manuscript`.
 
-### ML leakage rule
+## Boundaries
 
-data split → preprocess fit on train → LASSO / clinical selection on **train only** → fit → validate/test.
-
-Never select features on the full dataset. Never describe lab LASSO as nested CV.
-
-## Output
-
-analysis rationale · assumptions/diagnostics · code if requested · effects + uncertainty · performance · QC · interpretation tied to actual data
-
-## Progressive disclosure
-
-Only this top-level skill is auto-discovered. `data-impute` is a nested module, not a separate skill. Load `bundles/*/MODULE.md` as needed.
+- Data cleaning / impute / Excel → `02_data-processing` (ids `02-impute`, `02-xlsx`)
+- Literature → `03_research`
+- Manuscript wording → `05_manuscript`
+- Reviewer response → `06_review`

@@ -11,18 +11,19 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 ## Sequence
 
 1. **Confirm inputs** — results HTML, PNG, Figure 1 n from text. Missing n → ask, do not invent.
-2. **Methods / Results (05_manuscript)** — `manuscript-core` + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
-3. **Figure 1 (05_manuscript)** — `figure-engine` (no inclusion box). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini.
-4. **Introduction / Discussion (05_manuscript)** — `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
-5. **De-AI (05_manuscript)** — forbidden-phrases then ai-isms. Methods stay passive.
-6. **Pre-review (06_review)** — Summary / Major / Minor. Inventable items → questions for the user.
-7. **Revise (05_manuscript)** after the user answers. If reviewer comments exist → **06_review** `manuscript-quality`, then `05_manuscript` for changed sentences.
+2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
+3. **Figure 1 (`04_analysis`)** — mounted `04-figure-engine` (no inclusion box). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05.
+4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
+5. **De-AI (`05_manuscript`)** — `de-ai/forbidden-phrases.md` then ai-isms. Methods stay passive.
+6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user.
+7. **Revise (`05_manuscript`)** after the user answers. If reviewer comments exist → **`06_review` only as entry**, then `05_manuscript` for changed sentences.
 
 ## Do not
 
 - Run pipeline unless `04_analysis` is also requested.
 - Cite in Methods; cite in Intro last paragraph or Discussion first paragraph.
 - Dual-write VAL_MODE into YAML.
+- Draw figures inside 05.
 
 ## Output
 

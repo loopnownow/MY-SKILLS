@@ -374,7 +374,7 @@ Project facts, one-off preference, temporary constraints, unconfirmed observatio
 
 If a promoted version regresses, **propose** restore to the Git commit recorded as the rollback point. Do not auto-patch a second evolution on top.
 
-Use `templates/feedback-record.json` and `templates/evolution-proposal.md`. Store live proposals under `evolution/proposals/`. Do not invent a parallel JSON-ledger engine, and do not copy this governance into 00–06 domain skills. Corpus draft-vs-final diffs belong in `05_manuscript` `diff_harvest.py`, not here.
+Use `templates/feedback-record.json` and `templates/evolution-proposal.md`. Write proposals from `templates/evolution-proposal.md` (no `evolution/proposals/` folder). Do not invent a parallel JSON-ledger engine, and do not copy this governance into 00–06 domain skills. Mounting external Skills is `01_skill-discovery-integration`, not harvest. Corpus draft-vs-final diffs belong in `05_manuscript` `diff_harvest.py`, not here. Figures belong in `04_analysis`.
 
 Do not add top-level skills `07_skill-evolution`, `08_feedback`, `09_evaluator`, or similar. Those jobs stay inside `skill-harvest`.
 

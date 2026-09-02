@@ -1,0 +1,13 @@
+# External Skill registry
+# mounts stay empty until the user explicitly approves a mount.
+# PROPOSED is not MOUNTED. Never auto-mount.
+mounts: []
+proposals:
+  - id: academic-research-skills
+    source: https://github.com/Imbad0202/academic-research-skills
+    status: PROPOSED
+    role: default-candidate
+  - id: med-sci-skills
+    source: https://github.com/Aperivue/medsci-skills
+    status: PROPOSED
+    role: backup-candidate
