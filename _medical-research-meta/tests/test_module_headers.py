@@ -87,14 +87,20 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("mounts: []", text)
 
     def test_mounts_html_board(self):
-        html = (ROOT / "01_skill-discovery-integration" / "mounts.html").read_text(encoding="utf-8")
-        self.assertIn("MY-SKILLS-capabilities", html)
-        self.assertIn("05-writing-generic", html)
-        self.assertIn("个人层", html)
-        self.assertIn("sources/b-my-skills-capabilities.yaml", html)
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "sources" / "b-my-skills-capabilities.yaml").is_file())
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "sources" / "ars.proposed.yaml").is_file())
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "sources" / "medsci.proposed.yaml").is_file())
+        d = ROOT / "01_skill-discovery-integration"
+        index = (d / "mounts.html").read_text(encoding="utf-8")
+        b = (d / "mounts-b.html").read_text(encoding="utf-8")
+        ars = (d / "mounts-ars.html").read_text(encoding="utf-8")
+        med = (d / "mounts-medsci.html").read_text(encoding="utf-8")
+        self.assertIn("mounts-b.html", index)
+        self.assertIn("mounts-ars.html", index)
+        self.assertIn("mounts-medsci.html", index)
+        self.assertIn("05-writing-generic", b)
+        self.assertIn("无空挂", b)
+        self.assertIn("12 / 12 空挂", ars)
+        self.assertIn("12 / 12 空挂", med)
+        self.assertTrue((d / "mounts.css").is_file())
+        self.assertTrue((d / "sources" / "b-my-skills-capabilities.yaml").is_file())
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"
