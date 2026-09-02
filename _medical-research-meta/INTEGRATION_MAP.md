@@ -225,3 +225,16 @@ change: Copied B 05-manuscript/de-ai files into 05_manuscript/personal/ (README 
 decision: keep
 next_action: user reviews PRs; do not merge until named
 ```
+
+## 01 mount pointers default B 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-008
+date: 2026-09-02
+skill: 01_skill-discovery-integration
+change_class: policy
+problem: Mount id tables were duplicated on domain SKILL.md files; default candidate was ARS; empty mounts had no protocol.
+change: Canonical pointers only in 01 (`registry.yaml` + `MOUNTED_SKILLS.md`). Default source B (all current B packs MOUNTED except de-ai, which is A personal). Empty mount → notify, re-search, confirm; no silent ARS/MedSci fallback. ARS/MedSci remain PROPOSED backups. Root MOUNTED_SKILLS.md is a stub.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

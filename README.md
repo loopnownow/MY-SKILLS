@@ -20,7 +20,7 @@ archive/       Empty of skills; four packs rehomed 2026-09-02 (see archive/READM
 _medical-research-meta/  Architecture, integration map, tests
 ARCHITECTURE.md
 SKILLS_map.html
-MOUNTED_SKILLS.md
+MOUNTED_SKILLS.md          stub → 01 registry
 EXTERNALIZATION_CANDIDATES.md
 ```
 
@@ -29,7 +29,7 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Classification, routing, composite workflows, Final QC + local recovery |
-| `01_skill-discovery-integration` | Discover / evaluate / mount external Skills (not Excel) |
+| `01_skill-discovery-integration` | Discover / evaluate / mount; pointers live here; default source B |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + personal grant supplement + translational design + ethics forms |
 | `04_analysis` | Statistics, prediction, **figures** |

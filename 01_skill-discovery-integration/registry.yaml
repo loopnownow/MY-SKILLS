@@ -1,12 +1,78 @@
-# External Skill registry
-# mounts stay empty until the user explicitly approves a mount.
-# PROPOSED is not MOUNTED. Never auto-mount.
-mounts: []
+# Mount pointers live only in 01.
+# Default source is B (loopnownow/MY-SKILLS-capabilities).
+# Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
+# Never auto-mount a non-B source. PROPOSED is not MOUNTED.
+default_source:
+  id: my-skills-capabilities
+  source: https://github.com/loopnownow/MY-SKILLS-capabilities
+  role: default-mount
+empty_mount: notify-then-research-confirm
+mounts:
+  - id: 02-xlsx
+    source: my-skills-capabilities
+    path: 02-data-processing/xlsx/
+    layer: 02
+    status: MOUNTED
+  - id: 02-imaging-qc
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
+    layer: 02
+    status: MOUNTED
+  - id: 02-radiomics-habitat
+    source: my-skills-capabilities
+    path: 02-data-processing/radiomics-habitat/
+    layer: 02
+    status: MOUNTED
+  - id: 02-impute
+    source: my-skills-capabilities
+    path: 02-data-processing/impute/
+    layer: 02
+    status: MOUNTED
+  - id: 02-generic-docs
+    source: my-skills-capabilities
+    path: 02-data-processing/generic-docs/
+    layer: 02
+    status: MOUNTED
+  - id: 03-literature
+    source: my-skills-capabilities
+    path: 03-research/literature/
+    layer: 03
+    status: MOUNTED
+  - id: 03-design
+    source: my-skills-capabilities
+    path: 03-research/design/
+    layer: 03
+    status: MOUNTED
+  - id: 03-frontier
+    source: my-skills-capabilities
+    path: 03-research/frontier/
+    layer: 03
+    status: MOUNTED
+  - id: 04-stats-generic
+    source: my-skills-capabilities
+    path: 04-analysis/stats-generic/
+    layer: 04
+    status: MOUNTED
+  - id: 04-figure-engine
+    source: my-skills-capabilities
+    path: 04-analysis/figure-engine/
+    layer: 04
+    status: MOUNTED
+  - id: 05-writing-generic
+    source: my-skills-capabilities
+    path: 05-manuscript/writing-generic/
+    layer: 05
+    status: MOUNTED
+  - id: 06-review-generic
+    source: my-skills-capabilities
+    path: 06-review/review-generic/
+    layer: 06
+    status: MOUNTED
 proposals:
   - id: academic-research-skills
     source: https://github.com/Imbad0202/academic-research-skills
     status: PROPOSED
-    role: default-candidate
+    role: backup-candidate
   - id: med-sci-skills
     source: https://github.com/Aperivue/medsci-skills
     status: PROPOSED

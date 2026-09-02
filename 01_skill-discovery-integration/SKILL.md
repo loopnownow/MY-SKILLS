@@ -4,35 +4,51 @@ description: >
   Discover, evaluate, and mount external Skills. Use for finding a new Skill,
   checking mounted capability coverage, integrating an approved external Skill,
   or resolving missing capability. Infrastructure only. Never literature research,
-  statistics, manuscript writing, or peer review. Never auto-mount.
+  statistics, manuscript writing, or peer review. Mount pointers live only here.
+  Default mount is B (MY-SKILLS-capabilities). Never auto-mount a non-B source.
 ---
 
 # Skill Discovery & Integration
 
 ## Purpose
 
-Infrastructure for external Skill discovery and mounting. Professional work stays in 02–06.
+Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
+**All mount pointers live here** (`registry.yaml`, `MOUNTED_SKILLS.md`). Domain skills call ids; they do not keep a second pointer table.
+
+## Default mount
+
+**Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
+ARS (`Imbad0202/academic-research-skills`) and MedSci (`Aperivue/medsci-skills`) are **backup candidates only**.
+
+## Empty-mount protocol
+
+If a listed mount is empty (path missing, zero files, clone failed, id points nowhere):
+
+1. **Notify the user first.** Do not silently skip, substitute, or fall back.
+2. Re-search (B first, then GitHub / network; if no network, ask for a local path).
+3. **Confirm with the user** before changing `registry.yaml` or switching source.
+
+Never silently fall back to ARS/MedSci or invent a local copy.
 
 ## Resolution order
 
-1. Check currently mounted Skills (`MOUNTED_SKILLS.md`, `registry.yaml` `mounts:`).
-2. Check approved default external mounts (none until a proposal is APPROVED).
-3. Search GitHub / the network for a missing capability.
-4. If network access is unavailable, **ask the user for a local Skill/repository path**.
+1. Read this skill's `registry.yaml` (pointers + `mounts:`).
+2. Resolve ids against default source B.
+3. If the B path is empty or missing → empty-mount protocol (notify → re-search → confirm).
+4. Only after confirmation may a backup candidate (ARS / MedSci) be proposed.
 5. Evaluate capability, boundaries, dependencies, and overlap.
-6. Propose the mount (status `PROPOSED`).
-7. **Require explicit user approval.** Silence is not approval.
-8. Mount only after approval (`APPROVED` → `MOUNTED`). Update `registry.yaml` and `MOUNTED_SKILLS.md`.
+6. New non-B sources stay `PROPOSED` until explicit approval. Silence is not approval.
+7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
 
 ## Hard rules
 
 - Never perform literature research, statistics, manuscript writing, or peer review.
-- Never auto-install or auto-mount a Skill.
+- Never auto-install or auto-mount a **non-B** Skill.
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
-- `mounts: []` means nothing is mounted. `PROPOSED` is not `MOUNTED`.
-- Default candidate: `Imbad0202/academic-research-skills`. Backup: `Aperivue/medsci-skills`.
+- `PROPOSED` is not `MOUNTED`.
+- de-AI is personal (`05_manuscript/personal/`); it is not a B mount.
 
 ## Capability evaluation
 
@@ -40,7 +56,5 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 ## Registry
 
-`registry.yaml` = lifecycle. `interface.yaml` = capability contract.
+`registry.yaml` = lifecycle + pointers (canonical). `interface.yaml` = capability contract.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
-
-Mountable capability package (separate repo): `loopnownow/MY-SKILLS-capabilities`.
