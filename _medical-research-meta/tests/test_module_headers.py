@@ -53,8 +53,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertEqual(fig, [])
         self.assertFalse((ROOT / "skill-harvest" / "evolution" / "proposals").exists())
 
-    def test_core_max_three_directories(self):
-        """skill + optional one folder + file (no core/, no fourth folder)."""
+    def test_core_max_four_path_parts(self):
+        """skill / category-or-pack / (scripts|references|personal) / file — no fifth folder."""
         violations = []
         for skill in SKILL_DIRS:
             base = ROOT / skill
@@ -64,7 +64,7 @@ class ModuleHeaderTests(unittest.TestCase):
                 if "__pycache__" in p.parts or ".git" in p.parts:
                     continue
                 rel = p.relative_to(ROOT)
-                if len(rel.parts) > 3:
+                if len(rel.parts) > 4:
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
@@ -80,8 +80,8 @@ class ModuleHeaderTests(unittest.TestCase):
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "radiology-stats"
         self.assertTrue((rs / "MODULE.md").is_file())
-        self.assertTrue((rs / "diagnostic-accuracy.md").is_file())
-        self.assertEqual(len(list(rs.glob("*.md"))), 7)
+        self.assertTrue((rs / "references" / "diagnostic-accuracy.md").is_file())
+        self.assertEqual(len(list(rs.rglob("*.md"))), 7)
 
     def test_no_legacy_manuscript_paths(self):
         skip_names = {

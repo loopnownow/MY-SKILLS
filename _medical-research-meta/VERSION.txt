@@ -1,5 +1,5 @@
-rehome-archive-root-20260902 (2026-09-02)
-A = framework + personal (skills at repo root; ≤3 directory levels; no core/)
+classify-extra-layer-20260902 (2026-09-02)
+A = framework + personal (skills at repo root; ≤4 path parts: skill/category/scripts|references/file)
 B = loopnownow/MY-SKILLS-capabilities (mountable; classified domain folders; not mounted)
 01 = skill-discovery-integration; 02 = data-processing; figures → 04
-Four former archive packs rehomed: extraction/code-refactoring/ethics-forms → 02; clinical-translation → 03
+Personal vs generic files classified inside 03/04/05/06; 02 packs restored scripts/references

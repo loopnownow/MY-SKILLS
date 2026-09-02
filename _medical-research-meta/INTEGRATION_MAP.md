@@ -174,3 +174,22 @@ boundary_effect: No bot profile edits. Do not merge this PR automatically. Do no
 decision: keep
 next_action: user reviews PRs; mount only after explicit approval
 ```
+
+## Classify A extra layer 2026-09-02 (user)
+
+```text
+change_id: CHG-20260902-005
+date: 2026-09-02
+skill: layout (A classification using extra directory)
+from_version: rehome-archive-root-20260902
+to_version: classify-extra-layer-20260902
+change_class: architecture
+problem: After lifting core/, skills sat at repo root but personal and generic files still mixed at skill root; 02 packs had scripts hoisted beside SKILL.md. User allowed one extra folder for classification.
+change: Restored 02 pack scripts/references. Classified 03 into personal/design/frontier/literature (+ clinical-translation/references). 04 personal/ + radiology-stats/references. 05 personal/ vs writing-generic/. 06 personal/ vs review-generic/. Depth rule is now ≤4 path parts (`skill/category/scripts|references/file`). Tests, SKILL.md maps, EXTERNALIZATION_CANDIDATES updated. B already classified; not copied. Bots unchanged.
+expected_benefit: Personal vs generic files are navigable; scripts sit in scripts/; A still cannot grow a fifth folder.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: No bot profile edits. Do not merge this PR automatically. Do not copy A personal files into B. Do not delete writing-generic/review-generic until a mount covers them.
+decision: keep
+next_action: user reviews PR; merge only when named
+```

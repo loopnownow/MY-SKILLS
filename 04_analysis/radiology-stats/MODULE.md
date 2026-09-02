@@ -20,7 +20,7 @@ on.
 
 **Lab vs journal-grade.** 0RAD live modules are **v4.3.0** (2026-08-28). Primary run is
 `python -m modules.pipeline`. Nested CV, multivariate Cox, lifelines, and DeLong *intervals*
-are not lab defaults (say “not implemented” if asked). Full lock: `../0rad-pipeline-rules.md`.
+are not lab defaults (say “not implemented” if asked). Full lock: `../personal/0rad-pipeline-rules.md`.
 
 ## Core stance
 
@@ -63,7 +63,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `../0rad-p
 |---|---|
 | [references/diagnostic-accuracy.md](references/diagnostic-accuracy.md) | Sensitivity/specificity/PPV/NPV/LR, the right CI method, paired comparison (McNemar) |
 | [references/model-evaluation.md](references/model-evaluation.md) | ROC/AUC, bootstrap CI vs DeLong p, thresholds, calibration, Brier, decision-curve analysis |
-| [../../references/0rad-pipeline-rules.md](../../references/0rad-pipeline-rules.md) | 0RAD `VAL_MODE` / live modules v4.3.0 / pairwise groups / ID columns |
+| [../personal/0rad-pipeline-rules.md](../personal/0rad-pipeline-rules.md) | 0RAD `VAL_MODE` / live modules v4.3.0 / pairwise groups / ID columns |
 | [references/agreement-mrmc.md](references/agreement-mrmc.md) | Cohen/weighted/Fleiss kappa, ICC(A,1) lab filter, Bland-Altman, MRMC (Obuchowski-Rockette / DBM) |
 | [references/high-dimensional-omics.md](references/high-dimensional-omics.md) | Multiple testing, train-only LASSO (not nested CV), leakage, ICC filter |
 | [references/survival-prognostic.md](references/survival-prognostic.md) | Kaplan-Meier, optional univariable Cox (PHReg), Schoenfeld; what is not implemented |

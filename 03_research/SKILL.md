@@ -24,14 +24,14 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 | Task | Path |
 |---|---|
-| Voice A — 评别人的国自/面上 | `grant-review.md` |
-| Voice B — 写自己的标书句库 | `grant-writing.md` |
-| Voice B 章节骨架 | `grant-own-skeleton.md` |
-| 方法升级写进立项 | `method-upgrade-into-grant.md` |
-| Intake | `intake.md` |
-| Ethics (protocol-level) | `ethics.md` |
-| Multicenter | `multicenter.md` |
-| Clinical translation / reader-study **design** | `clinical-translation/` |
+| Voice A — 评别人的国自/面上 | `personal/grant-review.md` |
+| Voice B — 写自己的标书句库 | `personal/grant-writing.md` |
+| Voice B 章节骨架 | `personal/grant-own-skeleton.md` |
+| 方法升级写进立项 | `personal/method-upgrade-into-grant.md` |
+| Intake | `personal/intake.md` |
+| Ethics (protocol-level) | `personal/ethics.md` |
+| Multicenter | `personal/multicenter.md` |
+| Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 
@@ -43,15 +43,15 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 - `03-design` — study design, validation, radiology-design blueprints/endpoints/feasibility
 - `03-frontier` — frontier themes, idea-to-question, radiogenomics map
 
-Until mounted, local copies remain: `literature.md`, `sources.md`, `study-design.md`, `radiology-design.md`, `radiology-frontier.md`, etc. (see `EXTERNALIZATION_CANDIDATES.md`).
+Until mounted, local copies remain under `literature/`, `design/`, `frontier/` (see `EXTERNALIZATION_CANDIDATES.md`).
 
 ## Modes
 
 - Evidence: gaps, conflict, mechanism, journal fit. Never invent PMID/DOI.
 - Design: question/hypothesis, eligibility, endpoints, sample size, bias, reporting guideline.
 - Translational design: use scenario, reader study, threshold-to-action, prospective/regulatory — `clinical-translation/`.
-- Grant-review (Voice A): load **only** `grant-review.md`. English journal peer review stays in `06_review`.
-- Grant-writing (Voice B): skeleton + method-upgrade + `grant-writing.md`. Never paste Voice A tics into own text.
+- Grant-review (Voice A): load **only** `personal/grant-review.md`. English journal peer review stays in `06_review`.
+- Grant-writing (Voice B): skeleton + method-upgrade + `personal/grant-writing.md`. Never paste Voice A tics into own text.
 
 ## Boundaries
 

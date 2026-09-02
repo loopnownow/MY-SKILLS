@@ -37,7 +37,7 @@ L3  Personal control: 02/03/04 supplements; 05/06 personal upper layers
 
 **Mounted Skill owns generic capability. MY-SKILLS owns orchestration, personalization, constraints, and final authority.**
 
-An A skill path is at most three directories from repo root: `<skill>/<optional-one-folder>/file`. No `core/`, no `bundles/`, no `merged/`, no fourth folder.
+An A skill path is at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. After lifting `core/`, one extra folder is allowed for classification. No fifth folder, no `core/`, no `bundles/`, no `merged/`.
 
 ## Routing rules
 

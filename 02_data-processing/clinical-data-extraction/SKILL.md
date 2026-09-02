@@ -8,7 +8,7 @@ description: >
 
 # 临床数据提取
 
-个人数据提取补充，家园在 `02_data-processing/clinical-data-extraction/`（从 archive 迁入，已压到三层）。
+个人数据提取补充，家园在 `02_data-processing/clinical-data-extraction/`（从 archive 迁入；脚本在 `scripts/`，深度 skill/pack/scripts/file）。
 
 ## 适用场景
 - 从 .txt / .docx 提取患者信息（姓名、性别、年龄、门诊号）
@@ -49,6 +49,6 @@ description: >
 10. 分类标签用英文（`Positive`/`Negative`），规则见 `../0rad-workspace.md`，此处不另写一套。
 
 ## 附带的脚本
-- `extract_patient_data.py` — 患者信息与检验指标提取
-- `extract_docx.py` — docx 文档批量提取
-- `query_patient.py` — 医院 HIS 系统查询
+- `scripts/extract_patient_data.py` — 患者信息与检验指标提取
+- `scripts/extract_docx.py` — docx 文档批量提取
+- `scripts/query_patient.py` — 医院 HIS 系统查询
