@@ -9,7 +9,7 @@ description: >
 
 # 代码优化与重构
 
-编码原则 / 软编码补充，家园在 `02_data-processing/code-refactoring/`（从 archive 迁入，已压到三层）。
+编码原则 / 软编码补充，家园在 `02_data-processing/code-refactoring/`（从 archive 迁入；模板在 `scripts/`）。
 
 ## 适用场景
 - 代码软编码（配置置顶）
@@ -52,4 +52,4 @@ description: >
 - 打印将要执行的操作供用户确认
 
 ## 附带的模板
-- `soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
+- `scripts/soft_code_template.py` — 软编码 + 断点续传 + dry run 模板

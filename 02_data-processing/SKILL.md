@@ -36,9 +36,9 @@ Never perform feature selection or statistical model fitting here.
 | 0RAD workspace (folder names, `exc`, false-classification) | `0rad-workspace.md` |
 | Lab MATLAB preprocess | `scripts/parallel_preprocess.m`, `scripts/run_preprocess.m` |
 | Leakage / split / radiology audit | `scripts/split_leakage_check.py`, `scripts/radiology_audit.py` |
-| Clinical / HIS extraction | `clinical-data-extraction/` |
-| Soft-coding / dry-run / CONFIG on top | `code-refactoring/` |
-| Ethics form packs (**temp**; true home is 03 ethics design) | `ethics-application-forms/` |
+| Clinical / HIS extraction | `clinical-data-extraction/` (`scripts/`) |
+| Soft-coding / dry-run / CONFIG on top | `code-refactoring/` (`scripts/`) |
+| Ethics form packs (**temp**; true home is 03 ethics design) | `ethics-application-forms/` (`scripts/`, `references/`) |
 
 Personal scripts are not replaced by a mounted pack.
 

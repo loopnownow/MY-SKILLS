@@ -44,11 +44,11 @@ evidence.
 
 | File | Open when |
 |---|---|
-| [use-scenario.md](use-scenario.md) | Defining the clinical-use scenario, the model output, and the cost of errors |
-| [reader-study.md](reader-study.md) | MRMC reader-study design: readers, washout, randomisation, with/without AI, outcomes |
-| [threshold-to-action.md](threshold-to-action.md) | Mapping operating points to actions; net-benefit / decision-curve; false-positive/negative consequences |
-| [prospective-deployment.md](prospective-deployment.md) | Prospective/real-world validation design; PACS/RIS integration; monitoring and drift |
-| [regulatory-and-deployment-readiness.md](regulatory-and-deployment-readiness.md) | The user asks about clinical translation, FDA/EU/regulatory readiness, silent deployment, locked/adaptive models, model cards, lifecycle monitoring, or whether a retrospective AI/radiogenomics model can claim clinical use |
+| [references/use-scenario.md](references/use-scenario.md) | Defining the clinical-use scenario, the model output, and the cost of errors |
+| [references/reader-study.md](references/reader-study.md) | MRMC reader-study design: readers, washout, randomisation, with/without AI, outcomes |
+| [references/threshold-to-action.md](references/threshold-to-action.md) | Mapping operating points to actions; net-benefit / decision-curve; false-positive/negative consequences |
+| [references/prospective-deployment.md](references/prospective-deployment.md) | Prospective/real-world validation design; PACS/RIS integration; monitoring and drift |
+| [references/regulatory-and-deployment-readiness.md](references/regulatory-and-deployment-readiness.md) | The user asks about clinical translation, FDA/EU/regulatory readiness, silent deployment, locked/adaptive models, model cards, lifecycle monitoring, or whether a retrospective AI/radiogenomics model can claim clinical use |
 
 ## Workflow
 
@@ -58,7 +58,7 @@ evidence.
    each triggers, and net-benefit framing across plausible thresholds.
 3. **Design the reader study** (reader-study.md) if clinician impact is claimed — MRMC, washout,
    randomised order, alone vs +AI, reader experience, time/confidence outcomes.
-4. **For regulatory/deployment framing**, open `regulatory-and-deployment-readiness.md` and
+4. **For regulatory/deployment framing**, open `references/regulatory-and-deployment-readiness.md` and
    bound the claim by intended use, model lock/adaptation, human oversight, monitoring, and
    evidence level.
 5. **Plan prospective/real-world validation** (prospective-deployment.md) — temporal/prospective/

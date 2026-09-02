@@ -9,7 +9,7 @@ description: >
 
 # 伦理申请表格填报
 
-**暂时挂在 02**（`02_data-processing/ethics-application-forms/`）。真正家园仍是 **03 伦理设计**（protocol-level `03_research/ethics.md`）；本技能只填院内表格，不发明研究设计。
+**暂时挂在 02**（`02_data-processing/ethics-application-forms/`）。真正家园仍是 **03 伦理设计**（protocol-level `03_research/personal/ethics.md`）；本技能只填院内表格，不发明研究设计。
 
 ## Purpose
 
@@ -20,9 +20,9 @@ description: >
 
 | Task | Path |
 |------|------|
-| **填表（本技能）** | 下面工作流 + `docx_cell_replace.py` / `word_find_replace.py` |
-| 金山医院空白包、递交清单、栏目 | `jinshan-form-pack.md` |
-| 填完自检 | `checklist.md` |
+| **填表（本技能）** | 下面工作流 + `scripts/docx_cell_replace.py` / `scripts/word_find_replace.py` |
+| 金山医院空白包、递交清单、栏目 | `references/jinshan-form-pack.md` |
+| 填完自检 | `references/checklist.md` |
 | 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |
 | 统计 / 样本量公式 | `04_analysis` |
 | 知情同意通俗正文、论著里的伦理段落 | `05_manuscript` `radiology-ethics` — 本技能只把已定正文填进表 |
@@ -60,9 +60,9 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 4. 先输出规划表（题目、PI、类型、n、期限、版本、文件清单、待补项）。用户同意后再写文件。
 5. 复制 `0空白` zip 内 10 份文件，并加上工作夹的立项申请表，到 `填写好_<PI>_<短题>/`，**不覆盖**母版、**不拷开题提纲**。
 6. 保格式填：`.docx` 用 python-docx（只改文字/勾选，保留签名表）；`.doc` 用 Word/WPS COM 查找替换，一次只开一个；`.xls` 只改数据行。
-7. 按 `checklist.md` 自检后交付路径、参数摘要、待签字项。
+7. 按 `references/checklist.md` 自检后交付路径、参数摘要、待签字项。
 
-登记表 `.xls` 只发伦理邮箱、不打印。初审申请表 PI 手签、日期写递交当天。干预性研究团队须有医生。科学性审查批件：院级立项、研究者发起自选（干预性）必须交；自选观察性可豁免。细节见 `jinshan-form-pack.md`。
+登记表 `.xls` 只发伦理邮箱、不打印。初审申请表 PI 手签、日期写递交当天。干预性研究团队须有医生。科学性审查批件：院级立项、研究者发起自选（干预性）必须交；自选观察性可豁免。细节见 `references/jinshan-form-pack.md`。
 
 立项申请表 `1-研究者发起的一般临床研究立项申请表.doc` **在默认包内**（官方空白 zip 未收，母版取工作夹空白/近空白件，填前清旧课题；不用 `伦理/伦理/` 已填件）。开题提纲仍不进默认包。
 
@@ -75,4 +75,4 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 
 ## Progressive disclosure
 
-只发现本 `SKILL.md`。栏目和递交清单一律读同目录 `jinshan-form-pack.md` / `checklist.md`，不要把医院 Word 原件推进公开仓库。
+只发现本 `SKILL.md`。栏目和递交清单一律读 `references/jinshan-form-pack.md` / `references/checklist.md`，不要把医院 Word 原件推进公开仓库。

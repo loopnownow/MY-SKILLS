@@ -18,11 +18,11 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 
 | Task | Path |
 |---|---|
-| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `0rad-pipeline-rules.md` |
-| Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `radiology-stats/` |
-| Imaging statistics notes (lab) | `statistics.md` |
-| Lab figure palettes | `lab-palettes.md` |
-| Stats checklist | `stats-checklist.md` |
+| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/0rad-pipeline-rules.md` |
+| Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `radiology-stats/` (`references/`) |
+| Imaging statistics notes (lab) | `personal/statistics.md` |
+| Lab figure palettes | `personal/lab-palettes.md` |
+| Stats checklist | `personal/stats-checklist.md` |
 
 Do **not** put `radiology-stats` in the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
 
@@ -44,7 +44,7 @@ Until `04-figure-engine` is mounted, do not invent a second figure stack inside 
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
 - Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
-- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `0rad-pipeline-rules.md`.
+- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `personal/0rad-pipeline-rules.md`.
 
 ## Workflow
 
@@ -52,7 +52,7 @@ Until `04-figure-engine` is mounted, do not invent a second figure stack inside 
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `04-figure-engine` + `lab-palettes.md`). Caption prose → `05_manuscript`.
+5. Generate figures here (mounted `04-figure-engine` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`.
 
 ## Boundaries
 

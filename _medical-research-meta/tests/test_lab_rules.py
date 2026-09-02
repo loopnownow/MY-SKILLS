@@ -40,17 +40,17 @@ class DeAI(unittest.TestCase):
 
 class Aitor(unittest.TestCase):
     def test_methods_have_no_citations(self) -> None:
-        text = read("05_manuscript", "Aitor-format.md")
+        text = read("05_manuscript", "personal", "Aitor-format.md")
         self.assertIn("Methods: no citations", text)
 
     def test_table1_is_training_vs_test(self) -> None:
-        text = read("05_manuscript", "Aitor-format.md")
+        text = read("05_manuscript", "personal", "Aitor-format.md")
         self.assertRegex(text, r"Table 1\s*=\s*training vs test")
 
 
 class ValMode(unittest.TestCase):
     def test_test_set_does_not_reselect_features(self) -> None:
-        text = read("04_analysis", "0rad-pipeline-rules.md")
+        text = read("04_analysis", "personal", "0rad-pipeline-rules.md")
         self.assertIn("VAL_MODE", text)
         self.assertRegex(text, r"[Rr]e-select features on the test set")
         self.assertIn("no new screening", text)

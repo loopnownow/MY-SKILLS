@@ -16,7 +16,7 @@ Convert **validated** research information into precise, publication-ready origi
 
 **Lab priority:** data truth > journal format > Ying Li voice > generic ornate English.
 
-**Every SCI full paper uses `Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
+**Every SCI full paper uses `personal/Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
 
 ## Layer model
 
@@ -28,29 +28,29 @@ Generic writing files remaining locally are externalization candidates until a m
 
 | Task | Path |
 |---|---|
-| Aitor-format (title page, IMRAD, DOCX, citation quotas) | `Aitor-format.md` |
-| Section polish templates | `polisher-sections.md` |
-| Sentence templates | `sentence-templates.md` |
-| Exemplars | `exemplars.md` |
-| Corpus phrase bank | `corpus-phrase-bank.md` |
-| Citation and language | `citation-and-language.md` |
-| I/D evidence consumption (not a literature-research route) | `intro-discussion-evidence.md` |
+| Aitor-format (title page, IMRAD, DOCX, citation quotas) | `personal/Aitor-format.md` |
+| Section polish templates | `personal/polisher-sections.md` |
+| Sentence templates | `personal/sentence-templates.md` |
+| Exemplars | `personal/exemplars.md` |
+| Corpus phrase bank | `personal/corpus-phrase-bank.md` |
+| Citation and language | `personal/citation-and-language.md` |
+| I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
 | de-AI pack | `de-ai/` |
-| Diff harvest (evidence script) | `diff_harvest.py` |
+| Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 
 - `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (C4 lives in B, not here)
 
-Until mounted, local generic copies remain (see `EXTERNALIZATION_CANDIDATES.md`): `manuscript-core.md`, `mode-1-sci.md`, `section-templates.md`, reporting/citation files, etc. Journal-style files (`journal-family-writing-style`, `nature-family-shape`, `venue-voice-and-house-style`, `radiology-house-style`) are **not** kept in A; they live in B.
+Until mounted, local generic copies remain under `writing-generic/` (see `EXTERNALIZATION_CANDIDATES.md`): `manuscript-core.md`, `mode-1-sci.md`, `section-templates.md`, reporting/citation files, etc. Journal-style files (`journal-family-writing-style`, `nature-family-shape`, `venue-voice-and-house-style`, `radiology-house-style`) are **not** kept in A; they live in B.
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `04-figure-engine` + `lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `04-figure-engine` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`intro-discussion-evidence.md`) and applies Aitor quotas. 选题/选刊 stays in 03.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题/选刊 stays in 03.
 
 ## Core rule
 
@@ -64,7 +64,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Forbidden fluff: `de-ai/forbidden-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
-Word counts, citation placement, typography, and Table 1 layout live only in **`Aitor-format.md`**. If that file and any other note disagree, `Aitor-format.md` wins.
+Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.
 
 ## Not this skill
 

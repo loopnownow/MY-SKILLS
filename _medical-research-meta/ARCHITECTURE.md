@@ -19,7 +19,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Intent | Route |
 |--------|--------|
 | 按我的风格润色 / SCI 写作 | `05_manuscript` |
-| 写引言 / 写讨论（成文） | `03_research` retrieves; `05_manuscript` writes (`intro-discussion-evidence.md`) |
+| 写引言 / 写讨论（成文） | `03_research` retrieves; `05_manuscript` writes (`personal/intro-discussion-evidence.md`) |
 | 投稿前找问题 / dealbreaker | `06_review` |
 | 回复审稿人 | `06_review` only as entry |
 | 选题 / 选刊 / 文献 | `03_research` |
@@ -27,11 +27,11 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
 | 软编码 / dry-run | `02_data-processing` → `code-refactoring/` |
 | 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `0rad-workspace.md` |
-| VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `0rad-pipeline-rules.md` |
+| VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `personal/0rad-pipeline-rules.md` |
 | 伦理申请表填写 | `02_data-processing` → `ethics-application-forms/`（暂时挂在 02，真正家园仍是 03 伦理设计） |
 | 临床提取 / HIS | `02_data-processing` → `clinical-data-extraction/` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
-| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-figure-engine` + `lab-palettes.md`) |
+| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-figure-engine` + `personal/lab-palettes.md`) |
 | 新外接技能 | `01_skill-discovery-integration` |
 
 ## Final QC (handoff folded in)

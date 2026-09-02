@@ -24,7 +24,7 @@ MOUNTED_SKILLS.md
 EXTERNALIZATION_CANDIDATES.md
 ```
 
-Skill paths are at most three directories from repo root: `<skill>/<optional-one-folder>/file`. No `core/`, no `bundles/`, no `merged/`.
+Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. No `core/`, no `bundles/`, no `merged/`.
 
 | Skill | Role |
 |-------|------|
