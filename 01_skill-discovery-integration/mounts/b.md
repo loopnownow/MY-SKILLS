@@ -1,6 +1,6 @@
 # 预设 B · 当前默认
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
 
 仅用 B。来源 [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) · 配置 `../sources/b-my-skills-capabilities.yaml`
 

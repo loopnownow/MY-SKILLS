@@ -14,14 +14,14 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `b.md` / `ars.md` / `medsci.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `b.md` / `ars.md` / `medsci.md` / `scientific.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
-ARS (`Imbad0202/academic-research-skills`) and MedSci (`Aperivue/medsci-skills`) are **backup candidates only**.
+ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), and Scientific (`K-Dense-AI/scientific-agent-skills`) are **backup candidates only**.
 
-Preset maps live in `sources/ars.proposed.yaml` and `sources/medsci.proposed.yaml` (scanned 2026-09-03). Use those A-id → path tables instead of re-searching the backup repos for the 12 ids. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a switch.
+Preset maps live in `sources/*.proposed.yaml` (scanned 2026-09-03). Use those A-id → path tables instead of re-searching the backup repos. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a switch.
 
 
 ## Empty-mount protocol
@@ -32,7 +32,7 @@ If a listed mount is empty (path missing, zero files, clone failed, id points no
 2. Re-search (B first, then GitHub / network; if no network, ask for a local path).
 3. **Confirm with the user** before changing `registry.yaml` or switching source.
 
-Never silently fall back to ARS/MedSci or invent a local copy.
+Never silently fall back to ARS/MedSci/Scientific or invent a local copy.
 
 ## Resolution order
 
@@ -61,4 +61,4 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 `registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
-**Layout rule:** one external source → one yaml. Do not split B into 12 files; do not mix B + ARS + MedSci in one file.
+**Layout rule:** one external source → one yaml. Do not split B into 12 files; do not mix B + ARS + MedSci + Scientific in one file.

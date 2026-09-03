@@ -1,6 +1,6 @@
 # 预设 ARS · 备份
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
 
 仅用 Academic Research Skills（2026-09-01 HEAD）。仓库 [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) · 配置 `../sources/ars.proposed.yaml`
 
