@@ -7,7 +7,7 @@ Empty mount → notify the user, then re-search and confirm. Do not silently fal
 Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`.
 
 Rule: mounted Skill owns generic capability; MY-SKILLS owns orchestration, personalization, constraints, and Final QC.
-de-AI is personal (`05_manuscript/personal/`); not mounted from B.
+Personal de-AI stays in A (`05_manuscript/personal/`). Generic de-AI is `05-humanize` (MedSci), not B.
 
 ## Default mounts (B)
 
@@ -26,11 +26,18 @@ de-AI is personal (`05_manuscript/personal/`); not mounted from B.
 | `05-writing-generic` | `05-manuscript/writing-generic/` | 05 | MOUNTED |
 | `06-review-generic` | `06-review/review-generic/` | 06 | MOUNTED |
 
-## Backup candidates (not mounted; only after empty-mount notify + confirm)
+## MedSci-only interfaces (not in B)
+
+| Id | MedSci path | Layer | Status |
+|---|---|---|---|
+| `04-explainability` | `skills/explainability/` | 04 | MOUNTED |
+| `05-humanize` | `skills/humanize/` | 05 | MOUNTED |
+
+These two are user-named. They do not switch the other 12 ids to MedSci. Personal de-AI is still A `05_manuscript/personal/`.
+
+## Backup candidates (source-wide switch still needs empty-mount notify + confirm)
 
 - `https://github.com/Imbad0202/academic-research-skills` (`PROPOSED`, backup). Preset map: `sources/ars.proposed.yaml` (scanned `9443623`). 4 mapped / 8 empty.
-- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup). Preset map: `sources/medsci.proposed.yaml` (scanned `912f7e8`). 12 mapped (4 partial) / 0 empty.
+- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup). Preset map: `sources/medsci.proposed.yaml` (scanned `912f7e8`). 14 mapped (4 partial) / 0 empty, including 04-explainability and 05-humanize.
 
-Mapping is not a mount. Use the yaml path table instead of re-searching those repos for the 12 A ids.
-
-Unmapped extras (ARS/MedSci skills with no A mount id): [`mounts/unmapped.html`](mounts/unmapped.html).
+Mapping is not a source-wide mount. Use the yaml path table instead of re-searching those repos. Unmapped extras are listed on each source page under `mounts/`.

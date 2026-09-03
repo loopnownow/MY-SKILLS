@@ -1,5 +1,5 @@
 # Mount pointers live only in 01.
-# Human board: mounts/ (mounts.html index + per-preset pages + unmapped.html)
+# Human board: mounts/ (index + per-preset pages; extras listed on each source page)
 # Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
@@ -60,9 +60,19 @@ mounts:
     path: 04-analysis/figure-engine/
     layer: 04
     status: MOUNTED
+  - id: 04-explainability
+    source: med-sci-skills
+    path: skills/explainability/
+    layer: 04
+    status: MOUNTED
   - id: 05-writing-generic
     source: my-skills-capabilities
     path: 05-manuscript/writing-generic/
+    layer: 05
+    status: MOUNTED
+  - id: 05-humanize
+    source: med-sci-skills
+    path: skills/humanize/
     layer: 05
     status: MOUNTED
   - id: 06-review-generic

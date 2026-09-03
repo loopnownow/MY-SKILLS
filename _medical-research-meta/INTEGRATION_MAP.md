@@ -290,3 +290,16 @@ change: Moved all mounts HTML/CSS into 01/mounts/. Added unmapped.html listing A
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 04/05 MedSci interfaces; drop unmapped.html 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-005
+date: 2026-09-03
+skill: 01_skill-discovery-integration + 04_analysis + 05_manuscript
+change_class: interface
+problem: User asked for A 04/05 interfaces to MedSci explainability and humanize. unmapped.html duplicated the extras already listed on ARS/MedSci pages.
+change: Added mount ids 04-explainability and 05-humanize (source MedSci, MOUNTED). Personal de-AI stays in A; 05-de-ai is not revived. Deleted mounts/unmapped.html. Default source remains B for the other 12 ids. CHG-20260903-005.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
