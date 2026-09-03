@@ -1,9 +1,148 @@
+# Scanned 2026-09-03 against Aperivue/medsci-skills@912f7e8 (2026-09-01).
+# Mapping is A-id → MedSci skills/<name>/. Several MedSci skills may cover one A id.
 source_id: med-sci-skills
 name: MedSci Skills
 role: backup-candidate
 repo: https://github.com/Aperivue/medsci-skills
+scanned: "2026-09-03"
+scan_sha: "912f7e8"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Second backup. Same empty-mount protocol as ARS. Not a default.
-skills: []
+  60 skills under skills/. Imaging/stats/writing/review map onto all 12 A ids
+  at least partially. humanize is not A de-AI. radiomics-ml includes modeling
+  (paper models still 04). sync-submission is Bai/投稿 analog, not a 02-06 id.
+skills:
+  - id: 02-xlsx
+    path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: table/cohort cleaning, not Excel/COM automation
+  - id: 02-imaging-qc
+    path: skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/
+    a_hook: 02_data-processing
+    coverage: full
+  - id: 02-radiomics-habitat
+    path: skills/radiomics-ml/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: radiomics+ML; habitat prep may be thinner than B; modeling still 04
+  - id: 02-impute
+    path: skills/clean-data/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: inside cleaning, not a dedicated impute pack
+  - id: 02-generic-docs
+    path: skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/
+    a_hook: 02_data-processing
+    coverage: full
+  - id: 03-literature
+    path: skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/; skills/find-journal/; skills/add-journal/; skills/manage-refs/; skills/verify-refs/; skills/ma-scout/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-design
+    path: skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/grant-builder/; skills/design-ai-benchmarking/; skills/find-cohort-gap/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-frontier
+    path: skills/find-cohort-gap/; skills/ma-scout/; skills/architecture-zoo/
+    a_hook: 03_research
+    coverage: partial
+    note: gap/scout/architecture, not a dedicated frontier map
+  - id: 04-stats-generic
+    path: skills/analyze-stats/; skills/calc-sample-size/; skills/meta-analysis/; skills/model-evaluation/; skills/model-validation/
+    a_hook: 04_analysis
+    coverage: full
+    note: does not replace A 04 personal / 0RAD rules
+  - id: 04-figure-engine
+    path: skills/make-figures/
+    a_hook: 04_analysis
+    coverage: full
+    note: generic publication figures; POLE/STROBE gold still B/A
+  - id: 05-writing-generic
+    path: skills/write-paper/; skills/polish-language/; skills/check-reporting/; skills/present-paper/; skills/manage-refs/
+    a_hook: 05_manuscript
+    coverage: full
+    note: not Aitor-format; humanize is not de-AI
+  - id: 06-review-generic
+    path: skills/peer-review/; skills/review-paper/; skills/self-review/; skills/revise/
+    a_hook: 06_review
+    coverage: full
+unmapped:
+  - path: skills/academic-aio/
+    kind: expansion
+    future_hook: 05_or_03
+    note: AI-search / RAG paper optimization
+  - path: skills/author-strategy/
+    kind: expansion
+    future_hook: 03
+    note: PubMed author profile and publication strategy
+  - path: skills/cross-national/
+    kind: expansion
+    future_hook: 03_or_04
+    note: KNHANES / NHANES / CHNS harmonized comparison
+  - path: skills/explainability/
+    kind: expansion
+    future_hook: 04
+    note: Grad-CAM and imaging XAI
+  - path: skills/fill-icmje-coi/
+    kind: expansion
+    future_hook: 03
+    note: ICMJE COI forms; A ethics pack is hospital IRB, not this form
+  - path: skills/mllm-eval/
+    kind: expansion
+    future_hook: 04
+    note: clinical LLM/MLLM evaluation harness
+  - path: skills/model-card/
+    kind: expansion
+    future_hook: 04
+    note: Model Card / Datasheet
+  - path: skills/model-scaffold/
+    kind: expansion
+    future_hook: 02_or_04
+    note: PyTorch training-repo scaffold for imaging
+  - path: skills/model-sourcing/
+    kind: expansion
+    future_hook: 04
+    note: third-party checkpoint / revision vetting
+  - path: skills/obsidian-paper-vault/
+    kind: expansion
+    future_hook: 03
+    note: PDF to Obsidian literature vault
+  - path: skills/render-pdf-doc/
+    kind: expansion
+    future_hook: 05
+    note: Markdown to publication PDF
+  - path: skills/replicate-study/
+    kind: expansion
+    future_hook: 03
+    note: replicate a published cohort method on another database
+  - path: skills/orchestrate/
+    kind: analog
+    future_hook: 00_orchestrator
+    note: MedSci router; 00 exists as a layer, not a mount id
+  - path: skills/manage-project/
+    kind: analog
+    future_hook: 00_orchestrator
+    note: project/manuscript management
+  - path: skills/setup-medsci/
+    kind: analog
+    future_hook: 01
+    note: runtime checklist for MedSci
+  - path: skills/contribute/
+    kind: analog
+    future_hook: skill-harvest
+    note: contribute local changes back
+  - path: skills/publish-skill/
+    kind: analog
+    future_hook: skill-harvest
+    note: package a personal skill for distribution
+  - path: skills/humanize/
+    kind: analog
+    future_hook: 05_manuscript/personal
+    note: not a substitute for A de-AI forbidden list; de-AI is not a mount id
+  - path: skills/sync-submission/
+    kind: analog
+    future_hook: Bai
+    note: submission logistics; Bai still does not click 同意投稿 or pay
+empty: []

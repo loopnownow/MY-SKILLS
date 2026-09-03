@@ -1,10 +1,49 @@
+# Scanned 2026-09-03 against Imbad0202/academic-research-skills@9443623 (2026-09-01).
+# Mapping is A-id → ARS path. Unmapped A ids are empty if this preset is used alone.
 source_id: academic-research-skills
 name: Academic Research Skills
 role: backup-candidate
 repo: https://github.com/Imbad0202/academic-research-skills
+scanned: "2026-09-03"
+scan_sha: "9443623"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Backup only. Do not mount unless a B pack is empty, the user is notified,
-  a re-search is done, and they confirm.
-skills: []
+  Four SKILL.md packs: deep-research, academic-paper, academic-paper-reviewer,
+  academic-pipeline (orchestrator, maps to 00 not to the 12 domain ids).
+  No imaging / Excel / radiomics / figure / lab-stats packs.
+skills:
+  - id: 03-literature
+    path: deep-research/
+    a_hook: 03_research
+    coverage: full
+    note: lit-review / systematic review / source verification
+  - id: 03-design
+    path: deep-research/
+    a_hook: 03_research
+    coverage: partial
+    note: methodology / RQ framing inside deep-research; not a standalone design pack
+  - id: 05-writing-generic
+    path: academic-paper/
+    a_hook: 05_manuscript
+    coverage: full
+    note: write / plan / outline / format / citation-check; Style Calibration is not Aitor-format
+  - id: 06-review-generic
+    path: academic-paper-reviewer/
+    a_hook: 06_review
+    coverage: full
+    note: multi-persona peer review + re-review; rebuttal-audit also in academic-paper
+unmapped:
+  - path: academic-pipeline/
+    kind: analog
+    future_hook: 00_orchestrator
+    note: research-write-review orchestrator; 00 exists as a layer, not a mount id
+empty:
+  - 02-xlsx
+  - 02-imaging-qc
+  - 02-radiomics-habitat
+  - 02-impute
+  - 02-generic-docs
+  - 03-frontier
+  - 04-stats-generic
+  - 04-figure-engine

@@ -14,12 +14,15 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts.html` (index) plus one page per preset (`mounts-b.html`, `mounts-ars.html`, `mounts-medsci.html`). Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`mounts.html` index, `mounts-b.html` / `mounts-ars.html` / `mounts-medsci.html`, `unmapped.html`). Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
 ARS (`Imbad0202/academic-research-skills`) and MedSci (`Aperivue/medsci-skills`) are **backup candidates only**.
+
+Preset maps live in `sources/ars.proposed.yaml` and `sources/medsci.proposed.yaml` (scanned 2026-09-03). Use those A-id → path tables instead of re-searching the backup repos for the 12 ids. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a switch.
+
 
 ## Empty-mount protocol
 
@@ -56,6 +59,6 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 ## Registry
 
-`registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts.html` = human interface board. `interface.yaml` = capability-contract template.
+`registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
 **Layout rule:** one external source → one yaml. Do not split B into 12 files; do not mix B + ARS + MedSci in one file.

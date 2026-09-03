@@ -1,5 +1,5 @@
 # One config file per external source (recommended).
-# Human board: ../mounts.html   Canonical index: ../registry.yaml
+# Human board: ../mounts/mounts.html   Canonical index: ../registry.yaml
 source_id: my-skills-capabilities
 name: MY-SKILLS-capabilities
 role: default-mount

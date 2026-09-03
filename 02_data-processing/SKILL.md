@@ -41,7 +41,7 @@ Personal scripts are not replaced by a mounted pack.
 
 ## Mounted capability ids (generic; not present until mounted)
 
-Call mounted ids from 01 (`mounts.html` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
+Call mounted ids from 01 (`mounts/mounts.html` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
 
 - `02-xlsx` — Excel/CSV automation
 - `02-imaging-qc` — lesion/mask/reader/reproducibility QC
