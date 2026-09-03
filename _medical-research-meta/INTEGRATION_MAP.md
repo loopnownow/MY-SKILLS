@@ -422,3 +422,17 @@ change: Reverted 选刊→05-write-venue routing everywhere in A. Journal choice
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 00 QC closed loop 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-015
+date: 2026-09-03
+skill: 00_orchestrator
+author: Aitor
+change_class: policy
+problem: Architecture and personal layers were in place; 00 still had four-sentence Final QC and two unwired SOPs.
+change: Pipeline scheduling is intent classify + skill chain + QC closed loop. Directory detection as entry; four decision nodes (SOP / PHI / WRITE / PREVIEW); post-skill file checks; integrity gates G0/G-PHI/G-04/G-05/G-06 mapped to lab failure modes; handoff.yaml; project-state pipeline/qc/defects; local recovery max 3 then unresolved. radiomics-study offers sci-manuscript when HTML exists. Do not mount ARS academic-pipeline or MedSci orchestrate. Do not add --e2e skip of session mount pick or PHI. 选刊 stays 03.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

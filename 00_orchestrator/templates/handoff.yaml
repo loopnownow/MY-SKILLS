@@ -1,0 +1,15 @@
+# Copy into the project (e.g. D:\0Grok\0RAD\<project>\ref\handoff-<from>-<to>.yaml)
+# at each skill crossing. Leave unknown fields empty. Never invent n, AUC, PMID, or ethics.
+
+from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manuscript | 06_review | 00_orchestrator
+to: ""
+objective: ""
+inputs: []          # paths inspected
+decisions: []
+assumptions: []
+outputs: []         # paths written this node
+exclusions: []
+unresolved: []
+downstream: []      # required next actions
+qc_gate: ""         # G0 | G-PHI | G-04 | G-05 | G-06
+qc_result: ""       # pass | fail
