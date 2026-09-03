@@ -40,4 +40,4 @@ These two are user-named. They do not switch the other 12 ids to MedSci. Persona
 - `https://github.com/Imbad0202/academic-research-skills` (`PROPOSED`, backup). Preset map: `sources/ars.proposed.yaml` (scanned `9443623`). 4 mapped / 8 empty.
 - `https://github.com/Aperivue/medsci-skills` (`PROPOSED`, backup). Preset map: `sources/medsci.proposed.yaml` (scanned `912f7e8`). 14 mapped (4 partial) / 0 empty, including 04-explainability and 05-humanize.
 
-Mapping is not a source-wide mount. Use the yaml path table instead of re-searching those repos. Unmapped extras are listed on each source page under `mounts/`.
+Mapping is not a source-wide mount. Use the yaml path table instead of re-searching those repos. Unmapped extras are listed on `mounts/ars.md` and `mounts/medsci.md`.
