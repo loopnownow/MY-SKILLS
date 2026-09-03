@@ -40,6 +40,8 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 ## Mounted capability ids (generic; PROPOSED until mounted)
 
+**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+
 - `03-lit-search` — retrieve papers (Scientific `paper-lookup` / `research-lookup`)
 - `03-lit-fulltext` — fetch PDF/HTML (MedSci `fulltext-retrieval`)
 - `03-lit-review` — synthesize / systematic review (`literature-review`)

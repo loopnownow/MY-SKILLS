@@ -78,6 +78,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("my-skills-capabilities", text)
         self.assertIn("default-mount", text)
         self.assertIn("notify-then-research-confirm", text)
+        self.assertIn("session_mount: ask-each-run", text)
         self.assertIn("05-write-manuscript", text)
         self.assertIn("04-explainability", text)
         self.assertIn("05-humanize", text)

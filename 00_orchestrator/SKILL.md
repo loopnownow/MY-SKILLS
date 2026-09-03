@@ -15,6 +15,10 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 Pick the smallest skill set. One bounded task → that domain skill, not 00.
 
+## Session mount pick
+
+Before routing or loading 02–06, run **01 session mount pick**: ask which packs to mount **this run**, then load only those. Registry `MOUNTED` is the menu, not an auto-attach. Unpicked packs stay unloaded. Personal layers are not a mount pick.
+
 ## Routing
 
 | Skill | Primary scope |
@@ -60,7 +64,7 @@ Project state template: `templates/project-state.yaml`.
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality.
 Do not load all nested material. Load the selected `SKILL.md`, then only the required files.
-Mounted generic capability lives in `MY-SKILLS-capabilities` (ids in `MOUNTED_SKILLS.md`). Point at **mounted ids**, not deleted `bundles/` paths.
+Mounted generic capability: ids in `MOUNTED_SKILLS.md` / `registry.yaml`. **This-run pick first** (01). Point at **picked ids**, not deleted `bundles/` paths.
 
 ## Final QC (includes handoff + local recovery)
 

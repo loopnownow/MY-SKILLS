@@ -38,6 +38,8 @@ Convert **validated** research information into precise, publication-ready origi
 
 ## Mounted capability ids (generic; not present until mounted)
 
+**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+
 - `05-write-manuscript` — manuscript/report draft (Scientific `scientific-writing` / `markdown-mermaid-writing`; B `05-manuscript/write-manuscript/`). Not Aitor-format. `clinical-reports` is not this id.
 - `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper (MedSci `check-reporting`)
 - `05-write-venue` — journal selection / templates (`venue-templates`)
