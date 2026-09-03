@@ -12,7 +12,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Excel / 0RAD workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
 | Literature research / evidence / study design / grants / translational design / ethics forms | `03_research` |
 | Statistics / prediction / **figures** / 样本量 | `04_analysis` |
-| Scientific writing / personal style / de-AI / 选刊 | `05_manuscript` |
+| Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / **reviewer response** | `06_review` |
 | Evolution governance | `skill-harvest` |
 
@@ -24,8 +24,8 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 写引言 / 写讨论（成文） | `03_research` retrieves; `05_manuscript` writes (`personal/intro-discussion-evidence.md`) |
 | 投稿前找问题 / dealbreaker | `06_review` |
 | 回复审稿人 | `06_review` only as entry |
-| 选题 / 文献 | `03_research` |
-| 选刊 | `05_manuscript` (`05-write-venue`) |
+| 选题 / 文献 / 选刊 | `03_research` |
+| 选刊 | `03_research` (`literature/journal-selection.md`; not `05-write-venue`) |
 | 样本量 | `04_analysis` (`04-stats-power`) |
 | AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
@@ -67,9 +67,9 @@ Registry `MOUNTED` is a **menu of 30 ids**, not `mounts: []`. Never auto-mount a
 ## Domain boundaries
 
 - `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
-- `03_research`: research design, literature/evidence, ethics **forms**, translational design. Manuscript prose is not its role. 选刊 is not here.
+- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`); do not send it to `05-write-venue`.
 - `04_analysis`: statistical analysis and visualization (`04-fig-flow` / `04-fig-plot`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer + 选刊 (`05-write-venue`). Literature retrieval → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`.
+- `05_manuscript`: personal writing layer. `05-write-venue` is journal templates / house style while writing, not journal selection / 选刊. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`.
 - `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
 
 ## Externalization policy

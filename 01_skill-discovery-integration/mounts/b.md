@@ -38,7 +38,7 @@
 | `04-fig-plot` | `04-analysis/fig-plot/` | `04_analysis` | 统计图 / 影像拼图 | 就绪 | 18 文件 |
 | `05-write-manuscript` | `05-manuscript/write-manuscript/` | `05_manuscript` | 论著/报告草稿 | 就绪 | 16 文件 |
 | `05-write-reporting` | `05-manuscript/write-reporting/` | `05_manuscript` | TRIPOD / CLAIM / 报告规范 | 就绪 | 6 文件 |
-| `05-write-venue` | `05-manuscript/write-venue/` | `05_manuscript` | 选刊 / 期刊体例 | 就绪 | 7 文件 |
+| `05-write-venue` | `05-manuscript/write-venue/` | `05_manuscript` | 期刊体例 / house style（not 选刊） | 就绪 | 7 文件 |
 | `05-write-polish` | `05-manuscript/write-polish/` | `05_manuscript` | 通用学术英语润色 | 就绪 | 3 文件 |
 | `06-review-peer` | `06-review/review-peer/` | `06_review` | 他审草稿 | 就绪 | 5 文件 |
 | `06-review-critique` | `06-review/review-critique/` | `06_review` | 自审 / 投稿前找洞 | 就绪 | 4 文件 |

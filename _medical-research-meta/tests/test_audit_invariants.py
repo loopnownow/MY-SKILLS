@@ -1,4 +1,4 @@
-"""CHG-20260903-013 audit invariants. No-LLM fixtures."""
+"""CHG-20260903-013 audit invariants + CHG-20260903-014 选刊→03. No-LLM fixtures."""
 from __future__ import annotations
 
 import re
@@ -164,16 +164,28 @@ class ArchitectureSsot(unittest.TestCase):
 class FastRouting(unittest.TestCase):
     def test_venue_and_power_routes(self) -> None:
         zero = read("00_orchestrator/SKILL.md")
-        self.assertIn("选刊 → `05_manuscript` (`05-write-venue`)", zero)
+        self.assertIn("选刊 → `03_research`", zero)
+        self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", zero)
         self.assertIn("样本量 → `04_analysis` (`04-stats-power`)", zero)
         six = read("06_review/SKILL.md")
-        self.assertIn("05-write-venue", six)
+        self.assertIn("选刊 → `03_research`", six)
+        self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", six)
         ethics = read("03_research/ethics-application-forms/SKILL.md")
-        self.assertIn("05-write-venue", ethics)
+        self.assertIn("选刊 → `03_research`", ethics)
+        self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", ethics)
         self.assertNotIn("radiology-ethics", ethics)
         harvest = read("skill-harvest/references/route-map.md")
-        self.assertIn("05-write-venue", harvest)
+        self.assertIn("选刊 → `03_research`", harvest)
+        self.assertNotIn("选刊 → `05-write-venue`", harvest)
         self.assertIn("04-stats-power", harvest)
+        five = read("05_manuscript/SKILL.md")
+        self.assertIn("05-write-venue", five)
+        self.assertIn("journal templates / house style", five)
+        self.assertNotIn("选刊 is `05-write-venue`", five)
+        three = read("03_research/SKILL.md")
+        self.assertIn("journal-selection.md", three)
+        self.assertIn("03-lit-search", three)
+        self.assertIn("Do not send 选刊 to `05-write-venue`", three)
 
 
 class DeAiAndFigures(unittest.TestCase):
@@ -216,12 +228,13 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260903-013", text)
-        self.assertIn("default mounted source", text.lower())
-        self.assertIn("retired", text.lower())
+        self.assertIn("CHG-20260903-014", text)
+        self.assertIn("选刊", text)
+        self.assertIn("03", text)
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260903-014", text)
         self.assertIn("CHG-20260903-013", text)
         self.assertIn("CHG-20260903-012", text)
 

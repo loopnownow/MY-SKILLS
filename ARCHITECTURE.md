@@ -19,9 +19,9 @@ skills/
 1. `00_orchestrator` — classification, routing, composite workflow, Final QC, local recovery (re-run only the broken node).
 2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles. No modeling. Handoff → 04. Ethics forms are **not** here.
-4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊 is `05-write-venue`.
+4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊 is 03, not `05-write-venue`.
 5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role. 样本量 is `04-stats-power`.
-6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`.
+6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. `05-write-venue` is journal templates / house style while writing, not journal selection.
 7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only.
 
 `skill-harvest` is governance. It does not replace domain layers. 01 mounts; harvest proposes evolution.
@@ -51,7 +51,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 ## Routing rules
 
 - Literature research → `03_research` only.
-- 选刊 → `05_manuscript` (`05-write-venue`).
+- 选刊 / where to submit → `03_research` (`literature/journal-selection.md`; evidence `03-lit-search`). `05-write-venue` is journal templates / house style while writing, not journal choice.
 - 样本量 → `04_analysis` (`04-stats-power`).
 - Reviewer response → `06_review` only.
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.

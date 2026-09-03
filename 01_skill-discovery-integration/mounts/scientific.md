@@ -42,7 +42,7 @@
 | `04-explainability` | `skills/shap/` | `04_analysis` | 影像模型可解释性 | 部分 | tabular SHAP, not imaging Grad-CAM |
 | `05-write-manuscript` | `skills/scientific-writing/; skills/markdown-mermaid-writing/` | `05_manuscript` | 论著/报告草稿 | 已映射 | not Aitor-format; clinical-reports not included |
 | `05-write-reporting` | — | `05_manuscript` | TRIPOD / CLAIM / 报告规范 | 空挂 | 无独立报告规范包 |
-| `05-write-venue` | `skills/venue-templates/` | `05_manuscript` | 选刊 / 期刊体例 | 已映射 | not Aitor-format |
+| `05-write-venue` | `skills/venue-templates/` | `05_manuscript` | 期刊体例 / house style（not 选刊） | 已映射 | not Aitor-format |
 | `05-write-polish` | `skills/scientific-writing/` | `05_manuscript` | 通用学术英语润色 | 部分 | same pack as manuscript; not de-AI |
 | `05-humanize` | — | `05_manuscript` | 去 AI 痕迹（通用） | 空挂 | 无对应包 · 个人 de-AI 仍在 A |
 | `06-review-peer` | `skills/peer-review/` | `06_review` | 他审草稿 | 已映射 |  |

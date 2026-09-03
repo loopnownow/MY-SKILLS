@@ -69,7 +69,7 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 ## Not this skill
 
 - 选题 / 写研究设计 → `03_research`
-- 选刊 → `05_manuscript` (`05-write-venue`)
+- 选刊 → `03_research`
 - 样本量 → `04_analysis` (`04-stats-power`)
 - 写论著 Methods 伦理段、去 AI、配图 → `05_manuscript`
 - 评阅 / 回审稿 → `06_review`

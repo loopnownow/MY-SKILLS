@@ -61,6 +61,6 @@ Retired: `06-review-generic`. Packs live in B as `06-review-peer` / `06-review-c
 
 - 写论著 / 润色 / 去AI / 引言 / 讨论 → `05_manuscript`
 - 选题 / 文献检索 → `03_research`
-- 选刊 → `05_manuscript` (`05-write-venue`)
+- 选刊 → `03_research`
 - 样本量 → `04_analysis` (`04-stats-power`)
 - 出图 → `04_analysis`

@@ -14,7 +14,7 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
-**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Local `literature/` `design/` `frontier/` are a **temporary dual-track supplement**, not those split ids (`EXTERNALIZATION_CANDIDATES.md`). Personal grant/ethics/intake/translation files stay here. 选刊 is `05-write-venue`, not 03 literature.
+**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Local `literature/` `design/` `frontier/` are a **temporary dual-track supplement**, not those split ids (`EXTERNALIZATION_CANDIDATES.md`). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `03-lit-search` / literature layer), not `05-write-venue`.
 
 ## Literature rule
 
@@ -54,7 +54,7 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
 
-Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplement**, not the split ids (see `EXTERNALIZATION_CANDIDATES.md`). 选刊 is `05-write-venue`, not 03 literature.
+Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplement**, not the split ids (see `EXTERNALIZATION_CANDIDATES.md`). Dual-track `literature/` holds `journal-selection.md` as the 选刊 SOP. Mounted id for 选刊 evidence: `03-lit-search` / literature layer. Do not send 选刊 to `05-write-venue`.
 
 ## Modes
 
@@ -66,6 +66,7 @@ Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplem
 
 ## Boundaries
 
+- 选刊 / where to submit stays here (`literature/journal-selection.md`). `05-write-venue` is journal templates / house style while writing, not journal choice.
 - Manuscript prose / I/D writing → `05_manuscript`
 - Statistics / figures → `04_analysis`
 - Data preprocessing / extraction → `02_data-processing`

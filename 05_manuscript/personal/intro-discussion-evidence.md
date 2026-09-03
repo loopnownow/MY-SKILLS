@@ -1,6 +1,6 @@
 # Introduction / Discussion evidence (thin)
 
-**Owner:** `05_manuscript` / `manuscript-core`. Purpose: find and verify papers **so this manuscript’s Introduction and Discussion can be written**. Not a systematic-review skill. Not 01 选题/选刊.
+**Owner:** `05_manuscript` / `manuscript-core`. Purpose: find and verify papers **so this manuscript’s Introduction and Discussion can be written**. Not a systematic-review skill. 选题 / 选刊 → `03_research` (选刊 is NOT `05-write-venue`; not 01).
 
 Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro); first paragraph no citations and no result numbers; Methods no citations. Prose templates: `polisher-sections.md` §2 / §5.
 
@@ -8,7 +8,7 @@ Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800�
 
 写引言 · 写讨论 · 补文献 · 核对引用 · 这篇前言/讨论文献不够 · 查文献（工程里已有稿或正在写 SCI 全文）
 
-选题 / 选刊 / 研究设计 / 国自然 → `03_research`，不用本文件。
+选题 / 选刊 / 研究设计 / 国自然 → `03_research`（选刊 is NOT `05-write-venue`），不用本文件。
 
 ## Workflow
 
