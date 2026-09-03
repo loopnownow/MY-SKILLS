@@ -436,3 +436,17 @@ change: Pipeline scheduling is intent classify + skill chain + QC closed loop. D
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## mounts-cap local cache 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-016
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+author: Aitor
+change_class: interface
+problem: B and backup plugins had no A-local cache; fetching a backup meant guessing a whole clone.
+change: Added repo-root mounts-cap/ (README, INDEX, fetch.py). Pack trees gitignored. B = full tree (legacy sibling MY-SKILLS-capabilities still accepted). ARS/MedSci/Scientific = only the path(s) of ids picked this run. Download ≠ mount. Session pick and empty-mount unchanged. Do not vendor packs into A git.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

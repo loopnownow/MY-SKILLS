@@ -62,6 +62,8 @@ Handoff payload when crossing skills: objective, inputs inspected, decisions, as
 5. If network is unavailable, request a local Skill/repository path.
 6. Evaluate capability and boundaries; propose mount; require explicit user approval; then mount.
 
+Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific fetch **only the path of an id picked this run**. Download is not a mount.
+
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
 Backups: ARS / MedSci / Scientific stay `PROPOSED` (`role: backup-candidate`). Mapping is not a mount.
 Registry `MOUNTED` is a **menu of 30 ids**, not `mounts: []`. Never auto-mount a non-B source. No live `04-figure-engine`.

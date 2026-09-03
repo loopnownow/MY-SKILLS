@@ -6,6 +6,7 @@ Default source: [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnow
 Empty mount → notify the user, then re-search and confirm. Do not silently fall back to ARS/MedSci/Scientific.
 Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`.
 **Every run:** ask which of these ids to attach this session (`session_mount: ask-each-run`). Unpicked = not loaded.
+Local bytes: `mounts-cap/` (B full; other sources on-demand). Download is not a mount.
 
 30 coarse ids (CHG-20260903-011). Personal de-AI stays in A. Generic de-AI is `05-humanize` (MedSci), not B.
 

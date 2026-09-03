@@ -239,6 +239,32 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("gates.md", wf)
 
 
+
+class MountsCap(unittest.TestCase):
+    def test_cache_scaffold(self) -> None:
+        root = ROOT / "mounts-cap"
+        self.assertTrue((root / "README.md").is_file())
+        self.assertTrue((root / "INDEX.yaml").is_file())
+        self.assertTrue((root / "fetch.py").is_file())
+        gi = read("mounts-cap/.gitignore")
+        for name in ("b/", "ars/", "medsci/", "scientific/", "STATE.yaml"):
+            self.assertIn(name, gi)
+        idx = read("mounts-cap/INDEX.yaml")
+        self.assertIn("on-demand-path-only", idx)
+        self.assertIn("never_bulk_backup", idx)
+        self.assertFalse((root / "b").is_dir())
+
+    def test_01_uses_cache_not_bulk(self) -> None:
+        one = read("01_skill-discovery-integration/SKILL.md")
+        self.assertIn("mounts-cap/", one)
+        self.assertIn("Download is not a mount", one)
+        self.assertIn("Never bulk-download", one)
+        fetch = read("mounts-cap/fetch.py")
+        self.assertIn("ensure-b", fetch)
+        self.assertNotIn("def download_all", fetch)
+        self.assertIn("04-explainability", read("01_skill-discovery-integration/SKILL.md"))
+
+
 class HarvestHygiene(unittest.TestCase):
     def test_no_duplicate_section_11(self) -> None:
         text = read("skill-harvest/SKILL.md")
@@ -267,12 +293,13 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260903-015", text)
-        self.assertIn("intent classify", text.lower())
-        self.assertIn("QC", text)
+        self.assertIn("CHG-20260903-016", text)
+        self.assertIn("mounts-cap", text.lower())
+        self.assertIn("on-demand", text.lower())
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260903-016", text)
         self.assertIn("CHG-20260903-015", text)
         self.assertIn("CHG-20260903-014", text)
         self.assertIn("CHG-20260903-013", text)

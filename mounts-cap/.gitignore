@@ -1,0 +1,9 @@
+# Pack bytes stay on disk, never in A git.
+b/
+ars/
+medsci/
+scientific/
+STATE.yaml
+*.zip
+.cache/
+__pycache__/
