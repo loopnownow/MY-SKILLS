@@ -1,0 +1,15 @@
+# Local capability cache (bytes). Pointers stay in 01.
+# Git tracks this file + README + fetch.py only.
+cache_root: mounts-cap
+legacy_b: MY-SKILLS-capabilities
+policy:
+  b: full-tree
+  non_b: on-demand-path-only
+  download_is_not_mount: true
+  never_bulk_backup: true
+dirs:
+  my-skills-capabilities: b
+  academic-research-skills: ars
+  med-sci-skills: medsci
+  scientific-agent-skills: scientific
+# Repos / paths: 01_skill-discovery-integration/sources/*.yaml

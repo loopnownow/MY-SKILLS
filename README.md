@@ -10,6 +10,7 @@ Layout mirrors `C:\Users\loopn\.grok\skills`.
 ```
 00_orchestrator/
 01_skill-discovery-integration/
+mounts-cap/   Local cache: full B + on-demand backup skills (gitignored bytes)
 02_data-processing/
 03_research/
 04_analysis/
@@ -28,7 +29,7 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Intent classify, skill chain, QC closed loop (file gates + local recovery) |
-| `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts/*.md` live here; default source B |
+| `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts/*.md` live here; default source B; bytes in `mounts-cap/` |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + **选刊** + personal grant supplement + translational design + ethics forms |
 | `04_analysis` | Statistics, prediction, **figures** (`04-fig-flow` / `04-fig-plot`) |
