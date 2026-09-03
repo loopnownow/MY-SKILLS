@@ -1,5 +1,4 @@
 # Scanned 2026-09-03 against K-Dense-AI/scientific-agent-skills@1e5eeff (2026-09-02, v2.66.0).
-# Mapping is A-id → skills/<name>/. ~163 skills; only 14 A ids are tabulated.
 source_id: scientific-agent-skills
 name: Scientific Agent Skills
 role: backup-candidate
@@ -9,68 +8,108 @@ scan_sha: "1e5eeff"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Broad science skill library (biology, chemistry, medicine, drug discovery).
-  Maps 12 of 14 A ids at least partially. Empty: 02-radiomics-habitat, 05-humanize.
-  shap is tabular XAI, not imaging Grad-CAM. Does not replace A personal layers.
-  Unmapped remainder is grouped by domain, not listed skill-by-skill.
+  Finer A ids (CHG-20260903-011). Empty listed below. shap is tabular XAI, not imaging Grad-CAM.
+  Unmapped remainder grouped by domain.
 skills:
-  - id: 02-xlsx
-    path: skills/xlsx/
+  - id: 02-tables
+    path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
     a_hook: 02_data-processing
     coverage: full
-    note: Excel workbook as the deliverable
-  - id: 02-imaging-qc
-    path: skills/pydicom/; skills/histolab/; skills/pathml/; skills/bids/; skills/imaging-data-commons/
+    note: Excel / DataFrame
+  - id: 02-imaging-io
+    path: skills/pydicom/; skills/bids/; skills/imaging-data-commons/
     a_hook: 02_data-processing
     coverage: partial
-    note: DICOM / pathology / BIDS; not 0RAD radiology QC
-  - id: 02-impute
-    path: skills/exploratory-data-analysis/; skills/polars/
+    note: not 0RAD; not fMRI
+  - id: 02-pictures
+    path: skills/histolab/; skills/pathml/; skills/pdf/
     a_hook: 02_data-processing
     coverage: partial
-    note: EDA / DataFrame, not a dedicated impute pack
-  - id: 02-generic-docs
-    path: skills/markitdown/; skills/pdf/; skills/docx/
-    a_hook: 02_data-processing
-    coverage: partial
-    note: document conversion, not imaging data docs
-  - id: 03-literature
-    path: skills/literature-review/; skills/paper-lookup/; skills/citation-management/; skills/pyzotero/; skills/research-lookup/
+    note: WSI + PDF-as-image
+  - id: 03-lit-search
+    path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
     coverage: full
-  - id: 03-design
-    path: skills/experimental-design/; skills/hypothesis-generation/; skills/research-grants/; skills/scientific-brainstorming/
+  - id: 03-lit-review
+    path: skills/literature-review/
     a_hook: 03_research
     coverage: full
-    note: general experimental design / grants, not radiology-specific
-  - id: 03-frontier
-    path: skills/scientific-brainstorming/; skills/hypothesis-generation/; skills/hypogenic/
+  - id: 03-lit-cite
+    path: skills/citation-management/; skills/pyzotero/
     a_hook: 03_research
-    coverage: partial
-  - id: 04-stats-generic
-    path: skills/statistical-analysis/; skills/statistical-power/; skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
+    coverage: full
+  - id: 03-design-experiment
+    path: skills/experimental-design/
+    a_hook: 03_research
+    coverage: full
+    note: pre-data collection design
+  - id: 03-design-grant
+    path: skills/research-grants/
+    a_hook: 03_research
+    coverage: full
+    note: does not replace A Voice A/B
+  - id: 03-frontier-ideate
+    path: skills/scientific-brainstorming/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-frontier-hypothesize
+    path: skills/hypothesis-generation/; skills/hypogenic/
+    a_hook: 03_research
+    coverage: full
+    note: hypogenic secondary
+  - id: 04-stats-guide
+    path: skills/statistical-analysis/
     a_hook: 04_analysis
     coverage: full
-    note: does not replace A 04 personal / 0RAD rules
+    note: does not replace A 04 personal / 0RAD
+  - id: 04-stats-power
+    path: skills/statistical-power/
+    a_hook: 04_analysis
+    coverage: full
+  - id: 04-stats-models
+    path: skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
+    a_hook: 04_analysis
+    coverage: full
+    note: 0RAD personal still wins
+  - id: 04-fig-flow
+    path: skills/scientific-schematics/
+    a_hook: 04_analysis
+    coverage: partial
+    note: schematics, not STROBE gold
+  - id: 04-fig-plot
+    path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
+    a_hook: 04_analysis
+    coverage: full
+    note: POLE gold still B/A
   - id: 04-explainability
     path: skills/shap/
     a_hook: 04_analysis
     coverage: partial
     note: tabular SHAP, not imaging Grad-CAM
-  - id: 04-figure-engine
-    path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/; skills/scientific-schematics/
-    a_hook: 04_analysis
+  - id: 05-write-manuscript
+    path: skills/scientific-writing/; skills/markdown-mermaid-writing/
+    a_hook: 05_manuscript
     coverage: full
-    note: POLE/STROBE gold still B/A
-  - id: 05-writing-generic
-    path: skills/scientific-writing/; skills/venue-templates/; skills/markdown-mermaid-writing/; skills/clinical-reports/
+    note: not Aitor-format; clinical-reports not included
+  - id: 05-write-venue
+    path: skills/venue-templates/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
-  - id: 06-review-generic
-    path: skills/peer-review/; skills/scholar-evaluation/; skills/scientific-critical-thinking/
+  - id: 05-write-polish
+    path: skills/scientific-writing/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: same pack as manuscript; not de-AI
+  - id: 06-review-peer
+    path: skills/peer-review/
     a_hook: 06_review
     coverage: full
+  - id: 06-review-critique
+    path: skills/scientific-critical-thinking/; skills/scholar-evaluation/
+    a_hook: 06_review
+    coverage: full
+    note: grant Voice A stays in 03 personal
 unmapped_groups:
   - domain: omics
     note: not radiology 02/04
@@ -87,9 +126,19 @@ unmapped_groups:
   - domain: clinical-ops
     note: not 02-06 manuscript pipeline
     examples: [clinical-decision-support, treatment-plans]
+  - domain: documents
+    note: conversion, not 02-pictures
+    examples: [markitdown, docx]
   - domain: other-fields
     note: unrelated to Jinshan radiology research
     examples: [astropy, pymatgen, qiskit, geopandas]
 empty:
+  - 02-imaging-qc
+  - 02-fmri
   - 02-radiomics-habitat
+  - 03-lit-fulltext
+  - 03-design-protocol
+  - 04-model-eval
+  - 05-write-reporting
   - 05-humanize
+  - 06-review-response

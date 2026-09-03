@@ -1,5 +1,4 @@
 # Scanned 2026-09-03 against Imbad0202/academic-research-skills@9443623 (2026-09-01).
-# Mapping is A-id → ARS path. Unmapped A ids are empty if this preset is used alone.
 source_id: academic-research-skills
 name: Academic Research Skills
 role: backup-candidate
@@ -9,43 +8,70 @@ scan_sha: "9443623"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Four SKILL.md packs: deep-research, academic-paper, academic-paper-reviewer,
-  academic-pipeline (orchestrator, maps to 00 not to the 14 domain ids).
-  No imaging / Excel / radiomics / figure / lab-stats packs.
+  Four SKILL.md packs. Finer A ids (CHG-20260903-011) share those packs where they fit.
+  academic-pipeline maps to 00, not to domain ids.
 skills:
-  - id: 03-literature
+  - id: 03-lit-search
     path: deep-research/
     a_hook: 03_research
     coverage: full
-    note: lit-review / systematic review / source verification
-  - id: 03-design
+    note: paper search / source verification
+  - id: 03-lit-review
+    path: deep-research/
+    a_hook: 03_research
+    coverage: full
+    note: systematic review inside deep-research
+  - id: 03-design-experiment
     path: deep-research/
     a_hook: 03_research
     coverage: partial
-    note: methodology / RQ framing inside deep-research; not a standalone design pack
-  - id: 05-writing-generic
+    note: methodology / RQ framing
+  - id: 05-write-manuscript
     path: academic-paper/
     a_hook: 05_manuscript
     coverage: full
-    note: write / plan / outline / format / citation-check; Style Calibration is not Aitor-format
-  - id: 06-review-generic
+    note: write / plan / outline; not Aitor-format
+  - id: 05-write-venue
+    path: academic-paper/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: format / style calibration
+  - id: 05-write-polish
+    path: academic-paper/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: style calibration; not de-AI
+  - id: 06-review-peer
     path: academic-paper-reviewer/
     a_hook: 06_review
     coverage: full
-    note: multi-persona peer review + re-review; rebuttal-audit also in academic-paper
+    note: multi-persona peer review
 unmapped:
   - path: academic-pipeline/
     kind: analog
     future_hook: 00_orchestrator
     note: research-write-review orchestrator; 00 exists as a layer, not a mount id
 empty:
-  - 02-xlsx
+  - 02-tables
+  - 02-imaging-io
   - 02-imaging-qc
+  - 02-pictures
+  - 02-fmri
   - 02-radiomics-habitat
-  - 02-impute
-  - 02-generic-docs
-  - 03-frontier
-  - 04-stats-generic
-  - 04-figure-engine
+  - 03-lit-fulltext
+  - 03-lit-cite
+  - 03-design-protocol
+  - 03-design-grant
+  - 03-frontier-ideate
+  - 03-frontier-hypothesize
+  - 04-stats-guide
+  - 04-stats-power
+  - 04-stats-models
+  - 04-model-eval
+  - 04-fig-flow
+  - 04-fig-plot
   - 04-explainability
+  - 05-write-reporting
   - 05-humanize
+  - 06-review-critique
+  - 06-review-response

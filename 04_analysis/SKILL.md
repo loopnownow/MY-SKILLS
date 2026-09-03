@@ -28,11 +28,17 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 ## Mounted capability ids (generic; not present until mounted)
 
-- `04-stats-generic` — test selection, Bayesian, power, reporting standards
-- `04-figure-engine` — STROBE/flow, plot templates, journal-family visual style, Nature figure spec
+- `04-stats-guide` — test selection / effect sizes (`statistical-analysis`)
+- `04-stats-power` — sample size / power (`statistical-power`)
+- `04-model-eval` — calibration / DCA / external validation (MedSci `model-evaluation` / `model-validation`)
+- `04-stats-models` — implementation (`statsmodels` / `pymc` / `scikit-learn` / `scikit-survival`); 0RAD personal still wins
+- `04-fig-flow` — STROBE / patient-flow (`draw_strobe_flow.py`)
+- `04-fig-plot` — statistical plots / imaging panels
 - `04-explainability` — imaging-model XAI (Grad-CAM etc.), MedSci `skills/explainability/`. Not in B. Does not replace `personal/` 0RAD rules.
 
-Until `04-figure-engine` is mounted, do not invent a second figure stack inside 05.
+Retired: `04-stats-generic`.
+
+Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure stack inside 05.
 
 ## Imaging hard rules (non-negotiable)
 
@@ -53,11 +59,11 @@ Until `04-figure-engine` is mounted, do not invent a second figure stack inside 
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `04-figure-engine` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`.
+5. Generate figures here (mounted `04-fig-plot` / `04-fig-flow` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`.
 
 ## Boundaries
 
-- Data cleaning / impute / Excel → `02_data-processing` (ids `02-impute`, `02-xlsx`)
+- Data cleaning / Excel → `02_data-processing` (id `02-tables`)
 - Literature → `03_research`
 - Manuscript wording → `05_manuscript`
 - Reviewer response → `06_review`

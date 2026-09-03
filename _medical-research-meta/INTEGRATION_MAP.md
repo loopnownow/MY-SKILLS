@@ -329,3 +329,55 @@ change: Scanned @1e5eeff (v2.66.0). Added sources/scientific-agent-skills.propos
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## Coarse ids reclassified to Scientific jobs 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-008
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: User asked to reclassify coarse A ids to match K-Dense-AI/scientific-agent-skills jobs, not keep 03-literature/design/frontier umbrellas.
+change: Retired 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic. New coarse ids: 03-lit-search/review/cite, 03-design-experiment/grant, 03-frontier-ideate/hypothesize, 04-stats-guide/power/models, 05-write-manuscript/venue, 06-review-peer/critique. B folders unchanged; several A ids share one B path. 22 ids total. Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
+
+## B folders 1:1 with coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-009
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: After coarse-id reclass, B still shared umbrella folders; user asked to split B to match A, then remount ARS/MedSci.
+change: B packs are 1:1 with A ids (except MedSci-only 04-explainability / 05-humanize). journal-selection moved to write-venue; doi_to_bibtex to lit-cite; design-grant is a stub MODULE. ARS/MedSci boards re-adapted with a B-path column. MedSci find-journal/add-journal moved from 03-lit-cite to 05-write-venue. Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews B PR then A PR; do not merge until named
+```
+
+## 02 media-type coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-010
+date: 2026-09-03
+skill: 02_data-processing
+change_class: interface
+problem: User asked to split 02 coarse ids so clinical tables, CT/MRI volumes, pictures, and fMRI are visually distinct.
+change: Retired 02-xlsx, 02-imaging-qc, 02-impute, 02-generic-docs. New ids: 02-tables (xlsx+impute), 02-imaging (CT/MRI DICOM/NIfTI/NII), 02-pictures (TIFF/PNG/JPG/PDF-as-image), 02-fmri (DICOM/NIfTI). Kept 02-radiomics-habitat. B stubs for pictures/fmri. ARS still empty on all 02. MedSci empty on pictures/fmri. Scientific empty on fmri (+ habitat, humanize). Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews PRs; do not merge until named
+```
+
+## P0+P1 fine split of coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-011
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: User asked to split both P0 and P1 coarse ids for finer external mounts.
+change: 30 ids. New: 03-lit-fulltext, 03-design-protocol, 04-model-eval, 04-fig-flow, 04-fig-plot (retired 04-figure-engine), 05-write-reporting, 05-write-polish, 06-review-response, 02-imaging-io, 02-imaging-qc (retired 02-imaging umbrella). Default still B. Mapping ≠ mount. clinical-reports / present-paper not in 05.
+decision: keep
+next_action: user reviews PRs; do not merge until named
+```

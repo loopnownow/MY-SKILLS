@@ -38,18 +38,21 @@ Convert **validated** research information into precise, publication-ready origi
 
 ## Mounted capability ids (generic; not present until mounted)
 
-- `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (B `05-manuscript/writing-generic/`)
+- `05-write-manuscript` — manuscript/report draft (Scientific `scientific-writing` / `markdown-mermaid-writing`; B `05-manuscript/write-manuscript/`). Not Aitor-format. `clinical-reports` is not this id.
+- `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper (MedSci `check-reporting`)
+- `05-write-venue` — journal selection / templates (`venue-templates`)
+- `05-write-polish` — generic academic English (MedSci `polish-language`). Not de-AI.
 - `05-humanize` — generic de-AI / humanize (MedSci `skills/humanize/`). Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
-`writing-generic` lives in B. `05-humanize` is a user-named MedSci interface. Personal de-AI stays in A (`personal/`).
+Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `04-figure-engine` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `04-fig-plot` / `04-fig-flow` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题/选刊 stays in 03.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题 stays in 03 (`03-frontier-ideate`). 选刊 is `05-write-venue`.
 
 ## Core rule
 

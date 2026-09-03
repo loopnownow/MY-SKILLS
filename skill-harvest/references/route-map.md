@@ -8,7 +8,7 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 | Discover / evaluate / mount an external Skill | `01_skill-discovery-integration` | Never literature/stats/writing/review here |
 | Excel/CSV, 0RAD workspace, batch tables, imaging prep, impute | `02_data-processing` | Soft-coding → `02_data-processing/code-refactoring`; modeling → `04_analysis` |
 | Soft-coding, dry-run, CONFIG-on-top refactor | `02_data-processing/code-refactoring` | Statistical methods → `04_analysis`; imaging prep → `02_data-processing` |
-| Clinical text / HIS / pathology extraction | `02_data-processing/clinical-data-extraction` | Imputation → `02_data-processing` (`02-impute`) |
+| Clinical text / HIS / pathology extraction | `02_data-processing/clinical-data-extraction` | Imputation → `02_data-processing` (`02-tables`) |
 | Hospital IRB / ethics form packs | `03_research/ethics-application-forms` | Ethics prose in a manuscript → `05_manuscript`; protocol ethics → `03_research/personal/ethics.md` |
 | MRI/fMRI preprocessing/QC, radiomics **preparation**, habitat prep | `02_data-processing` | Stats/figures → `04_analysis`; radiogenomics design → `03_research` |
 | Clinical translation / reader studies | `03_research/clinical-translation` | Stats → `04_analysis`; figures → `04_analysis` |
@@ -35,4 +35,4 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 - “设计 radiomics/habitat pipeline” → prep `02_data-processing`; statistical model comparison `04_analysis`.
 - “修改 SCI / 润色 / 写引言讨论” → `05_manuscript`; “模拟审稿、评阅、回复 reviewer” → `06_review`.
 - “处理 Excel / 0RAD 文件夹” → `02_data-processing`; “修 Python/软编码” → `02_data-processing/code-refactoring`.
-- “画 ROC/流程图” → `04_analysis` (mounted `04-figure-engine`).
+- “画 ROC/流程图” → `04_analysis` (mounted `04-fig-plot`).
