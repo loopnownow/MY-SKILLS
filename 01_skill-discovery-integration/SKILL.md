@@ -14,7 +14,7 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`mounts.html` index, `mounts-b.html` / `mounts-ars.html` / `mounts-medsci.html`, `unmapped.html`). Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`mounts.html` index, `mounts-b.html` / `mounts-ars.html` / `mounts-medsci.html`). Unmapped extras stay on each source page, not a fifth HTML file. Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 
@@ -37,9 +37,9 @@ Never silently fall back to ARS/MedSci or invent a local copy.
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (pointers + `mounts:`).
-2. Resolve ids against default source B.
-3. If the B path is empty or missing → empty-mount protocol (notify → re-search → confirm).
-4. Only after confirmation may a backup candidate (ARS / MedSci) be proposed.
+2. Resolve each id against its `source` in `registry.yaml`. Default source is B. Two user-named exceptions mount from MedSci: `04-explainability`, `05-humanize`.
+3. If that path is empty or missing → empty-mount protocol (notify → re-search → confirm).
+4. Only after confirmation may a *different* backup candidate be proposed. Do not silently switch the other 12 ids to MedSci because these two already point there.
 5. Evaluate capability, boundaries, dependencies, and overlap.
 6. New non-B sources stay `PROPOSED` until explicit approval. Silence is not approval.
 7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
@@ -51,7 +51,7 @@ Never silently fall back to ARS/MedSci or invent a local copy.
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
-- de-AI is personal (`05_manuscript/personal/`); it is not a B mount.
+- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `05-humanize` (MedSci). The personal forbidden list still wins.
 
 ## Capability evaluation
 

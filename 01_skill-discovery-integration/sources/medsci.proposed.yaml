@@ -9,9 +9,9 @@ scan_sha: "912f7e8"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  60 skills under skills/. Imaging/stats/writing/review map onto all 12 A ids
-  at least partially. humanize is not A de-AI. radiomics-ml includes modeling
-  (paper models still 04). sync-submission is Bai/投稿 analog, not a 02-06 id.
+  60 skills under skills/. 12 B ids map at least partially. Two A interfaces
+  mount from this repo: 04-explainability and 05-humanize. Personal de-AI stays
+  in A. radiomics-ml includes modeling (paper models still 04).
 skills:
   - id: 02-xlsx
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/
@@ -59,11 +59,21 @@ skills:
     a_hook: 04_analysis
     coverage: full
     note: generic publication figures; POLE/STROBE gold still B/A
+  - id: 04-explainability
+    path: skills/explainability/
+    a_hook: 04_analysis
+    coverage: full
+    note: imaging XAI; not in B; does not replace 0RAD personal rules
   - id: 05-writing-generic
     path: skills/write-paper/; skills/polish-language/; skills/check-reporting/; skills/present-paper/; skills/manage-refs/
     a_hook: 05_manuscript
     coverage: full
-    note: not Aitor-format; humanize is not de-AI
+    note: not Aitor-format; personal de-AI stays in A
+  - id: 05-humanize
+    path: skills/humanize/
+    a_hook: 05_manuscript
+    coverage: full
+    note: generic de-AI; does not replace A personal/de-ai.md forbidden list
   - id: 06-review-generic
     path: skills/peer-review/; skills/review-paper/; skills/self-review/; skills/revise/
     a_hook: 06_review
@@ -81,10 +91,6 @@ unmapped:
     kind: expansion
     future_hook: 03_or_04
     note: KNHANES / NHANES / CHNS harmonized comparison
-  - path: skills/explainability/
-    kind: expansion
-    future_hook: 04
-    note: Grad-CAM and imaging XAI
   - path: skills/fill-icmje-coi/
     kind: expansion
     future_hook: 03
@@ -137,10 +143,6 @@ unmapped:
     kind: analog
     future_hook: skill-harvest
     note: package a personal skill for distribution
-  - path: skills/humanize/
-    kind: analog
-    future_hook: 05_manuscript/personal
-    note: not a substitute for A de-AI forbidden list; de-AI is not a mount id
   - path: skills/sync-submission/
     kind: analog
     future_hook: Bai

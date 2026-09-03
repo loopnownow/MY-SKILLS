@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="mounts.css">
 </head>
 <body>
-<nav class="presets"><a class="" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="" href="mounts-ars.html">ARS · 备份</a><a class="on" href="mounts-medsci.html">MedSci · 备份</a><a class="" href="unmapped.html">无接口 · 扩展</a></nav>
+<nav class="presets"><a class="" href="mounts.html">总览</a><a class="" href="mounts-b.html">B · 当前默认</a><a class="" href="mounts-ars.html">ARS · 备份</a><a class="on" href="mounts-medsci.html">MedSci · 备份</a></nav>
 
 <header>
   <h1>预设 MedSci <span>备份 · 已预扫 912f7e8</span></h1>
@@ -15,7 +15,7 @@
 </header>
 <div class="stats">
   <div class="stat"><b>PROPOSED</b><span>备份候选</span></div>
-  <div class="stat"><b>12 / 12</b><span>有对应 skill（4 部分）</span></div>
+  <div class="stat"><b>14 / 14</b><span>有对应 skill（4 部分）</span></div>
   <div class="stat"><b>0</b><span>空挂</span></div>
 </div>
 <h2>挂载来源</h2>
@@ -39,23 +39,24 @@
 <tr><td><code>03-design</code></td><td><code>skills/design-study/ · write-protocol/ · intake-project/ · grant-builder/ …</code></td><td><code>03_research</code></td><td>设计 / 方案 / 立项</td><td><span class="pill ready">已映射</span></td><td></td></tr>
 <tr><td><code>03-frontier</code></td><td><code>skills/find-cohort-gap/ · ma-scout/ · architecture-zoo/</code></td><td><code>03_research</code></td><td>缺口 / scout</td><td><span class="pill dual">部分</span></td><td>不是独立前沿地图</td></tr>
 <tr><td><code>04-stats-generic</code></td><td><code>skills/analyze-stats/ · calc-sample-size/ · meta-analysis/ · model-evaluation/</code></td><td><code>04_analysis</code></td><td>统计 / 样本量 / 模型评价</td><td><span class="pill ready">已映射</span></td><td>不替换 A 04 personal / 0RAD</td></tr>
+<tr><td><code>04-explainability</code></td><td><code>skills/explainability/</code></td><td><code>04_analysis</code></td><td>影像模型可解释性</td><td><span class="pill ready">已映射</span></td><td>A 04 接口；不经 B</td></tr>
 <tr><td><code>04-figure-engine</code></td><td><code>skills/make-figures/</code></td><td><code>04_analysis</code></td><td>发表图</td><td><span class="pill ready">已映射</span></td><td>POLE/STROBE 金标准仍在 B/A</td></tr>
-<tr><td><code>05-writing-generic</code></td><td><code>skills/write-paper/ · polish-language/ · check-reporting/ · present-paper/</code></td><td><code>05_manuscript</code></td><td>写作 / 报告规范</td><td><span class="pill ready">已映射</span></td><td>不是 Aitor-format；humanize ≠ de-AI</td></tr>
+<tr><td><code>05-humanize</code></td><td><code>skills/humanize/</code></td><td><code>05_manuscript</code></td><td>去 AI 痕迹（通用）</td><td><span class="pill ready">已映射</span></td><td>不替换 A personal de-AI 禁词表</td></tr>
+<tr><td><code>05-writing-generic</code></td><td><code>skills/write-paper/ · polish-language/ · check-reporting/ · present-paper/</code></td><td><code>05_manuscript</code></td><td>写作 / 报告规范</td><td><span class="pill ready">已映射</span></td><td>不是 Aitor-format；个人 de-AI 禁词表仍在 A</td></tr>
 <tr><td><code>06-review-generic</code></td><td><code>skills/peer-review/ · review-paper/ · self-review/ · revise/</code></td><td><code>06_review</code></td><td>审稿 / 自审 / 改稿</td><td><span class="pill ready">已映射</span></td><td></td></tr>
 </tbody></table>
-<p class="lead" style="margin-top:12px">额外不计入 12 id：<code>humanize/</code> ≠ A de-AI；<code>orchestrate/</code> ≈ 00；<code>sync-submission/</code> ≈ 投稿（Bai 仍不点同意投稿、不付版面费）。</p>
+<p class="lead" style="margin-top:12px">额外不计入 14 id：<code>orchestrate/</code> ≈ 00；<code>sync-submission/</code> ≈ 投稿（Bai 仍不点同意投稿、不付版面费）。</p>
 <h2>仅用当前挂载 · 空挂</h2>
-<div class="protocol"><strong>无空挂。</strong> 12 个 A id 都能指到 MedSci 路径。其中 02-xlsx / 02-radiomics-habitat / 02-impute / 03-frontier 是部分覆盖（上表已标）。部分覆盖不够用时，先通知再检索，不要静默改挂。</div>
+<div class="protocol"><strong>无空挂。</strong> 14 个 A id 都能指到 MedSci 路径（含 04-explainability / 05-humanize）。其中 02-xlsx / 02-radiomics-habitat / 02-impute / 03-frontier 是部分覆盖（上表已标）。部分覆盖不够用时，先通知再检索，不要静默改挂。</div>
 
 
 <h2>A 没有对应接口</h2>
-<p class="lead">这些 skill 在 MedSci 里存在，但不在 12 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。</p>
+<p class="lead">这些 skill 在 MedSci 里存在，但不在 14 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。</p>
 <h2>扩展候选（A 没有对应包）</h2>
 <table><thead><tr><th>路径</th><th>做什么</th><th>以后可接到</th></tr></thead><tbody>
 <tr><td><code>skills/academic-aio/</code></td><td>面向 AI 检索/RAG 的论文优化</td><td>新 05 或 03 接口</td></tr>
 <tr><td><code>skills/author-strategy/</code></td><td>PubMed 作者画像与发文策略</td><td>新 03 接口</td></tr>
 <tr><td><code>skills/cross-national/</code></td><td>跨国队列对齐（KNHANES/NHANES/CHNS）</td><td>新 03/04 接口</td></tr>
-<tr><td><code>skills/explainability/</code></td><td>影像模型可解释性（Grad-CAM 等）</td><td>新 04 接口</td></tr>
 <tr><td><code>skills/fill-icmje-coi/</code></td><td>ICMJE 利益冲突表</td><td>新 03；A 伦理包是医院 IRB，不是这张表</td></tr>
 <tr><td><code>skills/mllm-eval/</code></td><td>临床 LLM/MLLM 评测框架</td><td>新 04 接口</td></tr>
 <tr><td><code>skills/model-card/</code></td><td>Model Card / Datasheet</td><td>新 04 接口</td></tr>
@@ -72,7 +73,6 @@
 <tr><td><code>skills/setup-medsci/</code></td><td>运行时体检</td><td><code>01</code></td></tr>
 <tr><td><code>skills/contribute/</code></td><td>把本地改动贡献回仓库</td><td><code>skill-harvest</code> / 01</td></tr>
 <tr><td><code>skills/publish-skill/</code></td><td>把个人 skill 发成可分发包</td><td><code>skill-harvest</code> / 01</td></tr>
-<tr><td><code>skills/humanize/</code></td><td>去 AI 痕迹（27 模式）</td><td>A <code>05_manuscript/personal/</code> de-AI，不是挂载 id</td></tr>
 <tr><td><code>skills/sync-submission/</code></td><td>投稿清单 / SSOT 对账</td><td>Bai（投稿专员，不是 skill）</td></tr>
 </tbody></table>
 

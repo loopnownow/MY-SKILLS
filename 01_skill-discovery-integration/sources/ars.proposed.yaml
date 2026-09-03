@@ -10,7 +10,7 @@ status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
   Four SKILL.md packs: deep-research, academic-paper, academic-paper-reviewer,
-  academic-pipeline (orchestrator, maps to 00 not to the 12 domain ids).
+  academic-pipeline (orchestrator, maps to 00 not to the 14 domain ids).
   No imaging / Excel / radiomics / figure / lab-stats packs.
 skills:
   - id: 03-literature
@@ -47,3 +47,5 @@ empty:
   - 03-frontier
   - 04-stats-generic
   - 04-figure-engine
+  - 04-explainability
+  - 05-humanize

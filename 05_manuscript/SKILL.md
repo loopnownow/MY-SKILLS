@@ -39,8 +39,9 @@ Convert **validated** research information into precise, publication-ready origi
 ## Mounted capability ids (generic; not present until mounted)
 
 - `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (B `05-manuscript/writing-generic/`)
+- `05-humanize` — generic de-AI / humanize (MedSci `skills/humanize/`). Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
-`writing-generic` lives in B only. `registry.yaml` `mounts: []` until an explicit mount. de-AI is personal and stays in A (`personal/`).
+`writing-generic` lives in B. `05-humanize` is a user-named MedSci interface. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 

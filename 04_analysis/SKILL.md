@@ -30,6 +30,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 - `04-stats-generic` — test selection, Bayesian, power, reporting standards
 - `04-figure-engine` — STROBE/flow, plot templates, journal-family visual style, Nature figure spec
+- `04-explainability` — imaging-model XAI (Grad-CAM etc.), MedSci `skills/explainability/`. Not in B. Does not replace `personal/` 0RAD rules.
 
 Until `04-figure-engine` is mounted, do not invent a second figure stack inside 05.
 
