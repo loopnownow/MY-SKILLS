@@ -200,6 +200,45 @@ class DeAiAndFigures(unittest.TestCase):
         self.assertIn("Retired:", four)
 
 
+
+class OrchestratorLoop(unittest.TestCase):
+    def test_intent_chain_qc_in_skill(self) -> None:
+        zero = read("00_orchestrator/SKILL.md")
+        low = zero.lower()
+        self.assertIn("intent classify", low)
+        self.assertIn("skill chain", low)
+        self.assertIn("QC closed loop", zero)
+        self.assertIn("Never `--e2e`", zero)
+        self.assertIn("Literature enters 03 only", zero)
+        self.assertIn("reviewer response only here", zero)
+        self.assertIn("Do not mount ARS", zero)
+        self.assertIn("academic-pipeline", zero)
+        self.assertIn("Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`", zero)
+
+    def test_gates_and_handoff_exist(self) -> None:
+        gates = read("00_orchestrator/gates.md")
+        for token in ("G0", "G-PHI", "G-04", "G-05", "G-06", "Development set", "VAL_MODE", "DeLong"):
+            self.assertIn(token, gates)
+        hand = read("00_orchestrator/templates/handoff.yaml")
+        self.assertIn("qc_gate:", hand)
+        self.assertIn("outputs:", hand)
+        state = read("00_orchestrator/templates/project-state.yaml")
+        self.assertIn("pipeline:", state)
+        self.assertIn("stage:", state)
+        self.assertIn("defects:", state)
+
+    def test_sops_wired_by_html(self) -> None:
+        rad = read("00_orchestrator/workflows/radiomics-study.md")
+        sci = read("00_orchestrator/workflows/sci-manuscript.md")
+        self.assertIn("sci-manuscript", rad)
+        self.assertIn("G-04", rad)
+        self.assertIn("G-05", sci)
+        self.assertIn("G-06", sci)
+        self.assertIn("05_manuscript/personal/forbidden-phrases.md", sci)
+        wf = read("00_orchestrator/workflows/README.md")
+        self.assertIn("gates.md", wf)
+
+
 class HarvestHygiene(unittest.TestCase):
     def test_no_duplicate_section_11(self) -> None:
         text = read("skill-harvest/SKILL.md")
@@ -228,12 +267,13 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260903-014", text)
-        self.assertIn("选刊", text)
-        self.assertIn("03", text)
+        self.assertIn("CHG-20260903-015", text)
+        self.assertIn("intent classify", text.lower())
+        self.assertIn("QC", text)
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260903-015", text)
         self.assertIn("CHG-20260903-014", text)
         self.assertIn("CHG-20260903-013", text)
         self.assertIn("CHG-20260903-012", text)

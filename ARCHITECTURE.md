@@ -16,7 +16,7 @@ skills/
 
 ## Core layers
 
-1. `00_orchestrator` — classification, routing, composite workflow, Final QC, local recovery (re-run only the broken node).
+1. `00_orchestrator` — intent classify, skill chain, QC closed loop (file gates + local recovery; re-run only the broken node, max 3).
 2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles. No modeling. Handoff → 04. Ethics forms are **not** here.
 4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊 is 03, not `05-write-venue`.

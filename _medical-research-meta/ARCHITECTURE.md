@@ -41,13 +41,15 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 
 ## Final QC (handoff folded in)
 
-`00_orchestrator` owns the final QC gate. Completeness: deliverable exists; consistency checks pass; assumptions visible; limitations stated; files usable.
+`00_orchestrator` owns the QC closed loop: intent classify → skill chain → file check → integrity gate → local recovery. Completeness: deliverable exists; consistency checks pass; assumptions visible; limitations stated; files usable.
+
+Detail: `00_orchestrator/gates.md`. Handoff schema: `00_orchestrator/templates/handoff.yaml`. State fields: `pipeline`, `qc`, `defects` in `project-state.yaml`.
 
 Handoff payload when crossing skills: objective, inputs inspected, decisions, assumptions, completed outputs, exclusions, unresolved issues, required downstream actions.
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and send **only the erroneous portion** back. Do not rerun already-correct stages.
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and send **only the erroneous portion** back. Max 3 rounds, then `unresolved`. Do not rerun already-correct stages.
 
-`workflow → final QC → localized defect → responsible skill → re-run that node → final QC → output`
+`intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 
 ## External Skill mounting
 

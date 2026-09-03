@@ -5,6 +5,23 @@
 project: ""          # e.g. fyh_CAC
 updated: ""          # YYYY-MM-DD
 
+pipeline:
+  sop: ""            # radiomics-study | sci-manuscript | none
+  stage: ""          # classify | 02 | 04 | 05 | 06 | qc | done
+  last_handoff: ""   # relative path to the last handoff yaml, if any
+
+qc:
+  last_gate: ""      # G0 | G-PHI | G-04 | G-05 | G-06
+  last_result: ""    # pass | fail
+  rounds: 0          # recovery rounds on the current defect; max 3 then unresolved
+
+defects: []
+  # - id: D1
+  #   node: 04_analysis
+  #   gate: G-04
+  #   status: open | recovered | unresolved
+  #   note: ""
+
 study_design:
   question: ""
   hypothesis: ""
