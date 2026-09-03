@@ -1,6 +1,6 @@
 # 01 挂载指针
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
 
 预设分页 · 映射已预扫。每页一套：来源、接到哪一环、仅用这一套时的空挂。备份页已按 2026-09-03 扫描写好映射，使用时不必先翻仓库。
 
@@ -9,6 +9,7 @@
 | [B · 当前默认](b.md) | 12/12 B 包有文件。另有 2 个 A 接口接到 MedSci（可解释性、去 AI），不算 B 空挂。 |
 | [ARS · 备份](ars.md) | 扫 `9443623`。已映射 03 文献/设计（部分）、05 写作、06 审稿。空挂 10 个。 |
 | [MedSci · 备份](medsci.md) | 扫 `912f7e8`。14 个 A id 都有对应 skill（4 个部分覆盖）。空挂无。 |
+| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。12 / 14 有对应（5 部分）。空挂 2：`02-radiomics-habitat`、`05-humanize`。 |
 
 **空挂协议：** 先通知，再检索确认，不悄悄改挂。个人 de-AI 在 A `05_manuscript/personal/`，不算任何备份的空挂。
 

@@ -316,3 +316,16 @@ change: Replaced mounts.html / mounts-b.html / mounts-ars.html / mounts-medsci.h
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 01 Scientific Agent Skills preset 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-007
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface board
+problem: User asked for a mounts page for K-Dense-AI/scientific-agent-skills.
+change: Scanned @1e5eeff (v2.66.0). Added sources/scientific-agent-skills.proposed.yaml and mounts/scientific.md. 12/14 A ids mapped (5 partial); empty 02-radiomics-habitat and 05-humanize. Remainder grouped by domain, not listed skill-by-skill. Status PROPOSED. Default remains B. CHG-20260903-007.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

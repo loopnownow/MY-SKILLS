@@ -1,5 +1,5 @@
 # Mount pointers live only in 01.
-# Human board: mounts/*.md (README index + b.md / ars.md / medsci.md)
+# Human board: mounts/*.md (README index + b.md / ars.md / medsci.md / scientific.md)
 # Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
@@ -93,5 +93,12 @@ proposals:
     config: sources/medsci.proposed.yaml
     scanned: "2026-09-03"
     scan_sha: "912f7e8"
+    status: PROPOSED
+    role: backup-candidate
+  - id: scientific-agent-skills
+    source: https://github.com/K-Dense-AI/scientific-agent-skills
+    config: sources/scientific-agent-skills.proposed.yaml
+    scanned: "2026-09-03"
+    scan_sha: "1e5eeff"
     status: PROPOSED
     role: backup-candidate

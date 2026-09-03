@@ -1,6 +1,6 @@
 # 预设 MedSci · 备份
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
 
 仅用 MedSci Skills（2026-09-01 HEAD）。仓库 [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills) · 配置 `../sources/medsci.proposed.yaml`
 
