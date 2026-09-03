@@ -13,4 +13,4 @@ On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (or 不走 SOP�
 
 Project state template: `../templates/project-state.yaml` → copy to `<project>/ref/project-state.yaml` only when starting state tracking.
 
-01 is Skill Discovery, not Excel. Excel/0RAD → 02. Figures → 04 (`04-fig-flow` / `04-fig-plot`). Literature → 03. 选刊 → `05-write-venue`. 样本量 → `04-stats-power`. Reviewer response → 06.
+01 is Skill Discovery, not Excel. Excel/0RAD → 02. Figures → 04 (`04-fig-flow` / `04-fig-plot`). Literature → 03. 选刊 → `03_research`. 样本量 → `04-stats-power`. Reviewer response → 06.

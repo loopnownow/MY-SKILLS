@@ -42,7 +42,7 @@ Convert **validated** research information into precise, publication-ready origi
 
 - `05-write-manuscript` — manuscript/report draft. Not Aitor-format. `clinical-reports` is not this id.
 - `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper
-- `05-write-venue` — journal selection / templates
+- `05-write-venue` — journal templates / house style while writing. Not journal selection / 选刊.
 - `05-write-polish` — generic academic English. Not de-AI.
 - `05-humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
@@ -54,7 +54,7 @@ Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题 stays in 03 (`03-frontier-ideate`). 选刊 is `05-write-venue`.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题 stays in 03 (`03-frontier-ideate`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
 
 ## Core rule
 
@@ -75,7 +75,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Pre-submission / 模拟审稿 / 评阅 → `06_review`
 - Response letter / 回复审稿人 → `06_review`
 - Statistics / figures → `04_analysis`
-- Literature landscape → `03_research`
+- Literature landscape / 选刊 / where to submit → `03_research` (`literature/journal-selection.md`)
 
 ## Writing QC (domain)
 

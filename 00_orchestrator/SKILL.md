@@ -25,7 +25,7 @@ Before routing or loading 02–06, run **01 session mount pick**: ask which pack
 |---|---|
 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills. Never literature, stats, writing, or review. |
 | `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation, **clinical extraction**, **coding principles**. No modeling. |
-| `03_research` | Study design, **literature**, evidence, frontier, journal/topic, grants, **translational / reader-study design**, **ethics application forms**. Literature enters 03 only. |
+| `03_research` | Study design, **literature**, evidence, frontier, journal/topic (选刊), grants, **translational / reader-study design**, **ethics application forms**. Literature enters 03 only. 选刊 is 03, not `05-write-venue`. |
 | `04_analysis` | Statistics, prediction, survival, **figures**. Data repair is not its role. |
 | `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. |
 | `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. |
@@ -43,7 +43,7 @@ There are **no archive-as-standalone routes**. The four former archive packs liv
 - 转化 / reader study / 前瞻部署 / 阈值到行动 → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`
 - 选题 / 研究设计 / **文献** → `03_research`
-- 选刊 → `05_manuscript` (`05-write-venue`)
+- 选刊 → `03_research`
 - 样本量 → `04_analysis` (`04-stats-power`)
 - 统计 / AUC / DeLong / DCA / **出图** → `04_analysis`
 - 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`

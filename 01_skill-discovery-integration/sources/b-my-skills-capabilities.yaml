@@ -129,7 +129,7 @@ skills:
   - id: 05-write-venue
     path: 05-manuscript/write-venue/
     a_hook: 05_manuscript
-    a_step: 选刊 / 期刊体例
+    a_step: 期刊体例 / house style（not 选刊）
     interface: ready
   - id: 05-write-polish
     path: 05-manuscript/write-polish/

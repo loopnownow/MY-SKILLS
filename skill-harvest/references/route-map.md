@@ -12,7 +12,7 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 | Hospital IRB / ethics form packs | `03_research/ethics-application-forms` | Ethics prose in a manuscript → `05_manuscript`; protocol ethics → `03_research/personal/ethics.md` |
 | MRI/fMRI preprocessing/QC, radiomics **preparation**, habitat prep | `02_data-processing` | Stats/figures → `04_analysis`; radiogenomics design → `03_research` |
 | Clinical translation / reader studies | `03_research/clinical-translation` | Stats → `04_analysis`; figures → `04_analysis` |
-| Study design, **literature**, grants | `03_research` | 选刊 → `05_manuscript` (`05-write-venue`); I/D wording → `05_manuscript`; 样本量 → `04_analysis` (`04-stats-power`) |
+| Study design, **literature**, grants | `03_research` | 选刊 → `03_research`; I/D wording → `05_manuscript`; 样本量 → `04_analysis` (`04-stats-power`) |
 | Statistical analysis, prediction, **figures** | `04_analysis` | Imaging prep → `02_data-processing` |
 | SCI original-article writing, Aitor style, de-AI | `05_manuscript` | Figures → `04_analysis`; pre-review / response → `06_review`; literature → `03_research` |
 | Pre-submission audit, peer review, **reviewer-response letters** | `06_review` | Sentence rewrite → `05_manuscript`; new analysis → `04_analysis`; imaging verification → `02_data-processing` |
@@ -35,4 +35,4 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 - “设计 radiomics/habitat pipeline” → prep `02_data-processing`; statistical model comparison `04_analysis`.
 - “修改 SCI / 润色 / 写引言讨论” → `05_manuscript`; “模拟审稿、评阅、回复 reviewer” → `06_review`.
 - “处理 Excel / 0RAD 文件夹” → `02_data-processing`; “修 Python/软编码” → `02_data-processing/code-refactoring`.
-- “画 ROC/流程图” → `04_analysis` (mounted `04-fig-plot` / `04-fig-flow`). 选刊 → `05-write-venue`. 样本量 → `04-stats-power`.
+- “画 ROC/流程图” → `04_analysis` (mounted `04-fig-plot` / `04-fig-flow`). 选刊 → `03_research`. 样本量 → `04-stats-power`.

@@ -11,7 +11,7 @@ This file records the current architecture, not the historical export tree.
 | Ethics form packs | `03_research/ethics-application-forms/` |
 | MRI/fMRI / radiomics / habitat prep | `02_data-processing/` |
 | Clinical translation / reader-study design | `03_research/clinical-translation/` |
-| Study design / literature / radiology frontier | `03_research/` |
+| Study design / literature / radiology frontier / 选刊 | `03_research/` |
 | Clinical statistics / prediction / figures | `04_analysis/` |
 | SCI writing | `05_manuscript/` |
 | Manuscript audit / peer review / reviewer response | `06_review/` |
@@ -405,6 +405,20 @@ author: Aitor
 change_class: fix + policy
 problem: HIS login client with hospital-host credentials lived in A; root vs meta architecture disagreed (depth, default source, ethics home, empty mounts); workflows auto-loaded packs and mis-routed Figure 1 / de-AI; retired coarse ids still appeared as live routes; 选刊/样本量 fast routes were wrong.
 change: Deleted HIS login automation from clinical-data-extraction (HIS clients stay on the hospital machine, never in git). Aligned ARCHITECTURE.md and _medical-research-meta/ARCHITECTURE.md (depth ≤4, default B, ethics in 03, 30-id menu, backups PROPOSED, no live 04-figure-engine). Workflows ask session-mount pick; Figure 1 uses 04-fig-flow, plots 04-fig-plot; de-AI path is 05_manuscript/personal/forbidden-phrases.md. Fast routing: 选刊 → 05-write-venue, 样本量 → 04-stats-power. Deleted stale SKILLS_map.html. VERSION/READMEs/harvest/tests updated for this batch. Do not rewrite git history.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
+
+## 选刊 back to 03 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-014
+date: 2026-09-03
+skill: A framework (routing)
+author: Aitor
+change_class: policy
+problem: Audit CHG-20260903-013 routed 选刊 to 05-write-venue; user policy is 选刊 lives in 03, not 05.
+change: Reverted 选刊→05-write-venue routing everywhere in A. Journal choice / 选刊 / where to submit → 03_research (literature/journal-selection.md; evidence via 03-lit-search / literature layer). 05-write-venue remains a mount id for journal templates / house style while writing, never “where to submit”. 选题 stays 03-frontier-ideate. 样本量 stays 04-stats-power. Tests updated to 选刊→03. Do not delete 05-write-venue; do not move B files.
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
