@@ -3,6 +3,7 @@
 # Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
+# Every run: ask which packs to mount this session (session_mount: ask-each-run). Registry MOUNTED ≠ attached this run.
 # Never auto-mount a non-B source. PROPOSED is not MOUNTED.
 # Coarse ids: Scientific jobs (008) + B 1:1 (009) + 02 media (010) + P0/P1 fine split (011).
 # 30 ids. Retired umbrellas include 02-imaging, 04-figure-engine, 02-xlsx, 03-literature, 05-writing-generic, 06-review-generic.
@@ -11,6 +12,7 @@ default_source:
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
   role: default-mount
 empty_mount: notify-then-research-confirm
+session_mount: ask-each-run
 mounts:
   - id: 02-tables
     source: my-skills-capabilities

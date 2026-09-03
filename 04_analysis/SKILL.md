@@ -28,6 +28,8 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 ## Mounted capability ids (generic; not present until mounted)
 
+**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+
 - `04-stats-guide` — test selection / effect sizes (`statistical-analysis`)
 - `04-stats-power` — sample size / power (`statistical-power`)
 - `04-model-eval` — calibration / DCA / external validation (MedSci `model-evaluation` / `model-validation`)

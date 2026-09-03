@@ -5,7 +5,7 @@ description: >
   checking mounted capability coverage, integrating an approved external Skill,
   or resolving missing capability. Infrastructure only. Never literature research,
   statistics, manuscript writing, or peer review. Mount pointers live only here.
-  Default mount is B (MY-SKILLS-capabilities). Never auto-mount a non-B source.
+  Default mount is B (MY-SKILLS-capabilities). Every run: ask which packs to mount this session. Never auto-mount a non-B source.
 ---
 
 # Skill Discovery & Integration
@@ -23,6 +23,21 @@ ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), a
 
 Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). Preset maps in `sources/*.proposed.yaml`. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a source-wide switch.
 
+
+
+## Session mount pick（每次运行必问）
+
+Registry `MOUNTED` = **available to pick**, not attached for this run.
+**Every MY-SKILLS run** (00 composite or a single 02–06 skill) must ask before loading any mounted pack.
+
+1. Classify the task. Propose **only the candidate ids** for this job (not all 30 unless the user said 全线).
+2. Show each candidate as one line: id · 做什么 · default source (B, except `04-explainability` / `05-humanize` → MedSci).
+3. **Ask the user to choose** (multi-select). Also offer: 候选全用默认源 / 只要个人层不外挂 / 换源（ARS / MedSci / Scientific，仅当该源对该 id 有路径）.
+4. Load **only** the picked ids, from the picked source. Unpicked packs stay unloaded this run.
+5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.
+6. Do not change `registry.yaml` just because this run picked a backup source. A source-wide switch still needs explicit confirm.
+
+Silence is not approval. Never auto-mount a non-B source. Personal layers (Aitor-format, de-AI, 0RAD, Voice A/B) are not mount picks.
 
 ## Empty-mount protocol
 

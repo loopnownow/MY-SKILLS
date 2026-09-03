@@ -85,6 +85,16 @@ class Routing(unittest.TestCase):
         self.assertIn("04-fig-flow", five)
         self.assertNotIn("bundles/figure-engine", five)
 
+    def test_session_mount_pick(self) -> None:
+        one = read("01_skill-discovery-integration", "SKILL.md")
+        zero = read("00_orchestrator", "SKILL.md")
+        reg = read("01_skill-discovery-integration", "registry.yaml")
+        self.assertIn("Session mount pick", one)
+        self.assertIn("ask-each-run", reg)
+        self.assertIn("session mount pick", zero.lower())
+        five = read("05_manuscript", "SKILL.md")
+        self.assertIn("This-run pick", five)
+
     def test_literature_to_03_response_to_06(self) -> None:
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("Literature enters 03 only", zero)

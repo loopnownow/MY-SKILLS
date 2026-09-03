@@ -381,3 +381,16 @@ change: 30 ids. New: 03-lit-fulltext, 03-design-protocol, 04-model-eval, 04-fig-
 decision: keep
 next_action: user reviews PRs; do not merge until named
 ```
+
+## Session mount pick each run 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-012
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: User asked that every MY-SKILLS run prompt which packs to mount and let them choose.
+change: session_mount: ask-each-run. Registry MOUNTED = available menu. 00 and 02-06 must not load packs until 01 asks (task-scoped candidate ids, multi-select, default B except 04-explainability/05-humanize). Unpicked unloaded. Source-wide switch still needs confirm. Personal layers are not a mount pick.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

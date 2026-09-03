@@ -42,6 +42,8 @@ Personal scripts are not replaced by a mounted pack.
 
 ## Mounted capability ids (generic; not present until mounted)
 
+**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+
 Call mounted ids from 01 (`mounts/README.md` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
 
 - `02-tables` — 临床表 Excel / CSV（含缺失/异常值；B `tables/impute/`）
