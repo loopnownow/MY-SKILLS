@@ -342,3 +342,16 @@ change: Retired 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writ
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## B folders 1:1 with coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-009
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: After coarse-id reclass, B still shared umbrella folders; user asked to split B to match A, then remount ARS/MedSci.
+change: B packs are 1:1 with A ids (except MedSci-only 04-explainability / 05-humanize). journal-selection moved to write-venue; doi_to_bibtex to lit-cite; design-grant is a stub MODULE. ARS/MedSci boards re-adapted with a B-path column. MedSci find-journal/add-journal moved from 03-lit-cite to 05-write-venue. Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews B PR then A PR; do not merge until named
+```

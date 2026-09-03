@@ -44,9 +44,10 @@ skills:
     coverage: partial
     note: scout/meta, not a dedicated review pack
   - id: 03-lit-cite
-    path: skills/manage-refs/; skills/verify-refs/; skills/find-journal/; skills/add-journal/
+    path: skills/manage-refs/; skills/verify-refs/
     a_hook: 03_research
     coverage: full
+    note: find-journal/add-journal moved to 05-write-venue with B journal-selection
   - id: 03-design-experiment
     path: skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/
     a_hook: 03_research
@@ -94,10 +95,10 @@ skills:
     coverage: full
     note: not Aitor-format
   - id: 05-write-venue
-    path: skills/check-reporting/
+    path: skills/check-reporting/; skills/find-journal/; skills/add-journal/
     a_hook: 05_manuscript
-    coverage: partial
-    note: reporting guidelines, not journal templates
+    coverage: full
+    note: reporting + journal find; not Aitor-format
   - id: 05-humanize
     path: skills/humanize/
     a_hook: 05_manuscript

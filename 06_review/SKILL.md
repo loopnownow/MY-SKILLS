@@ -35,10 +35,10 @@ When reviewing an already-written manuscript, do **not** delete genuine referenc
 
 ## Mounted capability ids (generic; not present until mounted)
 
-- `06-review-peer` — other-paper peer review (Scientific `peer-review`; B `review-generic/`)
+- `06-review-peer` — other-paper peer review (Scientific `peer-review`; B `06-review/review-peer/`)
 - `06-review-critique` — self-audit / evidence quality (`scientific-critical-thinking` / `scholar-evaluation`)
 
-Retired: `06-review-generic`. Pack lives in B only (`06-review/review-generic/`). Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
+Retired: `06-review-generic`. Packs live in B (`06-review/review-peer/`, `06-review/review-critique/`). Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 
 ## Modes
 

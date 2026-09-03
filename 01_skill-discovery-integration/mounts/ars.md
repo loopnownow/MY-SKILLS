@@ -4,6 +4,8 @@
 
 仅用 Academic Research Skills（2026-09-01 HEAD）。仓库 [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) · 配置 `../sources/ars.proposed.yaml`
 
+按 B 拆开后的 22 个 A id 重适配。ARS 仍只有 4 个包，所以若干 id 共用一个 ARS 文件夹——这是来源限制，不是 B 共用。
+
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
@@ -13,30 +15,30 @@
 
 ## 可挂 skills 接到哪一环
 
-| A id | 来源路径 | 接到 A | 做什么 | 覆盖 | 说明 |
+| A id | 对应 B | ARS 路径 | 接到 A | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | — | `02_data-processing` | Excel / CSV → 分析可用表 | 空挂 | 无对应包 |
-| `02-imaging-qc` | — | `02_data-processing` | 影像预处理与 QC | 空挂 | 无对应包 |
-| `02-radiomics-habitat` | — | `02_data-processing` | radiomics / 生境准备（建模交 04） | 空挂 | 无对应包 |
-| `02-impute` | — | `02_data-processing` | 缺失 / 异常值 | 空挂 | 无对应包 |
-| `02-generic-docs` | — | `02_data-processing` | 通用影像/数据说明 | 空挂 | 无对应包 |
-| `03-lit-search` | `deep-research/` | `03_research` | 文献检索 / 全文 | 已映射 | paper search / source verification |
-| `03-lit-review` | `deep-research/` | `03_research` | 综述 / 综合 | 已映射 | systematic review inside deep-research |
-| `03-lit-cite` | — | `03_research` | 引文库 / Zotero | 空挂 | 无对应包 |
-| `03-design-experiment` | `deep-research/` | `03_research` | 采集前实验设计 | 部分 | methodology / RQ framing; not a standalone design pack |
-| `03-design-grant` | — | `03_research` | 标书（通用）；个人 Voice A/B 优先 | 空挂 | 无对应包 |
-| `03-frontier-ideate` | — | `03_research` | 选题 / 头脑风暴 | 空挂 | 无对应包 |
-| `03-frontier-hypothesize` | — | `03_research` | 问题化 / 假说 | 空挂 | 无对应包 |
-| `04-stats-guide` | — | `04_analysis` | 选检验 / 效应量 | 空挂 | 无对应包 |
-| `04-stats-power` | — | `04_analysis` | 样本量 / 功效 | 空挂 | 无对应包 |
-| `04-stats-models` | — | `04_analysis` | 统计/ML 实现层 | 空挂 | 无对应包 |
-| `04-figure-engine` | — | `04_analysis` | 出图 | 空挂 | 无对应包 |
-| `04-explainability` | — | `04_analysis` | 影像模型可解释性 | 空挂 | 无对应包 |
-| `05-write-manuscript` | `academic-paper/` | `05_manuscript` | 论著/报告草稿 | 已映射 | write / plan / outline; not Aitor-format |
-| `05-write-venue` | `academic-paper/` | `05_manuscript` | 期刊/会议体例 | 部分 | format / style calibration; not Aitor-format |
-| `05-humanize` | — | `05_manuscript` | 去 AI 痕迹（通用） | 空挂 | 无对应包 |
-| `06-review-peer` | `academic-paper-reviewer/` | `06_review` | 他审草稿 | 已映射 | multi-persona peer review |
-| `06-review-critique` | — | `06_review` | 自审 / 证据质量 | 空挂 | 无对应包 |
+| `02-xlsx` | `02-data-processing/xlsx/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-imaging-qc` | `02-data-processing/imaging-qc/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-impute` | `02-data-processing/impute/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-generic-docs` | `02-data-processing/generic-docs/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `03-lit-search` | `03-research/lit-search/` | `deep-research/` | `03_research` | 已映射 | paper search / source verification |
+| `03-lit-review` | `03-research/lit-review/` | `deep-research/` | `03_research` | 已映射 | systematic review inside deep-research |
+| `03-lit-cite` | `03-research/lit-cite/` | — | `03_research` | 空挂 | 无 Zotero/cite 包 |
+| `03-design-experiment` | `03-research/design-experiment/` | `deep-research/` | `03_research` | 部分 | methodology / RQ framing; not a standalone design pack |
+| `03-design-grant` | `03-research/design-grant/` | — | `03_research` | 空挂 | 无对应包 |
+| `03-frontier-ideate` | `03-research/frontier-ideate/` | — | `03_research` | 空挂 | 无对应包 |
+| `03-frontier-hypothesize` | `03-research/frontier-hypothesize/` | — | `03_research` | 空挂 | 无对应包 |
+| `04-stats-guide` | `04-analysis/stats-guide/` | — | `04_analysis` | 空挂 | 无对应包 |
+| `04-stats-power` | `04-analysis/stats-power/` | — | `04_analysis` | 空挂 | 无对应包 |
+| `04-stats-models` | `04-analysis/stats-models/` | — | `04_analysis` | 空挂 | 无对应包 |
+| `04-figure-engine` | `04-analysis/figure-engine/` | — | `04_analysis` | 空挂 | 无对应包 |
+| `04-explainability` | —（MedSci） | — | `04_analysis` | 空挂 | 无对应包 |
+| `05-write-manuscript` | `05-manuscript/write-manuscript/` | `academic-paper/` | `05_manuscript` | 已映射 | write / plan / outline; not Aitor-format |
+| `05-write-venue` | `05-manuscript/write-venue/` | `academic-paper/` | `05_manuscript` | 部分 | format / style calibration; not Aitor-format |
+| `05-humanize` | —（MedSci） | — | `05_manuscript` | 空挂 | 无对应包 |
+| `06-review-peer` | `06-review/review-peer/` | `academic-paper-reviewer/` | `06_review` | 已映射 | multi-persona peer review |
+| `06-review-critique` | `06-review/review-critique/` | — | `06_review` | 空挂 | 无自审包 |
 
 额外：`academic-pipeline/` 对应 00 调度，不计入 22 个领域 id。
 

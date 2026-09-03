@@ -39,52 +39,52 @@ mounts:
     status: MOUNTED
   - id: 03-lit-search
     source: my-skills-capabilities
-    path: 03-research/literature/
+    path: 03-research/lit-search/
     layer: 03
     status: MOUNTED
   - id: 03-lit-review
     source: my-skills-capabilities
-    path: 03-research/literature/
+    path: 03-research/lit-review/
     layer: 03
     status: MOUNTED
   - id: 03-lit-cite
     source: my-skills-capabilities
-    path: 03-research/literature/
+    path: 03-research/lit-cite/
     layer: 03
     status: MOUNTED
   - id: 03-design-experiment
     source: my-skills-capabilities
-    path: 03-research/design/
+    path: 03-research/design-experiment/
     layer: 03
     status: MOUNTED
   - id: 03-design-grant
     source: my-skills-capabilities
-    path: 03-research/design/
+    path: 03-research/design-grant/
     layer: 03
     status: MOUNTED
   - id: 03-frontier-ideate
     source: my-skills-capabilities
-    path: 03-research/frontier/
+    path: 03-research/frontier-ideate/
     layer: 03
     status: MOUNTED
   - id: 03-frontier-hypothesize
     source: my-skills-capabilities
-    path: 03-research/frontier/
+    path: 03-research/frontier-hypothesize/
     layer: 03
     status: MOUNTED
   - id: 04-stats-guide
     source: my-skills-capabilities
-    path: 04-analysis/stats-generic/
+    path: 04-analysis/stats-guide/
     layer: 04
     status: MOUNTED
   - id: 04-stats-power
     source: my-skills-capabilities
-    path: 04-analysis/stats-generic/
+    path: 04-analysis/stats-power/
     layer: 04
     status: MOUNTED
   - id: 04-stats-models
     source: my-skills-capabilities
-    path: 04-analysis/stats-generic/
+    path: 04-analysis/stats-models/
     layer: 04
     status: MOUNTED
   - id: 04-figure-engine
@@ -99,12 +99,12 @@ mounts:
     status: MOUNTED
   - id: 05-write-manuscript
     source: my-skills-capabilities
-    path: 05-manuscript/writing-generic/
+    path: 05-manuscript/write-manuscript/
     layer: 05
     status: MOUNTED
   - id: 05-write-venue
     source: my-skills-capabilities
-    path: 05-manuscript/writing-generic/
+    path: 05-manuscript/write-venue/
     layer: 05
     status: MOUNTED
   - id: 05-humanize
@@ -114,12 +114,12 @@ mounts:
     status: MOUNTED
   - id: 06-review-peer
     source: my-skills-capabilities
-    path: 06-review/review-generic/
+    path: 06-review/review-peer/
     layer: 06
     status: MOUNTED
   - id: 06-review-critique
     source: my-skills-capabilities
-    path: 06-review/review-generic/
+    path: 06-review/review-critique/
     layer: 06
     status: MOUNTED
 proposals:

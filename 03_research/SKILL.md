@@ -36,7 +36,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 
-`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at B `03-research/design`.
+`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at B `03-research/design-experiment/`.
 
 ## Mounted capability ids (generic; PROPOSED until mounted)
 

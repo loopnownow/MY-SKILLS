@@ -11,16 +11,16 @@ Status: **not mounted**. After a mount covers an item, delete the A copy only wi
 - `03_research/design/`
 - `03_research/frontier/`
 
-B folders still `literature/` / `design/` / `frontier/`. A ids (CHG-20260903-008): `03-lit-search` / `03-lit-review` / `03-lit-cite`; `03-design-experiment` / `03-design-grant`; `03-frontier-ideate` / `03-frontier-hypothesize`.
+B folders (CHG-20260903-009) are 1:1: `lit-search/` `lit-review/` `lit-cite/` `design-experiment/` `design-grant/` `frontier-ideate/` `frontier-hypothesize/`. A dual-track copies stay as `literature/` `design/` `frontier/`.
 
 Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clinical-translation/`, `03_research/ethics-application-forms/`.
 
 ## Already moved to B (not retained in A)
 
 - `02-xlsx`, `02-imaging-qc`, `02-radiomics-habitat`, `02-impute`, `02-generic-docs`
-- `04-stats-guide` / `04-stats-power` / `04-stats-models` (share B `stats-generic/`), `04-figure-engine`
-- `05-write-manuscript` / `05-write-venue` (share B `writing-generic/`)
-- `06-review-peer` / `06-review-critique` (share B `review-generic/`)
+- `04-stats-guide` / `04-stats-power` / `04-stats-models` / `04-figure-engine`
+- `05-write-manuscript` / `05-write-venue`
+- `06-review-peer` / `06-review-critique`
 
 `04_analysis/personal/` (lab radiology-stats + 0RAD rules + palettes) stays in A. It is not in B.
 

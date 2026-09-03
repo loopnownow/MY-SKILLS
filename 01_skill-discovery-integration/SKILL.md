@@ -61,4 +61,4 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 `registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
-**Layout rule:** one external source → one yaml. Do not split B into one file per A id; do not mix B + ARS + MedSci + Scientific in one file. Several A ids may share one B folder.
+**Layout rule:** one external source → one yaml. Do not split B into one file per A id; do not mix B + ARS + MedSci + Scientific in one file. B folders are 1:1 with A ids (CHG-20260903-009), except MedSci-only `04-explainability` / `05-humanize`.

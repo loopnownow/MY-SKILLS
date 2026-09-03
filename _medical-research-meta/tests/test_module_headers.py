@@ -162,6 +162,25 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("id: 03-literature", sci_y)
         self.assertIn("02-radiomics-habitat", sci_y)
         self.assertIn("05-humanize", sci_y)
+        b_y = (d / "sources" / "b-my-skills-capabilities.yaml").read_text(encoding="utf-8")
+        self.assertIn("03-research/lit-search/", b_y)
+        self.assertNotIn("03-research/literature/", b_y)
+        self.assertIn("05-manuscript/write-venue/", b_y)
+        self.assertIn("find-journal", med_y)
+
+    def test_b_mount_paths_unique(self):
+        text = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
+        paths = []
+        cur_source = None
+        for line in text.splitlines():
+            if line.strip().startswith("source:"):
+                cur_source = line.split(":", 1)[1].strip()
+            if line.strip().startswith("path:") and cur_source == "my-skills-capabilities":
+                paths.append(line.split(":", 1)[1].strip())
+        self.assertEqual(len(paths), len(set(paths)), msg=str(paths))
+        self.assertGreaterEqual(len(paths), 20)
+        self.assertIn("03-research/lit-search/", paths)
+        self.assertNotIn("03-research/literature/", paths)
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"

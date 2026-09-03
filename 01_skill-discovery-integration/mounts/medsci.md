@@ -4,6 +4,8 @@
 
 仅用 MedSci Skills（2026-09-01 HEAD）。仓库 [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills) · 配置 `../sources/medsci.proposed.yaml`
 
+按 B 拆开后的 22 个 A id 重适配。`find-journal/` / `add-journal/` 从 cite 改接到 `05-write-venue`（与 B 选刊包对齐）。
+
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
@@ -13,36 +15,37 @@
 
 ## 可挂 skills 接到哪一环
 
-| A id | 来源路径 | 接到 A | 做什么 | 覆盖 | 说明 |
+| A id | 对应 B | MedSci 路径 | 接到 A | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/` | `02_data-processing` | Excel / CSV → 分析可用表 | 部分 | table/cohort cleaning, not Excel/COM |
-| `02-imaging-qc` | `skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/` | `02_data-processing` | 影像预处理与 QC | 已映射 |  |
-| `02-radiomics-habitat` | `skills/radiomics-ml/` | `02_data-processing` | radiomics / 生境准备（建模交 04） | 部分 | radiomics+ML; modeling still 04 |
-| `02-impute` | `skills/clean-data/` | `02_data-processing` | 缺失 / 异常值 | 部分 | inside cleaning |
-| `02-generic-docs` | `skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/` | `02_data-processing` | 通用影像/数据说明 | 已映射 |  |
-| `03-lit-search` | `skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/` | `03_research` | 文献检索 / 全文 | 已映射 |  |
-| `03-lit-review` | `skills/ma-scout/` | `03_research` | 综述 / 综合 | 部分 | scout/meta, not a dedicated review pack |
-| `03-lit-cite` | `skills/manage-refs/; skills/verify-refs/; skills/find-journal/; skills/add-journal/` | `03_research` | 引文库 / Zotero | 已映射 |  |
-| `03-design-experiment` | `skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/` | `03_research` | 采集前实验设计 | 已映射 |  |
-| `03-design-grant` | `skills/grant-builder/` | `03_research` | 标书（通用）；个人 Voice A/B 优先 | 已映射 | does not replace A Voice A/B |
-| `03-frontier-ideate` | `skills/find-cohort-gap/; skills/architecture-zoo/` | `03_research` | 选题 / 头脑风暴 | 部分 |  |
-| `03-frontier-hypothesize` | `skills/find-cohort-gap/; skills/ma-scout/` | `03_research` | 问题化 / 假说 | 部分 | no hypogenic equivalent |
-| `04-stats-guide` | `skills/analyze-stats/` | `04_analysis` | 选检验 / 效应量 | 已映射 | does not replace A 04 personal / 0RAD |
-| `04-stats-power` | `skills/calc-sample-size/` | `04_analysis` | 样本量 / 功效 | 已映射 |  |
-| `04-stats-models` | `skills/model-evaluation/; skills/model-validation/; skills/meta-analysis/` | `04_analysis` | 统计/ML 实现层 | 已映射 |  |
-| `04-figure-engine` | `skills/make-figures/` | `04_analysis` | 出图 | 已映射 | POLE/STROBE gold still B/A |
-| `04-explainability` | `skills/explainability/` | `04_analysis` | 影像模型可解释性 | 已映射 | imaging XAI; not in B |
-| `05-write-manuscript` | `skills/write-paper/; skills/polish-language/; skills/present-paper/` | `05_manuscript` | 论著/报告草稿 | 已映射 | not Aitor-format |
-| `05-write-venue` | `skills/check-reporting/` | `05_manuscript` | 期刊/会议体例 | 部分 | reporting guidelines, not journal templates |
-| `05-humanize` | `skills/humanize/` | `05_manuscript` | 去 AI 痕迹（通用） | 已映射 | does not replace A personal de-AI |
-| `06-review-peer` | `skills/peer-review/; skills/review-paper/` | `06_review` | 他审草稿 | 已映射 |  |
-| `06-review-critique` | `skills/self-review/; skills/revise/` | `06_review` | 自审 / 证据质量 | 已映射 |  |
+| `02-xlsx` | `02-data-processing/xlsx/` | `skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/` | `02_data-processing` | 部分 | table/cohort cleaning, not Excel/COM |
+| `02-imaging-qc` | `02-data-processing/imaging-qc/` | `skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/` | `02_data-processing` | 已映射 |  |
+| `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | `skills/radiomics-ml/` | `02_data-processing` | 部分 | radiomics+ML; modeling still 04 |
+| `02-impute` | `02-data-processing/impute/` | `skills/clean-data/` | `02_data-processing` | 部分 | inside cleaning |
+| `02-generic-docs` | `02-data-processing/generic-docs/` | `skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/` | `02_data-processing` | 已映射 |  |
+| `03-lit-search` | `03-research/lit-search/` | `skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/` | `03_research` | 已映射 |  |
+| `03-lit-review` | `03-research/lit-review/` | `skills/ma-scout/` | `03_research` | 部分 | scout/meta, not a dedicated review pack |
+| `03-lit-cite` | `03-research/lit-cite/` | `skills/manage-refs/; skills/verify-refs/` | `03_research` | 已映射 | 选刊包改接到 05-write-venue |
+| `03-design-experiment` | `03-research/design-experiment/` | `skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/` | `03_research` | 已映射 |  |
+| `03-design-grant` | `03-research/design-grant/` | `skills/grant-builder/` | `03_research` | 已映射 | does not replace A Voice A/B |
+| `03-frontier-ideate` | `03-research/frontier-ideate/` | `skills/find-cohort-gap/; skills/architecture-zoo/` | `03_research` | 部分 |  |
+| `03-frontier-hypothesize` | `03-research/frontier-hypothesize/` | `skills/find-cohort-gap/; skills/ma-scout/` | `03_research` | 部分 | no hypogenic equivalent |
+| `04-stats-guide` | `04-analysis/stats-guide/` | `skills/analyze-stats/` | `04_analysis` | 已映射 | does not replace A 04 personal / 0RAD |
+| `04-stats-power` | `04-analysis/stats-power/` | `skills/calc-sample-size/` | `04_analysis` | 已映射 |  |
+| `04-stats-models` | `04-analysis/stats-models/` | `skills/model-evaluation/; skills/model-validation/; skills/meta-analysis/` | `04_analysis` | 已映射 |  |
+| `04-figure-engine` | `04-analysis/figure-engine/` | `skills/make-figures/` | `04_analysis` | 已映射 | POLE/STROBE gold still B/A |
+| `04-explainability` | — | `skills/explainability/` | `04_analysis` | 已映射 | imaging XAI; not in B |
+| `05-write-manuscript` | `05-manuscript/write-manuscript/` | `skills/write-paper/; skills/polish-language/; skills/present-paper/` | `05_manuscript` | 已映射 | not Aitor-format |
+| `05-write-venue` | `05-manuscript/write-venue/` | `skills/check-reporting/; skills/find-journal/; skills/add-journal/` | `05_manuscript` | 已映射 | reporting + journal find; not Aitor-format |
+| `05-humanize` | — | `skills/humanize/` | `05_manuscript` | 已映射 | does not replace A personal de-AI |
+| `06-review-peer` | `06-review/review-peer/` | `skills/peer-review/; skills/review-paper/` | `06_review` | 已映射 |  |
+| `06-review-critique` | `06-review/review-critique/` | `skills/self-review/; skills/revise/` | `06_review` | 已映射 |  |
 
 ## 仅用当前挂载 · 空挂
 
 **无空挂。** 22 个 A id 都能指到 MedSci 路径。部分覆盖不够用时，先通知再检索。
 
 ## A 没有对应接口
+
 
 
 这些 skill 在 MedSci 里存在，但不在 22 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。
