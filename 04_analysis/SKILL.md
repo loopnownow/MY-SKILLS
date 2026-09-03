@@ -61,7 +61,7 @@ Until `04-figure-engine` is mounted, do not invent a second figure stack inside 
 
 ## Boundaries
 
-- Data cleaning / impute / Excel → `02_data-processing` (ids `02-impute`, `02-xlsx`)
+- Data cleaning / Excel → `02_data-processing` (id `02-tables`)
 - Literature → `03_research`
 - Manuscript wording → `05_manuscript`
 - Reviewer response → `06_review`

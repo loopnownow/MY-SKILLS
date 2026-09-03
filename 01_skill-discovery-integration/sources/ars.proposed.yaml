@@ -47,11 +47,11 @@ unmapped:
     future_hook: 00_orchestrator
     note: research-write-review orchestrator; 00 exists as a layer, not a mount id
 empty:
-  - 02-xlsx
-  - 02-imaging-qc
+  - 02-tables
+  - 02-imaging
+  - 02-pictures
+  - 02-fmri
   - 02-radiomics-habitat
-  - 02-impute
-  - 02-generic-docs
   - 03-lit-cite
   - 03-design-grant
   - 03-frontier-ideate

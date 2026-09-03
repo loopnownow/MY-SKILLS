@@ -10,29 +10,24 @@ status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
   Broad science skill library. Coarse A ids split to match jobs here.
-  Empty: 02-radiomics-habitat, 05-humanize. shap is tabular XAI, not imaging Grad-CAM.
+  Empty: 02-fmri, 02-radiomics-habitat, 05-humanize. shap is tabular XAI, not imaging Grad-CAM.
   Unmapped remainder grouped by domain.
 skills:
-  - id: 02-xlsx
-    path: skills/xlsx/
+  - id: 02-tables
+    path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
     a_hook: 02_data-processing
     coverage: full
-    note: Excel workbook as the deliverable
-  - id: 02-imaging-qc
-    path: skills/pydicom/; skills/histolab/; skills/pathml/; skills/bids/; skills/imaging-data-commons/
+    note: Excel / DataFrame; impute is inside tables
+  - id: 02-imaging
+    path: skills/pydicom/; skills/bids/; skills/imaging-data-commons/
     a_hook: 02_data-processing
     coverage: partial
-    note: DICOM / pathology / BIDS; not 0RAD QC
-  - id: 02-impute
-    path: skills/exploratory-data-analysis/; skills/polars/
+    note: DICOM / BIDS / IDC; not 0RAD QC; not fMRI
+  - id: 02-pictures
+    path: skills/histolab/; skills/pathml/; skills/pdf/
     a_hook: 02_data-processing
     coverage: partial
-    note: EDA / DataFrame, not dedicated impute
-  - id: 02-generic-docs
-    path: skills/markitdown/; skills/pdf/; skills/docx/
-    a_hook: 02_data-processing
-    coverage: partial
-    note: document conversion, not imaging data docs
+    note: WSI + PDF-as-image; not CT/MRI volumes
   - id: 03-lit-search
     path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
@@ -122,9 +117,13 @@ unmapped_groups:
   - domain: clinical-ops
     note: not 02-06 manuscript pipeline
     examples: [clinical-decision-support, treatment-plans]
+  - domain: documents
+    note: conversion, not 02-pictures
+    examples: [markitdown, docx]
   - domain: other-fields
     note: unrelated to Jinshan radiology research
     examples: [astropy, pymatgen, qiskit, geopandas]
 empty:
+  - 02-fmri
   - 02-radiomics-habitat
   - 05-humanize

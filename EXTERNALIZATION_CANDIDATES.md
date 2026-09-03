@@ -17,7 +17,7 @@ Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clin
 
 ## Already moved to B (not retained in A)
 
-- `02-xlsx`, `02-imaging-qc`, `02-radiomics-habitat`, `02-impute`, `02-generic-docs`
+- `02-tables`, `02-imaging`, `02-pictures`, `02-fmri`, `02-radiomics-habitat`
 - `04-stats-guide` / `04-stats-power` / `04-stats-models` / `04-figure-engine`
 - `05-write-manuscript` / `05-write-venue`
 - `06-review-peer` / `06-review-critique`

@@ -4,7 +4,7 @@ description: >
   Lab code refactoring: CONFIG on top, dry-run, checkpoint, modular scripts.
   Use for 软编码, dry-run, 配置置顶, 模块化, 方便调用, checkpoint, CUDA.
   Do not use for 统计方法 (04_analysis), 图像方法/预处理 (02_data-processing 其他模块),
-  Excel 批处理 (02_data-processing / mounted 02-xlsx), or 伦理填表 (ethics-application-forms).
+  Excel 批处理 (02_data-processing / mounted 02-tables), or 伦理填表 (ethics-application-forms).
 ---
 
 # 代码优化与重构

@@ -17,11 +17,11 @@
 
 | A id | 对应 B | ARS 路径 | 接到 A | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `02-data-processing/xlsx/` | — | `02_data-processing` | 空挂 | 无对应包 |
-| `02-imaging-qc` | `02-data-processing/imaging-qc/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-tables` | `02-data-processing/tables/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-imaging` | `02-data-processing/imaging/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-pictures` | `02-data-processing/pictures/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-fmri` | `02-data-processing/fmri/` | — | `02_data-processing` | 空挂 | 无对应包 |
 | `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | — | `02_data-processing` | 空挂 | 无对应包 |
-| `02-impute` | `02-data-processing/impute/` | — | `02_data-processing` | 空挂 | 无对应包 |
-| `02-generic-docs` | `02-data-processing/generic-docs/` | — | `02_data-processing` | 空挂 | 无对应包 |
 | `03-lit-search` | `03-research/lit-search/` | `deep-research/` | `03_research` | 已映射 | paper search / source verification |
 | `03-lit-review` | `03-research/lit-review/` | `deep-research/` | `03_research` | 已映射 | systematic review inside deep-research |
 | `03-lit-cite` | `03-research/lit-cite/` | — | `03_research` | 空挂 | 无 Zotero/cite 包 |

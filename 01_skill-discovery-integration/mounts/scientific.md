@@ -9,8 +9,8 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
-| 已映射 | 20 / 22（若干部分） |
-| 空挂 | 2 |
+| 已映射 | 19 / 22（若干部分） |
+| 空挂 | 3 |
 | 扫描 | 2026-09-03 · `1e5eeff` |
 | 许可 | MIT |
 
@@ -18,11 +18,11 @@
 
 | A id | 来源路径 | 接到 A | 做什么 | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `skills/xlsx/` | `02_data-processing` | Excel / CSV → 分析可用表 | 已映射 | Excel workbook as the deliverable |
-| `02-imaging-qc` | `skills/pydicom/; skills/histolab/; skills/pathml/; skills/bids/; skills/imaging-data-commons/` | `02_data-processing` | 影像预处理与 QC | 部分 | DICOM / pathology / BIDS; not 0RAD QC |
+| `02-tables` | `skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/` | `02_data-processing` | 临床表 Excel / CSV | 已映射 | Excel / DataFrame |
+| `02-imaging` | `skills/pydicom/; skills/bids/; skills/imaging-data-commons/` | `02_data-processing` | CT/MRI · DICOM / NIfTI / NII | 部分 | not 0RAD QC; not fMRI |
+| `02-pictures` | `skills/histolab/; skills/pathml/; skills/pdf/` | `02_data-processing` | 图片 TIFF / PNG / JPG / PDF(图) | 部分 | WSI + PDF-as-image |
+| `02-fmri` | — | `02_data-processing` | fMRI · DICOM / NIfTI | 空挂 | 无对应包 |
 | `02-radiomics-habitat` | — | `02_data-processing` | radiomics / 生境准备（建模交 04） | 空挂 | 无对应包 |
-| `02-impute` | `skills/exploratory-data-analysis/; skills/polars/` | `02_data-processing` | 缺失 / 异常值 | 部分 | EDA / DataFrame, not dedicated impute |
-| `02-generic-docs` | `skills/markitdown/; skills/pdf/; skills/docx/` | `02_data-processing` | 通用影像/数据说明 | 部分 | document conversion, not imaging data docs |
 | `03-lit-search` | `skills/paper-lookup/; skills/research-lookup/` | `03_research` | 文献检索 / 全文 | 已映射 |  |
 | `03-lit-review` | `skills/literature-review/` | `03_research` | 综述 / 综合 | 已映射 |  |
 | `03-lit-cite` | `skills/citation-management/; skills/pyzotero/` | `03_research` | 引文库 / Zotero | 已映射 |  |
@@ -43,13 +43,13 @@
 
 ## 仅用当前挂载 · 空挂
 
-**2 个空挂：** `02-radiomics-habitat` · `05-humanize`。
+**3 个空挂：** `02-fmri` · `02-radiomics-habitat` · `05-humanize`。
 
-若只用本套，这两条先通知再检索确认。个人 de-AI 仍在 A `05_manuscript/personal/`。`clinical-reports/` 不进 05。
+若只用本套，这三条先通知再检索确认。个人 de-AI 仍在 A `05_manuscript/personal/`。`clinical-reports/` 不进 05。
 
 ## A 没有对应接口
 
-仓库约 163 个 skill，绝大多数是组学、化学、药物、实验室系统和计算底座，不接到 14 个挂载 id。不逐条抄进 A。按领域归组：
+仓库约 163 个 skill，绝大多数是组学、化学、药物、实验室系统和计算底座，不接到 22 个挂载 id。不逐条抄进 A。按领域归组：
 
 | 领域 | 例子（路径均在 `skills/`） | 备注 |
 |---|---|---|

@@ -9,19 +9,19 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
-| 已映射 | 22 / 22（若干部分） |
-| 空挂 | 0 |
+| 已映射 | 20 / 22（若干部分） |
+| 空挂 | 2（`02-pictures`、`02-fmri`） |
 | 扫描 | 2026-09-03 · `912f7e8` |
 
 ## 可挂 skills 接到哪一环
 
 | A id | 对应 B | MedSci 路径 | 接到 A | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `02-data-processing/xlsx/` | `skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/` | `02_data-processing` | 部分 | table/cohort cleaning, not Excel/COM |
-| `02-imaging-qc` | `02-data-processing/imaging-qc/` | `skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/` | `02_data-processing` | 已映射 |  |
+| `02-tables` | `02-data-processing/tables/` | `skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/` | `02_data-processing` | 已映射 | table/cohort cleaning, not Excel/COM |
+| `02-imaging` | `02-data-processing/imaging/` | `skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/` | `02_data-processing` | 已映射 | CT/MRI volumes; not fMRI |
+| `02-pictures` | `02-data-processing/pictures/` | — | `02_data-processing` | 空挂 | 无对应包 |
+| `02-fmri` | `02-data-processing/fmri/` | — | `02_data-processing` | 空挂 | 无对应包 |
 | `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | `skills/radiomics-ml/` | `02_data-processing` | 部分 | radiomics+ML; modeling still 04 |
-| `02-impute` | `02-data-processing/impute/` | `skills/clean-data/` | `02_data-processing` | 部分 | inside cleaning |
-| `02-generic-docs` | `02-data-processing/generic-docs/` | `skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/` | `02_data-processing` | 已映射 |  |
 | `03-lit-search` | `03-research/lit-search/` | `skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/` | `03_research` | 已映射 |  |
 | `03-lit-review` | `03-research/lit-review/` | `skills/ma-scout/` | `03_research` | 部分 | scout/meta, not a dedicated review pack |
 | `03-lit-cite` | `03-research/lit-cite/` | `skills/manage-refs/; skills/verify-refs/` | `03_research` | 已映射 | 选刊包改接到 05-write-venue |
@@ -42,7 +42,7 @@
 
 ## 仅用当前挂载 · 空挂
 
-**无空挂。** 22 个 A id 都能指到 MedSci 路径。部分覆盖不够用时，先通知再检索。
+**2 个空挂。** `02-pictures`、`02-fmri`。其余 20 个有对应。部分覆盖不够用时，先通知再检索。
 
 ## A 没有对应接口
 

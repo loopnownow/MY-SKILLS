@@ -355,3 +355,16 @@ change: B packs are 1:1 with A ids (except MedSci-only 04-explainability / 05-hu
 decision: keep
 next_action: user reviews B PR then A PR; do not merge until named
 ```
+
+## 02 media-type coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-010
+date: 2026-09-03
+skill: 02_data-processing
+change_class: interface
+problem: User asked to split 02 coarse ids so clinical tables, CT/MRI volumes, pictures, and fMRI are visually distinct.
+change: Retired 02-xlsx, 02-imaging-qc, 02-impute, 02-generic-docs. New ids: 02-tables (xlsx+impute), 02-imaging (CT/MRI DICOM/NIfTI/NII), 02-pictures (TIFF/PNG/JPG/PDF-as-image), 02-fmri (DICOM/NIfTI). Kept 02-radiomics-habitat. B stubs for pictures/fmri. ARS still empty on all 02. MedSci empty on pictures/fmri. Scientific empty on fmri (+ habitat, humanize). Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews PRs; do not merge until named
+```

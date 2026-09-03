@@ -26,7 +26,7 @@ description: >
 | 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |
 | 统计 / 样本量公式 | `04_analysis` |
 | 知情同意通俗正文、论著里的伦理段落 | `05_manuscript` `radiology-ethics` — 本技能只把已定正文填进表 |
-| Excel 登记表 | `02_data-processing`（mounted `02-xlsx`）若 COM/xlsx 脚本不够用 |
+| Excel 登记表 | `02_data-processing`（mounted `02-tables`）若 COM/xlsx 脚本不够用 |
 
 ## Modes
 

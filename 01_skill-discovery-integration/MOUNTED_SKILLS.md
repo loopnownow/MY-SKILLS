@@ -9,17 +9,17 @@ Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`.
 Rule: mounted Skill owns generic capability; MY-SKILLS owns orchestration, personalization, constraints, and Final QC.
 Personal de-AI stays in A (`05_manuscript/personal/`). Generic de-AI is `05-humanize` (MedSci), not B.
 
-Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). B folders are 1:1 with those ids (CHG-20260903-009). Retired umbrellas: `03-literature`, `03-design`, `03-frontier`, `04-stats-generic`, `05-writing-generic`, `06-review-generic`.
+Coarse ids follow Scientific jobs (CHG-20260903-008) then B 1:1 (-009). 02 media types (-010): tables / imaging / pictures / fmri (+ radiomics-habitat). Retired: `02-xlsx`, `02-imaging-qc`, `02-impute`, `02-generic-docs`, plus the 03–06 umbrellas.
 
 ## Default mounts (B)
 
 | Id | B path | Layer | Status |
 |---|---|---|---|
-| `02-xlsx` | `02-data-processing/xlsx/` | 02 | MOUNTED |
-| `02-imaging-qc` | `02-data-processing/imaging-qc/` | 02 | MOUNTED |
+| `02-tables` | `02-data-processing/tables/` | 02 | MOUNTED |
+| `02-imaging` | `02-data-processing/imaging/` | 02 | MOUNTED |
+| `02-pictures` | `02-data-processing/pictures/` | 02 | MOUNTED |
+| `02-fmri` | `02-data-processing/fmri/` | 02 | MOUNTED |
 | `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | 02 | MOUNTED |
-| `02-impute` | `02-data-processing/impute/` | 02 | MOUNTED |
-| `02-generic-docs` | `02-data-processing/generic-docs/` | 02 | MOUNTED |
 | `03-lit-search` | `03-research/lit-search/` | 03 | MOUNTED |
 | `03-lit-review` | `03-research/lit-review/` | 03 | MOUNTED |
 | `03-lit-cite` | `03-research/lit-cite/` | 03 | MOUNTED |
@@ -46,7 +46,7 @@ Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). B folders are
 ## Backup candidates (source-wide switch still needs empty-mount notify + confirm)
 
 - `https://github.com/Imbad0202/academic-research-skills` (`PROPOSED`). `sources/ars.proposed.yaml` · 6 mapped / 16 empty. ARS still has only 4 packs; several A ids share one ARS folder.
-- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`). `sources/medsci.proposed.yaml` · 22 mapped / 0 empty.
-- `https://github.com/K-Dense-AI/scientific-agent-skills` (`PROPOSED`). `sources/scientific-agent-skills.proposed.yaml` · 20 mapped / 2 empty (`02-radiomics-habitat`, `05-humanize`).
+- `https://github.com/Aperivue/medsci-skills` (`PROPOSED`). `sources/medsci.proposed.yaml` · 20 mapped / 2 empty (`02-pictures`, `02-fmri`).
+- `https://github.com/K-Dense-AI/scientific-agent-skills` (`PROPOSED`). `sources/scientific-agent-skills.proposed.yaml` · 19 mapped / 3 empty (`02-fmri`, `02-radiomics-habitat`, `05-humanize`).
 
 Mapping is not a source-wide mount. Unmapped extras are listed on each source page under `mounts/`.

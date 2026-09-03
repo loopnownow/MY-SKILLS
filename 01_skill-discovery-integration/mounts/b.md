@@ -25,11 +25,11 @@
 
 | Id | 来源路径 | 接到 A | 做什么 | 对接 | 仅用本套 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `02-data-processing/xlsx/` | `02_data-processing` | Excel / CSV → 分析可用表 | 就绪 | 15 文件 |
-| `02-imaging-qc` | `02-data-processing/imaging-qc/` | `02_data-processing` | 影像预处理与 QC | 就绪 | 6 文件 |
+| `02-tables` | `02-data-processing/tables/` | `02_data-processing` | 临床表 Excel / CSV（含缺失/异常值） | 就绪 | 24 文件 |
+| `02-imaging` | `02-data-processing/imaging/` | `02_data-processing` | CT/MRI · DICOM / NIfTI / NII | 就绪 | 11 文件 |
+| `02-pictures` | `02-data-processing/pictures/` | `02_data-processing` | 图片 TIFF / PNG / JPG / PDF(图) | 就绪 | 1 文件（槽） |
+| `02-fmri` | `02-data-processing/fmri/` | `02_data-processing` | fMRI · DICOM / NIfTI | 就绪 | 1 文件（槽） |
 | `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | `02_data-processing` | radiomics / 生境准备（建模交 04） | 就绪 | 9 文件 |
-| `02-impute` | `02-data-processing/impute/` | `02_data-processing` | 缺失 / 异常值 | 就绪 | 7 文件 |
-| `02-generic-docs` | `02-data-processing/generic-docs/` | `02_data-processing` | 通用影像/数据说明 | 就绪 | 7 文件 |
 | `03-lit-search` | `03-research/lit-search/` | `03_research` | 文献检索 / 全文 | 双轨 | 4 文件 · A 仍留 literature/ |
 | `03-lit-review` | `03-research/lit-review/` | `03_research` | 综述 / 综合 | 双轨 | 2 文件 |
 | `03-lit-cite` | `03-research/lit-cite/` | `03_research` | DOI→BibTeX（无 Zotero 包） | 双轨 | 2 文件 |

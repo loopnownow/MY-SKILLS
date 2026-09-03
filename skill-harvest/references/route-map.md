@@ -8,7 +8,7 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 | Discover / evaluate / mount an external Skill | `01_skill-discovery-integration` | Never literature/stats/writing/review here |
 | Excel/CSV, 0RAD workspace, batch tables, imaging prep, impute | `02_data-processing` | Soft-coding → `02_data-processing/code-refactoring`; modeling → `04_analysis` |
 | Soft-coding, dry-run, CONFIG-on-top refactor | `02_data-processing/code-refactoring` | Statistical methods → `04_analysis`; imaging prep → `02_data-processing` |
-| Clinical text / HIS / pathology extraction | `02_data-processing/clinical-data-extraction` | Imputation → `02_data-processing` (`02-impute`) |
+| Clinical text / HIS / pathology extraction | `02_data-processing/clinical-data-extraction` | Imputation → `02_data-processing` (`02-tables`) |
 | Hospital IRB / ethics form packs | `03_research/ethics-application-forms` | Ethics prose in a manuscript → `05_manuscript`; protocol ethics → `03_research/personal/ethics.md` |
 | MRI/fMRI preprocessing/QC, radiomics **preparation**, habitat prep | `02_data-processing` | Stats/figures → `04_analysis`; radiogenomics design → `03_research` |
 | Clinical translation / reader studies | `03_research/clinical-translation` | Stats → `04_analysis`; figures → `04_analysis` |

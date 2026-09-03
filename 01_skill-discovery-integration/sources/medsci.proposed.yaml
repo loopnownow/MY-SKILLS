@@ -11,29 +11,21 @@ notes: >
   Coarse A ids follow Scientific jobs (CHG-20260903-008). Two A interfaces
   mount from this repo: 04-explainability and 05-humanize.
 skills:
-  - id: 02-xlsx
-    path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/
+  - id: 02-tables
+    path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/
     a_hook: 02_data-processing
-    coverage: partial
+    coverage: full
     note: table/cohort cleaning, not Excel/COM
-  - id: 02-imaging-qc
+  - id: 02-imaging
     path: skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/
     a_hook: 02_data-processing
     coverage: full
+    note: CT/MRI volumes; not fMRI
   - id: 02-radiomics-habitat
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
     note: radiomics+ML; modeling still 04
-  - id: 02-impute
-    path: skills/clean-data/
-    a_hook: 02_data-processing
-    coverage: partial
-    note: inside cleaning
-  - id: 02-generic-docs
-    path: skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/
-    a_hook: 02_data-processing
-    coverage: full
   - id: 03-lit-search
     path: skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/
     a_hook: 03_research
@@ -181,4 +173,7 @@ unmapped:
     kind: analog
     future_hook: Bai
     note: submission logistics; Bai still does not click 同意投稿 or pay
-empty: []
+empty:
+  - 02-pictures
+  - 02-fmri
+

@@ -1,25 +1,25 @@
 ---
 name: medical-data-processing
 description: >
-  Raw-data to analysis-ready-data. Use for Excel/CSV, 0RAD workspace, cleaning,
-  missing/outlier handling, imaging preprocessing/QC, radiomics/habitat preparation,
-  leakage/split checks, clinical extraction, coding principles, and the user's MATLAB/Python scripts. No feature selection
-  or statistical modeling — hand off to 04_analysis. Literature → 03. Writing → 05.
+  Raw-data to analysis-ready-data. Use for clinical Excel/CSV, CT/MRI (DICOM/NIfTI/NII),
+  pictures (TIFF/PNG/JPG/PDF-as-image), fMRI, radiomics/habitat preparation,
+  leakage/split checks, clinical extraction, coding principles, and the user's MATLAB/Python scripts.
+  No feature selection or statistical modeling — hand off to 04_analysis. Literature → 03. Writing → 05.
 ---
 
 # Data Processing
 
 ## Purpose
 
-Convert raw clinical, imaging, and table data into **analysis-ready** data with traceable QC.
+Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** data with traceable QC.
 
 ## Scope
 
-- Excel/CSV/table batch processing (mounted `02-xlsx`)
-- ID alignment, cleaning, missingness and outlier handling (mounted `02-impute`)
-- imaging preprocessing and QC (mounted `02-imaging-qc`)
-- radiomics / habitat preprocessing and feature-extraction **preparation** (mounted `02-radiomics-habitat`)
-- generic imaging/data docs (mounted `02-generic-docs`)
+- clinical tables: Excel/CSV, cleaning, missing/outlier (`02-tables`)
+- CT/MRI volumes: DICOM / NIfTI / NII (`02-imaging`)
+- pictures: TIFF / TIF / PNG / JPG / PDF-as-image (`02-pictures`)
+- fMRI: DICOM / NIfTI (`02-fmri`)
+- radiomics / habitat preparation (`02-radiomics-habitat`; modelling → 04)
 - leakage and split-integrity checks
 - maintained personal MATLAB/Python scripts
 - clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
@@ -43,11 +43,13 @@ Personal scripts are not replaced by a mounted pack.
 
 Call mounted ids from 01 (`mounts/README.md` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
 
-- `02-xlsx` — Excel/CSV automation
-- `02-imaging-qc` — lesion/mask/reader/reproducibility QC
+- `02-tables` — 临床表 Excel / CSV（含缺失/异常值；B `tables/impute/`）
+- `02-imaging` — CT / MRI，DICOM / NIfTI / NII
+- `02-pictures` — TIFF / PNG / JPG / PDF(图)
+- `02-fmri` — 功能磁共振，DICOM / NIfTI
 - `02-radiomics-habitat` — IBSI/habitat prep (paper modelling → 04)
-- `02-impute` — missing/outlier processing
-- `02-generic-docs` — annotation/data/checklists/reproducibility/mechanism/radiomics/deep-learning notes
+
+Retired: `02-xlsx`, `02-imaging-qc`, `02-impute`, `02-generic-docs`.
 
 ## Workflow
 

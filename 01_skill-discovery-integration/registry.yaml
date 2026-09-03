@@ -5,36 +5,37 @@
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
 # Never auto-mount a non-B source. PROPOSED is not MOUNTED.
 # Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008).
-# Retired: 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic.
+# Retired: 02-xlsx, 02-imaging-qc, 02-impute, 02-generic-docs, 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic.
+# 02 media types: tables / imaging / pictures / fmri (+ radiomics-habitat). CHG-20260903-010.
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
   role: default-mount
 empty_mount: notify-then-research-confirm
 mounts:
-  - id: 02-xlsx
+  - id: 02-tables
     source: my-skills-capabilities
-    path: 02-data-processing/xlsx/
+    path: 02-data-processing/tables/
     layer: 02
     status: MOUNTED
-  - id: 02-imaging-qc
+  - id: 02-imaging
     source: my-skills-capabilities
-    path: 02-data-processing/imaging-qc/
+    path: 02-data-processing/imaging/
+    layer: 02
+    status: MOUNTED
+  - id: 02-pictures
+    source: my-skills-capabilities
+    path: 02-data-processing/pictures/
+    layer: 02
+    status: MOUNTED
+  - id: 02-fmri
+    source: my-skills-capabilities
+    path: 02-data-processing/fmri/
     layer: 02
     status: MOUNTED
   - id: 02-radiomics-habitat
     source: my-skills-capabilities
     path: 02-data-processing/radiomics-habitat/
-    layer: 02
-    status: MOUNTED
-  - id: 02-impute
-    source: my-skills-capabilities
-    path: 02-data-processing/impute/
-    layer: 02
-    status: MOUNTED
-  - id: 02-generic-docs
-    source: my-skills-capabilities
-    path: 02-data-processing/generic-docs/
     layer: 02
     status: MOUNTED
   - id: 03-lit-search
