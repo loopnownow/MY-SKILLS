@@ -40,10 +40,12 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 ## Mounted capability ids (generic; PROPOSED until mounted)
 
-- `03-lit-search` — retrieve papers / full text (Scientific `paper-lookup` / `research-lookup`)
+- `03-lit-search` — retrieve papers (Scientific `paper-lookup` / `research-lookup`)
+- `03-lit-fulltext` — fetch PDF/HTML (MedSci `fulltext-retrieval`)
 - `03-lit-review` — synthesize / systematic review (`literature-review`)
 - `03-lit-cite` — citation library / Zotero (`citation-management` / `pyzotero`)
 - `03-design-experiment` — pre-data experimental design (`experimental-design`)
+- `03-design-protocol` — write/fill protocol (MedSci `write-protocol` / `fill-protocol`)
 - `03-design-grant` — grant text (`research-grants`); A Voice A/B still wins
 - `03-frontier-ideate` — topic brainstorm (`scientific-brainstorming`)
 - `03-frontier-hypothesize` — question/hypothesis (`hypothesis-generation`; `hypogenic` secondary)

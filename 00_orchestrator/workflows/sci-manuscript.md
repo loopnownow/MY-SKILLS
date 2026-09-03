@@ -12,7 +12,7 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 
 1. **Confirm inputs** — results HTML, PNG, Figure 1 n from text. Missing n → ask, do not invent.
 2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
-3. **Figure 1 (`04_analysis`)** — mounted `04-figure-engine` (no inclusion box). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05.
+3. **Figure 1 (`04_analysis`)** — mounted `04-fig-plot` (no inclusion box). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05.
 4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
 5. **De-AI (`05_manuscript`)** — `de-ai/forbidden-phrases.md` then ai-isms. Methods stay passive.
 6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user.

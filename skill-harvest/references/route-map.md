@@ -35,4 +35,4 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 - “设计 radiomics/habitat pipeline” → prep `02_data-processing`; statistical model comparison `04_analysis`.
 - “修改 SCI / 润色 / 写引言讨论” → `05_manuscript`; “模拟审稿、评阅、回复 reviewer” → `06_review`.
 - “处理 Excel / 0RAD 文件夹” → `02_data-processing`; “修 Python/软编码” → `02_data-processing/code-refactoring`.
-- “画 ROC/流程图” → `04_analysis` (mounted `04-figure-engine`).
+- “画 ROC/流程图” → `04_analysis` (mounted `04-fig-plot`).

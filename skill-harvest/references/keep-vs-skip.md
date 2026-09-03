@@ -17,7 +17,7 @@ Examples that belong: English clinical labels; exclude-then-analyze; `VAL_MODE` 
 - Pure `cd`, empty sessions, “可以的 / 你决定”
 - Tool install/uninstall (Grok Bridge), one-off folder tidy
 - Subagent batch rebuilds that only apply house format already written down
-- A second copy of a rule that already lives in `Aitor-format.md` / mounted `04-figure-engine` / `02-tables`
+- A second copy of a rule that already lives in `Aitor-format.md` / mounted `04-fig-plot` / `02-tables`
 
 ## Other skill packs
 

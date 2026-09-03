@@ -39,14 +39,16 @@ Convert **validated** research information into precise, publication-ready origi
 ## Mounted capability ids (generic; not present until mounted)
 
 - `05-write-manuscript` — manuscript/report draft (Scientific `scientific-writing` / `markdown-mermaid-writing`; B `05-manuscript/write-manuscript/`). Not Aitor-format. `clinical-reports` is not this id.
-- `05-write-venue` — journal/conference templates (`venue-templates`)
+- `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper (MedSci `check-reporting`)
+- `05-write-venue` — journal selection / templates (`venue-templates`)
+- `05-write-polish` — generic academic English (MedSci `polish-language`). Not de-AI.
 - `05-humanize` — generic de-AI / humanize (MedSci `skills/humanize/`). Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
 Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `04-figure-engine` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `04-fig-plot` / `04-fig-flow` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 

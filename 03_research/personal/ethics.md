@@ -75,7 +75,7 @@ Possible positions:
 - no public sharing: acceptable when justified by consent, law, or institutional policy
 - derived data sharing: feature tables, aggregate statistics, trained weights, or code
 
-Use mounted `02-tables` (`data.md`) and mounted `02-imaging` (`notes/reproducibility.md`) together for availability wording.
+Use mounted `02-tables` (`data.md`) and mounted `02-imaging-qc` (`notes/reproducibility.md`) together for availability wording.
 
 ## Output format
 

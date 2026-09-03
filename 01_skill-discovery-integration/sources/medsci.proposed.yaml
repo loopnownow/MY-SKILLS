@@ -8,26 +8,35 @@ scan_sha: "912f7e8"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Coarse A ids follow Scientific jobs (CHG-20260903-008). Two A interfaces
-  mount from this repo: 04-explainability and 05-humanize.
+  Finer A ids (CHG-20260903-011). Two A interfaces mount from this repo:
+  04-explainability and 05-humanize. present-paper stays unmapped (not 05).
 skills:
   - id: 02-tables
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/
     a_hook: 02_data-processing
     coverage: full
     note: table/cohort cleaning, not Excel/COM
-  - id: 02-imaging
-    path: skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/
+  - id: 02-imaging-io
+    path: skills/preprocess-imaging/
     a_hook: 02_data-processing
     coverage: full
-    note: CT/MRI volumes; not fMRI
+    note: preprocess / convert; not QC
+  - id: 02-imaging-qc
+    path: skills/profile-imaging/; skills/uncertainty-imaging/
+    a_hook: 02_data-processing
+    coverage: full
+    note: profile / uncertainty
   - id: 02-radiomics-habitat
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
     note: radiomics+ML; modeling still 04
   - id: 03-lit-search
-    path: skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/
+    path: skills/search-lit/; skills/lit-sync/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-lit-fulltext
+    path: skills/fulltext-retrieval/
     a_hook: 03_research
     coverage: full
   - id: 03-lit-review
@@ -39,9 +48,12 @@ skills:
     path: skills/manage-refs/; skills/verify-refs/
     a_hook: 03_research
     coverage: full
-    note: find-journal/add-journal moved to 05-write-venue with B journal-selection
   - id: 03-design-experiment
-    path: skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/
+    path: skills/design-study/; skills/intake-project/; skills/design-ai-benchmarking/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-design-protocol
+    path: skills/write-protocol/; skills/fill-protocol/
     a_hook: 03_research
     coverage: full
   - id: 03-design-grant
@@ -68,29 +80,43 @@ skills:
     a_hook: 04_analysis
     coverage: full
   - id: 04-stats-models
-    path: skills/model-evaluation/; skills/model-validation/; skills/meta-analysis/
+    path: skills/meta-analysis/
+    a_hook: 04_analysis
+    coverage: partial
+    note: pooling only; 0RAD personal still wins
+  - id: 04-model-eval
+    path: skills/model-evaluation/; skills/model-validation/
     a_hook: 04_analysis
     coverage: full
-  - id: 04-figure-engine
+  - id: 04-fig-plot
     path: skills/make-figures/
     a_hook: 04_analysis
     coverage: full
-    note: POLE/STROBE gold still B/A
+    note: POLE gold still B/A
   - id: 04-explainability
     path: skills/explainability/
     a_hook: 04_analysis
     coverage: full
     note: imaging XAI; not in B
   - id: 05-write-manuscript
-    path: skills/write-paper/; skills/polish-language/; skills/present-paper/
+    path: skills/write-paper/
+    a_hook: 05_manuscript
+    coverage: full
+    note: not Aitor-format; present-paper 不进 05
+  - id: 05-write-reporting
+    path: skills/check-reporting/
+    a_hook: 05_manuscript
+    coverage: full
+  - id: 05-write-venue
+    path: skills/find-journal/; skills/add-journal/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
-  - id: 05-write-venue
-    path: skills/check-reporting/; skills/find-journal/; skills/add-journal/
+  - id: 05-write-polish
+    path: skills/polish-language/
     a_hook: 05_manuscript
     coverage: full
-    note: reporting + journal find; not Aitor-format
+    note: not A personal de-AI
   - id: 05-humanize
     path: skills/humanize/
     a_hook: 05_manuscript
@@ -101,7 +127,11 @@ skills:
     a_hook: 06_review
     coverage: full
   - id: 06-review-critique
-    path: skills/self-review/; skills/revise/
+    path: skills/self-review/
+    a_hook: 06_review
+    coverage: full
+  - id: 06-review-response
+    path: skills/revise/
     a_hook: 06_review
     coverage: full
 unmapped:
@@ -173,7 +203,11 @@ unmapped:
     kind: analog
     future_hook: Bai
     note: submission logistics; Bai still does not click 同意投稿 or pay
+  - path: skills/present-paper/
+    kind: expansion
+    future_hook: not_05
+    note: talks/slides; not manuscript 05
 empty:
   - 02-pictures
   - 02-fmri
-
+  - 04-fig-flow

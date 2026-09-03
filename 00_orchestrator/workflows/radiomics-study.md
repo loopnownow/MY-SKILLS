@@ -9,7 +9,7 @@ If `ref/project-state.yaml` is missing, copy `../templates/project-state.yaml` i
 ## Sequence
 
 1. **Workspace (`02_data-processing`)** — folder names, `exc` first, ID align. `0rad-workspace.md`. Table batch → mounted `02-tables` when mounted.
-2. **Methods / prep (`02_data-processing`)** — mounted `02-imaging` for ROI/QC, then mounted `02-radiomics-habitat` for IBSI/radiomics/habitat **preparation**. Personal MATLAB: `scripts/parallel_preprocess.m`.
+2. **Methods / prep (`02_data-processing`)** — mounted `02-imaging-qc` for ROI/QC, then mounted `02-radiomics-habitat` for IBSI/radiomics/habitat **preparation**. Personal MATLAB: `scripts/parallel_preprocess.m`.
 3. **Feature matrix (`02_data-processing`)** — extraction / habitat prep. Hand a patient-level table to `04_analysis`. No feature selection on the full cohort.
 4. **Impute (`02_data-processing`, mounted `02-tables`) then pipeline (`04_analysis`)** — drop >50% missing; `python -m modules.pipeline`. `VAL_MODE` and columns only from `settings.ini`.
 5. **Stop for numbers** — one `*-results.html` per endpoint. Do not write a manuscript in this SOP unless the user also picks `sci-manuscript`.

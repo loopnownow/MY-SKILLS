@@ -17,10 +17,10 @@ Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clin
 
 ## Already moved to B (not retained in A)
 
-- `02-tables`, `02-imaging`, `02-pictures`, `02-fmri`, `02-radiomics-habitat`
-- `04-stats-guide` / `04-stats-power` / `04-stats-models` / `04-figure-engine`
-- `05-write-manuscript` / `05-write-venue`
-- `06-review-peer` / `06-review-critique`
+- `02-tables`, `02-imaging-io`, `02-imaging-qc`, `02-pictures`, `02-fmri`, `02-radiomics-habitat`
+- `04-stats-guide` / `04-stats-power` / `04-stats-models` / `04-model-eval` / `04-fig-flow` / `04-fig-plot`
+- `05-write-manuscript` / `05-write-reporting` / `05-write-venue` / `05-write-polish`
+- `06-review-peer` / `06-review-critique` / `06-review-response`
 
 `04_analysis/personal/` (lab radiology-stats + 0RAD rules + palettes) stays in A. It is not in B.
 

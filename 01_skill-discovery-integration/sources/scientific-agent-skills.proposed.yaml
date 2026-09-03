@@ -1,5 +1,4 @@
 # Scanned 2026-09-03 against K-Dense-AI/scientific-agent-skills@1e5eeff (2026-09-02, v2.66.0).
-# Coarse A ids follow this library's jobs (CHG-20260903-008).
 source_id: scientific-agent-skills
 name: Scientific Agent Skills
 role: backup-candidate
@@ -9,25 +8,24 @@ scan_sha: "1e5eeff"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Broad science skill library. Coarse A ids split to match jobs here.
-  Empty: 02-fmri, 02-radiomics-habitat, 05-humanize. shap is tabular XAI, not imaging Grad-CAM.
+  Finer A ids (CHG-20260903-011). Empty listed below. shap is tabular XAI, not imaging Grad-CAM.
   Unmapped remainder grouped by domain.
 skills:
   - id: 02-tables
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
     a_hook: 02_data-processing
     coverage: full
-    note: Excel / DataFrame; impute is inside tables
-  - id: 02-imaging
+    note: Excel / DataFrame
+  - id: 02-imaging-io
     path: skills/pydicom/; skills/bids/; skills/imaging-data-commons/
     a_hook: 02_data-processing
     coverage: partial
-    note: DICOM / BIDS / IDC; not 0RAD QC; not fMRI
+    note: not 0RAD; not fMRI
   - id: 02-pictures
     path: skills/histolab/; skills/pathml/; skills/pdf/
     a_hook: 02_data-processing
     coverage: partial
-    note: WSI + PDF-as-image; not CT/MRI volumes
+    note: WSI + PDF-as-image
   - id: 03-lit-search
     path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
@@ -58,7 +56,7 @@ skills:
     path: skills/hypothesis-generation/; skills/hypogenic/
     a_hook: 03_research
     coverage: full
-    note: hypogenic is secondary (ChicagoHAI)
+    note: hypogenic secondary
   - id: 04-stats-guide
     path: skills/statistical-analysis/
     a_hook: 04_analysis
@@ -72,11 +70,17 @@ skills:
     path: skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
     a_hook: 04_analysis
     coverage: full
-  - id: 04-figure-engine
-    path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/; skills/scientific-schematics/
+    note: 0RAD personal still wins
+  - id: 04-fig-flow
+    path: skills/scientific-schematics/
+    a_hook: 04_analysis
+    coverage: partial
+    note: schematics, not STROBE gold
+  - id: 04-fig-plot
+    path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
     a_hook: 04_analysis
     coverage: full
-    note: POLE/STROBE gold still B/A
+    note: POLE gold still B/A
   - id: 04-explainability
     path: skills/shap/
     a_hook: 04_analysis
@@ -92,6 +96,11 @@ skills:
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
+  - id: 05-write-polish
+    path: skills/scientific-writing/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: same pack as manuscript; not de-AI
   - id: 06-review-peer
     path: skills/peer-review/
     a_hook: 06_review
@@ -124,6 +133,12 @@ unmapped_groups:
     note: unrelated to Jinshan radiology research
     examples: [astropy, pymatgen, qiskit, geopandas]
 empty:
+  - 02-imaging-qc
   - 02-fmri
   - 02-radiomics-habitat
+  - 03-lit-fulltext
+  - 03-design-protocol
+  - 04-model-eval
+  - 05-write-reporting
   - 05-humanize
+  - 06-review-response

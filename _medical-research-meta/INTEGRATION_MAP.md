@@ -368,3 +368,16 @@ change: Retired 02-xlsx, 02-imaging-qc, 02-impute, 02-generic-docs. New ids: 02-
 decision: keep
 next_action: user reviews PRs; do not merge until named
 ```
+
+## P0+P1 fine split of coarse ids 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-011
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: User asked to split both P0 and P1 coarse ids for finer external mounts.
+change: 30 ids. New: 03-lit-fulltext, 03-design-protocol, 04-model-eval, 04-fig-flow, 04-fig-plot (retired 04-figure-engine), 05-write-reporting, 05-write-polish, 06-review-response, 02-imaging-io, 02-imaging-qc (retired 02-imaging umbrella). Default still B. Mapping ≠ mount. clinical-reports / present-paper not in 05.
+decision: keep
+next_action: user reviews PRs; do not merge until named
+```

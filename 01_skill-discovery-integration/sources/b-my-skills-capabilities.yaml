@@ -8,19 +8,23 @@ status: MOUNTED
 empty_mount: notify-then-research-confirm
 notes: >
   Default B pack. de-AI is not here (A 05_manuscript/personal).
-  Coarse ids 1:1 with B folders. 02 media types CHG-20260903-010.
+  30 coarse ids after CHG-20260903-011. 04-explainability and 05-humanize are MedSci-only.
   03 A copies still literature/design/frontier (dual-track, not split).
-  04-explainability and 05-humanize are MedSci-only.
 skills:
   - id: 02-tables
     path: 02-data-processing/tables/
     a_hook: 02_data-processing
     a_step: 临床表 Excel / CSV（含缺失/异常值）
     interface: ready
-  - id: 02-imaging
-    path: 02-data-processing/imaging/
+  - id: 02-imaging-io
+    path: 02-data-processing/imaging-io/
     a_hook: 02_data-processing
-    a_step: CT/MRI · DICOM / NIfTI / NII
+    a_step: CT/MRI 读写 · DICOM / NIfTI / NII
+    interface: ready
+  - id: 02-imaging-qc
+    path: 02-data-processing/imaging-qc/
+    a_hook: 02_data-processing
+    a_step: CT/MRI QC · ROI / 阅片
     interface: ready
   - id: 02-pictures
     path: 02-data-processing/pictures/
@@ -40,28 +44,38 @@ skills:
   - id: 03-lit-search
     path: 03-research/lit-search/
     a_hook: 03_research
-    a_step: 文献检索 / 全文
+    a_step: 文献检索
     interface: dual-track
+  - id: 03-lit-fulltext
+    path: 03-research/lit-fulltext/
+    a_hook: 03_research
+    a_step: 全文获取
+    interface: ready
   - id: 03-lit-review
     path: 03-research/lit-review/
     a_hook: 03_research
     a_step: 综述 / 综合
-    interface: dual-track
+    interface: ready
   - id: 03-lit-cite
     path: 03-research/lit-cite/
     a_hook: 03_research
-    a_step: 引文库 / DOI→BibTeX（无 Zotero 包）
-    interface: dual-track
+    a_step: DOI→BibTeX（无 Zotero 包）
+    interface: ready
   - id: 03-design-experiment
     path: 03-research/design-experiment/
     a_hook: 03_research
     a_step: 采集前实验设计
     interface: dual-track
+  - id: 03-design-protocol
+    path: 03-research/design-protocol/
+    a_hook: 03_research
+    a_step: 写方案 / 填方案
+    interface: ready
   - id: 03-design-grant
     path: 03-research/design-grant/
     a_hook: 03_research
     a_step: 标书（通用槽）；个人 Voice A/B 优先
-    interface: dual-track
+    interface: ready
   - id: 03-frontier-ideate
     path: 03-research/frontier-ideate/
     a_hook: 03_research
@@ -71,7 +85,7 @@ skills:
     path: 03-research/frontier-hypothesize/
     a_hook: 03_research
     a_step: 问题化 / 假说
-    interface: dual-track
+    interface: ready
   - id: 04-stats-guide
     path: 04-analysis/stats-guide/
     a_hook: 04_analysis
@@ -85,22 +99,42 @@ skills:
   - id: 04-stats-models
     path: 04-analysis/stats-models/
     a_hook: 04_analysis
-    a_step: 统计/ML 实现层
+    a_step: 统计/ML 拟合
     interface: ready
-  - id: 04-figure-engine
-    path: 04-analysis/figure-engine/
+  - id: 04-model-eval
+    path: 04-analysis/model-eval/
     a_hook: 04_analysis
-    a_step: 出图
+    a_step: 校准 / DCA / 外验证
+    interface: ready
+  - id: 04-fig-flow
+    path: 04-analysis/fig-flow/
+    a_hook: 04_analysis
+    a_step: STROBE / 入组流程图
+    interface: ready
+  - id: 04-fig-plot
+    path: 04-analysis/fig-plot/
+    a_hook: 04_analysis
+    a_step: 统计图 / 影像拼图
     interface: ready
   - id: 05-write-manuscript
     path: 05-manuscript/write-manuscript/
     a_hook: 05_manuscript
     a_step: 论著/报告草稿
     interface: ready
+  - id: 05-write-reporting
+    path: 05-manuscript/write-reporting/
+    a_hook: 05_manuscript
+    a_step: TRIPOD / CLAIM / 报告规范
+    interface: ready
   - id: 05-write-venue
     path: 05-manuscript/write-venue/
     a_hook: 05_manuscript
-    a_step: 期刊/会议体例
+    a_step: 选刊 / 期刊体例
+    interface: ready
+  - id: 05-write-polish
+    path: 05-manuscript/write-polish/
+    a_hook: 05_manuscript
+    a_step: 通用学术英语润色
     interface: ready
   - id: 06-review-peer
     path: 06-review/review-peer/
@@ -110,5 +144,10 @@ skills:
   - id: 06-review-critique
     path: 06-review/review-critique/
     a_hook: 06_review
-    a_step: 自审 / 证据质量
+    a_step: 自审 / 投稿前找洞
+    interface: ready
+  - id: 06-review-response
+    path: 06-review/review-response/
+    a_hook: 06_review
+    a_step: 回复审稿人
     interface: ready

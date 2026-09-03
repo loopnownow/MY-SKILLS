@@ -16,7 +16,8 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 ## Scope
 
 - clinical tables: Excel/CSV, cleaning, missing/outlier (`02-tables`)
-- CT/MRI volumes: DICOM / NIfTI / NII (`02-imaging`)
+- CT/MRI I/O: DICOM / NIfTI / NII (`02-imaging-io`)
+- CT/MRI QC: ROI / reader (`02-imaging-qc`)
 - pictures: TIFF / TIF / PNG / JPG / PDF-as-image (`02-pictures`)
 - fMRI: DICOM / NIfTI (`02-fmri`)
 - radiomics / habitat preparation (`02-radiomics-habitat`; modelling → 04)
@@ -44,12 +45,13 @@ Personal scripts are not replaced by a mounted pack.
 Call mounted ids from 01 (`mounts/README.md` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
 
 - `02-tables` — 临床表 Excel / CSV（含缺失/异常值；B `tables/impute/`）
-- `02-imaging` — CT / MRI，DICOM / NIfTI / NII
+- `02-imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
+- `02-imaging-qc` — CT / MRI QC，ROI / 阅片
 - `02-pictures` — TIFF / PNG / JPG / PDF(图)
 - `02-fmri` — 功能磁共振，DICOM / NIfTI
 - `02-radiomics-habitat` — IBSI/habitat prep (paper modelling → 04)
 
-Retired: `02-xlsx`, `02-imaging-qc`, `02-impute`, `02-generic-docs`.
+Retired: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`.
 
 ## Workflow
 

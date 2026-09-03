@@ -4,9 +4,8 @@
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
 # Never auto-mount a non-B source. PROPOSED is not MOUNTED.
-# Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008).
-# Retired: 02-xlsx, 02-imaging-qc, 02-impute, 02-generic-docs, 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic.
-# 02 media types: tables / imaging / pictures / fmri (+ radiomics-habitat). CHG-20260903-010.
+# Coarse ids: Scientific jobs (008) + B 1:1 (009) + 02 media (010) + P0/P1 fine split (011).
+# 30 ids. Retired umbrellas include 02-imaging, 04-figure-engine, 02-xlsx, 03-literature, 05-writing-generic, 06-review-generic.
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
@@ -18,9 +17,14 @@ mounts:
     path: 02-data-processing/tables/
     layer: 02
     status: MOUNTED
-  - id: 02-imaging
+  - id: 02-imaging-io
     source: my-skills-capabilities
-    path: 02-data-processing/imaging/
+    path: 02-data-processing/imaging-io/
+    layer: 02
+    status: MOUNTED
+  - id: 02-imaging-qc
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
     layer: 02
     status: MOUNTED
   - id: 02-pictures
@@ -43,6 +47,11 @@ mounts:
     path: 03-research/lit-search/
     layer: 03
     status: MOUNTED
+  - id: 03-lit-fulltext
+    source: my-skills-capabilities
+    path: 03-research/lit-fulltext/
+    layer: 03
+    status: MOUNTED
   - id: 03-lit-review
     source: my-skills-capabilities
     path: 03-research/lit-review/
@@ -56,6 +65,11 @@ mounts:
   - id: 03-design-experiment
     source: my-skills-capabilities
     path: 03-research/design-experiment/
+    layer: 03
+    status: MOUNTED
+  - id: 03-design-protocol
+    source: my-skills-capabilities
+    path: 03-research/design-protocol/
     layer: 03
     status: MOUNTED
   - id: 03-design-grant
@@ -88,9 +102,19 @@ mounts:
     path: 04-analysis/stats-models/
     layer: 04
     status: MOUNTED
-  - id: 04-figure-engine
+  - id: 04-model-eval
     source: my-skills-capabilities
-    path: 04-analysis/figure-engine/
+    path: 04-analysis/model-eval/
+    layer: 04
+    status: MOUNTED
+  - id: 04-fig-flow
+    source: my-skills-capabilities
+    path: 04-analysis/fig-flow/
+    layer: 04
+    status: MOUNTED
+  - id: 04-fig-plot
+    source: my-skills-capabilities
+    path: 04-analysis/fig-plot/
     layer: 04
     status: MOUNTED
   - id: 04-explainability
@@ -103,9 +127,19 @@ mounts:
     path: 05-manuscript/write-manuscript/
     layer: 05
     status: MOUNTED
+  - id: 05-write-reporting
+    source: my-skills-capabilities
+    path: 05-manuscript/write-reporting/
+    layer: 05
+    status: MOUNTED
   - id: 05-write-venue
     source: my-skills-capabilities
     path: 05-manuscript/write-venue/
+    layer: 05
+    status: MOUNTED
+  - id: 05-write-polish
+    source: my-skills-capabilities
+    path: 05-manuscript/write-polish/
     layer: 05
     status: MOUNTED
   - id: 05-humanize
@@ -121,6 +155,11 @@ mounts:
   - id: 06-review-critique
     source: my-skills-capabilities
     path: 06-review/review-critique/
+    layer: 06
+    status: MOUNTED
+  - id: 06-review-response
+    source: my-skills-capabilities
+    path: 06-review/review-response/
     layer: 06
     status: MOUNTED
 proposals:

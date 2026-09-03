@@ -81,7 +81,8 @@ class Routing(unittest.TestCase):
         self.assertIn("出图", zero)
         five = read("05_manuscript", "SKILL.md")
         self.assertIn("04_analysis", five)
-        self.assertIn("04-figure-engine", five)
+        self.assertIn("04-fig-plot", five)
+        self.assertIn("04-fig-flow", five)
         self.assertNotIn("bundles/figure-engine", five)
 
     def test_literature_to_03_response_to_06(self) -> None:
