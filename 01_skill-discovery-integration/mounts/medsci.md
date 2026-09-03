@@ -7,47 +7,45 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
-| 已映射 | 14 / 14（4 部分） |
+| 已映射 | 22 / 22（若干部分） |
 | 空挂 | 0 |
 | 扫描 | 2026-09-03 · `912f7e8` |
-
-## 挂载来源
-
-| 字段 | 值 |
-|---|---|
-| 来源 | MedSci Skills |
-| 扫描 | 2026-09-03 · `912f7e8` |
-| 角色 | 备份 |
-| 状态 | PROPOSED |
 
 ## 可挂 skills 接到哪一环
 
 | A id | 来源路径 | 接到 A | 做什么 | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | `skills/clean-data/` · `batch-cohort/` · `generate-codebook/` | `02_data-processing` | 表/队列清洗 | 部分 | 不是 Excel/COM 自动化 |
-| `02-imaging-qc` | `skills/preprocess-imaging/` · `profile-imaging/` · `uncertainty-imaging/` | `02_data-processing` | 影像预处理与 QC | 已映射 | |
-| `02-radiomics-habitat` | `skills/radiomics-ml/` | `02_data-processing` | radiomics（含 ML） | 部分 | 建模仍走 04；生境薄于 B |
-| `02-impute` | `skills/clean-data/` | `02_data-processing` | 缺失处理 | 部分 | 夹在清洗里，无独立 impute 包 |
-| `02-generic-docs` | `skills/deidentify/` · `define-variables/` · `version-dataset/` · `generate-codebook/` | `02_data-processing` | 去标识 / 变量 / 版本 | 已映射 | |
-| `03-literature` | `skills/search-lit/` · `fulltext-retrieval/` · `find-journal/` · `manage-refs/` · `verify-refs/` … | `03_research` | 检索 / 全文 / 选刊 / 核引 | 已映射 | |
-| `03-design` | `skills/design-study/` · `write-protocol/` · `intake-project/` · `grant-builder/` … | `03_research` | 设计 / 方案 / 立项 | 已映射 | |
-| `03-frontier` | `skills/find-cohort-gap/` · `ma-scout/` · `architecture-zoo/` | `03_research` | 缺口 / scout | 部分 | 不是独立前沿地图 |
-| `04-stats-generic` | `skills/analyze-stats/` · `calc-sample-size/` · `meta-analysis/` · `model-evaluation/` | `04_analysis` | 统计 / 样本量 / 模型评价 | 已映射 | 不替换 A 04 personal / 0RAD |
-| `04-explainability` | `skills/explainability/` | `04_analysis` | 影像模型可解释性 | 已映射 | A 04 接口；不经 B |
-| `04-figure-engine` | `skills/make-figures/` | `04_analysis` | 发表图 | 已映射 | POLE/STROBE 金标准仍在 B/A |
-| `05-humanize` | `skills/humanize/` | `05_manuscript` | 去 AI 痕迹（通用） | 已映射 | 不替换 A personal de-AI 禁词表 |
-| `05-writing-generic` | `skills/write-paper/` · `polish-language/` · `check-reporting/` · `present-paper/` | `05_manuscript` | 写作 / 报告规范 | 已映射 | 不是 Aitor-format；个人 de-AI 禁词表仍在 A |
-| `06-review-generic` | `skills/peer-review/` · `review-paper/` · `self-review/` · `revise/` | `06_review` | 审稿 / 自审 / 改稿 | 已映射 | |
-
-额外不计入 14 id：`orchestrate/` ≈ 00；`sync-submission/` ≈ 投稿（Bai 仍不点同意投稿、不付版面费）。
+| `02-xlsx` | `skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/` | `02_data-processing` | Excel / CSV → 分析可用表 | 部分 | table/cohort cleaning, not Excel/COM |
+| `02-imaging-qc` | `skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/` | `02_data-processing` | 影像预处理与 QC | 已映射 |  |
+| `02-radiomics-habitat` | `skills/radiomics-ml/` | `02_data-processing` | radiomics / 生境准备（建模交 04） | 部分 | radiomics+ML; modeling still 04 |
+| `02-impute` | `skills/clean-data/` | `02_data-processing` | 缺失 / 异常值 | 部分 | inside cleaning |
+| `02-generic-docs` | `skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/` | `02_data-processing` | 通用影像/数据说明 | 已映射 |  |
+| `03-lit-search` | `skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/` | `03_research` | 文献检索 / 全文 | 已映射 |  |
+| `03-lit-review` | `skills/ma-scout/` | `03_research` | 综述 / 综合 | 部分 | scout/meta, not a dedicated review pack |
+| `03-lit-cite` | `skills/manage-refs/; skills/verify-refs/; skills/find-journal/; skills/add-journal/` | `03_research` | 引文库 / Zotero | 已映射 |  |
+| `03-design-experiment` | `skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/` | `03_research` | 采集前实验设计 | 已映射 |  |
+| `03-design-grant` | `skills/grant-builder/` | `03_research` | 标书（通用）；个人 Voice A/B 优先 | 已映射 | does not replace A Voice A/B |
+| `03-frontier-ideate` | `skills/find-cohort-gap/; skills/architecture-zoo/` | `03_research` | 选题 / 头脑风暴 | 部分 |  |
+| `03-frontier-hypothesize` | `skills/find-cohort-gap/; skills/ma-scout/` | `03_research` | 问题化 / 假说 | 部分 | no hypogenic equivalent |
+| `04-stats-guide` | `skills/analyze-stats/` | `04_analysis` | 选检验 / 效应量 | 已映射 | does not replace A 04 personal / 0RAD |
+| `04-stats-power` | `skills/calc-sample-size/` | `04_analysis` | 样本量 / 功效 | 已映射 |  |
+| `04-stats-models` | `skills/model-evaluation/; skills/model-validation/; skills/meta-analysis/` | `04_analysis` | 统计/ML 实现层 | 已映射 |  |
+| `04-figure-engine` | `skills/make-figures/` | `04_analysis` | 出图 | 已映射 | POLE/STROBE gold still B/A |
+| `04-explainability` | `skills/explainability/` | `04_analysis` | 影像模型可解释性 | 已映射 | imaging XAI; not in B |
+| `05-write-manuscript` | `skills/write-paper/; skills/polish-language/; skills/present-paper/` | `05_manuscript` | 论著/报告草稿 | 已映射 | not Aitor-format |
+| `05-write-venue` | `skills/check-reporting/` | `05_manuscript` | 期刊/会议体例 | 部分 | reporting guidelines, not journal templates |
+| `05-humanize` | `skills/humanize/` | `05_manuscript` | 去 AI 痕迹（通用） | 已映射 | does not replace A personal de-AI |
+| `06-review-peer` | `skills/peer-review/; skills/review-paper/` | `06_review` | 他审草稿 | 已映射 |  |
+| `06-review-critique` | `skills/self-review/; skills/revise/` | `06_review` | 自审 / 证据质量 | 已映射 |  |
 
 ## 仅用当前挂载 · 空挂
 
-**无空挂。** 14 个 A id 都能指到 MedSci 路径（含 `04-explainability` / `05-humanize`）。其中 `02-xlsx` / `02-radiomics-habitat` / `02-impute` / `03-frontier` 是部分覆盖。部分覆盖不够用时，先通知再检索，不要静默改挂。
+**无空挂。** 22 个 A id 都能指到 MedSci 路径。部分覆盖不够用时，先通知再检索。
 
 ## A 没有对应接口
 
-这些 skill 在 MedSci 里存在，但不在 14 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。
+
+这些 skill 在 MedSci 里存在，但不在 22 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。
 
 ### 扩展候选（A 没有对应包）
 

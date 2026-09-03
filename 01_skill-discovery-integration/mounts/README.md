@@ -2,15 +2,15 @@
 
 [总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
 
-预设分页 · 映射已预扫。每页一套：来源、接到哪一环、仅用这一套时的空挂。备份页已按 2026-09-03 扫描写好映射，使用时不必先翻仓库。
+粗 ID 按 Scientific Agent Skills 的活重分（CHG-20260903-008）。共 22 个 A id。已退休：`03-literature` / `03-design` / `03-frontier` / `04-stats-generic` / `05-writing-generic` / `06-review-generic`。
 
 | 预设 | 摘要 |
 |---|---|
-| [B · 当前默认](b.md) | 12/12 B 包有文件。另有 2 个 A 接口接到 MedSci（可解释性、去 AI），不算 B 空挂。 |
-| [ARS · 备份](ars.md) | 扫 `9443623`。已映射 03 文献/设计（部分）、05 写作、06 审稿。空挂 10 个。 |
-| [MedSci · 备份](medsci.md) | 扫 `912f7e8`。14 个 A id 都有对应 skill（4 个部分覆盖）。空挂无。 |
-| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。12 / 14 有对应（5 部分）。空挂 2：`02-radiomics-habitat`、`05-humanize`。 |
+| [B · 当前默认](b.md) | 20 个 id 指到 B 总包（若干 id 共用一个文件夹）。另 2 个 MedSci 接口。空挂无。 |
+| [ARS · 备份](ars.md) | 扫 `9443623`。已映射 6 / 22。空挂 16 个。 |
+| [MedSci · 备份](medsci.md) | 扫 `912f7e8`。22 / 22 有对应（若干部分覆盖）。空挂无。 |
+| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。20 / 22 有对应。空挂 2：`02-radiomics-habitat`、`05-humanize`。 |
 
-**空挂协议：** 先通知，再检索确认，不悄悄改挂。个人 de-AI 在 A `05_manuscript/personal/`，不算任何备份的空挂。
+**空挂协议：** 先通知，再检索确认，不悄悄改挂。个人 de-AI 在 A `05_manuscript/personal/`。
 
 机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。空挂 = 仅用本套时该 A id 在来源里没有对应路径。映射扫自公开 GitHub，不是静默改挂。

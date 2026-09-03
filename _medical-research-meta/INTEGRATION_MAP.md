@@ -329,3 +329,16 @@ change: Scanned @1e5eeff (v2.66.0). Added sources/scientific-agent-skills.propos
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## Coarse ids reclassified to Scientific jobs 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-008
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface
+problem: User asked to reclassify coarse A ids to match K-Dense-AI/scientific-agent-skills jobs, not keep 03-literature/design/frontier umbrellas.
+change: Retired 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic. New coarse ids: 03-lit-search/review/cite, 03-design-experiment/grant, 03-frontier-ideate/hypothesize, 04-stats-guide/power/models, 05-write-manuscript/venue, 06-review-peer/critique. B folders unchanged; several A ids share one B path. 22 ids total. Default still B. Mapping ≠ mount.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

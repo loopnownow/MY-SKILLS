@@ -7,9 +7,9 @@
 | | |
 |---|---|
 | 状态 | MOUNTED（默认来源） |
-| B 包 | 12 / 12 有文件 |
+| B 包 | 20 个 id 有文件夹（若干 id 共用 literature / design / frontier / stats-generic / writing-generic / review-generic） |
 | 空挂 | 0 |
-| 双轨 | 3（A 仍留 literature / design / frontier） |
+| 双轨 | 03 三包（A 仍留副本） |
 
 ## 挂载来源
 
@@ -30,17 +30,23 @@
 | `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | `02_data-processing` | radiomics / 生境准备（建模交 04） | 就绪 | 9 文件 |
 | `02-impute` | `02-data-processing/impute/` | `02_data-processing` | 缺失 / 异常值 | 就绪 | 7 文件 |
 | `02-generic-docs` | `02-data-processing/generic-docs/` | `02_data-processing` | 通用影像/数据说明 | 就绪 | 7 文件 |
-| `03-literature` | `03-research/literature/` | `03_research` | 文献 / 来源 / 选刊 | 双轨 | 6 文件 · A 仍留 literature/ |
-| `03-design` | `03-research/design/` | `03_research` | 研究设计 / 验证 / 蓝图 | 双轨 | 8 文件 · A 仍留 design/ |
-| `03-frontier` | `03-research/frontier/` | `03_research` | 前沿主题 / 问题化 | 双轨 | 7 文件 · A 仍留 frontier/ |
-| `04-stats-generic` | `04-analysis/stats-generic/` | `04_analysis` | 通用统计百科 | 就绪 | 7 文件 · 实验室口径在 A personal/ |
+| `03-lit-search` | `03-research/literature/` | `03_research` | 文献检索 / 全文 | 双轨 | 6 文件 · A 仍留 literature/ |
+| `03-lit-review` | `03-research/literature/` | `03_research` | 综述 / 综合 | 双轨 | 同上 |
+| `03-lit-cite` | `03-research/literature/` | `03_research` | 引文库 / Zotero | 双轨 | 同上 |
+| `03-design-experiment` | `03-research/design/` | `03_research` | 采集前实验设计 | 双轨 | 8 文件 · A 仍留 design/ |
+| `03-design-grant` | `03-research/design/` | `03_research` | 标书（通用）；个人 Voice A/B 优先 | 双轨 | 同上 |
+| `03-frontier-ideate` | `03-research/frontier/` | `03_research` | 选题 / 头脑风暴 | 双轨 | 7 文件 · A 仍留 frontier/ |
+| `03-frontier-hypothesize` | `03-research/frontier/` | `03_research` | 问题化 / 假说 | 双轨 | 同上 |
+| `04-stats-guide` | `04-analysis/stats-generic/` | `04_analysis` | 选检验 / 效应量 | 就绪 | 7 文件 · 实验室口径在 A personal/ |
+| `04-stats-power` | `04-analysis/stats-generic/` | `04_analysis` | 样本量 / 功效 | 就绪 | 同上 |
+| `04-stats-models` | `04-analysis/stats-generic/` | `04_analysis` | 统计/ML 实现层 | 就绪 | 同上 · 0RAD personal 仍赢 |
 | `04-figure-engine` | `04-analysis/figure-engine/` | `04_analysis` | 出图 | 就绪 | 22 文件 |
-| `05-writing-generic` | `05-manuscript/writing-generic/` | `05_manuscript` | 通用写作 / 报告 / 期刊体例 | 就绪 | 28 文件 · Aitor-format + de-AI 在 A |
-| `06-review-generic` | `06-review/review-generic/` | `06_review` | 预审 / 回复机械层 | 就绪 | 12 文件 · 个人审稿声音在 A |
+| `05-write-manuscript` | `05-manuscript/writing-generic/` | `05_manuscript` | 论著/报告草稿 | 就绪 | 28 文件 · Aitor-format 在 A |
+| `05-write-venue` | `05-manuscript/writing-generic/` | `05_manuscript` | 期刊/会议体例 | 就绪 | 同上 |
+| `06-review-peer` | `06-review/review-generic/` | `06_review` | 他审草稿 | 就绪 | 12 文件 · 个人审稿声音在 A |
+| `06-review-critique` | `06-review/review-generic/` | `06_review` | 自审 / 证据质量 | 就绪 | 同上 |
 
 ## 非 B 接口（接到 MedSci）
-
-这两条是 A 接口，通用包在 MedSci，不在 B。不算本套空挂。个人 de-AI 仍在 A `05_manuscript/personal/`。
 
 | Id | 来源路径 | 接到 A | 做什么 | 对接 |
 |---|---|---|---|---|
@@ -49,6 +55,6 @@
 
 ## 仅用当前挂载 · 空挂
 
-**无空挂。** 12 个 A 期望 id 在 B 里都有文件。03 literature / design / frontier 是双轨（A 仍留副本），不是空包。个人 de-AI 不经 B。
+**无空挂。** 20 个 B 源 id 都有文件夹。03 三包双轨。个人 de-AI 不经 B。
 
 机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。空挂 = 仅用本套时该 A id 在来源里没有对应路径。映射扫自公开 GitHub，不是静默改挂。

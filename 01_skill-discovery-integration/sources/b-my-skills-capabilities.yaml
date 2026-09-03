@@ -8,12 +8,13 @@ status: MOUNTED
 empty_mount: notify-then-research-confirm
 notes: >
   Default B pack. de-AI is not here (A 05_manuscript/personal).
+  Coarse ids split by Scientific jobs; several A ids share one B folder.
   03 literature/design/frontier still have A copies (dual-track).
 skills:
   - id: 02-xlsx
     path: 02-data-processing/xlsx/
     a_hook: 02_data-processing
-    a_step: 原始表 / Excel / CSV → 分析可用表
+    a_step: Excel / CSV → 分析可用表
     interface: ready
   - id: 02-imaging-qc
     path: 02-data-processing/imaging-qc/
@@ -35,38 +36,78 @@ skills:
     a_hook: 02_data-processing
     a_step: 通用影像/数据说明
     interface: ready
-  - id: 03-literature
+  - id: 03-lit-search
     path: 03-research/literature/
     a_hook: 03_research
-    a_step: 文献 / 来源 / 选刊 / 公开数据集
+    a_step: 文献检索 / 全文
     interface: dual-track
-  - id: 03-design
+  - id: 03-lit-review
+    path: 03-research/literature/
+    a_hook: 03_research
+    a_step: 综述 / 综合
+    interface: dual-track
+  - id: 03-lit-cite
+    path: 03-research/literature/
+    a_hook: 03_research
+    a_step: 引文库 / Zotero
+    interface: dual-track
+  - id: 03-design-experiment
     path: 03-research/design/
     a_hook: 03_research
-    a_step: 研究设计 / 验证 / 蓝图
+    a_step: 采集前实验设计
     interface: dual-track
-  - id: 03-frontier
+  - id: 03-design-grant
+    path: 03-research/design/
+    a_hook: 03_research
+    a_step: 标书（通用）；个人 Voice A/B 优先
+    interface: dual-track
+  - id: 03-frontier-ideate
     path: 03-research/frontier/
     a_hook: 03_research
-    a_step: 前沿主题 / 问题化
+    a_step: 选题 / 头脑风暴
     interface: dual-track
-  - id: 04-stats-generic
+  - id: 03-frontier-hypothesize
+    path: 03-research/frontier/
+    a_hook: 03_research
+    a_step: 问题化 / 假说
+    interface: dual-track
+  - id: 04-stats-guide
     path: 04-analysis/stats-generic/
     a_hook: 04_analysis
-    a_step: 通用统计百科（实验室口径仍用 personal/）
+    a_step: 选检验 / 效应量
+    interface: ready
+  - id: 04-stats-power
+    path: 04-analysis/stats-generic/
+    a_hook: 04_analysis
+    a_step: 样本量 / 功效
+    interface: ready
+  - id: 04-stats-models
+    path: 04-analysis/stats-generic/
+    a_hook: 04_analysis
+    a_step: 统计/ML 实现层
     interface: ready
   - id: 04-figure-engine
     path: 04-analysis/figure-engine/
     a_hook: 04_analysis
-    a_step: 出图（STROBE / 期刊图）
+    a_step: 出图
     interface: ready
-  - id: 05-writing-generic
+  - id: 05-write-manuscript
     path: 05-manuscript/writing-generic/
     a_hook: 05_manuscript
-    a_step: 通用写作 / 报告 / 引用 / 期刊体例；个人层 Aitor-format + de-AI
+    a_step: 论著/报告草稿
     interface: ready
-  - id: 06-review-generic
+  - id: 05-write-venue
+    path: 05-manuscript/writing-generic/
+    a_hook: 05_manuscript
+    a_step: 期刊/会议体例
+    interface: ready
+  - id: 06-review-peer
     path: 06-review/review-generic/
     a_hook: 06_review
-    a_step: 预审 / 回复机械层；个人审稿声音留在 A
+    a_step: 他审草稿
+    interface: ready
+  - id: 06-review-critique
+    path: 06-review/review-generic/
+    a_hook: 06_review
+    a_step: 自审 / 证据质量
     interface: ready

@@ -21,7 +21,7 @@ This layer only resolves **where a capability comes from**.
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
 ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), and Scientific (`K-Dense-AI/scientific-agent-skills`) are **backup candidates only**.
 
-Preset maps live in `sources/*.proposed.yaml` (scanned 2026-09-03). Use those A-id → path tables instead of re-searching the backup repos. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a switch.
+Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). Preset maps in `sources/*.proposed.yaml`. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a source-wide switch.
 
 
 ## Empty-mount protocol
@@ -39,7 +39,7 @@ Never silently fall back to ARS/MedSci/Scientific or invent a local copy.
 1. Read this skill's `registry.yaml` (pointers + `mounts:`).
 2. Resolve each id against its `source` in `registry.yaml`. Default source is B. Two user-named exceptions mount from MedSci: `04-explainability`, `05-humanize`.
 3. If that path is empty or missing → empty-mount protocol (notify → re-search → confirm).
-4. Only after confirmation may a *different* backup candidate be proposed. Do not silently switch the other 12 ids to MedSci because these two already point there.
+4. Only after confirmation may a *different* backup candidate be proposed. Do not silently switch the other ids to MedSci because these two already point there.
 5. Evaluate capability, boundaries, dependencies, and overlap.
 6. New non-B sources stay `PROPOSED` until explicit approval. Silence is not approval.
 7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
@@ -61,4 +61,4 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 `registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
-**Layout rule:** one external source → one yaml. Do not split B into 12 files; do not mix B + ARS + MedSci + Scientific in one file.
+**Layout rule:** one external source → one yaml. Do not split B into one file per A id; do not mix B + ARS + MedSci + Scientific in one file. Several A ids may share one B folder.

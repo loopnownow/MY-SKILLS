@@ -40,9 +40,15 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 ## Mounted capability ids (generic; PROPOSED until mounted)
 
-- `03-literature` — literature, sources, journals, public datasets
-- `03-design` — study design, validation, radiology-design blueprints/endpoints/feasibility
-- `03-frontier` — frontier themes, idea-to-question, radiogenomics map
+- `03-lit-search` — retrieve papers / full text (Scientific `paper-lookup` / `research-lookup`)
+- `03-lit-review` — synthesize / systematic review (`literature-review`)
+- `03-lit-cite` — citation library / Zotero (`citation-management` / `pyzotero`)
+- `03-design-experiment` — pre-data experimental design (`experimental-design`)
+- `03-design-grant` — grant text (`research-grants`); A Voice A/B still wins
+- `03-frontier-ideate` — topic brainstorm (`scientific-brainstorming`)
+- `03-frontier-hypothesize` — question/hypothesis (`hypothesis-generation`; `hypogenic` secondary)
+
+Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
 
 Until mounted, local copies remain under `literature/`, `design/`, `frontier/` (see `EXTERNALIZATION_CANDIDATES.md`).
 

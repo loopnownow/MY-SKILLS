@@ -7,52 +7,41 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（备份候选；映射已写好，仍未改挂） |
-| 已映射 | 4 / 14（含 1 部分） |
-| 空挂 | 10 |
+| 已映射 | 6 / 22 |
+| 空挂 | 16 |
 | 扫描 | 2026-09-03 · `9443623` |
-
-## 挂载来源
-
-| 字段 | 值 |
-|---|---|
-| 来源 | Academic Research Skills |
-| 扫描 | 2026-09-03 · `9443623` |
-| 角色 | 备份 |
-| 状态 | PROPOSED |
 
 ## 可挂 skills 接到哪一环
 
 | A id | 来源路径 | 接到 A | 做什么 | 覆盖 | 说明 |
 |---|---|---|---|---|---|
-| `02-xlsx` | — | `02_data-processing` | Excel / CSV | 空挂 | 无对应包 |
-| `02-imaging-qc` | — | `02_data-processing` | 影像 QC | 空挂 | 无对应包 |
-| `02-radiomics-habitat` | — | `02_data-processing` | radiomics / 生境准备 | 空挂 | 无对应包 |
+| `02-xlsx` | — | `02_data-processing` | Excel / CSV → 分析可用表 | 空挂 | 无对应包 |
+| `02-imaging-qc` | — | `02_data-processing` | 影像预处理与 QC | 空挂 | 无对应包 |
+| `02-radiomics-habitat` | — | `02_data-processing` | radiomics / 生境准备（建模交 04） | 空挂 | 无对应包 |
 | `02-impute` | — | `02_data-processing` | 缺失 / 异常值 | 空挂 | 无对应包 |
-| `02-generic-docs` | — | `02_data-processing` | 通用数据说明 | 空挂 | 无对应包 |
-| `03-literature` | `deep-research/` | `03_research` | 文献 / 系统综述 / 核源 | 已映射 | lit-review / systematic review |
-| `03-design` | `deep-research/` | `03_research` | 方法学 / 问题化 | 部分 | 包在 deep-research 内，不是独立设计包 |
-| `03-frontier` | — | `03_research` | 前沿主题 | 空挂 | 无对应包 |
-| `04-stats-generic` | — | `04_analysis` | 通用统计 | 空挂 | 无对应包 |
+| `02-generic-docs` | — | `02_data-processing` | 通用影像/数据说明 | 空挂 | 无对应包 |
+| `03-lit-search` | `deep-research/` | `03_research` | 文献检索 / 全文 | 已映射 | paper search / source verification |
+| `03-lit-review` | `deep-research/` | `03_research` | 综述 / 综合 | 已映射 | systematic review inside deep-research |
+| `03-lit-cite` | — | `03_research` | 引文库 / Zotero | 空挂 | 无对应包 |
+| `03-design-experiment` | `deep-research/` | `03_research` | 采集前实验设计 | 部分 | methodology / RQ framing; not a standalone design pack |
+| `03-design-grant` | — | `03_research` | 标书（通用）；个人 Voice A/B 优先 | 空挂 | 无对应包 |
+| `03-frontier-ideate` | — | `03_research` | 选题 / 头脑风暴 | 空挂 | 无对应包 |
+| `03-frontier-hypothesize` | — | `03_research` | 问题化 / 假说 | 空挂 | 无对应包 |
+| `04-stats-guide` | — | `04_analysis` | 选检验 / 效应量 | 空挂 | 无对应包 |
+| `04-stats-power` | — | `04_analysis` | 样本量 / 功效 | 空挂 | 无对应包 |
+| `04-stats-models` | — | `04_analysis` | 统计/ML 实现层 | 空挂 | 无对应包 |
 | `04-figure-engine` | — | `04_analysis` | 出图 | 空挂 | 无对应包 |
-| `04-explainability` | — | `04_analysis` | 影像模型可解释性 | 空挂 | 无对应包 · 接口在 MedSci |
-| `05-writing-generic` | `academic-paper/` | `05_manuscript` | 写作 / 提纲 / 引用检查 | 已映射 | 不是 Aitor-format |
-| `05-humanize` | — | `05_manuscript` | 去 AI 痕迹（通用） | 空挂 | 无对应包 · 接口在 MedSci |
-| `06-review-generic` | `academic-paper-reviewer/` | `06_review` | 多角色审稿 / 复审 | 已映射 | rebuttal-audit 也在 academic-paper |
+| `04-explainability` | — | `04_analysis` | 影像模型可解释性 | 空挂 | 无对应包 |
+| `05-write-manuscript` | `academic-paper/` | `05_manuscript` | 论著/报告草稿 | 已映射 | write / plan / outline; not Aitor-format |
+| `05-write-venue` | `academic-paper/` | `05_manuscript` | 期刊/会议体例 | 部分 | format / style calibration; not Aitor-format |
+| `05-humanize` | — | `05_manuscript` | 去 AI 痕迹（通用） | 空挂 | 无对应包 |
+| `06-review-peer` | `academic-paper-reviewer/` | `06_review` | 他审草稿 | 已映射 | multi-persona peer review |
+| `06-review-critique` | — | `06_review` | 自审 / 证据质量 | 空挂 | 无对应包 |
 
-额外：`academic-pipeline/` 对应 00 调度（编排 analog），不计入 14 个领域 id。
+额外：`academic-pipeline/` 对应 00 调度，不计入 22 个领域 id。
 
 ## 仅用当前挂载 · 空挂
 
-**10 个空挂：** `02-xlsx` · `02-imaging-qc` · `02-radiomics-habitat` · `02-impute` · `02-generic-docs` · `03-frontier` · `04-stats-generic` · `04-figure-engine` · `04-explainability` · `05-humanize`。
-
-这些在 ARS 里没有包。若只用 ARS，先通知再检索确认，不要静默改挂。已映射的 03/05/06 可直接按上表路径用。
-
-## A 没有对应接口
-
-这些 skill 在 ARS 里存在，但不在 14 个挂载 id 上。00 是调度层，不是可挂 id。
-
-| 路径 | 做什么 | 类型 | 以后可接到 |
-|---|---|---|---|
-| `academic-pipeline/` | 文献→写作→审稿编排 | 类比 | `00_orchestrator`（已有层，无挂载 id） |
+**16 个空挂。** 若只用 ARS，先通知再检索确认。已映射：`03-lit-search` / `03-lit-review` / `03-design-experiment`（部分）/ `05-write-manuscript` / `05-write-venue`（部分）/ `06-review-peer`。
 
 机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。空挂 = 仅用本套时该 A id 在来源里没有对应路径。映射扫自公开 GitHub，不是静默改挂。

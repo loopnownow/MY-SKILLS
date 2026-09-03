@@ -40,7 +40,7 @@ class DeAI(unittest.TestCase):
     def test_de_ai_is_personal_not_a_mount(self) -> None:
         five = read("05_manuscript", "SKILL.md")
         self.assertNotIn("05-de-ai", five)
-        self.assertIn("05-writing-generic", five)
+        self.assertIn("05-write-manuscript", five)
         self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
         self.assertTrue((SKILLS / "05_manuscript" / "personal" / "forbidden-phrases.md").is_file())
 

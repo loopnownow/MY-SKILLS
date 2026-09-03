@@ -1,5 +1,4 @@
 # Scanned 2026-09-03 against Aperivue/medsci-skills@912f7e8 (2026-09-01).
-# Mapping is A-id → MedSci skills/<name>/. Several MedSci skills may cover one A id.
 source_id: med-sci-skills
 name: MedSci Skills
 role: backup-candidate
@@ -9,15 +8,14 @@ scan_sha: "912f7e8"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  60 skills under skills/. 12 B ids map at least partially. Two A interfaces
-  mount from this repo: 04-explainability and 05-humanize. Personal de-AI stays
-  in A. radiomics-ml includes modeling (paper models still 04).
+  Coarse A ids follow Scientific jobs (CHG-20260903-008). Two A interfaces
+  mount from this repo: 04-explainability and 05-humanize.
 skills:
   - id: 02-xlsx
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/
     a_hook: 02_data-processing
     coverage: partial
-    note: table/cohort cleaning, not Excel/COM automation
+    note: table/cohort cleaning, not Excel/COM
   - id: 02-imaging-qc
     path: skills/preprocess-imaging/; skills/profile-imaging/; skills/uncertainty-imaging/
     a_hook: 02_data-processing
@@ -26,56 +24,91 @@ skills:
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
-    note: radiomics+ML; habitat prep may be thinner than B; modeling still 04
+    note: radiomics+ML; modeling still 04
   - id: 02-impute
     path: skills/clean-data/
     a_hook: 02_data-processing
     coverage: partial
-    note: inside cleaning, not a dedicated impute pack
+    note: inside cleaning
   - id: 02-generic-docs
     path: skills/deidentify/; skills/define-variables/; skills/version-dataset/; skills/generate-codebook/
     a_hook: 02_data-processing
     coverage: full
-  - id: 03-literature
-    path: skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/; skills/find-journal/; skills/add-journal/; skills/manage-refs/; skills/verify-refs/; skills/ma-scout/
+  - id: 03-lit-search
+    path: skills/search-lit/; skills/fulltext-retrieval/; skills/lit-sync/
     a_hook: 03_research
     coverage: full
-  - id: 03-design
-    path: skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/grant-builder/; skills/design-ai-benchmarking/; skills/find-cohort-gap/
-    a_hook: 03_research
-    coverage: full
-  - id: 03-frontier
-    path: skills/find-cohort-gap/; skills/ma-scout/; skills/architecture-zoo/
+  - id: 03-lit-review
+    path: skills/ma-scout/
     a_hook: 03_research
     coverage: partial
-    note: gap/scout/architecture, not a dedicated frontier map
-  - id: 04-stats-generic
-    path: skills/analyze-stats/; skills/calc-sample-size/; skills/meta-analysis/; skills/model-evaluation/; skills/model-validation/
+    note: scout/meta, not a dedicated review pack
+  - id: 03-lit-cite
+    path: skills/manage-refs/; skills/verify-refs/; skills/find-journal/; skills/add-journal/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-design-experiment
+    path: skills/design-study/; skills/write-protocol/; skills/fill-protocol/; skills/intake-project/; skills/design-ai-benchmarking/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-design-grant
+    path: skills/grant-builder/
+    a_hook: 03_research
+    coverage: full
+    note: does not replace A Voice A/B
+  - id: 03-frontier-ideate
+    path: skills/find-cohort-gap/; skills/architecture-zoo/
+    a_hook: 03_research
+    coverage: partial
+  - id: 03-frontier-hypothesize
+    path: skills/find-cohort-gap/; skills/ma-scout/
+    a_hook: 03_research
+    coverage: partial
+    note: no hypogenic equivalent
+  - id: 04-stats-guide
+    path: skills/analyze-stats/
     a_hook: 04_analysis
     coverage: full
-    note: does not replace A 04 personal / 0RAD rules
+    note: does not replace A 04 personal / 0RAD
+  - id: 04-stats-power
+    path: skills/calc-sample-size/
+    a_hook: 04_analysis
+    coverage: full
+  - id: 04-stats-models
+    path: skills/model-evaluation/; skills/model-validation/; skills/meta-analysis/
+    a_hook: 04_analysis
+    coverage: full
   - id: 04-figure-engine
     path: skills/make-figures/
     a_hook: 04_analysis
     coverage: full
-    note: generic publication figures; POLE/STROBE gold still B/A
+    note: POLE/STROBE gold still B/A
   - id: 04-explainability
     path: skills/explainability/
     a_hook: 04_analysis
     coverage: full
-    note: imaging XAI; not in B; does not replace 0RAD personal rules
-  - id: 05-writing-generic
-    path: skills/write-paper/; skills/polish-language/; skills/check-reporting/; skills/present-paper/; skills/manage-refs/
+    note: imaging XAI; not in B
+  - id: 05-write-manuscript
+    path: skills/write-paper/; skills/polish-language/; skills/present-paper/
     a_hook: 05_manuscript
     coverage: full
-    note: not Aitor-format; personal de-AI stays in A
+    note: not Aitor-format
+  - id: 05-write-venue
+    path: skills/check-reporting/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: reporting guidelines, not journal templates
   - id: 05-humanize
     path: skills/humanize/
     a_hook: 05_manuscript
     coverage: full
-    note: generic de-AI; does not replace A personal/de-ai.md forbidden list
-  - id: 06-review-generic
-    path: skills/peer-review/; skills/review-paper/; skills/self-review/; skills/revise/
+    note: does not replace A personal de-AI
+  - id: 06-review-peer
+    path: skills/peer-review/; skills/review-paper/
+    a_hook: 06_review
+    coverage: full
+  - id: 06-review-critique
+    path: skills/self-review/; skills/revise/
     a_hook: 06_review
     coverage: full
 unmapped:

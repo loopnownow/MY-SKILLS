@@ -38,10 +38,11 @@ Convert **validated** research information into precise, publication-ready origi
 
 ## Mounted capability ids (generic; not present until mounted)
 
-- `05-writing-generic` — section templates, reporting/citation/ethics/polish generic, `doi_to_bibtex.py`, journal-family writing/house style (B `05-manuscript/writing-generic/`)
+- `05-write-manuscript` — manuscript/report draft (Scientific `scientific-writing` / `markdown-mermaid-writing`; B `writing-generic/`). Not Aitor-format. `clinical-reports` is not this id.
+- `05-write-venue` — journal/conference templates (`venue-templates`)
 - `05-humanize` — generic de-AI / humanize (MedSci `skills/humanize/`). Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
-`writing-generic` lives in B. `05-humanize` is a user-named MedSci interface. Personal de-AI stays in A (`personal/`).
+Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 

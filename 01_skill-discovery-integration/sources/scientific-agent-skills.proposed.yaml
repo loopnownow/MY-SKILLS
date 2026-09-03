@@ -1,5 +1,5 @@
 # Scanned 2026-09-03 against K-Dense-AI/scientific-agent-skills@1e5eeff (2026-09-02, v2.66.0).
-# Mapping is A-id → skills/<name>/. ~163 skills; only 14 A ids are tabulated.
+# Coarse A ids follow this library's jobs (CHG-20260903-008).
 source_id: scientific-agent-skills
 name: Scientific Agent Skills
 role: backup-candidate
@@ -9,10 +9,9 @@ scan_sha: "1e5eeff"
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Broad science skill library (biology, chemistry, medicine, drug discovery).
-  Maps 12 of 14 A ids at least partially. Empty: 02-radiomics-habitat, 05-humanize.
-  shap is tabular XAI, not imaging Grad-CAM. Does not replace A personal layers.
-  Unmapped remainder is grouped by domain, not listed skill-by-skill.
+  Broad science skill library. Coarse A ids split to match jobs here.
+  Empty: 02-radiomics-habitat, 05-humanize. shap is tabular XAI, not imaging Grad-CAM.
+  Unmapped remainder grouped by domain.
 skills:
   - id: 02-xlsx
     path: skills/xlsx/
@@ -23,54 +22,90 @@ skills:
     path: skills/pydicom/; skills/histolab/; skills/pathml/; skills/bids/; skills/imaging-data-commons/
     a_hook: 02_data-processing
     coverage: partial
-    note: DICOM / pathology / BIDS; not 0RAD radiology QC
+    note: DICOM / pathology / BIDS; not 0RAD QC
   - id: 02-impute
     path: skills/exploratory-data-analysis/; skills/polars/
     a_hook: 02_data-processing
     coverage: partial
-    note: EDA / DataFrame, not a dedicated impute pack
+    note: EDA / DataFrame, not dedicated impute
   - id: 02-generic-docs
     path: skills/markitdown/; skills/pdf/; skills/docx/
     a_hook: 02_data-processing
     coverage: partial
     note: document conversion, not imaging data docs
-  - id: 03-literature
-    path: skills/literature-review/; skills/paper-lookup/; skills/citation-management/; skills/pyzotero/; skills/research-lookup/
+  - id: 03-lit-search
+    path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
     coverage: full
-  - id: 03-design
-    path: skills/experimental-design/; skills/hypothesis-generation/; skills/research-grants/; skills/scientific-brainstorming/
+  - id: 03-lit-review
+    path: skills/literature-review/
     a_hook: 03_research
     coverage: full
-    note: general experimental design / grants, not radiology-specific
-  - id: 03-frontier
-    path: skills/scientific-brainstorming/; skills/hypothesis-generation/; skills/hypogenic/
+  - id: 03-lit-cite
+    path: skills/citation-management/; skills/pyzotero/
     a_hook: 03_research
-    coverage: partial
-  - id: 04-stats-generic
-    path: skills/statistical-analysis/; skills/statistical-power/; skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
+    coverage: full
+  - id: 03-design-experiment
+    path: skills/experimental-design/
+    a_hook: 03_research
+    coverage: full
+    note: pre-data collection design
+  - id: 03-design-grant
+    path: skills/research-grants/
+    a_hook: 03_research
+    coverage: full
+    note: does not replace A Voice A/B
+  - id: 03-frontier-ideate
+    path: skills/scientific-brainstorming/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-frontier-hypothesize
+    path: skills/hypothesis-generation/; skills/hypogenic/
+    a_hook: 03_research
+    coverage: full
+    note: hypogenic is secondary (ChicagoHAI)
+  - id: 04-stats-guide
+    path: skills/statistical-analysis/
     a_hook: 04_analysis
     coverage: full
-    note: does not replace A 04 personal / 0RAD rules
-  - id: 04-explainability
-    path: skills/shap/
+    note: does not replace A 04 personal / 0RAD
+  - id: 04-stats-power
+    path: skills/statistical-power/
     a_hook: 04_analysis
-    coverage: partial
-    note: tabular SHAP, not imaging Grad-CAM
+    coverage: full
+  - id: 04-stats-models
+    path: skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
+    a_hook: 04_analysis
+    coverage: full
   - id: 04-figure-engine
     path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/; skills/scientific-schematics/
     a_hook: 04_analysis
     coverage: full
     note: POLE/STROBE gold still B/A
-  - id: 05-writing-generic
-    path: skills/scientific-writing/; skills/venue-templates/; skills/markdown-mermaid-writing/; skills/clinical-reports/
+  - id: 04-explainability
+    path: skills/shap/
+    a_hook: 04_analysis
+    coverage: partial
+    note: tabular SHAP, not imaging Grad-CAM
+  - id: 05-write-manuscript
+    path: skills/scientific-writing/; skills/markdown-mermaid-writing/
+    a_hook: 05_manuscript
+    coverage: full
+    note: not Aitor-format; clinical-reports not included
+  - id: 05-write-venue
+    path: skills/venue-templates/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
-  - id: 06-review-generic
-    path: skills/peer-review/; skills/scholar-evaluation/; skills/scientific-critical-thinking/
+  - id: 06-review-peer
+    path: skills/peer-review/
     a_hook: 06_review
     coverage: full
+  - id: 06-review-critique
+    path: skills/scientific-critical-thinking/; skills/scholar-evaluation/
+    a_hook: 06_review
+    coverage: full
+    note: grant Voice A stays in 03 personal
 unmapped_groups:
   - domain: omics
     note: not radiology 02/04

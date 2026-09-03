@@ -4,6 +4,8 @@
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
 # Never auto-mount a non-B source. PROPOSED is not MOUNTED.
+# Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008).
+# Retired: 03-literature, 03-design, 03-frontier, 04-stats-generic, 05-writing-generic, 06-review-generic.
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
@@ -35,22 +37,52 @@ mounts:
     path: 02-data-processing/generic-docs/
     layer: 02
     status: MOUNTED
-  - id: 03-literature
+  - id: 03-lit-search
     source: my-skills-capabilities
     path: 03-research/literature/
     layer: 03
     status: MOUNTED
-  - id: 03-design
+  - id: 03-lit-review
+    source: my-skills-capabilities
+    path: 03-research/literature/
+    layer: 03
+    status: MOUNTED
+  - id: 03-lit-cite
+    source: my-skills-capabilities
+    path: 03-research/literature/
+    layer: 03
+    status: MOUNTED
+  - id: 03-design-experiment
     source: my-skills-capabilities
     path: 03-research/design/
     layer: 03
     status: MOUNTED
-  - id: 03-frontier
+  - id: 03-design-grant
+    source: my-skills-capabilities
+    path: 03-research/design/
+    layer: 03
+    status: MOUNTED
+  - id: 03-frontier-ideate
     source: my-skills-capabilities
     path: 03-research/frontier/
     layer: 03
     status: MOUNTED
-  - id: 04-stats-generic
+  - id: 03-frontier-hypothesize
+    source: my-skills-capabilities
+    path: 03-research/frontier/
+    layer: 03
+    status: MOUNTED
+  - id: 04-stats-guide
+    source: my-skills-capabilities
+    path: 04-analysis/stats-generic/
+    layer: 04
+    status: MOUNTED
+  - id: 04-stats-power
+    source: my-skills-capabilities
+    path: 04-analysis/stats-generic/
+    layer: 04
+    status: MOUNTED
+  - id: 04-stats-models
     source: my-skills-capabilities
     path: 04-analysis/stats-generic/
     layer: 04
@@ -65,7 +97,12 @@ mounts:
     path: skills/explainability/
     layer: 04
     status: MOUNTED
-  - id: 05-writing-generic
+  - id: 05-write-manuscript
+    source: my-skills-capabilities
+    path: 05-manuscript/writing-generic/
+    layer: 05
+    status: MOUNTED
+  - id: 05-write-venue
     source: my-skills-capabilities
     path: 05-manuscript/writing-generic/
     layer: 05
@@ -75,7 +112,12 @@ mounts:
     path: skills/humanize/
     layer: 05
     status: MOUNTED
-  - id: 06-review-generic
+  - id: 06-review-peer
+    source: my-skills-capabilities
+    path: 06-review/review-generic/
+    layer: 06
+    status: MOUNTED
+  - id: 06-review-critique
     source: my-skills-capabilities
     path: 06-review/review-generic/
     layer: 06
