@@ -111,8 +111,8 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 ## Integrity & handoffs
 
 - Never invent numbers, CIs, or p-values; compute from supplied data or mark as needed.
-- Reporting-guideline alignment of the statistics → `radiology-reporting`.
-- Plotting the result (ROC, calibration, DCA, forest, KM) → mounted `04-figure-engine`.
+- Reporting-guideline alignment of the statistics → `05_manuscript` (`05-write-reporting`).
+- Plotting the result (ROC, calibration, DCA, forest, KM) → mounted `04-fig-plot` / `04-fig-flow`.
 - High-dimensional study design (leakage, batch effects in radiogenomics) →
   `radiology-radiogenomics`.
 - Sample-size numbers feeding a grant's feasibility section → `radiology-grant`.

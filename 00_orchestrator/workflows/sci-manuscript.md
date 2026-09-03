@@ -10,11 +10,12 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 
 ## Sequence
 
+0. **Session mount pick (`01`)** — before loading packs, ask which of the registry `MOUNTED` ids to attach **this run**. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick.
 1. **Confirm inputs** — results HTML, PNG, Figure 1 n from text. Missing n → ask, do not invent.
 2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
-3. **Figure 1 (`04_analysis`)** — mounted `04-fig-plot` (no inclusion box). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05.
+3. **Figure 1 (`04_analysis`)** — STROBE / patient-flow: mounted `04-fig-flow`. Statistical plots / imaging panels: mounted `04-fig-plot`. Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05. Do not draw Figure 1 with `04-fig-plot` and “no inclusion box”.
 4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
-5. **De-AI (`05_manuscript`)** — `de-ai/forbidden-phrases.md` then ai-isms. Methods stay passive.
+5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/forbidden-phrases.md` then ai-isms. Methods stay passive.
 6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user.
 7. **Revise (`05_manuscript`)** after the user answers. If reviewer comments exist → **`06_review` only as entry**, then `05_manuscript` for changed sentences.
 

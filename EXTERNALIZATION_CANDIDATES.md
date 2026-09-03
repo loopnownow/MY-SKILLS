@@ -11,7 +11,7 @@ Status: **not mounted**. After a mount covers an item, delete the A copy only wi
 - `03_research/design/`
 - `03_research/frontier/`
 
-B folders (CHG-20260903-009) are 1:1: `lit-search/` `lit-review/` `lit-cite/` `design-experiment/` `design-grant/` `frontier-ideate/` `frontier-hypothesize/`. A dual-track copies stay as `literature/` `design/` `frontier/`.
+B folders (CHG-20260903-009) are 1:1: `lit-search/` `lit-fulltext/` `lit-review/` `lit-cite/` `design-experiment/` `design-protocol/` `design-grant/` `frontier-ideate/` `frontier-hypothesize/`. A dual-track copies stay as `literature/` `design/` `frontier/`.
 
 Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clinical-translation/`, `03_research/ethics-application-forms/`.
 

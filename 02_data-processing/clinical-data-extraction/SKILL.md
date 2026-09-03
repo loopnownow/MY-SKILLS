@@ -1,9 +1,10 @@
 ---
 name: clinical-data-extraction
 description: >
-  Extract clinical data from txt/docx, labs, pathology text, and HIS queries.
-  Use for 提取检验, 病理全文, HIS, 临床数据提取, 出院小结抽取.
+  Extract clinical data from txt/docx, labs, and pathology text already exported
+  off the hospital machine. Use for 提取检验, 病理全文, 临床数据提取, 出院小结抽取.
   Dash/阴性 = Negative, not missing. Do not invent labs.
+  HIS login clients stay on the hospital machine, never in git.
 ---
 
 # 临床数据提取
@@ -14,8 +15,9 @@ description: >
 - 从 .txt / .docx 提取患者信息（姓名、性别、年龄、门诊号）
 - 提取检验指标（血常规、肝功能、肾功能、血糖血脂、肿瘤指标等）
 - 出院小结、入院记录内容抽取
-- 医院系统（HIS）查询、PACS 图像下载
 - 临床数据合并、去重、格式化
+
+HIS / PACS 登录与查询客户端只在医院机器上运行，**不得进入本仓库**。本技能只处理已经导出到本地的文本/文档。
 
 ## 核心工作流
 
@@ -28,13 +30,9 @@ description: >
 [Step 5] 输出 CSV / Excel
 ```
 
-### 2. 医院系统查询
-```
-[Step 1] 登录医院系统（HIS/PACS/Synapse）
-[Step 2] 输入患者 ID 查询
-[Step 3] 提取出院小结、检验报告
-[Step 4] 断点续传、错误重试
-```
+### 2. HIS 客户端（不在 A）
+
+HIS login automation must not live in A. Hospital-system clients stay on the hospital machine and are never committed to git. Do not add Selenium/HIS URLs, usernames, or passwords here. Feed this skill exported txt/docx/CSV only.
 
 ## 关键规则
 1. **LAB_DICT 字典**：所有检验指标关键词集中管理，便于增删
@@ -51,4 +49,3 @@ description: >
 ## 附带的脚本
 - `scripts/extract_patient_data.py` — 患者信息与检验指标提取
 - `scripts/extract_docx.py` — docx 文档批量提取
-- `scripts/query_patient.py` — 医院 HIS 系统查询

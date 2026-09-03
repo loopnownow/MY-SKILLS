@@ -63,9 +63,9 @@ Templates:
 - `Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed.`
 
 **Split wording:** manuscript BODY internal split is training/test. Figure 1
-(mounted `04-figure-engine`; already merged) uses published **Training Cohort /
+(mounted `04-fig-flow`; already merged) uses published **Training Cohort /
 Validation Cohort**. Only an other-hospital cohort is external validation.
-Never `Development set`. Do not rewrite mounted `04-figure-engine` from this file.
+Never `Development set`. Do not rewrite mounted `04-fig-flow` from this file.
 
 ## 1c. Results default + lab-unused stock (2026-08-28)
 
@@ -89,7 +89,7 @@ Direct side-by-side AUCs are more common than `outperformed`.
 
 **Do not use** as recommended stock: `suggesting its potential`,
 `demonstrated good performance` (0 hits in 389 unique drafts). Listed in
-`../de-ai/forbidden-phrases.md`.
+`../forbidden-phrases.md`.
 
 ---
 
@@ -217,7 +217,7 @@ different manuscripts in this corpus:
 ## 8. Words that ARE banned (policy reversal, 2026-08-29)
 
 **Status change:** as of 2026-08-29 these four words are **Forbidden** by
-explicit user editorial decision — see `../de-ai/forbidden-phrases.md`. This
+explicit user editorial decision — see `../forbidden-phrases.md`. This
 is a policy choice, not a correction of the corpus evidence below; the raw
 counts and in-context examples are kept as historical record and for
 calibration, not as license to re-add these words.

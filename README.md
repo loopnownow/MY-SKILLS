@@ -19,7 +19,6 @@ skill-harvest/
 archive/       Empty of skills; four packs rehomed 2026-09-02 (see archive/README.md)
 _medical-research-meta/  Architecture, integration map, tests
 ARCHITECTURE.md
-SKILLS_map.html
 MOUNTED_SKILLS.md          stub → 01 registry
 EXTERNALIZATION_CANDIDATES.md
 ```
@@ -32,12 +31,12 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts/*.md` live here; default source B |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + personal grant supplement + translational design + ethics forms |
-| `04_analysis` | Statistics, prediction, **figures** |
-| `05_manuscript` | Personal writing upper layer (not figure-engine) |
+| `04_analysis` | Statistics, prediction, **figures** (`04-fig-flow` / `04-fig-plot`) |
+| `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; 选刊 `05-write-venue`) |
 | `06_review` | Personal review/response upper layer (reviewer response only here) |
 | `skill-harvest` | Governance / ROI / evolution proposals |
 
-A = framework + personal. B = mountable skills. `registry.yaml` `mounts: []` — nothing is mounted until explicit approval. Never auto-mount.
+A = framework + personal. B = default mounted source. Registry lists **30 coarse ids** as a `MOUNTED` **menu** (`session_mount: ask-each-run`). Pick packs each run; do not auto-load all. Never auto-mount a non-B source. ARS/MedSci/Scientific stay PROPOSED backups.
 
 ## Maintenance
 

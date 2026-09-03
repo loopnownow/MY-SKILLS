@@ -181,7 +181,7 @@ This is the most technically precise section. Follow all sub-rules below.
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
 - Mirror the abstract objective + affirm clinical value.
-- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `de-ai/forbidden-phrases.md`).
+- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `forbidden-phrases.md`).
 
 ---
 

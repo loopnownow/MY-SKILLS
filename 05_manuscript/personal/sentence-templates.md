@@ -2,9 +2,9 @@
 
 Purpose / methods / results templates refreshed 2026-08-28 from 389 unique drafts (324 English). Do not collapse the three purpose-sentence families below. Do not vendor unpublished full texts, title dumps, or patient identifiers.
 
-**Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test** (training cohort / test cohort). Only an other-hospital cohort is **external validation**. Figure 1 (mounted `04-figure-engine`) uses published **Training Cohort / Validation Cohort** — do not rewrite figure-engine from this file. Never `Development set`. Never call a same-hospital random split external validation.
+**Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test** (training cohort / test cohort). Only an other-hospital cohort is **external validation**. Figure 1 (mounted `04-fig-flow`) uses published **Training Cohort / Validation Cohort** — do not rewrite `04-fig-flow` from this file. Never `Development set`. Never call a same-hospital random split external validation.
 
-**Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `de-ai/forbidden-phrases.md`.
+**Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `forbidden-phrases.md`.
 
 ## Abstract Templates
 
@@ -40,7 +40,7 @@ Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
 ### Conclusion sentence
-Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `de-ai/forbidden-phrases.md`).
+Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `forbidden-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
 - "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."
 - "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."

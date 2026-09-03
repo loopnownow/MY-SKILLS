@@ -46,7 +46,7 @@ Personal scripts are not replaced by a mounted pack.
 
 Call mounted ids from 01 (`mounts/README.md` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
 
-- `02-tables` — 临床表 Excel / CSV（含缺失/异常值；B `tables/impute/`）
+- `02-tables` — 临床表 Excel / CSV（含缺失/异常值）
 - `02-imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
 - `02-imaging-qc` — CT / MRI QC，ROI / 阅片
 - `02-pictures` — TIFF / PNG / JPG / PDF(图)

@@ -30,15 +30,15 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `04-stats-guide` — test selection / effect sizes (`statistical-analysis`)
-- `04-stats-power` — sample size / power (`statistical-power`)
-- `04-model-eval` — calibration / DCA / external validation (MedSci `model-evaluation` / `model-validation`)
-- `04-stats-models` — implementation (`statsmodels` / `pymc` / `scikit-learn` / `scikit-survival`); 0RAD personal still wins
-- `04-fig-flow` — STROBE / patient-flow (`draw_strobe_flow.py`)
+- `04-stats-guide` — test selection / effect sizes
+- `04-stats-power` — sample size / power
+- `04-model-eval` — calibration / DCA / external validation
+- `04-stats-models` — implementation; 0RAD personal still wins
+- `04-fig-flow` — STROBE / patient-flow
 - `04-fig-plot` — statistical plots / imaging panels
-- `04-explainability` — imaging-model XAI (Grad-CAM etc.), MedSci `skills/explainability/`. Not in B. Does not replace `personal/` 0RAD rules.
+- `04-explainability` — imaging-model XAI (Grad-CAM etc.). MedSci-only. Not in B. Does not replace `personal/` 0RAD rules.
 
-Retired: `04-stats-generic`.
+Retired: `04-stats-generic`, `04-figure-engine`.
 
 Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure stack inside 05.
 

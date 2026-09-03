@@ -295,7 +295,7 @@ A harvest/evolution cycle is complete only when:
 - no unauthorized top-level sibling skill was created (homes are `00`–`06` and `skill-harvest`).
 
 
-## 11. ROI ledger and anti-bloat gate
+## 13. ROI ledger and anti-bloat gate
 
 Use `data/roi-ledger.csv` as the only local evidence ledger. Do not backfill invented usage. One row represents one observable task outcome.
 

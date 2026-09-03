@@ -37,11 +37,11 @@ When reviewing an already-written manuscript, do **not** delete genuine referenc
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `06-review-peer` — other-paper peer review (Scientific `peer-review`; B `06-review/review-peer/`)
-- `06-review-critique` — self-audit / pre-submission (`scientific-critical-thinking` / `scholar-evaluation`)
-- `06-review-response` — point-by-point letters (MedSci `revise`; B `06-review/review-response/`)
+- `06-review-peer` — other-paper peer review
+- `06-review-critique` — self-audit / pre-submission
+- `06-review-response` — point-by-point letters
 
-Retired: `06-review-generic`. Packs live in B (`06-review/review-peer/`, `06-review/review-critique/`). Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
+Retired: `06-review-generic`. Packs live in B as `06-review-peer` / `06-review-critique` / `06-review-response`. Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 
 ## Modes
 
@@ -60,5 +60,7 @@ Retired: `06-review-generic`. Packs live in B (`06-review/review-peer/`, `06-rev
 ## Not this skill
 
 - 写论著 / 润色 / 去AI / 引言 / 讨论 → `05_manuscript`
-- 选题 / 选刊 / 文献检索 → `03_research`
+- 选题 / 文献检索 → `03_research`
+- 选刊 → `05_manuscript` (`05-write-venue`)
+- 样本量 → `04_analysis` (`04-stats-power`)
 - 出图 → `04_analysis`
