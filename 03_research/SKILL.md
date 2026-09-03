@@ -14,7 +14,7 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
-**Mounted literature/design/frontier skills are primary for generic retrieval and blueprints** when mounted. Local generic files are a temporary supplement until coverage is confirmed (`EXTERNALIZATION_CANDIDATES.md`). Personal grant/ethics/intake/translation files stay here.
+**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Local `literature/` `design/` `frontier/` are a **temporary dual-track supplement**, not those split ids (`EXTERNALIZATION_CANDIDATES.md`). Personal grant/ethics/intake/translation files stay here. 选刊 is `05-write-venue`, not 03 literature.
 
 ## Literature rule
 
@@ -36,25 +36,25 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 
-`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at B `03-research/design-experiment/`.
+`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at `03-design-experiment` / `03-design-protocol`.
 
-## Mounted capability ids (generic; PROPOSED until mounted)
+## Mounted capability ids (generic; registry MOUNTED = menu)
 
-**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached. 03 ids are already MOUNTED in the registry (still ask-each-run).
 
-- `03-lit-search` — retrieve papers (Scientific `paper-lookup` / `research-lookup`)
-- `03-lit-fulltext` — fetch PDF/HTML (MedSci `fulltext-retrieval`)
-- `03-lit-review` — synthesize / systematic review (`literature-review`)
-- `03-lit-cite` — citation library / Zotero (`citation-management` / `pyzotero`)
-- `03-design-experiment` — pre-data experimental design (`experimental-design`)
-- `03-design-protocol` — write/fill protocol (MedSci `write-protocol` / `fill-protocol`)
-- `03-design-grant` — grant text (`research-grants`); A Voice A/B still wins
-- `03-frontier-ideate` — topic brainstorm (`scientific-brainstorming`)
-- `03-frontier-hypothesize` — question/hypothesis (`hypothesis-generation`; `hypogenic` secondary)
+- `03-lit-search` — retrieve papers
+- `03-lit-fulltext` — fetch PDF/HTML
+- `03-lit-review` — synthesize / systematic review
+- `03-lit-cite` — citation library / Zotero
+- `03-design-experiment` — pre-data experimental design
+- `03-design-protocol` — write/fill protocol
+- `03-design-grant` — grant text; A Voice A/B still wins
+- `03-frontier-ideate` — topic brainstorm
+- `03-frontier-hypothesize` — question/hypothesis
 
 Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
 
-Until mounted, local copies remain under `literature/`, `design/`, `frontier/` (see `EXTERNALIZATION_CANDIDATES.md`).
+Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplement**, not the split ids (see `EXTERNALIZATION_CANDIDATES.md`). 选刊 is `05-write-venue`, not 03 literature.
 
 ## Modes
 

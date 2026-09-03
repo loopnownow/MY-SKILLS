@@ -25,7 +25,7 @@ description: >
 | 填完自检 | `references/checklist.md` |
 | 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |
 | 统计 / 样本量公式 | `04_analysis` |
-| 知情同意通俗正文、论著里的伦理段落 | `05_manuscript` `radiology-ethics` — 本技能只把已定正文填进表 |
+| 知情同意通俗正文、论著里的伦理段落 | `05_manuscript` — 本技能只把已定正文填进表 |
 | Excel 登记表 | `02_data-processing`（mounted `02-tables`）若 COM/xlsx 脚本不够用 |
 
 ## Modes
@@ -68,7 +68,9 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 
 ## Not this skill
 
-- 选题 / 写研究设计 / 选刊 → `03_research`
+- 选题 / 写研究设计 → `03_research`
+- 选刊 → `05_manuscript` (`05-write-venue`)
+- 样本量 → `04_analysis` (`04-stats-power`)
 - 写论著 Methods 伦理段、去 AI、配图 → `05_manuscript`
 - 评阅 / 回审稿 → `06_review`
 - 编造伦理批号、学历、GCP、未提供的团队成员

@@ -42,7 +42,9 @@ There are **no archive-as-standalone routes**. The four former archive packs liv
 - 提取检验 / HIS → `02_data-processing` (`clinical-data-extraction`)
 - 转化 / reader study / 前瞻部署 / 阈值到行动 → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`
-- 选题 / 研究设计 / **文献** / 选刊 / 样本量 → `03_research`
+- 选题 / 研究设计 / **文献** → `03_research`
+- 选刊 → `05_manuscript` (`05-write-venue`)
+- 样本量 → `04_analysis` (`04-stats-power`)
 - 统计 / AUC / DeLong / DCA / **出图** → `04_analysis`
 - 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`
 - 预审 / 审稿 / **回复审稿人** → `06_review`

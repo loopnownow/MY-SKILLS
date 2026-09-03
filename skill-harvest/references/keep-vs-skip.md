@@ -23,6 +23,6 @@ Examples that belong: English clinical labels; exclude-then-analyze; `VAL_MODE` 
 
 When scanning `~/.agents/skills`, Downloads zips, or `skills_export`:
 
-- **Absorb** a missing *mode* or script into the matching 00–06 bundle.
+- **Absorb** a missing *mode* or script into the matching 00–06 skill.
 - **Do not** register the imported pack as a new top-level skill.
 - Lab voice / house format wins over generic academic wording.

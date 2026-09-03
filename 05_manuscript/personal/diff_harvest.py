@@ -22,7 +22,7 @@ Usage
 -----
     python3 diff_harvest.py \\
         --phrase-bank corpus-phrase-bank.md \\
-        --forbidden de-ai/forbidden-phrases.md \\
+        --forbidden forbidden-phrases.md \\
         --draft ai_draft.txt --final your_edited_final.txt \\
         --title "Manuscript title"
 

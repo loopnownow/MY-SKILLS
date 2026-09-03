@@ -12,7 +12,7 @@ study_design:
   design: ""         # retrospective | prospective | ...
   inclusion: []
   exclusion: []
-  ethics_id: ""      # blank = yellow highlight in manuscript; do not invent
+  ethics_id: ""      # blank = Word comment only (author A); never yellow highlight; do not invent
 
 analysis_plan:
   endpoints: []      # display names; run keys live in settings.ini OUTCOME_COLS

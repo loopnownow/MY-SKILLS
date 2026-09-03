@@ -40,11 +40,11 @@ Convert **validated** research information into precise, publication-ready origi
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `05-write-manuscript` — manuscript/report draft (Scientific `scientific-writing` / `markdown-mermaid-writing`; B `05-manuscript/write-manuscript/`). Not Aitor-format. `clinical-reports` is not this id.
-- `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper (MedSci `check-reporting`)
-- `05-write-venue` — journal selection / templates (`venue-templates`)
-- `05-write-polish` — generic academic English (MedSci `polish-language`). Not de-AI.
-- `05-humanize` — generic de-AI / humanize (MedSci `skills/humanize/`). Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
+- `05-write-manuscript` — manuscript/report draft. Not Aitor-format. `clinical-reports` is not this id.
+- `05-write-reporting` — TRIPOD / CLAIM / CLEAR in the paper
+- `05-write-venue` — journal selection / templates
+- `05-write-polish` — generic academic English. Not de-AI.
+- `05-humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
 Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 

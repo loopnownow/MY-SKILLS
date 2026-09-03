@@ -86,37 +86,4 @@
 | `skills/publish-skill/` | 把个人 skill 发成可分发包 | `skill-harvest` / 01 |
 | `skills/sync-submission/` | 投稿清单 / SSOT 对账 | Bai（投稿专员，不是 skill） |
 
-## A 没有对应接口
-
-
-
-这些 skill 在 MedSci 里存在，但不在 30 个挂载 id 上。分两类：真扩展候选，和 A 已有层/人但没有挂载接口。
-
-### 扩展候选（A 没有对应包）
-
-| 路径 | 做什么 | 以后可接到 |
-|---|---|---|
-| `skills/academic-aio/` | 面向 AI 检索/RAG 的论文优化 | 新 05 或 03 接口 |
-| `skills/author-strategy/` | PubMed 作者画像与发文策略 | 新 03 接口 |
-| `skills/cross-national/` | 跨国队列对齐（KNHANES/NHANES/CHNS） | 新 03/04 接口 |
-| `skills/fill-icmje-coi/` | ICMJE 利益冲突表 | 新 03；A 伦理包是医院 IRB，不是这张表 |
-| `skills/mllm-eval/` | 临床 LLM/MLLM 评测框架 | 新 04 接口 |
-| `skills/model-card/` | Model Card / Datasheet | 新 04 接口 |
-| `skills/model-scaffold/` | 医学影像 PyTorch 训练仓脚手架 | 新 02/04 接口 |
-| `skills/model-sourcing/` | 第三方模型版本/权重审验 | 新 04 接口 |
-| `skills/obsidian-paper-vault/` | PDF → Obsidian 文献库 | 新 03 工具接口 |
-| `skills/render-pdf-doc/` | Markdown → 发表级 PDF | 新 05 接口 |
-| `skills/replicate-study/` | 把已发表队列方法复现到另一数据库 | 新 03 接口 |
-
-### 仅有类比、没有挂载 id
-
-| 路径 | 做什么 | A 侧类比 |
-|---|---|---|
-| `skills/orchestrate/` | 多步路由到 MedSci skill | `00_orchestrator` |
-| `skills/manage-project/` | 课题/稿件项目管理 | `00_orchestrator` |
-| `skills/setup-medsci/` | 运行时体检 | `01` |
-| `skills/contribute/` | 把本地改动贡献回仓库 | `skill-harvest` / 01 |
-| `skills/publish-skill/` | 把个人 skill 发成可分发包 | `skill-harvest` / 01 |
-| `skills/sync-submission/` | 投稿清单 / SSOT 对账 | Bai（投稿专员，不是 skill） |
-
 机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。空挂 = 仅用本套时该 A id 在来源里没有对应路径。映射扫自公开 GitHub，不是静默改挂。

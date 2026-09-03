@@ -1,4 +1,4 @@
-relocate-20260902 (2026-09-02)
-A personal/orchestrator; 05 de-ai + writing-generic and 06 review-generic live in B
-ethics-application-forms under 03; 04 radiology-stats merged into personal
-B = loopnownow/MY-SKILLS-capabilities (not mounted)
+CHG-20260903-013 (2026-09-03)
+B is the default mounted source (loopnownow/MY-SKILLS-capabilities)
+writing-generic / review-generic retired
+ethics-application-forms under 03; session_mount: ask-each-run; 30 ids MOUNTED (menu)

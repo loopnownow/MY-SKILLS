@@ -2,7 +2,7 @@
 
 **Owner:** `05_manuscript` (`references/lab-palettes.md`). Hex must match `D:\0Grok\0RAD\modules\config\style.py` `FIG_PALETTES` and `console.html` `PALETTES`.
 
-Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `04-figure-engine` (`color-systems.md`). This file is the **lab console five-set** used by the 0RAD pipeline.
+Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `04-fig-plot` (`color-systems.md`). This file is the **lab console five-set** used by the 0RAD pipeline.
 
 One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**. Auxiliary colors: remaining ROC curves, KM strata, unnamed models.
 

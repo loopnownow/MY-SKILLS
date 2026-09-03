@@ -31,7 +31,7 @@ Use this checklist when polishing Results and Methods sections.
 
 ### Split wording (body vs Figure 1)
 - [ ] Manuscript **BODY** internal split is **training / test** (training cohort / test cohort)
-- [ ] Figure 1 (mounted `04-figure-engine`) uses published **Training Cohort / Validation Cohort** — do not rewrite mounted `04-figure-engine` from this checklist
+- [ ] Figure 1 (mounted `04-fig-flow`) uses published **Training Cohort / Validation Cohort** — do not rewrite mounted `04-fig-flow` from this checklist
 - [ ] **External validation** only for an other-hospital cohort; never a same-hospital random split
 - [ ] Never `Development set`; never `hold-out` as the test-set name
 
