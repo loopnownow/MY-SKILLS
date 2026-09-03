@@ -303,3 +303,16 @@ change: Added mount ids 04-explainability and 05-humanize (source MedSci, MOUNTE
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 01 mounts HTML → markdown 2026-09-03 (user)
+
+```text
+change_id: CHG-20260903-006
+date: 2026-09-03
+skill: 01_skill-discovery-integration
+change_class: interface board
+problem: mounts/ was HTML + CSS; user asked for markdown and to drop extra files.
+change: Replaced mounts.html / mounts-b.html / mounts-ars.html / mounts-medsci.html / mounts.css with README.md, b.md, ars.md, medsci.md. Content unchanged. yaml remains machine truth.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

@@ -1,5 +1,5 @@
 # Mount pointers live only in 01.
-# Human board: mounts/ (index + per-preset pages; extras listed on each source page)
+# Human board: mounts/*.md (README index + b.md / ars.md / medsci.md)
 # Per-source config: sources/<source>.yaml (one external repo per file).
 # Default source is B (loopnownow/MY-SKILLS-capabilities).
 # Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
