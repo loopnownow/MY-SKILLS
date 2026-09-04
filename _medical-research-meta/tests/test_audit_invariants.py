@@ -305,6 +305,7 @@ class ReviewInteract(unittest.TestCase):
 
 class MountsCap(unittest.TestCase):
     def test_cache_scaffold(self) -> None:
+        self.assertFalse((ROOT / "archive").exists())
         root = ROOT / "mounts-cap"
         self.assertTrue((root / "README.md").is_file())
         self.assertTrue((root / "INDEX.yaml").is_file())
@@ -356,15 +357,15 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260904-002", text)
-        self.assertIn("attribution", text.lower())
-        self.assertIn("G-06", text)
+        self.assertIn("CHG-20260904-003", text)
+        self.assertIn("archive", text.lower())
+        self.assertIn("mounts-cap/b", text)
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260904-003", text)
         self.assertIn("CHG-20260904-002", text)
         self.assertIn("CHG-20260904-001", text)
-        self.assertIn("CHG-20260903-016", text)
 
     def test_skills_map_html_gone(self) -> None:
         self.assertFalse((ROOT / "SKILLS_map.html").exists())

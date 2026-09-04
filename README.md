@@ -17,7 +17,6 @@ mounts-cap/   Local cache: full B + on-demand backup skills (gitignored bytes)
 05_manuscript/
 06_review/
 skill-harvest/
-archive/       Empty of skills; four packs rehomed 2026-09-02 (see archive/README.md)
 _medical-research-meta/  Architecture, integration map, tests
 ARCHITECTURE.md
 MOUNTED_SKILLS.md          stub → 01 registry

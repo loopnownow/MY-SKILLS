@@ -478,3 +478,17 @@ change: P0 in personal-review-style §0 — author field A ≠ source prefix; mo
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## Remove archive stub + B under mounts-cap 2026-09-04 (user)
+
+```text
+change_id: CHG-20260904-003
+date: 2026-09-04
+skill: layout + mounts-cap
+author: Aitor
+change_class: layout
+problem: archive/ only held README after packs were rehomed; B still lived as a sibling of A instead of mounts-cap/b/.
+change: Deleted archive/. Docs/tests no longer require it. Canonical local B is mounts-cap/b/; fetch.py migrate-b moves leftover sibling MY-SKILLS-capabilities/. Pack bytes stay gitignored.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

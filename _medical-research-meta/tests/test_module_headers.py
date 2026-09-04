@@ -2,7 +2,6 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-ARCHIVE = ROOT / "archive"
 SKILL_DIRS = (
     "00_orchestrator",
     "01_skill-discovery-integration",
@@ -18,22 +17,13 @@ SKILL_DIRS = (
 class ModuleHeaderTests(unittest.TestCase):
     def test_layout_core_and_archive(self):
         self.assertFalse((ROOT / "core").exists(), "core/ must be lifted to repo root")
-        self.assertTrue((ROOT / "archive").is_dir())
+        self.assertFalse((ROOT / "archive").exists(), "empty archive/ stub removed")
         root_dirs = {p.name for p in ROOT.iterdir() if p.is_dir()}
         for expected in SKILL_DIRS:
             self.assertIn(expected, root_dirs)
         self.assertNotIn("01_automation", root_dirs)
         self.assertNotIn("02_imaging", root_dirs)
-        archive_skill_dirs = {p.name for p in ARCHIVE.iterdir() if p.is_dir()}
-        for former in (
-            "ethics-application-forms",
-            "code-refactoring",
-            "clinical-data-extraction",
-            "clinical-translation",
-        ):
-            self.assertNotIn(former, archive_skill_dirs)
-            self.assertFalse((ARCHIVE / former / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "archive" / "README.md").is_file())
+        self.assertIn("mounts-cap", root_dirs)
         self.assertTrue((ROOT / "02_data-processing" / "clinical-data-extraction" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "code-refactoring" / "SKILL.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "ethics-application-forms" / "SKILL.md").is_file())

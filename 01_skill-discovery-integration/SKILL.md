@@ -27,7 +27,7 @@ Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). Preset maps i
 
 Bytes live at repo-root `mounts-cap/` (gitignored pack trees). Pointers stay in this skill.
 
-- **B** (`mounts-cap/b/`): keep the full tree. Missing → `python mounts-cap/fetch.py ensure-b`. Present → compare GitHub SHA and update if needed. A sibling `MY-SKILLS-capabilities/` is still accepted as legacy B.
+- **B** (`mounts-cap/b/`): **canonical** full tree. Missing → `python mounts-cap/fetch.py ensure-b` (or `migrate-b` if a leftover sibling `MY-SKILLS-capabilities/` still sits next to A). Do not keep B as a sibling of A.
 - **ARS / MedSci / Scientific**: download **only the path(s) of ids picked this run**. Never clone those repos wholesale. Example: picking `04-explainability` fetches `skills/explainability/` into `mounts-cap/medsci/`, not the rest of MedSci.
 - `python mounts-cap/fetch.py ensure --id <coarse-id>` after the session pick. Download is not a mount. Empty after fetch → empty-mount protocol.
 
