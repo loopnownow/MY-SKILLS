@@ -17,8 +17,12 @@
 
 ## 0. 批注与冲突（实验室硬规则）
 
-- Word / 稿面批注作者 **A**。禁止黄底。
-- 每条批注标明来源前缀：`[A:personal]` · `[06-review-peer]` · `[06-review-critique]` · `[06-review-response]` · `[B:…]` · `[MedSci:…]` 等。
+- Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
+- 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
+  - 例：`[A:personal]` · `[06-review-peer]` · `[B:…]` · `[ARS:academic-paper-reviewer]` · `[MedSci:self-review]` · `[Scientific:peer-review]` · `[03-lit-search]`
+  - 挂载 + 个人都成立 → **双标**，例：`[Scientific:peer-review] [A:personal]`
+- **强制：** 本轮挂了 ARS / MedSci / Scientific（或非个人 B 包）时，凡发现/门控/清单条目来自该包，前缀**必须**含 `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[B:…]`。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
+- 无挂载时不得出现 `[MedSci:]` / `[ARS:]` / `[Scientific:]` 空壳前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**；未点头不改稿。
 - 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户；可附 1–2 句 **reference only** 改写，不直接落稿。
 - 改文单元：**词或句**，禁止整段重写。
@@ -147,14 +151,15 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 - Minor：结构松散、重复 Results。
 
 ### 4.7 References
-**重点：** 是否客观代表性；近 2–3 年关键文献；格式。
+**重点：** 是否客观代表性；近 2–3 年关键文献；格式；有无重复条目。
+- Major：同一 DOI / 同一题名出现两次 → Major：先并号或换文献；换文献时**不得**把旧篇独有数字（病例数、AUC 等）抄到新篇。
 - Major：文献核对有误 → 批注给 **双轨方案**（见下），由 00 QC 决定是否调 `03_research`；不编造 PMID。
-- Minor：格式、DOI。
+- Minor：格式、DOI 缺漏。
 
 **文献核对失败（双轨，写入批注，用户拍板）：**
 1. **改原文方案**（词/句级）：改前句 / 改后句。
 2. **不改原文方案**：交接 03 检索可支撑现句的替代文献（真实 PMID/DOI）。  
-是否真调 03 → **00 在 QC 决定**；吃不准问用户一句。
+是否真调 03 → **00 在 QC 决定**；吃不准问用户一句。换上的新篇只带该篇真实信息；旧篇数字不迁移。
 
 ### 4.8 Figures & Tables
 **重点：** 自明性；与正文一致；分辨率、比例尺、图例、统计符号。

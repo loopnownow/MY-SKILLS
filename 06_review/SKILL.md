@@ -66,7 +66,7 @@ English peer-review / pre-review body follows `personal/personal-review-style.md
 
 ## Comments, conflicts, undecidable items
 
-- Comment author **A**; never yellow. Prefix source: `[A:personal]`, `[06-review-peer]`, `[06-review-critique]`, `[06-review-response]`, `[B:…]`, …
+- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 (author ≠ prefix; mount-driven items must carry `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[B:…]`, dual-tag OK).
 - Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
 - Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
 - Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03.

@@ -8,7 +8,7 @@ Local **byte cache** for B and backup plugin packs. Not a domain skill. Pointers
 | `ars/` `medsci/` `scientific/` | backup repos | **Only the skill path(s) for ids picked this run.** Never clone the whole backup. |
 | `STATE.yaml` | local | Recorded SHAs. Gitignored. |
 
-Download is **not** a mount. Session pick and empty-mount protocol still apply. Never auto-mount a non-B source because a folder appeared here.
+Download is **not** a mount. Backup fetches prefer zip/codeload; `STATE.yaml` merges under lock so parallel `ensure --id` does not clobber keys. Session pick and empty-mount protocol still apply. Never auto-mount a non-B source because a folder appeared here.
 
 Legacy: if `MY-SKILLS-capabilities/` still sits next to A, 01 may read it as B until `b/` exists. New fetches go here.
 

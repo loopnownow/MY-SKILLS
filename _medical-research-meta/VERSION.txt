@@ -1,4 +1,4 @@
-CHG-20260904-001 (2026-09-04)
-00 plan card + execute-QC-execute; G-LIT dual plan
-05/06 cross-call + sentence-unit edits; comments user-decides
-06 personal-review-style rearranged to 8-section template
+CHG-20260904-002 (2026-09-04)
+P0 comment attribution: author A ≠ source prefix; mount tags mandatory
+G-06 mount-prefix check; refs duplicate DOI; 05 cite-number scan
+mounts-cap fetch: zip-first + merge STATE under lock

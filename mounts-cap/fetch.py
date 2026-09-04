@@ -84,6 +84,38 @@ def save_state(state: dict) -> None:
     (HERE / "STATE.yaml").write_text("".join(lines), encoding="utf-8")
 
 
+def _state_lock():
+    """Best-effort exclusive lock so parallel ensure --id does not clobber STATE."""
+    lock_path = HERE / ".state.lock"
+    lock_path.touch(exist_ok=True)
+    fh = open(lock_path, "a+", encoding="utf-8")
+    try:
+        import fcntl
+        fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
+    except Exception:
+        pass  # Windows / no fcntl: merge-on-write below still helps
+    return fh
+
+
+def merge_source_state(source_id: str, updates: dict) -> dict:
+    """Reload STATE, merge updates into source_id, write back under lock."""
+    fh = _state_lock()
+    try:
+        state = load_state()
+        rec = dict(state.get(source_id, {}))
+        rec.update(updates)
+        state[source_id] = rec
+        save_state(state)
+        return state
+    finally:
+        try:
+            import fcntl
+            fcntl.flock(fh.fileno(), fcntl.LOCK_UN)
+        except Exception:
+            pass
+        fh.close()
+
+
 def repo_head(owner_repo: str) -> str:
     data = http_json(f"{API}/repos/{owner_repo}/commits/HEAD")
     if not isinstance(data, dict) or "sha" not in data:
@@ -181,7 +213,8 @@ def fetch_dir_api(owner_repo: str, rel: str, dest: Path, ref: str) -> int:
     try:
         data = http_json(url)
     except urllib.error.HTTPError as e:
-        die(f"GitHub {e.code} for {owner_repo}:{rel}")
+        # Let caller fall back to zip (esp. 403 rate limit)
+        raise
     if isinstance(data, dict) and data.get("type") == "file":
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(http_bytes(data["download_url"]))
@@ -244,8 +277,7 @@ def ensure_b(force: bool = False) -> None:
     n = unzip_prefix(zbytes, "", dest)
     if n == 0:
         die("B zip extracted 0 files")
-    state["b"] = {"sha": remote, "files": str(n)}
-    save_state(state)
+    merge_source_state("b", {"sha": remote, "files": str(n)})
     print(f"B cached {dest} ({n} files)")
 
 
@@ -263,28 +295,49 @@ def ensure_id(skill_id: str, source_id: str | None = None, force: bool = False) 
     remote = repo_head(owner_repo)
     dest_base = dest_root(source_id)
     state = load_state()
-    rec = state.get(source_id, {})
+    rec = dict(state.get(source_id, {}))
     n_total = 0
+    zbytes_cache: bytes | None = None
+
+    def zip_bytes() -> bytes:
+        nonlocal zbytes_cache
+        if zbytes_cache is None:
+            print(f"codeload zip {owner_repo}@{remote[:7]}")
+            zbytes_cache = http_bytes(f"{CODELOAD}/{owner_repo}/zip/{remote}")
+        return zbytes_cache
+
     for rel in parse_paths(path):
         dest = dest_base / rel
         key = rel
         if dest.is_dir() and any(dest.iterdir()) and rec.get(key, "").startswith(remote[:7]) and not force:
             print(f"skip {source_id}:{rel} @{remote[:7]}")
             continue
-        print(f"fetch {source_id}:{rel} @{remote[:7]}")
+        # Prefer zip/codeload for backup packs (avoids Contents API rate limits).
+        print(f"fetch {source_id}:{rel} @{remote[:7]} via zip")
         try:
-            n = fetch_dir_api(owner_repo, rel, dest, remote)
-        except (urllib.error.HTTPError, urllib.error.URLError) as e:
-            print(f"API failed ({e}); zip fallback for {rel}")
-            zbytes = http_bytes(f"{CODELOAD}/{owner_repo}/zip/{remote}")
-            n = unzip_prefix(zbytes, rel, dest)
+            n = unzip_prefix(zip_bytes(), rel, dest)
+        except Exception as e:
+            print(f"zip failed ({e}); trying Contents API")
+            try:
+                n = fetch_dir_api(owner_repo, rel, dest, remote)
+            except urllib.error.HTTPError as he:
+                if he.code == 403:
+                    die(f"GitHub 403 for {owner_repo}:{rel} after zip+API — empty-mount protocol")
+                raise
+        if n == 0:
+            # last chance: API then die
+            try:
+                print(f"zip empty; retry API for {rel}")
+                n = fetch_dir_api(owner_repo, rel, dest, remote)
+            except urllib.error.HTTPError as he:
+                die(f"empty fetch {source_id}:{rel} (HTTP {he.code}) — empty-mount protocol")
         if n == 0:
             die(f"empty fetch {source_id}:{rel} — empty-mount protocol")
         rec[key] = remote
         n_total += n
     rec["sha"] = remote
-    state[source_id] = rec
-    save_state(state)
+    # Merge under lock so parallel `ensure --id` does not drop sibling keys.
+    merge_source_state(source_id, rec)
     print(f"cached {skill_id} from {source_id} ({n_total} new files)")
 
 
