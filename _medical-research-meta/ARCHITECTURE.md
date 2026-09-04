@@ -49,7 +49,8 @@ Handoff payload when crossing skills: objective, inputs inspected, decisions, as
 
 **Local recovery:** if QC finds a localized defect, identify the responsible skill and send **only the erroneous portion** back. Max 3 rounds, then `unresolved`. Do not rerun already-correct stages.
 
-`intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
+`plan → execute node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
+Interactive by default (plan card before multi-node dispatch). Prose repairs are word/sentence units. Mount vs lab conflicts go to Word comments with an edit plan; the user decides. Lit-verify fail uses a dual plan; 00 decides whether to call 03.
 
 ## External Skill mounting
 
