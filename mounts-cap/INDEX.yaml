@@ -1,7 +1,8 @@
 # Local capability cache (bytes). Pointers stay in 01.
 # Git tracks this file + README + fetch.py only.
 cache_root: mounts-cap
-legacy_b: MY-SKILLS-capabilities
+canonical_b: b
+legacy_b_sibling: MY-SKILLS-capabilities  # migrate with fetch.py migrate-b; do not keep
 policy:
   b: full-tree
   non_b: on-demand-path-only

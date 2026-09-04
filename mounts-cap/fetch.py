@@ -202,6 +202,7 @@ def b_present() -> Path | None:
         return b
     leg = legacy_b()
     if leg.is_dir() and any(leg.iterdir()):
+        print(f"WARN: legacy sibling B at {leg}; run: python mounts-cap/fetch.py migrate-b", file=sys.stderr)
         return leg
     return None
 
@@ -341,6 +342,24 @@ def ensure_id(skill_id: str, source_id: str | None = None, force: bool = False) 
     print(f"cached {skill_id} from {source_id} ({n_total} new files)")
 
 
+def migrate_b() -> None:
+    """Move leftover sibling MY-SKILLS-capabilities/ into mounts-cap/b/."""
+    leg = legacy_b()
+    dest = dest_root("my-skills-capabilities")
+    if not leg.is_dir():
+        print(f"no sibling legacy at {leg}")
+        if dest.is_dir() and any(dest.iterdir()):
+            print(f"canonical B already at {dest}")
+        return
+    if dest.is_dir() and any(dest.iterdir()):
+        die(f"refusing migrate: {dest} already has files; remove or merge by hand")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    leg.rename(dest)
+    print(f"migrated {leg} → {dest}")
+    merge_source_state("b", {"migrated_from": "MY-SKILLS-capabilities"})
+
+
+
 def cmd_check() -> None:
     print(f"cache {HERE}")
     b = b_present()
@@ -355,6 +374,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="mounts-cap: full B, on-demand backups")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("ensure-b", help="download or update the full B tree")
+    sub.add_parser("migrate-b", help="move sibling MY-SKILLS-capabilities/ into mounts-cap/b/")
     e = sub.add_parser("ensure", help="one skill id; backups fetch only that path")
     e.add_argument("--id", required=True)
     e.add_argument("--source", default=None, help="override source id (still path-only for non-B)")
@@ -363,6 +383,8 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
     if args.cmd == "ensure-b":
         ensure_b()
+    elif args.cmd == "migrate-b":
+        migrate_b()
     elif args.cmd == "ensure":
         ensure_id(args.id, args.source, force=getattr(args, "force", False))
     elif args.cmd == "check":

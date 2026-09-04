@@ -10,7 +10,7 @@ skills/
 ├── 05_manuscript
 ├── 06_review
 ├── skill-harvest
-├── archive/          (empty of skills; packs rehomed)
+├── mounts-cap/       (local B + on-demand backups; pack bytes gitignored)
 └── _medical-research-meta/
 ```
 
