@@ -77,6 +77,24 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Statistics / figures → `04_analysis`
 - Literature landscape / 选刊 / where to submit → `03_research` (`literature/journal-selection.md`)
 
+
+## Internal calls (not entry points)
+
+05 personal may request siblings via `00_orchestrator/templates/handoff.yaml`. Do not silently edit other skills' files.
+
+- Literature / 选刊 / evidence → `03_research`
+- Numbers / figures → `04_analysis`
+- Tables / imaging prep → `02_data-processing`
+- Pre-review / response entry → `06_review`
+- Cross-skill or exit QC → `00_orchestrator` decides whether to invoke
+
+## Edit unit and comments
+
+- Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
+- Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:05-write-polish]`, …).
+- Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
+- Literature verify fail: comment with dual plan (revise sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
+
 ## Writing QC (domain)
 
 terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC

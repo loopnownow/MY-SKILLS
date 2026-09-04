@@ -450,3 +450,17 @@ change: Added repo-root mounts-cap/ (README, INDEX, fetch.py). Pack trees gitign
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## 00/05/06 interact + review template 2026-09-04 (user)
+
+```text
+change_id: CHG-20260904-001
+date: 2026-09-04
+skill: 00_orchestrator + 05_manuscript + 06_review
+author: Aitor
+change_class: policy
+problem: User wanted interactive 00 (plan first, execute-QC-execute), sentence-level edits, tagged comments with user-final decisions on mount vs lab conflicts, lit-verify dual plans, and personal English review rearranged to an 8-section Major/Minor template.
+change: 00 plan card + G-LIT; 05 internal-call table + edit-unit/comments; 06 layout/comment/conflict rules; personal-review-style.md rewritten to Title…Figures template while keeping corpus themes; response-style §9. Mount conflicts → comment with edit plan; user decides. Do not silent-apply mounts.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

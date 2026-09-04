@@ -52,10 +52,24 @@ Retired: `06-review-generic`. Packs live in B as `06-review-peer` / `06-review-c
 
 ## Internal calls (not entry points)
 
-- Wording / layout → `05_manuscript`
+Use handoff cards. 00 owns cross-skill QC and whether a call actually runs.
+
+- Wording / layout → `05_manuscript` (**word/sentence** units only)
 - New statistics → `04_analysis`
 - Imaging verification → `02_data-processing`
 - Design / literature fact-check → `03_research`
+- Exit / multi-node → `00_orchestrator`
+
+## Personal review layout
+
+English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Response letters stay on `personal/personal-response-style.md`.
+
+## Comments, conflicts, undecidable items
+
+- Comment author **A**; never yellow. Prefix source: `[A:personal]`, `[06-review-peer]`, `[06-review-critique]`, `[06-review-response]`, `[B:…]`, …
+- Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
+- Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
+- Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03.
 
 ## Not this skill
 

@@ -240,6 +240,43 @@ class OrchestratorLoop(unittest.TestCase):
 
 
 
+
+class ReviewInteract(unittest.TestCase):
+    def test_personal_review_eight_sections(self) -> None:
+        text = read("06_review/personal/personal-review-style.md")
+        for h in (
+            "1. Title",
+            "2. Abstract",
+            "3. Introduction",
+            "4. Methods",
+            "5. Results",
+            "6. Discussion",
+            "7. References",
+            "8. Figures & Tables",
+        ):
+            self.assertIn(h, text)
+        self.assertIn("Major Issues", text)
+        self.assertIn("用户决定", text)
+        self.assertIn("词或句", text)
+        self.assertNotIn("mode-2-prereview.md", text)
+
+    def test_00_05_06_interact_rules(self) -> None:
+        zero = read("00_orchestrator/SKILL.md")
+        self.assertIn("Plan card", zero)
+        self.assertIn("G-LIT", zero)
+        self.assertIn("word/sentence", zero)
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("G-LIT", gates)
+        five = read("05_manuscript/SKILL.md")
+        self.assertIn("Internal calls", five)
+        self.assertIn("word or sentence", five)
+        six = read("06_review/SKILL.md")
+        self.assertIn("Personal review layout", six)
+        self.assertIn("User decides", six)
+        resp = read("06_review/personal/personal-response-style.md")
+        self.assertIn("词或句", resp)
+
+
 class MountsCap(unittest.TestCase):
     def test_cache_scaffold(self) -> None:
         root = ROOT / "mounts-cap"
@@ -293,17 +330,16 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260903-016", text)
-        self.assertIn("mounts-cap", text.lower())
-        self.assertIn("on-demand", text.lower())
+        self.assertIn("CHG-20260904-001", text)
+        self.assertIn("sentence", text.lower())
+        self.assertIn("plan card", text.lower())
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260904-001", text)
         self.assertIn("CHG-20260903-016", text)
         self.assertIn("CHG-20260903-015", text)
         self.assertIn("CHG-20260903-014", text)
-        self.assertIn("CHG-20260903-013", text)
-        self.assertIn("CHG-20260903-012", text)
 
     def test_skills_map_html_gone(self) -> None:
         self.assertFalse((ROOT / "SKILLS_map.html").exists())
