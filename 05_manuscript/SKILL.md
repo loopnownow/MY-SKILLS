@@ -94,6 +94,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:05-write-polish]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: comment with dual plan (revise sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
+- **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
 
 ## Writing QC (domain)
 

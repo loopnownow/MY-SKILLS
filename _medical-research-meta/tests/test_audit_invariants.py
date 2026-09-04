@@ -241,6 +241,32 @@ class OrchestratorLoop(unittest.TestCase):
 
 
 
+
+class AttributionAndFetch(unittest.TestCase):
+    def test_author_vs_prefix(self) -> None:
+        text = read("06_review/personal/personal-review-style.md")
+        self.assertIn("作者字段", text)
+        self.assertIn("作者栏 ≠ 来源标签", text)
+        self.assertIn("双标", text)
+        self.assertIn("[ARS:", text)
+        self.assertIn("[MedSci:", text)
+        self.assertIn("[Scientific:", text)
+        self.assertIn("同一 DOI", text)
+        zero = read("00_orchestrator/SKILL.md")
+        self.assertIn("personal-review-style.md` §0", zero)
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("at least one Word comment prefix", gates)
+        five = read("05_manuscript/SKILL.md")
+        self.assertIn("New citation numbers", five)
+
+    def test_fetch_merge_helpers(self) -> None:
+        fetch = read("mounts-cap/fetch.py")
+        self.assertIn("merge_source_state", fetch)
+        self.assertIn("Prefer zip", fetch)
+        self.assertIn("_state_lock", fetch)
+        self.assertIn("via zip", fetch)
+
+
 class ReviewInteract(unittest.TestCase):
     def test_personal_review_eight_sections(self) -> None:
         text = read("06_review/personal/personal-review-style.md")
@@ -330,16 +356,15 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260904-001", text)
-        self.assertIn("sentence", text.lower())
-        self.assertIn("plan card", text.lower())
+        self.assertIn("CHG-20260904-002", text)
+        self.assertIn("attribution", text.lower())
+        self.assertIn("G-06", text)
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260904-002", text)
         self.assertIn("CHG-20260904-001", text)
         self.assertIn("CHG-20260903-016", text)
-        self.assertIn("CHG-20260903-015", text)
-        self.assertIn("CHG-20260903-014", text)
 
     def test_skills_map_html_gone(self) -> None:
         self.assertFalse((ROOT / "SKILLS_map.html").exists())

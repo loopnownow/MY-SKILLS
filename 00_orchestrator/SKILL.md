@@ -14,7 +14,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 Specialists: 02+04 Loopnow; 03+05 Aitee; 06 Lee; 00 Aitor owns QC. 投稿 is Bai after 06, not this loop.
 Do not mount ARS `academic-pipeline` or MedSci `orchestrate` as a third SOP.
 
-**Comments / conflicts:** Word comments are author **A** (never yellow). Tag source (`[A:personal]`, `[06-…]`, `[B:…]`, …). Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan (before/after sentence); **the user decides**. 00 does not silently prefer the mount.
+**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[B:…]`) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
 
 **Literature verify fail (G-LIT):** require a dual plan in comments — (1) revise the sentence, (2) keep the sentence and ask whether to call `03_research` for substitute refs. **00 decides at QC** whether to invoke 03; if unsure, ask one question.
 
@@ -135,7 +135,7 @@ Integrity gates (not after every node):
 | G-PHI | before 02 tables / extraction | PHI status unknown; HIS credentials in files |
 | G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
 | G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose |
-| G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05 |
+| G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
 | G-LIT | after lit verify fail in 05/06 | dual plan in comments (revise sentence **and** optional 03 substitute refs); no invented PMID |
 
 **Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only.

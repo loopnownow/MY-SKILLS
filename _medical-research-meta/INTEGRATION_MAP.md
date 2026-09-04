@@ -464,3 +464,17 @@ change: 00 plan card + G-LIT; 05 internal-call table + edit-unit/comments; 06 la
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## Comment attribution + fetch harden 2026-09-04 (user)
+
+```text
+change_id: CHG-20260904-002
+date: 2026-09-04
+skill: 06_review + 00_orchestrator + 05_manuscript + mounts-cap
+author: Aitor
+change_class: policy + tool
+problem: Three same-day harvests (lxf_RC / wyy_SCD / tyt_SDC) showed mount-driven comments labeled only [A:personal]; fetch parallel ensure clobbered STATE; Contents API 403 on large trees.
+change: P0 in personal-review-style §0 — author field A ≠ source prefix; mount sources must appear in prefix (dual-tag OK). 00 pointer + G-06 fail if mounted non-personal source has zero matching prefixes. Refs: duplicate DOI/title = Major; no number migration on swap. 05: scan max [n] before new cite. fetch.py: zip-first for backups, merge STATE under lock, API 403 falls through to zip.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
