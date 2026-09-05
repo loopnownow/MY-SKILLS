@@ -13,4 +13,5 @@ dirs:
   academic-research-skills: ars
   med-sci-skills: medsci
   scientific-agent-skills: scientific
+  openclaw-medical-skills: openclaw
 # Repos / paths: 01_skill-discovery-integration/sources/*.yaml

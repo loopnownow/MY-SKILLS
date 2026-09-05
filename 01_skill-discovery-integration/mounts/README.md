@@ -1,6 +1,6 @@
 # 01 挂载指针
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md)
 
 粗 ID 共 30 个（CHG-20260903-011：P0+P1 细拆）。默认仍是 B。映射不等于改挂。
 
@@ -10,6 +10,7 @@
 | [ARS · 备份](ars.md) | 扫 `9443623`。已映射 7 / 30。空挂 23 个。ARS 仍只有 4 包。 |
 | [MedSci · 备份](medsci.md) | 扫 `912f7e8`。已映射 27 / 30。空挂 3：`02-pictures`、`02-fmri`、`04-fig-flow`。 |
 | [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。已映射 21 / 30。空挂 9 个。 |
+| [OpenClaw · 备份](openclaw.md) | 扫 `b1f9b6e`。已映射 23 / 30。空挂 7：`02-imaging-qc`、`02-fmri`、`03-lit-fulltext`、`05-write-reporting`、`05-write-venue`、`05-humanize`、`06-review-response`。 |
 
 **每次运行：** 先问本轮挂哪些 id（可多选），未选不加载。Registry `MOUNTED` 是菜单。
 

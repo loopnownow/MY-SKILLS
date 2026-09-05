@@ -1,6 +1,6 @@
 # 预设 Scientific · 备份
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md)
 
 仅用 Scientific Agent Skills（2026-09-02 HEAD，v2.66.0）。仓库 [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) · 配置 `../sources/scientific-agent-skills.proposed.yaml`
 
