@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -311,12 +312,19 @@ class MountsCap(unittest.TestCase):
         self.assertTrue((root / "INDEX.yaml").is_file())
         self.assertTrue((root / "fetch.py").is_file())
         gi = read("mounts-cap/.gitignore")
-        for name in ("b/", "ars/", "medsci/", "scientific/", "STATE.yaml"):
+        for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "STATE.yaml"):
             self.assertIn(name, gi)
         idx = read("mounts-cap/INDEX.yaml")
         self.assertIn("on-demand-path-only", idx)
         self.assertIn("never_bulk_backup", idx)
-        self.assertFalse((root / "b").is_dir())
+        self.assertIn("openclaw-medical-skills: openclaw", idx)
+        # Local fetch cache dirs may exist on a developer box; they must stay gitignored.
+        tracked = subprocess.check_output(
+            ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw"],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        self.assertEqual(tracked, "")
 
     def test_01_uses_cache_not_bulk(self) -> None:
         one = read("01_skill-discovery-integration/SKILL.md")
@@ -357,13 +365,13 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260904-003", text)
-        self.assertIn("archive", text.lower())
-        self.assertIn("mounts-cap/b", text)
+        self.assertIn("CHG-20260906-001", text)
+        self.assertIn("openclaw", text.lower())
+        self.assertIn("mounts-cap/openclaw", text)
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
-        self.assertIn("CHG-20260904-003", text)
+        self.assertIn("CHG-20260906-001", text)
         self.assertIn("CHG-20260904-002", text)
         self.assertIn("CHG-20260904-001", text)
 

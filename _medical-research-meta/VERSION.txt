@@ -1,3 +1,2 @@
-CHG-20260904-003 (2026-09-04)
-Remove empty archive/ stub; B canonical path mounts-cap/b/
-fetch.py migrate-b for leftover sibling MY-SKILLS-capabilities
+CHG-20260906-001 (2026-09-06)
+OpenClaw Medical Skills PROPOSED backup board (23/30); mounts-cap/openclaw on-demand; [OpenClaw:…] attribution

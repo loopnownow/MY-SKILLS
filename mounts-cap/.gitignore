@@ -3,6 +3,7 @@ b/
 ars/
 medsci/
 scientific/
+openclaw/
 STATE.yaml
 *.zip
 .cache/

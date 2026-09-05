@@ -492,3 +492,18 @@ change: Deleted archive/. Docs/tests no longer require it. Canonical local B is 
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## OpenClaw Medical Skills PROPOSED board 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-001
+date: 2026-09-06
+skill: 01_skill-discovery-integration + mounts-cap + 00/06 attribution
+author: Aitor
+change_class: policy
+problem: User approved adding FreedomIntelligence/OpenClaw-Medical-Skills as a 01 backup interface (same format as MedSci/Scientific), after a ChatGPT share proposed 7 ocms-* mount ids.
+change: PROPOSED board mounts/openclaw.md + sources/openclaw-medical-skills.proposed.yaml @b1f9b6e; registry proposals entry; fetch/INDEX dir openclaw; session pick/换源 includes OpenClaw; attribution/G-06 prefix [OpenClaw:…]. Mapped 23/30 (7 empty). No new coarse ids; no ocms-*; no writing-only OpenClaw mount; clinical-reports excluded from 05; on-demand paths only.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
+

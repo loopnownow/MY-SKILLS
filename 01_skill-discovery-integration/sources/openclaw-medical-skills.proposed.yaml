@@ -1,0 +1,157 @@
+# Scanned 2026-09-06 against FreedomIntelligence/OpenClaw-Medical-Skills@b1f9b6e (2026-07-21).
+source_id: openclaw-medical-skills
+name: OpenClaw Medical Skills
+role: backup-candidate
+repo: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills
+scanned: "2026-09-06"
+scan_sha: "b1f9b6e"
+status: PROPOSED
+empty_mount: notify-then-research-confirm
+notes: >
+  Finer A ids (CHG-20260903-011). ChatGPT's 7-group / ocms-* idea is narrative only —
+  machine truth stays the 30 A ids. No standalone OpenClaw writing mount.
+  clinical-reports excluded from 05. ~850 unmapped skills stay in domain groups.
+  README badges say MIT; root LICENSE file missing at scan.
+skills:
+  - id: 02-tables
+    path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
+    a_hook: 02_data-processing
+    coverage: full
+    note: Excel / DataFrame
+  - id: 02-imaging-io
+    path: skills/pydicom/; skills/imaging-data-commons/; skills/multimodal-medical-imaging/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: no bids; not 0RAD; not fMRI
+  - id: 02-pictures
+    path: skills/histolab/; skills/pathml/; skills/pdf/; skills/tooluniverse-image-analysis/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: WSI + PDF-as-image + image-analysis toolkit
+  - id: 02-radiomics-habitat
+    path: skills/radiomics-pathomics-fusion-agent/
+    a_hook: 02_data-processing
+    coverage: partial
+    note: agent pack; modeling still 04
+  - id: 03-lit-search
+    path: skills/pubmed-search/; skills/biomedical-search/; skills/research-lookup/; skills/medical-research-toolkit/; skills/clinicaltrials-database/; skills/tooluniverse-literature-deep-research/; skills/search-strategy/; skills/research-literature/
+    a_hook: 03_research
+    coverage: full
+    note: daily-use OCMS lit / trial stack
+  - id: 03-lit-review
+    path: skills/literature-review/; skills/medical-imaging-review/
+    a_hook: 03_research
+    coverage: full
+    note: imaging review secondary
+  - id: 03-lit-cite
+    path: skills/citation-management/; skills/pyzotero/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-design-experiment
+    path: skills/bio-experimental-design-batch-design/; skills/bio-experimental-design-multiple-testing/
+    a_hook: 03_research
+    coverage: partial
+    note: no experimental-design/ slug; bio-* stand-ins
+  - id: 03-design-protocol
+    path: skills/clinical-trial-protocol-skill/
+    a_hook: 03_research
+    coverage: full
+    note: fills Scientific empty for protocol
+  - id: 03-design-grant
+    path: skills/research-grants/
+    a_hook: 03_research
+    coverage: full
+    note: does not replace A Voice A/B; not a writing mount
+  - id: 03-frontier-ideate
+    path: skills/scientific-brainstorming/; skills/scientific-problem-selection/
+    a_hook: 03_research
+    coverage: full
+  - id: 03-frontier-hypothesize
+    path: skills/hypothesis-generation/; skills/hypogenic/
+    a_hook: 03_research
+    coverage: full
+    note: hypogenic secondary
+  - id: 04-stats-guide
+    path: skills/statistical-analysis/
+    a_hook: 04_analysis
+    coverage: full
+    note: does not replace A 04 personal / 0RAD
+  - id: 04-stats-power
+    path: skills/bio-experimental-design-power-analysis/; skills/bio-experimental-design-sample-size/
+    a_hook: 04_analysis
+    coverage: partial
+    note: no statistical-power/ slug
+  - id: 04-stats-models
+    path: skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/; skills/tooluniverse-statistical-modeling/
+    a_hook: 04_analysis
+    coverage: full
+    note: 0RAD personal still wins
+  - id: 04-model-eval
+    path: skills/bio-machine-learning-model-validation/
+    a_hook: 04_analysis
+    coverage: partial
+    note: omics-leaning validation; not DCA/外验证 gold
+  - id: 04-fig-flow
+    path: skills/scientific-schematics/
+    a_hook: 04_analysis
+    coverage: partial
+    note: schematics, not STROBE gold
+  - id: 04-fig-plot
+    path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
+    a_hook: 04_analysis
+    coverage: full
+    note: POLE gold still B/A
+  - id: 04-explainability
+    path: skills/shap/
+    a_hook: 04_analysis
+    coverage: partial
+    note: tabular SHAP, not imaging Grad-CAM; MedSci still preferred when user wants explainability
+  - id: 05-write-manuscript
+    path: skills/scientific-writing/; skills/markdown-mermaid-writing/; skills/scientific-manuscript/
+    a_hook: 05_manuscript
+    coverage: full
+    note: not Aitor-format; clinical-reports not included
+  - id: 05-write-polish
+    path: skills/scientific-writing/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: same pack as manuscript; not de-AI
+  - id: 06-review-peer
+    path: skills/peer-review/
+    a_hook: 06_review
+    coverage: full
+  - id: 06-review-critique
+    path: skills/scientific-critical-thinking/
+    a_hook: 06_review
+    coverage: full
+    note: no scholar-evaluation here; grant Voice A stays in 03 personal
+unmapped_groups:
+  - domain: omics
+    note: not radiology 02/04
+    examples: [scanpy, scvi-tools, anndata, bio-rnaseq-qc, bio-de-deseq2-basics]
+  - domain: chemistry-drug
+    note: not the paper pipeline
+    examples: [rdkit, deepchem, torchdrug, tooluniverse-drug-research]
+  - domain: lab-systems
+    note: integrations, not mount ids
+    examples: [benchling-integration, opentrons-integration, protocolsio-integration]
+  - domain: compute
+    note: infrastructure
+    examples: [dask, pytorch-lightning, transformers, slurm-job-script-generator]
+  - domain: clinical-ops
+    note: not 02-06 manuscript pipeline
+    examples: [clinical-decision-support, treatment-plans, clinical-reports]
+  - domain: consumer-health
+    note: unrelated to Jinshan radiology research
+    examples: [adhd-daily-planner, sleep-analyzer, weightloss-analyzer]
+  - domain: other-fields
+    note: broad bio / agent kits outside 30 A ids
+    examples: [alphafold, spatial-transcriptomics-agent, usmle]
+empty:
+  - 02-imaging-qc
+  - 02-fmri
+  - 03-lit-fulltext
+  - 05-write-reporting
+  - 05-write-venue
+  - 05-humanize
+  - 06-review-response

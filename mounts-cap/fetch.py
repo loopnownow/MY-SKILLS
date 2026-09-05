@@ -23,12 +23,14 @@ DIRS = {
     "academic-research-skills": "ars",
     "med-sci-skills": "medsci",
     "scientific-agent-skills": "scientific",
+    "openclaw-medical-skills": "openclaw",
 }
 REPOS = {
     "my-skills-capabilities": "loopnownow/MY-SKILLS-capabilities",
     "academic-research-skills": "Imbad0202/academic-research-skills",
     "med-sci-skills": "Aperivue/medsci-skills",
     "scientific-agent-skills": "K-Dense-AI/scientific-agent-skills",
+    "openclaw-medical-skills": "FreedomIntelligence/OpenClaw-Medical-Skills",
 }
 
 
@@ -173,6 +175,7 @@ def source_path_for(source_id: str, skill_id: str) -> str:
         "academic-research-skills": ONE / "sources" / "ars.proposed.yaml",
         "med-sci-skills": ONE / "sources" / "medsci.proposed.yaml",
         "scientific-agent-skills": ONE / "sources" / "scientific-agent-skills.proposed.yaml",
+        "openclaw-medical-skills": ONE / "sources" / "openclaw-medical-skills.proposed.yaml",
     }
     p = files.get(source_id)
     if p and p.is_file():
