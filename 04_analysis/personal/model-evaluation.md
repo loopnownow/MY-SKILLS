@@ -5,7 +5,7 @@ A clinical prediction model needs **three** things reported: **discrimination**,
 
 Lab 0RAD **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 `python -m modules.pipeline`, not habitat-tree `LassoCV`. Details:
-`04_analysis/references/0rad-pipeline-rules.md`.
+`04_analysis/personal/0rad-pipeline-rules.md`.
 
 ## Discrimination — ROC/AUC
 
@@ -32,15 +32,19 @@ were the lab runner.
 ## Calibration (frequently missing → reviewer flag)
 
 - **Calibration plot**: predicted probability (x) vs observed frequency (y), with a loess/
-  binned curve; ideal = diagonal.
+  binned curve; ideal = diagonal. Lab: `modules.stats.curves_calibration.plot_calibration`.
 - **Calibration slope** (ideal 1) and **intercept / calibration-in-the-large** (ideal 0).
 - **Brier score** (lower better); decompose if useful.
-- Avoid relying on **Hosmer-Lemeshow** alone (low power, binning-dependent); show the curve.
+- **Hosmer–Lemeshow (lab)**: quantile bins matching the calibration curve (default **8**),
+  χ² with **df = G−2**, table in `*-results.html` via `HL_METRICS` — **not** drawn on the
+  figure. Still do **not** report HL alone; always show the curve. Do not claim the lab has
+  “no HL”.
+- `VAL_MODE` `lock_threshold` / `refit`: call calibration with **`recalibrate=False`**.
 
 ```python
 from sklearn.calibration import calibration_curve
 import numpy as np
-frac_pos, mean_pred = calibration_curve(y_true, y_prob, n_bins=10, strategy="quantile")
+frac_pos, mean_pred = calibration_curve(y_true, y_prob, n_bins=8, strategy="quantile")
 brier = np.mean((y_prob - y_true)**2)
 ```
 
@@ -57,7 +61,7 @@ threshold that maximises test-set accuracy.
 
 Lab 0RAD implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_threshold`
 (features never re-selected). Youden is **per split** unless locked. Definitions:
-`04_analysis/references/0rad-pipeline-rules.md`.
+`04_analysis/personal/0rad-pipeline-rules.md`.
 
 ## Reporting sentence
 
