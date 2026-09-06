@@ -47,11 +47,11 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 | File | Open when |
 |---|---|
-| [references/frontier-themes.md](references/frontier-themes.md) | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
-| [references/evidence-layer.md](references/evidence-layer.md) | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
-| [references/idea-to-question.md](references/idea-to-question.md) | Converting a trend into a concrete, executable, submittable research question; novelty framing |
-| [references/ai-radiogenomics-frontier-map.md](references/ai-radiogenomics-frontier-map.md) | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
-| [references/method-upgrade-into-grant.md](references/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
+| [references/frontier-themes.md](frontier-themes.md) | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
+| [references/evidence-layer.md](evidence-layer.md) | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
+| [references/idea-to-question.md](idea-to-question.md) | Converting a trend into a concrete, executable, submittable research question; novelty framing |
+| [references/ai-radiogenomics-frontier-map.md](ai-radiogenomics-frontier-map.md) | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
+| [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
 
 ## Workflow
 

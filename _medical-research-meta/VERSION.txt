@@ -1,2 +1,2 @@
-CHG-20260906-008 (2026-09-06)
-G-FACT consistency gate + skill-harvest/qc passive events + on-demand evolution HTML
+CHG-20260906-009 (2026-09-06)
+Repository-wide Harvest-QC hardening: deterministic repo scanner, local-link repair, meta consistency, G-FACT continuity, and ZIP-safe test behavior

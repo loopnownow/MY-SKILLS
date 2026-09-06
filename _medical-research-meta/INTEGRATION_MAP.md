@@ -547,6 +547,7 @@ problem: User asked to continue after ChatGPT share on aipoch/medical-research-s
 change: PROPOSED board mounts/aipoch.md + sources/aipoch-medical-research-skills.proposed.yaml @f5ef65b; registry proposals; fetch/INDEX dir aipoch; session pick/换源 includes AIPOCH; attribution/G-06 prefix [AIPOCH:…]. Mapped 25/30 (5 empty). No new coarse ids; no aipoch-*; writing/review as workers only; lab-ops/education EXCLUDE; meta-skills cannot steal 00.
 decision: keep
 next_action: user reviews PR; do not merge until named
+```
 
 ## Medical journal submit personal pack 2026-09-06 (user)
 
@@ -576,3 +577,21 @@ decision: keep
 next_action: merge when named; sync local A
 ```
 
+
+## Harvest-QC repository-wide audit hardening 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-009
+date: 2026-09-06
+skill: skill-harvest/qc + _medical-research-meta
+author: Aitor
+change_class: qc-fix + tooling
+problem: Repository-wide QC identified broken relative Markdown links, stale active-path wording, a Git-only invariant that failed on exported ZIPs, and no single repo-wide Harvest-QC scanner.
+change: Added skill-harvest/scripts/repo_qc.py with deterministic repository-wide checks; added skill-harvest/qc/repo-qc.md and JSON/Markdown report outputs; repaired broken internal links and active-path wording; made the mounts-cap cache invariant skip cleanly outside a Git checkout while retaining the Git-tracked check inside Git; added QC tests for local links and the scanner.
+expected_benefit: One reproducible QC entry point for structure, frontmatter, routing, mounts, stale references, local links, meta/version consistency, and test status without granting auto-modification authority.
+observed_evidence: static full-repo scan + local unittest run after repair
+metric_summary: 0 broken local Markdown links; deterministic QC PASS; unit tests pass outside Git checkout
+boundary_effect: skill-harvest observes and reports; 00–06 remain domain owners; no new top-level skill; no automatic evolution
+decision: keep
+next_action: run repo_qc.py after structural changes (do not commit generated data/repo-qc.*); record evolution only when the user explicitly asks
+```
