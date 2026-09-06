@@ -562,3 +562,17 @@ decision: keep
 next_action: user reviews PRs; do not merge until named
 ```
 
+## Harvest-QC + G-FACT 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-008
+date: 2026-09-06
+skill: 00_orchestrator + skill-harvest/qc
+author: Aitor
+change_class: policy
+problem: ChatGPT share proposed compact QC + harvest evolution; user agreed Aitor rewrite (no 07_QC, no Q0–Q6 takeover, passive evolution HTML only on ask).
+change: Add G-FACT consistency gate + transversal map in gates.md; skill-harvest/qc/SKILL.md+rules.md; data/qc-events/; templates/qc-evolution.html; wire harvest SKILL + ARCHITECTURE.
+decision: keep
+next_action: merge when named; sync local A
+```
+

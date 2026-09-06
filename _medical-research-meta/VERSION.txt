@@ -1,2 +1,2 @@
-CHG-20260906-007 (2026-09-06)
-A 03 medical-journal-submit (JCR curated pool); B write-venue drops journal-selection.md
+CHG-20260906-008 (2026-09-06)
+G-FACT consistency gate + skill-harvest/qc passive events + on-demand evolution HTML

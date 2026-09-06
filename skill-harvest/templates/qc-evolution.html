@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>MY-SKILLS Harvest-QC 进化建议</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:52rem;margin:2rem auto;padding:0 1rem;line-height:1.5}
+h1{font-size:1.35rem} table{border-collapse:collapse;width:100%} th,td{border:1px solid #ccc;padding:.4rem .55rem;text-align:left}
+.muted{color:#666;font-size:.9rem} .box{border:1px solid #999;padding:.75rem;margin:1rem 0}
+label{display:block;margin:.35rem 0}
+textarea{width:100%;min-height:5rem}
+</style>
+</head>
+<body>
+<h1>Harvest-QC 进化建议（按需）</h1>
+<p class="muted">仅在你明确要求「进化 / 更新 / 总结」时生成。不会自动改 Skill。预设选项外可填自己的观点。</p>
+
+<h2>1. 本期摘要</h2>
+<p><!-- FILL: date range, event count, top error types --></p>
+
+<h2>2. 候选（Candidates）</h2>
+<table>
+<thead><tr><th>ID</th><th>错误类型</th><th>责任节点</th><th>频次/严重度</th><th>建议动作</th></tr></thead>
+<tbody>
+<!-- FILL rows -->
+<tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h2>3. 你的决定</h2>
+<div class="box">
+<label><input type="radio" name="dec" value="approve-as-is"/> 批准按建议改 Skill（开 PR，仍须再说合并）</label>
+<label><input type="radio" name="dec" value="approve-edited"/> 批准，但按我下面改写后再改</label>
+<label><input type="radio" name="dec" value="defer"/> 暂缓，继续观察</label>
+<label><input type="radio" name="dec" value="reject"/> 拒绝（请写原因，避免重复提案）</label>
+<label><input type="radio" name="dec" value="record-only"/> 只记账，不进化</label>
+<p><strong>自定义意见（可超出上面选项）：</strong></p>
+<textarea name="custom" placeholder="你的观点 / 改写 / 补充约束…"></textarea>
+</div>
+
+<h2>4. 红线</h2>
+<ul>
+<li>禁止 OBSERVED → AUTO MODIFY</li>
+<li>用户纠正 &gt; AI 建议</li>
+<li>执行 QC 仍在 00；此处只学习与提案</li>
+</ul>
+<p class="muted">模板：<code>skill-harvest/templates/qc-evolution.html</code> · 协议：<code>skill-harvest/qc/SKILL.md</code></p>
+</body>
+</html>

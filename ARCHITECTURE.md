@@ -24,7 +24,7 @@ skills/
 6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. `05-write-venue` is journal templates / house style while writing, not journal selection.
 7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only.
 
-`skill-harvest` is governance. It does not replace domain layers. 01 mounts; harvest proposes evolution.
+`skill-harvest` is governance. It does not replace domain layers. 01 mounts; harvest proposes evolution. Execution QC stays in `00` (incl. **G-FACT** consistency); learning QC is `skill-harvest/qc/` (passive events, on-demand HTML — never auto-modify).
 
 ## Layer principle
 
