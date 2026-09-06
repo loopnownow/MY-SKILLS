@@ -547,5 +547,18 @@ problem: User asked to continue after ChatGPT share on aipoch/medical-research-s
 change: PROPOSED board mounts/aipoch.md + sources/aipoch-medical-research-skills.proposed.yaml @f5ef65b; registry proposals; fetch/INDEX dir aipoch; session pick/换源 includes AIPOCH; attribution/G-06 prefix [AIPOCH:…]. Mapped 25/30 (5 empty). No new coarse ids; no aipoch-*; writing/review as workers only; lab-ops/education EXCLUDE; meta-skills cannot steal 00.
 decision: keep
 next_action: user reviews PR; do not merge until named
+
+## Medical journal submit personal pack 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-007
+date: 2026-09-06
+skill: 03_research/medical-journal-submit
+author: Aitor
+change_class: capability
+problem: User provided medical-journal-submit zip (JCR2026 curated荐刊); agreed A/03 Victor home; keep curated xlsx not raw Clarivate; fix B write-venue journal-selection.md mis-home; AGENTS.md must follow SKILL/policy.
+change: Add A 03_research/medical-journal-submit (SKILL+AGENTS+references+artifacts/医学投稿推荐_JCR2026.xlsx). Wire literature/journal-selection + 03 SKILL/intake. Companion B PR deletes write-venue/journal-selection.md and points to A pack.
+decision: keep
+next_action: user reviews PRs; do not merge until named
 ```
 

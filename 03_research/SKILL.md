@@ -31,6 +31,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Intake | `personal/intake.md` |
 | Ethics (protocol-level) | `personal/ethics.md` |
 | Multicenter | `personal/multicenter.md` |
+| JCR 分层荐刊（金山） | `medical-journal-submit/` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
 | Ethics application **forms** (fill pack) | `ethics-application-forms/` (`scripts/`, `references/`) |
 
@@ -54,7 +55,7 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
 
-Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplement**, not the split ids (see `EXTERNALIZATION_CANDIDATES.md`). Dual-track `literature/` holds `journal-selection.md` as the 选刊 SOP. Mounted id for 选刊 evidence: `03-lit-search` / literature layer. Do not send 选刊 to `05-write-venue`.
+Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplement**, not the split ids (see `EXTERNALIZATION_CANDIDATES.md`). Dual-track `literature/` holds `journal-selection.md` as the 选刊 SOP; JCR pool + layer tables live in `medical-journal-submit/`. Mounted id for 选刊 evidence: `03-lit-search` / literature layer. Do not send 选刊 to `05-write-venue`.
 
 ## Modes
 
@@ -66,7 +67,7 @@ Local `literature/`, `design/`, `frontier/` are a **temporary dual-track supplem
 
 ## Boundaries
 
-- 选刊 / where to submit stays here (`literature/journal-selection.md`). `05-write-venue` is journal templates / house style while writing, not journal choice.
+- 选刊 / where to submit stays here (`literature/journal-selection.md` + `medical-journal-submit/`). `05-write-venue` is journal templates / house style while writing, not journal choice.
 - Manuscript prose / I/D writing → `05_manuscript`
 - Statistics / figures → `04_analysis`
 - Data preprocessing / extraction → `02_data-processing`

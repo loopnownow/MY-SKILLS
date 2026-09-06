@@ -32,7 +32,7 @@ Clinical translation / reader studies → `clinical-translation`. Ethics form pa
 | `writing` | User asks for Methods, Results, Discussion, abstract, title, or translation | 写作 |
 | `figures` | User asks about figures, tables, graphical abstracts, figure legends, workflows, ROC/calibration/DCA/KM plots, or mechanism diagrams | 图表 |
 | `pre-submission` | User asks for pre-submission audit, simulated reviewer critique, manuscript risk review, or top-journal readiness | 预审 |
-| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | 选刊 |
+| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | 选刊 → `literature/journal-selection.md` + `medical-journal-submit/` |
 | `clinical-translation` | User asks about clinical utility, reader study, prospective validation, workflow integration, PACS/RIS, deployment, or real-world evaluation | 转化 |
 | `response` | User gives reviewer comments or revision notes | 回复 |
 

@@ -124,3 +124,17 @@ publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / �
 - 不要说“这个一定能中”。
 - 不要忽略目标期刊是否近期发表过同类研究。
 - 不要把无外部验证、小样本、弱标签研究包装成适合顶刊，除非它有其他非常强的设计优势。
+
+
+## JCR 分层荐刊包（金山）
+
+当用户要「推荐杂志 / 按 JCR·JCI 分层选刊 / 易投指数」时，加载个人包：
+
+- `../medical-journal-submit/SKILL.md`（权威流程；Victor）
+- `../medical-journal-submit/AGENTS.md`（须与 SKILL/policy 一致）
+- 策展表：`../medical-journal-submit/artifacts/医学投稿推荐_JCR2026.xlsx`
+
+本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 `journal-patterns-2023-2026.md` / `literature-evidence-2023-2026.md` 对照。分层表输出以个人包为准（默认层2→层3→层2补，每层5本；黑名单三刊永不荐）。
+
+**不要**把选刊交给 `05-write-venue`。
+
