@@ -1,6 +1,6 @@
 # 0RAD workspace conventions
 
-**Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-08-28).
+**Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-09-06).
 
 Root: `D:\0Grok\0RAD`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired.
 
@@ -11,7 +11,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 | Kind | Path | Rule |
 |------|------|------|
 | Scratch / old drafts / one-off scripts | `0del/` (or `0RAD/0del/<project>/`) | Never treat as current results |
-| Shared stats library | `modules/` | Entry: `PYTHONPATH=D:\0Grok\0RAD` then `python -m modules.pipeline`. Do not vendor this tree. |
+| Shared stats library | `D:\0Grok\0RAD\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0RAD` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. |
 | Ops / manuscript factory | `0scripts/` | Organize / sync / manuscript factory — **not** the stats engine. One-level children only: `organized/` `manuscript/` `sync/` `ssd/` `anjian/`. |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
@@ -23,7 +23,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 
 ## Named entry points (do not vendor `.py`)
 
-- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0RAD`). Per-project `settings.ini`; algorithms stay in this `modules` copy. `0scripts` does not run the stats engine.
+- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0RAD`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. `0scripts` does not run the stats engine.
 - **STROBE Figure 1:** `figure_strobe_flow.py` is duplicated in `modules/stats` and `0scripts/manuscript`. Canonical after the 2026-08-28 skill update is the figure-engine **POLE** layout (inclusion arrow IN, exclusion arrow OUT, no pipeline row). Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Layout rules: `05_manuscript/bundles/figure-engine`.
 - **Nomogram:** `modules.stats.models.build_nomogram`. Ignore docstrings that still say `python -m modules.nomogram`.
 
@@ -44,9 +44,16 @@ Do not invent values. Ask when a label or ID is ambiguous.
 - Required columns include **Group** and **Pattern** (not a separate `all_FN_or_all_FP` sheet).
 - Color FN/FP cells. Sync: `0scripts/sync/sync_exclude_and_fc_colors.py` and `batch_rebuild_xlsx.py`.
 
-## Console vs `settings.py`
+## Console vs settings / `sync_modules`
 
-`{project}.html` / console overlay overrides `settings.py` for that run. Write-back updates `ref/settings.ini`. Command-line without overlay uses `settings.py` only.
+Canonical layout (enforced by `D:\0Grok\0RAD\0scripts\sync\sync_modules.py`, 2026-09-04):
+
+- Each project keeps **console** (`{project}.html`) + **`ref/settings.ini`** only for run config.
+- Algorithms always come from gold `D:\0Grok\0RAD\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
+- CLI: default dry-run; `--apply` writes; `--check`; `--keys` appends shared knobs (`MODULES_DIR`, `DO_SURVIVAL`, `PAIRWISE_*`, …).
+- Typical plan actions: `settings.py` → `ref/settings.ini`, remove project `config/`, refresh console HTML, drop legacy `console.html` / `run.bat` / `strobe-flowchart/`, rename `PBG` → `PNG` when present.
+
+`{project}.html` / console overlay overrides ini for that run; write-back updates `ref/settings.ini`. Command-line without overlay reads ini / migrated settings only.
 
 `CLIN_ID_COL` may equal `LABEL_COL` (ID is the grouping field). Do not invent a second ID column.
 

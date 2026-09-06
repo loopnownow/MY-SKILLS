@@ -1,6 +1,6 @@
 # 0RAD clinical + radiomics pipeline rules
 
-**Owner:** `04_analysis`. Implementation lives in `D:\0Grok\0RAD\modules` (and copies under each project). Workspace / file layout → `02_data-processing/0rad-workspace.md`. Coding conventions → mounted `02-radiomics-habitat` + `02_data-processing/code-refactoring`.
+**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0RAD\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `02-radiomics-habitat` + `02_data-processing/code-refactoring`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 
@@ -14,11 +14,11 @@ Features stay locked. Three options, no new screening:
 | `apply_formula` | Feature list + coefficients | Recalculate Youden on the evaluation layer | Transport the linear predictor; allow a new cut |
 | `lock_threshold` | Feature list + coefficients + **training** Youden | Apply the training cut and training calibration | Prospective-style lock |
 
-Calibration plots for `lock_threshold` / `refit` use the layer's predicted probabilities directly (do not refit a display-only logistic unless `apply_formula`).
+Calibration plots for `lock_threshold` / `refit` use the layer's predicted probabilities directly (`plot_calibration(..., recalibrate=False)`). Do not refit a display-only logistic on those layers; `apply_formula` may still recalibrate for display. HL uses the same quantile bins as the curve.
 
 General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `radiology-stats/model-evaluation.md`. These three modes are how the lab implements it.
 
-## Live lab modules (v4.3.0, 2026-08-28)
+## Live lab modules (v4.3.0; rules aligned 2026-09-06)
 
 Do **not** vendor `D:\0Grok\0RAD` Python into this skill. Implementation stays in `modules/`.
 Paper numbers come from `python -m modules.pipeline` → `*-results.html`. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.
@@ -29,6 +29,8 @@ Paper numbers come from `python -m modules.pipeline` → `*-results.html`. Habit
 | DeLong | Paired model-comparison **p** (Sun & Xu 2014 midranks). `ROC_METRICS` columns `DeLong vs {model}`. Added 2026-08-28. | CI method; unpaired DeLong; pROC as the lab runner |
 | LASSO | StratifiedKFold **AUC path on TRAIN only** | Nested CV (not implemented) |
 | Survival | KM + log-rank always. Optional univariable Cox: `statsmodels` `PHReg`, Breslow. Library default `DO_COX = False`. Contrasts: High vs Low at **train-median** cut, and **per 1 SD**. Report HR, 95% CI, P, N, Events, Schoenfeld `PH_p`. | lifelines / `CoxPHFitter`; multivariate Cox (not implemented); Cox on by default |
+| Hosmer–Lemeshow | Quantile bins matching the calibration curve (`DEFAULT_N_BINS = 8`). χ² with **df = G−2**; empty/0–1 expectation bins out of G. Written to `HL_METRICS` + results HTML (`_hl_metrics_html`); **not** drawn on the plot. Added by 2026-09-06 harvest (overrides older “no HL in modules”). | HL as the sole calibration claim; HL *intervals*; claiming modules have no HL |
+| Calibration `recalibrate` | `plot_calibration(..., recalibrate=True)` default refits a display logistic on that layer then bins (legacy). For `lock_threshold` / `refit` validation layers set **`recalibrate=False`** (use the layer probabilities as-is). | Always recalibrating the locked / refit layer for the figure |
 | Primary model | **Combined** (named primary; nomogram in manuscript prose) | Habitat-tree `LassoCV` as the headline model |
 | ICC | Radiomics keep if **ICC(A,1) ≥ 0.75** | Unspecified ICC model |
 | Clinical selection | Table 1 then **AIC backward** (`FORCE_MODEL_FEATURES` bypasses) | Nested CV for clinical covariates |
