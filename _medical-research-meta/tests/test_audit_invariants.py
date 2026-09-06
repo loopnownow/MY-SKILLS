@@ -306,6 +306,7 @@ class ReviewInteract(unittest.TestCase):
         self.assertIn("word/sentence", zero)
         gates = read("00_orchestrator/gates.md")
         self.assertIn("G-LIT", gates)
+        self.assertIn("G-FACT", gates)
         five = read("05_manuscript/SKILL.md")
         self.assertIn("Internal calls", five)
         self.assertIn("word or sentence", five)
@@ -391,8 +392,8 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-007", text)
-        self.assertIn("medical-journal-submit", text.lower())
+        self.assertIn("CHG-20260906-008", text)
+        self.assertIn("g-fact", text.lower())
 
 
     def test_integration_map_has_this_chg(self) -> None:
@@ -400,6 +401,7 @@ class HarvestHygiene(unittest.TestCase):
         self.assertIn("CHG-20260906-003", text)
         self.assertIn("CHG-20260906-006", text)
         self.assertIn("CHG-20260906-007", text)
+        self.assertIn("CHG-20260906-008", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
 
@@ -409,6 +411,17 @@ class HarvestHygiene(unittest.TestCase):
         readme = read("README.md")
         self.assertNotIn("SKILLS_map.html", readme)
         self.assertNotIn("mounts: []", readme)
+
+
+    def test_harvest_qc_lean(self) -> None:
+        self.assertTrue((ROOT / "skill-harvest" / "qc" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "skill-harvest" / "qc" / "rules.md").is_file())
+        self.assertTrue((ROOT / "skill-harvest" / "templates" / "qc-evolution.html").is_file())
+        self.assertTrue((ROOT / "skill-harvest" / "data" / "qc-events" / "README.md").is_file())
+        qc = read("skill-harvest/qc/SKILL.md")
+        self.assertIn("Never auto-modify", qc)
+        self.assertIn("Do **not** create `07_QC`", qc)
+        self.assertIn("OBSERVED", read("skill-harvest/qc/SKILL.md"))
 
 
 if __name__ == "__main__":

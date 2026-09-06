@@ -8,6 +8,7 @@ Integrity moments only. Not a checkpoint after every node.
 | G0 | every 00/02–06 run | session mount pick done; only picked ids loaded; empty mount → notify then re-search, never silent fallback | 01 (re-ask pick) |
 | G-PHI | before 02 tables or clinical extraction | PHI status known; no HIS host/password in git or skill files; extraction uses env `HIS_USERNAME` / `HIS_PASSWORD` on the hospital machine only | stop; user |
 | G-04 | after each `*-results.html` | HTML exists, non-empty; n and AUC taken from HTML; split is training vs test (never Development set); `VAL_MODE` and columns only from `settings.ini`; DeLong is a paired comparison, not a CI | 04 Loopnow |
+| G-FACT | after 04 HTML and again after 05 house.docx (and before 06 if numbers cited) | same fact chain across 02→04→05→06: N / train·test split / population / outcome / model name / primary endpoint / cut-off / AUC·CI·P match the responsible upstream artifact (usually `*-results.html` or 02 handoff). Source must be FILE / UPSTREAM / USER — never LLM guess. One FAIL = one responsible node | 04 Loopnow (stats) or 05 Aitee (prose drift); do not invent the number |
 | G-05 | after `Manuscript_*_house.docx` | docx exists; numbers match that endpoint’s HTML; Methods have no citations; Table 1 = training vs test; nomogram not “Combined”; 00 did not write prose | 05 Aitee |
 | G-06 | after pre-review or reviewer response | entry was 06; inventable items are questions to the user; 选刊 not sent to `05-write-venue`; undecidable items include reference-only sentence drafts, not silent manuscript edits; response/re-audit issues use resolution status when `06_review/personal/review-resolution.md` is in play; **if this run mounted ARS/MedSci/Scientific/OpenClaw/AIPOCH/non-personal B, at least one Word comment prefix must name that source** (`[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[AIPOCH:…]` / `[B:…]`) — else fail and re-tag prefixes only | 06 Lee |
 | G-LIT | literature verify fail (05/06) | comments carry dual plan: revise/weaken/delete **and** optional 03 substitute-ref search; Evidence Request card when used (`05_manuscript/personal/evidence-request.md`); no invented PMID/DOI; 00 decides whether to call 03 | 03 Victor (search) / 05 Aitee (wording); user decides which plan |
@@ -17,3 +18,19 @@ File-existence (chain, every node): expected output missing or empty → do not 
 Handoff payload: `templates/handoff.yaml`.
 Prose repairs: word/sentence units only. Mount vs lab conflicts: comment with edit plan; user decides.
 State: `templates/project-state.yaml` fields `pipeline`, `qc`, `defects`.
+
+## Transversal map (not a second gate set)
+
+ChatGPT-style Route/Mount/Boundary/Evidence/Consistency/Artifact map onto existing gates — do **not** invent Q0–Q6 ids in runtime output:
+
+| Cross-cut | Lives in |
+|---|---|
+| Route | 00 dispatch table / specialist roster |
+| Mount | **G0** |
+| Boundary | each skill Boundaries + specialist roles |
+| Evidence | **G-LIT** + 05 Evidence QC; no unknown-source numbers |
+| Consistency | **G-FACT** |
+| Artifact | file-existence chain (this file) |
+| Stale-ref | `skill-harvest` / meta hygiene — **not** every manuscript run |
+
+Execution QC is diagnostic only: detect → name responsible node → local re-run. Never auto-edit user files or fill missing numbers.

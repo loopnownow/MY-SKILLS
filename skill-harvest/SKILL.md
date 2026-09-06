@@ -21,6 +21,14 @@ Load `skill-design-principles` before any write. Also load the relevant evolutio
 
 ## Lab wiring (this tree)
 
+### Harvest-QC (passive + on-demand)
+
+- Protocol: `qc/SKILL.md` + `qc/rules.md`.
+- Events: `data/qc-events/` (append on FAIL/UNKNOWN; no auto evolution).
+- On user ask 进化/更新/总结: fill `templates/qc-evolution.html` → write under `evolution/`; **user approval required** before any Skill edit.
+- Execution gates stay in `00_orchestrator/gates.md` (incl. **G-FACT**). Do not create `07_QC`.
+
+
 - `references/route-map.md` is the live P0/P1 home map. Do **not** overwrite it from an imported harvest pack (those copies still point at deleted `ly-figures` / `ly-stats-ml` nests).
 - Evolution evidence appends to `_medical-research-meta/INTEGRATION_MAP.md`. Do not mint `evolution-log.md`.
 - Run `scripts/harvest_score.py` for `keep-update` / `keep-new-mode`. Skip for typos and pointer-only edits.

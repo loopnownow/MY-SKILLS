@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; 30-id menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/OpenClaw/AIPOCH **PROPOSED** backups; `session_mount: ask-each-run`.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; 30-id menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/OpenClaw/AIPOCH **PROPOSED** backups; `session_mount: ask-each-run; G-FACT consistency; harvest-qc passive`.
 
 ## Skill selection
 

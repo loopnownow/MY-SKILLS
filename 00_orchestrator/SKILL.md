@@ -134,9 +134,12 @@ Integrity gates (not after every node):
 | G0 | every run | packs loaded without session mount pick; silent empty-mount fallback |
 | G-PHI | before 02 tables / extraction | PHI status unknown; HIS credentials in files |
 | G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
+| G-FACT | after 04 HTML / after 05 docx | N/split/model/endpoint/AUC·CI·P drift vs upstream FILE |
 | G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose |
 | G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; resolution status when review-resolution protocol used; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
 | G-LIT | after lit verify fail in 05/06 | dual plan in comments (revise sentence **and** optional 03 substitute refs); no invented PMID |
+
+Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
 **Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only.
 
