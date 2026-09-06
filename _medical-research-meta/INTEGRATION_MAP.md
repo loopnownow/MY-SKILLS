@@ -534,3 +534,18 @@ change: Thin protocol 06_review/personal/review-resolution.md (issue card; Resol
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## AIPOCH Medical Research Skills PROPOSED board 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-006
+date: 2026-09-06
+skill: 01_skill-discovery-integration
+author: Aitor
+change_class: policy
+problem: User asked to continue after ChatGPT share on aipoch/medical-research-skills — treat as capability source, not a new MY-SKILLS layer.
+change: PROPOSED board mounts/aipoch.md + sources/aipoch-medical-research-skills.proposed.yaml @f5ef65b; registry proposals; fetch/INDEX dir aipoch; session pick/换源 includes AIPOCH; attribution/G-06 prefix [AIPOCH:…]. Mapped 25/30 (5 empty). No new coarse ids; no aipoch-*; writing/review as workers only; lab-ops/education EXCLUDE; meta-skills cannot steal 00.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```
+

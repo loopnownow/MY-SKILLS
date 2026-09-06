@@ -4,6 +4,7 @@ ars/
 medsci/
 scientific/
 openclaw/
+aipoch/
 STATE.yaml
 *.zip
 .cache/

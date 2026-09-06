@@ -337,15 +337,16 @@ class MountsCap(unittest.TestCase):
         self.assertTrue((root / "INDEX.yaml").is_file())
         self.assertTrue((root / "fetch.py").is_file())
         gi = read("mounts-cap/.gitignore")
-        for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "STATE.yaml"):
+        for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "aipoch/", "STATE.yaml"):
             self.assertIn(name, gi)
         idx = read("mounts-cap/INDEX.yaml")
         self.assertIn("on-demand-path-only", idx)
         self.assertIn("never_bulk_backup", idx)
         self.assertIn("openclaw-medical-skills: openclaw", idx)
+        self.assertIn("aipoch-medical-research-skills: aipoch", idx)
         # Local fetch cache dirs may exist on a developer box; they must stay gitignored.
         tracked = subprocess.check_output(
-            ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw"],
+            ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw", "mounts-cap/aipoch"],
             cwd=ROOT,
             text=True,
         ).strip()
@@ -390,14 +391,14 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-003", text)
-        self.assertIn("review resolution", text.lower())
-        self.assertIn("resolved", text.lower())
-
+        self.assertIn("CHG-20260906-006", text)
+        self.assertIn("aipoch", text.lower())
+        self.assertIn("proposed", text.lower())
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
         self.assertIn("CHG-20260906-003", text)
+        self.assertIn("CHG-20260906-006", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
 
