@@ -16,7 +16,7 @@ Do not mount ARS `academic-pipeline` or MedSci `orchestrate` as a third SOP.
 
 **Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
 
-**Literature verify fail (G-LIT):** require a dual plan in comments — (1) revise the sentence, (2) keep the sentence and ask whether to call `03_research` for substitute refs. **00 decides at QC** whether to invoke 03; if unsure, ask one question.
+**Literature verify fail (G-LIT):** require a dual plan in comments — (1) revise/weaken/delete the sentence, (2) keep the sentence and ask whether to call `03_research` for substitute refs. Prefer the Evidence Request card in `05_manuscript/personal/evidence-request.md` when a mount (or 05/06) raised a structured gap. **00 decides at QC** whether to invoke 03; if unsure, ask one question.
 
 ## 1. Intent classify
 

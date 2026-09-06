@@ -1,2 +1,2 @@
-CHG-20260906-001 (2026-09-06)
-OpenClaw Medical Skills PROPOSED backup board (23/30); mounts-cap/openclaw on-demand; [OpenClaw:…] attribution
+CHG-20260906-002 (2026-09-06)
+Evidence Request protocol: mount gap → 03 search → A 05 Accept/Weaken/Delete; G-LIT dual plan

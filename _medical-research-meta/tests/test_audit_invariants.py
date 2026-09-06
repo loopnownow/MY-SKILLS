@@ -303,6 +303,19 @@ class ReviewInteract(unittest.TestCase):
         resp = read("06_review/personal/personal-response-style.md")
         self.assertIn("词或句", resp)
 
+    def test_evidence_request_protocol(self) -> None:
+        text = read("05_manuscript/personal/evidence-request.md")
+        self.assertIn("Evidence Request", text)
+        self.assertIn("Accept", text)
+        self.assertIn("Weaken", text)
+        self.assertIn("Delete", text)
+        self.assertIn("03_research", text)
+        self.assertNotIn("B05 = Personal Writing", text)
+        skill = read("05_manuscript/SKILL.md")
+        self.assertIn("evidence-request.md", skill)
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("evidence-request.md", gates)
+
 
 class MountsCap(unittest.TestCase):
     def test_cache_scaffold(self) -> None:
@@ -365,15 +378,15 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-001", text)
-        self.assertIn("openclaw", text.lower())
-        self.assertIn("mounts-cap/openclaw", text)
+        self.assertIn("CHG-20260906-002", text)
+        self.assertIn("evidence request", text.lower())
+        self.assertIn("accept", text.lower())
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
         self.assertIn("CHG-20260904-002", text)
-        self.assertIn("CHG-20260904-001", text)
 
     def test_skills_map_html_gone(self) -> None:
         self.assertFalse((ROOT / "SKILLS_map.html").exists())
