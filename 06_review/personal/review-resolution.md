@@ -1,5 +1,7 @@
 # Review Resolution protocol (thin)
 
+**Bot map:** review/response upper layer → **Lee** (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript wording edits → **Aitee** (`05`).
+
 **Owner:** `06_review` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
 
 **Loop (lab):**

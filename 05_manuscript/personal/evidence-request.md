@@ -7,9 +7,9 @@
 ```text
 Mounted pack (this-run pick: B / ARS / MedSci / Scientific / OpenClaw)
   → Evidence Request card (gap discovery only)
-  → 03_research searches
+  → 03_research (Victor) searches
   → Candidate evidence
-  → A 05 personal: Accept / Weaken / Delete
+  → A 05 personal (Aitee): Accept / Weaken / Delete
   → if still insufficient → G-LIT dual plan (00 may call 03 again)
 ```
 
@@ -47,8 +47,8 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 | Step | Who | May | Must not |
 |---|---|---|---|
 | Discover gap | Mounted pack (this-run) or A 05/06 | Raise card | Pick final ref; rewrite whole paragraph; auto-mount another source |
-| Search | `03_research` only | PubMed / DOI verify; return candidates | Change manuscript wording; invent PMID/DOI |
-| Judge | **A 05 personal** | Accept / Weaken / Delete (below) | Treat mount suggestion as silent apply; run a second lit-research route inside 05 |
+| Search | `03_research` (Victor) only | PubMed / DOI verify; return candidates | Change manuscript wording; invent PMID/DOI |
+| Judge | **A 05 personal (Aitee)** | Accept / Weaken / Delete (below) | Treat mount suggestion as silent apply; run a second lit-research route inside 05 |
 | Re-invoke 03 | `00_orchestrator` (G-LIT) | Call 03 after dual-plan comment | Skip dual plan; invent citations |
 
 A05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 01.
@@ -73,7 +73,7 @@ Never keep a strong claim because a “nearby” paper looks topical.
 If verify still fails after one search pass, comment with **both**:
 
 1. Revise/weaken/delete the sentence now  
-2. Keep the sentence and ask whether 00 should call `03_research` again for substitute refs  
+2. Keep the sentence and ask whether 00 should call `03_research` (Victor) again for substitute refs  
 
 No invented PMID/DOI. User decides which plan when both remain open.
 
