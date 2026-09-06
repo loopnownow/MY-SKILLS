@@ -391,14 +391,15 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-006", text)
-        self.assertIn("aipoch", text.lower())
-        self.assertIn("proposed", text.lower())
+        self.assertIn("CHG-20260906-007", text)
+        self.assertIn("medical-journal-submit", text.lower())
+
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
         self.assertIn("CHG-20260906-003", text)
         self.assertIn("CHG-20260906-006", text)
+        self.assertIn("CHG-20260906-007", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
 

@@ -51,7 +51,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 ## Routing rules
 
 - Literature research → `03_research` only.
-- 选刊 / where to submit → `03_research` (`literature/journal-selection.md`; evidence `03-lit-search`). `05-write-venue` is journal templates / house style while writing, not journal choice.
+- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`; evidence `03-lit-search`). `05-write-venue` is journal templates / house style while writing, not journal choice.
 - 样本量 → `04_analysis` (`04-stats-power`).
 - Reviewer response → `06_review` only.
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.

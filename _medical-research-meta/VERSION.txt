@@ -1,2 +1,2 @@
-CHG-20260906-006 (2026-09-06)
-AIPOCH Medical Research Skills PROPOSED board: mounts/aipoch.md + proposed.yaml @f5ef65b; 25/30 mapped
+CHG-20260906-007 (2026-09-06)
+A 03 medical-journal-submit (JCR curated pool); B write-venue drops journal-selection.md
