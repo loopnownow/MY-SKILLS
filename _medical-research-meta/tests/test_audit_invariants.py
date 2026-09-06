@@ -346,6 +346,9 @@ class MountsCap(unittest.TestCase):
         self.assertIn("openclaw-medical-skills: openclaw", idx)
         self.assertIn("aipoch-medical-research-skills: aipoch", idx)
         # Local fetch cache dirs may exist on a developer box; they must stay gitignored.
+        git_dir = ROOT / ".git"
+        if not git_dir.exists():
+            self.skipTest("Git metadata is not present in exported ZIP; tracked-file assertion requires a Git checkout")
         tracked = subprocess.check_output(
             ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw", "mounts-cap/aipoch"],
             cwd=ROOT,
@@ -362,6 +365,23 @@ class MountsCap(unittest.TestCase):
         self.assertIn("ensure-b", fetch)
         self.assertNotIn("def download_all", fetch)
         self.assertIn("04-explainability", read("01_skill-discovery-integration/SKILL.md"))
+
+
+class LocalLinkHygiene(unittest.TestCase):
+    def test_no_broken_relative_markdown_links(self) -> None:
+        errors = []
+        skip_parts = {".git", "mounts-cap", "__pycache__"}
+        for p in ROOT.rglob("*.md"):
+            if skip_parts & set(p.parts):
+                continue
+            text = p.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r"\[[^\]]*\]\(([^)]+)\)", text):
+                target = m.group(1).split("#", 1)[0].strip()
+                if not target or target.startswith(("http://", "https://", "mailto:", "<")):
+                    continue
+                if not (p.parent / target).resolve().exists():
+                    errors.append(f"{p.relative_to(ROOT)} -> {target}")
+        self.assertEqual(errors, [], msg="\n".join(errors))
 
 
 class HarvestHygiene(unittest.TestCase):
@@ -392,7 +412,7 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-008", text)
+        self.assertIn("CHG-20260906-009", text)
         self.assertIn("g-fact", text.lower())
 
 
@@ -402,6 +422,7 @@ class HarvestHygiene(unittest.TestCase):
         self.assertIn("CHG-20260906-006", text)
         self.assertIn("CHG-20260906-007", text)
         self.assertIn("CHG-20260906-008", text)
+        self.assertIn("CHG-20260906-009", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
 

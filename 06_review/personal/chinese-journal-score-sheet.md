@@ -2,7 +2,7 @@
 
 仅当邀请来自**中文期刊纸质/系统审稿单**时用本文件。
 
-**不要**把本模板的分项打分、A–F 档、或「并无新意」一类冲词写进英文 peer review。英文走 [`mode-2-prereview.md`](mode-2-prereview.md) §2.5 + [`merged/radiology-prereview/personal-review-style.md`](merged/radiology-prereview/personal-review-style.md)。毕业论文评阅走 [`thesis-review.md`](thesis-review.md)。
+**不要**把本模板的分项打分、A–F 档、或「并无新意」一类冲词写进英文 peer review。英文走 [`personal-review-style.md`](personal-review-style.md) §2。毕业论文评阅走 [`thesis-review.md`](thesis-review.md)。
 
 不要把英文长 Methods 清单整段贴进「学术评语」。分数/等级放本单；具体改法写「综合评审意见 / 对稿件的具体意见」，3–10 条即可。
 

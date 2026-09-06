@@ -44,7 +44,7 @@ Personal scripts are not replaced by a mounted pack.
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-Call mounted ids from 01 (`mounts/README.md` / `registry.yaml`), not deleted `bundles/` paths. Personal scripts stay local:
+Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` menu + `01_skill-discovery-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
 
 - `02-tables` — 临床表 Excel / CSV（含缺失/异常值）
 - `02-imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII

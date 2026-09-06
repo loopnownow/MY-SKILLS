@@ -1,6 +1,6 @@
 # 毕业论文评阅（院内 / 学校学位论文）
 
-与英文期刊 peer review **分开**。不要用 [`mode-2-prereview.md`](mode-2-prereview.md) §2.5 的 Opening → Major → Abstract/Methods 信封，也不要写成 20 条英文 Methods 清单。中文刊 A–F 审稿单走 [`chinese-journal-score-sheet.md`](chinese-journal-score-sheet.md)。国基标书评审不在 06_review（那是 `03_research`）。
+与英文期刊 peer review **分开**。不要用 [`personal-review-style.md`](personal-review-style.md) §2 的 Opening → Major → Abstract/Methods 信封，也不要写成 20 条英文 Methods 清单。中文刊 A–F 审稿单走 [`chinese-journal-score-sheet.md`](chinese-journal-score-sheet.md)。国基标书评审不在 06_review（那是 `03_research`）。
 
 来源：自审毕业论文评阅 16 份，全部中文。只收骨架和套话，不抄学位论文题目、学号、导师名、未发表数据表。
 
@@ -9,7 +9,7 @@
 ## 何时用
 
 用户说「评阅毕业论文 / 学位论文 / 是否同意答辩 / 硕博评阅表」——走本文件。  
-用户说 peer review / 写审稿意见 / 英文审稿 ——走 mode-2 §2.5，**不要**把下面套话译成英文 Major Comments。
+用户说 peer review / 写审稿意见 / 英文审稿 ——走 `personal-review-style.md` §2，**不要**把下面套话译成英文 Major Comments。
 
 ---
 

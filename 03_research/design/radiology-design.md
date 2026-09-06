@@ -52,12 +52,12 @@ generalisable or single-center-anecdote.
 
 | File | Open when |
 |---|---|
-| [references/feasibility-triage.md](references/feasibility-triage.md) | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
-| [references/study-blueprints.md](references/study-blueprints.md) | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
-| [references/validation-strategy.md](references/validation-strategy.md) | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
-| [references/endpoints-and-estimands.md](references/endpoints-and-estimands.md) | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
-| [references/ai-radiogenomics-12-24-roadmap.md](references/ai-radiogenomics-12-24-roadmap.md) | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
-| [references/grant-own-skeleton.md](references/grant-own-skeleton.md) | **Voice B 写自己的标书**：立项五步、创新两栏、可行性三块、目标「确定/阐明/探讨」。评别人的国自不要打开本文件 |
+| [references/feasibility-triage.md](feasibility-triage.md) | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
+| [references/study-blueprints.md](study-blueprints.md) | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
+| [references/validation-strategy.md](validation-strategy.md) | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
+| [references/endpoints-and-estimands.md](endpoints-and-estimands.md) | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
+| [references/ai-radiogenomics-12-24-roadmap.md](ai-radiogenomics-12-24-roadmap.md) | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
+| [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B 写自己的标书**：立项五步、创新两栏、可行性三块、目标「确定/阐明/探讨」。评别人的国自不要打开本文件 |
 
 ## Workflow
 
