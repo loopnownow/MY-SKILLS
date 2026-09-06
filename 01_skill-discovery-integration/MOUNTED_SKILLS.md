@@ -3,7 +3,7 @@
 Canonical **pointers live in 01** (`registry.yaml` is source of truth; this file is the human table).
 Default source: [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
 
-Empty mount → notify the user, then re-search and confirm. Do not silently fall back to ARS/MedSci/Scientific/OpenClaw.
+Empty mount → notify the user, then re-search and confirm. Do not silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH.
 Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`.
 **Every run:** ask which of these ids to attach this session (`session_mount: ask-each-run`). Unpicked = not loaded.
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download is not a mount.
@@ -58,3 +58,4 @@ Local bytes: `mounts-cap/` (B full; other sources on-demand). Download is not a 
 - OpenClaw `PROPOSED` · 23 mapped / 7 empty (`02-imaging-qc`, `02-fmri`, `03-lit-fulltext`, `05-write-reporting`, `05-write-venue`, `05-humanize`, `06-review-response`).
 
 Mapping is not a source-wide mount.
+- AIPOCH `PROPOSED` · 25 mapped / 5 empty (`02-imaging-qc`, `02-radiomics-habitat`, `05-write-reporting`, `05-humanize`, `06-review-critique`).

@@ -19,10 +19,10 @@
 
 - Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
 - 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
-  - 例：`[A:personal]` · `[06-review-peer]` · `[B:…]` · `[ARS:academic-paper-reviewer]` · `[MedSci:self-review]` · `[Scientific:peer-review]` · `[OpenClaw:peer-review]` · `[03-lit-search]`
-  - 挂载 + 个人都成立 → **双标**，例：`[Scientific:peer-review] [A:personal]` / `[OpenClaw:peer-review] [A:personal]`
-- **强制：** 本轮挂了 ARS / MedSci / Scientific / OpenClaw（或非个人 B 包）时，凡发现/门控/清单条目来自该包，前缀**必须**含 `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
-- 无挂载时不得出现 `[MedSci:]` / `[ARS:]` / `[Scientific:]` / `[OpenClaw:]` 空壳前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
+  - 例：`[A:personal]` · `[06-review-peer]` · `[B:…]` · `[ARS:academic-paper-reviewer]` · `[MedSci:self-review]` · `[Scientific:peer-review]` · `[OpenClaw:peer-review]` · `[AIPOCH:peer-review]` · `[03-lit-search]`
+  - 挂载 + 个人都成立 → **双标**，例：`[Scientific:peer-review] [A:personal]` / `[OpenClaw:peer-review] [A:personal]` / `[AIPOCH:peer-review] [A:personal]`
+- **强制：** 本轮挂了 ARS / MedSci / Scientific / OpenClaw / AIPOCH（或非个人 B 包）时，凡发现/门控/清单条目来自该包，前缀**必须**含 `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[AIPOCH:…]` / `[B:…]`。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
+- 无挂载时不得出现 `[MedSci:]` / `[ARS:]` / `[Scientific:]` / `[OpenClaw:]` / `[AIPOCH:]` 空壳前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**；未点头不改稿。
 - 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户；可附 1–2 句 **reference only** 改写，不直接落稿。
 - 改文单元：**词或句**，禁止整段重写。

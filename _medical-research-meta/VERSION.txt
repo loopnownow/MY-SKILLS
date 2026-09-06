@@ -1,2 +1,2 @@
-CHG-20260906-003 (2026-09-06)
-Review Resolution protocol: mount findings → A 06 status (Resolved/Partial/Unresolved/New); no B06 core
+CHG-20260906-006 (2026-09-06)
+AIPOCH Medical Research Skills PROPOSED board: mounts/aipoch.md + proposed.yaml @f5ef65b; 25/30 mapped

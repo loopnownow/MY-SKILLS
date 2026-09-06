@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; 30-id menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/OpenClaw **PROPOSED** backups; `session_mount: ask-each-run`.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; 30-id menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/OpenClaw/AIPOCH **PROPOSED** backups; `session_mount: ask-each-run`.
 
 ## Skill selection
 
@@ -63,10 +63,10 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 5. If network is unavailable, request a local Skill/repository path.
 6. Evaluate capability and boundaries; propose mount; require explicit user approval; then mount.
 
-Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific/OpenClaw fetch **only the path of an id picked this run**. Download is not a mount.
+Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific/OpenClaw/AIPOCH fetch **only the path of an id picked this run**. Download is not a mount.
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
-Backups: ARS / MedSci / Scientific / OpenClaw stay `PROPOSED` (`role: backup-candidate`). Mapping is not a mount.
+Backups: ARS / MedSci / Scientific / OpenClaw / AIPOCH stay `PROPOSED` (`role: backup-candidate`). Mapping is not a mount.
 Registry `MOUNTED` is a **menu of 30 ids**, not `mounts: []`. Never auto-mount a non-B source. No live `04-figure-engine`.
 
 ## Domain boundaries
