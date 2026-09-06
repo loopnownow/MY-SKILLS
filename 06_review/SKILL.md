@@ -24,6 +24,8 @@ When reviewing an already-written manuscript, do **not** delete genuine referenc
 
 **Mounted review/response capability → 06 personal upper layer → 00 Final QC.**
 
+Mounted packs may raise findings; **A 06 personal** owns resolution status (`personal/review-resolution.md`). No permanent three-pack sub-dispatcher; no B06 “intelligence core.”
+
 ## Personal assets
 
 | Task | Path |
@@ -32,6 +34,7 @@ When reviewing an already-written manuscript, do **not** delete genuine referenc
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
 | 中文刊审稿单 A–F | `personal/chinese-journal-score-sheet.md` |
+| Review Resolution (issue status / response re-check) | `personal/review-resolution.md` |
 
 ## Mounted capability ids (generic; not present until mounted)
 
@@ -69,7 +72,8 @@ English peer-review / pre-review body follows `personal/personal-review-style.md
 - Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 (author ≠ prefix; mount-driven items must carry `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`, dual-tag OK).
 - Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
 - Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
-- Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03.
+- Response / re-audit: set each issue to Resolved / Partially resolved / Unresolved / New issue per `personal/review-resolution.md` (A 06 judges; mounts only draft).
+- Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03. Writing-time claim gaps → `05_manuscript/personal/evidence-request.md`.
 
 ## Not this skill
 

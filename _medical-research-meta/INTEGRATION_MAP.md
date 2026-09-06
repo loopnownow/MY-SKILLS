@@ -520,3 +520,17 @@ change: Thin protocol 05_manuscript/personal/evidence-request.md (card fields; A
 decision: keep
 next_action: user reviews PR; do not merge until named
 ```
+
+## Review Resolution protocol 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-003
+date: 2026-09-06
+skill: 06_review/personal + 00 G-06
+author: Aitor
+change_class: policy
+problem: User agreed ChatGPT A06/B06 redesign should keep swappable mount engines and structured resolution status, but reject B06-as-intelligence-core and A06-as-permanent three-pack dispatcher.
+change: Thin protocol 06_review/personal/review-resolution.md (issue card; Resolved/Partial/Unresolved/New; A 06 judges). Pointers in 06 SKILL, response-style, G-06. No B layout change; no new coarse ids.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

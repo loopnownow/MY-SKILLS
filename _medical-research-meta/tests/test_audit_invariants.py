@@ -269,6 +269,18 @@ class AttributionAndFetch(unittest.TestCase):
 
 
 class ReviewInteract(unittest.TestCase):
+    def test_review_resolution_protocol(self) -> None:
+        text = read("06_review/personal/review-resolution.md")
+        self.assertIn("Review Issue", text)
+        for s in ("resolved", "partially_resolved", "unresolved", "new_issue"):
+            self.assertIn(s, text)
+        self.assertIn("A 06 personal", text)
+        self.assertIn("B06 upgrade", text)
+        skill = read("06_review/SKILL.md")
+        self.assertIn("review-resolution.md", skill)
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("review-resolution.md", gates)
+
     def test_personal_review_eight_sections(self) -> None:
         text = read("06_review/personal/personal-review-style.md")
         for h in (
@@ -378,15 +390,17 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-002", text)
-        self.assertIn("evidence request", text.lower())
-        self.assertIn("accept", text.lower())
+        self.assertIn("CHG-20260906-003", text)
+        self.assertIn("review resolution", text.lower())
+        self.assertIn("resolved", text.lower())
+
 
     def test_integration_map_has_this_chg(self) -> None:
         text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("CHG-20260906-003", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
-        self.assertIn("CHG-20260904-002", text)
+
 
     def test_skills_map_html_gone(self) -> None:
         self.assertFalse((ROOT / "SKILLS_map.html").exists())
