@@ -1,2 +1,2 @@
-CHG-20260906-002 (2026-09-06)
-Evidence Request protocol: mount gap → 03 search → A 05 Accept/Weaken/Delete; G-LIT dual plan
+CHG-20260906-003 (2026-09-06)
+Review Resolution protocol: mount findings → A 06 status (Resolved/Partial/Unresolved/New); no B06 core
