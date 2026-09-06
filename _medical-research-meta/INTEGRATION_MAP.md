@@ -507,3 +507,16 @@ decision: keep
 next_action: user reviews PR; do not merge until named
 ```
 
+## Evidence Request protocol 2026-09-06 (user)
+
+```text
+change_id: CHG-20260906-002
+date: 2026-09-06
+skill: 05_manuscript/personal + 00 G-LIT
+author: Aitor
+change_class: policy
+problem: User agreed mounts should raise reverse lit-fill gaps, 03 searches, and A 05 personal owns final evidence QC — rejecting B05-as-personal-orchestrator and permanent A05 three-pack sub-dispatch.
+change: Thin protocol 05_manuscript/personal/evidence-request.md (card fields; Accept/Weaken/Delete; roles). Pointers in 05 SKILL, intro-discussion-evidence, 00 G-LIT/gates. No B layout change; no new coarse ids.
+decision: keep
+next_action: user reviews PR; do not merge until named
+```

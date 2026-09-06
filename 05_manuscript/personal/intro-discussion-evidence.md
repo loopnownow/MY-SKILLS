@@ -2,6 +2,8 @@
 
 **Owner:** `05_manuscript` / `manuscript-core`. Purpose: find and verify papers **so this manuscript’s Introduction and Discussion can be written**. Not a systematic-review skill. 选题 / 选刊 → `03_research` (选刊 is NOT `05-write-venue`; not 01).
 
+Gap discovery from mounted packs → `evidence-request.md` (A 05 judges; 03 searches).
+
 Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro); first paragraph no citations and no result numbers; Methods no citations. Prose templates: `polisher-sections.md` §2 / §5.
 
 ## When to load

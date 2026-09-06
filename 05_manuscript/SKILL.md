@@ -33,6 +33,7 @@ Convert **validated** research information into precise, publication-ready origi
 | Corpus phrase bank | `personal/corpus-phrase-bank.md` |
 | Citation and language | `personal/citation-and-language.md` |
 | I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
+| Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
@@ -54,7 +55,7 @@ Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. 选题 stays in 03 (`03-frontier-ideate`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/evidence-request.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. 选题 stays in 03 (`03-frontier-ideate`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
 
 ## Core rule
 
@@ -93,7 +94,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
 - Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:05-write-polish]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
-- Literature verify fail: comment with dual plan (revise sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
+- Literature verify fail: follow `personal/evidence-request.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
 
 ## Writing QC (domain)
