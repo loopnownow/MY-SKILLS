@@ -1,6 +1,6 @@
 # 预设 AIPOCH · 备份
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md) · [AIPOCH · 备份](aipoch.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
 
 仅用 AIPOCH Medical Research Skills（钉 `f5ef65b`）。仓库 [aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills) · 配置 `../sources/aipoch-medical-research-skills.proposed.yaml`
 

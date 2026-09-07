@@ -338,19 +338,20 @@ class MountsCap(unittest.TestCase):
         self.assertTrue((root / "INDEX.yaml").is_file())
         self.assertTrue((root / "fetch.py").is_file())
         gi = read("mounts-cap/.gitignore")
-        for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "aipoch/", "STATE.yaml"):
+        for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "aipoch/", "nature/", "STATE.yaml"):
             self.assertIn(name, gi)
         idx = read("mounts-cap/INDEX.yaml")
         self.assertIn("on-demand-path-only", idx)
         self.assertIn("never_bulk_backup", idx)
         self.assertIn("openclaw-medical-skills: openclaw", idx)
         self.assertIn("aipoch-medical-research-skills: aipoch", idx)
+        self.assertIn("nature-skills: nature", idx)
         # Local fetch cache dirs may exist on a developer box; they must stay gitignored.
         git_dir = ROOT / ".git"
         if not git_dir.exists():
             self.skipTest("Git metadata is not present in exported ZIP; tracked-file assertion requires a Git checkout")
         tracked = subprocess.check_output(
-            ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw", "mounts-cap/aipoch"],
+            ["git", "ls-files", "mounts-cap/b", "mounts-cap/openclaw", "mounts-cap/aipoch", "mounts-cap/nature"],
             cwd=ROOT,
             text=True,
         ).strip()
@@ -412,8 +413,9 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260906-009", text)
-        self.assertIn("g-fact", text.lower())
+        self.assertIn("CHG-20260907-001", text)
+        self.assertIn("nature", text.lower())
+        self.assertIn("proposed", text.lower())
 
 
     def test_integration_map_has_this_chg(self) -> None:
@@ -423,6 +425,7 @@ class HarvestHygiene(unittest.TestCase):
         self.assertIn("CHG-20260906-007", text)
         self.assertIn("CHG-20260906-008", text)
         self.assertIn("CHG-20260906-009", text)
+        self.assertIn("CHG-20260907-001", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
 

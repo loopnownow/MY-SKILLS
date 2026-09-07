@@ -16,3 +16,4 @@ dirs:
   openclaw-medical-skills: openclaw
   aipoch-medical-research-skills: aipoch
 # Repos / paths: 01_skill-discovery-integration/sources/*.yaml
+  nature-skills: nature

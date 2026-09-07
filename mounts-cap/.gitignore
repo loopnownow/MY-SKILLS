@@ -5,6 +5,7 @@ medsci/
 scientific/
 openclaw/
 aipoch/
+nature/
 STATE.yaml
 *.zip
 .cache/

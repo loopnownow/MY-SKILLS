@@ -1,0 +1,115 @@
+# Scanned 2026-09-07 against Yuan1z0825/nature-skills@287ee37 (2026-09-07). License: Apache-2.0.
+source_id: nature-skills
+name: Nature Skills
+role: backup-candidate
+repo: https://github.com/Yuan1z0825/nature-skills
+scanned: "2026-09-07"
+scan_sha: "287ee37"
+status: PROPOSED
+empty_mount: notify-then-research-confirm
+notes: >
+  20 skills, literature/writing/figure/review focused — no imaging or data-processing
+  content, so all 02-* ids stay empty. Uniquely fills 03-lit-fulltext and
+  06-review-response, which Scientific/OpenClaw leave empty. nature-downloader
+  and nature-image2ppt need Node.js 22+ and, for institutional/CNKI/SI routes, the
+  user's authenticated Chrome session with remote debugging — not a pure API call.
+  05-write-polish overlaps with A personal de-AI stack; personal layer still wins.
+  Mapping is not a mount. Default 06-review-response remains B.
+skills:
+  - id: 03-lit-search
+    path: skills/nature-academic-search/; skills/nature-literature-pipeline/
+    a_hook: 03_research
+    coverage: full
+    note: academic-search is multi-source search + citation audit; literature-pipeline adds cron-driven scoring/delivery, not review synthesis
+  - id: 03-lit-fulltext
+    path: skills/nature-downloader/
+    a_hook: 03_research
+    coverage: full
+    note: fills gap empty in Scientific/OpenClaw; lawful OA + publisher API + CNKI/institutional (needs user's authenticated Chrome session)
+  - id: 03-lit-cite
+    path: skills/nature-citation/; skills/nature-ref-verifier/
+    a_hook: 03_research
+    coverage: full
+    note: citation inserts refs into text; ref-verifier cross-checks an existing reference list's fields
+  - id: 03-design-grant
+    path: skills/nature-proposal-writer/
+    a_hook: 03_research
+    coverage: full
+    note: installed as researchwrite; does not replace A Voice A/B personal grant layer
+  - id: 04-stats-guide
+    path: skills/nature-statistics/
+    a_hook: 04_analysis
+    coverage: partial
+    note: audits/drafts manuscript stats reporting text, not raw computation; A 04 personal / 0RAD still wins
+  - id: 04-fig-plot
+    path: skills/nature-figure/
+    a_hook: 04_analysis
+    coverage: full
+    note: matplotlib/seaborn/R ggplot2/patchwork multi-panel figures; POLE gold still B/A
+  - id: 04-fig-flow
+    path: skills/nature-figure/
+    a_hook: 04_analysis
+    coverage: partial
+    note: separate AI-image route for graphical abstracts/mechanism schematics, not STROBE-flow gold
+  - id: 05-write-manuscript
+    path: skills/nature-writing/
+    a_hook: 05_manuscript
+    coverage: full
+  - id: 05-write-reporting
+    path: skills/nature-data/
+    a_hook: 05_manuscript
+    coverage: partial
+    note: fills gap empty in Scientific/OpenClaw, but only data-availability/FAIR/dataset-citation — no TRIPOD/CLAIM/STROBE checklist
+  - id: 05-write-polish
+    path: skills/nature-polishing/
+    a_hook: 05_manuscript
+    coverage: full
+    note: includes LaTeX layout fixes as bonus; not personal de-AI stack
+  - id: 06-review-peer
+    path: skills/nature-reviewer/
+    a_hook: 06_review
+    coverage: full
+  - id: 06-review-critique
+    path: skills/nature-reviewer/
+    a_hook: 06_review
+    coverage: partial
+    note: same pack as review-peer; secondary use as pre-submission self-critique
+  - id: 06-review-response
+    path: skills/nature-response/
+    a_hook: 06_review
+    coverage: full
+    note: fills gap empty in Scientific/OpenClaw; keeps mutually-blind reviewers isolated; default mount remains B
+unmapped_groups:
+  - domain: presentation-media
+    note: PPT conversion/authoring, not a 02-06 manuscript pipeline id
+    examples: [nature-image2ppt, nature-paper2ppt]
+  - domain: intellectual-property
+    note: Chinese patent/disclosure drafting, outside the paper pipeline
+    examples: [nature-paper-to-patent]
+  - domain: single-paper-deep-reading
+    note: single-paper analysis or bilingual translation, not multi-paper 03-lit-review synthesis
+    examples: [nature-paper-card, nature-reader]
+  - domain: lab-systems
+    note: experiment logging + Feishu/Obsidian integration, not a mount id
+    examples: [nature-experiment-log]
+  - domain: internal-dependency
+    note: shared reference package for other nature-* skills only; never mount standalone
+    examples: [nature-shared]
+empty:
+  - 02-tables
+  - 02-imaging-io
+  - 02-imaging-qc
+  - 02-pictures
+  - 02-fmri
+  - 02-radiomics-habitat
+  - 03-lit-review
+  - 03-design-experiment
+  - 03-design-protocol
+  - 03-frontier-ideate
+  - 03-frontier-hypothesize
+  - 04-stats-power
+  - 04-stats-models
+  - 04-model-eval
+  - 04-explainability
+  - 05-write-venue
+  - 05-humanize

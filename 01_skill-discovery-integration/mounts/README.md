@@ -1,6 +1,6 @@
 # 01 挂载指针
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md) · [AIPOCH · 备份](aipoch.md)
+[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
 
 粗 ID 共 30 个（CHG-20260903-011：P0+P1 细拆）。默认仍是 B。映射不等于改挂。
 
@@ -12,6 +12,7 @@
 | [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。已映射 21 / 30。空挂 9 个。 |
 | [OpenClaw · 备份](openclaw.md) | 扫 `b1f9b6e`。已映射 23 / 30。空挂 7：`02-imaging-qc`、`02-fmri`、`03-lit-fulltext`、`05-write-reporting`、`05-write-venue`、`05-humanize`、`06-review-response`。 |
 | [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。已映射 25 / 30。空挂 5：`02-imaging-qc` · `02-radiomics-habitat` · `05-write-reporting` · `05-humanize` · `06-review-critique`。 |
+| [Nature · 备份](nature.md) | 扫 `287ee37`。已映射 13 / 30。空挂 17 个，但填上其他源都空挂的 `03-lit-fulltext`、`06-review-response`。 |
 
 **每次运行：** 先问本轮挂哪些 id（可多选），未选不加载。Registry `MOUNTED` 是菜单。
 
