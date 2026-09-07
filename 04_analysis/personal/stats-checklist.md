@@ -90,3 +90,10 @@ Use this checklist when polishing Results and Methods sections.
 - ITK-SNAP: *"ITK-SNAP (version X.X; www.itksnap.org)"*
 - SPSS: *"SPSS Statistics software (version X.X; IBM Corp., Armonk, NY, USA)"*
 - MedCalc: *"MedCalc Statistical Software (version X.X; MedCalc Software, Ostend, Belgium)"*
+
+
+### Stats consistency audit (reported numbers)
+- [ ] Table 1 continuous means checked against N where GRIM applies — see `stats-consistency.md`
+- [ ] In-text NHST lines (t/F/chi-square/r) recomputed or flagged vs reported *P*
+- [ ] HR/OR/RR 95% CI directionally consistent with reported *P*
+- [ ] Raw assay tables (if in scope) pointed to `02_data-processing/table-qc/`, not handled only here
