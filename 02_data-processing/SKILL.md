@@ -25,6 +25,7 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 - maintained personal MATLAB/Python scripts
 - clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
 - coding principles / soft-coding / dry-run (`code-refactoring/`)
+- raw numeric table QC signals (`table-qc/`)
 
 Never perform feature selection or statistical model fitting here.
 
@@ -37,6 +38,7 @@ Never perform feature selection or statistical model fitting here.
 | Leakage / split / radiology audit | `scripts/split_leakage_check.py`, `scripts/radiology_audit.py` |
 | Clinical / HIS extraction | `clinical-data-extraction/` (`scripts/`) |
 | Soft-coding / dry-run / CONFIG on top | `code-refactoring/` (`scripts/`) |
+| Raw table digit / smoothness QC | `table-qc/` (`references/`) |
 
 Personal scripts are not replaced by a mounted pack.
 
