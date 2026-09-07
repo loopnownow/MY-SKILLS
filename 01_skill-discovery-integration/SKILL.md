@@ -14,12 +14,12 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
-ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), Scientific (`K-Dense-AI/scientific-agent-skills`), OpenClaw (`FreedomIntelligence/OpenClaw-Medical-Skills`), and AIPOCH (`aipoch/medical-research-skills`) are **backup candidates only**.
+ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), Scientific (`K-Dense-AI/scientific-agent-skills`), OpenClaw (`FreedomIntelligence/OpenClaw-Medical-Skills`), AIPOCH (`aipoch/medical-research-skills`), and Nature (`Yuan1z0825/nature-skills`) are **backup candidates only**.
 
 Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). Preset maps in `sources/*.proposed.yaml`. **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms a source-wide switch.
 
@@ -28,9 +28,8 @@ Coarse ids follow Scientific Agent Skills jobs (CHG-20260903-008). Preset maps i
 Bytes live at repo-root `mounts-cap/` (gitignored pack trees). Pointers stay in this skill.
 
 - **B** (`mounts-cap/b/`): **canonical** full tree. Missing → `python mounts-cap/fetch.py ensure-b` (or `migrate-b` if a leftover sibling `MY-SKILLS-capabilities/` still sits next to A). Do not keep B as a sibling of A.
-- **ARS / MedSci / Scientific / OpenClaw / AIPOCH**: download **only the path(s) of ids picked this run**. Never clone those repos wholesale. Example: picking `04-explainability` fetches `skills/explainability/` into `mounts-cap/medsci/`, not the rest of MedSci. OpenClaw paths land under `mounts-cap/openclaw/`; AIPOCH under `mounts-cap/aipoch/`.
+- **ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature**: download **only the path(s) of ids picked this run**. Never clone those repos wholesale. Example: picking `04-explainability` fetches `skills/explainability/` into `mounts-cap/medsci/`, not the rest of MedSci. OpenClaw paths land under `mounts-cap/openclaw/`; AIPOCH under `mounts-cap/aipoch/`; Nature under `mounts-cap/nature/`.
 - `python mounts-cap/fetch.py ensure --id <coarse-id>` after the session pick. Download is not a mount. Empty after fetch → empty-mount protocol.
-
 
 
 
@@ -41,7 +40,7 @@ Registry `MOUNTED` = **available to pick**, not attached for this run.
 
 1. Classify the task. Propose **only the candidate ids** for this job (not all 30 unless the user said 全线).
 2. Show each candidate as one line: id · 做什么 · default source (B, except `04-explainability` / `05-humanize` → MedSci).
-3. **Ask the user to choose** (multi-select). Also offer: 候选全用默认源 / 只要个人层不外挂 / 换源（ARS / MedSci / Scientific / OpenClaw / AIPOCH，仅当该源对该 id 有路径）.
+3. **Ask the user to choose** (multi-select). Also offer: 候选全用默认源 / 只要个人层不外挂 / 换源（ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature，仅当该源对该 id 有路径）.
 4. Load **only** the picked ids, from the picked source. Ensure bytes in `mounts-cap/` first (full B; on-demand path for a non-B pick). Unpicked packs stay unloaded this run — do not prefetch them.
 5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.
 6. Do not change `registry.yaml` just because this run picked a backup source. A source-wide switch still needs explicit confirm.
@@ -56,7 +55,7 @@ If a listed mount is empty (path missing, zero files, clone failed, id points no
 2. Re-search (B first, then GitHub / network; if no network, ask for a local path).
 3. **Confirm with the user** before changing `registry.yaml` or switching source.
 
-Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH or invent a local copy.
+Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature or invent a local copy.
 
 ## Resolution order
 
@@ -72,7 +71,7 @@ Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH or invent a lo
 
 - Never perform literature research, statistics, manuscript writing, or peer review.
 - Never auto-install or auto-mount a **non-B** Skill.
-- Never bulk-download ARS / MedSci / Scientific / OpenClaw / AIPOCH. On-demand paths only, after a pick.
+- Never bulk-download ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature. On-demand paths only, after a pick.
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
@@ -86,4 +85,4 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 `registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
 Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` or `REJECTED`.
-**Layout rule:** one external source → one yaml. Do not split B into one file per A id; do not mix B + ARS + MedSci + Scientific + OpenClaw + AIPOCH in one file. B folders are 1:1 with A ids (CHG-20260903-009), except MedSci-only `04-explainability` / `05-humanize`.
+**Layout rule:** one external source → one yaml. Do not split B into one file per A id; do not mix B + ARS + MedSci + Scientific + OpenClaw + AIPOCH + Nature in one file. B folders are 1:1 with A ids (CHG-20260903-009), except MedSci-only `04-explainability` / `05-humanize`.

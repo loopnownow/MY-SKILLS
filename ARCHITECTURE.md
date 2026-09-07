@@ -43,7 +43,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 
 - Default source **B** (`loopnownow/MY-SKILLS-capabilities`).
 - **30 coarse ids** are registry `MOUNTED` as a **menu**, not `mounts: []`. `session_mount: ask-each-run` — pick before loading packs; do not auto-load all.
-- ARS / MedSci / Scientific / OpenClaw / AIPOCH are **PROPOSED backups**. Mapping is not a mount. Never auto-mount a non-B source.
+- ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature are **PROPOSED backups**. Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only: `04-explainability`, `05-humanize`.
 - No live `04-figure-engine`. Figures: `04-fig-flow` (STROBE / patient-flow) and `04-fig-plot` (plots).
 - Retired ids are not live routes: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`, `03-literature`, `03-design`, `03-frontier`, `04-stats-generic`, `04-figure-engine`, `05-writing-generic`, `06-review-generic`.

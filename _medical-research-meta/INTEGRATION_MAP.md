@@ -595,3 +595,8 @@ boundary_effect: skill-harvest observes and reports; 00–06 remain domain owner
 decision: keep
 next_action: run repo_qc.py after structural changes (do not commit generated data/repo-qc.*); record evolution only when the user explicitly asks
 ```
+
+## CHG-20260907-001 — Nature PROPOSED board
+date: 2026-09-07
+problem: User provided Nature Skills zip and asked for a PROPOSED mount pointer board (backup candidate), same pattern as OpenClaw/AIPOCH.
+change: PROPOSED board mounts/nature.md + sources/nature-skills.proposed.yaml @287ee37; registry proposals entry; fetch/INDEX dir nature; session pick/换源 includes Nature; attribution/G-06 prefix [Nature:…]. Mapped 13/30 (17 empty). Uniquely fills 03-lit-fulltext and 06-review-response vs Scientific/OpenClaw empty. No new coarse ids; no nature-* coarse IDs; writing/polish overlaps A personal de-AI (personal wins); PPT/patent/lab systems stay unmapped_groups. Third-party package disclaimer (not Springer Nature official). Node 22+ and authenticated Chrome required for nature-downloader / nature-image2ppt. Default 06-review-response remains B. Mapping is not a mount.

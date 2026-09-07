@@ -1,2 +1,2 @@
-CHG-20260906-009 (2026-09-06)
-Repository-wide Harvest-QC hardening: deterministic repo scanner, local-link repair, meta consistency, G-FACT continuity, and ZIP-safe test behavior
+CHG-20260907-001 (2026-09-07)
+PROPOSED Nature Skills board (Yuan1z0825/nature-skills@287ee37): mounts/nature.md + sources/nature-skills.proposed.yaml; fetch/INDEX dir nature; session pick/换源 includes Nature; attribution/G-06 prefix [Nature:…]. Mapped 13/30 (17 empty). No new coarse ids; third-party package (not Springer Nature official); Node 22+/authenticated Chrome noted for nature-downloader & nature-image2ppt.
