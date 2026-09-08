@@ -610,3 +610,8 @@ change: Add 02 table-qc references and 04 personal stats-consistency plus checkl
 date: 2026-09-08
 problem: User wants hybrid mount as default session recipe (Nature-primary), swappable detail skills, human score tables separate from QC standards in skill-harvest/qc.
 change: Add mounts/presets.md + presets/review-hybrid.yaml; wire 01 session pick to pre-check review-hybrid-default for review tasks; add skill-harvest/qc/mount-score-rubric.md and pointers in qc SKILL/rules. Do not flip PROPOSED sources to MOUNTED; ARS/Grok out of default.
+
+## CHG-20260908-002 — code-refactoring QC + complexity ladder
+date: 2026-09-08
+problem: User said 更新 code-refactoring: merge modules deep code QC and Ponytail-stable ladder absorbs from skill-library.
+change: Extend code-refactoring SKILL + references/code-qc.md + references/complexity-ladder.md. No 01 mount, no B coarse id, no skill-harvest/qc mix-in, Medical axis pointers to 04 only.

@@ -1,2 +1,2 @@
-CHG-20260908-001 (2026-09-08)
-Default review hybrid mount recipe (presets): B chassis + Nature main external + Scientific critique overlay; swappable path core in mounts/presets/review-hybrid.yaml. Mount/reviewer score rubric under skill-harvest/qc (standards only; human score tables stay outside runtime). ARS/out-of-band editors excluded from default recipe. Registry backup sources remain PROPOSED.
+CHG-20260908-002 (2026-09-08)
+Absorb deep code QC + complexity ladder into 02_data-processing/code-refactoring (references/code-qc.md, complexity-ladder.md). No new top-level skill; no 01/B mount; Medical axis links 04 only.
