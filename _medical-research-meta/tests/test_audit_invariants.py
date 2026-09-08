@@ -244,6 +244,18 @@ class OrchestratorLoop(unittest.TestCase):
 
 
 class AttributionAndFetch(unittest.TestCase):
+
+    def test_skill_level_prefix_rules(self) -> None:
+        style = read("06_review/personal/personal-review-style.md")
+        self.assertIn("[Nature:nature-ref-verifier]", style)
+        self.assertIn("包内skill-id", style.replace(" ", ""))
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("skill-level prefix", gates)
+        preset = read("01_skill-discovery-integration/mounts/presets/review-hybrid.yaml")
+        self.assertIn("skills: [nature-ref-verifier]", preset)
+        self.assertIn("skills: [scientific-critical-thinking]", preset)
+
+
     def test_author_vs_prefix(self) -> None:
         text = read("06_review/personal/personal-review-style.md")
         self.assertIn("作者字段", text)
@@ -256,7 +268,7 @@ class AttributionAndFetch(unittest.TestCase):
         zero = read("00_orchestrator/SKILL.md")
         self.assertIn("personal-review-style.md` §0", zero)
         gates = read("00_orchestrator/gates.md")
-        self.assertIn("at least one Word comment prefix", gates)
+        self.assertIn("skill-level prefix", gates)
         five = read("05_manuscript/SKILL.md")
         self.assertIn("New citation numbers", five)
 
@@ -413,9 +425,9 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260908-002", text)
-        self.assertIn("code-refactoring", text.lower())
-        self.assertIn("ladder", text.lower())
+        self.assertIn("CHG-20260908-003", text)
+        self.assertIn("skill-level", text.lower())
+        self.assertIn("prefix", text.lower())
 
 
     def test_integration_map_has_this_chg(self) -> None:

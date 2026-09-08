@@ -615,3 +615,8 @@ change: Add mounts/presets.md + presets/review-hybrid.yaml; wire 01 session pick
 date: 2026-09-08
 problem: User said 更新 code-refactoring: merge modules deep code QC and Ponytail-stable ladder absorbs from skill-library.
 change: Extend code-refactoring SKILL + references/code-qc.md + references/complexity-ladder.md. No 01 mount, no B coarse id, no skill-harvest/qc mix-in, Medical axis pointers to 04 only.
+
+## CHG-20260908-003 — skill-level mount attribution
+date: 2026-09-08
+problem: Hybrid mount and scorecards were treated as whole sources because comments lacked pack-skill tags.
+change: Require [Source:pack-skill] prefixes (06 style + G-06); presets review-hybrid.yaml gains skills: + narrowed paths; 01 session lines show 粗ID·源·skill; qc mount-score-rubric primary key is source/skill.

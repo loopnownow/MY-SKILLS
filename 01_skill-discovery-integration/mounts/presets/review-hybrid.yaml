@@ -1,13 +1,13 @@
-# Swappable core for default hybrid mount. Coarse ids are stable; swap path/source rows to evolve.
-# Mapping is not a mount. Sources below stay PROPOSED in registry until a source-wide switch.
+# Swappable core for default hybrid mount.
+# Unit of attribution / scoring / path fetch = source + pack skill (not whole source).
+# Coarse ids stay the session shell. Mapping is not a mount. Backups stay PROPOSED.
 preset_id: review-hybrid-default
-version: "2026-09-08"
+version: "2026-09-08.2"
 status: default-session-recipe
 notes: >
-  Default for review / pre-review runs: B chassis + Nature as main external
-  (cite + numeric/reporting audit paths) + Scientific overlay on critique.
-  ARS and out-of-band Grok are excluded. Detail paths are replaceable without
-  changing coarse ids. A personal 06 (review-resolution) always adjudicates.
+  Default for review / pre-review: B chassis + Nature skills (cite verifier +
+  stats-reporting audit) + Scientific critique skills. Prefetch only listed
+  skill paths. ARS and out-of-band editors excluded. A 06 personal adjudicates.
 
 chassis:
   source: my-skills-capabilities
@@ -19,38 +19,46 @@ personal:
     role: adjudication
     must_include: [review-resolution.md, personal-review-style.md]
 
-# Per-id overrides (only listed ids leave B). Unlisted picked ids stay on B.
+# Per coarse-id overrides. `skills` is the swappable core; `paths` must match.
 overrides:
   - id: 03-lit-cite
     source: nature-skills
-    paths: [skills/nature-citation/, skills/nature-ref-verifier/]
+    skills: [nature-ref-verifier]
+    paths: [skills/nature-ref-verifier/]
     role: literature-verify
     required: true
+    prefix_example: "[Nature:nature-ref-verifier]"
   - id: 03-lit-fulltext
     source: nature-skills
+    skills: [nature-downloader]
     paths: [skills/nature-downloader/]
     role: fulltext
     required: false
+    prefix_example: "[Nature:nature-downloader]"
   - id: 04-stats-guide
     source: nature-skills
+    skills: [nature-statistics]
     paths: [skills/nature-statistics/]
     role: reported-stats-audit
     required: true
+    prefix_example: "[Nature:nature-statistics]"
   - id: 06-review-critique
     source: scientific-agent-skills
-    paths: [skills/scientific-critical-thinking/, skills/scholar-evaluation/]
+    skills: [scientific-critical-thinking]
+    paths: [skills/scientific-critical-thinking/]
     role: logic-mechanism-overlay
     required: true
+    prefix_example: "[Scientific:scientific-critical-thinking]"
 
-# Always prefer B for these even if another source maps them
 force_b:
   - 06-review-peer
   - 06-review-response
 
 excluded_sources: [academic-research-skills]
-excluded_tools_note: Out-of-band editors (e.g. unnamed Grok paste) are suggestions-only; no silent numeric edits; must pass G0 if used as a mount.
+excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount.
 
 swappable: true
 swap_policy: >
-  Change paths or move an override to another PROPOSED source that maps the same
-  coarse id; bump version; do not invent new coarse ids; do not auto-merge.
+  Swap `skills` + matching `paths` (same coarse id, mapped PROPOSED source);
+  bump version; do not invent coarse ids; do not auto-merge. Score and comment
+  by skill id, not by whole source.
