@@ -18,7 +18,7 @@ This layer only resolves **where a capability comes from**.
 
 ## Default mount
 
-**Default session recipe (review / pre-review):** `review-hybrid-default` in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature as main external for cite + reported-stats audit paths, Scientific overlay on `06-review-critique`. Still ask each run; user may change picks. ARS and out-of-band editors are not in the default recipe.
+**Default session recipe (review / pre-review):** `review-hybrid-default` in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature as main external for cite + reported-stats audit paths, Scientific overlay on `06-review-critique`. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source. ARS and out-of-band editors are not in the default recipe.
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
 ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), Scientific (`K-Dense-AI/scientific-agent-skills`), OpenClaw (`FreedomIntelligence/OpenClaw-Medical-Skills`), AIPOCH (`aipoch/medical-research-skills`), and Nature (`Yuan1z0825/nature-skills`) are **backup candidates only**.
@@ -41,9 +41,9 @@ Registry `MOUNTED` = **available to pick**, not attached for this run.
 **Every MY-SKILLS run** (00 composite or a single 02–06 skill) must ask before loading any mounted pack.
 
 1. Classify the task. Propose **only the candidate ids** for this job (not all 30 unless the user said 全线).
-2. Show each candidate as one line: id · 做什么 · default source (B, except `04-explainability` / `05-humanize` → MedSci).
+2. Show each candidate as one line: **粗 ID · 源 · 包内 skill（若有）** · 做什么。默认源多为 B（`04-explainability` / `05-humanize` → MedSci）。审稿混合配方行必须写出 skill 名（如 `nature-ref-verifier`）。
 3. **Ask the user to choose** (multi-select). For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`** (see `mounts/presets.md`) then allow edits. Also offer: 用审稿混合默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / OpenClaw / AIPOCH / Nature，仅当该源对该 id 有路径；ARS 默认不提供）.
-4. Load **only** the picked ids, from the picked source. Ensure bytes in `mounts-cap/` first (full B; on-demand path for a non-B pick). Unpicked packs stay unloaded this run — do not prefetch them.
+4. Load **only** the picked ids (and for non-B overrides, **only the preset/skill paths** listed—not the whole backup repo). Ensure bytes in `mounts-cap/` first (full B; on-demand path for a non-B skill pick). Unpicked skills stay unloaded — do not prefetch a whole Nature/Scientific tree.
 5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.
 6. Do not change `registry.yaml` just because this run picked a backup source. A source-wide switch still needs explicit confirm.
 

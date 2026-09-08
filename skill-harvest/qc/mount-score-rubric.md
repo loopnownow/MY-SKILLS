@@ -3,6 +3,8 @@
 人读的**评分表**（谁几分、哪篇稿）不放这里——给人看的结果表进 skill-library 归档或本地报告。  
 本文件只定义**尺子**：维度、锚点、意见 vs 兑现、何时据此提议改 `mounts/presets`。
 
+**评分主键 = `源/包内skill-id`**（可附粗 ID）。默认禁止只打「Nature / Scientific 整包总分」作为换芯依据；整包汇总仅可作附录（由 skill 分聚合）。旧四稿整包分标为历史、不可比。
+
 被动记录；改默认配方或换 Nature/Scientific 路径须用户明确同意。禁止 `OBSERVED → AUTO MODIFY`。
 
 ## 适用

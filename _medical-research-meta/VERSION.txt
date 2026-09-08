@@ -1,2 +1,2 @@
-CHG-20260908-002 (2026-09-08)
-Absorb deep code QC + complexity ladder into 02_data-processing/code-refactoring (references/code-qc.md, complexity-ladder.md). No new top-level skill; no 01/B mount; Medical axis links 04 only.
+CHG-20260908-003 (2026-09-08)
+Skill-level mount attribution and hybrid presets: comment prefixes and G-06 require [Source:pack-skill]; review-hybrid.yaml lists skills+paths (not whole-source fetch); mount-score-rubric scores by source/skill.
