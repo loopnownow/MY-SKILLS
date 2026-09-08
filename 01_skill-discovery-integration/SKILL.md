@@ -14,9 +14,11 @@ description: >
 
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
+**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`. Human board: `mounts/` (`README.md` index, `presets.md` + `presets/*.yaml` recipes, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`). Unmapped extras stay on each source page. Domain skills call ids; they do not keep a second pointer table.
 
 ## Default mount
+
+**Default session recipe (review / pre-review):** `review-hybrid-default` in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature as main external for cite + reported-stats audit paths, Scientific overlay on `06-review-critique`. Still ask each run; user may change picks. ARS and out-of-band editors are not in the default recipe.
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
 ARS (`Imbad0202/academic-research-skills`), MedSci (`Aperivue/medsci-skills`), Scientific (`K-Dense-AI/scientific-agent-skills`), OpenClaw (`FreedomIntelligence/OpenClaw-Medical-Skills`), AIPOCH (`aipoch/medical-research-skills`), and Nature (`Yuan1z0825/nature-skills`) are **backup candidates only**.
@@ -40,7 +42,7 @@ Registry `MOUNTED` = **available to pick**, not attached for this run.
 
 1. Classify the task. Propose **only the candidate ids** for this job (not all 30 unless the user said 全线).
 2. Show each candidate as one line: id · 做什么 · default source (B, except `04-explainability` / `05-humanize` → MedSci).
-3. **Ask the user to choose** (multi-select). Also offer: 候选全用默认源 / 只要个人层不外挂 / 换源（ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature，仅当该源对该 id 有路径）.
+3. **Ask the user to choose** (multi-select). For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`** (see `mounts/presets.md`) then allow edits. Also offer: 用审稿混合默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / OpenClaw / AIPOCH / Nature，仅当该源对该 id 有路径；ARS 默认不提供）.
 4. Load **only** the picked ids, from the picked source. Ensure bytes in `mounts-cap/` first (full B; on-demand path for a non-B pick). Unpicked packs stay unloaded this run — do not prefetch them.
 5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.
 6. Do not change `registry.yaml` just because this run picked a backup source. A source-wide switch still needs explicit confirm.

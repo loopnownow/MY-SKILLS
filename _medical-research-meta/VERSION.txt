@@ -1,2 +1,2 @@
-CHG-20260907-002 (2026-09-07)
-Thin table-qc (02) + stats-consistency (04) packs: leading/terminal digit and SD-smoothness heuristics for raw tables; GRIM/NHST/CI-vs-p checklist for reported stats. Rules and upstream links only — no vendored checker scripts. Separate from code-refactoring deep code QC and from G-FACT pipeline drift.
+CHG-20260908-001 (2026-09-08)
+Default review hybrid mount recipe (presets): B chassis + Nature main external + Scientific critique overlay; swappable path core in mounts/presets/review-hybrid.yaml. Mount/reviewer score rubric under skill-harvest/qc (standards only; human score tables stay outside runtime). ARS/out-of-band editors excluded from default recipe. Registry backup sources remain PROPOSED.

@@ -1,0 +1,56 @@
+# Swappable core for default hybrid mount. Coarse ids are stable; swap path/source rows to evolve.
+# Mapping is not a mount. Sources below stay PROPOSED in registry until a source-wide switch.
+preset_id: review-hybrid-default
+version: "2026-09-08"
+status: default-session-recipe
+notes: >
+  Default for review / pre-review runs: B chassis + Nature as main external
+  (cite + numeric/reporting audit paths) + Scientific overlay on critique.
+  ARS and out-of-band Grok are excluded. Detail paths are replaceable without
+  changing coarse ids. A personal 06 (review-resolution) always adjudicates.
+
+chassis:
+  source: my-skills-capabilities
+  role: base
+  required: true
+
+personal:
+  - layer: 06_review/personal
+    role: adjudication
+    must_include: [review-resolution.md, personal-review-style.md]
+
+# Per-id overrides (only listed ids leave B). Unlisted picked ids stay on B.
+overrides:
+  - id: 03-lit-cite
+    source: nature-skills
+    paths: [skills/nature-citation/, skills/nature-ref-verifier/]
+    role: literature-verify
+    required: true
+  - id: 03-lit-fulltext
+    source: nature-skills
+    paths: [skills/nature-downloader/]
+    role: fulltext
+    required: false
+  - id: 04-stats-guide
+    source: nature-skills
+    paths: [skills/nature-statistics/]
+    role: reported-stats-audit
+    required: true
+  - id: 06-review-critique
+    source: scientific-agent-skills
+    paths: [skills/scientific-critical-thinking/, skills/scholar-evaluation/]
+    role: logic-mechanism-overlay
+    required: true
+
+# Always prefer B for these even if another source maps them
+force_b:
+  - 06-review-peer
+  - 06-review-response
+
+excluded_sources: [academic-research-skills]
+excluded_tools_note: Out-of-band editors (e.g. unnamed Grok paste) are suggestions-only; no silent numeric edits; must pass G0 if used as a mount.
+
+swappable: true
+swap_policy: >
+  Change paths or move an override to another PROPOSED source that maps the same
+  coarse id; bump version; do not invent new coarse ids; do not auto-merge.

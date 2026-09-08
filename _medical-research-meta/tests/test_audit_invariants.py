@@ -413,9 +413,9 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260907-002", text)
-        self.assertIn("table-qc", text.lower())
-        self.assertIn("stats-consistency", text.lower())
+        self.assertIn("CHG-20260908-001", text)
+        self.assertIn("hybrid", text.lower())
+        self.assertIn("preset", text.lower())
 
 
     def test_integration_map_has_this_chg(self) -> None:
