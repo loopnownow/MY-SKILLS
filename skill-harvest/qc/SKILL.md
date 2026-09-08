@@ -17,6 +17,12 @@ description: >
 
 Do **not** create `07_QC`. Do **not** put evolution back into `00`.
 
+## Mount / reviewer score rubric
+
+Scoring **standards** for comparing mount sources / reviewer roles live in `mount-score-rubric.md`.
+Human-facing score **tables** (per manuscript) stay outside this repo’s runtime path (skill-library or local reports).
+Rubric evidence may inform on-demand evolution proposals that only suggest preset path swaps — never auto-remount.
+
 ## Repository-wide maintenance QC
 
 For an explicit repository audit, run `../scripts/repo_qc.py` from the repository root. It is read-only and reports structure, frontmatter, local links, legacy active references, registry/B mapping, meta consistency, QC scaffold, and deterministic tests. This is maintenance QC, not a new runtime gate and not permission to modify any Skill. See `repo-qc.md`.

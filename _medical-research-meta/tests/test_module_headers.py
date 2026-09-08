@@ -102,6 +102,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("openclaw.md", index)
         self.assertIn("aipoch.md", index)
         self.assertIn("nature.md", index)
+        self.assertIn("presets.md", index)
+        self.assertTrue((md / "presets" / "review-hybrid.yaml").is_file())
         self.assertIn("05-write-manuscript", b)
         self.assertIn("无空挂", b)
         self.assertIn("23 个空挂", ars)

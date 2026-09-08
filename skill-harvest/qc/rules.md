@@ -25,3 +25,7 @@ notes: "manuscript Results row drifted from HTML"
 ## Stale-reference
 
 Broken meta paths (`bundles/`, `skills/core/`, …) are harvest/meta hygiene tasks — schedule or on-demand scan — **not** a per-manuscript execution gate.
+
+## Mount score rubric
+
+See `mount-score-rubric.md`. Standards only; results tables are human-facing archives.

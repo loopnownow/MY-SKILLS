@@ -605,3 +605,8 @@ change: PROPOSED board mounts/nature.md + sources/nature-skills.proposed.yaml @2
 date: 2026-09-07
 problem: Harvest Gemini share into skill-library and thin-patch A with PR.
 change: Add 02 table-qc references and 04 personal stats-consistency plus checklist. Wire 02/04 SKILL tables. No vendored scripts; not code-refactoring; not skill-harvest/qc.
+
+## CHG-20260908-001 — review hybrid presets + mount score rubric
+date: 2026-09-08
+problem: User wants hybrid mount as default session recipe (Nature-primary), swappable detail skills, human score tables separate from QC standards in skill-harvest/qc.
+change: Add mounts/presets.md + presets/review-hybrid.yaml; wire 01 session pick to pre-check review-hybrid-default for review tasks; add skill-harvest/qc/mount-score-rubric.md and pointers in qc SKILL/rules. Do not flip PROPOSED sources to MOUNTED; ARS/Grok out of default.
