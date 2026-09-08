@@ -1,55 +1,64 @@
 ---
 name: code-refactoring
 description: >
-  Lab code refactoring: CONFIG on top, dry-run, checkpoint, modular scripts.
-  Use for 软编码, dry-run, 配置置顶, 模块化, 方便调用, checkpoint, CUDA.
-  Do not use for 统计方法 (04_analysis), 图像方法/预处理 (02_data-processing 其他模块),
-  Excel 批处理 (02_data-processing / mounted 02-tables), or 伦理填表 (ethics-application-forms).
+  Lab code refactoring and deep code QC for 0RAD/modules-style repos: CONFIG on top,
+  dry-run, checkpoint, modular scripts, YAGNI/reuse ladder, Critical/Required/Optional
+  code review. Use for 软编码, dry-run, 配置置顶, 模块化, 深审, Deep QC, 代码质控,
+  modules QC, YAGNI, 最小实现, 反过度工程. Do not use for 统计方法正文 (04_analysis),
+  影像 ROI QC (02-imaging-qc), Excel 批处理 (02-tables), 伦理填表, skill-harvest/qc
+  repo scans, or registering a new 01/B mount.
 ---
 
 # 代码优化与重构
 
-编码原则 / 软编码补充，家园在 `02_data-processing/code-refactoring/`（从 archive 迁入；模板在 `scripts/`）。
+家园在 `02_data-processing/code-refactoring/`（模板在 `scripts/`）。  
+深度代码 QC 与复杂度阶梯**吸收**进本技能，不另建顶层、不登记 01/B 粗 ID。
 
 ## 适用场景
 - 代码软编码（配置置顶）
-- 大幅精简代码、去除无用部分
-- 断点续传功能
-- 并行 / CUDA 加速
-- 加强注释、规范命名
-- dry run（试运行）模式
+- 大幅精简、去除无用部分
+- 断点续传 / 并行 / CUDA
+- dry-run
+- **深审 / Deep QC / modules 代码质控**（五轴 + 医学完整性**引用** 04）
+- 写时代码阶梯 / 写后复杂度检查（稳定方法论吸收，非外挂）
+
+## Capability map
+
+| 任务 | 路径 |
+|---|---|
+| 软编码 + dry-run 模板 | `scripts/soft_code_template.py` |
+| 深度代码 QC（五轴/分级/Critical） | `references/code-qc.md` |
+| 写时代码阶梯 + 强度/护栏 | `references/complexity-ladder.md` |
+
+Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-pipeline-rules.md` 等），不在本技能复制金标准。
 
 ## 核心原则
 
 ### 1. 软编码（配置置顶）
-- 所有路径、关键词、参数集中在文件顶部配置区
-- 避免硬编码在代码中
-- 关键参数添加注释说明
+- 路径、关键词、参数集中在文件顶部配置区
+- 避免硬编码；关键参数加注释
 
-### 2. 精简代码
-- 只写解决问题所需的最少代码
-- 去除无用 import、变量、函数
-- 不为单次使用创建抽象
-- 优先使用经过验证的库/方法
+### 2. 精简 + 阶梯
+- 最少必要代码；不为单次使用建抽象
+- 写前按 `references/complexity-ladder.md` 停在第一个「是」
+- 医学入口禁用 **ultra** 强度
 
 ### 3. 断点续传
-- 已处理的结果跳过，不重复处理
-- 检查中间文件或完成标记
-- 中断后可从中断处继续
+- 已处理结果跳过；检查中间文件或完成标记
 
-### 4. 并行 / CUDA 加速
-- 优先并行处理独立任务
-- GPU 加速可用时使用（如 CuPy、CUDA）
-- 注意内存优化
+### 4. 并行 / CUDA
+- 独立任务可并行；注意内存
 
 ### 5. 注释规范
-- 文件顶部写功能、用法说明
-- 关键逻辑加注释
-- 配置区加注释说明每个参数
+- 文件顶功能/用法；关键逻辑与配置区注释
 
-### 6. Dry Run 模式
-- 提供 dry run 开关，先试运行不实际执行
-- 打印将要执行的操作供用户确认
+### 6. Dry Run
+- 先试运行；打印将执行操作供确认
+
+### 7. 深度 QC
+- 触发与分级见 `references/code-qc.md`
+- 边界：≠ `skill-harvest/qc`；≠ `02-imaging-qc`
+- 不 vendor `D:\0Grok\0RAD\modules` 整树
 
 ## 附带的模板
 - `scripts/soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
