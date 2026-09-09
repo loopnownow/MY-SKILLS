@@ -1,0 +1,1 @@
+# schema: manuscript_type, target_journal, outcome, date, notes (NO if/quartile/volume fields). One JSON object per line when logging; this file may stay empty until first outcomes.
