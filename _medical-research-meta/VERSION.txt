@@ -1,2 +1,2 @@
-CHG-20260908-003 (2026-09-08)
-Skill-level mount attribution and hybrid presets: comment prefixes and G-06 require [Source:pack-skill]; review-hybrid.yaml lists skills+paths (not whole-source fetch); mount-score-rubric scores by source/skill.
+CHG-20260909-001 (2026-09-09)
+Align medical-journal-submit / journal-selection to 2026-09-09 user notes: default layers 10+10+10 (层4 on, 层2补 ask-first off); Phase-1 columns + JESI partial marks; Medicine deprioritize without 可疑/red; yellow highlight only JESI≥80; submission URLs persist, annual metrics display-only.

@@ -620,3 +620,8 @@ change: Extend code-refactoring SKILL + references/code-qc.md + references/compl
 date: 2026-09-08
 problem: Hybrid mount and scorecards were treated as whole sources because comments lacked pack-skill tags.
 change: Require [Source:pack-skill] prefixes (06 style + G-06); presets review-hybrid.yaml gains skills: + narrowed paths; 01 session lines show 粗ID·源·skill; qc mount-score-rubric primary key is source/skill.
+
+## CHG-20260909-001 — journal-selection / medical-journal-submit align
+date: 2026-09-09
+problem: User (via Bai notes) finalized Phase-1 选刊 display/defaults; pack still had Medicine red-mark and 5-per-layer remnants in places.
+change: Align SKILL/AGENTS/policy/workflow/journal-selection/annual-update to v1.14 rules (10+10+10, 层2补 ask-off, JESI≥80 yellow only, Medicine deprioritize no 可疑/red, persist URLs only).

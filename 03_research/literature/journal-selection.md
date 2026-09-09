@@ -130,11 +130,12 @@ publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / �
 
 当用户要「推荐杂志 / 按 JCR·JCI 分层选刊 / 易投指数」时，加载个人包：
 
-- `../medical-journal-submit/SKILL.md`（权威流程；Victor）
+- `../medical-journal-submit/SKILL.md`（权威流程；Victor；version ≥ **1.14**；Gemini+ChatGPT 2026-09）
 - `../medical-journal-submit/AGENTS.md`（须与 SKILL/policy 一致）
 - 策展表：`../medical-journal-submit/artifacts/医学投稿推荐_JCR2026.xlsx`
+- 指数与模块：`../medical-journal-submit/references/jesi-model.md`（JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI）、`modules.md`、`query-sources.md`
+- 持久化：`../medical-journal-submit/references/persistence.md` — **absorb / query / delete** 表；投稿 URL 与个人先验可存；年度 IF/分区/年发文量/APC 等 **QUERY ONLY**（勿写入 `submission-urls.csv`）；**Unknown ≠ Low Risk**；无固定权重政策（动态加权）
 
-本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 `journal-patterns-2023-2026.md` / `literature-evidence-2023-2026.md` 对照。分层表输出以个人包为准（默认层2→层3→层2补，每层5本；黑名单三刊永不荐）。
+本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 `journal-patterns-2023-2026.md` / `literature-evidence-2023-2026.md` 对照。分层表输出以个人包为准（默认**层2→层3→层4，每层10本**；层2≈主攻/Target、层3≈稳妥/Safety偏上、层4≈Q3；**层2补**冲刺默认不出、每次用前询问；黑名单三刊永不荐）。层内排序：稿件匹配度 → 投稿易投指数 → 年发文量（弱）。Medicine 刊名层内降权、表中不标可疑；仅 JESI≥80 黄底。外部 journal-recommender 仅作查询/候选池，不作顶层决策。
 
 **不要**把选刊交给 `05-write-venue`。
-
