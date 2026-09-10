@@ -1,2 +1,2 @@
-CHG-20260909-001 (2026-09-09)
-Align medical-journal-submit / journal-selection to 2026-09-09 user notes: default layers 10+10+10 (层4 on, 层2补 ask-first off); Phase-1 columns + JESI partial marks; Medicine deprioritize without 可疑/red; yellow highlight only JESI≥80; submission URLs persist, annual metrics display-only.
+CHG-20260910-002 (2026-09-10)
+medical-journal-submit v1.15: BMC/Medicine whitelist priority (~486; LWW MEDICINE excluded); replaces v1.14 Medicine in-layer demote.

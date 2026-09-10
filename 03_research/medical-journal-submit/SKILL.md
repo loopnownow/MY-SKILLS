@@ -3,7 +3,7 @@ name: medical-journal-submit
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.14"
+  version: "1.15"
   source_table: artifacts/医学投稿推荐_JCR2026.xlsx
   owner: 03_research/Victor
   home: A 03_research/medical-journal-submit (not B 05-write-venue)
@@ -44,8 +44,9 @@ Default total **30** titles (10+10+10) unless a layer has fewer acceptable match
 Inside each layer rank by
 
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs `医学相关学科` (**MJF = MFI**; display **稿件匹配度**)
-2. **投稿易投指数** (JESI/JEI; see `references/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
-3. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
+2. **BMC/Medicine 白名单优先** (`references/whitelist-bmc-medicine.csv`): among comparable fit, whitelist hits rank above non-whitelist (boost, not auto-fill)
+3. **投稿易投指数** (JESI/JEI; see `references/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
+4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
 
 **Dynamic weights:** numeric JESI defaults in `jesi-model.md` are **initial only** and must be overridable when the user prioritizes speed, Q1, APC/OA, etc. Do not copy fixed external Fit Score weights into this pack.
 
@@ -104,12 +105,18 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 13. `references/jesi-model.md` — JESI / JEI / JDI / JCI-C / MJF
 14. `references/persistence.md` — absorb / query / delete + what to save
 15. `references/modules.md` — four logical modules + naming
-16. `references/submission-urls.csv` — URL fields only
-17. `references/submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
+16. `references/whitelist-bmc-medicine.csv` — BMC / Medicine priority whitelist (LWW MEDICINE excluded)
+17. `references/submission-urls.csv` — URL fields only
+18. `references/submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
 
-## 刊名含 Medicine
+## BMC / Medicine 白名单（优先推荐）
 
-Titles containing **Medicine**: **deprioritize inside the layer** (do not preferentially recommend). Do **not** label them 「可疑」 and do **not** use a red HTML mark. LWW **MEDICINE** remains blacklisted. Nature Medicine / NEJM are not auto-blacklisted by this rule and gain no bonus from the word Medicine. Solid specialty titles may still appear lower in the list.
+Load `references/whitelist-bmc-medicine.csv` (copy: `artifacts/白名单_BMC_Medicine.csv`). Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** mounted blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
+
+User rule 2026-09-10: whitelist hits are **priority recommend** inside each layer (after 稿件匹配度). Do **not** label 「可疑」 and do **not** use a red HTML mark. This **replaces** the former v1.14 「刊名含 Medicine 层内降权」 rule.
+
+Whitelist is a boost, not auto-fill: still require reasonable scope match; still never recommend blacklist titles.
+
 
 ## Phase-1 HTML highlight
 

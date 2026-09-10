@@ -4,6 +4,10 @@
 
 PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 
+## Mounted whitelist (priority)
+
+`whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
+
 ## Decision flow (ChatGPT architecture mapped to this pack)
 
 External tools supply **candidates and current evidence**; MY-SKILLS owns the decision.
@@ -29,7 +33,7 @@ Do **not** let an external Fit Score or fixed-weight template pick the final lis
 
 ## Every paper: default three layers, **ten** each (+ optional 层2补)
 
-Order of tables (v1.14)
+Order of tables (v1.15)
 
 1. 层2 — Q1, IF<5 — **10本** → primary **主攻 / Target** band
 2. 层3 — Q2 — **10本** → **Safety偏上/稳妥** band
@@ -40,7 +44,7 @@ Note: default table order is 层2 → 层3 → 层4. 层2补 is Challenge/option
 
 Tier labels must be driven by **Journal Ease (JEI/JESI) × MJF × PAI × Practicality − Risk**, not IF/CAS alone.
 
-Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **投稿易投指数** (JESI) → capacity signal. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
+Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **BMC/Medicine whitelist boost** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
 
 ## Four-module pipeline
 
@@ -56,6 +60,7 @@ Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, p
 
 **Phase 2:** only confirmed titles — AIM, author instructions, APC (`aim-author-checklist.md`). Persist new portal URLs to `submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
 
-## Phase-1 HTML marks (v1.14)
+## Phase-1 HTML marks (v1.15)
 - Yellow highlight **only** when 投稿易投指数 ≥ 80.
-- Titles containing Medicine: deprioritize in-layer; **do not** mark 可疑 / red.
+- BMC/Medicine **whitelist priority** (`whitelist-bmc-medicine.csv`); **do not** mark 可疑 / red; LWW MEDICINE stays blacklisted.
+- Mounted whitelist after blacklist on every Phase-1 run.

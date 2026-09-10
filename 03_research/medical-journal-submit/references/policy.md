@@ -3,11 +3,11 @@
 Data year changes every year. These rules do not, unless the user says so.
 
 - Medical or medically eligible journals only.
-- **刊名含 Medicine**：层内**降权、不优先推荐**；勾选表**不要**标「可疑」、**不要**红标。已黑名单的 MEDICINE（LWW Baltimore）仍永不荐。Nature Medicine / NEJM 等顶刊不因本条自动拉黑，也不因此加分。
+- **BMC / Medicine 白名单优先**：`references/whitelist-bmc-medicine.csv`（刊名或 ISO 含 BMC，或含 Medicine；约 486 本）。层内在稿件匹配度相近时**优先推荐**白名单刊；勾选表**不要**标「可疑」、**不要**红标。已黑名单的 MEDICINE（LWW Baltimore）永不进白名单、永不荐。本条取代原「刊名含 Medicine 降权」。
 - Phase-1 HTML：**仅投稿易投指数 ≥80 黄底高亮**。
 - Mounted blacklist on every run: PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Not NEJM, not Nature Medicine.
 - Default layers and order: 层2 (Q1 IF<5) **10本** → 层3 (Q2) **10本** → 层4 (Q3) **10本**. 层2补 (Q1 5≤IF≤10) ask-before-use, **default OFF**.
-- Rank inside a layer by **MJF/MFI match** (highest) → **JESI/JEI ease** → capacity signal (log volume as weak tie-breaker). See `jesi-model.md`. Do not bake concrete IF numbers into this policy file.
+- Rank inside a layer by **MJF/MFI match** (highest) → **BMC/Medicine whitelist boost** → **JESI/JEI ease** → capacity signal (log volume as weak tie-breaker). See `jesi-model.md`. Do not bake concrete IF numbers into this policy file.
 - **No fixed scoring weights** as durable policy — Gemini/JESI numeric weights are initial defaults only and must be overridable by user constraints (speed vs Q1 vs APC).
 - Layer 1 (Q1 IF>10) only if asked. Layer 4 (Q3) is **default on**. Comprehensive/general medical journals may be recommended when fit is reasonable.
 - Two phases: no AIM / author instructions / APC until the user confirms 备选杂志.

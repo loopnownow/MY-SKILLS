@@ -625,3 +625,8 @@ change: Require [Source:pack-skill] prefixes (06 style + G-06); presets review-h
 date: 2026-09-09
 problem: User (via Bai notes) finalized Phase-1 选刊 display/defaults; pack still had Medicine red-mark and 5-per-layer remnants in places.
 change: Align SKILL/AGENTS/policy/workflow/journal-selection/annual-update to v1.14 rules (10+10+10, 层2补 ask-off, JESI≥80 yellow only, Medicine deprioritize no 可疑/red, persist URLs only).
+
+## CHG-20260910-002 — BMC/Medicine whitelist priority
+date: 2026-09-10
+problem: User wants BMC/Medicine titles preferred in Phase-1 (except LWW MEDICINE blacklist).
+change: medical-journal-submit v1.15 + whitelist-bmc-medicine.csv (~486); rank after 稿件匹配度; drop Medicine demote; no 可疑/red.
