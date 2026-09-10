@@ -3,7 +3,7 @@ name: medical-journal-submit
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.15"
+  version: "1.16"
   source_table: artifacts/医学投稿推荐_JCR2026.xlsx
   owner: 03_research/Victor
   home: A 03_research/medical-journal-submit (not B 05-write-venue)
@@ -71,7 +71,23 @@ Phase 1 columns for every layer table
 - **综合刊：** when fit is reasonable, general/comprehensive medical titles are allowed alongside specialty journals.
 - No AIM, author instructions, or APC in phase 1. After the tables, ask the user to circle 备选杂志.
 
-Phase 2 runs only after the user confirms titles. Then look up AIM, instructions, and fees for those titles only.
+## Phase 2 — user short HTML (after confirmed 备选)
+
+Phase 2 runs only after the user confirms titles. Lookups (AIM / author instructions / portal URLs; APC only if the user asks beyond the short table) follow `references/aim-author-checklist.md`.
+
+**User-facing Phase-2 HTML is a per-paper 短表** (one section per manuscript / paper id). Columns **only**:
+
+期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知
+
+Rules for that short table:
+
+- **投稿网址** and **作者须知** share the last column; show **full URLs** as visible text (and as `href`). Do **not** use bare link text like 「投稿须知」 without the URL.
+- **Do not** include: ISO/ISO缩写, OA, 置信度/置信, 「分刊详情（可勾选阅读）」, or **APC** in this short table.
+- JCR分区 / 影响因子 / 年发文量 remain **display-only** (query; do not write into `submission-urls.csv`).
+- Persist **submission portal URLs** to `references/submission-urls.csv` (URL fields only) as before; author-instruction URLs may be shown in HTML — only portal submission URLs are required in the CSV schema.
+- Prefer HTML delivery; follow `00_orchestrator/references/html-visual-design.md` when that file is on the tree (generic HTML craft — do not vendor lab console pages into this pack).
+
+Sample shape (skill-library): `extracts/03_research/journal-p2-phase2-short-2026-09-10.html`.
 
 ## Modules (within pack)
 
@@ -84,6 +100,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 ## Delivery
 
 - Prefer **HTML** for the user-facing recommendation.
+- **Phase-2 短表** (per paper): 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs; no ISO/OA/置信/APC/分刊详情.
 - Write **submission URLs only** back to `references/submission-urls.csv` (schema: 期刊全称, ISO缩写, ISSN, eISSN, 投稿网址, 来源备注, updated).
 - Annually updated metrics (JCR quartile, IF, annual volume, APC, review time, …) must **not** be persisted as durable delivery data — **query capability only**.
 - Personal outcomes → append `references/submission-prior.jsonl` (no IF/quartile fields).
@@ -121,6 +138,10 @@ Whitelist is a boost, not auto-fill: still require reasonable scope match; still
 ## Phase-1 HTML highlight
 
 Highlight **only** cells/rows where **投稿易投指数 ≥ 80** (yellow background). No other mandatory color marks in the checkbox table.
+
+## Wording (mounts)
+
+When talking about default external packs for this lab, say **默认挂载 B 包/本仓** — do **not** say 「空挂」.
 
 ## What not to do
 
