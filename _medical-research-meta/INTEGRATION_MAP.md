@@ -635,3 +635,8 @@ change: medical-journal-submit v1.15 + whitelist-bmc-medicine.csv (~486); rank a
 date: 2026-09-10
 problem: User (via Victor) locked Phase-2 HTML short-table columns and full-URL display; no ISO/OA/置信/APC/分刊详情.
 change: medical-journal-submit v1.16 + aim-author-checklist/workflow/AGENTS/journal-selection; wording 默认挂载 B 包/本仓 not 空挂.
+
+## CHG-20260910-001 — HTML visual design standing rules
+date: 2026-09-10
+problem: User wants HTML Visual Design Principles applied whenever editing/generating .html; not a full-repo audit; do not vendor lab console/starter HTML into MY-SKILLS.
+change: Add 00_orchestrator/references/html-visual-design.md; wire 00 SKILL only.

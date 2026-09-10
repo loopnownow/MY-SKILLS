@@ -18,6 +18,10 @@ Do not mount ARS `academic-pipeline` or MedSci `orchestrate` as a third SOP.
 
 **Literature verify fail (G-LIT):** require a dual plan in comments — (1) revise/weaken/delete the sentence, (2) keep the sentence and ask whether to call `03_research` for substitute refs. Prefer the Evidence Request card in `05_manuscript/personal/evidence-request.md` when a mount (or 05/06) raised a structured gap. **00 decides at QC** whether to invoke **03 (Victor)** for search; **05 (Aitee)** keeps Accept/Weaken/Delete on wording. If unsure, ask one question.
 
+## HTML delivery (standing)
+
+Whenever this lab **creates or edits** `.html`, follow `references/html-visual-design.md` (structure, a11y, no CDN, palette). Full-repo HTML architecture audits are **off** until the user asks. Do **not** vendor lab console / starter HTML pages into MY-SKILLS (rules only).
+
 ## 1. Intent classify
 
 Pick the smallest skill set. One bounded task → that domain skill, not 00.
