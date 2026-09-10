@@ -3,7 +3,7 @@
 Authority order: `SKILL.md` → `references/policy.md` → `references/recommendation-workflow.md` → this file.
 If this file conflicts with `SKILL.md` / `policy.md`, **follow SKILL/policy** (zip processed pack).
 
-Aligned with **SKILL.md metadata.version 1.15** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + 可荐综合刊).
+Aligned with **SKILL.md metadata.version 1.16** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + 可荐综合刊).
 
 ## When to use
 
@@ -29,6 +29,10 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
    - Per-layer default count: **10**. Specialty preferred; **综合/全科刊** allowed when fit is reasonable.
 6. No AIM / author instructions / APC in phase 1. Then ask user to circle 备选杂志.
 7. Phase 2 only after confirmation — see `references/aim-author-checklist.md`.
+   - **User HTML 短表 (per paper):** 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知.
+   - Same last column for portal + author instructions; show **full URLs** (not bare 「投稿须知」).
+   - Short table **omits** ISO, OA, 置信, 分刊详情, **APC**.
+   - Quartile/IF/volume display-only; portal URLs → `submission-urls.csv`.
 8. Pipeline: optional external candidate pool → metrics → fit → JESI → prior (`modules.md`, `jesi-model.md`). External recommender = query provider only.
 9. Delivery: HTML for user; write submission URLs only back to `submission-urls.csv`; optional prior lines → `submission-prior.jsonl`.
 10. Risk: **Unknown ≠ Low Risk.**
@@ -44,6 +48,9 @@ Curated table: `artifacts/医学投稿推荐_JCR2026.xlsx`. Raw Clarivate workbo
 - Persist annually updated IF / JCR·JCI/CAS / APC / review-time / volume values into CSV/DB-like files — **query capability only**.
 - Install external journal-recommender as a mounted skill; copy fixed Fit Score weights or abstract→CAS prediction.
 
-## Display hard rules (v1.15)
+## Display hard rules (v1.16)
 - BMC/Medicine **whitelist priority** (`references/whitelist-bmc-medicine.csv`); **no** 「可疑」/红标；LWW MEDICINE still blacklisted (never on whitelist).
 - Phase-1 HTML：only **投稿易投指数 ≥80** yellow highlight.
+
+## Wording
+- Say **默认挂载 B 包/本仓**, never 「空挂」.

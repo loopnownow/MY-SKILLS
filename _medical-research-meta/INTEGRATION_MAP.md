@@ -630,3 +630,8 @@ change: Align SKILL/AGENTS/policy/workflow/journal-selection/annual-update to v1
 date: 2026-09-10
 problem: User wants BMC/Medicine titles preferred in Phase-1 (except LWW MEDICINE blacklist).
 change: medical-journal-submit v1.15 + whitelist-bmc-medicine.csv (~486); rank after 稿件匹配度; drop Medicine demote; no 可疑/red.
+
+## CHG-20260910-003 — Phase-2 选刊短表交付
+date: 2026-09-10
+problem: User (via Victor) locked Phase-2 HTML short-table columns and full-URL display; no ISO/OA/置信/APC/分刊详情.
+change: medical-journal-submit v1.16 + aim-author-checklist/workflow/AGENTS/journal-selection; wording 默认挂载 B 包/本仓 not 空挂.

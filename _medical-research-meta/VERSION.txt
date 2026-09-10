@@ -1,2 +1,2 @@
-CHG-20260910-002 (2026-09-10)
-medical-journal-submit v1.15: BMC/Medicine whitelist priority (~486; LWW MEDICINE excluded); replaces v1.14 Medicine in-layer demote.
+CHG-20260910-003 (2026-09-10)
+medical-journal-submit v1.16 Phase-2 per-paper short HTML: 期刊全称|JCR分区|影响因子|年发文量|投稿网址/作者须知 (full URLs); no ISO/OA/置信/APC/分刊详情; display-only annual metrics; portal URLs → submission-urls.csv.

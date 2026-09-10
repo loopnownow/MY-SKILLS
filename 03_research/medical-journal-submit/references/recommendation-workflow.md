@@ -33,7 +33,7 @@ Do **not** let an external Fit Score or fixed-weight template pick the final lis
 
 ## Every paper: default three layers, **ten** each (+ optional 层2补)
 
-Order of tables (v1.15)
+Order of tables (v1.16)
 
 1. 层2 — Q1, IF<5 — **10本** → primary **主攻 / Target** band
 2. 层3 — Q2 — **10本** → **Safety偏上/稳妥** band
@@ -58,7 +58,7 @@ Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, p
 
 **Phase 1:** tables for 层2 + 层3 + 层4 (**10 rows each** by default); **ask before each run** whether to add 层2补 (**default OFF**); columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). No 分层/策略 column (titles carry layer; checkboxes keep data-layer/data-tier). Always show rate columns (blank if unknown). JESI always from available metrics; mark partial with in-cell `*` + `缺:…` (`jesi-model.md`). No curated 易投指数. No 置信度/ISO/JIF分区/JCI分区 columns. Comprehensive/general medical titles OK when match is reasonable. No live AIM/fee lookup. Prefer HTML delivery. Do not write yearly metrics/rates into `submission-urls.csv`.
 
-**Phase 2:** only confirmed titles — AIM, author instructions, APC (`aim-author-checklist.md`). Persist new portal URLs to `submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
+**Phase 2:** only confirmed titles (`aim-author-checklist.md`). **User delivery HTML = per-paper 短表** with columns only: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知. Put portal + author-instruction **full URLs** in the last column (visible URL text). **Omit** ISO, OA, 置信, 分刊详情, APC from that short table. Quartile/IF/volume display-only; persist portal URLs to `submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
 
 ## Phase-1 HTML marks (v1.15)
 - Yellow highlight **only** when 投稿易投指数 ≥ 80.

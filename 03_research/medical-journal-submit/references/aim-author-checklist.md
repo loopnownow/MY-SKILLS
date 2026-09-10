@@ -26,3 +26,21 @@ Title length; structured abstract headings; keywords; IMRAD extras; reference st
 ## Further checks before delivery
 
 Quote AIM against the paper aim. Confirm article type. Restate IF and layer. Mark APC as official or 未核实. Strip identifiers. Ask about MDPI/Frontiers unit bans only if those titles were confirmed in phase 1.
+
+## Phase-2 short HTML (user delivery)
+
+After confirmed 备选, deliver **one short HTML table per paper** (not a long “分刊详情” dump).
+
+| Column | Rule |
+|---|---|
+| 期刊全称 | Confirmed title |
+| JCR分区 | Display only — do not persist |
+| 影响因子 | Display only — do not persist |
+| 年发文量 | Display only — do not persist |
+| 投稿网址/作者须知 | **Same cell/column**; show **full URLs** for portal and for author instructions (labels OK as long as the URL text is visible) |
+
+**Omit from the short table:** ISO/ISO缩写, OA, 置信度, 「分刊详情（可勾选阅读）」, **APC**.
+
+APC / deep AIM notes may still be researched for agent use (`Live lookups` above) or a separate note if the user asks — they are **not** columns in the short user HTML.
+
+Persist portal submission URLs to `submission-urls.csv` only. Prefer dependency-free HTML craft (`00_orchestrator/references/html-visual-design.md` when present).
