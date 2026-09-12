@@ -50,7 +50,7 @@ Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure st
 - Paired model-comparison **p** = DeLong (Sun & Xu 2014 midranks). DeLong is a p, not a CI.
 - **Combined** is the named primary model. Youden is **per split**; `lock_threshold` keeps the training Youden.
 - Radiomics reproducibility filter: **ICC(A,1) ≥ 0.75**.
-- Clinical model: Table 1 then **AIC backward** (unless `FORCE_MODEL_FEATURES`).
+- Clinical model: **manual** `FORCE_MODEL_FEATURES` only (empty = no clinical model); no Table1/stepwise/candidate-pool auto-select.
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
 - Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
