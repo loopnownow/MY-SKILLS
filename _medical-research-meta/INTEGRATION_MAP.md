@@ -640,3 +640,8 @@ change: medical-journal-submit v1.16 + aim-author-checklist/workflow/AGENTS/jour
 date: 2026-09-10
 problem: User wants HTML Visual Design Principles applied whenever editing/generating .html; not a full-repo audit; do not vendor lab console/starter HTML into MY-SKILLS.
 change: Add 00_orchestrator/references/html-visual-design.md; wire 00 SKILL only.
+
+## CHG-20260912-001 — 04 0RAD clinical/manual + console gates
+date: 2026-09-12
+problem: Live modules (2026-09-12) switched Clinical to manual FORCE_MODEL and gated external/advanced/exclude; skills still said AIC backward / candidate pool.
+change: Update 0rad-pipeline-rules + SKILL/MODULE/high-dimensional-omics from skill-library extracts/04_analysis/modules-delta-20260912.md; no modules .py in repo.

@@ -1,3 +1,2 @@
-CHG-20260910-001 (2026-09-10)
-Standing HTML visual-design rules for any .html generate/edit (00 references/html-visual-design.md); do not vendor lab console/starter HTML into MY-SKILLS; no full-repo HTML audit yet.
-Also on main: CHG-20260910-002 whitelist v1.15; CHG-20260910-003 Phase-2 short HTML v1.16.
+CHG-20260912-001 (2026-09-12)
+04_analysis 0RAD rules: Clinical selection = manual FORCE_MODEL_FEATURES; nomogram no side notes; EXTERNAL_FILE dual-sheet gate; DO_NRI/DAG/MEDIATION report gates; EXCLUDE_* project-level. From extracts/modules-delta-20260912.md (no .py vendored).
