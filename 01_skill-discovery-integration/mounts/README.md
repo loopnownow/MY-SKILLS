@@ -1,6 +1,6 @@
 # 01 挂载指针（v4 · CHG-20260913-001）
 
-[总览](README.md) · [迁移 v3→v4](MIGRATION_v3_to_v4.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 禁挂载](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
+[总览](README.md) · [迁移 v3→v4](MIGRATION_v3_to_v4.md) · [混合挂载指针（细ID配方）](hybrid-mount-pointers.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 禁挂载](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
 
 **粗 ID 10 个（焊死 stage buckets）+ 细 ID 52 个（session-pick；其中 4 个 reference-only）。** Hybrid mount：不同细 ID 可用不同包；同一细 ID 内不混包。备份源仍 PROPOSED。OpenClaw **不得**作为任何细 ID 的 atomic source。
 
