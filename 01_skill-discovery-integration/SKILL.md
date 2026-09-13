@@ -17,7 +17,7 @@ description: >
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
 **All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`.
-Human board: `mounts/` (`README.md`, `MIGRATION_v3_to_v4.md`, `presets.md` + `presets/*.yaml`, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`).
+Human board: `mounts/` (`README.md`, `MIGRATION_v3_to_v4.md`, `hybrid-mount-pointers.md`, `presets.md` + `presets/*.yaml`, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`).
 Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Architecture (v4 · CHG-20260913-001)
