@@ -42,11 +42,15 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 ## Mounts (SSOT with `_medical-research-meta/ARCHITECTURE.md`)
 
 - Default source **B** (`loopnownow/MY-SKILLS-capabilities`).
-- **30 coarse ids** are registry `MOUNTED` as a **menu**, not `mounts: []`. `session_mount: ask-each-run` — pick before loading packs; do not auto-load all.
-- ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature are **PROPOSED backups**. Mapping is not a mount. Never auto-mount a non-B source.
-- MedSci-only: `04-explainability`, `05-humanize`.
-- No live `04-figure-engine`. Figures: `04-fig-flow` (STROBE / patient-flow) and `04-fig-plot` (plots).
+- **v4 (CHG-20260913-001):** **10 coarse** stage buckets + **52 fine ids** (session-pick). `session_mount: ask-each-run` — multi-select fine ids under relevant coarse; do not auto-load all. Menu is not `mounts: []`.
+- A folders stay `00`–`06` (not renamed to Chinese top-level). Migration: `01_skill-discovery-integration/mounts/MIGRATION_v3_to_v4.md`. Backup: `registry.v3.30.yaml`.
+- ARS / MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. OpenClaw is **never** an atomic mount source (license risk). Mapping is not a mount. Never auto-mount a non-B source.
+- MedSci-only live interface: `humanize` (was `05-humanize`). `04-explainability` is **ARCHIVED** (not default menu).
+- Figures fine id: `make-figures` (B still has `04-fig-flow` / `04-fig-plot` paths). No live `04-figure-engine`.
+- Legacy aliases still referenced in domain docs: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power` (B paths / routing); sample-size fine ids sit under coarse 研究设计 by default.
 - Retired ids are not live routes: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`, `03-literature`, `03-design`, `03-frontier`, `04-stats-generic`, `04-figure-engine`, `05-writing-generic`, `06-review-generic`.
+- Archived from v4 menus: `02-fmri`, `02-pictures`, `03-lit-fulltext`, `04-explainability`, etc. (see registry `archived:`).
+
 
 ## Routing rules
 

@@ -1,170 +1,575 @@
-# Mount pointers live only in 01.
-# Human board: mounts/*.md (README index + b.md / ars.md / medsci.md / scientific.md / openclaw.md / aipoch.md / nature.md)
-# Per-source config: sources/<source>.yaml (one external repo per file).
-# Default source is B (loopnownow/MY-SKILLS-capabilities).
-# Empty mount → notify the user, then re-search and confirm. Do not silently fall back.
-# Every run: ask which packs to mount this session (session_mount: ask-each-run). Registry MOUNTED ≠ attached this run.
-# Never auto-mount a non-B source. PROPOSED is not MOUNTED.
-# Local bytes: ../mounts-cap/ (B full tree; backups on-demand by id). Download ≠ mount.
-# Coarse ids: Scientific jobs (008) + B 1:1 (009) + 02 media (010) + P0/P1 fine split (011).
-# 30 ids. Retired umbrellas include 02-imaging, 04-figure-engine, 02-xlsx, 03-literature, 05-writing-generic, 06-review-generic.
+# MY-SKILLS Mount Registry v4.0 (CHG-20260913-001)
+# Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
+# Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
+# Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
+# OpenClaw is NOT a source for any fine ID (proprietary license risk).
+# Nature fine IDs: license_flag 需核实 → stay PROPOSED until verified; do not claim MOUNTED if bytes absent.
+# Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
+# Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
+# A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
+# 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
+# Backup of v3.30: registry.v3.30.yaml · audit source: registry_v4.audit.yaml
+# Migration map: mounts/MIGRATION_v3_to_v4.md
+meta:
+  version: "4.0"
+  change_id: CHG-20260913-001
+  previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (registry.v3.30.yaml)"]
+  fine_id_count_canonical: 52  # 48 mounts (session-pick) + 4 reference_only
+  coarse_id_count: 10
+  open_decision_points:
+    - id: 样本量计算归属
+      status: defaulted
+      current_default: 研究设计 (calc-sample-size / statistical-power)
+      alternative: 统计分析
+      note: 用户未最终拍板；本 registry 按研究设计实现，搬动仅两细ID。
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
   role: default-mount
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
+session_pick_unit: fine_id
+openclaw_policy: never-mount-as-atomic-source
+
+coarse_ids:
+  - id: 文献检索
+    slug: lit-retrieval
+    a_domains: [03_research]
+    specialist_hint: Victor
+  - id: 选题探索
+    slug: topic-explore
+    a_domains: [03_research]
+    specialist_hint: Victor
+  - id: 研究设计
+    slug: study-design
+    a_domains: [03_research]
+    specialist_hint: Victor
+  - id: 正文写作
+    slug: manuscript-body
+    a_domains: [05_manuscript]
+    specialist_hint: Lee
+  - id: 语言润色
+    slug: language-polish
+    a_domains: [05_manuscript]
+    specialist_hint: Lee
+  - id: 数据处理
+    slug: data-processing
+    a_domains: [02_data-processing]
+    specialist_hint: Loopnow
+  - id: 统计分析
+    slug: stats-analysis
+    a_domains: [04_analysis]
+    specialist_hint: Loopnow/Aitee
+  - id: 图表呈现
+    slug: figures
+    a_domains: [04_analysis]
+    specialist_hint: Loopnow/Aitee
+  - id: 稿件评阅
+    slug: peer-review
+    a_domains: [06_review]
+    specialist_hint: Lee
+  - id: 审稿回复
+    slug: review-response
+    a_domains: [06_review]
+    specialist_hint: Lee
+
 mounts:
-  - id: 02-tables
-    source: my-skills-capabilities
-    path: 02-data-processing/tables/
-    layer: 02
-    status: MOUNTED
-  - id: 02-imaging-io
-    source: my-skills-capabilities
-    path: 02-data-processing/imaging-io/
-    layer: 02
-    status: MOUNTED
-  - id: 02-imaging-qc
-    source: my-skills-capabilities
-    path: 02-data-processing/imaging-qc/
-    layer: 02
-    status: MOUNTED
-  - id: 02-pictures
-    source: my-skills-capabilities
-    path: 02-data-processing/pictures/
-    layer: 02
-    status: MOUNTED
-  - id: 02-fmri
-    source: my-skills-capabilities
-    path: 02-data-processing/fmri/
-    layer: 02
-    status: MOUNTED
-  - id: 02-radiomics-habitat
-    source: my-skills-capabilities
-    path: 02-data-processing/radiomics-habitat/
-    layer: 02
-    status: MOUNTED
-  - id: 03-lit-search
-    source: my-skills-capabilities
-    path: 03-research/lit-search/
-    layer: 03
-    status: MOUNTED
-  - id: 03-lit-fulltext
-    source: my-skills-capabilities
-    path: 03-research/lit-fulltext/
-    layer: 03
-    status: MOUNTED
-  - id: 03-lit-review
-    source: my-skills-capabilities
-    path: 03-research/lit-review/
-    layer: 03
-    status: MOUNTED
-  - id: 03-lit-cite
+  - id: paper-lookup
+    label: 广度检索
+    coarse: 文献检索
+    source: scientific-agent-skills
+    path: skills/paper-lookup/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/paper-lookup/
+    note: 18 academic APIs; on-demand only
+  - id: verify-refs
+    label: 引用真实性核验
+    coarse: 文献检索
     source: my-skills-capabilities
     path: 03-research/lit-cite/
-    layer: 03
+    a_domain: 03_research
     status: MOUNTED
-  - id: 03-design-experiment
+    atomic_package: MedSci
+    note: claim fidelity; B lit-cite
+  - id: manage-refs
+    label: 引用格式化写入
+    coarse: 文献检索
     source: my-skills-capabilities
-    path: 03-research/design-experiment/
-    layer: 03
+    path: 03-research/lit-cite/
+    a_domain: 03_research
     status: MOUNTED
-  - id: 03-design-protocol
+    atomic_package: MedSci
+    path_shared: true
+    note: pandoc/Zotero; shares lit-cite folder
+  - id: lit-sync
+    label: 个人文献库同步
+    coarse: 文献检索
     source: my-skills-capabilities
-    path: 03-research/design-protocol/
-    layer: 03
+    path: 03-research/lit-cite/
+    a_domain: 03_research
     status: MOUNTED
-  - id: 03-design-grant
-    source: my-skills-capabilities
-    path: 03-research/design-grant/
-    layer: 03
-    status: MOUNTED
-  - id: 03-frontier-ideate
+    atomic_package: MedSci
+    path_shared: true
+    note: Zotero+Obsidian sync
+  - id: retraction-watcher
+    label: 撤稿检测
+    coarse: 文献检索
+    source: aipoch-medical-research-skills
+    path: skills/retraction-watcher/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: AIPOCH
+    stustub_in_b: cross-pack/aipoch/retraction-watcher/
+  - id: nature-academic-search
+    label: 严格他引审计
+    coarse: 文献检索
+    source: nature-skills
+    path: skills/nature-academic-search/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Nature
+    license_flag: 需核实
+    stustub_in_b: cross-pack/nature/nature-academic-search/
+  - id: find-cohort-gap
+    label: 队列选题空白发现
+    coarse: 选题探索
     source: my-skills-capabilities
     path: 03-research/frontier-ideate/
-    layer: 03
+    a_domain: 03_research
     status: MOUNTED
-  - id: 03-frontier-hypothesize
+    atomic_package: MedSci
+  - id: ma-scout
+    label: MA选题可行性
+    coarse: 选题探索
     source: my-skills-capabilities
-    path: 03-research/frontier-hypothesize/
-    layer: 03
+    path: 03-research/lit-review/
+    a_domain: 03_research
     status: MOUNTED
-  - id: 04-stats-guide
+    atomic_package: MedSci
+    note: from archived 03-lit-review core
+  - id: hypothesis-generation
+    label: 假设形成防HARKing
+    coarse: 选题探索
+    source: scientific-agent-skills
+    path: skills/hypothesis-generation/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/hypothesis-generation/
+  - id: intake-project
+    label: 项目启动分类
+    coarse: 选题探索
     source: my-skills-capabilities
-    path: 04-analysis/stats-guide/
-    layer: 04
+    path: 03-research/intake-project/
+    a_domain: 03_research
     status: MOUNTED
-  - id: 04-stats-power
+    atomic_package: MedSci
+    note: new mount from B_updates
+  - id: design-study
+    label: 研究设计审查
+    coarse: 研究设计
+    source: my-skills-capabilities
+    path: 03-research/design-experiment/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: design-ai-benchmarking
+    label: AI专家评估设计
+    coarse: 研究设计
+    source: my-skills-capabilities
+    path: 03-research/design-ai-benchmarking/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+    note: new mount
+  - id: architecture-zoo
+    label: 模型架构选型
+    coarse: 研究设计
+    source: my-skills-capabilities
+    path: 03-research/architecture-zoo/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+    note: new mount
+  - id: write-protocol
+    label: IRB方案撰写
+    coarse: 研究设计
+    source: my-skills-capabilities
+    path: 03-research/design-protocol/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: fill-protocol
+    label: IRB方案填表
+    coarse: 研究设计
+    source: my-skills-capabilities
+    path: 03-research/fill-protocol/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+    note: new mount
+  - id: clinic-research-design
+    label: 方案-按研究类型模板
+    coarse: 研究设计
+    source: aipoch-medical-research-skills
+    path: skills/clinic-research-design/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: AIPOCH
+    stustub_in_b: cross-pack/aipoch/clinic-research-design/
+  - id: calc-sample-size
+    label: 样本量计算
+    coarse: 研究设计
     source: my-skills-capabilities
     path: 04-analysis/stats-power/
-    layer: 04
+    a_domain: 03_research
     status: MOUNTED
-  - id: 04-stats-models
-    source: my-skills-capabilities
-    path: 04-analysis/stats-models/
-    layer: 04
-    status: MOUNTED
-  - id: 04-model-eval
-    source: my-skills-capabilities
-    path: 04-analysis/model-eval/
-    layer: 04
-    status: MOUNTED
-  - id: 04-fig-flow
-    source: my-skills-capabilities
-    path: 04-analysis/fig-flow/
-    layer: 04
-    status: MOUNTED
-  - id: 04-fig-plot
-    source: my-skills-capabilities
-    path: 04-analysis/fig-plot/
-    layer: 04
-    status: MOUNTED
-  - id: 04-explainability
-    source: med-sci-skills
-    path: skills/explainability/
-    layer: 04
-    status: MOUNTED
-  - id: 05-write-manuscript
+    atomic_package: MedSci
+    note: open_decision: default 研究设计; B path still stats-power; A 选刊 stays 03
+  - id: statistical-power
+    label: 样本量-复杂设计模拟法
+    coarse: 研究设计
+    source: scientific-agent-skills
+    path: skills/statistical-power/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/statistical-power/
+  - id: write-paper
+    label: IMRAD正文起草
+    coarse: 正文写作
     source: my-skills-capabilities
     path: 05-manuscript/write-manuscript/
-    layer: 05
+    a_domain: 05_manuscript
     status: MOUNTED
-  - id: 05-write-reporting
+    atomic_package: MedSci
+  - id: check-reporting
+    label: 报告规范核验
+    coarse: 正文写作
     source: my-skills-capabilities
     path: 05-manuscript/write-reporting/
-    layer: 05
+    a_domain: 05_manuscript
     status: MOUNTED
-  - id: 05-write-venue
+    atomic_package: MedSci
+  - id: nature-data
+    label: 数据可用性声明
+    coarse: 正文写作
+    source: nature-skills
+    path: skills/nature-data/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    atomic_package: Nature
+    license_flag: 需核实
+    stustub_in_b: cross-pack/nature/nature-data/
+  - id: nature-proposal-writer
+    label: 基金标书-中文语境QA
+    coarse: 正文写作
+    source: nature-skills
+    path: skills/nature-proposal-writer/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    atomic_package: Nature
+    license_flag: 需核实
+    stustub_in_b: cross-pack/nature/nature-proposal-writer/
+  - id: grant-builder
+    label: 基金标书-方法论
+    coarse: 正文写作
+    source: my-skills-capabilities
+    path: 03-research/design-grant/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: find-journal
+    label: 选刊推荐
+    coarse: 正文写作
     source: my-skills-capabilities
     path: 05-manuscript/write-venue/
-    layer: 05
+    a_domain: 03_research
     status: MOUNTED
-  - id: 05-write-polish
+    atomic_package: MedSci
+    note: 引擎在 B write-venue; 选刊个人层仍 Victor/03_research/medical-journal-submit — do NOT move to 05
+  - id: venue-templates
+    label: 期刊格式模板
+    coarse: 正文写作
+    source: scientific-agent-skills
+    path: skills/venue-templates/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/venue-templates/
+  - id: polish-language
+    label: 一致性硬规则lint
+    coarse: 语言润色
     source: my-skills-capabilities
     path: 05-manuscript/write-polish/
-    layer: 05
+    a_domain: 05_manuscript
     status: MOUNTED
-  - id: 05-humanize
+    atomic_package: MedSci
+  - id: humanize
+    label: 去AI味
+    coarse: 语言润色
     source: med-sci-skills
     path: skills/humanize/
-    layer: 05
+    a_domain: 05_manuscript
     status: MOUNTED
-  - id: 06-review-peer
+    atomic_package: MedSci
+    note: MedSci-only interface; personal de-AI stays A 05_manuscript/personal
+  - id: nature-polishing
+    label: LaTeX排版细节
+    coarse: 语言润色
+    source: nature-skills
+    path: skills/nature-polishing/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    atomic_package: Nature
+    license_flag: 需核实
+    experimental: true
+    stustub_in_b: cross-pack/nature/nature-polishing/
+  - id: clean-data
+    label: 三阶段确认式清洗
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/tables/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: batch-cohort
+    label: 批量队列分析生成
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/tables/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+    path_shared: true
+  - id: exploratory-data-analysis
+    label: EDA
+    coarse: 数据处理
+    source: scientific-agent-skills
+    path: skills/exploratory-data-analysis/
+    a_domain: 02_data-processing
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/exploratory-data-analysis/
+  - id: preprocess-imaging
+    label: 预处理设计与泄漏门禁
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: pydicom
+    label: DICOM底层与匿名化审计
+    coarse: 数据处理
+    source: scientific-agent-skills
+    path: skills/pydicom/
+    a_domain: 02_data-processing
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/pydicom/
+  - id: profile-imaging
+    label: 训练前数据集画像
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+    path_shared: true
+  - id: uncertainty-imaging
+    label: 部署级不确定性量化
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+    path_shared: true
+  - id: analyze-stats
+    label: 检验方法选择与加权调查数据
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 04-analysis/stats-guide/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: meta-analysis
+    label: Meta分析抗数据操纵
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 04-analysis/stats-models/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: scikit-survival
+    label: 生存分析leakage-safe管道
+    coarse: 统计分析
+    source: scientific-agent-skills
+    path: skills/scikit-survival/
+    a_domain: 04_analysis
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/scikit-survival/
+  - id: radiomics-ml
+    label: 放射组学建模pipeline审计
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 02-data-processing/radiomics-habitat/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: model-evaluation
+    label: 模型-任务正确指标选择
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 04-analysis/model-eval/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+  - id: model-validation
+    label: 模型-确定性泄漏门禁
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 04-analysis/model-eval/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+    path_shared: true
+  - id: make-figures
+    label: 报告规范流程图与期刊配图
+    coarse: 图表呈现
+    source: my-skills-capabilities
+    path: 04-analysis/fig-flow/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+    note: B also keeps 04-analysis/fig-plot/ as plot companion + external-principles; imaging-io folder remains under B 02 without separate fine ID
+  - id: peer-review-pdf-scan
+    label: PDF注入攻击扫描
+    coarse: 稿件评阅
     source: my-skills-capabilities
     path: 06-review/review-peer/
-    layer: 06
+    a_domain: 06_review
     status: MOUNTED
-  - id: 06-review-critique
+    atomic_package: MedSci
+    note: peer-review Phase1.5
+  - id: peer-review
+    label: 审稿意见生成
+    coarse: 稿件评阅
+    source: my-skills-capabilities
+    path: 06-review/review-peer/
+    a_domain: 06_review
+    status: MOUNTED
+    atomic_package: MedSci
+    path_shared: true
+  - id: self-review
+    label: 数值级自审核算
+    coarse: 稿件评阅
     source: my-skills-capabilities
     path: 06-review/review-critique/
-    layer: 06
+    a_domain: 06_review
     status: MOUNTED
-  - id: 06-review-response
+    atomic_package: MedSci
+  - id: scientific-critical-thinking
+    label: 证据质量评估
+    coarse: 稿件评阅
+    source: scientific-agent-skills
+    path: skills/scientific-critical-thinking/
+    a_domain: 06_review
+    status: PROPOSED
+    atomic_package: Scientific
+    stustub_in_b: cross-pack/scientific/scientific-critical-thinking/
+  - id: revise
+    label: 修回分诊与数字血统追踪
+    coarse: 审稿回复
     source: my-skills-capabilities
     path: 06-review/review-response/
-    layer: 06
+    a_domain: 06_review
     status: MOUNTED
+    atomic_package: MedSci
+  - id: response-tone-polisher
+    label: 回复语气软化
+    coarse: 审稿回复
+    source: aipoch-medical-research-skills
+    path: skills/response-tone-polisher/
+    a_domain: 06_review
+    status: PROPOSED
+    atomic_package: AIPOCH
+    stustub_in_b: cross-pack/aipoch/response-tone-polisher/
+
+reference_only:
+  - id: scientific-visualization
+    label: 诚实可视化准则
+    coarse: 图表呈现
+    status: REFERENCE
+    package: Scientific
+    applied_to: 04-analysis/fig-plot/external-principles.md
+  - id: nature-figure
+    label: 审稿人风险预判
+    coarse: 图表呈现
+    status: REFERENCE
+    package: Nature
+    applied_to: 04-analysis/fig-plot/external-principles.md
+    license_flag: 需核实
+  - id: nature-reviewer
+    label: 多审稿人隔离原则
+    coarse: 稿件评阅
+    status: REFERENCE
+    package: Nature
+    applied_to: 06-review/review-peer/external-principles.md
+    license_flag: 需核实
+  - id: nature-response
+    label: 隔离与正文精简原则
+    coarse: 审稿回复
+    status: REFERENCE
+    package: Nature
+    applied_to: 06-review/review-response/external-principles.md
+    license_flag: 需核实
+
+archived:
+  - id: 02-fmri
+    status: ARCHIVED
+    reason: 假匹配已核实——AIPOCH neuropixels≠fMRI
+    revive_condition: 研究方向扩展至fMRI/电生理时重评
+    old_path: 02-data-processing/fmri/
+  - id: 02-pictures
+    status: ARCHIVED
+    reason: 场景错位——病理全切片非通用图片
+    revive_condition: 数字病理时重评 histolab/pathml
+    old_path: 02-data-processing/pictures/
+  - id: 03-design-experiment-wetlab
+    status: ARCHIVED
+    reason: 仅归档外部湿实验室DOE；MedSci design-study等已入研究设计
+    revive_condition: 前瞻性/湿实验需求时评估外部DOE
+    old_path: 03-research/design-experiment/
+  - id: 04-explainability
+    status: ARCHIVED
+    reason: 用户不使用；Grad-CAM vs SHAP不可互替
+    revive_condition: 可解释性论文时复活
+    old_path: skills/explainability/
+  - id: 03-lit-fulltext
+    status: ARCHIVED
+    reason: 用户不使用批量全文
+    revive_condition: 需批量PDF尤其中文核心时复活
+    old_path: 03-research/lit-fulltext/
+  - id: 03-lit-review-full
+    status: ARCHIVED
+    reason: 不写综述全流程；ma-scout保留在选题探索
+    revive_condition: 系统综述委托时复活
+    old_path: 03-research/lit-review/
+  - id: deidentify
+    status: ARCHIVED
+    reason: 导出已人工脱敏
+    revive_condition: 非脱敏实时院内系统时复活
+  - id: 05-write-venue-add-journal
+    status: ARCHIVED
+    reason: add-journal是维护工具非产出技能
+    revive_condition: 不适用
+    old_path: 05-manuscript/write-venue/
+
 proposals:
   - id: academic-research-skills
     source: https://github.com/Imbad0202/academic-research-skills
@@ -193,7 +598,8 @@ proposals:
     scanned: "2026-09-06"
     scan_sha: "b1f9b6e"
     status: PROPOSED
-    role: backup-candidate
+    role: license-risk-reference-only
+    note: NEVER mount as atomic_skill source (proprietary headers vs MIT README). Kept for audit trail only.
   - id: aipoch-medical-research-skills
     source: https://github.com/aipoch/medical-research-skills
     config: sources/aipoch-medical-research-skills.proposed.yaml
@@ -208,3 +614,5 @@ proposals:
     scan_sha: "287ee37"
     status: PROPOSED
     role: backup-candidate
+    license_flag: 需核实
+    note: No standard LICENSE found at scan time; Nature fine IDs stay PROPOSED.

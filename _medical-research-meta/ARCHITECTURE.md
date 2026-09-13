@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; 30-id menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/OpenClaw/AIPOCH **PROPOSED** backups; `session_mount: ask-each-run; G-FACT consistency; harvest-qc passive`.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; OpenClaw never atomic mount; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
 
 ## Skill selection
 
@@ -56,18 +56,18 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 
 `01_skill-discovery-integration` resolves capabilities in this order:
 
-1. **Session mount pick** (`ask-each-run`): ask which of the 30 registry `MOUNTED` ids to attach **this run**; load only those.
-2. Resolve picked ids against `registry.yaml` (default source B; MedSci-only `04-explainability` / `05-humanize`).
+1. **Session mount pick** (`ask-each-run`): ask which **fine ids** (under relevant coarse buckets) to attach **this run**; load only those.
+2. Resolve picked fine ids against `registry.yaml` (default source B; MedSci-only `humanize`; `04-explainability` ARCHIVED).
 3. If a picked path is empty: notify, re-search, confirm. Never silently fall back.
 4. Network/GitHub discovery for **new** capability.
 5. If network is unavailable, request a local Skill/repository path.
 6. Evaluate capability and boundaries; propose mount; require explicit user approval; then mount.
 
-Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific/OpenClaw/AIPOCH fetch **only the path of an id picked this run**. Download is not a mount.
+Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific/AIPOCH/Nature fetch **only the path of a fine id picked this run**. OpenClaw: never fetch for mount. Download is not a mount.
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
-Backups: ARS / MedSci / Scientific / OpenClaw / AIPOCH stay `PROPOSED` (`role: backup-candidate`). Mapping is not a mount.
-Registry `MOUNTED` is a **menu of 30 ids**, not `mounts: []`. Never auto-mount a non-B source. No live `04-figure-engine`.
+Backups: ARS / MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. OpenClaw is license-risk-reference-only. Mapping is not a mount.
+Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live `04-figure-engine`. Legacy B path aliases: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power`.
 
 ## Domain boundaries
 

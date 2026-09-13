@@ -1,58 +1,60 @@
-# 预设 B · 当前默认
+# 预设 B · 当前默认（v4）
 
-[总览](README.md) · [B · 当前默认](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 备份](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
+[总览](README.md) · [迁移](MIGRATION_v3_to_v4.md) · [B · 当前默认](b.md)
 
-仅用 B。来源 [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) · 配置 `../sources/b-my-skills-capabilities.yaml`
+仅用 B 作为默认来源。[loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) · `../sources/b-my-skills-capabilities.yaml`
 
 | | |
 |---|---|
 | 状态 | MOUNTED（默认来源） |
-| B 包 | 28 个 id 各一个文件夹（CHG-20260903-011） |
-| 空挂 | 0 |
-| 双轨 | 03 A 仍留 `literature/` `design/` `frontier/` 副本 |
+| 结构 | 10 粗 ID 桶；细 ID 为挂载点 |
+| 新增挂载 | `intake-project` · `design-ai-benchmarking` · `architecture-zoo` · `fill-protocol` |
+| 跨包 stub | `cross-pack/{{scientific,aipoch,nature}}/`（非默认挂载） |
+| 空挂 | 对 B-default 细 ID：无空挂（说默认挂载 B 包/本仓） |
 
-## 可挂 skills 接到哪一环
+## B-default / 新增挂载细 ID
 
-| Id | 来源路径 | 接到 A | 做什么 | 对接 | 仅用本套 |
-|---|---|---|---|---|---|
-| `02-tables` | `02-data-processing/tables/` | `02_data-processing` | 临床表 Excel / CSV（含缺失/异常值） | 就绪 | 24 文件 |
-| `02-imaging-io` | `02-data-processing/imaging-io/` | `02_data-processing` | CT/MRI 读写 · DICOM / NIfTI / NII | 就绪 | 1 文件（槽） |
-| `02-imaging-qc` | `02-data-processing/imaging-qc/` | `02_data-processing` | CT/MRI QC · ROI / 阅片 | 就绪 | 11 文件 |
-| `02-pictures` | `02-data-processing/pictures/` | `02_data-processing` | 图片 TIFF / PNG / JPG / PDF(图) | 就绪 | 1 文件（槽） |
-| `02-fmri` | `02-data-processing/fmri/` | `02_data-processing` | fMRI · DICOM / NIfTI | 就绪 | 1 文件（槽） |
-| `02-radiomics-habitat` | `02-data-processing/radiomics-habitat/` | `02_data-processing` | radiomics / 生境准备（建模交 04） | 就绪 | 9 文件 |
-| `03-lit-search` | `03-research/lit-search/` | `03_research` | 文献检索 | 双轨 | 4 文件 · A 仍留 literature/ |
-| `03-lit-fulltext` | `03-research/lit-fulltext/` | `03_research` | 全文获取 | 就绪 | 1 文件（槽） |
-| `03-lit-review` | `03-research/lit-review/` | `03_research` | 综述 / 综合 | 就绪 | 2 文件 |
-| `03-lit-cite` | `03-research/lit-cite/` | `03_research` | DOI→BibTeX（无 Zotero 包） | 就绪 | 2 文件 |
-| `03-design-experiment` | `03-research/design-experiment/` | `03_research` | 采集前实验设计 | 双轨 | 8 文件 · A 仍留 design/ |
-| `03-design-protocol` | `03-research/design-protocol/` | `03_research` | 写方案 / 填方案 | 就绪 | 1 文件（槽） |
-| `03-design-grant` | `03-research/design-grant/` | `03_research` | 标书（通用槽）；个人 Voice A/B 优先 | 就绪 | 1 文件（空壳 MODULE） |
-| `03-frontier-ideate` | `03-research/frontier-ideate/` | `03_research` | 选题 / 头脑风暴 | 双轨 | 5 文件 · A 仍留 frontier/ |
-| `03-frontier-hypothesize` | `03-research/frontier-hypothesize/` | `03_research` | 问题化 / 假说 | 就绪 | 3 文件 |
-| `04-stats-guide` | `04-analysis/stats-guide/` | `04_analysis` | 选检验 / 效应量 | 就绪 | 4 文件 |
-| `04-stats-power` | `04-analysis/stats-power/` | `04_analysis` | 样本量 / 功效 | 就绪 | 2 文件 |
-| `04-stats-models` | `04-analysis/stats-models/` | `04_analysis` | 统计/ML 拟合 | 就绪 | 3 文件 |
-| `04-model-eval` | `04-analysis/model-eval/` | `04_analysis` | 校准 / DCA / 外验证 | 就绪 | 1 文件（槽） |
-| `04-fig-flow` | `04-analysis/fig-flow/` | `04_analysis` | STROBE / 入组流程图 | 就绪 | 5 文件 |
-| `04-fig-plot` | `04-analysis/fig-plot/` | `04_analysis` | 统计图 / 影像拼图 | 就绪 | 18 文件 |
-| `05-write-manuscript` | `05-manuscript/write-manuscript/` | `05_manuscript` | 论著/报告草稿 | 就绪 | 16 文件 |
-| `05-write-reporting` | `05-manuscript/write-reporting/` | `05_manuscript` | TRIPOD / CLAIM / 报告规范 | 就绪 | 6 文件 |
-| `05-write-venue` | `05-manuscript/write-venue/` | `05_manuscript` | 期刊体例 / house style（not 选刊） | 就绪 | 7 文件 |
-| `05-write-polish` | `05-manuscript/write-polish/` | `05_manuscript` | 通用学术英语润色 | 就绪 | 3 文件 |
-| `06-review-peer` | `06-review/review-peer/` | `06_review` | 他审草稿 | 就绪 | 5 文件 |
-| `06-review-critique` | `06-review/review-critique/` | `06_review` | 自审 / 投稿前找洞 | 就绪 | 4 文件 |
-| `06-review-response` | `06-review/review-response/` | `06_review` | 回复审稿人 | 就绪 | 5 文件 |
-
-## 非 B 接口（接到 MedSci）
-
-| Id | 来源路径 | 接到 A | 说明 |
+| Fine id | Label | B path | Coarse |
 |---|---|---|---|
-| `04-explainability` | `skills/explainability/` | `04_analysis` | 影像模型可解释性 |
-| `05-humanize` | `skills/humanize/` | `05_manuscript` | 去 AI 痕迹（通用） |
+| `verify-refs` | 引用真实性核验 | `03-research/lit-cite/` | 文献检索 |
+| `manage-refs` | 引用格式化写入 | `03-research/lit-cite/` | 文献检索 |
+| `lit-sync` | 个人文献库同步 | `03-research/lit-cite/` | 文献检索 |
+| `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | 选题探索 |
+| `ma-scout` | MA选题可行性 | `03-research/lit-review/` | 选题探索 |
+| `intake-project` | 项目启动分类 | `03-research/intake-project/` | 选题探索 |
+| `design-study` | 研究设计审查 | `03-research/design-experiment/` | 研究设计 |
+| `design-ai-benchmarking` | AI专家评估设计 | `03-research/design-ai-benchmarking/` | 研究设计 |
+| `architecture-zoo` | 模型架构选型 | `03-research/architecture-zoo/` | 研究设计 |
+| `write-protocol` | IRB方案撰写 | `03-research/design-protocol/` | 研究设计 |
+| `fill-protocol` | IRB方案填表 | `03-research/fill-protocol/` | 研究设计 |
+| `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | 研究设计 |
+| `write-paper` | IMRAD正文起草 | `05-manuscript/write-manuscript/` | 正文写作 |
+| `check-reporting` | 报告规范核验 | `05-manuscript/write-reporting/` | 正文写作 |
+| `grant-builder` | 基金标书-方法论 | `03-research/design-grant/` | 正文写作 |
+| `find-journal` | 选刊推荐 | `05-manuscript/write-venue/` | 正文写作 |
+| `polish-language` | 一致性硬规则lint | `05-manuscript/write-polish/` | 语言润色 |
+| `clean-data` | 三阶段确认式清洗 | `02-data-processing/tables/` | 数据处理 |
+| `batch-cohort` | 批量队列分析生成 | `02-data-processing/tables/` | 数据处理 |
+| `preprocess-imaging` | 预处理设计与泄漏门禁 | `02-data-processing/imaging-qc/` | 数据处理 |
+| `profile-imaging` | 训练前数据集画像 | `02-data-processing/imaging-qc/` | 数据处理 |
+| `uncertainty-imaging` | 部署级不确定性量化 | `02-data-processing/imaging-qc/` | 数据处理 |
+| `analyze-stats` | 检验方法选择与加权调查数据 | `04-analysis/stats-guide/` | 统计分析 |
+| `meta-analysis` | Meta分析抗数据操纵 | `04-analysis/stats-models/` | 统计分析 |
+| `radiomics-ml` | 放射组学建模pipeline审计 | `02-data-processing/radiomics-habitat/` | 统计分析 |
+| `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | 统计分析 |
+| `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | 统计分析 |
+| `make-figures` | 报告规范流程图与期刊配图 | `04-analysis/fig-flow/` | 图表呈现 |
+| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | 稿件评阅 |
+| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | 稿件评阅 |
+| `self-review` | 数值级自审核算 | `06-review/review-critique/` | 稿件评阅 |
+| `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | 审稿回复 |
 
-## 仅用当前挂载 · 空挂
+## 非 B 但默认菜单可见
 
-**无空挂。** 28 个 B id 各有文件夹。若干是通用槽（MODULE 空壳），不是空挂。
+| Fine id | Source | Notes |
+|---|---|---|
+| `humanize` | MedSci | 去 AI 味（通用）；个人 de-AI 仍在 A |
 
-机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。
+ARCHIVED 旧接口 `04-explainability` 已移出默认菜单（见迁移图）。
+
+机器真源 `../registry.yaml`。
