@@ -645,3 +645,10 @@ change: Add 00_orchestrator/references/html-visual-design.md; wire 00 SKILL only
 date: 2026-09-12
 problem: Live modules (2026-09-12) switched Clinical to manual FORCE_MODEL and gated external/advanced/exclude; skills still said AIC backward / candidate pool.
 change: Update 0rad-pipeline-rules + SKILL/MODULE/high-dimensional-omics from skill-library extracts/04_analysis/modules-delta-20260912.md; no modules .py in repo.
+
+## CHG-20260913-001 — v4 mount registry (10+52 hybrid)
+date: 2026-09-13
+problem: User accepted option B — replace 30 coarse-id mount menu with 10 welded stage buckets + 52 fine session-pick ids; integrate B_updates; archive unused mounts; ban OpenClaw as atomic source.
+change: registry.yaml v4 (backup registry.v3.30.yaml); mounts/MIGRATION_v3_to_v4.md; boards/SKILL/MOUNTED_SKILLS/presets; B new skills + cross-pack stubs + external-principles; tests adapted; A folders not renamed to Chinese.
+decision: open PR only (no merge until 合并)
+next_action: user review PR; confirm Nature LICENSE; optional move 样本量 coarse to 统计分析

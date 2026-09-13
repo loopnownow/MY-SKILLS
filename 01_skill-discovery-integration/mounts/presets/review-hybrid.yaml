@@ -1,13 +1,14 @@
-# Swappable core for default hybrid mount.
+# Swappable core for default hybrid mount (v4 fine IDs).
 # Unit of attribution / scoring / path fetch = source + pack skill (not whole source).
-# Coarse ids stay the session shell. Mapping is not a mount. Backups stay PROPOSED.
+# Coarse buckets stay the session shell; fine ids are the picks. Mapping is not a mount.
 preset_id: review-hybrid-default
-version: "2026-09-08.2"
+version: "2026-09-13.1"
 status: default-session-recipe
 notes: >
-  Default for review / pre-review: B chassis + Nature skills (cite verifier +
-  stats-reporting audit) + Scientific critique skills. Prefetch only listed
-  skill paths. ARS and out-of-band editors excluded. A 06 personal adjudicates.
+  Default for review / pre-review: B chassis + Nature fine ids (cite / stats audit paths)
+  + Scientific critique fine id. Prefetch only listed skill paths. ARS excluded.
+  Nature remains PROPOSED (license 需核实) — ask user before loading. OpenClaw never.
+  A 06 personal adjudicates.
 
 chassis:
   source: my-skills-capabilities
@@ -19,30 +20,28 @@ personal:
     role: adjudication
     must_include: [review-resolution.md, personal-review-style.md]
 
-# Per coarse-id overrides. `skills` is the swappable core; `paths` must match.
+# Per fine-id overrides (v4). Legacy coarse ids in comments for migration.
 overrides:
-  - id: 03-lit-cite
+  - id: verify-refs
+    # was 03-lit-cite
     source: nature-skills
     skills: [nature-ref-verifier]
     paths: [skills/nature-ref-verifier/]
     role: literature-verify
     required: true
     prefix_example: "[Nature:nature-ref-verifier]"
-  - id: 03-lit-fulltext
-    source: nature-skills
-    skills: [nature-downloader]
-    paths: [skills/nature-downloader/]
-    role: fulltext
-    required: false
-    prefix_example: "[Nature:nature-downloader]"
-  - id: 04-stats-guide
+    license_flag: 需核实
+  - id: analyze-stats
+    # was 04-stats-guide (reported-stats audit overlay)
     source: nature-skills
     skills: [nature-statistics]
     paths: [skills/nature-statistics/]
     role: reported-stats-audit
     required: true
     prefix_example: "[Nature:nature-statistics]"
-  - id: 06-review-critique
+    license_flag: 需核实
+  - id: scientific-critical-thinking
+    # was 06-review-critique overlay
     source: scientific-agent-skills
     skills: [scientific-critical-thinking]
     paths: [skills/scientific-critical-thinking/]
@@ -51,14 +50,12 @@ overrides:
     prefix_example: "[Scientific:scientific-critical-thinking]"
 
 force_b:
-  - 06-review-peer
-  - 06-review-response
+  - peer-review
+  - peer-review-pdf-scan
+  - revise
+  - self-review
 
-excluded_sources: [academic-research-skills]
-excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount.
+excluded_sources: [academic-research-skills, openclaw-medical-skills]
+excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. OpenClaw never atomic.
 
 swappable: true
-swap_policy: >
-  Swap `skills` + matching `paths` (same coarse id, mapped PROPOSED source);
-  bump version; do not invent coarse ids; do not auto-merge. Score and comment
-  by skill id, not by whole source.

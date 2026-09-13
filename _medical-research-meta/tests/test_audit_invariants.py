@@ -39,7 +39,8 @@ ALLOW_RETIRED_LINE = re.compile(
     r"do not |don't |must not|never |history|historical|legacy"
 )
 HIS_ASSIGN_RE = re.compile(r"^\s*(USERNAME|PASSWORD)\s*=", re.M)
-ID_TICK_RE = re.compile(r"`([0-9]{2}-[a-z0-9-]+)`")
+ID_TICK_RE = re.compile(r"`([0-9]{2}-[a-z0-9-]+|[a-z][a-z0-9-]*)`")
+FINE_ID_RE = re.compile(r"`([a-z][a-z0-9-]*)`")
 
 
 def iter_text_files():
@@ -61,17 +62,37 @@ def read(rel: str) -> str:
 
 def registry_mount_ids() -> list[str]:
     text = REG.read_text(encoding="utf-8")
-    # mounts: ... until proposals:
-    m = re.search(r"^mounts:\n(.*)^proposals:", text, re.M | re.S)
+    # mounts: ... until reference_only: (v4) or proposals: (v3)
+    m = re.search(r"^mounts:\n(.*?)^(?:reference_only:|archived:|proposals:)", text, re.M | re.S)
     self_block = m.group(1) if m else text
     ids = re.findall(r"^\s+- id:\s*(\S+)\s*$", self_block, re.M)
     return ids
 
 
 def mounted_md_ids() -> list[str]:
+    """Fine ids from MOUNTED_SKILLS session-pick tables (backtick slugs)."""
     text = MOUNTED.read_text(encoding="utf-8")
-    ids = ID_TICK_RE.findall(text)
-    # keep order, unique
+    # Prefer table rows under session-pick section
+    ids = []
+    for line in text.splitlines():
+        if not line.startswith("| `"):
+            continue
+        m = re.match(r"^\| `([^`]+)` \|", line)
+        if not m:
+            continue
+        fid = m.group(1)
+        if fid in {"Id", "Fine id"}:
+            continue
+        # skip archived section markers later — only collect until Reference-only
+        ids.append(fid)
+    # Truncate at reference-only heading by re-parse
+    if "## Reference-only" in text:
+        head = text.split("## Reference-only")[0]
+        ids = []
+        for line in head.splitlines():
+            m = re.match(r"^\| `([^`]+)` \|", line)
+            if m and m.group(1) not in {"Id", "Fine id"}:
+                ids.append(m.group(1))
     seen = []
     for i in ids:
         if i not in seen:
@@ -127,17 +148,25 @@ class SessionPick(unittest.TestCase):
 
 
 class RegistryMenu(unittest.TestCase):
-    def test_registry_matches_mounted_skills_30(self) -> None:
+    def test_registry_matches_mounted_skills_v4(self) -> None:
         reg = registry_mount_ids()
         md = mounted_md_ids()
-        self.assertEqual(len(reg), 30, msg=str(reg))
+        self.assertEqual(len(reg), 48, msg=str(reg))
         self.assertEqual(sorted(reg), sorted(md), msg=f"reg={reg}\nmd={md}")
         self.assertNotIn("04-figure-engine", reg)
         self.assertNotIn("02-xlsx", reg)
-        self.assertIn("04-fig-flow", reg)
-        self.assertIn("04-fig-plot", reg)
-        self.assertIn("05-write-venue", reg)
-        self.assertIn("04-stats-power", reg)
+        self.assertNotIn("02-fmri", reg)
+        self.assertNotIn("04-explainability", reg)
+        self.assertIn("make-figures", reg)
+        self.assertIn("calc-sample-size", reg)
+        self.assertIn("humanize", reg)
+        self.assertIn("write-paper", reg)
+        # OpenClaw never an atomic source on mounts
+        blob = REG.read_text(encoding="utf-8")
+        mount_blob = blob.split("mounts:")[1].split("reference_only:")[0]
+        self.assertNotIn("openclaw", mount_blob.lower())
+        self.assertIn("openclaw_policy: never-mount-as-atomic-source", blob)
+        self.assertIn("session_pick_unit: fine_id", blob)
 
 
 class ArchitectureSsot(unittest.TestCase):
@@ -157,6 +186,7 @@ class ArchitectureSsot(unittest.TestCase):
             self.assertIn("04-fig-plot", text, label)
             self.assertIn("05-write-venue", text, label)
             self.assertIn("04-stats-power", text, label)
+            self.assertRegex(text, r"(10 coarse|52 fine|fine id)", label)
             self.assertNotRegex(low, r"≤\s*3", label)
             self.assertNotIn("role: default-candidate", text, label)
             self.assertNotIn("Default candidate: `Imbad0202", text, label)
@@ -425,9 +455,9 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260912-001", text)
-        self.assertIn("force_model", text.lower())
-        self.assertIn("clinical", text.lower())
+        self.assertIn("CHG-20260913-001", text)
+        self.assertIn("v4", text.lower())
+        self.assertIn("fine", text.lower())
 
 
     def test_integration_map_has_this_chg(self) -> None:
@@ -441,6 +471,7 @@ class HarvestHygiene(unittest.TestCase):
         self.assertIn("CHG-20260907-002", text)
         self.assertIn("CHG-20260906-002", text)
         self.assertIn("CHG-20260906-001", text)
+        self.assertIn("CHG-20260913-001", text)
 
 
     def test_skills_map_html_gone(self) -> None:
