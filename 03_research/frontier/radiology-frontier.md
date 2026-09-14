@@ -47,19 +47,19 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 | File | Open when |
 |---|---|
-| [references/frontier-themes.md](frontier-themes.md) | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
+| mounted `find-cohort-gap` → `references/frontier-themes.md` | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
 | [references/evidence-layer.md](evidence-layer.md) | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
 | [references/idea-to-question.md](idea-to-question.md) | Converting a trend into a concrete, executable, submittable research question; novelty framing |
-| [references/ai-radiogenomics-frontier-map.md](ai-radiogenomics-frontier-map.md) | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
+| mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
 | [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
 
 ## Workflow
 
 1. **Read the data** — disease, modality, n, centers, labels, follow-up, omics availability
    (reuse the inventory from `radiology-design` if present).
-2. **Scan themes** (frontier-themes.md) and **filter by fit** — for each candidate direction,
+2. **Scan themes** (mounted `find-cohort-gap` → `references/frontier-themes.md`) and **filter by fit** — for each candidate direction,
    state the data prerequisites and whether the user meets them. Reject poor fits explicitly.
-3. **For AI/radiogenomics strategy**, open `ai-radiogenomics-frontier-map.md` and judge the
+3. **For AI/radiogenomics strategy**, open mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` and judge the
    idea against generalisability, supervision cost, multimodal fusion, trustworthy inference,
    external validation, and clinical-value evidence.
 4. **Ground in evidence** (evidence-layer.md) — for each surviving direction, state the

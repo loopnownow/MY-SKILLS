@@ -5,7 +5,7 @@ Integrity moments only. Not a checkpoint after every node.
 
 | Id | When | Pass | Fail → node (max 3 recoveries) |
 |---|---|---|---|
-| G0 | every 00/02–06 run | session mount pick done; only picked ids loaded; empty mount → notify then re-search, never silent fallback | 01 (re-ask pick) |
+| G0 | every 00/02–06 run | session mount pick done; loaded ids match `project-state.yaml` `mounts.session_picked_fine_ids` (and `handoff.yaml` `mounted_fine_ids`) — check the field, don't rely on memory; empty mount → notify then re-search, never silent fallback | 01 (re-ask pick) |
 | G-PHI | before 02 tables or clinical extraction | PHI status known; no HIS host/password in git or skill files; extraction uses env `HIS_USERNAME` / `HIS_PASSWORD` on the hospital machine only | stop; user |
 | G-04 | after each `*-results.html` | HTML exists, non-empty; n and AUC taken from HTML; split is training vs test (never Development set); `VAL_MODE` and columns only from `settings.ini`; DeLong is a paired comparison, not a CI | 04 Loopnow |
 | G-FACT | after 04 HTML and again after 05 house.docx (and before 06 if numbers cited) | same fact chain across 02→04→05→06: N / train·test split / population / outcome / model name / primary endpoint / cut-off / AUC·CI·P match the responsible upstream artifact (usually `*-results.html` or 02 handoff). Source must be FILE / UPSTREAM / USER — never LLM guess. One FAIL = one responsible node | 04 Loopnow (stats) or 05 Aitee (prose drift); do not invent the number |

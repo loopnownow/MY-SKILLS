@@ -4,6 +4,7 @@
 from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manuscript | 06_review | 00_orchestrator
 to: ""
 objective: ""
+mounted_fine_ids: []  # fine ids picked this session (01 session mount pick); G0 checks against this, not memory
 inputs: []          # paths inspected
 decisions: []
 assumptions: []

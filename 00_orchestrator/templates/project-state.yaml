@@ -10,6 +10,9 @@ pipeline:
   stage: ""          # classify | 02 | 04 | 05 | 06 | qc | done
   last_handoff: ""   # relative path to the last handoff yaml, if any
 
+mounts:
+  session_picked_fine_ids: []  # updated at each 01 session mount pick; G0 checks "only picked ids loaded" against this field
+
 qc:
   last_gate: ""      # G0 | G-PHI | G-04 | G-05 | G-06
   last_result: ""    # pass | fail

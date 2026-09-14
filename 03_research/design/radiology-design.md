@@ -52,11 +52,11 @@ generalisable or single-center-anecdote.
 
 | File | Open when |
 |---|---|
-| [references/feasibility-triage.md](feasibility-triage.md) | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
-| [references/study-blueprints.md](study-blueprints.md) | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
-| [references/validation-strategy.md](validation-strategy.md) | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
-| [references/endpoints-and-estimands.md](endpoints-and-estimands.md) | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
-| [references/ai-radiogenomics-12-24-roadmap.md](ai-radiogenomics-12-24-roadmap.md) | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
+| mounted `design-study` → `references/feasibility-triage.md` | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
+| mounted `design-study` → `references/study-blueprints.md` | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
+| mounted `design-study` → `references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
+| mounted `design-study` → `references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
+| mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
 | [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B 写自己的标书**：立项五步、创新两栏、可行性三块、目标「确定/阐明/探讨」。评别人的国自不要打开本文件 |
 
 ## Workflow
@@ -64,19 +64,19 @@ generalisable or single-center-anecdote.
 1. **Inventory the data.** Disease, modality(ies), n (patients and lesions), number of centers
    and scanners, label source and quality, presence of segmentation masks, clinical variables,
    follow-up time and event counts, pathology/molecular labels, time span. Mark every unknown.
-2. **Feasibility triage** (feasibility-triage.md). Decide the realistic task ceiling and flag
+2. **Feasibility triage** (mounted `design-study` → `references/feasibility-triage.md`). Decide the realistic task ceiling and flag
    showstoppers (no reference standard, no external cohort, too few events, leakage-prone
    structure). Output a verdict: `Feasible as designed` / `Feasible with changes` / `Feasibility
    study only` / `Not yet — collect X first`.
-3. **Define the question** (endpoints-and-estimands.md). Clinical question → target population →
+3. **Define the question** (mounted `design-study` → `references/endpoints-and-estimands.md`). Clinical question → target population →
    primary endpoint/estimand → comparator → intended clinical-use scenario.
-4. **Pick the blueprint** (study-blueprints.md). Choose the design template and give a
+4. **Pick the blueprint** (mounted `design-study` → `references/study-blueprints.md`). Choose the design template and give a
    **minimum-viable** version (what's publishable now) and a **stronger** version (what would
    reach a higher tier), with the extra cost of each.
-5. **For program-level AI/radiogenomics planning**, open `ai-radiogenomics-12-24-roadmap.md`
+5. **For program-level AI/radiogenomics planning**, open mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md`
    and place the project on the staged route from cohort lock to baselines, fusion, external
    validation, and silent/reader/prospective evidence.
-6. **Design the validation** (validation-strategy.md). Specify the split (patient-level),
+6. **Design the validation** (mounted `design-study` → `references/validation-strategy.md`). Specify the split (patient-level),
    internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
    out and what "external" honestly means here.
 7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to

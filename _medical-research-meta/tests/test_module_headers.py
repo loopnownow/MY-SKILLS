@@ -84,7 +84,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("never-mount-as-atomic-source", text)
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "registry.v3.30.yaml").is_file())
+        self.assertTrue((ROOT / "01_skill-discovery-integration" / "_history" / "registry.v3.30.yaml").is_file())
         self.assertTrue((ROOT / "01_skill-discovery-integration" / "mounts" / "MIGRATION_v3_to_v4.md").is_file())
 
     def test_mounts_board(self):
@@ -208,6 +208,12 @@ class ModuleHeaderTests(unittest.TestCase):
         }
         for p in ROOT.rglob("*.md"):
             if "__pycache__" in p.parts or ".git" in p.parts:
+                continue
+            if "mounts-cap" in p.parts:
+                # Third-party pack bytes (gitignored cache / verbatim upstream
+                # content). Not A's own docs; their internal filenames (e.g. a
+                # Nature template's "01_research_canon.md") can coincidentally
+                # contain these substrings without meaning the legacy layout.
                 continue
             if p.name in skip_names:
                 continue

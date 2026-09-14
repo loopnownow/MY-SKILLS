@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MY-SKILLS repo map</title>
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--border:#e2e5ea;--text:#1a1d24;--text-dim:#5b6270;
+--accent:#3b5bdb;--ok:#2f9e44;--warn:#e8890c;--radius-s:4px;--radius-m:8px;--radius-l:16px;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);
+color:var(--text);font-size:16px;line-height:1.5;}
+header{padding:20px 24px;background:var(--surface);border-bottom:1px solid var(--border);}
+header h1{margin:0 0 4px;font-size:1.4rem;font-weight:600;}
+.meta{color:var(--text-dim);font-size:.8rem;}
+main{padding:20px 24px;max-width:1200px;margin:0 auto;}
+#search{width:100%;max-width:420px;padding:8px 12px;font-size:.9rem;border:1px solid var(--border);
+border-radius:var(--radius-s);margin-bottom:20px;background:var(--surface);color:var(--text);}
+#search:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+.coarse{margin-bottom:28px;}
+.coarse h2{font-size:1.05rem;font-weight:600;margin:0 0 4px;}
+.coarse .domain{color:var(--text-dim);font-size:.78rem;margin-bottom:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+padding:12px 14px;transition:border-color .2s;}
+.card:hover,.card:focus-within{border-color:var(--accent);}
+.card .id{font-family:ui-monospace,monospace;font-size:.82rem;font-weight:600;}
+.card .label{font-size:.85rem;color:var(--text-dim);margin:2px 0 8px;}
+.card .row{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-dim);
+border-top:1px solid var(--border);padding-top:6px;margin-top:6px;}
+.status{padding:1px 8px;border-radius:999px;font-size:.7rem;font-weight:600;}
+.status.mounted{background:#ebfbee;color:var(--ok);}
+.status.proposed{background:#fff4e6;color:var(--warn);}
+.hidden{display:none;}
+footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
+@media print{#search{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <h1>MY-SKILLS — repo map</h1>
+  <div class="meta">Generated 2026-09-14 11:08 from registry.yaml v4.0
+    (10 coarse · 52 fine) —
+    read-only index, not a recommendation artifact. Regenerate with
+    <code>00_orchestrator/scripts/gen_repo_map.py</code> after editing registry.yaml.</div>
+</header>
+<main>
+  <section class="coarse">
+    <h2>00 orchestrator — full-project SOP</h2>
+    <div class="domain">hand-authored from 00_orchestrator/SKILL.md "Composite workflows" — resync manually if that section changes</div>
+    
+<svg viewBox="0 0 920 200" role="img" aria-label="00 orchestrator full-project SOP flow" style="width:100%;height:auto;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--text-dim)"/>
+    </marker>
+  </defs>
+  <style>
+    .node rect{fill:var(--surface);stroke:var(--border);rx:8;}
+    .node text{fill:var(--text);font:600 13px system-ui,sans-serif;text-anchor:middle;}
+    .node .sub{fill:var(--text-dim);font:400 10px system-ui,sans-serif;}
+    .edge{stroke:var(--text-dim);stroke-width:1.5;fill:none;marker-end:url(#arrow);}
+    .gate{fill:var(--warn);font:600 10px ui-monospace,monospace;text-anchor:middle;}
+  </style>
+  <!-- nodes: 03 -> 02 -> 04 -> 05 -> 06, gates between -->
+  <g class="node"><rect x="10" y="70" width="150" height="50"/><text x="85" y="92">03_research</text><text class="sub" x="85" y="108">design · lit · 选刊</text></g>
+  <g class="node"><rect x="200" y="70" width="150" height="50"/><text x="275" y="92">02_data-processing</text><text class="sub" x="275" y="108">if data / imaging</text></g>
+  <g class="node"><rect x="390" y="70" width="150" height="50"/><text x="465" y="92">04_analysis</text><text class="sub" x="465" y="108">stats · figures</text></g>
+  <g class="node"><rect x="580" y="70" width="150" height="50"/><text x="655" y="92">05_manuscript</text><text class="sub" x="655" y="108">prose · de-AI</text></g>
+  <g class="node"><rect x="760" y="70" width="150" height="50"/><text x="835" y="92">06_review</text><text class="sub" x="835" y="108">pre-review · response</text></g>
+  <path class="edge" d="M160,95 H200"/>
+  <path class="edge" d="M350,95 H390"/>
+  <path class="edge" d="M540,95 H580"/>
+  <path class="edge" d="M730,95 H760"/>
+  <text class="gate" x="180" y="60">G-PHI</text>
+  <text class="gate" x="370" y="60">G-04</text>
+  <text class="gate" x="560" y="60">G-FACT / G-05</text>
+  <text class="gate" x="745" y="60">G-06</text>
+  <text x="460" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11">Full project SOP · session mount pick (01) before every node · G0 checks project-state.yaml mounts each run</text>
+  <text x="460" y="180" text-anchor="middle" fill="var(--text-dim)" font-size="10">Other entries: 06 alone (reviewer response) · 05 alone (revision) · 01 (new capability, network first)</text>
+</svg>
+
+  </section>
+  <input id="search" type="search" placeholder="筛选 id / label / source / status…"
+    aria-label="Filter skills">
+  
+      <section class="coarse">
+        <h2>文献检索</h2>
+        <div class="domain">a_domain:  · 6 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="paper-lookup 广度检索 scientific-agent-skills skills/paper-lookup/ proposed">
+          <div class="id">paper-lookup</div>
+          <div class="label">广度检索</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="verify-refs 引用真实性核验 my-skills-capabilities 03-research/lit-cite/ mounted">
+          <div class="id">verify-refs</div>
+          <div class="label">引用真实性核验</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="manage-refs 引用格式化写入 my-skills-capabilities 03-research/lit-cite/ mounted">
+          <div class="id">manage-refs</div>
+          <div class="label">引用格式化写入</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="lit-sync 个人文献库同步 my-skills-capabilities 03-research/lit-cite/ mounted">
+          <div class="id">lit-sync</div>
+          <div class="label">个人文献库同步</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="retraction-watcher 撤稿检测 aipoch-medical-research-skills skills/retraction-watcher/ proposed">
+          <div class="id">retraction-watcher</div>
+          <div class="label">撤稿检测</div>
+          <div class="row"><span>aipoch-medical-research-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="nature-academic-search 严格他引审计 nature-skills skills/nature-academic-search/ proposed">
+          <div class="id">nature-academic-search</div>
+          <div class="label">严格他引审计</div>
+          <div class="row"><span>nature-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>选题探索</h2>
+        <div class="domain">a_domain:  · 4 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="find-cohort-gap 队列选题空白发现 my-skills-capabilities 03-research/frontier-ideate/ mounted">
+          <div class="id">find-cohort-gap</div>
+          <div class="label">队列选题空白发现</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="ma-scout ma选题可行性 my-skills-capabilities 03-research/lit-review/ mounted">
+          <div class="id">ma-scout</div>
+          <div class="label">MA选题可行性</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="hypothesis-generation 假设形成防harking scientific-agent-skills skills/hypothesis-generation/ proposed">
+          <div class="id">hypothesis-generation</div>
+          <div class="label">假设形成防HARKing</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="intake-project 项目启动分类 my-skills-capabilities 03-research/intake-project/ mounted">
+          <div class="id">intake-project</div>
+          <div class="label">项目启动分类</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>研究设计</h2>
+        <div class="domain">a_domain:  · 8 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="design-study 研究设计审查 my-skills-capabilities 03-research/design-experiment/ mounted">
+          <div class="id">design-study</div>
+          <div class="label">研究设计审查</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="design-ai-benchmarking ai专家评估设计 my-skills-capabilities 03-research/design-ai-benchmarking/ mounted">
+          <div class="id">design-ai-benchmarking</div>
+          <div class="label">AI专家评估设计</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="architecture-zoo 模型架构选型 my-skills-capabilities 03-research/architecture-zoo/ mounted">
+          <div class="id">architecture-zoo</div>
+          <div class="label">模型架构选型</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="write-protocol irb方案撰写 my-skills-capabilities 03-research/design-protocol/ mounted">
+          <div class="id">write-protocol</div>
+          <div class="label">IRB方案撰写</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="fill-protocol irb方案填表 my-skills-capabilities 03-research/fill-protocol/ mounted">
+          <div class="id">fill-protocol</div>
+          <div class="label">IRB方案填表</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="clinic-research-design 方案-按研究类型模板 aipoch-medical-research-skills skills/clinic-research-design/ proposed">
+          <div class="id">clinic-research-design</div>
+          <div class="label">方案-按研究类型模板</div>
+          <div class="row"><span>aipoch-medical-research-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="calc-sample-size 样本量计算 my-skills-capabilities 04-analysis/stats-power/ mounted">
+          <div class="id">calc-sample-size</div>
+          <div class="label">样本量计算</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="statistical-power 样本量-复杂设计模拟法 scientific-agent-skills skills/statistical-power/ proposed">
+          <div class="id">statistical-power</div>
+          <div class="label">样本量-复杂设计模拟法</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>正文写作</h2>
+        <div class="domain">a_domain:  · 7 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="write-paper imrad正文起草 my-skills-capabilities 05-manuscript/write-manuscript/ mounted">
+          <div class="id">write-paper</div>
+          <div class="label">IMRAD正文起草</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="check-reporting 报告规范核验 my-skills-capabilities 05-manuscript/write-reporting/ mounted">
+          <div class="id">check-reporting</div>
+          <div class="label">报告规范核验</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="nature-data 数据可用性声明 nature-skills skills/nature-data/ proposed">
+          <div class="id">nature-data</div>
+          <div class="label">数据可用性声明</div>
+          <div class="row"><span>nature-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="nature-proposal-writer 基金标书-中文语境qa nature-skills skills/nature-proposal-writer/ proposed">
+          <div class="id">nature-proposal-writer</div>
+          <div class="label">基金标书-中文语境QA</div>
+          <div class="row"><span>nature-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="grant-builder 基金标书-方法论 my-skills-capabilities 03-research/design-grant/ mounted">
+          <div class="id">grant-builder</div>
+          <div class="label">基金标书-方法论</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="find-journal 选刊推荐 my-skills-capabilities 05-manuscript/write-venue/ mounted">
+          <div class="id">find-journal</div>
+          <div class="label">选刊推荐</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="venue-templates 期刊格式模板 scientific-agent-skills skills/venue-templates/ proposed">
+          <div class="id">venue-templates</div>
+          <div class="label">期刊格式模板</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>语言润色</h2>
+        <div class="domain">a_domain:  · 3 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="polish-language 一致性硬规则lint my-skills-capabilities 05-manuscript/write-polish/ mounted">
+          <div class="id">polish-language</div>
+          <div class="label">一致性硬规则lint</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="humanize 去ai味 med-sci-skills skills/humanize/ mounted">
+          <div class="id">humanize</div>
+          <div class="label">去AI味</div>
+          <div class="row"><span>med-sci-skills</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="nature-polishing latex排版细节 nature-skills skills/nature-polishing/ proposed">
+          <div class="id">nature-polishing</div>
+          <div class="label">LaTeX排版细节</div>
+          <div class="row"><span>nature-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>数据处理</h2>
+        <div class="domain">a_domain:  · 7 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="clean-data 三阶段确认式清洗 my-skills-capabilities 02-data-processing/tables/ mounted">
+          <div class="id">clean-data</div>
+          <div class="label">三阶段确认式清洗</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="batch-cohort 批量队列分析生成 my-skills-capabilities 02-data-processing/tables/ mounted">
+          <div class="id">batch-cohort</div>
+          <div class="label">批量队列分析生成</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="exploratory-data-analysis eda scientific-agent-skills skills/exploratory-data-analysis/ proposed">
+          <div class="id">exploratory-data-analysis</div>
+          <div class="label">EDA</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="preprocess-imaging 预处理设计与泄漏门禁 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
+          <div class="id">preprocess-imaging</div>
+          <div class="label">预处理设计与泄漏门禁</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="pydicom dicom底层与匿名化审计 scientific-agent-skills skills/pydicom/ proposed">
+          <div class="id">pydicom</div>
+          <div class="label">DICOM底层与匿名化审计</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="profile-imaging 训练前数据集画像 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
+          <div class="id">profile-imaging</div>
+          <div class="label">训练前数据集画像</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="uncertainty-imaging 部署级不确定性量化 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
+          <div class="id">uncertainty-imaging</div>
+          <div class="label">部署级不确定性量化</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>统计分析</h2>
+        <div class="domain">a_domain:  · 6 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="analyze-stats 检验方法选择与加权调查数据 my-skills-capabilities 04-analysis/stats-guide/ mounted">
+          <div class="id">analyze-stats</div>
+          <div class="label">检验方法选择与加权调查数据</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="meta-analysis meta分析抗数据操纵 my-skills-capabilities 04-analysis/stats-models/ mounted">
+          <div class="id">meta-analysis</div>
+          <div class="label">Meta分析抗数据操纵</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="scikit-survival 生存分析leakage-safe管道 scientific-agent-skills skills/scikit-survival/ proposed">
+          <div class="id">scikit-survival</div>
+          <div class="label">生存分析leakage-safe管道</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="radiomics-ml 放射组学建模pipeline审计 my-skills-capabilities 02-data-processing/radiomics-habitat/ mounted">
+          <div class="id">radiomics-ml</div>
+          <div class="label">放射组学建模pipeline审计</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="model-evaluation 模型-任务正确指标选择 my-skills-capabilities 04-analysis/model-eval/ mounted">
+          <div class="id">model-evaluation</div>
+          <div class="label">模型-任务正确指标选择</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="model-validation 模型-确定性泄漏门禁 my-skills-capabilities 04-analysis/model-eval/ mounted">
+          <div class="id">model-validation</div>
+          <div class="label">模型-确定性泄漏门禁</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>图表呈现</h2>
+        <div class="domain">a_domain:  · 1 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="make-figures 报告规范流程图与期刊配图 my-skills-capabilities 04-analysis/fig-flow/ mounted">
+          <div class="id">make-figures</div>
+          <div class="label">报告规范流程图与期刊配图</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>稿件评阅</h2>
+        <div class="domain">a_domain:  · 4 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="peer-review-pdf-scan pdf注入攻击扫描 my-skills-capabilities 06-review/review-peer/ mounted">
+          <div class="id">peer-review-pdf-scan</div>
+          <div class="label">PDF注入攻击扫描</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="peer-review 审稿意见生成 my-skills-capabilities 06-review/review-peer/ mounted">
+          <div class="id">peer-review</div>
+          <div class="label">审稿意见生成</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="self-review 数值级自审核算 my-skills-capabilities 06-review/review-critique/ mounted">
+          <div class="id">self-review</div>
+          <div class="label">数值级自审核算</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="scientific-critical-thinking 证据质量评估 scientific-agent-skills skills/scientific-critical-thinking/ proposed">
+          <div class="id">scientific-critical-thinking</div>
+          <div class="label">证据质量评估</div>
+          <div class="row"><span>scientific-agent-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+      <section class="coarse">
+        <h2>审稿回复</h2>
+        <div class="domain">a_domain:  · 2 fine ids</div>
+        <div class="grid">
+        <div class="card" data-blob="revise 修回分诊与数字血统追踪 my-skills-capabilities 06-review/review-response/ mounted">
+          <div class="id">revise</div>
+          <div class="label">修回分诊与数字血统追踪</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="response-tone-polisher 回复语气软化 aipoch-medical-research-skills skills/response-tone-polisher/ proposed">
+          <div class="id">response-tone-polisher</div>
+          <div class="label">回复语气软化</div>
+          <div class="row"><span>aipoch-medical-research-skills</span>
+            <span class="status proposed">PROPOSED</span></div>
+        </div></div>
+      </section>
+</main>
+<footer>Source of truth: 01_skill-discovery-integration/registry.yaml. This page never hand-lists ids.</footer>
+<script>
+const q = document.getElementById('search');
+q.addEventListener('input', () => {
+  const v = q.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    c.classList.toggle('hidden', v && !c.dataset.blob.includes(v));
+  });
+  document.querySelectorAll('.coarse').forEach(section => {
+    const anyVisible = [...section.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
+    section.classList.toggle('hidden', !anyVisible);
+  });
+});
+</script>
+</body>
+</html>

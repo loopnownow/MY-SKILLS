@@ -8,12 +8,12 @@
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
 # 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
-# Backup of v3.30: registry.v3.30.yaml · audit source: registry_v4.audit.yaml
+# Backup of v3.30: _history/registry.v3.30.yaml · audit source: _history/registry_v4.audit.yaml
 # Migration map: mounts/MIGRATION_v3_to_v4.md
 meta:
   version: "4.0"
   change_id: CHG-20260913-001
-  previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (registry.v3.30.yaml)"]
+  previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
   fine_id_count_canonical: 52  # 48 mounts (session-pick) + 4 reference_only
   coarse_id_count: 10
   open_decision_points:
@@ -30,6 +30,15 @@ empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
 openclaw_policy: never-mount-as-atomic-source
+a_domain_override_policy: >
+  Each coarse_id declares a default a_domain. A mount under `mounts:` may set
+  its own `a_domain` to override that default when the routing rule requires
+  it (documented exceptions: `find-journal` and `grant-builder` sit under
+  coarse 正文写作 but route to a_domain 03_research per the 选刊/基金 rule in
+  ARCHITECTURE.md). This is intentional, not a data-entry error — do not
+  "fix" a mount's a_domain to match its coarse_id's default without checking
+  its `note` field first.
+
 
 coarse_ids:
   - id: 文献检索
@@ -227,7 +236,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     atomic_package: MedSci
-    note: open_decision: default 研究设计; B path still stats-power; A 选刊 stays 03
+    note: "open_decision: default 研究设计; B path still stats-power; A 选刊 stays 03"
   - id: statistical-power
     label: 样本量-复杂设计模拟法
     coarse: 研究设计
