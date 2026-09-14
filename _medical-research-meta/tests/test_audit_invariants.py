@@ -154,7 +154,7 @@ class RegistryMenu(unittest.TestCase):
     def test_registry_matches_mounted_skills_v4(self) -> None:
         reg = registry_mount_ids()
         md = mounted_md_ids()
-        self.assertEqual(len(reg), 47, msg=str(reg))
+        self.assertEqual(len(reg), 51, msg=str(reg))
         self.assertEqual(sorted(reg), sorted(md), msg=f"reg={reg}\nmd={md}")
         self.assertNotIn("04-figure-engine", reg)
         self.assertNotIn("02-xlsx", reg)

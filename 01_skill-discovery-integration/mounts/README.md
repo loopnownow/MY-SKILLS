@@ -14,7 +14,7 @@
 | [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。跨包细 ID：paper-lookup / EDA / pydicom / … |
 | [OpenClaw · 禁挂载](openclaw.md) | 扫 `b1f9b6e`。**license risk — never atomic mount** |
 | [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。retraction-watcher / response-tone-polisher（clinic-research-design 已拒绝） |
-| [Nature · 备份](nature.md) | 扫 `287ee37`。license 需核实；细 ID 保持 PROPOSED |
+| [Nature · 备份](nature.md) | 扫 `287ee37`。LICENSE Apache-2.0 已核实；`nature-figure`/`nature-reviewer`/`nature-response` MOUNTED；其余 PROPOSED |
 
 **每次运行：** 先定粗 bucket → 多选细 ID；未选不加载。预审/审稿可预勾审稿混合配方（细 ID 级）。Registry 状态是菜单。
 

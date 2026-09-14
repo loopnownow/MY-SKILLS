@@ -3,7 +3,7 @@
 # Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
 # Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
 # OpenClaw is NOT a source for any fine ID (proprietary license risk).
-# Nature fine IDs: license_flag 需核实 → stay PROPOSED until verified; do not claim MOUNTED if bytes absent.
+# Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present. Still not OpenClaw.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
@@ -14,7 +14,7 @@ meta:
   version: "4.0"
   change_id: CHG-20260913-001
   previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
-  fine_id_count_canonical: 51  # 47 mounts (session-pick) + 4 reference_only
+  fine_id_count_canonical: 51  # 51 mounts (session-pick); reference_only emptied 2026-09-14 (quartet promoted)
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -140,7 +140,7 @@ mounts:
     a_domain: 03_research
     status: PROPOSED
     atomic_package: Nature
-    license_flag: 需核实
+    license_flag: Apache-2.0 verified 2026-09-14
     stustub_in_b: cross-pack/nature/nature-academic-search/
   - id: find-cohort-gap
     label: 队列选题空白发现
@@ -262,7 +262,7 @@ mounts:
     a_domain: 05_manuscript
     status: PROPOSED
     atomic_package: Nature
-    license_flag: 需核实
+    license_flag: Apache-2.0 verified 2026-09-14
     stustub_in_b: cross-pack/nature/nature-data/
   - id: nature-proposal-writer
     label: 基金标书-中文语境QA
@@ -272,7 +272,7 @@ mounts:
     a_domain: 05_manuscript
     status: PROPOSED
     atomic_package: Nature
-    license_flag: 需核实
+    license_flag: Apache-2.0 verified 2026-09-14
     stustub_in_b: cross-pack/nature/nature-proposal-writer/
   - id: grant-builder
     label: 基金标书-方法论
@@ -325,7 +325,7 @@ mounts:
     a_domain: 05_manuscript
     status: PROPOSED
     atomic_package: Nature
-    license_flag: 需核实
+    license_flag: Apache-2.0 verified 2026-09-14
     experimental: true
     stustub_in_b: cross-pack/nature/nature-polishing/
   - id: clean-data
@@ -502,34 +502,52 @@ mounts:
     atomic_package: AIPOCH
     stustub_in_b: cross-pack/aipoch/response-tone-polisher/
 
-reference_only:
+
   - id: scientific-visualization
     label: 诚实可视化准则
     coarse: 图表呈现
-    status: REFERENCE
-    package: Scientific
-    applied_to: 04-analysis/fig-plot/external-principles.md
+    source: scientific-agent-skills
+    path: skills/scientific-visualization/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: Scientific
+    note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B fig-plot/external-principles.md."
+    stustub_in_b: 04-analysis/fig-plot/external-principles.md
   - id: nature-figure
     label: 审稿人风险预判
     coarse: 图表呈现
-    status: REFERENCE
-    package: Nature
-    applied_to: 04-analysis/fig-plot/external-principles.md
-    license_flag: 需核实
+    source: nature-skills
+    path: skills/nature-figure/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B fig-plot/external-principles.md."
+    stustub_in_b: 04-analysis/fig-plot/external-principles.md
   - id: nature-reviewer
     label: 多审稿人隔离原则
     coarse: 稿件评阅
-    status: REFERENCE
-    package: Nature
-    applied_to: 06-review/review-peer/external-principles.md
-    license_flag: 需核实
+    source: nature-skills
+    path: skills/nature-reviewer/
+    a_domain: 06_review
+    status: MOUNTED
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
+    stustub_in_b: 06-review/review-peer/external-principles.md
   - id: nature-response
     label: 隔离与正文精简原则
     coarse: 审稿回复
-    status: REFERENCE
-    package: Nature
-    applied_to: 06-review/review-response/external-principles.md
-    license_flag: 需核实
+    source: nature-skills
+    path: skills/nature-response/
+    a_domain: 06_review
+    status: MOUNTED
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
+    stustub_in_b: 06-review/review-response/external-principles.md
+
+reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
 
 archived:
   - id: 02-fmri
@@ -616,5 +634,5 @@ proposals:
     scan_sha: "287ee37"
     status: PROPOSED
     role: backup-candidate
-    license_flag: 需核实
+    license_flag: Apache-2.0 verified 2026-09-14
     note: No standard LICENSE found at scan time; Nature fine IDs stay PROPOSED.

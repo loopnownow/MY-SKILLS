@@ -11,7 +11,7 @@ Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_f
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 51 fine** (47 session-pick mounts + 4 reference-only). Personal layers stay in A `00`–`06`.
+v4: **10 coarse + 51 fine** (51 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
 Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
 
 ## Session-pick fine ids by coarse bucket
@@ -26,7 +26,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
 | `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
 | `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
-| `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · 需核实 |
+| `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
 ### 选题探索
@@ -58,8 +58,8 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 |---|---|---|---|---|
 | `write-paper` | IMRAD正文起草 | my-skills-capabilities | `05-manuscript/write-manuscript/` | MOUNTED |
 | `check-reporting` | 报告规范核验 | my-skills-capabilities | `05-manuscript/write-reporting/` | MOUNTED |
-| `nature-data` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · 需核实 |
-| `nature-proposal-writer` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · 需核实 |
+| `nature-data` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `nature-proposal-writer` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 | `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED |
 | `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
 | `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
@@ -71,7 +71,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 |---|---|---|---|---|
 | `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED |
 | `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED |
-| `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · 需核实 |
+| `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
 ### 数据处理
@@ -104,6 +104,8 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `make-figures` | 报告规范流程图与期刊配图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
+| `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED |
+| `nature-figure` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
 ### 稿件评阅
@@ -114,6 +116,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
 | `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED |
 | `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED |
+| `nature-reviewer` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
 ### 审稿回复
@@ -122,16 +125,14 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 |---|---|---|---|---|
 | `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED |
 | `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED |
+| `nature-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
 ## Reference-only (not session mounts)
 
 | Id | Label | Applied to |
 |---|---|---|
-| `scientific-visualization` | 诚实可视化准则 | `04-analysis/fig-plot/external-principles.md` |
-| `nature-figure` | 审稿人风险预判 | `04-analysis/fig-plot/external-principles.md` |
-| `nature-reviewer` | 多审稿人隔离原则 | `06-review/review-peer/external-principles.md` |
-| `nature-response` | 隔离与正文精简原则 | `06-review/review-response/external-principles.md` |
+
 
 ## Archived (not in default menus)
 

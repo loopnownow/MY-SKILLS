@@ -733,3 +733,10 @@ change: Deleted all three (`mounts-cap/openclaw/`, `mounts-cap/ars/`, `mounts-ca
 not_done: nothing pending. B proper (`mounts-cap/b/`) was re-checked for junk files (`__pycache__`, `.pyc`, `.DS_Store`) and obvious internal duplication — none found; it's policy `full-tree` by design (`INDEX.yaml`), so it doesn't have an "orphan" concept the way on-demand sources do.
 decision: "on-demand, no bulk caching until picked" is being treated as a checkable invariant like the MOUNTED-bytes-present one — evaluation clones (used throughout this session for archify/mattpocock/no-ai-slop/vivid-figures-skill/AIPOCH/Scientific/OpenClaw) belong in a throwaway location outside `mounts-cap/`, never copied in unless and until something is actually picked. OpenClaw's and ARS's cached bytes were evidence that this wasn't consistently followed by prior sessions.
 next_action: none pending.
+
+## CHG-20260914-001 — Nature Apache-2.0 verified; REFERENCE quartet → MOUNTED; Lee 06 WHE harvest
+date: 2026-09-14
+problem: User confirmed (1) Nature upstream LICENSE is Apache-2.0 (Yuan1z0825/nature-skills @287ee37) — clear standing「需核实」block; (2) former reference_only quartet (scientific-visualization / nature-figure / nature-reviewer / nature-response) become formal fine IDs at MOUNTED; (3) Lee WHE harvest A/B/C into 06 personal + B review-peer checklist.
+change: Cleared all Nature `license_flag: 需核实` → `Apache-2.0 verified 2026-09-14` (third-party note retained); promoted quartet into `mounts:` MOUNTED with package paths and emptied `reference_only: []`; updated nature.md / hybrid-mount-pointers; added `06_review/personal` §0.1 locators + `word-edit-rules.md` (linked from 06 SKILL); companion B checklist `ai-public-data-imaging-checklist.md`. fine_id_count remains 51 (51 mounts, 0 reference_only).
+decision: Nature MOUNTED only when local mounts-cap bytes present; still never OpenClaw.
+next_action: user reviews PRs; do not whole-zip overwrite local .grok/skills.
