@@ -103,7 +103,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("b.md", index)
         self.assertIn("MIGRATION_v3_to_v4.md", index)
         self.assertIn("10", index)
-        self.assertIn("52", index)
+        self.assertIn("51", index)
         self.assertIn("presets.md", index)
         self.assertTrue((md / "presets" / "review-hybrid.yaml").is_file())
         yh = (md / "presets" / "review-hybrid.yaml").read_text(encoding="utf-8")

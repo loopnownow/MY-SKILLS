@@ -30,12 +30,23 @@
 
 ---
 
+
+## 0.1 意见条目定位（硬规则）
+
+- 每条 Major / Minor **正文最前面**必须是原稿定位，然后再写来源标签与意见。
+- **优先：** Proof/原稿行号，如 `Lines 76–79:` / `Line 216:`。
+- **无可靠行号时：** `Introduction, paragraph 2, line 3:`；或 `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`。
+- **完整顺序：** `定位: [源:skill-id]… 意见正文`（例：`Lines 225–227: [B:04-model-eval][A:personal] …`）。
+- **禁止**把行号埋在句中或句末；禁止无定位的空泛指摘（Opening 总述除外，Opening 可不写行号）。
+- **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后再用修订模式改信封正文。
+- 用户若粘贴原文句子：先在 Proof/plain 对齐行号，再写入对应章节；不要另起新的审稿 docx。
+
 ## 1. 年代分层（决定信封，不决定把中文冲法搬进英文）
 
 | 大约年份 | 形态 | 英文 peer review 怎么用 |
 |---|---|---|
 | 2014–2018 | 中文杂志审稿单 | **不要**当英文信模板。走 `chinese-journal-score-sheet.md` |
-| 2019–2023 | `Dear Editor` + 页码行号出条 | 仅当邀请信/系统仍要抬头时用 |
+| 2019–2023 | `Dear Editor` + 行号优先（Lines n–m / Section, paragraph, line）出条 | 仅当邀请信/系统仍要抬头时用 |
 | 2024–2026 | 无抬头或一行邀请致谢；Opening → 按章节 Major/Minor | **默认信封** |
 
 正文一般不写 Accept / Reject / Major revision 分数；分数放内部备注或中文审稿单。
@@ -50,7 +61,7 @@
 [Opening 2–4 sentences: design + clinical question + overall value + the methodological catch]
 
 1. Title
-Major Issues: [Page/Line + defect + actionable fix]
+Major Issues: [Lines n–m: / Section, paragraph, line: + [tags] + defect + actionable fix]
 Minor Issues: …
 
 2. Abstract
@@ -187,7 +198,7 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 - 英文 **禁止**导入中文审稿单冲词直译（*no novelty* / *selection bias* 作为骂句）。同一事实写成可执行请求。
 
 提交前自检四维：
-1. **精准可操作** — 有 Page/Line（或 section）+ 明确改法。
+1. **精准可操作** — 有 Lines n–m / Section, paragraph, line（或 section）+ 明确改法。
 2. **结构清晰** — Major / Minor 分清。
 3. **建设性** — 学术尊重；即使得拒稿建议也指出可改进方向。
 4. **辅助编辑** — Opening 已概括核心优势与关键短板。

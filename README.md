@@ -36,7 +36,7 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | `06_review` | Personal review/response upper layer (reviewer response only here) |
 | `skill-harvest` | Governance / ROI / evolution proposals |
 
-A = framework + personal. B = default mounted source. Registry (v4, `01_skill-discovery-integration/registry.yaml`) is **10 coarse ids (welded stage buckets) → 52 fine ids (session-pick mount points)**, not a flat menu. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Pick fine ids each run; do not auto-load all. Never auto-mount a non-B source. ARS/MedSci/Scientific/AIPOCH/Nature stay PROPOSED backups; OpenClaw is never an atomic mount source.
+A = framework + personal. B = default mounted source. Registry (v4, `01_skill-discovery-integration/registry.yaml`) is **10 coarse ids (welded stage buckets) → 51 fine ids (session-pick mount points)**, not a flat menu. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Pick fine ids each run; do not auto-load all. Never auto-mount a non-B source. ARS/MedSci/Scientific/AIPOCH/Nature stay PROPOSED backups; OpenClaw is never an atomic mount source.
 
 ## Maintenance
 

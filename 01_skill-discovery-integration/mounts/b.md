@@ -16,9 +16,6 @@
 
 | Fine id | Label | B path | Coarse |
 |---|---|---|---|
-| `verify-refs` | 引用真实性核验 | `03-research/lit-cite/` | 文献检索 |
-| `manage-refs` | 引用格式化写入 | `03-research/lit-cite/` | 文献检索 |
-| `lit-sync` | 个人文献库同步 | `03-research/lit-cite/` | 文献检索 |
 | `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | 选题探索 |
 | `ma-scout` | MA选题可行性 | `03-research/lit-review/` | 选题探索 |
 | `intake-project` | 项目启动分类 | `03-research/intake-project/` | 选题探索 |

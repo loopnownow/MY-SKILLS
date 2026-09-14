@@ -1,6 +1,6 @@
 # MedicalResearch Skills — framework A (2026-09-03)
 
-Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (**B**, default source) or an approved external Skill. Registry (v4) is **10 coarse ids → 52 fine ids** (48 session-pick mounts + 4 reference-only), `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`.
+Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (**B**, default source) or an approved external Skill. Registry (v4) is **10 coarse ids → 51 fine ids** (51 session-pick mounts; reference_only emptied), `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`.
 
 ## Skills
 

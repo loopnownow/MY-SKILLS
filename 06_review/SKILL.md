@@ -31,6 +31,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 | Task | Path |
 |---|---|
 | English peer-review voice | `personal/personal-review-style.md` |
+| Word edit / delivery (Track Changes, 0del, TNR) | `personal/word-edit-rules.md` |
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
 | 中文刊审稿单 A–F | `personal/chinese-journal-score-sheet.md` |
@@ -69,7 +70,7 @@ English peer-review / pre-review body follows `personal/personal-review-style.md
 
 ## Comments, conflicts, undecidable items
 
-- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 (author ≠ prefix; mount-driven items must carry `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`, dual-tag OK).
+- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`, dual-tag OK).
 - Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
 - Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
 - Response / re-audit: set each issue to Resolved / Partially resolved / Unresolved / New issue per `personal/review-resolution.md` (A 06 judges; mounts only draft).
