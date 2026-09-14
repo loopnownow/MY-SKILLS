@@ -11,6 +11,7 @@
 | ✅ B默认已含 | 原子技能已在 `MY-SKILLS-capabilities`（本仓 B） |
 | 🟡 新增挂载 | 审计补进 B 的 MedSci 本体（见 capabilities PR） |
 | 🔵 跨包补充 | Scientific / AIPOCH / Nature 等；多为 PROPOSED，启用前确认 |
+| 🟢 跨包已挂载 | 跨包来源，已从 PROPOSED confirm 为 MOUNTED（非 B 默认，仍需按细 ID 单独按需拉取） |
 | ⚪ 规则参考 | 不挂载字节；原则写入对应 B 技能的 `external-principles.md` |
 
 **硬规则：** OpenClaw **不得**作为任何细 ID 的 atomic source。Nature 细 ID 正式 `MOUNTED` 前需核实 LICENSE。选刊决策权威仍在 A `03_research/medical-journal-submit`（Victor），不因「选刊推荐」细 ID 在正文写作桶而改归属。
@@ -31,10 +32,10 @@
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
 | 广度检索 | Scientific | `paper-lookup` | 🔵 |
-| 引用真实性核验 | MedSci | `verify-refs` | ✅ |
-| 引用格式化写入 | MedSci | `manage-refs` | ✅ |
-| 个人文献库同步 | MedSci | `lit-sync` | ✅ |
-| 撤稿检测 | AIPOCH | `retraction-watcher` | 🔵 |
+| 引用真实性核验 | Scientific | `verify-refs` | 🟢（2026-09-13 换自B lit-cite） |
+| 引用格式化写入 | Scientific | `manage-refs` | 🟢（同上，同目录） |
+| 个人文献库同步 | Scientific | `lit-sync` | 🟢（同上，pyzotero） |
+| 撤稿检测 | AIPOCH | `retraction-watcher` | 🟢（2026-09-13 promoted） |
 | 严格他引审计 | Nature | `nature-academic-search` | 🔵（先核 LICENSE） |
 
 ## 2. 选题探索（4）
@@ -55,7 +56,6 @@
 | 模型架构选型 | MedSci | `architecture-zoo` | 🟡 |
 | IRB方案撰写 | MedSci | `write-protocol` | ✅ |
 | IRB方案填表 | MedSci | `fill-protocol` | 🟡 |
-| 方案-按研究类型模板 | AIPOCH | `clinic-research-design` | 🔵 |
 | 样本量计算 | MedSci | `calc-sample-size` | ✅ |
 | 样本量-复杂设计模拟法 | Scientific | `statistical-power` | 🔵 |
 
@@ -128,8 +128,8 @@
 |---|---|---|---|
 | 修回分诊与数字血统追踪 | MedSci | `revise` | ✅ |
 | 隔离与正文精简原则 | Nature | `nature-response` | ⚪ |
-| 回复语气软化 | AIPOCH | `response-tone-polisher` | 🔵 |
+| 回复语气软化 | AIPOCH | `response-tone-polisher` | 🟢（2026-09-13 promoted） |
 
 ---
 
-**合计：** 52 细 ID = 48 可挂载意向 + 4 ⚪ 规则参考。机器真源以 [`../registry.yaml`](../registry.yaml) 为准；本表为人读配方。旧 30 粗 ID 对照见 [MIGRATION_v3_to_v4.md](MIGRATION_v3_to_v4.md)。
+**合计：** 51 细 ID = 47 可挂载意向 + 4 ⚪ 规则参考。机器真源以 [`../registry.yaml`](../registry.yaml) 为准；本表为人读配方。旧 30 粗 ID 对照见 [MIGRATION_v3_to_v4.md](MIGRATION_v3_to_v4.md)。

@@ -2,7 +2,7 @@
 
 [总览](README.md) · [迁移 v3→v4](MIGRATION_v3_to_v4.md) · [混合挂载指针（细ID配方）](hybrid-mount-pointers.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [ARS · 备份](ars.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [OpenClaw · 禁挂载](openclaw.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
 
-**粗 ID 10 个（焊死 stage buckets）+ 细 ID 52 个（session-pick；其中 4 个 reference-only）。** Hybrid mount：不同细 ID 可用不同包；同一细 ID 内不混包。备份源仍 PROPOSED。OpenClaw **不得**作为任何细 ID 的 atomic source。
+**粗 ID 10 个（焊死 stage buckets）+ 细 ID 51 个（session-pick；其中 4 个 reference-only）。** Hybrid mount：不同细 ID 可用不同包；同一细 ID 内不混包。备份源仍 PROPOSED。OpenClaw **不得**作为任何细 ID 的 atomic source。
 
 | 预设 | 摘要 |
 |---|---|
@@ -13,7 +13,7 @@
 | [MedSci · 备份](medsci.md) | 扫 `912f7e8`。多数 B 细 ID 的原子技能源；`humanize` 仍 MedSci 接口 |
 | [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。跨包细 ID：paper-lookup / EDA / pydicom / … |
 | [OpenClaw · 禁挂载](openclaw.md) | 扫 `b1f9b6e`。**license risk — never atomic mount** |
-| [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。retraction-watcher / clinic-research-design / response-tone-polisher |
+| [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。retraction-watcher / response-tone-polisher（clinic-research-design 已拒绝） |
 | [Nature · 备份](nature.md) | 扫 `287ee37`。license 需核实；细 ID 保持 PROPOSED |
 
 **每次运行：** 先定粗 bucket → 多选细 ID；未选不加载。预审/审稿可预勾审稿混合配方（细 ID 级）。Registry 状态是菜单。

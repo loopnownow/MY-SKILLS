@@ -154,7 +154,7 @@ class RegistryMenu(unittest.TestCase):
     def test_registry_matches_mounted_skills_v4(self) -> None:
         reg = registry_mount_ids()
         md = mounted_md_ids()
-        self.assertEqual(len(reg), 48, msg=str(reg))
+        self.assertEqual(len(reg), 47, msg=str(reg))
         self.assertEqual(sorted(reg), sorted(md), msg=f"reg={reg}\nmd={md}")
         self.assertNotIn("04-figure-engine", reg)
         self.assertNotIn("02-xlsx", reg)
@@ -189,7 +189,7 @@ class ArchitectureSsot(unittest.TestCase):
             self.assertIn("04-fig-plot", text, label)
             self.assertIn("05-write-venue", text, label)
             self.assertIn("04-stats-power", text, label)
-            self.assertRegex(text, r"(10 coarse|52 fine|fine id)", label)
+            self.assertRegex(text, r"(10 coarse|5[12] fine|fine id)", label)
             self.assertNotRegex(low, r"≤\s*3", label)
             self.assertNotIn("role: default-candidate", text, label)
             self.assertNotIn("Default candidate: `Imbad0202", text, label)
@@ -262,7 +262,7 @@ class ReadmeSsot(unittest.TestCase):
         root = read("README.md")
         meta = read("_medical-research-meta/README.md")
         for label, text in (("root", root), ("meta", meta)):
-            self.assertRegex(text, r"(10 coarse|52 fine|fine id)", label)
+            self.assertRegex(text, r"(10 coarse|5[12] fine|fine id)", label)
             self.assertNotIn("30-id", text, label)
             self.assertNotIn("30 coarse", text, label)
 

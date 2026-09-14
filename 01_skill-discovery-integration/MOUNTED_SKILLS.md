@@ -11,7 +11,7 @@ Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_f
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 52 fine** (48 session-pick mounts + 4 reference-only). Personal layers stay in A `00`–`06`.
+v4: **10 coarse + 51 fine** (47 session-pick mounts + 4 reference-only). Personal layers stay in A `00`–`06`.
 Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
 
 ## Session-pick fine ids by coarse bucket
@@ -22,10 +22,10 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED |
-| `verify-refs` | 引用真实性核验 | my-skills-capabilities | `03-research/lit-cite/` | MOUNTED |
-| `manage-refs` | 引用格式化写入 | my-skills-capabilities | `03-research/lit-cite/` | MOUNTED |
-| `lit-sync` | 个人文献库同步 | my-skills-capabilities | `03-research/lit-cite/` | MOUNTED |
-| `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `skills/retraction-watcher/` | PROPOSED |
+| `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
+| `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
+| `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
+| `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
 | `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · 需核实 |
 
 
@@ -48,7 +48,6 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `architecture-zoo` | 模型架构选型 | my-skills-capabilities | `03-research/architecture-zoo/` | MOUNTED |
 | `write-protocol` | IRB方案撰写 | my-skills-capabilities | `03-research/design-protocol/` | MOUNTED |
 | `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED |
-| `clinic-research-design` | 方案-按研究类型模板 | aipoch-medical-research-skills | `skills/clinic-research-design/` | PROPOSED |
 | `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED |
 | `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
 
@@ -122,7 +121,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED |
-| `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `skills/response-tone-polisher/` | PROPOSED |
+| `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED |
 
 
 ## Reference-only (not session mounts)

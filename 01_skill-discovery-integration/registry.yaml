@@ -14,7 +14,7 @@ meta:
   version: "4.0"
   change_id: CHG-20260913-001
   previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
-  fine_id_count_canonical: 52  # 48 mounts (session-pick) + 4 reference_only
+  fine_id_count_canonical: 51  # 47 mounts (session-pick) + 4 reference_only
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -38,7 +38,6 @@ a_domain_override_policy: >
   ARCHITECTURE.md). This is intentional, not a data-entry error — do not
   "fix" a mount's a_domain to match its coarse_id's default without checking
   its `note` field first.
-
 
 coarse_ids:
   - id: 文献检索
@@ -96,39 +95,41 @@ mounts:
   - id: verify-refs
     label: 引用真实性核验
     coarse: 文献检索
-    source: my-skills-capabilities
-    path: 03-research/lit-cite/
+    source: scientific-agent-skills
+    path: skills/citation-management/
     a_domain: 03_research
     status: MOUNTED
-    atomic_package: MedSci
-    note: claim fidelity; B lit-cite
+    atomic_package: Scientific
+    path_shared: true
+    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against OpenClaw and B. Confirmed MIT (LICENSE.md present).
   - id: manage-refs
     label: 引用格式化写入
     coarse: 文献检索
-    source: my-skills-capabilities
-    path: 03-research/lit-cite/
+    source: scientific-agent-skills
+    path: skills/citation-management/
     a_domain: 03_research
     status: MOUNTED
-    atomic_package: MedSci
+    atomic_package: Scientific
     path_shared: true
-    note: pandoc/Zotero; shares lit-cite folder
+    note: 2026-09-13 swapped from thin B lit-cite to Scientific citation-management (bibtex_formatting.md + format_bibtex.py); shares folder with verify-refs.
   - id: lit-sync
     label: 个人文献库同步
     coarse: 文献检索
-    source: my-skills-capabilities
-    path: 03-research/lit-cite/
+    source: scientific-agent-skills
+    path: skills/pyzotero/
     a_domain: 03_research
     status: MOUNTED
-    atomic_package: MedSci
+    atomic_package: Scientific
     path_shared: true
-    note: Zotero+Obsidian sync
+    note: 2026-09-13 swapped from thin B lit-cite to Scientific pyzotero (154-line SKILL.md, real Zotero API — auth/read/full-text/exports/saved-searches), the actual Zotero-sync content this label was always meant to cover.
   - id: retraction-watcher
     label: 撤稿检测
     coarse: 文献检索
     source: aipoch-medical-research-skills
-    path: skills/retraction-watcher/
+    path: scientific-skills/Evidence Insight/retraction-watcher/
     a_domain: 03_research
-    status: PROPOSED
+    status: MOUNTED
+    note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
     atomic_package: AIPOCH
     stustub_in_b: cross-pack/aipoch/retraction-watcher/
   - id: nature-academic-search
@@ -218,16 +219,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     atomic_package: MedSci
-    note: new mount
-  - id: clinic-research-design
-    label: 方案-按研究类型模板
-    coarse: 研究设计
-    source: aipoch-medical-research-skills
-    path: skills/clinic-research-design/
-    a_domain: 03_research
-    status: PROPOSED
-    atomic_package: AIPOCH
-    stustub_in_b: cross-pack/aipoch/clinic-research-design/
+    note: "MedSci Word-template filler (pairs with write-protocol). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: calc-sample-size
     label: 样本量计算
     coarse: 研究设计
@@ -503,9 +495,10 @@ mounts:
     label: 回复语气软化
     coarse: 审稿回复
     source: aipoch-medical-research-skills
-    path: skills/response-tone-polisher/
+    path: scientific-skills/Academic Writing/response-tone-polisher/
     a_domain: 06_review
-    status: PROPOSED
+    status: MOUNTED
+    note: 2026-09-13 promoted after content audit — real 652-line script, tone-only, no overlap with `revise` (structure). Path corrected from stale `skills/response-tone-polisher/`.
     atomic_package: AIPOCH
     stustub_in_b: cross-pack/aipoch/response-tone-polisher/
 
