@@ -75,6 +75,6 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 
 ## Files
 
-- Backup: `../registry.v3.30.yaml`
-- Audit source: `../registry_v4.audit.yaml`
+- Backup: `../_history/registry.v3.30.yaml`
+- Audit source: `../_history/registry_v4.audit.yaml`
 - Live: `../registry.yaml`

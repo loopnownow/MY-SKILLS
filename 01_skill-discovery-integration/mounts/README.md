@@ -22,4 +22,4 @@
 
 **本地缓存：** 仓库根 `mounts-cap/`。B 整包；备份源只拉本轮选中的细 ID 路径。下载不等于改挂。
 
-机器真源 `../registry.yaml` · 备份 `../registry.v3.30.yaml` · 来源配置 `../sources/*.yaml`。
+机器真源 `../registry.yaml` · 备份 `../_history/registry.v3.30.yaml` · 来源配置 `../sources/*.yaml`。

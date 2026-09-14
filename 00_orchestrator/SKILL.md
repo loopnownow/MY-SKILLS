@@ -39,13 +39,15 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | imaging / ROI / features, no HTML | `radiomics-study` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
-If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn.
+If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability entry points use the batched **clarify round** in Plan card instead — that's the one exception.)
 
 ### Plan card (before dispatch)
 
-Default is **interactive**, not silent automation. Before the first specialist runs a multi-node job, show a short plan: candidate mount ids · SOP · node order · risk gates · what you will ask the user. Wait for a nod. Do not invent `--e2e`.
+Default is **interactive**, not silent automation. Before the first specialist runs a multi-node job, or before 01 evaluates a new external capability, run **grilling** (`grilling/SKILL.md`, `grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first. This is the multi-node / new-capability exception to "ask one question, never two" (single-skill tasks keep that rule as-is).
 
-Loop shape: `plan → execute node → file check → integrity gate → (repair broken node only) → execute`. Not a single straight line.
+Then show the plan: candidate mount ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
+
+Loop shape: `clarify round (grilling) → plan → execute node → file check → integrity gate → (repair broken node only) → execute`. Not a single straight line.
 
 ### Decision nodes (one at a time)
 
@@ -63,6 +65,7 @@ Never `--e2e`. Never skip session mount pick or N2.
 ### Fast routing (single-skill)
 
 - 新技能 / 外接 / 挂载 → `01_skill-discovery-integration`
+- grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求不清楚就要写代码 → `00_orchestrator` (`grilling`)
 - Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`
 - 软编码 / dry-run / coding principles → `02_data-processing` (`code-refactoring`)
 - 伦理申请表 → `03_research` (`ethics-application-forms`)
@@ -105,7 +108,7 @@ SOPs live in `workflows/` (ask which SOP on 「全线」, node N1, unless direct
 - Imaging prediction paper: `03_research` → `02_data-processing` → `04_analysis` → `05_manuscript` → optional `06_review`
 - Manuscript revision: `05_manuscript` for prose; `06_review` for audit/response
 - Reviewer response: **`06_review` only as entry**; `05_manuscript` for changed sentences; `04_analysis` / `02_data-processing` only if new analysis or imaging verification is required
-- New capability: `01_skill-discovery-integration` (network first, then ask for a local path). Never auto-mount.
+- New capability: `01_skill-discovery-integration` runs its **GitHub discovery workflow** (search → license/domain/overlap/granularity checklist → recommendation table → `grill-me` confirmation before writing anything). Never auto-mount.
 
 `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML; do not start it from scratch stats.
 

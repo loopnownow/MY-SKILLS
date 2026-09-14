@@ -1,5 +1,5 @@
 CHG-20260913-001 (2026-09-13)
-v4 mount registry: 10 coarse stage buckets + 52 fine ids (hybrid mount). Backup registry.v3.30.yaml.
+v4 mount registry: 10 coarse stage buckets + 52 fine ids (hybrid mount). Backup _history/registry.v3.30.yaml.
 Session pick = fine-id multi-select. OpenClaw never atomic source. Nature PROPOSED until license verified.
 B: +intake-project/design-ai-benchmarking/architecture-zoo/fill-protocol + cross-pack stubs + external-principles.
 A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 medical-journal-submit.

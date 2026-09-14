@@ -27,7 +27,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id.
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
-- Backup of 30-id registry: `registry.v3.30.yaml`.
+- Backup of 30-id registry: `_history/registry.v3.30.yaml`.
 
 ## Default mount
 
@@ -92,6 +92,41 @@ Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature or inve
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
 - Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (MedSci). The personal forbidden list still wins.
+
+## GitHub discovery workflow（自动搜索 → 比较 → 出建议 → grilling 确认）
+
+Triggered by 00's "new capability" routing, or a direct ask to find/evaluate an external Skill.
+**01 searches and recommends; it never writes `registry.yaml` / `sources/*.yaml` / `personal/`
+without a confirmed grilling round.** This is not 00's QC decision either — 00 only routes here.
+
+1. **搜索**：`web_search`（关键词取自任务领域 + "claude skill" / "agent skill" / "skill.md"）+
+   GitHub 搜索，取 3–6 个候选，不止评估一个仓库就下结论。
+2. **拉取**：对每个候选 `git clone --depth 1`，读 `SKILL.md` / `README` / `LICENSE`。不做超出候选数量的批量克隆。
+3. **决策清单**（按顺序过，任一步不通过就在该步停止，不继续评估后续维度）：
+   - **a. License 硬门槛** — 必须是允许衍生作品和再分发的宽松协议（MIT/Apache-2.0/BSD/CC-BY 等）。
+     缺失协议，或含"仅限个人非商业 / 禁止二次开发 / 禁止再分发"字样 → 标记**不可挂载、不可吸收**。
+     "只取一部分内容/只改几处"不改变这个判定——衍生作品的性质不因取用比例变化（先例：
+     vivid-figures-skill，见 `_medical-research-meta/INTEGRATION_MAP.md` CHG-20260913-003）。
+   - **b. 领域对口** — 内容是否落在现有10个粗ID/6个A域实际需求范围内；域外内容（如通用软件
+     工程技能）默认不纳入，除非用户明确提出具体需求（先例：mattpocock/skills 的多数技能未纳入，
+     只有 grilling 一项经用户确认后吸收，见 CHG-20260913-003）。
+   - **c. 重叠检查** — 和已挂载细ID、`personal/` 现有文件比对内容重合度。已被覆盖 ≥ 约80% 的
+     候选标记**低边际价值**，不建议整体挂载或吸收，只挑真正缺的部分（先例：no-ai-slop 21/23
+     禁用词已在 `ai-isms-checklist.md`，且其"强制主动语态"规则与既有 Methods 段落被动语态例外
+     冲突，整体跳过）。
+   - **d. 颗粒度** — 候选能否干净对应一个细ID（一细ID=一来源包，不跨包混装）；体量过大过杂
+     （整个软件产品、需要额外运行时）优先原生轻量方案，不为单一需求引入重依赖（先例：archify
+     的 Node.js 工具链，改用手写 SVG 加进 `00_orchestrator/scripts/gen_repo_map.py`）。
+4. **输出建议表**（不直接执行）：每个候选一行——`仓库 | License状态 | 建议动作(挂载/吸收/跳过) |
+   目标(粗ID·细ID 或 personal/文件) | 理由`。
+5. **移交 grilling 确认**：把建议表包成一轮 `grill-me`（`00_orchestrator/grilling/SKILL.md`），
+   每条建议是一道题、附带推荐动作，等用户逐条确认或改。**这一步之前不写任何文件。**
+6. 用户确认后才执行：
+   - **挂载** → 按现有 `sources/<name>.proposed.yaml` schema 建档（参考 `sources/ars.proposed.yaml`
+     的字段结构），状态 `PROPOSED`，走既定 lifecycle（见「Registry」一节）升到 `APPROVED`/`MOUNTED`。
+   - **吸收** → 由对应 `0X_domain` 用自己的语言重写关键内容到 `personal/`，不整体挂载来源，
+     不建 `sources/*.yaml`。
+   - **跳过** → 不留痕迹；如果候选未来可能复用，可选择记一行到 `mounts/README.md`。
 
 ## Capability evaluation
 
