@@ -20,4 +20,5 @@
 - Discussion 的 calibrated hedge（may/might/could/suggest）不算 AI 腔，不要删
 - 少用副词；统计 *significantly*（P 值用语）不禁
 - 禁 elucidat*；机制未知用 remain unclear（不用 explain/clarify 顶替）
+- 禁模糊 *framework*（AI 腔）；改 *approach*（软件/库名例外）
 - 正文禁 COMMENTARY 读法指引（见 `forbidden-phrases.md`）
