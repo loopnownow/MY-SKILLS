@@ -33,10 +33,11 @@
 
 ## 0.1 意见条目定位（硬规则）
 
-- 每条 Major / Minor **正文最前面**必须是原稿定位，然后再写来源标签与意见。
+- 每条 Major / Minor **正文**：`Lines n–m:`（或图/表/章节定位）+ 哪里不好 + Please 怎么改。
 - **优先：** Proof/原稿行号，如 `Lines 76–79:` / `Line 216:`。
 - **无可靠行号时：** `Introduction, paragraph 2, line 3:`；或 `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`。
-- **完整顺序：** `定位: [源:skill-id]… 意见正文`（例：`Lines 225–227: [B:04-model-eval][A:personal] …`）。
+- **已给行号则不复述、不引用原稿句子。**
+- **来源标签**（如 `[B:06-review-critique][A:personal]`）只写在 Word **批注**文首；作者字段 **A**。不好的原因用**中文**写在同一条批注里，放在来源标签后面。`cannot_invent` / G-LIT 双轨也只进批注（不进信封正文）。
 - **禁止**把行号埋在句中或句末；禁止无定位的空泛指摘（Opening 总述除外，Opening 可不写行号）。
 - **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后再用修订模式改信封正文。
 - 用户若粘贴原文句子：先在 Proof/plain 对齐行号，再写入对应章节；不要另起新的审稿 docx。
@@ -61,7 +62,7 @@
 [Opening 2–4 sentences: design + clinical question + overall value + the methodological catch]
 
 1. Title
-Major Issues: [Lines n–m: / Section, paragraph, line: + [tags] + defect + actionable fix]
+Major Issues: [Lines n–m: / Section, paragraph, line: + defect + Please fix]  （来源标签进批注，见 §0.1）
 Minor Issues: …
 
 2. Abstract
@@ -95,7 +96,7 @@ Minor Issues:
 
 需要时加一行 `Major Comments`。不要写成 25 问问卷（除非编辑部表格强制）。空章写 `None` 或省略，不要注水。
 
-**每条：** `Page X, Line Y`（或 section）→ 缺陷 → **明确修改建议**。不编造未做实验，不替作者补 AUC。
+**每条：** `Lines n–m:`（或 section）→ 缺陷 → **Please** 明确修改建议。来源标签与中文原因进批注（§0.1）。不编造未做实验，不替作者补 AUC。
 
 ---
 

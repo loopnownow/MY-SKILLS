@@ -19,3 +19,4 @@
 ## 衔接
 
 - 定位规则见 `personal-review-style.md` §0.1。
+- 来源标签与中文原因见 `personal-review-style.md` §0.1（批注文首；此处不复制规则正文）。
