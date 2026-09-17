@@ -57,6 +57,15 @@ Canonical layout (enforced by `D:\0Grok\0RAD\0scripts\sync\sync_modules.py`, 202
 
 `CLIN_ID_COL` may equal `LABEL_COL` (ID is the grouping field). Do not invent a second ID column.
 
+
+
+## Console UX
+
+- Key bindings and UX details are authoritative in `04_analysis/personal/0rad-pipeline-rules.md` (Console keys); layout rules below.
+- Boolean switches share one row with same-zone dropdowns: multi-column, left-aligned — do **not** stack switches as many vertical rows.
+- Selected chips sit **above** the “add from data” dropdown.
+- Do **not** mark “hot” items with red asterisks or red bold.
+
 ## Coding
 
 Same as `code-refactoring/`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `D:\0Grok\0RAD\modules`.
