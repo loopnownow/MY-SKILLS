@@ -40,7 +40,8 @@ Words are organized into three tiers based on how reliably they signal AI-genera
 | landscape (metaphor) | field, space, industry, world |
 | tapestry | (describe the actual complexity) |
 | realm | area, field, domain |
-| paradigm | model, approach, framework |
+| paradigm | model, approach |
+| framework (vague methodological) | approach |
 | embark | start, begin |
 | beacon | (rewrite entirely) |
 | testament to | shows, proves, demonstrates |

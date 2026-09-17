@@ -12,6 +12,7 @@
 | robust (vague) | name the metric (higher AUC, narrower CI) |
 | comprehensive | complete / included X–Y |
 | leverage | use |
+| framework (vague AI prose) | approach |
 | seamless | without additional steps / integrated |
 | groundbreaking / state-of-the-art | drop or prove novelty with citation |
 | surprisingly / remarkably | delete |
