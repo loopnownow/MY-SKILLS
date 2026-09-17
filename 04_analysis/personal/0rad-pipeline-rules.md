@@ -95,3 +95,20 @@ python -m modules.pipeline
 ```
 
 One `*-results.html` per endpoint. Numbers in the manuscript come only from that file.
+
+## HTML Logistic tables
+
+- Multivariate Logistic tables (candidate-pool and Selected) use the **same column order** as Univariate: Variable, OR, 95% CI, P value, VIF, Significance (`***` p<0.001, `**` p<0.01, `*` p<0.05).
+
+## Figures (panels)
+
+- **Survival:** horizontally combine `km_overall` and `km_by_combined_risk` into `panel_survival.png` (A = overall cohort | B = Combined high/low risk). Panel letters follow `FIGURE_PANEL_LABEL_POS` (lab default: lower-left). The results-page Survival section embeds **only** this panel — do not place two single KMs side by side.
+- **Nomogram & Calibration panel:** trim near-white margins, then scale panel A width to equal B+C (including the gap) so A's left edge aligns with B's outer edge and A's right edge aligns with C's outer edge.
+
+## Console keys (display)
+
+- `DO_VIF` — §4 switches / ICC.
+- `DO_FIGURE_PANELS` — §5b figures / display.
+- `DO_NOMOGRAM` — nomogram / combined model control (UI shows one switch). `DO_COMBINED_MODEL` remains ini-compat only; do not expose a second UI control.
+- `DO_QC_REPORT` — left pane Data preview / QC.
+
