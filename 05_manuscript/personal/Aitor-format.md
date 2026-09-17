@@ -32,6 +32,7 @@ Voice and de-AI lists stay in `MODULE.md` / `de-ai/` / `stats-checklist.md`.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
+- **Do not overwrite existing front-matter:** if the manuscript already states corresponding author, funding, ethics (Date/NO), or affiliations, keep that text. Never replace it with lab defaults/templates unless the user explicitly asks. Missing items → Word comment / ask; do not fill placeholders with defaults.
 
 ---
 
