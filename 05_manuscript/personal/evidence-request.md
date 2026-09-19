@@ -33,7 +33,8 @@ Copy into a Word comment (author **A**) and/or handoff note. Prefix the discover
 Evidence Request
 ────────────────
 Claim: <exact sentence or claim atom>
-Problem: <missing | associative_only | wrong_population | second_hand | contradictory | overclaim>
+Problem: <missing | associative_only | wrong_population | second_hand | contradictory | overclaim
+          | guideline_definition | missing_prior_result | related_work_appraisal | scarcity_check>
 Required: <what would count as adequate support>
 Section: <Intro | Discussion | other>
 Source: <mount id or A:personal>
@@ -41,6 +42,18 @@ Status: open
 ```
 
 Optional: `PMID/DOI candidates` (only if already verified; never invent).
+
+### Introduction card types
+
+| Problem | Raise when | 03 returns |
+|---|---|---|
+| `guideline_definition` | Element 2 has no dated guideline, or cites an edition that may be superseded | Latest edition (body, year, date checked); where the definition sits; the recommendation and its level of evidence; one open issue the guideline states; full-text level (L3) |
+| `missing_prior_result` | Element 3 or 4 states a limit or a gap with no prior quantitative finding | One source per class (`mri_accuracy`, `radiomics_endpoint`, `habitat_or_nearest`): design, n, effect with CI; at least one weaker or limited result if one exists |
+| `related_work_appraisal` | Element 4 has results but no judgement | For each returned study: strength, and the weakness relevant to this study (endpoint definition, validation type, region of interest, comparator, sample), so A 05 can write one or two group-appraisal sentences |
+| `scarcity_check` | A sentence says "few", "uncommon", or "limited" about published work | Search log: PubMed plus one other source, query strings, dates, counts screened; the closest studies found |
+
+03 returns rows in the Evidence Pack format (`intro-discussion-evidence.md`), not prose. A 05 decides with the three exits below. Draft elements 2–5 only after every card has an exit.
+
 
 ## Roles
 
