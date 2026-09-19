@@ -5,7 +5,7 @@ Data year changes every year. These rules do not, unless the user says so.
 - Medical or medically eligible journals only.
 - **BMC / Medicine 白名单优先**：`references/whitelist-bmc-medicine.csv`（刊名或 ISO 含 BMC，或含 Medicine；约 486 本）。层内在稿件匹配度相近时**优先推荐**白名单刊；勾选表**不要**标「可疑」、**不要**红标。已黑名单的 MEDICINE（LWW Baltimore）永不进白名单、永不荐。本条取代原「刊名含 Medicine 降权」。
 - **投过/选刊白名单优先**：`references/whitelist-submitted.csv`（种子：`submission-urls.csv` 已写回投稿网址的刊；约实验室实际用过的刊）。层内在稿件匹配度相近时**优先于** BMC/Medicine 模式白名单。新写回投稿网址时同步追加（去重）；勿把黑名单/灰名单刊写入。
-- **灰名单（不推荐）**：`references/graylist.csv`。介于白名单与黑名单之间：默认 Phase-1/2 **不列出**；仅当用户要求「含灰名单」时列出并标「灰名单/不推荐」。永不 boost、永不自动填表。与黑名单冲突时以黑名单为准。
+- **灰名单（不推荐）**：`references/graylist.csv`（含 **Frontiers 系列** pattern：Frontiers Media / 刊名 Frontiers…）。介于白名单与黑名单之间。**有更好的非灰名单匹配时不使用灰名单刊**；仅层额不足且 scope 仍合适、或用户点名时才列入，并标「灰名单/不推荐」。永不 boost。与黑名单冲突时以黑名单为准。
 - Phase-1 HTML：**仅投稿易投指数 ≥80 黄底高亮**。
 - Mounted blacklist on every run: PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Not NEJM, not Nature Medicine.
 - Default layers and order: 层2 (Q1 IF<5) **10本** → 层3 (Q2) **10本** → 层4 (Q3) **10本**. 层2补 (Q1 5≤IF≤10) ask-before-use, **default OFF**.

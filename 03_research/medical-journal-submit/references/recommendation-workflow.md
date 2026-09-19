@@ -7,7 +7,7 @@ PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 ## Mounted lists (order)
 
 1. **Blacklist** — never recommend (`blacklist.csv`).
-2. **Graylist** — not recommended (`graylist.csv`). Default omit; include only if user asks; mark 「灰名单/不推荐」; no boost.
+2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers 系列** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
 3. **投过/选刊 whitelist** — `whitelist-submitted.csv` (seeded from `submission-urls.csv`). Stronger boost inside layer after MJF.
 4. **BMC/Medicine pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
 
@@ -47,7 +47,7 @@ Note: default table order is 层2 → 层3 → 层4. 层2补 is Challenge/option
 
 Tier labels must be driven by **Journal Ease (JEI/JESI) × MJF × PAI × Practicality − Risk**, not IF/CAS alone.
 
-Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **投过/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Skip graylist titles unless the user asks. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
+Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **投过/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Prefer non-gray; skip Frontiers/graylist when better matches fill the layer. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
 
 ## Four-module pipeline
 
@@ -67,4 +67,4 @@ Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, p
 - Yellow highlight **only** when 投稿易投指数 ≥ 80.
 - Load blacklist → graylist → whitelist-submitted → BMC/Medicine pattern on every Phase-1 run.
 - **投过/选刊** boost stronger than BMC/Medicine pattern; **do not** mark 可疑 / red for either whitelist.
-- Graylist: omit by default; LWW MEDICINE stays blacklisted.
+- Graylist (incl. Frontiers): use only if layer short or user asks; LWW MEDICINE stays blacklisted.

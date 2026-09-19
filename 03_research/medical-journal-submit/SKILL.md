@@ -24,7 +24,7 @@ metadata:
 Load in this order on every Phase-1 run:
 
 1. `references/blacklist.csv` — never list these titles.
-2. `references/graylist.csv` — not recommended (between white and black). **Omit** from default tables unless the user asks; if shown, mark 「灰名单/不推荐」.
+2. `references/graylist.csv` — not recommended when better options exist (includes **Frontiers 系列**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
 3. `references/whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `submission-urls.csv`). Stronger layer boost.
 4. `references/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
 
@@ -55,7 +55,7 @@ Inside each layer rank by
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs `医学相关学科` (**MJF = MFI**; display **稿件匹配度**)
 2. **投过/选刊白名单优先** (`references/whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
 3. **BMC/Medicine 模式白名单** (`references/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
-4. **灰名单** (`references/graylist.csv`): default omit; never boost
+4. **灰名单** (`references/graylist.csv`, Frontiers 系列): 有更好非灰匹配则不用；never boost
 3. **投稿易投指数** (JESI/JEI; see `references/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
 4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
 
@@ -147,7 +147,9 @@ Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not 
 
 ## 灰名单（不推荐）
 
-Load `references/graylist.csv` (copy: `artifacts/灰名单_不推荐.csv`). Between whitelist and blacklist: journals the lab does not recommend for new submissions but has not hard-banned. Default Phase-1/2: **do not list**. If the user asks to include graylist, list with 「灰名单/不推荐」 and no boost. User supplies titles; seed starts empty.
+Load `references/graylist.csv` (copy: `artifacts/灰名单_不推荐.csv`). Includes **Frontiers 系列** (publisher Frontiers Media, or title/ISO Frontiers…; see `graylist.mount.md`).
+
+**Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
 
 ## BMC / Medicine 模式白名单（次优先）
 
