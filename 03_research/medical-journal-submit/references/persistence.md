@@ -10,6 +10,8 @@
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
 | BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
+| 投过/选刊 whitelist | `whitelist-submitted.csv` (seed / sync from `submission-urls.csv`) |
+| Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
 | Yearly screening cache (layer membership) | `layer2-*.csv`, `layer3-*.csv`, curated xlsx — rebuilt annually |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |
 
