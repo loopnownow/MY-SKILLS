@@ -159,3 +159,7 @@ Merged **Gemini + ChatGPT** private advice (2026-09). Absorb/query/delete table:
 ## Annual refresh
 
 When the user sends a new JCR workbook, follow `references/annual-update.md`. Keep `references/policy.md` unless they also change blacklist, layers, or the 10-per-layer / layer-order rules.
+
+## Journal format compliance
+
+After a journal is chosen, format the manuscript to that journal's author guidelines with `journal-format-compliance/` (plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts).
