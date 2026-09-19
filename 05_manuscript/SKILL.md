@@ -35,6 +35,7 @@ Convert **validated** research information into precise, publication-ready origi
 | I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
 | Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
+| Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
@@ -56,6 +57,9 @@ Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 ## Literature
 
 Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/evidence-request.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. 选题 stays in 03 (`03-frontier-ideate`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
+
+**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/literature/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `personal/introduction-scorecard.md`.
+
 
 ## Core rule
 

@@ -53,30 +53,26 @@ If the user provides raw text without labeling the section, infer from content s
 
 ## §2 — Introduction Polishing Rules
 
-**Structure** (3–4 paragraphs, funnel shape):
+**Structure.** Six elements (`Aitor-format.md`, Introduction). Paragraphs follow the funnel: burden and guideline definition; limits of current practice; related studies with group appraisal; missing piece and method link; aim (last paragraph, no citations).
 
-**¶1 — Disease-level framing**
-- Opens with definition + epidemiological or pathophysiological context, immediately referenced: *"X refers to… [1]."* or *"X is the Nth most common… [1,2]."*
-- Precise, factual, not rhetorical.
+**Element wording**
 
-**¶2 — Knowledge gap identification**
-- Hedged language mandatory: *"remains unclear"*, *"remains controversial"*, *"the pathogenesis is complex"*, *"current diagnosis relies on invasive methods"*. Never *elucidate / elucidating / elucidated* (purpose/aim → *exploring*; mechanism-unknown → *remain unclear*, not *explain* / *clarify*).
-- Reference existing approaches comparatively without over-citation.
+- Guideline definition: *"The [year] [body] guideline defines [construct] by [criteria] and uses it to [decision] [n]."* Then one sentence on what the guideline leaves open: *"The same guideline notes that [open issue] [n]."* Definitions are paraphrased, never quoted.
+- Limits: *"[Information] is available only after [event], so [decision] is made on [weaker information]."*
+- Related studies: give n, design, and effect for the two or three studies that matter most, each inside a sentence that also carries a comparison or a limitation. Then appraise the group: *"Taken together, these models [strength this study keeps], but [weakness this study targets]."* Vary the frame between manuscripts.
+- Missing piece: *"Whether [X] adds [Y] beyond [Z] remains unclear."*
+- Method link: *"Because [property of the problem], [feature of the method] may [expected benefit]."* One hedged sentence of inference.
+- Aim: *"Therefore, the purpose of this study was to [objective]."* Hypothesis: *"We hypothesized that [model] would [effect] on the test set beyond [comparator]."*
 
-**¶3 — Proposed approach / rationale**
-- Transition: *"Recently, [modality/technique] has been applied to…"* or *"Radiomics/MRI/IVIM has demonstrated promise in…"*
-- Cite 2–3 key supporting references.
+**Language rules**
 
-**¶4 (optional) — Clinical unmet need → Study objective**
-- Closes with explicit objective statement matching the abstract verbatim or near-verbatim.
-- Template: *"Therefore, the purpose/aim of this study was to [objective]."*
+- Hedged language for unknowns: *remains unclear*, *remains controversial*, *has not been established*. Never *elucidate / elucidating / elucidated*.
+- Sentences 10–30 words. Prefer one main proposition per sentence; if a sentence runs past 20 words, check that it holds one.
+- No hyperbole (*groundbreaking*, *novel*, *first ever*) without evidence. Scarcity is worded as what the search found.
+- No enumeration of studies, no parallel frames, no more than one triplet per paragraph (`stop-slop-core.md`, structure-level tells).
+- Do not name reporting guidelines (TRIPOD and others) in the Introduction.
+- Active or mixed voice is acceptable.
 
-**Tone rules:**
-- No hyperbole (*"groundbreaking"*, *"novel"*, *"first ever"* without evidence)
-- Clinical urgency via factual framing only
-- Active or mixed voice acceptable (recent style)
-
----
 
 ## §3 — Materials and Methods Polishing Rules
 
