@@ -1,7 +1,7 @@
 ---
 name: medical-research-design-and-evidence
 description: >
-  Research framework: study design, literature research, evidence, frontier,
+  Research approach: study design, literature research, evidence, frontier,
   journal/topic selection, grants, translational/reader-study design.
   Literature enters here only — never via 01.
   Personal grant/ethics/intake/translation files are a SUPPLEMENT, not an upper writing layer.
@@ -14,9 +14,12 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
-**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Most of `design/` and `frontier/` were 1:1 duplicates of mounted `design-study`/`find-cohort-gap` and were retired 2026-09-13 (`EXTERNALIZATION_CANDIDATES.md`); what remains — `design/radiology-design.md`, `frontier/radiology-frontier.md`, `frontier/evidence-layer.md`, `frontier/idea-to-question.md` — has no live mount point covering it and is kept. `literature/` keeps `journal-selection.md` (选刊 SOP), `sources.md`, `public-datasets.md`, `literature.md`, `journal-patterns-2023-2026.md` — none duplicated in B; only `literature-evidence-2023-2026.md` was retired (duplicate of mounted `ma-scout`). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `03-lit-search` / literature layer), not `05-write-venue`.
+**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Most of `design/` and `frontier/` were 1:1 duplicates of mounted `design-study`/`find-cohort-gap` and were retired 2026-09-13 (`EXTERNALIZATION_CANDIDATES.md`); what remains — `design/radiology-design.md`, `frontier/radiology-frontier.md`, `frontier/evidence-layer.md`, `frontier/idea-to-question.md` — has no live mount point covering it and is kept. `literature/` keeps `journal-selection.md` (选刊 SOP), `sources.md`, `public-datasets.md`, `literature.md`, `journal-patterns-2023-2026.md`, `intro-evidence-pack.md` — none duplicated in B; only `literature-evidence-2023-2026.md` was retired (duplicate of mounted `ma-scout`). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `03-lit-search` / literature layer), not `05-write-venue`.
 
 ## Literature rule
+
+- Introduction evidence pack: on 05 cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`) → `literature/intro-evidence-pack.md`; the mounted `03-lit-review` supplies the row format. Candidates only; 05 decides.
+
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
 
