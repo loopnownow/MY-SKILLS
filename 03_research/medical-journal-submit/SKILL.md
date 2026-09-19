@@ -19,7 +19,16 @@ metadata:
 - **Not** B `05-write-venue` (that id is house style only).
 - Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `05-write-venue` only for formatting to the chosen family.
 
-## Mounted blacklist (always on)
+## Mounted lists (always on)
+
+Load in this order on every Phase-1 run:
+
+1. `references/blacklist.csv` — never list these titles.
+2. `references/graylist.csv` — not recommended when better options exist (includes **Frontiers 系列**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
+3. `references/whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `submission-urls.csv`). Stronger layer boost.
+4. `references/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
+
+### Blacklist
 
 Load `references/blacklist.csv` first. Never list these titles.
 
@@ -44,7 +53,9 @@ Default total **30** titles (10+10+10) unless a layer has fewer acceptable match
 Inside each layer rank by
 
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs `医学相关学科` (**MJF = MFI**; display **稿件匹配度**)
-2. **BMC/Medicine 白名单优先** (`references/whitelist-bmc-medicine.csv`): among comparable fit, whitelist hits rank above non-whitelist (boost, not auto-fill)
+2. **投过/选刊白名单优先** (`references/whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
+3. **BMC/Medicine 模式白名单** (`references/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
+4. **灰名单** (`references/graylist.csv`, Frontiers 系列): 有更好非灰匹配则不用；never boost
 3. **投稿易投指数** (JESI/JEI; see `references/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
 4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
 
@@ -122,11 +133,25 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 13. `references/jesi-model.md` — JESI / JEI / JDI / JCI-C / MJF
 14. `references/persistence.md` — absorb / query / delete + what to save
 15. `references/modules.md` — four logical modules + naming
-16. `references/whitelist-bmc-medicine.csv` — BMC / Medicine priority whitelist (LWW MEDICINE excluded)
+16. `references/whitelist-bmc-medicine.csv` — BMC / Medicine pattern whitelist (LWW MEDICINE excluded)
+17. `references/whitelist-submitted.csv` — 投过/选刊 whitelist (seed: submission-urls; copy `artifacts/白名单_投过_选刊.csv`)
+18. `references/graylist.csv` / `graylist-names.csv` — graylist not recommended (copy `artifacts/灰名单_不推荐.csv`)
 17. `references/submission-urls.csv` — URL fields only
 18. `references/submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
 
-## BMC / Medicine 白名单（优先推荐）
+## 投过/选刊白名单（更强优先）
+
+Load `references/whitelist-submitted.csv` (copy: `artifacts/白名单_投过_选刊.csv`). Seeded from journals with a written-back submission URL in `submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
+
+Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not auto-fill.
+
+## 灰名单（不推荐）
+
+Load `references/graylist.csv` (copy: `artifacts/灰名单_不推荐.csv`). Includes **Frontiers 系列** (publisher Frontiers Media, or title/ISO Frontiers…; see `graylist.mount.md`).
+
+**Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
+
+## BMC / Medicine 模式白名单（次优先）
 
 Load `references/whitelist-bmc-medicine.csv` (copy: `artifacts/白名单_BMC_Medicine.csv`). Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** mounted blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
 
