@@ -34,3 +34,5 @@
 
 用户指定 → 主控 Skill → 必要上游 → 必要外挂 → 个人层 → 辅助 → QC。  
 冲突：A 个人层优先于外挂包；同一 fine ID 单源。**QC 回退优先于正常调度顺序。**
+
+- G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID; `runtime-flow.mmd` is unchanged.

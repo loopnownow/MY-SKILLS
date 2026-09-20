@@ -19,6 +19,22 @@ Handoff payload: `templates/handoff.yaml`.
 Prose repairs: word/sentence units only. Mount vs lab conflicts: comment with edit plan; user decides.
 State: `templates/project-state.yaml` fields `pipeline`, `qc`, `defects`.
 
+### G-05 sub-check: `style-lint`  (CHG-20260920-001)
+
+Runs on the 05 polish output, before hand-off to 06. Export the manuscript to text/markdown first
+(keep the headings, so Methods / Results can be skipped).
+
+    python3 00_orchestrator/scripts/style_lint.py <manuscript.md> --json
+
+| exit | meaning | action |
+|------|---------|--------|
+| 0 | pass (4/4) | continue |
+| 1 | tells found | hits -> Word comments, author A, source tag `style-lint`, with an edit plan; **user decides**; local rework at the 05 node only; counts toward the 3-try cap; no full-chain rerun |
+| 2 | input error (empty / no scannable text / non-English) | **not a pass**; bounce to the user |
+
+Hard rules: offline only, manuscript text is never sent to any other model or service; the linter never
+rewrites; Methods / Results are not scanned. Catalogue and rulings: `00_orchestrator/references/style-tells.md`.
+
 ## Transversal map (not a second gate set)
 
 ChatGPT-style Route/Mount/Boundary/Evidence/Consistency/Artifact map onto existing gates — do **not** invent Q0–Q6 ids in runtime output:
