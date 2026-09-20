@@ -36,3 +36,7 @@
 冲突：A 个人层优先于外挂包；同一 fine ID 单源。**QC 回退优先于正常调度顺序。**
 
 - G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID; `runtime-flow.mmd` is unchanged.
+
+## Before skills / mounts (standing)
+
+When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before 01 pick or specialist execution. Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
