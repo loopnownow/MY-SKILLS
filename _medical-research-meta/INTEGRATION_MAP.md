@@ -81,6 +81,10 @@ next_action: watch routing on 软编码 vs 批处理, 转化 vs 02_imaging
 ## Forbidden-word policy reversal + corpus phrase bank spot-check + diff-harvest tool 2026-08-29 (user)
 
 ```text
+CHG-20260920-001 | 00 | Absorb the SlopMonster *mechanism* (pattern-group score + non-zero exit) as G-05 sub-check `style-lint`.
+Absorbed: scoring/exit-code loop, section scoping, fail-closed input guards, paired must-hit/must-stay-clean test discipline.
+Not absorbed: rival-model cleanse (owner: no manuscript text to other models), CI workflow, marketing rules,
+"invented proof" regex (-> G-FACT), rewrite pass 3 (conflicts with house style). CONFIG in style_lint.py is machine SSOT for lint vocab; 05 personal lists remain rewrite guidance (dedupe follow-up). Source: ItsssssJack/SlopMonster (MIT).
 change_id: CHG-20260829-001
 date: 2026-08-29
 skill: 05_manuscript
