@@ -6,7 +6,7 @@ Default source: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnowno
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
 Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_flag` until verified.
-**OpenClaw is never an atomic mount source** (license risk).
+**OpenClaw is never an atomic mount source** (reference-only: provenance/license mixed).
 **Every run:** ask which **fine ids** to attach under the relevant coarse buckets (`session_mount: ask-each-run`).
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
@@ -148,6 +148,19 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 ## Backup candidates
 
 - ARS / MedSci / Scientific / AIPOCH / Nature: `PROPOSED` (Nature license 需核实).
-- OpenClaw: `PROPOSED` · **license-risk-reference-only** · never mount as atomic source.
+- OpenClaw: `PROPOSED` · **reference-only** (provenance/license mixed) · never mount as atomic source; mount true upstream if needed.
 
 Mapping is not a source-wide mount.
+
+## Mounted source freshness
+
+| Source | Last scan | scan_sha | cache_status | Notes |
+|---|---|---|---|---|
+| Scientific | 2026-09-03 | `1e5eeff` | stale (pending user refresh) | plugin/README may be ahead — re-resolve before non-B load |
+| MedSci | 2026-09-03 | `912f7e8` | stale (pending user refresh) | |
+| AIPOCH | 2026-09-06 | `f5ef65b` | stale (pending user refresh) | commit-based; no single release assumed |
+| Nature | 2026-09-07 | `287ee37` | stale (pending user refresh) | Apache-2.0 verified; track `nature-shared` deps |
+| OpenClaw | 2026-09-06 | `b1f9b6e` | blocked | reference-only — do not refresh for mount |
+| B (capabilities) | local sync | — | fresh when synced | default chassis |
+
+Do not treat scan SHA alone as enough; prefer `resolved_commit` + `inventory_hash` after lifecycle resolve.

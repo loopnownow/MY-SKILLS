@@ -11,7 +11,7 @@ notes: >
   Finer A ids (CHG-20260903-011). ChatGPT's 7-group / ocms-* idea is narrative only —
   machine truth stays the 30 A ids. No standalone OpenClaw writing mount.
   clinical-reports excluded from 05. ~850 unmapped skills stay in domain groups.
-  README badges say MIT; root LICENSE file missing at scan.
+  README badges say MIT; root LICENSE file missing at scan. Policy: reference-only — provenance/license mixed at skill layer; never atomic source; mount true upstream if a specific skill is needed.
 skills:
   - id: 02-tables
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/

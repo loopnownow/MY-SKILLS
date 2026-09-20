@@ -7,7 +7,7 @@ description: >
   statistics, manuscript writing, or peer review. Mount pointers live only here.
   Default mount is B (MY-SKILLS-capabilities). Every run: ask which fine ids to
   mount this session under relevant coarse buckets. Never auto-mount a non-B source.
-  OpenClaw is never an atomic mount source.
+  OpenClaw is reference-only (provenance/license mixed at skill layer) — never an atomic mount source; mount true upstream if a skill is needed.
 ---
 
 # Skill Discovery & Integration
@@ -31,10 +31,10 @@ Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Default mount
 
-**Default session recipe (review / pre-review):** `review-hybrid-default` in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature fine-id overlays (license 需核实), Scientific critique fine id. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source. ARS and OpenClaw are not in the default recipe.
+**Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature fine-id overlays (license 需核实), Scientific critique fine id. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source. ARS and OpenClaw are not in the default recipe.
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
-ARS, MedSci, Scientific, AIPOCH, Nature are **backup candidates** (PROPOSED). OpenClaw is **license-risk-reference-only** — never atomic source.
+ARS, MedSci, Scientific, AIPOCH, Nature are **backup candidates** (PROPOSED). OpenClaw is **reference-only** (provenance/license mixed — README MIT ≠ every skill MIT) — never atomic source; if a capability is needed, mount its true upstream, not the OpenClaw aggregate.
 Nature fine ids stay PROPOSED until license verified; do not claim MOUNTED if bytes absent.
 
 **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms.
@@ -46,6 +46,25 @@ Bytes live at repo-root `mounts-cap/` (gitignored pack trees). Pointers stay in 
 - **B** (`mounts-cap/b/`): **canonical** full tree. Missing → `python mounts-cap/fetch.py ensure-b`.
 - **ARS / MedSci / Scientific / AIPOCH / Nature**: download **only the path(s) of fine ids picked this run**. Never clone wholesale. OpenClaw: do not fetch for mount.
 - `python mounts-cap/fetch.py ensure --id <fine-id>` after the session pick. Download is not a mount. Empty after fetch → empty-mount protocol.
+
+
+## External Mount Lifecycle (Version & Cache Contract)
+
+01 owns the external skill supply chain. 00 only gates that provenance/cache state is acceptable.
+
+Before each session mount pick (when any non-B path may load, or when `cache_status` is stale/missing/unknown):
+
+1. **Resolve** — upstream tag/release if any, else branch + commit SHA.
+2. **Compare** — vs local `cache_commit` / last `resolved_commit`.
+3. **Refresh** — update `mounts-cap/` cache only for paths that will be used (or that the user asked to refresh). Download ≠ mount.
+4. **Inventory diff** — added / removed / renamed skills; update `inventory_hash` when scanned.
+5. **License gate** — per-skill / per-path; repo-level MIT/Apache does not auto-cover every nested skill.
+6. **Pick** — user multi-selects fine ids (ask-each-run). New skills stay **candidate/PROPOSED** until approved; never auto-MOUNTED.
+7. **Post-mount QC** — loaded bytes match registry source + resolved commit.
+
+**Stale policy:** do not hit GitHub on every trivial run. Resolve/refresh when `cache_status` is `stale` / `missing` / `blocked`, when `scanned_at` is older than **14 days** and a non-B fine id is in the candidate set, or when the user asks to update external packs.
+
+**G0 handoff:** if external provenance is missing or not verified, fail back to 01 — 00 must not query GitHub itself.
 
 ## Session mount pick（每次运行必问 · 细 ID 多选）
 
@@ -82,12 +101,26 @@ Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature or inve
 6. New non-B sources stay `PROPOSED` until explicit approval. Nature needs license confirmation.
 7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
 
+
+## Forbidden combinations (mount red lines)
+
+These are **mount-time** bans, not skill deletions:
+
+1. Do **not** default-load three literature search engines together (Scientific literature-review + MedSci literature-search + AIPOCH literature-search).
+2. Do **not** let Scientific scientific-writing + MedSci write-paper + A/B05 personal all **directly edit** the same manuscript sentences in one pass — one primary authoring engine; others are verifier / QC / venue only. **Sentence authority stays A/B05 personal** (Intro v3 / de-AI).
+3. Reviewer engines (Scientific / MedSci / Nature peer-review) output **findings only**; they must not edit the manuscript bypassing A06.
+4. Nature (or any venue) polishing must not overwrite B05 / A personal author voice.
+5. Never keep AIPOCH as a whole-pack resident context — fine ids only.
+6. OpenClaw: never atomic mount (see above).
+
+Intro / Discussion default discovery: Scientific `paper-lookup` (or Research Lookup) + MedSci/Scientific **verify-refs**. Open MedSci literature-search only when a structured clinical search is needed.
+
 ## Hard rules
 
 - Never perform literature research, statistics, manuscript writing, or peer review.
 - Never auto-install or auto-mount a **non-B** Skill.
 - Never bulk-download ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature. On-demand paths only, after a pick.
-- **Never mount OpenClaw** as an atomic skill source.
+- **Never mount OpenClaw** as an atomic skill source (provenance/license mixed; reference-only discovery clue).
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.

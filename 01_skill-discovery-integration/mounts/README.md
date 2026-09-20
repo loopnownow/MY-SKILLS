@@ -23,3 +23,9 @@
 **本地缓存：** 仓库根 `mounts-cap/`。B 整包；备份源只拉本轮选中的细 ID 路径。下载不等于改挂。
 
 机器真源 `../registry.yaml` · 备份 `../_history/registry.v3.30.yaml` · 来源配置 `../sources/*.yaml`。
+
+## Lifecycle reminders
+
+- **下载 ≠ 挂载；更新缓存 ≠ 改变挂载配方；新增 skill ≠ 自动进 registry。**
+- OpenClaw = reference-only（provenance/license mixed），never atomic.
+- Recipes: `presets.md` (`review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`).

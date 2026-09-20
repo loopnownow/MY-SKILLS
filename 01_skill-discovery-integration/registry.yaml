@@ -2,7 +2,7 @@
 # Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
 # Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
 # Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
-# OpenClaw is NOT a source for any fine ID (proprietary license risk).
+# OpenClaw is NOT a source for any fine ID (reference-only: provenance/license mixed at skill layer).
 # Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present. Still not OpenClaw.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
@@ -389,6 +389,7 @@ mounts:
     status: MOUNTED
     atomic_package: MedSci
     path_shared: true
+    note: "Already MOUNTED on B path; 2026-09-20 — re-check overlap vs MedSci uncertainty-imaging on next pack refresh."
   - id: analyze-stats
     label: 检验方法选择与加权调查数据
     coarse: 统计分析
@@ -549,6 +550,44 @@ mounts:
 
 reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
 
+  # --- 2026-09-20 P1 candidates (PROPOSED; not auto-mounted) ---
+  - id: database-lookup
+    label: 可复现数据库查询
+    coarse: 文献检索
+    source: scientific-agent-skills
+    path: skills/database-lookup/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Scientific
+    note: "2026-09-20 candidate — reproducible DB query with filters/provenance; not ordinary lit search. Confirm path on next upstream scan."
+  - id: model-scaffold
+    label: 医学AI模型工程脚手架
+    coarse: 数据处理
+    source: med-sci-skills
+    path: skills/model-scaffold/
+    a_domain: 02_data-processing
+    status: PROPOSED
+    atomic_package: MedSci
+    note: "2026-09-20 candidate — training/repro scaffold; overlap QC vs 0RAD before MOUNTED."
+  - id: model-card
+    label: 模型透明度说明卡
+    coarse: 正文写作
+    source: med-sci-skills
+    path: skills/model-card/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    atomic_package: MedSci
+    note: "2026-09-20 candidate — model card / limitations; does not replace A05 prose."
+  - id: paperclip
+    label: 全文逐行证据提取
+    coarse: 文献检索
+    source: scientific-agent-skills
+    path: skills/paperclip/
+    a_domain: 03_research
+    status: PROPOSED
+    atomic_package: Scientific
+    note: "2026-09-20 P1 candidate — full-text / line-pinned evidence; confirm skill folder name on scan."
+
 archived:
   - id: 02-fmri
     status: ARCHIVED
@@ -590,6 +629,9 @@ archived:
     revive_condition: 不适用
     old_path: 05-manuscript/write-venue/
 
+# External source freshness fields (optional until next scan refresh):
+#   source_ref, resolved_commit, source_version, scanned_at, cache_commit,
+#   cache_status (fresh|stale|missing|blocked), license_status, inventory_hash, last_diff
 proposals:
   - id: academic-research-skills
     source: https://github.com/Imbad0202/academic-research-skills
@@ -618,8 +660,9 @@ proposals:
     scanned: "2026-09-06"
     scan_sha: "b1f9b6e"
     status: PROPOSED
-    role: license-risk-reference-only
-    note: NEVER mount as atomic_skill source (proprietary headers vs MIT README). Kept for audit trail only.
+    role: reference-only
+    license_status: mixed
+    note: NEVER mount as atomic_skill source — provenance/license mixed (README MIT vs proprietary skill headers; no reliable whole-pack LICENSE). Discovery clue only; mount true upstream if needed.
   - id: aipoch-medical-research-skills
     source: https://github.com/aipoch/medical-research-skills
     config: sources/aipoch-medical-research-skills.proposed.yaml
@@ -635,4 +678,4 @@ proposals:
     status: PROPOSED
     role: backup-candidate
     license_flag: Apache-2.0 verified 2026-09-14
-    note: No standard LICENSE found at scan time; Nature fine IDs stay PROPOSED.
+    note: "Apache-2.0 verified 2026-09-14. Register nature-shared as dependency of Nature fine ids (not a separate trigger skill). Refresh resolved_commit/inventory_hash on next scan."

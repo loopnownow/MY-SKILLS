@@ -1,0 +1,51 @@
+# R1 external review — dual engines → A06 only.
+preset_id: external-review-R1
+version: "2026-09-20.1"
+status: session-recipe
+notes: >
+  Scientific critique overlay + B/MedSci peer-review and self-review produce
+  finding sets. A06 personal merges, grades Major/Minor, owns envelope.
+  Engines never edit the manuscript. Ask-each-run. Related to review-hybrid-default.
+
+chassis:
+  source: my-skills-capabilities
+  role: base
+  required: true
+
+personal:
+  - layer: 06_review/personal
+    role: adjudication
+    must_include: [review-resolution.md, personal-review-style.md]
+
+overrides:
+  - id: scientific-critical-thinking
+    source: scientific-agent-skills
+    skills: [scientific-critical-thinking]
+    paths: [skills/scientific-critical-thinking/]
+    role: science-method-findings
+    required: true
+    prefix_example: "[Scientific:scientific-critical-thinking]"
+  - id: peer-review
+    source: my-skills-capabilities
+    skills: [review-peer]
+    paths: [06-review/review-peer/]
+    role: clinical-reporting-findings
+    required: true
+    prefix_example: "[B:06-review-peer]"
+  - id: self-review
+    source: my-skills-capabilities
+    skills: [review-critique]
+    paths: [06-review/review-critique/]
+    role: pre-submission-integrity
+    required: false
+    prefix_example: "[B:06-review-critique]"
+
+force_b:
+  - peer-review
+  - peer-review-pdf-scan
+  - revise
+  - self-review
+
+excluded_sources: [academic-research-skills, openclaw-medical-skills]
+excluded_tools_note: Findings only; A06 adjudicates. OpenClaw never atomic.
+swappable: true
