@@ -11,6 +11,8 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
+**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。
+
 Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC); 06 Lee; 00 Aitor owns QC. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
 Do not mount ARS `academic-pipeline` or MedSci `orchestrate` as a third SOP.
 
@@ -148,7 +150,7 @@ Integrity gates (not after every node):
 
 Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only.
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 

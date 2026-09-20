@@ -1,0 +1,70 @@
+%% MY-SKILLS · 唯一官方运行图 (00)
+%% 更新流程/QC/入口时只改本文件。子流程 = 本图分支，不另立主图。
+%% 门禁细则真源: gates.md；外挂 lifecycle: 01
+
+flowchart TD
+    Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
+
+    Detect --> Entry{运行入口}
+    Entry -->|完整研究流程| Need02[进入 02]
+    Entry -->|已有数据处理结果| Need04[进入 04]
+    Entry -->|已有统计结果 / 图表| Need05[进入 05]
+    Entry -->|已有稿件| Need06[进入 06]
+    Entry -->|审稿意见 / 修回| R06[06 修回主控]
+    Entry -->|独立文献任务| Need03[进入 03]
+    Entry -->|其他明确单域| NeedS[进入目标 Skill]
+
+    %% 修回：先分诊再回节点，之后只向前重跑受影响链
+    R06 --> Decide{06 判断问题来源}
+    Decide -->|数据| Need02
+    Decide -->|统计 / 图表| Need04
+    Decide -->|文献证据| Need03
+    Decide -->|写作| Need05
+    Decide -->|审稿整合| Need06
+
+    %% 执行前：缺 mount 才走 01 → G0（非总闸门装饰站）
+    Need02 & Need03 & Need04 & Need05 & Need06 & NeedS --> MountQ{本节点所需<br/>mounted_fine_ids 已覆盖?}
+    MountQ -->|否| S01[01 · Session Mount / Lifecycle]
+    S01 --> GA0{{G0}}
+    GA0 -->|PASS| Ready[挂载就绪]
+    GA0 -->|FAIL| Locate
+    MountQ -->|是| Ready
+
+    Ready --> Dispatch{目标节点}
+    Dispatch -->|02| P02[02 数据处理]
+    Dispatch -->|03| P03[03 文献研究]
+    Dispatch -->|04| P04[04 统计 / 图表]
+    Dispatch -->|05| P05[05 论文写作]
+    Dispatch -->|06| P06[06 审稿 / 预审]
+    Dispatch -->|单域| Single[目标 Skill]
+
+    subgraph CHAIN[主生产链 · PASS 才向前]
+        P02 --> GA02{{Gate · 02}}
+        GA02 -->|PASS · 未到终点| P04
+        P04 --> GA04{{Gate · 04}}
+        GA04 -->|PASS · 未到终点| P05
+        P05 --> GA05{{Gate · 05}}
+        GA05 -->|PASS · 未到终点| P06
+        P06 --> GA06{{Gate · 06}}
+    end
+
+    P03 --> GA03{{Gate · 03}}
+    GA03 -.->|PASS · 证据供给| P05
+    GA03 -.->|PASS · 证据供给| P06
+    Single --> GAS{{Gate · 目标 Skill}}
+
+    %% Detect 已定终点：到达终点且 PASS 才输出（05 后可不进 06）
+    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>来源 + 版本 / 挂载记录])
+
+    %% QC 环：最小节点回退；禁止整链从 Start 重来
+    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|FAIL| Locate[定位最小负责节点]
+    Locate --> Impact{上游错误是否<br/>使下游结果失效?}
+    Impact -->|否| Local[局部返工 · 仅目标节点]
+    Impact -->|是| Rollback[回退至最早受影响节点]
+    Local --> Budget{返工次数 ≤ 默认预算 3?}
+    Rollback --> Budget
+    Budget -->|是| Resume[重入目标节点 · 仅重跑受影响链]
+    Resume --> MountQ
+    Budget -->|否| Escalate[停止自动循环 · 列出未解决问题]
+    Escalate --> Wait([等待用户决策])
+    Wait -.->|授权继续 · 重置预算| Locate
