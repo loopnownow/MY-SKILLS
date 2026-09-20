@@ -43,6 +43,18 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability entry points use the batched **clarify round** in Plan card instead — that's the one exception.)
 
+
+### Flow chart approval (skills / mounts)
+
+When the user asks to **use skills or mount packs for a specific task**, before session mount pick or specialist dispatch:
+
+1. Show a **complete** flowchart taken from the official map [`runtime-flow.mmd`](runtime-flow.mmd) (read [`runtime-flow.md`](runtime-flow.md)).
+2. The task is **one ring/branch** on that map, or the full chain — still show the **whole** official figure (or a faithful rendering of it), and **highlight** the path this run will take (entry → nodes → gates → QC loop).
+3. Wait for **explicit approval**. Do not load mounts or start 02–06 until they agree.
+4. After approval, proceed with 01 session mount pick / G0 as on the map.
+
+This sits with Plan card / grilling for multi-node work; for mount/skill runs it is mandatory even when the plan looks obvious.
+
 ### Plan card (before dispatch)
 
 Default is **interactive**, not silent automation. Before the first specialist runs a multi-node job, or before 01 evaluates a new external capability, run **grilling** (`grilling/SKILL.md`, `grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first. This is the multi-node / new-capability exception to "ask one question, never two" (single-skill tasks keep that rule as-is).
