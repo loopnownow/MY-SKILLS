@@ -1,0 +1,43 @@
+# W2 final manuscript — structure + personal voice + citation/reporting QC.
+preset_id: manuscript-final-W2
+version: "2026-09-20.1"
+status: session-recipe
+notes: >
+  Final draft pass. write-paper may supply IMRAD structure; A/B05 personal owns
+  sentence authority (Intro v3, de-AI). verify-refs and check-reporting are QC.
+  Nature overlays only when venue-specific. Ask-each-run.
+
+chassis:
+  source: my-skills-capabilities
+  role: base
+  required: true
+
+personal:
+  - layer: 05_manuscript/personal
+    role: sentence-authority
+    must_include: [Aitor-format.md, de-ai.md, intro-discussion-evidence.md]
+
+overrides:
+  - id: write-paper
+    source: my-skills-capabilities
+    skills: [write-manuscript]
+    paths: [05-manuscript/write-manuscript/]
+    role: structure-draft
+    required: true
+    prefix_example: "[B:write-manuscript]"
+  - id: verify-refs
+    source: scientific-agent-skills
+    skills: [citation-management]
+    paths: [skills/citation-management/]
+    role: citation-qc
+    required: true
+    prefix_example: "[Scientific:citation-management]"
+  - id: check-reporting
+    source: my-skills-capabilities
+    role: reporting-qc
+    required: false
+
+force_b: []
+excluded_sources: [openclaw-medical-skills]
+excluded_tools_note: One authoring authority (personal). Engines do not co-edit sentences.
+swappable: true

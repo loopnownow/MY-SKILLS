@@ -1,0 +1,40 @@
+# L2 deep evidence check — discovery + verify (not triple search).
+preset_id: evidence-deep-L2
+version: "2026-09-20.1"
+status: session-recipe
+notes: >
+  Literature deep check: Scientific paper-lookup for discovery, Scientific/MedSci
+  verify-refs for claim–source fit. A03 owns evidence cards. Ask-each-run.
+  Do not co-load a third AIPOCH literature-search by default.
+
+chassis:
+  source: my-skills-capabilities
+  role: base
+  required: true
+
+personal:
+  - layer: 03_research
+    role: evidence-entry
+  - layer: 05_manuscript/personal
+    role: consumer-only
+    note: 05 consumes verified cards; does not search
+
+overrides:
+  - id: paper-lookup
+    source: scientific-agent-skills
+    skills: [paper-lookup]
+    paths: [skills/paper-lookup/]
+    role: discovery
+    required: true
+    prefix_example: "[Scientific:paper-lookup]"
+  - id: verify-refs
+    source: scientific-agent-skills
+    skills: [citation-management]
+    paths: [skills/citation-management/]
+    role: claim-source-verify
+    required: true
+    prefix_example: "[Scientific:citation-management]"
+
+excluded_sources: [openclaw-medical-skills]
+excluded_tools_note: No triple search default; OpenClaw never atomic.
+swappable: true
