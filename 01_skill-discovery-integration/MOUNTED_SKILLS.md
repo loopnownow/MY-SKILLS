@@ -11,7 +11,7 @@ Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_f
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 51 fine** (55 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
+v4: **10 coarse + 55 fine** (55 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
 Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
 
 ## Session-pick fine ids by coarse bucket

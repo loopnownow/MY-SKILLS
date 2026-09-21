@@ -24,7 +24,7 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
 5. Phase-1 columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标)
    - No 分层/策略 column (layer in section titles; keep data-layer/data-tier on checkboxes). Chinese score headers; always show rate columns (blank/`—` if unknown). Do **not** show 置信度 / ISO / JIF分区 / JCI分区.
    - JESI: always from available A/R/P+MJF; partial scores marked in-cell (`*` + `缺:…`); never invent rates. See `jesi-model.md`.
-   - JIF / volume / rates are **display-only**; do **not** persist them into `submission-urls.csv`.
+   - JIF / volume / rates are **display-only**; do **not** persist them into `references/submission-urls.csv`.
    - **Ask before each run** whether to include 层2补 (Challenge); **default OFF** (层2 + 层3 + 层4 by default).
    - Per-layer default count: **10**. Specialty preferred; **综合/全科刊** allowed when fit is reasonable.
 6. No AIM / author instructions / APC in phase 1. Then ask user to circle 备选杂志.
@@ -32,9 +32,9 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
    - **User HTML 短表 (per paper):** 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知.
    - Same last column for portal + author instructions; show **full URLs** (not bare 「投稿须知」).
    - Short table **omits** ISO, OA, 置信, 分刊详情, **APC**.
-   - Quartile/IF/volume display-only; portal URLs → `submission-urls.csv`.
+   - Quartile/IF/volume display-only; portal URLs → `references/submission-urls.csv`.
 8. Pipeline: optional external candidate pool → metrics → fit → JESI → prior (`modules.md`, `jesi-model.md`). External recommender = query provider only.
-9. Delivery: HTML for user; write submission URLs only back to `submission-urls.csv`; optional prior lines → `submission-prior.jsonl`.
+9. Delivery: HTML for user; write submission URLs only back to `references/submission-urls.csv`; optional prior lines → `submission-prior.jsonl`.
 10. Risk: **Unknown ≠ Low Risk.**
 
 Curated table: `artifacts/医学投稿推荐_JCR2026.xlsx`. Raw Clarivate workbook is rebuild input only. Query sources: `references/query-sources.md`. Persistence absorb/query/delete: `references/persistence.md`.

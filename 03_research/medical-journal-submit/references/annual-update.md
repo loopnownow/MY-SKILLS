@@ -20,7 +20,7 @@ Rebuild curated xlsx + layer CSVs from the raw workbook, then **discard** the ra
 
 ## Never merge yearly metrics into URL persist
 
-- Do **not** merge JIF, JCR/JCI quartile, or annual volume into `submission-urls.csv`.
+- Do **not** merge JIF, JCR/JCI quartile, or annual volume into `references/submission-urls.csv`.
 - Layer CSVs may hold those fields as screening cache; reports may **display** them at run time; durable delivery persist for portals stays URL-only (`persistence.md`).
 - Skill text (`SKILL.md`, `policy.md`) must **not** hardcode IF lists, article counts, or APC numbers.
 
@@ -41,7 +41,7 @@ If headers differ, map them. Do not assume the year is still labeled 2025 JIF.
 - Blacklist titles absent from layer CSVs.
 - SKILL.md `metadata.source_table` and data-year wording updated.
 - `policy.md` untouched unless the user changed rules.
-- `submission-urls.csv` still has URL fields only (no IF/quartile/volume columns).
+- `references/submission-urls.csv` still has URL fields only (no IF/quartile/volume columns).
 
 ## What not to bake into SKILL.md
 

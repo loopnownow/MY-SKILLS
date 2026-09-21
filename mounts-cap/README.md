@@ -19,3 +19,7 @@ python mounts-cap/fetch.py check
 ```
 
 Do not vendor unpublished texts, PHI, HIS credentials, or 0RAD trees.
+
+## Sync warning (local A)
+
+Never robocopy /MIR or git clean -xfd the whole skills tree onto mounts-cap/ — pack dirs (b/, scientific/, …) and STATE.yaml are gitignored and will be deleted. Sync A sources excluding mounts-cap pack trees, or restore via python mounts-cap/fetch.py ensure-b.

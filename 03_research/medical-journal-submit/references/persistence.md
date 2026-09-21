@@ -10,7 +10,7 @@
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
 | BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
-| 投过/选刊 whitelist | `whitelist-submitted.csv` (seed / sync from `submission-urls.csv`) |
+| 投过/选刊 whitelist | `whitelist-submitted.csv` (seed / sync from `references/submission-urls.csv`) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
 | Yearly screening cache (layer membership) | `layer2-*.csv`, `layer3-*.csv`, curated xlsx — rebuilt annually |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |
@@ -23,7 +23,7 @@
 - CiteScore / SJR / SNIP (and similar yearly bibliometrics)  
 - APC, indexing status, review-time values, self-citation rates, author-experience values  
 
-These metrics may appear in **HTML or Markdown delivery reports only**, queried or joined at **run time** from the yearly screening cache or live sources. They must **not** be merged into `submission-urls.csv` or baked into skill text as durable delivery data. Retain **query capability** only (`query-sources.md` / module 03 path).
+These metrics may appear in **HTML or Markdown delivery reports only**, queried or joined at **run time** from the yearly screening cache or live sources. They must **not** be merged into `references/submission-urls.csv` or baked into skill text as durable delivery data. Retain **query capability** only (`query-sources.md` / module 03 path).
 
 ## Absorb / Query / Delete (ChatGPT 2026-09 + Gemini)
 
@@ -85,5 +85,5 @@ If IF / quartile / volume columns are ever added, remove them.
 ## Delivery
 
 - User-facing Phase-1/Phase-2: prefer **HTML** (tables may *display* JIF/quartile/volume as runtime fields).  
-- After confirming portals: write **submission URLs only** back to `submission-urls.csv`.  
+- After confirming portals: write **submission URLs only** back to `references/submission-urls.csv`.  
 - Personal outcomes: append lines to `submission-prior.jsonl` — never store yearly IF on those lines.
