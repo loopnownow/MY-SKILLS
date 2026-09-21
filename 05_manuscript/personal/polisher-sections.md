@@ -40,7 +40,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
-- *"The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* BODY split is training/test; Figure 1 is Training Cohort / Validation Cohort; other-hospital only = external validation.
+- *"The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort (`Aitor-format.md`). Other-hospital only = validation set.
 - *"Both A and B play roles in…"*
 
 **Language rules for abstracts:**
@@ -84,7 +84,8 @@ This is the most technically precise section. Follow all sub-rules below.
 - Report enrollment window, institution, IRB approval number, retrospective vs. prospective label.
 - Template: *"This [retrospective/prospective] study was approved by the Institutional Review Board of Jinshan Hospital of Fudan University (No. XXX)."*
 - Inclusion/exclusion criteria: full papers use inline `follows: (1) x; (2) y; and (3) z` (`Aitor-format.md`). Numbered lists only for non-full-paper fragments.
-- Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `(A, n = 89; B, n = 187)`
+- - Outcomes: clinical names only (positive/negative, present/absent). Never `Positive = 1, Negative = 0` or other raw 0/1 coding dumps (`Aitor-format.md`).
+Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `(A, n = 89; B, n = 187)`
 
 ### 3.2 Imaging Protocol
 - Scanner model, field strength, institution.
@@ -281,7 +282,7 @@ For each piece of submitted text:
 
 ## §9 — Reference Conventions
 
-Search and claim-to-DOI for I/D: `intro-discussion-evidence.md`. Counts and locked paragraphs: `Aitor-format.md` (do not copy here).
+Search and claim-to-DOI for I/D: `intro-discussion-evidence.md`. Counts and settled paragraphs: `Aitor-format.md` (do not copy here).
 
 - Vancouver/NLM style (numbered, order of appearance)
 - No reference inflation — Introductions: follow Aitor (10–15), not a second quota

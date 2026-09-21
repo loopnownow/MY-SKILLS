@@ -96,6 +96,8 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 ## Edit unit and comments
 
 - Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
+- Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit-rules.md`).
+- After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:05-write-polish]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `personal/evidence-request.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.

@@ -76,11 +76,14 @@ CONFIG = {
 
     # ---- 4. Vocabulary (regex fragments, matched on word boundaries, case-insensitive)
     # ALWAYS = flagged on any occurrence.
-    # robust / landscape / leverage are here by explicit decision (AI vocabulary).
+    # robust / landscape / leverage / labeled / locked are here by explicit decision (AI vocabulary).
     # NOTE "robustness" is intentionally NOT matched: "feature robustness" is standard
     # radiomics terminology (ICC / test-retest). Widen with r"robust(?:ness|ly)?" if wanted.
     # NOTE elevate/enhance are intentionally not listed: "elevated ALT", "contrast-enhanced".
+    # NOTE noun "label" (figure label, reporting label) is NOT matched — only labell?ed.
     "VOCAB_ALWAYS": [
+        r"labell?ed",
+        r"locked",
         r"delv(?:e|es|ed|ing)",
         r"tapestr(?:y|ies)",
         r"testament to",

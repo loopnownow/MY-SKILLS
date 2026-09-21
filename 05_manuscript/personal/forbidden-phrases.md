@@ -13,6 +13,8 @@
 | comprehensive | complete / included X–Y |
 | leverage | use |
 | framework (vague AI prose) | approach |
+| labeled / labelled (vague AI prose) | classified as / assigned to / named; abstract parts: headed Objective/Methods/… |
+| locked (vague AI prose) | fixed / decided / settled / finalized |
 | seamless | without additional steps / integrated |
 | groundbreaking / state-of-the-art | drop or prove novelty with citation |
 | surprisingly / remarkably | delete |
