@@ -41,7 +41,7 @@ LetPub, community notes, and third-party scrapers may **supplement** acceptance/
 |---|---|---|
 | Layer CSVs (`layer2-*.csv`, `layer3-*.csv`, …) | Yearly screening cache from JCR rebuild | Yes (rebuild yearly; discard raw) |
 | JIF / JCR·JCI quartile / annual volume / APC / review time | Runtime display or Phase-2 lookup | **No** durable values — query only |
-| Submission URLs | Durable portal links | Yes → `submission-urls.csv` |
+| Submission URLs | Durable portal links | Yes → `references/submission-urls.csv` |
 | Query-source list (this file) | Framework / workflow | Yes (capability list, not metric tables) |
 
 Monitor ~3–5y volume change for sudden expand/shrink; combine official metrics with auxiliary acceptance when rates are missing; check CAS warning, JCR Top, and Green OA self-archive policy when relevant. Every queried value: `value | source | retrieval_date | confidence`. **Unknown ≠ Low Risk.**

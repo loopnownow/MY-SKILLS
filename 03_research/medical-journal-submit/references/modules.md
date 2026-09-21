@@ -36,7 +36,7 @@ Optional front door: **external candidate pool** (query mount) → then Difficul
 
 ## 1. sci-metrics-retriever
 
-Pull annual_publications, acceptance_rate, review_rate / desk_reject_rate, jif_percentile, jci_quartile, sub_pub_ratio from **primary** OpenAlex, Crossref, Europe PMC, journal/publisher sites, and Clarivate JCR (when licensed). LetPub and GitHub helpers are **auxiliary** query sources — not fixed dependencies (`query-sources.md`). Feeds **JDI** and **JCI-C**. Runtime only for yearly metrics — do not persist IF/quartile/volume into `submission-urls.csv`.
+Pull annual_publications, acceptance_rate, review_rate / desk_reject_rate, jif_percentile, jci_quartile, sub_pub_ratio from **primary** OpenAlex, Crossref, Europe PMC, journal/publisher sites, and Clarivate JCR (when licensed). LetPub and GitHub helpers are **auxiliary** query sources — not fixed dependencies (`query-sources.md`). Feeds **JDI** and **JCI-C**. Runtime only for yearly metrics — do not persist IF/quartile/volume into `references/submission-urls.csv`.
 
 Each pulled value should carry Evidence/Confidence: `value | source | retrieval_date | confidence`.
 

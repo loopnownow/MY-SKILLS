@@ -1,3 +1,5 @@
+> Moved from `references/journal-format-publisher-notes.md` (depth ≤4).
+
 # Publisher-specific notes
 
 Quirks observed when researching author guidelines by publisher. Add to this file as new publishers/journals come up.

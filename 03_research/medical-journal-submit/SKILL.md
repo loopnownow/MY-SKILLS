@@ -25,7 +25,7 @@ Load in this order on every Phase-1 run:
 
 1. `references/blacklist.csv` — never list these titles.
 2. `references/graylist.csv` — not recommended when better options exist (includes **Frontiers 系列**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
-3. `references/whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `submission-urls.csv`). Stronger layer boost.
+3. `references/whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `references/submission-urls.csv`). Stronger layer boost.
 4. `references/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
 
 ### Blacklist
@@ -70,8 +70,8 @@ Phase 1 columns for every layer table
 - **Chinese score headers:** MJF/MFI → **稿件匹配度**; JESI → **投稿易投指数**. Do **not** show curated **易投指数**.
 - **No 分层/策略 column (v1.11+):** layer/tier already appear in section titles（层2主攻 / 层3(Q2) / 层4(Q3)）. Keep `data-layer` / `data-tier` on checkboxes for export JSON.
 - **Removed from Phase-1 display:** 置信度, ISO缩写/ISO, 最佳JIF分区/JIF分区, 最佳JCI分区/JCI分区, 易投指数, 分层/策略.
-- **Always display** 接收率 / 初筛拒稿率 / 送审率 (empty/`—` if unknown; never invent). Attach `rates_source` in JSON/title when found. Do **not** persist rates into `submission-urls.csv`.
-- JIF / 年发文量 / rates are **display-only runtime fields** in the report (HTML/Markdown). Do **not** persist them into `submission-urls.csv` or other DB-like files (`references/persistence.md`).
+- **Always display** 接收率 / 初筛拒稿率 / 送审率 (empty/`—` if unknown; never invent). Attach `rates_source` in JSON/title when found. Do **not** persist rates into `references/submission-urls.csv`.
+- JIF / 年发文量 / rates are **display-only runtime fields** in the report (HTML/Markdown). Do **not** persist them into `references/submission-urls.csv` or other DB-like files (`references/persistence.md`).
 - 稿件匹配度: keep from Phase-1 human MJF.
 - **投稿易投指数 (partial OK, marked):** always compute from available A（接收率）, R（送审率或 1−初筛拒稿率）, P（年发文量→JCI-C）, and 稿件匹配度.
   - Full (rates available): `JESI = 0.50×(100−JDI) + 0.20×JCI-C + 0.30×稿件匹配度` (A/R/P components as in `references/jesi-model.md`).
@@ -94,7 +94,7 @@ Rules for that short table:
 
 - **投稿网址** and **作者须知** share the last column; show **full URLs** as visible text (and as `href`). Do **not** use bare link text like 「投稿须知」 without the URL.
 - **Do not** include: ISO/ISO缩写, OA, 置信度/置信, 「分刊详情（可勾选阅读）」, or **APC** in this short table.
-- JCR分区 / 影响因子 / 年发文量 remain **display-only** (query; do not write into `submission-urls.csv`).
+- JCR分区 / 影响因子 / 年发文量 remain **display-only** (query; do not write into `references/submission-urls.csv`).
 - Persist **submission portal URLs** to `references/submission-urls.csv` (URL fields only) as before; author-instruction URLs may be shown in HTML — only portal submission URLs are required in the CSV schema.
 - Prefer HTML delivery; follow `00_orchestrator/references/html-visual-design.md` when that file is on the tree (generic HTML craft — do not vendor lab console pages into this pack).
 
@@ -141,7 +141,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 
 ## 投过/选刊白名单（更强优先）
 
-Load `references/whitelist-submitted.csv` (copy: `artifacts/白名单_投过_选刊.csv`). Seeded from journals with a written-back submission URL in `submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
+Load `references/whitelist-submitted.csv` (copy: `artifacts/白名单_投过_选刊.csv`). Seeded from journals with a written-back submission URL in `references/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
 
 Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not auto-fill.
 
@@ -173,7 +173,7 @@ When talking about default external packs for this lab, say **默认挂载 B 包
 - Do not recommend the three mounted blacklist titles.
 - Do not collapse the default layers into a single top-N list; keep 层2 / 层3 / 层4 tables separate (10 each).
 - Do not query AIM / author instructions / APC before the user confirms 备选杂志.
-- Do not merge yearly IF / quartile / volume / APC into `submission-urls.csv` or skill text as durable lists.
+- Do not merge yearly IF / quartile / volume / APC into `references/submission-urls.csv` or skill text as durable lists.
 - Do not install `zero565656/journal-recommender` (or similar) as a mounted skill; do not copy its fixed Fit Score weights or abstract→CAS prediction.
 - Do not treat Unknown risk as Low Risk.
 
