@@ -784,3 +784,19 @@ problem: User: manuscript must not show pre-stats raw coding such as Positive = 
 change: Outcomes + ban list + checklist: clinical names only; 0/1 encoding stays in the analysis dataset. Polisher Methods pointer.
 decision: keep
 next_action: include in same PR as CHG-003–006 when PR path is available.
+
+## CHG-20260921-008 — ban dataset-build eligibility narration
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md
+problem: User forbids Methods prose that narrates data-prep filters as eligibility (e.g. complete binary outcome label + complete feature row; predefined exclusion list removed).
+change: Patients + Banned voice + de-pipeline table: clinical inclusion/exclusion only; row-completeness / feature-matrix filters stay in the analysis pipeline.
+decision: keep
+next_action: same PR as CHG-003–007.
+
+## CHG-20260921-009 — unused recorded variables → Word comments
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md
+problem: User: things not done / not included must not appear in prose (e.g. Treatment type and chemotherapy agent were recorded but were not included as candidate predictors).
+change: Model building + Banned voice + reporting defaults: unused recorded predictors → Word comment only (author A).
+decision: keep
+next_action: same PR as CHG-003–008.

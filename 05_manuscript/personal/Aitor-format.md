@@ -168,14 +168,14 @@ Evidence handling: `intro-discussion-evidence.md`. Scoring anchors and deduction
 
 1. **Ethics** — subtitle is `Ethics` (never `Ethics: Ethics`).  
 2. **Study design and sample size** — honest split. Estimation **was performed** (post hoc allowed). State **α = 0.05**, **β = 0.20** (power 80%), observed event proportion *p*, required events ≥ 10 per fitted nomogram coefficient, and whether this sample met that threshold. Never write that a calculation “was not performed.” **Never mention a random seed.**  
-3. **Patients** — Jinshan default **1 August 2024 to 1 August 2026** (not ADNI). Analyzed *n*. Group counts: `(Stroke, n = 89; non-stroke, n = 187)`, not `(Stroke 89, non_Stroke 187)`. Prefer *patients were analyzed and divided* over *cases were split*. No subject IDs. No “pipeline treated rows as observations.” Secondary ADNI / non-Jinshan extracts: say so here or in Limitations, not as a worksheet dump.  
+3. **Patients** — Jinshan default **1 August 2024 to 1 August 2026** (not ADNI). Analyzed *n*. Group counts: `(Stroke, n = 89; non-stroke, n = 187)`, not `(Stroke 89, non_Stroke 187)`. Prefer *patients were analyzed and divided* over *cases were split*. No subject IDs. No “pipeline treated rows as observations.” Do **not** narrate dataset-build / QC filters as eligibility (e.g. *Eligibility required a complete binary outcome label and a complete … feature row*; *Records matching a predefined exclusion list were removed*). Write clinical inclusion/exclusion only; row-completeness and feature-matrix filters stay in the analysis pipeline, not Methods prose. Secondary ADNI / non-Jinshan extracts: say so here or in Limitations, not as a worksheet dump.  
 4. **Inclusion and exclusion** — one paragraph each; inline `follows: (1) x; (2) y; and (3) z`, not a vertical list.  
 5. **Diagnostic and treatment criteria**  
 6. **Outcomes** — pathology **positive versus absent** (e.g. LVSI) or a **follow-up / RECIST** event (e.g. ORR = CR/PR versus SD/PD). Use the clinical name (stroke, recurrence, dedifferentiated). **Do not write *coded* or *displayed*** as an endpoint prefix. **Never put raw pre-stats coding in prose or tables** (e.g. `Positive = 1, Negative = 0`; `1 = event, 0 = none`). That encoding lives only in the analysis dataset; the manuscript uses clinical names (positive / negative, present / absent, event / no event). If labels were not locally re-adjudicated, say so **once** in Outcomes or Limitations (*labels followed the source field; they were not re-read against a local protocol*). Do not claim local re-adjudication.  
 7. **Laboratory tests** — pathologic endpoint: labs within **30 days** of pathology. Do not apply that sentence to pure survival / response-horizon papers.  
 8. **Imaging examinations** — MRI: primarily 3.0 T Magnetom Verio (Siemens Healthineers, Erlangen, Germany). CT: primarily Canon Aquilion (Canon Medical Systems, Otawara, Japan). Minority-of-scanners sentence allowed.  
 9. **Image processing** — method only. No QC field dumps. Lead-in fragments allowed (`Tumor segmentation.` `Preprocessing.`). Write method choices that were actually decided (e.g. no ICC filter, no IBSI phantom). An **empty radiomics sheet** or other missing product is a **Word comment**, not body text. Habitats are imaging constructs, not histologic maps. Spatial ratios / subfield percentages are not a texture-radiomics panel unless that matrix exists.  
-10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually fixed. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here.  
+10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually fixed. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here. Variables that were recorded but **not** used as candidate predictors (e.g. treatment type, chemotherapy agent) go in a **Word comment only** — never Methods/Results body (“recorded … but were not included…”).  
 11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, put **not generated / not exported** in a **Word comment only**. Do not invent them. Do not write that sentence in the body.
 
 ---
@@ -263,6 +263,7 @@ One scientific bound, **one place**. Do not restate the same hedge in Highlights
 - `median [interquartile range]` / `median [IQR]`  
 - “A sample-size calculation was not performed.”  
 - `was not tested` / `未测` / `未完成` (incomplete work → Word comments; never body)
+- “Recorded in the source data but were not included as candidate predictors” (and kin: collected/available but unused) → **Word comment only**, never body
 - `No validation set was available` / `A validation set is required` in the body, Conclusion, or Limitations (comments only)
 - Random seed / 66666  
 - “Histology fields were not applicable and were not used.”  
@@ -274,6 +275,7 @@ One scientific bound, **one place**. Do not restate the same hedge in Highlights
 - `validation set` for the internal split (that split is **test set**)  
 - File paths, `*-results.html`, `pipeline_run.log`, `Supplementary_QC_*.docx`, `STROBE_*.docx`, `TRIPOD_*.docx`, `false_classification.xlsx`, `output/PNG/` in the manuscript body or table notes  
 - Subject IDs; “pipeline treated rows as observations”  
+- Dataset-build eligibility voice: *complete binary outcome label*; *complete … feature row*; *predefined exclusion list were removed*; *required a complete … row* — clinical inclusion/exclusion only  
 - Package lists after `Python 3.13`  
 - Disclaimer / CYA stacks listed above  
 - `Ethics: Ethics` as a double subtitle (subtitle is `Ethics`)  
@@ -285,6 +287,7 @@ De-pipeline replacements (second polish pass; do not reorder IMRAD):
 |-------|--------|
 | `project clinical data` / `matrix` / `HTML` / `export` | `clinical database` / `dataset` / `source` |
 | `The pipeline was configured to retain` | `Features … were retained` |
+| `Eligibility required a complete binary outcome label…` / `complete … feature row` / `predefined exclusion list were removed` | Clinical inclusion/exclusion only; drop row-completeness / feature-matrix filter narration |
 | `outlined with ITK-SNAP` | `segmented using ITK-SNAP` |
 | `built inside the tumor mask` | `constructed within the tumor mask` |
 | `cases were split` | `patients were analyzed and divided` |
@@ -301,7 +304,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 3. Per-split Youden: write that.  
 4. Cloned train/test 2×2: do not cite.  
 5. Never mention a random seed.  
-6. Specified but not generated (empty radiomics sheet, no nomogram, no calibration, no DCA): **Word comment only** (`not generated`). Do not invent figures. Do not put that sentence in the body.  
+6. Specified but not generated (empty radiomics sheet, no nomogram, no calibration, no DCA): **Word comment only** (`not generated`). Do not invent figures. Do not put that sentence in the body. Same for predictors/covariates that exist in the source data but were not entered into the model.  
 7. A field that overlaps the endpoint (MMSE in the MCI label; a symptom code that already contains infarction) is a **coding / circular** result, not an independent imaging biomarker.  
 8. Worksheet group names (`non_Stroke`, `Negstive`) are cleaned in prose. Do not prefix the endpoint with *coded* / *displayed*. Un-readjudicated labels: one Methods or Limitations sentence, not a running prefix.
 
@@ -326,7 +329,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Circular predictors named as circular  
 - No *coded* / *displayed* endpoint prefix
 - No raw pre-stats coding (`Positive = 1, Negative = 0` and kin)  
-- Missing products: Word comment only, not body `not generated`
+- Missing products / unused recorded variables: Word comment only, not body `not generated` / `not included`
 - Intro last paragraph and Discussion first paragraph: no citations  
 - Methods: no `[n]`; no seed; `Python 3.13`  
 - Sample size: α, β, *p*, *n*, adequacy  
