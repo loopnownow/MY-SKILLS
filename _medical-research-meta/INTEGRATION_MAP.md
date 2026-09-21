@@ -81,6 +81,7 @@ next_action: watch routing on 软编码 vs 批处理, 转化 vs 02_imaging
 ## Forbidden-word policy reversal + corpus phrase bank spot-check + diff-harvest tool 2026-08-29 (user)
 
 ```text
+CHG-20260921-001 | 01 | Fix registry.yaml: move P1 candidates before reference_only:[]; valid YAML; fine menu 55; regenerate MOUNTED_SKILLS; stub_in_b rename; scrub 52/30-id residue.
 CHG-20260920-001 | 00 | Absorb the SlopMonster *mechanism* (pattern-group score + non-zero exit) as G-05 sub-check `style-lint`.
 Absorbed: scoring/exit-code loop, section scoping, fail-closed input guards, paired must-hit/must-stay-clean test discipline.
 Not absorbed: rival-model cleanse (owner: no manuscript text to other models), CI workflow, marketing rules,
