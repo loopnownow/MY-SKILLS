@@ -800,3 +800,19 @@ problem: User: things not done / not included must not appear in prose (e.g. Tre
 change: Model building + Banned voice + reporting defaults: unused recorded predictors → Word comment only (author A).
 decision: keep
 next_action: same PR as CHG-003–008.
+
+## CHG-20260921-010 — do not re-elaborate sample size
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md
+problem: User: writing must not keep restating / emphasizing sample-size narration.
+change: Sample-size / power / adequacy once in Methods (Study design); Patients *n* and tables elsewhere; ban repeated essays in Abstract/Results/Discussion/Highlights/Limitations.
+decision: keep
+next_action: PR when user asks.
+
+## CHG-20260921-011 — decimal places (Table 1 vs P/AUC/NRI)
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md + 04_analysis/personal/stats-checklist.md
+problem: User fixed display precision: Table 1 keep 1–2 decimals; P, AUC and related, NRI/IDI, correlation keep 3 decimals.
+change: House decimal rule in Aitor-format Results/Table 1 + stats-checklist.
+decision: keep
+next_action: PR with CHG-010 when user asks.
