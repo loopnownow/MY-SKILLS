@@ -62,7 +62,7 @@ Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure st
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `04-fig-plot` / `04-fig-flow` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`.
+5. Generate figures here (mounted `04-fig-plot` / `04-fig-flow` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 

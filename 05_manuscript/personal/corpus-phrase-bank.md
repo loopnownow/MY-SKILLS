@@ -63,9 +63,8 @@ Templates:
 - `Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed.`
 
 **Split wording:** manuscript BODY internal split is training/test. Figure 1
-(mounted `04-fig-flow`; already merged) uses published **Training Cohort /
-Validation Cohort**. Only an other-hospital cohort is external validation.
-Never `Development set`. Do not rewrite mounted `04-fig-flow` from this file.
+bottom labels **Training Cohort / Test Cohort** (`Aitor-format.md`). Only an
+other-hospital cohort is a validation set. Never `Development set`.
 
 ## 1c. Results default + lab-unused stock (2026-08-28)
 

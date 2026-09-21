@@ -27,11 +27,12 @@ Voice and de-AI lists stay in `MODULE.md` / `de-ai/` / `stats-checklist.md`.
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
-- Numbers only from the latest `*-results.html` / locked tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
+- Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
 - Canonical file: `Manuscript_<结局>_house.docx` (unpolished) or `Manuscript_<结局>_polished.docx` after archive. **Overwrite in place.**
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
+- **Do not change Word format** on an existing `.docx`. If a sentence differs from the last agent wording, treat it as the user’s edit: ask before touching it; do not restore the old sentence. HTML / PDF / scripts are out of scope. See `06_review/personal/word-edit-rules.md`.
 - **Do not overwrite existing front-matter:** if the manuscript already states corresponding author, funding, ethics (Date/NO), or affiliations, keep that text. Never replace it with lab defaults/templates unless the user explicitly asks. Missing items → Word comment / ask; do not fill placeholders with defaults.
 
 ---
@@ -43,24 +44,28 @@ Voice and de-AI lists stay in `MODULE.md` / `de-ai/` / `stats-checklist.md`.
 
 ---
 
-## DOCX typography (match the gold file)
+## DOCX typography
 
-**Times New Roman throughout. Black.**
+**Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified** (两端对齐). Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**.
 
-| Surface | Size | Line spacing | Bold | Align / indent |
-|---------|------|--------------|------|----------------|
-| Paper title | **12 pt** | 1.5 | **yes**, whole title | Center, no indent |
-| Authors (`Ying Li¹`) | 12 pt | 1.5 | no | Center, no indent |
-| Affiliation | 12 pt | 1.5 | **no** | **Left**, no indent |
-| Title-page / abstract **labels** (`Corresponding author:` `Objective:` …) | 12 pt | 1.5 | **label + colon only** | Left, no indent; rest of the same paragraph not bold |
-| `Highlights` `Abbreviations` `Abstract` and IMRAD section titles | 12 pt | 1.5 | **yes** | Left, no indent |
-| Methods / Results **subtitles** | 12 pt | 1.5 | **yes** | Left, no indent |
-| Highlights body, abbreviations body, references, table notes | 12 pt | 1.5 | no | **Flush left, no indent** |
-| Body after abstract | 12 pt | 1.5 | no | Justified, first-line indent **0.74 cm** |
-| `Table N.` / `Figure N.` / `Supplementary …` **prefix** | 12 pt | 1.5 | **prefix only** | Left, no indent |
-| Table **cells** | **11 pt** | **1.0** | header row yes | No indent |
+When **revising an existing `.docx`**: do **not** change Word format. Wording only (Track Changes). See `06_review/personal/word-edit-rules.md`.
 
-There is **no 16 pt title** and **no 14 pt section title**. Everything that is not a table cell is 12 pt.
+Bold is a content mark, not a restyle pass:
+
+| Surface | Bold |
+|---------|------|
+| Paper title | **yes**, whole title |
+| Authors (`Ying Li¹`) | no |
+| Affiliation | **no** |
+| Title-page / abstract **labels** (`Corresponding author:` `Objective:` …) | **label + colon only**; rest of the same paragraph not bold |
+| `Highlights` `Abbreviations` `Abstract` and IMRAD section titles | **yes** |
+| Methods / Results **subtitles** | **yes** |
+| Highlights body, abbreviations body, references, table notes | no |
+| Body after abstract | no |
+| `Table N.` / `Figure N.` / `Supplementary …` **prefix** | **prefix only** |
+| Table **cells** | header row yes |
+
+There is **no 16 pt title** and **no 14 pt section title**. Do not restyle table cells on revision.
 
 - *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. No em-dash as punctuation.
 - **English punctuation only.**
@@ -70,7 +75,7 @@ There is **no 16 pt title** and **no 14 pt section title**. Everything that is n
   - **training set** — internal fitting (never `development set` / `Dev`)  
   - **test set** — internal evaluation (never `hold-out`, `holdout`, or `hold out`)  
   - **validation set** — the external confirmation cohort (never `external test set`)  
-  Compound forms: `training-set`, `training-fitted`, `test-set`, `test AUC`, `validation-set`. Sentence start: `Training-set` / `Test-set` / `Validation-set`. Keep `10-fold cross-validation` (algorithm, not a cohort). If no external cohort exists, put `No validation set was available` or `A validation set is required` in a **Word comment only** (author **A**) — never in the body, Conclusion, Limitations, Highlights, or Figure 1. Still never `hold-out` or `external test set`.
+  Compound forms: `training-set`, `training-fitted`, `test-set`, `test AUC`, `validation-set`. Sentence start: `Training-set` / `Test-set` / `Validation-set`. Keep `10-fold cross-validation` (algorithm, not a cohort). If no external cohort exists, put `No validation set was available` or `A validation set is required` in a **Word comment only** (author **A**) — never in the body, Conclusion, Limitations, Highlights, or Figure 1. An external file with too few events for a stable AUC stays in a **Word comment** unless the user asks to write it. Still never `hold-out` or `external test set`.
 
 ---
 
@@ -166,11 +171,11 @@ Evidence handling: `intro-discussion-evidence.md`. Scoring anchors and deduction
 3. **Patients** — Jinshan default **1 August 2024 to 1 August 2026** (not ADNI). Analyzed *n*. Group counts: `(Stroke, n = 89; non-stroke, n = 187)`, not `(Stroke 89, non_Stroke 187)`. Prefer *patients were analyzed and divided* over *cases were split*. No subject IDs. No “pipeline treated rows as observations.” Secondary ADNI / non-Jinshan extracts: say so here or in Limitations, not as a worksheet dump.  
 4. **Inclusion and exclusion** — one paragraph each; inline `follows: (1) x; (2) y; and (3) z`, not a vertical list.  
 5. **Diagnostic and treatment criteria**  
-6. **Outcomes** — pathology **positive versus absent** (e.g. LVSI) or a **follow-up / RECIST** event (e.g. ORR = CR/PR versus SD/PD). Use the clinical name (stroke, recurrence, dedifferentiated). **Do not write *coded* or *displayed*** as an endpoint prefix. If labels were not locally re-adjudicated, say so **once** in Outcomes or Limitations (*labels followed the source field; they were not re-read against a local protocol*). Do not claim local re-adjudication.  
+6. **Outcomes** — pathology **positive versus absent** (e.g. LVSI) or a **follow-up / RECIST** event (e.g. ORR = CR/PR versus SD/PD). Use the clinical name (stroke, recurrence, dedifferentiated). **Do not write *coded* or *displayed*** as an endpoint prefix. **Never put raw pre-stats coding in prose or tables** (e.g. `Positive = 1, Negative = 0`; `1 = event, 0 = none`). That encoding lives only in the analysis dataset; the manuscript uses clinical names (positive / negative, present / absent, event / no event). If labels were not locally re-adjudicated, say so **once** in Outcomes or Limitations (*labels followed the source field; they were not re-read against a local protocol*). Do not claim local re-adjudication.  
 7. **Laboratory tests** — pathologic endpoint: labs within **30 days** of pathology. Do not apply that sentence to pure survival / response-horizon papers.  
 8. **Imaging examinations** — MRI: primarily 3.0 T Magnetom Verio (Siemens Healthineers, Erlangen, Germany). CT: primarily Canon Aquilion (Canon Medical Systems, Otawara, Japan). Minority-of-scanners sentence allowed.  
-9. **Image processing** — method only. No QC field dumps. Lead-in fragments allowed (`Tumor segmentation.` `Preprocessing.`). Write method choices that were actually locked (e.g. no ICC filter, no IBSI phantom). An **empty radiomics sheet** or other missing product is a **Word comment**, not body text. Habitats are imaging constructs, not histologic maps. Spatial ratios / subfield percentages are not a texture-radiomics panel unless that matrix exists.  
-10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually locked. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here.  
+9. **Image processing** — method only. No QC field dumps. Lead-in fragments allowed (`Tumor segmentation.` `Preprocessing.`). Write method choices that were actually decided (e.g. no ICC filter, no IBSI phantom). An **empty radiomics sheet** or other missing product is a **Word comment**, not body text. Habitats are imaging constructs, not histologic maps. Spatial ratios / subfield percentages are not a texture-radiomics panel unless that matrix exists.  
+10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually fixed. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here.  
 11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, put **not generated / not exported** in a **Word comment only**. Do not invent them. Do not write that sentence in the body.
 
 ---
@@ -228,10 +233,10 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 - Embed the latest PNGs.  
 - Image first, legend below.  
-- **Figure 1 (flowchart):** one paragraph. `Figure 1. ` bold; rest not bold; flush left. No inclusion box. Do **not** add “the figure does not depict a validation set.”  
+- **Figure 1 (flowchart):** one paragraph. `Figure 1. ` bold; rest not bold. Bottom labels **Training Cohort / Test Cohort** (not Validation Cohort). Eligibility exclusion ≠ training-set downsampling: if Methods downsampled the training set, draw the pre-split then the downsample; do not list downsample as an inclusion/exclusion reason. Canonical file is PDF, Times New Roman 12 pt, black (`bbox_inches=tight`, `pad_inches=0`). Do **not** add “the figure does not depict a validation set.” Do not draw a withheld external cohort.  
 - **Figure 2 and later:**  
   - Line 1 — short title (`Figure 2. ` bold + short name), flush left, no indent.  
-  - Next paragraph — what the panel shows, same as body (justified, first-line indent 0.74 cm). Annotate panels **(A)** / **(B)** or left/right sets separately.  
+  - Next paragraph — what the panel shows, same as body. Annotate panels **(A)** / **(B)** or left/right sets separately.  
 - One figure-specific qualifier is allowed if it is not already in Results (e.g. SHAP is exploratory). Do **not** reprint Discussion caveats or legal disclaimers in legends.  
 - Supplementary figures: prefix bold; note flush left, no indent. Unused template nodes on a DAG must be named as unused.  
 - Flowchart export: `bbox_inches=tight`, `pad_inches=0`.
@@ -254,6 +259,7 @@ One scientific bound, **one place**. Do not restate the same hedge in Highlights
 - `QC_MI_Warn`, `Habitat_Mode`, `Fusion_Channels`, `Align_Verify_NSeq`, “continued after mutual-information registration warnings…”  
 - Group / non_Group, clinical matrix, worksheets not re-exported  
 - `coded` / `displayed` as an endpoint prefix (`coded stroke`, `coded recurrence`, `displayed Stroke`)  
+- Raw pre-stats coding dumps: `Positive = 1, Negative = 0`; `1 = event / 0 = none`; `outcome coded as 0/1` — analysis-dataset only, never manuscript body/Methods/tables footnotes
 - `median [interquartile range]` / `median [IQR]`  
 - “A sample-size calculation was not performed.”  
 - `was not tested` / `未测` / `未完成` (incomplete work → Word comments; never body)
@@ -304,12 +310,12 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 ## QC before done
 
 - No Heading styles  
-- Title and all section/subtitle headings **12 pt bold**  
-- Affiliation **12 pt, left, not bold**  
+- Title and all section/subtitle headings **12 pt bold** as content marks; do not restyle an existing file  
+- Affiliation **12 pt, not bold**  
 - Labels bold **only through the colon**  
-- Body 12 / 1.5; table cells 11 / 1.0; thin three-line rules  
-- Highlights, abbreviations, references, table notes: flush left, no indent  
-- Results subtitles bold, left, no indent  
+- Body: TNR 12 / 1.5 / justified / LTR / space 0; do not restyle an existing Word file  
+- Highlights, abbreviations, references, table notes: TNR 12 / 1.5 / justified / space 0; do not restyle an existing file  
+- Results subtitles bold as content; do not restyle an existing file  
 - Figure 1 one paragraph; later figures = short title + detailed body paragraph  
 - Images embedded  
 - First Results paragraph has Figure 1 sentence + binary-percentage sentence (period between them)  
@@ -318,7 +324,8 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - No results.html / QC / STROBE path footers  
 - Highlights do not advertise a missing validation set  
 - Circular predictors named as circular  
-- No *coded* / *displayed* endpoint prefix  
+- No *coded* / *displayed* endpoint prefix
+- No raw pre-stats coding (`Positive = 1, Negative = 0` and kin)  
 - Missing products: Word comment only, not body `not generated`
 - Intro last paragraph and Discussion first paragraph: no citations  
 - Methods: no `[n]`; no seed; `Python 3.13`  

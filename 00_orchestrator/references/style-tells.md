@@ -16,14 +16,14 @@ This page explains the rules; it does not duplicate the lists (one fact, one hom
    parenthetical covariate lists and acronym lists are ignored
 
 ## Owner rulings (do not silently reverse)
-- `robust`, `landscape`, `leverage` are AI vocabulary: flagged everywhere scanned, no default exemption.
+- `robust`, `landscape`, `leverage`, `labeled`/`labelled`, `locked` are AI vocabulary: flagged everywhere scanned, no default exemption.
 - `robustness` is NOT matched: "feature robustness" (ICC / test-retest) is standard radiomics wording.
 - `elevate` / `enhance` are not listed: "elevated ALT", "contrast-enhanced".
 - Calibrated hedging is house style: one may / suggest is fine; only *stacked* hedges are flagged.
 - A genuine term of art (e.g. "high-leverage point") is exempted per phrase via `ALLOW_PHRASES`, never by deleting the rule.
 
 ## Fix rule
-Use a plainer word, not a synonym. leverage -> use. robust -> say what is stable (e.g. "stable across
+Use a plainer word, not a synonym. leverage -> use. labeled -> classified as / assigned to / named. locked -> fixed / decided / settled. robust -> say what is stable (e.g. "stable across
 scanners", "adjusted for X"). landscape -> name the concrete thing. Never "fix" passive voice in Methods.
 
 ## Boundaries

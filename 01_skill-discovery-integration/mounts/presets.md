@@ -28,6 +28,8 @@ Machine core: [`presets/evidence-deep-L2.yaml`](presets/evidence-deep-L2.yaml).
 
 ## manuscript-final-W2
 
+Default writing recipe (pre-check on 写稿/润色/修订论著; still ask-each-run). B chassis.
+
 Machine core: [`presets/manuscript-final-W2.yaml`](presets/manuscript-final-W2.yaml).
 
 - Evidence already in A03 cards; 04 results fixed

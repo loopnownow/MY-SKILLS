@@ -2,7 +2,7 @@
 
 **Owner:** `manuscript-core` de-AI pack. Extra flags after `forbidden-phrases.md`.
 
-Lab SCI / Aitor wins when this list fights house rules: Methods stay **passive**; full-paper abstracts keep **labeled** Objective/Methods/Results/Conclusion; no first-person injection, fragments, or comma splices to “sound human”; do not strip calibrated Discussion hedges required by `Aitor-format.md`.
+Lab SCI / Aitor wins when this list fights house rules: Methods stay **passive**; full-paper abstracts keep **headed** Objective/Methods/Results/Conclusion; no first-person injection, fragments, or comma splices to “sound human”; do not strip calibrated Discussion hedges required by `Aitor-format.md`.
 
 ---
 

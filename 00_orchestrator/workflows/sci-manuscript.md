@@ -30,3 +30,4 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 ## Output
 
 Overwrite `Manuscript_<结局>_house.docx` in place (or `_polished.docx` after an archive pass).
+After a 05/06 Word pass, append `ref/manuscript-revision.md` (`06_review/personal/word-edit-rules.md`). Do not re-polish logged sections.

@@ -746,3 +746,41 @@ problem: User confirmed (1) Nature upstream LICENSE is Apache-2.0 (Yuan1z0825/na
 change: Cleared all Nature `license_flag: 需核实` → `Apache-2.0 verified 2026-09-14` (third-party note retained); promoted quartet into `mounts:` MOUNTED with package paths and emptied `reference_only: []`; updated nature.md / hybrid-mount-pointers; added `06_review/personal` §0.1 locators + `word-edit-rules.md` (linked from 06 SKILL); companion B checklist `ai-public-data-imaging-checklist.md`. fine_id_count remains 51 (51 mounts, 0 reference_only).
 decision: Nature MOUNTED only when local mounts-cap bytes present; still never OpenClaw.
 next_action: user reviews PRs; do not whole-zip overwrite local .grok/skills.
+
+## CHG-20260921-003 — Word format freeze + paragraph spec
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md + 06_review/personal/word-edit-rules.md
+problem: User forbade changing Word format on revision; asked skills to use justified, LTR, space 0/0, TNR 12, line spacing 1.5.
+change: Existing `.docx` edits are wording only. Canonical paragraph metrics in Aitor-format; word-edit-rules owns the freeze. Dropped applying first-line 0.74 cm on revision.
+decision: keep
+next_action: live polish; confirm no restyle of user Word files.
+
+## CHG-20260921-004 — Word user-wording wins
+date: 2026-09-21
+skill: 06_review/personal/word-edit-rules.md
+problem: User required: if Word text differs from the last agent sentence, treat it as the user’s edit; ask before changing; never restore. HTML/PDF/scripts excluded.
+change: Home rule in word-edit-rules; pointers in 05 SKILL, Aitor-format, 06 SKILL.
+decision: keep
+
+## CHG-20260921-005 — harvest this-session standing rules
+date: 2026-09-21
+problem: User asked to fold remaining chat rules into skills.
+change: (1) `ref/manuscript-revision.md` after 05/06 Word pass; skip re-polish of logged sections. (2) Session pick defaults hybrid; writing pre-checks W2; empty path tell user. (3) Figure 1: Training/Test; downsample ≠ eligibility; PDF TNR 12; underpowered external stays in comments. Aitor wins over fig-flow Validation Cohort in personal files.
+skipped: locked AUCs, lxf_js n, Bengbu, title vs mixed-regimen, RadScore 0.000000 (project). Word format freeze and user-wording already in skills.
+decision: keep
+
+## CHG-20260921-006 — ban labeled + locked (AI tells)
+date: 2026-09-21
+skill: 05_manuscript/personal/forbidden-phrases.md (+ ai-isms-checklist, Aitor-format, polisher wording)
+problem: User editorial bans: *labeled*/*labelled* and *locked* are AI-ish; do not use in SCI prose or house-rule wording.
+change: Hard-ban Prefer labeled→classified as/assigned to/named (abstract parts: headed …); locked→fixed/decided/settled/finalized. Rephrased ai-isms abstract line; Aitor-format “locked tables/choices/threshold” → fixed/decided; polisher “locked paragraphs” → settled. Historical CHG text left as-is.
+decision: keep
+next_action: same PR as CHG-003/004/005; delete leftover deep publisher-notes path.
+
+## CHG-20260921-007 — ban raw 0/1 outcome coding in prose
+date: 2026-09-21
+skill: 05_manuscript/personal/Aitor-format.md (+ polisher-sections)
+problem: User: manuscript must not show pre-stats raw coding such as Positive = 1, Negative = 0.
+change: Outcomes + ban list + checklist: clinical names only; 0/1 encoding stays in the analysis dataset. Polisher Methods pointer.
+decision: keep
+next_action: include in same PR as CHG-003–006 when PR path is available.
