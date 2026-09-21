@@ -14,7 +14,7 @@ meta:
   version: "4.0"
   change_id: CHG-20260913-001
   previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
-  fine_id_count_canonical: 55  # 55 mounts (51+4 P1 PROPOSED; session-pick); reference_only emptied 2026-09-14 (quartet promoted) (session-pick); reference_only emptied 2026-09-14 (quartet promoted)
+  fine_id_count_canonical: 55  # 55 mounts (51+4 P1 PROPOSED; session-pick); reference_only emptied 2026-09-14
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
