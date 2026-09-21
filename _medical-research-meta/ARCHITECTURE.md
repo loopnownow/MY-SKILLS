@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; OpenClaw never atomic mount; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 55 fine** menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; OpenClaw never atomic mount; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
 
 ## Skill selection
 
@@ -67,7 +67,7 @@ Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a f
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
 Backups: ARS / MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. OpenClaw is license-risk-reference-only. Mapping is not a mount.
-Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live `04-figure-engine`. Legacy B path aliases: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power`.
+Registry menu is **10 coarse + 55 fine** (not `mounts: []`). Never auto-mount a non-B source. No live `04-figure-engine`. Legacy B path aliases: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power`.
 
 ## Domain boundaries
 
@@ -91,4 +91,4 @@ Former `archive/` standalones live under domain skills (CHG-20260902-004). The e
 **One task → one entry point.**
 **An A skill path ≤ 4 directories from repo root (`<skill>/<category-or-pack>/<scripts|references|personal>/file`). No `core/`.**
 **User approval is mandatory for mounting or evolution.**
-**Default source B. Backups PROPOSED. 30-id menu. session pick each run.**
+**Default source B. Backups PROPOSED. 10 coarse + 55 fine menu. session pick each run.**

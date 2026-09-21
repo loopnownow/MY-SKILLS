@@ -90,7 +90,7 @@ mounts:
     a_domain: 03_research
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/paper-lookup/
+    stub_in_b: cross-pack/scientific/paper-lookup/
     note: 18 academic APIs; on-demand only
   - id: verify-refs
     label: 引用真实性核验
@@ -131,7 +131,7 @@ mounts:
     status: MOUNTED
     note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
     atomic_package: AIPOCH
-    stustub_in_b: cross-pack/aipoch/retraction-watcher/
+    stub_in_b: cross-pack/aipoch/retraction-watcher/
   - id: nature-academic-search
     label: 严格他引审计
     coarse: 文献检索
@@ -141,7 +141,7 @@ mounts:
     status: PROPOSED
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stustub_in_b: cross-pack/nature/nature-academic-search/
+    stub_in_b: cross-pack/nature/nature-academic-search/
   - id: find-cohort-gap
     label: 队列选题空白发现
     coarse: 选题探索
@@ -167,7 +167,7 @@ mounts:
     a_domain: 03_research
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/hypothesis-generation/
+    stub_in_b: cross-pack/scientific/hypothesis-generation/
   - id: intake-project
     label: 项目启动分类
     coarse: 选题探索
@@ -237,7 +237,7 @@ mounts:
     a_domain: 03_research
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/statistical-power/
+    stub_in_b: cross-pack/scientific/statistical-power/
   - id: write-paper
     label: IMRAD正文起草
     coarse: 正文写作
@@ -263,7 +263,7 @@ mounts:
     status: PROPOSED
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stustub_in_b: cross-pack/nature/nature-data/
+    stub_in_b: cross-pack/nature/nature-data/
   - id: nature-proposal-writer
     label: 基金标书-中文语境QA
     coarse: 正文写作
@@ -273,7 +273,7 @@ mounts:
     status: PROPOSED
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stustub_in_b: cross-pack/nature/nature-proposal-writer/
+    stub_in_b: cross-pack/nature/nature-proposal-writer/
   - id: grant-builder
     label: 基金标书-方法论
     coarse: 正文写作
@@ -299,7 +299,7 @@ mounts:
     a_domain: 05_manuscript
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/venue-templates/
+    stub_in_b: cross-pack/scientific/venue-templates/
   - id: polish-language
     label: 一致性硬规则lint
     coarse: 语言润色
@@ -327,7 +327,7 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     experimental: true
-    stustub_in_b: cross-pack/nature/nature-polishing/
+    stub_in_b: cross-pack/nature/nature-polishing/
   - id: clean-data
     label: 三阶段确认式清洗
     coarse: 数据处理
@@ -353,7 +353,7 @@ mounts:
     a_domain: 02_data-processing
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/exploratory-data-analysis/
+    stub_in_b: cross-pack/scientific/exploratory-data-analysis/
   - id: preprocess-imaging
     label: 预处理设计与泄漏门禁
     coarse: 数据处理
@@ -370,7 +370,7 @@ mounts:
     a_domain: 02_data-processing
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/pydicom/
+    stub_in_b: cross-pack/scientific/pydicom/
   - id: profile-imaging
     label: 训练前数据集画像
     coarse: 数据处理
@@ -414,7 +414,7 @@ mounts:
     a_domain: 04_analysis
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/scikit-survival/
+    stub_in_b: cross-pack/scientific/scikit-survival/
   - id: radiomics-ml
     label: 放射组学建模pipeline审计
     coarse: 统计分析
@@ -483,7 +483,7 @@ mounts:
     a_domain: 06_review
     status: PROPOSED
     atomic_package: Scientific
-    stustub_in_b: cross-pack/scientific/scientific-critical-thinking/
+    stub_in_b: cross-pack/scientific/scientific-critical-thinking/
   - id: revise
     label: 修回分诊与数字血统追踪
     coarse: 审稿回复
@@ -501,7 +501,7 @@ mounts:
     status: MOUNTED
     note: 2026-09-13 promoted after content audit — real 652-line script, tone-only, no overlap with `revise` (structure). Path corrected from stale `skills/response-tone-polisher/`.
     atomic_package: AIPOCH
-    stustub_in_b: cross-pack/aipoch/response-tone-polisher/
+    stub_in_b: cross-pack/aipoch/response-tone-polisher/
 
 
   - id: scientific-visualization
@@ -513,7 +513,7 @@ mounts:
     status: MOUNTED
     atomic_package: Scientific
     note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B fig-plot/external-principles.md."
-    stustub_in_b: 04-analysis/fig-plot/external-principles.md
+    stub_in_b: 04-analysis/fig-plot/external-principles.md
   - id: nature-figure
     label: 审稿人风险预判
     coarse: 图表呈现
@@ -524,7 +524,7 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B fig-plot/external-principles.md."
-    stustub_in_b: 04-analysis/fig-plot/external-principles.md
+    stub_in_b: 04-analysis/fig-plot/external-principles.md
   - id: nature-reviewer
     label: 多审稿人隔离原则
     coarse: 稿件评阅
@@ -535,7 +535,7 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
-    stustub_in_b: 06-review/review-peer/external-principles.md
+    stub_in_b: 06-review/review-peer/external-principles.md
   - id: nature-response
     label: 隔离与正文精简原则
     coarse: 审稿回复
@@ -546,9 +546,7 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
-    stustub_in_b: 06-review/review-response/external-principles.md
-
-reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
+    stub_in_b: 06-review/review-response/external-principles.md
 
   # --- 2026-09-20 P1 candidates (PROPOSED; not auto-mounted) ---
   - id: database-lookup
@@ -587,6 +585,8 @@ reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-0
     status: PROPOSED
     atomic_package: Scientific
     note: "2026-09-20 P1 candidate — full-text / line-pinned evidence; confirm skill folder name on scan."
+
+reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
 
 archived:
   - id: 02-fmri

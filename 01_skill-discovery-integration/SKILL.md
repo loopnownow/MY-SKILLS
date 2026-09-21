@@ -23,7 +23,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 ## Architecture (v4 · CHG-20260913-001)
 
 - **10 coarse ids** = welded stage buckets（文献检索 … 审稿回复）. Not A folder renames.
-- **51 fine ids** = session-pick mount points (51 mounts; reference_only emptied).
+- **55 fine ids** = session-pick mount points (51 mounts; reference_only emptied).
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id.
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.

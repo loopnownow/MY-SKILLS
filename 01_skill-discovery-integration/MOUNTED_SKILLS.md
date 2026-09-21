@@ -6,12 +6,12 @@ Default source: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnowno
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
 Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_flag` until verified.
-**OpenClaw is never an atomic mount source** (reference-only: provenance/license mixed).
+**OpenClaw is never an atomic mount source** (license risk).
 **Every run:** ask which **fine ids** to attach under the relevant coarse buckets (`session_mount: ask-each-run`).
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 51 fine** (51 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
+v4: **10 coarse + 51 fine** (55 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
 Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
 
 ## Session-pick fine ids by coarse bucket
@@ -27,6 +27,8 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
 | `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
 | `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `database-lookup` | 可复现数据库查询 | scientific-agent-skills | `skills/database-lookup/` | PROPOSED |
+| `paperclip` | 全文逐行证据提取 | scientific-agent-skills | `skills/paperclip/` | PROPOSED |
 
 
 ### 选题探索
@@ -63,6 +65,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED |
 | `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
 | `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
+| `model-card` | 模型透明度说明卡 | med-sci-skills | `skills/model-card/` | PROPOSED |
 
 
 ### 语言润色
@@ -85,6 +88,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
 | `profile-imaging` | 训练前数据集画像 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
 | `uncertainty-imaging` | 部署级不确定性量化 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
+| `model-scaffold` | 医学AI模型工程脚手架 | med-sci-skills | `skills/model-scaffold/` | PROPOSED |
 
 
 ### 统计分析
@@ -148,19 +152,6 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 ## Backup candidates
 
 - ARS / MedSci / Scientific / AIPOCH / Nature: `PROPOSED` (Nature license 需核实).
-- OpenClaw: `PROPOSED` · **reference-only** (provenance/license mixed) · never mount as atomic source; mount true upstream if needed.
+- OpenClaw: `PROPOSED` · **license-risk-reference-only** · never mount as atomic source.
 
 Mapping is not a source-wide mount.
-
-## Mounted source freshness
-
-| Source | Last resolve | resolved_commit | cache_status | Notes |
-|---|---|---|---|---|
-| Scientific | 2026-09-20 | `330c8e7` | fresh (hybrid paths) | citation-management / pyzotero / paper-lookup / scientific-critical-thinking / scientific-visualization |
-| MedSci | 2026-09-20 | `55a3f75` | fresh (humanize path) | other MedSci paths still older SHA until ensure |
-| AIPOCH | 2026-09-20 | `686e09d` | fresh (hybrid paths) | retraction-watcher / response-tone-polisher |
-| Nature | 2026-09-20 | `9cecfef` | fresh (hybrid paths) | figure/reviewer/response/ref-verifier/statistics/citation/shared |
-| OpenClaw | — | — | blocked | reference-only — not refreshed |
-| B (capabilities) | local | — | chassis | not force-refreshed this run (hybrid-only) |
-
-Do not treat scan SHA alone as enough; prefer `resolved_commit` + path-level STATE after lifecycle resolve.
