@@ -167,7 +167,7 @@ Evidence handling: `intro-discussion-evidence.md`. Scoring anchors and deduction
 ## Methods — fixed order
 
 1. **Ethics** — subtitle is `Ethics` (never `Ethics: Ethics`).  
-2. **Study design and sample size** — honest split. Estimation **was performed** (post hoc allowed). State **α = 0.05**, **β = 0.20** (power 80%), observed event proportion *p*, required events ≥ 10 per fitted nomogram coefficient, and whether this sample met that threshold. Never write that a calculation “was not performed.” **Never mention a random seed.**  
+2. **Study design and sample size** — honest split. Estimation **was performed** (post hoc allowed). State **α = 0.05**, **β = 0.20** (power 80%), observed event proportion *p*, required events ≥ 10 per fitted nomogram coefficient, and whether this sample met that threshold — **once here**. Do **not** keep re-elaborating sample size / power / adequacy across Abstract, Results, Discussion, Highlights, or Limitations. Patients *n* and group counts appear in Patients / Results tables; do not restack the calculation narrative. Never write that a calculation “was not performed.” **Never mention a random seed.**  
 3. **Patients** — Jinshan default **1 August 2024 to 1 August 2026** (not ADNI). Analyzed *n*. Group counts: `(Stroke, n = 89; non-stroke, n = 187)`, not `(Stroke 89, non_Stroke 187)`. Prefer *patients were analyzed and divided* over *cases were split*. No subject IDs. No “pipeline treated rows as observations.” Do **not** narrate dataset-build / QC filters as eligibility (e.g. *Eligibility required a complete binary outcome label and a complete … feature row*; *Records matching a predefined exclusion list were removed*). Write clinical inclusion/exclusion only; row-completeness and feature-matrix filters stay in the analysis pipeline, not Methods prose. Secondary ADNI / non-Jinshan extracts: say so here or in Limitations, not as a worksheet dump.  
 4. **Inclusion and exclusion** — one paragraph each; inline `follows: (1) x; (2) y; and (3) z`, not a vertical list.  
 5. **Diagnostic and treatment criteria**  
@@ -195,6 +195,11 @@ Do not write `(median 49.00 versus 55.00 years, P = 0.002)`.
 
 **Table 1** = **training versus test** wide table (group columns under each split, with split-wise *P*). This is the main baseline table.  
 Do **not** put the pipeline all-data dump (single-cohort only, no split) as Table 1. A positive-versus-negative all-data table, if kept, is supplementary — not Table 1.
+
+**Decimal places (house):**
+- **Table 1** continuous / percentage cells: **1 or 2** decimal places (pick one depth per variable family and keep it; do not spray 3+ decimals in baseline tables).
+- ***P* values**, **AUC** and AUC-related metrics (95% CI bounds for AUC, DeLong *P*, and the same family), **NRI / IDI**, and **correlation** coefficients (*r* / ρ and their *P*): **3** decimal places (e.g. `P = 0.002`, `AUC of 0.812 (95% CI: 0.745–0.879)`, `NRI = 0.123`).
+- Do not round these 3-decimal metrics down to 2 in prose or tables just for neatness.
 
 **Do not create these tables** (numbers go in Results prose and/or the matching figure):  
 LASSO-feature list · nomogram / clinical logistic-coefficient table · SHAP table · score-correlation table (RadScore × age/group) · mediation (ACME) table.
@@ -262,6 +267,7 @@ One scientific bound, **one place**. Do not restate the same hedge in Highlights
 - Raw pre-stats coding dumps: `Positive = 1, Negative = 0`; `1 = event / 0 = none`; `outcome coded as 0/1` — analysis-dataset only, never manuscript body/Methods/tables footnotes
 - `median [interquartile range]` / `median [IQR]`  
 - “A sample-size calculation was not performed.”  
+- Repeated sample-size / power / adequacy essays outside the single Methods slot  
 - `was not tested` / `未测` / `未完成` (incomplete work → Word comments; never body)
 - “Recorded in the source data but were not included as candidate predictors” (and kin: collected/available but unused) → **Word comment only**, never body
 - `No validation set was available` / `A validation set is required` in the body, Conclusion, or Limitations (comments only)
@@ -322,7 +328,8 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Figure 1 one paragraph; later figures = short title + detailed body paragraph  
 - Images embedded  
 - First Results paragraph has Figure 1 sentence + binary-percentage sentence (period between them)  
-- Table 1 = training vs test wide table; no LASSO / logistic-coeff / SHAP / correlation / mediation tables  
+- Table 1 = training vs test wide table; no LASSO / logistic-coeff / SHAP / correlation / mediation tables
+- Decimals: Table 1 → 1–2 places; *P* / AUC(+CI) / NRI/IDI / correlation → 3 places  
 - No `hold-out`; training = internal fitting; test = internal evaluation; validation set = external cohort only  
 - No results.html / QC / STROBE path footers  
 - Highlights do not advertise a missing validation set  
@@ -332,7 +339,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Missing products / unused recorded variables: Word comment only, not body `not generated` / `not included`
 - Intro last paragraph and Discussion first paragraph: no citations  
 - Methods: no `[n]`; no seed; `Python 3.13`  
-- Sample size: α, β, *p*, *n*, adequacy  
+- Sample size: α, β, *p*, *n*, adequacy — once in Methods; do not re-elaborate elsewhere  
 - Discussion / Conclusion: no result numbers  
 - Limitations own paragraph; no disclaimer closer  
 - No disclaimer / no repeated hedge  

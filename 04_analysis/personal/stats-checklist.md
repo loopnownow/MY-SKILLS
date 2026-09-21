@@ -10,6 +10,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] All P values reported as exact values when ≤ 0.05 (e.g., P = 0.002), and as comparison when > 0.05 (e.g., P = 0.12 or P > 0.05)
 - [ ] P is italicized: *P* (adjust per journal house style)
 - [ ] All CIs reported as 95% CI: X–X (en-dash, no spaces around dash)
+- [ ] **Decimals:** Table 1 continuous/% cells → **1 or 2** places; *P*, AUC (+ 95% CI bounds), NRI/IDI, correlation (*r*/ρ and their *P*) → **3** places
 - [ ] All AUCs reported with 95% CI in parentheses
 - [ ] Sensitivity, specificity, NPV, PPV all reported as percentages with 1 decimal place
 - [ ] Effect sizes reported (OR, HR, RR) with 95% CI when applicable
