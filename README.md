@@ -43,3 +43,15 @@ A = framework + personal. B = default mounted source. Registry (v4, `01_skill-di
 This GitHub repo is the source of truth. Updates land here when requested; no local-folder scan.
 
 Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
+
+## Cache ≠ Mount ≠ Active · Registry = index
+
+| Term | Meaning |
+|---|---|
+| **Cache** | `mounts-cap/<pack>/` on-disk bytes (gitignored pack trees) |
+| **Mount** | Session fine-id pick (registry pointer) |
+| **Active** | Loaded into the agent this run |
+| **Registry** | Index only (`01_skill-discovery-integration/registry.yaml`) |
+
+External skill entity SSOT = cache. B `cross-pack/` stubs are pointers. **52 fine ids** is the v4 ceiling (merge/sub-capability preferred over new fine ids). Optional `load_priority: P0|P1|P2` is YAML metadata only.
+

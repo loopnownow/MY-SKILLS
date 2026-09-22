@@ -15,6 +15,15 @@ meta:
   change_id: CHG-20260913-001
   previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
   fine_id_count_canonical: 52  # session-pick mounts; reference_only empty
+  fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
+  load_priority_scheme: >
+    Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
+    P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
+    P1 common mounts (verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot,
+    peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …).
+    P2 niche / PROPOSED / specialty.
+    Registry indexes → cache (mounts-cap/<atomic_package>/) is SSOT for external skill bytes;
+    stub_in_b is pointer-only (cross-pack/… or external-principles.md), never a second entity tree.
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -89,6 +98,7 @@ mounts:
     path: skills/paper-lookup/
     a_domain: 03_research
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/paper-lookup/
     note: 18 academic APIs; on-demand only
@@ -99,6 +109,7 @@ mounts:
     path: skills/citation-management/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: Scientific
     path_shared: true
     note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against OpenClaw and B. Confirmed MIT (LICENSE.md present).
@@ -109,6 +120,7 @@ mounts:
     path: skills/citation-management/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: Scientific
     path_shared: true
     note: 2026-09-13 swapped from thin B lit-cite to Scientific citation-management (bibtex_formatting.md + format_bibtex.py); shares folder with verify-refs.
@@ -119,6 +131,7 @@ mounts:
     path: skills/pyzotero/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: Scientific
     path_shared: true
     note: 2026-09-13 swapped from thin B lit-cite to Scientific pyzotero (154-line SKILL.md, real Zotero API — auth/read/full-text/exports/saved-searches), the actual Zotero-sync content this label was always meant to cover.
@@ -129,6 +142,7 @@ mounts:
     path: scientific-skills/Evidence Insight/retraction-watcher/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
     atomic_package: AIPOCH
     stub_in_b: cross-pack/aipoch/retraction-watcher/
@@ -139,6 +153,7 @@ mounts:
     path: skills/nature-academic-search/
     a_domain: 03_research
     status: PROPOSED
+    load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     stub_in_b: cross-pack/nature/nature-academic-search/
@@ -149,6 +164,7 @@ mounts:
     path: 03-research/lit-search/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22."
   - id: find-cohort-gap
@@ -158,6 +174,7 @@ mounts:
     path: 03-research/frontier-ideate/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
   - id: ma-scout
     label: MA选题可行性
@@ -166,6 +183,7 @@ mounts:
     path: 03-research/lit-review/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
     note: from archived 03-lit-review core
   - id: frontier-hypothesize
@@ -175,6 +193,7 @@ mounts:
     path: 03-research/frontier-hypothesize/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "Chosen over PROPOSED hypothesis-generation (2026-09-22). Question template lives in this B folder."
   - id: intake-project
@@ -184,6 +203,7 @@ mounts:
     path: 03-research/intake-project/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
     note: new mount from B_updates
   - id: design-study
@@ -193,6 +213,7 @@ mounts:
     path: 03-research/design-experiment/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: design-ai-benchmarking
     label: AI专家评估设计
@@ -201,6 +222,7 @@ mounts:
     path: 03-research/design-ai-benchmarking/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
     note: new mount
   - id: architecture-zoo
@@ -210,6 +232,7 @@ mounts:
     path: 03-research/architecture-zoo/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
     note: new mount
   - id: write-protocol
@@ -219,6 +242,7 @@ mounts:
     path: 03-research/design-protocol/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: fill-protocol
     label: IRB方案填表
@@ -227,6 +251,7 @@ mounts:
     path: 03-research/fill-protocol/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P2
     atomic_package: MedSci
     note: "MedSci Word-template filler (pairs with write-protocol). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: calc-sample-size
@@ -236,6 +261,7 @@ mounts:
     path: 04-analysis/stats-power/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "open_decision: default 研究设计; B path still stats-power; A 选刊 stays 03"
   - id: statistical-power
@@ -245,6 +271,7 @@ mounts:
     path: skills/statistical-power/
     a_domain: 03_research
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/statistical-power/
   - id: write-paper
@@ -254,6 +281,7 @@ mounts:
     path: 05-manuscript/write-manuscript/
     a_domain: 05_manuscript
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: check-reporting
     label: 报告规范核验
@@ -262,6 +290,7 @@ mounts:
     path: 05-manuscript/write-reporting/
     a_domain: 05_manuscript
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: nature-data
     label: 数据可用性声明
@@ -270,6 +299,7 @@ mounts:
     path: skills/nature-data/
     a_domain: 05_manuscript
     status: PROPOSED
+    load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     stub_in_b: cross-pack/nature/nature-data/
@@ -280,6 +310,7 @@ mounts:
     path: skills/nature-proposal-writer/
     a_domain: 05_manuscript
     status: PROPOSED
+    load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     stub_in_b: cross-pack/nature/nature-proposal-writer/
@@ -290,6 +321,7 @@ mounts:
     path: 03-research/design-grant/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: find-journal
     label: 选刊推荐
@@ -298,6 +330,7 @@ mounts:
     path: 05-manuscript/write-venue/
     a_domain: 03_research
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: 引擎在 B write-venue; 选刊个人层仍 Victor/03_research/medical-journal-submit — do NOT move to 05
   - id: venue-templates
@@ -307,6 +340,7 @@ mounts:
     path: skills/venue-templates/
     a_domain: 05_manuscript
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/venue-templates/
   - id: polish-language
@@ -316,6 +350,7 @@ mounts:
     path: 05-manuscript/write-polish/
     a_domain: 05_manuscript
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: humanize
     label: 去AI味
@@ -324,6 +359,7 @@ mounts:
     path: skills/humanize/
     a_domain: 05_manuscript
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: MedSci-only interface; personal de-AI stays A 05_manuscript/personal
   - id: nature-polishing
@@ -333,6 +369,7 @@ mounts:
     path: skills/nature-polishing/
     a_domain: 05_manuscript
     status: PROPOSED
+    load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     experimental: true
@@ -344,6 +381,7 @@ mounts:
     path: 02-data-processing/tables/
     a_domain: 02_data-processing
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: batch-cohort
     label: 批量队列分析生成
@@ -352,6 +390,7 @@ mounts:
     path: 02-data-processing/tables/
     a_domain: 02_data-processing
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     path_shared: true
   - id: exploratory-data-analysis
@@ -361,6 +400,7 @@ mounts:
     path: skills/exploratory-data-analysis/
     a_domain: 02_data-processing
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/exploratory-data-analysis/
   - id: imaging-io
@@ -370,6 +410,7 @@ mounts:
     path: 02-data-processing/imaging-io/
     a_domain: 02_data-processing
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED pydicom."
   - id: preprocess-imaging
@@ -379,6 +420,7 @@ mounts:
     path: 02-data-processing/imaging-qc/
     a_domain: 02_data-processing
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
   - id: pydicom
@@ -388,6 +430,7 @@ mounts:
     path: skills/pydicom/
     a_domain: 02_data-processing
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/pydicom/
   - id: analyze-stats
@@ -397,6 +440,7 @@ mounts:
     path: 04-analysis/stats-guide/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: meta-analysis
     label: Meta分析抗数据操纵
@@ -405,6 +449,7 @@ mounts:
     path: 04-analysis/stats-models/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: scikit-survival
     label: 生存分析leakage-safe管道
@@ -413,6 +458,7 @@ mounts:
     path: skills/scikit-survival/
     a_domain: 04_analysis
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/scikit-survival/
   - id: radiomics-ml
@@ -422,6 +468,7 @@ mounts:
     path: 02-data-processing/radiomics-habitat/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: model-evaluation
     label: 模型-任务正确指标选择
@@ -430,6 +477,7 @@ mounts:
     path: 04-analysis/model-eval/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: model-validation
     label: 模型-确定性泄漏门禁
@@ -438,6 +486,7 @@ mounts:
     path: 04-analysis/model-eval/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     path_shared: true
   - id: make-figures
@@ -447,6 +496,7 @@ mounts:
     path: 04-analysis/fig-flow/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: STROBE / patient-flow only. Statistical plots are fine id fig-plot.
   - id: fig-plot
@@ -456,6 +506,7 @@ mounts:
     path: 04-analysis/fig-plot/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: "2026-09-22. Distinct from make-figures (fig-flow)."
   - id: peer-review-pdf-scan
@@ -465,6 +516,7 @@ mounts:
     path: 06-review/review-peer/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     note: peer-review Phase1.5
   - id: peer-review
@@ -474,6 +526,7 @@ mounts:
     path: 06-review/review-peer/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
     path_shared: true
   - id: self-review
@@ -483,6 +536,7 @@ mounts:
     path: 06-review/review-critique/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: scientific-critical-thinking
     label: 证据质量评估
@@ -491,6 +545,7 @@ mounts:
     path: skills/scientific-critical-thinking/
     a_domain: 06_review
     status: PROPOSED
+    load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/scientific-critical-thinking/
   - id: revise
@@ -500,6 +555,7 @@ mounts:
     path: 06-review/review-response/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: MedSci
   - id: response-tone-polisher
     label: 回复语气软化
@@ -508,6 +564,7 @@ mounts:
     path: scientific-skills/Academic Writing/response-tone-polisher/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     note: 2026-09-13 promoted after content audit — real 652-line script, tone-only, no overlap with `revise` (structure). Path corrected from stale `skills/response-tone-polisher/`.
     atomic_package: AIPOCH
     stub_in_b: cross-pack/aipoch/response-tone-polisher/
@@ -520,6 +577,7 @@ mounts:
     path: skills/scientific-visualization/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: Scientific
     note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B fig-plot/external-principles.md."
     stub_in_b: 04-analysis/fig-plot/external-principles.md
@@ -530,6 +588,7 @@ mounts:
     path: skills/nature-figure/
     a_domain: 04_analysis
     status: MOUNTED
+    load_priority: P1
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B fig-plot/external-principles.md."
@@ -541,6 +600,7 @@ mounts:
     path: skills/nature-reviewer/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
@@ -552,6 +612,7 @@ mounts:
     path: skills/nature-response/
     a_domain: 06_review
     status: MOUNTED
+    load_priority: P1
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."

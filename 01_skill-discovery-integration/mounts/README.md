@@ -29,3 +29,17 @@
 - **下载 ≠ 挂载；更新缓存 ≠ 改变挂载配方；新增 skill ≠ 自动进 registry。**
 - OpenClaw = reference-only（provenance/license mixed），never atomic.
 - Recipes: `presets.md` (`review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`).
+
+## Cache ≠ Mount ≠ Active
+
+| | |
+|---|---|
+| Cache | `mounts-cap/<pack>/` bytes |
+| Mount | registry fine-id session pick |
+| Active | loaded this run |
+| Registry | **index only** — external entity SSOT is cache; `stub_in_b` is pointer-only |
+
+**52 fine-id ceiling.** New capability → merge / sub-capability / same source-path — not a new fine id.
+
+**load_priority:** optional `P0|P1|P2` on registry fine ids (YAML only; no priority directories). P1 = common; P2 = niche/PROPOSED; P0 reserved.
+

@@ -43,4 +43,4 @@ After confirmed 备选, deliver **one short HTML table per paper** (not a long �
 
 APC / deep AIM notes may still be researched for agent use (`Live lookups` above) or a separate note if the user asks — they are **not** columns in the short user HTML.
 
-Persist portal submission URLs to `references/submission-urls.csv` only. Prefer dependency-free HTML craft (`00_orchestrator/references/html-visual-design.md` when present).
+Persist portal submission URLs to `data/2026/submission-urls.csv` only. Prefer dependency-free HTML craft (`00_orchestrator/references/html-visual-design.md` when present).

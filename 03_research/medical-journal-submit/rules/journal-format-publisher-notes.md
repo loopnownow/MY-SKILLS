@@ -1,4 +1,4 @@
-> Moved from `references/journal-format-publisher-notes.md` (depth ≤4).
+> Moved from `rules/journal-format-publisher-notes.md` (depth ≤4).
 
 # Publisher-specific notes
 

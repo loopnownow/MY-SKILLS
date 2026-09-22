@@ -52,6 +52,36 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - Archived from v4 menus: `02-fmri`, `02-pictures`, `03-lit-fulltext`, `04-explainability`, etc. (see registry `archived:`).
 
 
+
+## Fine-id expansion ceiling (v4)
+
+**52 fine ids is the v4 expansion ceiling.** Do not create new fine ids for new capabilities by default.
+
+Default path for a new capability:
+
+1. **Merge** into an existing fine id (same coarse bucket / same atomic skill folder), or
+2. Add a **sub-capability** / notes under that fine id’s source path, or
+3. Reuse the **same source-path** already indexed by the registry.
+
+Opening a 53rd fine id requires explicit architecture review (not Batch default).
+
+## Cache ≠ Mount ≠ Active
+
+| Concept | Meaning |
+|---|---|
+| **Cache** | Bytes on disk under `mounts-cap/<pack>/` (gitignored pack trees). Download/fetch only. |
+| **Mount** | Registry fine-id pick for this session (`ask-each-run`). Pointers live in `01_skill-discovery-integration`. |
+| **Active** | Actually loaded into the agent context this run. |
+| **Registry** | Index only — not the skill body. External entity SSOT is the cache (`mounts-cap/<atomic_package>/…`). `stub_in_b` is pointer-only. |
+
+## load_priority (YAML metadata only)
+
+Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 directories.**
+
+- **P0** — reserved for rare always-on mounts (chassis is `00`–`06`, not fine ids).
+- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
+- **P2** — niche / PROPOSED / specialty.
+
 ## Routing rules
 
 - Literature research → `03_research` only.

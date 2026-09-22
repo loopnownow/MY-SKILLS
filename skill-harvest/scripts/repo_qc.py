@@ -37,6 +37,25 @@ def files(root: Path):
             yield p
 
 
+
+def check_tracked_pycache(root: Path, out: list):
+    """FAIL if git tracks __pycache__/ or *.pyc (runtime junk). Light guard."""
+    try:
+        proc = subprocess.run(
+            ["git", "-C", str(root), "ls-files"],
+            text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
+        )
+        tracked = proc.stdout.splitlines() if proc.returncode == 0 else []
+    except Exception as e:
+        out.append(("SKIP", "tracked-pycache", f"git ls-files unavailable: {e}"))
+        return
+    bad = [p for p in tracked if "__pycache__" in p.replace("\\", "/") or p.endswith(".pyc")]
+    out.append(
+        ("FAIL" if bad else "PASS", "tracked-pycache",
+         f"tracked runtime junk: {bad[:20]}" if bad else "no tracked __pycache__/ or *.pyc")
+    )
+
+
 def check_structure(root: Path, out: list):
     dirs = {p.name for p in root.iterdir() if p.is_dir()}
     missing = [str(p) for p in REQUIRED if not (root / p).is_file()]
@@ -58,16 +77,32 @@ def check_frontmatter(root: Path, out: list):
     out.append(("FAIL" if bad else "PASS", "frontmatter", f"invalid: {bad}" if bad else "all top-level SKILL.md files have frontmatter name/description"))
 
 
+def _depth_exempt(rel: Path) -> bool:
+    """Allow annual journal datasets: 03_research/medical-journal-submit/data/<YYYY>/file."""
+    parts = rel.parts
+    if (
+        len(parts) == 5
+        and parts[0] == "03_research"
+        and parts[1] == "medical-journal-submit"
+        and parts[2] == "data"
+        and parts[3].isdigit()
+        and len(parts[3]) == 4
+    ):
+        return True
+    return False
+
+
 def check_depth(root: Path, out: list):
     bad = []
     for skill in TOP:
         base = root / skill
         for p in base.rglob("*"):
             if p.is_file() and ".git" not in p.parts and "__pycache__" not in p.parts:
-                n = len(p.relative_to(root).parts)
-                if n > 4:
-                    bad.append(str(p.relative_to(root)))
-    out.append(("FAIL" if bad else "PASS", "depth", f"paths deeper than 4: {bad[:20]}" if bad else "all 00–06/harvest paths are <= 4 components"))
+                rel = p.relative_to(root)
+                n = len(rel.parts)
+                if n > 4 and not _depth_exempt(rel):
+                    bad.append(str(rel))
+    out.append(("FAIL" if bad else "PASS", "depth", f"paths deeper than 4: {bad[:20]}" if bad else "all 00–06/harvest paths are <= 4 components (data/<YYYY>/ exempt)"))
 
 
 def check_links(root: Path, out: list):
@@ -182,6 +217,7 @@ def main():
     capabilities = Path(args.capabilities).resolve() if args.capabilities else None
     results = []
     check_structure(root, results)
+    check_tracked_pycache(root, results)
     check_frontmatter(root, results)
     check_depth(root, results)
     check_links(root, results)

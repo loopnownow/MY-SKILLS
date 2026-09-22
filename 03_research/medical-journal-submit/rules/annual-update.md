@@ -5,22 +5,24 @@ Trigger phrases: 更新JCR, 新的影响因子表, 换2027表, 重建推荐库.
 ## What the user should send
 
 1. New raw workbook, same role as raw rebuild input `JCR20XX影响因子.xlsx` (do not keep in this pack after rebuild).
-2. Whether blacklist / layers / 默认每层10本（层2/3/4）；层2补可选 changed. If they say nothing, keep `references/policy.md`.
+2. Whether blacklist / layers / 默认每层10本（层2/3/4）；层2补可选 changed. If they say nothing, keep `rules/policy.md`.
 
 ## What to rebuild
 
-Derived only. Do not hand-edit 22k rows.
+Derived only. Do not hand-edit 22k rows. **SSOT folder:** `data/<YEAR>/` (current: `data/2026/`).
 
-- `artifacts/医学投稿推荐_JCR20XX.xlsx`
-- layer CSVs in this `references/` folder (yearly **screening cache**)
+- `data/<YEAR>/医学投稿推荐_JCR20XX.xlsx`
+- layer CSVs in `data/<YEAR>/` (yearly **screening cache**)
 - `category-index.csv`, `full-pool.csv`
-- `artifacts/黑名单_默认挂载.csv` (names stay; metrics may change)
+- `blacklist-names.csv` (names stay; metrics may change)
 
 Rebuild curated xlsx + layer CSVs from the raw workbook, then **discard** the raw Clarivate file from this pack (user keeps a private copy if needed). Keep the curated xlsx + derived CSVs.
 
+When the year rolls (e.g. 2027), create `data/2027/`, point SKILL paths there, and keep or archive prior year under `data/2026/` as historical SSOT.
+
 ## Never merge yearly metrics into URL persist
 
-- Do **not** merge JIF, JCR/JCI quartile, or annual volume into `references/submission-urls.csv`.
+- Do **not** merge JIF, JCR/JCI quartile, or annual volume into `data/2026/submission-urls.csv`.
 - Layer CSVs may hold those fields as screening cache; reports may **display** them at run time; durable delivery persist for portals stays URL-only (`persistence.md`).
 - Skill text (`SKILL.md`, `policy.md`) must **not** hardcode IF lists, article counts, or APC numbers.
 
@@ -41,7 +43,7 @@ If headers differ, map them. Do not assume the year is still labeled 2025 JIF.
 - Blacklist titles absent from layer CSVs.
 - SKILL.md `metadata.source_table` and data-year wording updated.
 - `policy.md` untouched unless the user changed rules.
-- `references/submission-urls.csv` still has URL fields only (no IF/quartile/volume columns).
+- `data/2026/submission-urls.csv` still has URL fields only (no IF/quartile/volume columns).
 
 ## What not to bake into SKILL.md
 

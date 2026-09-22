@@ -19,6 +19,32 @@ This file records the current architecture, not the historical export tree.
 
 Historical export paths are intentionally not retained in the active map.
 
+## CHG-20260922-006 — Architecture Batch 1 (cache / pointer / priority / 选刊 split)
+
+```text
+change_id: CHG-20260922-006
+date: 2026-09-22
+skill: 01 + 03 medical-journal-submit + mounts-cap docs (+ companion B cross-pack)
+change_class: architecture
+problem: Runtime pycache noise; cross-pack MODULE bodies duplicated external pack entities;
+52 fine-id menu risked unbounded growth; no load_priority metadata; 选刊 mixed annual CSV/XLSX
+with policy md under references/ and byte-identical artifacts/ copies.
+change: (1) Remove __pycache__/*.pyc; gitignore + repo_qc FAIL if tracked. (2) Document
+Cache≠Mount≠Active and Registry=index; stub_in_b is pointer-only; entity SSOT mounts-cap/<pack>/.
+(3) Write 52 fine-id expansion ceiling into ARCHITECTURE.md / meta / 01 SKILL — default new
+capability = merge / sub-capability / same source-path. (4) Optional load_priority P0|P1|P2 on
+registry fine ids (YAML only; no priority dirs); Batch1 assigns P1 common / P2 niche|PROPOSED
+(no P0). (5) 选刊: datasets → data/2026/ SSOT; rules → rules/; delete artifacts duplicates and
+byte-identical secondary-journals/priority-journals aliases; depth exempt data/<YYYY>/.
+(6) Companion B PR pointerizes cross-pack/{scientific,nature,aipoch}/* (14 folders).
+expected_benefit: Single entity SSOT for external skills; clearer mount semantics; bounded menu;
+lighter B stubs; 选刊 logic vs data split.
+boundary_effect: No new fine ids. No Gate HARD/QUALITY class metadata. skill-harvest SKILL slim
+and 00 boundary hardening frozen. Do not robocopy/MIR mounts-cap.
+decision: open PRs; do not merge until user 合并
+next_action: parent/user review then merge A then B; re-fetch mounts-cap as needed
+```
+
 ## Swap 2026-08-25 (user)
 
 Replaced live `~\.grok\skills` with `skills-lean-v6.zip`. Pre-v6 tree archived at `D:\0Grok\0RAD\0scripts\skills_live_v1.3.1_20260825.zip`. Runtime XSD zip + extract: `D:\0Grok\0RAD\0scripts\skills-runtime-assets-v3.zip` and `D:\0Grok\0RAD\0scripts\runtime-assets\`.
@@ -564,7 +590,7 @@ skill: 03_research/medical-journal-submit
 author: Aitor
 change_class: capability
 problem: User provided medical-journal-submit zip (JCR2026 curated荐刊); agreed A/03 Victor home; keep curated xlsx not raw Clarivate; fix B write-venue journal-selection.md mis-home; AGENTS.md must follow SKILL/policy.
-change: Add A 03_research/medical-journal-submit (SKILL+AGENTS+references+artifacts/医学投稿推荐_JCR2026.xlsx). Wire literature/journal-selection + 03 SKILL/intake. Companion B PR deletes write-venue/journal-selection.md and points to A pack.
+change: Add A 03_research/medical-journal-submit (SKILL+AGENTS+references+data/2026/医学投稿推荐_JCR2026.xlsx). Wire literature/journal-selection + 03 SKILL/intake. Companion B PR deletes write-venue/journal-selection.md and points to A pack.
 decision: keep
 next_action: user reviews PRs; do not merge until named
 ```

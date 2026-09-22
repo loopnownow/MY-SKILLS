@@ -2,7 +2,7 @@
 
 Journals the lab does **not recommend** for new submissions when better options exist, but that are not hard-banned.
 
-- Files: `graylist.csv` / `graylist-names.csv` (copy: `artifacts/灰名单_不推荐.csv`)
+- Files (SSOT): `data/2026/graylist.csv` / `data/2026/graylist-names.csv`
 - Tier order: **blacklist** (never) → **graylist** (prefer alternatives) → normal pool → **whitelist-submitted** boost → **BMC/Medicine** pattern boost
 
 ## Pattern: Frontiers 系列 (always gray)

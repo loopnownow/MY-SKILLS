@@ -36,7 +36,7 @@ Optional front door: **external candidate pool** (query mount) → then Difficul
 
 ## 1. sci-metrics-retriever
 
-Pull annual_publications, acceptance_rate, review_rate / desk_reject_rate, jif_percentile, jci_quartile, sub_pub_ratio from **primary** OpenAlex, Crossref, Europe PMC, journal/publisher sites, and Clarivate JCR (when licensed). LetPub and GitHub helpers are **auxiliary** query sources — not fixed dependencies (`query-sources.md`). Feeds **JDI** and **JCI-C**. Runtime only for yearly metrics — do not persist IF/quartile/volume into `references/submission-urls.csv`.
+Pull annual_publications, acceptance_rate, review_rate / desk_reject_rate, jif_percentile, jci_quartile, sub_pub_ratio from **primary** OpenAlex, Crossref, Europe PMC, journal/publisher sites, and Clarivate JCR (when licensed). LetPub and GitHub helpers are **auxiliary** query sources — not fixed dependencies (`query-sources.md`). Feeds **JDI** and **JCI-C**. Runtime only for yearly metrics — do not persist IF/quartile/volume into `data/2026/submission-urls.csv`.
 
 Each pulled value should carry Evidence/Confidence: `value | source | retrieval_date | confidence`.
 
@@ -65,7 +65,7 @@ Emit confidence when approximating. Do **not** copy external Fit Score fixed wei
 
 ## 4. submission-prior-logger
 
-Append `[manuscript_type, target_journal, outcome, date, notes]` to `references/submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and personal `P(Accept)`. No IF/quartile fields on log lines.
+Append `[manuscript_type, target_journal, outcome, date, notes]` to `data/2026/submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and personal `P(Accept)`. No IF/quartile fields on log lines.
 
 ## Risk module (04)
 

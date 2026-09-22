@@ -23,3 +23,13 @@ Do not vendor unpublished texts, PHI, HIS credentials, or 0RAD trees.
 ## Sync warning (local A)
 
 Never robocopy /MIR or git clean -xfd the whole skills tree onto mounts-cap/ — pack dirs (b/, scientific/, …) and STATE.yaml are gitignored and will be deleted. Sync A sources excluding mounts-cap pack trees, or restore via python mounts-cap/fetch.py ensure-b.
+
+## Cache ≠ Mount ≠ Active · Registry = index
+
+- **Cache** = this directory (`mounts-cap/<pack>/`). External skill **bytes** live here (SSOT for Scientific / Nature / AIPOCH / MedSci / …).
+- **Mount** = a fine id chosen for the session in `01_skill-discovery-integration/registry.yaml`.
+- **Active** = bytes actually loaded into context this run.
+- **Registry** indexes paths; it does not store skill bodies. B `stub_in_b` / `cross-pack/` entries are **pointers** into this cache — do not duplicate full entity trees there.
+
+Download / `fetch.py ensure` is **not** a mount and does **not** make a skill Active.
+

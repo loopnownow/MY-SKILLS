@@ -39,6 +39,28 @@ Nature fine ids stay PROPOSED until license verified; do not claim MOUNTED if by
 
 **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms.
 
+
+## Fine-id expansion ceiling
+
+**52 fine ids** (`fine_id_count_canonical`) is the **v4 expansion ceiling**. Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves.
+
+## load_priority (optional YAML)
+
+Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** P0/P1/P2 folders).
+
+| Level | Meaning |
+|---|---|
+| P0 | Rare always-on mounts (chassis is 00–06; usually unused on fine ids) |
+| P1 | Common mounts (verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …) |
+| P2 | Niche / PROPOSED / specialty |
+
+## Cache ≠ Mount ≠ Active · Registry = index
+
+- **Cache:** `mounts-cap/<pack>/` bytes (SSOT for external packs).
+- **Mount:** session fine-id pick recorded against registry pointers.
+- **Active:** loaded this run.
+- **Registry:** index only. For hybrid external skills, entity lives in cache; `stub_in_b` (`cross-pack/…` or `external-principles.md`) is a **pointer**, not a second full tree.
+
 ## Local cache (`mounts-cap/`)
 
 Bytes live at repo-root `mounts-cap/` (gitignored pack trees). Pointers stay in this skill.
