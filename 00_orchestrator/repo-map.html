@@ -39,8 +39,8 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
 <body>
 <header>
   <h1>MY-SKILLS — repo map</h1>
-  <div class="meta">Generated 2026-09-14 11:15 from registry.yaml v4.0
-    (10 coarse · 51 fine) —
+  <div class="meta">Generated 2026-09-22 10:40 from registry.yaml v4.0
+    (10 coarse · 52 fine) —
     read-only index, not a recommendation artifact. Regenerate with
     <code>00_orchestrator/scripts/gen_repo_map.py</code> after editing registry.yaml.</div>
 </header>
@@ -86,7 +86,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
   
       <section class="coarse">
         <h2>文献检索</h2>
-        <div class="domain">a_domain:  · 6 fine ids</div>
+        <div class="domain">a_domain:  · 7 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="paper-lookup 广度检索 scientific-agent-skills skills/paper-lookup/ proposed">
           <div class="id">paper-lookup</div>
@@ -123,6 +123,12 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">严格他引审计</div>
           <div class="row"><span>nature-skills</span>
             <span class="status proposed">PROPOSED</span></div>
+        </div>
+        <div class="card" data-blob="lit-search 文献检索与公开数据集 my-skills-capabilities 03-research/lit-search/ mounted">
+          <div class="id">lit-search</div>
+          <div class="label">文献检索与公开数据集</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
         </div></div>
       </section>
       <section class="coarse">
@@ -141,11 +147,11 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
         </div>
-        <div class="card" data-blob="hypothesis-generation 假设形成防harking scientific-agent-skills skills/hypothesis-generation/ proposed">
-          <div class="id">hypothesis-generation</div>
-          <div class="label">假设形成防HARKing</div>
-          <div class="row"><span>scientific-agent-skills</span>
-            <span class="status proposed">PROPOSED</span></div>
+        <div class="card" data-blob="frontier-hypothesize 假设形成 my-skills-capabilities 03-research/frontier-hypothesize/ mounted">
+          <div class="id">frontier-hypothesize</div>
+          <div class="label">假设形成</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
         </div>
         <div class="card" data-blob="intake-project 项目启动分类 my-skills-capabilities 03-research/intake-project/ mounted">
           <div class="id">intake-project</div>
@@ -273,7 +279,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>数据处理</h2>
-        <div class="domain">a_domain:  · 7 fine ids</div>
+        <div class="domain">a_domain:  · 6 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="clean-data 三阶段确认式清洗 my-skills-capabilities 02-data-processing/tables/ mounted">
           <div class="id">clean-data</div>
@@ -293,9 +299,15 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="row"><span>scientific-agent-skills</span>
             <span class="status proposed">PROPOSED</span></div>
         </div>
-        <div class="card" data-blob="preprocess-imaging 预处理设计与泄漏门禁 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
+        <div class="card" data-blob="imaging-io ct/mri dicom与nifti读写 my-skills-capabilities 02-data-processing/imaging-io/ mounted">
+          <div class="id">imaging-io</div>
+          <div class="label">CT/MRI DICOM与NIfTI读写</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="preprocess-imaging roi与读者质控 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
           <div class="id">preprocess-imaging</div>
-          <div class="label">预处理设计与泄漏门禁</div>
+          <div class="label">ROI与读者质控</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
         </div>
@@ -304,18 +316,6 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">DICOM底层与匿名化审计</div>
           <div class="row"><span>scientific-agent-skills</span>
             <span class="status proposed">PROPOSED</span></div>
-        </div>
-        <div class="card" data-blob="profile-imaging 训练前数据集画像 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
-          <div class="id">profile-imaging</div>
-          <div class="label">训练前数据集画像</div>
-          <div class="row"><span>my-skills-capabilities</span>
-            <span class="status mounted">MOUNTED</span></div>
-        </div>
-        <div class="card" data-blob="uncertainty-imaging 部署级不确定性量化 my-skills-capabilities 02-data-processing/imaging-qc/ mounted">
-          <div class="id">uncertainty-imaging</div>
-          <div class="label">部署级不确定性量化</div>
-          <div class="row"><span>my-skills-capabilities</span>
-            <span class="status mounted">MOUNTED</span></div>
         </div></div>
       </section>
       <section class="coarse">
@@ -361,11 +361,17 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>图表呈现</h2>
-        <div class="domain">a_domain:  · 3 fine ids</div>
+        <div class="domain">a_domain:  · 4 fine ids</div>
         <div class="grid">
-        <div class="card" data-blob="make-figures 报告规范流程图与期刊配图 my-skills-capabilities 04-analysis/fig-flow/ mounted">
+        <div class="card" data-blob="make-figures 患者流程图 my-skills-capabilities 04-analysis/fig-flow/ mounted">
           <div class="id">make-figures</div>
-          <div class="label">报告规范流程图与期刊配图</div>
+          <div class="label">患者流程图</div>
+          <div class="row"><span>my-skills-capabilities</span>
+            <span class="status mounted">MOUNTED</span></div>
+        </div>
+        <div class="card" data-blob="fig-plot 统计图与影像面板 my-skills-capabilities 04-analysis/fig-plot/ mounted">
+          <div class="id">fig-plot</div>
+          <div class="label">统计图与影像面板</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
         </div>

@@ -111,23 +111,16 @@ skills:
     a_hook: 02_data-processing
     label: 批量队列分析生成
     path_shared: true
+  - id: imaging-io
+    path: 02-data-processing/imaging-io/
+    coarse: 数据处理
+    a_hook: 02_data-processing
+    label: CT/MRI DICOM与NIfTI读写
   - id: preprocess-imaging
     path: 02-data-processing/imaging-qc/
     coarse: 数据处理
     a_hook: 02_data-processing
-    label: 预处理设计与泄漏门禁
-  - id: profile-imaging
-    path: 02-data-processing/imaging-qc/
-    coarse: 数据处理
-    a_hook: 02_data-processing
-    label: 训练前数据集画像
-    path_shared: true
-  - id: uncertainty-imaging
-    path: 02-data-processing/imaging-qc/
-    coarse: 数据处理
-    a_hook: 02_data-processing
-    label: 部署级不确定性量化
-    path_shared: true
+    label: ROI与读者质控
   - id: analyze-stats
     path: 04-analysis/stats-guide/
     coarse: 统计分析
@@ -158,7 +151,7 @@ skills:
     path: 04-analysis/fig-flow/
     coarse: 图表呈现
     a_hook: 04_analysis
-    label: 报告规范流程图与期刊配图
+    label: 患者流程图
   - id: peer-review-pdf-scan
     path: 06-review/review-peer/
     coarse: 稿件评阅

@@ -55,7 +55,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
   time-dependent ROC / competing risks are journal-grade, not lab defaults.
 - Planning: **sample size** for accuracy / AUC; **EPV** and **Riley** minimum sample size
   for prediction models.
-- Clinical selection: manual `FORCE_MODEL_FEATURES` only (2026-09-12).
+- Clinical selection: non-empty `FORCE_MODEL_FEATURES` wins. Empty list uses candidate-pool multivariate p < `ROC_MV_P_THRESHOLD` (confirmed 2026-09-22). AIC stepwise is report-only.
 
 ## When to open extra files
 

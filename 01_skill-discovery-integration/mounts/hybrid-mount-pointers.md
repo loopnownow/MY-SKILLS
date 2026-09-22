@@ -27,7 +27,7 @@
 
 ---
 
-## 1. 文献检索（6）
+## 1. 文献检索（7）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -37,6 +37,7 @@
 | 个人文献库同步 | Scientific | `lit-sync` | 🟢（同上，pyzotero） |
 | 撤稿检测 | AIPOCH | `retraction-watcher` | 🟢（2026-09-13 promoted） |
 | 严格他引审计 | Nature | `nature-academic-search` | 🔵（先核 LICENSE） |
+| 文献检索与公开数据集 | MedSci | `lit-search` | ✅ |
 
 ## 2. 选题探索（4）
 
@@ -44,7 +45,7 @@
 |---|---|---|---|
 | 队列选题空白发现 | MedSci | `find-cohort-gap` | ✅ |
 | MA选题可行性 | MedSci | `ma-scout` | ✅ |
-| 假设形成防HARKing | Scientific | `hypothesis-generation` | 🔵 |
+| 假设形成 | MedSci | `frontier-hypothesize` | ✅ |
 | 项目启动分类 | MedSci | `intake-project` | 🟡 |
 
 ## 3. 研究设计（8）
@@ -61,17 +62,16 @@
 
 > 样本量默认落在粗 ID「研究设计」；若改归「统计分析」只需搬动这两条细 ID。
 
-## 4. 数据处理（7）
+## 4. 数据处理（6）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
 | 三阶段确认式清洗 | MedSci | `clean-data` | ✅ |
 | 批量队列分析生成 | MedSci | `batch-cohort` | ✅ |
 | EDA | Scientific | `exploratory-data-analysis` | 🔵 |
-| 预处理设计与泄漏门禁 | MedSci | `preprocess-imaging` | ✅ |
+| CT/MRI DICOM与NIfTI读写 | MedSci | `imaging-io` | ✅ |
+| ROI与读者质控 | MedSci | `preprocess-imaging` | ✅ |
 | DICOM底层与匿名化审计 | Scientific | `pydicom` | 🔵 |
-| 训练前数据集画像 | MedSci | `profile-imaging` | ✅ |
-| 部署级不确定性量化 | MedSci | `uncertainty-imaging` | ✅ |
 
 ## 5. 统计分析（6）
 
@@ -84,11 +84,12 @@
 | 模型-任务正确指标选择 | MedSci | `model-evaluation` | ✅ |
 | 模型-确定性泄漏门禁 | MedSci | `model-validation` | ✅ |
 
-## 6. 图表呈现（3）
+## 6. 图表呈现（4）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
-| 报告规范流程图与期刊配图 | MedSci | `make-figures` | ✅ |
+| 患者流程图 | MedSci | `make-figures` | ✅ |
+| 统计图与影像面板 | MedSci | `fig-plot` | ✅ |
 | 诚实可视化准则 | Scientific | `scientific-visualization` | 🟢（2026-09-14 REFERENCE→MOUNTED） |
 | 审稿人风险预判 | Nature | `nature-figure` | 🟢（2026-09-14 REFERENCE→MOUNTED；Apache-2.0） |
 
@@ -132,4 +133,4 @@
 
 ---
 
-**合计：** 51 细 ID = 51 可挂载意向（原 4 ⚪ 已于 2026-09-14 升为 🟢 MOUNTED）。机器真源以 [`../registry.yaml`](../registry.yaml) 为准；本表为人读配方。旧 30 粗 ID 对照见 [MIGRATION_v3_to_v4.md](MIGRATION_v3_to_v4.md)。
+**合计：** 注册表 **52** 细 ID。机器真源 [`../registry.yaml`](../registry.yaml)。旧 30 粗 ID 对照见 [MIGRATION_v3_to_v4.md](MIGRATION_v3_to_v4.md)。

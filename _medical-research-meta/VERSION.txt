@@ -1,5 +1,14 @@
-CHG-20260913-001 (2026-09-13)
-v4 mount registry: 10 coarse stage buckets + 51 fine ids (hybrid mount). Backup _history/registry.v3.30.yaml.
+CHG-20260922-004 (2026-09-22)
+Removed unreferenced leftovers and stale archived-id instructions in 02/03/04.
+Earlier markers kept: CHG-20260922-003, CHG-20260913-001.
+CHG-20260922-003 (2026-09-22)
+v4 mount registry: 10 coarse stage buckets + 52 fine ids (hybrid mount).
+Archived duplicate imaging menu ids, hypothesis-generation, and four unfetched PROPOSED ids.
+Earlier markers kept: CHG-20260922-002, CHG-20260913-001.
+CHG-20260922-002 (2026-09-22)
+v4 mount registry: 10 coarse + 59 fine ids was the menu before this retirement.
+Added MOUNTED fine ids fig-plot, imaging-io, lit-search, frontier-hypothesize.
+Earlier marker kept: CHG-20260913-001. Backup _history/registry.v3.30.yaml.
 Session pick = fine-id multi-select. OpenClaw never atomic source. Nature PROPOSED until license verified.
 B: +intake-project/design-ai-benchmarking/architecture-zoo/fill-protocol + cross-pack stubs + external-principles.
 A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 medical-journal-submit.

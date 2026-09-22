@@ -18,8 +18,8 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 | Old id | New fine id(s) | Coarse | Notes |
 |---|---|---|---|
 | `02-tables` | clean-data, batch-cohort | 数据处理 | MOUNTED via tables/ |
-| `02-imaging-io` | (supporting B folder; pydicom PROPOSED) | 数据处理 | no dedicated fine ID; use preprocess-imaging / pydicom |
-| `02-imaging-qc` | preprocess-imaging, profile-imaging, uncertainty-imaging | 数据处理 | MOUNTED |
+| `02-imaging-io` | imaging-io | 数据处理 | MOUNTED; pydicom stays PROPOSED for tag-level anonymization |
+| `02-imaging-qc` | preprocess-imaging | 数据处理 | MOUNTED; profile-imaging and uncertainty-imaging archived |
 | `02-pictures` | — | ARCHIVED | see archived 02-pictures |
 | `02-fmri` | — | ARCHIVED | see archived 02-fmri |
 | `02-radiomics-habitat` | radiomics-ml | 统计分析 | MOUNTED (a_domain 04) |
@@ -31,13 +31,13 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 | `03-design-protocol` | write-protocol, fill-protocol, clinic-research-design | 研究设计 |  |
 | `03-design-grant` | grant-builder; nature-proposal-writer PROPOSED | 正文写作 | grant under 正文写作 coarse |
 | `03-frontier-ideate` | find-cohort-gap, intake-project | 选题探索 |  |
-| `03-frontier-hypothesize` | hypothesis-generation (PROPOSED Scientific) | 选题探索 |  |
+| `03-frontier-hypothesize` | frontier-hypothesize | 选题探索 | MOUNTED; hypothesis-generation archived |
 | `04-stats-guide` | analyze-stats | 统计分析 |  |
 | `04-stats-power` | calc-sample-size (coarse 研究设计); statistical-power PROPOSED | 研究设计 | open decision default 研究设计 |
 | `04-stats-models` | meta-analysis, scikit-survival | 统计分析 |  |
 | `04-model-eval` | model-evaluation, model-validation | 统计分析 |  |
-| `04-fig-flow` | make-figures | 图表呈现 |  |
-| `04-fig-plot` | make-figures companion + reference_only viz principles | 图表呈现 | B path kept |
+| `04-fig-flow` | make-figures | 图表呈现 | MOUNTED; label 患者流程图 |
+| `04-fig-plot` | fig-plot | 图表呈现 | MOUNTED |
 | `04-explainability` | — | ARCHIVED | archived |
 | `05-write-manuscript` | write-paper | 正文写作 |  |
 | `05-write-reporting` | check-reporting; nature-data PROPOSED | 正文写作 |  |
@@ -76,5 +76,4 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 ## Files
 
 - Backup: `../_history/registry.v3.30.yaml`
-- Audit source: `../_history/registry_v4.audit.yaml`
 - Live: `../registry.yaml`

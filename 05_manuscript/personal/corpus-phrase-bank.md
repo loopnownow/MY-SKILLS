@@ -215,15 +215,7 @@ different manuscripts in this corpus:
 
 ## 8. Words that ARE banned (policy reversal, 2026-08-29)
 
-**Status change:** as of 2026-08-29 these four words are **Forbidden** by
-explicit user editorial decision — see `../forbidden-phrases.md`. This
-is a policy choice, not a correction of the corpus evidence below; the raw
-counts and in-context examples are kept as historical record and for
-calibration, not as license to re-add these words.
-
-Raw occurrence counts in the deduplicated corpus (still accurate as a
-description of the source manuscripts; no longer used as editorial
-justification):
+As of 2026-08-29 these four words are **Forbidden**. See `forbidden-phrases.md`. Counts below describe the old corpus; they do not license the words.
 
 | Word | Count |
 |---|---|
@@ -232,22 +224,6 @@ justification):
 | interestingly | 13 |
 | importantly | 9 |
 
-<details>
-<summary>Superseded reasoning (pre-2026-08-29, kept for history — do not act on this)</summary>
-
-These words show up used purposefully and sparingly (e.g. flagging a genuine
-methodological first, or drawing attention to one specific unexpected
-result among many) — never as filler in every paragraph. Do not add these
-back to any forbidden-word list. The right editorial move is not "delete
-on sight" but "keep if it's doing real work; cut if it's decorative."
-</details>
-
-Sample in-context uses kept in the corpus (for calibration, not for copying):
-- *"…is a novel procedure."* (describing a genuinely new technique)
-- *"Interestingly, in heterozygous MPO-deficient mice with intermediate levels of MPO, there was correspondingly intermediate signal enhancement…"* (flagging one specific unexpected result, not a generic transition)
-- *"Notably, the puncture time was reduced, from an average of 53 ± 13.7 min … to 27 ± 14.0 min …"* (flagging the single most important quantitative result, not throat-clearing)
-- *"Importantly, these alterations were associated with clinical symptom severity…"* (marking the clinically load-bearing sentence in the paragraph, once)
-
 ---
 
 ## Provenance / method
@@ -255,7 +231,7 @@ Sample in-context uses kept in the corpus (for calibration, not for copying):
 §1–§1c: 2026-08-28 harvest on 389 unique drafts (324 English); phrase
 counts only — unpublished full texts and title dumps stay off GitHub.
 
-Older slots (discussion openers, limitations, ethics, §8 not-banned words)
+Older slots (discussion openers, limitations, ethics, §8 word counts)
 were grep-counted on the 96-manuscript deduplicated set:
 
 ```

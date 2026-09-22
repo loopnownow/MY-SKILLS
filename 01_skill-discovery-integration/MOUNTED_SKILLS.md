@@ -11,7 +11,7 @@ Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_f
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 55 fine** (55 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
+v4: **10 coarse + 52 fine** (52 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
 Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
 
 ## Session-pick fine ids by coarse bucket
@@ -27,8 +27,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
 | `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
 | `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
-| `database-lookup` | 可复现数据库查询 | scientific-agent-skills | `skills/database-lookup/` | PROPOSED |
-| `paperclip` | 全文逐行证据提取 | scientific-agent-skills | `skills/paperclip/` | PROPOSED |
+| `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED |
 
 
 ### 选题探索
@@ -37,7 +36,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 |---|---|---|---|---|
 | `find-cohort-gap` | 队列选题空白发现 | my-skills-capabilities | `03-research/frontier-ideate/` | MOUNTED |
 | `ma-scout` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED |
-| `hypothesis-generation` | 假设形成防HARKing | scientific-agent-skills | `skills/hypothesis-generation/` | PROPOSED |
+| `frontier-hypothesize` | 假设形成 | my-skills-capabilities | `03-research/frontier-hypothesize/` | MOUNTED |
 | `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED |
 
 
@@ -65,7 +64,6 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED |
 | `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
 | `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
-| `model-card` | 模型透明度说明卡 | med-sci-skills | `skills/model-card/` | PROPOSED |
 
 
 ### 语言润色
@@ -84,11 +82,9 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 | `clean-data` | 三阶段确认式清洗 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
 | `batch-cohort` | 批量队列分析生成 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
 | `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED |
-| `preprocess-imaging` | 预处理设计与泄漏门禁 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
+| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-capabilities | `02-data-processing/imaging-io/` | MOUNTED |
+| `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
 | `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
-| `profile-imaging` | 训练前数据集画像 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
-| `uncertainty-imaging` | 部署级不确定性量化 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
-| `model-scaffold` | 医学AI模型工程脚手架 | med-sci-skills | `skills/model-scaffold/` | PROPOSED |
 
 
 ### 统计分析
@@ -107,7 +103,8 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `make-figures` | 报告规范流程图与期刊配图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
+| `make-figures` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
+| `fig-plot` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED |
 | `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED |
 | `nature-figure` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
@@ -148,6 +145,13 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 - `03-lit-review-full` — 不写综述全流程；ma-scout保留在选题探索
 - `deidentify` — 导出已人工脱敏
 - `05-write-venue-add-journal` — add-journal是维护工具非产出技能
+- `profile-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+- `uncertainty-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+- `hypothesis-generation` — 未拉取字节；假设形成用已挂载的 frontier-hypothesize
+- `database-lookup` — 2026-09-20 候选，路径未核实，本地无字节
+- `model-scaffold` — 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
+- `model-card` — 2026-09-20 候选，路径未核实；不代替 A 正文层
+- `paperclip` — 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
 
 ## Backup candidates
 

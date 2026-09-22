@@ -16,10 +16,8 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 ## Scope
 
 - clinical tables: Excel/CSV, cleaning, missing/outlier (`02-tables`)
-- CT/MRI I/O: DICOM / NIfTI / NII (`02-imaging-io`)
+- CT/MRI I/O: DICOM / NIfTI / NII (`imaging-io`; legacy alias `02-imaging-io`)
 - CT/MRI QC: ROI / reader (`02-imaging-qc`)
-- pictures: TIFF / TIF / PNG / JPG / PDF-as-image (`02-pictures`)
-- fMRI: DICOM / NIfTI (`02-fmri`)
 - radiomics / habitat preparation (`02-radiomics-habitat`; modelling → 04)
 - leakage and split-integrity checks
 - maintained personal MATLAB/Python scripts
@@ -49,13 +47,11 @@ Personal scripts are not replaced by a mounted pack.
 Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` menu + `01_skill-discovery-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
 
 - `02-tables` — 临床表 Excel / CSV（含缺失/异常值）
-- `02-imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
-- `02-imaging-qc` — CT / MRI QC，ROI / 阅片
-- `02-pictures` — TIFF / PNG / JPG / PDF(图)
-- `02-fmri` — 功能磁共振，DICOM / NIfTI
+- `imaging-io` (`02-imaging-io`) — CT / MRI 读写，DICOM / NIfTI / NII
+- `preprocess-imaging` (`02-imaging-qc`) — CT / MRI QC，ROI / 阅片
 - `02-radiomics-habitat` — IBSI/habitat prep (paper modelling → 04)
 
-Retired: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`.
+Archived, do not load: `02-pictures`, `02-fmri`. Retired: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`.
 
 ## Workflow
 

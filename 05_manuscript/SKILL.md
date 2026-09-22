@@ -52,7 +52,7 @@ Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `04-fig-plot` / `04-fig-flow` + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `fig-plot` / `make-figures`, legacy aliases `04-fig-plot` / `04-fig-flow`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 

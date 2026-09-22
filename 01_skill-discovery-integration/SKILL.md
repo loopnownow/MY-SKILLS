@@ -23,7 +23,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 ## Architecture (v4 · CHG-20260913-001)
 
 - **10 coarse ids** = welded stage buckets（文献检索 … 审稿回复）. Not A folder renames.
-- **55 fine ids** = session-pick mount points (51 mounts; reference_only emptied).
+- **52 fine ids** = session-pick mount points (`fine_id_count_canonical`).
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id.
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
@@ -71,7 +71,7 @@ Before each session mount pick (when any non-B path may load, or when `cache_sta
 Registry `MOUNTED` / `PROPOSED` = **available to pick**, not attached for this run.
 **Every MY-SKILLS run** (00 composite or a single 02–06 skill) must ask before loading any mounted pack.
 
-1. Classify the task. Propose **relevant coarse bucket(s)** then **candidate fine ids** (not all 51 unless 全线).
+1. Classify the task. Propose **relevant coarse bucket(s)** then **candidate fine ids** (not all 52 unless 全线).
 2. Show each candidate as one line: **粗 ID · 细 ID · 源 · 包内 skill** · 做什么。默认源多为 B。审稿混合配方行必须写出 skill 名（如 `nature-ref-verifier`）。
 3. **Ask the user to multi-select fine ids**. Default is **hybrid** (B chassis; non-B only where the recipe lists a path). For 写稿/润色/修订论著, **pre-check `manuscript-final-W2`**. For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: 用该默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / AIPOCH / Nature，仅当该细 ID 有路径；**OpenClaw 不提供**；ARS 默认不提供）. Empty picked path → tell the user; do not silent-fallback.
 4. Load **only** the picked fine ids (and for non-B overrides, **only the preset/skill paths** listed). Ensure bytes in `mounts-cap/` first. Unpicked stay unloaded — do not prefetch a whole Nature/Scientific tree. Never bulk-download.

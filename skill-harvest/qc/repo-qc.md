@@ -13,7 +13,7 @@ The scanner checks:
 4. A-skill path depth (maximum four path components).
 5. Relative Markdown links.
 6. Active references to retired directory names; historical/negative documentation is excluded from this check.
-7. `01_skill-discovery-integration/registry.yaml` mount-menu count and, when supplied, the B capabilities package path mapping.
+7. `01_skill-discovery-integration/registry.yaml` mount-menu count against `fine_id_count_canonical` (the `mounts:` block only; archived and proposal ids are not menu ids) and, when supplied, the B capabilities package path mapping.
 8. `VERSION.txt` ↔ `INTEGRATION_MAP.md` consistency and fenced-block integrity.
 9. Harvest-QC governance scaffold and anti-auto-modification guard.
 10. Existing deterministic unit tests unless `--no-tests` is supplied.
