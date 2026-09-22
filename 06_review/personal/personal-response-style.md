@@ -2,7 +2,7 @@
 
 来源：他审 response 全库去重 42 封（Qiang lab、Ying Li/Ju lab 等多个课题组）。只收骨架与
 谢词分布，不 dump 整信、不抄未刊结果。用于让起草的回信读起来像用户自己写的。
-**先套 `mode-3-response.md` 的骨架，再用本文件调声音、调措辞、调收尾。开场默认 A；B 几乎不用。**
+**本文件即回信骨架与声音真源**（旧 `mode-3-response.md` 未单独建档）。开场默认 A；B 几乎不用。分诊与裁决另见 `review-resolution.md`。
 
 ---
 
@@ -82,7 +82,7 @@ Methods-Statistical analysis / p. X, line Y]。
 `(Discussion-paragraph 2)` / `(Results section, Table 2)` / `(Methods-Statistical
 analysis)` / `(Abstract-Methods, line 3)` / `(page 8, line 56)`。
 绝不允许只写"revised accordingly"而不给出位置——这一条与
-`response-audit-gate.md` 的可追溯性规则一致，是本用户信件里贯穿始终的硬指标。
+本文件 §3.2 的可追溯性规则一致，是本用户信件里贯穿始终的硬指标（旧 `response-audit-gate.md` 未单独建档）。
 
 ### 3.3 给数字就给全套
 被要求提供某个数值时，直接在回信正文里写出精确结果，而不是只承诺"已经加到正文"：
@@ -134,8 +134,7 @@ inconvenience it may have caused..."这种过度道歉——用户历史信件�
 > selected veins. We change the "varices veins" to "collateral vessels" for the
 > clarity for the readers.
 
-**绝不编造未做的实验/分析/外部验证**——这条与 `response-audit-gate.md` 的
-factuality lock 完全一致，本用户信件从未违反过。
+**绝不编造未做的实验/分析/外部验证**—— factuality lock；本用户信件从未违反过。
 
 ---
 
@@ -190,7 +189,7 @@ PCOS 等系列稿件。
 ## 8. 使用方式
 
 起草回信时：
-1. 先用 `mode-3-response.md` 建立信件骨架、逐条 ID、change log。
+1. 用本文件建立信件骨架、逐条 ID、change log；需要分诊时对照 `review-resolution.md`。
 2. 用本文件第 2 节挑选每条的开场谢词，避免重复单一模板。
 3. 用第 3 节的引用+定位习惯写正文。
 4. 遇到真错误按第 4 节四步走；遇到做不到的要求按第 5 节三段式走。

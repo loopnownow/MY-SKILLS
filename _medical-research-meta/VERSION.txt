@@ -1,3 +1,6 @@
+CHG-20260922-005 (2026-09-22)
+Preset review-hybrid synced to registry; 03/05/06 soft refs retargeted (no mode-* revival).
+Earlier markers kept: CHG-20260922-004, CHG-20260922-003, CHG-20260913-001.
 CHG-20260922-004 (2026-09-22)
 Removed unreferenced leftovers and stale archived-id instructions in 02/03/04.
 Earlier markers kept: CHG-20260922-003, CHG-20260913-001.

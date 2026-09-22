@@ -111,6 +111,6 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 - Citation export of verified seeds → `radiology-citation`.
 - The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
   `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
-- Reviewing **other people's** NSFC (Voice A) → `../../references/radiology/grant-review.md`.
+- Reviewing **other people's** NSFC (Voice A) → `../personal/grant-review.md`.
   Never mix 评议口癖 into 立项.
 - This skill advises on research strategy; specific recent claims must be verified live.

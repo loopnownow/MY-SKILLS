@@ -2,13 +2,13 @@
 # Unit of attribution / scoring / path fetch = source + pack skill (not whole source).
 # Coarse buckets stay the session shell; fine ids are the picks. Mapping is not a mount.
 preset_id: review-hybrid-default
-version: "2026-09-13.1"
+version: "2026-09-22.1"
 status: default-session-recipe
 notes: >
-  Default for review / pre-review: B chassis + Nature fine ids (cite / stats audit paths)
-  + Scientific critique fine id. Prefetch only listed skill paths. ARS excluded.
-  Nature remains PROPOSED (license 需核实) — ask user before loading. OpenClaw never.
-  A 06 personal adjudicates.
+  Default for review / pre-review: B chassis + Scientific verify-refs
+  (citation-management) + B analyze-stats (stats-guide). Scientific
+  critical-thinking stays PROPOSED overlay (ask before load). Prefetch only
+  listed skill paths. ARS excluded. OpenClaw never. A 06 personal adjudicates.
 
 chassis:
   source: my-skills-capabilities
@@ -20,33 +20,29 @@ personal:
     role: adjudication
     must_include: [review-resolution.md, personal-review-style.md]
 
-# Per fine-id overrides (v4). Legacy coarse ids in comments for migration.
+# Per fine-id overrides (v4). Must match registry.yaml source/path/status.
 overrides:
   - id: verify-refs
-    # was 03-lit-cite
-    source: nature-skills
-    skills: [nature-ref-verifier]
-    paths: [skills/nature-ref-verifier/]
+    source: scientific-agent-skills
+    skills: [citation-management]
+    paths: [skills/citation-management/]
     role: literature-verify
     required: true
-    prefix_example: "[Nature:nature-ref-verifier]"
-    license_flag: 需核实
+    prefix_example: "[Scientific:citation-management]"
   - id: analyze-stats
-    # was 04-stats-guide (reported-stats audit overlay)
-    source: nature-skills
-    skills: [nature-statistics]
-    paths: [skills/nature-statistics/]
+    source: my-skills-capabilities
+    skills: [stats-guide]
+    paths: [04-analysis/stats-guide/]
     role: reported-stats-audit
     required: true
-    prefix_example: "[Nature:nature-statistics]"
-    license_flag: 需核实
+    prefix_example: "[B:04-analysis/stats-guide]"
   - id: scientific-critical-thinking
-    # was 06-review-critique overlay
     source: scientific-agent-skills
     skills: [scientific-critical-thinking]
     paths: [skills/scientific-critical-thinking/]
     role: logic-mechanism-overlay
-    required: true
+    required: false
+    status_note: PROPOSED in registry — ask-each-run before load
     prefix_example: "[Scientific:scientific-critical-thinking]"
 
 force_b:

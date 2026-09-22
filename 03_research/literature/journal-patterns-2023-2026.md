@@ -27,7 +27,7 @@ APC, word limits, data policy, or recent issue contents.
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,
-41339572, and 38809149. Use `literature-evidence-2023-2026.md` for the full seed
+41339572, and 38809149. Use mounted `ma-scout` (B `03-research/lit-review/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
 table and DOI-level metadata.
 
 ## Submission-tier logic

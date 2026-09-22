@@ -129,7 +129,7 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - Which checklist the design must satisfy → `radiology-reporting`.
 - Ethics/consent/data-sharing feasibility → `radiology-ethics`.
 - Clinical-use scenario, reader study, prospective plan → `radiology-translation`.
-- Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `../../references/radiology/grant-writing.md`（句库）. Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
-- Reviewing **other people's** NSFC/面上 (Voice A) → `../../references/radiology/grant-review.md`. Never mix those tics into own text.
+- Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `../personal/grant-writing.md`（句库）. Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
+- Reviewing **other people's** NSFC/面上 (Voice A) → `../personal/grant-review.md`. Never mix those tics into own text.
 - English journal peer review → `06_review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.
