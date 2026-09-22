@@ -12,6 +12,7 @@ Integrity moments only. Not a checkpoint after every node.
 | G-05 | after `Manuscript_*_house.docx` | docx exists; numbers match that endpoint’s HTML; Methods have no citations; Table 1 = training vs test; nomogram not “Combined”; 00 did not write prose | 05 Aitee |
 | G-06 | after pre-review or reviewer response | entry was 06; inventable items are questions to the user; 选刊 not sent to `05-write-venue`; undecidable items include reference-only sentence drafts, not silent manuscript edits; response/re-audit issues use resolution status when `06_review/personal/review-resolution.md` is in play; **if this run mounted ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature/non-personal B, at least one Word comment on a mount-derived Major/Blocking item must use a skill-level prefix** (`[Nature:nature-ref-verifier]`, `[Scientific:scientific-critical-thinking]`, `[B:06-review-peer]`, …) — source-only tags like bare `[Nature:]` fail; re-tag prefixes only | 06 Lee |
 | G-LIT | literature verify fail (05/06) | comments carry dual plan: revise/weaken/delete **and** optional 03 substitute-ref search; Evidence Request card when used (`05_manuscript/personal/evidence-request.md`); no invented PMID/DOI; 00 decides whether to call 03 | 03 Victor (search) / 05 Aitee (wording); user decides which plan |
+| G-CODE | when task is 代码审/深审/Deep QC/refactor release-ready processing scripts | code-refactoring QC per `02_data-processing/code-refactoring/references/code-qc.md`; no open Critical/P0 | 02 (code-refactoring / Loopnow) |
 
 File-existence (chain, every node): expected output missing or empty → do not start the next skill.
 
@@ -48,5 +49,6 @@ ChatGPT-style Route/Mount/Boundary/Evidence/Consistency/Artifact map onto existi
 | Consistency | **G-FACT** |
 | Artifact | file-existence chain (this file) |
 | Stale-ref | `skill-harvest` / meta hygiene — **not** every manuscript run |
+| Code | **G-CODE** / 02 code-refactoring |
 
 Execution QC is diagnostic only: detect → name responsible node → local re-run. Never auto-edit user files or fill missing numbers.
