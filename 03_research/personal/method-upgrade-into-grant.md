@@ -53,6 +53,6 @@
 
 ## 与 frontier 其它文件的分工
 
-- `frontier-themes.md` / `idea-to-question.md`：方向是否新、数据是否撑得住、期刊要什么验证。
+- mounted `find-cohort-gap` → `references/frontier-themes.md`，以及 mounted `frontier-hypothesize` → `references/idea-to-question.md`：方向是否新、数据是否撑得住、期刊要什么验证。
 - **本文件**：已经决定走 MRS → 超极化 13C / 代谢流 → 多模态+ML 时，**句子写在立项哪一段**。
 - 不要把 Voice A 评语（「创新性有限」）或英文期刊 Please clarify 写进立项。

@@ -35,13 +35,12 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 - `04-stats-power` — sample size / power
 - `04-model-eval` — calibration / DCA / external validation
 - `04-stats-models` — implementation; 0RAD personal still wins
-- `04-fig-flow` — STROBE / patient-flow
-- `04-fig-plot` — statistical plots / imaging panels
-- `04-explainability` — imaging-model XAI (Grad-CAM etc.). MedSci-only. Not in B. Does not replace `personal/` 0RAD rules.
+- `make-figures` (`04-fig-flow`) — STROBE / patient-flow
+- `fig-plot` (`04-fig-plot`) — statistical plots / imaging panels
 
-Retired: `04-stats-generic`, `04-figure-engine`.
+Retired: `04-stats-generic`, `04-figure-engine`, `04-explainability`.
 
-Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure stack inside 05.
+Until `fig-plot` (`04-fig-plot`) / `make-figures` (`04-fig-flow`) is mounted, do not invent a second figure stack inside 05.
 
 ## Imaging hard rules (non-negotiable)
 
@@ -50,7 +49,7 @@ Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure st
 - Paired model-comparison **p** = DeLong (Sun & Xu 2014 midranks). DeLong is a p, not a CI.
 - **Combined** is the named primary model. Youden is **per split**; `lock_threshold` keeps the training Youden.
 - Radiomics reproducibility filter: **ICC(A,1) ≥ 0.75**.
-- Clinical model: **manual** `FORCE_MODEL_FEATURES` only (empty = no clinical model); no Table1/stepwise/candidate-pool auto-select.
+- Clinical model: non-empty `FORCE_MODEL_FEATURES` is the model. Empty list selects candidate-pool multivariate p < `ROC_MV_P_THRESHOLD`. AIC stepwise stays informational and does not enter the model.
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
 - Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
@@ -62,7 +61,7 @@ Until `04-fig-plot` / `04-fig-flow` is mounted, do not invent a second figure st
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `04-fig-plot` / `04-fig-flow` + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (mounted `fig-plot` / `make-figures`, legacy aliases `04-fig-plot` / `04-fig-flow`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 

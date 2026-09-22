@@ -98,7 +98,8 @@ def check_legacy_active_refs(root: Path, out: list):
 
 def parse_registry(root: Path):
     s = read(root / "01_skill-discovery-integration/registry.yaml")
-    m = re.search(r"^mounts:\n(.*?)(?=^proposals:)", s, re.M | re.S)
+    # Stop at the next top-level key so archived/proposals ids are not menu ids.
+    m = re.search(r"^mounts:\n(.*?)(?=^[A-Za-z_])", s, re.M | re.S)
     block = m.group(1) if m else ""
     entries = []
     current = {}
@@ -112,23 +113,28 @@ def parse_registry(root: Path):
             mm = re.match(rf"^\s+{k}:\s*(\S+)", line)
             if mm and current: current[k] = mm.group(1)
     if current: entries.append(current)
-    return entries
+    canonical = re.search(r"^  fine_id_count_canonical:\s*(\d+)", s, re.M)
+    return entries, int(canonical.group(1)) if canonical else None
 
 
 def check_registry(root: Path, capabilities: Path | None, out: list):
-    entries = parse_registry(root)
-    if len(entries) != 30:
-        out.append(("FAIL", "registry", f"expected 30 mount menu ids, found {len(entries)}"))
+    entries, expected = parse_registry(root)
+    if expected is None:
+        out.append(("FAIL", "registry", "fine_id_count_canonical missing"))
         return
+    if len(entries) != expected:
+        out.append(("FAIL", "registry", f"fine_id_count_canonical is {expected}, parsed mounts: {len(entries)}"))
+        return
+    out.append(("PASS", "registry", f"{expected} mount menu ids match fine_id_count_canonical"))
     if capabilities:
         missing = []
         for e in entries:
             if e.get("source") != "my-skills-capabilities": continue
             if not (capabilities / e["path"]).exists():
                 missing.append(f"{e['id']} -> {e['path']}")
-        out.append(("FAIL" if missing else "PASS", "registry-vs-B", f"B paths missing: {missing}" if missing else "all B MOUNTED paths exist in companion capabilities package"))
+        out.append(("FAIL" if missing else "PASS", "registry-vs-B", f"B paths missing: {missing}" if missing else "all B mount paths exist in companion capabilities package"))
     else:
-        out.append(("SKIP", "registry-vs-B", "companion B path check not requested (--capabilities omitted); 30 mount menu ids present"))
+        out.append(("SKIP", "registry-vs-B", "companion B path check not requested (--capabilities omitted)"))
 
 
 def check_meta(root: Path, out: list):

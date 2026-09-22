@@ -9,7 +9,7 @@ This breaks naive analysis in three ways: multiplicity, overfitting/optimism, an
 - Radiomics reproducibility filter: keep features with **ICC(A,1) ≥ 0.75**.
 - **LASSO:** StratifiedKFold **AUC path on TRAIN only**. Coefficients lock; test set is not
   re-screened.
-- Clinical covariates: manual `FORCE_MODEL_FEATURES` only (empty = no clinical model).
+- Clinical covariates: non-empty `FORCE_MODEL_FEATURES` is the model. Empty list uses candidate-pool multivariate p < `ROC_MV_P_THRESHOLD`.
 - Primary model = **Combined**. Primary numbers: `python -m modules.pipeline` →
   `*-results.html`.
 - Habitat-tree **`LassoCV` ≠ paper primary.** Do not quote tree-script coefficients or AUCs

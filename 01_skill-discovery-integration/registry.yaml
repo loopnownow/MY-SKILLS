@@ -8,13 +8,13 @@
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
 # 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
-# Backup of v3.30: _history/registry.v3.30.yaml · audit source: _history/registry_v4.audit.yaml
+# Backup of v3.30: _history/registry.v3.30.yaml
 # Migration map: mounts/MIGRATION_v3_to_v4.md
 meta:
   version: "4.0"
   change_id: CHG-20260913-001
   previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
-  fine_id_count_canonical: 55  # 55 mounts (51+4 P1 PROPOSED; session-pick); reference_only emptied 2026-09-14
+  fine_id_count_canonical: 52  # session-pick mounts; reference_only empty
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -142,6 +142,15 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     stub_in_b: cross-pack/nature/nature-academic-search/
+  - id: lit-search
+    label: 文献检索与公开数据集
+    coarse: 文献检索
+    source: my-skills-capabilities
+    path: 03-research/lit-search/
+    a_domain: 03_research
+    status: MOUNTED
+    atomic_package: MedSci
+    note: "2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22."
   - id: find-cohort-gap
     label: 队列选题空白发现
     coarse: 选题探索
@@ -159,15 +168,15 @@ mounts:
     status: MOUNTED
     atomic_package: MedSci
     note: from archived 03-lit-review core
-  - id: hypothesis-generation
-    label: 假设形成防HARKing
+  - id: frontier-hypothesize
+    label: 假设形成
     coarse: 选题探索
-    source: scientific-agent-skills
-    path: skills/hypothesis-generation/
+    source: my-skills-capabilities
+    path: 03-research/frontier-hypothesize/
     a_domain: 03_research
-    status: PROPOSED
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/hypothesis-generation/
+    status: MOUNTED
+    atomic_package: MedSci
+    note: "Chosen over PROPOSED hypothesis-generation (2026-09-22). Question template lives in this B folder."
   - id: intake-project
     label: 项目启动分类
     coarse: 选题探索
@@ -354,14 +363,24 @@ mounts:
     status: PROPOSED
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/exploratory-data-analysis/
+  - id: imaging-io
+    label: CT/MRI DICOM与NIfTI读写
+    coarse: 数据处理
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-io/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    atomic_package: MedSci
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED pydicom."
   - id: preprocess-imaging
-    label: 预处理设计与泄漏门禁
+    label: ROI与读者质控
     coarse: 数据处理
     source: my-skills-capabilities
     path: 02-data-processing/imaging-qc/
     a_domain: 02_data-processing
     status: MOUNTED
     atomic_package: MedSci
+    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
   - id: pydicom
     label: DICOM底层与匿名化审计
     coarse: 数据处理
@@ -371,25 +390,6 @@ mounts:
     status: PROPOSED
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/pydicom/
-  - id: profile-imaging
-    label: 训练前数据集画像
-    coarse: 数据处理
-    source: my-skills-capabilities
-    path: 02-data-processing/imaging-qc/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    atomic_package: MedSci
-    path_shared: true
-  - id: uncertainty-imaging
-    label: 部署级不确定性量化
-    coarse: 数据处理
-    source: my-skills-capabilities
-    path: 02-data-processing/imaging-qc/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    atomic_package: MedSci
-    path_shared: true
-    note: "Already MOUNTED on B path; 2026-09-20 — re-check overlap vs MedSci uncertainty-imaging on next pack refresh."
   - id: analyze-stats
     label: 检验方法选择与加权调查数据
     coarse: 统计分析
@@ -441,14 +441,23 @@ mounts:
     atomic_package: MedSci
     path_shared: true
   - id: make-figures
-    label: 报告规范流程图与期刊配图
+    label: 患者流程图
     coarse: 图表呈现
     source: my-skills-capabilities
     path: 04-analysis/fig-flow/
     a_domain: 04_analysis
     status: MOUNTED
     atomic_package: MedSci
-    note: B also keeps 04-analysis/fig-plot/ as plot companion + external-principles; imaging-io folder remains under B 02 without separate fine ID
+    note: STROBE / patient-flow only. Statistical plots are fine id fig-plot.
+  - id: fig-plot
+    label: 统计图与影像面板
+    coarse: 图表呈现
+    source: my-skills-capabilities
+    path: 04-analysis/fig-plot/
+    a_domain: 04_analysis
+    status: MOUNTED
+    atomic_package: MedSci
+    note: "2026-09-22. Distinct from make-figures (fig-flow)."
   - id: peer-review-pdf-scan
     label: PDF注入攻击扫描
     coarse: 稿件评阅
@@ -548,44 +557,6 @@ mounts:
     note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
     stub_in_b: 06-review/review-response/external-principles.md
 
-  # --- 2026-09-20 P1 candidates (PROPOSED; not auto-mounted) ---
-  - id: database-lookup
-    label: 可复现数据库查询
-    coarse: 文献检索
-    source: scientific-agent-skills
-    path: skills/database-lookup/
-    a_domain: 03_research
-    status: PROPOSED
-    atomic_package: Scientific
-    note: "2026-09-20 candidate — reproducible DB query with filters/provenance; not ordinary lit search. Confirm path on next upstream scan."
-  - id: model-scaffold
-    label: 医学AI模型工程脚手架
-    coarse: 数据处理
-    source: med-sci-skills
-    path: skills/model-scaffold/
-    a_domain: 02_data-processing
-    status: PROPOSED
-    atomic_package: MedSci
-    note: "2026-09-20 candidate — training/repro scaffold; overlap QC vs 0RAD before MOUNTED."
-  - id: model-card
-    label: 模型透明度说明卡
-    coarse: 正文写作
-    source: med-sci-skills
-    path: skills/model-card/
-    a_domain: 05_manuscript
-    status: PROPOSED
-    atomic_package: MedSci
-    note: "2026-09-20 candidate — model card / limitations; does not replace A05 prose."
-  - id: paperclip
-    label: 全文逐行证据提取
-    coarse: 文献检索
-    source: scientific-agent-skills
-    path: skills/paperclip/
-    a_domain: 03_research
-    status: PROPOSED
-    atomic_package: Scientific
-    note: "2026-09-20 P1 candidate — full-text / line-pinned evidence; confirm skill folder name on scan."
-
 reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
 
 archived:
@@ -628,6 +599,41 @@ archived:
     reason: add-journal是维护工具非产出技能
     revive_condition: 不适用
     old_path: 05-manuscript/write-venue/
+  - id: profile-imaging
+    status: ARCHIVED
+    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    revive_condition: B 出现独立的数据集画像技能时重评
+    old_path: 02-data-processing/imaging-qc/
+  - id: uncertainty-imaging
+    status: ARCHIVED
+    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    revive_condition: B 出现独立的不确定性量化技能时重评
+    old_path: 02-data-processing/imaging-qc/
+  - id: hypothesis-generation
+    status: ARCHIVED
+    reason: 未拉取字节；假设形成用已挂载的 frontier-hypothesize
+    revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评
+    old_path: skills/hypothesis-generation/
+  - id: database-lookup
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实，本地无字节
+    revive_condition: 上游文件夹核实且与 paper-lookup 不重复时重评
+    old_path: skills/database-lookup/
+  - id: model-scaffold
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
+    revive_condition: 对照 0RAD 后仍缺一块时重评
+    old_path: skills/model-scaffold/
+  - id: model-card
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；不代替 A 正文层
+    revive_condition: 论文需要独立模型卡且上游核实后重评
+    old_path: skills/model-card/
+  - id: paperclip
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
+    revive_condition: 需要逐行全文证据且上游文件夹核实后重评
+    old_path: skills/paperclip/
 
 # External source freshness fields (optional until next scan refresh):
 #   source_ref, resolved_commit, source_version, scanned_at, cache_commit,

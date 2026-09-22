@@ -48,8 +48,8 @@ worth doing and likely to be accepted at a high-impact venue*.
 | File | Open when |
 |---|---|
 | mounted `find-cohort-gap` → `references/frontier-themes.md` | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
-| [references/evidence-layer.md](evidence-layer.md) | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
-| [references/idea-to-question.md](idea-to-question.md) | Converting a trend into a concrete, executable, submittable research question; novelty framing |
+| mounted `frontier-hypothesize` → `references/evidence-layer.md` | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
+| mounted `frontier-hypothesize` → `references/idea-to-question.md` | Converting a trend into a concrete, executable, submittable research question; novelty framing |
 | mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
 | [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
 
@@ -62,10 +62,10 @@ worth doing and likely to be accepted at a high-impact venue*.
 3. **For AI/radiogenomics strategy**, open mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` and judge the
    idea against generalisability, supervision cost, multimodal fusion, trustworthy inference,
    external validation, and clinical-value evidence.
-4. **Ground in evidence** (evidence-layer.md) — for each surviving direction, state the
+4. **Ground in evidence** (mounted `frontier-hypothesize` → `references/evidence-layer.md`) — for each surviving direction, state the
    publication pattern (what kind of study, what validation, which venues) and the
    methodological bar it must clear. Flag every concrete claim that needs **live verification**.
-5. **Convert to questions** (idea-to-question.md) — turn the best 2–4 directions into specific
+5. **Convert to questions** (mounted `frontier-hypothesize` → `references/idea-to-question.md`) — turn the best 2–4 directions into specific
    research questions with endpoint, comparator, and the minimum evidence to be competitive.
 6. **Trigger live search** — hand the chosen direction to `radiology-search` to retrieve and
    verify current seed papers (PMID/DOI) and confirm the gap is still open.

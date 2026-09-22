@@ -824,3 +824,27 @@ problem: awesome-copilot-style Code QC Core absorb plan approved; must land insi
 change: Extended `code-qc.md` with Existing Pattern First, Data Safety (PHI/PII/secrets/raw overwrite/output pollution; keep CORS/project-scoped), Reproducibility, Preflight→Verdict flow, Critical/Required/Optional ↔ P0–P3 aliases, Boundary as P2 add-on (Architecture kept full), findings/QUESTION rules; SKILL.md capability cross-refs; minimal `G-CODE` row + transversal Code map in `00_orchestrator/gates.md`. No parallel 02 root file; no new mount; no 04 / skill-harvest QC edits; no modules vendor.
 decision: keep
 next_action: PR open; do not merge until asked; sync only changed files to local Windows `.grok/skills` (no robocopy /MIR on mounts-cap).
+
+## CHG-20260922-002 — menu hygiene + four B fine ids
+date: 2026-09-22
+skill: 01_skill-discovery-integration + skill-harvest/qc
+problem: Repository QC failed on a stale scanner (hardcoded 30, and `mounts:` parsed through `archived:`), docs split across 51 and 55, a duplicate publisher-notes path at depth 5, a stale repo map, and an OpenClaw test that still required retired wording. Four B folders had bytes and no fine id.
+change: Deleted the unlinked deep `journal-format-compliance/references/publisher-notes.md`. `repo_qc.py` counts only the `mounts:` block and checks it against `fine_id_count_canonical`. Live menu text and tests say 59. OpenClaw test accepts the current reference-only wording. Added MOUNTED fine ids `fig-plot`, `imaging-io`, `lit-search`, `frontier-hypothesize`. Regenerated `MOUNTED_SKILLS.md` and `repo-map.html`. A copies of the literature and frontier files stay. The four 2026-09-20 PROPOSED ids stay PROPOSED.
+decision: keep
+next_action: CHG-20260922-003 completed A-copy retirement and archived the four PROPOSED leftovers; no further action from 002.
+
+## CHG-20260922-003 — retire duplicate menu ids and five A copies
+date: 2026-09-22
+skill: 01_skill-discovery-integration + 03_research
+problem: Five A files duplicated mounted B text. Three imaging fine ids shared one ROI-QC folder. hypothesis-generation was an unfetched PROPOSED stub beside frontier-hypothesize. Four 2026-09-20 PROPOSED ids had no local bytes. make-figures still said 期刊配图.
+change: Deleted the five A copies and retargeted the two local links. Archived profile-imaging and uncertainty-imaging onto preprocess-imaging (label now ROI与读者质控). Kept imaging-io and PROPOSED pydicom separate. Archived hypothesis-generation. Archived database-lookup, paperclip, model-scaffold, and model-card. make-figures label is 患者流程图. Menu is 52 fine ids.
+decision: keep
+next_action: none pending from this batch.
+
+## CHG-20260922-004 — drop unreferenced leftovers and stale mount lines
+date: 2026-09-22
+skill: 02_data-processing + 03_research + 04_analysis + 05_manuscript
+problem: Unreferenced files and superseded ban text were still in the tree. 02/03/04 still listed archived fine ids as current mounts.
+change: Deleted `A_updates-20260913-README.md`, `blacklist.mount.md`, `publisher-format.md`, `_history/registry_v4.audit.yaml`, and `skill-harvest/references/roi-ledger.md`. Removed the two superseded `<details>` blocks and the banned-word examples. 02 no longer offers `02-pictures` / `02-fmri` as mounts. 03 points at registry fine ids. 04 no longer offers `04-explainability`.
+decision: keep
+next_action: hybrid-mount-pointers and the 2026-08-25 INTEGRATION_MAP opening were not in this batch.
