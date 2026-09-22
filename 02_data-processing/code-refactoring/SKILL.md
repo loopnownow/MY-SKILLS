@@ -12,7 +12,8 @@ description: >
 # 代码优化与重构
 
 家园在 `02_data-processing/code-refactoring/`（模板在 `scripts/`）。  
-深度代码 QC 与复杂度阶梯**吸收**进本技能，不另建顶层、不登记 01/B 粗 ID。
+深度代码 QC 与复杂度阶梯**吸收**进本技能，不另建顶层、不登记 01/B 粗 ID。  
+亦吸收轻量 **Code QC Core**（Data Safety、Reproducibility、Preflight→Verdict、P0–P3 别名）进 `references/code-qc.md`，不平行新建 `02/code-qc.md`。
 
 ## 适用场景
 - 代码软编码（配置置顶）
@@ -21,13 +22,14 @@ description: >
 - dry-run
 - **深审 / Deep QC / modules 代码质控**（五轴 + 医学完整性**引用** 04）
 - 写时代码阶梯 / 写后复杂度检查（稳定方法论吸收，非外挂）
+- 科研数据处理脚本（R/Python/MATLAB/shell；raw→analysis-ready）release-ready QC
 
 ## Capability map
 
 | 任务 | 路径 |
 |---|---|
 | 软编码 + dry-run 模板 | `scripts/soft_code_template.py` |
-| 深度代码 QC（五轴/分级/Critical） | `references/code-qc.md` |
+| 深度代码 QC（五轴/分级/Critical + Code QC Core） | `references/code-qc.md` |
 | 写时代码阶梯 + 强度/护栏 | `references/complexity-ladder.md` |
 
 Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-pipeline-rules.md` 等），不在本技能复制金标准。
@@ -56,9 +58,11 @@ Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-p
 - 先试运行；打印将执行操作供确认
 
 ### 7. 深度 QC
-- 触发与分级见 `references/code-qc.md`
-- 边界：≠ `skill-harvest/qc`；≠ `02-imaging-qc`
+- 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `references/code-qc.md`
+- Critical/Required/Optional 为主标签；P0–P3 为报告别名
+- 边界：≠ `skill-harvest/qc`；≠ `02-imaging-qc`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
 - 不 vendor `D:\0Grok\0RAD\modules` 整树
+- 00 路由：`gates.md` **G-CODE**
 
 ## 附带的模板
 - `scripts/soft_code_template.py` — 软编码 + 断点续传 + dry run 模板

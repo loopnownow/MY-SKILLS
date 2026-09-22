@@ -816,3 +816,11 @@ problem: User fixed display precision: Table 1 keep 1–2 decimals; P, AUC and r
 change: House decimal rule in Aitor-format Results/Table 1 + stats-checklist.
 decision: keep
 next_action: PR with CHG-010 when user asks.
+
+## CHG-20260922-001 — absorb Code QC Core into code-refactoring
+date: 2026-09-22
+skill: 02_data-processing/code-refactoring/references/code-qc.md (+ SKILL.md, 00 gates G-CODE)
+problem: awesome-copilot-style Code QC Core absorb plan approved; must land inside existing code-refactoring Deep QC home — not a parallel `02/code-qc.md` or new dirs.
+change: Extended `code-qc.md` with Existing Pattern First, Data Safety (PHI/PII/secrets/raw overwrite/output pollution; keep CORS/project-scoped), Reproducibility, Preflight→Verdict flow, Critical/Required/Optional ↔ P0–P3 aliases, Boundary as P2 add-on (Architecture kept full), findings/QUESTION rules; SKILL.md capability cross-refs; minimal `G-CODE` row + transversal Code map in `00_orchestrator/gates.md`. No parallel 02 root file; no new mount; no 04 / skill-harvest QC edits; no modules vendor.
+decision: keep
+next_action: PR open; do not merge until asked; sync only changed files to local Windows `.grok/skills` (no robocopy /MIR on mounts-cap).
