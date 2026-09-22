@@ -1,3 +1,8 @@
+CHG-20260922-006 (2026-09-22)
+Architecture Batch 1: clean pycache; Cache≠Mount≠Active docs; 52 fine-id expansion ceiling;
+optional load_priority P0|P1|P2 on registry fine ids; journal Logic/Dataset split
+(data/2026/ SSOT + rules/); B cross-pack de-entity companion PR.
+Earlier markers kept: CHG-20260922-005, CHG-20260922-004, CHG-20260913-001.
 CHG-20260922-005 (2026-09-22)
 Preset review-hybrid synced to registry; 03/05/06 soft refs retargeted (no mode-* revival).
 Earlier markers kept: CHG-20260922-004, CHG-20260922-003, CHG-20260913-001.

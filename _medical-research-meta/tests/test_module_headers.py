@@ -59,7 +59,17 @@ class ModuleHeaderTests(unittest.TestCase):
                 if "__pycache__" in p.parts or ".git" in p.parts:
                     continue
                 rel = p.relative_to(ROOT)
-                if len(rel.parts) > 4:
+                # Annual journal datasets: .../medical-journal-submit/data/<YYYY>/file
+                parts = rel.parts
+                data_year_ok = (
+                    len(parts) == 5
+                    and parts[0] == "03_research"
+                    and parts[1] == "medical-journal-submit"
+                    and parts[2] == "data"
+                    and parts[3].isdigit()
+                    and len(parts[3]) == 4
+                )
+                if len(rel.parts) > 4 and not data_year_ok:
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 

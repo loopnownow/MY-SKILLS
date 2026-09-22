@@ -8,7 +8,7 @@ PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 
 1. **Blacklist** — never recommend (`blacklist.csv`).
 2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers 系列** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
-3. **投过/选刊 whitelist** — `whitelist-submitted.csv` (seeded from `references/submission-urls.csv`). Stronger boost inside layer after MJF.
+3. **投过/选刊 whitelist** — `whitelist-submitted.csv` (seeded from `data/2026/submission-urls.csv`). Stronger boost inside layer after MJF.
 4. **BMC/Medicine pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
 
 ## Decision flow (ChatGPT architecture mapped to this pack)
@@ -59,9 +59,9 @@ Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, p
 
 ## Two phases
 
-**Phase 1:** tables for 层2 + 层3 + 层4 (**10 rows each** by default); **ask before each run** whether to add 层2补 (**default OFF**); columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). No 分层/策略 column (titles carry layer; checkboxes keep data-layer/data-tier). Always show rate columns (blank if unknown). JESI always from available metrics; mark partial with in-cell `*` + `缺:…` (`jesi-model.md`). No curated 易投指数. No 置信度/ISO/JIF分区/JCI分区 columns. Comprehensive/general medical titles OK when match is reasonable. No live AIM/fee lookup. Prefer HTML delivery. Do not write yearly metrics/rates into `references/submission-urls.csv`.
+**Phase 1:** tables for 层2 + 层3 + 层4 (**10 rows each** by default); **ask before each run** whether to add 层2补 (**default OFF**); columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). No 分层/策略 column (titles carry layer; checkboxes keep data-layer/data-tier). Always show rate columns (blank if unknown). JESI always from available metrics; mark partial with in-cell `*` + `缺:…` (`jesi-model.md`). No curated 易投指数. No 置信度/ISO/JIF分区/JCI分区 columns. Comprehensive/general medical titles OK when match is reasonable. No live AIM/fee lookup. Prefer HTML delivery. Do not write yearly metrics/rates into `data/2026/submission-urls.csv`.
 
-**Phase 2:** only confirmed titles (`aim-author-checklist.md`). **User delivery HTML = per-paper 短表** with columns only: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知. Put portal + author-instruction **full URLs** in the last column (visible URL text). **Omit** ISO, OA, 置信, 分刊详情, APC from that short table. Quartile/IF/volume display-only; persist portal URLs to `references/submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
+**Phase 2:** only confirmed titles (`aim-author-checklist.md`). **User delivery HTML = per-paper 短表** with columns only: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知. Put portal + author-instruction **full URLs** in the last column (visible URL text). **Omit** ISO, OA, 置信, 分刊详情, APC from that short table. Quartile/IF/volume display-only; persist portal URLs to `data/2026/submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
 
 ## Phase-1 HTML marks (v1.15)
 - Yellow highlight **only** when 投稿易投指数 ≥ 80.

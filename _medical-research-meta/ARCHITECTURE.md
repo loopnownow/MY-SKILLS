@@ -92,3 +92,16 @@ Former `archive/` standalones live under domain skills (CHG-20260902-004). The e
 **An A skill path ≤ 4 directories from repo root (`<skill>/<category-or-pack>/<scripts|references|personal>/file`). No `core/`.**
 **User approval is mandatory for mounting or evolution.**
 **Default source B. Backups PROPOSED. 10 coarse + 52 fine menu. session pick each run.**
+
+## Fine-id expansion ceiling (v4)
+
+**52** is the v4 fine-id ceiling. New capability default = merge into an existing fine id / sub-capability / same source-path — **not** a new fine id.
+
+## Cache ≠ Mount ≠ Active
+
+Registry = index. External skill **bytes** SSOT = `mounts-cap/<atomic_package>/`. `stub_in_b` is pointer-only. Download ≠ mount ≠ active context.
+
+## load_priority
+
+Optional YAML `load_priority: P0|P1|P2` on fine ids (no priority directories). P0 reserved; P1 common; P2 niche/PROPOSED. See root `ARCHITECTURE.md` and `01_skill-discovery-integration/SKILL.md`.
+
