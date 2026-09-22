@@ -906,3 +906,11 @@ problem: review-hybrid still pointed verify-refs/analyze-stats at Nature paths a
 change: Align review-hybrid (+ presets.md, external-review-R1 required:false for critical-thinking) to registry. Retarget soft refs to live files (ma-scout, personal/grant-*, Aitor-format, personal-response-style / review-resolution). Do not recreate mode-* skeletons.
 decision: keep
 next_action: none; sync changed files to local `.grok/skills` per-path (no MIR).
+
+## CHG-20260922-008 — audit leftovers: JFC discovery + nature-shared/STATE hygiene notes
+date: 2026-09-22
+skill: 03 medical-journal-submit + mounts-cap README
+problem: Nested `journal-format-compliance` looked undiscoverable under "Nested MODULE ≠ discoverable Skill"; Windows Nature cache lacked `nature-shared` while figure/reviewer/response stayed MOUNTED; STATE.yaml still listed MedSci legacy skill keys not used as registry sources.
+change: Document nested JFC trigger via parent (not a new fine id). Expand mounts-cap README for Nature `nature-shared` dependency and MedSci STATE key hygiene. Local sync restores `nature-shared` (+ small Nature companions) on Windows; STATE prune is local-only (gitignored).
+decision: keep
+next_action: none pending; do not add a fine id for JFC under the 52 ceiling.

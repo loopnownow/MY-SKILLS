@@ -42,3 +42,14 @@ Harmless orphans (unreferenced cache folders with no registry fine id) may be de
 ## Nature shared cache
 
 `nature-figure` and `nature-reviewer` (and related Nature skills) expect a local `mounts-cap/nature/skills/nature-shared/` cache when those fine ids are mounted. If `nature-shared` is already present (see `STATE.yaml`), reuse it. **Do not** download large Nature galleries or whole-repo trees unless the user picked those ids and bytes are missing.
+
+## MedSci legacy STATE keys
+
+`STATE.yaml` may still list MedSci folder names such as `skills/self-review/`, `skills/peer-review/`, `skills/check-reporting/`, `skills/model-evaluation/`, `skills/model-validation/`, `skills/review-paper/` from older force_b / MedSci layouts. Live registry mounts those capabilities under **B** paths (`06-review/...`, `05-manuscript/write-reporting/`, `04-analysis/model-eval/`, …), not MedSci fine-id paths.
+
+Safe local hygiene (does **not** delete pack bytes): remove those six keys from the `med-sci-skills:` block in `STATE.yaml` when the matching folders are unused leftovers, or leave them if you still keep evaluation clones on disk. Re-fetch only via `fetch.py ensure` for ids actually picked this run.
+
+## Nature dependency cache
+
+MOUNTED Nature fine ids (`nature-figure`, `nature-reviewer`, `nature-response`) read `../nature-shared/...`. Keep `mounts-cap/nature/skills/nature-shared/` populated (shared core + journal-formats). Missing `nature-shared` breaks relative links inside those packs — restore from a known-good cache or re-fetch the Nature skill set; do not strip galleries from `nature-figure` as a substitute for `nature-shared`.
+

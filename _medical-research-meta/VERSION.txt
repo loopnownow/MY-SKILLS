@@ -1,3 +1,6 @@
+CHG-20260922-008 (2026-09-22)
+Audit leftovers: journal-format-compliance discovery docs; nature-shared/STATE hygiene notes.
+Earlier markers kept: CHG-20260922-007, CHG-20260922-006, CHG-20260913-001.
 CHG-20260922-007 (2026-09-22)
 Architecture Batch 2: skill-harvest slim (SCAN→PROPOSE→APPROVAL→MEASURE); gate class HARD|QUALITY;
 00 boundary freeze; A/B no-reflow; mounts-cap STATE/nature-shared notes.

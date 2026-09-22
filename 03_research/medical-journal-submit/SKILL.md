@@ -193,4 +193,6 @@ When the user sends a new JCR workbook, follow `rules/annual-update.md`. Keep `r
 
 ## Journal format compliance
 
-After a journal is chosen, format the manuscript to that journal's author guidelines with `journal-format-compliance/` (plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts).
+After a journal is chosen, format the manuscript to that journal's author guidelines with the **nested pack** [`journal-format-compliance/`](journal-format-compliance/) (its own `SKILL.md` + frontmatter).
+
+**Discovery (intentional, not a fine id):** this is a nested MODULE under `medical-journal-submit/`, not a registry fine id (v4 52-id ceiling). Trigger when the user asks to format / check a manuscript against a named journal's author guidelines, or when 选刊 Phase-2 is done and Bai/Victor needs submission-ready Track Changes. Entry is **via this parent skill** (or an explicit path/keyword ask) — do not expect 01 session-pick to list it. Plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts. Publisher quirks: `rules/journal-format-publisher-notes.md`.
