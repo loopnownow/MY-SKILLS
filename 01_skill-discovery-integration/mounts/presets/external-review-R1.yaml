@@ -1,6 +1,6 @@
 # R1 external review — dual engines → A06 only.
 preset_id: external-review-R1
-version: "2026-09-20.1"
+version: "2026-09-22.1"
 status: session-recipe
 notes: >
   Scientific critique overlay + B/MedSci peer-review and self-review produce
@@ -23,7 +23,8 @@ overrides:
     skills: [scientific-critical-thinking]
     paths: [skills/scientific-critical-thinking/]
     role: science-method-findings
-    required: true
+    required: false
+    status_note: PROPOSED in registry — ask before load
     prefix_example: "[Scientific:scientific-critical-thinking]"
   - id: peer-review
     source: my-skills-capabilities

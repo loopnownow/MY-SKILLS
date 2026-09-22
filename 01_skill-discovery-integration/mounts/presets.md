@@ -1,14 +1,16 @@
 # Mount presets（v4）
 
 Session recipes. **Fine ids** are the pick unit. Still ask-each-run.
+Presets must match `registry.yaml` source / path / MOUNTED|PROPOSED.
 
 ## review-hybrid-default
 
-Machine core: [`presets/review-hybrid.yaml`](presets/review-hybrid.yaml) (`2026-09-13.1`).
+Machine core: [`presets/review-hybrid.yaml`](presets/review-hybrid.yaml) (`2026-09-22.1`).
 
 - B chassis required
-- Optional Nature overlays on `verify-refs` / `analyze-stats` (license 需核实 — confirm before load)
-- Scientific overlay on `scientific-critical-thinking`
+- `verify-refs` → Scientific `citation-management` (MOUNTED)
+- `analyze-stats` → B `04-analysis/stats-guide/` (MOUNTED)
+- `scientific-critical-thinking` → Scientific overlay, **PROPOSED** (not required; ask before load)
 - Force B: `peer-review`, `peer-review-pdf-scan`, `revise`, `self-review`
 - Excluded: ARS, OpenClaw
 
@@ -41,7 +43,6 @@ Machine core: [`presets/manuscript-final-W2.yaml`](presets/manuscript-final-W2.y
 
 Machine core: [`presets/external-review-R1.yaml`](presets/external-review-R1.yaml).
 
-- Scientific critical-thinking overlay + MedSci/B `peer-review` / `self-review` → **A06 adjudicates**
+- Optional Scientific critical-thinking (PROPOSED) + MedSci/B `peer-review` / `self-review` → **A06 adjudicates**
 - Findings only; no direct manuscript edits by engines
 - Closely related to `review-hybrid-default`; R1 emphasizes dual finding sets before personal envelope
-

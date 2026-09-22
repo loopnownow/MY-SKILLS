@@ -13,7 +13,7 @@ how to position the paper for submission.
 当用户要求“结合近三年高水平期刊发表规律”“这篇文章适合投 Radiology/Lancet Digital
 Health/Nature Medicine/npj Precision Oncology 吗”时，先读取：
 
-- `literature-evidence-2023-2026.md`
+- mounted `ma-scout` (B `03-research/lit-review/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
 - `journal-patterns-2023-2026.md`
 
 这些文件提供的是 PubMed 验证的种子证据和期刊规律，不是完整系统综述。最终投稿建议仍需当天核验目标期刊官网和近期同类文章。
@@ -136,6 +136,6 @@ publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / �
 - 指数与模块：`../medical-journal-submit/references/jesi-model.md`（JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI）、`modules.md`、`query-sources.md`
 - 持久化：`../medical-journal-submit/references/persistence.md` — **absorb / query / delete** 表；投稿 URL 与个人先验可存；年度 IF/分区/年发文量/APC 等 **QUERY ONLY**（勿写入 `../medical-journal-submit/references/submission-urls.csv`）；**Unknown ≠ Low Risk**；无固定权重政策（动态加权）
 
-本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 `journal-patterns-2023-2026.md` / `literature-evidence-2023-2026.md` 对照。分层表输出以个人包为准（默认**层2→层3→层4，每层10本**；层2≈主攻/Target、层3≈稳妥/Safety偏上、层4≈Q3；**层2补**冲刺默认不出、每次用前询问；黑名单三刊永不荐；投过/选刊白名单（`whitelist-submitted.csv`）层内优先；灰名单（含 Frontiers 系列）有更好匹配则不荐（`graylist.csv`））。层内排序：稿件匹配度 → 投稿易投指数 → 年发文量（弱）。Medicine 刊名层内降权、表中不标可疑；仅 JESI≥80 黄底。外部 journal-recommender 仅作查询/候选池，不作顶层决策。 Phase-2 用户短表（按 paper）：期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知（完整 URL）；无 ISO/OA/置信/APC/分刊详情；细则见 `../medical-journal-submit/`。
+本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 `journal-patterns-2023-2026.md` / mounted `ma-scout` 对照。分层表输出以个人包为准（默认**层2→层3→层4，每层10本**；层2≈主攻/Target、层3≈稳妥/Safety偏上、层4≈Q3；**层2补**冲刺默认不出、每次用前询问；黑名单三刊永不荐；投过/选刊白名单（`whitelist-submitted.csv`）层内优先；灰名单（含 Frontiers 系列）有更好匹配则不荐（`graylist.csv`））。层内排序：稿件匹配度 → 投稿易投指数 → 年发文量（弱）。Medicine 刊名层内降权、表中不标可疑；仅 JESI≥80 黄底。外部 journal-recommender 仅作查询/候选池，不作顶层决策。 Phase-2 用户短表（按 paper）：期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知（完整 URL）；无 ISO/OA/置信/APC/分刊详情；细则见 `../medical-journal-submit/`。
 
 **不要**把选刊交给 `05-write-venue`。

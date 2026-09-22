@@ -62,7 +62,7 @@ then compute an aggregate AI Probability Score.
 #### 1.5 Statistical / Perplexity Indicators (if tooling available)
 - Low perplexity (< 20 on GPT-2 scale) flags high AI likelihood
 - Low burstiness score (< 6) combined with low perplexity = high-confidence AI
-- Invoke `scripts/perplexity.py` if available in the environment
+- Optional: invoke a local perplexity helper if one exists in the environment (no lab-shipped script)
 
 ---
 
@@ -216,5 +216,4 @@ grant proposals, clinical reports), apply the following overrides:
   across 12 commercial tools.
 - 2026 empirical data: Manual adjustments + skill-guided revision consistently achieves
   detection scores below 10%, outperforming most paid humanizer services.
-- Internal resources: `examples.md`, `scripts/perplexity.py`,
-  `reference.md` (Common Bypass & Countermeasure Checklist)
+- Internal resources: `examples.md` (worked examples only; no separate reference.md / perplexity.py in-repo)

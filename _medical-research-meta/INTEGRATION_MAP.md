@@ -848,3 +848,11 @@ problem: Unreferenced files and superseded ban text were still in the tree. 02/0
 change: Deleted `A_updates-20260913-README.md`, `blacklist.mount.md`, `publisher-format.md`, `_history/registry_v4.audit.yaml`, and `skill-harvest/references/roi-ledger.md`. Removed the two superseded `<details>` blocks and the banned-word examples. 02 no longer offers `02-pictures` / `02-fmri` as mounts. 03 points at registry fine ids. 04 no longer offers `04-explainability`.
 decision: keep
 next_action: hybrid-mount-pointers and the 2026-08-25 INTEGRATION_MAP opening were not in this batch.
+
+## CHG-20260922-005 — preset sync + soft-ref retarget (no mode revival)
+date: 2026-09-22
+skill: 01 presets + 03/05/06 personal soft refs
+problem: review-hybrid still pointed verify-refs/analyze-stats at Nature paths and required PROPOSED scientific-critical-thinking; 03/05/06 prose cited retired or never-created files (literature-evidence, mode-*, response-audit-gate, old grant paths).
+change: Align review-hybrid (+ presets.md, external-review-R1 required:false for critical-thinking) to registry. Retarget soft refs to live files (ma-scout, personal/grant-*, Aitor-format, personal-response-style / review-resolution). Do not recreate mode-* skeletons.
+decision: keep
+next_action: none; sync changed files to local `.grok/skills` per-path (no MIR).

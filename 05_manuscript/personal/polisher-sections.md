@@ -2,7 +2,7 @@
 
 **Canonical entry:** parent `../MODULE.md` (manuscript-core).
 Use this file for **section-by-section polish templates** (§1–§9).
-If anything conflicts with `mode-1-sci.md` or top-level `05_manuscript` hard rules, **prefer mode-1 / top-level** (e.g. prediction-model CI is `95% CI: X–X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
+If anything conflicts with `Aitor-format.md` or top-level `05_manuscript` hard rules, **prefer Aitor-format / top-level** (e.g. prediction-model CI is `95% CI: X–X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
 
 Source: former `ying-li-polisher` skill (merged P1).
 

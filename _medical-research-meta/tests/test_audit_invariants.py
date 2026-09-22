@@ -361,7 +361,9 @@ class AttributionAndFetch(unittest.TestCase):
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
         preset = read("01_skill-discovery-integration/mounts/presets/review-hybrid.yaml")
-        self.assertIn("skills: [nature-ref-verifier]", preset)
+        self.assertIn("skills: [citation-management]", preset)
+        self.assertIn("skills: [stats-guide]", preset)
+        self.assertIn("required: false", preset)
         self.assertIn("skills: [scientific-critical-thinking]", preset)
 
 
