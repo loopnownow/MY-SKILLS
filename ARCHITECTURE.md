@@ -102,6 +102,21 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 - `02_data-processing/clinical-data-extraction` — clinical extraction of exported txt/docx; HIS clients stay on the hospital machine, never in git
 - `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at `03-design-experiment` / `03-design-protocol`)
 
+## A/B no-reflow contract
+
+| Side | Role |
+|---|---|
+| **A** (this repo) | Framework + Personal Authority (orchestration, personal style, lab constraints, final say) |
+| **B** (`MY-SKILLS-capabilities`) | Generic Capability (mountable workers; no personal voice) |
+
+**B → A allowed:** finding / evidence / capability / recommendation.
+
+**B → A forbidden:** personal preference, personal style, or personal decision rules.
+
+**A → B only:** interface / task / context / constraints — **never** bake personal style or lab decision rules into B.
+
+Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approval). Execution QC stays in `00`.
+
 ## Design rules
 
 **One fact → one authoritative home.**

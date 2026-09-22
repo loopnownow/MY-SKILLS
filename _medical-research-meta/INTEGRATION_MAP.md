@@ -19,6 +19,30 @@ This file records the current architecture, not the historical export tree.
 
 Historical export paths are intentionally not retained in the active map.
 
+## CHG-20260922-007 — Architecture Batch 2 (harvest slim / gate class / 00 boundary / A·B no-reflow)
+
+```text
+change_id: CHG-20260922-007
+date: 2026-09-22
+skill: skill-harvest + 00_orchestrator + ARCHITECTURE (+ mounts-cap README note)
+change_class: architecture
+problem: skill-harvest/SKILL.md (~388 lines) mixed orchestrator steps with detailed evolution/ROI/governance;
+gates lacked HARD vs QUALITY class metadata; 00 Boundaries were thin on runtime-vs-domain; A/B reflow
+rules were implicit; Batch1 froze these items.
+change: (1) Slim skill-harvest/SKILL.md to orchestrator SCAN→PROPOSE→(USER APPROVAL)→MEASURE (~180–230
+lines); move detail into references/ (evolution-policy, benefit-metrics, keep-merge-delete; keep
+boundary-contract + route-map + keep-vs-skip). Explicit: harvest does NOT DECIDE/MODIFY/DEPLOY; 00 =
+runtime QC; 01 = mount. Do not break qc/ scripts or event model. (2) Add class: HARD|QUALITY on existing
+gate ids only (HARD: G0, G-PHI, G-FACT; QUALITY: G-04, G-05, G-06, G-LIT, G-CODE) — no G-HARD/G-QUALITY ids.
+(3) Freeze 00 Boundaries: runtime decision vs domain knowledge gate before adding to 00. (4) Document A/B
+no-reflow in both ARCHITECTURE.md files. (5) Light mounts-cap README notes: STATE.yaml orphans (do not wipe
+pack bytes); nature-figure/reviewer need nature-shared cache (no large Nature gallery download unless present).
+expected_benefit: Smaller harvest context; clearer QC fail semantics; prevent 00 domain creep and A↔B style leakage.
+boundary_effect: No new fine ids. No Batch1 rework. No MIR/clean mounts-cap packs. qc/ event model unchanged.
+decision: open PR only; do not merge until user 合并
+next_action: parent/user review then merge when named
+```
+
 ## CHG-20260922-006 — Architecture Batch 1 (cache / pointer / priority / 选刊 split)
 
 ```text

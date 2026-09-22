@@ -33,3 +33,12 @@ Never robocopy /MIR or git clean -xfd the whole skills tree onto mounts-cap/ —
 
 Download / `fetch.py ensure` is **not** a mount and does **not** make a skill Active.
 
+## STATE.yaml orphan note
+
+`STATE.yaml` is gitignored and may list paths that no longer exist on disk (or omit folders left from prior evaluation clones). **Do not wipe pack bytes** or blank `STATE.yaml` to “fix” orphans. Document the mismatch here or in INTEGRATION_MAP; re-fetch with `fetch.py ensure --id …` only for ids actually picked this run.
+
+Harmless orphans (unreferenced cache folders with no registry fine id) may be deleted in a dedicated cleanup CHG — not as a side effect of architecture docs.
+
+## Nature shared cache
+
+`nature-figure` and `nature-reviewer` (and related Nature skills) expect a local `mounts-cap/nature/skills/nature-shared/` cache when those fine ids are mounted. If `nature-shared` is already present (see `STATE.yaml`), reuse it. **Do not** download large Nature galleries or whole-repo trees unless the user picked those ids and bytes are missing.

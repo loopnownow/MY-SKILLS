@@ -1,3 +1,7 @@
+CHG-20260922-007 (2026-09-22)
+Architecture Batch 2: skill-harvest slim (SCAN→PROPOSE→APPROVAL→MEASURE); gate class HARD|QUALITY;
+00 boundary freeze; A/B no-reflow; mounts-cap STATE/nature-shared notes.
+Earlier markers kept: CHG-20260922-006, CHG-20260922-005, CHG-20260913-001.
 CHG-20260922-006 (2026-09-22)
 Architecture Batch 1: clean pycache; Cache≠Mount≠Active docs; 52 fine-id expansion ceiling;
 optional load_priority P0|P1|P2 on registry fine ids; journal Logic/Dataset split

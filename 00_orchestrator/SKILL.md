@@ -168,7 +168,12 @@ Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC live
 
 ## Boundaries
 
+**00 owns runtime decisions only:** intent classify, skill chain / route, session mount pick coordination, QC gates, and local recovery. Domain knowledge (stats, writing, literature, review, figures, ethics forms, clinical extraction, coding principles) stays in `02`–`06` (and harvest for evolution proposals).
+
+Before adding content to `00`, ask: **runtime decision vs domain knowledge?** If domain knowledge → put it in the owning specialist skill, not here.
+
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality.
 Do not load all nested material. Load the selected `SKILL.md`, then only the required files.
 Mounted generic capability: ids in `MOUNTED_SKILLS.md` / `registry.yaml`. **This-run pick first** (01). Point at **picked ids**, not deleted `bundles/` paths.
 00 does not write manuscript prose, invent numbers, or click 投稿.
+00 does not absorb harvest evolution rules or 01 mount implementation — those stay in `skill-harvest` and `01_skill-discovery-integration`.
