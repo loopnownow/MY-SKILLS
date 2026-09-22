@@ -54,3 +54,29 @@ Interpretation:
 - <0: revise or rollback
 
 This score is a prioritization aid, not a scientific effect estimate.
+
+## ROI ledger and anti-bloat
+
+Use `data/roi-ledger.csv` as the only local evidence ledger. Do not backfill invented usage. One row = one observable task outcome.
+
+Before promoting a new mode, require either ≥3 independent positive uses, a reproducible failure prevented by the rule, or a defined workflow requirement. If context cost rises while success/correction metrics do not improve, prefer `SIMPLIFY`, `MERGE`, or `ARCHIVE` (`keep-merge-delete.md`).
+
+The repository should optimize for **benefit per context cost**, not file count or text volume.
+
+## Scripts
+
+| Script | When |
+|---|---|
+| `scripts/harvest_score.py` | `keep-update` / `keep-new-mode` only; skip for typos / pointer-only |
+| `scripts/harvest_record.py` | append observable task evidence |
+| `scripts/harvest_report.py` | summarize recorded evidence |
+
+Default decision after observation:
+
+```text
+benefit demonstrated + no material boundary regression → keep
+benefit uncertain → observe / revise only if the problem recurs
+benefit negative or scope leakage → revise or rollback
+```
+
+Do not optimize for usage count alone.

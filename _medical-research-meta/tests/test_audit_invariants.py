@@ -509,10 +509,46 @@ class LocalLinkHygiene(unittest.TestCase):
 
 
 class HarvestHygiene(unittest.TestCase):
-    def test_no_duplicate_section_11(self) -> None:
+    def test_harvest_orchestrator_slim(self) -> None:
         text = read("skill-harvest/SKILL.md")
-        self.assertEqual(len(re.findall(r"^## 11\.", text, re.M)), 1)
-        self.assertIn("## 13. ROI ledger", text)
+        # Batch2: SKILL is orchestrator only (SCAN→PROPOSE→APPROVAL→MEASURE); detail in references/
+        for token in ("SCAN", "PROPOSE", "USER APPROVAL", "MEASURE"):
+            self.assertIn(token, text)
+        low = text.lower()
+        for token in ("decide", "modify", "deploy"):
+            self.assertIn(token, low)
+        for ref in (
+            "references/evolution-policy.md",
+            "references/benefit-metrics.md",
+            "references/keep-merge-delete.md",
+            "references/boundary-contract.md",
+            "references/route-map.md",
+        ):
+            self.assertIn(ref, text)
+        n = len(text.splitlines())
+        self.assertGreaterEqual(n, 160)
+        self.assertLessEqual(n, 260)
+        self.assertTrue((ROOT / "skill-harvest" / "references" / "keep-merge-delete.md").is_file())
+
+    def test_gate_class_metadata(self) -> None:
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("Gate class", gates)
+        self.assertIn("HARD", gates)
+        self.assertIn("QUALITY", gates)
+        # Existing ids only — no invented G-HARD / G-QUALITY gate ids
+        self.assertNotIn("| G-HARD |", gates)
+        self.assertNotIn("| G-QUALITY |", gates)
+        for row in (
+            "| G0 | HARD |",
+            "| G-PHI | HARD |",
+            "| G-FACT | HARD |",
+            "| G-04 | QUALITY |",
+            "| G-05 | QUALITY |",
+            "| G-06 | QUALITY |",
+            "| G-LIT | QUALITY |",
+            "| G-CODE | QUALITY |",
+        ):
+            self.assertIn(row, gates)
 
     def test_keep_vs_skip_no_bundle(self) -> None:
         text = read("skill-harvest/references/keep-vs-skip.md")
