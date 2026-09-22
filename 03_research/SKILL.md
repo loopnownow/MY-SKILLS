@@ -58,6 +58,10 @@ Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mount
 - Grant-review (Voice A): load **only** `personal/grant-review.md`. English journal peer review stays in `06_review`.
 - Grant-writing (Voice B): skeleton + method-upgrade + `personal/grant-writing.md`. Never paste Voice A tics into own text.
 
+
+
+**Journal format (nested):** `medical-journal-submit/journal-format-compliance/` is invoked after 选刊 when formatting to author guidelines — not a fine id; see that pack's SKILL + parent § Journal format compliance.
+
 ## Boundaries
 
 - 选刊 / where to submit stays here (`literature/journal-selection.md` + `medical-journal-submit/`). `05-write-venue` is journal templates / house style while writing, not journal choice.

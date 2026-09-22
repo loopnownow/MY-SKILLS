@@ -54,3 +54,8 @@ Curated table: `data/2026/医学投稿推荐_JCR2026.xlsx`. Raw Clarivate workbo
 
 ## Wording
 - Say **默认挂载 B 包/本仓**, never 「空挂」.
+
+## Journal format compliance (nested)
+
+Not a registry fine id. After 备选杂志 are chosen, invoke `journal-format-compliance/SKILL.md` by path/keyword (format for [journal] / 按作者须知改格式). Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` § Journal format compliance.
+
