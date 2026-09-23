@@ -2,8 +2,8 @@
 # Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
 # Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
 # Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
-# OpenClaw is NOT a source for any fine ID (reference-only: provenance/license mixed at skill layer).
-# Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present. Still not OpenClaw.
+# ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
+# Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
@@ -38,7 +38,7 @@ default_source:
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
-openclaw_policy: never-mount-as-atomic-source
+ars_openclaw_policy: removed-from-catalog
 a_domain_override_policy: >
   Each coarse_id declares a default a_domain. A mount under `mounts:` may set
   its own `a_domain` to override that default when the routing rule requires
@@ -112,7 +112,7 @@ mounts:
     load_priority: P1
     atomic_package: Scientific
     path_shared: true
-    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against OpenClaw and B. Confirmed MIT (LICENSE.md present).
+    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against B thin lit-cite. Confirmed MIT (LICENSE.md present).
   - id: manage-refs
     label: 引用格式化写入
     coarse: 文献检索
@@ -700,13 +700,6 @@ archived:
 #   source_ref, resolved_commit, source_version, scanned_at, cache_commit,
 #   cache_status (fresh|stale|missing|blocked), license_status, inventory_hash, last_diff
 proposals:
-  - id: academic-research-skills
-    source: https://github.com/Imbad0202/academic-research-skills
-    config: sources/ars.proposed.yaml
-    scanned: "2026-09-03"
-    scan_sha: "9443623"
-    status: PROPOSED
-    role: backup-candidate
   - id: med-sci-skills
     source: https://github.com/Aperivue/medsci-skills
     config: sources/medsci.proposed.yaml
@@ -721,15 +714,6 @@ proposals:
     scan_sha: "1e5eeff"
     status: PROPOSED
     role: backup-candidate
-  - id: openclaw-medical-skills
-    source: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills
-    config: sources/openclaw-medical-skills.proposed.yaml
-    scanned: "2026-09-06"
-    scan_sha: "b1f9b6e"
-    status: PROPOSED
-    role: reference-only
-    license_status: mixed
-    note: NEVER mount as atomic_skill source — provenance/license mixed (README MIT vs proprietary skill headers; no reliable whole-pack LICENSE). Discovery clue only; mount true upstream if needed.
   - id: aipoch-medical-research-skills
     source: https://github.com/aipoch/medical-research-skills
     config: sources/aipoch-medical-research-skills.proposed.yaml

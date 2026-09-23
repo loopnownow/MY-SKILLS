@@ -10,7 +10,7 @@ notes: >
   Default B pack (v4). Fine ids are mount points; 10 coarse are stage buckets.
   de-AI personal stays in A 05_manuscript/personal. humanize is MedSci-only.
   New mounts: intake-project, design-ai-benchmarking, architecture-zoo, fill-protocol.
-  cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). OpenClaw absent.
+  cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). ARS/OpenClaw catalog purged.
   CHG-20260913-001.
 skills:
   - id: verify-refs

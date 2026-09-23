@@ -954,3 +954,12 @@ problem: Left-QC P2-4 — STATE.yaml retained MedSci legacy keys and Nature phan
 change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop Nature `nature-statistics` / `nature-citation` / `nature-ref-verifier` keys and delete those cache dirs. Keep nature-shared + MOUNTED Nature trio. Document audit in mounts-cap/README.md.
 decision: keep
 next_action: none; re-fetch only on session pick.
+
+## CHG-20260924-005 — purge ARS/OpenClaw from catalog
+date: 2026-09-24
+skill: 01_skill-discovery-integration · mounts-cap · 00/06 docs
+problem: Residual ARS + OpenClaw boards/sources/policy still offered catalog options despite never-mount policy; need clean purge so session pick never surfaces them.
+change: Delete mounts/ars.md, mounts/openclaw.md, sources/ars.proposed.yaml, sources/openclaw-medical-skills.proposed.yaml. Drop proposals + INDEX/fetch mappings. Replace openclaw_policy with ars_openclaw_policy: removed-from-catalog. Rewrite live docs/presets/tests so backups = MedSci/Scientific/AIPOCH/Nature only. Keep _history + old INTEGRATION_MAP CHGs intact.
+decision: keep
+next_action: none after merge; do not remount or cache ARS/OpenClaw.
+

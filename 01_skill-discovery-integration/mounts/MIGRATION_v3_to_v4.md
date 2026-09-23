@@ -66,7 +66,7 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 - **Before:** ask which of 30 coarse ids to mount.
 - **After:** classify task → propose relevant **coarse bucket(s)** → multi-select **fine ids** under those buckets.
 - Registry `MOUNTED` / `PROPOSED` = available to pick, not attached this run.
-- Never auto-mount non-B. Nature stays PROPOSED until license verified. OpenClaw never atomic source.
+- Never auto-mount non-B. Nature LICENSE Apache-2.0 verified 2026-09-14 (ask-each-run + bytes still required). Later: ARS/OpenClaw removed from catalog (CHG-20260924-005).
 - Empty mount → notify → research → confirm. Say 默认挂载 B 包/本仓 not 空挂.
 
 ## Open decision

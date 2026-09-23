@@ -35,6 +35,6 @@ overrides:
     required: true
     prefix_example: "[Scientific:citation-management]"
 
-excluded_sources: [openclaw-medical-skills]
-excluded_tools_note: No triple search default; OpenClaw never atomic.
+excluded_sources: []
+excluded_tools_note: No triple search default. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
 swappable: true

@@ -14,7 +14,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 **唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。
 
 Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC); 06 Lee; 00 Aitor owns QC. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
-Do not mount ARS `academic-pipeline` or MedSci `orchestrate` as a third SOP.
+Do not mount MedSci `orchestrate` as a third SOP.
 
 **Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes (`[Nature:nature-reviewer]`, `[Scientific:scientific-critical-thinking]`, `[B:06-review-peer]`, …) — not source-only shells) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
 

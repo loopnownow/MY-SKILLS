@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live `04-figure-engine`; ARS/MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; OpenClaw never atomic mount; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live `04-figure-engine`; MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; ARS/OpenClaw purged from catalog; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
 
 ## Skill selection
 
@@ -63,10 +63,10 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 5. If network is unavailable, request a local Skill/repository path.
 6. Evaluate capability and boundaries; propose mount; require explicit user approval; then mount.
 
-Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; ARS/MedSci/Scientific/AIPOCH/Nature fetch **only the path of a fine id picked this run**. OpenClaw: never fetch for mount. Download is not a mount.
+Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; MedSci/Scientific/AIPOCH/Nature fetch **only the path of a fine id picked this run**. Do not fetch ARS/OpenClaw (purged). Download is not a mount.
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
-Backups: ARS / MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. OpenClaw is license-risk-reference-only. Mapping is not a mount.
+Backups: MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. ARS/OpenClaw removed from catalog. Mapping is not a mount.
 Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live `04-figure-engine`. Legacy B path aliases: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power`.
 
 ## Domain boundaries

@@ -1,3 +1,6 @@
+CHG-20260924-005 (2026-09-24)
+Purge ARS/OpenClaw operational residues from catalog (never remount).
+Earlier: CHG-20260924-004, CHG-20260924-003.
 CHG-20260924-004 (2026-09-24)
 mounts-cap STATE orphan hygiene (MedSci legacy keys + Nature phantoms).
 Earlier: CHG-20260924-003, CHG-20260924-002.

@@ -14,6 +14,6 @@
 | v4 细 ID（PROPOSED） | `nature-academic-search` · `nature-data` · `nature-proposal-writer` · `nature-polishing` |
 | license_flag | `Apache-2.0 verified 2026-09-14`（已清除「需核实」） |
 
-MOUNTED 细 ID 须本地 `mounts-cap/nature/skills/<id>/` 有字节。审稿混合配方可预勾 Nature skill 路径，prefix `[Nature:…]`。仍 **不是** OpenClaw。
+MOUNTED 细 ID 须本地 `mounts-cap/nature/skills/<id>/` 有字节。审稿混合配方可预勾 Nature skill 路径，prefix `[Nature:…]`。
 
 机器真源 `../registry.yaml`。

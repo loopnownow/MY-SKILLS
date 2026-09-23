@@ -5,7 +5,7 @@ Local **byte cache** for B and backup plugin packs. Not a domain skill. Pointers
 | On disk | Source | What is fetched |
 |---|---|---|
 | `b/` | `loopnownow/MY-SKILLS-capabilities` | **Always** the full B tree. Missing → download. Present → compare GitHub SHA, update if needed. |
-| `ars/` `medsci/` `scientific/` | backup repos | **Only the skill path(s) for ids picked this run.** Never clone the whole backup. |
+| `medsci/` `scientific/` `aipoch/` `nature/` | backup repos (catalog) | **Only the skill path(s) for ids picked this run.** Never clone the whole backup. ARS / OpenClaw removed from catalog — do not cache. |
 | `STATE.yaml` | local | Recorded SHAs. Gitignored. |
 
 Download is **not** a mount. Backup fetches prefer zip/codeload; `STATE.yaml` merges under lock so parallel `ensure --id` does not clobber keys. Session pick and empty-mount protocol still apply. Never auto-mount a non-B source because a folder appeared here.

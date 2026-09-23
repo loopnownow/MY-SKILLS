@@ -10,10 +10,8 @@ policy:
   never_bulk_backup: true
 dirs:
   my-skills-capabilities: b
-  academic-research-skills: ars
   med-sci-skills: medsci
   scientific-agent-skills: scientific
-  openclaw-medical-skills: openclaw
   aipoch-medical-research-skills: aipoch
 # Repos / paths: 01_skill-discovery-integration/sources/*.yaml
   nature-skills: nature
