@@ -50,6 +50,23 @@ Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example
 
 Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap`. `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). Question templates are mounted `frontier-hypothesize`. `literature/` holds `journal-selection.md` as the 选刊 SOP (JCR pool + layer tables live in `medical-journal-submit/`). Retrieval evidence is mounted fine id `lit-search` (legacy alias `03-lit-search`). Do not send 选刊 to `05-write-venue`.
 
+## Default research spine (workflow)
+
+**Not a literature-search mega-flow.** Default exploration chain:
+
+`R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Research Brief`
+
+Full rules and card schemas: [`workflows/question-to-reference.md`](workflows/question-to-reference.md).
+
+- **03** owns the content chain and stage cards.
+- **00** chooses mid-chain entry, reuse of completed cards, rollback, and STOP (`00_orchestrator/workflows/research-exploration-loop.md`).
+- `lit-search` is invoked **inside R2** only; R2 also screens, verifies claims, maps mechanisms (`direct|indirect|hypothesis|unknown`), and records conflicts/gaps.
+- R4 lists data needs and hands feasibility to **02** (obtain/process) and **04** (stats support). R5 is a **Research Brief**, not a paper Conclusion.
+
+| Task | Path |
+|---|---|
+| Question → Evidence → Design → Data → Brief | `workflows/question-to-reference.md` |
+
 ## Modes
 
 - Evidence: gaps, conflict, mechanism, journal fit. Never invent PMID/DOI.
