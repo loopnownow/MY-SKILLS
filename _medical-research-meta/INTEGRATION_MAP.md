@@ -922,3 +922,11 @@ problem: Need a state-aware exploration path (gap / what-else / literature holes
 change: Add `workflows/research-exploration-loop.md` from the locked short design (structural QC in 00; content delegated; guideline-only JIT freshness; L1=existing recovery; L2 global+oscillation). Wire workflows README, N1 option, project-state `exploration_state` stub. Dispatch map uses live mounts (`lit-search`, `frontier-hypothesize`, …). No G-NOVEL/G-CONSIST; no new external source in this CHG.
 decision: keep
 next_action: none; optional later absorb of third-party idea-scoring only into existing frontier-hypothesize after license/grilling.
+
+## CHG-20260924-001 — writing / review / response personal portraits
+date: 2026-09-24
+skill: 05_manuscript/personal · 06_review/personal
+problem: Corpus style notes needed a lasting personal upper layer split by role (写作 | 审稿 | 审稿回复) without forking Aitor-format or teaching bare "?" comments.
+change: Add `05_manuscript/personal/voice-portrait.md` (overall writing portrait; set/short-sentence/legend-below/no Discussion page-compress locks). Add `06_review/personal/review-comment-habits.md` (statement consistency first, then data consistency + integrity stops; no minimal-? voice). Short Uncertainty section on `personal-response-style.md`. Wire both SKILL personal-asset tables; light Aitor-format / polisher mentions for legend-below and no page-compress.
+decision: keep
+next_action: user review of draft points, then PR.

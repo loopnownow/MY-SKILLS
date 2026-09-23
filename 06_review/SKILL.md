@@ -31,6 +31,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 | Task | Path |
 |---|---|
 | English peer-review voice | `personal/personal-review-style.md` |
+| Review comment habits (statement → data consistency; integrity stops) | `personal/review-comment-habits.md` |
 | Word edit / delivery (Track Changes, 0del, TNR) | `personal/word-edit-rules.md` |
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
