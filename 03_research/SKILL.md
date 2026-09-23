@@ -14,7 +14,7 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
-**Mounted 03 ids** (`03-lit-*` / `03-design-*` / `03-frontier-*`) are the registry menu for generic retrieval and blueprints. Most of `design/` and `frontier/` were 1:1 duplicates of mounted `design-study`/`find-cohort-gap` and were retired 2026-09-13 (`EXTERNALIZATION_CANDIDATES.md`); what remains — `design/radiology-design.md` and `frontier/radiology-frontier.md` — has no B counterpart. `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, and `public-datasets.md` were retired 2026-09-22; use mounted `frontier-hypothesize` and `lit-search`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md` as A homes. Only `literature-evidence-2023-2026.md` was retired (duplicate of mounted `ma-scout`). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `03-lit-search` / literature layer), not `05-write-venue`.
+**Mounted 03 ids** are the registry menu for generic retrieval and blueprints (see Mounted capability ids below for the short retirement pointer). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `lit-search` / legacy alias `03-lit-search`), not `05-write-venue`.
 
 ## Literature rule
 
@@ -46,9 +46,9 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example `lit-search`, `frontier-hypothesize`). Legacy alias `03-lit-search` is not a separate mount. Archived, do not load: `03-lit-fulltext`. Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
+Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example `lit-search`, `frontier-hypothesize`, `design-study`, `find-cohort-gap`). Legacy alias `03-lit-search` is not a separate mount. Archived, do not load: `03-lit-fulltext`. Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
 
-Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap`. `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). Question templates are mounted `frontier-hypothesize`. `literature/` holds `journal-selection.md` as the 选刊 SOP (JCR pool + layer tables live in `medical-journal-submit/`). Retrieval evidence is mounted fine id `lit-search` (legacy alias `03-lit-search`). Do not send 选刊 to `05-write-venue`.
+**Retirement pointer (single block):** Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap` (`EXTERNALIZATION_CANDIDATES.md`); `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, `public-datasets.md`, and `literature-evidence-2023-2026.md` were retired 2026-09-22 — use `frontier-hypothesize`, `lit-search`, and `ma-scout`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md`. Do not send 选刊 to `05-write-venue`.
 
 ## Default research spine (workflow)
 

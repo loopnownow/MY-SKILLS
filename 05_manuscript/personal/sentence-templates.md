@@ -27,22 +27,22 @@ Harvest 2026-08-28, 324 English unique drafts, full-text grep:
 
 ### Methods sentence
 - "A total of N patients with [condition] who underwent [imaging] were retrospectively enrolled."
-- "Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N)."
+- "Patients were randomly divided into a training set (n = N) and a test set (n = N)."
 - "Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed."
 - "A total of N [subjects] were divided into [N] subgroups: [Group A] (n = N), [Group B] (n = N), [Group C] (n = N), and [Group D] (n = N)."
 - Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels Training Cohort / Test Cohort. Other-hospital only = validation set.
 
 ### Results sentence
 Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
-- "The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."
-- "The nomogram exhibited good discrimination in the training cohort (AUC X [95% CI, X–X]) and the test cohort (AUC X [95% CI, X–X])."
+- "The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
+- "The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) and the test set (AUC X [95% CI, X–X])."
 - Direct side-by-side AUCs are more common than `outperformed` (12 hits / 7 papers).
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
 ### Conclusion sentence
 Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `forbidden-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
-- "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."
+- "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
 - "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."
 
 ---
@@ -84,7 +84,7 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 ### Patient selection
 - "Inclusion criteria were as follows: (1) [criterion 1]; (2) [criterion 2]; (3) [criterion 3]."
 - "Patients were excluded if: (1) [criterion 1]; (2) [criterion 2]."
-- "Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Test Cohort. Other-hospital only = validation set.
+- "Patients were randomly divided into a training set (n = N) and a test set (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Test Cohort. Other-hospital only = validation set.
 
 ### Imaging protocol
 - "All MRI examinations were performed on a X.X-T MRI scanner ([Manufacturer, Model]) using a [body/pelvic/head] coil."
@@ -114,15 +114,15 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 ## Results Templates
 
 ### Baseline characteristics
-- "The clinical characteristics of the study population are summarized in Table 1. There were no significant differences in age, sex, or [variable] between the training and test cohorts (all P > 0.05)."
+- "The clinical characteristics of the study population are summarized in Table 1. There were no significant differences in age, sex, or [variable] between the training and test sets (all P > 0.05)."
 
 ### Feature selection
 - "After LASSO feature selection, N features with non-zero coefficients were retained and used to construct the radiomics signature (Figure X)."
 
 ### Model performance
 Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI: X–X) for **both** training and test.
-- "The AUC of the radiomics nomogram was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort, with sensitivity of X% and specificity of X% in the training cohort."
-- "The combination model was compared with the clinical model alone in the training cohort (AUC: X vs. X; P < 0.001 by DeLong test) and in the test cohort (AUC: X vs. X)."
+- "The AUC of the radiomics nomogram was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set, with sensitivity of X% and specificity of X% in the training set."
+- "The combination model was compared with the clinical model alone in the training set (AUC: X vs. X; P < 0.001 by DeLong test) and in the test set (AUC: X vs. X)."
 - "The Hosmer-Lemeshow test indicated good calibration of the nomogram (P = X)."
 - "Decision curve analysis showed that the radiomics nomogram provided greater net benefit than either the clinical model or the treat-all/treat-none strategies across a wide range of threshold probabilities (Figure X)."
 
@@ -158,5 +158,5 @@ Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI
 
 ### Conclusion sentence
 Do **not** close with `demonstrated good performance` or `suggesting its potential`.
-- "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort and could assist [clinical application] in [population]."
+- "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set and could assist [clinical application] in [population]."
 - "In summary, both [A] and [B] play roles in [condition], with [specific mechanistic conclusion], providing new insights into the pathogenesis of [disease]."

@@ -64,11 +64,11 @@ coarse_ids:
   - id: 正文写作
     slug: manuscript-body
     a_domains: [05_manuscript]
-    specialist_hint: Lee
+    specialist_hint: Aitee
   - id: 语言润色
     slug: language-polish
     a_domains: [05_manuscript]
-    specialist_hint: Lee
+    specialist_hint: Aitee
   - id: 数据处理
     slug: data-processing
     a_domains: [02_data-processing]
@@ -76,11 +76,11 @@ coarse_ids:
   - id: 统计分析
     slug: stats-analysis
     a_domains: [04_analysis]
-    specialist_hint: Loopnow/Aitee
+    specialist_hint: Loopnow
   - id: 图表呈现
     slug: figures
     a_domains: [04_analysis]
-    specialist_hint: Loopnow/Aitee
+    specialist_hint: Loopnow
   - id: 稿件评阅
     slug: peer-review
     a_domains: [06_review]

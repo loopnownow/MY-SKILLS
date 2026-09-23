@@ -51,7 +51,7 @@ Structural fields 00 may compute itself:
 
 **Resume point** = first stage with `status != complete`, or `trace_ok == false`, or `classification_confidence` below threshold (default **0.6**, calibrate later).
 
-Optional sketch (illustrative):
+Optional sketch (illustrative / **non-normative** — stage names align with 03 `question-to-reference` **R1–R5**; `lit-search` is a tool under **R2 only**, not its own stage):
 
 ```yaml
 project_state:   # existing file; exploration uses exploration_state below
@@ -59,13 +59,12 @@ project_state:   # existing file; exploration uses exploration_state below
     question: { status: complete }   # or keep as free text + derive status in exploration_state
 exploration_state:
   stages:
-    literature_search: { status: complete }
-    evidence_extraction: { status: complete, trace_ok: true }
-    synthesis: { status: complete, trace_ok: true }
-    gap: { status: partial, classification_confidence: 0.42 }
-    hypothesis: { status: not_started }
-    method: { status: not_started }
-    data: { status: not_started }
+    R1_question: { status: complete }
+    R2_evidence_mechanism: { status: complete, trace_ok: true }  # lit-search tool here only
+    R3_design: { status: complete, trace_ok: true }
+    R4_data_need: { status: partial, classification_confidence: 0.42 }
+    R5_research_brief: { status: not_started }
+    # Downstream of 03 spine (not R1–R5 content stages):
     writing: { status: not_started }
     review: { status: not_started }
 ```
@@ -74,7 +73,7 @@ Prefer mapping onto existing `pipeline.stage` / `study_design` / `manuscript` wh
 
 ## 2. Gap detect + evidence types
 
-From evidence extraction onward, each evidence row should carry:
+From R2 (Evidence & Mechanism) onward, each evidence row should carry:
 
 ```yaml
 evidence_type: guideline | primary_study | review | meta_analysis

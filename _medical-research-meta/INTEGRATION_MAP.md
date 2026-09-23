@@ -938,3 +938,11 @@ problem: Need a stable 03 research exploration axis (question→evidence→desig
 change: Add `workflows/question-to-reference.md` + workflows README. Stages R1–R5 with intermediate cards; mid-chain entry; mechanism source classes; R4 feasibility handoff to 02/04; R5 Research Brief (not paper Conclusion). 00 owns entry/rollback/STOP; pointer from research-exploration-loop. Wire 03 SKILL default spine section.
 decision: keep
 next_action: none after merge; optional later project-state card schema CHG.
+
+## CHG-20260924-003 — left QC prompts / stale soft refs
+date: 2026-09-24
+skill: 00/01/03/05/06 + skill-harvest route-map
+problem: Post-PR#84 left QC: phantom Nature id `nature-ref-verifier`; registry specialist_hint conflict (05 Lee vs Aitee); broken MODULE.md soft refs; body templates still said training/test cohort; polisher Intro/Discussion 25–40 vs 10–30 lock; stale `03-frontier-ideate`; hybrid Nature LICENSE「需核实」; exploration sketch stage names ≠ R1–R5; OpenClaw prefix example; 05/06/radiomics mounted lists still v3-shaped; route-map impute; duplicate 03 retirement prose; 00 workflows README missing 03 spine pointer.
+change: Replace Nature examples with `nature-reviewer`; align specialist_hint (05 Aitee, 06 Lee, 04 Loopnow); retarget Aitor/polisher to SKILL + personal de-AI; body cohort→set (Figure 1 Cohort labels kept); polisher band 10–30; `find-cohort-gap` (+ frontier-hypothesize); Nature LICENSE verified Apache-2.0 + ask-each-run/bytes; exploration_state stages → R1–R5; drop OpenClaw from prefix examples; lead mounted-id lists with v4 ids and legacy-alias footnotes; impute → missing-value via clean-data/02-tables; one 03 retirement block; README pointer to question-to-reference. Skip P2-4/P2-5 (STATE orphans / coverage).
+decision: keep
+next_action: none after merge; sync changed files to local `.grok/skills` per-path (no MIR).

@@ -20,7 +20,7 @@ Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome f
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.  
 Letters / short communications: apply only if the user asks.
 
-Voice and de-AI lists stay in `MODULE.md` / `de-ai/` / `stats-checklist.md`.
+Voice and de-AI lists stay in `personal/de-ai.md` + `personal/forbidden-phrases.md` (and `SKILL.md`); stats checklist stays in `04_analysis/personal/stats-checklist.md`.
 
 ---
 

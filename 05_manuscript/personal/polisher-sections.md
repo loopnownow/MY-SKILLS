@@ -1,6 +1,6 @@
 # Ying Li section polishing rules (appendix)
 
-**Canonical entry:** parent `../MODULE.md` (manuscript-core).
+**Canonical entry:** parent `../SKILL.md` (manuscript personal upper layer).
 Use this file for **section-by-section polish templates** (§1–§9).
 If anything conflicts with `Aitor-format.md` or top-level `05_manuscript` hard rules, **prefer Aitor-format / top-level** (e.g. prediction-model CI is `95% CI: X–X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
 
@@ -40,7 +40,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
-- *"The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort (`Aitor-format.md`). Other-hospital only = validation set.
+- *"The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort (`Aitor-format.md`). Other-hospital only = validation set.
 - *"Both A and B play roles in…"*
 
 **Language rules for abstracts:**
@@ -180,7 +180,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
 - Mirror the abstract objective + affirm clinical value.
-- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `forbidden-phrases.md`).
+- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `forbidden-phrases.md`).
 
 ---
 
@@ -242,7 +242,7 @@ verified in-context examples before deciding to cut one.
 
 ### Sentence structure targets
 - **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
-- **Introduction/Discussion:** 25–40 words. Complex sentences with subordinate clauses acceptable.
+- **Introduction/Discussion:** 10–30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence; no long subordinate stacks.
 - No sentence > 55 words anywhere.
 
 ### Clinical translation phrases (use in Discussion ¶4)
