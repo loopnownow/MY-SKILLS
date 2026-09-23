@@ -55,3 +55,21 @@ manuscript:
   # - id: R1-1
   #   status: open | done | cannot_invent
   #   location: ""
+
+# Optional — used by workflows/research-exploration-loop.md (00 sub-component).
+# Omit entirely when not exploring. Do not invent medical content here.
+exploration_state:
+  status: ""              # running | stalled | resolved | ""
+  l2_iteration_count: 0
+  hop_history: []
+  completed: []
+  uncertain: []
+  missing: []
+  invalidated: []
+  reusable: []
+  resolved_gaps: []
+  unresolved_gaps: []
+  # stages:            # optional per-stage sketch
+  #   literature_search: { status: complete }
+  #   gap: { status: partial, classification_confidence: 0.42 }
+

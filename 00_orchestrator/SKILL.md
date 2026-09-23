@@ -69,7 +69,7 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 
 | Node | When | Options |
 |---|---|---|
-| N1 SOP | 「全线」 / multi-stage with no lock | `radiomics-study` / `sci-manuscript` / no SOP (single skill) |
+| N1 SOP | 「全线」 / multi-stage with no lock | `radiomics-study` / `sci-manuscript` / `research-exploration-loop` / no SOP (single skill) |
 | N2 PHI | before 02 tables or clinical extraction | PHI present → de-identify / stop; none → proceed |
 | N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
@@ -165,6 +165,10 @@ Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC live
 **Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
+
+## Research exploration (sub-component)
+
+Triggers such as 「这个研究还能做什么」「还缺哪些文献」「研究空白」「选题探索」 may enter [`workflows/research-exploration-loop.md`](workflows/research-exploration-loop.md): state resume, reuse completed work, dispatch **existing** 03/04 mounts (`lit-search`, `frontier-hypothesize`, …), L1 = gate recovery, L2 = cross-stage cap 3. Not a fine id. 00 stays structural-only.
 
 ## Boundaries
 

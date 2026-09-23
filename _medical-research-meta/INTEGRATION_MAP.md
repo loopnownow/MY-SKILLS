@@ -914,3 +914,11 @@ problem: Nested `journal-format-compliance` looked undiscoverable under "Nested 
 change: Document nested JFC trigger via parent (not a new fine id). Expand mounts-cap README for Nature `nature-shared` dependency and MedSci STATE key hygiene. Local sync restores `nature-shared` (+ small Nature companions) on Windows; STATE prune is local-only (gitignored).
 decision: keep
 next_action: none pending; do not add a fine id for JFC under the 52 ceiling.
+
+## CHG-20260923-001 — research-exploration-loop (00 sub-component)
+date: 2026-09-23
+skill: 00_orchestrator/workflows
+problem: Need a state-aware exploration path (gap / what-else / literature holes) without new coarse or fine ids and without expanding 00 into domain judgment.
+change: Add `workflows/research-exploration-loop.md` from the locked short design (structural QC in 00; content delegated; guideline-only JIT freshness; L1=existing recovery; L2 global+oscillation). Wire workflows README, N1 option, project-state `exploration_state` stub. Dispatch map uses live mounts (`lit-search`, `frontier-hypothesize`, …). No G-NOVEL/G-CONSIST; no new external source in this CHG.
+decision: keep
+next_action: none; optional later absorb of third-party idea-scoring only into existing frontier-hypothesize after license/grilling.
