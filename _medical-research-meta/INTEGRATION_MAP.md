@@ -930,3 +930,11 @@ problem: Corpus style notes needed a lasting personal upper layer split by role 
 change: Add `05_manuscript/personal/voice-portrait.md` (overall writing portrait; set/short-sentence/legend-below/no Discussion page-compress locks). Add `06_review/personal/review-comment-habits.md` (statement consistency first, then data consistency + integrity stops; no minimal-? voice). Short Uncertainty section on `personal-response-style.md`. Wire both SKILL personal-asset tables; light Aitor-format / polisher mentions for legend-below and no page-compress.
 decision: keep
 next_action: user review of draft points, then PR.
+
+## CHG-20260924-002 — 03 question-to-reference spine
+date: 2026-09-24
+skill: 03_research/workflows
+problem: Need a stable 03 research exploration axis (question→evidence→design→data→brief) without turning lit-search into a mega-skill or adding five fine ids.
+change: Add `workflows/question-to-reference.md` + workflows README. Stages R1–R5 with intermediate cards; mid-chain entry; mechanism source classes; R4 feasibility handoff to 02/04; R5 Research Brief (not paper Conclusion). 00 owns entry/rollback/STOP; pointer from research-exploration-loop. Wire 03 SKILL default spine section.
+decision: keep
+next_action: none after merge; optional later project-state card schema CHG.

@@ -105,6 +105,9 @@ Unlock re-call of upstream skills only on:
 
 ## 4. Dispatch existing skills (no new pipeline nodes)
 
+When the missing work is **research content** (question / evidence / design / data need / planning brief), dispatch **03** on [`../../03_research/workflows/question-to-reference.md`](../../03_research/workflows/question-to-reference.md) at the right **R1–R5** stage. 00 still chooses entry and STOP; 03 fills the cards.
+
+
 | Gap type | Layer | Live fine ids / paths (examples) | Question answered |
 |---|---|---|---|
 | Evidence Discovery | 03 | `lit-search` (P1); optional `paper-lookup` if session-picked | What literature is still missing? |

@@ -1,3 +1,6 @@
+CHG-20260924-002 (2026-09-24)
+03 default spine: workflows/question-to-reference.md (R1–R5 cards; lit-search under R2).
+Earlier: CHG-20260924-001, CHG-20260923-001.
 CHG-20260924-001 (2026-09-24)
 05/06 personal portraits: writing | review | response (consistency-first review habits).
 Earlier: CHG-20260923-001, CHG-20260922-008.
