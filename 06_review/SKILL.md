@@ -71,7 +71,7 @@ English peer-review / pre-review body follows `personal/personal-review-style.md
 
 ## Comments, conflicts, undecidable items
 
-- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[ARS:…]` / `[MedSci:…]` / `[Scientific:…]` / `[OpenClaw:…]` / `[B:…]`, dual-tag OK).
+- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[MedSci:…]` / `[Scientific:…]` / `[Nature:…]` / `[AIPOCH:…]` / `[B:…]`, dual-tag OK).
 - Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
 - Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
 - Word wording that differs from the last agent sentence is the user’s edit (`personal/word-edit-rules.md`): ask before changing; do not restore. HTML / PDF / scripts are out of scope.

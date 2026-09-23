@@ -7,7 +7,7 @@ description: >
   statistics, manuscript writing, or peer review. Mount pointers live only here.
   Default mount is B (MY-SKILLS-capabilities). Every run: ask which fine ids to
   mount this session under relevant coarse buckets. Never auto-mount a non-B source.
-  OpenClaw is reference-only (provenance/license mixed at skill layer) — never an atomic mount source; mount true upstream if a skill is needed.
+  Catalog backups: MedSci / Scientific / AIPOCH / Nature only. ARS/OpenClaw purged from catalog (never remount).
 ---
 
 # Skill Discovery & Integration
@@ -17,7 +17,7 @@ description: >
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
 **All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`.
-Human board: `mounts/` (`README.md`, `MIGRATION_v3_to_v4.md`, `hybrid-mount-pointers.md`, `presets.md` + `presets/*.yaml`, `b.md` / `ars.md` / `medsci.md` / `scientific.md` / `openclaw.md` / `aipoch.md` / `nature.md`).
+Human board: `mounts/` (`README.md`, `MIGRATION_v3_to_v4.md`, `hybrid-mount-pointers.md`, `presets.md` + `presets/*.yaml`, `b.md` / `medsci.md` / `scientific.md` / `aipoch.md` / `nature.md`).
 Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Architecture (v4 · CHG-20260913-001)
@@ -31,11 +31,11 @@ Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Default mount
 
-**Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature fine-id overlays (license 需核实), Scientific critique fine id. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source. ARS and OpenClaw are not in the default recipe.
+**Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Nature fine-id overlays (LICENSE Apache-2.0 verified; still ask-each-run + bytes), Scientific critique fine id. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source.
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
-ARS, MedSci, Scientific, AIPOCH, Nature are **backup candidates** (PROPOSED). OpenClaw is **reference-only** (provenance/license mixed — README MIT ≠ every skill MIT) — never atomic source; if a capability is needed, mount its true upstream, not the OpenClaw aggregate.
-Nature fine ids stay PROPOSED until license verified; do not claim MOUNTED if bytes absent.
+MedSci, Scientific, AIPOCH, Nature are **backup candidates** (PROPOSED). ARS/OpenClaw: `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
+Nature LICENSE Apache-2.0 verified 2026-09-14; MOUNTED fine ids still need ask-each-run + `mounts-cap/` bytes — do not claim MOUNTED if bytes absent.
 
 **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms.
 
@@ -66,7 +66,7 @@ Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** 
 Bytes live at repo-root `mounts-cap/` (gitignored pack trees). Pointers stay in this skill.
 
 - **B** (`mounts-cap/b/`): **canonical** full tree. Missing → `python mounts-cap/fetch.py ensure-b`.
-- **ARS / MedSci / Scientific / AIPOCH / Nature**: download **only the path(s) of fine ids picked this run**. Never clone wholesale. OpenClaw: do not fetch for mount.
+- **MedSci / Scientific / AIPOCH / Nature**: download **only the path(s) of fine ids picked this run**. Never clone wholesale. Do not fetch ARS/OpenClaw (purged from catalog).
 - `python mounts-cap/fetch.py ensure --id <fine-id>` after the session pick. Download is not a mount. Empty after fetch → empty-mount protocol.
 
 
@@ -95,7 +95,7 @@ Registry `MOUNTED` / `PROPOSED` = **available to pick**, not attached for this r
 
 1. Classify the task. Propose **relevant coarse bucket(s)** then **candidate fine ids** (not all 52 unless 全线).
 2. Show each candidate as one line: **粗 ID · 细 ID · 源 · 包内 skill** · 做什么。默认源多为 B。审稿混合配方行必须写出 skill 名（如 `nature-reviewer`）。
-3. **Ask the user to multi-select fine ids**. Default is **hybrid** (B chassis; non-B only where the recipe lists a path). For 写稿/润色/修订论著, **pre-check `manuscript-final-W2`**. For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: 用该默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / AIPOCH / Nature，仅当该细 ID 有路径；**OpenClaw 不提供**；ARS 默认不提供）. Empty picked path → tell the user; do not silent-fallback.
+3. **Ask the user to multi-select fine ids**. Default is **hybrid** (B chassis; non-B only where the recipe lists a path). For 写稿/润色/修订论著, **pre-check `manuscript-final-W2`**. For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: 用该默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / AIPOCH / Nature，仅当该细 ID 有路径）. Empty picked path → tell the user; do not silent-fallback.
 4. Load **only** the picked fine ids (and for non-B overrides, **only the preset/skill paths** listed). Ensure bytes in `mounts-cap/` first. Unpicked stay unloaded — do not prefetch a whole Nature/Scientific tree. Never bulk-download.
 5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.
 6. Do not change `registry.yaml` just because this run picked a backup source.
@@ -111,7 +111,7 @@ If a listed mount is empty (path missing, zero files, clone failed, id points no
 2. Re-search (B first, then GitHub / network; if no network, ask for a local path).
 3. **Confirm with the user** before changing `registry.yaml` or switching source.
 
-Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature or invent a local copy.
+Never silently fall back to MedSci/Scientific/AIPOCH/Nature or invent a local copy.
 
 ## Resolution order
 
@@ -120,7 +120,7 @@ Never silently fall back to ARS/MedSci/Scientific/OpenClaw/AIPOCH/Nature or inve
 3. If that path is empty or missing → empty-mount protocol.
 4. Only after confirmation may a *different* backup candidate be proposed.
 5. Evaluate capability, boundaries, dependencies, and overlap.
-6. New non-B sources stay `PROPOSED` until explicit approval. Nature needs license confirmation.
+6. New non-B sources stay `PROPOSED` until explicit approval. Nature LICENSE verified Apache-2.0; still ask-each-run + bytes.
 7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
 
 
@@ -133,7 +133,7 @@ These are **mount-time** bans, not skill deletions:
 3. Reviewer engines (Scientific / MedSci / Nature peer-review) output **findings only**; they must not edit the manuscript bypassing A06.
 4. Nature (or any venue) polishing must not overwrite B05 / A personal author voice.
 5. Never keep AIPOCH as a whole-pack resident context — fine ids only.
-6. OpenClaw: never atomic mount (see above).
+6. Do not remount packs purged from catalog (`ars_openclaw_policy: removed-from-catalog`).
 
 Intro / Discussion default discovery: Scientific `paper-lookup` (or Research Lookup) + MedSci/Scientific **verify-refs**. Open MedSci literature-search only when a structured clinical search is needed.
 
@@ -141,8 +141,8 @@ Intro / Discussion default discovery: Scientific `paper-lookup` (or Research Loo
 
 - Never perform literature research, statistics, manuscript writing, or peer review.
 - Never auto-install or auto-mount a **non-B** Skill.
-- Never bulk-download ARS / MedSci / Scientific / OpenClaw / AIPOCH / Nature. On-demand paths only, after a pick.
-- **Never mount OpenClaw** as an atomic skill source (provenance/license mixed; reference-only discovery clue).
+- Never bulk-download MedSci / Scientific / AIPOCH / Nature. On-demand paths only, after a pick.
+- Never remount ARS/OpenClaw (removed from catalog).
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
@@ -177,7 +177,7 @@ without a confirmed grilling round.** This is not 00's QC decision either — 00
 5. **移交 grilling 确认**：把建议表包成一轮 `grill-me`（`00_orchestrator/grilling/SKILL.md`），
    每条建议是一道题、附带推荐动作，等用户逐条确认或改。**这一步之前不写任何文件。**
 6. 用户确认后才执行：
-   - **挂载** → 按现有 `sources/<name>.proposed.yaml` schema 建档（参考 `sources/ars.proposed.yaml`
+   - **挂载** → 按现有 `sources/<name>.proposed.yaml` schema 建档（参考 `sources/medsci.proposed.yaml`
      的字段结构），状态 `PROPOSED`，走既定 lifecycle（见「Registry」一节）升到 `APPROVED`/`MOUNTED`。
    - **吸收** → 由对应 `0X_domain` 用自己的语言重写关键内容到 `personal/`，不整体挂载来源，
      不建 `sources/*.yaml`。

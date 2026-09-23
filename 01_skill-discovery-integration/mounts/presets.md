@@ -12,7 +12,7 @@ Machine core: [`presets/review-hybrid.yaml`](presets/review-hybrid.yaml) (`2026-
 - `analyze-stats` → B `04-analysis/stats-guide/` (MOUNTED)
 - `scientific-critical-thinking` → Scientific overlay, **PROPOSED** (not required; ask before load)
 - Force B: `peer-review`, `peer-review-pdf-scan`, `revise`, `self-review`
-- Excluded: ARS, OpenClaw
+- Catalog backups offered: MedSci / Scientific / AIPOCH / Nature only (no other packs in session pick)
 
 Attribution: `[Source:pack-skill]` per skill, not whole source.
 

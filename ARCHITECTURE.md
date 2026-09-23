@@ -44,7 +44,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - Default source **B** (`loopnownow/MY-SKILLS-capabilities`).
 - **v4 (CHG-20260913-001):** **10 coarse** stage buckets + **52 fine ids** (session-pick). `session_mount: ask-each-run` — multi-select fine ids under relevant coarse; do not auto-load all. Menu is not `mounts: []`.
 - A folders stay `00`–`06` (not renamed to Chinese top-level). Migration: `01_skill-discovery-integration/mounts/MIGRATION_v3_to_v4.md`. Backup: `01_skill-discovery-integration/_history/registry.v3.30.yaml`.
-- ARS / MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. OpenClaw is **never** an atomic mount source (license risk). Mapping is not a mount. Never auto-mount a non-B source.
+- MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. ARS/OpenClaw purged from catalog (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize` (was `05-humanize`). `04-explainability` is **ARCHIVED** (not default menu).
 - Figures fine id: `make-figures` (B still has `04-fig-flow` / `04-fig-plot` paths). No live `04-figure-engine`.
 - Legacy aliases still referenced in domain docs: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power` (B paths / routing); sample-size fine ids sit under coarse 研究设计 by default.

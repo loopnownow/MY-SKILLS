@@ -47,6 +47,6 @@ force_b:
   - revise
   - self-review
 
-excluded_sources: [academic-research-skills, openclaw-medical-skills]
-excluded_tools_note: Findings only; A06 adjudicates. OpenClaw never atomic.
+excluded_sources: []
+excluded_tools_note: Findings only; A06 adjudicates. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
 swappable: true

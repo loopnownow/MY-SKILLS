@@ -8,7 +8,7 @@ notes: >
   Default for review / pre-review: B chassis + Scientific verify-refs
   (citation-management) + B analyze-stats (stats-guide). Scientific
   critical-thinking stays PROPOSED overlay (ask before load). Prefetch only
-  listed skill paths. ARS excluded. OpenClaw never. A 06 personal adjudicates.
+  listed skill paths. Catalog backups MedSci/Scientific/AIPOCH/Nature only. A 06 personal adjudicates.
 
 chassis:
   source: my-skills-capabilities
@@ -51,7 +51,7 @@ force_b:
   - revise
   - self-review
 
-excluded_sources: [academic-research-skills, openclaw-medical-skills]
-excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. OpenClaw never atomic.
+excluded_sources: []
+excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
 
 swappable: true

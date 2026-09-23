@@ -168,11 +168,15 @@ class RegistryMenu(unittest.TestCase):
         self.assertIn("calc-sample-size", reg)
         self.assertIn("humanize", reg)
         self.assertIn("write-paper", reg)
-        # OpenClaw never an atomic source on mounts
+        # ARS/OpenClaw purged from catalog; never remount
         blob = REG.read_text(encoding="utf-8")
         mount_blob = blob.split("mounts:")[1].split("reference_only:")[0]
         self.assertNotIn("openclaw", mount_blob.lower())
-        self.assertIn("openclaw_policy: never-mount-as-atomic-source", blob)
+        self.assertNotIn("academic-research-skills", mount_blob.lower())
+        self.assertIn("ars_openclaw_policy: removed-from-catalog", blob)
+        self.assertNotIn("openclaw_policy: never-mount-as-atomic-source", blob)
+        self.assertNotIn("id: openclaw-medical-skills", blob)
+        self.assertNotIn("id: academic-research-skills", blob)
         self.assertIn("session_pick_unit: fine_id", blob)
 
 
@@ -321,8 +325,10 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("Never `--e2e`", zero)
         self.assertIn("Literature enters 03 only", zero)
         self.assertIn("reviewer response only here", zero)
-        self.assertIn("Do not mount ARS", zero)
-        self.assertIn("academic-pipeline", zero)
+        self.assertNotIn("Do not mount ARS", zero)
+        self.assertNotIn("academic-pipeline", zero)
+        self.assertIn("Do not mount MedSci", zero)
+        self.assertIn("orchestrate", zero)
         self.assertIn("Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`", zero)
 
     def test_gates_and_handoff_exist(self) -> None:
@@ -372,7 +378,8 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("作者字段", text)
         self.assertIn("作者栏 ≠ 来源标签", text)
         self.assertIn("双标", text)
-        self.assertIn("[ARS:", text)
+        self.assertNotIn("[ARS:", text)
+        self.assertNotIn("[OpenClaw:", text)
         self.assertIn("[MedSci:", text)
         self.assertIn("[Scientific:", text)
         self.assertIn("同一 DOI", text)
@@ -466,7 +473,8 @@ class MountsCap(unittest.TestCase):
         idx = read("mounts-cap/INDEX.yaml")
         self.assertIn("on-demand-path-only", idx)
         self.assertIn("never_bulk_backup", idx)
-        self.assertIn("openclaw-medical-skills: openclaw", idx)
+        self.assertNotIn("openclaw-medical-skills: openclaw", idx)
+        self.assertNotIn("academic-research-skills: ars", idx)
         self.assertIn("aipoch-medical-research-skills: aipoch", idx)
         self.assertIn("nature-skills: nature", idx)
         # Local fetch cache dirs may exist on a developer box; they must stay gitignored.

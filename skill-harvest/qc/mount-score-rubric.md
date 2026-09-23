@@ -49,4 +49,4 @@
 ## D. 与现行默认配方的关系
 
 现行默认见 `01_skill-discovery-integration/mounts/presets.md`（Nature 主外挂 + Scientific 批判叠加 + B 底盘）。  
-本尺用于验证该默认是否仍划算；ARS / 带外编辑工具不纳入默认候选集。
+本尺用于验证该默认是否仍划算；带外编辑工具不纳入默认候选集。Catalog backups = MedSci/Scientific/AIPOCH/Nature only。

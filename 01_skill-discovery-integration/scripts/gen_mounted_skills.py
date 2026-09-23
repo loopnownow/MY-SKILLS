@@ -35,8 +35,8 @@ Canonical pointers live in 01 (`registry.yaml`). This file is the human table,
 Default source: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
-Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature: `license_flag` until verified.
-**OpenClaw is never an atomic mount source** (license risk).
+Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature LICENSE Apache-2.0 verified (ask-each-run + bytes).
+`ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 **Every run:** ask which **fine ids** to attach under the relevant coarse buckets (`session_mount: ask-each-run`).
 Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
 Say 默认挂载 B 包/本仓 — not 空挂.
@@ -60,8 +60,8 @@ FOOTER_TEMPLATE = """
 
 ## Backup candidates
 
-- ARS / MedSci / Scientific / AIPOCH / Nature: `PROPOSED` (Nature license 需核实).
-- OpenClaw: `PROPOSED` · **license-risk-reference-only** · never mount as atomic source.
+- MedSci / Scientific / AIPOCH / Nature: `PROPOSED` (Nature LICENSE Apache-2.0 verified).
+- ARS/OpenClaw: removed from catalog (`ars_openclaw_policy: removed-from-catalog`).
 
 Mapping is not a source-wide mount.
 """
