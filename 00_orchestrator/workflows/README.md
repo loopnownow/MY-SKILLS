@@ -7,6 +7,7 @@ Loop: intent classify → skill chain → QC gate (`../gates.md`).
 |-----|------|------|
 | radiomics-study | 图像/ROI/特征 → `04_analysis` 出 HTML | `radiomics-study.md` |
 | sci-manuscript | 已有 HTML → Aitor 稿 → 预审/回信 | `sci-manuscript.md` |
+| research-exploration-loop | 研究还能做什么 / 缺口 / 选题探索（任意阶段接入） | `research-exploration-loop.md` |
 
 On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unless directory detection already locked it. Do not infer against files.
 
@@ -19,3 +20,6 @@ On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unles
 Project state template: `../templates/project-state.yaml` → copy to `<project>/ref/project-state.yaml` only when starting state tracking. Handoff: `../templates/handoff.yaml`.
 
 01 is Skill Discovery, not Excel. Excel/0RAD → 02. Figures → 04 (`04-fig-flow` / `04-fig-plot`). Literature → 03. 选刊 → `03_research`. 样本量 → `04-stats-power`. Reviewer response → 06.
+
+`research-exploration-loop` is a **00 sub-component**, not a registry fine id. It only routes existing 03/04(/05/06) mounts, runs structural checks, and applies L1/L2 loop caps. See that file for `exploration_state` and freshness rules.
+
