@@ -27,6 +27,7 @@ Convert **validated** research information into precise, publication-ready origi
 | Task | Path |
 |---|---|
 | Aitor-format (title page, IMRAD, DOCX, citation quotas) | `personal/Aitor-format.md` |
+| Writing voice portrait (habits; locks set/short-sentence/legend-below) | `personal/voice-portrait.md` |
 | Section polish templates | `personal/polisher-sections.md` |
 | Sentence templates | `personal/sentence-templates.md` |
 | Exemplars | `personal/exemplars.md` |

@@ -206,3 +206,14 @@ PCOS 等系列稿件。
 - 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**后再改。
 - 定不了的意见：回信标清需作者确认；可附 reference-only 句，不假装已做实验。
 
+---
+
+## Uncertainty and disagreement (回复审稿人画像)
+
+Corpus habit for **审稿回复** (not for inventing data):
+
+- Keep replies short and concrete. Confirm, clarify, or refuse with evidence — no long defense essays.
+- If the reviewer is wrong on a fact, politely correct **with the source** (HTML row, table, guideline). Do not rewrite the paper into an incorrect request.
+- If you do not know (missing analysis, missing file, ethics Date/NO unset): say so. Prefer `cannot_invent` / ask the user over a confident guess.
+- Attitude lock: **uncertain → mark; never pretend certainty.**
+

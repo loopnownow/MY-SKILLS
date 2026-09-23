@@ -1,3 +1,6 @@
+CHG-20260924-001 (2026-09-24)
+05/06 personal portraits: writing | review | response (consistency-first review habits).
+Earlier: CHG-20260923-001, CHG-20260922-008.
 CHG-20260923-001 (2026-09-23)
 00 research-exploration-loop workflow (sub-component; not a fine id).
 Earlier markers kept: CHG-20260922-008, CHG-20260922-007, CHG-20260913-001.

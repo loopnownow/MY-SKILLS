@@ -216,6 +216,8 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 ## Discussion (800–1000 words)
 
+Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length follows the word band and content need.
+
 1. Key findings — **no citations, no result numbers**.  
 2. One block per finding — new literature; still no copied AUCs.  
 3. Clinical application — **one** short use-case sentence. No disclaimer stack (*It is not a replacement… A high score should not…*).  
@@ -235,6 +237,9 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 ---
 
 ## Figures
+
+- Figure legends sit **below** the figure (not above).
+
 
 - Embed the latest PNGs.  
 - Image first, legend below.  
