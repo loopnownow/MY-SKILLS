@@ -1,3 +1,6 @@
+CHG-20260924-004 (2026-09-24)
+mounts-cap STATE orphan hygiene (MedSci legacy keys + Nature phantoms).
+Earlier: CHG-20260924-003, CHG-20260924-002.
 CHG-20260924-003 (2026-09-24)
 Left QC: nature-reviewer examples; specialist_hint Aitee/Lee/Loopnow; MODULE→SKILL/de-ai; set wording; polisher 10–30; find-cohort-gap; Nature LICENSE verified; R1–R5 sketch; OpenClaw prefix drop; v4-first mounted ids; impute→missing-value; 03 retirement dedupe; 00→03 spine pointer.
 Earlier: CHG-20260924-002, CHG-20260924-001, CHG-20260923-001.
