@@ -42,11 +42,11 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `06-review-peer` — other-paper peer review
-- `06-review-critique` — self-audit / pre-submission
-- `06-review-response` — point-by-point letters
+- `peer-review` — other-paper peer review
+- `self-review` — self-audit / pre-submission
+- `revise` — point-by-point letters /修回分诊
 
-Retired: `06-review-generic`. Packs live in B as `06-review-peer` / `06-review-critique` / `06-review-response`. Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
+Legacy aliases (do not prefer at session pick): `06-review-peer` → `peer-review`; `06-review-critique` → `self-review`; `06-review-response` → `revise`. Retired: `06-review-generic`. Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 
 ## Modes
 

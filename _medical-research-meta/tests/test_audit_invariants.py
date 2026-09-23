@@ -356,7 +356,7 @@ class AttributionAndFetch(unittest.TestCase):
 
     def test_skill_level_prefix_rules(self) -> None:
         style = read("06_review/personal/personal-review-style.md")
-        self.assertIn("[Nature:nature-ref-verifier]", style)
+        self.assertIn("[Nature:nature-reviewer]", style)
         self.assertIn("包内skill-id", style.replace(" ", ""))
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)

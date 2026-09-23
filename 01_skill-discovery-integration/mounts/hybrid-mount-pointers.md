@@ -14,7 +14,7 @@
 | 🟢 跨包已挂载 | 跨包来源，已从 PROPOSED confirm 为 MOUNTED（非 B 默认，仍需按细 ID 单独按需拉取） |
 | ⚪ 规则参考 | 不挂载字节；原则写入对应 B 技能的 `external-principles.md`（2026-09-14：原四条已升 🟢，本表无残留 ⚪） |
 
-**硬规则：** OpenClaw **不得**作为任何细 ID 的 atomic source。Nature 细 ID 正式 `MOUNTED` 前需核实 LICENSE。选刊决策权威仍在 A `03_research/medical-journal-submit`（Victor），不因「选刊推荐」细 ID 在正文写作桶而改归属。
+**硬规则：** OpenClaw **不得**作为任何细 ID 的 atomic source。Nature LICENSE 已核实为 Apache-2.0（2026-09-14）；正式 `MOUNTED` 仍须 ask-each-run 细 ID 多选 + `mounts-cap/` 字节到位，不因许可证已核实而自动挂载。选刊决策权威仍在 A `03_research/medical-journal-submit`（Victor），不因「选刊推荐」细 ID 在正文写作桶而改归属。
 
 **专员对照（A 域不变）**
 
@@ -36,7 +36,7 @@
 | 引用格式化写入 | Scientific | `manage-refs` | 🟢（同上，同目录） |
 | 个人文献库同步 | Scientific | `lit-sync` | 🟢（同上，pyzotero） |
 | 撤稿检测 | AIPOCH | `retraction-watcher` | 🟢（2026-09-13 promoted） |
-| 严格他引审计 | Nature | `nature-academic-search` | 🔵（先核 LICENSE） |
+| 严格他引审计 | Nature | `nature-academic-search` | 🔵（Apache-2.0 verified；仍需 ask-each-run / bytes） |
 | 文献检索与公开数据集 | MedSci | `lit-search` | ✅ |
 
 ## 2. 选题探索（4）

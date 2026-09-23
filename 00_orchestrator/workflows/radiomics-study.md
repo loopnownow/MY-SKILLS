@@ -10,10 +10,10 @@ If `ref/project-state.yaml` is missing, copy `../templates/project-state.yaml` i
 
 0. **Session mount pick (`01`)** — before loading packs, ask which of the registry `MOUNTED` ids to attach **this run**. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
 1. **PHI (`N2`)** — before tables or clinical extraction. Unknown PHI → stop. Gate **G-PHI**.
-2. **Workspace (`02_data-processing`)** — folder names, `exc` first, ID align. `0rad-workspace.md`. Table batch → mounted `02-tables` when picked this run. File check: analysis-ready table exists. Handoff `02 → 04`.
-3. **Methods / prep (`02_data-processing`)** — mounted `02-imaging-qc` for ROI/QC (if picked), then mounted `02-radiomics-habitat` for IBSI/radiomics/habitat **preparation** (if picked). Personal MATLAB: `scripts/parallel_preprocess.m`.
+2. **Workspace (`02_data-processing`)** — folder names, `exc` first, ID align. `0rad-workspace.md`. Table batch → mounted `clean-data` when picked this run (legacy alias `02-tables`). File check: analysis-ready table exists. Handoff `02 → 04`.
+3. **Methods / prep (`02_data-processing`)** — mounted `preprocess-imaging` for ROI/QC (if picked; legacy alias `02-imaging-qc`), then mounted `radiomics-ml` for IBSI/radiomics/habitat **preparation** (if picked; legacy path alias `02-radiomics-habitat`). Personal MATLAB: `scripts/parallel_preprocess.m`.
 4. **Feature matrix (`02_data-processing`)** — extraction / habitat prep. Hand a patient-level table to `04_analysis`. No feature selection on the full cohort.
-5. **Impute (`02_data-processing`, mounted `02-tables` when picked) then pipeline (`04_analysis`)** — drop >50% missing; `python -m modules.pipeline`. `VAL_MODE` and columns only from `settings.ini`.
+5. **Missing-value handling (`02_data-processing`, mounted `clean-data` when picked; legacy alias `02-tables`) then pipeline (`04_analysis`)** — drop >50% missing; `python -m modules.pipeline`. `VAL_MODE` and columns only from `settings.ini`.
 6. **Stop for numbers** — one `*-results.html` per endpoint. File check + gate **G-04**. Do not write a manuscript in this SOP unless the user also picks `sci-manuscript` (node **N3**).
 
 ## Do not
