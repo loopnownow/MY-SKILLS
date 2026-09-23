@@ -39,6 +39,14 @@ Download / `fetch.py ensure` is **not** a mount and does **not** make a skill Ac
 
 Harmless orphans (unreferenced cache folders with no registry fine id) may be deleted in a dedicated cleanup CHG — not as a side effect of architecture docs.
 
+### Audit 2026-09-24 (CHG-20260924-004)
+
+- STATE paths vs disk: **0 missing**.
+- Removed from STATE (keys only): MedSci legacy `self-review` / `peer-review` / `review-paper` / `check-reporting` / `model-evaluation` / `model-validation` (live mounts stay under B).
+- Removed Nature **non-registry** cache dirs + STATE keys: `nature-statistics`, `nature-citation`, `nature-ref-verifier` (phantom; verify-refs uses Scientific `citation-management`).
+- Kept: Nature `nature-figure` / `nature-reviewer` / `nature-response` + dependency `nature-shared`; MedSci `humanize`; Scientific / AIPOCH recorded caches.
+- PROPOSED Nature ids (`nature-academic-search`, `nature-data`, `nature-polishing`, `nature-proposal-writer`) stay uncached until session-picked + `fetch.py ensure`.
+
 ## Nature shared cache
 
 `nature-figure` and `nature-reviewer` (and related Nature skills) expect a local `mounts-cap/nature/skills/nature-shared/` cache when those fine ids are mounted. If `nature-shared` is already present (see `STATE.yaml`), reuse it. **Do not** download large Nature galleries or whole-repo trees unless the user picked those ids and bytes are missing.

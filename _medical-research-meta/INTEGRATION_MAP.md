@@ -946,3 +946,11 @@ problem: Post-PR#84 left QC: phantom Nature id `nature-ref-verifier`; registry s
 change: Replace Nature examples with `nature-reviewer`; align specialist_hint (05 Aitee, 06 Lee, 04 Loopnow); retarget Aitor/polisher to SKILL + personal de-AI; body cohort→set (Figure 1 Cohort labels kept); polisher band 10–30; `find-cohort-gap` (+ frontier-hypothesize); Nature LICENSE verified Apache-2.0 + ask-each-run/bytes; exploration_state stages → R1–R5; drop OpenClaw from prefix examples; lead mounted-id lists with v4 ids and legacy-alias footnotes; impute → missing-value via clean-data/02-tables; one 03 retirement block; README pointer to question-to-reference. Skip P2-4/P2-5 (STATE orphans / coverage).
 decision: keep
 next_action: none after merge; sync changed files to local `.grok/skills` per-path (no MIR).
+
+## CHG-20260924-004 — mounts-cap STATE orphan hygiene
+date: 2026-09-24
+skill: mounts-cap
+problem: Left-QC P2-4 — STATE.yaml retained MedSci legacy keys and Nature phantom skill folders not in the 52-id registry.
+change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop Nature `nature-statistics` / `nature-citation` / `nature-ref-verifier` keys and delete those cache dirs. Keep nature-shared + MOUNTED Nature trio. Document audit in mounts-cap/README.md.
+decision: keep
+next_action: none; re-fetch only on session pick.
