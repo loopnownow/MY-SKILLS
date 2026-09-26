@@ -1,3 +1,6 @@
+CHG-20260926-010 (2026-09-26)
+mounts-cap/.gitignore ignores .state.lock (fetch.py STATE lock).
+Earlier: CHG-20260926-009, CHG-20260926-008.
 CHG-20260926-009 (2026-09-26)
 QC leftovers: B source yaml mirrors registry (+ mirror tests); .gitattributes LF + renormalize; INTEGRATION_MAP newest first with pre-2026-09 archive; set wording; frontmatter descriptions.
 Earlier: CHG-20260926-008, CHG-20260926-007.

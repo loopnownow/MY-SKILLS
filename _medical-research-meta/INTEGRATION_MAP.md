@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20260926-010 — ignore mounts-cap/.state.lock
+date: 2026-09-26
+skill: mounts-cap (repo files only)
+problem: fetch.py creates `mounts-cap/.state.lock` (STATE merge lock), but mounts-cap/.gitignore did not list it, so it showed as an untracked leftover in local full-tree checks.
+change: Add `.state.lock` to mounts-cap/.gitignore next to STATE.yaml. No pack bytes, STATE.yaml, or fetch.py change.
+decision: keep
+next_action: user approves PR, then merge and sync.
+
 ## CHG-20260926-009 — QC leftovers: B yaml mirror, LF line endings, CHG log order, wording
 date: 2026-09-26
 skill: 01_skill-discovery-integration · 03_research · 04_analysis · 05_manuscript · _medical-research-meta
