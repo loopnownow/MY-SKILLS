@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-001 — 00 start and close
+date: 2026-09-26
+skill: 00_orchestrator
+problem: Competing folder artifacts had no ask. `pipeline.stage: done` existed and nothing wrote it. sci-manuscript stopped after revise with no listed-issue check. Later crossings in one approved run had no short confirm.
+change: Ask when a results page and a reviewer letter are both present and the entry is unnamed. Write `done` only on 结束 or when this run's file is in place and the last gate passed. 暂停, or a stop after the results page / before pre-review, leaves the current station. Three failed rounds on one defect stay `unresolved` and do not advance `stage`. After the first approved plan, later crossings in that run are one line, except N2, results-page G-FACT, N4, and G-06. sci-manuscript step 8 verifies listed issues through `review-resolution` only. Official map asks at Detect and labels the endpoint `stage: done`.
+decision: keep
+next_action: none
+
 ## CHG-20260924-005 — purge ARS/OpenClaw from catalog
 date: 2026-09-24
 skill: 01_skill-discovery-integration · mounts-cap · 00/06 docs

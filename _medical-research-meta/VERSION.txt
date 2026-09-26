@@ -1,3 +1,6 @@
+CHG-20260926-001 (2026-09-26)
+00 start/close: competing results-page and reviewer-letter entry asks; stage done / stay / unresolved; same-run later crossings are one line except PHI, results G-FACT, N4, and G-06. sci-manuscript adds a 06 verify pass over listed issues only.
+Earlier: CHG-20260924-005, CHG-20260924-004.
 CHG-20260924-005 (2026-09-24)
 Purge ARS/OpenClaw operational residues from catalog (never remount).
 Earlier: CHG-20260924-004, CHG-20260924-003.

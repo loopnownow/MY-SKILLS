@@ -5,7 +5,11 @@
 flowchart TD
     Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
 
-    Detect --> Entry{运行入口}
+    %% 结果页与审稿信同时在、且用户未点名入口：先问，不按更近的材料自动选。
+    Detect --> Conflict{结果页与审稿信同时在<br/>且未点名入口?}
+    Conflict -->|是| AskEntry[问从哪一站进]
+    AskEntry --> Entry{运行入口}
+    Conflict -->|否| Entry
     Entry -->|完整研究流程| Need02[进入 02]
     Entry -->|已有数据处理结果| Need04[进入 04]
     Entry -->|已有统计结果 / 图表| Need05[进入 05]
@@ -53,8 +57,10 @@ flowchart TD
     GA03 -.->|PASS · 证据供给| P06
     Single --> GAS{{Gate · 目标 Skill}}
 
-    %% Detect 已定终点：到达终点且 PASS 才输出（05 后可不进 06）
-    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>来源 + 版本 / 挂载记录])
+    %% 到达终点且最后一门 PASS，或用户说结束 → stage: done，不打开下一站。
+    %% 暂停，或停在结果页后 / 预审前：stage 留在当前站，不写 done。
+    %% 同一次已批准运行的后续过站报一行；N2、结果页 G-FACT、N4、G-06 仍停住。
+    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>stage: done])
 
     %% QC 环：最小节点回退；禁止整链从 Start 重来
     GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|FAIL| Locate[定位最小负责节点]
@@ -65,6 +71,6 @@ flowchart TD
     Rollback --> Budget
     Budget -->|是| Resume[重入目标节点 · 仅重跑受影响链]
     Resume --> MountQ
-    Budget -->|否| Escalate[停止自动循环 · 列出未解决问题]
+    Budget -->|否| Escalate[停止自动循环 · unresolved<br/>stage 不往前]
     Escalate --> Wait([等待用户决策])
     Wait -.->|授权继续 · 重置预算| Locate
