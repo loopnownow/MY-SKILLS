@@ -2,7 +2,7 @@
 
 Purpose / methods / results templates refreshed 2026-08-28 from 389 unique drafts (324 English). Do not collapse the three purpose-sentence families below. Do not vendor unpublished full texts, title dumps, or patient identifiers.
 
-**Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test**. Figure 1 bottom labels **Training Cohort / Test Cohort** (`Aitor-format.md`). Only an other-hospital cohort is **validation set**. Never `Development set`. Never call a same-hospital random split external validation.
+**Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test**. Figure 1 labels **Training Cohort / Test Cohort**, plus **Validation Cohort** only when Methods states an external cohort (`Aitor-format.md`). Only an other-hospital cohort is **validation set**. Never `Development set`. Never call a same-hospital random split external validation.
 
 **Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `forbidden-phrases.md`.
 
@@ -30,7 +30,7 @@ Harvest 2026-08-28, 324 English unique drafts, full-text grep:
 - "Patients were randomly divided into a training set (n = N) and a test set (n = N)."
 - "Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed."
 - "A total of N [subjects] were divided into [N] subgroups: [Group A] (n = N), [Group B] (n = N), [Group C] (n = N), and [Group D] (n = N)."
-- Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels Training Cohort / Test Cohort. Other-hospital only = validation set.
+- Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort. Other-hospital only = validation set.
 
 ### Results sentence
 Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
@@ -84,7 +84,7 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 ### Patient selection
 - "Inclusion criteria were as follows: (1) [criterion 1]; (2) [criterion 2]; (3) [criterion 3]."
 - "Patients were excluded if: (1) [criterion 1]; (2) [criterion 2]."
-- "Patients were randomly divided into a training set (n = N) and a test set (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Test Cohort. Other-hospital only = validation set.
+- "Patients were randomly divided into a training set (n = N) and a test set (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort. Other-hospital only = validation set.
 
 ### Imaging protocol
 - "All MRI examinations were performed on a X.X-T MRI scanner ([Manufacturer, Model]) using a [body/pelvic/head] coil."

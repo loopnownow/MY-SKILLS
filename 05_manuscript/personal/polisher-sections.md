@@ -40,7 +40,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
-- *"The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort (`Aitor-format.md`). Other-hospital only = validation set.
+- *"The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort (`Aitor-format.md`). Other-hospital only = validation set.
 - *"Both A and B play roles in…"*
 
 **Language rules for abstracts:**

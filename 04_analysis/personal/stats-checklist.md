@@ -31,7 +31,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Fisher's exact test for small samples (expected count < 5)
 
 ### Split wording (body vs Figure 1)
-- [ ] Manuscript **BODY** internal split is **training / test** (training cohort / test cohort)
+- [ ] Manuscript **BODY** internal split is **training / test** (training set / test set)
 - [ ] Figure 1 is the study flowchart read from Materials and Methods (not an enrollment-only figure). Cohort row: **Training Cohort / Test Cohort**, plus **Validation Cohort** only when Methods states an external cohort. Training-set downsampling is not an eligibility exclusion.
 - [ ] **External validation** only for an other-hospital cohort; never a same-hospital random split
 - [ ] Never `Development set`; never `hold-out` as the test-set name
