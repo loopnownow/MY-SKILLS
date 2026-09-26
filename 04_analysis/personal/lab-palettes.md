@@ -2,7 +2,7 @@
 
 **Owner:** `05_manuscript` (`references/lab-palettes.md`). Hex must match `D:\0Grok\0RAD\modules\config\style.py` `FIG_PALETTES` and `console.html` `PALETTES`.
 
-Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `04-fig-plot` (`color-systems.md`). This file is the **lab console five-set** used by the 0RAD pipeline.
+Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `fig-plot` (`color-systems.md`). This file is the **lab console five-set** used by the 0RAD pipeline.
 
 One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**. Auxiliary colors: remaining ROC curves, KM strata, unnamed models.
 
@@ -20,7 +20,7 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 
 ## 发表用扩展色板（10套，非 console 绑定）
 
-不进 `style.py` / `console.html`，不受 `FIG_PALETTE` 管理；手动引用，用于投稿图表而非 0RAD 流水线出图。全部来自公开科研配色规范（ColorBrewer / matplotlib 内建 / Paul Tol / Crameri / ggsci 开源包），按图表类型分类，覆盖 `lab-palettes` 五套 + 挂载 `04-fig-plot`（Okabe-Ito/NPG/Morandi）没有覆盖到的连续量、发散量、灰阶安全场景。
+不进 `style.py` / `console.html`，不受 `FIG_PALETTE` 管理；手动引用，用于投稿图表而非 0RAD 流水线出图。全部来自公开科研配色规范（ColorBrewer / matplotlib 内建 / Paul Tol / Crameri / ggsci 开源包），按图表类型分类，覆盖 `lab-palettes` 五套 + 挂载 `fig-plot`（Okabe-Ito/NPG/Morandi）没有覆盖到的连续量、发散量、灰阶安全场景。
 
 | id | Label | 类型 | 用途 | 取值/来源 |
 |----|-------|-----|------|-----------|

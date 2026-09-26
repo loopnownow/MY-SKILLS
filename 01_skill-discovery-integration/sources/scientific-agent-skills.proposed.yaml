@@ -1,4 +1,6 @@
 # Scanned 2026-09-03 against K-Dense-AI/scientific-agent-skills@1e5eeff (2026-09-02, v2.66.0).
+# `- id:` keys below are v3 coarse ids (legacy). v4 fine ids: ../mounts/MIGRATION_v3_to_v4.md.
+# mounts-cap/fetch.py matches `- id:` keys here; do not rename them.
 source_id: scientific-agent-skills
 name: Scientific Agent Skills
 role: backup-candidate
@@ -80,7 +82,7 @@ skills:
     path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
     a_hook: 04_analysis
     coverage: full
-    note: POLE gold still B/A
+    note: B fig-plot stays gold
   - id: 04-explainability
     path: skills/shap/
     a_hook: 04_analysis

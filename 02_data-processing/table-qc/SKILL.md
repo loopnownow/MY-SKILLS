@@ -27,7 +27,7 @@ Lightweight **signals** on raw numeric tables. Human review decides; nothing her
 
 - Not `code-refactoring/` (deep code QC)
 - Not `skill-harvest/qc/`
-- Not `02-imaging-qc`
+- Not `preprocess-imaging`
 - Reported stats consistency → `04_analysis/personal/stats-consistency.md`
 - No vendored checker scripts in this pack; Loopnow/Build may implement runners later
 

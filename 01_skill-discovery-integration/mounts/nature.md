@@ -9,7 +9,7 @@
 | | |
 |---|---|
 | 状态 | 混合：`nature-figure` / `nature-reviewer` / `nature-response` 已 **MOUNTED**（2026-09-14，原 REFERENCE 升格）；其余细 ID 仍 PROPOSED（按需拉取） |
-| v3 映射 | 13 / 30（17 空挂）；曾填 `03-lit-fulltext`、`06-review-response` |
+| v3 映射 | 13 / 30（17 空挂）；曾填 `03-lit-fulltext`〔ARCHIVED〕、`06-review-response`〔v4 `revise`〕 |
 | v4 细 ID（MOUNTED） | `nature-figure` · `nature-reviewer` · `nature-response` |
 | v4 细 ID（PROPOSED） | `nature-academic-search` · `nature-data` · `nature-proposal-writer` · `nature-polishing` |
 | license_flag | `Apache-2.0 verified 2026-09-14`（已清除「需核实」） |

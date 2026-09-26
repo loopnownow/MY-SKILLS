@@ -41,4 +41,4 @@ secondary."*
 
 ## Handoff
 MRMC power and analysis → `radiology-stats`; reader-study reporting (CLAIM, DECIDE-AI for
-decision-support, CONSORT-AI for trials) → `radiology-reporting`; plots → `figure-engine`.
+decision-support, CONSORT-AI for trials) → `radiology-reporting`; plots → `04_analysis` (mounted `fig-plot`).

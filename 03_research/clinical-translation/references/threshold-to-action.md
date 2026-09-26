@@ -31,7 +31,7 @@ Fill this in for the specific scenario — it justifies the threshold.
 - It answers "does using the model at clinically plausible thresholds do more good than harm?" —
   the question AUC cannot.
 - Report net benefit over the range of thresholds a clinician might use, not a single point.
-- Computation → `radiology-stats`; plot → `figure-engine`.
+- Computation → `radiology-stats`; plot → `04_analysis` (mounted `fig-plot`).
 
 ## Calibration is a prerequisite
 
