@@ -59,7 +59,7 @@ to **training/test + LASSO + nomogram**.
 
 Templates:
 - `A total of N patients with [condition] who underwent [imaging] were retrospectively enrolled.`
-- `Patients were randomly divided into a training cohort (n = N) and a test cohort (n = N).`
+- `Patients were randomly divided into a training set (n = N) and a test set (n = N).`
 - `Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed.`
 
 **Split wording:** manuscript BODY internal split is training/test. Figure 1
@@ -82,8 +82,8 @@ cohort is a validation set. Never `Development set`.
 **Results default:** report `AUC of X (95% CI: X–X)` for **both** training
 and test.
 
-- `The AUC of the [model] was X (95% CI: X–X) in the training cohort and X (95% CI: X–X) in the test cohort.`
-- `The nomogram exhibited good discrimination in the training cohort (AUC X [95% CI, X–X]) and the test cohort (AUC X [95% CI, X–X]).`
+- `The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set.`
+- `The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) and the test set (AUC X [95% CI, X–X]).`
 
 Direct side-by-side AUCs are more common than `outperformed`.
 
