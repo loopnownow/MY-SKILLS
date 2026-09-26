@@ -7,9 +7,8 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（多数能力已吸收进 B 细 ID；`humanize` 仍 MedSci 接口） |
-| v3 映射 | 27 / 30；空挂 3：`02-pictures`、`02-fmri`〔ARCHIVED〕、`04-fig-flow`〔v4 `make-figures`〕 |
 | 典型原子 | `preprocess-imaging` · `analyze-stats` · `find-journal` · `make-figures` · `peer-review` · … |
-| 接口 | `humanize`（去 AI 味）；`04-explainability` **已 ARCHIVED** |
+| 接口 | `humanize`（去 AI 味）；`skills/explainability/` **已 ARCHIVED**（不进菜单） |
 | 扩展 | `skills/academic-aio/` kind: expansion |
 
 ## A 没有对应接口

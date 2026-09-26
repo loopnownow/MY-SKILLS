@@ -1,6 +1,6 @@
 # 混合挂载指针说明（细 ID 配方表）
 
-[总览](README.md) · [迁移 v3→v4](MIGRATION_v3_to_v4.md) · [registry.yaml](../registry.yaml)
+[总览](README.md) · [registry.yaml](../registry.yaml)
 
 **用途：** 会话点选时的「细 ID → 来源包 → 原子技能」对照。粗 ID 是阶段桶（焊死 10 个）；细 ID 才是挂载点。同一细 ID 内不混包；不同细 ID 可来自不同包（混合挂载）。
 
@@ -48,7 +48,7 @@
 | 假设形成 | MedSci | `frontier-hypothesize` | ✅ |
 | 项目启动分类 | MedSci | `intake-project` | 🟡 |
 
-## 3. 研究设计（6）
+## 3. 研究设计（5）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -117,7 +117,7 @@
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
-| PDF注入攻击扫描 | MedSci | `peer-review`（Phase1.5） | ✅ |
+| PDF注入攻击扫描 | MedSci | `peer-review-pdf-scan`（Phase1.5） | ✅ |
 | 审稿意见生成 | MedSci | `peer-review` | ✅ |
 | 数值级自审核算 | MedSci | `self-review` | ✅ |
 | 证据质量评估 | Scientific | `scientific-critical-thinking` | 🔵 |
@@ -133,4 +133,4 @@
 
 ---
 
-**合计：** 注册表 **52** 细 ID。机器真源 [`../registry.yaml`](../registry.yaml)。旧 30 粗 ID 对照见 [MIGRATION_v3_to_v4.md](MIGRATION_v3_to_v4.md)。
+**合计：** 注册表 **52** 细 ID。机器真源 [`../registry.yaml`](../registry.yaml)。

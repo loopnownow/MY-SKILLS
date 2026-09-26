@@ -49,11 +49,11 @@ Convert **validated** research information into precise, publication-ready origi
 - `polish-language` — generic academic English. Not de-AI.
 - `humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
 
-Legacy aliases (do not prefer at session pick): `05-write-manuscript` → `write-paper`; `05-write-reporting` → `check-reporting`; `05-write-venue` → `venue-templates` (journal templates / house style while writing, not 选刊); `05-write-polish` → `polish-language`; `05-humanize` → `humanize`. Retired: `05-writing-generic`. Personal de-AI stays in A (`personal/`).
+选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `fig-plot` / `make-figures`, legacy aliases `04-fig-plot` / `04-fig-flow`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `fig-plot` / `make-figures`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 

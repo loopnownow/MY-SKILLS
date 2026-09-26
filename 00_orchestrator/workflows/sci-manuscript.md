@@ -13,7 +13,7 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 0. **Session mount pick (`01`)** — before loading packs, ask which of the registry `MOUNTED` ids to attach **this run**. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
 1. **Confirm inputs** — results HTML, PNG, Figure 1 n from text. Missing n → ask, do not invent. Re-check **G-04**.
 2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
-3. **Figure 1 (`04_analysis`)** — Figure 1 is the study flowchart read from Methods (`Aitor-format.md`). STROBE / patient-flow: mounted `make-figures` (legacy alias `04-fig-flow`). Statistical plots / imaging panels: mounted `fig-plot` (legacy alias `04-fig-plot`). Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05. Do not draw Figure 1 with `fig-plot` and “no inclusion box”.
+3. **Figure 1 (`04_analysis`)** — Figure 1 is the study flowchart read from Methods (`Aitor-format.md`). STROBE / patient-flow: mounted `make-figures`. Statistical plots / imaging panels: mounted `fig-plot`. Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05. Do not draw Figure 1 with `fig-plot` and “no inclusion box”.
 4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
 5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/forbidden-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`. Gate **G-05**. Handoff `05 → 06` if N4 PREVIEW.
 6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user. Gate **G-06**.

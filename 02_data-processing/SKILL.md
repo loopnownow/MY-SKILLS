@@ -15,10 +15,10 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 
 ## Scope
 
-- clinical tables: Excel/CSV, cleaning, missing/outlier (`clean-data` / `batch-cohort`; legacy alias `02-tables`)
-- CT/MRI I/O: DICOM / NIfTI / NII (`imaging-io`; legacy alias `02-imaging-io`)
-- CT/MRI QC: ROI / reader (`preprocess-imaging`; legacy alias `02-imaging-qc`)
-- radiomics / habitat preparation (`radiomics-ml`; legacy alias `02-radiomics-habitat`; modelling → 04)
+- clinical tables: Excel/CSV, cleaning, missing/outlier (`clean-data` / `batch-cohort`)
+- CT/MRI I/O: DICOM / NIfTI / NII (`imaging-io`)
+- CT/MRI QC: ROI / reader (`preprocess-imaging`)
+- radiomics / habitat preparation (`radiomics-ml`; modelling → 04)
 - leakage and split-integrity checks
 - maintained personal MATLAB/Python scripts
 - clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
@@ -46,12 +46,12 @@ Personal scripts are not replaced by a mounted pack.
 
 Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` menu + `01_skill-discovery-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
 
-- `clean-data` / `batch-cohort` (`02-tables`) — 临床表 Excel / CSV（含缺失/异常值）
-- `imaging-io` (`02-imaging-io`) — CT / MRI 读写，DICOM / NIfTI / NII
-- `preprocess-imaging` (`02-imaging-qc`) — CT / MRI QC，ROI / 阅片
-- `radiomics-ml` (`02-radiomics-habitat`) — IBSI/habitat prep; fine id routes to 04 (paper modelling → 04)
+- `clean-data` / `batch-cohort` — 临床表 Excel / CSV（含缺失/异常值）
+- `imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
+- `preprocess-imaging` — CT / MRI QC，ROI / 阅片
+- `radiomics-ml` — IBSI/habitat prep; fine id routes to 04 (paper modelling → 04)
 
-Archived, do not load: `02-pictures`, `02-fmri`. Retired: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`.
+Archived ids stay off the menu (registry `archived:`).
 
 ## Workflow
 

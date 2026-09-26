@@ -1,3 +1,6 @@
+CHG-20260926-007 (2026-09-26)
+Final legacy alias removal: v3→v4 map and v3.30 backup deleted; live docs, fast routes, source yaml keys, and tests use v4 fine ids only.
+Earlier: CHG-20260926-006, CHG-20260926-005.
 CHG-20260926-006 (2026-09-26)
 Stale pointer sweep: remaining personal/workflow v3 ids → v4 fine ids; retired radiology-* pack pointers → live files or mounted fine ids; owner paths fixed.
 Earlier: CHG-20260926-005, CHG-20260926-004.

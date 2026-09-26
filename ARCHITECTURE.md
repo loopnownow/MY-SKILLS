@@ -19,9 +19,9 @@ skills/
 1. `00_orchestrator` — intent classify, skill chain, QC closed loop (file gates + local recovery; re-run only the broken node, max 3).
 2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Local bytes in `mounts-cap/` (full B; backup sources on-demand by picked id). Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles. No modeling. Handoff → 04. Ethics forms are **not** here.
-4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊 is 03, not `05-write-venue`.
-5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role. 样本量 is `04-stats-power`.
-6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. `05-write-venue` is journal templates / house style while writing, not journal selection.
+4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role. 样本量 is `calc-sample-size`.
+6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only.
 
 `skill-harvest` is governance. It does not replace domain layers. 01 mounts; harvest proposes evolution. Execution QC stays in `00` (incl. **G-FACT** consistency); learning QC is `skill-harvest/qc/` (passive events, on-demand HTML — never auto-modify).
@@ -43,13 +43,12 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 
 - Default source **B** (`loopnownow/MY-SKILLS-capabilities`).
 - **v4 (CHG-20260913-001):** **10 coarse** stage buckets + **52 fine ids** (session-pick). `session_mount: ask-each-run` — multi-select fine ids under relevant coarse; do not auto-load all. Menu is not `mounts: []`.
-- A folders stay `00`–`06` (not renamed to Chinese top-level). Migration: `01_skill-discovery-integration/mounts/MIGRATION_v3_to_v4.md`. Backup: `01_skill-discovery-integration/_history/registry.v3.30.yaml`.
+- A folders stay `00`–`06` (not renamed to Chinese top-level).
 - MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. ARS/OpenClaw purged from catalog (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
-- MedSci-only live interface: `humanize` (was `05-humanize`). `04-explainability` is **ARCHIVED** (not default menu).
-- Figures fine id: `make-figures` (B still has `04-fig-flow` / `04-fig-plot` paths). No live `04-figure-engine`.
-- Legacy aliases still referenced in domain docs: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power` (B paths / routing); sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
-- Retired ids are not live routes: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`, `03-literature`, `03-design`, `03-frontier`, `04-stats-generic`, `04-figure-engine`, `05-writing-generic`, `06-review-generic`.
-- Archived from v4 menus: `02-fmri`, `02-pictures`, `03-lit-fulltext`, `04-explainability`, etc. (see registry `archived:`).
+- MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
+- Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
+- Live docs name v4 fine ids only. Sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
+- Archived fine ids: see registry `archived:`.
 
 
 
@@ -85,8 +84,8 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 ## Routing rules
 
 - Literature research → `03_research` only.
-- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`; evidence `03-lit-search`). `05-write-venue` is journal templates / house style while writing, not journal choice.
-- 样本量 → `04_analysis` (`04-stats-power`).
+- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`; evidence `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- 样本量 → `04_analysis` (`calc-sample-size`).
 - Reviewer response → `06_review` only.
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.
 - Ethics application forms + translational / reader-study design → `03_research`.
@@ -100,7 +99,7 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 - `02_data-processing/code-refactoring` — soft-coding / dry-run / CONFIG on top
 - `03_research/ethics-application-forms` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
 - `02_data-processing/clinical-data-extraction` — clinical extraction of exported txt/docx; HIS clients stay on the hospital machine, never in git
-- `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at `03-design-experiment` / `03-design-protocol`)
+- `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at `design-study` / `write-protocol`)
 
 ## A/B no-reflow contract
 

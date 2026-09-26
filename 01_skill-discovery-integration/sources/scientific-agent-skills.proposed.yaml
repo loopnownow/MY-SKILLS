@@ -1,6 +1,6 @@
 # Scanned 2026-09-03 against K-Dense-AI/scientific-agent-skills@1e5eeff (2026-09-02, v2.66.0).
-# `- id:` keys below are v3 coarse ids (legacy). v4 fine ids: ../mounts/MIGRATION_v3_to_v4.md.
-# mounts-cap/fetch.py matches `- id:` keys here; do not rename them.
+# `- id:` keys are v4 fine ids (registry.yaml): each group lists this source's backup paths for that fine id.
+# mounts-cap/fetch.py: `ensure --id <fine-id> --source <source_id>` reads the path here; without --source it uses registry.yaml.
 source_id: scientific-agent-skills
 name: Scientific Agent Skills
 role: backup-candidate
@@ -13,101 +13,91 @@ notes: >
   Finer A ids (CHG-20260903-011). Empty listed below. shap is tabular XAI, not imaging Grad-CAM.
   Unmapped remainder grouped by domain.
 skills:
-  - id: 02-tables
+  - id: clean-data
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
     a_hook: 02_data-processing
     coverage: full
     note: Excel / DataFrame
-  - id: 02-imaging-io
+  - id: imaging-io
     path: skills/pydicom/; skills/bids/; skills/imaging-data-commons/
     a_hook: 02_data-processing
     coverage: partial
     note: not 0RAD; not fMRI
-  - id: 02-pictures
-    path: skills/histolab/; skills/pathml/; skills/pdf/
-    a_hook: 02_data-processing
-    coverage: partial
-    note: WSI + PDF-as-image
-  - id: 03-lit-search
+  - id: lit-search
     path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
     coverage: full
-  - id: 03-lit-review
+  - id: ma-scout
     path: skills/literature-review/
     a_hook: 03_research
     coverage: full
-  - id: 03-lit-cite
+  - id: verify-refs
     path: skills/citation-management/; skills/pyzotero/
     a_hook: 03_research
     coverage: full
-  - id: 03-design-experiment
+  - id: design-study
     path: skills/experimental-design/
     a_hook: 03_research
     coverage: full
     note: pre-data collection design
-  - id: 03-design-grant
+  - id: grant-builder
     path: skills/research-grants/
     a_hook: 03_research
     coverage: full
     note: does not replace A Voice A/B
-  - id: 03-frontier-ideate
+  - id: find-cohort-gap
     path: skills/scientific-brainstorming/
     a_hook: 03_research
     coverage: full
-  - id: 03-frontier-hypothesize
+  - id: frontier-hypothesize
     path: skills/hypothesis-generation/; skills/hypogenic/
     a_hook: 03_research
     coverage: full
     note: hypogenic secondary
-  - id: 04-stats-guide
+  - id: analyze-stats
     path: skills/statistical-analysis/
     a_hook: 04_analysis
     coverage: full
     note: does not replace A 04 personal / 0RAD
-  - id: 04-stats-power
+  - id: calc-sample-size
     path: skills/statistical-power/
     a_hook: 04_analysis
     coverage: full
-  - id: 04-stats-models
+  - id: meta-analysis
     path: skills/statsmodels/; skills/pymc/; skills/scikit-learn/; skills/scikit-survival/
     a_hook: 04_analysis
     coverage: full
     note: 0RAD personal still wins
-  - id: 04-fig-flow
+  - id: make-figures
     path: skills/scientific-schematics/
     a_hook: 04_analysis
     coverage: partial
     note: schematics, not STROBE gold
-  - id: 04-fig-plot
+  - id: fig-plot
     path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
     a_hook: 04_analysis
     coverage: full
     note: B fig-plot stays gold
-  - id: 04-explainability
-    path: skills/shap/
-    a_hook: 04_analysis
-    coverage: partial
-    note: tabular SHAP, not imaging Grad-CAM
-  - id: 05-write-manuscript
+  - id: write-paper
     path: skills/scientific-writing/; skills/markdown-mermaid-writing/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format; clinical-reports not included
-  - id: 05-write-venue
+  - id: venue-templates
     path: skills/venue-templates/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
-  - id: 05-write-polish
+  - id: polish-language
     path: skills/scientific-writing/
     a_hook: 05_manuscript
     coverage: partial
     note: same pack as manuscript; not de-AI
-  - id: 06-review-peer
+  - id: peer-review
     path: skills/peer-review/
     a_hook: 06_review
     coverage: full
-  - id: 06-review-critique
+  - id: self-review
     path: skills/scientific-critical-thinking/; skills/scholar-evaluation/
     a_hook: 06_review
     coverage: full
@@ -129,18 +119,22 @@ unmapped_groups:
     note: not 02-06 manuscript pipeline
     examples: [clinical-decision-support, treatment-plans]
   - domain: documents
-    note: conversion, not 02-pictures
+    note: conversion, not imaging data
     examples: [markitdown, docx]
   - domain: other-fields
     note: unrelated to Jinshan radiology research
     examples: [astropy, pymatgen, qiskit, geopandas]
+  - domain: archived
+    note: pathology / whole-slide images — archived, not in the menu; revive via 01 only
+    examples: [histolab, pathml, pdf]
+  - domain: archived
+    note: model explainability (SHAP / Grad-CAM) — archived, not in the menu; revive via 01 only
+    examples: [shap]
 empty:
-  - 02-imaging-qc
-  - 02-fmri
-  - 02-radiomics-habitat
-  - 03-lit-fulltext
-  - 03-design-protocol
-  - 04-model-eval
-  - 05-write-reporting
-  - 05-humanize
-  - 06-review-response
+  - preprocess-imaging
+  - radiomics-ml
+  - write-protocol
+  - model-evaluation
+  - check-reporting
+  - humanize
+  - revise

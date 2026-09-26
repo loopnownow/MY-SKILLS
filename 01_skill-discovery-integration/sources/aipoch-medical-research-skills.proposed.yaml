@@ -1,6 +1,6 @@
 # Scanned 2026-09-06 against aipoch/medical-research-skills@f5ef65b (2026-07-15).
-# `- id:` keys below are v3 coarse ids (legacy). v4 fine ids: ../mounts/MIGRATION_v3_to_v4.md.
-# mounts-cap/fetch.py matches `- id:` keys here; do not rename them.
+# `- id:` keys are v4 fine ids (registry.yaml): each group lists this source's backup paths for that fine id.
+# mounts-cap/fetch.py: `ensure --id <fine-id> --source <source_id>` reads the path here; without --source it uses registry.yaml.
 source_id: aipoch-medical-research-skills
 name: AIPOCH Medical Research Skills
 role: backup-candidate
@@ -17,127 +17,107 @@ notes: >
   Meta-skills (e.g. systematic-review orchestrators) must not steal 00 authority.
   License: MIT (root LICENSE present).
 skills:
-  - id: 02-tables
+  - id: clean-data
     path: scientific-skills/Data Analysis/baseline-extraction-for-clinical-trials/; scientific-skills/Data Analysis/clinical-data-cleaner/; scientific-skills/Data Analysis/data-transform/; scientific-skills/Data Analysis/exploratory-data-analysis/; scientific-skills/Data Analysis/table-1-generator/; scientific-skills/Data Analysis/table-1-generator-advanced/
     a_hook: 02_data-processing
     coverage: full
     note: EDA / clean / impute helpers; not HIS; +1 more under scientific-skills
-  - id: 02-imaging-io
+  - id: imaging-io
     path: scientific-skills/Data Analysis/pydicom/; scientific-skills/Other/dicom-anonymizer/
     a_hook: 02_data-processing
     coverage: partial
     note: thin; not 0RAD gold
-  - id: 02-pictures
-    path: scientific-skills/Data Analysis/facs-gating-viz-style/; scientific-skills/Data Analysis/flowio/; scientific-skills/Data Analysis/histolab/; scientific-skills/Data Analysis/pathml/; scientific-skills/Data Analysis/pathology-roi-selector/
-    a_hook: 02_data-processing
-    coverage: full
-    note: pathology / flow-ish; not radiomics habitat
-  - id: 02-fmri
-    path: scientific-skills/Data Analysis/neuropixels-analysis/
-    a_hook: 02_data-processing
-    coverage: partial
-    note: neuropixels-leaning if present; not radiology pipeline
-  - id: 03-lit-search
+  - id: lit-search
     path: scientific-skills/Evidence Insight/arxiv-database/; scientific-skills/Evidence Insight/biopython-entrez/; scientific-skills/Evidence Insight/biorxiv-database/; scientific-skills/Evidence Insight/clinical-trial-finder/; scientific-skills/Evidence Insight/clinicaltrials-database/; scientific-skills/Evidence Insight/clinicaltrials-db/
     a_hook: 03_research
     coverage: full
     note: high-value for Victor / Evidence Request; +16 more under scientific-skills
-  - id: 03-lit-fulltext
-    path: scientific-skills/Evidence Insight/research-paper-downloader/; scientific-skills/Data Analysis/meta-screening-fulltext/; scientific-skills/Other/fulltext-fetcher/
-    a_hook: 03_research
-    coverage: partial
-    note: few OA downloaders; empty-ish risk
-  - id: 03-lit-review
+  - id: ma-scout
     path: scientific-skills/Evidence Insight/clinical-study-info-extractor/; scientific-skills/Evidence Insight/patent-landscape/; scientific-skills/Evidence Insight/research-hotspot-analysis/; scientific-skills/Evidence Insight/systematic-review-screener/; scientific-skills/Data Analysis/meta-abstract-screener/; scientific-skills/Academic Writing/literature-review/
     a_hook: 03_research
     coverage: full
     note: gap / landscape / screener — prefer over writing packs; +1 more under scientific-skills
-  - id: 03-lit-cite
+  - id: verify-refs
     path: scientific-skills/Evidence Insight/citation-chasing-mapping/; scientific-skills/Evidence Insight/citation-management/; scientific-skills/Evidence Insight/citation-network/; scientific-skills/Evidence Insight/crossref-database/; scientific-skills/Evidence Insight/retraction-watcher/; scientific-skills/Academic Writing/citation-formatter/
     a_hook: 03_research
     coverage: full
     note: citation integrity / formatters; +4 more under scientific-skills
-  - id: 03-design-experiment
+  - id: design-study
     path: scientific-skills/Protocol Design/experiment-design/; scientific-skills/Protocol Design/inclusion-criteria-gen/; scientific-skills/Protocol Design/randomization-gen/
     a_hook: 03_research
     coverage: partial
     note: thin vs protocol planners
-  - id: 03-design-protocol
+  - id: write-protocol
     path: scientific-skills/Evidence Insight/tooluniverse-clinical-trial-matching/; scientific-skills/Protocol Design/INPLASY-registration-helper/; scientific-skills/Protocol Design/adaptive-trial-simulator/; scientific-skills/Protocol Design/basic-research-design/; scientific-skills/Protocol Design/bioinfo-analysis-plan/; scientific-skills/Protocol Design/clinic-research-design/
     a_hook: 03_research
     coverage: full
     note: many disease-specific planners — selective use only; +15 more under scientific-skills
-  - id: 03-design-grant
+  - id: grant-builder
     path: scientific-skills/Evidence Insight/funding-trend-forecaster/; scientific-skills/Evidence Insight/grant-funding-scout/; scientific-skills/Evidence Insight/grant-gantt-chart-gen/; scientific-skills/Protocol Design/research-grants/; scientific-skills/Academic Writing/grant-budget-justification/; scientific-skills/Academic Writing/grant-mock-reviewer/
     a_hook: 03_research
     coverage: full
     note: NIH-style helpers; Voice A/B still A personal; +3 more under scientific-skills
-  - id: 03-frontier-ideate
+  - id: find-cohort-gap
     path: scientific-skills/Evidence Insight/cross-disciplinary-bridge-finder/; scientific-skills/Evidence Insight/emerging-topic-scout/; scientific-skills/Other/brainstorming/
     a_hook: 03_research
     coverage: partial
     note: gap / novelty helpers
-  - id: 03-frontier-hypothesize
+  - id: frontier-hypothesize
     path: scientific-skills/Protocol Design/hypogenic/; scientific-skills/Protocol Design/hypothesis-generation/
     a_hook: 03_research
     coverage: partial
     note: hypogenic / hypothesis packs
-  - id: 04-stats-guide
+  - id: analyze-stats
     path: scientific-skills/Evidence Insight/diagnostic-study-quality-assessment-quadas-2/; scientific-skills/Evidence Insight/rct-bias-assessment-rob2/; scientific-skills/Data Analysis/data-stats-analysis/; scientific-skills/Data Analysis/diagnostic-study-quality-assessment-quadas-2/; scientific-skills/Data Analysis/meta-rob2-plot/; scientific-skills/Data Analysis/probast-quality-assessment-for-prediction-model-studies/
     a_hook: 04_analysis
     coverage: full
     note: appraisal scales; does not replace 0RAD personal; +6 more under scientific-skills
-  - id: 04-stats-power
+  - id: calc-sample-size
     path: scientific-skills/Protocol Design/sample-size-basic/; scientific-skills/Academic Writing/sample-size-power-calculator/; scientific-skills/Other/clinic-sample-size/
     a_hook: 04_analysis
     coverage: partial
-    note: sample-size helpers; 04-stats-power gold still B/A
-  - id: 04-stats-models
+    note: sample-size helpers; calc-sample-size gold still B/A
+  - id: meta-analysis
     path: scientific-skills/Data Analysis/epidemiology/; scientific-skills/Data Analysis/meta-analysis/; scientific-skills/Data Analysis/scikit-survival/; scientific-skills/Data Analysis/survival-analysis-km/; scientific-skills/Data Analysis/survival-curve-risk-table/; scientific-skills/Academic Writing/meta-analysis-methods-generator/
     a_hook: 04_analysis
     coverage: full
     note: ML / survival utilities; 0RAD personal wins
-  - id: 04-model-eval
+  - id: model-evaluation
     path: scientific-skills/Data Analysis/forest-plot-styler/; scientific-skills/Data Analysis/meta-funnel-plot/; scientific-skills/Academic Writing/meta-results-forest-plot-analyzer/; scientific-skills/Academic Writing/meta-results-funnel-plot-generator/; scientific-skills/Other/image-processing/; scientific-skills/Other/pdf-processor/
     a_hook: 04_analysis
     coverage: full
     note: ROC/DCA/nomogram workers; lab VAL_MODE/HL still A
-  - id: 04-fig-flow
+  - id: make-figures
     path: scientific-skills/Data Analysis/mechanism-flowchart/
     a_hook: 04_analysis
     coverage: partial
     note: weak; Figure 1 gold stays B make-figures + A Aitor-format.md
-  - id: 04-fig-plot
+  - id: fig-plot
     path: scientific-skills/Data Analysis/circos-plot-generator/; scientific-skills/Data Analysis/cnv-caller-plotter/; scientific-skills/Data Analysis/heatmap-beautifier/; scientific-skills/Data Analysis/matplotlib/; scientific-skills/Data Analysis/meta-baujat-plot/; scientific-skills/Data Analysis/meta-forest-binary-plot/
     a_hook: 04_analysis
     coverage: full
     note: many viz helpers; B fig-plot stays gold; +12 more under scientific-skills
-  - id: 04-explainability
-    path: scientific-skills/Data Analysis/shap/
-    a_hook: 04_analysis
-    coverage: partial
-    note: thin SHAP-like; MedSci preferred for explainability
-  - id: 05-write-manuscript
+  - id: write-paper
     path: scientific-skills/Evidence Insight/pathway-introduction-expert/; scientific-skills/Evidence Insight/phenotype-introduction/; scientific-skills/Data Analysis/graphical-abstract-wizard/; scientific-skills/Academic Writing/abstract-summarizer/; scientific-skills/Academic Writing/abstract-trimmer/; scientific-skills/Academic Writing/academic-abstract-refiner/
     a_hook: 05_manuscript
     coverage: full
     note: worker only — Aitee 05 personal owns authority; +7 more under scientific-skills
-  - id: 05-write-venue
+  - id: venue-templates
     path: scientific-skills/Evidence Insight/venue-templates/; scientific-skills/Academic Writing/journal-cover-prompter/
     a_hook: 05_manuscript
     coverage: partial
     note: journal matcher / preflight; journal pick still Victor/03
-  - id: 05-write-polish
+  - id: polish-language
     path: scientific-skills/Academic Writing/medical-email-polisher/; scientific-skills/Academic Writing/medical-translation/; scientific-skills/Academic Writing/response-tone-polisher/; scientific-skills/Other/content-proofreading/
     a_hook: 05_manuscript
     coverage: partial
     note: English / consistency workers; not de-AI
-  - id: 06-review-peer
+  - id: peer-review
     path: scientific-skills/Academic Writing/medical-review-writer-architect/; scientific-skills/Academic Writing/peer-review/
     a_hook: 06_review
     coverage: partial
     note: peer-review pack — Lee owns judgment
-  - id: 06-review-response
+  - id: revise
     path: scientific-skills/Academic Writing/blind-review-sanitizer/; scientific-skills/Academic Writing/peer-review-response-drafter/; scientific-skills/Other/sci-paper-reviewer/
     a_hook: 06_review
     coverage: partial
@@ -161,9 +141,21 @@ unmapped_groups:
   - domain: office-docs
     note: EXCLUDE — PPTX/CV/meeting minutes
     examples: [PPTX-Skill, academic-cv-generator, meeting-minutes]
+  - domain: archived
+    note: pathology / whole-slide images — archived, not in the menu; revive via 01 only
+    examples: [facs-gating-viz-style, flowio, histolab, pathml, pathology-roi-selector]
+  - domain: archived
+    note: fMRI / electrophysiology — archived, not in the menu; revive via 01 only
+    examples: [neuropixels-analysis]
+  - domain: archived
+    note: bulk full-text download — archived, not in the menu; revive via 01 only
+    examples: [research-paper-downloader, meta-screening-fulltext, fulltext-fetcher]
+  - domain: archived
+    note: model explainability (SHAP / Grad-CAM) — archived, not in the menu; revive via 01 only
+    examples: [shap]
 empty:
-  - 02-imaging-qc
-  - 02-radiomics-habitat
-  - 05-humanize
-  - 05-write-reporting
-  - 06-review-critique
+  - preprocess-imaging
+  - radiomics-ml
+  - humanize
+  - check-reporting
+  - self-review

@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-007 — final legacy alias removal (v3 map deleted)
+date: 2026-09-26
+skill: 00_orchestrator · 01_skill-discovery-integration · 02_data-processing · 03_research · 04_analysis · 05_manuscript · 06_review · skill-harvest
+problem: Live docs still carried v3 ids as legacy aliases, retired-id lists, v3 mapping rows, and '选刊不是 05-write-venue' warnings. Tests pinned several of them. The v3→v4 map and the v3.30 registry backup were no longer needed.
+change: Deleted `mounts/MIGRATION_v3_to_v4.md` and `_history/` (README + registry.v3.30.yaml); removed their pointers (registry header, gen_mounted_skills, mounts boards, 01 SKILL, ARCHITECTURE). Legacy-alias parentheses and retired/archived v3 lists removed from 02/03/04/05/06 SKILL, ARCHITECTURE (root + meta), route-map, sci-manuscript, EXTERNALIZATION. Fast routes say 样本量 → `calc-sample-size`. 选刊 warnings now read 选刊走 03 `find-journal`；`venue-templates` 只管体例. v3 mapping rows removed from mounts/{scientific,aipoch,nature,medsci}.md. Seven v3-named archived records removed from registry `archived:` (v4-named archived ids kept). sources/*.proposed.yaml keys rekeyed to v4 fine ids (fetch.py unchanged: `ensure --id <fine-id> --source <src>` matches the key; archived groups moved to unmapped). hybrid-mount-pointers 研究设计 count 5, `peer-review-pdf-scan` row named. Tests retargeted to assert v4 ids.
+decision: keep
+next_action: user approves merge; presets still carry `[B:06-review-peer]` / `[B:06-review-critique]` prefix examples (standing rule) — change only on user OK.
+
 ## CHG-20260926-006 — stale pointer sweep (v3 ids + retired radiology-* packs)
 date: 2026-09-26
 skill: 00_orchestrator · 03_research · 04_analysis · 05_manuscript

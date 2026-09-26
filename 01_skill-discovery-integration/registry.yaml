@@ -8,12 +8,9 @@
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
 # 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
-# Backup of v3.30: _history/registry.v3.30.yaml
-# Migration map: mounts/MIGRATION_v3_to_v4.md
 meta:
   version: "4.0"
   change_id: CHG-20260913-001
-  previous_versions: ["1.0 (30 coarse ids)", "2.0 (13 switches)", "3.0 (draft, superseded)", "3.30 (_history/registry.v3.30.yaml)"]
   fine_id_count_canonical: 52  # session-pick mounts; reference_only empty
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
@@ -185,7 +182,7 @@ mounts:
     status: MOUNTED
     load_priority: P2
     atomic_package: MedSci
-    note: from archived 03-lit-review core
+    note: literature-review core; full review flow archived
   - id: frontier-hypothesize
     label: 假设形成
     coarse: 选题探索
@@ -621,45 +618,10 @@ mounts:
 reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
 
 archived:
-  - id: 02-fmri
-    status: ARCHIVED
-    reason: 假匹配已核实——AIPOCH neuropixels≠fMRI
-    revive_condition: 研究方向扩展至fMRI/电生理时重评
-    old_path: 02-data-processing/fmri/
-  - id: 02-pictures
-    status: ARCHIVED
-    reason: 场景错位——病理全切片非通用图片
-    revive_condition: 数字病理时重评 histolab/pathml
-    old_path: 02-data-processing/pictures/
-  - id: 03-design-experiment-wetlab
-    status: ARCHIVED
-    reason: 仅归档外部湿实验室DOE；MedSci design-study等已入研究设计
-    revive_condition: 前瞻性/湿实验需求时评估外部DOE
-    old_path: 03-research/design-experiment/
-  - id: 04-explainability
-    status: ARCHIVED
-    reason: 用户不使用；Grad-CAM vs SHAP不可互替
-    revive_condition: 可解释性论文时复活
-    old_path: skills/explainability/
-  - id: 03-lit-fulltext
-    status: ARCHIVED
-    reason: 用户不使用批量全文
-    revive_condition: 需批量PDF尤其中文核心时复活
-    old_path: 03-research/lit-fulltext/
-  - id: 03-lit-review-full
-    status: ARCHIVED
-    reason: 不写综述全流程；ma-scout保留在选题探索
-    revive_condition: 系统综述委托时复活
-    old_path: 03-research/lit-review/
   - id: deidentify
     status: ARCHIVED
     reason: 导出已人工脱敏
     revive_condition: 非脱敏实时院内系统时复活
-  - id: 05-write-venue-add-journal
-    status: ARCHIVED
-    reason: add-journal是维护工具非产出技能
-    revive_condition: 不适用
-    old_path: 05-manuscript/write-venue/
   - id: profile-imaging
     status: ARCHIVED
     reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文

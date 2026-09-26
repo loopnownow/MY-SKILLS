@@ -9,7 +9,7 @@ Aligned with **SKILL.md metadata.version 1.16** (Gemini + ChatGPT 2026-09; 10/10
 
 User asks 推荐杂志 / 选刊 / 投稿去哪 / JCR·JCI 分区 / 影响因子分层 / 版面费·AIM（仅备选确认后）.
 
-Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are chosen. Not Aitee `05-write-venue`.
+Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are chosen. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 
 ## Every 推荐杂志 run
 
@@ -43,7 +43,7 @@ Curated table: `data/2026/医学投稿推荐_JCR2026.xlsx`. Raw Clarivate workbo
 
 - Recommend the three blacklist titles.
 - Collapse default layers into one top-N list.
-- Route 选刊 to `05-write-venue`.
+- Route 选刊 to `venue-templates` (选刊走 03 `find-journal`).
 - Invent word limits or APC; invent missing risk as “low.”
 - Persist annually updated IF / JCR·JCI/CAS / APC / review-time / volume values into CSV/DB-like files — **query capability only**.
 - Install external journal-recommender as a mounted skill; copy fixed Fit Score weights or abstract→CAS prediction.

@@ -84,7 +84,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("humanize", text)
         self.assertIn("make-figures", text)
         self.assertIn("ARCHIVED", text)
-        self.assertIn("04-explainability", text)  # archived entry
+        self.assertIn("paperclip", text)  # archived entry
+        self.assertNotIn("04-explainability", text)  # v3 archived record removed
         self.assertNotIn("05-de-ai", text)
         self.assertNotIn("Imbad0202/academic-research-skills", text)
         self.assertIn("Aperivue/medsci-skills", text)
@@ -95,8 +96,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("openclaw_policy: never-mount-as-atomic-source", text)
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "_history" / "registry.v3.30.yaml").is_file())
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "mounts" / "MIGRATION_v3_to_v4.md").is_file())
+        self.assertFalse((ROOT / "01_skill-discovery-integration" / "_history").exists())
+        self.assertFalse((ROOT / "01_skill-discovery-integration" / "mounts" / "MIGRATION_v3_to_v4.md").exists())
 
     def test_mounts_board(self):
         d = ROOT / "01_skill-discovery-integration"
@@ -114,7 +115,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((md / "unmapped.html").exists())
         self.assertEqual(list(md.glob("*.html")) + list(md.glob("*.css")), [])
         self.assertIn("b.md", index)
-        self.assertIn("MIGRATION_v3_to_v4.md", index)
+        self.assertNotIn("MIGRATION_v3_to_v4.md", index)
         self.assertIn("10", index)
         self.assertIn("52", index)
         self.assertIn("presets.md", index)
@@ -142,7 +143,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("retraction-watcher", ap)
         self.assertIn("Yuan1z0825/nature-skills", nat)
         self.assertIn("需核实", nat)
-        self.assertIn("13 / 30", nat)
+        self.assertNotIn("v3 映射", nat)
+        self.assertIn("nature-response", nat)
         self.assertIn("第三方", nat)
         ap_y = (d / "sources" / "aipoch-medical-research-skills.proposed.yaml").read_text(encoding="utf-8")
         self.assertIn("status: PROPOSED", ap_y)

@@ -46,7 +46,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 - `self-review` — self-audit / pre-submission
 - `revise` — point-by-point letters /修回分诊
 
-Legacy aliases (do not prefer at session pick): `06-review-peer` → `peer-review`; `06-review-critique` → `self-review`; `06-review-response` → `revise`. Retired: `06-review-generic`. Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
+Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 
 ## Modes
 
@@ -83,5 +83,5 @@ English peer-review / pre-review body follows `personal/personal-review-style.md
 - 写论著 / 润色 / 去AI / 引言 / 讨论 → `05_manuscript`
 - 选题 / 文献检索 → `03_research`
 - 选刊 → `03_research`
-- 样本量 → `04_analysis` (`04-stats-power`)
+- 样本量 → `04_analysis` (`calc-sample-size`)
 - 出图 → `04_analysis`

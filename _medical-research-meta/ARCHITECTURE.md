@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live `04-figure-engine`; MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; ARS/OpenClaw purged from catalog; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live figure engine; MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; ARS/OpenClaw purged from catalog; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
 
 ## Skill selection
 
@@ -25,8 +25,8 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 投稿前找问题 / dealbreaker | `06_review` |
 | 回复审稿人 | `06_review` only as entry |
 | 选题 / 文献 / 选刊 | `03_research` |
-| 选刊 | `03_research` (`literature/journal-selection.md`; not `05-write-venue`) |
-| 样本量 | `04_analysis` (`04-stats-power`) |
+| 选刊 | `03_research` (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例 |
+| 样本量 | `04_analysis` (`calc-sample-size`) |
 | AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
 | 软编码 / dry-run | `02_data-processing` → `code-refactoring/` |
@@ -35,8 +35,8 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 伦理申请表填写 | `03_research` → `ethics-application-forms/` |
 | 临床提取（已导出文本） | `02_data-processing` → `clinical-data-extraction/` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
-| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `04-fig-plot` + `personal/lab-palettes.md`) |
-| STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `04-fig-flow`) |
+| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `fig-plot` + `personal/lab-palettes.md`) |
+| STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `make-figures`) |
 | 新外接技能 | `01_skill-discovery-integration` |
 
 ## Final QC (handoff folded in)
@@ -57,7 +57,7 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 `01_skill-discovery-integration` resolves capabilities in this order:
 
 1. **Session mount pick** (`ask-each-run`): ask which **fine ids** (under relevant coarse buckets) to attach **this run**; load only those.
-2. Resolve picked fine ids against `registry.yaml` (default source B; MedSci-only `humanize`; `04-explainability` ARCHIVED).
+2. Resolve picked fine ids against `registry.yaml` (default source B; MedSci-only `humanize`; archived ids stay off the menu).
 3. If a picked path is empty: notify, re-search, confirm. Never silently fall back.
 4. Network/GitHub discovery for **new** capability.
 5. If network is unavailable, request a local Skill/repository path.
@@ -67,14 +67,14 @@ Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a f
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
 Backups: MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. ARS/OpenClaw removed from catalog. Mapping is not a mount.
-Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live `04-figure-engine`. Legacy B path aliases: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power`.
+Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`make-figures`, `fig-plot`, `find-journal`, `venue-templates`, `calc-sample-size`).
 
 ## Domain boundaries
 
 - `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
-- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`); do not send it to `05-write-venue`.
-- `04_analysis`: statistical analysis and visualization (`04-fig-flow` / `04-fig-plot`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer. `05-write-venue` is journal templates / house style while writing, not journal selection / 选刊. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`.
+- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- `04_analysis`: statistical analysis and visualization (`make-figures` / `fig-plot`). Upstream data repair is not its role.
+- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`.
 - `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
 
 ## Externalization policy
