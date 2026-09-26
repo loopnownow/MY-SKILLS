@@ -31,10 +31,11 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `04-stats-guide` — test selection / effect sizes
-- `04-stats-power` — sample size / power
-- `04-model-eval` — calibration / DCA / external validation
-- `04-stats-models` — implementation; 0RAD personal still wins
+- `analyze-stats` (`04-stats-guide`) — test selection / effect sizes
+- `calc-sample-size` (`04-stats-power`) — sample size / power; `statistical-power` is PROPOSED
+- `model-evaluation` / `model-validation` (`04-model-eval`) — calibration / DCA / external validation
+- `meta-analysis` (`04-stats-models`; `scikit-survival` is PROPOSED) — implementation; 0RAD personal still wins
+- `radiomics-ml` (`02-radiomics-habitat`) — radiomics modelling pipeline audit
 - `make-figures` (`04-fig-flow`) — STROBE / patient-flow
 - `fig-plot` (`04-fig-plot`) — statistical plots / imaging panels
 
@@ -65,7 +66,7 @@ Until `fig-plot` (`04-fig-plot`) / `make-figures` (`04-fig-flow`) is mounted, do
 
 ## Boundaries
 
-- Data cleaning / Excel → `02_data-processing` (id `02-tables`)
+- Data cleaning / Excel → `02_data-processing` (`clean-data` / `batch-cohort`; legacy alias `02-tables`)
 - Literature → `03_research`
 - Manuscript wording → `05_manuscript`
 - Reviewer response → `06_review`

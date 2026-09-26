@@ -33,7 +33,7 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 | `03-frontier-ideate` | find-cohort-gap, intake-project | 选题探索 |  |
 | `03-frontier-hypothesize` | frontier-hypothesize | 选题探索 | MOUNTED; hypothesis-generation archived |
 | `04-stats-guide` | analyze-stats | 统计分析 |  |
-| `04-stats-power` | calc-sample-size (coarse 研究设计); statistical-power PROPOSED | 研究设计 | open decision default 研究设计 |
+| `04-stats-power` | calc-sample-size; statistical-power PROPOSED | 统计分析 | resolved 2026-09-26: 04 / Loopnow |
 | `04-stats-models` | meta-analysis, scikit-survival | 统计分析 |  |
 | `04-model-eval` | model-evaluation, model-validation | 统计分析 |  |
 | `04-fig-flow` | make-figures | 图表呈现 | MOUNTED; label 患者流程图 |
@@ -69,9 +69,9 @@ A package folders stay `00_orchestrator` … `06_review` (+ `skill-harvest`). Ch
 - Never auto-mount non-B. Nature LICENSE Apache-2.0 verified 2026-09-14 (ask-each-run + bytes still required). Later: ARS/OpenClaw removed from catalog (CHG-20260924-005).
 - Empty mount → notify → research → confirm. Say 默认挂载 B 包/本仓 not 空挂.
 
-## Open decision
+## Resolved decision
 
-样本量 (`calc-sample-size` / `statistical-power`) defaulted to coarse **研究设计** (B path still `04-analysis/stats-power/`). Alternative: 统计分析.
+样本量 (`calc-sample-size` / `statistical-power`) sits under coarse **统计分析**. Owner is `04_analysis` / Loopnow. Decided 2026-09-26 (CHG-20260926-004). B path stays `04-analysis/stats-power/`.
 
 ## Files
 

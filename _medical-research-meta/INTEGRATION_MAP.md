@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-004 — stale residue cleanup
+date: 2026-09-26
+skill: 00_orchestrator · 01_skill-discovery-integration · 02_data-processing · 04_analysis · 06_review
+problem: 0rad-workspace still described the old figure-engine POLE Figure 1 and pointed to a deleted bundle. 04 SKILL, 02 SKILL, and sci-manuscript step 3 used v3 coarse ids as mount ids. Sample-size ownership was an open decision under 研究设计. G-06 and 06 review-style prefix examples used v3 ids. 01 SKILL said review-hybrid-default had Nature overlays; the preset has none.
+change: 0rad-workspace Figure 1 now follows Aitor-format (study flowchart from Methods; Validation Cohort only for a stated external cohort). Drawing code stays in local 0scripts. 02/04 SKILL and sci-manuscript name v4 fine ids first; v3 ids stay as legacy aliases. calc-sample-size and statistical-power move to 统计分析 / 04_analysis / Loopnow; the registry decision is resolved. MOUNTED_SKILLS.md and repo-map.html are regenerated. B source yaml, b.md, hybrid-mount-pointers, MIGRATION, and ARCHITECTURE follow. Prefix examples now use `[B:peer-review]`, `[B:self-review]`, `[lit-search]`. 01 SKILL preset sentence matches review-hybrid.yaml; the preset is unchanged.
+decision: keep
+next_action: none
+
 ## CHG-20260926-003 — phrase-bank body split says set
 date: 2026-09-26
 skill: 05_manuscript

@@ -48,7 +48,7 @@
 | 假设形成 | MedSci | `frontier-hypothesize` | ✅ |
 | 项目启动分类 | MedSci | `intake-project` | 🟡 |
 
-## 3. 研究设计（8）
+## 3. 研究设计（6）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -57,10 +57,6 @@
 | 模型架构选型 | MedSci | `architecture-zoo` | 🟡 |
 | IRB方案撰写 | MedSci | `write-protocol` | ✅ |
 | IRB方案填表 | MedSci | `fill-protocol` | 🟡 |
-| 样本量计算 | MedSci | `calc-sample-size` | ✅ |
-| 样本量-复杂设计模拟法 | Scientific | `statistical-power` | 🔵 |
-
-> 样本量默认落在粗 ID「研究设计」；若改归「统计分析」只需搬动这两条细 ID。
 
 ## 4. 数据处理（6）
 
@@ -73,7 +69,7 @@
 | ROI与读者质控 | MedSci | `preprocess-imaging` | ✅ |
 | DICOM底层与匿名化审计 | Scientific | `pydicom` | 🔵 |
 
-## 5. 统计分析（6）
+## 5. 统计分析（8）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -83,6 +79,10 @@
 | 放射组学建模pipeline审计 | MedSci | `radiomics-ml` | ✅ |
 | 模型-任务正确指标选择 | MedSci | `model-evaluation` | ✅ |
 | 模型-确定性泄漏门禁 | MedSci | `model-validation` | ✅ |
+| 样本量计算 | MedSci | `calc-sample-size` | ✅ |
+| 样本量-复杂设计模拟法 | Scientific | `statistical-power` | 🔵 |
+
+> 样本量归粗 ID「统计分析」（04 / Loopnow；CHG-20260926-004）。
 
 ## 6. 图表呈现（4）
 

@@ -27,10 +27,10 @@ meta:
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
-      status: defaulted
-      current_default: 研究设计 (calc-sample-size / statistical-power)
-      alternative: 统计分析
-      note: 用户未最终拍板；本 registry 按研究设计实现，搬动仅两细ID。
+      status: resolved
+      resolved: 2026-09-26 (CHG-20260926-004)
+      decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size / statistical-power)
+      note: 用户拍板归 04 / Loopnow；两细 ID 已移入统计分析。
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
@@ -254,26 +254,6 @@ mounts:
     load_priority: P2
     atomic_package: MedSci
     note: "MedSci Word-template filler (pairs with write-protocol). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
-  - id: calc-sample-size
-    label: 样本量计算
-    coarse: 研究设计
-    source: my-skills-capabilities
-    path: 04-analysis/stats-power/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    atomic_package: MedSci
-    note: "open_decision: default 研究设计; B path still stats-power; A 选刊 stays 03"
-  - id: statistical-power
-    label: 样本量-复杂设计模拟法
-    coarse: 研究设计
-    source: scientific-agent-skills
-    path: skills/statistical-power/
-    a_domain: 03_research
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/statistical-power/
   - id: write-paper
     label: IMRAD正文起草
     coarse: 正文写作
@@ -489,6 +469,26 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     path_shared: true
+  - id: calc-sample-size
+    label: 样本量计算
+    coarse: 统计分析
+    source: my-skills-capabilities
+    path: 04-analysis/stats-power/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power"
+  - id: statistical-power
+    label: 样本量-复杂设计模拟法
+    coarse: 统计分析
+    source: scientific-agent-skills
+    path: skills/statistical-power/
+    a_domain: 04_analysis
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/statistical-power/
   - id: make-figures
     label: 患者流程图
     coarse: 图表呈现

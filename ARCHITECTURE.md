@@ -47,7 +47,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. ARS/OpenClaw purged from catalog (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize` (was `05-humanize`). `04-explainability` is **ARCHIVED** (not default menu).
 - Figures fine id: `make-figures` (B still has `04-fig-flow` / `04-fig-plot` paths). No live `04-figure-engine`.
-- Legacy aliases still referenced in domain docs: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power` (B paths / routing); sample-size fine ids sit under coarse 研究设计 by default.
+- Legacy aliases still referenced in domain docs: `04-fig-flow`, `04-fig-plot`, `05-write-venue`, `04-stats-power` (B paths / routing); sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
 - Retired ids are not live routes: `02-xlsx`, `02-imaging` (umbrella), `02-impute`, `02-generic-docs`, `03-literature`, `03-design`, `03-frontier`, `04-stats-generic`, `04-figure-engine`, `05-writing-generic`, `06-review-generic`.
 - Archived from v4 menus: `02-fmri`, `02-pictures`, `03-lit-fulltext`, `04-explainability`, etc. (see registry `archived:`).
 

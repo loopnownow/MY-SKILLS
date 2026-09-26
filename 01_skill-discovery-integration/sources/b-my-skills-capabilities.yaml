@@ -70,11 +70,6 @@ skills:
     coarse: 研究设计
     a_hook: 03_research
     label: IRB方案填表
-  - id: calc-sample-size
-    path: 04-analysis/stats-power/
-    coarse: 研究设计
-    a_hook: 03_research
-    label: 样本量计算
   - id: write-paper
     path: 05-manuscript/write-manuscript/
     coarse: 正文写作
@@ -147,6 +142,11 @@ skills:
     a_hook: 04_analysis
     label: 模型-确定性泄漏门禁
     path_shared: true
+  - id: calc-sample-size
+    path: 04-analysis/stats-power/
+    coarse: 统计分析
+    a_hook: 04_analysis
+    label: 样本量计算
   - id: make-figures
     path: 04-analysis/fig-flow/
     coarse: 图表呈现
