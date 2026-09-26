@@ -11,7 +11,7 @@ Loop: intent classify → skill chain → QC gate (`../gates.md`).
 
 On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unless directory detection already locked it. Do not infer against files.
 
-**Directory detection:** `settings.ini` → 0RAD; `*-results.html` → may enter sci-manuscript; `Manuscript_*_house.docx` → 05; reviewer letter → 06; imaging without HTML → radiomics-study.
+**Directory detection:** `settings.ini` → 0RAD; `*-results.html` → may enter sci-manuscript; `Manuscript_*_house.docx` → 05; reviewer letter → 06; imaging without HTML → radiomics-study. Results HTML and a reviewer letter together, with no named entry: ask which station.
 
 **Session mount pick:** before loading packs, run 01 ask-each-run. Registry `MOUNTED` is the menu. Load only the ids the user picks this run. Do not auto-load all mounted ids.
 
