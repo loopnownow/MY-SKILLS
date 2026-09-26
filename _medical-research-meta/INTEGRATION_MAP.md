@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-002 — Figure 1 study flowchart from Methods
+date: 2026-09-26
+skill: 05_manuscript · 04_analysis
+problem: The Figure 1 rule was enrollment-only. It forbade a Validation Cohort box. The stats-checklist body split parenthetical said cohort.
+change: Figure 1 is one study flowchart read from Materials and Methods. Validation Cohort appears only when Methods states an external cohort. sentence-templates, polisher-sections, corpus-phrase-bank, and stats-checklist now match this rule. The body split parenthetical now says set. Drawing code lives in local 0scripts, not in git.
+decision: keep
+next_action: none
+
 ## CHG-20260926-001 — 00 start and close
 date: 2026-09-26
 skill: 00_orchestrator
