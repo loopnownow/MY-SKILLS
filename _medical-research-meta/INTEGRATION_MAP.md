@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-003 — phrase-bank body split says set
+date: 2026-09-26
+skill: 05_manuscript
+problem: Phrase-bank example sentences used cohort for the body split.
+change: corpus-phrase-bank examples now say training set / test set. Figure 1 box labels stay Training Cohort / Test Cohort / Validation Cohort.
+decision: keep
+next_action: none
+
 ## CHG-20260926-002 — Figure 1 study flowchart from Methods
 date: 2026-09-26
 skill: 05_manuscript · 04_analysis

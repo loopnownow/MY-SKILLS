@@ -1,3 +1,6 @@
+CHG-20260926-003 (2026-09-26)
+Phrase-bank example sentences now use training set / test set for the body split.
+Earlier: CHG-20260926-002, CHG-20260926-001.
 CHG-20260926-002 (2026-09-26)
 Figure 1 is one study flowchart read from Methods. Validation Cohort only when Methods states an external cohort. Body split parenthetical says set.
 Earlier: CHG-20260926-001, CHG-20260924-005.
