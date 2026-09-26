@@ -16,6 +16,7 @@ MOUNTED = ROOT / "01_skill-discovery-integration" / "MOUNTED_SKILLS.md"
 SKIP_PARTS = {".git", "__pycache__"}
 SKIP_NAMES = {
     "INTEGRATION_MAP.md",
+    "INTEGRATION_MAP.archive.md",
     "VERSION.txt",
     "changelog.md",
     "CHANGELOG.md",

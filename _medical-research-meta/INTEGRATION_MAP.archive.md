@@ -1,0 +1,129 @@
+# Integration map — archive (before 2026-09)
+
+Moved from [INTEGRATION_MAP.md](INTEGRATION_MAP.md) in CHG-20260926-009. Newest first. Historical record only; not live rules.
+
+## Harvest 2026-08-30 — 06_review (user)
+
+```text
+change_id: CHG-20260902-002
+date: 2026-09-02
+skill: 06_review
+mode: manuscript-quality
+from_version: n/a
+to_version: n/a
+change_class: fix + policy
+problem: Harvest 2026-08-30 (author A, choice B): Path A review-implementation was filling title-page slots; reviewing already-written I/D was deleting genuine refs to hit 10–15 / 10–15-new.
+change: (C3-B) Path A (落实审稿意见 / revise existing MS) skips the entire title page: ethics number, author block, target journal, and whether the paper declares “not generated”. Do not fill, yellow-highlight, or rewrite those fields. From-scratch title page remains 05 Aitor-format (pointer only). (C6-B) Reviewing an already-written manuscript: do not delete genuine refs to hit Intro 10–15 / Discussion 10–15-new; note over-quota only. New-I/D quota stays in 05 (companion PR #11); 06 points at 05 evidence, does not duplicate retrieval.
+expected_benefit: Review implementation no longer overwrites title-page identity fields; already-written citations are preserved with an over-quota note instead of destructive quota trimming.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: 06_review / manuscript-quality only. 05_manuscript and 00_orchestrator untouched except this append. KEEP not in this PR: C1; C5 figure-vs-caption; C7; C8; C11 uncited figures as Major; C12 Table 1 vs literature range; no 00_orchestrator pointer; no 05 body/de-AI rules.
+decision: keep
+next_action: live Path A 落实审稿意见; confirm title page unchanged and over-quota notes instead of ref deletion
+```
+
+## Harvest 2026-08-30 — 05_manuscript (user)
+
+```text
+change_id: CHG-20260902-001
+date: 2026-09-02
+skill: 05_manuscript
+mode: manuscript-core
+from_version: n/a
+to_version: n/a
+change_class: fix + policy
+problem: Harvest 2026-08-30 (author A): Track Changes author; yellow empty slots; I/D quota vs already-written refs; body was-not-tested / validation-set stock; Vancouver reorder on revision; COMMENTARY anti-reading voice; elucidat*; adverb load.
+change: (C2-B) Word Track Changes/comments author A, never Grok. Hunt under core/05_manuscript found no python/json default revision author (only path strings D:\0Grok\…, left unchanged); rule written in Aitor-format.md. (C4-C) Cancel yellow-highlight empty slots forever; missing method/product facts go in Word comments only, never body, never yellow fills; new writing and revision; do not fabricate. (C6-B) Writing new I/D still 10–15 / 10–15-new; checking an already-written manuscript: do not delete genuine refs to hit quota, note over-quota only. (C9-B) Body never contains was not tested / 未测 / 未完成; incomplete work → comments; Aitor “A validation set is required” and “No validation set was available” moved out of body/Conclusion/Limitations into comments-only. (C10-C) Revising existing MS: reorder in-text Vancouver numbers to appearance order vs the reference list; duplicate list entries → already-verified substitute (author A); this exception only — no general substitutes-in-comments rule. (C13-B) Ban COMMENTARY anti-reading phrasing in body (they should not be summarized as; is not reported as; should not be read as; given this extent; should not be described as; rhetorical rather than / but not by); observational contrast may still use associated with; do not blanket-ban factual rather than / but not by (e.g. but not by sex). (C14-C) Ban elucidat*; purpose/aim → exploring; mechanism-unknown → remain unclear (not explain/clarify); deleted template “has not been fully elucidated”. Adverb: new writing and polish reduce adverb use; do not ban statistical significantly (p-value language).
+expected_benefit: House DOCX marks and honesty boundaries match author A’s harvest; de-AI stops commentary/elucidate/adverb slop without breaking factual contrast or p-value English.
+observed_evidence: n/a (first use)
+metric_summary: n/a
+boundary_effect: 05_manuscript / manuscript-core only. 06_review and 00_orchestrator untouched. KEEP not in this PR: C1 polish-before-review order; C5 figure-vs-caption; C7 substitutes-only-in-comments as general rule; C8 _revised.docx layout; C11 uncited figures as Major; C12 Table 1 vs literature range; no 00_orchestrator pointer.
+decision: keep
+next_action: live full-paper write/polish; confirm Word comments author A and no yellow slots
+```
+
+## Forbidden-word policy reversal + corpus phrase bank spot-check + diff-harvest tool 2026-08-29 (user)
+
+```text
+CHG-20260921-002 | 01+03 | Regen MOUNTED_SKILLS 10+55; README 55 fine; flatten journal-format publisher-notes to medical-journal-submit/references/; qualify bare submission-urls.csv refs.
+CHG-20260921-001 | 01 | Fix registry.yaml: move P1 candidates before reference_only:[]; valid YAML; fine menu 55; regenerate MOUNTED_SKILLS; stub_in_b rename; scrub 52/30-id residue.
+CHG-20260920-001 | 00 | Absorb the SlopMonster *mechanism* (pattern-group score + non-zero exit) as G-05 sub-check `style-lint`.
+Absorbed: scoring/exit-code loop, section scoping, fail-closed input guards, paired must-hit/must-stay-clean test discipline.
+Not absorbed: rival-model cleanse (owner: no manuscript text to other models), CI workflow, marketing rules,
+"invented proof" regex (-> G-FACT), rewrite pass 3 (conflicts with house style). CONFIG in style_lint.py is machine SSOT for lint vocab; 05 personal lists remain rewrite guidance (dedupe follow-up). Source: ItsssssJack/SlopMonster (MIT).
+change_id: CHG-20260829-001
+date: 2026-08-29
+skill: 05_manuscript
+mode: manuscript-core
+from_version: n/a
+to_version: n/a
+change_class: fix + extend + toolize
+problem: (1) User made an explicit editorial decision to ban novel/notably/interestingly/importantly, reversing the prior corpus-verified "not banned" status in forbidden-phrases.md and corpus-phrase-bank.md §8. (2) A separate 50-manuscript spot-check surfaced 4 candidate patterns not yet present in the 389-draft corpus-phrase-bank.md. (3) A standalone JSON-ledger evolution engine would have duplicated skill-harvest's governance role.
+change: (1) forbidden-phrases.md and corpus-phrase-bank.md §8 updated to Forbidden; prior "not banned" reasoning kept in <details> as historical record, not deleted. (2) Added §2 "[This/Our] study showed that…" and new §2b (gap-statement / novelty-claim openers) to corpus-phrase-bank.md, explicitly marked as a provisional 50-draft spot-check sample, smaller than the section's existing 96-draft baseline — not yet confirmed at the 389-draft scale. Declined TIPS/DIT-cluster-only candidates. (3) Ported diff-based capability into core/05_manuscript/bundles/manuscript-core/scripts/diff_harvest.py. The script appends one row per run to data/diff-evidence-log.csv and never auto-writes corpus-phrase-bank.md or forbidden-phrases.md.
+expected_benefit: Forbidden-word policy matches current user intent without silently losing the prior evidence trail. Corpus phrase bank gains a small, honestly-labeled increment rather than a false-confidence merge. Diff-based editing evidence accumulates in the owning skill instead of a parallel ungoverned system.
+observed_evidence: n/a (first use)
+metric_summary: n/a (first use)
+boundary_effect: No new top-level skill created. skill-harvest untouched; its governance role was followed, not duplicated.
+decision: keep (policy + phrase-bank edits), observe (diff_harvest.py)
+next_action: run diff_harvest.py against real AI-draft/human-final pairs; if data/diff-evidence-log.csv shows recurring new candidates across multiple manuscripts, fold them into the next full corpus-phrase-bank.md re-harvest rather than adding them ad hoc.
+```
+
+## Core/archive split 2026-08-25 (user)
+
+```text
+change_id: core-archive-split
+date: 2026-08-25
+skill: layout
+from_version: Lean v6.2
+to_version: Lean v6.3
+problem: Nested packs were either bloating 01/02 or needed their own triggers.
+change: Moved 00–06 + harvest into skills/core/. Promoted ethics-application-forms, code-refactoring, clinical-data-extraction, clinical-translation to skills/archive/ as standalone SKILL.md. Deleted markitdown, tool-environment-setup, imaging-omics-ml. Kept data-impute and figure-engine nested.
+expected_benefit: Distinct auto-invoke for 软编码 / 填伦理 / 提取 / 转化; smaller 01 and 02.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Archive skills are extra homes, not 07_. data-impute and figure-engine remain modules.
+decision: observe
+next_action: watch routing on 软编码 vs 批处理, 转化 vs 02_imaging
+```
+
+## Renumber 2026-08-25 (user)
+
+```text
+change_id: renumber-01-to-06
+date: 2026-08-25
+skill: 00–06 domain folders
+from_version: Lean v6.1
+to_version: Lean v6.2
+problem: Folder numbers did not match the user's preferred order after the 04/06 writing–review split.
+change: Renamed live folders to 01_automation, 02_imaging, 03_research, 04_analysis, 05_manuscript, 06_review. 00_orchestrator and skill-harvest unchanged. Task pipeline order is still research → imaging → analysis → manuscript → review.
+expected_benefit: Directory numbers match the user's map; fewer routing mistakes from stale 01=research / 05=automation memory.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Same six business skills; numbers only. Do not add 07.
+decision: observe
+next_action: confirm auto-discovery after reload
+```
+
+## Split 2026-08-25 (user)
+
+```text
+change_id: split-04-review-06
+date: 2026-08-25
+skill: 05_manuscript → 05_manuscript + 06_review
+from_version: Lean v6
+to_version: Lean v6.1
+problem: 04 mixed SCI 论著 writing with 评阅/回审; review triggers were buried and collided with writing.
+change: Promoted `manuscript-quality` (pre-review, peer review, response) to top-level `06_review`. `05_manuscript` keeps manuscript-core + figure-engine.
+expected_benefit: Distinct auto-invoke for 写论著 vs 评阅/回复审稿人; smaller 04 context on writing tasks.
+observed_evidence: pending first live use
+metric_summary: n/a
+boundary_effect: Authorized 00–06 domain set. Do not add 07.
+decision: observe
+next_action: watch routing accuracy on 润色 vs 审稿 vs 回复审稿人
+```
+
+## Swap 2026-08-25 (user)
+
+Replaced live `~\.grok\skills` with `skills-lean-v6.zip`. Pre-v6 tree archived at `D:\0Grok\0RAD\0scripts\skills_live_v1.3.1_20260825.zip`. Runtime XSD zip + extract: `D:\0Grok\0RAD\0scripts\skills-runtime-assets-v3.zip` and `D:\0Grok\0RAD\0scripts\runtime-assets\`.
+
+Active top-level: `00_orchestrator` … `06_review` + `skill-harvest` + `_medical-research-meta`. Review/response lives under `06_review/bundles/manuscript-quality`. Coding/Office under `01_automation`.

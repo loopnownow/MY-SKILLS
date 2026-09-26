@@ -23,7 +23,7 @@ LEGACY_ACTIVE = ("01_automation", "02_imaging")
 REQUIRED = [Path(x) / "SKILL.md" for x in TOP]
 SKIP_DIRS = {".git", "__pycache__", "mounts-cap"}
 TEXT_EXTS = {".md", ".yaml", ".yml", ".txt", ".html"}
-HISTORICAL_FILES = {Path("_medical-research-meta/INTEGRATION_MAP.md")}
+HISTORICAL_FILES = {Path("_medical-research-meta/INTEGRATION_MAP.md"), Path("_medical-research-meta/INTEGRATION_MAP.archive.md")}
 NEGATIVE_WORD_RE = re.compile(r"(?i)\b(?:no|not|never|do not|don't|retired|deleted|historical|legacy|former)\b")
 
 

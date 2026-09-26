@@ -53,4 +53,4 @@ sample size for 20 candidate predictors (pmsampsize)."*
 
 ## Reviewer hot-spots
 No sample-size justification; EPV ≪ 10; "post-hoc power"; reader study with too few readers;
-validation cohort with too few events for calibration.
+test / validation set with too few events for calibration.

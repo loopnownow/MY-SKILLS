@@ -1,5 +1,6 @@
 ---
 name: "radiology-design"
+description: "Imaging study design and feasibility blueprint (研究设计 / 可行性 / 立项 / 开题): patient-level split, blocking risks. Sample-size numbers → 04_analysis."
 domain: "03_research"
 trigger: ["研究设计", "可行性", "imaging feasibility", "样本量", "立项", "开题", "自拟标书"]
 inputs: ["clinical_question", "modality", "cohort_sketch"]

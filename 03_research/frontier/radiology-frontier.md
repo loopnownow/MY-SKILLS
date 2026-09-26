@@ -1,5 +1,6 @@
 ---
 name: "radiology-frontier"
+description: "Turn imaging-AI frontier topics (选题 / 前沿 / frontier) into a publishable question with evidence gaps and journal-fit notes. Never invent PMID/DOI."
 domain: "03_research"
 trigger: ["frontier", "选题", "前沿", "立项方法", "超极化"]
 inputs: ["topic", "year_window"]

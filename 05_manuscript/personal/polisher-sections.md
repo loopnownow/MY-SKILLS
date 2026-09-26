@@ -135,7 +135,7 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
   - ✗ bullet lists
 
 **Radiomics / model performance:**
-- Report AUC in primary + all validation groups in one compact sentence.
+- Report AUC in primary + all validation sets in one compact sentence.
 - Report calibration (Hosmer-Lemeshow P value) and DCA net benefit.
 
 ---

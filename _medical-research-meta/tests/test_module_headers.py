@@ -160,7 +160,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("kind: expansion", med_y)
         self.assertIn("scan_sha: \"1e5eeff\"", sci_y)
         self.assertIn("paper-lookup", sci_y)
-        self.assertIn("03-research/lit-cite/", b_y)
+        self.assertIn("03-research/lit-search/", b_y)
+        self.assertNotIn("id: verify-refs", b_y)
         self.assertIn("intake-project", b_y)
         self.assertIn("03-research/intake-project/", b_y)
         self.assertTrue((d / "sources" / "b-my-skills-capabilities.yaml").is_file())
@@ -209,6 +210,7 @@ class ModuleHeaderTests(unittest.TestCase):
     def test_no_legacy_manuscript_paths(self):
         skip_names = {
             "INTEGRATION_MAP.md",
+            "INTEGRATION_MAP.archive.md",
             "EXTERNALIZATION_CANDIDATES.md",
             "MOUNTED_SKILLS.md",
             "VERSION.txt",
