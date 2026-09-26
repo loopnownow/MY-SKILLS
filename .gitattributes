@@ -1,0 +1,9 @@
+# Line endings: LF in the repo for all text; generators write LF (CHG-20260926-009).
+* text=auto eol=lf
+# Journal data tables keep their bytes as-is (no EOL conversion).
+*.csv -text
+*.xlsx binary
+*.docx binary
+*.pdf binary
+*.png binary
+*.jpg binary

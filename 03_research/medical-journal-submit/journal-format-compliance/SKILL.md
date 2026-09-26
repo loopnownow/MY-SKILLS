@@ -1,7 +1,7 @@
 ---
 name: journal-format-compliance
 description: >
-  Use this skill whenever the user asks to format, revise, or check a manuscript against a specific journal's author guidelines (e.g. "根据xx期刊作者须知修改稿件格式", "format this for submission to [journal]", "make this ready to submit to [journal]"). Also trigger when the user gives a journal name or author-guidelines URL alongside a manuscript file and asks for a submission-ready version, or asks whether a manuscript complies with a journal's requirements. Covers identifying the journal from a name, ISSN, or URL; retrieving its author guidelines; producing a structured compliance plan (title page elements, abstract structure and word limit, keyword count, reference style, figure and table order, required statements like COI, ethics, data availability, funding); flagging content-level inconsistencies that must NOT be silently resolved; and, once confirmed, applying the changes to a .docx as Word tracked changes. Always plan before editing; never guess on author identity, funding attribution, or other factual matters.
+  Format or check a manuscript against one journal's author guidelines (根据xx期刊作者须知修改稿件格式 / format for [journal] / submission-ready / journal name, ISSN or guideline URL). Plan first, flag content conflicts, then apply Word tracked changes. Never guess authors or funding.
 ---
 
 # Journal Format Compliance

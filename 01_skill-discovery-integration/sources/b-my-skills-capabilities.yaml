@@ -13,23 +13,11 @@ notes: >
   cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). ARS/OpenClaw catalog purged.
   CHG-20260913-001.
 skills:
-  - id: verify-refs
-    path: 03-research/lit-cite/
+  - id: lit-search
+    path: 03-research/lit-search/
     coarse: 文献检索
     a_hook: 03_research
-    label: 引用真实性核验
-  - id: manage-refs
-    path: 03-research/lit-cite/
-    coarse: 文献检索
-    a_hook: 03_research
-    label: 引用格式化写入
-    path_shared: true
-  - id: lit-sync
-    path: 03-research/lit-cite/
-    coarse: 文献检索
-    a_hook: 03_research
-    label: 个人文献库同步
-    path_shared: true
+    label: 文献检索与公开数据集
   - id: find-cohort-gap
     path: 03-research/frontier-ideate/
     coarse: 选题探索
@@ -40,6 +28,11 @@ skills:
     coarse: 选题探索
     a_hook: 03_research
     label: MA选题可行性
+  - id: frontier-hypothesize
+    path: 03-research/frontier-hypothesize/
+    coarse: 选题探索
+    a_hook: 03_research
+    label: 假设形成
   - id: intake-project
     path: 03-research/intake-project/
     coarse: 选题探索
@@ -152,6 +145,11 @@ skills:
     coarse: 图表呈现
     a_hook: 04_analysis
     label: 患者流程图
+  - id: fig-plot
+    path: 04-analysis/fig-plot/
+    coarse: 图表呈现
+    a_hook: 04_analysis
+    label: 统计图与影像面板
   - id: peer-review-pdf-scan
     path: 06-review/review-peer/
     coarse: 稿件评阅

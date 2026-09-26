@@ -1,5 +1,6 @@
 ---
 name: "radiology-stats"
+description: "Lab imaging biostatistics (AUC / DeLong / DCA / 统计): pick and run the right test, report estimate + 95% CI the Radiology way. No fabricated p or AUC."
 domain: "04_analysis"
 trigger: ["AUC", "DeLong", "DCA", "统计"]
 inputs: ["design", "endpoint", "metrics"]

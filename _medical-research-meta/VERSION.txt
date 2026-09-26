@@ -1,3 +1,6 @@
+CHG-20260926-009 (2026-09-26)
+QC leftovers: B source yaml mirrors registry (+ mirror tests); .gitattributes LF + renormalize; INTEGRATION_MAP newest first with pre-2026-09 archive; set wording; frontmatter descriptions.
+Earlier: CHG-20260926-008, CHG-20260926-007.
 CHG-20260926-008 (2026-09-26)
 Preset YAML quoting: four presets parse again; R1 prefix examples use v4 ids; new test parses every repo YAML.
 Earlier: CHG-20260926-007, CHG-20260926-006.
@@ -69,3 +72,5 @@ Earlier marker kept: CHG-20260913-001. Backup _history/registry.v3.30.yaml.
 Session pick = fine-id multi-select. OpenClaw never atomic source. Nature PROPOSED until license verified.
 B: +intake-project/design-ai-benchmarking/architecture-zoo/fill-protocol + cross-pack stubs + external-principles.
 A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 medical-journal-submit.
+
+Policy: VERSION.txt keeps blocks from CHG-20260913-001 on. Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first) and INTEGRATION_MAP.archive.md.
