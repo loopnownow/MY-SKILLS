@@ -6,7 +6,7 @@ inputs: ["topic", "year_window"]
 outputs: ["evidence_gaps", "journal_fit_notes"]
 tools: ["pubmed_pages"]
 quality_control: "do not invent PMID/DOI"
-owner: "03_research/radiology-frontier.md"
+owner: "03_research/frontier/radiology-frontier.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -27,7 +27,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 - **Patterns are durable; specific papers are not.** This skill encodes **publication-pattern
   heuristics** (the kinds of studies that get into each journal and the methodological bar
   they meet). It does **not** ship a fixed citation list. Concrete recent papers must be
-  retrieved and verified **live** (→ radiology-search); never cite a PMID/DOI from memory.
+  retrieved and verified **live** (→ mounted `lit-search`); never cite a PMID/DOI from memory.
 - **Separate hot from suitable.** Name directions that are trendy but a poor fit for the data,
   and say why — steering away from a wrong direction is as valuable as suggesting a right one.
 - **Bound novelty claims.** "First/novel" is a liability without a literature check. Frame
@@ -67,7 +67,7 @@ worth doing and likely to be accepted at a high-impact venue*.
    methodological bar it must clear. Flag every concrete claim that needs **live verification**.
 5. **Convert to questions** (mounted `frontier-hypothesize` → `references/idea-to-question.md`) — turn the best 2–4 directions into specific
    research questions with endpoint, comparator, and the minimum evidence to be competitive.
-6. **Trigger live search** — hand the chosen direction to `radiology-search` to retrieve and
+6. **Trigger live search** — hand the chosen direction to mounted `lit-search` to retrieve and
    verify current seed papers (PMID/DOI) and confirm the gap is still open.
 7. **Return** a ranked shortlist: direction → fit → evidence pattern → executable question →
    target-venue tier → what to verify now.
@@ -78,10 +78,10 @@ worth doing and likely to be accepted at a high-impact venue*.
 2. **`Frontier shortlist`** — ranked directions, each with: fit (yes/conditional/no + reason),
    the publication-pattern evidence, and the methodological bar.
 3. **`Executable questions`** — 2–4 concrete questions (endpoint, comparator, minimum evidence),
-   each mapped to a candidate venue tier (→ radiology-journal).
+   each mapped to a candidate venue tier (→ `03_research/literature/journal-selection.md`).
 4. **`Hot-but-unsuitable`** — trendy directions to avoid for this data, with the reason.
 5. **`Verify now`** — the explicit list of claims/papers to confirm via live search today
-   (handed to `radiology-search`); nothing here is presented as already-verified.
+   (handed to mounted `lit-search`); nothing here is presented as already-verified.
 
 
 ## Method upgrades into 立项 (Voice B only)
@@ -104,11 +104,11 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 ## Handoffs
 
 - Turn the chosen direction into a full design → `radiology-design`.
-- Retrieve & verify current seed literature / confirm the gap → `radiology-search`.
-- Which journal tier the question targets → `radiology-journal`.
-- Method-specific feasibility → `radiology-radiomics` / `radiology-deep-learning` /
-  `radiology-radiogenomics`.
-- Citation export of verified seeds → `radiology-citation`.
+- Retrieve & verify current seed literature / confirm the gap → mounted `lit-search`.
+- Which journal tier the question targets → `03_research/literature/journal-selection.md`.
+- Method-specific feasibility → mounted `radiomics-ml` / mounted `architecture-zoo` /
+  `04_analysis/personal/high-dimensional-omics.md`.
+- Citation export of verified seeds → mounted `manage-refs` (check with `verify-refs`).
 - The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
   `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
 - Reviewing **other people's** NSFC (Voice A) → `../personal/grant-review.md`.

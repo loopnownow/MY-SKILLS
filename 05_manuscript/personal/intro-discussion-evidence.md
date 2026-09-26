@@ -1,6 +1,6 @@
 # Introduction / Discussion evidence
 
-**Owner:** `05_manuscript` / `manuscript-core`. Purpose: consume verified evidence so this manuscript's Introduction and Discussion can be written. 05 does not run a literature-research route. Retrieval, guideline lookup, and full-text checks belong to `03_research`; 选题 / 选刊 also stay in `03_research` (选刊 is NOT `05-write-venue`; not 01).
+**Owner:** `05_manuscript` / `manuscript-core`. Purpose: consume verified evidence so this manuscript's Introduction and Discussion can be written. 05 does not run a literature-research route. Retrieval, guideline lookup, and full-text checks belong to `03_research`; 选题 / 选刊 also stay in `03_research` (选刊 is not a 05 task; `find-journal` routes to 03; `venue-templates` is journal formatting only; not 01).
 
 Gap discovery from mounted packs → `evidence-request.md` (A 05 judges; 03 searches).
 

@@ -19,7 +19,7 @@ On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unles
 
 Project state template: `../templates/project-state.yaml` → copy to `<project>/ref/project-state.yaml` only when starting state tracking. Handoff: `../templates/handoff.yaml`.
 
-01 is Skill Discovery, not Excel. Excel/0RAD → 02. Figures → 04 (`04-fig-flow` / `04-fig-plot`). Literature → 03. 选刊 → `03_research`. 样本量 → `04-stats-power`. Reviewer response → 06.
+01 is Skill Discovery, not Excel. Excel/0RAD → 02. Figures → 04 (`make-figures` / `fig-plot`). Literature → 03. 选刊 → `03_research`. 样本量 → `04_analysis` (`calc-sample-size`). Reviewer response → 06.
 
 `research-exploration-loop` is a **00 sub-component**, not a registry fine id. It only routes existing 03/04(/05/06) mounts, runs structural checks, and applies L1/L2 loop caps. See that file for `exploration_state` and freshness rules. **Content spine** for research exploration lives at `03_research/workflows/question-to-reference.md` (R1–R5).
 

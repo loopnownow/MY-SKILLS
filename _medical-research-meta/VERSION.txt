@@ -1,3 +1,6 @@
+CHG-20260926-006 (2026-09-26)
+Stale pointer sweep: remaining personal/workflow v3 ids → v4 fine ids; retired radiology-* pack pointers → live files or mounted fine ids; owner paths fixed.
+Earlier: CHG-20260926-005, CHG-20260926-004.
 CHG-20260926-005 (2026-09-26)
 Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → fig-plot; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
 Earlier: CHG-20260926-004, CHG-20260926-003.
