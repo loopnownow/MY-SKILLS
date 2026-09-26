@@ -7,6 +7,7 @@ openclaw/
 aipoch/
 nature/
 STATE.yaml
+.state.lock
 *.zip
 .cache/
 __pycache__/
