@@ -18,6 +18,11 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/forbidden-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`. Gate **G-05**. Handoff `05 → 06` if N4 PREVIEW.
 6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user. Gate **G-06**.
 7. **Revise (`05_manuscript`)** after the user answers. If reviewer comments exist → **`06_review` only as entry**, then `05_manuscript` for changed sentences.
+8. **Verify (`06_review`)** — `personal/review-resolution.md` in response / re-audit. Check only issues already listed (`manuscript.reviewer_items` or the step-6 cards). Do not open a new full pre-review.
+
+## Close
+
+Use the `00` close rules. `pipeline.stage: done` when this run's file is in place and the last gate passed, or the user says 结束. Stopping after the results page, or before step 6, leaves `stage` at `04` or `05`.
 
 ## Do not
 

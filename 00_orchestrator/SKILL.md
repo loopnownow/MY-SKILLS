@@ -41,6 +41,8 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | imaging / ROI / features, no HTML | `radiomics-study` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
+`*-results.html` and a reviewer letter in the same folder, and the user did not name the entry: ask which station. Do not pick the nearer artifact. One bounded task still goes to that skill, not the full SOP.
+
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability entry points use the batched **clarify round** in Plan card instead — that's the one exception.)
 
 
@@ -62,6 +64,8 @@ Default is **interactive**, not silent automation. Before the first specialist r
 Then show the plan: candidate mount ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
 
 Loop shape: `clarify round (grilling) → plan → execute node → file check → integrity gate → (repair broken node only) → execute`. Not a single straight line.
+
+After that plan is approved, later crossings in the **same run** are one line: file present, gate passed, continue or pause. Still stop and wait at N2 (PHI), G-FACT on the results page, N4 (preview entry), and G-06.
 
 ### Decision nodes (one at a time)
 
@@ -162,7 +166,13 @@ Integrity gates (not after every node):
 
 Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+
+**Close.** Write `pipeline.stage` from the template values already listed there.
+
+- 结束, or the file this run asked for is on disk and the last gate passed → `done`. Do not open the next SOP.
+- 暂停 → leave `stage` at the current station. The next session reads it and does not re-init.
+- Stop after the results page, or stop before pre-review → leave `stage` at `04` or `05`. That stay is not `done`.
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 
