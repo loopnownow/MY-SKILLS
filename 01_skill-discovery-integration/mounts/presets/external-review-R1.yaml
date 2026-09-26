@@ -32,14 +32,14 @@ overrides:
     paths: [06-review/review-peer/]
     role: clinical-reporting-findings
     required: true
-    prefix_example: "[B:06-review-peer]"
+    prefix_example: "[B:peer-review]"
   - id: self-review
     source: my-skills-capabilities
     skills: [review-critique]
     paths: [06-review/review-critique/]
     role: pre-submission-integrity
     required: false
-    prefix_example: "[B:06-review-critique]"
+    prefix_example: "[B:self-review]"
 
 force_b:
   - peer-review
@@ -48,5 +48,5 @@ force_b:
   - self-review
 
 excluded_sources: []
-excluded_tools_note: Findings only; A06 adjudicates. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
+excluded_tools_note: "Findings only; A06 adjudicates. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
 swappable: true

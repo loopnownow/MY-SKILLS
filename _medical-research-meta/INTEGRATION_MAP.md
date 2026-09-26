@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-008 — preset YAML quoting + repo-wide YAML parse test
+date: 2026-09-26
+skill: 01_skill-discovery-integration · _medical-research-meta
+problem: All four presets failed yaml.safe_load (unquoted `excluded_tools_note` containing `: `, from CHG-20260924-005). Tests read presets as text only, so nothing caught it. external-review-R1 still used v3 prefix examples.
+change: Quoted `excluded_tools_note` in evidence-deep-L2, external-review-R1, manuscript-final-W2, review-hybrid. external-review-R1 prefix examples → `[B:peer-review]` / `[B:self-review]`. No other recipe change (user-approved). New `tests/test_yaml_valid.py`: every tracked *.yaml / *.yml (mounts-cap packs and STATE.yaml are gitignored, so excluded) must parse.
+decision: keep
+next_action: none
+
 ## CHG-20260926-007 — final legacy alias removal (v3 map deleted)
 date: 2026-09-26
 skill: 00_orchestrator · 01_skill-discovery-integration · 02_data-processing · 03_research · 04_analysis · 05_manuscript · 06_review · skill-harvest

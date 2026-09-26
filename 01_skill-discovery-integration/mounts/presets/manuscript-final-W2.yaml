@@ -39,5 +39,5 @@ overrides:
 
 force_b: []
 excluded_sources: []
-excluded_tools_note: One authoring authority (personal). Engines do not co-edit sentences. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
+excluded_tools_note: "One authoring authority (personal). Engines do not co-edit sentences. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
 swappable: true
