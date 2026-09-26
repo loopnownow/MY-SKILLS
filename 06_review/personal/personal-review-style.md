@@ -19,8 +19,8 @@
 
 - Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
 - 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
-  - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 无更细包名时用粗 ID：`[B:06-review-peer]`。
-  - 例：`[A:personal]` · `[B:06-review-peer]` · `[Nature:nature-reviewer]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[03-lit-search]`（个人/粗 ID 任务）
+  - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
+  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:nature-reviewer]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[lit-search]`（个人/细 ID 任务）
   - 挂载 + 个人都成立 → **双标**，例：`[Nature:nature-reviewer] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
 - **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:nature-reviewer]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
 - 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
@@ -37,7 +37,7 @@
 - **优先：** Proof/原稿行号，如 `Lines 76–79:` / `Line 216:`。
 - **无可靠行号时：** `Introduction, paragraph 2, line 3:`；或 `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`。
 - **已给行号则不复述、不引用原稿句子。**
-- **来源标签**（如 `[B:06-review-critique][A:personal]`）只写在 Word **批注**文首；作者字段 **A**。不好的原因用**中文**写在同一条批注里，放在来源标签后面。`cannot_invent` / G-LIT 双轨也只进批注（不进信封正文）。
+- **来源标签**（如 `[B:self-review][A:personal]`）只写在 Word **批注**文首；作者字段 **A**。不好的原因用**中文**写在同一条批注里，放在来源标签后面。`cannot_invent` / G-LIT 双轨也只进批注（不进信封正文）。
 - **禁止**把行号埋在句中或句末；禁止无定位的空泛指摘（Opening 总述除外，Opening 可不写行号）。
 - **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后再用修订模式改信封正文。
 - 用户若粘贴原文句子：先在 Proof/plain 对齐行号，再写入对应章节；不要另起新的审稿 docx。

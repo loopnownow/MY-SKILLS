@@ -24,7 +24,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 ## Named entry points (do not vendor `.py`)
 
 - **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0RAD`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. `0scripts` does not run the stats engine.
-- **STROBE Figure 1:** `figure_strobe_flow.py` is duplicated in `modules/stats` and `0scripts/manuscript`. Canonical after the 2026-08-28 skill update is the figure-engine **POLE** layout (inclusion arrow IN, exclusion arrow OUT, no pipeline row). Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Layout rules: `05_manuscript/bundles/figure-engine`.
+- **STROBE Figure 1:** `figure_strobe_flow.py` is duplicated in `modules/stats` and `0scripts/manuscript`. Drawing code stays local, not in git. Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Figure 1 is the single study flowchart read from Materials and Methods. Training Cohort and Test Cohort sit on one row. Validation Cohort joins that row only when Methods states an external cohort. Steps are drawn only when Methods names them. Layout rules: `05_manuscript/personal/Aitor-format.md` (Figure 1).
 - **Nomogram:** `modules.stats.models.build_nomogram`. Ignore docstrings that still say `python -m modules.nomogram`.
 
 ## Tables before any statistic

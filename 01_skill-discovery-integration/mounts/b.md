@@ -26,7 +26,6 @@
 | `architecture-zoo` | 模型架构选型 | `03-research/architecture-zoo/` | 研究设计 |
 | `write-protocol` | IRB方案撰写 | `03-research/design-protocol/` | 研究设计 |
 | `fill-protocol` | IRB方案填表 | `03-research/fill-protocol/` | 研究设计 |
-| `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | 研究设计 |
 | `write-paper` | IMRAD正文起草 | `05-manuscript/write-manuscript/` | 正文写作 |
 | `check-reporting` | 报告规范核验 | `05-manuscript/write-reporting/` | 正文写作 |
 | `grant-builder` | 基金标书-方法论 | `03-research/design-grant/` | 正文写作 |
@@ -41,6 +40,7 @@
 | `radiomics-ml` | 放射组学建模pipeline审计 | `02-data-processing/radiomics-habitat/` | 统计分析 |
 | `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | 统计分析 |
 | `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | 统计分析 |
+| `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | 统计分析 |
 | `make-figures` | 患者流程图 | `04-analysis/fig-flow/` | 图表呈现 |
 | `fig-plot` | 统计图与影像面板 | `04-analysis/fig-plot/` | 图表呈现 |
 | `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | 稿件评阅 |
