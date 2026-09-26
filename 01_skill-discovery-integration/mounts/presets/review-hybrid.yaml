@@ -52,6 +52,6 @@ force_b:
   - self-review
 
 excluded_sources: []
-excluded_tools_note: Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only.
+excluded_tools_note: "Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
 
 swappable: true

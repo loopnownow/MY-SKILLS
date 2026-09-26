@@ -1,3 +1,6 @@
+CHG-20260926-008 (2026-09-26)
+Preset YAML quoting: four presets parse again; R1 prefix examples use v4 ids; new test parses every repo YAML.
+Earlier: CHG-20260926-007, CHG-20260926-006.
 CHG-20260926-007 (2026-09-26)
 Final legacy alias removal: v3→v4 map and v3.30 backup deleted; live docs, fast routes, source yaml keys, and tests use v4 fine ids only.
 Earlier: CHG-20260926-006, CHG-20260926-005.
