@@ -1,6 +1,6 @@
 # 预设 B · 当前默认（v4）
 
-[总览](README.md) · [迁移](MIGRATION_v3_to_v4.md) · [B · 当前默认](b.md)
+[总览](README.md) · [B · 当前默认](b.md)
 
 仅用 B 作为默认来源。[loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) · `../sources/b-my-skills-capabilities.yaml`
 
@@ -53,7 +53,5 @@
 | Fine id | Source | Notes |
 |---|---|---|
 | `humanize` | MedSci | 去 AI 味（通用）；个人 de-AI 仍在 A |
-
-ARCHIVED 旧接口 `04-explainability` 已移出默认菜单（见迁移图）。
 
 机器真源 `../registry.yaml`。

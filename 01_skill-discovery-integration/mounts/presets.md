@@ -25,7 +25,7 @@ Machine core: [`presets/evidence-deep-L2.yaml`](presets/evidence-deep-L2.yaml).
 
 - B chassis + A03 evidence entry
 - Scientific `paper-lookup` (discovery) + `verify-refs` / citation-management
-- Optional full-text path when user asks (do not auto-revive archived `03-lit-fulltext` without ask)
+- Optional full-text path when user asks (bulk full-text is archived; do not revive without ask)
 - Still ask-each-run. Prefer verify-refs over a second search engine.
 
 ## manuscript-final-W2

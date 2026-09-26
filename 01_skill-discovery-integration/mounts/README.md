@@ -1,12 +1,11 @@
 # 01 挂载指针（v4 · CHG-20260913-001）
 
-[总览](README.md) · [迁移 v3→v4](MIGRATION_v3_to_v4.md) · [混合挂载指针（细ID配方）](hybrid-mount-pointers.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
+[总览](README.md) · [混合挂载指针（细ID配方）](hybrid-mount-pointers.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
 
 **粗 ID 10 个（焊死 stage buckets）+ 细 ID 52 个（session-pick；reference_only 已空）。** Hybrid mount：不同细 ID 可用不同包；同一细 ID 内不混包。备份源仍 PROPOSED。ARS / OpenClaw **已从 catalog 清除**（`ars_openclaw_policy: removed-from-catalog`）— 永不 remount，不进 session pick。
 
 | 预设 | 摘要 |
 |---|---|
-| [迁移图](MIGRATION_v3_to_v4.md) | 旧 30 id → 新 fine ids / ARCHIVED |
 | [配方 · 审稿混合默认](presets.md) | `review-hybrid-default`：B 底盘 + Nature/Scientific 细 ID 覆盖（仍 ask-each-run） |
 | [B · 当前默认](b.md) | B 默认已含细 ID + 新增挂载；跨包 stub 在 `cross-pack/` |
 | [MedSci · 备份](medsci.md) | 扫 `912f7e8`。多数 B 细 ID 的原子技能源；`humanize` 仍 MedSci 接口 |
@@ -20,7 +19,7 @@
 
 **本地缓存：** 仓库根 `mounts-cap/`。B 整包；备份源只拉本轮选中的细 ID 路径。下载不等于改挂。勿缓存已清除 catalog 的包。
 
-机器真源 `../registry.yaml` · 备份 `../_history/registry.v3.30.yaml` · 来源配置 `../sources/*.yaml`。
+机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。
 
 ## Lifecycle reminders
 

@@ -42,7 +42,7 @@ Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount
 Say 默认挂载 B 包/本仓 — not 空挂.
 
 v{version}: **{coarse} coarse + {fine} fine** ({mounted_count} session-pick mounts + {ref_count} reference-only). Personal layers stay in A `00`–`06`.
-Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
+Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids by coarse bucket
 """

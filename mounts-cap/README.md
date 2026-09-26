@@ -14,7 +14,7 @@ Canonical B path is `mounts-cap/b/`. If a leftover sibling `MY-SKILLS-capabiliti
 
 ```text
 python mounts-cap/fetch.py ensure-b
-python mounts-cap/fetch.py ensure --id 04-explainability
+python mounts-cap/fetch.py ensure --id humanize
 python mounts-cap/fetch.py check
 ```
 

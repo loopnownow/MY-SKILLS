@@ -6,7 +6,7 @@ metadata:
   version: "1.16"
   source_table: data/2026/医学投稿推荐_JCR2026.xlsx
   owner: 03_research/Victor
-  home: A 03_research/medical-journal-submit (not B 05-write-venue)
+  home: A 03_research/medical-journal-submit (B find-journal is the engine; venue-templates only house style)
   advice_merged: Gemini+ChatGPT 2026-09
 ---
 
@@ -16,8 +16,8 @@ metadata:
 
 - Lives in **A** `03_research/medical-journal-submit/` (Victor).
 - Called from A `03_research/literature/journal-selection.md`.
-- **Not** B `05-write-venue` (that id is house style only).
-- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `05-write-venue` only for formatting to the chosen family.
+- 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `venue-templates` only for formatting to the chosen family.
 
 
 ## Layout (Logic / Dataset)

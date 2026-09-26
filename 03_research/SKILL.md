@@ -14,11 +14,11 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
-**Mounted 03 ids** are the registry menu for generic retrieval and blueprints (see Mounted capability ids below for the short retirement pointer). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `lit-search` / legacy alias `03-lit-search`), not `05-write-venue`.
+**Mounted 03 ids** are the registry menu for generic retrieval and blueprints (see Mounted capability ids below for the short retirement pointer). Personal grant/ethics/intake/translation files stay here. 选刊 is 03 (`literature/journal-selection.md`; evidence via `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 
 ## Literature rule
 
-- Introduction evidence pack: on 05 cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`) → `literature/intro-evidence-pack.md`; the mounted `03-lit-review` supplies the row format. Candidates only; 05 decides.
+- Introduction evidence pack: on 05 cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`) → `literature/intro-evidence-pack.md`; the mounted `ma-scout` supplies the row format. Candidates only; 05 decides.
 
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
@@ -40,15 +40,15 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 
-`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at `03-design-experiment` / `03-design-protocol`.
+`clinical-translation/` is **personal research-design supplement** (reader study, prospective deployment, regulatory, threshold-to-action). Not 02, not 04. Generic translational templates may later mount at `design-study` / `write-protocol`.
 
 ## Mounted capability ids (generic; registry MOUNTED = menu)
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example `lit-search`, `frontier-hypothesize`, `design-study`, `find-cohort-gap`). Legacy alias `03-lit-search` is not a separate mount. Archived, do not load: `03-lit-fulltext`. Retired coarse ids: `03-literature`, `03-design`, `03-frontier`.
+Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example `lit-search`, `frontier-hypothesize`, `design-study`, `find-cohort-gap`). Archived ids stay off the menu (registry `archived:`).
 
-**Retirement pointer (single block):** Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap` (`EXTERNALIZATION_CANDIDATES.md`); `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, `public-datasets.md`, and `literature-evidence-2023-2026.md` were retired 2026-09-22 — use `frontier-hypothesize`, `lit-search`, and `ma-scout`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md`. Do not send 选刊 to `05-write-venue`.
+**Retirement pointer (single block):** Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap` (`EXTERNALIZATION_CANDIDATES.md`); `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, `public-datasets.md`, and `literature-evidence-2023-2026.md` were retired 2026-09-22 — use `frontier-hypothesize`, `lit-search`, and `ma-scout`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md`. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 
 ## Default research spine (workflow)
 
@@ -81,7 +81,7 @@ Full rules and card schemas: [`workflows/question-to-reference.md`](workflows/qu
 
 ## Boundaries
 
-- 选刊 / where to submit stays here (`literature/journal-selection.md` + `medical-journal-submit/`). `05-write-venue` is journal templates / house style while writing, not journal choice.
+- 选刊 / where to submit stays here (`literature/journal-selection.md` + `medical-journal-submit/`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - Manuscript prose / I/D writing → `05_manuscript`
 - Statistics / figures → `04_analysis`
 - Data preprocessing / extraction → `02_data-processing`

@@ -17,7 +17,7 @@ description: >
 Infrastructure for Skill discovery and mounting. Professional work stays in 02–06.
 This layer only resolves **where a capability comes from**.
 **All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`.
-Human board: `mounts/` (`README.md`, `MIGRATION_v3_to_v4.md`, `hybrid-mount-pointers.md`, `presets.md` + `presets/*.yaml`, `b.md` / `medsci.md` / `scientific.md` / `aipoch.md` / `nature.md`).
+Human board: `mounts/` (`README.md`, `hybrid-mount-pointers.md`, `presets.md` + `presets/*.yaml`, `b.md` / `medsci.md` / `scientific.md` / `aipoch.md` / `nature.md`).
 Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Architecture (v4 · CHG-20260913-001)
@@ -27,7 +27,6 @@ Domain skills call fine ids; they do not keep a second pointer table.
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id.
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
-- Backup of 30-id registry: `_history/registry.v3.30.yaml`.
 
 ## Default mount
 
@@ -116,7 +115,7 @@ Never silently fall back to MedSci/Scientific/AIPOCH/Nature or invent a local co
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (coarse buckets + fine `mounts:`).
-2. Resolve each fine id against its `source`. Default source is B. `humanize` mounts from MedSci. Archived ids are not in the default menu (includes former `04-explainability`).
+2. Resolve each fine id against its `source`. Default source is B. `humanize` mounts from MedSci. Archived ids (registry `archived:`) are not in the default menu.
 3. If that path is empty or missing → empty-mount protocol.
 4. Only after confirmation may a *different* backup candidate be proposed.
 5. Evaluate capability, boundaries, dependencies, and overlap.

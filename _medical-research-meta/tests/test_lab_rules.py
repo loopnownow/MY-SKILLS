@@ -40,7 +40,8 @@ class DeAI(unittest.TestCase):
     def test_de_ai_is_personal_not_a_mount(self) -> None:
         five = read("05_manuscript", "SKILL.md")
         self.assertNotIn("05-de-ai", five)
-        self.assertIn("05-write-manuscript", five)
+        self.assertIn("write-paper", five)
+        self.assertNotIn("05-write-manuscript", five)
         self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
         self.assertTrue((SKILLS / "05_manuscript" / "personal" / "forbidden-phrases.md").is_file())
 
@@ -81,8 +82,9 @@ class Routing(unittest.TestCase):
         self.assertIn("出图", zero)
         five = read("05_manuscript", "SKILL.md")
         self.assertIn("04_analysis", five)
-        self.assertIn("04-fig-plot", five)
-        self.assertIn("04-fig-flow", five)
+        self.assertIn("fig-plot", five)
+        self.assertIn("make-figures", five)
+        self.assertNotIn("04-fig-flow", five)
         self.assertNotIn("bundles/figure-engine", five)
 
     def test_session_mount_pick(self) -> None:

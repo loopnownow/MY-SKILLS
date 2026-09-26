@@ -12,7 +12,7 @@ Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount
 Say 默认挂载 B 包/本仓 — not 空挂.
 
 v4: **10 coarse + 52 fine** (52 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
-Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup: `_history/registry.v3.30.yaml`.
+Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids by coarse bucket
 
@@ -137,14 +137,7 @@ Migration: [mounts/MIGRATION_v3_to_v4.md](mounts/MIGRATION_v3_to_v4.md). Backup:
 
 ## Archived (not in default menus)
 
-- `02-fmri` — 假匹配已核实——AIPOCH neuropixels≠fMRI
-- `02-pictures` — 场景错位——病理全切片非通用图片
-- `03-design-experiment-wetlab` — 仅归档外部湿实验室DOE；MedSci design-study等已入研究设计
-- `04-explainability` — 用户不使用；Grad-CAM vs SHAP不可互替
-- `03-lit-fulltext` — 用户不使用批量全文
-- `03-lit-review-full` — 不写综述全流程；ma-scout保留在选题探索
 - `deidentify` — 导出已人工脱敏
-- `05-write-venue-add-journal` — add-journal是维护工具非产出技能
 - `profile-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
 - `uncertainty-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
 - `hypothesis-generation` — 未拉取字节；假设形成用已挂载的 frontier-hypothesize

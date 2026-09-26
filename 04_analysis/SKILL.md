@@ -31,17 +31,15 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `analyze-stats` (`04-stats-guide`) — test selection / effect sizes
-- `calc-sample-size` (`04-stats-power`) — sample size / power; `statistical-power` is PROPOSED
-- `model-evaluation` / `model-validation` (`04-model-eval`) — calibration / DCA / external validation
-- `meta-analysis` (`04-stats-models`; `scikit-survival` is PROPOSED) — implementation; 0RAD personal still wins
-- `radiomics-ml` (`02-radiomics-habitat`) — radiomics modelling pipeline audit
-- `make-figures` (`04-fig-flow`) — STROBE / patient-flow
-- `fig-plot` (`04-fig-plot`) — statistical plots / imaging panels
+- `analyze-stats` — test selection / effect sizes
+- `calc-sample-size` — sample size / power; `statistical-power` is PROPOSED
+- `model-evaluation` / `model-validation` — calibration / DCA / external validation
+- `meta-analysis` (`scikit-survival` is PROPOSED) — implementation; 0RAD personal still wins
+- `radiomics-ml` — radiomics modelling pipeline audit
+- `make-figures` — STROBE / patient-flow
+- `fig-plot` — statistical plots / imaging panels
 
-Retired: `04-stats-generic`, `04-figure-engine`, `04-explainability`.
-
-Until `fig-plot` (`04-fig-plot`) / `make-figures` (`04-fig-flow`) is mounted, do not invent a second figure stack inside 05.
+Until `fig-plot` / `make-figures` is mounted, do not invent a second figure stack inside 05.
 
 ## Imaging hard rules (non-negotiable)
 
@@ -62,11 +60,11 @@ Until `fig-plot` (`04-fig-plot`) / `make-figures` (`04-fig-flow`) is mounted, do
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `fig-plot` / `make-figures`, legacy aliases `04-fig-plot` / `04-fig-flow`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (mounted `fig-plot` / `make-figures`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 
-- Data cleaning / Excel → `02_data-processing` (`clean-data` / `batch-cohort`; legacy alias `02-tables`)
+- Data cleaning / Excel → `02_data-processing` (`clean-data` / `batch-cohort`)
 - Literature → `03_research`
 - Manuscript wording → `05_manuscript`
 - Reviewer response → `06_review`

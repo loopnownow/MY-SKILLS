@@ -1,6 +1,6 @@
 # Scanned 2026-09-03 against Aperivue/medsci-skills@912f7e8 (2026-09-01).
-# `- id:` keys below are v3 coarse ids (legacy). v4 fine ids: ../mounts/MIGRATION_v3_to_v4.md.
-# mounts-cap/fetch.py matches `- id:` keys here; do not rename them.
+# `- id:` keys are v4 fine ids (registry.yaml): each group lists this source's backup paths for that fine id.
+# mounts-cap/fetch.py: `ensure --id <fine-id> --source <source_id>` reads the path here; without --source it uses registry.yaml.
 source_id: med-sci-skills
 name: MedSci Skills
 role: backup-candidate
@@ -11,128 +11,119 @@ status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
   Finer A ids (CHG-20260903-011). Two A interfaces mount from this repo:
-  04-explainability and 05-humanize. present-paper stays unmapped (not 05).
+  humanize (explainability is archived). present-paper stays unmapped (not 05).
 skills:
-  - id: 02-tables
+  - id: clean-data
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/
     a_hook: 02_data-processing
     coverage: full
     note: table/cohort cleaning, not Excel/COM
-  - id: 02-imaging-io
+  - id: imaging-io
     path: skills/preprocess-imaging/
     a_hook: 02_data-processing
     coverage: full
     note: preprocess / convert; not QC
-  - id: 02-imaging-qc
+  - id: preprocess-imaging
     path: skills/profile-imaging/; skills/uncertainty-imaging/
     a_hook: 02_data-processing
     coverage: full
     note: profile / uncertainty
-  - id: 02-radiomics-habitat
+  - id: radiomics-ml
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
     note: radiomics+ML; modeling still 04
-  - id: 03-lit-search
+  - id: lit-search
     path: skills/search-lit/; skills/lit-sync/
     a_hook: 03_research
     coverage: full
-  - id: 03-lit-fulltext
-    path: skills/fulltext-retrieval/
-    a_hook: 03_research
-    coverage: full
-  - id: 03-lit-review
+  - id: ma-scout
     path: skills/ma-scout/
     a_hook: 03_research
     coverage: partial
     note: scout/meta, not a dedicated review pack
-  - id: 03-lit-cite
+  - id: verify-refs
     path: skills/manage-refs/; skills/verify-refs/
     a_hook: 03_research
     coverage: full
-  - id: 03-design-experiment
+  - id: design-study
     path: skills/design-study/; skills/intake-project/; skills/design-ai-benchmarking/
     a_hook: 03_research
     coverage: full
-  - id: 03-design-protocol
+  - id: write-protocol
     path: skills/write-protocol/; skills/fill-protocol/
     a_hook: 03_research
     coverage: full
-  - id: 03-design-grant
+  - id: grant-builder
     path: skills/grant-builder/
     a_hook: 03_research
     coverage: full
     note: does not replace A Voice A/B
-  - id: 03-frontier-ideate
+  - id: find-cohort-gap
     path: skills/find-cohort-gap/; skills/architecture-zoo/
     a_hook: 03_research
     coverage: partial
-  - id: 03-frontier-hypothesize
+  - id: frontier-hypothesize
     path: skills/find-cohort-gap/; skills/ma-scout/
     a_hook: 03_research
     coverage: partial
     note: no hypogenic equivalent
-  - id: 04-stats-guide
+  - id: analyze-stats
     path: skills/analyze-stats/
     a_hook: 04_analysis
     coverage: full
     note: does not replace A 04 personal / 0RAD
-  - id: 04-stats-power
+  - id: calc-sample-size
     path: skills/calc-sample-size/
     a_hook: 04_analysis
     coverage: full
-  - id: 04-stats-models
+  - id: meta-analysis
     path: skills/meta-analysis/
     a_hook: 04_analysis
     coverage: partial
     note: pooling only; 0RAD personal still wins
-  - id: 04-model-eval
+  - id: model-evaluation
     path: skills/model-evaluation/; skills/model-validation/
     a_hook: 04_analysis
     coverage: full
-  - id: 04-fig-plot
+  - id: fig-plot
     path: skills/make-figures/
     a_hook: 04_analysis
     coverage: full
     note: B fig-plot stays gold; Figure 1 rule in A Aitor-format.md
-  - id: 04-explainability
-    path: skills/explainability/
-    a_hook: 04_analysis
-    coverage: full
-    note: imaging XAI; not in B
-  - id: 05-write-manuscript
+  - id: write-paper
     path: skills/write-paper/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format; present-paper 不进 05
-  - id: 05-write-reporting
+  - id: check-reporting
     path: skills/check-reporting/
     a_hook: 05_manuscript
     coverage: full
-  - id: 05-write-venue
+  - id: venue-templates
     path: skills/find-journal/; skills/add-journal/
     a_hook: 05_manuscript
     coverage: full
     note: not Aitor-format
-  - id: 05-write-polish
+  - id: polish-language
     path: skills/polish-language/
     a_hook: 05_manuscript
     coverage: full
     note: not A personal de-AI
-  - id: 05-humanize
+  - id: humanize
     path: skills/humanize/
     a_hook: 05_manuscript
     coverage: full
     note: does not replace A personal de-AI
-  - id: 06-review-peer
+  - id: peer-review
     path: skills/peer-review/; skills/review-paper/
     a_hook: 06_review
     coverage: full
-  - id: 06-review-critique
+  - id: self-review
     path: skills/self-review/
     a_hook: 06_review
     coverage: full
-  - id: 06-review-response
+  - id: revise
     path: skills/revise/
     a_hook: 06_review
     coverage: full
@@ -209,7 +200,11 @@ unmapped:
     kind: expansion
     future_hook: not_05
     note: talks/slides; not manuscript 05
+  - path: skills/fulltext-retrieval/
+    kind: archived
+    note: bulk full-text download — archived, not in the menu; revive via 01 only
+  - path: skills/explainability/
+    kind: archived
+    note: model explainability (SHAP / Grad-CAM) — archived, not in the menu; revive via 01 only
 empty:
-  - 02-pictures
-  - 02-fmri
-  - 04-fig-flow
+  - make-figures
