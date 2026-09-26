@@ -31,8 +31,8 @@ Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<
 | `01_skill-discovery-integration` | Discover / evaluate / mount; pointers + `mounts/*.md` live here; default source B; bytes in `mounts-cap/` |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + **选刊** + personal grant supplement + translational design + ethics forms |
-| `04_analysis` | Statistics, prediction, **figures** (`04-fig-flow` / `04-fig-plot`) |
-| `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; `05-write-venue` = journal templates / house style, not 选刊) |
+| `04_analysis` | Statistics, prediction, **figures** (`make-figures` / `fig-plot`) |
+| `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; B `05-manuscript/write-venue/` = journal templates / house style, not 选刊) |
 | `06_review` | Personal review/response upper layer (reviewer response only here) |
 | `skill-harvest` | Governance / ROI / evolution proposals |
 

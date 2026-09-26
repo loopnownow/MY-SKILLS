@@ -7,10 +7,10 @@
 | | |
 |---|---|
 | 状态 | 混合：`verify-refs`/`manage-refs`/`lit-sync` 已 MOUNTED（2026-09-13）；其余细 ID 仍 PROPOSED（跨包细 ID on-demand） |
-| v3 映射 | 21 / 30；空挂 9（含 `03-lit-fulltext`、`04-model-eval`、`06-review-response`、`02-fmri`、`02-pictures`） |
+| v3 映射 | 21 / 30；空挂 9（含 `03-lit-fulltext`〔ARCHIVED〕、`04-model-eval`〔v4 `model-evaluation` / `model-validation`〕、`06-review-response`〔v4 `revise`〕、`02-fmri`、`02-pictures`〔ARCHIVED〕） |
 | v4 细 ID（MOUNTED） | `verify-refs` → `skills/citation-management/` · `manage-refs` → `skills/citation-management/`（同目录） · `lit-sync` → `skills/pyzotero/` — 2026-09-13 内容深度对比后从 B `lit-cite`（13行桩）换过来，见 `_medical-research-meta/INTEGRATION_MAP.md` CHG-20260913-009 |
 | v4 细 ID（PROPOSED） | `paper-lookup` · `statistical-power` · `venue-templates` · `exploratory-data-analysis` · `pydicom` · `scikit-survival` · `scientific-critical-thinking` |
 | reference_only | `scientific-visualization` → B `fig-plot/external-principles.md` |
 | 注意 | `skills/xlsx/` 曾标 Proprietary — 本 registry 未引用 |
 
-Stub 正文在 B `cross-pack/scientific/`。`03-lit-search` 广度能力由 `paper-lookup` 承担。勿把 Scientific 整仓 bulk 下载。
+Stub 正文在 B `cross-pack/scientific/`。文献广度检索由 `paper-lookup` 承担（v3 `03-lit-search` 的广度部分）。勿把 Scientific 整仓 bulk 下载。

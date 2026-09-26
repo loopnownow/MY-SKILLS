@@ -11,6 +11,8 @@ owner: "03_research/radiology-design.md"
 
 # trigger is documentation only; not independently discoverable.
 
+The 样本量 trigger only frames the question here. Numbers go to `04_analysis` / Loopnow (`calc-sample-size`).
+
 # Imaging Study Design & Feasibility
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe
@@ -80,7 +82,7 @@ generalisable or single-center-anecdote.
    internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
    out and what "external" honestly means here.
 7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to
-   `radiology-stats`).
+   `04_analysis` / Loopnow, `calc-sample-size`).
 8. **Return** the blueprint + feasibility verdict + validation plan + the prioritised list of
    what to secure next.
 
@@ -121,7 +123,7 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 ## Handoffs
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
-- Sample size, EPV, power, Riley minimum sample size → `radiology-stats`.
+- Sample size, EPV, power, Riley minimum sample size → `04_analysis` / Loopnow (`calc-sample-size`; lab notes `04_analysis/personal/sample-size.md`).
 - Hand-crafted radiomics pipeline design → `radiology-radiomics`.
 - Deep-learning architecture & training design → `radiology-deep-learning`.
 - Imaging × omics mechanism design → `radiology-radiogenomics`.

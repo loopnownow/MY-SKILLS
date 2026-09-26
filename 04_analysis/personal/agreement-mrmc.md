@@ -35,7 +35,7 @@ icc = pg.intraclass_corr(data=long_df, targets="case", raters="reader", ratings=
 ## Bland-Altman (continuous, two methods/readers)
 Plot mean vs difference; report **bias** (mean difference) and **95% limits of agreement**
 (bias ± 1.96·SD). Check for proportional bias (trend vs magnitude). Hand the plot to
-`figure-engine`.
+mounted `fig-plot`.
 
 ## MRMC — the right framework for reader studies
 When **multiple readers** each read **multiple cases** (e.g. AI-vs-no-AI, or comparing

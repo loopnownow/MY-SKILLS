@@ -5,7 +5,7 @@ description: >
   dry-run, checkpoint, modular scripts, YAGNI/reuse ladder, Critical/Required/Optional
   code review. Use for 软编码, dry-run, 配置置顶, 模块化, 深审, Deep QC, 代码质控,
   modules QC, YAGNI, 最小实现, 反过度工程. Do not use for 统计方法正文 (04_analysis),
-  影像 ROI QC (02-imaging-qc), Excel 批处理 (02-tables), 伦理填表, skill-harvest/qc
+  影像 ROI QC (preprocess-imaging), Excel 批处理 (clean-data / batch-cohort), 伦理填表, skill-harvest/qc
   repo scans, or registering a new 01/B mount.
 ---
 
@@ -60,7 +60,7 @@ Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-p
 ### 7. 深度 QC
 - 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `references/code-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
-- 边界：≠ `skill-harvest/qc`；≠ `02-imaging-qc`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
+- 边界：≠ `skill-harvest/qc`；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
 - 不 vendor `D:\0Grok\0RAD\modules` 整树
 - 00 路由：`gates.md` **G-CODE**
 

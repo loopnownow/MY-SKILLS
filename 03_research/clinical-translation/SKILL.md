@@ -8,7 +8,7 @@ description: >
 
 # Clinical Translation, Reader Studies & Prospective Validation
 
-**个人研究设计补充**（家园 `03_research/clinical-translation/`）。这是 research/translational **DESIGN**（reader study, prospective deployment, regulatory, threshold-to-action），不是 02、不是 04。通用模板可日后挂 `03-design-experiment` / `03-design-protocol`。
+**个人研究设计补充**（家园 `03_research/clinical-translation/`）。这是 research/translational **DESIGN**（reader study, prospective deployment, regulatory, threshold-to-action），不是 02、不是 04。通用模板可日后挂 `design-study` / `write-protocol`。
 
 Use this skill to turn "the model has good retrospective performance" into "the model helps in
 practice." This is the step top journals reward and reviewers demand before any clinical claim:
@@ -24,7 +24,7 @@ evidence.
   cost of errors.
 - **Reader studies are designed, not improvised.** MRMC with washout, randomised order,
   radiologist-alone vs radiologist+AI, reader experience reported, and the right statistic
-  (→ `04_analysis` / `04-stats-guide`).
+  (→ `04_analysis` / `analyze-stats`).
 - **Thresholds map to actions.** Every operating point implies a clinical action and a cost of
   false positives/negatives; net-benefit / decision-curve quantifies it.
 - **Prospective beats retrospective; real-world beats curated.** Plan temporal/prospective/
@@ -64,14 +64,14 @@ evidence.
 5. **Plan prospective/real-world validation** (prospective-deployment.md) — temporal/prospective/
    RWE design, workflow position, monitoring for drift, failure handling.
 6. **Bound the claim** — state exactly what level of evidence supports what level of claim;
-   route statistics to `04_analysis` (`04-stats-guide` / `04-model-eval`) and reporting to `05_manuscript` (`05-write-reporting`).
+   route statistics to `04_analysis` (`analyze-stats` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
 
 ## Output contract
 
 1. **`Use scenario`** — pathway position, decision-maker, output type, error costs.
 2. **`Threshold-to-action map`** — operating point(s) → action; net-benefit/DCA framing.
 3. **`Reader-study design`** (if applicable) — readers, washout, randomisation, arms, outcomes,
-   statistic (MRMC → `04-stats-guide`).
+   statistic (MRMC → `analyze-stats`).
 4. **`Regulatory/deployment readiness`** — intended use, locked/adaptive status, oversight,
    change-control/revalidation, monitoring, and exact items needing live verification.
 5. **`Prospective/real-world plan`** — design, workflow integration, monitoring, drift.
@@ -86,8 +86,8 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 
 ## Handoffs
 
-- MRMC / net-benefit / decision-curve statistics → `04_analysis` (`04-stats-guide` / `04-model-eval`).
-- Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`05-write-reporting`).
-- The validation cohort / temporal design → `03_research` (`03-design-experiment` / `03-design-protocol`).
-- Reader-study figures, net-benefit plots → `04_analysis` (mounted `04-fig-plot`).
+- MRMC / net-benefit / decision-curve statistics → `04_analysis` (`analyze-stats` / `model-evaluation`).
+- Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
+- The validation cohort / temporal design → `03_research` (`design-study` / `write-protocol`).
+- Reader-study figures, net-benefit plots → `04_analysis` (mounted `fig-plot`).
 - Plans research and evaluation only; no individual-patient clinical or diagnostic advice.

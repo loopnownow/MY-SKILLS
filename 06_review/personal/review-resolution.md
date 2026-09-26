@@ -23,7 +23,7 @@ Related: English peer-review envelope `personal-review-style.md`; response lette
 
 - `response` mode: after author revisions, verify each reviewer point was actually addressed  
 - `pre-review` / re-audit: reopen prior Major/Minor items and set status  
-- Mounted `06-review-*` (or backup source) returns findings that need consolidation under A 06  
+- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06  
 
 Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. Undecidable items → ask the user (reference-only sentence drafts OK; no silent manuscript edit).
 

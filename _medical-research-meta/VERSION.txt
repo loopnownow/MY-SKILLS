@@ -1,3 +1,6 @@
+CHG-20260926-005 (2026-09-26)
+Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → fig-plot; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
+Earlier: CHG-20260926-004, CHG-20260926-003.
 CHG-20260926-004 (2026-09-26)
 Stale residue cleanup: 0rad-workspace Figure 1 follows Aitor-format; 02/04/sci-manuscript use v4 fine ids; sample size moves to 04 / Loopnow; v4 prefix examples; 01 preset sentence matches review-hybrid.yaml.
 Earlier: CHG-20260926-003, CHG-20260926-002.

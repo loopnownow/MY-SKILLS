@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-005 — legacy v3 id sweep
+date: 2026-09-26
+skill: 01_skill-discovery-integration · 02_data-processing · 03_research · 04_analysis · 06_review · skill-harvest · root docs
+problem: Personal and domain docs still pointed at v3 coarse ids and the deleted figure-engine. Proposed source yamls still said "POLE gold". radiology-design did not say where sample-size numbers go.
+change: clinical-translation, ethics, ethics-application-forms, 04 MODULE/lab-palettes/agreement-mrmc, code-refactoring, table-qc, both READMEs, EXTERNALIZATION_CANDIDATES, review-resolution, personal-response-style, keep-vs-skip, and mount-score-rubric now name v4 fine ids. figure-engine plot pointers now say mounted `fig-plot`. mounts/{scientific,aipoch,nature,medsci}.md v3 rows show the v4 id next to each v3 id. Proposed yamls keep v3 `- id:` keys because mounts-cap/fetch.py matches them; a header comment says so; POLE notes now point to B fig-plot / make-figures and Aitor-format. radiology-design sends sample-size numbers to 04 / Loopnow (`calc-sample-size`).
+decision: keep
+next_action: none
+
 ## CHG-20260926-004 — stale residue cleanup
 date: 2026-09-26
 skill: 00_orchestrator · 01_skill-discovery-integration · 02_data-processing · 04_analysis · 06_review
