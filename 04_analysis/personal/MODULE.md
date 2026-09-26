@@ -114,8 +114,8 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 - Reporting-guideline alignment of the statistics → `05_manuscript` (`check-reporting`).
 - Plotting the result (ROC, calibration, DCA, forest, KM) → mounted `fig-plot` / `make-figures`.
 - High-dimensional study design (leakage, batch effects in radiogenomics) →
-  `radiology-radiogenomics`.
-- Sample-size numbers feeding a grant's feasibility section → `radiology-grant`.
-- Analysis plan is locked and results are in; want a harsh pre-submission read → `radiology-prereview`.
+  `04_analysis/personal/high-dimensional-omics.md`.
+- Sample-size numbers feeding a grant's feasibility section → `03_research/personal/grant-writing.md`.
+- Analysis plan is locked and results are in; want a harsh pre-submission read → `06_review` (`personal/personal-review-style.md`).
 - This skill is statistical guidance, not a substitute for a qualified biostatistician on
   high-stakes or regulatory work.

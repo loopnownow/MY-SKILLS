@@ -1,6 +1,6 @@
 # Figure claim planning (放射组学/临床预测图表规划)
 
-**Owner:** `04_analysis`. 适用于生成投稿图表前的规划阶段，不是画完图再补救。与 `personal/lab-palettes.md`（配色）、mounted `04-fig-plot`（具体图型模板）配合使用，本文件只管"先想清楚"这一步。
+**Owner:** `04_analysis`. 适用于生成投稿图表前的规划阶段，不是画完图再补救。与 `personal/lab-palettes.md`（配色）、mounted `fig-plot`（具体图型模板）配合使用，本文件只管"先想清楚"这一步。
 
 ## 1. 先问论断，再选图型——不按"这类数据通常怎么画"选图
 

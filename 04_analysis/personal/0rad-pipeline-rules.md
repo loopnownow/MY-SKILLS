@@ -1,6 +1,6 @@
 # 0RAD clinical + radiomics pipeline rules
 
-**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0RAD\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `02-radiomics-habitat` + `02_data-processing/code-refactoring`.
+**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0RAD\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/code-refactoring`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 
@@ -16,7 +16,7 @@ Features stay locked. Three options, no new screening:
 
 Calibration plots for `lock_threshold` / `refit` use the layer's predicted probabilities directly (`plot_calibration(..., recalibrate=False)`). Do not refit a display-only logistic on those layers; `apply_formula` may still recalibrate for display. HL uses the same quantile bins as the curve.
 
-General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `radiology-stats/model-evaluation.md`. These three modes are how the lab implements it.
+General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `04_analysis/personal/model-evaluation.md`. These three modes are how the lab implements it.
 
 ## Live lab modules (v4.3.0; rules aligned 2026-09-12)
 

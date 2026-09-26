@@ -6,7 +6,7 @@ inputs: ["clinical_question", "modality", "cohort_sketch"]
 outputs: ["design_blueprint", "blocking_risks"]
 tools: ["checklist"]
 quality_control: "patient-level split; no slice-level external validation"
-owner: "03_research/radiology-design.md"
+owner: "03_research/design/radiology-design.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -93,7 +93,7 @@ generalisable or single-center-anecdote.
 3. **`Study blueprint`** — clinical question, population, primary endpoint/estimand, comparator,
    clinical-use scenario; design type.
 4. **`Method options`** — minimum-viable vs stronger, with the trade-off and which reporting
-   guideline each will be judged against (→ `radiology-reporting`).
+   guideline each will be judged against (→ `05_manuscript`, mounted `check-reporting`).
 5. **`Validation plan`** — split scheme, internal + external/temporal/geographic/multi-center
    design, and the honest definition of "external" for this data.
 6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
@@ -124,13 +124,13 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
 - Sample size, EPV, power, Riley minimum sample size → `04_analysis` / Loopnow (`calc-sample-size`; lab notes `04_analysis/personal/sample-size.md`).
-- Hand-crafted radiomics pipeline design → `radiology-radiomics`.
-- Deep-learning architecture & training design → `radiology-deep-learning`.
-- Imaging × omics mechanism design → `radiology-radiogenomics`.
-- ROI/mask annotation SOP → `radiology-annotation`.
-- Which checklist the design must satisfy → `radiology-reporting`.
-- Ethics/consent/data-sharing feasibility → `radiology-ethics`.
-- Clinical-use scenario, reader study, prospective plan → `radiology-translation`.
+- Hand-crafted radiomics pipeline design → `04_analysis` (mounted `radiomics-ml`; lab rules `04_analysis/personal/0rad-pipeline-rules.md`).
+- Deep-learning architecture & training design → mounted `architecture-zoo` (`03_research`).
+- Imaging × omics mechanism design → `04_analysis/personal/high-dimensional-omics.md`.
+- ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
+- Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
+- Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.
+- Clinical-use scenario, reader study, prospective plan → `03_research/clinical-translation/SKILL.md`.
 - Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `../personal/grant-writing.md`（句库）. Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
 - Reviewing **other people's** NSFC/面上 (Voice A) → `../personal/grant-review.md`. Never mix those tics into own text.
 - English journal peer review → `06_review`. Not this module.

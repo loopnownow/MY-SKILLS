@@ -955,6 +955,14 @@ change: Local/box STATE hygiene (gitignored): drop six MedSci legacy keys; drop 
 decision: keep
 next_action: none; re-fetch only on session pick.
 
+## CHG-20260926-006 — stale pointer sweep (v3 ids + retired radiology-* packs)
+date: 2026-09-26
+skill: 00_orchestrator · 03_research · 04_analysis · 05_manuscript
+problem: A few personal/workflow docs still used v3 ids. Design, frontier, clinical-translation, and 04 MODULE docs still pointed at retired radiology-* packs that no longer exist. Two frontmatter owner paths were wrong.
+change: figure-claim-planning → `fig-plot`; 0rad-pipeline-rules → `radiomics-ml` and `04_analysis/personal/model-evaluation.md`; intro-discussion-evidence 选刊 note names `find-journal` / `venue-templates`; introduction-scorecard → `polish-language`; 00 SKILL prefix example → `[B:peer-review]`; workflows README and radiomics-study use v4 ids without legacy aliases. Retired radiology-* pointers now name live files or mounted fine ids: reporting → `check-reporting`; radiogenomics → `high-dimensional-omics.md`; grant → `grant-writing.md`; prereview → `personal-review-style.md`; ethics → `03_research/personal/ethics.md`; search → `lit-search`; journal → `journal-selection.md`; citation → `manage-refs`; radiomics → `radiomics-ml`; deep-learning → `architecture-zoo`; annotation → `preprocess-imaging`; translation → `clinical-translation/SKILL.md`. Dead `guideline-router.md` pointer → `check-reporting`. Owner paths fixed for radiology-design and radiology-frontier.
+decision: keep
+next_action: none
+
 ## CHG-20260926-005 — legacy v3 id sweep
 date: 2026-09-26
 skill: 01_skill-discovery-integration · 02_data-processing · 03_research · 04_analysis · 06_review · skill-harvest · root docs
