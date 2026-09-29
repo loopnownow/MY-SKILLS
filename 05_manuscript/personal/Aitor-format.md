@@ -7,6 +7,9 @@ Formerly `house-format.md`.
 **Gold reference (reply-letter template, Markdown):**  
 `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\01_回复信范本.md`
 
+**Gold reference (Word typography and page geometry):**  
+`D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\02_排版范本.docx`
+
 **Voice and revision marks (same Aitor-format, do not fork):**  
 `0del/lxf_LG/Response/Manuscript_Response_house.docx` (prose skeleton) ·  
 `xlm_LG/Growth/Manuscript_Growth_polished.docx` (Ying Li hand; incremental + DeLong) ·  

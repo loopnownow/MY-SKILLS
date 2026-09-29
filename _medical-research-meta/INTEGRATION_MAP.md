@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20260929-004 — Aitor-format Word typography gold template
+date: 2026-09-29
+skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
+problem: After CHG-20260929-003 the only gold reference was a Markdown reply-letter template, so "## Page" and "## DOCX typography" had no Word example.
+change: Add a second gold line, "Gold reference (Word typography and page geometry)", pointing at `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\02_排版范本.docx` (built from the Page / DOCX typography rules; checked on the PC). Pointer only; no rule text changed.
+decision: keep
+next_action: after merge, sync changed files only into `~\.grok\skills`.
+
 ## CHG-20260929-003 — Aitor-format gold → 0doc reply-letter template
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
