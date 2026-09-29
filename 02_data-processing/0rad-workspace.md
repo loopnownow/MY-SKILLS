@@ -11,13 +11,13 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 | Kind | Path | Rule |
 |------|------|------|
 | Scratch / old drafts / one-off scripts | `0del/` (or `D:\0Grok\0del\<project>\`) | Never treat as current results |
-| Shared stats library | `D:\0Grok\0scripts\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0scripts` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. |
+| Shared stats library | `D:\0Grok\0scripts\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0scripts` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `D:\0Grok\0scripts\modules`, do not modify that library; project HTML only points at it. |
 | Ops / tidy / sync | `0scripts/` (besides `modules/`) | Organize / sync / tidy — **not** the stats engine. Children: `tidy/` `stat/` `sync/` `figures/` `docx_revise/` `archive/` (old `organized/` `manuscript/` `anjian/` live under `archive/`). |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
-| Current analysis | `<project>/<endpoint>/` or `<project>/<endpoint>/<阳性展示名>_vs_<阴性展示名>/` | One `*-results.html` ↔ one live manuscript. Unpolished: `Manuscript_<结局>_house.docx`. After a polish archive: live `Manuscript_<结局>_polished.docx`, house draft in `0del/<project>/<outcome>/`. Batch scripts scan both via `0scripts/archive/manuscript/ms_paths.py` (skip `0del`; prefer `*_polished.docx` if both exist). Pairwise always nests under the outcome folder; pair folder uses display names. |
+| Current analysis | `<project>/<endpoint>/` or `<project>/<endpoint>/<阳性展示名>_vs_<阴性展示名>/` | One `Results{子项目}.html` / `Results{subproject}.html` ↔ one live manuscript. Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Unpolished: `Manuscript_<结局>_house.docx`. After a polish archive: live `Manuscript_<结局>_polished.docx`, house draft in `0del/<project>/<outcome>/`. Batch scripts scan both via `0scripts/archive/manuscript/ms_paths.py` (skip `0del`; prefer `*_polished.docx` if both exist). Pairwise always nests under the outcome folder; pair folder uses display names. |
 
-| Project-level QC | `<project>/qc.html` | Console「整体 QC」or pipeline start. Combined workbook + imaging QC. Grouping / subgroup → `04_analysis/personal/0rad-pipeline-rules.md`. |
+| Project-level QC | `<project>/ref/qc.html` | Main QC is `<project>/ref/qc.html`. External QC is `<project>/ref/qc-ext-*.html` (the filename is never `qc.html`). Console「整体 QC」or pipeline start. Combined workbook + imaging QC. Grouping / subgroup → `04_analysis/personal/0rad-pipeline-rules.md`. |
 
 Same folder, multiple manuscripts: keep the latest that matches the current HTML; archive the rest to `0del` only if the user asks.
 

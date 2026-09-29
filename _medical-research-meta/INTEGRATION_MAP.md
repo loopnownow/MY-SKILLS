@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20260929-005 — 0RAD harvest A–G lab decisions
+date: 2026-09-29
+skill: 02_data-processing/0rad-workspace.md; 04_analysis/personal/0rad-pipeline-rules.md; INTEGRATION_MAP.md; VERSION.txt
+problem: Lab decisions from 2026-09-15..29 (QC under ref/, Results{subproject}.html, modules edit lock, empty subgroup/external validation defaults, clinical pool gates, radiomics logistic, Table 1 display names) were still absent from the two 0RAD skill files.
+change: Wrote approved harvest items A–G into `02_data-processing/0rad-workspace.md` and `04_analysis/personal/0rad-pipeline-rules.md`. 2026-09-15..29 的 A–G 实验室决定已写入这两份技能。H/I (console UX) not written. No Python copied into the skill library.
+decision: keep
+next_action: after merge, sync changed files only into `~\.grok\skills`.
+
 ## CHG-20260929-004 — Aitor-format Word typography gold template
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
