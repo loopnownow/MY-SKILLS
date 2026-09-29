@@ -59,6 +59,7 @@ Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-p
 
 ### 7. 深度 QC
 - 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `references/code-qc.md`
+- 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `references/code-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
 - 边界：≠ `skill-harvest/qc`；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
 - 不 vendor `D:\0Grok\0scripts\modules` 整树

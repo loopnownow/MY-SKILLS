@@ -1,3 +1,6 @@
+CHG-20260929-006 (2026-09-29)
+Deep QC: unused caches and one-off intermediates go to D:\0Grok\0del (or project 0del); each submodule under review needs a dry-run or unit-testable dry path; bare except Exception: pass must not hide a failed run. Written into code-refactoring/references/code-qc.md (one-line pointer in SKILL.md). 深审废料进 0del；子模块须 dry-run；禁止静默成功。
+Earlier: CHG-20260929-005, CHG-20260929-004.
 CHG-20260929-005 (2026-09-29)
 A–G lab decisions from 2026-09-15..29 written into 0rad-workspace.md and 0rad-pipeline-rules.md (QC ref path, Results{subproject}.html, modules lock, empty val defaults, clinical pool, radiomics logistic, Table 1 display names). 2026-09-15..29 的 A–G 决定已写入这两份技能。
 Earlier: CHG-20260929-004, CHG-20260929-003.

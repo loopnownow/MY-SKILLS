@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20260929-006 — Deep QC waste→0del + dry-run / no silent success
+date: 2026-09-29
+skill: 02_data-processing/code-refactoring/references/code-qc.md; 02_data-processing/code-refactoring/SKILL.md; INTEGRATION_MAP.md; VERSION.txt
+problem: After Deep QC / modules QC, unused caches and one-off intermediates had no home rule, and submodule dry-run plus silent success (bare `except Exception: pass`) were not stated next to the existing dry-run principles.
+change: Short bullets in `code-qc.md`: waste → `D:\0Grok\0del` (or project `0del`), not `modules/` or the project root, and do not vendor trees into the skill; each submodule under review needs a dry-run path or an equivalent unit-testable dry path; do not swallow errors so a failed run looks finished. One-line pointer in the SKILL.md Deep QC section. No new `07_QC`. No Python copied into the skill library. Did not retouch CHG-20260929-005 A–G.
+decision: keep
+next_action: after merge, sync changed files only into `~\.grok\skills`.
+
 ## CHG-20260929-005 — 0RAD harvest A–G lab decisions
 date: 2026-09-29
 skill: 02_data-processing/0rad-workspace.md; 04_analysis/personal/0rad-pipeline-rules.md; INTEGRATION_MAP.md; VERSION.txt
