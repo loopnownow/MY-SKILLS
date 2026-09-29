@@ -61,7 +61,7 @@ Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-p
 - 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `references/code-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
 - 边界：≠ `skill-harvest/qc`；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
-- 不 vendor `D:\0Grok\0RAD\modules` 整树
+- 不 vendor `D:\0Grok\0scripts\modules` 整树
 - 00 路由：`gates.md` **G-CODE**
 
 ## 附带的模板

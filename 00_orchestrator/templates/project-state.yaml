@@ -1,4 +1,4 @@
-# Copy to D:\0Grok\0RAD\<project>\ref\project-state.yaml when starting a study.
+# Copy to D:\0Grok\<stage>\<project>\ref\project-state.yaml when starting a study (stage: preparing | polishing | submitting | reseived | DER).
 # Do NOT put VAL_MODE, column names, FIG_PALETTE, GROUP_KEEP here — those stay in ref/settings.ini.
 # Leave unknown fields empty. Never invent ethics IDs, n, or AUC.
 

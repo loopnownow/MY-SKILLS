@@ -2,7 +2,7 @@
 
 副标题：亦覆盖科研数据处理脚本（R / Python / MATLAB / shell；raw → analysis-ready）的轻量 **Code QC Core**（吸收自 awesome-copilot 类稳定原则，已医学科研适配）。
 
-来源：2026-09-07 Deep Code QC Report（`modules.zip` / `D:\0Grok\0RAD\modules`）+ 2026-09-22 Code QC Core 吸收方案  
+来源：2026-09-07 Deep Code QC Report（`modules.zip` / `D:\0Grok\0scripts\modules`）+ 2026-09-22 Code QC Core 吸收方案  
 目标并入：`MY-SKILLS/02_data-processing/code-refactoring/`（本文件为唯一细则家园）  
 **不**进：`skill-harvest/qc`（仓治理）、`preprocess-imaging`（影像质控）、新建顶层技能、B 挂载菜单、平行的 `02_data-processing/code-qc.md` / `coding-principles.md`、mount Copilot `playbooks/quality/` / Council / CI。
 
@@ -99,4 +99,4 @@ Verdict — PASS / PASS_WITH_WARNINGS / FAIL
 - **C-02**：LASSO CV 前全训练集 impute/scale/NZV/corr + AUC top-k → 折间泄漏
 - **C-03**：console `CORS=*` + `under_root` 仅限 `GROK_ROOT` → 跨项目路径风险
 
-路径指针（不 vendor）：`D:\0Grok\0RAD\modules`
+路径指针（不 vendor）：`D:\0Grok\0scripts\modules`

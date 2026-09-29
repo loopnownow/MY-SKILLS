@@ -2,7 +2,7 @@
 
 **Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-09-06).
 
-Root: `D:\0Grok\0RAD`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired.
+Projects: `D:\0Grok\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `reseived` `DER`; `preparing` is the old 0RAD root). Code: `D:\0Grok\0scripts`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired.
 
 If the user only opens/`cd`s into a project and names no 01–06 verb, **ask which skill to fire** (`00_orchestrator` → Project open, no skill). Do not start work.
 
@@ -10,12 +10,12 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 
 | Kind | Path | Rule |
 |------|------|------|
-| Scratch / old drafts / one-off scripts | `0del/` (or `0RAD/0del/<project>/`) | Never treat as current results |
-| Shared stats library | `D:\0Grok\0RAD\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0RAD` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. |
-| Ops / manuscript factory | `0scripts/` | Organize / sync / manuscript factory — **not** the stats engine. One-level children only: `organized/` `manuscript/` `sync/` `ssd/` `anjian/`. |
+| Scratch / old drafts / one-off scripts | `0del/` (or `D:\0Grok\0del\<project>\`) | Never treat as current results |
+| Shared stats library | `D:\0Grok\0scripts\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0scripts` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. |
+| Ops / tidy / sync | `0scripts/` (besides `modules/`) | Organize / sync / tidy — **not** the stats engine. Children: `tidy/` `stat/` `sync/` `figures/` `docx_revise/` `archive/` (old `organized/` `manuscript/` `anjian/` live under `archive/`). |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
-| Current analysis | `<project>/<endpoint>/` or `<project>/<endpoint>/<阳性展示名>_vs_<阴性展示名>/` | One `*-results.html` ↔ one live manuscript. Unpolished: `Manuscript_<结局>_house.docx`. After a polish archive: live `Manuscript_<结局>_polished.docx`, house draft in `0del/<project>/<outcome>/`. Batch scripts scan both via `0scripts/manuscript/ms_paths.py` (skip `0del`; prefer `*_polished.docx` if both exist). Pairwise always nests under the outcome folder; pair folder uses display names. |
+| Current analysis | `<project>/<endpoint>/` or `<project>/<endpoint>/<阳性展示名>_vs_<阴性展示名>/` | One `*-results.html` ↔ one live manuscript. Unpolished: `Manuscript_<结局>_house.docx`. After a polish archive: live `Manuscript_<结局>_polished.docx`, house draft in `0del/<project>/<outcome>/`. Batch scripts scan both via `0scripts/archive/manuscript/ms_paths.py` (skip `0del`; prefer `*_polished.docx` if both exist). Pairwise always nests under the outcome folder; pair folder uses display names. |
 
 | Project-level QC | `<project>/qc.html` | Console「整体 QC」or pipeline start. Combined workbook + imaging QC. Grouping / subgroup → `04_analysis/personal/0rad-pipeline-rules.md`. |
 
@@ -23,8 +23,8 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 
 ## Named entry points (do not vendor `.py`)
 
-- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0RAD`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. `0scripts` does not run the stats engine.
-- **STROBE Figure 1:** `figure_strobe_flow.py` is duplicated in `modules/stats` and `0scripts/manuscript`. Drawing code stays local, not in git. Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Figure 1 is the single study flowchart read from Materials and Methods. Training Cohort and Test Cohort sit on one row. Validation Cohort joins that row only when Methods states an external cohort. Steps are drawn only when Methods names them. Layout rules: `05_manuscript/personal/Aitor-format.md` (Figure 1).
+- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0scripts`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. Other `0scripts` folders do not run the stats engine.
+- **STROBE Figure 1:** `figure_strobe_flow.py` is duplicated in `modules/stats` and `0scripts/archive/manuscript`. Drawing code stays local, not in git. Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Figure 1 is the single study flowchart read from Materials and Methods. Training Cohort and Test Cohort sit on one row. Validation Cohort joins that row only when Methods states an external cohort. Steps are drawn only when Methods names them. Layout rules: `05_manuscript/personal/Aitor-format.md` (Figure 1).
 - **Nomogram:** `modules.stats.models.build_nomogram`. Ignore docstrings that still say `python -m modules.nomogram`.
 
 ## Tables before any statistic
@@ -46,10 +46,10 @@ Do not invent values. Ask when a label or ID is ambiguous.
 
 ## Console vs settings / `sync_modules`
 
-Canonical layout (enforced by `D:\0Grok\0RAD\0scripts\sync\sync_modules.py`, 2026-09-04):
+Canonical layout (enforced by `D:\0Grok\0scripts\sync\sync_modules.py`, 2026-09-04):
 
 - Each project keeps **console** (`{project}.html`) + **`ref/settings.ini`** only for run config.
-- Algorithms always come from gold `D:\0Grok\0RAD\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
+- Algorithms always come from gold `D:\0Grok\0scripts\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
 - CLI: default dry-run; `--apply` writes; `--check`; `--keys` appends shared knobs (`MODULES_DIR`, `DO_SURVIVAL`, `PAIRWISE_*`, …).
 - Typical plan actions: `settings.py` → `ref/settings.ini`, remove project `config/`, refresh console HTML, drop legacy `console.html` / `run.bat` / `strobe-flowchart/`, rename `PBG` → `PNG` when present.
 
@@ -68,4 +68,4 @@ Canonical layout (enforced by `D:\0Grok\0RAD\0scripts\sync\sync_modules.py`, 202
 
 ## Coding
 
-Same as `code-refactoring/`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `D:\0Grok\0RAD\modules`.
+Same as `code-refactoring/`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `D:\0Grok\0scripts\modules`.

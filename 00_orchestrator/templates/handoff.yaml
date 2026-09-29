@@ -1,4 +1,4 @@
-# Copy into the project (e.g. D:\0Grok\0RAD\<project>\ref\handoff-<from>-<to>.yaml)
+# Copy into the project (e.g. D:\0Grok\<stage>\<project>\ref\handoff-<from>-<to>.yaml; stage = preparing | polishing | submitting | reseived | DER)
 # at each skill crossing. Leave unknown fields empty. Never invent n, AUC, PMID, or ethics.
 
 from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manuscript | 06_review | 00_orchestrator

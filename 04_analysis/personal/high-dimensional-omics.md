@@ -19,7 +19,7 @@ This breaks naive analysis in three ways: multiplicity, overfitting/optimism, an
   implemented.
 - Harrell bootstrap optimism correction is **not** a lab default.
 
-Do not vendor `D:\0Grok\0RAD` Python. Full lock: `04_analysis/references/0rad-pipeline-rules.md`.
+Do not vendor `D:\0Grok\0scripts` Python. Full lock: `04_analysis/references/0rad-pipeline-rules.md`.
 
 ## 1. Multiple testing
 
