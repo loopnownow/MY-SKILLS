@@ -4,8 +4,8 @@ Formerly `house-format.md`.
 
 **Owner:** `manuscript-core`. Single source for **every English SCI full paper** in this lab.
 
-**Gold manuscript (typography and page geometry):**  
-`D:\0Grok\0RAD\0del\lxf_LG\Response\Manuscript_Response_house.docx`
+**Gold reference (reply-letter template, Markdown):**  
+`D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\01_回复信范本.md`
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
 `0del/lxf_LG/Response/Manuscript_Response_house.docx` (prose skeleton) ·  
