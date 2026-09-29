@@ -82,6 +82,13 @@ Verdict — PASS / PASS_WITH_WARNINGS / FAIL
 保留：CONFIG 置顶、dry-run、checkpoint、模块化、精简、注释。  
 新增：深审流程与分级；Code QC Core（Data Safety、Reproducibility、Preflight→Verdict、P0–P3 别名）；重构建议仍遵循「重构与功能修改分开」。
 
+### 子模块 dry-run 与禁止静默成功
+- 受审的每个子模块须有 dry-run 路径，或等价的、可单测的 dry path。
+- 不要用裸 `except Exception: pass`（或等价写法）吞掉错误，使失败的运行看起来像成功结束；失败必须可见。
+
+### QC 废料进 0del
+- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物放到 `D:\0Grok\0del`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
+
 ## 明确不要
 - 不把整树 `.py` / 患者表 / 课题 Excel vendor 进 GitHub
 - 不把 Medical 轴写成第二套 04 金标准
