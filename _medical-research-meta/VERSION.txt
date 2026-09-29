@@ -1,3 +1,9 @@
+CHG-20260929-002 (2026-09-29)
+Repoint stale D:\0Grok\0RAD paths → D:\0Grok\0scripts (modules, sync, PYTHONPATH) and stage project folders; 0RAD name kept.
+Earlier: CHG-20260929-001, CHG-20260926-010.
+CHG-20260929-001 (2026-09-29)
+Lab workspace SSOT: skills = rules+pointers; runnable code → D:\0Grok\0scripts; human docs → D:\0Grok\0doc. Documented in ARCHITECTURE / 00 Boundaries / harvest keep-vs-skip; no vendor of those trees into MY-SKILLS.
+Earlier: CHG-20260926-010, CHG-20260926-009.
 CHG-20260926-010 (2026-09-26)
 mounts-cap/.gitignore ignores .state.lock (fetch.py STATE lock).
 Earlier: CHG-20260926-009, CHG-20260926-008.

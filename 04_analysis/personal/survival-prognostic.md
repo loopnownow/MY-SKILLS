@@ -16,7 +16,7 @@ Use when the endpoint is **time-to-event** (OS, PFS, recurrence). Common in radi
   competing-risks (Fine-Gray), RMST. You may say these are not implemented. Never write them
   as what the lab ran.
 
-Do not vendor `D:\0Grok\0RAD` Python.
+Do not vendor `D:\0Grok\0scripts` Python.
 
 ```python
 # Optional univariable Cox — statsmodels PHReg, Breslow. Not lifelines.

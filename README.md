@@ -25,6 +25,8 @@ EXTERNALIZATION_CANDIDATES.md
 
 Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. No `core/`, no `bundles/`, no `merged/`.
 
+Lab disks (not inside this repo): runnable SSOT `D:\0Grok\0scripts`; human-doc SSOT `D:\0Grok\0doc`. Skills keep rules + pointers — see `ARCHITECTURE.md` · Lab workspace SSOT.
+
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Intent classify, skill chain, QC closed loop (file gates + local recovery) |

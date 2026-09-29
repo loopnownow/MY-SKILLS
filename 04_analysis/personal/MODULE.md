@@ -37,7 +37,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 - **No fishing, no fabrication.** Pre-specify the primary analysis; never invent a number,
   a CI, or a p-value. If data are insufficient, say what is needed.
 - **Reproducible.** Return runnable code (Python first; R where it is the field standard)
-  with the software/version and the exact method for CIs. Do not vendor `D:\0Grok\0RAD` Python.
+  with the software/version and the exact method for CIs. Do not vendor `D:\0Grok\0scripts` Python.
 
 ## When to use
 

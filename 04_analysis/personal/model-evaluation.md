@@ -26,7 +26,7 @@ Lab 0RAD **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 - For models vs readers in a reader study → use **MRMC** (see agreement-mrmc.md), not a plain
   DeLong, because both readers and cases are random.
 
-Do not vendor `D:\0Grok\0RAD` Python. Do not `pip install delong` / call R `pROC` as if that
+Do not vendor `D:\0Grok\0scripts` Python. Do not `pip install delong` / call R `pROC` as if that
 were the lab runner.
 
 ## Calibration (frequently missing → reviewer flag)

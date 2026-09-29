@@ -184,6 +184,8 @@ Triggers such as 「这个研究还能做什么」「还缺哪些文献」「研
 
 **00 owns runtime decisions only:** intent classify, skill chain / route, session mount pick coordination, QC gates, and local recovery. Domain knowledge (stats, writing, literature, review, figures, ethics forms, clinical extraction, coding principles) stays in `02`–`06` (and harvest for evolution proposals).
 
+**Lab SSOT (not owned as file trees by 00):** runnable code → `D:\0Grok\0scripts`; human-facing archives / long static refs → `D:\0Grok\0doc`; skills keep procedures + pointers only (see `ARCHITECTURE.md` · Lab workspace SSOT). Do not vendor those trees into MY-SKILLS.
+
 Before adding content to `00`, ask: **runtime decision vs domain knowledge?** If domain knowledge → put it in the owning specialist skill, not here.
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality.
