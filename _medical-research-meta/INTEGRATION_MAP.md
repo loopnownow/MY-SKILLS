@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20260929-001 — lab workspace SSOT (0scripts / 0doc)
+date: 2026-09-29
+skill: ARCHITECTURE.md; 00_orchestrator/SKILL.md; skill-harvest (SKILL.md, keep-vs-skip.md); README.md; VERSION.txt
+problem: Clarify that production scripts and human archives are not skill-package trees; avoid dual copies and vendoring.
+change: Document three-way SSOT — skills = rules+pointers; `D:\0Grok\0scripts` = runnable; `D:\0Grok\0doc` = human docs. Migration list stays on disk at `0doc/MIGRATE_FROM_SKILLS.md` (not vendored).
+decision: keep
+next_action: after merge, sync changed files only into `~\.grok\skills` (no mounts-cap /MIR).
+
 ## CHG-20260926-010 — ignore mounts-cap/.state.lock
 date: 2026-09-26
 skill: mounts-cap (repo files only)

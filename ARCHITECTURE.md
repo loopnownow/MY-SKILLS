@@ -116,6 +116,18 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 
 Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approval). Execution QC stays in `00`.
 
+## Lab workspace SSOT (with skills)
+
+Skills are **not** the home for production scripts or manuscript archives. Lab disks:
+
+| SSOT | Path | Owns |
+|---|---|---|
+| Skill (judge / route) | this repo / `~\.grok\skills` | Gates, short procedure `references/`, orchestration templates, harvest maintenance scripts |
+| Run | `D:\0Grok\0scripts` | `modules` / `tidy` / `stat` / `sync` — executable lab code |
+| Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04_实验室参考/` |
+
+**Pointer, do not mirror.** Skill text may cite `0scripts` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.
+
 ## Design rules
 
 **One fact → one authoritative home.**
@@ -124,3 +136,4 @@ Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approv
 **Do not delete local generic capability until the user moves it to B (or an approved mount covers it).**
 **User approval is mandatory for mounting or evolution.**
 **Never auto-mount.**
+**Lab run/read SSOT stays on `0scripts` / `0doc` — skills keep rules + pointers only.**
