@@ -192,5 +192,35 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("approach", deai)
 
 
+class CitationVerifyRequired(unittest.TestCase):
+    PHRASE = "call/require 03 citation-verify — do not self-certify lit"
+
+    def test_checklist_frontmatter_parses(self) -> None:
+        path = ROOT / "03_research" / "personal" / "citation-verify.md"
+        data, body = frontmatter(path)
+        self.assertEqual(data["owner"], "03_research")
+        self.assertEqual(data["audience"], "Victor")
+        self.assertEqual(data["self_certify"], "forbidden")
+        self.assertEqual(data["required_before"], ["gate_05_done", "gate_06"])
+        self.assertIn("claim_ref_table", data["outputs"])
+        self.assertIn("strong_claim_spot_check", data["outputs"])
+        self.assertIn("claim→ref", body)
+        self.assertIn(self.PHRASE, body)
+
+    def test_05_and_06_require_03_and_do_not_self_certify(self) -> None:
+        for rel in (
+            "03_research/SKILL.md",
+            "05_manuscript/SKILL.md",
+            "05_manuscript/personal/citation-and-language.md",
+            "05_manuscript/personal/pre-submit-consistency.md",
+            "06_review/SKILL.md",
+            "06_review/personal/cross-manuscript-qc.md",
+            "06_review/personal/review-comment-habits.md",
+            "00_orchestrator/SKILL.md",
+            "00_orchestrator/workflows/sci-manuscript.md",
+        ):
+            self.assertIn(self.PHRASE, read(rel), rel)
+
+
 if __name__ == "__main__":
     unittest.main()

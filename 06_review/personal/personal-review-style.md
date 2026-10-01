@@ -174,6 +174,7 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 - Major：文献核对有误 → 批注给 **双轨方案**（见下），由 00 QC 决定是否调 `03_research`；不编造 PMID。
 - Minor：格式、DOI 缺漏。
 - Major：作者名单、DOI、年份或卷号从另一篇稿抄来，或年份/卷号未对照原文就改。请对照原文核对。不要凭记忆填“正确”年份。见 §4.9。
+- 文献准确性与 Victor 共同负责。call/require 03 citation-verify — do not self-certify lit。Lee 不签 claim→ref 表。
 
 **文献核对失败（双轨，写入批注，用户拍板）：**
 1. **改原文方案**（词/句级）：改前句 / 改后句。

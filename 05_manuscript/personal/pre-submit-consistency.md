@@ -63,6 +63,8 @@ Load on every full-paper draft, polish, and house.docx pass, after `Aitor-format
 
 Statistical definitions live in `04_analysis/personal/stats-consistency.md` and the checkbox list in `04_analysis/personal/stats-checklist.md`. Lee's annotation protocol lives in `06_review/personal/cross-manuscript-qc.md`.
 
+Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`).
+
 **Number conflict:** Word comment, author **A**. Do not choose a replacement *n*, *P*, *t*, cutoff, quartile, or overlap count. A back-calculated critical value, implied *n*, or adjusted *P* may appear in a comment only if it is labeled an estimate. It does not enter the manuscript.
 
 Split names stay **training set / test set / validation set**.

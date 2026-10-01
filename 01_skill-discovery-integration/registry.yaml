@@ -28,6 +28,14 @@ meta:
       resolved: 2026-09-26 (CHG-20260926-004)
       decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size / statistical-power)
       note: 用户拍板归 04 / Loopnow；两细 ID 已移入统计分析。
+    - id: citation-verify-on-05-06
+      status: resolved
+      resolved: 2026-10-02
+      decision: >
+        05 and 06 require 03 Victor citation-verify before Gate·05 done and inside 06.
+        Aitee and Lee do not self-certify lit. Mid-entry stays allowed.
+        Lee keeps statement then data consistency. Lit accuracy is joint with Victor.
+      note: checklist is 03_research/personal/citation-verify.md. Not a new fine id.
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities
@@ -58,6 +66,7 @@ coarse_ids:
     slug: study-design
     a_domains: [03_research]
     specialist_hint: Victor
+  # 05 and 06 require 03 citation-verify. Aitee/Lee do not self-certify lit. Mid-entry still OK.
   - id: 正文写作
     slug: manuscript-body
     a_domains: [05_manuscript]

@@ -69,7 +69,7 @@ Use handoff cards. 00 owns cross-skill QC and whether a call actually runs.
 
 ## Personal review layout
 
-English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review-comment-habits.md` then `personal/cross-manuscript-qc.md` before those sections. Response letters stay on `personal/personal-response-style.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
+English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review-comment-habits.md` then `personal/cross-manuscript-qc.md` before those sections. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. A 05 pass does not waive this 06 pass. Response letters stay on `personal/personal-response-style.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
 
 ## Comments, conflicts, undecidable items
 

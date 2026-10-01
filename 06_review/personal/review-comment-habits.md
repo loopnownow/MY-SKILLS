@@ -6,7 +6,7 @@ This file is the **consistency-first** habit layer.
 
 **Locks (2026-09-24):** do **not** teach minimal `?` / bare “核实” as the house style. Lead with **statement consistency**, then **data consistency**, then integrity stops.
 
-**Locks (2026-10-02):** on a data conflict, annotate every locus. Do not invent a replacement number. Pre-submit classes and sister-paper checks: `cross-manuscript-qc.md`. Check ids: `05_manuscript/personal/pre-submit-consistency.md`.
+**Locks (2026-10-02):** on a data conflict, annotate every locus. Do not invent a replacement number. Pre-submit classes and sister-paper checks: `cross-manuscript-qc.md`. Check ids: `05_manuscript/personal/pre-submit-consistency.md`. call/require 03 citation-verify — do not self-certify lit.
 
 ---
 

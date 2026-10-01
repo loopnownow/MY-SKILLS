@@ -16,6 +16,8 @@ runs_checks_from: 05_manuscript/personal/pre-submit-consistency.md
 
 Load on every pre-review and peer-review, after `review-comment-habits.md`. Journal-facing envelope stays English (`personal-review-style.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
 
+call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
+
 Run **statement consistency first** (the manuscript agrees with itself), then **data consistency**. Check ids and writing actions are the list in `05_manuscript/personal/pre-submit-consistency.md`. Statistical definitions are in `04_analysis/personal/stats-consistency.md`.
 
 **Data conflict:** annotate every locus. Do not invent *n*, *P*, *t*, cutoff, quartile, overlap count, or a corrected statistic. Do not pick which of two printed numbers is right. A back-calculation in the comment is labeled an estimate and does not enter the manuscript.

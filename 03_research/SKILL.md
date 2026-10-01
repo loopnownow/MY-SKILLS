@@ -23,6 +23,8 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
 
+**Citation verify (required on writing and review).** Before Gate · 05 can mark a manuscript done, and inside every 06 review, run `personal/citation-verify.md`: claim→ref table plus a spot-check of strong claims against the sources. Mid-entry does not waive it. A prior 05 pass does not waive the 06 pass. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
+
 ## Personal supplement (not an upper layer)
 
 | Task | Path |
@@ -37,6 +39,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | JCR 分层荐刊（金山） | `medical-journal-submit/` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
 | Ethics application **forms** (fill pack) | `ethics-application-forms/` (`scripts/`, `references/`) |
+| Citation verify (claim→ref table + strong-claim spot-check; required before 05 done and inside 06) | `personal/citation-verify.md` |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
 

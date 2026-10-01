@@ -1,6 +1,9 @@
 %% MY-SKILLS · 唯一官方运行图 (00)
 %% 更新流程/QC/入口时只改本文件。子流程 = 本图分支，不另立主图。
 %% 门禁细则真源: gates.md；外挂 lifecycle: 01
+%% 中途入口仍可（已有统计→05，已有稿件→06，不必从 02 重跑）。
+%% 凡论文写作或审稿，done / Gate·05 / Gate·06 之前必须经过 03 citation-verify。
+%% 05 与 06 不得自证文献。Lee 管陈述一致→数据一致；文献准确性与 Victor 共同负责。
 
 flowchart TD
     Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
@@ -12,8 +15,8 @@ flowchart TD
     Conflict -->|否| Entry
     Entry -->|完整研究流程| Need02[进入 02]
     Entry -->|已有数据处理结果| Need04[进入 04]
-    Entry -->|已有统计结果 / 图表| Need05[进入 05]
-    Entry -->|已有稿件| Need06[进入 06]
+    Entry -->|已有统计结果 / 图表 · 中途可进| Need05[进入 05]
+    Entry -->|已有稿件 · 中途可进| Need06[进入 06]
     Entry -->|审稿意见 / 修回| R06[06 修回主控]
     Entry -->|独立文献任务| Need03[进入 03]
     Entry -->|其他明确单域| NeedS[进入目标 Skill]
@@ -42,28 +45,36 @@ flowchart TD
     Dispatch -->|06| P06[06 审稿 / 预审]
     Dispatch -->|单域| Single[目标 Skill]
 
-    subgraph CHAIN[主生产链 · PASS 才向前]
+    subgraph CHAIN[主生产链 · PASS 才向前 · 中途入口仍可 · 写作/审稿必须经 03 citation-verify]
         P02 --> GA02{{Gate · 02}}
         GA02 -->|PASS · 未到终点| P04
         P04 --> GA04{{Gate · 04}}
         GA04 -->|PASS · 未到终点| P05
-        P05 --> GA05{{Gate · 05}}
+        P05 --> Lit05[03 Victor · citation-verify<br/>claim→ref 表 + 强断言抽查原文]
+        Lit05 -->|PASS| GA05{{Gate · 05}}
         GA05 -->|PASS · 未到终点| P06
-        P06 --> GA06{{Gate · 06}}
+        P06 --> Lee06[Lee · 陈述一致 → 数据一致]
+        P06 --> Lit06[03 Victor · citation-verify<br/>不可跳过 · 文献准确性与 Lee 共同负责]
+        Lee06 --> Join06[06 齐套 · 一致性 + 文献核实]
+        Lit06 -->|PASS| Join06
+        Join06 --> GA06{{Gate · 06}}
     end
 
     P03 --> GA03{{Gate · 03}}
-    GA03 -.->|PASS · 证据供给| P05
-    GA03 -.->|PASS · 证据供给| P06
+    GA03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P05
+    GA03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P06
     Single --> GAS{{Gate · 目标 Skill}}
 
     %% 到达终点且最后一门 PASS，或用户说结束 → stage: done，不打开下一站。
+    %% 05 交付 done / Gate·05 之前：Lit05 必须 PASS（claim→ref 表 + 强断言抽查）。
+    %% 06 审稿：Lit06 不可跳过；Lee 仍做陈述一致然后数据一致。先前的 05 核实不免除 06。
     %% 暂停，或停在结果页后 / 预审前：stage 留在当前站，不写 done。
     %% 同一次已批准运行的后续过站报一行；N2、结果页 G-FACT、N4、G-06 仍停住。
     GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>stage: done])
 
     %% QC 环：最小节点回退；禁止整链从 Start 重来
     GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|FAIL| Locate[定位最小负责节点]
+    Lit05 & Lit06 -->|FAIL| Locate
     Locate --> Impact{上游错误是否<br/>使下游结果失效?}
     Impact -->|否| Local[局部返工 · 仅目标节点]
     Impact -->|是| Rollback[回退至最早受影响节点]
