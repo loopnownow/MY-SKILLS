@@ -24,10 +24,14 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 | FLU-1 | 2 | Three or more sentences in a paragraph open with the same words or the same frame | 2 | Change the subject and the structure; put the number inside a comparison |
 | FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | Merge into one comparative sentence, or drop the weakest |
 | FLU-3 | 2 | More than 10% of sentences outside 10–30 words | 1 per 10%, max 3 | Split or merge |
+| FLU-4 | 2 | IMRAD body laid out as one sentence per line or one sentence per paragraph | 2 | Keep short sentences inside a continuous paragraph (`voice-portrait.md` paragraph lock) |
 | CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | Cite, weaken, or delete (`evidence-request.md`) |
 | CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | Budget before drafting; complete the entry |
 | CIT-3 | 3 | Numbers verified below L2, or a guideline definition or appraisal verified below L3 | 1 | Read the full text, or weaken to "reported" |
 | CIT-4 | 3 | No retraction and correction check on the reference list | 1 | Run it |
+| CIT-5 | 3 | Introduction opening paragraph has no citation although a verified source for that claim exists | 2 | Cite the evidence-pack source; element 6 stays uncited |
+| CIT-6 | 3 | Consecutive sentences cite the same paper without a new claim that paper supports | 1 | Cite once, or add the distinct claim |
+| CIT-7 | 3 | DOI, author list, year, or volume copied from another manuscript, or a year/volume change without a source check | 2 | Verify against the work before keeping the entry |
 | RES-1 | 4 | Only favourable results are reported | 1.5 | Include one weaker or limited result if one exists |
 | RES-2 | 4 | Fewer than two of the three result classes covered, or the search log lacks a second source | 1.5 | Raise `missing_prior_result`; log the search |
 | GLD-1 | 5 | Element 2 is missing, cites a superseded edition, or the gap is not traceable to the guideline | 2 | Raise `guideline_definition`; mine the open issue |
@@ -47,6 +51,7 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 - No explicit gap sentence: dimension 5 ≤ 4
 - No hypothesis: dimension 7 ≤ 3
 - A number in the Introduction that does not match its source: dimension 3 ≤ 4, and stop for correction
+- Opening paragraph uncited when a verified source exists: dimension 3 ≤ 5
 
 ## Procedure
 

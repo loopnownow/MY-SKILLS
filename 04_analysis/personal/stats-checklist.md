@@ -98,3 +98,13 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] In-text NHST lines (t/F/chi-square/r) recomputed or flagged vs reported *P*
 - [ ] HR/OR/RR 95% CI directionally consistent with reported *P*
 - [ ] Raw assay tables (if in scope) pointed to `02_data-processing/table-qc/`, not handled only here
+- [ ] **stat_vs_threshold** — printed *t*/*F*/*z* meets the stated voxel-wise or cluster-forming threshold
+- [ ] **correlation_implied_n** — *n* implied by *r* and *P* matches the stated analysis *n*
+- [ ] **multiplicity_disclosure** — ROI or voxel correlation family names a correction or an exploratory label
+- [ ] **relative_denominator** — "relative" / normalized measures name the denominator and the units
+- [ ] **no_confirmatory_p_same_cohort** — selection + threshold + group test on one cohort is not written as a confirmatory *P*
+- [ ] **nested_roi_collinearity** — nested ROIs are not treated as independent tests
+- [ ] **score_transform_identity** — a score that transforms one metric says so
+- [ ] **cutoff_vs_included_distribution** — included-group median, Q1, and minimum sit on the included side of the cutoff
+- [ ] **iqr_scale_sanity** — IQR lies inside the instrument range
+- [ ] **sister_paper_p_reconciliation** — conflicting *P* on the same biomarker across sister papers is flagged, not averaged

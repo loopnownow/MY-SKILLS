@@ -141,6 +141,7 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 **重点：** 背景是否引出空白；假说与目的是否清晰。
 - Major：末段无清楚假设。（命中约 5）`Please clearly state the research hypothesis in the last paragraph of the Introduction.`
 - Minor：背景过长、引用堆砌（预审：不删真文献，只注 over-quota）。
+- Minor：开头段有可引用的证据却 0 条文献；连续两句引用同一篇却没有新论点。见 §4.9。Aim 段仍不引用。
 
 ### 4.4 Methods
 **重点：** 设计是否匹配问题；对照是否合理；样本量依据；入排是否严密；技术/序列/软件版本可重复；IRB/知情同意/注册。
@@ -152,10 +153,14 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
   - 扫描参数 / 多设备一致性（约 12）
   - 「external」实为同院时间划分（约 11）
 - Minor：试剂厂家、软件版本、参数补全。
+- Major：同一队列上既筛选又取阈值又做组间检验，却把 *P* 写成确认性结果。请改为描述性，或提供真实做过的 nested CV / bootstrap。不要替作者写成做过 nested CV。
+- Major：入组阈值与纳入组的中位数、Q1 或最小值矛盾；IQR 超出量表范围。只批注，不改数字。
+- Major：检索式为空，或扫描参数仍是占位。见 §4.9。
 
 ### 4.5 Results
 **重点：** 统计与分布匹配；正文与图表一致；无选择性汇报；无对非显著结果过度解读。
 - Major：过拟合（训练近完美、测试掉点，约 13）；未与常规/临床模型比（DeLong、校准、DCA，约 15）；p 与表不符。
+- Major：*t*/*F*/*z* 达不到所述体素或团块阈值；相关的 *r* 与 *P* 隐含的 *n* 与文中分析 *n* 不符；大量 ROI 相关未交代多重比较；relative 指标未定义分母。只标矛盾，不补数字。见 §4.9。
 - Minor：表注 Mean±SD / Median(IQR) 未标明。
 
 ### 4.6 Discussion
@@ -168,6 +173,7 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 - Major：同一 DOI / 同一题名出现两次 → Major：先并号或换文献；换文献时**不得**把旧篇独有数字（病例数、AUC 等）抄到新篇。
 - Major：文献核对有误 → 批注给 **双轨方案**（见下），由 00 QC 决定是否调 `03_research`；不编造 PMID。
 - Minor：格式、DOI 缺漏。
+- Major：作者名单、DOI、年份或卷号从另一篇稿抄来，或年份/卷号未对照原文就改。请对照原文核对。不要凭记忆填“正确”年份。见 §4.9。
 
 **文献核对失败（双轨，写入批注，用户拍板）：**
 1. **改原文方案**（词/句级）：改前句 / 改后句。
@@ -178,6 +184,8 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 **重点：** 自明性；与正文一致；分辨率、比例尺、图例、统计符号。
 - Major：图数与正文矛盾；Figure 1 无 inclusion 框却自称 STROBE 流。
 - Minor：缺 scale bar；Table 1 未标 Mean±SD / Median(IQR)。
+- Major：表与另一篇稿完全相同，却未说明样本是否重叠。
+- Minor：图注残留 `TRAIN_RATIO` 或其他流程词。见 §4.9。
 
 可复用短句（占位符，不贴未刊数字）：
 - `Please specify if this is a retrospective or a prospective study.`
@@ -188,6 +196,25 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 - `Please comply with the STROBE / TRIPOD reporting guidelines.`
 - `Please discuss how the model would be used in practice.`
 - `The authors should more clearly justify the clinical utility given the modest discriminative performance.`
+
+### 4.9 Pre-submit consistency requests
+
+Chapter scans above point here. Full check ids: `05_manuscript/personal/pre-submit-consistency.md`. Run order and sister-paper rules: `cross-manuscript-qc.md`. Statement consistency first, then data. On a conflict, annotate. Do not invent the number.
+
+Reusable requests (no unpublished results in the sentence):
+
+- `Please show that the reported statistic meets the voxel-wise or cluster-forming threshold named in Methods, or correct the threshold statement.`
+- `Please state the n for each correlation and confirm that it matches the reported r and P. Please name the multiple-comparison procedure, or label the correlations uncorrected and exploratory.`
+- `Please define the denominator and the units of any relative measure before interpreting its spread.`
+- `Feature selection, threshold selection, and the group comparison appear to use the same participants. Please relabel these P values as descriptive, or provide the nested cross-validation or bootstrap correction that was actually run.`
+- `Please state whether this score is a transform of a single metric, and whether nested regions were entered as independent tests.`
+- `Please remove pipeline tokens, source-attribution hedges, and placeholder text from the manuscript and the figure legends.`
+- `Please reconcile the inclusion cutoff with the reported median, quartile, and IQR.`
+- `These manuscripts appear to share a site, a scanner, or an ethics approval. Please state the participant overlap and cite the related paper.`
+- `This table matches another manuscript. Please state whether the samples overlap.`
+- `The same biomarker is reported with a different P in a related manuscript. Please reconcile the difference.`
+- `Please cite the opening background claim, or weaken it. Please do not cite the same paper in consecutive sentences unless the second sentence adds a distinct claim.`
+- `Please verify this reference against the source. Do not copy the author list, DOI, year, or volume from another manuscript.`
 
 ---
 

@@ -2,6 +2,7 @@
 name: medical-manuscript-review
 description: >
   Personal review/response upper layer. Entry for 审稿, 投稿前预审, 回复审稿人 is always 06.
+  Statement consistency before data consistency. Cross-manuscript overlap is commented, not invented.
   May internally call 04/05/02/03. Does not write manuscript body. Literature → 03.
   Figures → 04. Prose polish → 05.
 ---
@@ -32,6 +33,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 |---|---|
 | English peer-review voice | `personal/personal-review-style.md` |
 | Review comment habits (statement → data consistency; integrity stops) | `personal/review-comment-habits.md` |
+| Cross-manuscript and pre-submit QC (annotate conflicts; do not invent numbers) | `personal/cross-manuscript-qc.md` |
 | Word edit / delivery (Track Changes, 0del, TNR) | `personal/word-edit-rules.md` |
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
@@ -67,7 +69,7 @@ Use handoff cards. 00 owns cross-skill QC and whether a call actually runs.
 
 ## Personal review layout
 
-English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Response letters stay on `personal/personal-response-style.md`.
+English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review-comment-habits.md` then `personal/cross-manuscript-qc.md` before those sections. Response letters stay on `personal/personal-response-style.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
 
 ## Comments, conflicts, undecidable items
 

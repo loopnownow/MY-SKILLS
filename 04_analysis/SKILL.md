@@ -23,7 +23,8 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 | Imaging statistics notes (lab) | `personal/statistics.md` |
 | Lab figure palettes | `personal/lab-palettes.md` |
 | Stats checklist | `personal/stats-checklist.md` |
-| Reported stats consistency (GRIM / NHST / CI vs p) | `personal/stats-consistency.md` |
+| Reported stats consistency (GRIM / NHST / CI vs p; threshold, implied *n*, multiplicity, relative units, circular *P*, inclusion scale) | `personal/stats-consistency.md` |
+| Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/personal/pre-submit-consistency.md` |
 
 Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
 

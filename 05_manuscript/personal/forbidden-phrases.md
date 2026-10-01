@@ -32,6 +32,18 @@
 
 **Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Corpus counts do not lift the ban.
 
+## Process and placeholder language (final body and legends)
+
+Banned in the manuscript the authors call final, including figure legends. Missing facts become a Word comment (author **A**). Check ids: `pre-submit-consistency.md`.
+
+| Avoid | What to do |
+|-------|------------|
+| `TRAIN_RATIO`, `VAL_MODE`, `settings.ini` keys, other pipeline tokens | Write the procedure in words, or comment if the value is unknown |
+| as stated by the source / according to the HTML / the source says | State the fact. The lab file stays off the page |
+| 待补 / 待补充 / TBD / XX / `[parameter]` / empty query strings | Comment. Do not leave the placeholder in prose |
+| 标签未与方案核对 and other internal QC labels | Comment only. Never in the body |
+| The same disclaimer pasted again | Keep one locus |
+
 ## Commentary voice (body ban)
 
 Do not tell the reader how **not** to read the paper. Ban in the body:

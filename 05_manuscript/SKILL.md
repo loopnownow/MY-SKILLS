@@ -1,7 +1,7 @@
 ---
 name: medical-scientific-writing
 description: >
-  Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI).
+  Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI / pre-submit consistency).
   Mounted writing skills supply generic capability; this layer is the personal upper
   layer and final wording authority. Literature research → 03. Figures → 04.
   Reviewer response → 06. Do not use for 评阅 or 回复审稿人.
@@ -37,6 +37,7 @@ Convert **validated** research information into precise, publication-ready origi
 | Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
+| Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
@@ -106,6 +107,6 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 ## Writing QC (domain)
 
-terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC
+terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `personal/pre-submit-consistency.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
 
 Overall Final QC and local recovery are owned by `00_orchestrator`.

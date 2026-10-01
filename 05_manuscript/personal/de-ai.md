@@ -22,3 +22,4 @@
 - 禁 elucidat*；机制未知用 remain unclear（不用 explain/clarify 顶替）
 - 禁模糊 *framework*（AI 腔）；改 *approach*（软件/库名例外）
 - 正文禁 COMMENTARY 读法指引（见 `forbidden-phrases.md`）
+- 终稿正文和图注禁流程词与占位：`TRAIN_RATIO`、"as stated by the source"、待补、内部核对标签。清单见 `forbidden-phrases.md` 与 `pre-submit-consistency.md`
