@@ -3,7 +3,9 @@
 Personal upper layer for **写作**. Corpus: multi-paper Track Changes + comments (SCI medical).  
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.
 
-**Locks (2026-09-24):** keep **set** (`training` / `test` / `validation set`); **short sentences** (one fact per sentence); figure legends **below** figures; Discussion **not** compressed by page quota.
+**Locks (2026-09-24 / 2026-10-01):** keep **set** (`training` / `test` / `validation set`); **short sentences** (one fact per sentence) **inside continuous paragraphs**; figure legends **below** figures; Discussion **not** compressed by page quota.
+
+**Paragraph lock (2026-10-01):** 正文写成段；不要一句一行 / 一句一段。短句可以，但相关句放在同一段里。Abstract 四段标签、Methods/Results 小标题、Highlights 条目、表注图注仍按 `Aitor-format.md`。
 
 ---
 
