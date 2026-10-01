@@ -69,6 +69,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 | [high-dimensional-omics.md](high-dimensional-omics.md) | Multiple testing, train-only LASSO (not nested CV), leakage, ICC filter |
 | [survival-prognostic.md](survival-prognostic.md) | Kaplan-Meier, optional univariable Cox (PHReg), Schoenfeld; what is not implemented |
 | [sample-size.md](sample-size.md) | Sample-size for sensitivity/specificity/AUC; EPV; Riley minimum sample size for prediction models |
+| [stats-consistency.md](stats-consistency.md) | Reported-number conflicts: statistic vs threshold, correlation implied *n*, multiplicity, relative denominator, circular *P*, inclusion vs scale. Annotate; do not invent the number |
 
 ## Workflow
 

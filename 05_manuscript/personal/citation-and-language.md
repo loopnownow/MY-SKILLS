@@ -10,6 +10,16 @@
 7. No DOI → replace source or drop claim.  
 8. Functional self-citation only: *as previously shown for whole-nodule radiomics [n].*
 
+## Citation hygiene (pre-submit)
+
+Check ids live in `pre-submit-consistency.md`. Apply them on every reference pass. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Aitee does not sign the claim→ref table.
+
+9. **Consecutive same paper** (`consecutive_same_cite`). Do not cite the same work in consecutive sentences unless the second sentence adds a distinct claim that work supports. Shared neighbouring sentences cite once.
+10. **Claim matches the source** (`claim_matches_source`). Population, modality, and direction of effect in the sentence are claims the cited work makes. A mismatch is weaken or replace (`evidence-request.md`), not a decorative number.
+11. **No cross-manuscript copy** (`no_unverified_cross_copy`). A DOI, author list, year, or volume taken from another manuscript is not verification. Check the cited work (`03_research` / verify-refs) before the entry stays.
+12. **Year and volume from the source** (`year_volume_from_source`). A year or volume correction is applied only after the source confirms it. An unverified correction stays a Word comment (author **A**).
+13. **Introduction opening.** When a verified source exists, the opening paragraph cites it. Element 6 (aim / hypothesis) and the Discussion first paragraph stay uncited (`Aitor-format.md`).
+
 ## Language (李瀛 + this workflow)
 
 | Rule | Do | Don't |

@@ -242,7 +242,7 @@ verified in-context examples before deciding to cut one.
 
 ### Sentence structure targets
 - **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
-- **Introduction/Discussion:** 10–30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence; no long subordinate stacks.
+- **Introduction/Discussion:** 10–30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`pre-submit-consistency.md`).
 - No sentence > 55 words anywhere.
 
 ### Clinical translation phrases (use in Discussion ¶4)

@@ -21,8 +21,8 @@ skills/
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles. No modeling. Handoff → 04. Ethics forms are **not** here.
 4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role. 样本量 is `calc-sample-size`.
-6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
-7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only.
+6. `05_manuscript` — personal scientific writing upper layer over mounted writing capabilities. Personal de-AI lives at `05_manuscript/personal/`. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Requires 03 citation-verify before done; does not self-certify lit.
+7. `06_review` — personal review/response upper layer. Reviewer response enters 06 only. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor.
 
 `skill-harvest` is governance. It does not replace domain layers. 01 mounts; harvest proposes evolution. Execution QC stays in `00` (incl. **G-FACT** consistency); learning QC is `skill-harvest/qc/` (passive events, on-demand HTML — never auto-modify).
 
@@ -90,7 +90,7 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.
 - Ethics application forms + translational / reader-study design → `03_research`.
 - Statistics and figures → `04_analysis`.
-- Scientific writing/polishing / de-AI → `05_manuscript` (`05_manuscript/personal/`).
+- Scientific writing/polishing / de-AI → `05_manuscript` (`05_manuscript/personal/`). Writing or peer review, including mid-entry, still requires `03_research` citation-verify.
 - New external capability → `01_skill-discovery-integration` (B first; empty → notify then re-search).
 - Evolution proposals → `skill-harvest` and explicit user approval.
 

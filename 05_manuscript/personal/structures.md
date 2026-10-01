@@ -2,6 +2,8 @@
 
 > **Scope note:** general blog/essay-prose reference for `stop-slop-core.md`. Most entries here (e.g. "Plot twist:", "circle back") do not occur in medical SCI writing. For manuscript polishing, `forbidden-phrases.md` and `ai-isms-checklist.md` are the operative lists — check here only when polishing non-manuscript text.
 
+**SCI body override:** one-fact sentences stay inside a continuous paragraph (`voice-portrait.md` paragraph lock; check `paragraph_lock` in `pre-submit-consistency.md`). One sentence per line and one sentence per paragraph are banned in IMRAD body. Abstract labels, subheadings, Highlights, and table or figure notes keep their own formats.
+
 ## Binary Contrasts
 
 These create false drama. State the point directly.

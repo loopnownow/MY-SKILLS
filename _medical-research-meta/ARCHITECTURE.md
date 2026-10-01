@@ -72,10 +72,10 @@ Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a 
 ## Domain boundaries
 
 - `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
-- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** required before 05 done and inside 06. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - `04_analysis`: statistical analysis and visualization (`make-figures` / `fig-plot`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`.
-- `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
+- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`. Requires 03 citation-verify before done; does not self-certify lit. Mid-entry does not waive it.
+- `06_review`: personal review/response layer. Changed wording → `05_manuscript`. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor.
 
 ## Externalization policy
 

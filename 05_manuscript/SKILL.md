@@ -1,7 +1,7 @@
 ---
 name: medical-scientific-writing
 description: >
-  Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI).
+  Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI / pre-submit consistency).
   Mounted writing skills supply generic capability; this layer is the personal upper
   layer and final wording authority. Literature research → 03. Figures → 04.
   Reviewer response → 06. Do not use for 评阅 or 回复审稿人.
@@ -37,6 +37,7 @@ Convert **validated** research information into precise, publication-ready origi
 | Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
+| Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
 | Diff harvest (evidence script) | `personal/diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
@@ -57,7 +58,7 @@ Convert **validated** research information into precise, publication-ready origi
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/evidence-request.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. 选题 stays in 03 (`find-cohort-gap`; hypothesis framing via `frontier-hypothesize`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/evidence-request.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-cohort-gap`; hypothesis framing via `frontier-hypothesize`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
 
 **Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/literature/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `personal/introduction-scorecard.md`.
 
@@ -106,6 +107,6 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 ## Writing QC (domain)
 
-terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC
+terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `personal/pre-submit-consistency.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
 
 Overall Final QC and local recovery are owned by `00_orchestrator`.

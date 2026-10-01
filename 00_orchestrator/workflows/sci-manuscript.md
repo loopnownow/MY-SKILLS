@@ -15,8 +15,9 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
 3. **Figure 1 (`04_analysis`)** — Figure 1 is the study flowchart read from Methods (`Aitor-format.md`). STROBE / patient-flow: mounted `make-figures`. Statistical plots / imaging panels: mounted `fig-plot`. Palette: `lab-palettes.md` / `FIG_PALETTE` in ini. Captions still 05. Do not draw Figure 1 with `fig-plot` and “no inclusion box”.
 4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `intro-discussion-evidence.md` then polisher §2/§5. Quotas only in Aitor.
-5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/forbidden-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`. Gate **G-05**. Handoff `05 → 06` if N4 PREVIEW.
-6. **Pre-review (`06_review`)** — Summary / Major / Minor. Inventable items → questions for the user. Gate **G-06**.
+5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/forbidden-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`.
+5b. **Citation verify (`03_research`)** — required before Gate **G-05** and before the house deliverable is done, including mid-entry. `03_research/personal/citation-verify.md`: claim→ref table + spot-check strong claims against sources. call/require 03 citation-verify — do not self-certify lit. Handoff `05 → 06` if N4 PREVIEW only after this pass.
+6. **Pre-review (`06_review`)** — Lee: statement consistency, then data consistency. 03 citation-verify is part of this review and cannot be skipped; a step-5b pass does not waive it. Literature accuracy is joint with Victor. Inventable items → questions for the user. Gate **G-06**.
 7. **Revise (`05_manuscript`)** after the user answers. If reviewer comments exist → **`06_review` only as entry**, then `05_manuscript` for changed sentences.
 8. **Verify (`06_review`)** — `personal/review-resolution.md` in response / re-audit. Check only issues already listed (`manuscript.reviewer_items` or the step-6 cards). Do not open a new full pre-review.
 

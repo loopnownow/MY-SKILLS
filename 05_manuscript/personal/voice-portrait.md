@@ -7,6 +7,8 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 **Paragraph lock (2026-10-01):** 正文写成段；不要一句一行 / 一句一段。短句可以，但相关句放在同一段里。Abstract 四段标签、Methods/Results 小标题、Highlights 条目、表注图注仍按 `Aitor-format.md`。
 
+**Pre-submit (2026-10-02):** run `pre-submit-consistency.md` before a house draft is called final. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
+
 ---
 
 ## 1. Overall portrait
@@ -43,7 +45,8 @@ Do **not** add a Discussion page-length quota (no “cut to 1.5 pages”). Lengt
 ## 3. Terms, numbers, short prose
 
 - Split names: **training set** / **test set** / **validation set** only (never `development set`; never rewrite set→group).
-- One fact per sentence. Do not merge adjacent Results sentences into long stacks.
+- One fact per sentence, inside a continuous paragraph. Do not merge adjacent Results sentences into long stacks. Do not lay the body out as one sentence per line.
+- Introduction opening paragraph cites the verified source when one exists. An opening with zero citations is unfinished when the evidence pack has a source.
 - *P* italic; space before comparator (`P < 0.05`); report exact *P* when above the extreme threshold the lab uses (see stats rules in 04 / Aitor-format).
 - Number–unit spacing consistent; English punctuation only; abbreviations: expand at first use, then one form only.
 - Spelling system (US/UK) follows the target journal; **one system per manuscript**.
@@ -83,3 +86,4 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 - Revise the original `.docx` in place with Track Changes; comments author **A**.
 - Missing facts → comment / ask; never yellow fill; never silent overwrite of existing corresponding-author / funding / ethics text.
 - Full delivery rules: `06_review/personal/word-edit-rules.md`.
+- Before calling the draft final, run `pre-submit-consistency.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.

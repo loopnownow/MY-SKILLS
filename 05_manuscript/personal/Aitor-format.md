@@ -143,7 +143,7 @@ Methods still opens with Ethics even if ethics is on the title page.
 
 Six elements, in funnel order. Each element is one to three sentences except element 4.
 
-1. **Disease / burden.**
+1. **Disease / burden.** This opening paragraph cites the verified source when one exists. Zero citations here is a fail (`pre-submit-consistency.md`, `intro_opening_has_citations`).
 2. **Guideline definition.** Name the latest edition of the guideline that defines the endpoint or the clinical decision (issuing body and year, verified by 03 in the same session; see `intro-discussion-evidence.md`). Paraphrase the definition. State the decision that rests on it.
 3. **Limits of current practice.** Mine the gap from the guideline itself: what it leaves open (low level of evidence, information available only after surgery, "insufficient data", not recommended outside trials) and what the routine tests it relies on cannot resolve.
 4. **Related studies.** Main results of the two or three most relevant studies (n, design, effect). Then one or two sentences that appraise them as a group: the strength this study keeps and the weakness this study targets. No study-by-study list.
@@ -157,12 +157,14 @@ Sentence length (Introduction and Discussion)
 Structure bans (Introduction first; Discussion deferred until explicitly extended)
 
 - In the Introduction: no listing, no parallelism. At most one triplet per paragraph. No two consecutive sentences with the same opening words. No run of three sentences that each carry a number and a citation. No enumeration of studies.
+- Do not cite the same paper in consecutive sentences unless the second sentence adds a distinct claim that paper supports.
+- Related short sentences stay in one paragraph (Paragraph lock in `voice-portrait.md`). Do not flatten the Introduction into one sentence per paragraph.
 - Reporting guidelines (TRIPOD, TRIPOD+AI, CLAIM, CLEAR) are writing standards. Do not name or cite them in the Introduction. A required statement goes in the checklist file or the submission form.
 - Claim–source fit outranks citation numbering. Never place or reorder a sentence only to keep numbers ascending. Renumber afterwards by script.
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
-Evidence handling: `intro-discussion-evidence.md`. Scoring anchors and deduction codes: `introduction-scorecard.md`.
+Evidence handling: `intro-discussion-evidence.md`. Scoring anchors and deduction codes: `introduction-scorecard.md`. Pre-submit number, placeholder, and sister-paper checks: `pre-submit-consistency.md`.
 
 
 ---
