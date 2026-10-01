@@ -72,7 +72,7 @@ There is **no 16 pt title** and **no 14 pt section title**. Do not restyle table
 
 - *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. No em-dash as punctuation.
 - **English punctuation only.**
-- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons or stacked *and*.
+- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons or stacked *and*. Related short sentences still belong in the **same paragraph** (成段); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
 - Software: `Analyses were performed in Python 3.13.` (version after Python; no parentheses unless the user adds a build, e.g. 3.13.9).
 - Split names (full paper), three words only:  
   - **training set** — internal fitting (never `development set` / `Dev`)  
