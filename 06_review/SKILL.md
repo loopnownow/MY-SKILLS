@@ -13,7 +13,7 @@ description: >
 
 Find defects, write journal-system peer reviews, and draft point-by-point responses.
 **Never invent** rescue experiments, missing AUCs, ethics IDs, or unrun analyses.
-Do not rewrite the manuscript here — changed sentences go to `05_manuscript`.
+Do not rewrite the manuscript here — changed sentences go to `05_manuscript`. All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes.
 
 **Reviewer response enters through `06_review` only.**
 
@@ -34,7 +34,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 | English peer-review voice | `personal/personal-review-style.md` |
 | Review comment habits (statement → data consistency; integrity stops) | `personal/review-comment-habits.md` |
 | Cross-manuscript and pre-submit QC (annotate conflicts; do not invent numbers) | `personal/cross-manuscript-qc.md` |
-| Word edit / delivery (Track Changes, 0del, TNR) | `personal/word-edit-rules.md` |
+| Word comment delivery (Lee marks; Aitee applies manuscript Track Changes; 0del, TNR) | `personal/word-edit-rules.md` |
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
 | 中文刊审稿单 A–F | `personal/chinese-journal-score-sheet.md` |
@@ -69,13 +69,16 @@ Use handoff cards. 00 owns cross-skill QC and whether a call actually runs.
 
 ## Personal review layout
 
-English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review-comment-habits.md` then `personal/cross-manuscript-qc.md` before those sections. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. A 05 pass does not waive this 06 pass. Response letters stay on `personal/personal-response-style.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
+English peer-review / pre-review body follows `personal/personal-review-style.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review-comment-habits.md` then `personal/cross-manuscript-qc.md` before those sections. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. A 05 pass does not waive this 06 pass. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. Response letters stay on `personal/personal-response-style.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
 
-## Comments, conflicts, undecidable items
+## Comments, conflicts, who applies Track Changes
+
+All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes.
 
 - Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/personal-review-style.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[MedSci:…]` / `[Scientific:…]` / `[Nature:…]` / `[AIPOCH:…]` / `[B:…]`, dual-tag OK).
-- Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently.
-- Undecidable reviewer points: ask the user; may attach 1–2 **reference-only** revised sentences; do not edit the manuscript until the user picks.
+- Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently. After the user decides, Lee still does not apply the body revisions as default; Aitee applies Track Changes.
+- **Decidable issues:** Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. The comment names the locus, the defect, and the exact word or sentence Aitee should revise.
+- **Undecidable issues:** Chinese 批注 body plus attached English suggested wording and/or suggested literature. Ask the user. Do not edit the manuscript until the user picks; then Aitee applies Track Changes. Victor supplies suggested literature for comments when needed. Lee must not self-revise as default.
 - Word wording that differs from the last agent sentence is the user’s edit (`personal/word-edit-rules.md`): ask before changing; do not restore. HTML / PDF / scripts are out of scope.
 - Response / re-audit: set each issue to Resolved / Partially resolved / Unresolved / New issue per `personal/review-resolution.md` (A 06 judges; mounts only draft).
 - Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03. Writing-time claim gaps → `05_manuscript/personal/evidence-request.md`.

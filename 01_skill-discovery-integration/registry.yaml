@@ -36,6 +36,19 @@ meta:
         Aitee and Lee do not self-certify lit. Mid-entry stays allowed.
         Lee keeps statement then data consistency. Lit accuracy is joint with Victor.
       note: checklist is 03_research/personal/citation-verify.md. Not a new fine id.
+    - id: word-tc-owned-by-aitee
+      status: resolved
+      resolved: 2026-10-02
+      decision: >
+        All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default.
+        Lee marks/comments; Aitee applies Track Changes.
+        Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
+        Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
+        Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+      note: >
+        Retired default: Lee no longer applies body Track Changes on decidable fixes.
+        Lee marks/comments; Aitee applies Track Changes.
+        Lit05/Lit06 and do-not-self-certify-lit stay as citation-verify-on-05-06. Not a new fine id.
 default_source:
   id: my-skills-capabilities
   source: https://github.com/loopnownow/MY-SKILLS-capabilities

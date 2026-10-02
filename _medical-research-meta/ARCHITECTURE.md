@@ -74,8 +74,8 @@ Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a 
 - `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
 - `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** required before 05 done and inside 06. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - `04_analysis`: statistical analysis and visualization (`make-figures` / `fig-plot`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`. Requires 03 citation-verify before done; does not self-certify lit. Mid-entry does not waive it.
-- `06_review`: personal review/response layer. Changed wording → `05_manuscript`. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor.
+- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`. All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Requires 03 citation-verify before done; does not self-certify lit. Mid-entry does not waive it.
+- `06_review`: personal review/response layer. Changed wording → `05_manuscript`. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
 ## Externalization policy
 

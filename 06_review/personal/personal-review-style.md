@@ -17,6 +17,8 @@
 
 ## 0. 批注与冲突（实验室硬规则）
 
+All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+
 - Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
 - 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
   - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
@@ -24,8 +26,9 @@
   - 挂载 + 个人都成立 → **双标**，例：`[Nature:nature-reviewer] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
 - **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:nature-reviewer]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
 - 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
-- **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**；未点头不改稿。
-- 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户；可附 1–2 句 **reference only** 改写，不直接落稿。
+- **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍是 Lee marks/comments; Aitee applies Track Changes。Lee does not apply the body revisions as default。
+- **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee does not apply the body revisions as default。
+- 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户。Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature。建议文献由 Victor 供给。Lee 不落稿件修订；用户选定后由 Aitee 用 Track Changes 改正文。
 - 改文单元：**词或句**，禁止整段重写。
 
 ---
@@ -39,7 +42,7 @@
 - **已给行号则不复述、不引用原稿句子。**
 - **来源标签**（如 `[B:self-review][A:personal]`）只写在 Word **批注**文首；作者字段 **A**。不好的原因用**中文**写在同一条批注里，放在来源标签后面。`cannot_invent` / G-LIT 双轨也只进批注（不进信封正文）。
 - **禁止**把行号埋在句中或句末；禁止无定位的空泛指摘（Opening 总述除外，Opening 可不写行号）。
-- **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后再用修订模式改信封正文。
+- **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后，只可改审稿**信封**里对应的那一条。稿件正文不在这里用修订模式改：Lee marks/comments; Aitee applies Track Changes。
 - 用户若粘贴原文句子：先在 Proof/plain 对齐行号，再写入对应章节；不要另起新的审稿 docx。
 
 ## 1. 年代分层（决定信封，不决定把中文冲法搬进英文）

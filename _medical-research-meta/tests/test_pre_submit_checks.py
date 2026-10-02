@@ -222,5 +222,63 @@ class CitationVerifyRequired(unittest.TestCase):
             self.assertIn(self.PHRASE, read(rel), rel)
 
 
+class WordTrackChangesOwnership(unittest.TestCase):
+    """Aitee owns manuscript Track Changes. Lee comments; he does not self-revise."""
+
+    PHRASES = (
+        "All manuscript Track Changes are owned by Aitee (05).",
+        "Lee must not self-revise as default.",
+        "Lee marks/comments; Aitee applies Track Changes.",
+        "does not apply the body revisions as default",
+        "Chinese 批注 body plus attached English suggested wording and/or suggested literature.",
+        "Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.",
+    )
+    FILES = (
+        "06_review/SKILL.md",
+        "06_review/personal/review-comment-habits.md",
+        "06_review/personal/personal-review-style.md",
+        "06_review/personal/word-edit-rules.md",
+        "06_review/personal/review-resolution.md",
+        "06_review/personal/cross-manuscript-qc.md",
+        "06_review/personal/personal-response-style.md",
+        "05_manuscript/SKILL.md",
+        "05_manuscript/personal/Aitor-format.md",
+        "03_research/SKILL.md",
+        "03_research/personal/citation-verify.md",
+        "00_orchestrator/SKILL.md",
+        "00_orchestrator/gates.md",
+        "00_orchestrator/workflows/sci-manuscript.md",
+        "00_orchestrator/runtime-flow.md",
+        "00_orchestrator/runtime-flow.mmd",
+        "ARCHITECTURE.md",
+        "_medical-research-meta/ARCHITECTURE.md",
+        "01_skill-discovery-integration/registry.yaml",
+    )
+
+    def test_ownership_phrases_are_present(self) -> None:
+        for rel in self.FILES:
+            text = read(rel)
+            for phrase in self.PHRASES:
+                self.assertIn(phrase, text, f"{rel} missing {phrase!r}")
+
+    def test_lee_does_not_apply_decidable_track_changes(self) -> None:
+        retired = (
+            "未点头不改稿",
+            "用户确认后再用修订模式改信封正文",
+            "may attach 1–2 **reference-only** revised sentences",
+        )
+        for rel in self.FILES:
+            text = read(rel)
+            for old in retired:
+                self.assertNotIn(old, text, f"{rel} still says {old!r}")
+        reg = read("01_skill-discovery-integration/registry.yaml")
+        self.assertIn("word-tc-owned-by-aitee", reg)
+        self.assertIn("Lee no longer applies body Track Changes on decidable fixes.", reg)
+        mmd = read("00_orchestrator/runtime-flow.mmd")
+        self.assertIn("Lee · 陈述一致", mmd)
+        self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
+        self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -16,7 +16,9 @@ runs_checks_from: 05_manuscript/personal/pre-submit-consistency.md
 
 Load on every pre-review and peer-review, after `review-comment-habits.md`. Journal-facing envelope stays English (`personal-review-style.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
 
-call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
+call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. Statement consistency still comes first, then data consistency.
+
+All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
 
 Run **statement consistency first** (the manuscript agrees with itself), then **data consistency**. Check ids and writing actions are the list in `05_manuscript/personal/pre-submit-consistency.md`. Statistical definitions are in `04_analysis/personal/stats-consistency.md`.
 

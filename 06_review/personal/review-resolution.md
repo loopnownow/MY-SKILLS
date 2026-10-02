@@ -1,6 +1,6 @@
 # Review Resolution protocol (thin)
 
-**Bot map:** review/response upper layer → **Lee** (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript wording edits → **Aitee** (`05`).
+**Bot map:** review/response upper layer → **Lee** (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript Track Changes → **Aitee** (`05`). Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default.
 
 **Owner:** `06_review` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
 
@@ -25,7 +25,7 @@ Related: English peer-review envelope `personal-review-style.md`; response lette
 - `pre-review` / re-audit: reopen prior Major/Minor items and set status  
 - Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06  
 
-Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. Undecidable items → ask the user (reference-only sentence drafts OK; no silent manuscript edit).
+Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. All manuscript Track Changes are owned by Aitee (05). Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. Ask the user on undecidable items; do not edit the manuscript until the user picks, and then Aitee applies Track Changes.
 
 ## Issue card (required)
 
@@ -86,7 +86,7 @@ Then set one status:
 Need data, ethics, or unrun analysis → question the user; optional reference-only sentence; no silent edit.
 
 ### B. Call sibling
-Wording → 05 (word/sentence). Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06).
+Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not apply the body revisions as default. Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
 ### C. Reschedule mount (rare)
 Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-B source.

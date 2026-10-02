@@ -4,6 +4,11 @@
 %% 中途入口仍可（已有统计→05，已有稿件→06，不必从 02 重跑）。
 %% 凡论文写作或审稿，done / Gate·05 / Gate·06 之前必须经过 03 citation-verify。
 %% 05 与 06 不得自证文献。Lee 管陈述一致→数据一致；文献准确性与 Victor 共同负责。
+%% All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default.
+%% Lee marks/comments; Aitee applies Track Changes.
+%% Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
+%% Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
+%% Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
 flowchart TD
     Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
@@ -53,7 +58,7 @@ flowchart TD
         P05 --> Lit05[03 Victor · citation-verify<br/>claim→ref 表 + 强断言抽查原文]
         Lit05 -->|PASS| GA05{{Gate · 05}}
         GA05 -->|PASS · 未到终点| P06
-        P06 --> Lee06[Lee · 陈述一致 → 数据一致]
+        P06 --> Lee06[Lee · 陈述一致 → 数据一致<br/>只批注 · 不默认自行修订]
         P06 --> Lit06[03 Victor · citation-verify<br/>不可跳过 · 文献准确性与 Lee 共同负责]
         Lee06 --> Join06[06 齐套 · 一致性 + 文献核实]
         Lit06 -->|PASS| Join06
@@ -68,6 +73,7 @@ flowchart TD
     %% 到达终点且最后一门 PASS，或用户说结束 → stage: done，不打开下一站。
     %% 05 交付 done / Gate·05 之前：Lit05 必须 PASS（claim→ref 表 + 强断言抽查）。
     %% 06 审稿：Lit06 不可跳过；Lee 仍做陈述一致然后数据一致。先前的 05 核实不免除 06。
+    %% 稿件 Track Changes 由 Aitee 落地。Lee marks/comments; Aitee applies Track Changes.
     %% 暂停，或停在结果页后 / 预审前：stage 留在当前站，不写 done。
     %% 同一次已批准运行的后续过站报一行；N2、结果页 G-FACT、N4、G-06 仍停住。
     GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>stage: done])

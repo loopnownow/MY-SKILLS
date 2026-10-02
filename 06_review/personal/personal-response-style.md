@@ -200,11 +200,11 @@ PCOS 等系列稿件。
 
 ## 9. 改文单元与批注来源（与 00/05 对齐）
 
-- 落实意见时，修改单元是 **词或句**，禁止整段重写。回信里引号复述的也是改后那一句。
+- 落实意见时，修改单元是 **词或句**，禁止整段重写。回信里引号复述的也是改后那一句。All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
 - 每条意见是否真正解决：用 `review-resolution.md` 的状态（Resolved / Partially resolved / Unresolved / New issue）；不要只看「有没有加一句」。
 - 稿面批注标明来源：`[A:personal]` / `[B:revise]` / `[B:…]` 等。
-- 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**后再改。
-- 定不了的意见：回信标清需作者确认；可附 reference-only 句，不假装已做实验。
+- 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**。点头后仍由 Aitee 用 Track Changes 改正文。Lee does not apply the body revisions as default.
+- 可决定的正文修改：Lee 批注交给 Aitee TC-fix。定不了的意见：回信标清需作者确认。Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. 不假装已做实验。Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
 ---
 
