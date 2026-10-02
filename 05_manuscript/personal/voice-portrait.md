@@ -83,7 +83,7 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 
 ## 6. Delivery (writing side)
 
-- Revise the original `.docx` in place with Track Changes; comments author **A**.
+- Revise the original `.docx` in place with Track Changes; comments author **A**. All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default.
 - Missing facts → comment / ask; never yellow fill; never silent overwrite of existing corresponding-author / funding / ethics text.
 - Full delivery rules: `06_review/personal/word-edit-rules.md`.
 - Before calling the draft final, run `pre-submit-consistency.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.

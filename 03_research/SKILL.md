@@ -23,7 +23,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
 
-**Citation verify (required on writing and review).** Before Gate · 05 can mark a manuscript done, and inside every 06 review, run `personal/citation-verify.md`: claim→ref table plus a spot-check of strong claims against the sources. Mid-entry does not waive it. A prior 05 pass does not waive the 06 pass. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
+**Citation verify (required on writing and review).** Before Gate · 05 can mark a manuscript done, and inside every 06 review, run `personal/citation-verify.md`: claim→ref table plus a spot-check of strong claims against the sources. Mid-entry does not waive it. A prior 05 pass does not waive the 06 pass. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
 
 ## Personal supplement (not an upper layer)
 

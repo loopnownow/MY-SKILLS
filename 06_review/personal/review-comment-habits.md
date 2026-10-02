@@ -8,6 +8,8 @@ This file is the **consistency-first** habit layer.
 
 **Locks (2026-10-02):** on a data conflict, annotate every locus. Do not invent a replacement number. Pre-submit classes and sister-paper checks: `cross-manuscript-qc.md`. Check ids: `05_manuscript/personal/pre-submit-consistency.md`. call/require 03 citation-verify — do not self-certify lit.
 
+**Locks (Word revise ownership):** All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+
 ---
 
 ## 1. Overall portrait (reviewer side)
@@ -74,6 +76,14 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 ## 5. Where the long form lives
 
 `cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `05_manuscript/personal/pre-submit-consistency.md` is the check-id list. `04_analysis/personal/stats-consistency.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
+
+## 5.1 Who revises the manuscript
+
+Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default.
+
+Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. The note is concrete (locator, what is wrong, the word or sentence to change) so Aitee can apply Track Changes without guessing.
+
+Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Do not invent the missing fact. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. call/require 03 citation-verify — do not self-certify lit. After the user picks, Aitee applies Track Changes.
 
 ## 6. What this file is not
 

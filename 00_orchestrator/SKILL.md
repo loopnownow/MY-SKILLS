@@ -13,7 +13,9 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。
 
-Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant / **citation-verify**); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC; does not self-certify lit); 06 Lee (statement consistency, then data consistency; lit accuracy is joint with Victor); 00 Aitor owns QC. 05 and 06 require 03 participation for citations. Mid-entry stays allowed. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
+Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant / **citation-verify**); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC; owns all manuscript Track Changes; does not self-certify lit); 06 Lee (statement consistency, then data consistency; marks/comments and must not self-revise as default; lit accuracy is joint with Victor); 00 Aitor owns QC. 05 and 06 require 03 participation for citations. Mid-entry stays allowed. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
+
+**Word revise ownership:** All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 Do not mount MedSci `orchestrate` as a third SOP.
 
 **Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes (`[Nature:nature-reviewer]`, `[Scientific:scientific-critical-thinking]`, `[B:peer-review]`, …) — not source-only shells) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
@@ -110,8 +112,8 @@ Never `--e2e`. Never skip session mount pick or N2.
 | `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation, **clinical extraction**, **coding principles**. No modeling. |
 | `03_research` | Study design, **literature**, evidence, frontier, journal/topic (选刊), grants, **translational / reader-study design**, **ethics application forms**, **citation-verify** for 05 and 06. Literature enters 03 only. 选刊走 03 `find-journal`；`venue-templates` 只管体例. |
 | `04_analysis` | Statistics, prediction, survival, **figures**. Data repair is not its role. |
-| `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. Requires 03 citation-verify before done. Does not self-certify lit. |
-| `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. |
+| `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. Owns all manuscript Track Changes. Lee marks/comments; Aitee applies Track Changes. Requires 03 citation-verify before done. Does not self-certify lit. |
+| `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. |
 | `skill-harvest` | Evolution / ROI / boundaries. Not a research domain. |
 
 There are **no archive-as-standalone routes**. The four former archive packs live under 02/03.
@@ -163,7 +165,7 @@ Integrity gates (not after every node):
 | G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
 | G-FACT | after 04 HTML / after 05 docx | N/split/model/endpoint/AUC·CI·P drift vs upstream FILE |
 | G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose; pre-submit-consistency checks left unresolved in the body; 03 citation-verify missing or self-certified by 05 |
-| G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; resolution status when review-resolution protocol used; cross-manuscript conflicts rewritten instead of commented; 03 citation-verify skipped; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
+| G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; Lee applied manuscript Track Changes (Lee must not self-revise as default; Lee marks/comments; Aitee applies Track Changes); decidable issues not annotated for Aitee to TC-fix; undecidable issues missing a Chinese 批注 body or the attached English suggested wording and/or suggested literature; resolution status when review-resolution protocol used; cross-manuscript conflicts rewritten instead of commented; 03 citation-verify skipped; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
 | G-LIT | citation-verify required before 05 done and inside 06; on fail | dual plan in comments (revise sentence **and** optional further 03 substitute refs); no invented PMID; verify pass itself is not optional |
 
 Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
