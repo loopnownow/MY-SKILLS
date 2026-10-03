@@ -7,6 +7,7 @@ role: backup-candidate
 repo: https://github.com/Aperivue/medsci-skills
 scanned: "2026-09-03"
 scan_sha: "912f7e8"
+metadata_refresh: on-next-use
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >

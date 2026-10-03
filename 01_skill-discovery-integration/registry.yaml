@@ -685,15 +685,18 @@ archived:
     revive_condition: 需要逐行全文证据且上游文件夹核实后重评
     old_path: skills/paperclip/
 
-# External source freshness fields (optional until next scan refresh):
+# External source freshness fields (filled the next time that source is actually used):
 #   source_ref, resolved_commit, source_version, scanned_at, cache_commit,
 #   cache_status (fresh|stale|missing|blocked), license_status, inventory_hash, last_diff
+# metadata_refresh: on-next-use — leave scanned / scan_sha / hashes as last written.
+# Refresh that metadata when the source is actually used. A registry-only pass does not refresh it.
 proposals:
   - id: med-sci-skills
     source: https://github.com/Aperivue/medsci-skills
     config: sources/medsci.proposed.yaml
     scanned: "2026-09-03"
     scan_sha: "912f7e8"
+    metadata_refresh: on-next-use
     status: PROPOSED
     role: backup-candidate
   - id: scientific-agent-skills
@@ -701,6 +704,7 @@ proposals:
     config: sources/scientific-agent-skills.proposed.yaml
     scanned: "2026-09-03"
     scan_sha: "1e5eeff"
+    metadata_refresh: on-next-use
     status: PROPOSED
     role: backup-candidate
   - id: aipoch-medical-research-skills
@@ -708,6 +712,7 @@ proposals:
     config: sources/aipoch-medical-research-skills.proposed.yaml
     scanned: "2026-09-06"
     scan_sha: "f5ef65b"
+    metadata_refresh: on-next-use
     status: PROPOSED
     role: backup-candidate
   - id: nature-skills
@@ -715,7 +720,8 @@ proposals:
     config: sources/nature-skills.proposed.yaml
     scanned: "2026-09-07"
     scan_sha: "287ee37"
+    metadata_refresh: on-next-use
     status: PROPOSED
     role: backup-candidate
     license_flag: Apache-2.0 verified 2026-09-14
-    note: "Apache-2.0 verified 2026-09-14. Register nature-shared as dependency of Nature fine ids (not a separate trigger skill). Refresh resolved_commit/inventory_hash on next scan."
+    note: "Apache-2.0 verified 2026-09-14. Register nature-shared as dependency of Nature fine ids (not a separate trigger skill). Refresh resolved_commit/inventory_hash the next time this source is actually used."

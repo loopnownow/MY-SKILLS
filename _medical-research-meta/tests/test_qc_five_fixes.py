@@ -5,6 +5,8 @@ import importlib.util
 import unittest
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -46,6 +48,26 @@ class FiveFixes(unittest.TestCase):
         qc = load_repo_qc()
         diagram = (ROOT / "00_orchestrator" / "runtime-flow.mmd").read_text(encoding="utf-8")
         self.assertEqual(qc.mount_route_problems(diagram), [])
+
+    def test_generated_artifact_framework_covers_map_and_mounted_skills(self) -> None:
+        qc = load_repo_qc()
+        scripts = {spec["script"].as_posix() for spec in qc.GENERATED_CHECKS}
+        self.assertIn("00_orchestrator/scripts/gen_repo_map.py", scripts)
+        self.assertIn("01_skill-discovery-integration/scripts/gen_mounted_skills.py", scripts)
+        results = []
+        qc.check_generated_artifacts(ROOT, results)
+        failed = [row for row in results if row[0] != "PASS"]
+        self.assertEqual(failed, [])
+        names = [row[1] for row in results]
+        self.assertEqual(names, ["repo-map-generated", "mounted-skills-generated"])
+
+    def test_reseived_study_folder_alias_parses_as_received(self) -> None:
+        state = yaml.safe_load(
+            (ROOT / "00_orchestrator" / "templates" / "project-state.yaml").read_text(encoding="utf-8")
+        )
+        aliases = state["study_folder_stage_aliases"]
+        self.assertEqual(aliases["reseived"], "received")
+        self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
 
 
 if __name__ == "__main__":
