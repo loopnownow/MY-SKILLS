@@ -1,3 +1,6 @@
+CHG-20261003-003 (2026-10-03)
+Retrospective fixed N stays in 04 sample-size (calc-sample-size / Loopnow): no post-hoc / observed power from the obtained p (Hoenig & Heisey 2001). Four approaches: pre-study power, EPV 10–15 / Riley pmsampsize, MDES at 80% power, or CI half-width. 回顾性固定 N 不计算观察功效。
+Earlier: CHG-20261003-002, CHG-20261003-001.
 CHG-20261003-002 (2026-10-03)
 Lab-STE pointer + reusable rules into 05/06 (disk SSOT D:\0Grok\0doc\04_实验室参考\lab-ste\). Chinese 稿面批注五槽 CM-01. No lexicon/tools vendored; not Gate. Standing Compared/attenuated/Methods-passive/set/Aitee rules unchanged.
 Earlier: CHG-20261003-001, CHG-20260929-006.
