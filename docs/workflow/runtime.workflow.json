@@ -1,0 +1,564 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "MY-SKILLS Workflow",
+    "subtitle": "Task, gates, mounts, mid-entry, Lit05, Lit06, QC loop",
+    "locale": "zh-CN",
+    "output": "docs/workflow/index.html"
+  },
+  "lanes": [
+    {
+      "id": "control",
+      "label": "00 control"
+    },
+    {
+      "id": "mount",
+      "label": "01 mount"
+    },
+    {
+      "id": "produce",
+      "label": "Domain chain"
+    },
+    {
+      "id": "literature",
+      "label": "03 literature"
+    },
+    {
+      "id": "qc",
+      "label": "QC loop",
+      "variant": "exception"
+    }
+  ],
+  "phases": [
+    {
+      "id": "intake",
+      "label": "Detect",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "session",
+      "label": "Mount",
+      "fromCol": 1,
+      "toCol": 2
+    },
+    {
+      "id": "domains",
+      "label": "02-06",
+      "fromCol": 3,
+      "toCol": 5
+    }
+  ],
+  "groups": [
+    {
+      "id": "forward",
+      "label": "PASS forward",
+      "lane": "produce",
+      "fromCol": 2,
+      "toCol": 5
+    },
+    {
+      "id": "lit-gates",
+      "label": "Lit05 Lit06",
+      "lane": "literature",
+      "fromCol": 4,
+      "toCol": 5
+    },
+    {
+      "id": "qc-loop",
+      "label": "QC loop",
+      "lane": "qc",
+      "fromCol": 3,
+      "toCol": 5,
+      "variant": "dashed"
+    }
+  ],
+  "mainPath": [
+    "task",
+    "detect",
+    "mountcheck",
+    "dispatch",
+    "p02",
+    "p04",
+    "p05",
+    "lit05",
+    "p06",
+    "lit06",
+    "done"
+  ],
+  "semanticChecks": {
+    "allowedRoots": [
+      "task"
+    ],
+    "allowedTerminals": [
+      "done",
+      "escalate"
+    ],
+    "requiredEdges": [
+      {
+        "from": "p05",
+        "to": "lit05"
+      },
+      {
+        "from": "p06",
+        "to": "lit06"
+      },
+      {
+        "from": "dispatch",
+        "to": "p03"
+      },
+      {
+        "from": "dispatch",
+        "to": "p04"
+      },
+      {
+        "from": "dispatch",
+        "to": "p05"
+      },
+      {
+        "from": "dispatch",
+        "to": "p06"
+      }
+    ],
+    "requiredPaths": [
+      {
+        "from": "task",
+        "to": "done"
+      },
+      {
+        "from": "task",
+        "to": "p03"
+      },
+      {
+        "from": "p05",
+        "to": "lit05"
+      },
+      {
+        "from": "p06",
+        "to": "lit06"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "task",
+      "lane": "control",
+      "col": 0,
+      "type": "external",
+      "label": "Task",
+      "sublabel": "entry",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "detect",
+      "lane": "control",
+      "col": 1,
+      "type": "security",
+      "label": "00 Detect",
+      "sublabel": "gate",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "single",
+      "lane": "control",
+      "col": 4,
+      "type": "backend",
+      "label": "One domain",
+      "sublabel": "named entry",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "done",
+      "lane": "control",
+      "col": 5,
+      "type": "backend",
+      "label": "Done",
+      "sublabel": "terminal PASS",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "mountcheck",
+      "lane": "mount",
+      "col": 1,
+      "type": "security",
+      "label": "Fine ids",
+      "sublabel": "coverage",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "s01",
+      "lane": "mount",
+      "col": 3,
+      "type": "backend",
+      "label": "01 Mount",
+      "sublabel": "session",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "dispatch",
+      "lane": "mount",
+      "col": 2,
+      "type": "backend",
+      "label": "Dispatch",
+      "sublabel": "after G0",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "p02",
+      "lane": "produce",
+      "col": 2,
+      "type": "backend",
+      "label": "02 Data",
+      "sublabel": "processing",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "p04",
+      "lane": "produce",
+      "col": 3,
+      "type": "backend",
+      "label": "04 Statistics",
+      "sublabel": "figures",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "p05",
+      "lane": "produce",
+      "col": 4,
+      "type": "backend",
+      "label": "05 Writing",
+      "sublabel": "manuscript",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "p06",
+      "lane": "produce",
+      "col": 5,
+      "type": "backend",
+      "label": "06 Review",
+      "sublabel": "response",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "p03",
+      "lane": "literature",
+      "col": 2,
+      "type": "backend",
+      "label": "03 Literature",
+      "sublabel": "evidence",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "lit05",
+      "lane": "literature",
+      "col": 4,
+      "type": "security",
+      "label": "Lit05",
+      "sublabel": "before Gate 05",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "lit06",
+      "lane": "literature",
+      "col": 5,
+      "type": "security",
+      "label": "Lit06",
+      "sublabel": "inside 06",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "locate",
+      "lane": "qc",
+      "col": 1,
+      "type": "security",
+      "label": "Locate",
+      "sublabel": "failed node",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "rework",
+      "lane": "qc",
+      "col": 3,
+      "type": "security",
+      "label": "Rework",
+      "sublabel": "local or rollback",
+      "width": 176,
+      "height": 64
+    },
+    {
+      "id": "escalate",
+      "lane": "qc",
+      "col": 5,
+      "type": "security",
+      "label": "Unresolved",
+      "sublabel": "budget spent",
+      "width": 176,
+      "height": 64
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-task-detect",
+      "from": "task",
+      "to": "detect",
+      "label": "task enters",
+      "role": "main"
+    },
+    {
+      "id": "e-detect-mount",
+      "from": "detect",
+      "to": "mountcheck",
+      "label": "before specialist",
+      "role": "main"
+    },
+    {
+      "id": "e-mount-gap",
+      "from": "mountcheck",
+      "to": "s01",
+      "label": "fine ids missing",
+      "role": "branch"
+    },
+    {
+      "id": "e-g0-pass",
+      "from": "s01",
+      "to": "dispatch",
+      "label": "G0 PASS",
+      "role": "main"
+    },
+    {
+      "id": "e-g0-fail",
+      "from": "s01",
+      "to": "locate",
+      "label": "G0 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-covered",
+      "from": "mountcheck",
+      "to": "dispatch",
+      "label": "fine ids already covered",
+      "role": "main"
+    },
+    {
+      "id": "e-d02",
+      "from": "dispatch",
+      "to": "p02",
+      "label": "entry 02",
+      "role": "branch"
+    },
+    {
+      "id": "e-d03",
+      "from": "dispatch",
+      "to": "p03",
+      "label": "entry 03 independent literature",
+      "role": "branch"
+    },
+    {
+      "id": "e-d04",
+      "from": "dispatch",
+      "to": "p04",
+      "label": "entry 04 or mid-entry",
+      "role": "branch"
+    },
+    {
+      "id": "e-d05",
+      "from": "dispatch",
+      "to": "p05",
+      "label": "entry 05 or mid-entry",
+      "role": "branch"
+    },
+    {
+      "id": "e-d06",
+      "from": "dispatch",
+      "to": "p06",
+      "label": "entry 06 or mid-entry",
+      "role": "branch"
+    },
+    {
+      "id": "e-dsingle",
+      "from": "dispatch",
+      "to": "single",
+      "label": "named single domain",
+      "role": "branch"
+    },
+    {
+      "id": "e-02-04",
+      "from": "p02",
+      "to": "p04",
+      "label": "Gate 02 PASS, not terminal",
+      "role": "main"
+    },
+    {
+      "id": "e-04-05",
+      "from": "p04",
+      "to": "p05",
+      "label": "Gate 04 PASS, not terminal",
+      "role": "main"
+    },
+    {
+      "id": "e-05-lit",
+      "from": "p05",
+      "to": "lit05",
+      "label": "required before Gate 05",
+      "role": "main"
+    },
+    {
+      "id": "e-lit-06",
+      "from": "lit05",
+      "to": "p06",
+      "label": "Gate 05 PASS, not terminal",
+      "role": "main"
+    },
+    {
+      "id": "e-06-lit",
+      "from": "p06",
+      "to": "lit06",
+      "label": "required inside 06",
+      "role": "main"
+    },
+    {
+      "id": "e-lit-done",
+      "from": "lit06",
+      "to": "done",
+      "label": "Gate 06 PASS at terminal",
+      "role": "main"
+    },
+    {
+      "id": "e-03-05",
+      "from": "p03",
+      "to": "p05",
+      "label": "evidence does not replace Lit05",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "e-03-06",
+      "from": "p03",
+      "to": "p06",
+      "label": "evidence does not replace Lit06",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "e-02-done",
+      "from": "p02",
+      "to": "done",
+      "label": "terminal PASS",
+      "role": "branch"
+    },
+    {
+      "id": "e-03-done",
+      "from": "p03",
+      "to": "done",
+      "label": "terminal PASS",
+      "role": "branch"
+    },
+    {
+      "id": "e-04-done",
+      "from": "p04",
+      "to": "done",
+      "label": "terminal PASS",
+      "role": "branch"
+    },
+    {
+      "id": "e-lit05-done",
+      "from": "lit05",
+      "to": "done",
+      "label": "Gate 05 terminal PASS",
+      "role": "branch"
+    },
+    {
+      "id": "e-single-done",
+      "from": "single",
+      "to": "done",
+      "label": "target gate PASS",
+      "role": "branch"
+    },
+    {
+      "id": "e-fail-02",
+      "from": "p02",
+      "to": "locate",
+      "label": "Gate 02 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-03",
+      "from": "p03",
+      "to": "locate",
+      "label": "Gate 03 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-04",
+      "from": "p04",
+      "to": "locate",
+      "label": "Gate 04 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-lit05",
+      "from": "lit05",
+      "to": "locate",
+      "label": "Lit05 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-06",
+      "from": "p06",
+      "to": "locate",
+      "label": "Gate 06 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-lit06",
+      "from": "lit06",
+      "to": "locate",
+      "label": "Lit06 FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-fail-single",
+      "from": "single",
+      "to": "locate",
+      "label": "target gate FAIL",
+      "role": "error"
+    },
+    {
+      "id": "e-locate-rework",
+      "from": "locate",
+      "to": "rework",
+      "label": "local rework or rollback",
+      "role": "error"
+    },
+    {
+      "id": "e-rework-mount",
+      "from": "rework",
+      "to": "mountcheck",
+      "label": "re-enter affected node",
+      "role": "return"
+    },
+    {
+      "id": "e-locate-escalate",
+      "from": "locate",
+      "to": "escalate",
+      "label": "budget exhausted",
+      "role": "error"
+    }
+  ]
+}

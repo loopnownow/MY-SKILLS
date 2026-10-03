@@ -1,0 +1,65 @@
+# Visualization Source Contract v1.0
+# Mapping from MY-SKILLS facts to Archify IR. Not a copy of the Archify schema.
+version: "1.0"
+approved: "2026-10-03"
+role: mapping-contract
+copies_archify_schema: false
+version_record: archify-version.yaml
+
+views:
+  architecture:
+    question: "What the system is made of and where the boundaries are."
+    inputs:
+      - ARCHITECTURE.md
+      - 01_skill-discovery-integration/registry.yaml
+      - top-level directories 00_orchestrator through 06_review and skill-harvest
+    archify_fields: [components, boundaries, connections]
+    primary_component_band: "about 6-12 stable system components"
+  workflow:
+    question: "How a task runs, including branches, exceptions, and loops."
+    inputs:
+      - 00_orchestrator/runtime-flow.mmd
+      - 00_orchestrator/runtime-flow.md
+      - 00_orchestrator/gates.md
+    archify_fields: [lanes, phases, groups, mainPath, nodes, edges]
+    geometry: new-workflow-schema-version-from-version-record
+    must_show:
+      - layers 00 through 06
+      - Lit05
+      - Lit06
+      - mid-entry
+  external_mounts:
+    question: "Which external packages the registry indexes, and the status recorded there."
+    inputs:
+      - 01_skill-discovery-integration/registry.yaml
+      - 01_skill-discovery-integration/sources
+      - 01_skill-discovery-integration/mounts/presets
+    not_inputs:
+      - mounts-cap bytes
+      - a crawl of mounted skill files
+  skill_pages:
+    question: "Documentation pages from skill sources. Do not force prose into a diagram."
+    inputs:
+      - SKILL.md frontmatter under 00_orchestrator through 06_review and skill-harvest
+
+forbidden_fact_sources:
+  - LLM inference
+  - generated HTML
+  - previous generated HTML
+  - arbitrary mounted-file crawling
+  - filename alone
+  - visual appearance
+  - unvalidated JSON
+
+forbidden_default_atomic_mount_sources:
+  - OpenClaw
+  - openclaw-medical-skills
+
+rules:
+  - MY-SKILLS is the only source of truth.
+  - Archify is a read-only visualization compiler.
+  - Do not add a top-level 07 skill.
+  - Mount diagrams come from registry and preset metadata.
+  - Delta describes structural facts only.
+  - Generated HTML under docs is rebuildable and is not a fact source.
+  - Do not crawl mounts-cap.

@@ -1,0 +1,60 @@
+# Pinned Archify release for the read-only visualization compiler.
+# CI must not fetch or install a newer Archify at build time.
+source: tt-a1i/archify
+repository: https://github.com/tt-a1i/archify
+expected_version: "3.0.1"
+tag: v3.0.1
+commit: 2ab3cae7ac2c2a55d7386ca789d03c4fcd31816c
+published: "2026-09-28T15:33:07Z"
+verified_on: "2026-10-03"
+latest_tag_at_verification: v3.0.1
+previous_tag_at_verification: v3.0.0
+verified_against:
+  - https://github.com/tt-a1i/archify/releases/tag/v3.0.1
+  - https://github.com/tt-a1i/archify/tags
+  - https://api.github.com/repos/tt-a1i/archify/tags?per_page=20
+  - https://github.com/tt-a1i/archify/blob/v3.0.1/archify/schemas/README.md
+  - https://raw.githubusercontent.com/tt-a1i/archify/v3.0.1/archify/schemas/architecture.schema.json
+  - https://raw.githubusercontent.com/tt-a1i/archify/v3.0.1/archify/schemas/workflow.schema.json
+schema_blobs:
+  readme_sha: f1a2763f05fc922dab522d2c763fdbd871eeff54
+  architecture_schema_sha: 5fe3b8ecec4c76b7229bef83a13cb170fcc3fed5
+  workflow_schema_sha: dad1457f275645ba441157de52e28f126744d929
+update_policy: check
+auto_update: false
+visualization_only: true
+network_at_build: false
+schema_pins:
+  architecture:
+    schema_version: 1
+    const: true
+    why: >
+      v3.0.1 architecture.schema.json sets schema_version to the constant 1.
+      Workflow and lifecycle are the diagram types that accept 2.
+      Do not emit architecture schema_version 2 against this pin.
+    fields: [components, boundaries, connections]
+  workflow:
+    schema_version: 2
+    allowed_by_schema: [1, 2]
+    why: >
+      v3.0.1 schemas/README.md: new workflows use schema_version 2.
+      schema_version 1 is the fixed-layout compatibility contract.
+      This repository has no legacy workflow geometry to preserve.
+    fields: [lanes, phases, groups, mainPath, nodes, edges]
+package:
+  file: 00_orchestrator/archify-v3.0.1.zip
+  sha256: b0b23bd28db314f04ca8ab9620fe20f8c1ac6474a3546bd8fe4679508aa1b7f5
+  bytes: 2157085
+  release_asset: https://github.com/tt-a1i/archify/releases/download/v3.0.1/archify.zip
+  note: >
+    Official v3.0.1 release zip (package.json version 3.0.1). The renderer
+    and its schema stay inside this zip. MY-SKILLS does not extract the
+    schema into the repo as a second contract.
+check_policy: >
+  Build and CI unzip this pinned zip and run its bin/archify.mjs.
+  They do not download Archify and do not install latest.
+  A render or schema failure exits before replacing docs, so last-good
+  HTML stays. A separate human-triggered check may compare expected_version
+  with the GitHub releases list. A mismatch fails that check and does not
+  change this record. Upgrade path: 01 lifecycle check, human confirmation,
+  replace this zip and its sha256, then rebuild.
