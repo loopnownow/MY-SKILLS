@@ -10,14 +10,14 @@ skills/
 ├── 05_manuscript
 ├── 06_review
 ├── skill-harvest
-├── mounts-cap/       (local B + on-demand backups; pack bytes gitignored)
+├── mounts-cap/       (verified local cache, not the source of truth; pack bytes gitignored)
 └── _medical-research-meta/
 ```
 
 ## Core layers
 
 1. `00_orchestrator` — intent classify, skill chain, QC closed loop (file gates + local recovery; re-run only the broken node, max 3).
-2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Local bytes in `mounts-cap/` (full B; backup sources on-demand by picked id). Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
+2. `01_skill-discovery-integration` — discover, evaluate, and mount; **pointers live only here**; default source B. Local bytes in `mounts-cap/` are a verified local cache, not the source of truth. Non-B packages are mixed PROPOSED/MOUNTED per registry.yaml; upstream (the B repo, or the non-B upstream) is the source of truth for those bytes. Empty mount → notify, re-search, confirm. Never auto-mount a non-B source. Never literature/stats/writing/review.
 3. `02_data-processing` — raw → analysis-ready; Excel/0RAD; imaging QC; radiomics prep; imputation; clinical extraction; coding principles. No modeling. Handoff → 04. Ethics forms are **not** here.
 4. `03_research` — research design, **literature (03 only)**, evidence, frontier, grants, translational/reader-study **design**, **ethics application forms**, **选刊**. Personal grant/ethics/translation files are a supplement, not an upper writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 5. `04_analysis` — statistics, prediction, survival, **figures**. Data repair is not its role. 样本量 is `calc-sample-size`.
@@ -44,7 +44,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - **B is the default source and the default chassis** (`loopnownow/MY-SKILLS-capabilities`). Hybrid mount stays: different fine ids may use different packages; never mix packages inside one fine id.
 - Menu shape is `01_skill-discovery-integration/registry.yaml` (`coarse_id_count`, `fine_id_count_canonical`) and the generated `MOUNTED_SKILLS.md`. Do not restate those totals here. `session_mount: ask-each-run` — multi-select fine ids under relevant coarse when a new mount decision is required; reuse `session_picked_fine_ids` when they already cover the task. Menu is not `mounts: []`. The pick menu is status MOUNTED only.
 - A folders stay `00`–`06` (not renamed to Chinese top-level).
-- Non-B packages are mixed PROPOSED/MOUNTED per registry, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
+- Non-B packages are mixed PROPOSED/MOUNTED per registry.yaml, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
 - Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
 - Live docs name v4 fine ids only. Sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).

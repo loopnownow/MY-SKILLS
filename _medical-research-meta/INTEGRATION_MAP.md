@@ -73,7 +73,7 @@ next_action: after merge, sync changed files only into `~\.grok\skills`.
 date: 2026-09-29
 skill: 02_data-processing (0rad-workspace.md, code-refactoring SKILL.md + references/code-qc.md); 04_analysis/personal (0rad-pipeline-rules, lab-palettes, MODULE, model-evaluation, survival-prognostic, high-dimensional-omics); 00_orchestrator/templates (project-state.yaml, handoff.yaml); VERSION.txt
 problem: `D:\0Grok\0RAD` no longer exists on the lab PC; skills still pointed at `D:\0Grok\0RAD\modules`, `D:\0Grok\0RAD\0scripts\sync\sync_modules.py`, and `PYTHONPATH=D:\0Grok\0RAD`.
-change: `D:\0Grok\0RAD\modules` → `D:\0Grok\0scripts\modules`; `0RAD\0scripts\sync` → `0scripts\sync`; `PYTHONPATH=D:\0Grok\0scripts` (`python -m modules.pipeline` unchanged); old `0scripts/manuscript` → `0scripts/archive/manuscript`; project root → stage folders `D:\0Grok\<stage>\<project>` (preparing | polishing | submitting | reseived | DER); project scratch → `D:\0Grok\0del\<project>\`. Paths checked on the PC. The name 0RAD (pipeline, file names) is kept. Aitor-format gold docx path left as is: the file is not on disk; the user picks a new gold.
+change: `D:\0Grok\0RAD\modules` → `D:\0Grok\0scripts\modules`; `0RAD\0scripts\sync` → `0scripts\sync`; `PYTHONPATH=D:\0Grok\0scripts` (`python -m modules.pipeline` unchanged); old `0scripts/manuscript` → `0scripts/archive/manuscript`; project root → stage folders `D:\0Grok\<stage>\<project>` (preparing | polishing | submitting | received | DER); project scratch → `D:\0Grok\0del\<project>\`. Paths checked on the PC. The name 0RAD (pipeline, file names) is kept. Aitor-format gold docx path left as is: the file is not on disk; the user picks a new gold.
 decision: keep
 next_action: done — Aitor-format gold path set in CHG-20260929-003.
 

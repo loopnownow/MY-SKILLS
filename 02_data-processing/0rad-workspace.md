@@ -2,7 +2,7 @@
 
 **Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-09-06).
 
-Projects: `D:\0Grok\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `reseived` `DER`; `preparing` is the old 0RAD root). Code: `D:\0Grok\0scripts`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired.
+Projects: `D:\0Grok\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `received` `DER`; `preparing` is the old 0RAD root). Code: `D:\0Grok\0scripts`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired.
 
 If the user only opens/`cd`s into a project and names no 01–06 verb, **ask which skill to fire** (`00_orchestrator` → Project open, no skill). Do not start work.
 
