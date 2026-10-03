@@ -10,7 +10,7 @@ Archify is pinned to `tt-a1i/archify` **3.0.1** (tag `v3.0.1`, commit `2ab3cae7a
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](runtime-flow.mmd), [`runtime-flow.md`](runtime-flow.md), [`gates.md`](gates.md), [`../ARCHITECTURE.md`](../ARCHITECTURE.md), and [`../01_skill-discovery-integration/registry.yaml`](../01_skill-discovery-integration/registry.yaml). It does not read `mounts-cap/`.
 
-Generated files live under `docs/` and carry a generated marker, a rebuild command, the source fingerprint, the Archify pin, and a build status. Hand-authored sources are this note, the version record, and the mapping contract. GitHub Pages settings are not changed. Archify itself is not installed in CI. The render job fails closed and leaves the last good files in place. See `.github/workflows/visualization.yml`.
+Generated files live under `docs/` and carry a generated marker, a rebuild command, the source fingerprint, the Archify pin, and a build status. `docs/architecture/index.html` and `docs/workflow/index.html` are self-contained diagrams from the pinned Archify 3.0.1 zip [`archify-v3.0.1.zip`](archify-v3.0.1.zip). The id tables sit beside them as `status.html`. Hand-authored sources are this note, the version record, the mapping contract, and that zip. GitHub Pages settings are not changed. CI unzips the pinned zip and does not download Archify. A render or schema failure exits before replacing docs, so the last good files stay. See `.github/workflows/visualization.yml`.
 
 Delta output lists added, removed, and changed identifiers and labels. It does not assign merge risk.
 
@@ -145,7 +145,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
     └── index.html
 ```
 
-`architecture/index.html` and `workflow/index.html` are generated status pages until a pinned Archify render writes the diagram. They are marked generated. They are not presented as Archify output.
+`architecture/index.html` and `workflow/index.html` are the Archify diagrams. `architecture/status.html` and `workflow/status.html` list the IR ids beside those drawings. The homepage links to the drawings.
 
 ## 12. Repository safety rules
 
@@ -168,4 +168,4 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 
 What stays manual: this specification, `archify-version.yaml`, `visualization-source-contract.yaml`, and the generator.
 
-What did not run in CI: Archify render. During implementation the two IR files were checked once against the v3.0.1 `architecture.schema.json` and `workflow.schema.json` (zero schema errors). Those schema files were not copied into this repository. The generator's own shape check covers the fields it emits (required keys, `schema_version` pins, id pattern, component types, workflow column range, endpoint references). The CI render job exits non-zero when a pinned `ARCHIFY_BIN` is absent, and it does not download a release. Last-good files stay because `--check` does not write, and a shape failure returns before publish.
+CI runs `python3 00_orchestrator/scripts/gen_visualization.py --check`. That command regenerates IR in memory, unzips `archify-v3.0.1.zip`, and runs `node bin/archify.mjs render` for architecture and workflow at `--quality standard`. It compares the HTML to the committed diagrams and does not write. A failed render or shape check returns before publish, so last-good files stay. The Archify schema remains inside the zip. It is not copied into MY-SKILLS as a second contract. GitHub Pages is not configured.

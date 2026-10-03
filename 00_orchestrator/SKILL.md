@@ -30,7 +30,7 @@ Whenever this lab **creates or edits** `.html`, follow `references/html-visual-d
 
 ## Visualization compiler (standing)
 
-Archify is a read-only visualization compiler. It is not a skill and not a top-level `07` layer. MY-SKILLS sources stay authoritative. Contract: [`visualization-architecture.md`](visualization-architecture.md), [`archify-version.yaml`](archify-version.yaml), [`visualization-source-contract.yaml`](visualization-source-contract.yaml). Rebuild derived files with `python3 scripts/gen_visualization.py`. Generated HTML under `docs/` is disposable and is not a fact source. Mount diagrams use registry and preset metadata. Do not crawl `mounts-cap/` to draw them.
+Archify is a read-only visualization compiler. It is not a skill and not a top-level `07` layer. MY-SKILLS sources stay authoritative. Contract: [`visualization-architecture.md`](visualization-architecture.md), [`archify-version.yaml`](archify-version.yaml), [`visualization-source-contract.yaml`](visualization-source-contract.yaml). Rebuild derived files with `python3 scripts/gen_visualization.py`, which renders the two diagrams through the pinned `archify-v3.0.1.zip`. Generated HTML under `docs/` is disposable and is not a fact source. Mount diagrams use registry and preset metadata. Do not crawl `mounts-cap/` to draw them.
 
 ## 1. Intent classify
 

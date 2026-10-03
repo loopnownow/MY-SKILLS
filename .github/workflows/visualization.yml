@@ -1,8 +1,8 @@
 # Visualization compiler.
-# Regenerates nothing on the runner: --check compares committed docs to sources.
-# A shape failure exits before any write, so last-good files stay.
-# Archify is not downloaded. auto_update is false.
-# GitHub Pages is not configured in this workflow.
+# --check rebuilds IR in memory and renders with the vendored Archify zip.
+# It does not write. A shape or render failure leaves last-good files in place.
+# auto_update is false. This workflow does not download Archify.
+# GitHub Pages is not configured here.
 
 name: visualization
 
@@ -13,6 +13,7 @@ name: visualization
       - "00_orchestrator/runtime-flow.mmd"
       - "00_orchestrator/gates.md"
       - "00_orchestrator/archify-version.yaml"
+      - "00_orchestrator/archify-v3.0.1.zip"
       - "00_orchestrator/visualization-source-contract.yaml"
       - "00_orchestrator/visualization-architecture.md"
       - "00_orchestrator/scripts/gen_visualization.py"
@@ -30,6 +31,7 @@ name: visualization
       - "00_orchestrator/runtime-flow.mmd"
       - "00_orchestrator/gates.md"
       - "00_orchestrator/archify-version.yaml"
+      - "00_orchestrator/archify-v3.0.1.zip"
       - "00_orchestrator/visualization-source-contract.yaml"
       - "00_orchestrator/visualization-architecture.md"
       - "00_orchestrator/scripts/gen_visualization.py"
@@ -47,7 +49,7 @@ permissions:
 
 jobs:
   ir-and-docs:
-    name: IR and docs check
+    name: IR, render, and docs check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -61,34 +63,15 @@ jobs:
       - name: Install PyYAML
         run: python -m pip install --disable-pip-version-check "pyyaml==6.0.2"
 
-      - name: Check generated IR and docs against sources
+      - name: Show the runner Node used by the pinned renderer
+        run: node --version
+
+      - name: Check IR, docs, and pinned Archify render
         run: python3 00_orchestrator/scripts/gen_visualization.py --check
 
-      - name: Record offline policy
+      - name: Record offline fail-closed policy
         run: |
           echo "auto_update is false."
+          echo "Fail closed: --check does not write docs/."
+          echo "Render uses 00_orchestrator/archify-v3.0.1.zip."
           echo "This job does not download tt-a1i/archify."
-          echo "--check does not write docs/. A shape failure keeps last-good files."
-
-  archify-render:
-    name: Archify render gate
-    runs-on: ubuntu-latest
-    needs: ir-and-docs
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Fail closed without a pinned local Archify
-        run: |
-          set -eu
-          echo "Expected package is recorded in 00_orchestrator/archify-version.yaml."
-          echo "auto_update is false. This step does not download Archify and does not install a package."
-          echo "GitHub Pages publish is not part of this workflow."
-          if [ -n "${ARCHIFY_BIN:-}" ] && [ -x "${ARCHIFY_BIN}" ]; then
-            echo "A local ARCHIFY_BIN is present. Rendering stays off until a human turns publish on."
-            echo "Refusing to write docs/."
-            exit 1
-          fi
-          echo "No pinned Archify binary on the runner."
-          echo "Fail closed: do not render, do not overwrite last-good HTML, do not publish GitHub Pages."
-          exit 1

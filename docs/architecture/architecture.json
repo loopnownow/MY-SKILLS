@@ -9,56 +9,88 @@
   },
   "layout": {
     "mode": "grid",
-    "cols": 3
+    "cols": 3,
+    "origin": [
+      48,
+      88
+    ],
+    "gapX": 140,
+    "gapY": 100,
+    "cellW": 200,
+    "cellH": 72
   },
   "components": [
     {
       "id": "c00",
       "type": "security",
-      "label": "00 Control / QC",
-      "sublabel": "entry, gate, recovery",
+      "label": "00 Control",
+      "sublabel": "gate and QC",
       "row": 0,
-      "col": 0
+      "col": 0,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c01",
       "type": "backend",
-      "label": "01 Discovery / Registry",
-      "sublabel": "version and mount index",
+      "label": "01 Registry",
+      "sublabel": "mount index",
       "row": 0,
-      "col": 1
+      "col": 1,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "mounts",
       "type": "external",
-      "label": "External mounts",
-      "sublabel": "registry pointers; not architecture facts",
+      "label": "Mounts",
+      "sublabel": "registry pointers",
       "row": 0,
-      "col": 2
+      "col": 2,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c02",
       "type": "backend",
       "label": "02 Data",
-      "sublabel": "analysis-ready data",
+      "sublabel": "analysis-ready",
       "row": 1,
-      "col": 0
+      "col": 0,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c03",
       "type": "backend",
       "label": "03 Literature",
-      "sublabel": "literature and citation-verify",
+      "sublabel": "citation-verify",
       "row": 1,
-      "col": 1
+      "col": 1,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c04",
       "type": "backend",
       "label": "04 Statistics",
-      "sublabel": "statistics and figures",
+      "sublabel": "stats and figures",
       "row": 1,
-      "col": 2
+      "col": 2,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c05",
@@ -66,23 +98,35 @@
       "label": "05 Writing",
       "sublabel": "manuscript",
       "row": 2,
-      "col": 0
+      "col": 0,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "c06",
       "type": "backend",
       "label": "06 Review",
-      "sublabel": "review and response",
+      "sublabel": "review",
       "row": 2,
-      "col": 1
+      "col": 1,
+      "size": [
+        188,
+        64
+      ]
     },
     {
       "id": "harvest",
       "type": "backend",
       "label": "skill-harvest",
-      "sublabel": "proposals only; not a domain layer",
+      "sublabel": "proposals",
       "row": 2,
-      "col": 2
+      "col": 2,
+      "size": [
+        188,
+        64
+      ]
     }
   ],
   "boundaries": [
@@ -113,13 +157,13 @@
       "id": "need-mount",
       "from": "c00",
       "to": "c01",
-      "label": "session mount when fine ids are missing"
+      "label": "mount if needed"
     },
     {
       "id": "index-mounts",
       "from": "c01",
       "to": "mounts",
-      "label": "registry pointers only"
+      "label": "pointers"
     },
     {
       "id": "dispatch-02",
@@ -155,38 +199,40 @@
       "id": "handoff-04",
       "from": "c02",
       "to": "c04",
-      "label": "analysis-ready handoff"
+      "label": "handoff"
     },
     {
       "id": "results-05",
       "from": "c04",
       "to": "c05",
-      "label": "results into writing"
+      "label": "results"
     },
     {
       "id": "lit05",
       "from": "c03",
       "to": "c05",
-      "label": "Lit05 citation-verify"
+      "label": "Lit05"
     },
     {
       "id": "lit06",
       "from": "c03",
       "to": "c06",
-      "label": "Lit06 citation-verify"
+      "label": "Lit06",
+      "labelDy": 24
     },
     {
       "id": "manuscript-06",
       "from": "c05",
       "to": "c06",
-      "label": "manuscript into review"
+      "label": "manuscript"
     },
     {
       "id": "propose",
       "from": "harvest",
       "to": "c01",
-      "label": "evolution proposal",
-      "variant": "dashed"
+      "label": "proposal",
+      "variant": "dashed",
+      "labelDy": 21
     }
   ]
 }

@@ -23,8 +23,10 @@ import html
 import json
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 import yaml
@@ -289,17 +291,21 @@ def check_version(record: dict, contract: dict) -> None:
         raise GateFailure("G-VIZ-01", "contract does not forbid OpenClaw as a default atomic mount")
 
 
+def _box(row: int, col: int) -> dict:
+    return {"row": row, "col": col, "size": [188, 64]}
+
+
 def architecture_ir() -> dict:
     components = [
-        {"id": "c00", "type": "security", "label": "00 Control / QC", "sublabel": "entry, gate, recovery", "row": 0, "col": 0},
-        {"id": "c01", "type": "backend", "label": "01 Discovery / Registry", "sublabel": "version and mount index", "row": 0, "col": 1},
-        {"id": "mounts", "type": "external", "label": "External mounts", "sublabel": "registry pointers; not architecture facts", "row": 0, "col": 2},
-        {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready data", "row": 1, "col": 0},
-        {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "literature and citation-verify", "row": 1, "col": 1},
-        {"id": "c04", "type": "backend", "label": "04 Statistics", "sublabel": "statistics and figures", "row": 1, "col": 2},
-        {"id": "c05", "type": "backend", "label": "05 Writing", "sublabel": "manuscript", "row": 2, "col": 0},
-        {"id": "c06", "type": "backend", "label": "06 Review", "sublabel": "review and response", "row": 2, "col": 1},
-        {"id": "harvest", "type": "backend", "label": "skill-harvest", "sublabel": "proposals only; not a domain layer", "row": 2, "col": 2},
+        {"id": "c00", "type": "security", "label": "00 Control", "sublabel": "gate and QC", **_box(0, 0)},
+        {"id": "c01", "type": "backend", "label": "01 Registry", "sublabel": "mount index", **_box(0, 1)},
+        {"id": "mounts", "type": "external", "label": "Mounts", "sublabel": "registry pointers", **_box(0, 2)},
+        {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready", **_box(1, 0)},
+        {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "citation-verify", **_box(1, 1)},
+        {"id": "c04", "type": "backend", "label": "04 Statistics", "sublabel": "stats and figures", **_box(1, 2)},
+        {"id": "c05", "type": "backend", "label": "05 Writing", "sublabel": "manuscript", **_box(2, 0)},
+        {"id": "c06", "type": "backend", "label": "06 Review", "sublabel": "review", **_box(2, 1)},
+        {"id": "harvest", "type": "backend", "label": "skill-harvest", "sublabel": "proposals", **_box(2, 2)},
     ]
     return {
         "schema_version": 1,
@@ -310,7 +316,15 @@ def architecture_ir() -> dict:
             "locale": "zh-CN",
             "output": "docs/architecture/index.html",
         },
-        "layout": {"mode": "grid", "cols": 3},
+        "layout": {
+            "mode": "grid",
+            "cols": 3,
+            "origin": [48, 88],
+            "gapX": 140,
+            "gapY": 100,
+            "cellW": 200,
+            "cellH": 72,
+        },
         "components": components,
         "boundaries": [
             {
@@ -325,19 +339,19 @@ def architecture_ir() -> dict:
             },
         ],
         "connections": [
-            {"id": "need-mount", "from": "c00", "to": "c01", "label": "session mount when fine ids are missing"},
-            {"id": "index-mounts", "from": "c01", "to": "mounts", "label": "registry pointers only"},
+            {"id": "need-mount", "from": "c00", "to": "c01", "label": "mount if needed"},
+            {"id": "index-mounts", "from": "c01", "to": "mounts", "label": "pointers"},
             {"id": "dispatch-02", "from": "c00", "to": "c02", "label": "dispatch"},
             {"id": "dispatch-03", "from": "c00", "to": "c03", "label": "dispatch"},
             {"id": "dispatch-04", "from": "c00", "to": "c04", "label": "dispatch"},
             {"id": "dispatch-05", "from": "c00", "to": "c05", "label": "dispatch"},
             {"id": "dispatch-06", "from": "c00", "to": "c06", "label": "dispatch"},
-            {"id": "handoff-04", "from": "c02", "to": "c04", "label": "analysis-ready handoff"},
-            {"id": "results-05", "from": "c04", "to": "c05", "label": "results into writing"},
-            {"id": "lit05", "from": "c03", "to": "c05", "label": "Lit05 citation-verify"},
-            {"id": "lit06", "from": "c03", "to": "c06", "label": "Lit06 citation-verify"},
-            {"id": "manuscript-06", "from": "c05", "to": "c06", "label": "manuscript into review"},
-            {"id": "propose", "from": "harvest", "to": "c01", "label": "evolution proposal", "variant": "dashed"},
+            {"id": "handoff-04", "from": "c02", "to": "c04", "label": "handoff"},
+            {"id": "results-05", "from": "c04", "to": "c05", "label": "results"},
+            {"id": "lit05", "from": "c03", "to": "c05", "label": "Lit05"},
+            {"id": "lit06", "from": "c03", "to": "c06", "label": "Lit06", "labelDy": 24},
+            {"id": "manuscript-06", "from": "c05", "to": "c06", "label": "manuscript"},
+            {"id": "propose", "from": "harvest", "to": "c01", "label": "proposal", "variant": "dashed", "labelDy": 21},
         ],
     }
 
@@ -350,24 +364,37 @@ def workflow_ir() -> dict:
         {"id": "literature", "label": "03 literature"},
         {"id": "qc", "label": "QC loop", "variant": "exception"},
     ]
+
+    def node(node_id: str, lane: str, col: int, kind: str, label: str, sublabel: str) -> dict:
+        return {
+            "id": node_id,
+            "lane": lane,
+            "col": col,
+            "type": kind,
+            "label": label,
+            "sublabel": sublabel,
+            "width": 176,
+            "height": 64,
+        }
+
     nodes = [
-        {"id": "task", "lane": "control", "col": 0, "type": "external", "label": "Task", "sublabel": "entry"},
-        {"id": "detect", "lane": "control", "col": 1, "type": "security", "label": "00 Detect / Gate", "sublabel": "intent and entry"},
-        {"id": "single", "lane": "control", "col": 4, "type": "backend", "label": "Single-domain skill", "sublabel": "named one-domain entry"},
-        {"id": "done", "lane": "control", "col": 5, "type": "backend", "label": "stage done", "sublabel": "terminal PASS"},
-        {"id": "mountcheck", "lane": "mount", "col": 1, "type": "security", "label": "mounted_fine_ids", "sublabel": "coverage check"},
-        {"id": "s01", "lane": "mount", "col": 2, "type": "backend", "label": "01 Mount", "sublabel": "session mount"},
-        {"id": "dispatch", "lane": "mount", "col": 3, "type": "backend", "label": "Dispatch", "sublabel": "after G0 or already covered"},
-        {"id": "p02", "lane": "produce", "col": 2, "type": "backend", "label": "02 Data", "sublabel": "processing"},
-        {"id": "p04", "lane": "produce", "col": 3, "type": "backend", "label": "04 Statistics", "sublabel": "stats and figures"},
-        {"id": "p05", "lane": "produce", "col": 4, "type": "backend", "label": "05 Writing", "sublabel": "manuscript"},
-        {"id": "p06", "lane": "produce", "col": 5, "type": "backend", "label": "06 Review", "sublabel": "review and response"},
-        {"id": "p03", "lane": "literature", "col": 2, "type": "backend", "label": "03 Literature", "sublabel": "independent entry or evidence"},
-        {"id": "lit05", "lane": "literature", "col": 4, "type": "security", "label": "Lit05 citation-verify", "sublabel": "before Gate 05"},
-        {"id": "lit06", "lane": "literature", "col": 5, "type": "security", "label": "Lit06 citation-verify", "sublabel": "inside 06"},
-        {"id": "locate", "lane": "qc", "col": 3, "type": "security", "label": "Locate failure", "sublabel": "smallest responsible node"},
-        {"id": "rework", "lane": "qc", "col": 4, "type": "security", "label": "Local or rollback", "sublabel": "affected chain only"},
-        {"id": "escalate", "lane": "qc", "col": 5, "type": "security", "label": "unresolved", "sublabel": "budget exhausted"},
+        node("task", "control", 0, "external", "Task", "entry"),
+        node("detect", "control", 1, "security", "00 Detect", "gate"),
+        node("single", "control", 4, "backend", "One domain", "named entry"),
+        node("done", "control", 5, "backend", "Done", "terminal PASS"),
+        node("mountcheck", "mount", 1, "security", "Fine ids", "coverage"),
+        node("s01", "mount", 3, "backend", "01 Mount", "session"),
+        node("dispatch", "mount", 2, "backend", "Dispatch", "after G0"),
+        node("p02", "produce", 2, "backend", "02 Data", "processing"),
+        node("p04", "produce", 3, "backend", "04 Statistics", "figures"),
+        node("p05", "produce", 4, "backend", "05 Writing", "manuscript"),
+        node("p06", "produce", 5, "backend", "06 Review", "response"),
+        node("p03", "literature", 2, "backend", "03 Literature", "evidence"),
+        node("lit05", "literature", 4, "security", "Lit05", "before Gate 05"),
+        node("lit06", "literature", 5, "security", "Lit06", "inside 06"),
+        node("locate", "qc", 1, "security", "Locate", "failed node"),
+        node("rework", "qc", 3, "security", "Rework", "local or rollback"),
+        node("escalate", "qc", 5, "security", "Unresolved", "budget spent"),
     ]
     edges = [
         {"id": "e-task-detect", "from": "task", "to": "detect", "label": "task enters", "role": "main"},
@@ -417,9 +444,9 @@ def workflow_ir() -> dict:
         },
         "lanes": lanes,
         "phases": [
-            {"id": "intake", "label": "Detect", "fromCol": 0, "toCol": 1},
-            {"id": "session", "label": "Mount", "fromCol": 1, "toCol": 3},
-            {"id": "domains", "label": "02-06", "fromCol": 2, "toCol": 5},
+            {"id": "intake", "label": "Detect", "fromCol": 0, "toCol": 0},
+            {"id": "session", "label": "Mount", "fromCol": 1, "toCol": 2},
+            {"id": "domains", "label": "02-06", "fromCol": 3, "toCol": 5},
         ],
         "groups": [
             {"id": "forward", "label": "PASS forward", "lane": "produce", "fromCol": 2, "toCol": 5},
@@ -603,7 +630,7 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
 <!-- archify_version: {esc(version)} -->
 <!-- source_fingerprint: {esc(digest)} -->
 <!-- build_status: ir-shape-checked -->
-<!-- archify-render: not-run -->
+<!-- archify-render: diagrams -->
 <!-- github_pages: not-published -->
 <header>
   <h1>{esc(title)}</h1>
@@ -611,7 +638,7 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
   <nav>{nav}</nav>
 </header>
 <main>
-  <p class="banner">生成时间 @@GENERATED_AT@@。Archify {esc(version)}。构建状态 ir-shape-checked。Archify 渲染未执行。GitHub Pages 未发布。事实源是 MY-SKILLS，不是本页。</p>
+  <p class="banner">生成时间 @@GENERATED_AT@@。Archify {esc(version)} 渲染 Architecture 与 Workflow 图。构建状态 ir-shape-checked。GitHub Pages 未发布。事实源是 MY-SKILLS，不是本页。</p>
   {body}
 </main>
 <footer>
@@ -920,22 +947,22 @@ def build() -> dict:
     comp_rows = [(c["id"], c["label"]) for c in arch["components"]]
     node_rows = [(n["id"], n["label"]) for n in wf["nodes"]]
     arch_extra = (
-        "<p>本页是 IR 状态页，不是 Archify 画出的架构图。IR 文件是 "
-        "<a href=\"architecture.json\"><code>architecture.json</code></a>。"
+        "<p>图在 <a href=\"index.html\">index.html</a>，由固定的 Archify 包渲染。本页只列 IR。"
+        " IR 文件是 <a href=\"architecture.json\"><code>architecture.json</code></a>。"
         f" schema_version {arch['schema_version']}。字段 components / boundaries / connections。</p>"
     )
     wf_extra = (
-        "<p>本页是 IR 状态页，不是 Archify 画出的流程图。IR 文件是 "
-        "<a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>。"
+        "<p>图在 <a href=\"index.html\">index.html</a>，由固定的 Archify 包渲染。本页只列 IR。"
+        " IR 文件是 <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>。"
         f" schema_version {wf['schema_version']}。字段 lanes / phases / groups / mainPath / nodes / edges。"
         " 03、Lit05、Lit06 与 mid-entry 在节点和边上。</p>"
     )
     home_body = (
         "<div class=\"grid\">"
-        "<section class=\"card\"><h2>Architecture</h2><p>系统组成与边界。状态页链接到 IR。</p>"
-        "<p><a href=\"architecture/index.html\">打开 Architecture 状态</a></p></section>"
+        "<section class=\"card\"><h2>Architecture</h2><p>系统组成与边界。</p>"
+        "<p><a href=\"architecture/index.html\">打开 Architecture 图</a></p></section>"
         "<section class=\"card\"><h2>Workflow</h2><p>任务如何运行，含中途入口、Lit05、Lit06 与 QC 环。</p>"
-        "<p><a href=\"workflow/index.html\">打开 Workflow 状态</a></p></section>"
+        "<p><a href=\"workflow/index.html\">打开 Workflow 图</a></p></section>"
         "<section class=\"card\"><h2>Mounts</h2>"
         f"<p>默认原子挂载源 <code>{esc(reg['default_source']['id'])}</code>。"
         "OpenClaw is not a default atomic mount source.</p>"
@@ -949,7 +976,7 @@ def build() -> dict:
         "<dt>update_policy</dt><dd>check</dd>"
         "<dt>schema_version</dt><dd>architecture 1 · workflow 2</dd>"
         "<dt>build_status</dt><dd>ir-shape-checked</dd>"
-        "<dt>archify_render</dt><dd>not-run</dd>"
+        "<dt>archify_render</dt><dd>rendered</dd>"
         "<dt>github_pages</dt><dd>not-published</dd>"
         f"<dt>fingerprint</dt><dd><code>{esc(digest)}</code></dd>"
         "</dl>"
@@ -978,7 +1005,8 @@ def build() -> dict:
         },
         "schema_version": {"architecture": 1, "workflow": 2},
         "build_status": "ir-shape-checked",
-        "archify_render": "not-run",
+        "archify_render": "rendered",
+        "archify_package_sha256": (record.get("package") or {}).get("sha256"),
         "github_pages": "not-published",
         "source_fingerprint": digest,
         "sources": [path.relative_to(ROOT).as_posix() for path in source_paths()],
@@ -988,7 +1016,7 @@ def build() -> dict:
         "docs/architecture/architecture.json": dump_json(arch),
         "docs/workflow/runtime.workflow.json": dump_json(wf),
         "docs/index.html": shell("MY-SKILLS", home_body, version, digest, nav_for(**home_links)),
-        "docs/architecture/index.html": render_status(
+        "docs/architecture/status.html": render_status(
             "Architecture IR status",
             "Stable system components from ARCHITECTURE.md and the 00-06 directories.",
             comp_rows,
@@ -997,7 +1025,7 @@ def build() -> dict:
             digest,
             root_links,
         ),
-        "docs/workflow/index.html": render_status(
+        "docs/workflow/status.html": render_status(
             "Workflow IR status",
             "Structural mapping of runtime-flow.mmd, including mid-entry, Lit05, and Lit06.",
             node_rows,
@@ -1027,7 +1055,78 @@ def build() -> dict:
         ),
     }
     files.update(render_skills(skills, version, digest))
-    return {"files": files, "architecture": arch, "workflow": wf, "version": version, "fingerprint": digest}
+    return {
+        "files": files,
+        "architecture": arch,
+        "workflow": wf,
+        "version": version,
+        "fingerprint": digest,
+        "record": record,
+    }
+
+
+PINNED_DIAGRAMS = (
+    ("docs/architecture/index.html", "architecture", "docs/architecture/architecture.json"),
+    ("docs/workflow/index.html", "workflow", "docs/workflow/runtime.workflow.json"),
+)
+
+
+def render_pinned_archify(record: dict, files: dict[str, str]) -> dict[str, str]:
+    """Render IR with the vendored Archify zip. Writes only under temp dirs."""
+    package = record.get("package") or {}
+    rel = package.get("file")
+    expected = package.get("sha256")
+    if not rel or not expected:
+        raise GateFailure("G-VIZ-02", "archify-version.yaml is missing package.file or package.sha256")
+    zip_path = ROOT / rel
+    if not zip_path.is_file():
+        raise GateFailure("G-VIZ-02", f"pinned Archify zip missing: {rel}")
+    digest = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+    if digest != expected:
+        raise GateFailure("G-VIZ-02", "pinned Archify zip sha256 does not match archify-version.yaml")
+    if shutil.which("node") is None:
+        raise GateFailure("G-VIZ-04", "node is required to run the pinned Archify renderer")
+    staging = Path(tempfile.mkdtemp(prefix="archify-pin-"))
+    work = Path(tempfile.mkdtemp(prefix="archify-render-"))
+    try:
+        with zipfile.ZipFile(zip_path) as archive:
+            for info in archive.infolist():
+                parts = Path(info.filename).parts
+                if info.filename.startswith("/") or ".." in parts:
+                    raise GateFailure("G-VIZ-02", "pinned Archify zip has an unsafe path")
+            archive.extractall(staging)
+        cli = staging / "archify" / "bin" / "archify.mjs"
+        package_json = staging / "archify" / "package.json"
+        if not cli.is_file() or not package_json.is_file():
+            raise GateFailure("G-VIZ-02", "pinned zip is missing bin/archify.mjs or package.json")
+        pinned = json.loads(package_json.read_text(encoding="utf-8"))
+        if pinned.get("version") != record.get("expected_version"):
+            raise GateFailure(
+                "G-VIZ-02",
+                f"zip package version {pinned.get('version')} != expected_version {record.get('expected_version')}",
+            )
+        rendered: dict[str, str] = {}
+        for html_rel, kind, json_rel in PINNED_DIAGRAMS:
+            source = work / f"{kind}.json"
+            dest = work / f"{kind}.html"
+            source.write_text(files[json_rel], encoding="utf-8")
+            proc = subprocess.run(
+                ["node", str(cli), "render", kind, str(source), str(dest), "--quality", "standard"],
+                capture_output=True,
+                text=True,
+            )
+            if proc.returncode != 0 or not dest.is_file():
+                detail = (proc.stderr or proc.stdout or "").strip()
+                raise GateFailure("G-VIZ-04", f"{kind} render failed; last-good HTML kept\n{detail}")
+            text = dest.read_text(encoding="utf-8")
+            marker = f'content="archify {record["expected_version"]}"'
+            if marker not in text or "<svg" not in text:
+                raise GateFailure("G-VIZ-04", f"{kind} output is not Archify HTML; last-good HTML kept")
+            rendered[html_rel] = text
+        return rendered
+    finally:
+        shutil.rmtree(staging, ignore_errors=True)
+        shutil.rmtree(work, ignore_errors=True)
 
 
 def publish(files: dict[str, str]) -> None:
@@ -1129,17 +1228,19 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     try:
         built = build()
+        if args.delta_against:
+            return emit_delta(built, args.delta_against, args.delta_out)
+        diagrams = render_pinned_archify(built["record"], built["files"])
     except GateFailure as exc:
         print(exc, file=sys.stderr)
         return 1
-    if args.delta_against:
-        return emit_delta(built, args.delta_against, args.delta_out)
     when = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     files = {rel: text.replace("@@GENERATED_AT@@", when) for rel, text in built["files"].items()}
+    files.update(diagrams)
     if args.check:
         return check(files)
     publish(files)
-    print(f"Wrote {len(files)} visualization files. Archify render was not run.")
+    print(f"Wrote {len(files)} visualization files. Archify {built['version']} rendered the diagrams.")
     return 0
 
 

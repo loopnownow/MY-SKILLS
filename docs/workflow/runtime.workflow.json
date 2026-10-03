@@ -35,18 +35,18 @@
       "id": "intake",
       "label": "Detect",
       "fromCol": 0,
-      "toCol": 1
+      "toCol": 0
     },
     {
       "id": "session",
       "label": "Mount",
       "fromCol": 1,
-      "toCol": 3
+      "toCol": 2
     },
     {
       "id": "domains",
       "label": "02-06",
-      "fromCol": 2,
+      "fromCol": 3,
       "toCol": 5
     }
   ],
@@ -147,55 +147,69 @@
       "col": 0,
       "type": "external",
       "label": "Task",
-      "sublabel": "entry"
+      "sublabel": "entry",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "detect",
       "lane": "control",
       "col": 1,
       "type": "security",
-      "label": "00 Detect / Gate",
-      "sublabel": "intent and entry"
+      "label": "00 Detect",
+      "sublabel": "gate",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "single",
       "lane": "control",
       "col": 4,
       "type": "backend",
-      "label": "Single-domain skill",
-      "sublabel": "named one-domain entry"
+      "label": "One domain",
+      "sublabel": "named entry",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "done",
       "lane": "control",
       "col": 5,
       "type": "backend",
-      "label": "stage done",
-      "sublabel": "terminal PASS"
+      "label": "Done",
+      "sublabel": "terminal PASS",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "mountcheck",
       "lane": "mount",
       "col": 1,
       "type": "security",
-      "label": "mounted_fine_ids",
-      "sublabel": "coverage check"
+      "label": "Fine ids",
+      "sublabel": "coverage",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "s01",
       "lane": "mount",
-      "col": 2,
+      "col": 3,
       "type": "backend",
       "label": "01 Mount",
-      "sublabel": "session mount"
+      "sublabel": "session",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "dispatch",
       "lane": "mount",
-      "col": 3,
+      "col": 2,
       "type": "backend",
       "label": "Dispatch",
-      "sublabel": "after G0 or already covered"
+      "sublabel": "after G0",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "p02",
@@ -203,7 +217,9 @@
       "col": 2,
       "type": "backend",
       "label": "02 Data",
-      "sublabel": "processing"
+      "sublabel": "processing",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "p04",
@@ -211,7 +227,9 @@
       "col": 3,
       "type": "backend",
       "label": "04 Statistics",
-      "sublabel": "stats and figures"
+      "sublabel": "figures",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "p05",
@@ -219,7 +237,9 @@
       "col": 4,
       "type": "backend",
       "label": "05 Writing",
-      "sublabel": "manuscript"
+      "sublabel": "manuscript",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "p06",
@@ -227,7 +247,9 @@
       "col": 5,
       "type": "backend",
       "label": "06 Review",
-      "sublabel": "review and response"
+      "sublabel": "response",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "p03",
@@ -235,47 +257,59 @@
       "col": 2,
       "type": "backend",
       "label": "03 Literature",
-      "sublabel": "independent entry or evidence"
+      "sublabel": "evidence",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "lit05",
       "lane": "literature",
       "col": 4,
       "type": "security",
-      "label": "Lit05 citation-verify",
-      "sublabel": "before Gate 05"
+      "label": "Lit05",
+      "sublabel": "before Gate 05",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "lit06",
       "lane": "literature",
       "col": 5,
       "type": "security",
-      "label": "Lit06 citation-verify",
-      "sublabel": "inside 06"
+      "label": "Lit06",
+      "sublabel": "inside 06",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "locate",
       "lane": "qc",
-      "col": 3,
+      "col": 1,
       "type": "security",
-      "label": "Locate failure",
-      "sublabel": "smallest responsible node"
+      "label": "Locate",
+      "sublabel": "failed node",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "rework",
       "lane": "qc",
-      "col": 4,
+      "col": 3,
       "type": "security",
-      "label": "Local or rollback",
-      "sublabel": "affected chain only"
+      "label": "Rework",
+      "sublabel": "local or rollback",
+      "width": 176,
+      "height": 64
     },
     {
       "id": "escalate",
       "lane": "qc",
       "col": 5,
       "type": "security",
-      "label": "unresolved",
-      "sublabel": "budget exhausted"
+      "label": "Unresolved",
+      "sublabel": "budget spent",
+      "width": 176,
+      "height": 64
     }
   ],
   "edges": [

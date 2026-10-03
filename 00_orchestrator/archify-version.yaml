@@ -41,9 +41,20 @@ schema_pins:
       schema_version 1 is the fixed-layout compatibility contract.
       This repository has no legacy workflow geometry to preserve.
     fields: [lanes, phases, groups, mainPath, nodes, edges]
+package:
+  file: 00_orchestrator/archify-v3.0.1.zip
+  sha256: b0b23bd28db314f04ca8ab9620fe20f8c1ac6474a3546bd8fe4679508aa1b7f5
+  bytes: 2157085
+  release_asset: https://github.com/tt-a1i/archify/releases/download/v3.0.1/archify.zip
+  note: >
+    Official v3.0.1 release zip (package.json version 3.0.1). The renderer
+    and its schema stay inside this zip. MY-SKILLS does not extract the
+    schema into the repo as a second contract.
 check_policy: >
-  Build and CI do not download Archify and do not install latest.
-  A separate human-triggered check may compare expected_version with the
-  GitHub releases list. A mismatch fails that check and does not change
-  this record. Upgrade path: 01 lifecycle check, human confirmation,
-  edit this file, then rebuild IR.
+  Build and CI unzip this pinned zip and run its bin/archify.mjs.
+  They do not download Archify and do not install latest.
+  A render or schema failure exits before replacing docs, so last-good
+  HTML stays. A separate human-triggered check may compare expected_version
+  with the GitHub releases list. A mismatch fails that check and does not
+  change this record. Upgrade path: 01 lifecycle check, human confirmation,
+  replace this zip and its sha256, then rebuild.
