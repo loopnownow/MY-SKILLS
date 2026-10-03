@@ -55,7 +55,8 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
   Breslow; `DO_COX` default **False**). Not multivariate; not lifelines. C-index /
   time-dependent ROC / competing risks are journal-grade, not lab defaults.
 - Planning: **sample size** for accuracy / AUC; **EPV** and **Riley** minimum sample size
-  for prediction models.
+  for prediction models. Retrospective fixed N uses one of the four approaches in
+  sample-size.md; never observed power from the obtained p.
 - Clinical selection: non-empty `FORCE_MODEL_FEATURES` wins. Empty list uses candidate-pool multivariate p < `ROC_MV_P_THRESHOLD` (confirmed 2026-09-22). AIC stepwise is report-only.
 
 ## When to open extra files
@@ -68,7 +69,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 | [agreement-mrmc.md](agreement-mrmc.md) | Cohen/weighted/Fleiss kappa, ICC(A,1) lab filter, Bland-Altman, MRMC (Obuchowski-Rockette / DBM) |
 | [high-dimensional-omics.md](high-dimensional-omics.md) | Multiple testing, train-only LASSO (not nested CV), leakage, ICC filter |
 | [survival-prognostic.md](survival-prognostic.md) | Kaplan-Meier, optional univariable Cox (PHReg), Schoenfeld; what is not implemented |
-| [sample-size.md](sample-size.md) | Sample-size for sensitivity/specificity/AUC; EPV; Riley minimum sample size for prediction models |
+| [sample-size.md](sample-size.md) | Sample size for sensitivity/specificity/AUC; EPV 10–15 and Riley; retrospective fixed N (no observed power) |
 | [stats-consistency.md](stats-consistency.md) | Reported-number conflicts: statistic vs threshold, correlation implied *n*, multiplicity, relative denominator, circular *P*, inclusion vs scale. Annotate; do not invent the number |
 
 ## Workflow

@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261003-003 — Retrospective fixed-N sample size (no observed power)
+date: 2026-10-03
+skill: 04_analysis/personal/sample-size.md; 04_analysis/personal/MODULE.md; INTEGRATION_MAP.md; VERSION.txt
+problem: The 04 sample-size note (calc-sample-size / Loopnow) did not say what to do when a retrospective N is already fixed, so post-hoc power from the obtained p could still be written.
+change: Record the ban (Hoenig & Heisey 2001 only) and four approaches — pre-study power, EPV 10–15 / Riley `pmsampsize`, MDES at 80% power, precision from CI half-width — plus Methods naming, reviewer refusal, Limitations as type II error, and 10–20% drop-out only as a planned exclusion. No new skill, no fine-id move, no vendored code, no invented manuscript numbers.
+decision: keep
+next_action: after merge, sync changed files only into ~\.grok\skills.
+
 ## CHG-20261003-002 — Lab-STE into skills (pointer + reusable rules)
 date: 2026-10-03
 skill: 05_manuscript/personal/lab-ste.md (new); 05_manuscript/SKILL.md; 05_manuscript/personal/de-ai.md; 06_review/personal/review-comment-habits.md; 06_review/SKILL.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
