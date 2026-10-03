@@ -84,7 +84,7 @@ After that plan is approved, later crossings in the **same run** are one line: f
 
 ### Decision nodes (one at a time)
 
-After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` allowed. Do not skip N2.
+After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` allowed. N2 (PHI) applies before 02 tables or clinical extraction.
 
 | Node | When | Options |
 |---|---|---|
@@ -93,7 +93,7 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 | N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
 
-Never `--e2e`. Never skip the mount decision or N2. Reuse the session lock when it already covers the task.
+Never `--e2e`. MountQ reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
 

@@ -18,6 +18,7 @@ The scanner checks:
 9. Harvest-QC governance scaffold and anti-auto-modification guard.
 10. Existing deterministic unit tests unless `--no-tests` is supplied.
 11. Stale fine ids: backtick tokens shaped like retired `NN-…` ids must be a canonical registry id or a mapped alias in `01_skill-discovery-integration/legacy_aliases.yaml` (shared with runtime `resolve_alias`). Workflows must use the canonical id. Historical changelog lines are skipped.
+12. Generated artifacts: `GENERATED_CHECKS` in `repo_qc.py` runs each generator `--check` (stamp when the spec has one). Current rows: `gen_repo_map.py` → `00_orchestrator/repo-map.html`, and `gen_mounted_skills.py` → `01_skill-discovery-integration/MOUNTED_SKILLS.md`. Mount chain: `registry.yaml` → `gen_mounted_skills.py` → `MOUNTED_SKILLS.md` → `repo_qc.py`.
 
 ## Usage
 

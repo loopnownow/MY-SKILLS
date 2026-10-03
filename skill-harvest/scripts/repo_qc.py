@@ -405,15 +405,43 @@ def mounted_path_problems(root: Path) -> list:
     return problems
 
 
-def repo_map_problems(root: Path) -> list:
-    html_path = root / "00_orchestrator" / "repo-map.html"
-    if not html_path.is_file():
-        return ["repo-map.html missing"]
-    text = html_path.read_text(encoding="utf-8", errors="ignore")
+# Generated artifacts. Add a row to cover another generator --check.
+# Chain for the mount table: registry.yaml → gen_mounted_skills.py → MOUNTED_SKILLS.md → repo_qc.
+GENERATED_CHECKS = (
+    {
+        "check": "repo-map-generated",
+        "script": Path("00_orchestrator/scripts/gen_repo_map.py"),
+        "output": Path("00_orchestrator/repo-map.html"),
+        "stamp_re": re.compile(r"Generated \d{4}-\d{2}-\d{2} \d{2}:\d{2}\b"),
+        "pass_detail": "repo-map.html has a generated timestamp and gen_repo_map.py --check passed",
+    },
+    {
+        "check": "mounted-skills-generated",
+        "script": Path("01_skill-discovery-integration/scripts/gen_mounted_skills.py"),
+        "output": Path("01_skill-discovery-integration/MOUNTED_SKILLS.md"),
+        "stamp_re": re.compile(r"\*\*generated\*\* by `scripts/gen_mounted_skills\.py`"),
+        "pass_detail": "MOUNTED_SKILLS.md matches gen_mounted_skills.py --check",
+    },
+)
+
+
+def generated_consistency_problems(root: Path, spec: dict) -> list:
+    """One generator --check plus an optional on-disk stamp. Shared by every generated artifact."""
+    rel_out = spec["output"]
+    rel_script = spec["script"]
+    output = root / rel_out
+    if not output.is_file():
+        return [f"{rel_out.as_posix()} missing"]
     problems = []
-    if not re.search(r"Generated \d{4}-\d{2}-\d{2} \d{2}:\d{2}\b", text):
-        problems.append("repo-map.html has no generated timestamp")
-    script = root / "00_orchestrator" / "scripts" / "gen_repo_map.py"
+    stamp = spec.get("stamp_re")
+    if stamp is not None:
+        text = output.read_text(encoding="utf-8", errors="ignore")
+        if not stamp.search(text):
+            problems.append(f"{rel_out.as_posix()} has no generated stamp")
+    script = root / rel_script
+    if not script.is_file():
+        problems.append(f"{rel_script.as_posix()} missing")
+        return problems
     proc = subprocess.run(
         [sys.executable, str(script), "--check"],
         cwd=root,
@@ -423,9 +451,24 @@ def repo_map_problems(root: Path) -> list:
         check=False,
     )
     if proc.returncode != 0:
-        detail = (proc.stdout or "gen_repo_map.py --check failed").strip()
+        detail = (proc.stdout or f"{rel_script.name} --check failed").strip()
         problems.append(detail)
     return problems
+
+
+def check_generated_artifacts(root: Path, out: list) -> None:
+    for spec in GENERATED_CHECKS:
+        bad = generated_consistency_problems(root, spec)
+        out.append((
+            "FAIL" if bad else "PASS",
+            spec["check"],
+            f"{bad}" if bad else spec["pass_detail"],
+        ))
+
+
+def repo_map_problems(root: Path) -> list:
+    spec = next(item for item in GENERATED_CHECKS if item["check"] == "repo-map-generated")
+    return generated_consistency_problems(root, spec)
 
 
 def mermaid_edges(text: str):
@@ -532,12 +575,7 @@ def check_five_fixes(root: Path, out: list):
         "mounted-path-source",
         f"MOUNTED entries missing path or source: {path_bad}" if path_bad else "every MOUNTED entry has a path and a source",
     ))
-    map_bad = repo_map_problems(root)
-    out.append((
-        "FAIL" if map_bad else "PASS",
-        "repo-map-generated",
-        f"{map_bad}" if map_bad else "repo-map.html has a generated timestamp and gen_repo_map.py --check passed",
-    ))
+    check_generated_artifacts(root, out)
     flow = (root / "00_orchestrator" / "runtime-flow.mmd").read_text(encoding="utf-8")
     route_bad = mount_route_problems(flow)
     out.append((

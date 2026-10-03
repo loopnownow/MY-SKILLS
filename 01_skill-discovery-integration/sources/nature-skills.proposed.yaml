@@ -7,6 +7,7 @@ role: backup-candidate
 repo: https://github.com/Yuan1z0825/nature-skills
 scanned: "2026-09-07"
 scan_sha: "287ee37"
+metadata_refresh: on-next-use
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
