@@ -8,8 +8,9 @@ audit ... keep dormant until the user asks"). Follows that file's hard
 rules: no CDN, semantic HTML, one accent, offline-openable, meta line
 stating what generated it and when.
 
-Data source: 01_skill-discovery-integration/registry.yaml (single source of
-truth — this script never hand-lists coarse/fine ids).
+Data source: 01_skill-discovery-integration/registry.yaml (routing index —
+this script never hand-lists coarse/fine ids). Reads live `default_source`,
+`mounts`, `coarse_ids` when present, and `proposals`.
 
 Dependency: PyYAML (`pip install pyyaml`).
 
@@ -107,7 +108,7 @@ SOP_SVG = """
   <text class="gate" x="370" y="60">G-04</text>
   <text class="gate" x="560" y="60">G-FACT / G-05</text>
   <text class="gate" x="745" y="60">G-06</text>
-  <text x="460" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11">Full project SOP · session mount pick (01) before every node · G0 checks project-state.yaml mounts each run</text>
+  <text x="460" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11">Full project SOP · reuse session_picked_fine_ids when they cover the task; else 01 · personal one-liner does not ask · G0 checks the lock</text>
   <text x="460" y="180" text-anchor="middle" fill="var(--text-dim)" font-size="10">Other entries: 06 alone (reviewer response) · 05 alone (revision) · 01 (new capability, network first)</text>
 </svg>
 """
@@ -121,10 +122,26 @@ def esc(s: str) -> str:
     return html.escape(str(s), quote=True)
 
 
+def coarse_list(reg: dict) -> list:
+    coarse = reg.get("coarse_ids") or []
+    if coarse:
+        return coarse
+    seen = []
+    known = set()
+    for m in reg.get("mounts") or []:
+        cid = m.get("coarse")
+        if cid and cid not in known:
+            known.add(cid)
+            seen.append({"id": cid, "a_domain": m.get("a_domain", "")})
+    return seen
+
+
 def render(reg: dict) -> str:
-    meta = reg["meta"]
-    coarse_ids = reg["coarse_ids"]
-    mounts = reg["mounts"]
+    meta = reg.get("meta") or {}
+    coarse_ids = coarse_list(reg)
+    mounts = reg.get("mounts") or []
+    default_source = (reg.get("default_source") or {}).get("id", "")
+    proposals = reg.get("proposals") or []
 
     sections = []
     for coarse in coarse_ids:
@@ -144,7 +161,7 @@ def render(reg: dict) -> str:
           <div class="row"><span>{esc(m['source'])}</span>
             <span class="status {status_class}">{esc(status)}</span></div>
         </div>""")
-        a_domain = coarse.get("a_domain", "")
+        a_domain = coarse.get("a_domain") or ", ".join(coarse.get("a_domains") or [])
         sections.append(f"""
       <section class="coarse">
         <h2>{esc(cid)}</h2>
@@ -153,6 +170,12 @@ def render(reg: dict) -> str:
       </section>""")
 
     now = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    n_coarse = meta.get("coarse_id_count", len(coarse_ids))
+    n_fine = meta.get("fine_id_count_canonical", len(mounts))
+    version = meta.get("version", "?")
+    proposal_line = ", ".join(
+        f"{esc(item.get('id', ''))} ({esc(item.get('status', ''))})" for item in proposals
+    ) or "none"
     return f"""<!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -164,9 +187,10 @@ def render(reg: dict) -> str:
 <body>
 <header>
   <h1>MY-SKILLS — repo map</h1>
-  <div class="meta">Generated {now} from registry.yaml v{meta['version']}
-    ({meta['coarse_id_count']} coarse · {meta['fine_id_count_canonical']} fine) —
-    read-only index, not a recommendation artifact. Regenerate with
+  <div class="meta">Generated {now} from registry.yaml v{version}
+    (generator stamp: {n_coarse} coarse · {n_fine} fine; default_source {esc(default_source)}) —
+    read-only routing index, not a recommendation artifact and not the byte source of truth.
+    Package proposals: {proposal_line}. Regenerate with
     <code>00_orchestrator/scripts/gen_repo_map.py</code> after editing registry.yaml.</div>
 </header>
 <main>
@@ -179,7 +203,7 @@ def render(reg: dict) -> str:
     aria-label="Filter skills">
   {''.join(sections)}
 </main>
-<footer>Source of truth: 01_skill-discovery-integration/registry.yaml. This page never hand-lists ids.</footer>
+<footer>Routing index: 01_skill-discovery-integration/registry.yaml. A framework SSOT is this GitHub repo; B bytes stay in the B repo; mounts-cap is a cache. This page never hand-lists ids.</footer>
 <script>{JS}</script>
 </body>
 </html>

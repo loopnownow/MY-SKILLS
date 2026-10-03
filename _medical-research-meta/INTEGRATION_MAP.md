@@ -1,6 +1,6 @@
 # Integration map — MedicalResearch Lean v6
 
-This file records the current architecture, not the historical export tree.
+This file records the current architecture, not the historical export tree. Live menu totals are not restated here; read `01_skill-discovery-integration/registry.yaml` and the generated `01_skill-discovery-integration/MOUNTED_SKILLS.md`. Dated changelog lines below may keep old counts when they are clearly historical.
 
 | Source capability | Active home |
 |---|---|

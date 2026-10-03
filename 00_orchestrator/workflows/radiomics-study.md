@@ -8,7 +8,7 @@ If `ref/project-state.yaml` is missing, copy `../templates/project-state.yaml` i
 
 ## Sequence
 
-0. **Session mount pick (`01`)** — before loading packs, ask which of the registry `MOUNTED` ids to attach **this run**. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
+0. **Session mount pick (`01`)** — every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which registry `MOUNTED` ids to attach. `PROPOSED` is not pickable. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
 1. **PHI (`N2`)** — before tables or clinical extraction. Unknown PHI → stop. Gate **G-PHI**.
 2. **Workspace (`02_data-processing`)** — folder names, `exc` first, ID align. `0rad-workspace.md`. Table batch → mounted `clean-data` when picked this run. File check: analysis-ready table exists. Handoff `02 → 04`.
 3. **Methods / prep (`02_data-processing`)** — mounted `preprocess-imaging` for ROI/QC (if picked), then mounted `radiomics-ml` for IBSI/radiomics/habitat **preparation** (if picked). Personal MATLAB: `scripts/parallel_preprocess.m`.

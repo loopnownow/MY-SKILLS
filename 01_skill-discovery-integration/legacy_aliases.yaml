@@ -1,0 +1,18 @@
+# Shared alias table. Scanner: skill-harvest/scripts/repo_qc.py
+# Docs: 01_skill-discovery-integration/SKILL.md
+# Runtime may resolve alias -> canonical. Workflows and other call sites use canonical ids only.
+# Confirmed against registry.yaml on 2026-10-03. The live fine id is the value.
+# The expected reverse map (clean-data -> 02-tables, and the other v3 names as live ids)
+# disagrees with the registry and is not applied.
+# 04-stats-models is the path unit 04-analysis/stats-models/, whose fine id is meta-analysis.
+# 04-model-eval shares 04-analysis/model-eval/ with model-validation; the alias target is model-evaluation.
+# 04-figure-engine is retired and is intentionally unmapped (split across make-figures and fig-plot).
+aliases:
+  02-tables: clean-data
+  02-imaging-qc: preprocess-imaging
+  02-radiomics-habitat: radiomics-ml
+  04-fig-flow: make-figures
+  04-fig-plot: fig-plot
+  02-imaging-io: imaging-io
+  04-stats-models: meta-analysis
+  04-model-eval: model-evaluation

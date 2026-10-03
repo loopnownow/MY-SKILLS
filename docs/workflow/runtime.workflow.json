@@ -267,7 +267,7 @@
       "col": 4,
       "type": "security",
       "label": "Lit05",
-      "sublabel": "before Gate 05",
+      "sublabel": "G-CIT-1 before Gate 05",
       "width": 176,
       "height": 64
     },
@@ -277,7 +277,7 @@
       "col": 5,
       "type": "security",
       "label": "Lit06",
-      "sublabel": "inside 06",
+      "sublabel": "G-CIT-2 inside 06",
       "width": 176,
       "height": 64
     },
@@ -401,7 +401,7 @@
       "id": "e-02-04",
       "from": "p02",
       "to": "p04",
-      "label": "Gate 02 PASS, not terminal",
+      "label": "02 exit PASS, not terminal",
       "role": "main"
     },
     {
@@ -494,14 +494,14 @@
       "id": "e-fail-02",
       "from": "p02",
       "to": "locate",
-      "label": "Gate 02 FAIL",
+      "label": "02 exit FAIL",
       "role": "error"
     },
     {
       "id": "e-fail-03",
       "from": "p03",
       "to": "locate",
-      "label": "Gate 03 FAIL",
+      "label": "03 exit FAIL",
       "role": "error"
     },
     {
@@ -550,7 +550,7 @@
       "id": "e-rework-mount",
       "from": "rework",
       "to": "mountcheck",
-      "label": "re-enter affected node",
+      "label": "reuse session lock or re-enter 01",
       "role": "return"
     },
     {

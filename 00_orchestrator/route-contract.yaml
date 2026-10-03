@@ -1,0 +1,24 @@
+# Route contract for 00 fast routing. A unit test checks these strings
+# against 00_orchestrator/SKILL.md. This is not an LLM router.
+routes:
+  - intent: 文献检索
+    section: fast-routing
+    contains: ["文献", "03_research"]
+  - intent: Excel清洗
+    section: fast-routing
+    contains: ["Excel", "02_data-processing"]
+  - intent: 样本量
+    section: fast-routing
+    contains: ["样本量", "04_analysis"]
+  - intent: 写论文
+    section: fast-routing
+    contains: ["写作", "05_manuscript"]
+  - intent: 回复审稿人
+    section: fast-routing
+    contains: ["回复审稿人", "06_review"]
+  - intent: 新技能
+    section: fast-routing
+    contains: ["新技能", "01_skill-discovery-integration"]
+  - intent: 技能迭代
+    section: fast-routing
+    contains: ["技能迭代", "skill-harvest"]

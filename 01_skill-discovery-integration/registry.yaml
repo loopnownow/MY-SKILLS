@@ -8,6 +8,11 @@
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
 # 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
+# fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids. Do not split shared folders.
+# Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
+# DISCOVERED, EVALUATED, APPROVED are discovery-workflow states, not required registry fields.
+# registry.yaml is the routing index, not the byte source of truth.
+# Canonical ID Rule: 01 SKILL.md. id is the only runtime and session-pick identifier. path is not an id and must never be used to infer one. QC uses registry.yaml id only.
 meta:
   version: "4.0"
   change_id: CHG-20260913-001

@@ -14,6 +14,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import yaml
+
 TOP = (
     "00_orchestrator", "01_skill-discovery-integration", "02_data-processing",
     "03_research", "04_analysis", "05_manuscript", "06_review", "skill-harvest",
@@ -23,6 +25,7 @@ LEGACY_ACTIVE = ("01_automation", "02_imaging")
 REQUIRED = [Path(x) / "SKILL.md" for x in TOP]
 SKIP_DIRS = {".git", "__pycache__", "mounts-cap"}
 TEXT_EXTS = {".md", ".yaml", ".yml", ".txt", ".html"}
+STALE_EXTS = TEXT_EXTS | {".py"}
 HISTORICAL_FILES = {Path("_medical-research-meta/INTEGRATION_MAP.md"), Path("_medical-research-meta/INTEGRATION_MAP.archive.md")}
 NEGATIVE_WORD_RE = re.compile(r"(?i)\b(?:no|not|never|do not|don't|retired|deleted|historical|legacy|former)\b")
 
@@ -31,9 +34,10 @@ def read(p: Path) -> str:
     return p.read_text(encoding="utf-8", errors="ignore")
 
 
-def files(root: Path):
+def files(root: Path, exts=None):
+    allowed = TEXT_EXTS if exts is None else exts
     for p in root.rglob("*"):
-        if p.is_file() and not (set(p.parts) & SKIP_DIRS) and p.suffix.lower() in TEXT_EXTS:
+        if p.is_file() and not (set(p.parts) & SKIP_DIRS) and p.suffix.lower() in allowed:
             yield p
 
 
@@ -184,6 +188,95 @@ def check_meta(root: Path, out: list):
     out.append(("FAIL" if bad else "PASS", "meta", "; ".join(bad) if bad else f"VERSION and Integration Map agree at {vm.group(1)}"))
 
 
+
+ALIAS_FILE = Path("01_skill-discovery-integration/legacy_aliases.yaml")
+# Physical path units, not fine ids. A stale-id hit is a backtick token of this shape.
+V3_ID_RE = re.compile(r"`(\d{2}-[a-z][a-z0-9-]*)`")
+PATH_UNITS = {
+    "02-data-processing",
+    "03-research",
+    "04-analysis",
+    "05-manuscript",
+    "06-review",
+}
+WORKFLOW_DIR = Path("00_orchestrator/workflows")
+
+
+def load_alias_map(root: Path) -> dict:
+    """Retired call-site id -> canonical registry fine id. Shared with docs."""
+    path = root / ALIAS_FILE
+    if not path.is_file():
+        return {}
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    raw = data.get("aliases") or {}
+    return {str(k): str(v) for k, v in raw.items()}
+
+
+def canonical_fine_ids(root: Path) -> set:
+    entries, _expected = parse_registry(root)
+    ids = {e["id"] for e in entries if e.get("id")}
+    reg = yaml.safe_load((root / "01_skill-discovery-integration/registry.yaml").read_text(encoding="utf-8"))
+    for row in reg.get("archived") or []:
+        if row.get("id"):
+            ids.add(row["id"])
+    return ids
+
+
+def resolve_alias(token: str, aliases: dict) -> str:
+    """Runtime resolution: alias -> canonical. Unknown tokens return themselves."""
+    return aliases.get(token, token)
+
+
+def stale_id_hits(text: str, canonical: set, aliases: dict, *, workflow: bool) -> list:
+    """Ids that are neither canonical nor a mapped alias.
+
+    A mapped alias is not an unknown id. Inside 00 workflows it is still a
+    call-site error: workflows must cite the canonical id.
+    """
+    hits = []
+    for i, line in enumerate(text.splitlines(), 1):
+        historical = bool(NEGATIVE_WORD_RE.search(line))
+        for m in V3_ID_RE.finditer(line):
+            tok = m.group(1)
+            if tok in PATH_UNITS or tok in canonical:
+                continue
+            if tok in aliases:
+                if workflow and not historical:
+                    hits.append(f"{i}:{tok}->use {aliases[tok]}")
+                continue
+            if historical:
+                continue
+            hits.append(f"{i}:{tok}")
+    return hits
+
+
+def check_stale_ids(root: Path, out: list):
+    aliases = load_alias_map(root)
+    canonical = canonical_fine_ids(root)
+    bad_targets = sorted(f"{k}->{v}" for k, v in aliases.items() if v not in canonical)
+    if bad_targets:
+        out.append(("FAIL", "stale-ids", f"alias targets are not canonical: {bad_targets}"))
+        return
+    bad = []
+    for p in files(root, STALE_EXTS):
+        rel = p.relative_to(root)
+        if rel in HISTORICAL_FILES or rel == ALIAS_FILE:
+            continue
+        if "tests" in rel.parts:
+            continue
+        if p.suffix.lower() not in STALE_EXTS:
+            continue
+        workflow = WORKFLOW_DIR in rel.parents or rel.parent == WORKFLOW_DIR
+        hits = stale_id_hits(p.read_text(encoding="utf-8", errors="ignore"), canonical, aliases, workflow=workflow)
+        for hit in hits:
+            bad.append(f"{rel.as_posix()}:{hit}")
+    out.append((
+        "FAIL" if bad else "PASS",
+        "stale-ids",
+        f"unknown or workflow-alias ids: {bad[:30]}" if bad else "no stale fine ids outside canonical ids and legacy_aliases.yaml",
+    ))
+
+
 def check_qc_scaffold(root: Path, out: list):
     req = [
         "skill-harvest/qc/SKILL.md", "skill-harvest/qc/rules.md", "skill-harvest/qc/repo-qc.md",
@@ -222,6 +315,7 @@ def main():
     check_depth(root, results)
     check_links(root, results)
     check_legacy_active_refs(root, results)
+    check_stale_ids(root, results)
     check_registry(root, capabilities, results)
     check_meta(root, results)
     check_qc_scaffold(root, results)

@@ -1,6 +1,6 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; v4 **10 coarse + 52 fine** menu (not `mounts: []`); no live figure engine; MedSci/Scientific/AIPOCH/Nature **PROPOSED** backups; ARS/OpenClaw purged from catalog; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
+Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-B packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
 
 ## Skill selection
 
@@ -66,8 +66,8 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; MedSci/Scientific/AIPOCH/Nature fetch **only the path of a fine id picked this run**. Do not fetch ARS/OpenClaw (purged). Download is not a mount.
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
-Backups: MedSci / Scientific / AIPOCH / Nature stay `PROPOSED`. ARS/OpenClaw removed from catalog. Mapping is not a mount.
-Registry menu is **10 coarse + 52 fine** (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`make-figures`, `fig-plot`, `find-journal`, `venue-templates`, `calc-sample-size`).
+Non-B fine ids are mixed PROPOSED/MOUNTED per registry, never all-PROPOSED backups. OpenClaw is not a default mount source. Mapping is not a mount.
+Registry menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`make-figures`, `fig-plot`, `find-journal`, `venue-templates`, `calc-sample-size`).
 
 ## Domain boundaries
 
@@ -106,15 +106,15 @@ Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approv
 **One task → one entry point.**
 **An A skill path ≤ 4 directories from repo root (`<skill>/<category-or-pack>/<scripts|references|personal>/file`). No `core/`.**
 **User approval is mandatory for mounting or evolution.**
-**Default source B. Backups PROPOSED. 10 coarse + 52 fine menu. session pick each run.**
+**Default source B. Hybrid mount stays. Non-B status is per registry. Session pick when the lock does not already cover the task.**
 
 ## Fine-id expansion ceiling (v4)
 
-**52** is the v4 fine-id ceiling. New capability default = merge into an existing fine id / sub-capability / same source-path — **not** a new fine id.
+`fine_id_count_canonical` is the v4 fine-id ceiling. New capability default = merge into an existing fine id / sub-capability / same source-path — **not** a new fine id. Do not restate the number here.
 
 ## Cache ≠ Mount ≠ Active
 
-Registry = index. External skill **bytes** SSOT = `mounts-cap/<atomic_package>/`. `stub_in_b` is pointer-only. Download ≠ mount ≠ active context.
+Registry = routing index. B repo is SSOT for B bytes; non-B upstream is SSOT for those bytes; `mounts-cap/` is a verified local cache, not a source of truth. `stub_in_b` is pointer-only. Registry MOUNTED = catalog-approved and session-selectable; `session_picked_fine_ids` = selected this run; active = actually loaded. Cache is not mount is not active.
 
 ## load_priority
 

@@ -53,6 +53,13 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability entry points use the batched **clarify round** in Plan card instead — that's the one exception.)
 
+### Question policy
+
+- **Q0** — single-node task: do not grill.
+- **Q1** — one critical unknown: one question.
+- **Q2** — multi-node, a new capability, or high risk: grilling is allowed.
+- **Q3** — if a file or the web can answer, look it up; do not ask.
+
 
 ### Flow chart approval (skills / mounts)
 
@@ -86,7 +93,7 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 | N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
 
-Never `--e2e`. Never skip session mount pick or N2.
+Never `--e2e`. Never skip the mount decision or N2. Reuse the session lock when it already covers the task.
 
 ### Fast routing (single-skill)
 
@@ -124,7 +131,7 @@ There are **no archive-as-standalone routes**. The four former archive packs liv
 
 ### Session mount pick
 
-Before routing or loading 02–06, run **01 session mount pick**: ask which packs to mount **this run**, then load only those. Registry `MOUNTED` is the menu, not an auto-attach. Unpicked packs stay unloaded. Personal layers are not a mount pick.
+Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask again. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Unpicked packs stay unloaded. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence).
 
 ### Composite workflows
 
@@ -167,14 +174,14 @@ Integrity gates (not after every node):
 | G0 | every run | packs loaded without session mount pick; silent empty-mount fallback |
 | G-PHI | before 02 tables / extraction | PHI status unknown; HIS credentials in files |
 | G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
-| G-FACT | after 04 HTML / after 05 docx | N/split/model/endpoint/AUC·CI·P drift vs upstream FILE |
+| G-FACT | after 04 HTML, again after 05 house.docx, and before 06 only if numbers are cited | fact-lineage drift vs upstream FILE, including the checklist in `gates.md`. Do not auto-pick numbers |
 | G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose; pre-submit-consistency checks left unresolved in the body; 03 citation-verify missing or self-certified by 05 |
 | G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; Lee applied manuscript Track Changes (Lee must not self-revise as default; Lee marks/comments; Aitee applies Track Changes); decidable issues not annotated for Aitee to TC-fix; undecidable issues missing a Chinese 批注 body or the attached English suggested wording and/or suggested literature; resolution status when review-resolution protocol used; cross-manuscript conflicts rewritten instead of commented; 03 citation-verify skipped; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
 | G-LIT | citation-verify required before 05 done and inside 06; on fail | dual plan in comments (revise sentence **and** optional further 03 substitute refs); no invented PMID; verify pass itself is not optional |
 
 Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Reuse the session mount lock and return to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is required. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
 **Close.** Write `pipeline.stage` from the template values already listed there.
 

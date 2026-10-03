@@ -23,7 +23,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
 
-**Citation verify (required on writing and review).** Before Gate · 05 can mark a manuscript done, and inside every 06 review, run `personal/citation-verify.md`: claim→ref table plus a spot-check of strong claims against the sources. Mid-entry does not waive it. A prior 05 pass does not waive the 06 pass. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
+**Citation verify (required on writing and review).** Semantic labels only: **G-CIT-1** is draft evidence verification before Gate · 05; **G-CIT-2** is post-revision / inside 06. G-CIT-1 does not waive G-CIT-2. Before Gate · 05 can mark a manuscript done, and inside every 06 review, run `personal/citation-verify.md`: claim→ref table plus a spot-check of strong claims against the sources. Mid-entry does not waive it. A prior 05 pass does not waive the 06 pass. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
 
 ## Personal supplement (not an upper layer)
 
@@ -70,10 +70,23 @@ Full rules and card schemas: [`workflows/question-to-reference.md`](workflows/qu
 |---|---|
 | Question → Evidence → Design → Data → Brief | `workflows/question-to-reference.md` |
 
+## Routing labels
+
+Labels only. Not new skills and not a new top layer.
+
+| Label | Use |
+|---|---|
+| Evidence | literature, citation-verify, intro-evidence pack |
+| Design | study design, radiology-design, protocol ethics |
+| Exploration | frontier and the question-to-reference loop |
+| Research Administration | ethics forms, grants, journal selection / submit pack |
+
 ## Modes
 
 - Evidence: gaps, conflict, mechanism, journal fit. Never invent PMID/DOI.
 - Design: question/hypothesis, eligibility, endpoints, sample size, bias, reporting guideline.
+- Exploration: frontier and reusable question-to-reference cards.
+- Research Administration: ethics forms, grants, 选刊 submit pack.
 - Translational design: use scenario, reader study, threshold-to-action, prospective/regulatory — `clinical-translation/`.
 - Grant-review (Voice A): load **only** `personal/grant-review.md`. English journal peer review stays in `06_review`.
 - Grant-writing (Voice B): skeleton + method-upgrade + `personal/grant-writing.md`. Never paste Voice A tics into own text.
