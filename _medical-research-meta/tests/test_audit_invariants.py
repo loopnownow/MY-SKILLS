@@ -244,8 +244,23 @@ class MountedBytesPresent(unittest.TestCase):
         "scientific-agent-skills": "scientific",
         "aipoch-medical-research-skills": "aipoch",
     }
+    # Gitignored pack trees. Empty on a fresh checkout; do not vendor them.
+    PACK_DIRS = ("b", "ars", "medsci", "scientific", "openclaw", "aipoch", "nature")
+
+    def _cache_has_pack_bytes(self) -> bool:
+        root = ROOT / "mounts-cap"
+        for name in self.PACK_DIRS:
+            folder = root / name
+            if not folder.is_dir():
+                continue
+            for path in folder.rglob("*"):
+                if path.is_file():
+                    return True
+        return False
 
     def test_mounted_fine_ids_have_bytes_on_disk(self) -> None:
+        if not self._cache_has_pack_bytes():
+            self.skipTest("mounts-cap cache has no pack bytes")
         reg = yaml.safe_load(REG.read_text(encoding="utf-8"))
         missing = []
         for m in reg["mounts"]:
