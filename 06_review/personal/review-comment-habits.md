@@ -98,6 +98,14 @@ Journal English envelope stays in `personal-review-style.md` (`Lines n–m:` + d
 4. **修改建议** — lead with an action verb (补写 / 删除 / 改为 / 替换 / 拆分 / 合并 / 核对 / 补充数值 / 写明 / 统一 / 移至 / 重算 / 增加 / 标注 / 改用). Ban vague 酌情 / 适当 / 进一步完善 / 提升规范性 / 注意语言润色.
 5. **严重度** — `must_fix` / `should_fix` / `hint`.
 
+**Severity crosswalk (mode and G-06 ↔ CM-01).** `pre-review` and G-06 grade Blocking / Major / Minor. The fifth slot grades `must_fix` / `should_fix` / `hint`. Judge G-06 with this map:
+
+| Mode and G-06 | CM-01 严重度 |
+|---|---|
+| Blocking | `must_fix` |
+| Major | `should_fix` |
+| Minor | `hint` |
+
 Strip leading source tags like `[A:personal]` before counting slots; tags stay at the comment start for delivery. Quoted paste-in rewrite text is exempt from sentence-length checks.
 
 **Example:**

@@ -59,7 +59,7 @@ Specialty English never enters the approved lexicon. Admission test: would any f
 Use with the standing Methods-passive override above.
 
 - One fact or one step per sentence; prefer short step sentences.
-- Prefer verbs over `perform/conduct/carry out + noun` nominalizations (`We extracted features.` not `We performed an extraction of features.`).
+- Prefer verbs over `perform/conduct/carry out + noun` nominalizations (`Features were extracted.` not `We performed an extraction of features.`).
 - Do not let bare `It` / `This` / `These` subject a sentence without a unique noun antecedent; repeat the noun.
 - Keep noun stacks short; prefer `of` structures over long pre-modifier chains.
 - Same subsection: do not mix past-tense procedure verbs with present-tense procedure verbs (Figure N shows may stay present when the house allows).
