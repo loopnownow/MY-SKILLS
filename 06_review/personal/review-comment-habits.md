@@ -85,6 +85,29 @@ Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body 
 
 Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Do not invent the missing fact. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. call/require 03 citation-verify — do not self-certify lit. After the user picks, Aitee applies Track Changes.
 
+---
+
+## 5.2 Chinese 稿面批注五槽 (Lab-STE CM-01)
+
+Journal English envelope stays in `personal-review-style.md` (`Lines n–m:` + defect + Please…).  
+**Chinese Word face comments** (author field still **A**; source tag at text start) use five fixed slots, one problem per comment:
+
+1. **位置** — line range, or `节 第n段第m句`, or Figure/Table id. Prefer precise patterns; coarse location-only wording (e.g. methods section alone) is should_fix.
+2. **问题** — what is wrong, one sentence. One problem only (no stacking multiple unrelated defects in one comment).
+3. **依据** — start with 依据; name a rule id and/or data source (结果页 / 术语表 / 课题锁定 / HTML / settings.ini).
+4. **修改建议** — lead with an action verb (补写 / 删除 / 改为 / 替换 / 拆分 / 合并 / 核对 / 补充数值 / 写明 / 统一 / 移至 / 重算 / 增加 / 标注 / 改用). Ban vague 酌情 / 适当 / 进一步完善 / 提升规范性 / 注意语言润色.
+5. **严重度** — `must_fix` / `should_fix` / `hint`.
+
+Strip leading source tags like `[A:personal]` before counting slots; tags stay at the comment start for delivery. Quoted paste-in rewrite text is exempt from sentence-length checks.
+
+**Example:**
+
+> [A:personal] Methods 第 2 段第 1 句。未写连续入组。依据 ZH-TERM01 与结果页队列句。补写：连续纳入 2019 年 1 月至 2022 年 12 月的病例。must_fix。
+
+**Bad:** 方法部分整体不够清晰，建议完善并提升规范性，同时注意语言润色。
+
+Full thresholds and regexes: `D:\0Grok\0doc\04_实验室参考\lab-ste\` (`config.yaml` comment_schema; `Lab-STE-SPEC.md` CM-01). Summary pointer: `05_manuscript/personal/lab-ste.md`. Do not vendor the lab-ste tree.
+
 ## 6. What this file is not
 
 - Not a license for one-character `?` comments as the default voice.

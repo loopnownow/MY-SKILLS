@@ -118,5 +118,24 @@ class Routing(unittest.TestCase):
         self.assertIn("reviewer response only here", zero)
 
 
+
+class LabSte(unittest.TestCase):
+    def test_pointer_and_no_vendor(self) -> None:
+        lab = read("05_manuscript", "personal", "lab-ste.md")
+        self.assertIn(r"D:\0Grok\0doc\04_实验室参考\lab-ste", lab)
+        self.assertIn("Do not", lab)
+        self.assertIn("vendor", lab.lower())
+        self.assertIn("conventional_passive", lab)
+        self.assertIn("Compared", lab)
+        self.assertIn("attenuated", lab)
+        five = read("05_manuscript", "SKILL.md")
+        self.assertIn("personal/lab-ste.md", five)
+        habits = read("06_review", "personal", "review-comment-habits.md")
+        self.assertIn("CM-01", habits)
+        self.assertIn("must_fix", habits)
+        # must not vendor approved lexicon into the skill tree
+        self.assertFalse((SKILLS / "05_manuscript" / "personal" / "approved-en.tsv").exists())
+        self.assertFalse((SKILLS / "lab-ste").exists())
+
 if __name__ == "__main__":
     unittest.main()

@@ -32,7 +32,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 | Task | Path |
 |---|---|
 | English peer-review voice | `personal/personal-review-style.md` |
-| Review comment habits (statement → data consistency; integrity stops) | `personal/review-comment-habits.md` |
+| Review comment habits (statement → data consistency; integrity stops; Chinese 稿面批注五槽 CM-01) | `personal/review-comment-habits.md` (+ Lab-STE pointer in `05_manuscript/personal/lab-ste.md`) |
 | Cross-manuscript and pre-submit QC (annotate conflicts; do not invent numbers) | `personal/cross-manuscript-qc.md` |
 | Word comment delivery (Lee marks; Aitee applies manuscript Track Changes; 0del, TNR) | `personal/word-edit-rules.md` |
 | Response-letter tone (opening default A) | `personal/personal-response-style.md` |
