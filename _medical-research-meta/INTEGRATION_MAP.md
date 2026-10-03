@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261003-002 — Lab-STE into skills (pointer + reusable rules)
+date: 2026-10-03
+skill: 05_manuscript/personal/lab-ste.md (new); 05_manuscript/SKILL.md; 05_manuscript/personal/de-ai.md; 06_review/personal/review-comment-habits.md; 06_review/SKILL.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
+problem: Lab controllable-language pack at D:\0Grok\0doc\04_实验室参考\lab-ste\ (v0.2.1) was not pointed from MY-SKILLS; Chinese 稿面批注五槽 and STE conflict/vocabulary layer rules were missing as reusable habits.
+change: Add path-pointer skill summary (no TSV/tools/HTML vendored). Wire 05 assets + de-ai cross-link (Methods passive / Compared / attenuated standing rules unchanged). Add CM-01 five-slot habit under 06 review-comment-habits. Not a Gate.
+decision: keep
+next_action: after merge, sync changed files only into ~\.grok\skills.
+
 ## CHG-20261003-001 — Compared not Relative; ban attenuated
 date: 2026-10-03
 skill: 05_manuscript/personal/forbidden-phrases.md (+ ai-isms-checklist, de-ai, citation-and-language); 00_orchestrator/scripts/style_lint.py

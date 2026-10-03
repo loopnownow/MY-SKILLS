@@ -25,3 +25,13 @@
 - 比较散文用 Compared with / Compared to，不用 Relative 作比较词；指标名 relative CBF / relCBF 不改，除非周围散文把 relative 当比较词用
 - 正文禁 COMMENTARY 读法指引（见 `forbidden-phrases.md`）
 - 终稿正文和图注禁流程词与占位：`TRAIN_RATIO`、"as stated by the source"、待补、内部核对标签。清单见 `forbidden-phrases.md` 与 `pre-submit-consistency.md`
+
+
+## Lab-STE (disk; not Gate)
+
+Controllable-language thresholds, approved lexicon, and ZH/EN check tables live on disk at D:\0Grok\0doc\04_实验室参考\lab-ste\. Skill summary + overrides: lab-ste.md.
+
+- Do **not** vendor those TSV/tools into MY-SKILLS.
+- Lab-STE does **not** enter skill Gate.
+- Methods voice: this file's **passive** house rule wins over Lab-STE EN-V01 active default (use on-disk methods_voice: conventional_passive when aligning checks).
+- English hard bans remain orbidden-phrases.md (Compared / attenuated standing rules unchanged).

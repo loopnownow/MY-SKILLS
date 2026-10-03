@@ -1,3 +1,6 @@
+CHG-20261003-002 (2026-10-03)
+Lab-STE pointer + reusable rules into 05/06 (disk SSOT D:\0Grok\0doc\04_实验室参考\lab-ste\). Chinese 稿面批注五槽 CM-01. No lexicon/tools vendored; not Gate. Standing Compared/attenuated/Methods-passive/set/Aitee rules unchanged.
+Earlier: CHG-20261003-001, CHG-20260929-006.
 CHG-20261003-001 (2026-10-03)
 SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF / relCBF metric names). Ban attenuated (use reduced / lower / decreased); attenuation (imaging noun) stays. 比较词用 Compared；禁 attenuated。
 Earlier: CHG-20260929-006, CHG-20260929-005.
