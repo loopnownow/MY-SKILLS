@@ -21,5 +21,7 @@
 - 少用副词；统计 *significantly*（P 值用语）不禁
 - 禁 elucidat*；机制未知用 remain unclear（不用 explain/clarify 顶替）
 - 禁模糊 *framework*（AI 腔）；改 *approach*（软件/库名例外）
+- 禁 attenuated；改 reduced / lower / decreased（成像名词 attenuation，如 attenuation correction，不改）
+- 比较散文用 Compared with / Compared to，不用 Relative 作比较词；指标名 relative CBF / relCBF 不改，除非周围散文把 relative 当比较词用
 - 正文禁 COMMENTARY 读法指引（见 `forbidden-phrases.md`）
 - 终稿正文和图注禁流程词与占位：`TRAIN_RATIO`、"as stated by the source"、待补、内部核对标签。清单见 `forbidden-phrases.md` 与 `pre-submit-consistency.md`

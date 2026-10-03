@@ -1,3 +1,6 @@
+CHG-20261003-001 (2026-10-03)
+SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF / relCBF metric names). Ban attenuated (use reduced / lower / decreased); attenuation (imaging noun) stays. 比较词用 Compared；禁 attenuated。
+Earlier: CHG-20260929-006, CHG-20260929-005.
 CHG-20260929-006 (2026-09-29)
 Deep QC: unused caches and one-off intermediates go to D:\0Grok\0del (or project 0del); each submodule under review needs a dry-run or unit-testable dry path; bare except Exception: pass must not hide a failed run. Written into code-refactoring/references/code-qc.md (one-line pointer in SKILL.md). 深审废料进 0del；子模块须 dry-run；禁止静默成功。
 Earlier: CHG-20260929-005, CHG-20260929-004.

@@ -30,12 +30,15 @@ Check ids live in `pre-submit-consistency.md`. Apply them on every reference pas
 | Numbers | Next to claim | Orphan AUC without set name |
 | Novelty | *few studies* / *remains limited* | *novel* / *first* / *groundbreaking* |
 | Performance | *higher AUC* / *outperformed* | *superior* / *robust* |
+| Comparison | *Compared with* / *Compared to* | *Relative* / *relative to* as a comparison word |
 | Results | Past tense, no empty hedge | *may suggest* in Results |
 | Discussion | demonstrated / suggested / may | Over-causal *proved that* |
 
+Prose comparisons use *Compared*. Do not rewrite technical metric names (*relative CBF*, *relCBF*, and other "relative …" measures) unless the surrounding prose uses *relative* as a comparison word.
+
 ## Banned filler (English)
 
-delve, landscape, pivotal, robust, comprehensive, leverage, seamless, game-changer, groundbreaking, state-of-the-art, interestingly, surprisingly, remarkably, paradigm, tapestry.
+delve, landscape, pivotal, robust, comprehensive, leverage, seamless, game-changer, groundbreaking, state-of-the-art, interestingly, surprisingly, remarkably, paradigm, tapestry, attenuated.
 
 ## Chinese side notes (if bilingual abstract)
 
