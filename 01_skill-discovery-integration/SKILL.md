@@ -5,9 +5,10 @@ description: >
   checking mounted capability coverage, integrating an approved external Skill,
   or resolving missing capability. Infrastructure only. Never literature research,
   statistics, manuscript writing, or peer review. Mount pointers live only here.
-  Default mount is B (MY-SKILLS-capabilities). Every run: ask which fine ids to
-  mount this session under relevant coarse buckets. Never auto-mount a non-B source.
-  Catalog backups: MedSci / Scientific / AIPOCH / Nature only. ARS/OpenClaw purged from catalog (never remount).
+  Default mount is B (MY-SKILLS-capabilities). Every independent run needs a mount
+  decision; reuse session_picked_fine_ids when they already cover the task.
+  Never auto-mount a non-B source. Non-B fine ids are mixed per registry status.
+  OpenClaw is not a default mount source.
 ---
 
 # Skill Discovery & Integration
@@ -22,9 +23,10 @@ Domain skills call fine ids; they do not keep a second pointer table.
 
 ## Architecture (v4 · CHG-20260913-001)
 
-- **10 coarse ids** = welded stage buckets（文献检索 … 审稿回复）. Not A folder renames.
-- **52 fine ids** = session-pick mount points (`fine_id_count_canonical`).
-- **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id.
+- Coarse ids = welded stage buckets（文献检索 … 审稿回复）. Count lives in `registry.yaml` `coarse_id_count`. Not A folder renames.
+- Fine ids = session-pick mount points. Count lives in `fine_id_count_canonical`. The pick menu is status `MOUNTED` only.
+- **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id. Non-B rows are mixed PROPOSED/MOUNTED per registry, not an all-PROPOSED backup set.
+- **`fine_id` is the capability interface. `path` is the physical unit. `path_shared: true` means one path backs several fine ids. Do not split that folder.**
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
 
@@ -33,7 +35,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 **Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Scientific `verify-refs` (`citation-management`), and B `analyze-stats` (`stats-guide`). Scientific `scientific-critical-thinking` is an optional PROPOSED overlay. This preset has no Nature overlay. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source.
 
 **Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
-MedSci, Scientific, AIPOCH, Nature are **backup candidates** (PROPOSED). ARS/OpenClaw: `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
+MedSci, Scientific, AIPOCH, and Nature are hybrid sources: each fine id is PROPOSED or MOUNTED as the registry row says, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick).
 Nature LICENSE Apache-2.0 verified 2026-09-14; MOUNTED fine ids still need ask-each-run + `mounts-cap/` bytes — do not claim MOUNTED if bytes absent.
 
 **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms.
@@ -41,7 +43,7 @@ Nature LICENSE Apache-2.0 verified 2026-09-14; MOUNTED fine ids still need ask-e
 
 ## Fine-id expansion ceiling
 
-**52 fine ids** (`fine_id_count_canonical`) is the **v4 expansion ceiling**. Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves.
+`fine_id_count_canonical` in `registry.yaml` is the **v4 expansion ceiling**. Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves. Do not restate the number in prose.
 
 ## load_priority (optional YAML)
 
@@ -55,10 +57,11 @@ Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** 
 
 ## Cache ≠ Mount ≠ Active · Registry = index
 
-- **Cache:** `mounts-cap/<pack>/` bytes (SSOT for external packs).
-- **Mount:** session fine-id pick recorded against registry pointers.
-- **Active:** loaded this run.
-- **Registry:** index only. For hybrid external skills, entity lives in cache; `stub_in_b` (`cross-pack/…` or `external-principles.md`) is a **pointer**, not a second full tree.
+- **Cache:** `mounts-cap/<pack>/` is a verified local cache of bytes, not a source of truth. B bytes: the B repo is SSOT. Non-B bytes: that upstream is SSOT.
+- **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
+- **`session_picked_fine_ids`:** selected this run.
+- **Active:** actually loaded this run. Cache is not mount is not active.
+- **Registry:** routing index only. GitHub MY-SKILLS is the A framework SSOT. `stub_in_b` (`cross-pack/…` or `external-principles.md`) is a **pointer**, not a second full tree.
 
 ## Local cache (`mounts-cap/`)
 
@@ -87,12 +90,15 @@ Before each session mount pick (when any non-B path may load, or when `cache_sta
 
 **G0 handoff:** if external provenance is missing or not verified, fail back to 01 — 00 must not query GitHub itself.
 
-## Session mount pick（每次运行必问 · 细 ID 多选）
+## Session mount pick（独立运行一次决定 · 细 ID 多选）
 
-Registry `MOUNTED` / `PROPOSED` = **available to pick**, not attached for this run.
-**Every MY-SKILLS run** (00 composite or a single 02–06 skill) must ask before loading any mounted pack.
+Registry status `MOUNTED` = catalog-approved and session-selectable. It is not attached until this run selects it.
+`PROPOSED` is not pickable. It may be shown as optional candidates, separate from the pick menu.
+`session_picked_fine_ids` = selected this run. Active = actually loaded.
 
-1. Classify the task. Propose **relevant coarse bucket(s)** then **candidate fine ids** (not all 52 unless 全线).
+Every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence).
+
+1. Classify the task. Propose **relevant coarse bucket(s)** then **MOUNTED candidate fine ids** (not the whole menu unless 全线). Optional PROPOSED names stay off the pick menu.
 2. Show each candidate as one line: **粗 ID · 细 ID · 源 · 包内 skill** · 做什么。默认源多为 B。审稿混合配方行必须写出 skill 名（如 `nature-reviewer`）。
 3. **Ask the user to multi-select fine ids**. Default is **hybrid** (B chassis; non-B only where the recipe lists a path). For 写稿/润色/修订论著, **pre-check `manuscript-final-W2`**. For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: 用该默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / AIPOCH / Nature，仅当该细 ID 有路径）. Empty picked path → tell the user; do not silent-fallback.
 4. Load **only** the picked fine ids (and for non-B overrides, **only the preset/skill paths** listed). Ensure bytes in `mounts-cap/` first. Unpicked stay unloaded — do not prefetch a whole Nature/Scientific tree. Never bulk-download.
@@ -120,7 +126,7 @@ Never silently fall back to MedSci/Scientific/AIPOCH/Nature or invent a local co
 4. Only after confirmation may a *different* backup candidate be proposed.
 5. Evaluate capability, boundaries, dependencies, and overlap.
 6. New non-B sources stay `PROPOSED` until explicit approval. Nature LICENSE verified Apache-2.0; still ask-each-run + bytes.
-7. After approval: `APPROVED` → `MOUNTED`. Update `registry.yaml` and `MOUNTED_SKILLS.md`.
+7. After approval the registry status becomes `MOUNTED` (or stays `PROPOSED` if not approved). `APPROVED` is the confirmation in this workflow, not a registry field. Update `registry.yaml` and regenerate `MOUNTED_SKILLS.md`.
 
 
 ## Forbidden combinations (mount red lines)
@@ -177,7 +183,7 @@ without a confirmed grilling round.** This is not 00's QC decision either — 00
    每条建议是一道题、附带推荐动作，等用户逐条确认或改。**这一步之前不写任何文件。**
 6. 用户确认后才执行：
    - **挂载** → 按现有 `sources/<name>.proposed.yaml` schema 建档（参考 `sources/medsci.proposed.yaml`
-     的字段结构），状态 `PROPOSED`，走既定 lifecycle（见「Registry」一节）升到 `APPROVED`/`MOUNTED`。
+     的字段结构），registry status `PROPOSED`。发现流程里的确认不是 registry 字段；批准后 registry 行写成 `MOUNTED`（见「Registry」一节）。
    - **吸收** → 由对应 `0X_domain` 用自己的语言重写关键内容到 `personal/`，不整体挂载来源，
      不建 `sources/*.yaml`。
    - **跳过** → 不留痕迹；如果候选未来可能复用，可选择记一行到 `mounts/README.md`。
@@ -188,6 +194,8 @@ For every candidate record: what it provides; what it does not; inputs/outputs; 
 
 ## Registry
 
-`registry.yaml` = lifecycle index (canonical). `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
-Lifecycle: `DISCOVERED → EVALUATED → PROPOSED → APPROVED → MOUNTED`, with `DISABLED` / `ARCHIVED` / `REJECTED`.
-**Layout rule:** one external source → one yaml. Fine ids are the mount points; coarse ids are stage buckets only.
+`registry.yaml` = routing index. `sources/<source>.yaml` = one config per external source. `mounts/*.md` = human interface board. `interface.yaml` = capability-contract template.
+Canonical registry statuses: `PROPOSED`, `MOUNTED`, `DISABLED`, `ARCHIVED`, `REJECTED`.
+`DISCOVERED`, `EVALUATED`, and `APPROVED` are temporary discovery-workflow states. They must not be required registry fields.
+**Layout rule:** one external source → one yaml. `fine_id` is the capability interface; `path` is the physical unit; one path may back several fine ids (`path_shared`). Do not split shared folders. Coarse ids are stage buckets only.
+**Legacy aliases:** `legacy_aliases.yaml` maps retired call-site ids to canonical fine ids. Runtime may resolve alias → canonical (`skill-harvest/scripts/repo_qc.py` `resolve_alias`). Workflows use canonical ids only.

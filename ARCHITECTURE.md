@@ -39,12 +39,12 @@ L3  Personal control: 02/03/04 supplements; 05/06 personal upper layers
 
 An A skill path is at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. After lifting `core/`, one extra folder is allowed for classification. No fifth folder, no `core/`, no `bundles/`, no `merged/`.
 
-## Mounts (SSOT with `_medical-research-meta/ARCHITECTURE.md`)
+## Mounts (agrees with `_medical-research-meta/ARCHITECTURE.md`)
 
-- Default source **B** (`loopnownow/MY-SKILLS-capabilities`).
-- **v4 (CHG-20260913-001):** **10 coarse** stage buckets + **52 fine ids** (session-pick). `session_mount: ask-each-run` — multi-select fine ids under relevant coarse; do not auto-load all. Menu is not `mounts: []`.
+- **B is the default source and the default chassis** (`loopnownow/MY-SKILLS-capabilities`). Hybrid mount stays: different fine ids may use different packages; never mix packages inside one fine id.
+- Menu shape is `01_skill-discovery-integration/registry.yaml` (`coarse_id_count`, `fine_id_count_canonical`) and the generated `MOUNTED_SKILLS.md`. Do not restate those totals here. `session_mount: ask-each-run` — multi-select fine ids under relevant coarse when a new mount decision is required; reuse `session_picked_fine_ids` when they already cover the task. Menu is not `mounts: []`. The pick menu is status MOUNTED only.
 - A folders stay `00`–`06` (not renamed to Chinese top-level).
-- MedSci / Scientific / AIPOCH / Nature are **PROPOSED backups**. ARS/OpenClaw purged from catalog (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
+- Non-B packages are mixed PROPOSED/MOUNTED per registry, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
 - Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
 - Live docs name v4 fine ids only. Sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
@@ -54,7 +54,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 
 ## Fine-id expansion ceiling (v4)
 
-**52 fine ids is the v4 expansion ceiling.** Do not create new fine ids for new capabilities by default.
+`fine_id_count_canonical` is the v4 expansion ceiling. Do not create new fine ids for new capabilities by default. Do not restate the number here.
 
 Default path for a new capability:
 
@@ -62,16 +62,17 @@ Default path for a new capability:
 2. Add a **sub-capability** / notes under that fine id’s source path, or
 3. Reuse the **same source-path** already indexed by the registry.
 
-Opening a 53rd fine id requires explicit architecture review (not Batch default).
+Opening another fine id past that ceiling requires explicit architecture review (not Batch default).
 
 ## Cache ≠ Mount ≠ Active
 
 | Concept | Meaning |
 |---|---|
-| **Cache** | Bytes on disk under `mounts-cap/<pack>/` (gitignored pack trees). Download/fetch only. |
-| **Mount** | Registry fine-id pick for this session (`ask-each-run`). Pointers live in `01_skill-discovery-integration`. |
-| **Active** | Actually loaded into the agent context this run. |
-| **Registry** | Index only — not the skill body. External entity SSOT is the cache (`mounts-cap/<atomic_package>/…`). `stub_in_b` is pointer-only. |
+| **Cache** | Bytes on disk under `mounts-cap/<pack>/` (gitignored pack trees). Verified local cache, not a source of truth. Download/fetch only. |
+| **Registry MOUNTED** | Catalog-approved and session-selectable. |
+| **session_picked_fine_ids** | Selected this run. |
+| **Active** | Actually loaded into the agent context this run. Cache is not mount is not active. |
+| **Registry** | Routing index — not the skill body. B repo is SSOT for B bytes; non-B upstream is SSOT for those bytes. `stub_in_b` is pointer-only. |
 
 ## load_priority (YAML metadata only)
 
@@ -116,17 +117,19 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 
 Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approval). Execution QC stays in `00`.
 
-## Lab workspace SSOT (with skills)
+## Lab workspace homes (with skills)
 
-Skills are **not** the home for production scripts or manuscript archives. Lab disks:
+Skills are **not** the home for production scripts or manuscript archives. These disks are homes for run and read, not a second source of truth for skill bytes.
 
-| SSOT | Path | Owns |
+| Home | Path | Owns |
 |---|---|---|
 | Skill (judge / route) | this repo / `~\.grok\skills` | Gates, short procedure `references/`, orchestration templates, harvest maintenance scripts |
 | Run | `D:\0Grok\0scripts` | `modules` / `tidy` / `stat` / `sync` — executable lab code |
 | Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04_实验室参考/` (e.g. Lab-STE at `04_实验室参考/lab-ste/`; skills point via `05_manuscript/personal/lab-ste.md`, do not vendor) |
 
 **Pointer, do not mirror.** Skill text may cite `0scripts` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.
+
+GitHub MY-SKILLS is the A framework source of truth.
 
 ## Design rules
 

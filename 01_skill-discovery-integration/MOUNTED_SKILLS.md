@@ -1,32 +1,33 @@
 # Mounted Skills Boundary (v4)
 
-Canonical pointers live in 01 (`registry.yaml`). This file is the human table,
+Canonical pointers live in 01 (`registry.yaml`, the routing index). This file is the human table,
 **generated** by `scripts/gen_mounted_skills.py` — do not hand-edit the tables below.
-Default source: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
+Default chassis: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
+Non-B fine ids are mixed PROPOSED/MOUNTED per the registry rows below — not "all PROPOSED backups".
+OpenClaw is not a default mount source.
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
-Never auto-mount a non-B source. `PROPOSED` is not `MOUNTED`. Nature LICENSE Apache-2.0 verified (ask-each-run + bytes).
+Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apache-2.0 verified (ask when a new mount decision is required + bytes).
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
-**Every run:** ask which **fine ids** to attach under the relevant coarse buckets (`session_mount: ask-each-run`).
-Local bytes: `mounts-cap/` (B full; other sources on-demand). Download ≠ mount.
+**Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask.
+**Pick menu:** status `MOUNTED` only. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
+Local bytes: `mounts-cap/` is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-v4: **10 coarse + 52 fine** (52 session-pick mounts + 0 reference-only). Personal layers stay in A `00`–`06`.
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 52 fine ids** (41 MOUNTED session-pick + 11 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
 Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
-## Session-pick fine ids by coarse bucket
+## Session-pick fine ids (status MOUNTED only)
 
 
 ### 文献检索
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED |
 | `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
 | `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
 | `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
 | `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
-| `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 | `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED |
 
 
@@ -57,11 +58,8 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|
 | `write-paper` | IMRAD正文起草 | my-skills-capabilities | `05-manuscript/write-manuscript/` | MOUNTED |
 | `check-reporting` | 报告规范核验 | my-skills-capabilities | `05-manuscript/write-reporting/` | MOUNTED |
-| `nature-data` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
-| `nature-proposal-writer` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 | `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED |
 | `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
-| `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
 
 
 ### 语言润色
@@ -70,7 +68,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|
 | `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED |
 | `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED |
-| `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
 ### 数据处理
@@ -79,10 +76,8 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|
 | `clean-data` | 三阶段确认式清洗 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
 | `batch-cohort` | 批量队列分析生成 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
-| `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED |
 | `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-capabilities | `02-data-processing/imaging-io/` | MOUNTED |
 | `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
-| `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
 
 
 ### 统计分析
@@ -91,12 +86,10 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|
 | `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED |
 | `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED |
-| `scikit-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED |
 | `radiomics-ml` | 放射组学建模pipeline审计 | my-skills-capabilities | `02-data-processing/radiomics-habitat/` | MOUNTED |
 | `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED |
 | `model-validation` | 模型-确定性泄漏门禁 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED |
 | `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED |
-| `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
 
 
 ### 图表呈现
@@ -116,7 +109,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `peer-review-pdf-scan` | PDF注入攻击扫描 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
 | `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
 | `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED |
-| `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED |
 | `nature-reviewer` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
@@ -129,11 +121,63 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `nature-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
+## Optional candidates (status PROPOSED — not pickable)
+
+Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.
+
+
+### 文献检索
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED |
+| `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+
+
+### 正文写作
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `nature-data` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `nature-proposal-writer` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
+
+
+### 语言润色
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+
+
+### 数据处理
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED |
+| `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
+
+
+### 统计分析
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `scikit-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED |
+| `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
+
+
+### 稿件评阅
+
+| Fine id | Label | Source | Path | Status |
+|---|---|---|---|---|
+| `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED |
+
+
 ## Reference-only (not session mounts)
 
 | Id | Label | Applied to |
 |---|---|---|
-
+| — | — | — |
 
 ## Archived (not in default menus)
 
@@ -146,9 +190,10 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 - `model-card` — 2026-09-20 候选，路径未核实；不代替 A 正文层
 - `paperclip` — 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
 
-## Backup candidates
+## Package notes
 
-- MedSci / Scientific / AIPOCH / Nature: `PROPOSED` (Nature LICENSE Apache-2.0 verified).
-- ARS/OpenClaw: removed from catalog (`ars_openclaw_policy: removed-from-catalog`).
+- Non-B fine ids follow the registry status on each row (mixed PROPOSED/MOUNTED). Do not describe a whole package as uniformly PROPOSED.
+- OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`).
+- Nature LICENSE Apache-2.0 verified where the registry row says so.
 
-Mapping is not a source-wide mount.
+Mapping is not a source-wide mount. `fine_id` is the capability interface; `path` is the physical unit; `path_shared` means one path backs several fine ids — do not split that folder.

@@ -73,9 +73,8 @@ def registry_mount_ids() -> list[str]:
     return ids
 
 
-def mounted_md_ids() -> list[str]:
-    """Fine ids from MOUNTED_SKILLS session-pick tables (backtick slugs)."""
-    text = MOUNTED.read_text(encoding="utf-8")
+def mounted_md_ids_from(text: str) -> list[str]:
+    """Fine ids from MOUNTED_SKILLS table rows in one section."""
     # Prefer table rows under session-pick section
     ids = []
     for line in text.splitlines():
@@ -153,10 +152,20 @@ class SessionPick(unittest.TestCase):
 
 class RegistryMenu(unittest.TestCase):
     def test_registry_matches_mounted_skills_v4(self) -> None:
+        reg_doc = yaml.safe_load(REG.read_text(encoding="utf-8"))
         reg = registry_mount_ids()
-        md = mounted_md_ids()
+        text = MOUNTED.read_text(encoding="utf-8")
+        pick, rest = text.split("## Optional candidates", 1)
+        proposed, _ref = rest.split("## Reference-only", 1)
+        md_pick = mounted_md_ids_from(pick)
+        md_prop = mounted_md_ids_from(proposed)
+        want_pick = [m["id"] for m in reg_doc["mounts"] if m.get("status") == "MOUNTED"]
+        want_prop = [m["id"] for m in reg_doc["mounts"] if m.get("status") == "PROPOSED"]
         self.assertEqual(len(reg), 52, msg=str(reg))
-        self.assertEqual(sorted(reg), sorted(md), msg=f"reg={reg}\nmd={md}")
+        self.assertEqual(sorted(md_pick), sorted(want_pick))
+        self.assertEqual(sorted(md_prop), sorted(want_prop))
+        self.assertEqual(sorted(md_pick + md_prop), sorted(reg))
+        self.assertFalse(set(md_pick) & set(md_prop))
         self.assertNotIn("04-figure-engine", reg)
         self.assertNotIn("02-xlsx", reg)
         self.assertNotIn("02-fmri", reg)
@@ -201,7 +210,9 @@ class ArchitectureSsot(unittest.TestCase):
             self.assertIn("calc-sample-size", text, label)
             self.assertNotIn("05-write-venue", text, label)
             self.assertNotIn("04-stats-power", text, label)
-            self.assertRegex(text, r"52 fine", label)
+            self.assertIn("01_skill-discovery-integration/registry.yaml", text, label)
+            self.assertNotRegex(text, r"52 fine", label)
+            self.assertIn("per registry", low, label)
             self.assertNotRegex(low, r"≤\s*3", label)
             self.assertNotIn("role: default-candidate", text, label)
             self.assertNotIn("Default candidate: `Imbad0202", text, label)
@@ -274,7 +285,8 @@ class ReadmeSsot(unittest.TestCase):
         root = read("README.md")
         meta = read("_medical-research-meta/README.md")
         for label, text in (("root", root), ("meta", meta)):
-            self.assertRegex(text, r"52 fine", label)
+            self.assertIn("registry.yaml", text, label)
+            self.assertNotRegex(text, r"52 fine", label)
             self.assertNotIn("30-id", text, label)
             self.assertNotIn("30 coarse", text, label)
 

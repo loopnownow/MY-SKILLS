@@ -14,7 +14,16 @@ pipeline:
   last_handoff: ""   # relative path to the last handoff yaml, if any
 
 mounts:
-  session_picked_fine_ids: []  # updated at each 01 session mount pick; G0 checks "only picked ids loaded" against this field
+  session_picked_fine_ids: []  # selected this run; G0 checks "only picked ids loaded" against this field. Reuse when the next task's fine ids are already here.
+  # mount_provenance: one object per selected fine id when G0 records it. Do not invent hashes. Do not hash the whole cache.
+  # Required fields: fine_id, source, resolved_commit, path, content_hash, checked_at.
+  mount_provenance: []
+  # - fine_id: ""
+  #   source: ""
+  #   resolved_commit: ""
+  #   path: ""
+  #   content_hash: ""
+  #   checked_at: ""
 
 qc:
   last_gate: ""      # G0 | G-PHI | G-04 | G-05 | G-06

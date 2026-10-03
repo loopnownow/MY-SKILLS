@@ -5,6 +5,7 @@ from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manusc
 to: ""
 objective: ""
 mounted_fine_ids: []  # fine ids picked this session (01 session mount pick); G0 checks against this, not memory
+mount_provenance: []    # per selected fine id: fine_id, source, resolved_commit, path, content_hash, checked_at. Do not invent hashes.
 inputs: []          # paths inspected
 decisions: []
 assumptions: []

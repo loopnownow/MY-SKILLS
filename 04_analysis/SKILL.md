@@ -55,6 +55,18 @@ Until `fig-plot` / `make-figures` is mounted, do not invent a second figure stac
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
 - 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `personal/0rad-pipeline-rules.md`.
 
+## Precedence
+
+When a figure or statistic can be produced more than one way, use this order:
+
+1. external mounted capability
+2. 04 generic procedure
+3. 04 personal lab rule
+4. project `settings.ini`
+5. the executed result HTML
+
+The executed artifact is the fact authority, not the skill text. Do not auto-pick numbers the HTML does not contain.
+
 ## Workflow
 
 1. Confirm analysis-ready inputs from `02_data-processing`. Do not silently repair upstream data.

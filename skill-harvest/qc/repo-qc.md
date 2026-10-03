@@ -17,6 +17,7 @@ The scanner checks:
 8. `VERSION.txt` ↔ `INTEGRATION_MAP.md` consistency and fenced-block integrity.
 9. Harvest-QC governance scaffold and anti-auto-modification guard.
 10. Existing deterministic unit tests unless `--no-tests` is supplied.
+11. Stale fine ids: backtick tokens shaped like retired `NN-…` ids must be a canonical registry id or a mapped alias in `01_skill-discovery-integration/legacy_aliases.yaml` (shared with runtime `resolve_alias`). Workflows must use the canonical id. Historical changelog lines are skipped.
 
 ## Usage
 

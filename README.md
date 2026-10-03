@@ -38,11 +38,11 @@ Lab disks (not inside this repo): runnable SSOT `D:\0Grok\0scripts`; human-doc S
 | `06_review` | Personal review/response upper layer (reviewer response only here) |
 | `skill-harvest` | Governance / ROI / evolution proposals |
 
-A = framework + personal. B = default mounted source. Registry (v4, `01_skill-discovery-integration/registry.yaml`) is **10 coarse ids (welded stage buckets) → 52 fine ids (session-pick mount points)**, not a flat menu. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Pick fine ids each run; do not auto-load all. Never auto-mount a non-B source. MedSci/Scientific/AIPOCH/Nature stay PROPOSED backups; ARS/OpenClaw purged from catalog.
+A = framework + personal. B = default chassis. The menu shape (coarse buckets and fine ids) lives in `01_skill-discovery-integration/registry.yaml` and the generated index `01_skill-discovery-integration/MOUNTED_SKILLS.md` — do not restate the totals here. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Every independent run needs a mount decision; reuse `session_picked_fine_ids` when they already cover the task. The pick menu is status MOUNTED only. Never auto-mount a non-B source. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
 
 ## Maintenance
 
-This GitHub repo is the source of truth. Updates land here when requested; no local-folder scan.
+GitHub MY-SKILLS is the A framework source of truth. The B repo is the source of truth for B bytes. Non-B upstream is the source of truth for those bytes. `mounts-cap/` is a verified local cache, not a source of truth. `registry.yaml` is the routing index. Updates to this framework land here when requested; no local-folder scan.
 
 Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
 
@@ -50,10 +50,11 @@ Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
 
 | Term | Meaning |
 |---|---|
-| **Cache** | `mounts-cap/<pack>/` on-disk bytes (gitignored pack trees) |
-| **Mount** | Session fine-id pick (registry pointer) |
-| **Active** | Loaded into the agent this run |
-| **Registry** | Index only (`01_skill-discovery-integration/registry.yaml`) |
+| **Cache** | `mounts-cap/<pack>/` verified local bytes (gitignored pack trees). Not a source of truth |
+| **Registry MOUNTED** | Catalog-approved and session-selectable |
+| **session_picked_fine_ids** | Selected this run |
+| **Active** | Actually loaded this run |
+| **Registry** | Routing index only (`01_skill-discovery-integration/registry.yaml`) |
 
-External skill entity SSOT = cache. B `cross-pack/` stubs are pointers. **52 fine ids** is the v4 ceiling (merge/sub-capability preferred over new fine ids). Optional `load_priority: P0|P1|P2` is YAML metadata only.
+Cache is not mount is not active. B `cross-pack/` stubs are pointers. The fine-id ceiling is `fine_id_count_canonical` (merge/sub-capability preferred over a new fine id). Optional `load_priority: P0|P1|P2` is YAML metadata only.
 

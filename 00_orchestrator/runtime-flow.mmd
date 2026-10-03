@@ -9,6 +9,7 @@
 %% Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
 %% Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
 %% Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+%% 02/03 exits are artifact or evidence checks, not a fact-lineage node.
 
 flowchart TD
     Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
@@ -25,6 +26,7 @@ flowchart TD
     Entry -->|审稿意见 / 修回| R06[06 修回主控]
     Entry -->|独立文献任务| Need03[进入 03]
     Entry -->|其他明确单域| NeedS[进入目标 Skill]
+    Entry -->|单节点个人层 · 无挂载依赖| Personal[例：润色一句 · 不问挂载]
 
     %% 修回：先分诊再回节点，之后只向前重跑受影响链
     R06 --> Decide{06 判断问题来源}
@@ -34,13 +36,14 @@ flowchart TD
     Decide -->|写作| Need05
     Decide -->|审稿整合| Need06
 
-    %% 执行前：缺 mount 才走 01 → G0（非总闸门装饰站）
-    Need02 & Need03 & Need04 & Need05 & Need06 & NeedS --> MountQ{本节点所需<br/>mounted_fine_ids 已覆盖?}
+    %% 独立运行需要一次挂载决定。锁已覆盖则复用，否则才进 01。
+    Need02 & Need03 & Need04 & Need05 & Need06 & NeedS --> MountQ{session_picked_fine_ids<br/>已覆盖本任务细 ID?}
+    MountQ -->|是 · 复用 session lock| Ready[挂载就绪]
     MountQ -->|否| S01[01 · Session Mount / Lifecycle]
     S01 --> GA0{{G0}}
-    GA0 -->|PASS| Ready[挂载就绪]
+    GA0 -->|PASS| Ready
     GA0 -->|FAIL| Locate
-    MountQ -->|是| Ready
+    Personal --> Single
 
     Ready --> Dispatch{目标节点}
     Dispatch -->|02| P02[02 数据处理]
@@ -51,23 +54,26 @@ flowchart TD
     Dispatch -->|单域| Single[目标 Skill]
 
     subgraph CHAIN[主生产链 · PASS 才向前 · 中途入口仍可 · 写作/审稿必须经 03 citation-verify]
-        P02 --> GA02{{Gate · 02}}
-        GA02 -->|PASS · 未到终点| P04
-        P04 --> GA04{{Gate · 04}}
+        P02 --> Exit02{{02 出口 · G0 + G-PHI（适用时）+ 产物存在}}
+        Exit02 -->|PASS · 未到终点| P04
+        P04 --> GF04{{G-FACT · 04 HTML 之后}}
+        GF04 -->|PASS| GA04{{Gate · 04}}
         GA04 -->|PASS · 未到终点| P05
-        P05 --> Lit05[03 Victor · citation-verify<br/>claim→ref 表 + 强断言抽查原文]
+        P05 --> GF05{{G-FACT · 05 house.docx 之后}}
+        GF05 -->|PASS| Lit05[03 Victor · citation-verify<br/>G-CIT-1 草稿证据核实<br/>claim→ref 表 + 强断言抽查原文]
         Lit05 -->|PASS| GA05{{Gate · 05}}
         GA05 -->|PASS · 未到终点| P06
         P06 --> Lee06[Lee · 陈述一致 → 数据一致<br/>只批注 · 不默认自行修订]
-        P06 --> Lit06[03 Victor · citation-verify<br/>不可跳过 · 文献准确性与 Lee 共同负责]
+        P06 --> Lit06[03 Victor · citation-verify<br/>G-CIT-2 修订后 / 06 内<br/>不可跳过 · G-CIT-1 不免除 G-CIT-2<br/>文献准确性与 Lee 共同负责]
         Lee06 --> Join06[06 齐套 · 一致性 + 文献核实]
-        Lit06 -->|PASS| Join06
+        Lit06 -->|PASS| GF06{{G-FACT · 仅当 06 引用了数字}}
+        GF06 -->|PASS| Join06
         Join06 --> GA06{{Gate · 06}}
     end
 
-    P03 --> GA03{{Gate · 03}}
-    GA03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P05
-    GA03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P06
+    P03 --> Exit03{{03 出口 · G0 + G-LIT + 证据/引文产物}}
+    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P05
+    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P06
     Single --> GAS{{Gate · 目标 Skill}}
 
     %% 到达终点且最后一门 PASS，或用户说结束 → stage: done，不打开下一站。
@@ -76,18 +82,21 @@ flowchart TD
     %% 稿件 Track Changes 由 Aitee 落地。Lee marks/comments; Aitee applies Track Changes.
     %% 暂停，或停在结果页后 / 预审前：stage 留在当前站，不写 done。
     %% 同一次已批准运行的后续过站报一行；N2、结果页 G-FACT、N4、G-06 仍停住。
-    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>stage: done])
+    Exit02 & GA04 & GA05 & GA06 & Exit03 & GAS -->|PASS · 到达终点| Out([最终输出<br/>stage: done])
 
-    %% QC 环：最小节点回退；禁止整链从 Start 重来
-    GA02 & GA04 & GA05 & GA06 & GA03 & GAS -->|FAIL| Locate[定位最小负责节点]
+    %% QC 环：回到失败节点并复用 session lock。缺依赖 / provenance 过期 / 新能力才重进 01。
+    Exit02 & GF04 & GA04 & GF05 & GA05 & GF06 & GA06 & Exit03 & GAS -->|FAIL| Locate[定位最小负责节点]
     Lit05 & Lit06 -->|FAIL| Locate
     Locate --> Impact{上游错误是否<br/>使下游结果失效?}
     Impact -->|否| Local[局部返工 · 仅目标节点]
     Impact -->|是| Rollback[回退至最早受影响节点]
     Local --> Budget{返工次数 ≤ 默认预算 3?}
     Rollback --> Budget
-    Budget -->|是| Resume[重入目标节点 · 仅重跑受影响链]
-    Resume --> MountQ
+    Budget -->|是| Resume[重入失败节点 · 复用 session mount lock]
+    Resume --> Re01{依赖缺失、provenance 过期、或需要新能力?}
+    Re01 -->|否| BackNode[回到失败节点]
+    BackNode --> Dispatch
+    Re01 -->|是| S01
     Budget -->|否| Escalate[停止自动循环 · unresolved<br/>stage 不往前]
     Escalate --> Wait([等待用户决策])
     Wait -.->|授权继续 · 重置预算| Locate

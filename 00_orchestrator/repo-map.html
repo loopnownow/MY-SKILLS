@@ -39,9 +39,10 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
 <body>
 <header>
   <h1>MY-SKILLS — repo map</h1>
-  <div class="meta">Generated 2026-09-26 20:42 from registry.yaml v4.0
-    (10 coarse · 52 fine) —
-    read-only index, not a recommendation artifact. Regenerate with
+  <div class="meta">Generated 2026-10-03 15:55 from registry.yaml v4.0
+    (generator stamp: 10 coarse · 52 fine; default_source my-skills-capabilities) —
+    read-only routing index, not a recommendation artifact and not the byte source of truth.
+    Package proposals: med-sci-skills (PROPOSED), scientific-agent-skills (PROPOSED), aipoch-medical-research-skills (PROPOSED), nature-skills (PROPOSED). Regenerate with
     <code>00_orchestrator/scripts/gen_repo_map.py</code> after editing registry.yaml.</div>
 </header>
 <main>
@@ -76,7 +77,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
   <text class="gate" x="370" y="60">G-04</text>
   <text class="gate" x="560" y="60">G-FACT / G-05</text>
   <text class="gate" x="745" y="60">G-06</text>
-  <text x="460" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11">Full project SOP · session mount pick (01) before every node · G0 checks project-state.yaml mounts each run</text>
+  <text x="460" y="20" text-anchor="middle" fill="var(--text-dim)" font-size="11">Full project SOP · reuse session_picked_fine_ids when they cover the task; else 01 · personal one-liner does not ask · G0 checks the lock</text>
   <text x="460" y="180" text-anchor="middle" fill="var(--text-dim)" font-size="10">Other entries: 06 alone (reviewer response) · 05 alone (revision) · 01 (new capability, network first)</text>
 </svg>
 
@@ -86,7 +87,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
   
       <section class="coarse">
         <h2>文献检索</h2>
-        <div class="domain">a_domain:  · 7 fine ids</div>
+        <div class="domain">a_domain: 03_research · 7 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="paper-lookup 广度检索 scientific-agent-skills skills/paper-lookup/ proposed">
           <div class="id">paper-lookup</div>
@@ -133,7 +134,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>选题探索</h2>
-        <div class="domain">a_domain:  · 4 fine ids</div>
+        <div class="domain">a_domain: 03_research · 4 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="find-cohort-gap 队列选题空白发现 my-skills-capabilities 03-research/frontier-ideate/ mounted">
           <div class="id">find-cohort-gap</div>
@@ -162,7 +163,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>研究设计</h2>
-        <div class="domain">a_domain:  · 5 fine ids</div>
+        <div class="domain">a_domain: 03_research · 5 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="design-study 研究设计审查 my-skills-capabilities 03-research/design-experiment/ mounted">
           <div class="id">design-study</div>
@@ -197,7 +198,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>正文写作</h2>
-        <div class="domain">a_domain:  · 7 fine ids</div>
+        <div class="domain">a_domain: 05_manuscript · 7 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="write-paper imrad正文起草 my-skills-capabilities 05-manuscript/write-manuscript/ mounted">
           <div class="id">write-paper</div>
@@ -244,7 +245,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>语言润色</h2>
-        <div class="domain">a_domain:  · 3 fine ids</div>
+        <div class="domain">a_domain: 05_manuscript · 3 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="polish-language 一致性硬规则lint my-skills-capabilities 05-manuscript/write-polish/ mounted">
           <div class="id">polish-language</div>
@@ -267,7 +268,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>数据处理</h2>
-        <div class="domain">a_domain:  · 6 fine ids</div>
+        <div class="domain">a_domain: 02_data-processing · 6 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="clean-data 三阶段确认式清洗 my-skills-capabilities 02-data-processing/tables/ mounted">
           <div class="id">clean-data</div>
@@ -308,7 +309,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>统计分析</h2>
-        <div class="domain">a_domain:  · 8 fine ids</div>
+        <div class="domain">a_domain: 04_analysis · 8 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="analyze-stats 检验方法选择与加权调查数据 my-skills-capabilities 04-analysis/stats-guide/ mounted">
           <div class="id">analyze-stats</div>
@@ -361,7 +362,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>图表呈现</h2>
-        <div class="domain">a_domain:  · 4 fine ids</div>
+        <div class="domain">a_domain: 04_analysis · 4 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="make-figures 患者流程图 my-skills-capabilities 04-analysis/fig-flow/ mounted">
           <div class="id">make-figures</div>
@@ -390,7 +391,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>稿件评阅</h2>
-        <div class="domain">a_domain:  · 5 fine ids</div>
+        <div class="domain">a_domain: 06_review · 5 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="peer-review-pdf-scan pdf注入攻击扫描 my-skills-capabilities 06-review/review-peer/ mounted">
           <div class="id">peer-review-pdf-scan</div>
@@ -425,7 +426,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       </section>
       <section class="coarse">
         <h2>审稿回复</h2>
-        <div class="domain">a_domain:  · 3 fine ids</div>
+        <div class="domain">a_domain: 06_review · 3 fine ids</div>
         <div class="grid">
         <div class="card" data-blob="revise 修回分诊与数字血统追踪 my-skills-capabilities 06-review/review-response/ mounted">
           <div class="id">revise</div>
@@ -447,7 +448,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
         </div></div>
       </section>
 </main>
-<footer>Source of truth: 01_skill-discovery-integration/registry.yaml. This page never hand-lists ids.</footer>
+<footer>Routing index: 01_skill-discovery-integration/registry.yaml. A framework SSOT is this GitHub repo; B bytes stay in the B repo; mounts-cap is a cache. This page never hand-lists ids.</footer>
 <script>
 const q = document.getElementById('search');
 q.addEventListener('input', () => {

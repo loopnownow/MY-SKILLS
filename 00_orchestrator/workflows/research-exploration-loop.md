@@ -14,7 +14,7 @@ type: 00-sub-component
 
 ## 0. Positioning
 
-Belongs under `00_orchestrator`. **Not** a registry fine id (v4 52-id ceiling). **Not** a new coarse id.
+Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id_count_canonical` in `registry.yaml`). **Not** a new coarse id.
 
 > **00 = State + Gate (structural) + Route + Resume + Loop counts**  
 > **00 never judges medical content** — only whether required fields exist, trace pointers are present, and reported confidence clears a threshold.
