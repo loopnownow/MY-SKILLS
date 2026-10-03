@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MY-SKILLS Architecture",
+    "subtitle": "Source, registry, skills, QC",
+    "locale": "zh-CN",
+    "output": "docs/architecture/index.html"
+  },
+  "layout": {
+    "mode": "grid",
+    "cols": 3
+  },
+  "components": [
+    {
+      "id": "c00",
+      "type": "security",
+      "label": "00 Control / QC",
+      "sublabel": "entry, gate, recovery",
+      "row": 0,
+      "col": 0
+    },
+    {
+      "id": "c01",
+      "type": "backend",
+      "label": "01 Discovery / Registry",
+      "sublabel": "version and mount index",
+      "row": 0,
+      "col": 1
+    },
+    {
+      "id": "mounts",
+      "type": "external",
+      "label": "External mounts",
+      "sublabel": "registry pointers; not architecture facts",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "c02",
+      "type": "backend",
+      "label": "02 Data",
+      "sublabel": "analysis-ready data",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "c03",
+      "type": "backend",
+      "label": "03 Literature",
+      "sublabel": "literature and citation-verify",
+      "row": 1,
+      "col": 1
+    },
+    {
+      "id": "c04",
+      "type": "backend",
+      "label": "04 Statistics",
+      "sublabel": "statistics and figures",
+      "row": 1,
+      "col": 2
+    },
+    {
+      "id": "c05",
+      "type": "backend",
+      "label": "05 Writing",
+      "sublabel": "manuscript",
+      "row": 2,
+      "col": 0
+    },
+    {
+      "id": "c06",
+      "type": "backend",
+      "label": "06 Review",
+      "sublabel": "review and response",
+      "row": 2,
+      "col": 1
+    },
+    {
+      "id": "harvest",
+      "type": "backend",
+      "label": "skill-harvest",
+      "sublabel": "proposals only; not a domain layer",
+      "row": 2,
+      "col": 2
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "A ownership",
+      "wraps": [
+        "c00",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "harvest"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "External mount index",
+      "wraps": [
+        "mounts"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "need-mount",
+      "from": "c00",
+      "to": "c01",
+      "label": "session mount when fine ids are missing"
+    },
+    {
+      "id": "index-mounts",
+      "from": "c01",
+      "to": "mounts",
+      "label": "registry pointers only"
+    },
+    {
+      "id": "dispatch-02",
+      "from": "c00",
+      "to": "c02",
+      "label": "dispatch"
+    },
+    {
+      "id": "dispatch-03",
+      "from": "c00",
+      "to": "c03",
+      "label": "dispatch"
+    },
+    {
+      "id": "dispatch-04",
+      "from": "c00",
+      "to": "c04",
+      "label": "dispatch"
+    },
+    {
+      "id": "dispatch-05",
+      "from": "c00",
+      "to": "c05",
+      "label": "dispatch"
+    },
+    {
+      "id": "dispatch-06",
+      "from": "c00",
+      "to": "c06",
+      "label": "dispatch"
+    },
+    {
+      "id": "handoff-04",
+      "from": "c02",
+      "to": "c04",
+      "label": "analysis-ready handoff"
+    },
+    {
+      "id": "results-05",
+      "from": "c04",
+      "to": "c05",
+      "label": "results into writing"
+    },
+    {
+      "id": "lit05",
+      "from": "c03",
+      "to": "c05",
+      "label": "Lit05 citation-verify"
+    },
+    {
+      "id": "lit06",
+      "from": "c03",
+      "to": "c06",
+      "label": "Lit06 citation-verify"
+    },
+    {
+      "id": "manuscript-06",
+      "from": "c05",
+      "to": "c06",
+      "label": "manuscript into review"
+    },
+    {
+      "id": "propose",
+      "from": "harvest",
+      "to": "c01",
+      "label": "evolution proposal",
+      "variant": "dashed"
+    }
+  ]
+}
