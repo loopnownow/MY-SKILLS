@@ -298,6 +298,255 @@ def run_tests(root: Path, out: list):
         out.append(("FAIL", "unit-tests", proc.stdout[-4000:]))
 
 
+LIVE_FINE_ID_COUNT = 52  # measured live registry mounts on 2026-10-03; do not edit the registry to force this
+FINE_TOKEN_RE = re.compile(r"`([a-z0-9]+(?:-[a-z0-9]+)+)`")
+RUNTIME_DOC_PATHS = (
+    Path("00_orchestrator/runtime-flow.md"),
+    Path("00_orchestrator/runtime-flow.mmd"),
+    Path("00_orchestrator/route-contract.yaml"),
+)
+NODE_ID_RE = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)")
+
+
+def _node_id(token: str) -> str:
+    match = NODE_ID_RE.search(token or "")
+    return match.group(1) if match else ""
+
+
+def _filled(value) -> bool:
+    if value is None:
+        return False
+    text = str(value).strip().strip("'\"")
+    return text not in {"", "~", "null", "None"}
+
+
+def markdown_stems(root: Path) -> set:
+    stems = set()
+    for path in root.rglob("*.md"):
+        if set(path.parts) & SKIP_DIRS:
+            continue
+        stems.add(path.stem)
+    return stems
+
+
+def runtime_doc_paths(root: Path):
+    paths = [root / rel for rel in RUNTIME_DOC_PATHS]
+    paths.extend(sorted((root / "00_orchestrator" / "workflows").glob("*.md")))
+    return [path for path in paths if path.is_file()]
+
+
+def runtime_fine_id_problems(root: Path) -> list:
+    canonical = canonical_fine_ids(root)
+    aliases = load_alias_map(root)
+    problems = []
+    for key, target in sorted(aliases.items()):
+        if target not in canonical:
+            problems.append(f"alias {key} -> {target} is not in the registry")
+    stems = markdown_stems(root)
+    for path in runtime_doc_paths(root):
+        rel = path.relative_to(root).as_posix()
+        for lineno, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
+            if NEGATIVE_WORD_RE.search(line):
+                continue
+            for token in FINE_TOKEN_RE.findall(line):
+                if token in canonical:
+                    continue
+                if token in aliases and aliases[token] in canonical:
+                    continue
+                if token in PATH_UNITS or token in stems:
+                    continue
+                if re.search(rf"`{re.escape(token)}`\s+sub-check", line):
+                    continue
+                problems.append(f"{rel}:{lineno}:{token}")
+    return problems
+
+
+def session_pick_problems(root: Path) -> list:
+    entries, _expected = parse_registry(root)
+    by_id = {entry["id"]: entry for entry in entries if entry.get("id")}
+    proposed = {entry["id"] for entry in entries if entry.get("status") == "PROPOSED"}
+    problems = []
+    generated = root / "01_skill-discovery-integration" / "MOUNTED_SKILLS.md"
+    text = generated.read_text(encoding="utf-8") if generated.is_file() else ""
+    match = re.search(r"^## Session-pick[^\n]*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+    if not match:
+        problems.append("generated MOUNTED_SKILLS.md has no Session-pick section")
+    else:
+        body = match.group(1)
+        if re.search(r"\bPROPOSED\b", body):
+            problems.append("PROPOSED appears in the MOUNTED_SKILLS session-pick section")
+        for token in FINE_TOKEN_RE.findall(body):
+            if token in proposed:
+                problems.append(f"session-pick lists PROPOSED id {token}")
+    state_path = root / "00_orchestrator" / "templates" / "project-state.yaml"
+    try:
+        state = yaml.safe_load(state_path.read_text(encoding="utf-8")) or {}
+    except Exception as exc:
+        problems.append(f"project-state template did not parse: {exc}")
+        return problems
+    picked = ((state.get("mounts") or {}).get("session_picked_fine_ids") or [])
+    if not isinstance(picked, list):
+        problems.append("session_picked_fine_ids is not a list")
+        return problems
+    for token in picked:
+        if token in proposed or by_id.get(token, {}).get("status") == "PROPOSED":
+            problems.append(f"project-state selected PROPOSED id {token}")
+    return problems
+
+
+def mounted_path_problems(root: Path) -> list:
+    entries, _expected = parse_registry(root)
+    problems = []
+    for entry in entries:
+        if entry.get("status") != "MOUNTED":
+            continue
+        if not _filled(entry.get("path")) or not _filled(entry.get("source")):
+            problems.append(entry.get("id", "?"))
+    return problems
+
+
+def repo_map_problems(root: Path) -> list:
+    html_path = root / "00_orchestrator" / "repo-map.html"
+    if not html_path.is_file():
+        return ["repo-map.html missing"]
+    text = html_path.read_text(encoding="utf-8", errors="ignore")
+    problems = []
+    if not re.search(r"Generated \d{4}-\d{2}-\d{2} \d{2}:\d{2}\b", text):
+        problems.append("repo-map.html has no generated timestamp")
+    script = root / "00_orchestrator" / "scripts" / "gen_repo_map.py"
+    proc = subprocess.run(
+        [sys.executable, str(script), "--check"],
+        cwd=root,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    if proc.returncode != 0:
+        detail = (proc.stdout or "gen_repo_map.py --check failed").strip()
+        problems.append(detail)
+    return problems
+
+
+def mermaid_edges(text: str):
+    edges = []
+    for raw in text.splitlines():
+        line = raw.split("%%", 1)[0].strip()
+        if "-->" not in line:
+            continue
+        left, right = line.split("-->", 1)
+        label = ""
+        labeled = re.match(r"\s*\|([^|]*)\|\s*(.*)$", right)
+        if labeled:
+            label, right = labeled.group(1), labeled.group(2)
+        dst = _node_id(right)
+        for part in left.split("&"):
+            src = _node_id(part)
+            if src and dst:
+                edges.append((src, dst, label.strip()))
+    return edges
+
+
+def mount_route_problems(text: str) -> list:
+    """Mount-dependent routes must reach Ready only through the mount G0 node."""
+    edges = mermaid_edges(text)
+    problems = []
+    mountq = set(re.findall(r"([A-Za-z_][A-Za-z0-9_]*)\{[^}\n]*session_picked_fine_ids", text))
+    g0 = set(re.findall(r"([A-Za-z_][A-Za-z0-9_]*)\{\{G0\}\}", text))
+    ready = set(re.findall(r"([A-Za-z_][A-Za-z0-9_]*)\[挂载就绪\]", text))
+    ready.update(dst for _src, dst, _label in edges if dst == "Ready")
+    if not mountq:
+        problems.append("no MountQ node")
+    if not g0:
+        problems.append("no G0 node")
+    if not ready:
+        problems.append("no Ready node")
+    if problems:
+        return problems
+    adj = {}
+    for src, dst, label in edges:
+        adj.setdefault(src, []).append(dst)
+        if src in mountq and "是" in label and dst not in g0:
+            problems.append(f"MountQ yes edge goes to {dst}, not G0")
+        if src in mountq and dst in ready:
+            problems.append("MountQ links directly to Ready")
+    starts = set(mountq)
+    starts.update(src for src, dst, _label in edges if dst in mountq)
+
+    def walk(start: str):
+        reached = []
+
+        def visit(node: str, seen: set, passed: bool):
+            if node in ready:
+                reached.append(passed)
+                return
+            for nxt in adj.get(node, []):
+                if nxt in seen:
+                    continue
+                visit(nxt, seen | {nxt}, passed or nxt in g0)
+
+        visit(start, {start}, start in g0)
+        return reached
+
+    for start in sorted(starts):
+        reached = walk(start)
+        if start in mountq and not reached:
+            problems.append(f"{start} never reaches Ready")
+        if any(not passed for passed in reached):
+            problems.append(f"{start} reaches Ready without G0")
+    return problems
+
+
+def check_five_fixes(root: Path, out: list):
+    entries, expected = parse_registry(root)
+    ids = [entry.get("id", "") for entry in entries]
+    dupes = sorted({item for item in ids if ids.count(item) > 1})
+    count_ok = len(entries) == LIVE_FINE_ID_COUNT and not dupes and expected == LIVE_FINE_ID_COUNT
+    out.append((
+        "PASS" if count_ok else "FAIL",
+        "fine-id-count",
+        f"measured live mounts {len(entries)}; canonical field {expected}; expected measured count {LIVE_FINE_ID_COUNT}"
+        + (f"; duplicate ids {dupes}" if dupes else ""),
+    ))
+    unique_ok = len(ids) == len(set(ids)) and all(ids)
+    out.append((
+        "PASS" if unique_ok else "FAIL",
+        "fine-id-unique",
+        "mount fine ids are unique" if unique_ok else f"duplicate or blank fine ids: {dupes}",
+    ))
+    runtime_bad = runtime_fine_id_problems(root)
+    out.append((
+        "FAIL" if runtime_bad else "PASS",
+        "runtime-fine-ids",
+        f"unknown runtime fine ids: {runtime_bad[:30]}" if runtime_bad else "runtime docs cite registry ids or aliases whose targets exist",
+    ))
+    picked_bad = session_pick_problems(root)
+    out.append((
+        "FAIL" if picked_bad else "PASS",
+        "proposed-not-selected",
+        f"PROPOSED in a session-pick list: {picked_bad}" if picked_bad else "PROPOSED ids are outside session-pick and project-state selected lists",
+    ))
+    path_bad = mounted_path_problems(root)
+    out.append((
+        "FAIL" if path_bad else "PASS",
+        "mounted-path-source",
+        f"MOUNTED entries missing path or source: {path_bad}" if path_bad else "every MOUNTED entry has a path and a source",
+    ))
+    map_bad = repo_map_problems(root)
+    out.append((
+        "FAIL" if map_bad else "PASS",
+        "repo-map-generated",
+        f"{map_bad}" if map_bad else "repo-map.html has a generated timestamp and gen_repo_map.py --check passed",
+    ))
+    flow = (root / "00_orchestrator" / "runtime-flow.mmd").read_text(encoding="utf-8")
+    route_bad = mount_route_problems(flow)
+    out.append((
+        "FAIL" if route_bad else "PASS",
+        "mount-route-g0",
+        f"mount route misses G0: {route_bad}" if route_bad else "every mount-dependent route reaches Ready only through G0",
+    ))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("root", nargs="?", default=".")
@@ -319,6 +568,7 @@ def main():
     check_registry(root, capabilities, results)
     check_meta(root, results)
     check_qc_scaffold(root, results)
+    check_five_fixes(root, results)
     if not args.no_tests: run_tests(root, results)
     fail = any(s == "FAIL" for s, _, _ in results)
     payload = {"repository": str(root), "status": "FAIL" if fail else "PASS", "checks": [{"status": s, "check": c, "detail": d} for s,c,d in results]}

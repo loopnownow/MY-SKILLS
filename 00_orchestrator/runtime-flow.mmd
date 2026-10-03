@@ -38,10 +38,10 @@ flowchart TD
 
     %% 独立运行需要一次挂载决定。锁已覆盖则复用，否则才进 01。
     Need02 & Need03 & Need04 & Need05 & Need06 & NeedS --> MountQ{session_picked_fine_ids<br/>已覆盖本任务细 ID?}
-    MountQ -->|是 · 复用 session lock| Ready[挂载就绪]
+    MountQ -->|是 · 复用 session lock| GA0
     MountQ -->|否| S01[01 · Session Mount / Lifecycle]
     S01 --> GA0{{G0}}
-    GA0 -->|PASS| Ready
+    GA0 -->|PASS| Ready[挂载就绪]
     GA0 -->|FAIL| Locate
     Personal --> Single
 
