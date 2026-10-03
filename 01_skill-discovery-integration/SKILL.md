@@ -30,6 +30,22 @@ Domain skills call fine ids; they do not keep a second pointer table.
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
 - 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
 
+## Canonical ID Rule
+
+Hard rule. Do not rename fine ids to match a folder.
+
+1. `id` is the only runtime and session-pick identifier.
+2. `path` is a physical location and must not be used as a fine id.
+3. `label` is descriptive and must not be used for routing.
+4. `coarse` is only the session-pick bucket.
+5. `a_domain` is the execution owner.
+6. One path may back several fine ids (`path_shared`).
+7. Renaming a physical path does not rename the fine id.
+8. Renaming a fine id requires an explicit registry migration.
+
+A path must never be used to infer an id. QC tools use `registry.yaml` `id` as the only canonical identifier. Legacy call-site aliases in `legacy_aliases.yaml` resolve old name → current `id` (for example `02-tables` → `clean-data`). Do not reverse that direction.
+
+
 ## Default mount
 
 **Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Scientific `verify-refs` (`citation-management`), and B `analyze-stats` (`stats-guide`). Scientific `scientific-critical-thinking` is an optional PROPOSED overlay. This preset has no Nature overlay. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source.

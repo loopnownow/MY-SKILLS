@@ -108,5 +108,36 @@ class GateAlignment(unittest.TestCase):
         self.assertIn("Do not auto-pick numbers", gates)
 
 
+class CanonicalIdRule(unittest.TestCase):
+    def test_rule_text_and_radiomics_chain(self) -> None:
+        skill = (ROOT / "01_skill-discovery-integration" / "SKILL.md").read_text(encoding="utf-8")
+        start = skill.index("## Canonical ID Rule")
+        block = skill[start:skill.index("## Default mount")]
+        for phrase in (
+            "only runtime and session-pick identifier",
+            "must not be used as a fine id",
+            "must not be used for routing",
+            "session-pick bucket",
+            "execution owner",
+            "path_shared",
+            "does not rename the fine id",
+            "explicit registry migration",
+            "must never be used to infer an id",
+            "only canonical identifier",
+            "02-tables` → `clean-data",
+        ):
+            self.assertIn(phrase, block, phrase)
+        header = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8").split("meta:", 1)[0]
+        self.assertIn("Canonical ID Rule", header)
+        self.assertIn("must never be used to infer", header)
+        rad = (ROOT / "00_orchestrator" / "workflows" / "radiomics-study.md").read_text(encoding="utf-8")
+        self.assertLess(rad.index("`clean-data`"), rad.index("`preprocess-imaging`"))
+        self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`radiomics-ml`"))
+        for banned in ("02-tables", "02-imaging-qc", "02-radiomics-habitat"):
+            self.assertNotIn(banned, rad)
+        aliases = yaml.safe_load((ROOT / "01_skill-discovery-integration" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]
+        self.assertEqual(aliases["02-tables"], "clean-data")
+
+
 if __name__ == "__main__":
     unittest.main()
