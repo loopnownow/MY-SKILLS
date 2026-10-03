@@ -24,6 +24,7 @@
 | It is worth noting that | delete; state the fact |
 | furthermore / moreover (stacked) | vary or cut |
 | elucidat* (elucidate / elucidating / elucidated) | purpose/aim: exploring; mechanism-unknown: remain unclear (not explain / clarify) |
+| attenuated | reduced / lower / decreased |
 
 | novel | (drop, or name what changed) |
 | notably | delete; state the fact |
@@ -31,6 +32,19 @@
 | importantly | delete, or restructure so the load-bearing sentence carries its own weight |
 
 **Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Corpus counts do not lift the ban.
+
+**Attenuated (2026-10-03):** AI-ism. Replace with *reduced*, *lower*, or *decreased*. The imaging noun *attenuation* (attenuation correction, beam attenuation) is not this ban.
+
+## Comparison wording (2026-10-03)
+
+Prefer *Compared* when *Relative* is a comparison word in prose.
+
+| Avoid | Prefer |
+|-------|--------|
+| Relative to the clinical model, … | Compared with the clinical model, … |
+| relative to controls | compared with controls |
+
+Do **not** rewrite technical metric names (*relative CBF*, *relCBF*, and other "relative …" measures). Rewrite those only when the surrounding prose uses *relative* as a comparison word.
 
 ## Process and placeholder language (final body and legends)
 

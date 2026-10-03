@@ -37,6 +37,21 @@ class DeAI(unittest.TestCase):
                 hits.append(word)
         self.assertGreaterEqual(len(hits), 6)
 
+    def test_compared_and_attenuated_wording(self) -> None:
+        banned = read("05_manuscript", "personal", "forbidden-phrases.md")
+        checklist = read("05_manuscript", "personal", "ai-isms-checklist.md")
+        deai = read("05_manuscript", "personal", "de-ai.md")
+        lang = read("05_manuscript", "personal", "citation-and-language.md")
+        for text in (banned, checklist, deai, lang):
+            self.assertIn("attenuated", text)
+            self.assertIn("Compared", text)
+            self.assertIn("relative CBF", text)
+            self.assertIn("relCBF", text)
+        self.assertIn("reduced", banned)
+        self.assertIn("decreased", banned)
+        self.assertIn("attenuation correction", banned)
+        self.assertIn("comparison word", banned)
+
     def test_de_ai_is_personal_not_a_mount(self) -> None:
         five = read("05_manuscript", "SKILL.md")
         self.assertNotIn("05-de-ai", five)

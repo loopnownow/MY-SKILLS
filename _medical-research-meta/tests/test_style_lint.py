@@ -78,6 +78,16 @@ class VocabularyTests(unittest.TestCase):
         r = sl.lint(doc("Discussion", "Feature robustness was assessed with the ICC."))
         self.assertFalse(failed(r, "vocabulary"))
 
+    def test_attenuated_is_flagged_attenuation_is_not(self):
+        # must-hit: the AI verb; must-stay-clean: the imaging noun
+        for sentence in ("The association was attenuated.",
+                         "Adjustment did attenuate the estimate.",
+                         "Attenuating the effect did not change the AUC."):
+            with self.subTest(sentence=sentence):
+                self.assertTrue(failed(sl.lint(doc("Discussion", sentence)), "vocabulary"))
+        clean = sl.lint(doc("Discussion", "Attenuation correction was applied before reconstruction."))
+        self.assertFalse(failed(clean, "vocabulary"))
+
     def test_near_misses_stay_clean(self):
         for sentence in ("Delivery of care improved.", "The lever arm was measured.",
                          "The landscaper arrived.", "Realistic estimates were used."):

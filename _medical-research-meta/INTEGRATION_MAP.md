@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261003-001 — Compared not Relative; ban attenuated
+date: 2026-10-03
+skill: 05_manuscript/personal/forbidden-phrases.md (+ ai-isms-checklist, de-ai, citation-and-language); 00_orchestrator/scripts/style_lint.py
+problem: User wording rules (2026-10-03): prose comparisons should say Compared, not Relative; attenuated is an AI-ism.
+change: Prefer Compared with / Compared to when relative is a comparison word. Do not rewrite metric names (relative CBF, relCBF) unless the surrounding prose uses relative as a comparison word. Hard-ban attenuated → reduced / lower / decreased; imaging noun attenuation stays. style_lint flags attenuate/attenuated/attenuating and not attenuation.
+decision: keep
+next_action: after merge, sync changed files only into ~\.grok\skills.
+
 ## CHG-20260929-006 — Deep QC waste→0del + dry-run / no silent success
 date: 2026-09-29
 skill: 02_data-processing/code-refactoring/references/code-qc.md; 02_data-processing/code-refactoring/SKILL.md; INTEGRATION_MAP.md; VERSION.txt

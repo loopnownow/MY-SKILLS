@@ -29,6 +29,8 @@ Words are organized into three tiers based on how reliably they signal AI-genera
 - **Adverbs (new writing and polish):** cut decorative *-ly* softeners/intensifiers. Do **not** ban statistical *significantly* when it is p-value language.
 - **Commentary voice:** body must not tell the reader how not to read the paper (*they should not be summarized as*; *is not reported as*; *should not be read as*; *given this extent*; *should not be described as*; rhetorical *rather than* / *but not by*). Observational contrast may still use *associated with*. Do not blanket-ban factual *rather than* / *but not by* (e.g. *but not by sex*). Detail: `forbidden-phrases.md`.
 - **Process language in final prose:** ban pipeline tokens (`TRAIN_RATIO`, `VAL_MODE`), "as stated by the source", 待补, internal QC labels such as 标签未与方案核对, empty retrieval strings, and placeholder scan parameters. The same disclaimer stays once. Detail: `forbidden-phrases.md` and `pre-submit-consistency.md`.
+- **Attenuated:** always replace with *reduced*, *lower*, or *decreased*. Do not flag the imaging noun *attenuation* (attenuation correction, beam attenuation). Detail: `forbidden-phrases.md`.
+- **Comparison wording:** prefer *Compared with* / *Compared to* over *Relative* / *relative to* when *relative* is a comparison word. Do not rewrite metric names (*relative CBF*, *relCBF*). Detail: `forbidden-phrases.md`.
 - **Tier 1 — Always flag.** These words appear 5–20x more often in AI text than human text. Replace on sight.
 - **Tier 2 — Flag in clusters.** Individually fine, but two or more in the same paragraph is a strong AI signal. Flag when they appear together.
 - **Tier 3 — Flag by density.** Common words that AI simply overuses. Only flag when they make up a noticeable fraction of the text (roughly 3%+ of total words).
@@ -94,6 +96,7 @@ Words are organized into three tiers based on how reliably they signal AI-genera
 | keen (as intensifier) | interested, eager, enthusiastic (or cut — just state the interest) |
 | symphony (metaphor) | (describe the actual coordination or combination) |
 | embrace (metaphor) | adopt, accept, use, switch to |
+| attenuated | reduced, lower, decreased |
 
 #### Tier 2 — Flag when 2+ appear in the same paragraph
 
