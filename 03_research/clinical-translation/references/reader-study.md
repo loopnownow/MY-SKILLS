@@ -1,7 +1,7 @@
 # Reader (MRMC) study design
 
 The standard evidence that AI changes radiologist performance. Design it so a biostatistician
-accepts it; compute it with `radiology-stats`.
+accepts it; compute it with `04_analysis` (mounted `analyze-stats`).
 
 ## Core design (multi-reader multi-case, MRMC)
 
@@ -15,7 +15,7 @@ accepts it; compute it with `radiology-stats`.
 ## Outcomes
 
 - Primary: change in performance (e.g. ΔAUC, sensitivity/specificity at a clinical threshold) —
-  MRMC (Obuchowski-Rockette / DBM) → radiology-stats.
+  MRMC (Obuchowski-Rockette / DBM) → `04_analysis` (mounted `analyze-stats`).
 - Secondary: reading **time**, **confidence**, agreement, and harms (e.g. automation-induced
   errors).
 
@@ -40,5 +40,5 @@ change in AUC analysed with the Obuchowski-Rockette method; reading time and con
 secondary."*
 
 ## Handoff
-MRMC power and analysis → `radiology-stats`; reader-study reporting (CLAIM, DECIDE-AI for
+MRMC power → `04_analysis` (mounted `calc-sample-size`); MRMC analysis → `04_analysis` (mounted `analyze-stats`); reader-study reporting (CLAIM, DECIDE-AI for
 decision-support, CONSORT-AI for trials) → `05_manuscript` (mounted `check-reporting`); plots → `04_analysis` (mounted `fig-plot`).
