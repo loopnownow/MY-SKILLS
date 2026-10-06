@@ -1,3 +1,6 @@
+CHG-20261006-001 (2026-10-06)
+Lab runnable-code folder renamed D:\0Grok\0scripts → D:\0Grok\0script; live skill path pointers follow. Dated history lines keep the old name. 全局脚本库改名 0script；历史条目保留旧名。
+Earlier: CHG-20261003-003, CHG-20261003-002.
 CHG-20261003-003 (2026-10-03)
 Retrospective fixed N stays in 04 sample-size (calc-sample-size / Loopnow): no post-hoc / observed power from the obtained p (Hoenig & Heisey 2001). Four approaches: pre-study power, EPV 10–15 / Riley pmsampsize, MDES at 80% power, or CI half-width. 回顾性固定 N 不计算观察功效。
 Earlier: CHG-20261003-002, CHG-20261003-001.

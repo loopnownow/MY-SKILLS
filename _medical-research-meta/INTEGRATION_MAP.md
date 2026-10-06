@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261006-001 — lab script library renamed 0scripts → 0script
+date: 2026-10-06
+skill: 00_orchestrator/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/code-refactoring/SKILL.md; 02_data-processing/code-refactoring/references/code-qc.md; 04_analysis/personal/{0rad-pipeline-rules,MODULE,high-dimensional-omics,lab-palettes,model-evaluation,survival-prognostic}.md; ARCHITECTURE.md; README.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt
+problem: The lab PC renames the runnable-code SSOT `D:\0Grok\0scripts` to `D:\0Grok\0script`. Live skill pointers would then point at a missing folder.
+change: Live path pointers now say `D:\0Grok\0script` / `0script/`. Dated changelog lines (CHG-20260929-001/002, CHG-20260926-002/004, older VERSION entries, INTEGRATION_MAP.archive) keep the old name as history. No code vendored.
+decision: keep
+next_action: merge only after the PC folder rename is done; then sync changed files only into ~\.grok\skills.
+
 ## CHG-20261003-003 — Retrospective fixed-N sample size (no observed power)
 date: 2026-10-03
 skill: 04_analysis/personal/sample-size.md; 04_analysis/personal/MODULE.md; INTEGRATION_MAP.md; VERSION.txt
