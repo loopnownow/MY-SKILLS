@@ -32,10 +32,10 @@ Never perform feature selection or statistical model fitting here.
 | Task | Path |
 |---|---|
 | 0RAD workspace (folder names, `exc`, false-classification) | `0rad-workspace.md` |
-| Lab MATLAB preprocess | `scripts/parallel_preprocess.m`, `scripts/run_preprocess.m` |
-| Leakage / split / radiology audit | `scripts/split_leakage_check.py`, `scripts/radiology_audit.py` |
-| Clinical / HIS extraction | `clinical-data-extraction/` (`scripts/`) |
-| Soft-coding / dry-run / CONFIG on top | `code-refactoring/` (`scripts/`) |
+| Lab MATLAB preprocess | `D:\0Grok\0script\数据处理\preprocess-imaging\fmri\parallel_preprocess.m`, `D:\0Grok\0script\数据处理\preprocess-imaging\fmri\run_preprocess.m` |
+| Leakage / split / radiology audit | `D:\0Grok\0script\统计分析\model-validation\split_leakage_check.py`, `D:\0Grok\0script\统计分析\model-validation\radiology_audit.py` |
+| Clinical / HIS extraction | `D:\0Grok\0script\数据处理\clean-data\clinical-extraction\`（`extract_patient_data.py`、`extract_docx.py`） |
+| Soft-coding / dry-run / CONFIG on top | `D:\0Grok\0script\_templates\soft_code_template.py`（说明在 `code-refactoring/`） |
 | Raw table digit / smoothness QC | `table-qc/` (`references/`) |
 
 Personal scripts are not replaced by a mounted pack.
@@ -46,9 +46,9 @@ Personal scripts are not replaced by a mounted pack.
 
 Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` menu + `01_skill-discovery-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
 
-- `clean-data` / `batch-cohort` — 临床表 Excel / CSV（含缺失/异常值）
+- `clean-data` / `batch-cohort` — 临床表 Excel / CSV（含缺失/异常值）；脚本库：`D:\0Grok\0script\数据处理\clean-data\`
 - `imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
-- `preprocess-imaging` — CT / MRI QC，ROI / 阅片
+- `preprocess-imaging` — CT / MRI QC，ROI / 阅片；脚本库：`D:\0Grok\0script\数据处理\preprocess-imaging\`
 - `radiomics-ml` — IBSI/habitat prep; fine id routes to 04 (paper modelling → 04)
 
 Archived ids stay off the menu (registry `archived:`).

@@ -28,7 +28,7 @@ description: >
 
 | 任务 | 路径 |
 |---|---|
-| 软编码 + dry-run 模板 | `scripts/soft_code_template.py` |
+| 软编码 + dry-run 模板 | `D:\0Grok\0script\_templates\soft_code_template.py` |
 | 深度代码 QC（五轴/分级/Critical + Code QC Core） | `references/code-qc.md` |
 | 写时代码阶梯 + 强度/护栏 | `references/complexity-ladder.md` |
 
@@ -66,4 +66,4 @@ Medical / Statistical Integrity：**只引用** `04_analysis`（`personal/0rad-p
 - 00 路由：`gates.md` **G-CODE**
 
 ## 附带的模板
-- `scripts/soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
+- `D:\0Grok\0script\_templates\soft_code_template.py` — 软编码 + 断点续传 + dry run 模板

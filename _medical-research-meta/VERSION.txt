@@ -1,3 +1,6 @@
+CHG-20261006-002 (2026-10-06)
+0script reorganized by MY-SKILLS coarse/fine id (数据处理/统计分析/图表呈现/研究设计/正文写作 + _templates); 10 MY-SKILLS scripts copied into 0script and removed from the repo; skill pointers repointed to D:\0Grok\0script\...; SCRIPT_ROLES.md gains a 细 ID → path table. modules/sync/docx_revise/archive unchanged. 全局脚本库按技能重组；脚本外置，技能只留指针。
+Earlier: CHG-20261006-001, CHG-20261003-003.
 CHG-20261006-001 (2026-10-06)
 Lab runnable-code folder renamed D:\0Grok\0scripts → D:\0Grok\0script; live skill path pointers follow. Dated history lines keep the old name. 全局脚本库改名 0script；历史条目保留旧名。
 Earlier: CHG-20261003-003, CHG-20261003-002.
