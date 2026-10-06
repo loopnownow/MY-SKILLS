@@ -34,11 +34,11 @@ Mark which level the study reaches; the claim cannot exceed it.
 - Define triggers for recalibration/retraining and who is responsible.
 - Log failures and out-of-distribution inputs.
 - This section is the deployment-lifecycle half of the **FUTURE-AI** framework (Fairness,
-  Universality, Traceability, Usability, Robustness, Explainability —
-  → `radiology-deep-learning/interpretability-uncertainty.md`（该模块尚未建立，暂无内容） for the pre-deployment
-  Robustness/Explainability evidence, and `05_manuscript` (mounted `check-reporting`) for how the
-  two connect). Monitoring here operationalises Universality/Robustness in production; it does
-  not substitute for the pre-deployment interpretability and uncertainty evidence.
+  Universality, Traceability, Usability, Robustness, Explainability). How deployment
+  monitoring and pre-deployment Robustness/Explainability evidence are reported together
+  → `05_manuscript` (mounted `check-reporting`). Monitoring here operationalises
+  Universality/Robustness in production; it does not substitute for the pre-deployment
+  interpretability and uncertainty evidence.
 
 ## Claim ladder output
 
