@@ -124,10 +124,10 @@ Skills are **not** the home for production scripts or manuscript archives. These
 | Home | Path | Owns |
 |---|---|---|
 | Skill (judge / route) | this repo / `~\.grok\skills` | Gates, short procedure `references/`, orchestration templates, harvest maintenance scripts |
-| Run | `D:\0Grok\0scripts` | `modules` / `tidy` / `stat` / `sync` — executable lab code |
+| Run | `D:\0Grok\0script` | `modules` / `tidy` / `stat` / `sync` — executable lab code |
 | Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04_实验室参考/` (e.g. Lab-STE at `04_实验室参考/lab-ste/`; skills point via `05_manuscript/personal/lab-ste.md`, do not vendor) |
 
-**Pointer, do not mirror.** Skill text may cite `0scripts` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.
+**Pointer, do not mirror.** Skill text may cite `0script` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.
 
 GitHub MY-SKILLS is the A framework source of truth.
 
@@ -139,4 +139,4 @@ GitHub MY-SKILLS is the A framework source of truth.
 **Do not delete local generic capability until the user moves it to B (or an approved mount covers it).**
 **User approval is mandatory for mounting or evolution.**
 **Never auto-mount.**
-**Lab run/read SSOT stays on `0scripts` / `0doc` — skills keep rules + pointers only.**
+**Lab run/read SSOT stays on `0script` / `0doc` — skills keep rules + pointers only.**
