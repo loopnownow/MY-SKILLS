@@ -116,6 +116,8 @@ Strip leading source tags like `[A:personal]` before counting slots; tags stay a
 
 Full thresholds and regexes: `D:\0Grok\0doc\04_实验室参考\lab-ste\` (`config.yaml` comment_schema; `Lab-STE-SPEC.md` CM-01). Summary pointer: `05_manuscript/personal/lab-ste.md`. Do not vendor the lab-ste tree.
 
+Internal-review corpus (the user's own comments; style source only): `D:\0Grok\0doc\06_审稿语料库\`. Do not vendor.
+
 ## 6. What this file is not
 
 - Not a license for one-character `?` comments as the default voice.

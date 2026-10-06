@@ -21,6 +21,13 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261006-003 — 0doc skill map and ethics long-text pointer
+date: 2026-10-06
+skill: 06_review/SKILL.md; 06_review/personal/{personal-review-style,review-comment-habits,thesis-review,personal-response-style,review-resolution}.md; 03_research/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 05_manuscript/SKILL.md; ARCHITECTURE.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt
+problem: Review, grant, ethics, and manuscript skills did not point at the lab document folders. The ethics column long text still lived in the skill repo.
+change: Add disk pointers to `D:\0Grok\0doc` corpora. The ethics long text leaves the skill tree and now lives at `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md`. `references/checklist.md` stays. Do not vendor the corpora. Do not copy hospital Word files into the repo. 0doc 语料只留指针。伦理长文外置。
+decision: keep
+next_action: do not push. The user decides the PR. Do not sync `~\.grok\skills` until after merge. Renumbered from 002 after #116 (0script CHG-20261006-002) merged to main.
 ## CHG-20261006-002 — 0script reorganized by MY-SKILLS coarse/fine id
 date: 2026-10-06
 skill: 02_data-processing/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/clinical-data-extraction/SKILL.md; 02_data-processing/code-refactoring/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 04_analysis/SKILL.md; 04_analysis/personal/{lab-palettes,high-dimensional-omics}.md; 05_manuscript/SKILL.md; 06_review/SKILL.md; 00_orchestrator/workflows/radiomics-study.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
