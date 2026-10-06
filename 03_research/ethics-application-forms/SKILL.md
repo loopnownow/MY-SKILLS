@@ -20,7 +20,7 @@ description: >
 
 | Task | Path |
 |------|------|
-| **填表（本技能）** | 下面工作流 + `scripts/docx_cell_replace.py` / `scripts/word_find_replace.py` |
+| **填表（本技能）** | 下面工作流 + `D:\0Grok\0script\研究设计\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
 | 金山医院空白包、递交清单、栏目 | `references/jinshan-form-pack.md` |
 | 填完自检 | `references/checklist.md` |
 | 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |

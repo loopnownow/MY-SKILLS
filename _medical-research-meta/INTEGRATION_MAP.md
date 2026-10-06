@@ -21,6 +21,14 @@ Historical export paths are intentionally not retained in the active map.
 
 Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
 
+## CHG-20261006-002 — 0script reorganized by MY-SKILLS coarse/fine id
+date: 2026-10-06
+skill: 02_data-processing/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/clinical-data-extraction/SKILL.md; 02_data-processing/code-refactoring/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 04_analysis/SKILL.md; 04_analysis/personal/{lab-palettes,high-dimensional-omics}.md; 05_manuscript/SKILL.md; 06_review/SKILL.md; 00_orchestrator/workflows/radiomics-study.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
+problem: D:\0Grok\0script scripts were filed by function (tidy/stat/t1vbm/figures), not by the MY-SKILLS coarse/fine ids, so skill pointers could not be kept in sync. Ten runnable scripts also lived inside MY-SKILLS instead of the runnable-code SSOT.
+change: 0script folders reorganized under coarse/fine ids — 数据处理/clean-data (tidy + clinical-extraction), 数据处理/preprocess-imaging/{t1vbm,fmri}, 统计分析/model-validation (stat + split/radiology audit), 图表呈现/make-figures/lxf_PP, 研究设计/fill-protocol, 正文写作/write-paper, _templates. modules/ sync/ docx_revise/ archive/ docx_extract.py unchanged. The 10 MY-SKILLS scripts were copied byte-for-byte (SHA256 verified) into 0script and git-rm'd from this repo; skill text now points at D:\0Grok\0script\... absolute paths. 0script SCRIPT_ROLES.md gained a 细 ID → path table. Old sync scripts archived to archive\sync\; asl_nifti_params one-off scripts moved to 0del.
+decision: keep
+next_action: approve branch 0script-reorg-by-skill, merge, then sync changed files only into ~\.grok\skills.
+
 ## CHG-20261006-001 — lab script library renamed 0scripts → 0script
 date: 2026-10-06
 skill: 00_orchestrator/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/code-refactoring/SKILL.md; 02_data-processing/code-refactoring/references/code-qc.md; 04_analysis/personal/{0rad-pipeline-rules,MODULE,high-dimensional-omics,lab-palettes,model-evaluation,survival-prognostic}.md; ARCHITECTURE.md; README.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt

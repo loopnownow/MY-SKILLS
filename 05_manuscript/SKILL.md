@@ -41,7 +41,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 | Lab-STE controllable language (pointer + reusable rules; disk SSOT) | personal/lab-ste.md → D:\0Grok\0doc\04_实验室参考\lab-ste\ |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
 | Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
-| Diff harvest (evidence script) | `personal/diff_harvest.py` |
+| Diff harvest (evidence script) | `D:\0Grok\0script\正文写作\write-paper\diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 

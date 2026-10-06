@@ -153,7 +153,7 @@ Meaningful evolutions append to `_medical-research-meta/INTEGRATION_MAP.md` (fie
 
 Templates: `templates/feedback-record.json`, `templates/evolution-proposal.md`. No `evolution/proposals/` folder. No parallel JSON-ledger engine. Do not copy this governance into 00–06 domain skills.
 
-Corpus draft-vs-final diffs → `05_manuscript` `diff_harvest.py`. Figures → `04_analysis`.
+Corpus draft-vs-final diffs → `D:\0Grok\0script\正文写作\write-paper\diff_harvest.py`. Figures → `04_analysis`.
 
 
 ## Controller may / must not
