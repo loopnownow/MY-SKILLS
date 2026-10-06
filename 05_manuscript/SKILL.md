@@ -39,6 +39,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 | Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
 | Lab-STE controllable language (pointer + reusable rules; disk SSOT) | personal/lab-ste.md → D:\0Grok\0doc\04_实验室参考\lab-ste\ |
+| Writing / polish corpus (theses and submitted manuscripts; pointer only) | `D:\0Grok\0doc\01_学位论文\` ; `D:\0Grok\0doc\02_投稿_稿件\` |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
 | Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
 | Diff harvest (evidence script) | `D:\0Grok\0script\正文写作\write-paper\diff_harvest.py` |
