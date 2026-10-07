@@ -49,5 +49,5 @@ Do not re-license upstream pack text when syncing cache.
 ### Journal data
 
 Curated JCR xlsx and personal submission priors live outside this public repo
-(`D:\0Grok\0doc\04-lab-reference\`). Redistribution of Clarivate-derived tables
-is the operator's responsibility.
+(see `{doc_root}/04-lab-reference/` in `00_orchestrator/references/lab-paths.yaml`).
+Redistribution of Clarivate-derived tables is the operator's responsibility.

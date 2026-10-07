@@ -2,7 +2,7 @@
 
 Annual **screening cache** and list tables for `find-journal`. The curated JCR **xlsx** is not here.
 
-- **Curated xlsx (0doc):** `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx`
+- **Curated xlsx (0doc):** `{jcr2026_xlsx}`
 - **Year folder:** `2026/` = current JCR cycle layer CSVs used by the skill.
 - **Do not** keep parallel copies under `references/` or `artifacts/`.
 - Rules / methods live in `../rules/` and `../SKILL.md`.

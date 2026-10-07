@@ -1,7 +1,7 @@
 # MY-SKILLS
 
 Personal framework + lab layer for medical / imaging research.
-Agents load skills from the runtime tree `C:\Users\loopn\.grok\skills` (synced from this git repo after merge). Compatible with Cursor / Grok Build / Cline when that tree is on the skill path.
+Agents load skills from the runtime tree `{skills_runtime}` (synced from this git repo after merge). Compatible with Cursor / Grok Build / Cline when that tree is on the skill path.
 Generic mountable capabilities live in a separate package: `loopnownow/MY-SKILLS-capabilities` (B).
 
 License: MIT (`LICENSE`). Third-party notices: `NOTICE`.
@@ -27,7 +27,7 @@ EXTERNALIZATION_CANDIDATES.md
 
 Skill paths are at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. No `core/`, no `bundles/`, no `merged/`.
 
-Lab disks (not inside this repo): runnable SSOT `D:\0Grok\0script`; human-doc SSOT `D:\0Grok\0doc`. Skills keep rules + pointers — see `ARCHITECTURE.md` · Lab workspace SSOT.
+Lab disks (not inside this repo): runnable SSOT `{script_root}`; human-doc SSOT `{doc_root}`. Skills keep rules + pointers — see `ARCHITECTURE.md` · Lab workspace SSOT.
 
 | Skill | Role |
 |-------|------|

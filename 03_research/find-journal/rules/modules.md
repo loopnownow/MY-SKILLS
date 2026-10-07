@@ -65,7 +65,7 @@ Emit confidence when approximating. Do **not** copy external Fit Score fixed wei
 
 ## 4. submission-prior-logger
 
-Append `[manuscript_type, target_journal, outcome, date, notes]` to `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and personal `P(Accept)`. No IF/quartile fields on log lines.
+Append `[manuscript_type, target_journal, outcome, date, notes]` to `{find_journal_submission}\submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and personal `P(Accept)`. No IF/quartile fields on log lines.
 
 ## Risk module (04)
 

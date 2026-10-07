@@ -18,9 +18,9 @@ Examples that belong: English clinical labels; exclude-then-analyze; `VAL_MODE` 
 - Tool install/uninstall (Grok Bridge), one-off folder tidy
 - Subagent batch rebuilds that only apply house format already written down
 - A second copy of a rule that already lives in `Aitor-format.md` / mounted `plot-figures` / `clean-data`
-- **Production scripts** that belong in `D:\0Grok\0script` (`stats-analysis/modules` / `data-processing` / `stats-analysis` / `figures` / `study-design` / `manuscript-body` / `_templates` / `sync` / `review-response`) — harvest may note conventions only; do not vendor into 00–06
-- **Human archives / long static docs** that belong in `D:\0Grok\0doc` — skill keeps a pointer + short checklist, not a second full copy
-- Mirroring skill `references/` ↔ `0doc` “for consistency” (drift); see `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`. Approved move (2026-10-06): the ethics long text now lives at `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md` (pointer only; do not copy it back).
+- **Production scripts** that belong in `{script_root}` (`stats-analysis/modules` / `data-processing` / `stats-analysis` / `figures` / `study-design` / `manuscript-body` / `_templates` / `sync` / `review-response`) — harvest may note conventions only; do not vendor into 00–06
+- **Human archives / long static docs** that belong in `{doc_root}` — skill keeps a pointer + short checklist, not a second full copy
+- Mirroring skill `references/` ↔ `0doc` “for consistency” (drift); see `{doc_migrate}`. Approved move (2026-10-06): the ethics long text now lives at `{doc_fill_protocol}\jinshan-form-pack.md` (pointer only; do not copy it back).
 
 ## Other skill packs
 

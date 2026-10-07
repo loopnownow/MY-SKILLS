@@ -19,7 +19,7 @@ Mount packs **propose** findings. They do **not** free-collaborate with each oth
 
 Related: English peer-review envelope `personal-review-style.md`; response letter voice `personal-response-style.md`; claim gaps while writing `05_manuscript/personal/evidence-request.md`.
 
-Disk corpus (external reviewer comments and revise replies; pointer only): `D:\0Grok\0doc\03-review-replies\` (`D:\0Grok\0doc\03-review-replies\_index\00-master-index.md`, `D:\0Grok\0doc\03-review-replies\02-flattened\`).
+Disk corpus (external reviewer comments and revise replies; pointer only): `{doc_review_replies}\` (`{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`).
 
 ## When to use
 

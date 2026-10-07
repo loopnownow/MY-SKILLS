@@ -4,7 +4,7 @@ description: Recommend medical journals from the user's JCR2026 curated pool and
 metadata:
   type: workflow
   version: "1.16"
-  source_table: D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx
+  source_table: {jcr2026_xlsx}
   owner: 03_research/Victor
   home: A 03_research/find-journal (B find-journal is the engine; venue-templates only house style)
   advice_merged: Gemini+ChatGPT 2026-09
@@ -32,7 +32,7 @@ Load in this order on every Phase-1 run:
 
 1. `data/2026/blacklist.csv` — never list these titles.
 2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers 系列**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
-3. `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`). Stronger layer boost.
+3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`). Stronger layer boost.
 4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
 
 ### Blacklist
@@ -59,7 +59,7 @@ Default total **30** titles (10+10+10) unless a layer has fewer acceptable match
 Inside each layer rank by
 
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs `医学相关学科` (**MJF = MFI**; display **稿件匹配度**)
-2. **投过/选刊白名单优先** (`D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
+2. **投过/选刊白名单优先** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
 3. **BMC/Medicine 模式白名单** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
 4. **灰名单** (`data/2026/graylist.csv`, Frontiers 系列): 有更好非灰匹配则不用；never boost
 3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
@@ -120,7 +120,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 - **Phase-2 短表** (per paper): 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs; no ISO/OA/置信/APC/分刊详情.
 - Write **submission URLs only** back to `data/2026/submission-urls.csv` (schema: 期刊全称, ISO缩写, ISSN, eISSN, 投稿网址, 来源备注, updated).
 - Annually updated metrics (JCR quartile, IF, annual volume, APC, review time, …) must **not** be persisted as durable delivery data — **query capability only**.
-- Personal outcomes → append `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\submission-prior.jsonl` (no IF/quartile fields).
+- Personal outcomes → append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields).
 
 ## Files
 
@@ -132,7 +132,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 6. `data/2026/layer4-q3.csv` — default Q3 layer
 7. `data/2026/layer2b-q1-if-5to10.csv` — Challenge; ask-first default OFF
 8. `rules/aim-author-checklist.md` — phase 2 only
-9. `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx` — curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
+9. `{jcr2026_xlsx}` — curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
 10. `rules/policy.md` — stable rules
 11. `rules/annual-update.md` — yearly table refresh
 12. `rules/query-sources.md` — evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)
@@ -140,14 +140,14 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 14. `rules/persistence.md` — absorb / query / delete + what to save
 15. `rules/modules.md` — four logical modules + naming
 16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine pattern whitelist (LWW MEDICINE excluded)
-17. `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv` — 投过/选刊 whitelist (seed: submission-urls)
+17. `{find_journal_submission}\whitelist-submitted.csv` — 投过/选刊 whitelist (seed: submission-urls)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
 17. `data/2026/submission-urls.csv` — URL fields only
-18. `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
+18. `{find_journal_submission}\submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
 
 ## 投过/选刊白名单（更强优先）
 
-Load `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv`. Seeded from journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
+Load `{find_journal_submission}\whitelist-submitted.csv`. Seeded from journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
 
 Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not auto-fill.
 

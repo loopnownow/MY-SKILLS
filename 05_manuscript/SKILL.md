@@ -39,11 +39,11 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
 | Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
 | de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
-| Lab-STE controllable language (pointer + reusable rules; disk SSOT) | personal/lab-ste.md → D:\0Grok\0doc\04-lab-reference\lab-ste\ |
-| Writing / polish corpus (theses and submitted manuscripts; pointer only) | `D:\0Grok\0doc\01-thesis\` ; `D:\0Grok\0doc\02-manuscripts\` |
+| Lab-STE controllable language (pointer + reusable rules; disk SSOT) | personal/lab-ste.md → {doc_lab_ste}\ |
+| Writing / polish corpus (theses and submitted manuscripts; pointer only) | `{doc_thesis}\` ; `{doc_root}\02-manuscripts\` |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
 | Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
-| Diff harvest (evidence script) | `D:\0Grok\0script\manuscript-body\write-paper\diff_harvest.py` |
+| Diff harvest (evidence script) | `{script_write_paper}\diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 

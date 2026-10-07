@@ -1,6 +1,6 @@
 ﻿# Personal submission priors (not in public git)
 
-Moved 2026-10-07 to `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\`.
+Moved 2026-10-07 to `{find_journal_submission}\`.
 
 - `submission-prior.jsonl`
 - `whitelist-submitted.csv`

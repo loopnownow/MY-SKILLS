@@ -5,14 +5,14 @@ Formerly `house-format.md`.
 **Owner:** `manuscript-core`. Single source for **every English SCI full paper** in this lab.
 
 **Gold reference (reply-letter template, Markdown):**  
-`D:\0Grok\0doc\03-review-replies\_templates\01-response-letter-template.md`
+`{doc_review_replies}\_templates\01-response-letter-template.md`
 
 **Gold reference (Word typography and page geometry):**  
-`D:\0Grok\0doc\03-review-replies\_templates\02-layout-template.docx`
+`{doc_review_replies}\_templates\02-layout-template.docx`
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
-`D:\0Grok\polishing\lxf_RP\Response\Manuscript_Response_polished.docx` (CI en-dash; table `NC`) ·  
-`D:\0Grok\polishing\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
+`{lab_root}\polishing\lxf_RP\Response\Manuscript_Response_polished.docx` (CI en-dash; table `NC`) ·  
+`{lab_root}\polishing\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
 Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 

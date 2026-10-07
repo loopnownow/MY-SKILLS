@@ -1,4 +1,4 @@
-# Copy into the project (e.g. D:\0Grok\<stage>\<project>\ref\handoff-<from>-<to>.yaml; stage = preparing | polishing | submitting | received | DER)
+# Copy into the project (e.g. {lab_root}\<stage>\<project>\ref\handoff-<from>-<to>.yaml; stage = preparing | polishing | submitting | received | DER)
 # Study-folder alias: reseived means received (project-state.yaml study_folder_stage_aliases). Do not rewrite already-written folders.
 # at each skill crossing. Leave unknown fields empty. Never invent n, AUC, PMID, or ethics.
 

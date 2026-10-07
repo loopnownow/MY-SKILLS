@@ -8,7 +8,7 @@ PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 
 1. **Blacklist** — never recommend (`blacklist.csv`).
 2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers 系列** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
-3. **投过/选刊 whitelist** — `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv` (seeded from `data/2026/submission-urls.csv`). Stronger boost inside layer after MJF.
+3. **投过/选刊 whitelist** — `{find_journal_submission}\whitelist-submitted.csv` (seeded from `data/2026/submission-urls.csv`). Stronger boost inside layer after MJF.
 4. **BMC/Medicine pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
 
 ## Decision flow (ChatGPT architecture mapped to this pack)
