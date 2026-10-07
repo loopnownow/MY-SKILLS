@@ -42,6 +42,7 @@ Hard rule. Do not rename fine ids to match a folder.
 6. One path may back several fine ids (`path_shared`).
 7. Renaming a physical path does not rename the fine id.
 8. Renaming a fine id requires an explicit registry migration.
+9. The live identity is the four-tuple `fine_id` / `coarse_id` / `a_domain` / B `path`, plus A pack when the note names one (`find-journal` → `03_research/find-journal/`; `fill-protocol` → `03_research/fill-protocol/`).
 
 A path must never be used to infer an id. QC tools use `registry.yaml` `id` as the only canonical identifier. Legacy call-site aliases in `legacy_aliases.yaml` resolve old name → current `id` (for example `02-tables` → `clean-data`). Do not reverse that direction.
 
@@ -77,6 +78,7 @@ Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** 
 - **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run. Cache is not mount is not active.
+- **Advertised / auto-discovery:** `00`–`06` and `skill-harvest` only. Do not load `mounts-cap/**/SKILL.md` unless the fine id is in `session_picked_fine_ids`.
 - **Registry:** routing index only. GitHub MY-SKILLS is the A framework SSOT. `stub_in_b` (`cross-pack/…` or `external-principles.md`) is a **pointer**, not a second full tree.
 
 ## Local cache (`mounts-cap/`)

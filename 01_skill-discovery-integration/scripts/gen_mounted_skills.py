@@ -34,7 +34,7 @@ Empty mount → notify → re-search → confirm. Never silently fall back.
 Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apache-2.0 verified (ask when a new mount decision is required + bytes).
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 **Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask.
-**Pick menu:** status `MOUNTED` only. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
+**Pick menu:** status `MOUNTED` only, grouped by the 10 coarse buckets then by `load_priority`. `path_shared` siblings are consecutive rows. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
 Local bytes: `mounts-cap/` is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
@@ -89,13 +89,31 @@ def coarse_list(reg: dict) -> list:
     return seen
 
 
-def append_table(out: list, rows: list) -> None:
-    out.append("| Fine id | Label | Source | Path | Status | Priority |")
-    out.append("|---|---|---|---|---|---|")
+def ordered_rows(rows: list) -> list:
+    """Keep path_shared siblings consecutive (one group, two rows)."""
+    order = []
+    buckets: dict[tuple, list] = {}
     for m in rows:
+        key = (m.get("source"), m.get("path"))
+        if key not in buckets:
+            order.append(key)
+            buckets[key] = []
+        buckets[key].append(m)
+    out = []
+    for key in order:
+        out.extend(buckets[key])
+    return out
+
+
+def append_table(out: list, rows: list) -> None:
+    out.append("| Fine id | Label | Source | Path | Status | Priority | Shared |")
+    out.append("|---|---|---|---|---|---|---|")
+    grouped = ordered_rows(rows)
+    for m in grouped:
         prio = m.get("load_priority") or "—"
+        shared = "path_shared" if m.get("path_shared") else "—"
         out.append(
-            f"| `{m['id']}` | {m['label']} | {m['source']} | `{m['path']}` | {status_label(m)} | {prio} |"
+            f"| `{m['id']}` | {m['label']} | {m['source']} | `{m['path']}` | {status_label(m)} | {prio} | {shared} |"
         )
     out.append("")
 

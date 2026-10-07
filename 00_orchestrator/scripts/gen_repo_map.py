@@ -50,6 +50,9 @@ border-radius:var(--radius-s);margin-bottom:20px;background:var(--surface);color
 .coarse h2{font-size:1.05rem;font-weight:600;margin:0 0 4px;}
 .coarse .domain{color:var(--text-dim);font-size:.78rem;margin-bottom:10px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.shared-pair{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:10px;padding:8px;border:1px dashed var(--border);border-radius:var(--radius-m);}
+.shared-pair::before{content:"path_shared";grid-column:1/-1;font-size:.7rem;color:var(--text-dim);}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
 padding:12px 14px;transition:border-color .2s;}
 .card:hover,.card:focus-within{border-color:var(--accent);}
@@ -149,18 +152,49 @@ def render(reg: dict) -> str:
         rows = [m for m in mounts if m.get("coarse") == cid]
         if not rows:
             continue
-        cards = []
-        for m in rows:
+        def card_html(m: dict) -> str:
             status = m.get("status", "")
             status_class = "mounted" if status == "MOUNTED" else "proposed"
             blob = esc(f"{m['id']} {m['label']} {m['source']} {m['path']} {status}".lower())
-            cards.append(f"""
+            return f"""
         <div class="card" data-blob="{blob}">
           <div class="id">{esc(m['id'])}</div>
           <div class="label">{esc(m['label'])}</div>
           <div class="row"><span>{esc(m['source'])}</span>
             <span class="status {status_class}">{esc(status)}</span></div>
-        </div>""")
+        </div>"""
+
+        def ordered(items: list) -> list:
+            order = []
+            buckets = {}
+            for m in items:
+                key = (m.get("source"), m.get("path"))
+                if key not in buckets:
+                    order.append(key)
+                    buckets[key] = []
+                buckets[key].append(m)
+            out = []
+            for key in order:
+                out.extend(buckets[key])
+            return out
+
+        cards = []
+        grouped = ordered(rows)
+        i = 0
+        while i < len(grouped):
+            m = grouped[i]
+            key = (m.get("source"), m.get("path"))
+            pack = [m]
+            j = i + 1
+            while j < len(grouped) and (grouped[j].get("source"), grouped[j].get("path")) == key:
+                pack.append(grouped[j])
+                j += 1
+            html_cards = "".join(card_html(x) for x in pack)
+            if len(pack) > 1 or m.get("path_shared"):
+                cards.append(f'<div class="shared-pair">{html_cards}</div>')
+            else:
+                cards.append(html_cards)
+            i = j
         a_domain = coarse.get("a_domain") or ", ".join(coarse.get("a_domains") or [])
         sections.append(f"""
       <section class="coarse">

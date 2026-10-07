@@ -21,6 +21,9 @@ border-radius:var(--radius-s);margin-bottom:20px;background:var(--surface);color
 .coarse h2{font-size:1.05rem;font-weight:600;margin:0 0 4px;}
 .coarse .domain{color:var(--text-dim);font-size:.78rem;margin-bottom:10px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.shared-pair{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:10px;padding:8px;border:1px dashed var(--border);border-radius:var(--radius-m);}
+.shared-pair::before{content:"path_shared";grid-column:1/-1;font-size:.7rem;color:var(--text-dim);}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
 padding:12px 14px;transition:border-color .2s;}
 .card:hover,.card:focus-within{border-color:var(--accent);}
@@ -39,7 +42,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
 <body>
 <header>
   <h1>MY-SKILLS — repo map</h1>
-  <div class="meta">Generated 2026-10-07 16:06 from registry.yaml v4.0
+  <div class="meta">Generated 2026-10-07 16:19 from registry.yaml v4.0
     (generator stamp: 10 coarse · 52 fine; default_source my-skills-capabilities) —
     read-only routing index, not a recommendation artifact and not the byte source of truth.
     Package proposals: med-sci-skills (PROPOSED), scientific-agent-skills (PROPOSED), aipoch-medical-research-skills (PROPOSED), nature-skills (PROPOSED). Regenerate with
@@ -94,7 +97,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">广度检索</div>
           <div class="row"><span>scientific-agent-skills</span>
             <span class="status proposed">PROPOSED</span></div>
-        </div>
+        </div><div class="shared-pair">
         <div class="card" data-blob="verify-refs 引用真实性核验 scientific-agent-skills skills/citation-management/ mounted">
           <div class="id">verify-refs</div>
           <div class="label">引用真实性核验</div>
@@ -106,13 +109,13 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">引用格式化写入</div>
           <div class="row"><span>scientific-agent-skills</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div></div><div class="shared-pair">
         <div class="card" data-blob="lit-sync 个人文献库同步 scientific-agent-skills skills/pyzotero/ mounted">
           <div class="id">lit-sync</div>
           <div class="label">个人文献库同步</div>
           <div class="row"><span>scientific-agent-skills</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div></div>
         <div class="card" data-blob="retraction-watcher 撤稿检测 aipoch-medical-research-skills scientific-skills/evidence insight/retraction-watcher/ mounted">
           <div class="id">retraction-watcher</div>
           <div class="label">撤稿检测</div>
@@ -269,7 +272,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       <section class="coarse">
         <h2>data-processing</h2>
         <div class="domain">a_domain: 02_data-processing · 6 fine ids</div>
-        <div class="grid">
+        <div class="grid"><div class="shared-pair">
         <div class="card" data-blob="clean-data 三阶段确认式清洗 my-skills-capabilities 02-data-processing/tables/ mounted">
           <div class="id">clean-data</div>
           <div class="label">三阶段确认式清洗</div>
@@ -281,7 +284,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">批量队列分析生成</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div></div>
         <div class="card" data-blob="exploratory-data-analysis eda scientific-agent-skills skills/exploratory-data-analysis/ proposed">
           <div class="id">exploratory-data-analysis</div>
           <div class="label">EDA</div>
@@ -334,7 +337,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">放射组学建模pipeline审计</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div><div class="shared-pair">
         <div class="card" data-blob="model-evaluation 模型-任务正确指标选择 my-skills-capabilities 04-analysis/model-eval/ mounted">
           <div class="id">model-evaluation</div>
           <div class="label">模型-任务正确指标选择</div>
@@ -346,7 +349,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">模型-确定性泄漏门禁</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div></div>
         <div class="card" data-blob="calc-sample-size 样本量计算 my-skills-capabilities 04-analysis/stats-power/ mounted">
           <div class="id">calc-sample-size</div>
           <div class="label">样本量计算</div>
@@ -392,7 +395,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
       <section class="coarse">
         <h2>manuscript-review</h2>
         <div class="domain">a_domain: 06_review · 5 fine ids</div>
-        <div class="grid">
+        <div class="grid"><div class="shared-pair">
         <div class="card" data-blob="peer-review-pdf-scan pdf注入攻击扫描 my-skills-capabilities 06-review/review-peer/ mounted">
           <div class="id">peer-review-pdf-scan</div>
           <div class="label">PDF注入攻击扫描</div>
@@ -404,7 +407,7 @@ footer{padding:16px 24px;color:var(--text-dim);font-size:.75rem;}
           <div class="label">审稿意见生成</div>
           <div class="row"><span>my-skills-capabilities</span>
             <span class="status mounted">MOUNTED</span></div>
-        </div>
+        </div></div>
         <div class="card" data-blob="self-review 数值级自审核算 my-skills-capabilities 06-review/review-critique/ mounted">
           <div class="id">self-review</div>
           <div class="label">数值级自审核算</div>
