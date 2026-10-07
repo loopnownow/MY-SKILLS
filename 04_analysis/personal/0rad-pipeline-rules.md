@@ -1,6 +1,6 @@
 # 0RAD clinical + radiomics pipeline rules
 
-**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0script\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/code-refactoring`.
+**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0script\stats-analysis\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/code-refactoring`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 

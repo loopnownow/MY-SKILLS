@@ -1,6 +1,6 @@
 # Logical modules (skills-within-pack)
 
-These are **modules inside** `medical-journal-submit`, not separate top-level skills yet. **Victor** owns Phase-1 recommend / this pack; **Bai** owns checkbox HTML → JSON handoff and portal submit **after** the user picks a journal — keep modules documented here and bump pack version when the pipeline changes.
+These are **modules inside** `find-journal`, not separate top-level skills yet. **Victor** owns Phase-1 recommend / this pack; **Bai** owns checkbox HTML → JSON handoff and portal submit **after** the user picks a journal — keep modules documented here and bump pack version when the pipeline changes.
 
 **Naming (aligned):**
 

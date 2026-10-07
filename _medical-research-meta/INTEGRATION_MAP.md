@@ -1,5 +1,47 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-007 — final cleanup: no fallback paths, clear errors
+
+- Disk `D:\0Grok\0script\stats-analysis\modules` (no git, user-approved): `console\paths.py` keeps only the current layout (`preparing` + `polishing`/`submitting`/`reseived`) and raises naming the expected path; `console\console.py` `resolve_modules_dir` requires `MODULES_DIR` in `ref/settings.ini` (error if unset or not a folder; no `RAD_MODULES`/gold default), protocol handler and writeback raise on an invalid `MODULES_DIR`; `__init__.py` raises instead of printing and ignoring; `config\ini_io.py` drops `default_preparing_root`; `project.html` and `sync\project-shim\console.html` no longer swap a saved `MODULES_DIR` and show an error when it is empty. Tests: stage-name assertions updated; `test_docx_extract` imports from the `0script` root; `test_assoc` points at `polishing\jfl_SSD_ASL`.
+- Disk `0script` (no git): `sync\sync_modules.py` (no shim/gold or preparing fallback), `sync\batch_rerun_pipelines.py` (current project names, PYTHONPATH `0script\stats-analysis`), `sync\smoke_test.py`, `data-processing\clean-data\tidy_paths.py` (stage-root search; error on missing/duplicate), `stats-analysis\model-validation\compare_val_modes.py`/`downsample_train.py` (current import roots). Parked in `D:\0Grok\0del\english_cleanup2_20261007\`: `migrate_legacy_to_0del.ps1`, 0doc `00-inbox\03-rollback.ps1`, 10 stale `__pycache__` + `.pytest_cache`, `console.override.json`, empty `.grok` memory for the old 0RAD workspace.
+- 0doc skill-harvest-candidates/06-review-corpus drop dead `0del` pointers; Cline `My rule.md` example → `polishing\jfl_SSD_DKI`; `.grok` memory repointed (no missing paths). Skills: `02_data-processing/0rad-workspace.md` (`PYTHONPATH=D:\0Grok\0script\stats-analysis`, `MODULES_DIR` no-fallback rule), `05_manuscript/personal/Aitor-format.md` (voice refs → live docx). Do not sync `.grok\skills`.
+
+## CHG-20261007-006 — cleanup of old names after English alignment
+
+- Skills: `mounts-cap/README.md` uses current Nature fine ids (upstream pack paths kept); `02_data-processing/0rad-workspace.md` drops retired `0script/archive/` pointers; `_medical-research-meta/ARCHITECTURE.md` drops the old rehome note. `legacy_aliases.yaml`, registry/source upstream `path:` values, VERSION and this map's dated entries are kept.
+- Disk under `D:\0Grok\0script\` (no git): README/SCRIPT_ROLES/LARGE_SCRIPTS and sub-READMEs drop the retired `archive\` sections and 原… notes; `paths.env.example` drops habitat blocks; t1vbm CHANGELOG names the current guide. `stats-analysis\modules` (user-approved): `utils\u_QC.py`→`utils\u_qc.py` with imports in `pipeline.py`/`console\console.py`; `console\console_api.js` raises a clear error when `MODULES_DIR` is empty (no fallback to the old modules path).
+- 0doc: `04-lab-reference\README.md` and `MIGRATE_FROM_SKILLS.md` point at `03_research/fill-protocol`. Cline `My rule.md`: no fallback/rollback code without consent; QC removes old paths, stale pointers and old names. `.grok` memory topics repointed. Do not sync `.grok\skills`.
+
+## CHG-20261007-005 — 0script R2c English folder/file rename pointers
+
+- Disk under `D:\0Grok\0script\` (no git): `figures\make-figures`→`figures\draw-flowchart`; `docx_revise`→`review-response\revise`; `data-processing\clean-data\clinical-extraction`→`data-processing\clinical-data-extraction` (matches A pack); `sync\project_shim`→`sync\project-shim` (+ `sync_modules.py` SHIM). Files (snake_case kept): `tidy_yt.py`→`tidy_yt_rdl.py` (7 imports), `fill_cln_from_xue.py`→`fill_cln_from_supplement.py`, `setup_clin_only.py`→`setup_cln_only.py`; optional `apply_zyp.py`/`apply_oem.py`→`apply_revisions.py`, `add_comments_author_A.py`→`add_comments_author_a.py`, t1vbm guide →`t1vbm-user-guide-v2.html`. `stats-analysis\modules` untouched (incl. `u_QC.py`).
+- Pointers: `ARCHITECTURE.md`, `02_data-processing/{SKILL.md,0rad-workspace.md,clinical-data-extraction/SKILL.md}`, `06_review/SKILL.md`; 0script README/SCRIPT_ROLES/sub-READMEs (Chinese coarse dirs → English slugs); 0doc pointers; Cline `My rule.md` (0doc template path, `stats-analysis\modules`). History lines above left as-is. Map/rollback `D:\0Grok\0del\english_fine_20261007\r2c_*`. Do not sync `.grok\skills`.
+
+## CHG-20261007-004 — 0doc R2b Chinese subfolder/index English rename
+
+- Disk under `D:\0Grok\0doc\`: 15 depth-2/3 folders (e.g. `完整修改历史`→`revision-history`, `_整理`→`_index`, `_整理下`→`_templates`, `02_打平稿`→`02-flattened`, `原文`→`source`, `文本`→`text`, corpus types → `journal-review`/`grant-review`/`thesis-review`/`projects`) + 50 index/helper files; 6 `伦理`→`ethics` under 06 (folder rename only, no content open). 07-ethics untouched. Content author｜title files and 06 corpus bodies kept Chinese.
+- Pointers: 0doc README/MIGRATE/nested indexes; MY-SKILLS `03_research/SKILL.md`, `Aitor-format`, `lab-ste`, `personal-response-style`, `review-resolution`, `thesis-review`. Map/rollback in `D:\0Grok\0del\english_fine_20261007\`. R2c (0script/My rule) deferred. Do not sync `.grok\skills`.
+## CHG-20261007-003 — English fine-ID R2a + coarse manuscript-review
+
+- Coarse `peer-review` → `manuscript-review` (label 稿件评阅); fine `peer-review` unchanged; `legacy_aliases.coarse_aliases` adds peer-review→manuscript-review.
+- 12 fine ids renamed; OLD→NEW in `legacy_aliases.aliases`; upstream package `path:` values kept.
+- A folders `ethics-application-forms`→`fill-protocol`, `medical-journal-submit`→`find-journal`.
+- SCRIPT_ROLES / 0doc README fine-ID spellings updated; 0script folder renames and 0doc Chinese subdir renames deferred to R2b/R2c.
+- Regenerated MOUNTED_SKILLS / repo_map / visualization as needed.
+
+## CHG-20261007-002 — 0doc top-level English rename
+
+- Disk: `D:\0Grok\0doc\` top folders → `00-inbox`, `01-thesis`, `02-manuscripts`, `03-review-replies`, `04-lab-reference`, `05-grants`, `06-review-corpus`, `07-ethics`; `04-lab-reference\研究设计` → `study-design`.
+- Pointers: `0doc/README.md`, `MIGRATE_FROM_SKILLS.md`, ARCHITECTURE, 03/05/06 skills + personal layers, ethics SKILL, harvest keep-vs-skip, tests.
+- Fine-ID round deferred. Do not merge PR #118 from this agent; push onto `english-coarse-ids-20261007`.
+
+## CHG-20261007-001 — English coarse ids + 0script coarse rename
+
+- Registry `coarse_ids[].id` → English kebab slugs; Chinese in `label`; `mounts[].coarse` updated; `legacy_aliases.coarse_aliases` added.
+- Disk: `D:\0Grok\0script\` Chinese coarse folders → English; `modules` → `stats-analysis\modules`.
+- Fine IDs / script filenames / 0doc archives unchanged.
+
+
 This file records the current architecture, not the historical export tree. Live menu totals are not restated here; read `01_skill-discovery-integration/registry.yaml` and the generated `01_skill-discovery-integration/MOUNTED_SKILLS.md`. Dated changelog lines below may keep old counts when they are clearly historical.
 
 | Source capability | Active home |
@@ -8,7 +50,7 @@ This file records the current architecture, not the historical export tree. Live
 | Excel/CSV / 0RAD workspace | `02_data-processing/` |
 | Soft-coding / dry-run | `02_data-processing/code-refactoring/` |
 | Clinical extraction | `02_data-processing/clinical-data-extraction/` |
-| Ethics form packs | `03_research/ethics-application-forms/` |
+| Ethics form packs | `03_research/fill-protocol/` |
 | MRI/fMRI / radiomics / habitat prep | `02_data-processing/` |
 | Clinical translation / reader-study design | `03_research/clinical-translation/` |
 | Study design / literature / radiology frontier / 选刊 | `03_research/` |
@@ -23,16 +65,16 @@ Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archiv
 
 ## CHG-20261006-003 — 0doc skill map and ethics long-text pointer
 date: 2026-10-06
-skill: 06_review/SKILL.md; 06_review/personal/{personal-review-style,review-comment-habits,thesis-review,personal-response-style,review-resolution}.md; 03_research/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 05_manuscript/SKILL.md; ARCHITECTURE.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt
+skill: 06_review/SKILL.md; 06_review/personal/{personal-review-style,review-comment-habits,thesis-review,personal-response-style,review-resolution}.md; 03_research/SKILL.md; 03_research/fill-protocol/SKILL.md; 05_manuscript/SKILL.md; ARCHITECTURE.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt
 problem: Review, grant, ethics, and manuscript skills did not point at the lab document folders. The ethics column long text still lived in the skill repo.
-change: Add disk pointers to `D:\0Grok\0doc` corpora. The ethics long text leaves the skill tree and now lives at `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md`. `references/checklist.md` stays. Do not vendor the corpora. Do not copy hospital Word files into the repo. 0doc 语料只留指针。伦理长文外置。
+change: Add disk pointers to `D:\0Grok\0doc` corpora. The ethics long text leaves the skill tree and now lives at `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md`. `references/checklist.md` stays. Do not vendor the corpora. Do not copy hospital Word files into the repo. 0doc 语料只留指针。伦理长文外置。
 decision: keep
 next_action: do not push. The user decides the PR. Do not sync `~\.grok\skills` until after merge. Renumbered from 002 after #116 (0script CHG-20261006-002) merged to main.
 ## CHG-20261006-002 — 0script reorganized by MY-SKILLS coarse/fine id
 date: 2026-10-06
-skill: 02_data-processing/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/clinical-data-extraction/SKILL.md; 02_data-processing/code-refactoring/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 04_analysis/SKILL.md; 04_analysis/personal/{lab-palettes,high-dimensional-omics}.md; 05_manuscript/SKILL.md; 06_review/SKILL.md; 00_orchestrator/workflows/radiomics-study.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
+skill: 02_data-processing/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/clinical-data-extraction/SKILL.md; 02_data-processing/code-refactoring/SKILL.md; 03_research/fill-protocol/SKILL.md; 04_analysis/SKILL.md; 04_analysis/personal/{lab-palettes,high-dimensional-omics}.md; 05_manuscript/SKILL.md; 06_review/SKILL.md; 00_orchestrator/workflows/radiomics-study.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
 problem: D:\0Grok\0script scripts were filed by function (tidy/stat/t1vbm/figures), not by the MY-SKILLS coarse/fine ids, so skill pointers could not be kept in sync. Ten runnable scripts also lived inside MY-SKILLS instead of the runnable-code SSOT.
-change: 0script folders reorganized under coarse/fine ids — 数据处理/clean-data (tidy + clinical-extraction), 数据处理/preprocess-imaging/{t1vbm,fmri}, 统计分析/model-validation (stat + split/radiology audit), 图表呈现/make-figures/lxf_PP, 研究设计/fill-protocol, 正文写作/write-paper, _templates. modules/ sync/ docx_revise/ archive/ docx_extract.py unchanged. The 10 MY-SKILLS scripts were copied byte-for-byte (SHA256 verified) into 0script and git-rm'd from this repo; skill text now points at D:\0Grok\0script\... absolute paths. 0script SCRIPT_ROLES.md gained a 细 ID → path table. Old sync scripts archived to archive\sync\; asl_nifti_params one-off scripts moved to 0del.
+change: 0script folders reorganized under coarse/fine ids — 数据处理/clean-data (tidy + clinical-extraction), 数据处理/preprocess-imaging/{t1vbm,fmri}, 统计分析/model-validation (stat + split/radiology audit), 图表呈现/draw-flowchart/lxf_PP, study-design/fill-protocol, 正文写作/write-paper, _templates. modules/ sync/ docx_revise/ archive/ docx_extract.py unchanged. The 10 MY-SKILLS scripts were copied byte-for-byte (SHA256 verified) into 0script and git-rm'd from this repo; skill text now points at D:\0Grok\0script\... absolute paths. 0script SCRIPT_ROLES.md gained a 细 ID → path table. Old sync scripts archived to archive\sync\; asl_nifti_params one-off scripts moved to 0del.
 decision: keep
 next_action: approve branch 0script-reorg-by-skill, merge, then sync changed files only into ~\.grok\skills.
 
@@ -55,7 +97,7 @@ next_action: after merge, sync changed files only into ~\.grok\skills.
 ## CHG-20261003-002 — Lab-STE into skills (pointer + reusable rules)
 date: 2026-10-03
 skill: 05_manuscript/personal/lab-ste.md (new); 05_manuscript/SKILL.md; 05_manuscript/personal/de-ai.md; 06_review/personal/review-comment-habits.md; 06_review/SKILL.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
-problem: Lab controllable-language pack at D:\0Grok\0doc\04_实验室参考\lab-ste\ (v0.2.1) was not pointed from MY-SKILLS; Chinese 稿面批注五槽 and STE conflict/vocabulary layer rules were missing as reusable habits.
+problem: Lab controllable-language pack at D:\0Grok\0doc\04-lab-reference\lab-ste\ (v0.2.1) was not pointed from MY-SKILLS; Chinese 稿面批注五槽 and STE conflict/vocabulary layer rules were missing as reusable habits.
 change: Add path-pointer skill summary (no TSV/tools/HTML vendored). Wire 05 assets + de-ai cross-link (Methods passive / Compared / attenuated standing rules unchanged). Add CM-01 five-slot habit under 06 review-comment-habits. Not a Gate.
 decision: keep
 next_action: after merge, sync changed files only into ~\.grok\skills.
@@ -88,7 +130,7 @@ next_action: after merge, sync changed files only into `~\.grok\skills`.
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
 problem: After CHG-20260929-003 the only gold reference was a Markdown reply-letter template, so "## Page" and "## DOCX typography" had no Word example.
-change: Add a second gold line, "Gold reference (Word typography and page geometry)", pointing at `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\02_排版范本.docx` (built from the Page / DOCX typography rules; checked on the PC). Pointer only; no rule text changed.
+change: Add a second gold line, "Gold reference (Word typography and page geometry)", pointing at `D:\0Grok\0doc\03-review-replies\_整理下\02_排版范本.docx` (built from the Page / DOCX typography rules; checked on the PC). Pointer only; no rule text changed.
 decision: keep
 next_action: after merge, sync changed files only into `~\.grok\skills`.
 
@@ -96,7 +138,7 @@ next_action: after merge, sync changed files only into `~\.grok\skills`.
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
 problem: Aitor-format line 8 pointed at `D:\0Grok\0RAD\0del\lxf_LG\Response\Manuscript_Response_house.docx`, which is no longer on disk (left open in CHG-20260929-002).
-change: User named the new gold: `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\01_回复信范本.md` (checked on the PC). Label changed from "Gold manuscript (typography and page geometry)" to "Gold reference (reply-letter template, Markdown)" because the target is a .md. No other lines changed.
+change: User named the new gold: `D:\0Grok\0doc\03-review-replies\_整理下\01_回复信范本.md` (checked on the PC). Label changed from "Gold manuscript (typography and page geometry)" to "Gold reference (reply-letter template, Markdown)" because the target is a .md. No other lines changed.
 decision: keep
 next_action: after merge, sync changed files only into `~\.grok\skills`.
 
@@ -127,7 +169,7 @@ next_action: user approves PR, then merge and sync.
 ## CHG-20260926-009 — QC leftovers: B yaml mirror, LF line endings, CHG log order, wording
 date: 2026-09-26
 skill: 01_skill-discovery-integration · 03_research · 04_analysis · 05_manuscript · _medical-research-meta
-problem: sources/b-my-skills-capabilities.yaml still listed verify-refs/manage-refs/lit-sync (Scientific since CHG-20260913-009) and missed lit-search/frontier-hypothesize/fig-plot. CRLF/LF mix made regenerated files show whole-file diffs. INTEGRATION_MAP entries were in three mixed-order runs. Two body-wording slips (validation groups / validation cohort). Three personal skill docs had no frontmatter description; JFC description was 1019 chars.
+problem: sources/b-my-skills-capabilities.yaml still listed verify-refs/manage-refs/lit-sync (Scientific since CHG-20260913-009) and missed lit-search/frontier-hypothesize/plot-figures. CRLF/LF mix made regenerated files show whole-file diffs. INTEGRATION_MAP entries were in three mixed-order runs. Two body-wording slips (validation groups / validation cohort). Three personal skill docs had no frontmatter description; JFC description was 1019 chars.
 change: B yaml rebuilt to the registry's 31 B fine ids (order and fields from registry). New tests/test_registry_mirrors.py: B yaml ids/paths/coarse = registry; hybrid-mount-pointers section counts and rows = registry. New .gitattributes (`* text=auto eol=lf`; csv kept as-is; office/images binary) + renormalize (repo-map.html, MOUNTED_SKILLS.md, model-evaluation.md, evolution-record.yaml → LF). INTEGRATION_MAP reordered newest first; pre-2026-09 entries moved to INTEGRATION_MAP.archive.md (linked; skipped by legacy scans and repo_qc like the map). VERSION.txt gets a policy line (blocks from CHG-20260913-001 on). polisher-sections → validation sets; sample-size hot-spot → test / validation set. Descriptions added to radiology-design, radiology-frontier, 04 MODULE; JFC description 269 chars with triggers kept.
 decision: keep
 next_action: none
@@ -152,7 +194,7 @@ next_action: user approves merge; presets still carry `[B:06-review-peer]` / `[B
 date: 2026-09-26
 skill: 00_orchestrator · 03_research · 04_analysis · 05_manuscript
 problem: A few personal/workflow docs still used v3 ids. Design, frontier, clinical-translation, and 04 MODULE docs still pointed at retired radiology-* packs that no longer exist. Two frontmatter owner paths were wrong.
-change: figure-claim-planning → `fig-plot`; 0rad-pipeline-rules → `radiomics-ml` and `04_analysis/personal/model-evaluation.md`; intro-discussion-evidence 选刊 note names `find-journal` / `venue-templates`; introduction-scorecard → `polish-language`; 00 SKILL prefix example → `[B:peer-review]`; workflows README and radiomics-study use v4 ids without legacy aliases. Retired radiology-* pointers now name live files or mounted fine ids: reporting → `check-reporting`; radiogenomics → `high-dimensional-omics.md`; grant → `grant-writing.md`; prereview → `personal-review-style.md`; ethics → `03_research/personal/ethics.md`; search → `lit-search`; journal → `journal-selection.md`; citation → `manage-refs`; radiomics → `radiomics-ml`; deep-learning → `architecture-zoo`; annotation → `preprocess-imaging`; translation → `clinical-translation/SKILL.md`. Dead `guideline-router.md` pointer → `check-reporting`. Owner paths fixed for radiology-design and radiology-frontier.
+change: figure-claim-planning → `plot-figures`; 0rad-pipeline-rules → `radiomics-ml` and `04_analysis/personal/model-evaluation.md`; intro-discussion-evidence 选刊 note names `find-journal` / `venue-templates`; introduction-scorecard → `polish-language`; 00 SKILL prefix example → `[B:peer-review]`; workflows README and radiomics-study use v4 ids without legacy aliases. Retired radiology-* pointers now name live files or mounted fine ids: reporting → `check-reporting`; radiogenomics → `high-dimensional-omics.md`; grant → `grant-writing.md`; prereview → `personal-review-style.md`; ethics → `03_research/personal/ethics.md`; search → `lit-search`; journal → `journal-selection.md`; citation → `manage-refs`; radiomics → `radiomics-ml`; deep-learning → `architecture-zoo`; annotation → `preprocess-imaging`; translation → `clinical-translation/SKILL.md`. Dead `guideline-router.md` pointer → `check-reporting`. Owner paths fixed for radiology-design and radiology-frontier.
 decision: keep
 next_action: none
 
@@ -160,7 +202,7 @@ next_action: none
 date: 2026-09-26
 skill: 01_skill-discovery-integration · 02_data-processing · 03_research · 04_analysis · 06_review · skill-harvest · root docs
 problem: Personal and domain docs still pointed at v3 coarse ids and the deleted figure-engine. Proposed source yamls still said "POLE gold". radiology-design did not say where sample-size numbers go.
-change: clinical-translation, ethics, ethics-application-forms, 04 MODULE/lab-palettes/agreement-mrmc, code-refactoring, table-qc, both READMEs, EXTERNALIZATION_CANDIDATES, review-resolution, personal-response-style, keep-vs-skip, and mount-score-rubric now name v4 fine ids. figure-engine plot pointers now say mounted `fig-plot`. mounts/{scientific,aipoch,nature,medsci}.md v3 rows show the v4 id next to each v3 id. Proposed yamls keep v3 `- id:` keys because mounts-cap/fetch.py matches them; a header comment says so; POLE notes now point to B fig-plot / make-figures and Aitor-format. radiology-design sends sample-size numbers to 04 / Loopnow (`calc-sample-size`).
+change: clinical-translation, ethics, fill-protocol, 04 MODULE/lab-palettes/agreement-mrmc, code-refactoring, table-qc, both READMEs, EXTERNALIZATION_CANDIDATES, review-resolution, personal-response-style, keep-vs-skip, and mount-score-rubric now name v4 fine ids. figure-engine plot pointers now say mounted `plot-figures`. mounts/{scientific,aipoch,nature,medsci}.md v3 rows show the v4 id next to each v3 id. Proposed yamls keep v3 `- id:` keys because mounts-cap/fetch.py matches them; a header comment says so; POLE notes now point to B plot-figures / draw-flowchart and Aitor-format. radiology-design sends sample-size numbers to 04 / Loopnow (`calc-sample-size`).
 decision: keep
 next_action: none
 
@@ -216,7 +258,7 @@ next_action: none; re-fetch only on session pick.
 date: 2026-09-24
 skill: 00/01/03/05/06 + skill-harvest route-map
 problem: Post-PR#84 left QC: phantom Nature id `nature-ref-verifier`; registry specialist_hint conflict (05 Lee vs Aitee); broken MODULE.md soft refs; body templates still said training/test cohort; polisher Intro/Discussion 25–40 vs 10–30 lock; stale `03-frontier-ideate`; hybrid Nature LICENSE「需核实」; exploration sketch stage names ≠ R1–R5; OpenClaw prefix example; 05/06/radiomics mounted lists still v3-shaped; route-map impute; duplicate 03 retirement prose; 00 workflows README missing 03 spine pointer.
-change: Replace Nature examples with `nature-reviewer`; align specialist_hint (05 Aitee, 06 Lee, 04 Loopnow); retarget Aitor/polisher to SKILL + personal de-AI; body cohort→set (Figure 1 Cohort labels kept); polisher band 10–30; `find-cohort-gap` (+ frontier-hypothesize); Nature LICENSE verified Apache-2.0 + ask-each-run/bytes; exploration_state stages → R1–R5; drop OpenClaw from prefix examples; lead mounted-id lists with v4 ids and legacy-alias footnotes; impute → missing-value via clean-data/02-tables; one 03 retirement block; README pointer to question-to-reference. Skip P2-4/P2-5 (STATE orphans / coverage).
+change: Replace Nature examples with `simulate-reviewers`; align specialist_hint (05 Aitee, 06 Lee, 04 Loopnow); retarget Aitor/polisher to SKILL + personal de-AI; body cohort→set (Figure 1 Cohort labels kept); polisher band 10–30; `find-cohort-gap` (+ frontier-hypothesize); Nature LICENSE verified Apache-2.0 + ask-each-run/bytes; exploration_state stages → R1–R5; drop OpenClaw from prefix examples; lead mounted-id lists with v4 ids and legacy-alias footnotes; impute → missing-value via clean-data/02-tables; one 03 retirement block; README pointer to question-to-reference. Skip P2-4/P2-5 (STATE orphans / coverage).
 decision: keep
 next_action: none after merge; sync changed files to local `.grok/skills` per-path (no MIR).
 
@@ -246,7 +288,7 @@ next_action: none; optional later absorb of third-party idea-scoring only into e
 
 ## CHG-20260922-008 — audit leftovers: JFC discovery + nature-shared/STATE hygiene notes
 date: 2026-09-22
-skill: 03 medical-journal-submit + mounts-cap README
+skill: 03 find-journal + mounts-cap README
 problem: Nested `journal-format-compliance` looked undiscoverable under "Nested MODULE ≠ discoverable Skill"; Windows Nature cache lacked `nature-shared` while figure/reviewer/response stayed MOUNTED; STATE.yaml still listed MedSci legacy skill keys not used as registry sources.
 change: Document nested JFC trigger via parent (not a new fine id). Expand mounts-cap README for Nature `nature-shared` dependency and MedSci STATE key hygiene. Local sync restores `nature-shared` (+ small Nature companions) on Windows; STATE prune is local-only (gitignored).
 decision: keep
@@ -269,7 +311,7 @@ runtime QC; 01 = mount. Do not break qc/ scripts or event model. (2) Add class: 
 gate ids only (HARD: G0, G-PHI, G-FACT; QUALITY: G-04, G-05, G-06, G-LIT, G-CODE) — no G-HARD/G-QUALITY ids.
 (3) Freeze 00 Boundaries: runtime decision vs domain knowledge gate before adding to 00. (4) Document A/B
 no-reflow in both ARCHITECTURE.md files. (5) Light mounts-cap README notes: STATE.yaml orphans (do not wipe
-pack bytes); nature-figure/reviewer need nature-shared cache (no large Nature gallery download unless present).
+pack bytes); audit-figure-risk/reviewer need nature-shared cache (no large Nature gallery download unless present).
 expected_benefit: Smaller harvest context; clearer QC fail semantics; prevent 00 domain creep and A↔B style leakage.
 boundary_effect: No new fine ids. No Batch1 rework. No MIR/clean mounts-cap packs. qc/ event model unchanged.
 decision: open PR only; do not merge until user 合并
@@ -281,7 +323,7 @@ next_action: parent/user review then merge when named
 ```text
 change_id: CHG-20260922-006
 date: 2026-09-22
-skill: 01 + 03 medical-journal-submit + mounts-cap docs (+ companion B cross-pack)
+skill: 01 + 03 find-journal + mounts-cap docs (+ companion B cross-pack)
 change_class: architecture
 problem: Runtime pycache noise; cross-pack MODULE bodies duplicated external pack entities;
 52 fine-id menu risked unbounded growth; no load_priority metadata; 选刊 mixed annual CSV/XLSX
@@ -306,7 +348,7 @@ next_action: parent/user review then merge A then B; re-fetch mounts-cap as need
 date: 2026-09-22
 skill: 01 presets + 03/05/06 personal soft refs
 problem: review-hybrid still pointed verify-refs/analyze-stats at Nature paths and required PROPOSED scientific-critical-thinking; 03/05/06 prose cited retired or never-created files (literature-evidence, mode-*, response-audit-gate, old grant paths).
-change: Align review-hybrid (+ presets.md, external-review-R1 required:false for critical-thinking) to registry. Retarget soft refs to live files (ma-scout, personal/grant-*, Aitor-format, personal-response-style / review-resolution). Do not recreate mode-* skeletons.
+change: Align review-hybrid (+ presets.md, external-review-R1 required:false for critical-thinking) to registry. Retarget soft refs to live files (scout-meta-analysis, personal/grant-*, Aitor-format, personal-response-style / review-resolution). Do not recreate mode-* skeletons.
 decision: keep
 next_action: none; sync changed files to local `.grok/skills` per-path (no MIR).
 
@@ -321,8 +363,8 @@ next_action: hybrid-mount-pointers and the 2026-08-25 INTEGRATION_MAP opening we
 ## CHG-20260922-003 — retire duplicate menu ids and five A copies
 date: 2026-09-22
 skill: 01_skill-discovery-integration + 03_research
-problem: Five A files duplicated mounted B text. Three imaging fine ids shared one ROI-QC folder. hypothesis-generation was an unfetched PROPOSED stub beside frontier-hypothesize. Four 2026-09-20 PROPOSED ids had no local bytes. make-figures still said 期刊配图.
-change: Deleted the five A copies and retargeted the two local links. Archived profile-imaging and uncertainty-imaging onto preprocess-imaging (label now ROI与读者质控). Kept imaging-io and PROPOSED pydicom separate. Archived hypothesis-generation. Archived database-lookup, paperclip, model-scaffold, and model-card. make-figures label is 患者流程图. Menu is 52 fine ids.
+problem: Five A files duplicated mounted B text. Three imaging fine ids shared one ROI-QC folder. hypothesis-generation was an unfetched PROPOSED stub beside frontier-hypothesize. Four 2026-09-20 PROPOSED ids had no local bytes. draw-flowchart still said 期刊配图.
+change: Deleted the five A copies and retargeted the two local links. Archived profile-imaging and uncertainty-imaging onto preprocess-imaging (label now ROI与读者质控). Kept imaging-io and PROPOSED audit-dicom separate. Archived hypothesis-generation. Archived database-lookup, paperclip, model-scaffold, and model-card. draw-flowchart label is 患者流程图. Menu is 52 fine ids.
 decision: keep
 next_action: none pending from this batch.
 
@@ -330,7 +372,7 @@ next_action: none pending from this batch.
 date: 2026-09-22
 skill: 01_skill-discovery-integration + skill-harvest/qc
 problem: Repository QC failed on a stale scanner (hardcoded 30, and `mounts:` parsed through `archived:`), docs split across 51 and 55, a duplicate publisher-notes path at depth 5, a stale repo map, and an OpenClaw test that still required retired wording. Four B folders had bytes and no fine id.
-change: Deleted the unlinked deep `journal-format-compliance/references/publisher-notes.md`. `repo_qc.py` counts only the `mounts:` block and checks it against `fine_id_count_canonical`. Live menu text and tests say 59. OpenClaw test accepts the current reference-only wording. Added MOUNTED fine ids `fig-plot`, `imaging-io`, `lit-search`, `frontier-hypothesize`. Regenerated `MOUNTED_SKILLS.md` and `repo-map.html`. A copies of the literature and frontier files stay. The four 2026-09-20 PROPOSED ids stay PROPOSED.
+change: Deleted the unlinked deep `journal-format-compliance/references/publisher-notes.md`. `repo_qc.py` counts only the `mounts:` block and checks it against `fine_id_count_canonical`. Live menu text and tests say 59. OpenClaw test accepts the current reference-only wording. Added MOUNTED fine ids `plot-figures`, `imaging-io`, `lit-search`, `frontier-hypothesize`. Regenerated `MOUNTED_SKILLS.md` and `repo-map.html`. A copies of the literature and frontier files stay. The four 2026-09-20 PROPOSED ids stay PROPOSED.
 decision: keep
 next_action: CHG-20260922-003 completed A-copy retirement and archived the four PROPOSED leftovers; no further action from 002.
 
@@ -414,7 +456,7 @@ next_action: live polish; confirm no restyle of user Word files.
 
 ## CHG-20260914-001 — Nature Apache-2.0 verified; REFERENCE quartet → MOUNTED; Lee 06 WHE harvest
 date: 2026-09-14
-problem: User confirmed (1) Nature upstream LICENSE is Apache-2.0 (Yuan1z0825/nature-skills @287ee37) — clear standing「需核实」block; (2) former reference_only quartet (scientific-visualization / nature-figure / nature-reviewer / nature-response) become formal fine IDs at MOUNTED; (3) Lee WHE harvest A/B/C into 06 personal + B review-peer checklist.
+problem: User confirmed (1) Nature upstream LICENSE is Apache-2.0 (Yuan1z0825/nature-skills @287ee37) — clear standing「需核实」block; (2) former reference_only quartet (scientific-visualization / audit-figure-risk / simulate-reviewers / tighten-response) become formal fine IDs at MOUNTED; (3) Lee WHE harvest A/B/C into 06 personal + B review-peer checklist.
 change: Cleared all Nature `license_flag: 需核实` → `Apache-2.0 verified 2026-09-14` (third-party note retained); promoted quartet into `mounts:` MOUNTED with package paths and emptied `reference_only: []`; updated nature.md / hybrid-mount-pointers; added `06_review/personal` §0.1 locators + `word-edit-rules.md` (linked from 06 SKILL); companion B checklist `ai-public-data-imaging-checklist.md`. fine_id_count remains 51 (51 mounts, 0 reference_only).
 decision: Nature MOUNTED only when local mounts-cap bytes present; still never OpenClaw.
 next_action: user reviews PRs; do not whole-zip overwrite local .grok/skills.
@@ -446,7 +488,7 @@ next_action: none pending.
 ## CHG-20260913-007 — 03_research local-file retirement confirmed + broken cross-refs fixed (self-correction)
 date: 2026-09-13
 problem: User said "替换本地细ID" (go ahead with the CHG-006-flagged retirement of `03_research/design|frontier|literature` duplicates). Investigating current state, Claude found `design/`/`frontier/` had fewer files than expected and momentarily misdiagnosed this as accidental data loss from earlier in the session; restored all files from the original upload. Re-reading `EXTERNALIZATION_CANDIDATES.md` (which already had a detailed, verified retirement analysis — more precise than the file-level table from CHG-002/006 — checking each B counterpart's actual registry mount status, not just filename matches) revealed the "missing" files were in fact **already correctly retired** in earlier work this session: `design/study-design.md`, `study-blueprints.md`, `feasibility-triage.md`, `validation.md`, `validation-strategy.md`, `endpoints-and-estimands.md`, `ai-radiogenomics-12-24-roadmap.md` (7 files) and `frontier/frontier.md`, `frontier-themes.md`, `frontier-patterns-2023-2026.md`, `ai-radiogenomics-frontier-map.md` (4 files) are genuine 1:1 duplicates of mounted `design-study`/`find-cohort-gap`; `design/radiology-design.md`, `frontier/radiology-frontier.md`, `frontier/evidence-layer.md`, `frontier/idea-to-question.md` were deliberately kept (no B fine id mounts their B counterpart, or no B counterpart exists at all — see `EXTERNALIZATION_CANDIDATES.md` for the per-file reasoning). Claude's restoration briefly undid this correct work; re-deleted the 11 correctly-retired files and kept only the 4 that should remain.
-change: Re-confirmed final state: `design/` has only `radiology-design.md`; `frontier/` has `evidence-layer.md`, `idea-to-question.md`, `radiology-frontier.md`; `literature/` has all 5 non-duplicate files (`literature-evidence-2023-2026.md` stays retired, confirmed byte-for-byte duplicate of mounted `ma-scout` earlier in CHG-006/007). Fixed a real consequence of the retirement that `LocalLinkHygiene` caught: `radiology-design.md` and `radiology-frontier.md` had internal markdown links to sibling files that no longer exist locally (`feasibility-triage.md`, `study-blueprints.md`, `validation-strategy.md`, `endpoints-and-estimands.md`, `ai-radiogenomics-12-24-roadmap.md`, `frontier-themes.md`, `ai-radiogenomics-frontier-map.md`) — converted these from clickable relative links to plain `mounted design-study → references/x.md` / `mounted find-cohort-gap → references/x.md` text references, since mounted paths are fetched on demand and aren't stable local link targets. Updated `03_research/SKILL.md`'s two summary lines to accurately describe partial (not full-folder) retirement.
+change: Re-confirmed final state: `design/` has only `radiology-design.md`; `frontier/` has `evidence-layer.md`, `idea-to-question.md`, `radiology-frontier.md`; `literature/` has all 5 non-duplicate files (`literature-evidence-2023-2026.md` stays retired, confirmed byte-for-byte duplicate of mounted `scout-meta-analysis` earlier in CHG-006/007). Fixed a real consequence of the retirement that `LocalLinkHygiene` caught: `radiology-design.md` and `radiology-frontier.md` had internal markdown links to sibling files that no longer exist locally (`feasibility-triage.md`, `study-blueprints.md`, `validation-strategy.md`, `endpoints-and-estimands.md`, `ai-radiogenomics-12-24-roadmap.md`, `frontier-themes.md`, `ai-radiogenomics-frontier-map.md`) — converted these from clickable relative links to plain `mounted design-study → references/x.md` / `mounted find-cohort-gap → references/x.md` text references, since mounted paths are fetched on demand and aren't stable local link targets. Updated `03_research/SKILL.md`'s two summary lines to accurately describe partial (not full-folder) retirement.
 not_done: nothing pending.
 decision: trust and preserve prior verified work in `EXTERNALIZATION_CANDIDATES.md` over a shallower fresh re-derivation — the existing per-file analysis (checking actual registry mount status per B counterpart, not just filename match) was more rigorous than what CHG-002/006 had produced, and is the version that should stand.
 next_action: none pending from this item.
@@ -454,7 +496,7 @@ next_action: none pending from this item.
 ## CHG-20260913-006 — Final A+B scan: humanize MOUNTED-but-empty fixed; nature PROPOSED stubs clarified (not a bug)
 date: 2026-09-13
 problem: Full re-scan of both A and B requested. Cross-checked every `MOUNTED` fine id in registry.yaml against actual bytes in `mounts-cap/`. Found `humanize` (source `med-sci-skills`) declared `MOUNTED` with zero bytes at `mounts-cap/medsci/skills/humanize/` — a real violation of the repo's own rule ("do not claim MOUNTED if bytes absent"), likely a leftover from before this fine id was fetched. Verified the content genuinely exists upstream (`Aperivue/medsci-skills@fb6e78d`, 15 files) via a throwaway shallow clone. Separately, re-examined the earlier "13 broken links" claim (CHG-20260913-002/003): that number was from the A-repo LocalLinkHygiene test run *before* the duplicate root `MY-SKILLS-capabilities/` was deleted — the real broken-link source was that duplicate, already fixed. The actual B-side pattern (4 `nature-*` PROPOSED cross-pack MODULE.md router stubs referencing a `manifest.yaml`/`static/`/`../nature-shared/` that aren't fetched) is by design — PROPOSED status means preview-only, no bulk download until APPROVED — verified the full dependency tree exists upstream (`Yuan1z0825/nature-skills`) but correctly wasn't pulled. That prior "13 broken links, out of scope for B" framing was itself imprecise and is corrected here.
-change: Fetched `skills/humanize/` from `Aperivue/medsci-skills` into `mounts-cap/medsci/skills/humanize/` (15 files) and recorded it in `mounts-cap/STATE.yaml` under `med-sci-skills`. Re-ran a full MOUNTED-vs-disk audit across all 33 MOUNTED fine ids — zero gaps remain. Added a one-line clarifying comment to the 4 affected `nature-*` cross-pack `MODULE.md` files (`nature-polishing`, `nature-academic-search`, `nature-data`, `nature-proposal-writer`) noting the missing manifest/static/shared files are an intentional PROPOSED-stage gap, not a defect, and must be fully fetched before any of the four is promoted to MOUNTED. Cross-checked B's own `CHANGELOG.md` self-noted TODO ("root SKILL.md/README.md still list 28 ids") — already resolved, no stale "28" text found; false alarm, no action. Verified all 32 directories in B's actual tree are referenced by some fine id in A's `registry.yaml` — no orphaned B content.
+change: Fetched `skills/humanize/` from `Aperivue/medsci-skills` into `mounts-cap/medsci/skills/humanize/` (15 files) and recorded it in `mounts-cap/STATE.yaml` under `med-sci-skills`. Re-ran a full MOUNTED-vs-disk audit across all 33 MOUNTED fine ids — zero gaps remain. Added a one-line clarifying comment to the 4 affected `nature-*` cross-pack `MODULE.md` files (`polish-latex`, `audit-citations`, `write-data-statement`, `check-grant-proposal`) noting the missing manifest/static/shared files are an intentional PROPOSED-stage gap, not a defect, and must be fully fetched before any of the four is promoted to MOUNTED. Cross-checked B's own `CHANGELOG.md` self-noted TODO ("root SKILL.md/README.md still list 28 ids") — already resolved, no stale "28" text found; false alarm, no action. Verified all 32 directories in B's actual tree are referenced by some fine id in A's `registry.yaml` — no orphaned B content.
 not_done: nothing pending from this scan.
 decision: treat "MOUNTED claims bytes present" as a hard, checkable invariant, not just a written rule — worth scripting as a permanent test (see next_action) rather than relying on manual audits like this one.
 next_action: none — implemented immediately: added `MountedBytesPresent` test to `_medical-research-meta/tests/test_audit_invariants.py` (50 tests total now), running the exact MOUNTED-vs-disk check this session did by hand on every future run.
@@ -515,19 +557,19 @@ change: Update 0rad-pipeline-rules + SKILL/MODULE/high-dimensional-omics from sk
 ## CHG-20260910-003 — Phase-2 选刊短表交付
 date: 2026-09-10
 problem: User (via Victor) locked Phase-2 HTML short-table columns and full-URL display; no ISO/OA/置信/APC/分刊详情.
-change: medical-journal-submit v1.16 + aim-author-checklist/workflow/AGENTS/journal-selection; wording 默认挂载 B 包/本仓 not 空挂.
+change: find-journal v1.16 + aim-author-checklist/workflow/AGENTS/journal-selection; wording 默认挂载 B 包/本仓 not 空挂.
 
 ## CHG-20260910-002 — BMC/Medicine whitelist priority
 date: 2026-09-10
 problem: User wants BMC/Medicine titles preferred in Phase-1 (except LWW MEDICINE blacklist).
-change: medical-journal-submit v1.15 + whitelist-bmc-medicine.csv (~486); rank after 稿件匹配度; drop Medicine demote; no 可疑/red.
+change: find-journal v1.15 + whitelist-bmc-medicine.csv (~486); rank after 稿件匹配度; drop Medicine demote; no 可疑/red.
 
 ## CHG-20260910-001 — HTML visual design standing rules
 date: 2026-09-10
 problem: User wants HTML Visual Design Principles applied whenever editing/generating .html; not a full-repo audit; do not vendor lab console/starter HTML into MY-SKILLS.
 change: Add 00_orchestrator/references/html-visual-design.md; wire 00 SKILL only.
 
-## CHG-20260909-001 — journal-selection / medical-journal-submit align
+## CHG-20260909-001 — journal-selection / find-journal align
 date: 2026-09-09
 problem: User (via Bai notes) finalized Phase-1 选刊 display/defaults; pack still had Medicine red-mark and 5-per-layer remnants in places.
 change: Align SKILL/AGENTS/policy/workflow/journal-selection/annual-update to v1.14 rules (10+10+10, 层2补 ask-off, JESI≥80 yellow only, Medicine deprioritize no 可疑/red, persist URLs only).
@@ -594,11 +636,11 @@ next_action: merge when named; sync local A
 ```text
 change_id: CHG-20260906-007
 date: 2026-09-06
-skill: 03_research/medical-journal-submit
+skill: 03_research/find-journal
 author: Aitor
 change_class: capability
-problem: User provided medical-journal-submit zip (JCR2026 curated荐刊); agreed A/03 Victor home; keep curated xlsx not raw Clarivate; fix B write-venue journal-selection.md mis-home; AGENTS.md must follow SKILL/policy.
-change: Add A 03_research/medical-journal-submit (SKILL+AGENTS+references+data/2026/医学投稿推荐_JCR2026.xlsx). Wire literature/journal-selection + 03 SKILL/intake. Companion B PR deletes write-venue/journal-selection.md and points to A pack.
+problem: User provided find-journal zip (JCR2026 curated荐刊); agreed A/03 Victor home; keep curated xlsx not raw Clarivate; fix B write-venue journal-selection.md mis-home; AGENTS.md must follow SKILL/policy.
+change: Add A 03_research/find-journal (SKILL+AGENTS+references+data/2026/医学投稿推荐_JCR2026.xlsx). Wire literature/journal-selection + 03 SKILL/intake. Companion B PR deletes write-venue/journal-selection.md and points to A pack.
 decision: keep
 next_action: user reviews PRs; do not merge until named
 ```
@@ -987,7 +1029,7 @@ from_version: framework-a-20260902
 to_version: rehome-archive-root-20260902
 change_class: architecture
 problem: Skills still lived under core/; four packs remained archive standalones; A depth counted core as a directory; B mountable pack was a flat list of 02-xlsx / 03-design ids rather than domain folders.
-change: Lifted A 00–06 + skill-harvest (and MOUNTED_SKILLS.md / EXTERNALIZATION_CANDIDATES.md) from core/ to repo root. Flattened four archive packs into domain skills at ≤3 directories: clinical-data-extraction, code-refactoring, ethics-application-forms → 02_data-processing/<pack>/ (files hoisted; ethics forms temporary parking, true home remains 03 ethics design); clinical-translation → 03_research/clinical-translation/ as personal translational DESIGN (not 02, not 04). archive/ kept with README only. Routing: Excel/extraction/ethics-forms(temp)/coding-principles → 02; translational/reader-study design → 03; no archive-as-standalone routes. B reorganized into 02-data-processing/ 03-research/ 04-analysis/ 05-manuscript/ 06-review/ domain folders; ids unchanged. 01 registry unchanged (ARS default candidate, MedSci backup, mounts []). Specialist bot profiles unchanged.
+change: Lifted A 00–06 + skill-harvest (and MOUNTED_SKILLS.md / EXTERNALIZATION_CANDIDATES.md) from core/ to repo root. Flattened four archive packs into domain skills at ≤3 directories: clinical-data-extraction, code-refactoring, fill-protocol → 02_data-processing/<pack>/ (files hoisted; ethics forms temporary parking, true home remains 03 ethics design); clinical-translation → 03_research/clinical-translation/ as personal translational DESIGN (not 02, not 04). archive/ kept with README only. Routing: Excel/extraction/ethics-forms(temp)/coding-principles → 02; translational/reader-study design → 03; no archive-as-standalone routes. B reorganized into 02-data-processing/ 03-research/ 04-analysis/ 05-manuscript/ 06-review/ domain folders; ids unchanged. 01 registry unchanged (ARS default candidate, MedSci backup, mounts []). Specialist bot profiles unchanged.
 expected_benefit: Discoverable skills at repo root; archive packs have domain homes; A depth rule is skill + optional folder + file; B layout matches A domains for mounting.
 observed_evidence: n/a (first use)
 metric_summary: n/a

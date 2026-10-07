@@ -9,7 +9,7 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 | Excel/CSV, 0RAD workspace, batch tables, imaging prep, missing-value handling via `clean-data` | `02_data-processing` | Soft-coding → `02_data-processing/code-refactoring`; modeling → `04_analysis` |
 | Soft-coding, dry-run, CONFIG-on-top refactor | `02_data-processing/code-refactoring` | Statistical methods → `04_analysis`; imaging prep → `02_data-processing` |
 | Clinical text / HIS / pathology extraction | `02_data-processing/clinical-data-extraction` | Missing-value handling → `02_data-processing` (`clean-data`) |
-| Hospital IRB / ethics form packs | `03_research/ethics-application-forms` | Ethics prose in a manuscript → `05_manuscript`; protocol ethics → `03_research/personal/ethics.md` |
+| Hospital IRB / ethics form packs | `03_research/fill-protocol` | Ethics prose in a manuscript → `05_manuscript`; protocol ethics → `03_research/personal/ethics.md` |
 | MRI/fMRI preprocessing/QC, radiomics **preparation**, habitat prep | `02_data-processing` | Stats/figures → `04_analysis`; radiogenomics design → `03_research` |
 | Clinical translation / reader studies | `03_research/clinical-translation` | Stats → `04_analysis`; figures → `04_analysis` |
 | Study design, **literature**, grants | `03_research` | 选刊 → `03_research`; I/D wording → `05_manuscript`; 样本量 → `04_analysis` (`calc-sample-size`) |
@@ -35,4 +35,4 @@ Write harvested facts into an existing business skill. `skill-harvest` owns main
 - “设计 radiomics/habitat pipeline” → prep `02_data-processing`; statistical model comparison `04_analysis`.
 - “修改 SCI / 润色 / 写引言讨论” → `05_manuscript`; “模拟审稿、评阅、回复 reviewer” → `06_review`.
 - “处理 Excel / 0RAD 文件夹” → `02_data-processing`; “修 Python/软编码” → `02_data-processing/code-refactoring`.
-- “画 ROC/流程图” → `04_analysis` (mounted `fig-plot` / `make-figures`). 选刊 → `03_research`. 样本量 → `calc-sample-size`.
+- “画 ROC/流程图” → `04_analysis` (mounted `plot-figures` / `draw-flowchart`). 选刊 → `03_research`. 样本量 → `calc-sample-size`.

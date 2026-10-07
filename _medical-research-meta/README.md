@@ -10,7 +10,7 @@ Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-c
 | 01 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills; default source B |
 | 02 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles |
 | 03 | `03_research` | Design, literature (03 only), **选刊**, grants (personal supplement), translational design, **ethics forms** |
-| 04 | `04_analysis` | Stats, prediction, figures (`make-figures` / `fig-plot`); lab notes in `personal/` |
+| 04 | `04_analysis` | Stats, prediction, figures (`draw-flowchart` / `plot-figures`); lab notes in `personal/` |
 | 05 | `05_manuscript` | Personal writing upper layer; B `05-manuscript/write-venue/` = journal templates / house style (not 选刊); de-AI at `personal/` |
 | 06 | `06_review` | Personal review/response upper layer |
 | — | `skill-harvest` | Evolution governance |

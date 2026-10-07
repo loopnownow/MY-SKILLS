@@ -34,13 +34,13 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 - `analyze-stats` — test selection / effect sizes
 - `calc-sample-size` — sample size / power; `statistical-power` is PROPOSED
-- `model-evaluation` / `model-validation` — calibration / DCA / external validation；脚本库：`D:\0Grok\0script\统计分析\model-validation\`
-- `meta-analysis` (`scikit-survival` is PROPOSED) — implementation; 0RAD personal still wins
+- `model-evaluation` / `model-validation` — calibration / DCA / external validation；脚本库：`D:\0Grok\0script\stats-analysis\model-validation\`
+- `meta-analysis` (`analyze-survival` is PROPOSED) — implementation; 0RAD personal still wins
 - `radiomics-ml` — radiomics modelling pipeline audit
-- `make-figures` — STROBE / patient-flow
-- `fig-plot` — statistical plots / imaging panels
+- `draw-flowchart` — STROBE / patient-flow
+- `plot-figures` — statistical plots / imaging panels
 
-Until `fig-plot` / `make-figures` is mounted, do not invent a second figure stack inside 05.
+Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
 
 ## Imaging hard rules (non-negotiable)
 
@@ -73,7 +73,7 @@ The executed artifact is the fact authority, not the skill text. Do not auto-pic
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `fig-plot` / `make-figures`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 

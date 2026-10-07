@@ -45,7 +45,7 @@ next_action: live full-paper write/polish; confirm Word comments author A and no
 ## Forbidden-word policy reversal + corpus phrase bank spot-check + diff-harvest tool 2026-08-29 (user)
 
 ```text
-CHG-20260921-002 | 01+03 | Regen MOUNTED_SKILLS 10+55; README 55 fine; flatten journal-format publisher-notes to medical-journal-submit/references/; qualify bare submission-urls.csv refs.
+CHG-20260921-002 | 01+03 | Regen MOUNTED_SKILLS 10+55; README 55 fine; flatten journal-format publisher-notes to find-journal/references/; qualify bare submission-urls.csv refs.
 CHG-20260921-001 | 01 | Fix registry.yaml: move P1 candidates before reference_only:[]; valid YAML; fine menu 55; regenerate MOUNTED_SKILLS; stub_in_b rename; scrub 52/30-id residue.
 CHG-20260920-001 | 00 | Absorb the SlopMonster *mechanism* (pattern-group score + non-zero exit) as G-05 sub-check `style-lint`.
 Absorbed: scoring/exit-code loop, section scoping, fail-closed input guards, paired must-hit/must-stay-clean test discipline.
@@ -77,7 +77,7 @@ skill: layout
 from_version: Lean v6.2
 to_version: Lean v6.3
 problem: Nested packs were either bloating 01/02 or needed their own triggers.
-change: Moved 00–06 + harvest into skills/core/. Promoted ethics-application-forms, code-refactoring, clinical-data-extraction, clinical-translation to skills/archive/ as standalone SKILL.md. Deleted markitdown, tool-environment-setup, imaging-omics-ml. Kept data-impute and figure-engine nested.
+change: Moved 00–06 + harvest into skills/core/. Promoted fill-protocol, code-refactoring, clinical-data-extraction, clinical-translation to skills/archive/ as standalone SKILL.md. Deleted markitdown, tool-environment-setup, imaging-omics-ml. Kept data-impute and figure-engine nested.
 expected_benefit: Distinct auto-invoke for 软编码 / 填伦理 / 提取 / 转化; smaller 01 and 02.
 observed_evidence: pending first live use
 metric_summary: n/a

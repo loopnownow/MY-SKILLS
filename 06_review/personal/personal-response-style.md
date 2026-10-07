@@ -4,7 +4,7 @@
 谢词分布，不 dump 整信、不抄未刊结果。用于让起草的回信读起来像用户自己写的。
 **本文件即回信骨架与声音真源**（旧 `mode-3-response.md` 未单独建档）。开场默认 A；B 几乎不用。分诊与裁决另见 `review-resolution.md`。
 
-磁盘语料（外部评阅与 revise 回复、修改）：`D:\0Grok\0doc\03_投稿_审稿意见与回复\`。索引入口：`D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理\00_总索引.md`、`D:\0Grok\0doc\03_投稿_审稿意见与回复\02_打平稿\`。本文件不复制语料全文。
+磁盘语料（外部评阅与 revise 回复、修改）：`D:\0Grok\0doc\03-review-replies\`。索引入口：`D:\0Grok\0doc\03-review-replies\_index\00-master-index.md`、`D:\0Grok\0doc\03-review-replies\02-flattened\`。本文件不复制语料全文。
 
 ---
 

@@ -1,4 +1,4 @@
-# AGENTS — medical-journal-submit
+# AGENTS — find-journal
 
 Authority order: `SKILL.md` → `rules/policy.md` → `rules/recommendation-workflow.md` → this file.
 If this file conflicts with `SKILL.md` / `policy.md`, **follow SKILL/policy** (zip processed pack).

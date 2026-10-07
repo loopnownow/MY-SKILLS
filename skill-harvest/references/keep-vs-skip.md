@@ -17,10 +17,10 @@ Examples that belong: English clinical labels; exclude-then-analyze; `VAL_MODE` 
 - Pure `cd`, empty sessions, “可以的 / 你决定”
 - Tool install/uninstall (Grok Bridge), one-off folder tidy
 - Subagent batch rebuilds that only apply house format already written down
-- A second copy of a rule that already lives in `Aitor-format.md` / mounted `fig-plot` / `clean-data`
+- A second copy of a rule that already lives in `Aitor-format.md` / mounted `plot-figures` / `clean-data`
 - **Production scripts** that belong in `D:\0Grok\0script` (modules / 数据处理 / 统计分析 / 图表呈现 / 研究设计 / 正文写作) — harvest may note conventions only; do not vendor into 00–06
 - **Human archives / long static docs** that belong in `D:\0Grok\0doc` — skill keeps a pointer + short checklist, not a second full copy
-- Mirroring skill `references/` ↔ `0doc` “for consistency” (drift); see `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`. Approved move (2026-10-06): the ethics long text now lives at `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md` (pointer only; do not copy it back).
+- Mirroring skill `references/` ↔ `0doc` “for consistency” (drift); see `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`. Approved move (2026-10-06): the ethics long text now lives at `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md` (pointer only; do not copy it back).
 
 ## Other skill packs
 

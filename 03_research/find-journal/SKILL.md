@@ -1,12 +1,12 @@
 ---
-name: medical-journal-submit
+name: find-journal
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
   version: "1.16"
   source_table: data/2026/医学投稿推荐_JCR2026.xlsx
   owner: 03_research/Victor
-  home: A 03_research/medical-journal-submit (B find-journal is the engine; venue-templates only house style)
+  home: A 03_research/find-journal (B find-journal is the engine; venue-templates only house style)
   advice_merged: Gemini+ChatGPT 2026-09
 ---
 
@@ -14,7 +14,7 @@ metadata:
 
 ## Owner / routing
 
-- Lives in **A** `03_research/medical-journal-submit/` (Victor).
+- Lives in **A** `03_research/find-journal/` (Victor).
 - Called from A `03_research/literature/journal-selection.md`.
 - 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `venue-templates` only for formatting to the chosen family.
@@ -195,4 +195,4 @@ When the user sends a new JCR workbook, follow `rules/annual-update.md`. Keep `r
 
 After a journal is chosen, format the manuscript to that journal's author guidelines with the **nested pack** [`journal-format-compliance/`](journal-format-compliance/) (its own `SKILL.md` + frontmatter).
 
-**Discovery (intentional, not a fine id):** this is a nested MODULE under `medical-journal-submit/`, not a registry fine id (v4 52-id ceiling). Trigger when the user asks to format / check a manuscript against a named journal's author guidelines, or when 选刊 Phase-2 is done and Bai/Victor needs submission-ready Track Changes. Entry is **via this parent skill** (or an explicit path/keyword ask) — do not expect 01 session-pick to list it. Plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts. Publisher quirks: `rules/journal-format-publisher-notes.md`.
+**Discovery (intentional, not a fine id):** this is a nested MODULE under `find-journal/`, not a registry fine id (v4 52-id ceiling). Trigger when the user asks to format / check a manuscript against a named journal's author guidelines, or when 选刊 Phase-2 is done and Bai/Victor needs submission-ready Track Changes. Entry is **via this parent skill** (or an explicit path/keyword ask) — do not expect 01 session-pick to list it. Plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts. Publisher quirks: `rules/journal-format-publisher-notes.md`.

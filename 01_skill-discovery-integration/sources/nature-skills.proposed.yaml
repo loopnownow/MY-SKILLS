@@ -39,12 +39,12 @@ skills:
     a_hook: 04_analysis
     coverage: partial
     note: audits/drafts manuscript stats reporting text, not raw computation; A 04 personal / 0RAD still wins
-  - id: fig-plot
+  - id: plot-figures
     path: skills/nature-figure/
     a_hook: 04_analysis
     coverage: full
-    note: matplotlib/seaborn/R ggplot2/patchwork multi-panel figures; B fig-plot stays gold
-  - id: make-figures
+    note: matplotlib/seaborn/R ggplot2/patchwork multi-panel figures; B plot-figures stays gold
+  - id: draw-flowchart
     path: skills/nature-figure/
     a_hook: 04_analysis
     coverage: partial
@@ -85,7 +85,7 @@ unmapped_groups:
     note: Chinese patent/disclosure drafting, outside the paper pipeline
     examples: [nature-paper-to-patent]
   - domain: single-paper-deep-reading
-    note: single-paper analysis or bilingual translation, not multi-paper ma-scout synthesis
+    note: single-paper analysis or bilingual translation, not multi-paper scout-meta-analysis synthesis
     examples: [nature-paper-card, nature-reader]
   - domain: lab-systems
     note: experiment logging + Feishu/Obsidian integration, not a mount id
@@ -101,7 +101,7 @@ empty:
   - imaging-io
   - preprocess-imaging
   - radiomics-ml
-  - ma-scout
+  - scout-meta-analysis
   - design-study
   - write-protocol
   - find-cohort-gap

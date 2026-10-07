@@ -46,8 +46,8 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - A folders stay `00`–`06` (not renamed to Chinese top-level).
 - Non-B packages are mixed PROPOSED/MOUNTED per registry.yaml, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
-- Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
-- Live docs name v4 fine ids only. Sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
+- Figures fine ids: `draw-flowchart` / `plot-figures`. No live figure engine.
+- Live docs name v4 fine ids only. Sample-size fine ids sit under coarse stats-analysis / 统计分析 (04 / Loopnow).
 - Archived fine ids: see registry `archived:`.
 
 
@@ -79,13 +79,13 @@ Opening another fine id past that ceiling requires explicit architecture review 
 Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 directories.**
 
 - **P0** — reserved for rare always-on mounts (chassis is `00`–`06`, not fine ids).
-- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
+- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
 - **P2** — niche / PROPOSED / specialty.
 
 ## Routing rules
 
 - Literature research → `03_research` only.
-- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`; evidence `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `find-journal/`; evidence `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - 样本量 → `04_analysis` (`calc-sample-size`).
 - Reviewer response → `06_review` only.
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.
@@ -98,7 +98,7 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 ## Rehomed packs (no longer standalone)
 
 - `02_data-processing/code-refactoring` — soft-coding / dry-run / CONFIG on top
-- `03_research/ethics-application-forms` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
+- `03_research/fill-protocol` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
 - `02_data-processing/clinical-data-extraction` — clinical extraction of exported txt/docx; HIS clients stay on the hospital machine, never in git
 - `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at `design-study` / `write-protocol`)
 
@@ -124,8 +124,8 @@ Skills are **not** the home for production scripts or manuscript archives. These
 | Home | Path | Owns |
 |---|---|---|
 | Skill (judge / route) | this repo / `~\.grok\skills` | Gates, short procedure `references/`, orchestration templates, harvest maintenance scripts |
-| Run | `D:\0Grok\0script` | `modules` / `数据处理` / `统计分析` / `图表呈现` / `研究设计` / `正文写作` / `_templates` / `sync` / `docx_revise` — executable lab code；细 ID 索引 `SCRIPT_ROLES.md` |
-| Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04_实验室参考/` (e.g. Lab-STE at `04_实验室参考/lab-ste/`; skills point via `05_manuscript/personal/lab-ste.md`, do not vendor). 技能对照见 `D:\0Grok\0doc\README.md`『技能 → 0doc 对照』 |
+| Run | `D:\0Grok\0script` | `stats-analysis/modules` / `data-processing` / `stats-analysis` / `figures` / `study-design` / `manuscript-body` / `_templates` / `sync` / `review-response` — executable lab code；细 ID 索引 `SCRIPT_ROLES.md` |
+| Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04-lab-reference/` (e.g. Lab-STE at `04-lab-reference/lab-ste/`; skills point via `05_manuscript/personal/lab-ste.md`, do not vendor). 技能对照见 `D:\0Grok\0doc\README.md`『技能 → 0doc 对照』 |
 
 **Pointer, do not mirror.** Skill text may cite `0script` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.
 

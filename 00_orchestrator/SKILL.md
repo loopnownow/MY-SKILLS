@@ -18,7 +18,7 @@ Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B gr
 **Word revise ownership:** All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 Do not mount MedSci `orchestrate` as a third SOP.
 
-**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes (`[Nature:nature-reviewer]`, `[Scientific:scientific-critical-thinking]`, `[B:peer-review]`, …) — not source-only shells) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
+**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes (`[Nature:simulate-reviewers]`, `[Scientific:scientific-critical-thinking]`, `[B:peer-review]`, …) — not source-only shells) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
 
 **Citation verify (required):** before a 05 deliverable is done (Gate · 05) and inside every 06 review, 03 runs `03_research/personal/citation-verify.md` (claim→ref table + spot-check of strong claims). 05 and 06 call/require 03 citation-verify — do not self-certify lit. A 05 pass does not waive 06. Mid-entry does not waive it. Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor.
 
@@ -101,7 +101,7 @@ Never `--e2e`. MountQ reuses the session lock when `session_picked_fine_ids` alr
 - grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求不清楚就要写代码 → `00_orchestrator` (`grilling`)
 - Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`
 - 软编码 / dry-run / coding principles → `02_data-processing` (`code-refactoring`)
-- 伦理申请表 → `03_research` (`ethics-application-forms`)
+- 伦理申请表 → `03_research` (`fill-protocol`)
 - 提取检验 / HIS → `02_data-processing` (`clinical-data-extraction`)
 - 转化 / reader study / 前瞻部署 / 阈值到行动 → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`

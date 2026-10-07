@@ -235,7 +235,7 @@ Then **HANDOFF** (02/04/05 as appropriate). Never emit Introduction/Discussion p
 | Stage | Call (examples) | Do not |
 |---|---|---|
 | R1 | `frontier-hypothesize`; `personal/intake.md` | Invent endpoints |
-| R2 | `lit-search`; optional `verify-refs` / `ma-scout` / `paper-lookup` if session-picked | Treat lit-search as the whole of 03 |
+| R2 | `lit-search`; optional `verify-refs` / `scout-meta-analysis` / `paper-lookup` if session-picked | Treat lit-search as the whole of 03 |
 | R3 | mounted design ids; `design/radiology-design.md` | Write 05 prose |
 | R4 | emit Data Requirement Card → **02** / **04** | Run 02 ETL or 04 models inside 03 |
 | R5 | synthesize cards → Research Brief | Paper Conclusion section |

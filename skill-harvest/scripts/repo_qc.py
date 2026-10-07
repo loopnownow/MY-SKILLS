@@ -82,12 +82,12 @@ def check_frontmatter(root: Path, out: list):
 
 
 def _depth_exempt(rel: Path) -> bool:
-    """Allow annual journal datasets: 03_research/medical-journal-submit/data/<YYYY>/file."""
+    """Allow annual journal datasets: 03_research/find-journal/data/<YYYY>/file."""
     parts = rel.parts
     if (
         len(parts) == 5
         and parts[0] == "03_research"
-        and parts[1] == "medical-journal-submit"
+        and parts[1] == "find-journal"
         and parts[2] == "data"
         and parts[3].isdigit()
         and len(parts[3]) == 4

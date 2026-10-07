@@ -26,8 +26,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("mounts-cap", root_dirs)
         self.assertTrue((ROOT / "02_data-processing" / "clinical-data-extraction" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "code-refactoring" / "SKILL.md").is_file())
-        self.assertFalse((ROOT / "02_data-processing" / "ethics-application-forms" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "03_research" / "ethics-application-forms" / "SKILL.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "03_research" / "clinical-translation" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "01_skill-discovery-integration" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "01_skill-discovery-integration" / "registry.yaml").is_file())
@@ -59,12 +59,12 @@ class ModuleHeaderTests(unittest.TestCase):
                 if "__pycache__" in p.parts or ".git" in p.parts:
                     continue
                 rel = p.relative_to(ROOT)
-                # Annual journal datasets: .../medical-journal-submit/data/<YYYY>/file
+                # Annual journal datasets: .../find-journal/data/<YYYY>/file
                 parts = rel.parts
                 data_year_ok = (
                     len(parts) == 5
                     and parts[0] == "03_research"
-                    and parts[1] == "medical-journal-submit"
+                    and parts[1] == "find-journal"
                     and parts[2] == "data"
                     and parts[3].isdigit()
                     and len(parts[3]) == 4
@@ -82,7 +82,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("session_pick_unit: fine_id", text)
         self.assertIn("write-paper", text)
         self.assertIn("humanize", text)
-        self.assertIn("make-figures", text)
+        self.assertIn("draw-flowchart", text)
         self.assertIn("ARCHIVED", text)
         self.assertIn("paperclip", text)  # archived entry
         self.assertNotIn("04-explainability", text)  # v3 archived record removed
@@ -144,7 +144,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("Yuan1z0825/nature-skills", nat)
         self.assertIn("需核实", nat)
         self.assertNotIn("v3 映射", nat)
-        self.assertIn("nature-response", nat)
+        self.assertIn("tighten-response", nat)
         self.assertIn("第三方", nat)
         ap_y = (d / "sources" / "aipoch-medical-research-skills.proposed.yaml").read_text(encoding="utf-8")
         self.assertIn("status: PROPOSED", ap_y)

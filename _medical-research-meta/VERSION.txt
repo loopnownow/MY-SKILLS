@@ -1,3 +1,24 @@
+CHG-20261007-007 (2026-10-07)
+Final cleanup batch (user-approved): no fallback paths, clear errors instead. modules (disk, no git): paths.py drops the 0preparing/0RAD stage fallback; console.py resolve_modules_dir needs MODULES_DIR in ref/settings.ini (no RAD_MODULES/gold default); __init__.py and writeback raise on invalid MODULES_DIR; ini_io drops default_preparing_root; project.html + project-shim console.html stop swapping a saved MODULES_DIR and show an error when it is empty. sync_modules/batch_rerun/smoke_test, tidy_paths and compare_val_modes use current stage roots only and raise on missing/duplicate projects. Retired traces parked in 0del\english_cleanup2_20261007 (migrate_legacy_to_0del.ps1, 0doc 03-rollback.ps1, stale __pycache__, console.override.json, empty 0RAD memory). Skills: 0rad-workspace PYTHONPATH=0script\stats-analysis + MODULES_DIR rule; Aitor-format voice refs repointed to live docx. Do not sync .grok/skills.
+Earlier: CHG-20261007-006, CHG-20261007-005.
+CHG-20261007-006 (2026-10-07)
+Cleanup after English naming: live skill text drops retired ids/paths (mounts-cap Nature ids, 0rad-workspace archive pointers, ARCHITECTURE rehome note). Disk (no git): 0script README/SCRIPT_ROLES/sub-READMEs drop archive and 原… notes; 0doc pointers to fill-protocol; modules u_QC.py→u_qc.py (+imports) and console_api.js MODULES_DIR fallback → clear error (user-approved); My rule.md adds no-fallback and QC-trace rules; .grok memory repointed. legacy_aliases and dated history kept. Do not sync .grok/skills.
+Earlier: CHG-20261007-005, CHG-20261007-004.
+CHG-20261007-005 (2026-10-07)
+R2c 0script: make-figures→draw-flowchart, docx_revise→review-response/revise, clean-data/clinical-extraction→data-processing/clinical-data-extraction, sync/project_shim→project-shim; tidy_yt→tidy_yt_rdl, fill_cln_from_xue→fill_cln_from_supplement, setup_clin_only→setup_cln_only (+ optional one-offs). Skill pointers + 0script/0doc docs + My rule.md updated. modules untouched. Do not sync .grok/skills.
+Earlier: CHG-20261007-004, CHG-20261007-003.
+CHG-20261007-004 (2026-10-07)
+R2b 0doc: English kebab rename for ~15 Chinese subfolders + ~50 index/helper files under D:\0Grok\0doc (revision-history, _index, _templates, 02-flattened, source/text + journal-review/grant-review/thesis-review/projects, lab-ste spec.html); 伦理→ethics under 06 only (no PHI open); 07-ethics skipped. Skill pointers updated. 0script/My rule = R2c. Do not sync .grok/skills.
+Earlier: CHG-20261007-003, CHG-20261007-002.
+CHG-20261007-003 (2026-10-07)
+R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label 稿件评阅; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
+Earlier: CHG-20261007-002, CHG-20261007-001.
+CHG-20261007-002 (2026-10-07)
+0doc top-level archives renamed to English kebab with numeric prefix (00-inbox, 01-thesis, 02-manuscripts, 03-review-replies, 04-lab-reference, 05-grants, 06-review-corpus, 07-ethics); inside 04-lab-reference, 研究设计 → study-design. README/MIGRATE and skill pointers updated. Fine-ID round deferred. 0doc 顶层档案英文化；细 ID 轮次另议。
+Earlier: CHG-20261007-001, CHG-20261006-003.
+CHG-20261007-001 (2026-10-07)
+English coarse-layer ids (kebab): registry coarse id = English slug; Chinese kept as label; legacy_aliases.coarse_aliases maps old Chinese ids. 0script coarse folders renamed to match (data-processing/stats-analysis/figures/study-design/manuscript-body); modules moved under stats-analysis/modules; unused archive/ethics_index retired to 0del. Fine ids and script filenames unchanged. 0doc top-level archives deferred (phase 2).
+Earlier: CHG-20261006-003, CHG-20261006-002.
 CHG-20261006-003 (2026-10-06)
 Point 05/06/03 skills at D:\0Grok\0doc review, grant, ethics, and manuscript folders. The ethics long text now lives at D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md (pointer only). 0doc 语料只留指针。伦理长文外置。
 Earlier: CHG-20261006-002, CHG-20261006-001.
@@ -50,7 +71,7 @@ CHG-20260926-006 (2026-09-26)
 Stale pointer sweep: remaining personal/workflow v3 ids → v4 fine ids; retired radiology-* pack pointers → live files or mounted fine ids; owner paths fixed.
 Earlier: CHG-20260926-005, CHG-20260926-004.
 CHG-20260926-005 (2026-09-26)
-Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → fig-plot; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
+Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → plot-figures; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
 Earlier: CHG-20260926-004, CHG-20260926-003.
 CHG-20260926-004 (2026-09-26)
 Stale residue cleanup: 0rad-workspace Figure 1 follows Aitor-format; 02/04/sci-manuscript use v4 fine ids; sample size moves to 04 / Loopnow; v4 prefix examples; 01 preset sentence matches review-hybrid.yaml.
@@ -71,7 +92,7 @@ CHG-20260924-004 (2026-09-24)
 mounts-cap STATE orphan hygiene (MedSci legacy keys + Nature phantoms).
 Earlier: CHG-20260924-003, CHG-20260924-002.
 CHG-20260924-003 (2026-09-24)
-Left QC: nature-reviewer examples; specialist_hint Aitee/Lee/Loopnow; MODULE→SKILL/de-ai; set wording; polisher 10–30; find-cohort-gap; Nature LICENSE verified; R1–R5 sketch; OpenClaw prefix drop; v4-first mounted ids; impute→missing-value; 03 retirement dedupe; 00→03 spine pointer.
+Left QC: simulate-reviewers examples; specialist_hint Aitee/Lee/Loopnow; MODULE→SKILL/de-ai; set wording; polisher 10–30; find-cohort-gap; Nature LICENSE verified; R1–R5 sketch; OpenClaw prefix drop; v4-first mounted ids; impute→missing-value; 03 retirement dedupe; 00→03 spine pointer.
 Earlier: CHG-20260924-002, CHG-20260924-001, CHG-20260923-001.
 CHG-20260924-002 (2026-09-24)
 03 default spine: workflows/question-to-reference.md (R1–R5 cards; lit-search under R2).
@@ -106,10 +127,10 @@ Archived duplicate imaging menu ids, hypothesis-generation, and four unfetched P
 Earlier markers kept: CHG-20260922-002, CHG-20260913-001.
 CHG-20260922-002 (2026-09-22)
 v4 mount registry: 10 coarse + 59 fine ids was the menu before this retirement.
-Added MOUNTED fine ids fig-plot, imaging-io, lit-search, frontier-hypothesize.
+Added MOUNTED fine ids plot-figures, imaging-io, lit-search, frontier-hypothesize.
 Earlier marker kept: CHG-20260913-001. Backup _history/registry.v3.30.yaml.
 Session pick = fine-id multi-select. OpenClaw never atomic source. Nature PROPOSED until license verified.
 B: +intake-project/design-ai-benchmarking/architecture-zoo/fill-protocol + cross-pack stubs + external-principles.
-A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 medical-journal-submit.
+A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 find-journal.
 
 Policy: VERSION.txt keeps blocks from CHG-20260913-001 on. Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first) and INTEGRATION_MAP.archive.md.

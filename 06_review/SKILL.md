@@ -39,8 +39,8 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 | 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
 | 中文刊审稿单 A–F | `personal/chinese-journal-score-sheet.md` |
 | Review Resolution (issue status / response re-check) | `personal/review-resolution.md` |
-| 内部评阅语料（我的评阅意见） | `D:\0Grok\0doc\06_审稿语料库\` |
-| 外部评阅语料（其他审稿人意见，外审模拟）与 revise 回复/修改语料 | `D:\0Grok\0doc\03_投稿_审稿意见与回复\` |
+| 内部评阅语料（我的评阅意见） | `D:\0Grok\0doc\06-review-corpus\` |
+| 外部评阅语料（其他审稿人意见，外审模拟）与 revise 回复/修改语料 | `D:\0Grok\0doc\03-review-replies\` |
 
 ## Mounted capability ids (generic; not present until mounted)
 
@@ -48,7 +48,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 
 - `peer-review` — other-paper peer review
 - `self-review` — self-audit / pre-submission
-- `revise` — point-by-point letters /修回分诊；脚本库：`D:\0Grok\0script\docx_revise\`
+- `revise` — point-by-point letters /修回分诊；脚本库：`D:\0Grok\0script\review-response\revise\`
 
 Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 

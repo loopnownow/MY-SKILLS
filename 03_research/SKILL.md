@@ -18,7 +18,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 
 ## Literature rule
 
-- Introduction evidence pack: on 05 cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`) → `literature/intro-evidence-pack.md`; the mounted `ma-scout` supplies the row format. Candidates only; 05 decides.
+- Introduction evidence pack: on 05 cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`) → `literature/intro-evidence-pack.md`; the mounted `scout-meta-analysis` supplies the row format. Candidates only; 05 decides.
 
 
 **Literature research → 03 only.** Do not route literature through 01 (discovery) or 05 (writing). 05 consumes verified I/D evidence; it does not run a second literature-research route.
@@ -30,17 +30,17 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Task | Path |
 |---|---|
 | Voice A — 评别人的国自/面上 | `personal/grant-review.md` |
-| Voice A 语料 — 标书评审意见 | `D:\0Grok\0doc\06_审稿语料库\原文\标书评审\` |
-| write-protocol / 申报书与开题 | `D:\0Grok\0doc\05_课题申报与结题管理\` |
+| Voice A 语料 — 标书评审意见 | `D:\0Grok\0doc\06-review-corpus\source\grant-review\` |
+| write-protocol / 申报书与开题 | `D:\0Grok\0doc\05-grants\` |
 | Voice B — 写自己的标书句库 | `personal/grant-writing.md` |
 | Voice B 章节骨架 | `personal/grant-own-skeleton.md` |
 | 方法升级写进立项 | `personal/method-upgrade-into-grant.md` |
 | Intake | `personal/intake.md` |
 | Ethics (protocol-level) | `personal/ethics.md` |
 | Multicenter | `personal/multicenter.md` |
-| JCR 分层荐刊（金山） | `medical-journal-submit/` |
+| JCR 分层荐刊（金山） | `find-journal/` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
-| Ethics application **forms** (fill pack) | `ethics-application-forms/` (`scripts/`, `references/`) |
+| Ethics application **forms** (fill pack) | `fill-protocol/` (`scripts/`, `references/`) |
 | Citation verify (claim→ref table + strong-claim spot-check; required before 05 done and inside 06) | `personal/citation-verify.md` |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
@@ -53,7 +53,7 @@ Do not rewrite mounted literature/systematic-review capability inside these file
 
 Live fine ids are in `01_skill-discovery-integration/registry.yaml` (for example `lit-search`, `frontier-hypothesize`, `design-study`, `find-cohort-gap`). Archived ids stay off the menu (registry `archived:`).
 
-**Retirement pointer (single block):** Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap` (`EXTERNALIZATION_CANDIDATES.md`); `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, `public-datasets.md`, and `literature-evidence-2023-2026.md` were retired 2026-09-22 — use `frontier-hypothesize`, `lit-search`, and `ma-scout`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md`. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+**Retirement pointer (single block):** Most of `design/` and `frontier/` were retired 2026-09-13 as duplicates of mounted `design-study` / `find-cohort-gap` (`EXTERNALIZATION_CANDIDATES.md`); `radiology-design.md` and `radiology-frontier.md` stay (no B counterpart). `evidence-layer.md`, `idea-to-question.md`, `literature.md`, `sources.md`, `public-datasets.md`, and `literature-evidence-2023-2026.md` were retired 2026-09-22 — use `frontier-hypothesize`, `lit-search`, and `scout-meta-analysis`. `literature/` keeps `journal-selection.md` (选刊 SOP), `journal-patterns-2023-2026.md`, and `intro-evidence-pack.md`. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 
 ## Default research spine (workflow)
 
@@ -95,14 +95,14 @@ Labels only. Not new skills and not a new top layer.
 
 
 
-**Journal format (nested):** `medical-journal-submit/journal-format-compliance/` is invoked after 选刊 when formatting to author guidelines — not a fine id; see that pack's SKILL + parent § Journal format compliance.
+**Journal format (nested):** `find-journal/journal-format-compliance/` is invoked after 选刊 when formatting to author guidelines — not a fine id; see that pack's SKILL + parent § Journal format compliance.
 
 ## Boundaries
 
-- 选刊 / where to submit stays here (`literature/journal-selection.md` + `medical-journal-submit/`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- 选刊 / where to submit stays here (`literature/journal-selection.md` + `find-journal/`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - Manuscript prose / I/D writing → `05_manuscript`
 - Statistics / figures → `04_analysis`
 - Data preprocessing / extraction → `02_data-processing`
-- Ethics **forms** (fill pack) stay here (`ethics-application-forms/`); protocol-level ethics → `personal/ethics.md`
+- Ethics **forms** (fill pack) stay here (`fill-protocol/`); protocol-level ethics → `personal/ethics.md`
 - Translational / reader-study **design** stays here (`clinical-translation/`)
 - Reviewer response → `06_review`

@@ -13,7 +13,7 @@ B folders (CHG-20260903-009) are 1:1: `lit-search/` `lit-fulltext/` `lit-review/
 
 - `03_research/design/`: `study-design.md`, `study-blueprints.md`, `feasibility-triage.md`, `validation.md`, `validation-strategy.md`, `endpoints-and-estimands.md`, `ai-radiogenomics-12-24-roadmap.md` → superseded by mounted `design-study` (`03-research/design-experiment/`)
 - `03_research/frontier/`: `frontier.md`, `frontier-themes.md`, `frontier-patterns-2023-2026.md`, `ai-radiogenomics-frontier-map.md` → superseded by mounted `find-cohort-gap` (`03-research/frontier-ideate/`)
-- `03_research/literature/literature-evidence-2023-2026.md` → superseded by mounted `ma-scout` (`03-research/lit-review/`)
+- `03_research/literature/literature-evidence-2023-2026.md` → superseded by mounted `scout-meta-analysis` (`03-research/lit-review/`)
 
 **Kept — permanent home, not a duplicate:**
 - `03_research/literature/journal-selection.md` — 选刊's canonical location (选刊 is 03, not 05); B has no 选刊 fine id.
@@ -26,14 +26,14 @@ B folders (CHG-20260903-009) are 1:1: `lit-search/` `lit-fulltext/` `lit-review/
 - `03_research/frontier/evidence-layer.md`, `idea-to-question.md` → `frontier-hypothesize`
 - `03_research/literature/literature.md`, `sources.md`, `public-datasets.md` → `lit-search`
 
-Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clinical-translation/`, `03_research/ethics-application-forms/`.
+Not candidates (personal, stay in A): `03_research/personal/`, `03_research/clinical-translation/`, `03_research/fill-protocol/`.
 
 ## Already moved to B (not retained in A)
 
 Fine ids first; legacy v3 alias in parentheses.
 
 - `clean-data` / `batch-cohort`, `imaging-io`, `preprocess-imaging`, `radiomics-ml`
-- `analyze-stats` / `calc-sample-size` / `meta-analysis` / `model-evaluation` · `model-validation` / `make-figures` / `fig-plot`
+- `analyze-stats` / `calc-sample-size` / `meta-analysis` / `model-evaluation` · `model-validation` / `draw-flowchart` / `plot-figures`
 - `write-paper` / `check-reporting` / `find-journal` / `polish-language`
 - `peer-review` / `self-review` / `revise`
 

@@ -38,7 +38,7 @@ skills:
     path: skills/search-lit/; skills/lit-sync/
     a_hook: 03_research
     coverage: full
-  - id: ma-scout
+  - id: scout-meta-analysis
     path: skills/ma-scout/
     a_hook: 03_research
     coverage: partial
@@ -87,11 +87,11 @@ skills:
     path: skills/model-evaluation/; skills/model-validation/
     a_hook: 04_analysis
     coverage: full
-  - id: fig-plot
+  - id: plot-figures
     path: skills/make-figures/
     a_hook: 04_analysis
     coverage: full
-    note: B fig-plot stays gold; Figure 1 rule in A Aitor-format.md
+    note: B plot-figures stays gold; Figure 1 rule in A Aitor-format.md
   - id: write-paper
     path: skills/write-paper/
     a_hook: 05_manuscript
@@ -208,4 +208,4 @@ unmapped:
     kind: archived
     note: model explainability (SHAP / Grad-CAM) — archived, not in the menu; revive via 01 only
 empty:
-  - make-figures
+  - draw-flowchart

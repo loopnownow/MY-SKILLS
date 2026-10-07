@@ -28,7 +28,7 @@ skills:
     path: skills/paper-lookup/; skills/research-lookup/
     a_hook: 03_research
     coverage: full
-  - id: ma-scout
+  - id: scout-meta-analysis
     path: skills/literature-review/
     a_hook: 03_research
     coverage: full
@@ -69,16 +69,16 @@ skills:
     a_hook: 04_analysis
     coverage: full
     note: 0RAD personal still wins
-  - id: make-figures
+  - id: draw-flowchart
     path: skills/scientific-schematics/
     a_hook: 04_analysis
     coverage: partial
     note: schematics, not STROBE gold
-  - id: fig-plot
+  - id: plot-figures
     path: skills/scientific-visualization/; skills/matplotlib/; skills/seaborn/
     a_hook: 04_analysis
     coverage: full
-    note: B fig-plot stays gold
+    note: B plot-figures stays gold
   - id: write-paper
     path: skills/scientific-writing/; skills/markdown-mermaid-writing/
     a_hook: 05_manuscript

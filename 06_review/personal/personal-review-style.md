@@ -2,7 +2,7 @@
 
 来源：2014–2026 自审期刊意见全文库，去重 57 份。只收结构、口气与高频要害，不收录他人未刊题目、数据、伦理号或患者标识。
 
-磁盘语料（内部评阅，用户本人的意见风格来源）：`D:\0Grok\0doc\06_审稿语料库\`。本文件不复制语料全文。
+磁盘语料（内部评阅，用户本人的意见风格来源）：`D:\0Grok\0doc\06-review-corpus\`。本文件不复制语料全文。
 
 本文件只服务 **英文期刊 peer review**（给别人写、可提交系统的审稿信；本室预审也可套同一章节骨架）。下面两件事走别的模板，禁止混进本信封：
 
@@ -24,9 +24,9 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 - Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
 - 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
   - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
-  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:nature-reviewer]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[lit-search]`（个人/细 ID 任务）
-  - 挂载 + 个人都成立 → **双标**，例：`[Nature:nature-reviewer] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
-- **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:nature-reviewer]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
+  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[lit-search]`（个人/细 ID 任务）
+  - 挂载 + 个人都成立 → **双标**，例：`[Nature:simulate-reviewers] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
+- **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。
 - 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍是 Lee marks/comments; Aitee applies Track Changes。Lee does not apply the body revisions as default。
 - **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee does not apply the body revisions as default。

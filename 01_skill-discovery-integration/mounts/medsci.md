@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | 状态 | PROPOSED（多数能力已吸收进 B 细 ID；`humanize` 仍 MedSci 接口） |
-| 典型原子 | `preprocess-imaging` · `analyze-stats` · `find-journal` · `make-figures` · `peer-review` · … |
+| 典型原子 | `preprocess-imaging` · `analyze-stats` · `find-journal` · `draw-flowchart` · `peer-review` · … |
 | 接口 | `humanize`（去 AI 味）；`skills/explainability/` **已 ARCHIVED**（不进菜单） |
 | 扩展 | `skills/academic-aio/` kind: expansion |
 

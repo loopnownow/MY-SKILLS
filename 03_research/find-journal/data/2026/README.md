@@ -1,6 +1,6 @@
 # Journal datasets (SSOT)
 
-Annual curated pool and list tables for `medical-journal-submit`.
+Annual curated pool and list tables for `find-journal`.
 
 - **Year folder:** `2026/` = current JCR cycle used by the skill.
 - **Do not** keep parallel copies under `references/` or `artifacts/`.

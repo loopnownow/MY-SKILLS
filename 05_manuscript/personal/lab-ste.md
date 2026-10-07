@@ -1,6 +1,6 @@
 # Lab-STE — pointer + reusable rules
 
-**Disk SSOT (do not vendor):** `D:\0Grok\0doc\04_实验室参考\lab-ste\`  
+**Disk SSOT (do not vendor):** `D:\0Grok\0doc\04-lab-reference\lab-ste\`  
 **Spec version on disk:** see that folder's `config.yaml` / `Lab-STE-SPEC.md` / `CHANGELOG.md` (currently 0.2.1).  
 **Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese 稿面批注, or tuning controllable-language checks.
 
@@ -14,7 +14,7 @@
 | `term-lock-default.tsv` | Domain-general lock template (patient, feature, slice, reader, …) |
 | `lexicons/*.tsv` | de-AI / nominalization / hedge / idiom tables |
 | `tools/` | Checker and HTML builder — run from disk; do not copy into MY-SKILLS |
-| `规范.html` | Generated human view — regenerate on disk, do not vendor |
+| `spec.html` | Generated human view — regenerate on disk, do not vendor |
 
 **Do not** copy the TSV dictionaries, Python tools, or HTML into this repo. Skills keep rules + pointers (`ARCHITECTURE.md` Lab workspace SSOT).
 

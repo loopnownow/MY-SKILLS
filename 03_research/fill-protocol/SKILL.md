@@ -1,5 +1,5 @@
 ---
-name: ethics-application-forms
+name: fill-protocol
 description: >
   Fill hospital IRB / ethics application form packs without changing template layout.
   Use for 伦理申请, 填伦理, IRB, 伦理表, 按填写好格式写伦理.
@@ -9,7 +9,7 @@ description: >
 
 # 伦理申请表格填报
 
-家园 `03_research/ethics-application-forms/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
+家园 `03_research/fill-protocol/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
 
 ## Purpose
 
@@ -20,9 +20,9 @@ description: >
 
 | Task | Path |
 |------|------|
-| **填表（本技能）** | 下面工作流 + `D:\0Grok\0script\研究设计\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
-| 金山医院空白包、递交清单、栏目 | `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md` |
-| 已填原件与批件（含患者信息；只读；不复制进仓库） | `D:\0Grok\0doc\07_伦理\`（`_index\files.tsv`） |
+| **填表（本技能）** | 下面工作流 + `D:\0Grok\0script\study-design\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
+| 金山医院空白包、递交清单、栏目 | `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md` |
+| 已填原件与批件（含患者信息；只读；不复制进仓库） | `D:\0Grok\0doc\07-ethics\`（`_index\files.tsv`） |
 | 填完自检 | `references/checklist.md` |
 | 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |
 | 统计 / 样本量公式 | `04_analysis` |
@@ -63,7 +63,7 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 6. 保格式填：`.docx` 用 python-docx（只改文字/勾选，保留签名表）；`.doc` 用 Word/WPS COM 查找替换，一次只开一个；`.xls` 只改数据行。
 7. 按 `references/checklist.md` 自检后交付路径、参数摘要、待签字项。
 
-登记表 `.xls` 只发伦理邮箱、不打印。初审申请表 PI 手签、日期写递交当天。干预性研究团队须有医生。科学性审查批件：院级立项、研究者发起自选（干预性）必须交；自选观察性可豁免。细节见 `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md`。
+登记表 `.xls` 只发伦理邮箱、不打印。初审申请表 PI 手签、日期写递交当天。干预性研究团队须有医生。科学性审查批件：院级立项、研究者发起自选（干预性）必须交；自选观察性可豁免。细节见 `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md`。
 
 立项申请表 `1-研究者发起的一般临床研究立项申请表.doc` **在默认包内**（官方空白 zip 未收，母版取工作夹空白/近空白件，填前清旧课题；不用 `伦理/伦理/` 已填件）。开题提纲仍不进默认包。
 
@@ -78,4 +78,4 @@ VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
 
 ## Progressive disclosure
 
-只发现本 `SKILL.md`。栏目和递交清单一律读 `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md` / `references/checklist.md`，不要把医院 Word 原件推进公开仓库。
+只发现本 `SKILL.md`。栏目和递交清单一律读 `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md` / `references/checklist.md`，不要把医院 Word 原件推进公开仓库。

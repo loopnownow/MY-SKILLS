@@ -15,159 +15,159 @@ notes: >
 skills:
   - id: lit-search
     path: 03-research/lit-search/
-    coarse: 文献检索
+    coarse: lit-retrieval
     a_hook: 03_research
     label: 文献检索与公开数据集
   - id: find-cohort-gap
     path: 03-research/frontier-ideate/
-    coarse: 选题探索
+    coarse: topic-explore
     a_hook: 03_research
     label: 队列选题空白发现
-  - id: ma-scout
+  - id: scout-meta-analysis
     path: 03-research/lit-review/
-    coarse: 选题探索
+    coarse: topic-explore
     a_hook: 03_research
     label: MA选题可行性
   - id: frontier-hypothesize
     path: 03-research/frontier-hypothesize/
-    coarse: 选题探索
+    coarse: topic-explore
     a_hook: 03_research
     label: 假设形成
   - id: intake-project
     path: 03-research/intake-project/
-    coarse: 选题探索
+    coarse: topic-explore
     a_hook: 03_research
     label: 项目启动分类
   - id: design-study
     path: 03-research/design-experiment/
-    coarse: 研究设计
+    coarse: study-design
     a_hook: 03_research
     label: 研究设计审查
   - id: design-ai-benchmarking
     path: 03-research/design-ai-benchmarking/
-    coarse: 研究设计
+    coarse: study-design
     a_hook: 03_research
     label: AI专家评估设计
   - id: architecture-zoo
     path: 03-research/architecture-zoo/
-    coarse: 研究设计
+    coarse: study-design
     a_hook: 03_research
     label: 模型架构选型
   - id: write-protocol
     path: 03-research/design-protocol/
-    coarse: 研究设计
+    coarse: study-design
     a_hook: 03_research
     label: IRB方案撰写
   - id: fill-protocol
     path: 03-research/fill-protocol/
-    coarse: 研究设计
+    coarse: study-design
     a_hook: 03_research
     label: IRB方案填表
   - id: write-paper
     path: 05-manuscript/write-manuscript/
-    coarse: 正文写作
+    coarse: manuscript-body
     a_hook: 05_manuscript
     label: IMRAD正文起草
   - id: check-reporting
     path: 05-manuscript/write-reporting/
-    coarse: 正文写作
+    coarse: manuscript-body
     a_hook: 05_manuscript
     label: 报告规范核验
   - id: grant-builder
     path: 03-research/design-grant/
-    coarse: 正文写作
+    coarse: manuscript-body
     a_hook: 03_research
     label: 基金标书-方法论
   - id: find-journal
     path: 05-manuscript/write-venue/
-    coarse: 正文写作
+    coarse: manuscript-body
     a_hook: 03_research
     label: 选刊推荐
   - id: polish-language
     path: 05-manuscript/write-polish/
-    coarse: 语言润色
+    coarse: language-polish
     a_hook: 05_manuscript
     label: 一致性硬规则lint
   - id: clean-data
     path: 02-data-processing/tables/
-    coarse: 数据处理
+    coarse: data-processing
     a_hook: 02_data-processing
     label: 三阶段确认式清洗
   - id: batch-cohort
     path: 02-data-processing/tables/
-    coarse: 数据处理
+    coarse: data-processing
     a_hook: 02_data-processing
     label: 批量队列分析生成
     path_shared: true
   - id: imaging-io
     path: 02-data-processing/imaging-io/
-    coarse: 数据处理
+    coarse: data-processing
     a_hook: 02_data-processing
     label: CT/MRI DICOM与NIfTI读写
   - id: preprocess-imaging
     path: 02-data-processing/imaging-qc/
-    coarse: 数据处理
+    coarse: data-processing
     a_hook: 02_data-processing
     label: ROI与读者质控
   - id: analyze-stats
     path: 04-analysis/stats-guide/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: 检验方法选择与加权调查数据
   - id: meta-analysis
     path: 04-analysis/stats-models/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: Meta分析抗数据操纵
   - id: radiomics-ml
     path: 02-data-processing/radiomics-habitat/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: 放射组学建模pipeline审计
   - id: model-evaluation
     path: 04-analysis/model-eval/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: 模型-任务正确指标选择
   - id: model-validation
     path: 04-analysis/model-eval/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: 模型-确定性泄漏门禁
     path_shared: true
   - id: calc-sample-size
     path: 04-analysis/stats-power/
-    coarse: 统计分析
+    coarse: stats-analysis
     a_hook: 04_analysis
     label: 样本量计算
-  - id: make-figures
+  - id: draw-flowchart
     path: 04-analysis/fig-flow/
-    coarse: 图表呈现
+    coarse: figures
     a_hook: 04_analysis
     label: 患者流程图
-  - id: fig-plot
+  - id: plot-figures
     path: 04-analysis/fig-plot/
-    coarse: 图表呈现
+    coarse: figures
     a_hook: 04_analysis
     label: 统计图与影像面板
   - id: peer-review-pdf-scan
     path: 06-review/review-peer/
-    coarse: 稿件评阅
+    coarse: manuscript-review
     a_hook: 06_review
     label: PDF注入攻击扫描
   - id: peer-review
     path: 06-review/review-peer/
-    coarse: 稿件评阅
+    coarse: manuscript-review
     a_hook: 06_review
     label: 审稿意见生成
     path_shared: true
   - id: self-review
     path: 06-review/review-critique/
-    coarse: 稿件评阅
+    coarse: manuscript-review
     a_hook: 06_review
     label: 数值级自审核算
   - id: revise
     path: 06-review/review-response/
-    coarse: 审稿回复
+    coarse: review-response
     a_hook: 06_review
     label: 修回分诊与数字血统追踪
