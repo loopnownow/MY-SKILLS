@@ -241,7 +241,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("## Mounts", root)
         self.assertIn("## Fine-id expansion ceiling", root)
         self.assertIn("## Lab workspace homes", root)
-        self.assertIn(r"D:\0Grok\0script", root)
+        self.assertIn("{script_root}", root)
         self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
         self.assertIn("## Identity four-tuple", root)
         self.assertIn("03_research/find-journal/", root)

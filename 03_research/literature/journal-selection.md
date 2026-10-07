@@ -132,7 +132,7 @@ publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / �
 
 - `../find-journal/SKILL.md`（权威流程；Victor；version ≥ **1.14**；Gemini+ChatGPT 2026-09）
 - `../find-journal/AGENTS.md`（须与 SKILL/policy 一致）
-- 策展表：`D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx`
+- 策展表：`{jcr2026_xlsx}`
 - 指数与模块：`../find-journal/rules/jesi-model.md`（JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI）、`modules.md`、`query-sources.md`
 - 持久化：`../find-journal/rules/persistence.md` — **absorb / query / delete** 表；投稿 URL 与个人先验可存；年度 IF/分区/年发文量/APC 等 **QUERY ONLY**（勿写入 `../find-journal/data/2026/submission-urls.csv`）；**Unknown ≠ Low Risk**；无固定权重政策（动态加权）
 

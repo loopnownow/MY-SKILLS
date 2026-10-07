@@ -34,10 +34,10 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
    - Short table **omits** ISO, OA, 置信, 分刊详情, **APC**.
    - Quartile/IF/volume display-only; portal URLs → `data/2026/submission-urls.csv`.
 8. Pipeline: optional external candidate pool → metrics → fit → JESI → prior (`modules.md`, `jesi-model.md`). External recommender = query provider only.
-9. Delivery: HTML for user; write submission URLs only back to `data/2026/submission-urls.csv`; optional prior lines → `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\submission-prior.jsonl`.
+9. Delivery: HTML for user; write submission URLs only back to `data/2026/submission-urls.csv`; optional prior lines → `{find_journal_submission}\submission-prior.jsonl`.
 10. Risk: **Unknown ≠ Low Risk.**
 
-Curated table: `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
+Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
 
 ## Do not
 

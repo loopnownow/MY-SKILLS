@@ -1,6 +1,6 @@
 # 0RAD clinical + radiomics pipeline rules
 
-**Owner:** `04_analysis`. Implementation lives in gold `D:\0Grok\0script\stats-analysis\modules` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/code-refactoring`.
+**Owner:** `04_analysis`. Implementation lives in gold `{script_modules}` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/0rad-workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/code-refactoring`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 
@@ -20,7 +20,7 @@ General threshold doctrine (never tune the cut on the test set to maximise accur
 
 ## Live lab modules (v4.3.0; rules aligned 2026-09-12)
 
-Do **not** vendor `D:\0Grok\0script` Python into this skill. Implementation stays in `modules/`.
+Do **not** vendor `{script_root}` Python into this skill. Implementation stays in `modules/`.
 Paper numbers come from `python -m modules.pipeline` → `Results{子项目}.html` / `Results{subproject}.html` (e.g. `Resultsperfusion.html`). Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.
 
 | Topic | Live behavior | Not the lab |

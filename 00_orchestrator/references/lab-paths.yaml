@@ -1,18 +1,38 @@
-# Lab path aliases (SSOT). Skills and docs should cite alias names, not raw drive letters.
-# Resolve: alias → path. Agents expand at read time. Do not vendor 0script/0doc into git.
-version: 1
+# Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
+# Agents expand from this file at read time. Do not vendor 0script/0doc into git.
+# History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
+version: 2
 aliases:
   lab_root: "D:\\0Grok"
+  del_root: "D:\\0Grok\\0del"
   script_root: "D:\\0Grok\\0script"
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "C:\\Users\\loopn\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
-  jcr2026_xlsx: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\医学投稿推荐_JCR2026.xlsx"
-  jcr2026_dir: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026"
-  find_journal_submission: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\submission"
-  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-capabilities"
   mounts_cap_cache: "C:\\Users\\loopn\\.grok\\skills\\mounts-cap"
+  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-capabilities"
+  # 0doc
+  doc_lab_ste: "D:\\0Grok\\0doc\\04-lab-reference\\lab-ste"
+  doc_jcr2026: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026"
+  jcr2026_xlsx: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\医学投稿推荐_JCR2026.xlsx"
+  find_journal_submission: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\submission"
+  doc_review_corpus: "D:\\0Grok\\0doc\\06-review-corpus"
+  doc_review_replies: "D:\\0Grok\\0doc\\03-review-replies"
+  doc_grants: "D:\\0Grok\\0doc\\05-grants"
+  doc_thesis: "D:\\0Grok\\0doc\\01-thesis"
+  doc_ethics: "D:\\0Grok\\0doc\\07-ethics"
+  doc_fill_protocol: "D:\\0Grok\\0doc\\04-lab-reference\\study-design\\fill-protocol"
+  doc_migrate: "D:\\0Grok\\0doc\\MIGRATE_FROM_SKILLS.md"
+  # 0script
+  script_stats: "D:\\0Grok\\0script\\stats-analysis"
+  script_modules: "D:\\0Grok\\0script\\stats-analysis\\modules"
+  script_model_validation: "D:\\0Grok\\0script\\stats-analysis\\model-validation"
+  script_data_processing: "D:\\0Grok\\0script\\data-processing"
+  script_revise: "D:\\0Grok\\0script\\review-response\\revise"
+  script_figures: "D:\\0Grok\\0script\\figures"
+  script_write_paper: "D:\\0Grok\\0script\\manuscript-body\\write-paper"
+citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "0script / 0doc are never vendored into MY-SKILLS."
-  - "Public git may omit mounts-cap pack bytes; runtime cache is skills_runtime/mounts-cap."
-  - "Replace new hard-coded D:\\0Grok strings with aliases when editing live docs."
+  - "Public git may omit mounts-cap pack bytes; runtime cache is mounts_cap_cache."
+  - "Dated history files may keep raw D:\\0Grok strings."

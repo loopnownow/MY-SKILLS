@@ -1,4 +1,4 @@
-# Copy to D:\0Grok\<stage>\<project>\ref\project-state.yaml when starting a study (stage: preparing | polishing | submitting | received | DER).
+# Copy to {lab_root}\<stage>\<project>\ref\project-state.yaml when starting a study (stage: preparing | polishing | submitting | received | DER).
 # study_folder_stage_aliases is the path-segment alias table. It is not pipeline.stage.
 # Already-written project folders may still use the alias. Read the alias as the live name. Do not rewrite those folders.
 study_folder_stage_aliases:

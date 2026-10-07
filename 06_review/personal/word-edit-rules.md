@@ -14,7 +14,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. call/require 
 ## 文件
 
 - **尽量不新建文件**；优先在用户指定的现有终稿上修订。
-- **中间文件尽量不产生**；若必须产生，任务结束后移入 `0del`（本机常见 `D:\0Grok\0del`）。
+- **中间文件尽量不产生**；若必须产生，任务结束后移入 `0del`（本机常见 `{del_root}`）。
 - 除非用户点名，否则不要另做备份副本。
 - Aitee 用 Track Changes 改过、或 Lee 只批注审过 Word 后，在该课题 **`ref/manuscript-revision.md`** 追加记录（日期、文件、已修订 / 只审核 / 未动 / 未决）。后一轮不得再润、再审已记录段落，除非上游数字变了、用户点名，或未决批注被授权落地。Lee 的记录默认是「只审核」，不是「已修订」。
 
