@@ -218,11 +218,9 @@ class ModuleHeaderTests(unittest.TestCase):
         for p in ROOT.rglob("*.md"):
             if "__pycache__" in p.parts or ".git" in p.parts:
                 continue
-            if "mounts-cap" in p.parts:
-                # Third-party pack bytes (gitignored cache / verbatim upstream
-                # content). Not A's own docs; their internal filenames (e.g. a
-                # Nature template's "01_research_canon.md") can coincidentally
-                # contain these substrings without meaning the legacy layout.
+            if "mounts-cap" in p.parts or "history" in p.parts:
+                # Third-party pack bytes / monthly INTEGRATION_MAP archives.
+                # Historical CHG text may mention retired path fragments.
                 continue
             if p.name in skip_names:
                 continue

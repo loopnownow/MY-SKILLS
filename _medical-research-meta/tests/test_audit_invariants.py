@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CLIN = ROOT / "02_data-processing" / "clinical-data-extraction"
 REG = ROOT / "01_skill-discovery-integration" / "registry.yaml"
 MOUNTED = ROOT / "01_skill-discovery-integration" / "MOUNTED_SKILLS.md"
-SKIP_PARTS = {".git", "__pycache__"}
+SKIP_PARTS = {".git", "__pycache__", "history", "mounts-cap"}
 SKIP_NAMES = {
     "INTEGRATION_MAP.md",
     "INTEGRATION_MAP.archive.md",
@@ -615,7 +615,7 @@ class MountsCap(unittest.TestCase):
 class LocalLinkHygiene(unittest.TestCase):
     def test_no_broken_relative_markdown_links(self) -> None:
         errors = []
-        skip_parts = {".git", "mounts-cap", "__pycache__"}
+        skip_parts = {".git", "mounts-cap", "__pycache__", "history"}
         for p in ROOT.rglob("*.md"):
             if skip_parts & set(p.parts):
                 continue
@@ -699,7 +699,9 @@ class HarvestHygiene(unittest.TestCase):
 
 
     def test_integration_map_has_this_chg(self) -> None:
-        text = read("_medical-research-meta/INTEGRATION_MAP.md")
+        stub = read("_medical-research-meta/INTEGRATION_MAP.md")
+        self.assertIn("history/INTEGRATION_MAP-20261007.md", stub)
+        text = read("_medical-research-meta/history/INTEGRATION_MAP-20261007.md")
         self.assertIn("CHG-20260906-003", text)
         self.assertIn("CHG-20260906-006", text)
         self.assertIn("CHG-20260906-007", text)

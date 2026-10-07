@@ -2,6 +2,7 @@
 name: medical-scientific-writing
 description: >
   Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI / pre-submit consistency).
+  Triggers: 润色, 去AI, de-AI, 写论文, 引言, Discussion, Aitor-format, 投稿前一致性.
   Mounted writing skills supply generic capability; this layer is the personal upper
   layer and final wording authority. Literature research → 03. Figures → 04.
   Reviewer response → 06. Do not use for 评阅 or 回复审稿人.

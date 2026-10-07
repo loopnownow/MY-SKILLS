@@ -1,0 +1,18 @@
+# Lab path aliases (SSOT). Skills and docs should cite alias names, not raw drive letters.
+# Resolve: alias → path. Agents expand at read time. Do not vendor 0script/0doc into git.
+version: 1
+aliases:
+  lab_root: "D:\\0Grok"
+  script_root: "D:\\0Grok\\0script"
+  doc_root: "D:\\0Grok\\0doc"
+  skills_git: "C:\\Users\\loopn\\GitHub\\MY-SKILLS"
+  skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
+  jcr2026_xlsx: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\医学投稿推荐_JCR2026.xlsx"
+  jcr2026_dir: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026"
+  find_journal_submission: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026\\submission"
+  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-capabilities"
+  mounts_cap_cache: "C:\\Users\\loopn\\.grok\\skills\\mounts-cap"
+notes:
+  - "0script / 0doc are never vendored into MY-SKILLS."
+  - "Public git may omit mounts-cap pack bytes; runtime cache is skills_runtime/mounts-cap."
+  - "Replace new hard-coded D:\\0Grok strings with aliases when editing live docs."

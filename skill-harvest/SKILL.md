@@ -24,11 +24,13 @@ Load `skill-design-principles` before any write. Load the references below befor
 
 ## Lab wiring
 
-- Harvest-QC: `qc/SKILL.md` + `qc/rules.md`. Events: `data/qc-events/` (append on FAIL/UNKNOWN; **no auto evolution**).
+- Harvest-QC: `qc/SKILL.md` + `qc/rules.md`. Events: `data/qc-events/` (optional append on FAIL/UNKNOWN/recovered; **not a gate**; empty until first event is OK).
+- Append helper: `python skill-harvest/scripts/append_qc_event.py --gate G-04 --result fail --skill 04_analysis --note "…"`.
+- `data/roi-ledger.csv` and `evolution/feedback-log.md` are **optional measurement logs**, not runtime QC. Do not fail a manuscript run if they are header-only.
 - On user ask 进化/更新/总结: fill `templates/qc-evolution.html` → write under `evolution/`; **user approval required** before any Skill edit.
 - `references/route-map.md` is the live P0/P1 home map. Do **not** overwrite it from an imported harvest pack.
-- Evolution evidence appends to `_medical-research-meta/INTEGRATION_MAP.md`. Do not mint `evolution-log.md`.
-- Scripts: `harvest_scan.py`, `harvest_score.py`, `harvest_record.py`, `harvest_report.py`, `repo_qc.py`. Skip score for typos / pointer-only edits.
+- Evolution evidence appends to `_medical-research-meta/INTEGRATION_MAP.md` (monthly roll → `history/`). Do not mint `evolution-log.md`.
+- Scripts: `harvest_scan.py`, `harvest_score.py`, `harvest_record.py`, `harvest_report.py`, `repo_qc.py`, `append_qc_event.py`. Skip score for typos / pointer-only edits.
 
 ## Sources
 

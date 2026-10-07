@@ -3,6 +3,8 @@ name: medical-research-design-and-evidence
 description: >
   Research approach: study design, literature research, evidence, frontier,
   journal/topic selection, grants, translational/reader-study design.
+  Triggers: 文献, 选刊, 推荐杂志, 伦理申请, 标书, 研究设计, 转化, reader study,
+  lit-search, find-journal, fill-protocol.
   Literature enters here only — never via 01.
   Personal grant/ethics/intake/translation files are a SUPPLEMENT, not an upper writing layer.
   Manuscript prose → 05. Reviewer response → 06. Stats → 04.
