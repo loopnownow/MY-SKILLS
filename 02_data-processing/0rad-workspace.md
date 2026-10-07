@@ -11,7 +11,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 | Kind | Path | Rule |
 |------|------|------|
 | Scratch / old drafts / one-off scripts | `0del/` (or `D:\0Grok\0del\<project>\`) | Never treat as current results |
-| Shared stats library | `D:\0Grok\0script\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0script` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `D:\0Grok\0script\modules`, do not modify that library; project HTML only points at it. |
+| Shared stats library | `D:\0Grok\0script\stats-analysis\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0script` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `D:\0Grok\0script\stats-analysis\modules`, do not modify that library; project HTML only points at it. |
 | Ops / clean-data / stats | `0script/` (besides `modules/`) | Organize / clean / sync — **not** the stats engine. Children: `数据处理/clean-data/` `数据处理/preprocess-imaging/` `统计分析/model-validation/` `图表呈现/make-figures/` `研究设计/fill-protocol/` `正文写作/write-paper/` `_templates/` `sync/` `docx_revise/` `archive/` (old `organized/` `manuscript/` `anjian/` live under `archive/`). 细 ID 索引：`D:\0Grok\0script\SCRIPT_ROLES.md`. |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
@@ -32,7 +32,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 1. Align clinical rows to the radiomics ID list. Unmatched IDs go to a separate sheet. Do not rename radiomics feature columns after alignment.
 2. Clinical categoricals: English labels (`Positive`/`Negative`, `Male`/`Female`). Do not write 0/1 unless the column is a score or a count.
 3. Drop columns above the missingness cutoff (lab default **>50%**; user may raise it) **before** imputation.
-4. Impute with `04_analysis` `data-impute` (group-stratified; default `mice`; decimal-align). Use the global `D:\0Grok\0script\modules\utils\u_impute.py`（独立运行：`0script\数据处理\clean-data\tidy_complete.py --strategy impute`）.
+4. Impute with `04_analysis` `data-impute` (group-stratified; default `mice`; decimal-align). Use the global `D:\0Grok\0script\stats-analysis\modules\utils\u_impute.py`（独立运行：`0script\data-processing\clean-data\tidy_complete.py --strategy impute`）.
 5. `exc` sheet: first column = IDs to drop. **Exclude, then analyze.** Building an analysis workbook creates a blank `exc` if missing. Sync 已并入 `modules/stats/data_io.py` + `false_class.py`；旧同步脚本已归档，不再运行。
 6. Columns at or before `record_id` (IDs, names, match-status) do not enter models.
 
@@ -49,7 +49,7 @@ Do not invent values. Ask when a label or ID is ambiguous.
 Canonical layout (enforced by `D:\0Grok\0script\sync\sync_modules.py`, 2026-09-04):
 
 - Each project keeps **console** (`{project}.html`) + **`ref/settings.ini`** only for run config.
-- Algorithms always come from gold `D:\0Grok\0script\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
+- Algorithms always come from gold `D:\0Grok\0script\stats-analysis\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
 - CLI: default dry-run; `--apply` writes; `--check`; `--keys` appends shared knobs (`MODULES_DIR`, `DO_SURVIVAL`, `PAIRWISE_*`, …).
 - Typical plan actions: `settings.py` → `ref/settings.ini`, remove project `config/`, refresh console HTML, drop legacy `console.html` / `run.bat` / `strobe-flowchart/`, rename `PBG` → `PNG` when present.
 
@@ -68,4 +68,4 @@ Canonical layout (enforced by `D:\0Grok\0script\sync\sync_modules.py`, 2026-09-0
 
 ## Coding
 
-Same as `code-refactoring/`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `D:\0Grok\0script\modules`.
+Same as `code-refactoring/`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `D:\0Grok\0script\stats-analysis\modules`.

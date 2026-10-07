@@ -20,7 +20,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 ## Session-pick fine ids (status MOUNTED only)
 
 
-### 文献检索
+### lit-retrieval
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -31,7 +31,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED |
 
 
-### 选题探索
+### topic-explore
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -41,7 +41,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED |
 
 
-### 研究设计
+### study-design
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -52,7 +52,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED |
 
 
-### 正文写作
+### manuscript-body
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -62,7 +62,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
 
 
-### 语言润色
+### language-polish
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -70,7 +70,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED |
 
 
-### 数据处理
+### data-processing
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -80,7 +80,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
 
 
-### 统计分析
+### stats-analysis
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -92,7 +92,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED |
 
 
-### 图表呈现
+### figures
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -102,7 +102,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `nature-figure` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
-### 稿件评阅
+### peer-review
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -112,7 +112,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `nature-reviewer` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
-### 审稿回复
+### review-response
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -126,7 +126,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.
 
 
-### 文献检索
+### lit-retrieval
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -134,7 +134,7 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
-### 正文写作
+### manuscript-body
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -143,14 +143,14 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
 
 
-### 语言润色
+### language-polish
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
-### 数据处理
+### data-processing
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -158,7 +158,7 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
 
 
-### 统计分析
+### stats-analysis
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
@@ -166,7 +166,7 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
 
 
-### 稿件评阅
+### peer-review
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|

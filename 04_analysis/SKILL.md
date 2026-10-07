@@ -34,7 +34,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 - `analyze-stats` — test selection / effect sizes
 - `calc-sample-size` — sample size / power; `statistical-power` is PROPOSED
-- `model-evaluation` / `model-validation` — calibration / DCA / external validation；脚本库：`D:\0Grok\0script\统计分析\model-validation\`
+- `model-evaluation` / `model-validation` — calibration / DCA / external validation；脚本库：`D:\0Grok\0script\stats-analysis\model-validation\`
 - `meta-analysis` (`scikit-survival` is PROPOSED) — implementation; 0RAD personal still wins
 - `radiomics-ml` — radiomics modelling pipeline audit
 - `make-figures` — STROBE / patient-flow

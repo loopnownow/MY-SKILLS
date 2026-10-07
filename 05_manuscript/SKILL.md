@@ -42,7 +42,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 | Writing / polish corpus (theses and submitted manuscripts; pointer only) | `D:\0Grok\0doc\01_学位论文\` ; `D:\0Grok\0doc\02_投稿_稿件\` |
 | Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
 | Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
-| Diff harvest (evidence script) | `D:\0Grok\0script\正文写作\write-paper\diff_harvest.py` |
+| Diff harvest (evidence script) | `D:\0Grok\0script\manuscript-body\write-paper\diff_harvest.py` |
 
 ## Mounted capability ids (generic; not present until mounted)
 

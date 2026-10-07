@@ -20,14 +20,14 @@
 
 | 粗 ID | A 域 | 专员 |
 |---|---|---|
-| 文献检索 · 选题探索 · 研究设计 | `03_research` | Victor |
-| 数据处理 · 统计分析 · 图表呈现 | `02_data-processing` · `04_analysis` | Loopnow |
-| 正文写作 · 语言润色 | `05_manuscript` | Aitee（选刊交 Victor） |
-| 稿件评阅 · 审稿回复 | `06_review` | Lee |
+| lit-retrieval · topic-explore · study-design | `03_research` | Victor |
+| data-processing · stats-analysis · figures | `02_data-processing` · `04_analysis` | Loopnow |
+| manuscript-body · language-polish | `05_manuscript` | Aitee（选刊交 Victor） |
+| peer-review · review-response | `06_review` | Lee |
 
 ---
 
-## 1. 文献检索（7）
+## 1. lit-retrieval（7）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -39,7 +39,7 @@
 | 严格他引审计 | Nature | `nature-academic-search` | 🔵（Apache-2.0 verified；仍需 ask-each-run / bytes） |
 | 文献检索与公开数据集 | MedSci | `lit-search` | ✅ |
 
-## 2. 选题探索（4）
+## 2. topic-explore（4）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -48,7 +48,7 @@
 | 假设形成 | MedSci | `frontier-hypothesize` | ✅ |
 | 项目启动分类 | MedSci | `intake-project` | 🟡 |
 
-## 3. 研究设计（5）
+## 3. study-design（5）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -58,7 +58,7 @@
 | IRB方案撰写 | MedSci | `write-protocol` | ✅ |
 | IRB方案填表 | MedSci | `fill-protocol` | 🟡 |
 
-## 4. 数据处理（6）
+## 4. data-processing（6）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -69,7 +69,7 @@
 | ROI与读者质控 | MedSci | `preprocess-imaging` | ✅ |
 | DICOM底层与匿名化审计 | Scientific | `pydicom` | 🔵 |
 
-## 5. 统计分析（8）
+## 5. stats-analysis（8）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -84,7 +84,7 @@
 
 > 样本量归粗 ID「统计分析」（04 / Loopnow；CHG-20260926-004）。
 
-## 6. 图表呈现（4）
+## 6. figures（4）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -93,7 +93,7 @@
 | 诚实可视化准则 | Scientific | `scientific-visualization` | 🟢（2026-09-14 REFERENCE→MOUNTED） |
 | 审稿人风险预判 | Nature | `nature-figure` | 🟢（2026-09-14 REFERENCE→MOUNTED；Apache-2.0） |
 
-## 7. 正文写作（7）
+## 7. manuscript-body（7）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -105,7 +105,7 @@
 | 选刊推荐 | MedSci | `find-journal` | ✅（A 权威仍 `medical-journal-submit`） |
 | 期刊格式模板 | Scientific | `venue-templates` | 🔵 |
 
-## 8. 语言润色（3）
+## 8. language-polish（3）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -113,7 +113,7 @@
 | 去AI味 | MedSci | `humanize` | ✅（可仍走 MedSci 接口） |
 | LaTeX排版细节 | Nature | `nature-polishing` | 🔵 |
 
-## 9. 稿件评阅（5）
+## 9. peer-review（5）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|
@@ -123,7 +123,7 @@
 | 证据质量评估 | Scientific | `scientific-critical-thinking` | 🔵 |
 | 多审稿人隔离原则 | Nature | `nature-reviewer` | 🟢（2026-09-14 REFERENCE→MOUNTED；Apache-2.0） |
 
-## 10. 审稿回复（3）
+## 10. review-response（3）
 
 | 细ID | 来源包 | 原子技能 | 状态 |
 |---|---|---|---|

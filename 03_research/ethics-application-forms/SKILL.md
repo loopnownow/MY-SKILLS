@@ -20,7 +20,7 @@ description: >
 
 | Task | Path |
 |------|------|
-| **填表（本技能）** | 下面工作流 + `D:\0Grok\0script\研究设计\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
+| **填表（本技能）** | 下面工作流 + `D:\0Grok\0script\study-design\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
 | 金山医院空白包、递交清单、栏目 | `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md` |
 | 已填原件与批件（含患者信息；只读；不复制进仓库） | `D:\0Grok\0doc\07_伦理\`（`_index\files.tsv`） |
 | 填完自检 | `references/checklist.md` |

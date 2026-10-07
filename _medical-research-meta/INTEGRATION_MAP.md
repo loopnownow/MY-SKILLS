@@ -1,5 +1,12 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-001 — English coarse ids + 0script coarse rename
+
+- Registry `coarse_ids[].id` → English kebab slugs; Chinese in `label`; `mounts[].coarse` updated; `legacy_aliases.coarse_aliases` added.
+- Disk: `D:\0Grok\0script\` Chinese coarse folders → English; `modules` → `stats-analysis\modules`.
+- Fine IDs / script filenames / 0doc archives unchanged.
+
+
 This file records the current architecture, not the historical export tree. Live menu totals are not restated here; read `01_skill-discovery-integration/registry.yaml` and the generated `01_skill-discovery-integration/MOUNTED_SKILLS.md`. Dated changelog lines below may keep old counts when they are clearly historical.
 
 | Source capability | Active home |

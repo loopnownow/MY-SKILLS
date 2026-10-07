@@ -16,37 +16,37 @@
 
 | Fine id | Label | B path | Coarse |
 |---|---|---|---|
-| `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | 选题探索 |
-| `ma-scout` | MA选题可行性 | `03-research/lit-review/` | 选题探索 |
-| `lit-search` | 文献检索与公开数据集 | `03-research/lit-search/` | 文献检索 |
-| `frontier-hypothesize` | 假设形成 | `03-research/frontier-hypothesize/` | 选题探索 |
-| `intake-project` | 项目启动分类 | `03-research/intake-project/` | 选题探索 |
-| `design-study` | 研究设计审查 | `03-research/design-experiment/` | 研究设计 |
-| `design-ai-benchmarking` | AI专家评估设计 | `03-research/design-ai-benchmarking/` | 研究设计 |
-| `architecture-zoo` | 模型架构选型 | `03-research/architecture-zoo/` | 研究设计 |
-| `write-protocol` | IRB方案撰写 | `03-research/design-protocol/` | 研究设计 |
-| `fill-protocol` | IRB方案填表 | `03-research/fill-protocol/` | 研究设计 |
-| `write-paper` | IMRAD正文起草 | `05-manuscript/write-manuscript/` | 正文写作 |
-| `check-reporting` | 报告规范核验 | `05-manuscript/write-reporting/` | 正文写作 |
-| `grant-builder` | 基金标书-方法论 | `03-research/design-grant/` | 正文写作 |
-| `find-journal` | 选刊推荐 | `05-manuscript/write-venue/` | 正文写作 |
-| `polish-language` | 一致性硬规则lint | `05-manuscript/write-polish/` | 语言润色 |
-| `clean-data` | 三阶段确认式清洗 | `02-data-processing/tables/` | 数据处理 |
-| `batch-cohort` | 批量队列分析生成 | `02-data-processing/tables/` | 数据处理 |
-| `imaging-io` | CT/MRI DICOM与NIfTI读写 | `02-data-processing/imaging-io/` | 数据处理 |
-| `preprocess-imaging` | ROI与读者质控 | `02-data-processing/imaging-qc/` | 数据处理 |
-| `analyze-stats` | 检验方法选择与加权调查数据 | `04-analysis/stats-guide/` | 统计分析 |
-| `meta-analysis` | Meta分析抗数据操纵 | `04-analysis/stats-models/` | 统计分析 |
-| `radiomics-ml` | 放射组学建模pipeline审计 | `02-data-processing/radiomics-habitat/` | 统计分析 |
-| `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | 统计分析 |
-| `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | 统计分析 |
-| `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | 统计分析 |
-| `make-figures` | 患者流程图 | `04-analysis/fig-flow/` | 图表呈现 |
-| `fig-plot` | 统计图与影像面板 | `04-analysis/fig-plot/` | 图表呈现 |
-| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | 稿件评阅 |
-| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | 稿件评阅 |
-| `self-review` | 数值级自审核算 | `06-review/review-critique/` | 稿件评阅 |
-| `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | 审稿回复 |
+| `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | topic-explore |
+| `ma-scout` | MA选题可行性 | `03-research/lit-review/` | topic-explore |
+| `lit-search` | 文献检索与公开数据集 | `03-research/lit-search/` | lit-retrieval |
+| `frontier-hypothesize` | 假设形成 | `03-research/frontier-hypothesize/` | topic-explore |
+| `intake-project` | 项目启动分类 | `03-research/intake-project/` | topic-explore |
+| `design-study` | 研究设计审查 | `03-research/design-experiment/` | study-design |
+| `design-ai-benchmarking` | AI专家评估设计 | `03-research/design-ai-benchmarking/` | study-design |
+| `architecture-zoo` | 模型架构选型 | `03-research/architecture-zoo/` | study-design |
+| `write-protocol` | IRB方案撰写 | `03-research/design-protocol/` | study-design |
+| `fill-protocol` | IRB方案填表 | `03-research/fill-protocol/` | study-design |
+| `write-paper` | IMRAD正文起草 | `05-manuscript/write-manuscript/` | manuscript-body |
+| `check-reporting` | 报告规范核验 | `05-manuscript/write-reporting/` | manuscript-body |
+| `grant-builder` | 基金标书-方法论 | `03-research/design-grant/` | manuscript-body |
+| `find-journal` | 选刊推荐 | `05-manuscript/write-venue/` | manuscript-body |
+| `polish-language` | 一致性硬规则lint | `05-manuscript/write-polish/` | language-polish |
+| `clean-data` | 三阶段确认式清洗 | `02-data-processing/tables/` | data-processing |
+| `batch-cohort` | 批量队列分析生成 | `02-data-processing/tables/` | data-processing |
+| `imaging-io` | CT/MRI DICOM与NIfTI读写 | `02-data-processing/imaging-io/` | data-processing |
+| `preprocess-imaging` | ROI与读者质控 | `02-data-processing/imaging-qc/` | data-processing |
+| `analyze-stats` | 检验方法选择与加权调查数据 | `04-analysis/stats-guide/` | stats-analysis |
+| `meta-analysis` | Meta分析抗数据操纵 | `04-analysis/stats-models/` | stats-analysis |
+| `radiomics-ml` | 放射组学建模pipeline审计 | `02-data-processing/radiomics-habitat/` | stats-analysis |
+| `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | stats-analysis |
+| `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | stats-analysis |
+| `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | stats-analysis |
+| `make-figures` | 患者流程图 | `04-analysis/fig-flow/` | figures |
+| `fig-plot` | 统计图与影像面板 | `04-analysis/fig-plot/` | figures |
+| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | peer-review |
+| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | peer-review |
+| `self-review` | 数值级自审核算 | `06-review/review-critique/` | peer-review |
+| `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | review-response |
 
 ## 非 B 但默认菜单可见
 

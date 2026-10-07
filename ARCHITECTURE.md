@@ -47,7 +47,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - Non-B packages are mixed PROPOSED/MOUNTED per registry.yaml, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
 - Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
-- Live docs name v4 fine ids only. Sample-size fine ids sit under coarse 统计分析 (04 / Loopnow).
+- Live docs name v4 fine ids only. Sample-size fine ids sit under coarse stats-analysis / 统计分析 (04 / Loopnow).
 - Archived fine ids: see registry `archived:`.
 
 
@@ -124,7 +124,7 @@ Skills are **not** the home for production scripts or manuscript archives. These
 | Home | Path | Owns |
 |---|---|---|
 | Skill (judge / route) | this repo / `~\.grok\skills` | Gates, short procedure `references/`, orchestration templates, harvest maintenance scripts |
-| Run | `D:\0Grok\0script` | `modules` / `数据处理` / `统计分析` / `图表呈现` / `研究设计` / `正文写作` / `_templates` / `sync` / `docx_revise` — executable lab code；细 ID 索引 `SCRIPT_ROLES.md` |
+| Run | `D:\0Grok\0script` | `stats-analysis/modules` / `data-processing` / `stats-analysis` / `figures` / `study-design` / `manuscript-body` / `_templates` / `sync` / `docx_revise` — executable lab code；细 ID 索引 `SCRIPT_ROLES.md` |
 | Read | `D:\0Grok\0doc` | Human-facing docs (theses, submissions, reviews, grants); optional long static refs under `04_实验室参考/` (e.g. Lab-STE at `04_实验室参考/lab-ste/`; skills point via `05_manuscript/personal/lab-ste.md`, do not vendor). 技能对照见 `D:\0Grok\0doc\README.md`『技能 → 0doc 对照』 |
 
 **Pointer, do not mirror.** Skill text may cite `0script` / `0doc` paths; do not vendor those trees into MY-SKILLS. Do not symlink skill `references/` ↔ `0doc`. Migration candidates (list only until user approves a move): `D:\0Grok\0doc\MIGRATE_FROM_SKILLS.md`.

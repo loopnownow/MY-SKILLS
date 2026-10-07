@@ -1,3 +1,6 @@
+CHG-20261007-001 (2026-10-07)
+English coarse-layer ids (kebab): registry coarse id = English slug; Chinese kept as label; legacy_aliases.coarse_aliases maps old Chinese ids. 0script coarse folders renamed to match (data-processing/stats-analysis/figures/study-design/manuscript-body); modules moved under stats-analysis/modules; unused archive/ethics_index retired to 0del. Fine ids and script filenames unchanged. 0doc top-level archives deferred (phase 2).
+Earlier: CHG-20261006-003, CHG-20261006-002.
 CHG-20261006-003 (2026-10-06)
 Point 05/06/03 skills at D:\0Grok\0doc review, grant, ethics, and manuscript folders. The ethics long text now lives at D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md (pointer only). 0doc 语料只留指针。伦理长文外置。
 Earlier: CHG-20261006-002, CHG-20261006-001.
