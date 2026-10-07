@@ -11,14 +11,10 @@ Formerly `house-format.md`.
 `D:\0Grok\0doc\03-review-replies\_templates\02-layout-template.docx`
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
-`0del/lxf_LG/Response/Manuscript_Response_house.docx` (prose skeleton) ·  
-`xlm_LG/Growth/Manuscript_Growth_polished.docx` (Ying Li hand; incremental + DeLong) ·  
-`lxf_LG/Response/Manuscript_Response_polished.docx` (CI en-dash; table `NC`) ·  
-`0del/xlm_LG/Growth/Manuscript_Growth_house.docx` (training / test) ·  
-`0del/lya_WML/MCI/Manuscript_MCI_house.docx` (circular labels; delete extra tables) ·  
-`0del/lya_CTA/Stroke/Manuscript_Stroke_house.docx` (missing products; circular symptom field).
+`D:\0Grok\polishing\lxf_RP\Response\Manuscript_Response_polished.docx` (CI en-dash; table `NC`) ·  
+`D:\0Grok\polishing\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
-Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder (house drafts in `0del/<project>/<outcome>/`). Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
+Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.  
 Letters / short communications: apply only if the user asks.

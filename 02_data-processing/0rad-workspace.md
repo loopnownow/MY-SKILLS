@@ -2,7 +2,7 @@
 
 **Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-09-06).
 
-Projects: `D:\0Grok\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `received` `DER`; `preparing` is the old 0RAD root). Code: `D:\0Grok\0script`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired. A folder still named `reseived` is the `received` stage (`study_folder_stage_aliases` in `00_orchestrator/templates/project-state.yaml`). Leave that folder name as written.
+Projects: `D:\0Grok\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `received` `DER`). Code: `D:\0Grok\0script`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired. A folder still named `reseived` is the `received` stage (`study_folder_stage_aliases` in `00_orchestrator/templates/project-state.yaml`). Leave that folder name as written.
 
 If the user only opens/`cd`s into a project and names no 01–06 verb, **ask which skill to fire** (`00_orchestrator` → Project open, no skill). Do not start work.
 
@@ -11,7 +11,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 | Kind | Path | Rule |
 |------|------|------|
 | Scratch / old drafts / one-off scripts | `0del/` (or `D:\0Grok\0del\<project>\`) | Never treat as current results |
-| Shared stats library | `D:\0Grok\0script\stats-analysis\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0script` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `D:\0Grok\0script\stats-analysis\modules`, do not modify that library; project HTML only points at it. |
+| Shared stats library | `D:\0Grok\0script\stats-analysis\modules/` (gold) | Entry: `PYTHONPATH=D:\0Grok\0script\stats-analysis` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `D:\0Grok\0script\stats-analysis\modules`, do not modify that library; project HTML only points at it. |
 | Ops / clean-data / stats | `0script/` (besides `stats-analysis/modules/`) | Organize / clean / sync — **not** the stats engine. Children: `data-processing/clean-data/` `data-processing/clinical-data-extraction/` `data-processing/preprocess-imaging/` `stats-analysis/model-validation/` `figures/draw-flowchart/` `study-design/fill-protocol/` `manuscript-body/write-paper/` `review-response/revise/` `_templates/` `sync/`. 细 ID 索引：`D:\0Grok\0script\SCRIPT_ROLES.md`. |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
@@ -23,7 +23,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 
 ## Named entry points (do not vendor `.py`)
 
-- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0script`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. Other `0script` folders do not run the stats engine.
+- **Stats:** `python -m modules.pipeline` (`PYTHONPATH=D:\0Grok\0script\stats-analysis`). Per-project `ref/settings.ini` + console HTML; algorithms stay in **gold** `modules`. Other `0script` folders do not run the stats engine.
 - **STROBE Figure 1:** `figure_strobe_flow.py` lives in `0script/stats-analysis/modules/stats/`. Drawing code stays local, not in git. Point at `python -m modules.stats.figure_strobe_flow`. Do not copy the `.py` into this skill. Figure 1 is the single study flowchart read from Materials and Methods. Training Cohort and Test Cohort sit on one row. Validation Cohort joins that row only when Methods states an external cohort. Steps are drawn only when Methods names them. Layout rules: `05_manuscript/personal/Aitor-format.md` (Figure 1).
 - **Nomogram:** `modules.stats.models.build_nomogram`. Ignore docstrings that still say `python -m modules.nomogram`.
 
@@ -50,6 +50,7 @@ Canonical layout (enforced by `D:\0Grok\0script\sync\sync_modules.py`, 2026-09-0
 
 - Each project keeps **console** (`{project}.html`) + **`ref/settings.ini`** only for run config.
 - Algorithms always come from gold `D:\0Grok\0script\stats-analysis\modules`. Do **not** leave a per-project `modules/` or a lasting `config/settings.py` tree.
+- `ref/settings.ini` must set `MODULES_DIR` to an existing folder. Console HTML, `console.py` and `import modules` stop with a clear error when it is empty or not a folder; there is no fallback to a default or old path.
 - CLI: default dry-run; `--apply` writes; `--check`; `--keys` appends shared knobs (`MODULES_DIR`, `DO_SURVIVAL`, `PAIRWISE_*`, …).
 - Typical plan actions: `settings.py` → `ref/settings.ini`, remove project `config/`, refresh console HTML, drop legacy `console.html` / `run.bat` / `strobe-flowchart/`, rename `PBG` → `PNG` when present.
 

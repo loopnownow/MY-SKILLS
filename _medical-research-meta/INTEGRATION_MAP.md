@@ -1,5 +1,11 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-007 — final cleanup: no fallback paths, clear errors
+
+- Disk `D:\0Grok\0script\stats-analysis\modules` (no git, user-approved): `console\paths.py` keeps only the current layout (`preparing` + `polishing`/`submitting`/`reseived`) and raises naming the expected path; `console\console.py` `resolve_modules_dir` requires `MODULES_DIR` in `ref/settings.ini` (error if unset or not a folder; no `RAD_MODULES`/gold default), protocol handler and writeback raise on an invalid `MODULES_DIR`; `__init__.py` raises instead of printing and ignoring; `config\ini_io.py` drops `default_preparing_root`; `project.html` and `sync\project-shim\console.html` no longer swap a saved `MODULES_DIR` and show an error when it is empty. Tests: stage-name assertions updated; `test_docx_extract` imports from the `0script` root; `test_assoc` points at `polishing\jfl_SSD_ASL`.
+- Disk `0script` (no git): `sync\sync_modules.py` (no shim/gold or preparing fallback), `sync\batch_rerun_pipelines.py` (current project names, PYTHONPATH `0script\stats-analysis`), `sync\smoke_test.py`, `data-processing\clean-data\tidy_paths.py` (stage-root search; error on missing/duplicate), `stats-analysis\model-validation\compare_val_modes.py`/`downsample_train.py` (current import roots). Parked in `D:\0Grok\0del\english_cleanup2_20261007\`: `migrate_legacy_to_0del.ps1`, 0doc `00-inbox\03-rollback.ps1`, 10 stale `__pycache__` + `.pytest_cache`, `console.override.json`, empty `.grok` memory for the old 0RAD workspace.
+- 0doc skill-harvest-candidates/06-review-corpus drop dead `0del` pointers; Cline `My rule.md` example → `polishing\jfl_SSD_DKI`; `.grok` memory repointed (no missing paths). Skills: `02_data-processing/0rad-workspace.md` (`PYTHONPATH=D:\0Grok\0script\stats-analysis`, `MODULES_DIR` no-fallback rule), `05_manuscript/personal/Aitor-format.md` (voice refs → live docx). Do not sync `.grok\skills`.
+
 ## CHG-20261007-006 — cleanup of old names after English alignment
 
 - Skills: `mounts-cap/README.md` uses current Nature fine ids (upstream pack paths kept); `02_data-processing/0rad-workspace.md` drops retired `0script/archive/` pointers; `_medical-research-meta/ARCHITECTURE.md` drops the old rehome note. `legacy_aliases.yaml`, registry/source upstream `path:` values, VERSION and this map's dated entries are kept.
