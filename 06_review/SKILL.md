@@ -48,7 +48,7 @@ Mounted packs may raise findings; **A 06 personal** owns resolution status (`per
 
 - `peer-review` — other-paper peer review
 - `self-review` — self-audit / pre-submission
-- `revise` — point-by-point letters /修回分诊；脚本库：`D:\0Grok\0script\docx_revise\`
+- `revise` — point-by-point letters /修回分诊；脚本库：`D:\0Grok\0script\review-response\revise\`
 
 Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
 

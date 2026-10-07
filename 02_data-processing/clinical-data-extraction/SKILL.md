@@ -47,5 +47,5 @@ HIS login automation must not live in A. Hospital-system clients stay on the hos
 10. 分类标签用英文（`Positive`/`Negative`），规则见 `../0rad-workspace.md`，此处不另写一套。
 
 ## 附带的脚本
-- `D:\0Grok\0script\data-processing\clean-data\clinical-extraction\extract_patient_data.py` — 患者信息与检验指标提取
-- `D:\0Grok\0script\data-processing\clean-data\clinical-extraction\extract_docx.py` — docx 文档批量提取
+- `D:\0Grok\0script\data-processing\clinical-data-extraction\extract_patient_data.py` — 患者信息与检验指标提取
+- `D:\0Grok\0script\data-processing\clinical-data-extraction\extract_docx.py` — docx 文档批量提取

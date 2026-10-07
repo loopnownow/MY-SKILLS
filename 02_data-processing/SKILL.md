@@ -34,7 +34,7 @@ Never perform feature selection or statistical model fitting here.
 | 0RAD workspace (folder names, `exc`, false-classification) | `0rad-workspace.md` |
 | Lab MATLAB preprocess | `D:\0Grok\0script\data-processing\preprocess-imaging\fmri\parallel_preprocess.m`, `D:\0Grok\0script\data-processing\preprocess-imaging\fmri\run_preprocess.m` |
 | Leakage / split / radiology audit | `D:\0Grok\0script\stats-analysis\model-validation\split_leakage_check.py`, `D:\0Grok\0script\stats-analysis\model-validation\radiology_audit.py` |
-| Clinical / HIS extraction | `D:\0Grok\0script\data-processing\clean-data\clinical-extraction\`（`extract_patient_data.py`、`extract_docx.py`） |
+| Clinical / HIS extraction | `D:\0Grok\0script\data-processing\clinical-data-extraction\`（`extract_patient_data.py`、`extract_docx.py`） |
 | Soft-coding / dry-run / CONFIG on top | `D:\0Grok\0script\_templates\soft_code_template.py`（说明在 `code-refactoring/`） |
 | Raw table digit / smoothness QC | `table-qc/` (`references/`) |
 

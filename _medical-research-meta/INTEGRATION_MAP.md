@@ -1,5 +1,10 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-005 — 0script R2c English folder/file rename pointers
+
+- Disk under `D:\0Grok\0script\` (no git): `figures\make-figures`→`figures\draw-flowchart`; `docx_revise`→`review-response\revise`; `data-processing\clean-data\clinical-extraction`→`data-processing\clinical-data-extraction` (matches A pack); `sync\project_shim`→`sync\project-shim` (+ `sync_modules.py` SHIM). Files (snake_case kept): `tidy_yt.py`→`tidy_yt_rdl.py` (7 imports), `fill_cln_from_xue.py`→`fill_cln_from_supplement.py`, `setup_clin_only.py`→`setup_cln_only.py`; optional `apply_zyp.py`/`apply_oem.py`→`apply_revisions.py`, `add_comments_author_A.py`→`add_comments_author_a.py`, t1vbm guide →`t1vbm-user-guide-v2.html`. `stats-analysis\modules` untouched (incl. `u_QC.py`).
+- Pointers: `ARCHITECTURE.md`, `02_data-processing/{SKILL.md,0rad-workspace.md,clinical-data-extraction/SKILL.md}`, `06_review/SKILL.md`; 0script README/SCRIPT_ROLES/sub-READMEs (Chinese coarse dirs → English slugs); 0doc pointers; Cline `My rule.md` (0doc template path, `stats-analysis\modules`). History lines above left as-is. Map/rollback `D:\0Grok\0del\english_fine_20261007\r2c_*`. Do not sync `.grok\skills`.
+
 ## CHG-20261007-004 — 0doc R2b Chinese subfolder/index English rename
 
 - Disk under `D:\0Grok\0doc\`: 15 depth-2/3 folders (e.g. `完整修改历史`→`revision-history`, `_整理`→`_index`, `_整理下`→`_templates`, `02_打平稿`→`02-flattened`, `原文`→`source`, `文本`→`text`, corpus types → `journal-review`/`grant-review`/`thesis-review`/`projects`) + 50 index/helper files; 6 `伦理`→`ethics` under 06 (folder rename only, no content open). 07-ethics untouched. Content author｜title files and 06 corpus bodies kept Chinese.
