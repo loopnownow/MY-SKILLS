@@ -14,5 +14,10 @@ outputs: []         # paths written this node
 exclusions: []
 unresolved: []
 downstream: []      # required next actions
-qc_gate: ""         # G0 | G-PHI | G-04 | G-05 | G-06
+qc_gate: ""         # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-04 | G-05 | G-06
 qc_result: ""       # pass | fail
+# Optional when crossing 05/06: mirror manuscript.citation_verify from project-state.
+citation_verify:
+  g_cit_1: ""       # pending | pass | fail
+  g_cit_2: ""       # pending | pass | fail | n/a
+  table_path: ""

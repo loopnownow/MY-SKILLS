@@ -11,26 +11,20 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。
+**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。图节点 `Gate · NN` ↔ `G-NN`。
 
 Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant / **citation-verify**); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC; owns all manuscript Track Changes; does not self-certify lit); 06 Lee (statement consistency, then data consistency; marks/comments and must not self-revise as default; lit accuracy is joint with Victor); 00 Aitor owns QC. 05 and 06 require 03 participation for citations. Mid-entry stays allowed. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
 
 **Word revise ownership:** Ownership: see `00_orchestrator/references/ownership-contract.md`
 Do not mount MedSci `orchestrate` as a third SOP.
 
-**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes (`[Nature:simulate-reviewers]`, `[Scientific:scientific-critical-thinking]`, `[B:peer-review]`, …) — not source-only shells) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
+**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
 
-**Citation verify (required):** before a 05 deliverable is done (Gate · 05) and inside every 06 review, 03 runs `03_research/personal/citation-verify.md` (claim→ref table + spot-check of strong claims). 05 and 06 call/require 03 citation-verify — do not self-certify lit. A 05 pass does not waive 06. Mid-entry does not waive it. Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor.
+**Citation verify (required):** before a 05 deliverable is done (Gate · 05) and inside every 06 review, 03 runs `03_research/personal/citation-verify.md` (claim→ref table + spot-check of strong claims). 05 and 06 call/require 03 citation-verify — do not self-certify lit. A 05 pass does not waive 06. Mid-entry does not waive it. Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. Record status in `templates/project-state.yaml` → `manuscript.citation_verify` (`g_cit_1` / `g_cit_2` / `table_path`).
 
-**Literature verify fail (G-LIT):** require a dual plan in comments — (1) revise/weaken/delete the sentence, (2) keep the sentence and ask whether to call `03_research` for substitute refs. Prefer the Evidence Request card in `05_manuscript/personal/evidence-request.md` when a mount (or 05/06) raised a structured gap. The verify pass itself is not optional. **00 decides at QC** only whether a further substitute-ref search runs; **05 (Aitee)** keeps Accept/Weaken/Delete on wording. If unsure, ask one question.
+**Literature verify fail (G-LIT):** dual plan in comments — (1) revise/weaken/delete, (2) optional further 03 substitute-ref search. Prefer `05_manuscript/personal/evidence-request.md` when structured. Verify itself is not optional. **00 decides at QC** only whether further search runs; **05 (Aitee)** keeps Accept/Weaken/Delete on wording.
 
-## HTML delivery (standing)
-
-Whenever this lab **creates or edits** `.html`, follow `references/html-visual-design.md` (structure, a11y, no CDN, palette). Full-repo HTML architecture audits are **off** until the user asks. Do **not** vendor lab console / starter HTML pages into MY-SKILLS (rules only).
-
-## Visualization compiler (standing)
-
-Archify is a read-only visualization compiler. It is not a skill and not a top-level `07` layer. MY-SKILLS sources stay authoritative. Contract: [`visualization-architecture.md`](visualization-architecture.md), [`archify-version.yaml`](archify-version.yaml), [`visualization-source-contract.yaml`](visualization-source-contract.yaml). Rebuild derived files with `python3 scripts/gen_visualization.py`, which renders the two diagrams through the pinned `archify-v3.0.1.zip`. Generated HTML under `docs/` is disposable and is not a fact source. Mount diagrams use registry and preset metadata. Do not crawl `mounts-cap/` to draw them.
+**Standing delivery:** HTML and Archify rules → [`references/standing-delivery.md`](references/standing-delivery.md).
 
 ## 1. Intent classify
 
@@ -51,51 +45,13 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 
 `*-results.html` and a reviewer letter in the same folder, and the user did not name the entry: ask which station. Do not pick the nearer artifact. One bounded task still goes to that skill, not the full SOP.
 
-If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability entry points use the batched **clarify round** in Plan card instead — that's the one exception.)
+If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability exception: batched clarify in Plan card — see [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
 
-### Question policy
-
-- **Q0** — single-node task: do not grill.
-- **Q1** — one critical unknown: one question.
-- **Q2** — multi-node, a new capability, or high risk: grilling is allowed.
-- **Q3** — if a file or the web can answer, look it up; do not ask.
-
-
-### Flow chart approval (skills / mounts)
-
-When the user asks to **use skills or mount packs for a specific task**, before session mount pick or specialist dispatch:
-
-1. Show a **complete** flowchart taken from the official map [`runtime-flow.mmd`](runtime-flow.mmd) (read [`runtime-flow.md`](runtime-flow.md)).
-2. The task is **one ring/branch** on that map, or the full chain — still show the **whole** official figure (or a faithful rendering of it), and **highlight** the path this run will take (entry → nodes → gates → QC loop).
-3. Wait for **explicit approval**. Do not load mounts or start 02–06 until they agree.
-4. After approval, proceed with 01 session mount pick / G0 as on the map.
-
-This sits with Plan card / grilling for multi-node work; for mount/skill runs it is mandatory even when the plan looks obvious.
-
-### Plan card (before dispatch)
-
-Default is **interactive**, not silent automation. Before the first specialist runs a multi-node job, or before 01 evaluates a new external capability, run **grilling** (`grilling/SKILL.md`, `grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first. This is the multi-node / new-capability exception to "ask one question, never two" (single-skill tasks keep that rule as-is).
-
-Then show the plan: candidate mount ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
-
-Loop shape: `clarify round (grilling) → plan → execute node → file check → integrity gate → (repair broken node only) → execute`. Not a single straight line.
-
-After that plan is approved, later crossings in the **same run** are one line: file present, gate passed, continue or pause. Still stop and wait at N2 (PHI), G-FACT on the results page, N4 (preview entry), and G-06.
-
-### Decision nodes (one at a time)
-
-After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` allowed. N2 (PHI) applies before 02 tables or clinical extraction.
-
-| Node | When | Options |
-|---|---|---|
-| N1 SOP | 「全线」 / multi-stage with no lock | `radiomics-study` / `sci-manuscript` / `research-exploration-loop` / no SOP (single skill) |
-| N2 PHI | before 02 tables or clinical extraction | PHI present → de-identify / stop; none → proceed |
-| N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
-| N4 PREVIEW | house.docx exists | enter 06 / stop |
-
-Never `--e2e`. MountQ reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask. N2 (PHI) applies before 02 tables or clinical extraction.
+**Plan card / grilling / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
+
+Also mirrored in [`references/fast-routing.md`](references/fast-routing.md).
 
 - 新技能 / 外接 / 挂载 → `01_skill-discovery-integration`
 - grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求不清楚就要写代码 → `00_orchestrator` (`grilling`)
@@ -103,7 +59,7 @@ Never `--e2e`. MountQ reuses the session lock when `session_picked_fine_ids` alr
 - 软编码 / dry-run / coding principles → `02_data-processing` (`code-refactoring`)
 - 伦理申请表 → `03_research` (`fill-protocol`)
 - 提取检验 / HIS → `02_data-processing` (`clinical-data-extraction`)
-- 转化 / reader study / 前瞻部署 / 阈值到行动 → `03_research` (`clinical-translation`)
+- 转化 / reader study / 前瞻部署 / 证据到行动 → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`
 - 选题 / 研究设计 / **文献** → `03_research`
 - 选刊 → `03_research`
@@ -177,15 +133,16 @@ Integrity gates (not after every node):
 | G-PHI | before 02 tables / extraction | PHI status unknown; HIS credentials in files |
 | G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
 | G-FACT | after 04 HTML, again after 05 house.docx, and before 06 only if numbers are cited | fact-lineage drift vs upstream FILE, including the checklist in `gates.md`. Do not auto-pick numbers |
-| G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose; pre-submit-consistency checks left unresolved in the body; 03 citation-verify missing or self-certified by 05 |
+| G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose; pre-submit-consistency checks left unresolved in the body; 03 citation-verify missing or self-certified by 05; style-lint sub-check fail (exit 1) counts toward same-defect rounds |
 | G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; Lee applied manuscript Track Changes (Ownership: see `00_orchestrator/references/ownership-contract.md`); decidable issues not annotated for Aitee to TC-fix; undecidable issues missing a Chinese 批注 body or attached English suggested wording; resolution status when review-resolution protocol used; cross-manuscript conflicts rewritten instead of commented; 03 citation-verify skipped; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
 | G-LIT | citation-verify required before 05 done and inside 06; on fail | dual plan in comments (revise sentence **and** optional further 03 substitute refs); no invented PMID; verify pass itself is not optional |
+| G-CODE | code deep QC / refactor release-ready | open Critical/P0 per `02_data-processing/code-refactoring` |
 
 Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Reuse the session mount lock and return to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is required. Max **3** rounds on the same defect, then list it under `defects[]` as `unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Reuse the session mount lock and return to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is required. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
-**Close.** Write `pipeline.stage` from the template values already listed there.
+**Close.** Write `pipeline.stage` from the template values already listed there (`classify | 02 | 03 | 04 | 05 | 06 | qc | done`).
 
 - 结束, or the file this run asked for is on disk and the last gate passed → `done`. Do not open the next SOP.
 - 暂停 → leave `stage` at the current station. The next session reads it and does not re-init.

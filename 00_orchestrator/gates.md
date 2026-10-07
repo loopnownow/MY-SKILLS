@@ -47,7 +47,7 @@ File-existence (chain, every node): expected output missing or empty → do not 
 
 Handoff payload: `templates/handoff.yaml`.
 Prose repairs: word/sentence units only. Ownership: see `00_orchestrator/references/ownership-contract.md`. Mount vs lab conflicts: comment with edit plan; user decides; Aitee applies Track Changes after that decision.
-State: `templates/project-state.yaml` fields `pipeline`, `qc`, `defects`.
+State: `templates/project-state.yaml` fields `pipeline` (stage includes `03`), `qc` (`last_gate` includes G-FACT / G-LIT / G-CODE), `defects` (per-defect `rounds`, max 3), `manuscript.citation_verify` (G-CIT-1 / G-CIT-2).
 
 ### G-05 sub-check: `style-lint`  (CHG-20260920-001)
 

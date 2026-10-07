@@ -37,7 +37,7 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
 9. Delivery: HTML for user; write submission URLs only back to `data/2026/submission-urls.csv`; optional prior lines → `submission-prior.jsonl`.
 10. Risk: **Unknown ≠ Low Risk.**
 
-Curated table: `data/2026/医学投稿推荐_JCR2026.xlsx`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
+Curated table: `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
 
 ## Do not
 

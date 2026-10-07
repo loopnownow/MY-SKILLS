@@ -4,7 +4,7 @@ description: Recommend medical journals from the user's JCR2026 curated pool and
 metadata:
   type: workflow
   version: "1.16"
-  source_table: data/2026/医学投稿推荐_JCR2026.xlsx
+  source_table: D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx
   owner: 03_research/Victor
   home: A 03_research/find-journal (B find-journal is the engine; venue-templates only house style)
   advice_merged: Gemini+ChatGPT 2026-09
@@ -132,7 +132,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 6. `data/2026/layer4-q3.csv` — default Q3 layer
 7. `data/2026/layer2b-q1-if-5to10.csv` — Challenge; ask-first default OFF
 8. `rules/aim-author-checklist.md` — phase 2 only
-9. `data/2026/医学投稿推荐_JCR2026.xlsx` — curated pool (keep). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store after rebuild.
+9. `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR2026.xlsx` — curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
 10. `rules/policy.md` — stable rules
 11. `rules/annual-update.md` — yearly table refresh
 12. `rules/query-sources.md` — evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)

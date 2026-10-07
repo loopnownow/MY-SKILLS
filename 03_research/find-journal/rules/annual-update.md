@@ -9,16 +9,13 @@ Trigger phrases: 更新JCR, 新的影响因子表, 换2027表, 重建推荐库.
 
 ## What to rebuild
 
-Derived only. Do not hand-edit 22k rows. **SSOT folder:** `data/<YEAR>/` (current: `data/2026/`).
+Derived only. Do not hand-edit 22k rows.
 
-- `data/<YEAR>/医学投稿推荐_JCR20XX.xlsx`
-- layer CSVs in `data/<YEAR>/` (yearly **screening cache**)
-- `category-index.csv`, `full-pool.csv`
-- `blacklist-names.csv` (names stay; metrics may change)
+- **Curated xlsx SSOT (0doc, not in git):** `D:\0Grok\0doc\04-lab-reference\jcr2026\医学投稿推荐_JCR20XX.xlsx` (current: `…\jcr2026\医学投稿推荐_JCR2026.xlsx`).
+- **Layer / list SSOT (skill pack):** `data/<YEAR>/` (current: `data/2026/`) — layer CSVs, `category-index.csv`, `full-pool.csv`, blacklist/graylist/whitelist names.
+- Rebuild curated xlsx into the 0doc `jcr2026/` folder + layer CSVs into `data/<YEAR>/`, then **discard** the raw Clarivate file from the skill pack (user keeps a private copy if needed).
 
-Rebuild curated xlsx + layer CSVs from the raw workbook, then **discard** the raw Clarivate file from this pack (user keeps a private copy if needed). Keep the curated xlsx + derived CSVs.
-
-When the year rolls (e.g. 2027), create `data/2027/`, point SKILL paths there, and keep or archive prior year under `data/2026/` as historical SSOT.
+When the year rolls (e.g. 2027), create `data/2027/` for layer CSVs, put the new curated xlsx under `D:\0Grok\0doc\04-lab-reference\jcr2027\` (or keep year in filename under `jcr2026/` if you prefer one folder), point SKILL `source_table` there, and keep prior year layers under `data/2026/` as historical cache.
 
 ## Never merge yearly metrics into URL persist
 
