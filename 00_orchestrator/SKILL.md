@@ -133,6 +133,8 @@ There are **no archive-as-standalone routes**. The four former archive packs liv
 
 Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask again. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Unpicked packs stay unloaded. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence).
 
+**Auto-discovery / advertised skills:** only `00_orchestrator`–`06_review` and `skill-harvest` (including nested A packs). `mounts-cap/**/SKILL.md` is cache. Do not treat cache `SKILL.md` as a session skill unless that fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/` from editor ads.
+
 ### Composite workflows
 
 SOPs live in `workflows/` (ask which SOP on 「全线」, node N1, unless directory detection already locked it):

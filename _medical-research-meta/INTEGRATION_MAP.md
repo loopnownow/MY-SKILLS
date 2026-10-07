@@ -1,5 +1,14 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-010 — identity four-tuple, shared-path menu, discovery surface (D/E)
+
+- Root `ARCHITECTURE.md` + registry `a_domain_override_policy`: four-tuple (fine_id / coarse_id / a_domain / B path) + A pack. Locked: `find-journal` and `fill-protocol` stay `a_domain=03_research`.
+- Generated `MOUNTED_SKILLS.md` / `repo-map.html`: still 10 coarse buckets; `path_shared` siblings consecutive (one group, two rows).
+- Live prose no longer hand-writes `52 fine`; ceiling stays `fine_id_count_canonical` in registry. Generated indexes may stamp counts from yaml.
+- Auto-discovery: `.cursorignore` excludes `mounts-cap/`. 00/01 SKILL: advertise only `00`–`06` + `skill-harvest`; cache SKILL.md loads only after `session_picked_fine_ids`.
+- Measured on this PC (2026-10-07): registry MOUNTED=41; A-layer `SKILL.md`=17; `mounts-cap/**/SKILL.md`=60 (were in editor ads). After ignore + load rule, ads must not treat those 60 as session skills.
+- Do not sync `~\.grok\skills` until user merges.
+
 ## CHG-20261007-009 — P2-1 path slugs + load_priority menu (batch C)
 
 - `skill-harvest/references/keep-vs-skip.md`: live `0script` coarse folders use English slugs matching `SCRIPT_ROLES.md` / root lab homes. Dated history elsewhere kept.

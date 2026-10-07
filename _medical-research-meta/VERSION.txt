@@ -1,3 +1,6 @@
+CHG-20261007-010 (2026-10-07)
+Batch D/E: identity four-tuple + A pack exceptions (find-journal / fill-protocol); path_shared grouped in generated menus; handwritten 52-fine restated as registry ceiling; auto-discovery limited to 00–06 + skill-harvest (.cursorignore mounts-cap/). Measured this PC: 41 MOUNTED, 17 A-layer SKILL.md, 60 mounts-cap SKILL.md ads. Do not sync .grok/skills until user merges.
+Earlier: CHG-20261007-009, CHG-20261007-008.
 CHG-20261007-009 (2026-10-07)
 P2-1 + batch C: keep-vs-skip live 0script folders use English slugs; six MOUNTED fine ids drop P1→P2 (manage-refs, lit-sync, scientific-visualization, audit-figure-risk, response-tone-polisher, tighten-response). Canonical 52 unchanged. MOUNTED_SKILLS grouped by load_priority. Do not sync .grok/skills until user merges.
 Earlier: CHG-20261007-008, CHG-20261007-007.

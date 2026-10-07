@@ -36,6 +36,6 @@
 | Active | loaded this run |
 | Registry | **index only** — external entity SSOT is cache; `stub_in_b` is pointer-only |
 
-**52 fine-id ceiling.** New capability → merge / sub-capability / same source-path — not a new fine id.
+**Fine-id ceiling** is `fine_id_count_canonical` in `registry.yaml`. New capability → merge / sub-capability / same source-path — not a new fine id. Do not restate the number here.
 
 **load_priority:** optional `P0|P1|P2` on registry fine ids (YAML only; no priority directories). P1 = common; P2 = niche/PROPOSED; P0 reserved.

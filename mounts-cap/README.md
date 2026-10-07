@@ -10,6 +10,8 @@ Local **byte cache** for B and backup plugin packs. Not a domain skill. Pointers
 
 Download is **not** a mount. Backup fetches prefer zip/codeload; `STATE.yaml` merges under lock so parallel `ensure --id` does not clobber keys. Session pick and empty-mount protocol still apply. Never auto-mount a non-B source because a folder appeared here.
 
+**Not an advertised skill pack.** Auto-discovery must list only `00`–`06` and `skill-harvest`. `mounts-cap/**/SKILL.md` stays unloaded until the matching fine id is in `session_picked_fine_ids`. Repo-root `.cursorignore` excludes this tree from editor skill ads.
+
 Canonical B path is `mounts-cap/b/`. If a leftover sibling `MY-SKILLS-capabilities/` exists, run `python mounts-cap/fetch.py migrate-b` (moves it into `b/`). New fetches always write here.
 
 ```text

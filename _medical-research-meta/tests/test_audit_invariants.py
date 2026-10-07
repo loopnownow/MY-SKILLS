@@ -243,6 +243,43 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("## Lab workspace homes", root)
         self.assertIn(r"D:\0Grok\0script", root)
         self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
+        self.assertIn("## Identity four-tuple", root)
+        self.assertIn("03_research/find-journal/", root)
+        self.assertIn("03_research/fill-protocol/", root)
+
+
+class RoutingFourTuple(unittest.TestCase):
+    def test_find_journal_and_fill_protocol_stay_on_03(self) -> None:
+        reg = yaml.safe_load(REG.read_text(encoding="utf-8"))
+        by_id = {m["id"]: m for m in reg["mounts"]}
+        self.assertEqual(by_id["find-journal"]["a_domain"], "03_research")
+        self.assertEqual(by_id["fill-protocol"]["a_domain"], "03_research")
+        self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
+        self.assertIn("03_research/find-journal", by_id["find-journal"]["note"])
+        self.assertIn("03_research/fill-protocol", by_id["fill-protocol"]["note"])
+        self.assertNotRegex(read("ARCHITECTURE.md"), r"选刊\s*→\s*05")
+        self.assertNotRegex(read("01_skill-discovery-integration/SKILL.md"), r"选刊\s*→\s*05")
+
+
+class DiscoverySurface(unittest.TestCase):
+    def test_cursorignore_excludes_mounts_cap(self) -> None:
+        text = read(".cursorignore")
+        self.assertIn("mounts-cap/", text)
+
+    def test_auto_discovery_rule_is_in_00_and_01(self) -> None:
+        zero = read("00_orchestrator/SKILL.md")
+        one = read("01_skill-discovery-integration/SKILL.md")
+        for label, text in (("00", zero), ("01", one)):
+            self.assertIn("mounts-cap/", text, label)
+            self.assertIn("session_picked_fine_ids", text, label)
+            self.assertIn("skill-harvest", text, label)
+
+    def test_live_docs_do_not_handwrite_52_fine(self) -> None:
+        for rel in (
+            "01_skill-discovery-integration/mounts/README.md",
+            "00_orchestrator/workflows/research-exploration-loop.md",
+        ):
+            self.assertNotRegex(read(rel), r"52 fine", rel)
 
 
 class RepoMapGenerated(unittest.TestCase):

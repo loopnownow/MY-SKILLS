@@ -62,13 +62,17 @@ session_mount: ask-each-run
 session_pick_unit: fine_id
 ars_openclaw_policy: removed-from-catalog
 a_domain_override_policy: >
+  Identity is a four-tuple plus an optional A pack: fine_id, coarse_id,
+  a_domain, B path. Do not infer id from path or path from id.
   Each coarse_id declares a default a_domain. A mount under `mounts:` may set
   its own `a_domain` to override that default when the routing rule requires
   it (documented exceptions: `find-journal` and `grant-builder` sit under
   coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
-  ARCHITECTURE.md). This is intentional, not a data-entry error — do not
-  "fix" a mount's a_domain to match its coarse_id's default without checking
-  its `note` field first.
+  ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research with A pack
+  `03_research/fill-protocol/`. `find-journal` A pack is `03_research/find-journal/`
+  even when B path is `05-manuscript/write-venue/`. This is intentional, not a
+  data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
+  default without checking its `note` field first.
 
 coarse_ids:
   - id: lit-retrieval
@@ -288,7 +292,7 @@ mounts:
     status: MOUNTED
     load_priority: P2
     atomic_package: MedSci
-    note: "MedSci Word-template filler (pairs with write-protocol). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
+    note: "MedSci Word-template filler (pairs with write-protocol). A pack 03_research/fill-protocol/. Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: write-paper
     label: IMRAD正文起草
     coarse: manuscript-body
@@ -349,7 +353,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: 引擎在 B write-venue; 选刊个人层仍 Victor/03_research/find-journal — do NOT move to 05
+    note: 引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05
   - id: venue-templates
     label: 期刊格式模板
     coarse: manuscript-body

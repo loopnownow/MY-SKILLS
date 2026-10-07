@@ -81,8 +81,28 @@ Opening another fine id past that ceiling requires explicit architecture review 
 Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 directories.**
 
 - **P0** — reserved for rare always-on mounts (chassis is `00`–`06`, not fine ids).
-- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
+- **P1** — default session menu (about 25–30 MOUNTED ids; see generated `MOUNTED_SKILLS.md`).
 - **P2** — niche / PROPOSED / specialty / second-pass (still pickable).
+
+## Identity four-tuple (plus A pack)
+
+Do not treat these as one concept. `id` is never inferred from a folder.
+
+| Token | Meaning | Example (`find-journal`) |
+|---|---|---|
+| `fine_id` | session-pick capability interface | `find-journal` |
+| `coarse_id` | menu bucket (10 welded) | `manuscript-body` |
+| `a_domain` | A-layer route | `03_research` |
+| B `path` | physical source in the package | `05-manuscript/write-venue/` |
+| A pack | personal overlay (exceptions only) | `03_research/find-journal/` |
+
+Locked exceptions (do not “correct” them to 05):
+
+- 选刊: `fine_id=find-journal`, `a_domain=03_research`, A pack `03_research/find-journal/`, B path may stay `05-manuscript/write-venue/`.
+- 填伦理: `fine_id=fill-protocol`, `a_domain=03_research`, A pack `03_research/fill-protocol/`.
+- 基金: `grant-builder` stays `a_domain=03_research` under coarse `manuscript-body`.
+
+See `a_domain_override_policy` in `01_skill-discovery-integration/registry.yaml`.
 
 ## Routing rules
 
