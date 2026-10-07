@@ -90,11 +90,12 @@ def coarse_list(reg: dict) -> list:
 
 
 def append_table(out: list, rows: list) -> None:
-    out.append("| Fine id | Label | Source | Path | Status |")
-    out.append("|---|---|---|---|---|")
+    out.append("| Fine id | Label | Source | Path | Status | Priority |")
+    out.append("|---|---|---|---|---|---|")
     for m in rows:
+        prio = m.get("load_priority") or "—"
         out.append(
-            f"| `{m['id']}` | {m['label']} | {m['source']} | `{m['path']}` | {status_label(m)} |"
+            f"| `{m['id']}` | {m['label']} | {m['source']} | `{m['path']}` | {status_label(m)} | {prio} |"
         )
     out.append("")
 
@@ -122,13 +123,21 @@ def render(reg: dict) -> str:
         ref_count=len(ref_only),
     )]
 
-    for coarse in coarse_ids:
-        cid = coarse["id"]
-        rows = [m for m in mounted if m.get("coarse") == cid]
-        if not rows:
+    for prio, heading in (
+        ("P1", "P1 default (session menu)"),
+        ("P2", "P2 specialty (still pickable)"),
+    ):
+        prio_mounted = [m for m in mounted if m.get("load_priority") == prio]
+        if not prio_mounted:
             continue
-        out.append(f"\n### {cid}\n")
-        append_table(out, rows)
+        out.append(f"\n## {heading} ({len(prio_mounted)})\n")
+        for coarse in coarse_ids:
+            cid = coarse["id"]
+            rows = [m for m in prio_mounted if m.get("coarse") == cid]
+            if not rows:
+                continue
+            out.append(f"\n### {cid}\n")
+            append_table(out, rows)
 
     out.append("\n## Optional candidates (status PROPOSED — not pickable)\n")
     out.append("Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.\n")
