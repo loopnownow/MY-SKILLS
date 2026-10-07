@@ -58,7 +58,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `fig-plot` / `make-figures`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `plot-figures` / `draw-flowchart`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 

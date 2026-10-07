@@ -1,3 +1,6 @@
+CHG-20261007-003 (2026-10-07)
+R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label 稿件评阅; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
+Earlier: CHG-20261007-002, CHG-20261007-001.
 CHG-20261007-002 (2026-10-07)
 0doc top-level archives renamed to English kebab with numeric prefix (00-inbox, 01-thesis, 02-manuscripts, 03-review-replies, 04-lab-reference, 05-grants, 06-review-corpus, 07-ethics); inside 04-lab-reference, 研究设计 → study-design. README/MIGRATE and skill pointers updated. Fine-ID round deferred. 0doc 顶层档案英文化；细 ID 轮次另议。
 Earlier: CHG-20261007-001, CHG-20261006-003.
@@ -56,7 +59,7 @@ CHG-20260926-006 (2026-09-26)
 Stale pointer sweep: remaining personal/workflow v3 ids → v4 fine ids; retired radiology-* pack pointers → live files or mounted fine ids; owner paths fixed.
 Earlier: CHG-20260926-005, CHG-20260926-004.
 CHG-20260926-005 (2026-09-26)
-Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → fig-plot; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
+Legacy v3 id sweep: personal/domain docs name v4 fine ids; figure-engine plot pointers → plot-figures; POLE notes removed; proposed yaml keys stay v3 (fetch.py); sample size → 04 / Loopnow in radiology-design.
 Earlier: CHG-20260926-004, CHG-20260926-003.
 CHG-20260926-004 (2026-09-26)
 Stale residue cleanup: 0rad-workspace Figure 1 follows Aitor-format; 02/04/sci-manuscript use v4 fine ids; sample size moves to 04 / Loopnow; v4 prefix examples; 01 preset sentence matches review-hybrid.yaml.
@@ -77,7 +80,7 @@ CHG-20260924-004 (2026-09-24)
 mounts-cap STATE orphan hygiene (MedSci legacy keys + Nature phantoms).
 Earlier: CHG-20260924-003, CHG-20260924-002.
 CHG-20260924-003 (2026-09-24)
-Left QC: nature-reviewer examples; specialist_hint Aitee/Lee/Loopnow; MODULE→SKILL/de-ai; set wording; polisher 10–30; find-cohort-gap; Nature LICENSE verified; R1–R5 sketch; OpenClaw prefix drop; v4-first mounted ids; impute→missing-value; 03 retirement dedupe; 00→03 spine pointer.
+Left QC: simulate-reviewers examples; specialist_hint Aitee/Lee/Loopnow; MODULE→SKILL/de-ai; set wording; polisher 10–30; find-cohort-gap; Nature LICENSE verified; R1–R5 sketch; OpenClaw prefix drop; v4-first mounted ids; impute→missing-value; 03 retirement dedupe; 00→03 spine pointer.
 Earlier: CHG-20260924-002, CHG-20260924-001, CHG-20260923-001.
 CHG-20260924-002 (2026-09-24)
 03 default spine: workflows/question-to-reference.md (R1–R5 cards; lit-search under R2).
@@ -112,10 +115,10 @@ Archived duplicate imaging menu ids, hypothesis-generation, and four unfetched P
 Earlier markers kept: CHG-20260922-002, CHG-20260913-001.
 CHG-20260922-002 (2026-09-22)
 v4 mount registry: 10 coarse + 59 fine ids was the menu before this retirement.
-Added MOUNTED fine ids fig-plot, imaging-io, lit-search, frontier-hypothesize.
+Added MOUNTED fine ids plot-figures, imaging-io, lit-search, frontier-hypothesize.
 Earlier marker kept: CHG-20260913-001. Backup _history/registry.v3.30.yaml.
 Session pick = fine-id multi-select. OpenClaw never atomic source. Nature PROPOSED until license verified.
 B: +intake-project/design-ai-benchmarking/architecture-zoo/fill-protocol + cross-pack stubs + external-principles.
-A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 medical-journal-submit.
+A 00–06 folders unchanged (no Chinese top-level rename). 选刊 stays 03 find-journal.
 
 Policy: VERSION.txt keeps blocks from CHG-20260913-001 on. Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first) and INTEGRATION_MAP.archive.md.

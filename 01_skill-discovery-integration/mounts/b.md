@@ -17,7 +17,7 @@
 | Fine id | Label | B path | Coarse |
 |---|---|---|---|
 | `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | topic-explore |
-| `ma-scout` | MA选题可行性 | `03-research/lit-review/` | topic-explore |
+| `scout-meta-analysis` | MA选题可行性 | `03-research/lit-review/` | topic-explore |
 | `lit-search` | 文献检索与公开数据集 | `03-research/lit-search/` | lit-retrieval |
 | `frontier-hypothesize` | 假设形成 | `03-research/frontier-hypothesize/` | topic-explore |
 | `intake-project` | 项目启动分类 | `03-research/intake-project/` | topic-explore |
@@ -41,11 +41,11 @@
 | `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | stats-analysis |
 | `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | stats-analysis |
 | `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | stats-analysis |
-| `make-figures` | 患者流程图 | `04-analysis/fig-flow/` | figures |
-| `fig-plot` | 统计图与影像面板 | `04-analysis/fig-plot/` | figures |
-| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | peer-review |
-| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | peer-review |
-| `self-review` | 数值级自审核算 | `06-review/review-critique/` | peer-review |
+| `draw-flowchart` | 患者流程图 | `04-analysis/fig-flow/` | figures |
+| `plot-figures` | 统计图与影像面板 | `04-analysis/fig-plot/` | figures |
+| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | manuscript-review |
+| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | manuscript-review |
+| `self-review` | 数值级自审核算 | `06-review/review-critique/` | manuscript-review |
 | `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | review-response |
 
 ## 非 B 但默认菜单可见

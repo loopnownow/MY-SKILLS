@@ -1,5 +1,5 @@
 ---
-name: ethics-application-forms
+name: fill-protocol
 description: >
   Fill hospital IRB / ethics application form packs without changing template layout.
   Use for 伦理申请, 填伦理, IRB, 伦理表, 按填写好格式写伦理.
@@ -9,7 +9,7 @@ description: >
 
 # 伦理申请表格填报
 
-家园 `03_research/ethics-application-forms/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
+家园 `03_research/fill-protocol/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
 
 ## Purpose
 

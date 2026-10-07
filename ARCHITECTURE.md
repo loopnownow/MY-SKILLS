@@ -46,7 +46,7 @@ An A skill path is at most four parts from repo root: `<skill>/<category-or-pack
 - A folders stay `00`–`06` (not renamed to Chinese top-level).
 - Non-B packages are mixed PROPOSED/MOUNTED per registry.yaml, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`). Mapping is not a mount. Never auto-mount a non-B source.
 - MedSci-only live interface: `humanize`. Explainability is **ARCHIVED** (not default menu).
-- Figures fine ids: `make-figures` / `fig-plot`. No live figure engine.
+- Figures fine ids: `draw-flowchart` / `plot-figures`. No live figure engine.
 - Live docs name v4 fine ids only. Sample-size fine ids sit under coarse stats-analysis / 统计分析 (04 / Loopnow).
 - Archived fine ids: see registry `archived:`.
 
@@ -79,13 +79,13 @@ Opening another fine id past that ceiling requires explicit architecture review 
 Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 directories.**
 
 - **P0** — reserved for rare always-on mounts (chassis is `00`–`06`, not fine ids).
-- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
+- **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
 - **P2** — niche / PROPOSED / specialty.
 
 ## Routing rules
 
 - Literature research → `03_research` only.
-- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`; evidence `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+- 选刊 / where to submit → `03_research` (`literature/journal-selection.md` + `find-journal/`; evidence `lit-search`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
 - 样本量 → `04_analysis` (`calc-sample-size`).
 - Reviewer response → `06_review` only.
 - Data preprocessing / Excel / 0RAD / extraction / coding principles → `02_data-processing`.
@@ -98,7 +98,7 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 ## Rehomed packs (no longer standalone)
 
 - `02_data-processing/code-refactoring` — soft-coding / dry-run / CONFIG on top
-- `03_research/ethics-application-forms` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
+- `03_research/fill-protocol` — ethics application forms (fill pack; protocol-level `personal/ethics.md`)
 - `02_data-processing/clinical-data-extraction` — clinical extraction of exported txt/docx; HIS clients stay on the hospital machine, never in git
 - `03_research/clinical-translation` — translational / reader-study **design** (personal supplement; generic templates may later mount at `design-study` / `write-protocol`)
 

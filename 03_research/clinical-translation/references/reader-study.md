@@ -41,4 +41,4 @@ secondary."*
 
 ## Handoff
 MRMC power → `04_analysis` (mounted `calc-sample-size`); MRMC analysis → `04_analysis` (mounted `analyze-stats`); reader-study reporting (CLAIM, DECIDE-AI for
-decision-support, CONSORT-AI for trials) → `05_manuscript` (mounted `check-reporting`); plots → `04_analysis` (mounted `fig-plot`).
+decision-support, CONSORT-AI for trials) → `05_manuscript` (mounted `check-reporting`); plots → `04_analysis` (mounted `plot-figures`).

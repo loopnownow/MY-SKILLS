@@ -36,7 +36,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `find-cohort-gap` | 队列选题空白发现 | my-skills-capabilities | `03-research/frontier-ideate/` | MOUNTED |
-| `ma-scout` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED |
+| `scout-meta-analysis` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED |
 | `frontier-hypothesize` | 假设形成 | my-skills-capabilities | `03-research/frontier-hypothesize/` | MOUNTED |
 | `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED |
 
@@ -96,20 +96,20 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `make-figures` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
-| `fig-plot` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED |
+| `draw-flowchart` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
+| `plot-figures` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED |
 | `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED |
-| `nature-figure` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| `audit-figure-risk` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
-### peer-review
+### manuscript-review
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `peer-review-pdf-scan` | PDF注入攻击扫描 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
 | `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
 | `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED |
-| `nature-reviewer` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| `simulate-reviewers` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
 ### review-response
@@ -118,7 +118,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|
 | `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED |
 | `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED |
-| `nature-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| `tighten-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
 
 
 ## Optional candidates (status PROPOSED — not pickable)
@@ -131,15 +131,15 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED |
-| `nature-academic-search` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `audit-citations` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
 ### manuscript-body
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `nature-data` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
-| `nature-proposal-writer` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `write-data-statement` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `check-grant-proposal` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 | `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
 
 
@@ -147,7 +147,7 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `nature-polishing` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| `polish-latex` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
 
 
 ### data-processing
@@ -155,18 +155,18 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
 | `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED |
-| `pydicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
+| `audit-dicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
 
 
 ### stats-analysis
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|
-| `scikit-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED |
+| `analyze-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED |
 | `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
 
 
-### peer-review
+### manuscript-review
 
 | Fine id | Label | Source | Path | Status |
 |---|---|---|---|---|

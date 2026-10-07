@@ -23,7 +23,7 @@ skills:
     coarse: topic-explore
     a_hook: 03_research
     label: 队列选题空白发现
-  - id: ma-scout
+  - id: scout-meta-analysis
     path: 03-research/lit-review/
     coarse: topic-explore
     a_hook: 03_research
@@ -140,30 +140,30 @@ skills:
     coarse: stats-analysis
     a_hook: 04_analysis
     label: 样本量计算
-  - id: make-figures
+  - id: draw-flowchart
     path: 04-analysis/fig-flow/
     coarse: figures
     a_hook: 04_analysis
     label: 患者流程图
-  - id: fig-plot
+  - id: plot-figures
     path: 04-analysis/fig-plot/
     coarse: figures
     a_hook: 04_analysis
     label: 统计图与影像面板
   - id: peer-review-pdf-scan
     path: 06-review/review-peer/
-    coarse: peer-review
+    coarse: manuscript-review
     a_hook: 06_review
     label: PDF注入攻击扫描
   - id: peer-review
     path: 06-review/review-peer/
-    coarse: peer-review
+    coarse: manuscript-review
     a_hook: 06_review
     label: 审稿意见生成
     path_shared: true
   - id: self-review
     path: 06-review/review-critique/
-    coarse: peer-review
+    coarse: manuscript-review
     a_hook: 06_review
     label: 数值级自审核算
   - id: revise

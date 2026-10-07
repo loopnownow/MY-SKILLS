@@ -32,11 +32,11 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 软编码 / dry-run | `02_data-processing` → `code-refactoring/` |
 | 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `0rad-workspace.md` |
 | VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `personal/0rad-pipeline-rules.md` |
-| 伦理申请表填写 | `03_research` → `ethics-application-forms/` |
+| 伦理申请表填写 | `03_research` → `fill-protocol/` |
 | 临床提取（已导出文本） | `02_data-processing` → `clinical-data-extraction/` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
-| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `fig-plot` + `personal/lab-palettes.md`) |
-| STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `make-figures`) |
+| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `plot-figures` + `personal/lab-palettes.md`) |
+| STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `draw-flowchart`) |
 | 新外接技能 | `01_skill-discovery-integration` |
 
 ## Final QC (handoff folded in)
@@ -67,13 +67,13 @@ Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a f
 
 Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
 Non-B fine ids are mixed PROPOSED/MOUNTED per registry, never all-PROPOSED backups. OpenClaw is not a default mount source. Mapping is not a mount.
-Registry menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`make-figures`, `fig-plot`, `find-journal`, `venue-templates`, `calc-sample-size`).
+Registry menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`draw-flowchart`, `plot-figures`, `find-journal`, `venue-templates`, `calc-sample-size`).
 
 ## Domain boundaries
 
 - `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
 - `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** required before 05 done and inside 06. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
-- `04_analysis`: statistical analysis and visualization (`make-figures` / `fig-plot`). Upstream data repair is not its role.
+- `04_analysis`: statistical analysis and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
 - `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`. All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Requires 03 citation-verify before done; does not self-certify lit. Mid-entry does not waive it.
 - `06_review`: personal review/response layer. Changed wording → `05_manuscript`. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
@@ -83,7 +83,7 @@ Generic local capabilities marked in `EXTERNALIZATION_CANDIDATES.md` remain avai
 
 ## Rehomed packs
 
-Former `archive/` standalones live under domain skills (CHG-20260902-004). The empty `archive/` stub was removed (CHG-20260904-003). Ethics fill pack is under `03_research/ethics-application-forms/`.
+Former `archive/` standalones live under domain skills (CHG-20260902-004). The empty `archive/` stub was removed (CHG-20260904-003). Ethics fill pack is under `03_research/fill-protocol/`.
 
 ## A/B no-reflow contract
 

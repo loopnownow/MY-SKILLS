@@ -28,7 +28,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id. Non-B rows are mixed PROPOSED/MOUNTED per registry, not an all-PROPOSED backup set.
 - **`fine_id` is the capability interface. `path` is the physical unit. `path_shared: true` means one path backs several fine ids. Do not split that folder.**
 - A domains stay `00_orchestrator` … `06_review` (+ skill-harvest). Personal layers stay in A.
-- 选刊 stays Victor / `03_research/medical-journal-submit` — do not move into 05.
+- 选刊 stays Victor / `03_research/find-journal` — do not move into 05.
 
 ## Canonical ID Rule
 
@@ -68,7 +68,7 @@ Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** 
 | Level | Meaning |
 |---|---|
 | P0 | Rare always-on mounts (chassis is 00–06; usually unused on fine ids) |
-| P1 | Common mounts (verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …) |
+| P1 | Common mounts (verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …) |
 | P2 | Niche / PROPOSED / specialty |
 
 ## Cache ≠ Mount ≠ Active · Registry = index
@@ -115,7 +115,7 @@ Registry status `MOUNTED` = catalog-approved and session-selectable. It is not a
 Every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence).
 
 1. Classify the task. Propose **relevant coarse bucket(s)** then **MOUNTED candidate fine ids** (not the whole menu unless 全线). Optional PROPOSED names stay off the pick menu.
-2. Show each candidate as one line: **粗 ID · 细 ID · 源 · 包内 skill** · 做什么。默认源多为 B。审稿混合配方行必须写出 skill 名（如 `nature-reviewer`）。
+2. Show each candidate as one line: **粗 ID · 细 ID · 源 · 包内 skill** · 做什么。默认源多为 B。审稿混合配方行必须写出 skill 名（如 `simulate-reviewers`）。
 3. **Ask the user to multi-select fine ids**. Default is **hybrid** (B chassis; non-B only where the recipe lists a path). For 写稿/润色/修订论著, **pre-check `manuscript-final-W2`**. For 预审/审稿/回复审稿, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: 用该默认配方 / 候选全用 B / 只要个人层不外挂 / 换源（MedSci / Scientific / AIPOCH / Nature，仅当该细 ID 有路径）. Empty picked path → tell the user; do not silent-fallback.
 4. Load **only** the picked fine ids (and for non-B overrides, **only the preset/skill paths** listed). Ensure bytes in `mounts-cap/` first. Unpicked stay unloaded — do not prefetch a whole Nature/Scientific tree. Never bulk-download.
 5. If a picked path is empty → empty-mount protocol. Do not silently substitute another source.

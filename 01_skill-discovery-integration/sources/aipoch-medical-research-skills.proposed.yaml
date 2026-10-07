@@ -33,7 +33,7 @@ skills:
     a_hook: 03_research
     coverage: full
     note: high-value for Victor / Evidence Request; +16 more under scientific-skills
-  - id: ma-scout
+  - id: scout-meta-analysis
     path: scientific-skills/Evidence Insight/clinical-study-info-extractor/; scientific-skills/Evidence Insight/patent-landscape/; scientific-skills/Evidence Insight/research-hotspot-analysis/; scientific-skills/Evidence Insight/systematic-review-screener/; scientific-skills/Data Analysis/meta-abstract-screener/; scientific-skills/Academic Writing/literature-review/
     a_hook: 03_research
     coverage: full
@@ -88,16 +88,16 @@ skills:
     a_hook: 04_analysis
     coverage: full
     note: ROC/DCA/nomogram workers; lab VAL_MODE/HL still A
-  - id: make-figures
+  - id: draw-flowchart
     path: scientific-skills/Data Analysis/mechanism-flowchart/
     a_hook: 04_analysis
     coverage: partial
-    note: weak; Figure 1 gold stays B make-figures + A Aitor-format.md
-  - id: fig-plot
+    note: weak; Figure 1 gold stays B draw-flowchart + A Aitor-format.md
+  - id: plot-figures
     path: scientific-skills/Data Analysis/circos-plot-generator/; scientific-skills/Data Analysis/cnv-caller-plotter/; scientific-skills/Data Analysis/heatmap-beautifier/; scientific-skills/Data Analysis/matplotlib/; scientific-skills/Data Analysis/meta-baujat-plot/; scientific-skills/Data Analysis/meta-forest-binary-plot/
     a_hook: 04_analysis
     coverage: full
-    note: many viz helpers; B fig-plot stays gold; +12 more under scientific-skills
+    note: many viz helpers; B plot-figures stays gold; +12 more under scientific-skills
   - id: write-paper
     path: scientific-skills/Evidence Insight/pathway-introduction-expert/; scientific-skills/Evidence Insight/phenotype-introduction/; scientific-skills/Data Analysis/graphical-abstract-wizard/; scientific-skills/Academic Writing/abstract-summarizer/; scientific-skills/Academic Writing/abstract-trimmer/; scientific-skills/Academic Writing/academic-abstract-refiner/
     a_hook: 05_manuscript

@@ -115,7 +115,7 @@ are not lab defaults (say “not implemented” if asked). Full lock: `0rad-pipe
 
 - Never invent numbers, CIs, or p-values; compute from supplied data or mark as needed.
 - Reporting-guideline alignment of the statistics → `05_manuscript` (`check-reporting`).
-- Plotting the result (ROC, calibration, DCA, forest, KM) → mounted `fig-plot` / `make-figures`.
+- Plotting the result (ROC, calibration, DCA, forest, KM) → mounted `plot-figures` / `draw-flowchart`.
 - High-dimensional study design (leakage, batch effects in radiogenomics) →
   `04_analysis/personal/high-dimensional-omics.md`.
 - Sample-size numbers feeding a grant's feasibility section → `03_research/personal/grant-writing.md`.

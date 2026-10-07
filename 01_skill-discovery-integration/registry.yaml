@@ -7,7 +7,7 @@
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: ../mounts-cap/ (B full; backups on-demand).
 # A domains stay 00_orchestrator … 06_review (+ skill-harvest). Do not rename A into Chinese top-level folders.
-# 选刊 stays Victor / 03_research/medical-journal-submit — not moved into 05.
+# 选刊 stays Victor / 03_research/find-journal — not moved into 05.
 # fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids. Do not split shared folders.
 # Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
 # DISCOVERED, EVALUATED, APPROVED are discovery-workflow states, not required registry fields.
@@ -21,7 +21,7 @@ meta:
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
     P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
-    P1 common mounts (verify-refs, write-paper, check-reporting, analyze-stats, make-figures/fig-plot,
+    P1 common mounts (verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures,
     peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …).
     P2 niche / PROPOSED / specialty.
     Registry indexes → cache (mounts-cap/<atomic_package>/) is SSOT for external skill bytes;
@@ -113,9 +113,9 @@ coarse_ids:
     slug: figures
     a_domains: [04_analysis]
     specialist_hint: Loopnow
-  - id: peer-review
+  - id: manuscript-review
     label: 稿件评阅
-    slug: peer-review
+    slug: manuscript-review
     a_domains: [06_review]
     specialist_hint: Lee
   - id: review-response
@@ -180,7 +180,8 @@ mounts:
     note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
     atomic_package: AIPOCH
     stub_in_b: cross-pack/aipoch/retraction-watcher/
-  - id: nature-academic-search
+  - id: audit-citations
+
     label: 严格他引审计
     coarse: lit-retrieval
     source: nature-skills
@@ -190,7 +191,7 @@ mounts:
     load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/nature-academic-search/
+    stub_in_b: cross-pack/nature/audit-citations/
   - id: lit-search
     label: 文献检索与公开数据集
     coarse: lit-retrieval
@@ -210,7 +211,8 @@ mounts:
     status: MOUNTED
     load_priority: P2
     atomic_package: MedSci
-  - id: ma-scout
+  - id: scout-meta-analysis
+
     label: MA选题可行性
     coarse: topic-explore
     source: my-skills-capabilities
@@ -306,7 +308,8 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: nature-data
+  - id: write-data-statement
+
     label: 数据可用性声明
     coarse: manuscript-body
     source: nature-skills
@@ -316,8 +319,9 @@ mounts:
     load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/nature-data/
-  - id: nature-proposal-writer
+    stub_in_b: cross-pack/nature/write-data-statement/
+  - id: check-grant-proposal
+
     label: 基金标书-中文语境QA
     coarse: manuscript-body
     source: nature-skills
@@ -327,7 +331,7 @@ mounts:
     load_priority: P2
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/nature-proposal-writer/
+    stub_in_b: cross-pack/nature/check-grant-proposal/
   - id: grant-builder
     label: 基金标书-方法论
     coarse: manuscript-body
@@ -346,7 +350,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: 引擎在 B write-venue; 选刊个人层仍 Victor/03_research/medical-journal-submit — do NOT move to 05
+    note: 引擎在 B write-venue; 选刊个人层仍 Victor/03_research/find-journal — do NOT move to 05
   - id: venue-templates
     label: 期刊格式模板
     coarse: manuscript-body
@@ -376,7 +380,8 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     note: MedSci-only interface; personal de-AI stays A 05_manuscript/personal
-  - id: nature-polishing
+  - id: polish-latex
+
     label: LaTeX排版细节
     coarse: language-polish
     source: nature-skills
@@ -387,7 +392,7 @@ mounts:
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
     experimental: true
-    stub_in_b: cross-pack/nature/nature-polishing/
+    stub_in_b: cross-pack/nature/polish-latex/
   - id: clean-data
     label: 三阶段确认式清洗
     coarse: data-processing
@@ -426,7 +431,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED pydicom."
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED audit-dicom."
   - id: preprocess-imaging
     label: ROI与读者质控
     coarse: data-processing
@@ -437,7 +442,8 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
-  - id: pydicom
+  - id: audit-dicom
+
     label: DICOM底层与匿名化审计
     coarse: data-processing
     source: scientific-agent-skills
@@ -446,7 +452,7 @@ mounts:
     status: PROPOSED
     load_priority: P2
     atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/pydicom/
+    stub_in_b: cross-pack/scientific/audit-dicom/
   - id: analyze-stats
     label: 检验方法选择与加权调查数据
     coarse: stats-analysis
@@ -465,7 +471,8 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: scikit-survival
+  - id: analyze-survival
+
     label: 生存分析leakage-safe管道
     coarse: stats-analysis
     source: scientific-agent-skills
@@ -474,7 +481,7 @@ mounts:
     status: PROPOSED
     load_priority: P2
     atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/scikit-survival/
+    stub_in_b: cross-pack/scientific/analyze-survival/
   - id: radiomics-ml
     label: 放射组学建模pipeline审计
     coarse: stats-analysis
@@ -523,7 +530,8 @@ mounts:
     load_priority: P2
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/statistical-power/
-  - id: make-figures
+  - id: draw-flowchart
+
     label: 患者流程图
     coarse: figures
     source: my-skills-capabilities
@@ -532,8 +540,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: STROBE / patient-flow only. Statistical plots are fine id fig-plot.
-  - id: fig-plot
+    note: STROBE / patient-flow only. Statistical plots are fine id plot-figures.
+  - id: plot-figures
+
     label: 统计图与影像面板
     coarse: figures
     source: my-skills-capabilities
@@ -542,10 +551,10 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "2026-09-22. Distinct from make-figures (fig-flow)."
+    note: "2026-09-22. Distinct from draw-flowchart (fig-flow)."
   - id: peer-review-pdf-scan
     label: PDF注入攻击扫描
-    coarse: peer-review
+    coarse: manuscript-review
     source: my-skills-capabilities
     path: 06-review/review-peer/
     a_domain: 06_review
@@ -555,7 +564,7 @@ mounts:
     note: peer-review Phase1.5
   - id: peer-review
     label: 审稿意见生成
-    coarse: peer-review
+    coarse: manuscript-review
     source: my-skills-capabilities
     path: 06-review/review-peer/
     a_domain: 06_review
@@ -565,7 +574,7 @@ mounts:
     path_shared: true
   - id: self-review
     label: 数值级自审核算
-    coarse: peer-review
+    coarse: manuscript-review
     source: my-skills-capabilities
     path: 06-review/review-critique/
     a_domain: 06_review
@@ -574,7 +583,7 @@ mounts:
     atomic_package: MedSci
   - id: scientific-critical-thinking
     label: 证据质量评估
-    coarse: peer-review
+    coarse: manuscript-review
     source: scientific-agent-skills
     path: skills/scientific-critical-thinking/
     a_domain: 06_review
@@ -613,9 +622,10 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: Scientific
-    note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B fig-plot/external-principles.md."
+    note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B plot-figures/external-principles.md."
     stub_in_b: 04-analysis/fig-plot/external-principles.md
-  - id: nature-figure
+  - id: audit-figure-risk
+
     label: 审稿人风险预判
     coarse: figures
     source: nature-skills
@@ -625,11 +635,12 @@ mounts:
     load_priority: P1
     atomic_package: Nature
     license_flag: Apache-2.0 verified 2026-09-14
-    note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B fig-plot/external-principles.md."
+    note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B plot-figures/external-principles.md."
     stub_in_b: 04-analysis/fig-plot/external-principles.md
-  - id: nature-reviewer
+  - id: simulate-reviewers
+
     label: 多审稿人隔离原则
-    coarse: peer-review
+    coarse: manuscript-review
     source: nature-skills
     path: skills/nature-reviewer/
     a_domain: 06_review
@@ -639,7 +650,8 @@ mounts:
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
     stub_in_b: 06-review/review-peer/external-principles.md
-  - id: nature-response
+  - id: tighten-response
+
     label: 隔离与正文精简原则
     coarse: review-response
     source: nature-skills

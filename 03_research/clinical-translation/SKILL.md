@@ -89,5 +89,5 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 - MRMC / net-benefit / decision-curve statistics → `04_analysis` (`analyze-stats` / `model-evaluation`).
 - Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
 - The validation cohort / temporal design → `03_research` (`design-study` / `write-protocol`).
-- Reader-study figures, net-benefit plots → `04_analysis` (mounted `fig-plot`).
+- Reader-study figures, net-benefit plots → `04_analysis` (mounted `plot-figures`).
 - Plans research and evaluation only; no individual-patient clinical or diagnostic advice.

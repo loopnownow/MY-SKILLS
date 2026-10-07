@@ -97,8 +97,8 @@ class Routing(unittest.TestCase):
         self.assertIn("出图", zero)
         five = read("05_manuscript", "SKILL.md")
         self.assertIn("04_analysis", five)
-        self.assertIn("fig-plot", five)
-        self.assertIn("make-figures", five)
+        self.assertIn("plot-figures", five)
+        self.assertIn("draw-flowchart", five)
         self.assertNotIn("04-fig-flow", five)
         self.assertNotIn("bundles/figure-engine", five)
 
