@@ -1,6 +1,17 @@
 # Architecture and Handoff Contract
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: depth ≤4; default source B; ethics in 03; menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-B packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive.
+This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
+
+**Architecture SSOT** (layers, mounts, lab homes, fine-id ceiling, A/B contract, Cache≠Mount, load_priority): [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
+
+**Routing SSOT:** `01_skill-discovery-integration/registry.yaml`  
+**Generated mount index:** `01_skill-discovery-integration/MOUNTED_SKILLS.md`
+
+Live rules here **must agree** with root `ARCHITECTURE.md`: A skill path at most four parts from repo root; default source B; ethics in `03_research`; menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-B packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；`venue-templates` 只管体例. 样本量: `calc-sample-size`.
+
+Do not duplicate root mount policy, fine-id ceiling, Cache≠Mount, load_priority, or A/B contract tables here.
+
+---
 
 ## Skill selection
 
@@ -39,6 +50,8 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `draw-flowchart`) |
 | 新外接技能 | `01_skill-discovery-integration` |
 
+---
+
 ## Final QC (handoff folded in)
 
 `00_orchestrator` owns the QC closed loop: intent classify → skill chain → file check → integrity gate → local recovery. Completeness: deliverable exists; consistency checks pass; assumptions visible; limitations stated; files usable.
@@ -50,73 +63,37 @@ Handoff payload when crossing skills: objective, inputs inspected, decisions, as
 **Local recovery:** if QC finds a localized defect, identify the responsible skill and send **only the erroneous portion** back. Max 3 rounds, then `unresolved`. Do not rerun already-correct stages.
 
 `plan → execute node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
+
 Interactive by default (plan card before multi-node dispatch). Prose repairs are word/sentence units. Mount vs lab conflicts go to Word comments with an edit plan; the user decides. Lit-verify fail uses a dual plan; 00 decides whether to call 03.
 
-## External Skill mounting
+---
 
-`01_skill-discovery-integration` resolves capabilities in this order:
+## Ownership (pinned; agrees with root Core layers 05/06)
 
-1. **Session mount pick** (`ask-each-run`): ask which **fine ids** (under relevant coarse buckets) to attach **this run**; load only those.
-2. Resolve picked fine ids against `registry.yaml` (default source B; MedSci-only `humanize`; archived ids stay off the menu).
-3. If a picked path is empty: notify, re-search, confirm. Never silently fall back.
-4. Network/GitHub discovery for **new** capability.
-5. If network is unavailable, request a local Skill/repository path.
-6. Evaluate capability and boundaries; propose mount; require explicit user approval; then mount.
+All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
-Local cache: repo-root `mounts-cap/` (gitignored pack trees). B is stored as a full tree; MedSci/Scientific/AIPOCH/Nature fetch **only the path of a fine id picked this run**. Do not fetch ARS/OpenClaw (purged). Download is not a mount.
+---
 
-Default source: `loopnownow/MY-SKILLS-capabilities` (**B**, `role: default-mount`).
-Non-B fine ids are mixed PROPOSED/MOUNTED per registry, never all-PROPOSED backups. OpenClaw is not a default mount source. Mapping is not a mount.
-Registry menu shape is `01_skill-discovery-integration/registry.yaml` (not `mounts: []`). Never auto-mount a non-B source. No live figure engine. Live docs name v4 fine ids only (`draw-flowchart`, `plot-figures`, `find-journal`, `venue-templates`, `calc-sample-size`).
+## Domain boundaries (lab intent)
 
-## Domain boundaries
+- `02_data-processing`: raw → analysis-ready. Statistics/model fitting is not its role. Ethics forms are not here.
+- `03_research`: design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role.
+- `04_analysis`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
+- `05_manuscript`: personal writing layer. Literature retrieval and 选刊 → `03_research`; figures → `04_analysis`. de-AI at `05_manuscript/personal/`. Mid-entry does not waive citation-verify.
+- `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
 
-- `02_data-processing`: raw data → analysis-ready data. Statistics/model fitting is not its role. Ethics forms are not here.
-- `03_research`: research design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** required before 05 done and inside 06. Manuscript prose is not its role. 选刊 lives here (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例.
-- `04_analysis`: statistical analysis and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer. 选刊走 03 `find-journal`；`venue-templates` 只管体例. Literature retrieval and 选刊 → `03_research`; figure generation → `04_analysis`. de-AI at `05_manuscript/personal/`. All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Requires 03 citation-verify before done; does not self-certify lit. Mid-entry does not waive it.
-- `06_review`: personal review/response layer. Changed wording → `05_manuscript`. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+---
 
-## Externalization policy
+## Mount resolution (pointer)
 
-Generic local capabilities marked in `EXTERNALIZATION_CANDIDATES.md` remain available until an approved mounted Skill is confirmed to cover them. Personal rules, personal scripts, and personal style assets are not removed merely because a generic external capability exists.
+Session pick and mount steps live in root `ARCHITECTURE.md` (Mounts) and `01_skill-discovery-integration/SKILL.md`.
 
-## Rehomed packs
+Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default source B; MedSci-only `humanize`; archived ids off menu) → empty path: notify, re-search, confirm → network discovery for **new** capability → evaluate → explicit user approval → mount. Never auto-mount a non-B source. Local cache: repo-root `mounts-cap/` (verified cache, not SSOT).
 
-Standalone packs live under domain skills. Ethics fill pack is under `03_research/fill-protocol/`.
+---
 
-## A/B no-reflow contract
+## Externalization
 
-| Side | Role |
-|---|---|
-| **A** (this repo) | Framework + Personal Authority (orchestration, personal style, lab constraints, final say) |
-| **B** (`MY-SKILLS-capabilities`) | Generic Capability (mountable workers; no personal voice) |
+Generic local capabilities in `EXTERNALIZATION_CANDIDATES.md` stay until an approved mounted Skill covers them. Personal rules, scripts, and style assets are not removed merely because a generic external capability exists.
 
-**B → A allowed:** finding / evidence / capability / recommendation.
-
-**B → A forbidden:** personal preference, personal style, or personal decision rules.
-
-**A → B only:** interface / task / context / constraints — **never** bake personal style or lab decision rules into B.
-
-Mounting stays in `01`. Evolution proposals stay in `skill-harvest` (user approval). Execution QC stays in `00`.
-
-## Invariants
-
-**One fact → one authoritative home.**
-**One task → one entry point.**
-**An A skill path ≤ 4 directories from repo root (`<skill>/<category-or-pack>/<scripts|references|personal>/file`). No `core/`.**
-**User approval is mandatory for mounting or evolution.**
-**Default source B. Hybrid mount stays. Non-B status is per registry. Session pick when the lock does not already cover the task.**
-
-## Fine-id expansion ceiling (v4)
-
-`fine_id_count_canonical` is the v4 fine-id ceiling. New capability default = merge into an existing fine id / sub-capability / same source-path — **not** a new fine id. Do not restate the number here.
-
-## Cache ≠ Mount ≠ Active
-
-Registry = routing index. B repo is SSOT for B bytes; non-B upstream is SSOT for those bytes; `mounts-cap/` is a verified local cache, not a source of truth. `stub_in_b` is pointer-only. Registry MOUNTED = catalog-approved and session-selectable; `session_picked_fine_ids` = selected this run; active = actually loaded. Cache is not mount is not active.
-
-## load_priority
-
-Optional YAML `load_priority: P0|P1|P2` on fine ids (no priority directories). P0 reserved; P1 common; P2 niche/PROPOSED. See root `ARCHITECTURE.md` and `01_skill-discovery-integration/SKILL.md`.
-
+Standalone packs live under domain skills (e.g. ethics fill pack under `03_research/fill-protocol/`).

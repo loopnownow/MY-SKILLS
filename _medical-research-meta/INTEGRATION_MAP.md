@@ -1,5 +1,13 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-008 — architecture SSOT dedupe (batch B)
+
+- `ARCHITECTURE.md`: Mounts section points to meta for intent/QC/ownership; keeps layer/mount/ceiling/lab-homes SSOT.
+- `_medical-research-meta/ARCHITECTURE.md`: keeps Skill selection + Lab-specific flows, Final QC/handoff, Ownership, short domain + mount-resolution pointers; drops duplicated A/B contract, fine-id ceiling, Cache≠Mount, load_priority, and long external-mount step dump.
+- `_medical-research-meta/tests/test_audit_invariants.py`: ArchitectureSsot adds duty split (meta owns intent/QC; root keeps mounts/lab homes).
+- Regenerated `docs/` visualization HTML via `00_orchestrator/scripts/gen_visualization.py` (architecture text changed).
+- Do not sync `~\.grok\skills` until user merges.
+
 ## CHG-20261007-007 — final cleanup: no fallback paths, clear errors
 
 - Disk `D:\0Grok\0script\stats-analysis\modules` (no git, user-approved): `console\paths.py` keeps only the current layout (`preparing` + `polishing`/`submitting`/`reseived`) and raises naming the expected path; `console\console.py` `resolve_modules_dir` requires `MODULES_DIR` in `ref/settings.ini` (error if unset or not a folder; no `RAD_MODULES`/gold default), protocol handler and writeback raise on an invalid `MODULES_DIR`; `__init__.py` raises instead of printing and ignoring; `config\ini_io.py` drops `default_preparing_root`; `project.html` and `sync\project-shim\console.html` no longer swap a saved `MODULES_DIR` and show an error when it is empty. Tests: stage-name assertions updated; `test_docx_extract` imports from the `0script` root; `test_assoc` points at `polishing\jfl_SSD_ASL`.
