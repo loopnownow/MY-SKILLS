@@ -20,105 +20,141 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 ## Session-pick fine ids (status MOUNTED only)
 
 
+## P1 default (session menu) (29)
+
+
 ### lit-retrieval
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
-| `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED |
-| `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED |
-| `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED |
-| `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P1 |
+| `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED | P1 |
+| `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED | P1 |
 
 
 ### topic-explore
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `find-cohort-gap` | 队列选题空白发现 | my-skills-capabilities | `03-research/frontier-ideate/` | MOUNTED |
-| `scout-meta-analysis` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED |
-| `frontier-hypothesize` | 假设形成 | my-skills-capabilities | `03-research/frontier-hypothesize/` | MOUNTED |
-| `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `frontier-hypothesize` | 假设形成 | my-skills-capabilities | `03-research/frontier-hypothesize/` | MOUNTED | P1 |
 
 
 ### study-design
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `design-study` | 研究设计审查 | my-skills-capabilities | `03-research/design-experiment/` | MOUNTED |
-| `design-ai-benchmarking` | AI专家评估设计 | my-skills-capabilities | `03-research/design-ai-benchmarking/` | MOUNTED |
-| `architecture-zoo` | 模型架构选型 | my-skills-capabilities | `03-research/architecture-zoo/` | MOUNTED |
-| `write-protocol` | IRB方案撰写 | my-skills-capabilities | `03-research/design-protocol/` | MOUNTED |
-| `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `design-study` | 研究设计审查 | my-skills-capabilities | `03-research/design-experiment/` | MOUNTED | P1 |
+| `write-protocol` | IRB方案撰写 | my-skills-capabilities | `03-research/design-protocol/` | MOUNTED | P1 |
 
 
 ### manuscript-body
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `write-paper` | IMRAD正文起草 | my-skills-capabilities | `05-manuscript/write-manuscript/` | MOUNTED |
-| `check-reporting` | 报告规范核验 | my-skills-capabilities | `05-manuscript/write-reporting/` | MOUNTED |
-| `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED |
-| `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `write-paper` | IMRAD正文起草 | my-skills-capabilities | `05-manuscript/write-manuscript/` | MOUNTED | P1 |
+| `check-reporting` | 报告规范核验 | my-skills-capabilities | `05-manuscript/write-reporting/` | MOUNTED | P1 |
+| `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED | P1 |
+| `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED | P1 |
 
 
 ### language-polish
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED |
-| `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED | P1 |
+| `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED | P1 |
 
 
 ### data-processing
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `clean-data` | 三阶段确认式清洗 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
-| `batch-cohort` | 批量队列分析生成 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED |
-| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-capabilities | `02-data-processing/imaging-io/` | MOUNTED |
-| `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `clean-data` | 三阶段确认式清洗 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED | P1 |
+| `batch-cohort` | 批量队列分析生成 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED | P1 |
+| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-capabilities | `02-data-processing/imaging-io/` | MOUNTED | P1 |
+| `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED | P1 |
 
 
 ### stats-analysis
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED |
-| `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED |
-| `radiomics-ml` | 放射组学建模pipeline审计 | my-skills-capabilities | `02-data-processing/radiomics-habitat/` | MOUNTED |
-| `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED |
-| `model-validation` | 模型-确定性泄漏门禁 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED |
-| `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED | P1 |
+| `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED | P1 |
+| `radiomics-ml` | 放射组学建模pipeline审计 | my-skills-capabilities | `02-data-processing/radiomics-habitat/` | MOUNTED | P1 |
+| `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 |
+| `model-validation` | 模型-确定性泄漏门禁 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 |
+| `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED | P1 |
 
 
 ### figures
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `draw-flowchart` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED |
-| `plot-figures` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED |
-| `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED |
-| `audit-figure-risk` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `draw-flowchart` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED | P1 |
+| `plot-figures` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED | P1 |
 
 
 ### manuscript-review
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `peer-review-pdf-scan` | PDF注入攻击扫描 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
-| `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED |
-| `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED |
-| `simulate-reviewers` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `peer-review-pdf-scan` | PDF注入攻击扫描 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 |
+| `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 |
+| `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED | P1 |
+| `simulate-reviewers` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P1 |
 
 
 ### review-response
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED |
-| `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED |
-| `tighten-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED | P1 |
+
+
+## P2 specialty (still pickable) (12)
+
+
+### lit-retrieval
+
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P2 |
+| `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED | P2 |
+
+
+### topic-explore
+
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `find-cohort-gap` | 队列选题空白发现 | my-skills-capabilities | `03-research/frontier-ideate/` | MOUNTED | P2 |
+| `scout-meta-analysis` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED | P2 |
+| `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED | P2 |
+
+
+### study-design
+
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `design-ai-benchmarking` | AI专家评估设计 | my-skills-capabilities | `03-research/design-ai-benchmarking/` | MOUNTED | P2 |
+| `architecture-zoo` | 模型架构选型 | my-skills-capabilities | `03-research/architecture-zoo/` | MOUNTED | P2 |
+| `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED | P2 |
+
+
+### figures
+
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED | P2 |
+| `audit-figure-risk` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P2 |
+
+
+### review-response
+
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED | P2 |
+| `tighten-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P2 |
 
 
 ## Optional candidates (status PROPOSED — not pickable)
@@ -128,49 +164,49 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 
 ### lit-retrieval
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED |
-| `audit-citations` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED | P2 |
+| `audit-citations` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 |
 
 
 ### manuscript-body
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `write-data-statement` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
-| `check-grant-proposal` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
-| `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `write-data-statement` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 |
+| `check-grant-proposal` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 |
+| `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED | P2 |
 
 
 ### language-polish
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `polish-latex` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `polish-latex` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 |
 
 
 ### data-processing
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED |
-| `audit-dicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED | P2 |
+| `audit-dicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED | P2 |
 
 
 ### stats-analysis
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `analyze-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED |
-| `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `analyze-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED | P2 |
+| `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED | P2 |
 
 
 ### manuscript-review
 
-| Fine id | Label | Source | Path | Status |
-|---|---|---|---|---|
-| `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED |
+| Fine id | Label | Source | Path | Status | Priority |
+|---|---|---|---|---|---|
+| `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED | P2 |
 
 
 ## Reference-only (not session mounts)

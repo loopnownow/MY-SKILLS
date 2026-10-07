@@ -82,7 +82,7 @@ Optional `load_priority: P0|P1|P2` on each registry fine id. **No P0/P1/P2 direc
 
 - **P0** — reserved for rare always-on mounts (chassis is `00`–`06`, not fine ids).
 - **P1** — common mounts (e.g. verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review).
-- **P2** — niche / PROPOSED / specialty.
+- **P2** — niche / PROPOSED / specialty / second-pass (still pickable).
 
 ## Routing rules
 

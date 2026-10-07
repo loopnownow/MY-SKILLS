@@ -1,5 +1,12 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-009 — P2-1 path slugs + load_priority menu (batch C)
+
+- `skill-harvest/references/keep-vs-skip.md`: live `0script` coarse folders use English slugs matching `SCRIPT_ROLES.md` / root lab homes. Dated history elsewhere kept.
+- registry: MOUNTED `load_priority` P1→P2 for `manage-refs`, `lit-sync`, `scientific-visualization`, `audit-figure-risk`, `response-tone-polisher`, `tighten-response`. P1 MOUNTED count 35→29. Status and fine ids unchanged (52 / 41 MOUNTED).
+- `gen_mounted_skills.py` groups session-pick tables by P1 then P2 and adds a Priority column.
+- Do not sync `~\.grok\skills` until user merges.
+
 ## CHG-20261007-008 — architecture SSOT dedupe (batch B)
 
 - `ARCHITECTURE.md`: Mounts section points to meta for intent/QC/ownership; keeps layer/mount/ceiling/lab-homes SSOT.

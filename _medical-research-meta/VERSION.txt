@@ -1,3 +1,6 @@
+CHG-20261007-009 (2026-10-07)
+P2-1 + batch C: keep-vs-skip live 0script folders use English slugs; six MOUNTED fine ids drop P1→P2 (manage-refs, lit-sync, scientific-visualization, audit-figure-risk, response-tone-polisher, tighten-response). Canonical 52 unchanged. MOUNTED_SKILLS grouped by load_priority. Do not sync .grok/skills until user merges.
+Earlier: CHG-20261007-008, CHG-20261007-007.
 CHG-20261007-008 (2026-10-07)
 Architecture SSOT dedupe (batch B): root ARCHITECTURE.md keeps layers/mounts/lab homes/ceiling/A/B; _medical-research-meta/ARCHITECTURE.md keeps intent tables, Final QC/handoff, ownership phrases, and a short agree-with-root preamble — removes duplicated A/B, ceiling, Cache≠Mount, load_priority, and long mount-step tables. ArchitectureSsot tests add meta-vs-root duty checks. Do not sync .grok/skills until user merges.
 Earlier: CHG-20261007-007, CHG-20261007-006.
