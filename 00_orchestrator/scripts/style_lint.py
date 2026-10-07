@@ -36,6 +36,14 @@ import re
 import sys
 from pathlib import Path
 
+# Machine source for VOCAB_ALWAYS / VOCAB_LIMITED. Do not hard-code term lists below.
+BAN_TERMS_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "05_manuscript"
+    / "personal"
+    / "ban-terms.yaml"
+)
+
 # =============================================================================
 # CONFIG  --  everything you may want to tune lives here (and can be overridden
 # per run with --config file.json). Nothing below this block hard-codes a term,
@@ -75,58 +83,12 @@ CONFIG = {
     "MAX_NON_LATIN_RATIO": 0.2,   # catalogue is English-only; CJK-heavy text would "pass" falsely
 
     # ---- 4. Vocabulary (regex fragments, matched on word boundaries, case-insensitive)
-    # ALWAYS = flagged on any occurrence.
-    # robust / landscape / leverage / labeled / locked / attenuated are here by explicit decision (AI vocabulary).
-    # NOTE "robustness" is intentionally NOT matched: "feature robustness" is standard
-    # radiomics terminology (ICC / test-retest). Widen with r"robust(?:ness|ly)?" if wanted.
-    # NOTE "attenuation" is intentionally NOT matched: attenuation correction / beam
-    # attenuation are imaging terms. The ban is the verb attenuate/attenuated.
-    # NOTE elevate/enhance are intentionally not listed: "elevated ALT", "contrast-enhanced".
-    # NOTE noun "label" (figure label, reporting label) is NOT matched — only labell?ed.
-    "VOCAB_ALWAYS": [
-        r"labell?ed",
-        r"locked",
-        r"attenuat(?:e|es|ed|ing)",
-        r"delv(?:e|es|ed|ing)",
-        r"tapestr(?:y|ies)",
-        r"testament to",
-        r"underscor(?:e|es|ed|ing)",
-        r"seamless(?:ly)?",
-        r"robust(?:ly)?",
-        r"landscapes?",
-        r"leverag(?:e|es|ed|ing)",
-        r"realms?",
-        r"myriad",
-        r"plethora",
-        r"ever-evolving",
-        r"cutting-edge",
-        r"transformative",
-        r"paradigm shifts?",
-        r"holistic(?:ally)?",
-        r"embark(?:s|ed|ing)?",
-        r"game-changing",
-        r"unlock(?:s|ed|ing)?",
-        r"harness(?:es|ed|ing)? the power",
-        r"dive(?:s|d)? deep",
-        r"it(?:'s|\u2019s| is) (?:important|worth) (?:to )?not(?:e|ing)",
-        r"that being said",
-        r"at the end of the day",
-        r"in today(?:'s|\u2019s) (?:fast-paced|digital|modern) world",
-    ],
-    # LIMITED = tolerated up to TIER2_MAX_PER_TERM / TIER2_MAX_TOTAL.
-    "VOCAB_LIMITED": [
-        r"foster(?:s|ed|ing)?",
-        r"crucial(?:ly)?",
-        r"pivotal",
-        r"streamline(?:s|d)?",
-        r"empower(?:s|ed|ing)?",
-        r"showcase(?:s|d)?",
-        r"meticulous(?:ly)?",
-        r"compelling",
-        r"innovative",
-        r"comprehensive",
-        r"journeys?",
-    ],
+    # ALWAYS / LIMITED are filled at import from 05_manuscript/personal/ban-terms.yaml.
+    # Do not hand-edit term lists here. Imaging exceptions live in that yaml's header:
+    # robustness allowed; attenuation (noun) allowed; elevate/enhance off always;
+    # noun label off always (only labell?ed).
+    "VOCAB_ALWAYS": [],
+    "VOCAB_LIMITED": [],
 
     # ---- 5. Constructions ("shapes"), name -> regex, matched per sentence, case-insensitive
     # Calibrated hedging is NOT flagged: a single "may/suggest" is house style.
@@ -172,6 +134,98 @@ _NUMBERING = re.compile(r"^\(?\d+(?:\.\d+)*[.)]?\s+")
 
 class InputError(ValueError):
     """Raised for exit-code-2 situations: the linter cannot give an honest verdict."""
+
+
+def _unquote(value):
+    """Strip one layer of matching YAML quotes. Keep regex backslashes intact."""
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
+
+
+def load_ban_terms(path=None):
+    """
+    Parse ban-terms.yaml with a stdlib subset parser (lists of probe/pattern maps).
+    Returns (always_items, limited_items, per_term, total).
+    """
+    src = Path(path) if path is not None else BAN_TERMS_PATH
+    if not src.is_file():
+        raise InputError("ban-terms.yaml missing: %s" % src)
+    always, limited = [], []
+    section = None
+    item = None
+    per_term, total = 1, 3
+    bucket = None
+
+    def commit():
+        nonlocal item
+        if item is None:
+            return
+        if "pattern" not in item:
+            raise InputError("ban-terms item missing pattern (probe=%r)" % item.get("probe"))
+        if "probe" not in item:
+            item["probe"] = item["pattern"]
+        bucket.append(item)
+        item = None
+
+    for raw in src.read_text(encoding="utf-8").splitlines():
+        stripped = raw.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if stripped == "always:":
+            commit()
+            section = "always"
+            bucket = always
+            continue
+        if stripped == "limited:":
+            commit()
+            section = "limited"
+            bucket = limited
+            continue
+        if stripped == "limited_policy:":
+            commit()
+            section = "policy"
+            bucket = None
+            continue
+        m = re.match(r"^per_term:\s+(\d+)\s*$", stripped)
+        if m and section == "policy":
+            per_term = int(m.group(1))
+            continue
+        m = re.match(r"^total:\s+(\d+)\s*$", stripped)
+        if m and section == "policy":
+            total = int(m.group(1))
+            continue
+        m = re.match(r"^-\s+probe:\s+(.+)$", stripped)
+        if m:
+            commit()
+            if bucket is None:
+                raise InputError("ban-terms probe outside always/limited: %r" % raw)
+            item = {"probe": _unquote(m.group(1))}
+            continue
+        m = re.match(r"^pattern:\s+(.+)$", stripped)
+        if m:
+            if item is None:
+                raise InputError("ban-terms pattern without probe: %r" % raw)
+            item["pattern"] = _unquote(m.group(1))
+            continue
+        raise InputError("unrecognized ban-terms line: %r" % raw)
+    commit()
+    if not always:
+        raise InputError("ban-terms.yaml has empty always list")
+    return always, limited, per_term, total
+
+
+def _apply_ban_terms():
+    """Fill CONFIG vocab from yaml. Called once at import."""
+    always, limited, per_term, total = load_ban_terms()
+    CONFIG["VOCAB_ALWAYS"] = [row["pattern"] for row in always]
+    CONFIG["VOCAB_LIMITED"] = [row["pattern"] for row in limited]
+    CONFIG["TIER2_MAX_PER_TERM"] = per_term
+    CONFIG["TIER2_MAX_TOTAL"] = total
+
+
+_apply_ban_terms()
 
 
 # -----------------------------------------------------------------------------

@@ -70,7 +70,7 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 
 ## Ownership (pinned; agrees with root Core layers 05/06)
 
-All manuscript Track Changes are owned by Aitee (05). Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor.
 
 ---
 

@@ -18,7 +18,7 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 - clinical tables: Excel/CSV, cleaning, missing/outlier (`clean-data` / `batch-cohort`)
 - CT/MRI I/O: DICOM / NIfTI / NII (`imaging-io`)
 - CT/MRI QC: ROI / reader (`preprocess-imaging`)
-- radiomics / habitat preparation (`radiomics-ml`; modelling → 04)
+- radiomics / habitat preparation (prep pointer → modelling belongs to 04 `radiomics-ml`)
 - leakage and split-integrity checks
 - maintained personal MATLAB/Python scripts
 - clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
@@ -49,7 +49,7 @@ Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` men
 - `clean-data` / `batch-cohort` — 临床表 Excel / CSV（含缺失/异常值）；脚本库：`D:\0Grok\0script\data-processing\clean-data\`
 - `imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
 - `preprocess-imaging` — CT / MRI QC，ROI / 阅片；脚本库：`D:\0Grok\0script\data-processing\preprocess-imaging\`
-- `radiomics-ml` — IBSI/habitat prep; fine id routes to 04 (paper modelling → 04)
+- `radiomics-ml` — prep pointer only (IBSI/habitat). Modelling belongs to 04 `radiomics-ml`. 02 does not own this mounted id.
 
 Archived ids stay off the menu (registry `archived:`).
 
