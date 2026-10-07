@@ -88,13 +88,14 @@ class Routing(unittest.TestCase):
         self.assertNotIn("01_automation", readme)
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("01_skill-discovery-integration", zero)
-        self.assertIn("Excel / 批处理 / 0RAD", zero)
+        fast = read("00_orchestrator", "references", "fast-routing.md")
+        self.assertIn("Excel / 批处理 / 0RAD", fast)
         # Excel routes to 02, not 01
-        self.assertRegex(zero, r"Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`")
+        self.assertRegex(fast, r"Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`")
 
     def test_figures_route_to_04(self) -> None:
-        zero = read("00_orchestrator", "SKILL.md")
-        self.assertIn("出图", zero)
+        fast = read("00_orchestrator", "references", "fast-routing.md")
+        self.assertIn("出图", fast)
         five = read("05_manuscript", "SKILL.md")
         self.assertIn("04_analysis", five)
         self.assertIn("plot-figures", five)

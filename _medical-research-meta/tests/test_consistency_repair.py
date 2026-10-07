@@ -53,9 +53,8 @@ class RouteContract(unittest.TestCase):
     def test_fast_routing_matches_contract(self) -> None:
         contract = yaml.safe_load((ROOT / "00_orchestrator" / "route-contract.yaml").read_text(encoding="utf-8"))
         skill = (ROOT / "00_orchestrator" / "SKILL.md").read_text(encoding="utf-8")
-        start = skill.index("### Fast routing")
-        end = skill.index("## 2. Skill chain")
-        section = skill[start:end]
+        self.assertIn("references/fast-routing.md", skill)
+        section = (ROOT / "00_orchestrator" / "references" / "fast-routing.md").read_text(encoding="utf-8")
         routes = contract["routes"]
         self.assertGreaterEqual(len(routes), int(contract.get("min_routes", 20)))
         for row in routes:

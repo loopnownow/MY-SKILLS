@@ -11,20 +11,15 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。子流程是图上分支。Gate 条文仍以 [`gates.md`](gates.md) 为真源。图节点 `Gate · NN` ↔ `G-NN`。
+**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。Gate 条文真源 [`gates.md`](gates.md)。图节点 `Gate · NN` ↔ `G-NN`。
 
-Specialists: 03 Victor (literature / design / 选刊 / ethics forms / Voice B grant / **citation-verify**); 02+04 Loopnow; 05 Aitee (manuscript + Evidence QC; owns all manuscript Track Changes; does not self-certify lit); 06 Lee (statement consistency, then data consistency; marks/comments and must not self-revise as default; lit accuracy is joint with Victor); 00 Aitor owns QC. 05 and 06 require 03 participation for citations. Mid-entry stays allowed. 投稿 is Bai after 06, not this loop. Per-paper channel seats all six (max).
+**Seats:** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿 Bai after 06. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount MedSci `orchestrate` as a third SOP.
 
-**Word revise ownership:** Ownership: see `00_orchestrator/references/ownership-contract.md`
-Do not mount MedSci `orchestrate` as a third SOP.
+**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/personal-review-style.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
-**Comments / conflicts:** Word author field is always **A** (never yellow). Source-prefix rules (author ≠ prefix; mount-driven items must show **skill-level** prefixes) live in `06_review/personal/personal-review-style.md` §0 — do not duplicate here. Mount advice that conflicts with lab rules stays in the comment with a concrete edit plan; **the user decides**. 00 does not silently prefer the mount.
+**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/evidence-request.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
-**Citation verify (required):** before a 05 deliverable is done (Gate · 05) and inside every 06 review, 03 runs `03_research/personal/citation-verify.md` (claim→ref table + spot-check of strong claims). 05 and 06 call/require 03 citation-verify — do not self-certify lit. A 05 pass does not waive 06. Mid-entry does not waive it. Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. Record status in `templates/project-state.yaml` → `manuscript.citation_verify` (`g_cit_1` / `g_cit_2` / `table_path`).
-
-**Literature verify fail (G-LIT):** dual plan in comments — (1) revise/weaken/delete, (2) optional further 03 substitute-ref search. Prefer `05_manuscript/personal/evidence-request.md` when structured. Verify itself is not optional. **00 decides at QC** only whether further search runs; **05 (Aitee)** keeps Accept/Weaken/Delete on wording.
-
-**Standing delivery:** HTML and Archify rules → [`references/standing-delivery.md`](references/standing-delivery.md).
+**Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
 
 ## 1. Intent classify
 
@@ -43,65 +38,31 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | imaging / ROI / features, no HTML | `radiomics-study` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
-`*-results.html` and a reviewer letter in the same folder, and the user did not name the entry: ask which station. Do not pick the nearer artifact. One bounded task still goes to that skill, not the full SOP.
+`*-results.html` and a reviewer letter in the same folder, and the user did not name the entry: ask which station. One bounded task still goes to that skill, not the full SOP.
 
-If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Multi-node/new-capability exception: batched clarify in Plan card — see [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
+If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Plan-card exception: [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
 
 **Plan card / grilling / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
 
-Also mirrored in [`references/fast-routing.md`](references/fast-routing.md).
-
-- 新技能 / 外接 / 挂载 → `01_skill-discovery-integration`
-- grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求不清楚就要写代码 → `00_orchestrator` (`grilling`)
-- Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`
-- 软编码 / dry-run / coding principles → `02_data-processing` (`code-refactoring`)
-- 伦理申请表 → `03_research` (`fill-protocol`)
-- 提取检验 / HIS → `02_data-processing` (`clinical-data-extraction`)
-- 转化 / reader study / 前瞻部署 / 证据到行动 → `03_research` (`clinical-translation`)
-- MRI / DICOM / NIfTI / 预处理 / radiomics 准备 / 插补 → `02_data-processing`
-- 选题 / 研究设计 / **文献** → `03_research`
-- 选刊 → `03_research`
-- 样本量 → `04_analysis` (`calc-sample-size`)
-- 统计 / AUC / DeLong / DCA / **出图** → `04_analysis`
-- 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`
-- 预审 / 审稿 / **回复审稿人** → `06_review`
-- 技能迭代 / 收益评估 → `skill-harvest`
+SSOT: [`references/fast-routing.md`](references/fast-routing.md) (must match `route-contract.yaml`).
 
 ## 2. Skill chain
 
 ### Routing
 
-| Skill | Primary scope |
-|---|---|
-| `01_skill-discovery-integration` | Discover / evaluate / mount external Skills. Never literature, stats, writing, or review. |
-| `02_data-processing` | Raw → analysis-ready data. Excel/CSV, 0RAD workspace, imaging QC, radiomics prep, imputation, **clinical extraction**, **coding principles**. No modeling. |
-| `03_research` | Study design, **literature**, evidence, frontier, journal/topic (选刊), grants, **translational / reader-study design**, **ethics application forms**, **citation-verify** for 05 and 06. Literature enters 03 only. 选刊走 03 `find-journal`；`venue-templates` 只管体例. |
-| `04_analysis` | Statistics, prediction, survival, **figures**. Data repair is not its role. |
-| `05_manuscript` | Personal SCI writing / polish / de-AI. Not figures. Not reviewer response. Owns manuscript Track Changes (see `00_orchestrator/references/ownership-contract.md`). Requires 03 citation-verify before done. Does not self-certify lit. |
-| `06_review` | Pre-submission, peer review, **reviewer response only here**. Does not write the paper. Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor. |
-| `skill-harvest` | Evolution / ROI / boundaries. Not a research domain. |
-
-There are **no archive-as-standalone routes**. The four former archive packs live under 02/03.
+Ids: `01_skill-discovery-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review` · `skill-harvest`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **reviewer response only here** (`06_review`). No archive-as-standalone routes.
 
 ### Session mount pick
 
-Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask again. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Unpicked packs stay unloaded. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence).
+Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
 
-**Auto-discovery / advertised skills:** only `00_orchestrator`–`06_review` and `skill-harvest` (including nested A packs). `mounts-cap/**/SKILL.md` is cache. Do not treat cache `SKILL.md` as a session skill unless that fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/` from editor ads.
+**Auto-discovery:** only `00_orchestrator`–`06_review` and `skill-harvest` (including nested A packs). `mounts-cap/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
 
 ### Composite workflows
 
-SOPs live in `workflows/` (ask which SOP on 「全线」, node N1, unless directory detection already locked it):
-
-- Full project: `03_research` → `02_data-processing` (if data/imaging) → `04_analysis` → `05_manuscript` → `06_review`. 05 and 06 each require a 03 citation-verify pass.
-- Imaging prediction paper: `03_research` → `02_data-processing` → `04_analysis` → `05_manuscript` → optional `06_review`. Writing still requires citation-verify before done.
-- Manuscript revision: `05_manuscript` for prose; `06_review` for audit/response. Both require 03 citation-verify. Mid-entry does not waive it.
-- Reviewer response: **`06_review` only as entry**; `05_manuscript` for changed sentences; `04_analysis` / `02_data-processing` only if new analysis or imaging verification is required. The 06 pass still includes 03 citation-verify.
-- New capability: `01_skill-discovery-integration` runs its **GitHub discovery workflow** (search → license/domain/overlap/granularity checklist → recommendation table → `grill-me` confirmation before writing anything). Never auto-mount.
-
-`radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML; do not start it from scratch stats.
+SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 discovery workflow; never auto-mount. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 
@@ -117,53 +78,43 @@ Copy `templates/handoff.yaml` at each skill crossing. Fill only known fields. Ne
 
 ### Post-skill file check
 
-After each node, verify the expected output **file exists and is non-empty**. Missing → do not start the next skill. Log the miss on `qc` / `defects` in `project-state.yaml`.
-
-Project state template: `templates/project-state.yaml`.
+After each node, verify the expected output **file exists and is non-empty**. Missing → do not start the next skill. Log on `qc` / `defects` in `project-state.yaml`. Template: `templates/project-state.yaml`.
 
 ## 3. QC closed loop
 
-00 owns the last gate. Detail: `gates.md`. A task is complete only when the requested deliverable exists, major consistency checks pass, assumptions are visible, limitations are stated, and files are usable.
+00 owns the last gate. Fail criteria: [`gates.md`](gates.md). Complete only when the requested deliverable exists, major consistency checks pass, assumptions/limitations are visible, and files are usable.
 
-Integrity gates (not after every node):
+| Gate | When |
+|---|---|
+| G0 | every run |
+| G-PHI | before 02 tables / extraction |
+| G-04 | after `*-results.html` |
+| G-FACT | after 04 HTML; again after 05 house.docx; before 06 if numbers cited |
+| G-05 | after house.docx |
+| G-06 | after pre-review / response |
+| G-LIT | citation-verify before 05 done and inside 06; on fail |
+| G-CODE | code deep QC / refactor release-ready |
 
-| Gate | When | Fail if |
-|---|---|---|
-| G0 | every run | packs loaded without session mount pick; silent empty-mount fallback |
-| G-PHI | before 02 tables / extraction | PHI status unknown; HIS credentials in files |
-| G-04 | after `*-results.html` | invented n/AUC; `Development set`; VAL_MODE rewritten; DeLong sold as CI |
-| G-FACT | after 04 HTML, again after 05 house.docx, and before 06 only if numbers are cited | fact-lineage drift vs upstream FILE, including the checklist in `gates.md`. Do not auto-pick numbers |
-| G-05 | after house.docx | numbers ≠ HTML; Methods citations; Table 1 not training vs test; 00 wrote prose; pre-submit-consistency checks left unresolved in the body; 03 citation-verify missing or self-certified by 05; style-lint sub-check fail (exit 1) counts toward same-defect rounds |
-| G-06 | after pre-review / response | fabricated reviewer facts; 选刊 routed to 05; Lee applied manuscript Track Changes (Ownership: see `00_orchestrator/references/ownership-contract.md`); decidable issues not annotated for Aitee to TC-fix; undecidable issues missing a Chinese 批注 body or attached English suggested wording; resolution status when review-resolution protocol used; cross-manuscript conflicts rewritten instead of commented; 03 citation-verify skipped; if this run mounted a non-personal source, ≥1 comment prefix must name that source |
-| G-LIT | citation-verify required before 05 done and inside 06; on fail | dual plan in comments (revise sentence **and** optional further 03 substitute refs); no invented PMID; verify pass itself is not optional |
-| G-CODE | code deep QC / refactor release-ready | open Critical/P0 per `02_data-processing/code-refactoring` |
+Cross-cut Consistency = **G-FACT**. Evolution QC → `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
 
-Cross-cut Consistency is **G-FACT** (see `gates.md`). Learning/evolution QC lives in `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
+**Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
-**Local recovery:** if QC finds a localized defect, identify the responsible skill and re-run **only the broken node**. Reuse the session mount lock and return to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is required. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage`. Do not rerun already-correct stages. When the repair is prose, instruct **word/sentence units** only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+**Close.** Write `pipeline.stage` from the template (`classify | 02 | 03 | 04 | 05 | 06 | qc | done`).
 
-**Close.** Write `pipeline.stage` from the template values already listed there (`classify | 02 | 03 | 04 | 05 | 06 | qc | done`).
-
-- 结束, or the file this run asked for is on disk and the last gate passed → `done`. Do not open the next SOP.
-- 暂停 → leave `stage` at the current station. The next session reads it and does not re-init.
-- Stop after the results page, or stop before pre-review → leave `stage` at `04` or `05`. That stay is not `done`.
+- 结束 / requested file on disk + last gate passed → `done`. Do not open the next SOP.
+- 暂停 → leave `stage` at the current station; next session does not re-init.
+- Stop after results / before pre-review → `04` or `05` (not `done`).
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 
-## Research exploration (sub-component)
+## Research exploration
 
-Triggers such as 「这个研究还能做什么」「还缺哪些文献」「研究空白」「选题探索」 may enter [`workflows/research-exploration-loop.md`](workflows/research-exploration-loop.md): state resume, reuse completed work, dispatch **existing** 03/04 mounts (`lit-search`, `frontier-hypothesize`, …), L1 = gate recovery, L2 = cross-stage cap 3. Not a fine id. 00 stays structural-only.
+Triggers 「这个研究还能做什么」等 → [`workflows/research-exploration-loop.md`](workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
 
 ## Boundaries
 
-**00 owns runtime decisions only:** intent classify, skill chain / route, session mount pick coordination, QC gates, and local recovery. Domain knowledge (stats, writing, literature, review, figures, ethics forms, clinical extraction, coding principles) stays in `02`–`06` (and harvest for evolution proposals).
+**00 owns runtime decisions only:** intent classify, skill chain / route, session mount pick coordination, QC gates, local recovery. Domain knowledge stays in `02`–`06` (harvest for evolution).
 
-**Lab SSOT:** path aliases in [`references/lab-paths.yaml`](references/lab-paths.yaml) (`script_root`, `doc_root`, `skills_runtime`). Skills keep procedures + pointers only (see `ARCHITECTURE.md`). Do not vendor `0script` / `0doc` into MY-SKILLS.
+**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0script` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 
-Before adding content to `00`, ask: **runtime decision vs domain knowledge?** If domain knowledge → put it in the owning specialist skill, not here.
-
-Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality.
-Do not load all nested material. Load the selected `SKILL.md`, then only the required files.
-Mounted generic capability: ids in `MOUNTED_SKILLS.md` / `registry.yaml`. **This-run pick first** (01). Point at **picked ids**, not deleted `bundles/` paths.
-00 does not write manuscript prose, invent numbers, or click 投稿.
-00 does not absorb harvest evolution rules or 01 mount implementation — those stay in `skill-harvest` and `01_skill-discovery-integration`.
+Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `MOUNTED_SKILLS.md` / `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click 投稿, or absorb harvest/01 implementation.
