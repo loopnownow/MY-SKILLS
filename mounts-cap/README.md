@@ -44,12 +44,12 @@ Harmless orphans (unreferenced cache folders with no registry fine id) may be de
 - STATE paths vs disk: **0 missing**.
 - Removed from STATE (keys only): MedSci legacy `self-review` / `peer-review` / `review-paper` / `check-reporting` / `model-evaluation` / `model-validation` (live mounts stay under B).
 - Removed Nature **non-registry** cache dirs + STATE keys: `nature-statistics`, `nature-citation`, `nature-ref-verifier` (phantom; verify-refs uses Scientific `citation-management`).
-- Kept: Nature `nature-figure` / `nature-reviewer` / `nature-response` + dependency `nature-shared`; MedSci `humanize`; Scientific / AIPOCH recorded caches.
-- PROPOSED Nature ids (`nature-academic-search`, `nature-data`, `nature-polishing`, `nature-proposal-writer`) stay uncached until session-picked + `fetch.py ensure`.
+- Kept: Nature packs for `audit-figure-risk` / `simulate-reviewers` / `tighten-response` (upstream `skills/nature-figure/`, `skills/nature-reviewer/`, `skills/nature-response/`) + dependency `nature-shared`; MedSci `humanize`; Scientific / AIPOCH recorded caches.
+- PROPOSED Nature ids (`audit-citations`, `write-data-statement`, `polish-latex`, `check-grant-proposal`) stay uncached until session-picked + `fetch.py ensure`.
 
 ## Nature shared cache
 
-`nature-figure` and `nature-reviewer` (and related Nature skills) expect a local `mounts-cap/nature/skills/nature-shared/` cache when those fine ids are mounted. If `nature-shared` is already present (see `STATE.yaml`), reuse it. **Do not** download large Nature galleries or whole-repo trees unless the user picked those ids and bytes are missing.
+`audit-figure-risk` and `simulate-reviewers` (and related Nature skills) expect a local `mounts-cap/nature/skills/nature-shared/` cache when those fine ids are mounted. If `nature-shared` is already present (see `STATE.yaml`), reuse it. **Do not** download large Nature galleries or whole-repo trees unless the user picked those ids and bytes are missing.
 
 ## MedSci legacy STATE keys
 
@@ -59,5 +59,5 @@ Safe local hygiene (does **not** delete pack bytes): remove those six keys from 
 
 ## Nature dependency cache
 
-MOUNTED Nature fine ids (`nature-figure`, `nature-reviewer`, `nature-response`) read `../nature-shared/...`. Keep `mounts-cap/nature/skills/nature-shared/` populated (shared core + journal-formats). Missing `nature-shared` breaks relative links inside those packs — restore from a known-good cache or re-fetch the Nature skill set; do not strip galleries from `nature-figure` as a substitute for `nature-shared`.
+MOUNTED Nature fine ids (`audit-figure-risk`, `simulate-reviewers`, `tighten-response`) read `../nature-shared/...`. Keep `mounts-cap/nature/skills/nature-shared/` populated (shared core + journal-formats). Missing `nature-shared` breaks relative links inside those packs — restore from a known-good cache or re-fetch the Nature skill set; do not strip galleries from the `audit-figure-risk` pack as a substitute for `nature-shared`.
 

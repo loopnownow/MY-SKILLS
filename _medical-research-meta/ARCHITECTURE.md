@@ -83,7 +83,7 @@ Generic local capabilities marked in `EXTERNALIZATION_CANDIDATES.md` remain avai
 
 ## Rehomed packs
 
-Former `archive/` standalones live under domain skills (CHG-20260902-004). The empty `archive/` stub was removed (CHG-20260904-003). Ethics fill pack is under `03_research/fill-protocol/`.
+Standalone packs live under domain skills. Ethics fill pack is under `03_research/fill-protocol/`.
 
 ## A/B no-reflow contract
 

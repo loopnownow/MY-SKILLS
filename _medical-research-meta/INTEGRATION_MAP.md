@@ -1,5 +1,11 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-006 — cleanup of old names after English alignment
+
+- Skills: `mounts-cap/README.md` uses current Nature fine ids (upstream pack paths kept); `02_data-processing/0rad-workspace.md` drops retired `0script/archive/` pointers; `_medical-research-meta/ARCHITECTURE.md` drops the old rehome note. `legacy_aliases.yaml`, registry/source upstream `path:` values, VERSION and this map's dated entries are kept.
+- Disk under `D:\0Grok\0script\` (no git): README/SCRIPT_ROLES/LARGE_SCRIPTS and sub-READMEs drop the retired `archive\` sections and 原… notes; `paths.env.example` drops habitat blocks; t1vbm CHANGELOG names the current guide. `stats-analysis\modules` (user-approved): `utils\u_QC.py`→`utils\u_qc.py` with imports in `pipeline.py`/`console\console.py`; `console\console_api.js` raises a clear error when `MODULES_DIR` is empty (no fallback to the old modules path).
+- 0doc: `04-lab-reference\README.md` and `MIGRATE_FROM_SKILLS.md` point at `03_research/fill-protocol`. Cline `My rule.md`: no fallback/rollback code without consent; QC removes old paths, stale pointers and old names. `.grok` memory topics repointed. Do not sync `.grok\skills`.
+
 ## CHG-20261007-005 — 0script R2c English folder/file rename pointers
 
 - Disk under `D:\0Grok\0script\` (no git): `figures\make-figures`→`figures\draw-flowchart`; `docx_revise`→`review-response\revise`; `data-processing\clean-data\clinical-extraction`→`data-processing\clinical-data-extraction` (matches A pack); `sync\project_shim`→`sync\project-shim` (+ `sync_modules.py` SHIM). Files (snake_case kept): `tidy_yt.py`→`tidy_yt_rdl.py` (7 imports), `fill_cln_from_xue.py`→`fill_cln_from_supplement.py`, `setup_clin_only.py`→`setup_cln_only.py`; optional `apply_zyp.py`/`apply_oem.py`→`apply_revisions.py`, `add_comments_author_A.py`→`add_comments_author_a.py`, t1vbm guide →`t1vbm-user-guide-v2.html`. `stats-analysis\modules` untouched (incl. `u_QC.py`).

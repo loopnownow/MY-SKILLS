@@ -1,3 +1,6 @@
+CHG-20261007-006 (2026-10-07)
+Cleanup after English naming: live skill text drops retired ids/paths (mounts-cap Nature ids, 0rad-workspace archive pointers, ARCHITECTURE rehome note). Disk (no git): 0script README/SCRIPT_ROLES/sub-READMEs drop archive and 原… notes; 0doc pointers to fill-protocol; modules u_QC.py→u_qc.py (+imports) and console_api.js MODULES_DIR fallback → clear error (user-approved); My rule.md adds no-fallback and QC-trace rules; .grok memory repointed. legacy_aliases and dated history kept. Do not sync .grok/skills.
+Earlier: CHG-20261007-005, CHG-20261007-004.
 CHG-20261007-005 (2026-10-07)
 R2c 0script: make-figures→draw-flowchart, docx_revise→review-response/revise, clean-data/clinical-extraction→data-processing/clinical-data-extraction, sync/project_shim→project-shim; tidy_yt→tidy_yt_rdl, fill_cln_from_xue→fill_cln_from_supplement, setup_clin_only→setup_cln_only (+ optional one-offs). Skill pointers + 0script/0doc docs + My rule.md updated. modules untouched. Do not sync .grok/skills.
 Earlier: CHG-20261007-004, CHG-20261007-003.
