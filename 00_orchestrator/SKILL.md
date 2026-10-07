@@ -60,6 +60,8 @@ Every independent run needs a mount decision. If `mounts.session_picked_fine_ids
 
 **Auto-discovery:** only `00_orchestrator`–`06_review` and `skill-harvest` (including nested A packs). `mounts-cap/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
 
+**Mount → 评阅/润色 recipe:** when the user says 挂载 + 评阅/润色 on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
+
 ### Composite workflows
 
 SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 discovery workflow; never auto-mount. Writing/review SOP legs always require 03 citation-verify.
