@@ -11,7 +11,7 @@ updated: ""          # YYYY-MM-DD
 
 pipeline:
   sop: ""            # radiomics-study | sci-manuscript | none
-  stage: ""          # classify | 02 | 04 | 05 | 06 | qc | done
+  stage: ""          # classify | 02 | 03 | 04 | 05 | 06 | qc | done
                      # done: 结束, or this run's file is on disk and the last gate passed.
                      # 暂停, or a stop after the results page / before pre-review: leave the current station. Do not write done.
                      # Same defect unresolved after 3 rounds: defects[].status unresolved; do not advance stage.
@@ -30,14 +30,16 @@ mounts:
   #   checked_at: ""
 
 qc:
-  last_gate: ""      # G0 | G-PHI | G-04 | G-05 | G-06
+  last_gate: ""      # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-04 | G-05 | G-06
   last_result: ""    # pass | fail
-  rounds: 0          # recovery rounds on the current defect; max 3 then unresolved
+  # rounds: deprecated aggregate. Prefer defects[].rounds (same defect, max 3). Keep 0 unless a tool still writes it.
+  rounds: 0
 
 defects: []
   # - id: D1
   #   node: 04_analysis
   #   gate: G-04
+  #   rounds: 0          # recovery rounds on THIS defect; max 3 then status unresolved
   #   status: open | recovered | unresolved
   #   note: ""
 
@@ -71,6 +73,11 @@ manuscript:
   # - id: R1-1
   #   status: open | done | cannot_invent
   #   location: ""
+  # citation-verify (G-CIT-1 before Gate · 05; G-CIT-2 inside 06). Victor owns; 05/06 do not self-certify.
+  citation_verify:
+    g_cit_1: ""       # pending | pass | fail
+    g_cit_2: ""       # pending | pass | fail | n/a
+    table_path: ""    # claim→ref table path when written
 
 # Optional — used by workflows/research-exploration-loop.md (00 sub-component).
 # Omit entirely when not exploring. Do not invent medical content here.
@@ -88,4 +95,3 @@ exploration_state:
   # stages:            # optional per-stage sketch
   #   literature_search: { status: complete }
   #   gap: { status: partial, classification_confidence: 0.42 }
-
