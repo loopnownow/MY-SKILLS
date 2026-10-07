@@ -5,12 +5,12 @@
 | What | Where |
 |---|---|
 | Submission / portal URLs | `data/2026/submission-urls.csv` (URL fields only) |
-| Personal prior outcomes | `data/2026/submission-prior.jsonl` (schema: manuscript_type, target_journal, outcome, date, notes) |
+| Personal prior outcomes | `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\submission-prior.jsonl` (schema: manuscript_type, target_journal, outcome, date, notes) |
 | Policy / workflow / framework formulas | `policy.md`, `recommendation-workflow.md`, `jesi-model.md`, `modules.md` |
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
 | BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
-| 投过/选刊 whitelist | `whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
+| 投过/选刊 whitelist | `D:\0Grok\0doc\04-lab-reference\jcr2026\submission\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
 | Yearly screening cache (layer membership) | `layer2-*.csv`, `layer3-*.csv`, curated xlsx — rebuilt annually |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |

@@ -35,5 +35,5 @@ scanners", "adjusted for X"). landscape -> name the concrete thing. Never "fix" 
 
 ## Provenance
 Mechanism and part of the term catalogue adapted from ItsssssJack/SlopMonster (MIT), which is itself
-built on Wikipedia "Signs of AI writing" (WikiProject AI Cleanup). Upstream notice retained:
-MIT License Copyright (c) 2026 Jack Roberts Permission is hereby granted, free of charge, to any person obtaining a copy
+built on Wikipedia "Signs of AI writing" (WikiProject AI Cleanup). Full upstream MIT text:
+see repository root `NOTICE` (SlopMonster section). Do not truncate the grant language here.

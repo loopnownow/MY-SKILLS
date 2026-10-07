@@ -2,6 +2,8 @@
 name: medical-statistics-analysis-and-visualization
 description: >
   Statistics, prediction, survival, diagnostic accuracy, and figure generation.
+  Triggers: 统计, 出图, 样本量, AUC, DeLong, DCA, KM, 生存分析, calc-sample-size,
+  plot-figures, draw-flowchart.
   Use after data are analysis-ready. Cleaning/imputation → 02_data-processing.
   Figure captions and manuscript prose → 05_manuscript. Literature → 03.
 ---

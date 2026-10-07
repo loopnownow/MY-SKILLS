@@ -56,14 +56,14 @@ class RouteContract(unittest.TestCase):
         start = skill.index("### Fast routing")
         end = skill.index("## 2. Skill chain")
         section = skill[start:end]
-        intents = [row["intent"] for row in contract["routes"]]
-        self.assertEqual(
-            intents,
-            ["文献检索", "Excel清洗", "样本量", "写论文", "回复审稿人", "新技能", "技能迭代"],
-        )
-        for row in contract["routes"]:
+        routes = contract["routes"]
+        self.assertGreaterEqual(len(routes), int(contract.get("min_routes", 20)))
+        for row in routes:
             for token in row["contains"]:
                 self.assertIn(token, section, row["intent"])
+        for row in contract.get("counterexamples") or []:
+            for token in row["must_not_contain"]:
+                self.assertNotIn(token, section, row["intent"])
 
 
 class ProvenanceSchema(unittest.TestCase):
