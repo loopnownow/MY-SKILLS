@@ -30,7 +30,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Task | Path |
 |---|---|
 | Voice A — 评别人的国自/面上 | `personal/grant-review.md` |
-| Voice A 语料 — 标书评审意见 | `D:\0Grok\0doc\06-review-corpus\原文\标书评审\` |
+| Voice A 语料 — 标书评审意见 | `D:\0Grok\0doc\06-review-corpus\source\grant-review\` |
 | write-protocol / 申报书与开题 | `D:\0Grok\0doc\05-grants\` |
 | Voice B — 写自己的标书句库 | `personal/grant-writing.md` |
 | Voice B 章节骨架 | `personal/grant-own-skeleton.md` |

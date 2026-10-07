@@ -1,3 +1,6 @@
+CHG-20261007-004 (2026-10-07)
+R2b 0doc: English kebab rename for ~15 Chinese subfolders + ~50 index/helper files under D:\0Grok\0doc (revision-history, _index, _templates, 02-flattened, source/text + journal-review/grant-review/thesis-review/projects, lab-ste spec.html); 伦理→ethics under 06 only (no PHI open); 07-ethics skipped. Skill pointers updated. 0script/My rule = R2c. Do not sync .grok/skills.
+Earlier: CHG-20261007-003, CHG-20261007-002.
 CHG-20261007-003 (2026-10-07)
 R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label 稿件评阅; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
 Earlier: CHG-20261007-002, CHG-20261007-001.

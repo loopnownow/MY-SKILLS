@@ -14,7 +14,7 @@
 | `term-lock-default.tsv` | Domain-general lock template (patient, feature, slice, reader, …) |
 | `lexicons/*.tsv` | de-AI / nominalization / hedge / idiom tables |
 | `tools/` | Checker and HTML builder — run from disk; do not copy into MY-SKILLS |
-| `规范.html` | Generated human view — regenerate on disk, do not vendor |
+| `spec.html` | Generated human view — regenerate on disk, do not vendor |
 
 **Do not** copy the TSV dictionaries, Python tools, or HTML into this repo. Skills keep rules + pointers (`ARCHITECTURE.md` Lab workspace SSOT).
 

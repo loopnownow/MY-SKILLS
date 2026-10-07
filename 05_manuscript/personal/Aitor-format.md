@@ -5,10 +5,10 @@ Formerly `house-format.md`.
 **Owner:** `manuscript-core`. Single source for **every English SCI full paper** in this lab.
 
 **Gold reference (reply-letter template, Markdown):**  
-`D:\0Grok\0doc\03-review-replies\_整理下\01_回复信范本.md`
+`D:\0Grok\0doc\03-review-replies\_templates\01-response-letter-template.md`
 
 **Gold reference (Word typography and page geometry):**  
-`D:\0Grok\0doc\03-review-replies\_整理下\02_排版范本.docx`
+`D:\0Grok\0doc\03-review-replies\_templates\02-layout-template.docx`
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
 `0del/lxf_LG/Response/Manuscript_Response_house.docx` (prose skeleton) ·  

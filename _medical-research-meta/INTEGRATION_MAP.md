@@ -1,5 +1,9 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-004 — 0doc R2b Chinese subfolder/index English rename
+
+- Disk under `D:\0Grok\0doc\`: 15 depth-2/3 folders (e.g. `完整修改历史`→`revision-history`, `_整理`→`_index`, `_整理下`→`_templates`, `02_打平稿`→`02-flattened`, `原文`→`source`, `文本`→`text`, corpus types → `journal-review`/`grant-review`/`thesis-review`/`projects`) + 50 index/helper files; 6 `伦理`→`ethics` under 06 (folder rename only, no content open). 07-ethics untouched. Content author｜title files and 06 corpus bodies kept Chinese.
+- Pointers: 0doc README/MIGRATE/nested indexes; MY-SKILLS `03_research/SKILL.md`, `Aitor-format`, `lab-ste`, `personal-response-style`, `review-resolution`, `thesis-review`. Map/rollback in `D:\0Grok\0del\english_fine_20261007\`. R2c (0script/My rule) deferred. Do not sync `.grok\skills`.
 ## CHG-20261007-003 — English fine-ID R2a + coarse manuscript-review
 
 - Coarse `peer-review` → `manuscript-review` (label 稿件评阅); fine `peer-review` unchanged; `legacy_aliases.coarse_aliases` adds peer-review→manuscript-review.
