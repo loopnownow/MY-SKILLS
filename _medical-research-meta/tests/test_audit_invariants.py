@@ -191,6 +191,9 @@ class RegistryMenu(unittest.TestCase):
 
 
 class ArchitectureSsot(unittest.TestCase):
+    """Root = layer/mount/ceiling SSOT. Meta = intent tables + QC/handoff + ownership.
+    Both must agree on live routing keywords; meta must not re-host full mount tables."""
+
     def test_root_and_meta_agree_on_live_rules(self) -> None:
         root = read("ARCHITECTURE.md")
         meta = read("_medical-research-meta/ARCHITECTURE.md")
@@ -216,6 +219,30 @@ class ArchitectureSsot(unittest.TestCase):
             self.assertNotRegex(low, r"≤\s*3", label)
             self.assertNotIn("role: default-candidate", text, label)
             self.assertNotIn("Default candidate: `Imbad0202", text, label)
+
+    def test_meta_owns_intent_and_qc_not_mount_tables(self) -> None:
+        meta = read("_medical-research-meta/ARCHITECTURE.md")
+        self.assertIn("../ARCHITECTURE.md", meta)
+        self.assertIn("## Skill selection", meta)
+        self.assertIn("Lab-specific flows", meta)
+        self.assertIn("## Final QC", meta)
+        self.assertIn("Local recovery", meta)
+        self.assertIn("fill-protocol", meta)
+        self.assertIn("clinical-data-extraction", meta)
+        self.assertIn("Do not duplicate root mount policy", meta)
+        # Full A/B / ceiling / Cache tables stay on root only
+        self.assertNotIn("## A/B no-reflow contract", meta)
+        self.assertNotIn("## Fine-id expansion ceiling", meta)
+        self.assertNotIn("## Cache ≠ Mount ≠ Active", meta)
+        self.assertNotIn("## load_priority", meta)
+
+    def test_root_keeps_mount_and_lab_homes(self) -> None:
+        root = read("ARCHITECTURE.md")
+        self.assertIn("## Mounts", root)
+        self.assertIn("## Fine-id expansion ceiling", root)
+        self.assertIn("## Lab workspace homes", root)
+        self.assertIn(r"D:\0Grok\0script", root)
+        self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
 
 
 class RepoMapGenerated(unittest.TestCase):

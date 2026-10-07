@@ -39,7 +39,9 @@ L3  Personal control: 02/03/04 supplements; 05/06 personal upper layers
 
 An A skill path is at most four parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/file`. After lifting `core/`, one extra folder is allowed for classification. No fifth folder, no `core/`, no `bundles/`, no `merged/`.
 
-## Mounts (agrees with `_medical-research-meta/ARCHITECTURE.md`)
+## Mounts
+
+Handoff/QC loop, lab intent tables, and pinned ownership phrases: `_medical-research-meta/ARCHITECTURE.md`. Do not restate those tables here.
 
 - **B is the default source and the default chassis** (`loopnownow/MY-SKILLS-capabilities`). Hybrid mount stays: different fine ids may use different packages; never mix packages inside one fine id.
 - Menu shape is `01_skill-discovery-integration/registry.yaml` (`coarse_id_count`, `fine_id_count_canonical`) and the generated `MOUNTED_SKILLS.md`. Do not restate those totals here. `session_mount: ask-each-run` — multi-select fine ids under relevant coarse when a new mount decision is required; reuse `session_picked_fine_ids` when they already cover the task. Menu is not `mounts: []`. The pick menu is status MOUNTED only.
