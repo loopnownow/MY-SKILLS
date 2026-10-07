@@ -29,7 +29,7 @@
 
 ## Lab-STE (disk; not Gate)
 
-Controllable-language thresholds, approved lexicon, and ZH/EN check tables live on disk at D:\0Grok\0doc\04_实验室参考\lab-ste\. Skill summary + overrides: lab-ste.md.
+Controllable-language thresholds, approved lexicon, and ZH/EN check tables live on disk at D:\0Grok\0doc\04-lab-reference\lab-ste\. Skill summary + overrides: lab-ste.md.
 
 - Do **not** vendor those TSV/tools into MY-SKILLS.
 - Lab-STE does **not** enter skill Gate.

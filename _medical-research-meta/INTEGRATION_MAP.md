@@ -1,5 +1,11 @@
 # Integration map — MedicalResearch Lean v6
 
+## CHG-20261007-002 — 0doc top-level English rename
+
+- Disk: `D:\0Grok\0doc\` top folders → `00-inbox`, `01-thesis`, `02-manuscripts`, `03-review-replies`, `04-lab-reference`, `05-grants`, `06-review-corpus`, `07-ethics`; `04-lab-reference\研究设计` → `study-design`.
+- Pointers: `0doc/README.md`, `MIGRATE_FROM_SKILLS.md`, ARCHITECTURE, 03/05/06 skills + personal layers, ethics SKILL, harvest keep-vs-skip, tests.
+- Fine-ID round deferred. Do not merge PR #118 from this agent; push onto `english-coarse-ids-20261007`.
+
 ## CHG-20261007-001 — English coarse ids + 0script coarse rename
 
 - Registry `coarse_ids[].id` → English kebab slugs; Chinese in `label`; `mounts[].coarse` updated; `legacy_aliases.coarse_aliases` added.
@@ -32,14 +38,14 @@ Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archiv
 date: 2026-10-06
 skill: 06_review/SKILL.md; 06_review/personal/{personal-review-style,review-comment-habits,thesis-review,personal-response-style,review-resolution}.md; 03_research/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 05_manuscript/SKILL.md; ARCHITECTURE.md; skill-harvest/references/keep-vs-skip.md; INTEGRATION_MAP.md; VERSION.txt
 problem: Review, grant, ethics, and manuscript skills did not point at the lab document folders. The ethics column long text still lived in the skill repo.
-change: Add disk pointers to `D:\0Grok\0doc` corpora. The ethics long text leaves the skill tree and now lives at `D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md`. `references/checklist.md` stays. Do not vendor the corpora. Do not copy hospital Word files into the repo. 0doc 语料只留指针。伦理长文外置。
+change: Add disk pointers to `D:\0Grok\0doc` corpora. The ethics long text leaves the skill tree and now lives at `D:\0Grok\0doc\04-lab-reference\study-design\fill-protocol\jinshan-form-pack.md`. `references/checklist.md` stays. Do not vendor the corpora. Do not copy hospital Word files into the repo. 0doc 语料只留指针。伦理长文外置。
 decision: keep
 next_action: do not push. The user decides the PR. Do not sync `~\.grok\skills` until after merge. Renumbered from 002 after #116 (0script CHG-20261006-002) merged to main.
 ## CHG-20261006-002 — 0script reorganized by MY-SKILLS coarse/fine id
 date: 2026-10-06
 skill: 02_data-processing/SKILL.md; 02_data-processing/0rad-workspace.md; 02_data-processing/clinical-data-extraction/SKILL.md; 02_data-processing/code-refactoring/SKILL.md; 03_research/ethics-application-forms/SKILL.md; 04_analysis/SKILL.md; 04_analysis/personal/{lab-palettes,high-dimensional-omics}.md; 05_manuscript/SKILL.md; 06_review/SKILL.md; 00_orchestrator/workflows/radiomics-study.md; skill-harvest/SKILL.md; skill-harvest/references/keep-vs-skip.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
 problem: D:\0Grok\0script scripts were filed by function (tidy/stat/t1vbm/figures), not by the MY-SKILLS coarse/fine ids, so skill pointers could not be kept in sync. Ten runnable scripts also lived inside MY-SKILLS instead of the runnable-code SSOT.
-change: 0script folders reorganized under coarse/fine ids — 数据处理/clean-data (tidy + clinical-extraction), 数据处理/preprocess-imaging/{t1vbm,fmri}, 统计分析/model-validation (stat + split/radiology audit), 图表呈现/make-figures/lxf_PP, 研究设计/fill-protocol, 正文写作/write-paper, _templates. modules/ sync/ docx_revise/ archive/ docx_extract.py unchanged. The 10 MY-SKILLS scripts were copied byte-for-byte (SHA256 verified) into 0script and git-rm'd from this repo; skill text now points at D:\0Grok\0script\... absolute paths. 0script SCRIPT_ROLES.md gained a 细 ID → path table. Old sync scripts archived to archive\sync\; asl_nifti_params one-off scripts moved to 0del.
+change: 0script folders reorganized under coarse/fine ids — 数据处理/clean-data (tidy + clinical-extraction), 数据处理/preprocess-imaging/{t1vbm,fmri}, 统计分析/model-validation (stat + split/radiology audit), 图表呈现/make-figures/lxf_PP, study-design/fill-protocol, 正文写作/write-paper, _templates. modules/ sync/ docx_revise/ archive/ docx_extract.py unchanged. The 10 MY-SKILLS scripts were copied byte-for-byte (SHA256 verified) into 0script and git-rm'd from this repo; skill text now points at D:\0Grok\0script\... absolute paths. 0script SCRIPT_ROLES.md gained a 细 ID → path table. Old sync scripts archived to archive\sync\; asl_nifti_params one-off scripts moved to 0del.
 decision: keep
 next_action: approve branch 0script-reorg-by-skill, merge, then sync changed files only into ~\.grok\skills.
 
@@ -62,7 +68,7 @@ next_action: after merge, sync changed files only into ~\.grok\skills.
 ## CHG-20261003-002 — Lab-STE into skills (pointer + reusable rules)
 date: 2026-10-03
 skill: 05_manuscript/personal/lab-ste.md (new); 05_manuscript/SKILL.md; 05_manuscript/personal/de-ai.md; 06_review/personal/review-comment-habits.md; 06_review/SKILL.md; ARCHITECTURE.md; INTEGRATION_MAP.md; VERSION.txt
-problem: Lab controllable-language pack at D:\0Grok\0doc\04_实验室参考\lab-ste\ (v0.2.1) was not pointed from MY-SKILLS; Chinese 稿面批注五槽 and STE conflict/vocabulary layer rules were missing as reusable habits.
+problem: Lab controllable-language pack at D:\0Grok\0doc\04-lab-reference\lab-ste\ (v0.2.1) was not pointed from MY-SKILLS; Chinese 稿面批注五槽 and STE conflict/vocabulary layer rules were missing as reusable habits.
 change: Add path-pointer skill summary (no TSV/tools/HTML vendored). Wire 05 assets + de-ai cross-link (Methods passive / Compared / attenuated standing rules unchanged). Add CM-01 five-slot habit under 06 review-comment-habits. Not a Gate.
 decision: keep
 next_action: after merge, sync changed files only into ~\.grok\skills.
@@ -95,7 +101,7 @@ next_action: after merge, sync changed files only into `~\.grok\skills`.
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
 problem: After CHG-20260929-003 the only gold reference was a Markdown reply-letter template, so "## Page" and "## DOCX typography" had no Word example.
-change: Add a second gold line, "Gold reference (Word typography and page geometry)", pointing at `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\02_排版范本.docx` (built from the Page / DOCX typography rules; checked on the PC). Pointer only; no rule text changed.
+change: Add a second gold line, "Gold reference (Word typography and page geometry)", pointing at `D:\0Grok\0doc\03-review-replies\_整理下\02_排版范本.docx` (built from the Page / DOCX typography rules; checked on the PC). Pointer only; no rule text changed.
 decision: keep
 next_action: after merge, sync changed files only into `~\.grok\skills`.
 
@@ -103,7 +109,7 @@ next_action: after merge, sync changed files only into `~\.grok\skills`.
 date: 2026-09-29
 skill: 05_manuscript/personal/Aitor-format.md; INTEGRATION_MAP.md; VERSION.txt
 problem: Aitor-format line 8 pointed at `D:\0Grok\0RAD\0del\lxf_LG\Response\Manuscript_Response_house.docx`, which is no longer on disk (left open in CHG-20260929-002).
-change: User named the new gold: `D:\0Grok\0doc\03_投稿_审稿意见与回复\_整理下\01_回复信范本.md` (checked on the PC). Label changed from "Gold manuscript (typography and page geometry)" to "Gold reference (reply-letter template, Markdown)" because the target is a .md. No other lines changed.
+change: User named the new gold: `D:\0Grok\0doc\03-review-replies\_整理下\01_回复信范本.md` (checked on the PC). Label changed from "Gold manuscript (typography and page geometry)" to "Gold reference (reply-letter template, Markdown)" because the target is a .md. No other lines changed.
 decision: keep
 next_action: after merge, sync changed files only into `~\.grok\skills`.
 

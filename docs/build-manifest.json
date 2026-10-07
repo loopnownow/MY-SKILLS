@@ -1,7 +1,7 @@
 {
   "generated": true,
   "rebuild_command": "python3 00_orchestrator/scripts/gen_visualization.py",
-  "generated_at": "2026-10-07T00:08:12Z",
+  "generated_at": "2026-10-07T00:16:22Z",
   "archify": {
     "source": "tt-a1i/archify",
     "expected_version": "3.0.1",
@@ -19,7 +19,7 @@
   "archify_render": "rendered",
   "archify_package_sha256": "b0b23bd28db314f04ca8ab9620fe20f8c1ac6474a3546bd8fe4679508aa1b7f5",
   "github_pages": "not-published",
-  "source_fingerprint": "c8030513aa39720990b8b0f7c01597ace5066e5f1c3a8aef2da4afc1c8eb8a91",
+  "source_fingerprint": "649cb268b5d9f3d3a6a123ab46f6173d71cd5e37446c34933dff72fc1bbc68ff",
   "sources": [
     "01_skill-discovery-integration/registry.yaml",
     "00_orchestrator/runtime-flow.mmd",
