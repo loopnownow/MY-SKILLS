@@ -6,6 +6,7 @@ paragraph lock). The test locks the check ids, not any manuscript's numbers.
 """
 from __future__ import annotations
 
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -225,6 +226,8 @@ class CitationVerifyRequired(unittest.TestCase):
 class WordTrackChangesOwnership(unittest.TestCase):
     """Aitee owns manuscript Track Changes. Lee comments; he does not self-revise."""
 
+    CONTRACT = "00_orchestrator/references/ownership-contract.md"
+    POINTER = "00_orchestrator/references/ownership-contract.md"
     PHRASES = (
         "All manuscript Track Changes are owned by Aitee (05).",
         "Lee must not self-revise as default.",
@@ -254,12 +257,46 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "_medical-research-meta/ARCHITECTURE.md",
         "01_skill-discovery-integration/registry.yaml",
     )
+    SCAN_SKIP = {
+        CONTRACT,
+        "_medical-research-meta/tests/test_pre_submit_checks.py",
+    }
 
-    def test_ownership_phrases_are_present(self) -> None:
+    def test_contract_holds_full_sentences(self) -> None:
+        text = read(self.CONTRACT)
+        for phrase in self.PHRASES:
+            self.assertIn(phrase, text, f"contract missing {phrase!r}")
+        for name in ("Aitor", "Aitee", "Lee", "Victor", "Loopnow", "Bai"):
+            self.assertIn(name, text, name)
+        self.assertIn("G-CIT-1", text)
+        self.assertIn("G-CIT-2", text)
+
+    def test_wired_files_point_at_contract(self) -> None:
         for rel in self.FILES:
-            text = read(rel)
+            self.assertIn(self.POINTER, read(rel), f"{rel} missing ownership pointer")
+
+    def test_full_sentences_appear_only_in_contract(self) -> None:
+        hits = {phrase: [] for phrase in self.PHRASES}
+        tracked = subprocess.check_output(
+            ["git", "-c", "core.quotepath=false", "ls-files"],
+            cwd=ROOT,
+            text=True,
+            encoding="utf-8",
+        )
+        for rel in tracked.splitlines():
+            if not rel or rel in self.SCAN_SKIP:
+                continue
+            if rel.startswith("mounts-cap/"):
+                continue
+            path = ROOT / rel
+            if path.suffix.lower() not in {".md", ".yaml", ".yml", ".mmd", ".py", ".txt"}:
+                continue
+            text = path.read_text(encoding="utf-8")
             for phrase in self.PHRASES:
-                self.assertIn(phrase, text, f"{rel} missing {phrase!r}")
+                if phrase in text:
+                    hits[phrase].append(rel)
+        leftover = {p: files for p, files in hits.items() if files}
+        self.assertEqual(leftover, {}, msg=str(leftover))
 
     def test_lee_does_not_apply_decidable_track_changes(self) -> None:
         retired = (

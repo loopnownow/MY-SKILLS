@@ -61,6 +61,8 @@ checks:
 
 Load on every full-paper draft, polish, and house.docx pass, after `Aitor-format.md` and `voice-portrait.md`.
 
+Target-journal AI-use disclosure: check the author instructions and match any required AI statement (or confirm the journal asks for none).
+
 Statistical definitions live in `04_analysis/personal/stats-consistency.md` and the checkbox list in `04_analysis/personal/stats-checklist.md`. Lee's annotation protocol lives in `06_review/personal/cross-manuscript-qc.md`.
 
 Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`).

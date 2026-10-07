@@ -2,6 +2,8 @@
 
 **Owner:** manuscript-core. Apply on every polish/draft/de-ai pass.
 
+**机器源 = `ban-terms.yaml`；改词先改 yaml，再生成/同步表与 linter。** 本文件给人看。Hard ban 词的机器执行以 `05_manuscript/personal/ban-terms.yaml` 为准（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
+
 ## Hard ban (unless literally quoted from a source)
 
 | Avoid | Prefer |

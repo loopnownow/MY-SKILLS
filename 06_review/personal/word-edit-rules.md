@@ -2,7 +2,7 @@
 
 ## 修订
 
-All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed. call/require 03 citation-verify — do not self-certify lit.
+Ownership: see `00_orchestrator/references/ownership-contract.md`. call/require 03 citation-verify — do not self-certify lit.
 
 - 稿件正文的修订由 **Aitee（05）** 落地。Lee（06）默认只批注、不自行修订。可决定的问题写成给 Aitee 的 TC-fix 批注；定不了的问题用中文批注正文，并附英文建议措辞和/或建议文献（文献由 Victor 供给）。
 - 下面的修订模式是 **Aitee 落修订** 时的操作，不是 Lee 自己改稿的默认。

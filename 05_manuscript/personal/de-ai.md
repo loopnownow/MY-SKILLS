@@ -4,14 +4,14 @@
 
 ## 加载顺序（`de-ai` 模式）
 
-1. **`forbidden-phrases.md`** — 先查这个。学科专属禁词表（delve/robust/leverage 等），任何润色/草稿都先过一遍。
+1. **`forbidden-phrases.md`** — 先查这个。学科专属禁词表（delve/robust/leverage 等），任何润色/草稿都先过一遍。机器源：`ban-terms.yaml`。
 2. **`ai-isms-checklist.md`** — 更细的 AI 味特征清单（句式、结构层面），forbidden-phrases 查完再查这个。
 3. **`stop-slop-core.md`** — 通用 prose hygiene 规则 + **医学 SCI 场景的强制覆盖**（被动语态例外、禁 em-dash 等）。**覆盖条款优先于文件内其余通用规则。**
-4. **`ai-writing-detector.md`** — 仅当用户明确要"检测报告 / 打分"时才打开，不是默认润色路径的一部分。
 
 ## 不在默认加载路径中（背景参考，非规则源）
 
 - `phrases.md` / `structures.md` / `examples.md` — `stop-slop-core.md` 内部引用的通用博客体参考资料。其中多数条目（如 "Plot twist:"、"circle back"）不出现在医学英文论著语域中；真正适用于本实验室写作的禁词/结构规则已被 `forbidden-phrases.md` 和 `ai-isms-checklist.md` 覆盖。除非要处理非医学文本，否则不必单独查阅。
+- `archive/ai-writing-detector.md` — 非默认。诊断用 `00_orchestrator/scripts/style_lint.py`。本文件不参与默认 de-AI。
 
 ## 铁律（不因去 AI 而放弃）
 
@@ -34,4 +34,4 @@ Controllable-language thresholds, approved lexicon, and ZH/EN check tables live 
 - Do **not** vendor those TSV/tools into MY-SKILLS.
 - Lab-STE does **not** enter skill Gate.
 - Methods voice: this file's **passive** house rule wins over Lab-STE EN-V01 active default (use on-disk methods_voice: conventional_passive when aligning checks).
-- English hard bans remain orbidden-phrases.md (Compared / attenuated standing rules unchanged).
+- English hard bans remain forbidden-phrases.md (Compared / attenuated standing rules unchanged).

@@ -22,6 +22,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 | Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `personal/` (`MODULE.md` + diagnostic/survival/sample-size notes) |
 | Imaging statistics notes (lab) | `personal/statistics.md` |
 | Lab figure palettes | `personal/lab-palettes.md` |
+| Figure claim planning (pick the plot from the Discussion claim before drawing) | `personal/figure-claim-planning.md` |
 | Stats checklist | `personal/stats-checklist.md` |
 | Reported stats consistency (GRIM / NHST / CI vs p; threshold, implied *n*, multiplicity, relative units, circular *P*, inclusion scale) | `personal/stats-consistency.md` |
 | Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/personal/pre-submit-consistency.md` |
@@ -57,15 +58,15 @@ Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figur
 
 ## Precedence
 
-When a figure or statistic can be produced more than one way, use this order:
+Three axes. Do not mix them into one ranked list.
 
-1. external mounted capability
-2. 04 generic procedure
-3. 04 personal lab rule
-4. project `settings.ini`
-5. the executed result HTML
+**规则权威：** A 个人层 > 04 通用 > 外挂能力
 
-The executed artifact is the fact authority, not the skill text. Do not auto-pick numbers the HTML does not contain.
+**工具选择：** 个人已实现则用个人；否则外挂；再否则 04 通用
+
+**事实权威：** 已执行结果 HTML / 项目 `settings.ini` > 任何 skill 文本
+
+Do not invent numbers the HTML does not contain.
 
 ## Workflow
 
@@ -73,7 +74,7 @@ The executed artifact is the fact authority, not the skill text. Do not auto-pic
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/lab-palettes.md`). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/lab-palettes.md`). Before drawing, load `personal/figure-claim-planning.md` (claim → plot type, evidence manifest, three-round render QC). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 

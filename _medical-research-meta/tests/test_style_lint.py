@@ -19,11 +19,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 # =============================================================================
 # CONFIG -- paths and shared fixtures (edit here, nowhere else)
 # =============================================================================
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_PATH = REPO_ROOT / "00_orchestrator" / "scripts" / "style_lint.py"
+BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "personal" / "ban-terms.yaml"
 
 # Modules the linter is allowed to import. Anything else (socket, urllib, http,
 # requests, subprocess, ...) would break the "manuscript text never leaves the
@@ -112,13 +115,13 @@ class VocabularyTests(unittest.TestCase):
         self.assertLessEqual(sl.CONFIG["PASS_SCORE"], len(sl.GROUPS))
 
     def test_limited_words_fine_once_not_twice(self):
-        self.assertFalse(failed(sl.lint(doc("Discussion", "This is crucial.")), "vocabulary"))
-        self.assertTrue(failed(sl.lint(doc("Discussion", "This is crucial. That is crucial.")),
+        self.assertFalse(failed(sl.lint(doc("Discussion", "This is compelling.")), "vocabulary"))
+        self.assertTrue(failed(sl.lint(doc("Discussion", "This is compelling. That is compelling.")),
                                "vocabulary"))
 
     def test_limited_words_total_cap(self):
-        three = doc("Discussion", "It is crucial. It is pivotal. It is compelling.")
-        four = doc("Discussion", "It is crucial. It is pivotal. It is compelling. It is innovative.")
+        three = doc("Discussion", "It is compelling. It is innovative. It is meticulous.")
+        four = doc("Discussion", "It is compelling. It is innovative. It is meticulous. It is a journey.")
         self.assertFalse(failed(sl.lint(three), "vocabulary"))
         self.assertTrue(failed(sl.lint(four), "vocabulary"))
 
@@ -334,6 +337,74 @@ class PolicyTests(unittest.TestCase):
         src = SCRIPT_PATH.read_text(encoding="utf-8")
         for needle in ("write_text", "write_bytes", "open(", "os.remove", "unlink"):
             self.assertNotIn(needle, src, "the linter reports; it must never modify files")
+
+    def test_vocab_is_not_hand_coded(self):
+        src = SCRIPT_PATH.read_text(encoding="utf-8")
+        self.assertIn("ban-terms.yaml", src)
+        self.assertIn('"VOCAB_ALWAYS":[]', src.replace(" ", ""))
+        self.assertNotIn('r"labell?ed"', src)
+
+
+# =============================================================================
+# ban-terms.yaml is the unique machine source
+# =============================================================================
+def _ban_terms():
+    data = yaml.safe_load(BAN_TERMS_PATH.read_text(encoding="utf-8"))
+    return data
+
+
+class BanTermsAlwaysTests(unittest.TestCase):
+    def test_yaml_always_matches_linter_config(self):
+        data = _ban_terms()
+        always = [row["pattern"] for row in data["always"]]
+        limited = [row["pattern"] for row in data["limited"]]
+        self.assertEqual(always, sl.CONFIG["VOCAB_ALWAYS"])
+        self.assertEqual(limited, sl.CONFIG["VOCAB_LIMITED"])
+        self.assertEqual(data["limited_policy"]["per_term"], sl.CONFIG["TIER2_MAX_PER_TERM"])
+        self.assertEqual(data["limited_policy"]["total"], sl.CONFIG["TIER2_MAX_TOTAL"])
+
+    def test_every_always_probe_fails_in_introduction(self):
+        data = _ban_terms()
+        self.assertGreaterEqual(len(data["always"]), 15)
+        for row in data["always"]:
+            probe = row["probe"]
+            text = doc("Introduction", "This paragraph uses the term %s in academic prose." % probe)
+            with self.subTest(probe=probe):
+                code, out, err = GuardAndCliTests().run_main(["--text", text])
+                self.assertEqual(code, 1, "always probe %r must fail style_lint (out=%r err=%r)"
+                                 % (probe, out, err))
+                r = sl.lint(text)
+                self.assertTrue(failed(r, "vocabulary"), probe)
+
+    def test_intro_with_fifteen_hard_ban_terms_does_not_pass(self):
+        data = _ban_terms()
+        probes = [row["probe"] for row in data["always"][:15]]
+        body = " ".join("The %s finding was reported." % p for p in probes)
+        text = doc("Introduction", body)
+        code, _, _ = GuardAndCliTests().run_main(["--text", text])
+        self.assertEqual(code, 1)
+        self.assertFalse(sl.lint(text)["passed"])
+
+
+class PersonalMarkdownControlCharTests(unittest.TestCase):
+    """C0 controls are forbidden in 05/06 personal markdown (tab/LF/CR allowed)."""
+
+    ALLOWED = {0x09, 0x0A, 0x0D}
+
+    def test_no_c0_controls_in_personal_markdown(self):
+        roots = (
+            REPO_ROOT / "05_manuscript" / "personal",
+            REPO_ROOT / "06_review" / "personal",
+        )
+        hits = []
+        for root in roots:
+            for path in sorted(root.rglob("*.md")):
+                data = path.read_bytes()
+                for i, byte in enumerate(data):
+                    if byte < 0x20 and byte not in self.ALLOWED:
+                        rel = path.relative_to(REPO_ROOT)
+                        hits.append("%s offset %d U+%04X" % (rel.as_posix(), i, byte))
+        self.assertEqual(hits, [], msg="\n".join(hits))
 
 
 if __name__ == "__main__":

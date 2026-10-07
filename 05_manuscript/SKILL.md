@@ -14,7 +14,7 @@ description: >
 Convert **validated** research information into precise, publication-ready original-article prose.
 **Never invent** sample sizes, P values, effects, CIs, procedures, ethics IDs, citations, or claims.
 
-All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes. Decidable issues from 06: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default; 05 applies those Track Changes. Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature. Apply Track Changes only after the user picks. Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
+Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable issues from 06: Lee annotates for Aitee to TC-fix; 05 applies those Track Changes. Apply Track Changes only after the user picks on undecidable issues.
 
 **Lab priority:** data truth > journal format > Ying Li voice > generic ornate English.
 
@@ -101,7 +101,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 ## Edit unit and comments
 
-- All manuscript Track Changes are owned by Aitee (05). When 06 marks a decidable fix, apply Track Changes here. Lee marks/comments; Aitee applies Track Changes. Lee must not self-revise as default.
+- Ownership: see `00_orchestrator/references/ownership-contract.md`. When 06 marks a decidable fix, apply Track Changes here.
 - Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
 - Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit-rules.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
