@@ -15,3 +15,9 @@ Harvest must not invent a second evolution log file.
 - Canonical: `03_research/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.
 - Regenerated `docs/` visualization HTML via `00_orchestrator/scripts/gen_visualization.py` (outputs were stale on main after #126).
 - `skill-harvest/scripts/repo_qc.py`: files under `_medical-research-meta/history/` count as historical (legacy-active-refs, stale-ids), like the stub and archive. `history/INTEGRATION_MAP-20261007.md` archive link repointed to `../INTEGRATION_MAP.archive.md` (broken since the monthly roll in #124).
+
+## CHG-20261008-002 — find-journal similar-article check is round 2
+
+- User rule update 2026-10-08: the similar-article search is round 2 of journal selection, not a step before ranking.
+- Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link). Never invent articles. A failed search is not a no-hit.
+- Canonical: `03_research/find-journal/SKILL.md` § Similar-article check (pack v1.17 → v1.18). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.

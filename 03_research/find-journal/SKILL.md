@@ -3,7 +3,7 @@ name: find-journal
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.17"
+  version: "1.18"
   source_table: {jcr2026_xlsx}
   owner: 03_research/Victor
   home: A 03_research/find-journal (B find-journal is the engine; venue-templates only house style)
@@ -67,7 +67,12 @@ Inside each layer rank by
 
 ### Similar-article check (user rule 2026-10-08)
 
-Do this check for each candidate journal on every 推荐杂志 run. Do it before you rank inside a layer.
+This check is round 2 of journal selection. The pack does not number rounds elsewhere. These two rounds apply only to this check.
+
+- Round 1 ranks each layer by the criteria above. Round 1 does not search for similar articles.
+- Round 2 searches each ranked candidate. Then it lowers a journal that has no similar articles.
+
+Do this check in round 2 only.
 
 1. Use the manuscript title and its key topic terms as the query.
 2. Search the candidate journal for articles with similar content from the last 3–5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
