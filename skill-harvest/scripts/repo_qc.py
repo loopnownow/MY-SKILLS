@@ -27,6 +27,14 @@ SKIP_DIRS = {".git", "__pycache__", "mounts-cap"}
 TEXT_EXTS = {".md", ".yaml", ".yml", ".txt", ".html"}
 STALE_EXTS = TEXT_EXTS | {".py"}
 HISTORICAL_FILES = {Path("_medical-research-meta/INTEGRATION_MAP.md"), Path("_medical-research-meta/INTEGRATION_MAP.archive.md")}
+# Monthly INTEGRATION_MAP rolls (INTEGRATION_MAP.md stub) land here; dated log, not live text.
+HISTORY_DIR = Path("_medical-research-meta/history")
+
+
+def is_historical(rel: Path) -> bool:
+    return rel in HISTORICAL_FILES or HISTORY_DIR in rel.parents
+
+
 NEGATIVE_WORD_RE = re.compile(r"(?i)\b(?:no|not|never|do not|don't|retired|deleted|historical|legacy|former)\b")
 
 
@@ -126,7 +134,7 @@ def check_legacy_active_refs(root: Path, out: list):
     bad = []
     for p in files(root):
         rel = p.relative_to(root)
-        if rel in HISTORICAL_FILES: continue
+        if is_historical(rel): continue
         for i, line in enumerate(read(p).splitlines(), 1):
             if any(x in line for x in LEGACY_ACTIVE) or re.search(r"(?<![A-Za-z0-9_])(?:bundles/|merged/)", line):
                 if NEGATIVE_WORD_RE.search(line):
@@ -260,7 +268,7 @@ def check_stale_ids(root: Path, out: list):
     bad = []
     for p in files(root, STALE_EXTS):
         rel = p.relative_to(root)
-        if rel in HISTORICAL_FILES or rel == ALIAS_FILE:
+        if is_historical(rel) or rel == ALIAS_FILE:
             continue
         if "tests" in rel.parts:
             continue

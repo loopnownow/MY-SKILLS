@@ -49,6 +49,8 @@ Tier labels must be driven by **Journal Ease (JEI/JESI) × MJF × PAI × Practic
 
 Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **投过/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Prefer non-gray; skip Frontiers/graylist when better matches fill the layer. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
 
+**Similar-article check (2026-10-08):** search each candidate journal for similar articles from the last 3–5 years. No similar article → lower its tier and write 「近年未见类似文章，已降级」 in 匹配理由. Full rule: `SKILL.md` § Similar-article check.
+
 ## Four-module pipeline
 
 ```text

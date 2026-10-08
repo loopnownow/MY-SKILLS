@@ -3,7 +3,7 @@ name: find-journal
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.16"
+  version: "1.17"
   source_table: {jcr2026_xlsx}
   owner: 03_research/Victor
   home: A 03_research/find-journal (B find-journal is the engine; venue-templates only house style)
@@ -64,6 +64,17 @@ Inside each layer rank by
 4. **灰名单** (`data/2026/graylist.csv`, Frontiers 系列): 有更好非灰匹配则不用；never boost
 3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
 4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
+
+### Similar-article check (user rule 2026-10-08)
+
+Do this check for each candidate journal on every 推荐杂志 run. Do it before you rank inside a layer.
+
+1. Use the manuscript title and its key topic terms as the query.
+2. Search the candidate journal for articles with similar content from the last 3–5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
+3. If the search finds similar articles, cite them in 匹配理由. Give title, year, and DOI or link for each article. Cite 1–3 articles.
+4. If the search finds no similar article, lower the recommendation tier of that journal. Rank it below each journal in the same layer that has similar articles. Write 「近年未见类似文章，已降级」 in 匹配理由.
+5. Do not invent articles, titles, years, DOIs, or links. List only articles that a real search returned.
+6. A failed search is not a search with no hits. Retry it. If it still fails, write that the search failed. Do not write 「近年未见类似文章，已降级」 for a failed search.
 
 **Dynamic weights:** numeric JESI defaults in `jesi-model.md` are **initial only** and must be overridable when the user prioritizes speed, Q1, APC/OA, etc. Do not copy fixed external Fit Score weights into this pack.
 
