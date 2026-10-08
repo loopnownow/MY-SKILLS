@@ -85,7 +85,7 @@ This file records the current architecture, not the historical export tree. Live
 
 Historical export paths are intentionally not retained in the active map.
 
-Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](INTEGRATION_MAP.archive.md).
+Entries are newest first. Entries before 2026-09 live in [INTEGRATION_MAP.archive.md](../INTEGRATION_MAP.archive.md).
 
 ## CHG-20261006-003 — 0doc skill map and ethics long-text pointer
 date: 2026-10-06
