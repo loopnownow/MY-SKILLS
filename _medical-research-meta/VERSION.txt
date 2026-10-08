@@ -1,3 +1,6 @@
+CHG-20261008-002 (2026-10-08)
+find-journal v1.18: similar-article check moves to round 2 of journal selection. Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link); never invent; a failed search is not a no-hit. Canonical text in SKILL.md; pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md.
+Earlier: CHG-20261008-001, CHG-20261007-010.
 CHG-20261008-001 (2026-10-08)
 find-journal v1.17: user rule 2026-10-08 similar-article check. For each candidate journal, search the last 3–5 years for articles similar to the manuscript title; cite found articles (title, year, DOI/link) in 匹配理由; none found → lower its tier and write 「近年未见类似文章，已降级」; never invent articles; a failed search is not a no-hit. Canonical text in SKILL.md; one-line pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md. Regenerated docs/ visualization HTML (was stale after #126). repo_qc treats _medical-research-meta/history/ as historical; history archive link repointed (broken since #124 roll).
 Earlier: CHG-20261007-010, CHG-20261007-009.

@@ -3,7 +3,7 @@
 Authority order: `SKILL.md` → `rules/policy.md` → `rules/recommendation-workflow.md` → this file.
 If this file conflicts with `SKILL.md` / `policy.md`, **follow SKILL/policy** (zip processed pack).
 
-Aligned with **SKILL.md metadata.version 1.17** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + 可荐综合刊).
+Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + 可荐综合刊).
 
 ## When to use
 
@@ -21,7 +21,7 @@ Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are cho
    - Only if user opts in: 层2补 — Q1 and 5 ≤ IF ≤ 10 — `data/2026/layer2b-q1-if-5to10.csv` (Challenge)
 3. Do **not** use layer1 (IF>10) unless the user asks. Comprehensive/general medical journals OK when match is reasonable.
 4. Rank inside a layer by: **稿件匹配度** (MJF/MFI, highest) → **BMC/Medicine 白名单优先** → **投稿易投指数** (JESI/JEI) → capacity signal (年发文量 / log volume as weak tie-breaker). Load `data/2026/whitelist-bmc-medicine.csv`. Use **dynamic weights** when user constraints differ (speed / Q1 / APC); no fixed weights as policy. Do not use curated 易投指数 in ranking/JDI.
-   - Similar-article check (2026-10-08): no similar article in the last 3–5 years → lower the tier; write 「近年未见类似文章，已降级」. Full rule: `SKILL.md` § Similar-article check.
+   - Similar-article check (2026-10-08), round 2: round 1 ranks first and does not search. In round 2, no similar article in the last 3–5 years → lower it inside its layer; write 「近年未见类似文章，已降级」. Full rule: `SKILL.md` § Similar-article check.
 5. Phase-1 columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标)
    - No 分层/策略 column (layer in section titles; keep data-layer/data-tier on checkboxes). Chinese score headers; always show rate columns (blank/`—` if unknown). Do **not** show 置信度 / ISO / JIF分区 / JCI分区.
    - JESI: always from available A/R/P+MJF; partial scores marked in-cell (`*` + `缺:…`); never invent rates. See `jesi-model.md`.
