@@ -42,7 +42,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Multicenter | `personal/multicenter.md` |
 | JCR 分层荐刊（金山） | `find-journal/` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
-| Ethics application **forms** (fill pack) | `fill-protocol/` (`scripts/`, `references/`) |
+| Ethics application **forms** (fill pack) | `fill-protocol/` (`scripts/`, `references/`, `references/form-boilerplate.md`) |
 | Citation verify (claim→ref table + strong-claim spot-check; required before 05 done and inside 06) | `personal/citation-verify.md` |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
