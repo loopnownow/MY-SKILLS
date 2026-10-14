@@ -21,7 +21,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 | Task | Path |
 |---|---|
 | Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/0rad-pipeline-rules.md` |
-| Console UI / results HTML / figure switches (persist choices, row layout, no Chinese in figures, external=same schema, switch-gated plots) | `personal/console-ui-and-report-rules.md` |
+| Console UI / results HTML / figure switches (persist choices, row layout, no Chinese in figures, external=same schema, switch-gated plots; HTML over companion xlsx on number conflict) | `personal/console-ui-and-report-rules.md` |
 | Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `personal/` (`MODULE.md` + diagnostic/survival/sample-size notes) |
 | Imaging statistics notes (lab) | `personal/statistics.md` |
 | Lab figure palettes | `personal/lab-palettes.md` |
