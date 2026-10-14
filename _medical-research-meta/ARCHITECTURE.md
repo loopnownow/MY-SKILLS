@@ -1,4 +1,4 @@
-# Architecture and Handoff Contract
+﻿# Architecture and Handoff Contract
 
 This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
 
@@ -21,7 +21,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 |---|---|
 | Skill discovery / new external capability | `01_skill-discovery-integration` |
 | Excel / 0RAD workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
-| Literature research / evidence / study design / grants / translational design / ethics forms | `03_research` |
+| Literature research / evidence / study design / grants / translational design / ethics forms (Bai seats fill-protocol) | `03_research` |
 | Statistics / prediction / **figures** / 样本量 | `04_analysis` |
 | Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / **reviewer response** | `06_review` |
@@ -77,7 +77,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 ## Domain boundaries (lab intent)
 
 - `02_data-processing`: raw → analysis-ready. Statistics/model fitting is not its role. Ethics forms are not here.
-- `03_research`: design, literature/evidence, ethics **forms**, translational design, **选刊**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role.
+- `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol`, **seat Bai**), translational design, **选刊**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role. Victor does not fill ethics forms.
 - `04_analysis`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
 - `05_manuscript`: personal writing layer. Literature retrieval and 选刊 → `03_research`; figures → `04_analysis`. de-AI at `05_manuscript/personal/`. Mid-entry does not waive citation-verify.
 - `06_review`: personal review/response layer. Changed wording → `05_manuscript`.

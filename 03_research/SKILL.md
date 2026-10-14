@@ -1,4 +1,4 @@
----
+﻿---
 name: medical-research-design-and-evidence
 description: >
   Research approach: study design, literature research, evidence, frontier,
@@ -42,7 +42,7 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 | Multicenter | `personal/multicenter.md` |
 | JCR 分层荐刊（金山） | `find-journal/` |
 | Clinical translation / reader-study **design** | `clinical-translation/` (`references/`) |
-| Ethics application **forms** (fill pack) | `fill-protocol/` (`scripts/`, `references/`, `references/form-boilerplate.md`) |
+| Ethics application **forms** (fill pack; **seat Bai**, Aitor routes/monitors; path stays here) | `fill-protocol/` (`scripts/`, `references/`, `references/form-boilerplate.md`) |
 | Citation verify (claim→ref table + strong-claim spot-check; required before 05 done and inside 06) | `personal/citation-verify.md` |
 
 Do not rewrite mounted literature/systematic-review capability inside these files.
@@ -90,7 +90,7 @@ Labels only. Not new skills and not a new top layer.
 - Evidence: gaps, conflict, mechanism, journal fit. Never invent PMID/DOI.
 - Design: question/hypothesis, eligibility, endpoints, sample size, bias, reporting guideline.
 - Exploration: frontier and reusable question-to-reference cards.
-- Research Administration: ethics forms, grants, 选刊 submit pack.
+- Research Administration: ethics forms (**Bai** seats fill-protocol), grants, 选刊 submit pack.
 - Translational design: use scenario, reader study, threshold-to-action, prospective/regulatory — `clinical-translation/`.
 - Grant-review (Voice A): load **only** `personal/grant-review.md`. English journal peer review stays in `06_review`.
 - Grant-writing (Voice B): skeleton + method-upgrade + `personal/grant-writing.md`. Never paste Voice A tics into own text.

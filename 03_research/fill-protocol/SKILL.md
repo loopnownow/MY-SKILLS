@@ -9,6 +9,8 @@ description: >
 
 # 伦理申请表格填报
 
+**Seat:** Bai（投稿/伦理表专员）。Aitor 路由并盯梢。路径仍在 `03_research/fill-protocol/`；Victor 不填表。
+
 家园 `03_research/fill-protocol/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
 
 ## Purpose
