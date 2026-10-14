@@ -1,4 +1,4 @@
-# Route contract for 00 fast routing. Unit tests check these strings
+﻿# Route contract for 00 fast routing. Unit tests check these strings
 # against 00_orchestrator/SKILL.md (and optional mirrors). Not an LLM router.
 version: 2
 min_routes: 20
@@ -29,6 +29,7 @@ routes:
     contains: ["de-AI", "05_manuscript"]
   - intent: 预审
     contains: ["预审", "06_review"]
+  # ethics forms seat Bai; skill path remains 03_research/fill-protocol
   - intent: 伦理
     contains: ["伦理申请表", "03_research"]
   - intent: HIS提取
