@@ -4,7 +4,7 @@
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`. call/require 03 citation-verify — do not self-certify lit.
 
-- 稿件正文的修订由 **Aitee（05）** 落地。Lee（06）默认只批注、不自行修订。可决定的问题写成给 Aitee 的 TC-fix 批注；定不了的问题用中文批注正文，并附英文建议措辞和/或建议文献（文献由 Victor 供给）。
+- 稿件正文的修订由 **Aitee（05）** 落地。Lee（06）默认只批注、不自行修订。可决定的问题写成给 Aitee 的 TC-fix 批注。定不了 / 缺事实：中文原因，再加一行以 `Suggested …` 开头的英文建议（或同等 Suggested 措辞），和/或建议文献（文献由 Victor 供给；句式见 ownership-contract）。发明或免责语不进稿件正文。
 - 下面的修订模式是 **Aitee 落修订** 时的操作，不是 Lee 自己改稿的默认。
 - 所有对 `.docx` 的修改 **一律修订模式（Track Changes）**。
 - **用户手改优先（仅 Word）。** 若当前句与代理上次写入的句子不同，视为用户修改。要再动那段，先问用户；禁止擅自改回。此条 **不** 适用于 HTML、PDF、脚本。

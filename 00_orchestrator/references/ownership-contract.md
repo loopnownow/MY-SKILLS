@@ -23,7 +23,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 
 Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
 
-Undecidable issues: Chinese 批注 body plus attached English suggested wording and/or suggested literature.
+Undecidable / missing-fact issues: Chinese 批注 reason, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature. Invent or disclaimer language stays in the comment. Never put it in the manuscript body.
 
 Word comments / Track Changes author field is **A** (never `Grok`, never yellow).
 

@@ -206,7 +206,8 @@ PCOS 等系列稿件。
 - 每条意见是否真正解决：用 `review-resolution.md` 的状态（Resolved / Partially resolved / Unresolved / New issue）；不要只看「有没有加一句」。
 - 稿面批注标明来源：`[A:personal]` / `[B:revise]` / `[B:…]` 等。
 - 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**。点头后仍由 Aitee 用 Track Changes 改正文。Lee 默认不改正文。
-- 可决定的正文修改：Lee 批注交给 Aitee TC-fix。定不了的意见：回信标清需作者确认。中文批注加英文建议措辞和/或建议文献（见 ownership-contract）。不假装已做实验。
+- 可决定的正文修改：Lee 批注交给 Aitee TC-fix。过去时只用于已经落地的修改。
+- 事实仍不可决（缺来源、缺分析、伦理号未定）：回复信**对应那一条**必须写明未决，并写待补来源（pending source）。不得把该条写成已经改完。`Suggested …` 建议句只放 Word 批注（见 ownership-contract），不作为 invent / disclaimer 写进回复正文。不假装已做实验。
 
 ---
 
@@ -216,6 +217,6 @@ Corpus habit for **审稿回复** (not for inventing data):
 
 - Keep replies short and concrete. Confirm, clarify, or refuse with evidence — no long defense essays.
 - If the reviewer is wrong on a fact, politely correct **with the source** (HTML row, table, guideline). Do not rewrite the paper into an incorrect request.
-- If you do not know (missing analysis, missing file, ethics Date/NO unset): say so. Prefer `cannot_invent` / ask the user over a confident guess.
+- If you do not know (missing analysis, missing file, ethics Date/NO unset): the matching response point says the fact is still pending a source. Past tense only for edits already made. `Suggested …` and `cannot_invent` stay in the Word comment, not as invent disclaimers in the letter.
 - Attitude lock: **uncertain → mark; never pretend certainty.**
 

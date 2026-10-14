@@ -34,3 +34,9 @@ Acceptance (inspectable): first viewport of console / proposal HTML does not sta
 - DCA / SHAP / NRI / IDI / tiff / pdf / survival curves (and any similar optional figure) appear **only when the corresponding switch is on**.
 - Switch off → that artifact must not be written to disk and must not appear in the results HTML.
 - Acceptance: with all optional switches off, only always-on core outputs remain; turning one switch on adds exactly that family of outputs.
+
+## 6 HTML over companion xlsx (number conflict)
+
+- If `Results*.html` (or another executed HTML report) and a companion `.xlsx` disagree on a number, **prefer the HTML**.
+- Flag both loci in QC and in the report (HTML path, plus sheet and cell or table name). Do not silently drop the conflict.
+- The `.xlsx` is tabular delivery only. It does not override the HTML fact source.
