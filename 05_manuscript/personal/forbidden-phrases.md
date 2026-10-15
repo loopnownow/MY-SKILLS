@@ -1,6 +1,14 @@
 # Forbidden / replace table (lab SCI)
 
 **Owner:** manuscript-core. Apply on every polish/draft/de-ai pass.
+**Authority (Rules SSOT):** standing body/comment bans, figure/table placeholders, internal work notes, and negative-enumeration bans live in `C:\Users\loopn\Documents\Cline\Rules\manuscript-and-review.md`. This file is the phrase/table skill detail (`ban-terms.yaml` = machine source). Do not fork standing bans here.
+
+## Exception checks (before applying a ban)
+
+1. **Quoted from a source** — Hard-ban terms are allowed only when literally quoted from a cited source.
+2. **Technical stem collision** — Keep discipline nouns that share a banned stem (e.g. imaging *attenuation*; metric names like *relative CBF* / *relCBF*). Rewrite only when the surrounding prose uses the banned word as comparison/hype.
+3. **Keep list** — Sequence/gene/anatomy terms, reporting-guideline language (STROBE/TRIPOD/CLAIM), and calibrated Discussion hedges (*may* / *might* / *could* / *suggest*) stay; see **Keep (discipline-specific)** below.
+
 
 **机器源 = `ban-terms.yaml`；改词先改 yaml，再生成/同步表与 linter。** 本文件给人看。Hard ban 词的机器执行以 `05_manuscript/personal/ban-terms.yaml` 为准（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
 

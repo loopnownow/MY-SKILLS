@@ -2,6 +2,8 @@
 
 Single source for lab roles, manuscript Track Changes, and citation-verify. Other files point here. They do not paste this text.
 
+**Boundary:** Rules `C:\Users\loopn\Documents\Cline\Rules\manuscript-and-review.md` owns standing manuscript/review policy (body vs comment, TC author field, deliverable prefs). This file owns seat/role ownership and the skills-layer TC / citation-verify operational contract. Point to Rules for standing bans; do not paste or fork them here.
+
 Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 
 ## Roles

@@ -87,7 +87,7 @@ Verdict — PASS / PASS_WITH_WARNINGS / FAIL
 - 不要用裸 `except Exception: pass`（或等价写法）吞掉错误，使失败的运行看起来像成功结束；失败必须可见。
 
 ### QC 废料进 0del
-- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物放到 `{del_root}`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
+- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物：A 类放到 `{del_root_a}\<项目名>\`；其他放到 `{del_root}`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
 
 ## 明确不要
 - 不把整树 `.py` / 患者表 / 课题 Excel vendor 进 GitHub
