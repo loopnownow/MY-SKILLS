@@ -138,7 +138,7 @@ def read_text(path: Path) -> str:
     resolved = path.resolve()
     if resolved == CAP or CAP in resolved.parents:
         raise GateFailure("G-VIZ-01", f"refusing to read mounts-cap: {path}")
-    return path.read_text(encoding="utf-8")
+    return path.read_text(encoding="utf-8-sig")
 
 
 def read_yaml(path: Path) -> dict:

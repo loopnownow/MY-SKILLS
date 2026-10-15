@@ -233,7 +233,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "Lee must not self-revise as default.",
         "Lee marks/comments; Aitee applies Track Changes.",
         "does not apply the body revisions as default",
-        "Chinese 批注 body plus attached English suggested wording and/or suggested literature.",
+        "Chinese 批注 reason, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature.",
         "Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.",
     )
     FILES = (

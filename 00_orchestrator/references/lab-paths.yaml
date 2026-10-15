@@ -4,7 +4,9 @@
 version: 2
 aliases:
   lab_root: "D:\\0Grok"
-  del_root: "D:\\0Grok\\0del"
+  del_root: "D:\\0del"
+  # A类废料：{del_root_a}\<项目名>\
+  del_root_a: "L:\\0del"
   script_root: "D:\\0Grok\\0script"
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "C:\\Users\\loopn\\GitHub\\MY-SKILLS"

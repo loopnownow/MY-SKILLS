@@ -1,6 +1,14 @@
 # Forbidden / replace table (lab SCI)
 
 **Owner:** manuscript-core. Apply on every polish/draft/de-ai pass.
+**Authority (Rules SSOT):** standing body/comment bans, figure/table placeholders, internal work notes, and negative-enumeration bans live in `C:\Users\loopn\Documents\Cline\Rules\manuscript-and-review.md`. This file is the phrase/table skill detail (`ban-terms.yaml` = machine source). Do not fork standing bans here.
+
+## Exception checks (before applying a ban)
+
+1. **Quoted from a source** — Hard-ban terms are allowed only when literally quoted from a cited source.
+2. **Technical stem collision** — Keep discipline nouns that share a banned stem (e.g. imaging *attenuation*; metric names like *relative CBF* / *relCBF*). Rewrite only when the surrounding prose uses the banned word as comparison/hype.
+3. **Keep list** — Sequence/gene/anatomy terms, reporting-guideline language (STROBE/TRIPOD/CLAIM), and calibrated Discussion hedges (*may* / *might* / *could* / *suggest*) stay; see **Keep (discipline-specific)** below.
+
 
 **机器源 = `ban-terms.yaml`；改词先改 yaml，再生成/同步表与 linter。** 本文件给人看。Hard ban 词的机器执行以 `05_manuscript/personal/ban-terms.yaml` 为准（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
 
@@ -27,6 +35,7 @@
 | furthermore / moreover (stacked) | vary or cut |
 | elucidat* (elucidate / elucidating / elucidated) | purpose/aim: exploring; mechanism-unknown: remain unclear (not explain / clarify) |
 | attenuated | reduced / lower / decreased |
+| disentangled / disentangle* | separated / distinguished / isolated / teased apart (plain wording) |
 
 | novel | (drop, or name what changed) |
 | notably | delete; state the fact |
@@ -34,6 +43,8 @@
 | importantly | delete, or restructure so the load-bearing sentence carries its own weight |
 
 **Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Corpus counts do not lift the ban.
+
+**Disentangled (2026-10-14):** AI-ism. Ban *disentangle / disentangled / disentangling*. Prefer *separated*, *distinguished*, *isolated*, or plain *teased apart*.
 
 **Attenuated (2026-10-03):** AI-ism. Replace with *reduced*, *lower*, or *decreased*. The imaging noun *attenuation* (attenuation correction, beam attenuation) is not this ban.
 
