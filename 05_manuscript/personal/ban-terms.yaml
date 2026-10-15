@@ -101,6 +101,8 @@ always:
     pattern: superior
   - probe: critical
     pattern: critical
+  - probe: disentangled
+    pattern: disentangl(?:e|es|ed|ing)
 
 limited:
   - probe: foster

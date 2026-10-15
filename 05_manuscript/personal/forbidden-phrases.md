@@ -27,6 +27,7 @@
 | furthermore / moreover (stacked) | vary or cut |
 | elucidat* (elucidate / elucidating / elucidated) | purpose/aim: exploring; mechanism-unknown: remain unclear (not explain / clarify) |
 | attenuated | reduced / lower / decreased |
+| disentangled / disentangle* | separated / distinguished / isolated / teased apart (plain wording) |
 
 | novel | (drop, or name what changed) |
 | notably | delete; state the fact |
@@ -34,6 +35,8 @@
 | importantly | delete, or restructure so the load-bearing sentence carries its own weight |
 
 **Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Corpus counts do not lift the ban.
+
+**Disentangled (2026-10-14):** AI-ism. Ban *disentangle / disentangled / disentangling*. Prefer *separated*, *distinguished*, *isolated*, or plain *teased apart*.
 
 **Attenuated (2026-10-03):** AI-ism. Replace with *reduced*, *lower*, or *decreased*. The imaging noun *attenuation* (attenuation correction, beam attenuation) is not this ban.
 
