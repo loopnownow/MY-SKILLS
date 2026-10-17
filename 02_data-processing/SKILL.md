@@ -21,9 +21,9 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 - radiomics / habitat preparation (prep pointer → modelling belongs to 04 `radiomics-ml`)
 - leakage and split-integrity checks
 - maintained personal MATLAB/Python scripts
-- clinical text / HIS / pathology **extraction** (`clinical-data-extraction/`)
-- coding principles / soft-coding / dry-run (`code-refactoring/`)
-- raw numeric table QC signals (`table-qc/`)
+- clinical text / HIS / pathology **extraction** (`personal/extract.md`)
+- coding principles / soft-coding / dry-run (`personal/coding.md`)
+- raw numeric table QC signals (`personal/table-signals.md`)
 
 Never perform feature selection or statistical model fitting here.
 
@@ -31,12 +31,17 @@ Never perform feature selection or statistical model fitting here.
 
 | Task | Path |
 |---|---|
-| 0RAD workspace (folder names, `exc`, false-classification) | `0rad-workspace.md` |
+| Route / which personal file | `personal/route.md` |
+| Handoff (raw→analysis-ready; Loopnow ↔ 04) | `personal/handoff.md` |
+| 0RAD workspace (folder names, `exc`, false-classification) | `personal/workspace.md` |
+| Clinical / HIS / pathology extraction | `personal/extract.md` |
+| Soft-coding / dry-run / complexity ladder | `personal/coding.md` |
+| Deep code QC | `personal/coding-qc.md` |
+| Raw table digit / smoothness QC | `personal/table-signals.md` |
 | Lab MATLAB preprocess | `{script_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`, `{script_data_processing}\preprocess-imaging\fmri\run_preprocess.m` |
 | Leakage / split / radiology audit | `{script_model_validation}\split_leakage_check.py`, `{script_model_validation}\radiology_audit.py` |
-| Clinical / HIS extraction | `{script_data_processing}\clinical-data-extraction\`（`extract_patient_data.py`、`extract_docx.py`） |
-| Soft-coding / dry-run / CONFIG on top | `{script_root}\_templates\soft_code_template.py`（说明在 `code-refactoring/`） |
-| Raw table digit / smoothness QC | `table-qc/` (`references/`) |
+| Clinical / HIS extraction scripts | `{script_data_processing}\clinical-data-extraction\`（`extract_patient_data.py`、`extract_docx.py`） |
+| Soft-coding / dry-run / CONFIG on top | `{script_root}\_templates\soft_code_template.py`（说明在 `personal/coding.md`） |
 
 Personal scripts are not replaced by a mounted pack.
 
@@ -44,7 +49,7 @@ Personal scripts are not replaced by a mounted pack.
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-Call mounted ids from 01 (`01_skill-discovery-integration/MOUNTED_SKILLS.md` menu + `01_skill-discovery-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
+Call mounted ids from 01 (`01_skill-integration/MOUNTED_SKILLS.md` menu + `01_skill-integration/mounts/README.md` board / `registry.yaml`), not historical pack paths. Personal scripts stay local:
 
 - `clean-data` / `batch-cohort` — 临床表 Excel / CSV（含缺失/异常值）；脚本库：`{script_data_processing}\clean-data\`
 - `imaging-io` — CT / MRI 读写，DICOM / NIfTI / NII
@@ -59,7 +64,7 @@ raw files → integrity/IDs → preprocessing → QC → derived features → an
 
 ## Coding conventions
 
-When writing batch scripts, follow `code-refactoring/` (CONFIG on top, dry-run). Soft-coding is a capability of this skill, not a standalone archive pack.
+When writing batch scripts, follow `personal/coding.md` (CONFIG on top, dry-run). Soft-coding is a capability of this skill, not a standalone archive pack.
 
 ## Final QC
 

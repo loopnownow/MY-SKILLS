@@ -1,4 +1,4 @@
-﻿# Route contract for 00 fast routing. Unit tests check these strings
+# Route contract for 00 fast routing. Unit tests check these strings
 # against 00_orchestrator/SKILL.md (and optional mirrors). Not an LLM router.
 version: 2
 min_routes: 20
@@ -14,9 +14,9 @@ routes:
   - intent: 回复审稿人
     contains: ["回复审稿人", "06_review"]
   - intent: 新技能
-    contains: ["新技能", "01_skill-discovery-integration"]
+    contains: ["新技能", "01_skill-integration"]
   - intent: 技能迭代
-    contains: ["技能迭代", "skill-harvest"]
+    contains: ["技能迭代", "skill-evolution"]
   - intent: 选刊
     contains: ["选刊", "03_research"]
   - intent: 出图
@@ -37,13 +37,13 @@ routes:
   - intent: 影像预处理
     contains: ["DICOM", "02_data-processing"]
   - intent: 代码原则
-    contains: ["code-refactoring", "02_data-processing"]
+    contains: ["coding", "02_data-processing"]
   - intent: 转化研究
     contains: ["clinical-translation", "03_research"]
   - intent: grilling
     contains: ["grill-me", "grilling"]
   - intent: 挂载发现
-    contains: ["挂载", "01_skill-discovery-integration"]
+    contains: ["挂载", "01_skill-integration"]
   - intent: 标书
     contains: ["选题", "03_research"]
   - intent: DCA
@@ -56,6 +56,6 @@ counterexamples:
   - intent: 旧venue id
     must_not_contain: ["05-write-venue"]
   - intent: 文献进01
-    must_not_contain: ["文献 → `01_skill-discovery-integration`"]
+    must_not_contain: ["文献 → `01_skill-integration`"]
   - intent: 回复进05
     must_not_contain: ["回复审稿人 → `05_manuscript`"]

@@ -3,9 +3,21 @@
 Failure classes come from the SSD scoring-report lessons (stats/text, sister
 papers, circular analysis, process language, inclusion scale, citation hygiene,
 paragraph lock). The test locks the check ids, not any manuscript's numbers.
+
+Wave2 path map (2026-10-17 reorg):
+- 05_manuscript/personal/pre-submit-consistency.md -> 00_orchestrator/references/manuscript-local-qc.md (Part B)
+- 06_review/personal/cross-manuscript-qc.md -> 00_orchestrator/references/cross-manuscript-qc.md
+- stats-consistency/stats-checklist -> 04_analysis/personal/report-checks.md
+- forbidden-phrases -> 05_manuscript/personal/vocab/L1/ban-phrases.md
+- introduction-scorecard -> manuscript-local-qc.md Part A
+- personal-review-style -> 06_review/personal/review.md
+- word-edit-rules -> 06_review/personal/word-edit.md
+- personal-response-style -> 06_review/personal/response.md
+- structures.md / de-ai.md / review-resolution.md / review-comment-habits.md -> archived under 0del
 """
 from __future__ import annotations
 
+import re
 import subprocess
 import unittest
 from pathlib import Path
@@ -52,22 +64,32 @@ REQUIRED_CLASSES = (
     "writing_craft",
 )
 
-WRITING = ROOT / "05_manuscript" / "personal" / "pre-submit-consistency.md"
-REVIEW = ROOT / "06_review" / "personal" / "cross-manuscript-qc.md"
+WRITING = ROOT / "00_orchestrator" / "references" / "manuscript-local-qc.md"
+REVIEW = ROOT / "00_orchestrator" / "references" / "cross-manuscript-qc.md"
 
 
 def read(rel: str) -> str:
     return (ROOT / rel).read_text(encoding="utf-8")
 
 
-def frontmatter(path: Path) -> tuple[dict, str]:
+def embedded_frontmatter(path: Path, *, name: str | None = None) -> tuple[dict, str]:
+    """Parse the first YAML frontmatter block, even if a banner precedes it."""
     text = path.read_text(encoding="utf-8")
-    if not text.startswith("---\n"):
-        raise AssertionError(f"{path.name} must open with YAML frontmatter")
-    end = text.find("\n---\n", 4)
+    if name:
+        marker = f"---\nname: {name}\n"
+        start = text.find(marker)
+        if start < 0:
+            raise AssertionError(f"{path.name} missing embedded frontmatter name={name}")
+    else:
+        m = re.search(r"^---\nname:\s*.+\n", text, flags=re.M)
+        if not m:
+            raise AssertionError(f"{path.name} has no embedded name: frontmatter")
+        start = m.start()
+        marker = text[start : m.end()]
+    end = text.find("\n---\n", start + len(marker))
     if end < 0:
         raise AssertionError(f"{path.name} frontmatter is not closed")
-    data = yaml.safe_load(text[4:end])
+    data = yaml.safe_load(text[start + 4 : end])
     if not isinstance(data, dict):
         raise AssertionError(f"{path.name} frontmatter did not parse to a mapping")
     return data, text
@@ -75,7 +97,7 @@ def frontmatter(path: Path) -> tuple[dict, str]:
 
 class PreSubmitFrontmatter(unittest.TestCase):
     def test_writing_checks_parse_and_cover_every_class(self) -> None:
-        data, body = frontmatter(WRITING)
+        data, body = embedded_frontmatter(WRITING, name="pre-submit-consistency")
         self.assertEqual(data["owner"], "05_manuscript")
         self.assertEqual(data["audience"], "Aitee")
         self.assertEqual(data["on_number_conflict"], "comment_only")
@@ -90,7 +112,7 @@ class PreSubmitFrontmatter(unittest.TestCase):
             self.assertIn(f"### {cid}", body)
 
     def test_review_frontmatter_parse_and_load_order(self) -> None:
-        data, body = frontmatter(REVIEW)
+        data, body = embedded_frontmatter(REVIEW, name="cross-manuscript-qc")
         self.assertEqual(data["owner"], "06_review")
         self.assertEqual(data["audience"], "Lee")
         self.assertEqual(data["order"], ["statement_consistency", "data_consistency"])
@@ -99,7 +121,7 @@ class PreSubmitFrontmatter(unittest.TestCase):
         self.assertEqual(data["user_summary_language"], "zh")
         self.assertEqual(
             data["runs_checks_from"],
-            "05_manuscript/personal/pre-submit-consistency.md",
+            "00_orchestrator/references/manuscript-local-qc.md",
         )
         for cid in REQUIRED_IDS:
             self.assertIn(cid, body)
@@ -113,15 +135,16 @@ class PreSubmitWiring(unittest.TestCase):
         six = read("06_review/SKILL.md")
         four = read("04_analysis/SKILL.md")
         gates = read("00_orchestrator/gates.md")
-        self.assertIn("personal/pre-submit-consistency.md", five)
-        self.assertIn("personal/cross-manuscript-qc.md", six)
-        self.assertIn("05_manuscript/personal/pre-submit-consistency.md", four)
-        self.assertIn("05_manuscript/personal/pre-submit-consistency.md", gates)
-        self.assertIn("06_review/personal/cross-manuscript-qc.md", gates)
+        self.assertIn("manuscript-local-qc.md", five)
+        self.assertIn("cross-manuscript-qc.md", six)
+        self.assertIn("00_orchestrator/references/manuscript-local-qc.md", four)
+        self.assertIn("manuscript-local-qc.md", gates)
+        self.assertIn("cross-manuscript-qc.md", gates)
 
     def test_extended_personal_files_hold_the_rules(self) -> None:
-        stats = read("04_analysis/personal/stats-consistency.md")
-        checklist = read("04_analysis/personal/stats-checklist.md")
+        # Wave2: stats-consistency + stats-checklist merged into report-checks.md
+        stats = read("04_analysis/personal/report-checks.md")
+        checklist = stats  # single current file holds both id tables
         for token in (
             "stat_vs_threshold",
             "correlation_implied_n",
@@ -140,11 +163,11 @@ class PreSubmitWiring(unittest.TestCase):
 
         voice = read("05_manuscript/personal/voice-portrait.md")
         self.assertIn("Paragraph lock", voice)
-        self.assertIn("pre-submit-consistency.md", voice)
+        self.assertIn("manuscript-local-qc.md", voice)
         self.assertIn("training set", voice)
         self.assertIn("opening paragraph", voice.lower())
 
-        cites = read("05_manuscript/personal/citation-and-language.md")
+        cites = read("05_manuscript/personal/process/citation-and-language.md")
         for token in (
             "consecutive_same_cite",
             "claim_matches_source",
@@ -154,12 +177,12 @@ class PreSubmitWiring(unittest.TestCase):
             self.assertIn(token, cites, token)
         self.assertIn("Methods: **no citations**", cites)
 
-        banned = read("05_manuscript/personal/forbidden-phrases.md")
+        banned = read("05_manuscript/personal/vocab/L1/ban-phrases.md")
         for token in (
             "TRAIN_RATIO",
             "as stated by the source",
-            "待补",
-            "标签未与方案核对",
+            "\u5f85\u8865",
+            "\u6807\u7b7e\u672a\u4e0e\u65b9\u6848\u6838\u5bf9",
             "framework",
             "approach",
         ):
@@ -170,53 +193,51 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("intro_opening_has_citations", aitor)
         self.assertIn("training set", aitor)
 
-        score = read("05_manuscript/personal/introduction-scorecard.md")
+        # Wave2: introduction-scorecard absorbed into manuscript-local-qc Part A
+        score = read("00_orchestrator/references/manuscript-local-qc.md")
         for code in ("FLU-4", "CIT-5", "CIT-6", "CIT-7"):
             self.assertIn(code, score, code)
 
-        habits = read("06_review/personal/review-comment-habits.md")
-        self.assertIn("statement consistency", habits.lower())
-        self.assertIn("cross-manuscript-qc.md", habits)
-        self.assertIn("do not invent", habits.lower())
-        self.assertIn("TRAIN_RATIO", habits)
-
-        style = read("06_review/personal/personal-review-style.md")
+        # Wave2: personal-review-style.md -> review.md
+        style = read("06_review/personal/review.md")
         self.assertIn("### 4.9 Pre-submit consistency requests", style)
         self.assertIn("cross-manuscript-qc.md", style)
         self.assertIn("Do not invent the number", style)
         self.assertIn("voxel-wise or cluster-forming", style)
 
-        structures = read("05_manuscript/personal/structures.md")
+        # Wave2: structures.md archived; paragraph_lock lives in manuscript-local-qc
+        structures = read("00_orchestrator/references/manuscript-local-qc.md")
         self.assertIn("paragraph_lock", structures)
-        deai = read("05_manuscript/personal/de-ai.md")
+        # Wave2: de-ai.md archived; TRAIN_RATIO / approach stay in ban-phrases
+        deai = read("05_manuscript/personal/vocab/L1/ban-phrases.md")
         self.assertIn("TRAIN_RATIO", deai)
         self.assertIn("approach", deai)
 
 
 class CitationVerifyRequired(unittest.TestCase):
-    PHRASE = "call/require 03 citation-verify — do not self-certify lit"
+    PHRASE = "call/require 03 citation-verify \u2014 do not self-certify lit"
 
     def test_checklist_frontmatter_parses(self) -> None:
         path = ROOT / "03_research" / "personal" / "citation-verify.md"
-        data, body = frontmatter(path)
+        data, body = embedded_frontmatter(path)
+        # citation-verify opens with frontmatter; embedded helper still works
         self.assertEqual(data["owner"], "03_research")
         self.assertEqual(data["audience"], "Victor")
         self.assertEqual(data["self_certify"], "forbidden")
         self.assertEqual(data["required_before"], ["gate_05_done", "gate_06"])
         self.assertIn("claim_ref_table", data["outputs"])
         self.assertIn("strong_claim_spot_check", data["outputs"])
-        self.assertIn("claim→ref", body)
+        self.assertIn("claim\u2192ref", body)
         self.assertIn(self.PHRASE, body)
 
     def test_05_and_06_require_03_and_do_not_self_certify(self) -> None:
         for rel in (
             "03_research/SKILL.md",
             "05_manuscript/SKILL.md",
-            "05_manuscript/personal/citation-and-language.md",
-            "05_manuscript/personal/pre-submit-consistency.md",
+            "05_manuscript/personal/process/citation-and-language.md",
+            "00_orchestrator/references/manuscript-local-qc.md",
             "06_review/SKILL.md",
-            "06_review/personal/cross-manuscript-qc.md",
-            "06_review/personal/review-comment-habits.md",
+            "00_orchestrator/references/cross-manuscript-qc.md",
             "00_orchestrator/SKILL.md",
             "00_orchestrator/workflows/sci-manuscript.md",
         ):
@@ -233,17 +254,15 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "Lee must not self-revise as default.",
         "Lee marks/comments; Aitee applies Track Changes.",
         "does not apply the body revisions as default",
-        "Chinese 批注 reason, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature.",
+        "Chinese \u6279\u6ce8 reason, then an English suggestion line that starts with `Suggested \u2026` (or equivalent Suggested wording), and/or suggested literature.",
         "Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.",
     )
     FILES = (
         "06_review/SKILL.md",
-        "06_review/personal/review-comment-habits.md",
-        "06_review/personal/personal-review-style.md",
-        "06_review/personal/word-edit-rules.md",
-        "06_review/personal/review-resolution.md",
-        "06_review/personal/cross-manuscript-qc.md",
-        "06_review/personal/personal-response-style.md",
+        "06_review/personal/review.md",
+        "06_review/personal/word-edit.md",
+        "06_review/personal/response.md",
+        "00_orchestrator/references/cross-manuscript-qc.md",
         "05_manuscript/SKILL.md",
         "05_manuscript/personal/Aitor-format.md",
         "03_research/SKILL.md",
@@ -253,9 +272,9 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "00_orchestrator/workflows/sci-manuscript.md",
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
-        "ARCHITECTURE.md",
+        # "ARCHITECTURE.md",  # root stub only; ownership lives in meta copy
         "_medical-research-meta/ARCHITECTURE.md",
-        "01_skill-discovery-integration/registry.yaml",
+        "01_skill-integration/registry.yaml",
     )
     SCAN_SKIP = {
         CONTRACT,
@@ -289,6 +308,9 @@ class WordTrackChangesOwnership(unittest.TestCase):
             if rel.startswith("mounts-cap/"):
                 continue
             path = ROOT / rel
+            # Wave2: git index still lists archived paths (.github/, old 01_*, etc.)
+            if not path.is_file():
+                continue
             if path.suffix.lower() not in {".md", ".yaml", ".yml", ".mmd", ".py", ".txt"}:
                 continue
             text = path.read_text(encoding="utf-8")
@@ -300,21 +322,21 @@ class WordTrackChangesOwnership(unittest.TestCase):
 
     def test_lee_does_not_apply_decidable_track_changes(self) -> None:
         retired = (
-            "未点头不改稿",
-            "用户确认后再用修订模式改信封正文",
-            "may attach 1–2 **reference-only** revised sentences",
+            "\u672a\u70b9\u5934\u4e0d\u6539\u7a3f",
+            "\u7528\u6237\u786e\u8ba4\u540e\u518d\u7528\u4fee\u8ba2\u6a21\u5f0f\u6539\u4fe1\u5c01\u6b63\u6587",
+            "may attach 1\u20132 **reference-only** revised sentences",
         )
         for rel in self.FILES:
             text = read(rel)
             for old in retired:
                 self.assertNotIn(old, text, f"{rel} still says {old!r}")
-        reg = read("01_skill-discovery-integration/registry.yaml")
+        reg = read("01_skill-integration/registry.yaml")
         self.assertIn("word-tc-owned-by-aitee", reg)
         self.assertIn("Lee no longer applies body Track Changes on decidable fixes.", reg)
         mmd = read("00_orchestrator/runtime-flow.mmd")
-        self.assertIn("Lee · 陈述一致", mmd)
-        self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
-        self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
+        self.assertIn("Lee \u00b7 \u9648\u8ff0\u4e00\u81f4", mmd)
+        self.assertLess(mmd.index("Lit05"), mmd.index("Gate \u00b7 05"))
+        self.assertLess(mmd.index("Lit06"), mmd.index("Gate \u00b7 06"))
 
 
 if __name__ == "__main__":

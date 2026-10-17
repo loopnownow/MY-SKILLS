@@ -197,7 +197,7 @@ Mechanism claim
 ### R3 — Study Design Card
 
 - Design type, exposure/intervention, outcomes, confounders, bias, reporting guideline.
-- Use mounted design capability + `design/radiology-design.md` when imaging-specific.
+- Use mounted design capability + `personal/radiology-design.md` when imaging-specific.
 - **RETURN R1/R2** if bias or endpoint definition is unresolvable with current evidence.
 
 ### R4 — Data Requirement Card + feasibility gate
@@ -236,7 +236,7 @@ Then **HANDOFF** (02/04/05 as appropriate). Never emit Introduction/Discussion p
 |---|---|---|
 | R1 | `frontier-hypothesize`; `personal/intake.md` | Invent endpoints |
 | R2 | `lit-search`; optional `verify-refs` / `scout-meta-analysis` / `paper-lookup` if session-picked | Treat lit-search as the whole of 03 |
-| R3 | mounted design ids; `design/radiology-design.md` | Write 05 prose |
+| R3 | mounted design ids; `personal/radiology-design.md` | Write 05 prose |
 | R4 | emit Data Requirement Card → **02** / **04** | Run 02 ETL or 04 models inside 03 |
 | R5 | synthesize cards → Research Brief | Paper Conclusion section |
 
@@ -264,8 +264,8 @@ No new fine ids for R1–R5.
 |---|---|
 | This file | 03 content spine + cards |
 | `00_orchestrator/workflows/research-exploration-loop.md` | Entry node, reuse, L1/L2, structural QC |
-| `literature/intro-evidence-pack.md` | 05-driven Intro cards — later, narrower than this spine |
-| `literature/journal-selection.md` | 选刊 — not this chain |
+| `personal/intro-evidence-pack.md` | 05-driven Intro cards — later, narrower than this spine |
+| `personal/journal-selection.md` | 选刊 — not this chain |
 
 ---
 

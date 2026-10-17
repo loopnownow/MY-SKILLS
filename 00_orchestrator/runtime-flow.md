@@ -4,7 +4,7 @@
 
 子流程（写作链、审稿链、0RAD、修回分诊）都是该图上的**分支**，不另立主图。更新入口 / QC / 回退规则时只修订 `.mmd`。
 
-00 = 控制层（入口、调度、Gate、回退）。业务在 02–06；外挂版本与缓存在 **01**；skill-harvest 只观察与提案（经 CHG），不执行流程。
+00 = 控制层（入口、调度、Gate、回退）。业务在 02–06；外挂版本与缓存在 **01**；技能演进政策见 MY-RULES `skill-evolution.md`（skill-harvest 已归档），只观察与提案，不执行流程。
 
 ## 读图要点
 
@@ -23,7 +23,7 @@
 | --- | --- |
 | 01 外部 Skill / Mount | G0。仅当本次需要新的挂载决定时进入 |
 | 02 数据处理 | 出口是 G0 + G-PHI（适用时）+ 产物存在，然后进入 04。不单列 02 门禁编号，也没有 02 自己的 G-FACT。N2 = PHI 停点 |
-| 02 code-refactoring / 代码深审 | G-CODE |
+| 02 personal/coding.md / 代码深审 | G-CODE |
 | 03 文献研究 | 出口是 G0 + G-LIT + 证据/引文产物。不单列 03 门禁编号，也没有 03 自己的 G-FACT |
 | 04 统计 / 图表 | G0 + G-FACT（04 HTML 之后的事实链）+ G-04。数与图来自 HTML / settings；报告规范清单不归 G-04。N3 WRITE = 停 HTML 或进写作 |
 | 05 论文写作 | G0 + G-FACT（05 house.docx 之后再核）+ G-LIT + G-05（含 style-lint 子检）。Gate · 05 / done 之前必须有 03 citation-verify PASS（语义标签 **G-CIT-1**，草稿证据核实；`03_research/personal/citation-verify.md`）。N4 PREVIEW = 进 06 或停 |

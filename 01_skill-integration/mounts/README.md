@@ -1,0 +1,43 @@
+# 01 挂载指针（v4 · CHG-20260913-001）
+
+[总览](README.md) · [混合挂载指针（配方叙事）](hybrid-mount-pointers.md) · [配方 presets](presets.md) · [B · 底盘](b.md) · [MedSci · 备份](medsci.md) · [Scientific · 备份](scientific.md) · [AIPOCH · 备份](aipoch.md) · [Nature · 备份](nature.md)
+
+**粗 ID 10 个（焊死 stage buckets）+ 细 ID 以 `registry.yaml` `fine_id_count_canonical` 为准（session-pick；reference_only 已空）。** Hybrid mount：不同细 ID 可用不同包；同一细 ID 内不混包。备份源按 registry 行混合 PROPOSED/MOUNTED。ARS / OpenClaw **已从 catalog 清除**（`ars_openclaw_policy: removed-from-catalog`）— 永不 remount，不进 session pick。
+
+**细 ID 全表：** [`../registry.yaml`](../registry.yaml)（机器）· [`../MOUNTED_SKILLS.md`](../MOUNTED_SKILLS.md)（生成会话菜单）。[`hybrid-mount-pointers.md`](hybrid-mount-pointers.md) 只保留配方叙事、色标图例、专员对照与例外笔记，**不是**全量细 ID 表。
+
+| 预设 | 摘要 |
+|---|---|
+| [配方 · 审稿混合默认](presets.md) | `review-hybrid-default`：B 底盘 + Nature/Scientific 细 ID 覆盖（仍 ask-each-run） |
+| [B · 当前默认](b.md) | B 默认已含细 ID + 新增挂载；跨包 stub 在 `cross-pack/` |
+| [MedSci · 备份](medsci.md) | 扫 `912f7e8`。多数 B 细 ID 的原子技能源；`humanize` 仍 MedSci 接口 |
+| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。跨包细 ID：paper-lookup / EDA / audit-dicom / … |
+| [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。retraction-watcher / response-tone-polisher（clinic-research-design 已拒绝） |
+| [Nature · 备份](nature.md) | 扫 `287ee37`。LICENSE Apache-2.0 已核实；`audit-figure-risk`/`simulate-reviewers`/`tighten-response` MOUNTED；其余 PROPOSED |
+
+**每次运行：** 先定粗 bucket → 多选细 ID；未选不加载。预审/审稿可预勾审稿混合配方（细 ID 级）。Registry 状态是菜单。
+
+**空挂协议：** 先通知，再检索确认，不悄悄改挂。个人 de-AI 在 A `05_manuscript/personal/`。说 **默认挂载 B 包/本仓**，不说空挂。
+
+**本地缓存：** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`)。B 整包；备份源只拉本轮选中的细 ID 路径。下载不等于改挂。勿缓存已清除 catalog 的包。
+
+机器真源 `../registry.yaml` · 来源配置 `../sources/*.yaml`。
+
+## Lifecycle reminders
+
+- **下载 ≠ 挂载；更新缓存 ≠ 改变挂载配方；新增 skill ≠ 自动进 registry。**
+- Catalog backups = MedSci / Scientific / AIPOCH / Nature only. ARS/OpenClaw purged from catalog.
+- Recipes: `presets.md` (`review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`).
+
+## Cache ≠ Mount ≠ Active
+
+| | |
+|---|---|
+| Cache | `{mounts_cap}/<pack>/` bytes |
+| Mount | registry fine-id session pick |
+| Active | loaded this run |
+| Registry | **index only** — external entity SSOT is cache; `stub_in_b` is pointer-only |
+
+**Fine-id ceiling** is `fine_id_count_canonical` in `registry.yaml`. New capability → merge / sub-capability / same source-path — not a new fine id. Do not restate the number here.
+
+**load_priority:** optional `P0|P1|P2` on registry fine ids (YAML only; no priority directories). P1 = common; P2 = niche/PROPOSED; P0 reserved.

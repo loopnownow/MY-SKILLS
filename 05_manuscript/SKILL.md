@@ -29,21 +29,16 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 | Task | Path |
 |---|---|
-| Aitor-format (title page, IMRAD, DOCX, citation quotas) | `personal/Aitor-format.md` |
-| Writing voice portrait (habits; locks set/short-sentence/legend-below) | `personal/voice-portrait.md` |
-| Section polish templates | `personal/polisher-sections.md` |
-| Sentence templates | `personal/sentence-templates.md` |
-| Exemplars | `personal/exemplars.md` |
-| Corpus phrase bank | `personal/corpus-phrase-bank.md` |
-| Citation and language | `personal/citation-and-language.md` |
-| I/D evidence consumption (not a literature-research route) | `personal/intro-discussion-evidence.md` |
-| Evidence Request loop (mount gap → 03 search → A Accept/Weaken/Delete) | `personal/evidence-request.md` |
-| de-AI pack (forbidden phrases / AI-isms) | `personal/de-ai.md` + `personal/forbidden-phrases.md` |
-| Lab-STE controllable language (pointer + reusable rules; disk SSOT) | personal/lab-ste.md → {doc_lab_ste}\ |
-| Writing / polish corpus (theses and submitted manuscripts; pointer only) | `{doc_thesis}\` ; `{doc_root}\02-manuscripts\` |
-| Introduction scoring (deduction codes, caps, procedure) | `personal/introduction-scorecard.md` |
-| Pre-submit consistency (stats/text, circular analysis, placeholders, sister papers, citation hygiene) | `personal/pre-submit-consistency.md` |
-| Diff harvest (evidence script) | `{script_write_paper}\diff_harvest.py` |
+| Aitor-format | `personal/Aitor-format.md` |
+| Voice portrait | `personal/voice-portrait.md` |
+| Route | `personal/route.md` |
+| Handoff (other skills) | `personal/handoff.md` |
+| L1 / L2 / L3 vocabulary | `personal/vocab/` |
+| Lab-STE (CM-01 ZH comments) | `personal/vocab/L3/lab-ste.md` |
+| Process (evidence / citation / polish) | `personal/process/` |
+| Manuscript QC checklists | `00_orchestrator/references/manuscript-local-qc.md` (owned by 00) |
+| Diff harvest | `{script_write_paper}\diff_harvest.py` |
+
 
 ## Mounted capability ids (generic; not present until mounted)
 
@@ -53,19 +48,19 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 - `check-reporting` — TRIPOD / CLAIM / CLEAR in the paper
 - `venue-templates` — journal templates / house style while writing. Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
-- `humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/de-ai.md` + `personal/forbidden-phrases.md`.
+- `humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/route.md` + `personal/vocab/L1/ban-phrases.md`.
 
 选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `plot-figures` / `draw-flowchart`, + `04_analysis/personal/lab-palettes.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `04_analysis`** (mounted `plot-figures` / `draw-flowchart`, + `04_analysis/personal/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/intro-discussion-evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/evidence-request.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-cohort-gap`; hypothesis framing via `frontier-hypothesize`). 选刊 / where to submit → `03_research` (`literature/journal-selection.md`); not this skill.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-cohort-gap`; hypothesis framing via `frontier-hypothesize`). 选刊 / where to submit → `03_research` (`personal/journal-selection.md`); not this skill.
 
-**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/literature/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `personal/introduction-scorecard.md`.
+**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/personal/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `00_orchestrator/references/manuscript-local-qc.md`.
 
 
 ## Core rule
@@ -77,7 +72,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: `personal/forbidden-phrases.md`
+- Forbidden fluff: `personal/vocab/L1/ban-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.
@@ -87,7 +82,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Pre-submission / 模拟审稿 / 评阅 → `06_review`
 - Response letter / 回复审稿人 → `06_review`
 - Statistics / figures → `04_analysis`
-- Literature landscape / 选刊 / where to submit → `03_research` (`literature/journal-selection.md`)
+- Literature landscape / 选刊 / where to submit → `03_research` (`personal/journal-selection.md`)
 
 
 ## Internal calls (not entry points)
@@ -104,15 +99,15 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 - Ownership: see `00_orchestrator/references/ownership-contract.md`. When 06 marks a decidable fix, apply Track Changes here.
 - Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
-- Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit-rules.md`).
+- Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:polish-language]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
-- Literature verify fail: follow `personal/evidence-request.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
+- Literature verify fail: follow `personal/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
 
 ## Writing QC (domain)
 
-terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `personal/pre-submit-consistency.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
+terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `00_orchestrator/references/manuscript-local-qc.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
 
 Overall Final QC and local recovery are owned by `00_orchestrator`.

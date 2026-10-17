@@ -1,4 +1,4 @@
-﻿---
+---
 name: medical-research-orchestrator
 description: >
   Intent-classify the task, run a skill chain, and close QC (file gates + local
@@ -15,9 +15,9 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **Seats:** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount MedSci `orchestrate` as a third SOP.
 
-**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/personal-review-style.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
+**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
-**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/evidence-request.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
+**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
 **Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
 
@@ -42,7 +42,7 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Plan-card exception: [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
 
-**Plan card / grilling / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
+**Plan card / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). **Grilling policy:** MY-RULES `grilling.md`. Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
 
@@ -52,13 +52,13 @@ SSOT: [`references/fast-routing.md`](references/fast-routing.md) (must match `ro
 
 ### Routing
 
-Ids: `01_skill-discovery-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review` · `skill-harvest`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **reviewer response only here** (`06_review`). No archive-as-standalone routes.
+Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **reviewer response only here** (`06_review`). No archive-as-standalone routes.
 
 ### Session mount pick
 
 Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
 
-**Auto-discovery:** only `00_orchestrator`–`06_review` and `skill-harvest` (including nested A packs). `mounts-cap/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
+**Auto-discovery:** only `00_orchestrator`–`06_review` (including nested A packs). `{mounts_cap}/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
 
 **Mount → 评阅/润色 recipe:** when the user says 挂载 + 评阅/润色 on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
 
@@ -97,7 +97,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → `skill-harvest/qc/` (record-only unless user asks for evolution HTML).
+Cross-cut Consistency = **G-FACT**. Evolution QC → MY-RULES `skill-evolution.md` (record/propose only when user asks to evolve skills).
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
@@ -115,7 +115,7 @@ Triggers 「这个研究还能做什么」等 → [`workflows/research-explorati
 
 ## Boundaries
 
-**00 owns runtime decisions only:** intent classify, skill chain / route, session mount pick coordination, QC gates, local recovery. Domain knowledge stays in `02`–`06` (harvest for evolution).
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`06` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `grilling.md`; Archify visualization → `04_analysis/personal/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0script` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 

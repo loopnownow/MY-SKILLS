@@ -10,9 +10,10 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-CLIN = ROOT / "02_data-processing" / "clinical-data-extraction"
-REG = ROOT / "01_skill-discovery-integration" / "registry.yaml"
-MOUNTED = ROOT / "01_skill-discovery-integration" / "MOUNTED_SKILLS.md"
+CAP_ROOT = Path(r"D:\0Grok\0doc\04-lab-reference\mounts-cap")
+CLIN = ROOT / "02_data-processing" / "personal"
+REG = ROOT / "01_skill-integration" / "registry.yaml"
+MOUNTED = ROOT / "01_skill-integration" / "MOUNTED_SKILLS.md"
 SKIP_PARTS = {".git", "__pycache__", "history", "mounts-cap"}
 SKIP_NAMES = {
     "INTEGRATION_MAP.md",
@@ -161,7 +162,7 @@ class RegistryMenu(unittest.TestCase):
         md_prop = mounted_md_ids_from(proposed)
         want_pick = [m["id"] for m in reg_doc["mounts"] if m.get("status") == "MOUNTED"]
         want_prop = [m["id"] for m in reg_doc["mounts"] if m.get("status") == "PROPOSED"]
-        self.assertEqual(len(reg), 52, msg=str(reg))
+        self.assertEqual(len(reg), len(reg_doc["mounts"]), msg=str(reg))
         self.assertEqual(sorted(md_pick), sorted(want_pick))
         self.assertEqual(sorted(md_prop), sorted(want_prop))
         self.assertEqual(sorted(md_pick + md_prop), sorted(reg))
@@ -195,30 +196,33 @@ class ArchitectureSsot(unittest.TestCase):
     Both must agree on live routing keywords; meta must not re-host full mount tables."""
 
     def test_root_and_meta_agree_on_live_rules(self) -> None:
+        # Wave3: root ARCHITECTURE.md is a stub; live rules live in meta only.
         root = read("ARCHITECTURE.md")
         meta = read("_medical-research-meta/ARCHITECTURE.md")
-        for label, text in (("root", root), ("meta", meta)):
-            low = text.lower()
-            self.assertRegex(text, r"(four parts|≤\s*4|at most four)", label)
-            self.assertIn("default source", low, label)
-            self.assertRegex(low, r"\bb\b", label)
-            self.assertIn("ethics", low, label)
-            self.assertIn("03_research", text, label)
-            self.assertIn("PROPOSED", text, label)
-            self.assertIn("ask-each-run", text, label)
-            self.assertIn("draw-flowchart", text, label)
-            self.assertIn("plot-figures", text, label)
-            self.assertIn("find-journal", text, label)
-            self.assertIn("venue-templates", text, label)
-            self.assertIn("calc-sample-size", text, label)
-            self.assertNotIn("05-write-venue", text, label)
-            self.assertNotIn("04-stats-power", text, label)
-            self.assertIn("01_skill-discovery-integration/registry.yaml", text, label)
-            self.assertNotRegex(text, r"52 fine", label)
-            self.assertIn("per registry", low, label)
-            self.assertNotRegex(low, r"≤\s*3", label)
-            self.assertNotIn("role: default-candidate", text, label)
-            self.assertNotIn("Default candidate: `Imbad0202", text, label)
+        self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
+        self.assertLess(len(root), 500)
+        text = meta
+        low = text.lower()
+        self.assertRegex(text, r"(five parts|≤\s*5|at most five)")
+        self.assertIn("default source", low)
+        self.assertRegex(low, r"\bb\b")
+        self.assertIn("ethics", low)
+        self.assertIn("03_research", text)
+        self.assertIn("PROPOSED", text)
+        self.assertIn("ask-each-run", text)
+        self.assertIn("draw-flowchart", text)
+        self.assertIn("plot-figures", text)
+        self.assertIn("find-journal", text)
+        self.assertIn("venue-templates", text)
+        self.assertIn("calc-sample-size", text)
+        self.assertNotIn("05-write-venue", text)
+        self.assertNotIn("04-stats-power", text)
+        self.assertIn("01_skill-integration/registry.yaml", text)
+        self.assertNotRegex(text, r"52 fine")
+        self.assertIn("per registry", low)
+        self.assertNotRegex(low, r"≤\s*3")
+        self.assertNotIn("role: default-candidate", text)
+        self.assertNotIn("Default candidate: `Imbad0202", text)
 
     def test_meta_owns_intent_and_qc_not_mount_tables(self) -> None:
         meta = read("_medical-research-meta/ARCHITECTURE.md")
@@ -228,7 +232,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("## Final QC", meta)
         self.assertIn("Local recovery", meta)
         self.assertIn("fill-protocol", meta)
-        self.assertIn("clinical-data-extraction", meta)
+        self.assertIn("personal/extract.md", meta)
         self.assertIn("Do not duplicate root mount policy", meta)
         # Full A/B / ceiling / Cache tables stay on root only
         self.assertNotIn("## A/B no-reflow contract", meta)
@@ -237,15 +241,16 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("## load_priority", meta)
 
     def test_root_keeps_mount_and_lab_homes(self) -> None:
+        # Wave3: mount/ceiling/lab-home prose moved to README; root ARCH is stub.
         root = read("ARCHITECTURE.md")
-        self.assertIn("## Mounts", root)
-        self.assertIn("## Fine-id expansion ceiling", root)
-        self.assertIn("## Lab workspace homes", root)
-        self.assertIn("{script_root}", root)
         self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
-        self.assertIn("## Identity four-tuple", root)
-        self.assertIn("03_research/find-journal/", root)
-        self.assertIn("03_research/fill-protocol/", root)
+        readme = read("README.md")
+        self.assertIn("{script_root}", readme)
+        self.assertIn("lab", readme.lower())
+        self.assertIn("{doc_root}", readme)
+        meta = read("_medical-research-meta/ARCHITECTURE.md")
+        self.assertIn("find-journal", meta)
+        self.assertIn("fill-protocol", meta)
 
 
 class RoutingFourTuple(unittest.TestCase):
@@ -257,26 +262,32 @@ class RoutingFourTuple(unittest.TestCase):
         self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
         self.assertIn("03_research/find-journal", by_id["find-journal"]["note"])
         self.assertIn("03_research/fill-protocol", by_id["fill-protocol"]["note"])
-        self.assertNotRegex(read("ARCHITECTURE.md"), r"选刊\s*→\s*05")
-        self.assertNotRegex(read("01_skill-discovery-integration/SKILL.md"), r"选刊\s*→\s*05")
+        self.assertNotRegex(read("_medical-research-meta/ARCHITECTURE.md"), r"选刊\s*→\s*05")
+        self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"选刊\s*→\s*05")
 
 
 class DiscoverySurface(unittest.TestCase):
     def test_cursorignore_excludes_mounts_cap(self) -> None:
         text = read(".cursorignore")
-        self.assertIn("mounts-cap/", text)
+        self.assertTrue("mounts-cap" in text or "{mounts_cap}" in text)
 
     def test_auto_discovery_rule_is_in_00_and_01(self) -> None:
         zero = read("00_orchestrator/SKILL.md")
-        one = read("01_skill-discovery-integration/SKILL.md")
-        for label, text in (("00", zero), ("01", one)):
-            self.assertIn("mounts-cap/", text, label)
-            self.assertIn("session_picked_fine_ids", text, label)
-            self.assertIn("skill-harvest", text, label)
+        one = read("01_skill-integration/SKILL.md")
+        life = read("01_skill-integration/references/lifecycle-cache.md")
+        self.assertTrue("mounts-cap" in zero or "mounts_cap" in zero)
+        self.assertIn("session_picked_fine_ids", zero)
+        self.assertIn("session_picked_fine_ids", one)
+        # advertised skills = 00–06 only (skill-harvest archived → MY-RULES skill-evolution.md)
+        self.assertIn("only `00_orchestrator`–`06_review`", zero)
+        self.assertNotIn("and `skill-harvest`", zero)
+        self.assertIn("`00`–`06` only", life)
+        self.assertNotIn("and `skill-harvest` only", life)
+        self.assertIn("skill-evolution.md", one)
 
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
         for rel in (
-            "01_skill-discovery-integration/mounts/README.md",
+            "01_skill-integration/mounts/README.md",
             "00_orchestrator/workflows/research-exploration-loop.md",
         ):
             self.assertNotRegex(read(rel), r"52 fine", rel)
@@ -287,7 +298,12 @@ class RepoMapGenerated(unittest.TestCase):
     from registry.yaml, same anti-drift pattern as MOUNTED_SKILLS.md."""
 
     def test_repo_map_matches_registry(self) -> None:
-        script = ROOT / "00_orchestrator" / "scripts" / "gen_repo_map.py"
+        script = ROOT / "04_analysis" / "personal" / "visualization" / "scripts" / "gen_repo_map.py"
+        if not script.is_file():
+            self.skipTest("gen_repo_map.py missing")
+        out = Path(r"D:/0Grok/0doc/04-lab-reference/my-skills-viz/repo-map.html")
+        if not out.is_file():
+            self.skipTest("lab repo-map.html absent; regenerate on lab host")
         result = subprocess.run(
             [sys.executable, str(script), "--check"],
             capture_output=True, text=True,
@@ -297,8 +313,8 @@ class RepoMapGenerated(unittest.TestCase):
 
 class MountedBytesPresent(unittest.TestCase):
     """CHG-20260913-006: `humanize` was declared MOUNTED with zero bytes on
-    disk at mounts-cap/. This makes that manual audit permanent: every
-    MOUNTED fine id must have real bytes in mounts-cap/<source-dir>/<path>,
+    disk at D:/0Grok/0doc/04-lab-reference/mounts-cap. This makes that manual audit permanent: every
+    MOUNTED fine id must have real bytes in CAP_ROOT/<source-dir>/<path>,
     or this fails instead of surviving until the next manual scan."""
 
     SRC_DIR = {
@@ -312,7 +328,7 @@ class MountedBytesPresent(unittest.TestCase):
     PACK_DIRS = ("b", "ars", "medsci", "scientific", "openclaw", "aipoch", "nature")
 
     def _cache_has_pack_bytes(self) -> bool:
-        root = ROOT / "mounts-cap"
+        root = CAP_ROOT
         for name in self.PACK_DIRS:
             folder = root / name
             if not folder.is_dir():
@@ -333,9 +349,9 @@ class MountedBytesPresent(unittest.TestCase):
             folder = self.SRC_DIR.get(m.get("source"))
             if not folder:
                 continue
-            full = ROOT / "mounts-cap" / folder / m.get("path", "")
+            full = CAP_ROOT / folder / m.get("path", "")
             if not full.exists():
-                missing.append((m["id"], str(full.relative_to(ROOT))))
+                missing.append((m["id"], str(full)))
         self.assertEqual(missing, [], f"MOUNTED fine ids with no bytes on disk: {missing}")
 
 
@@ -346,7 +362,7 @@ class MountedSkillsGenerated(unittest.TestCase):
     re-running the generator (or edits registry.yaml without regenerating)."""
 
     def test_mounted_skills_matches_registry(self) -> None:
-        script = ROOT / "01_skill-discovery-integration" / "scripts" / "gen_mounted_skills.py"
+        script = ROOT / "01_skill-integration" / "scripts" / "gen_mounted_skills.py"
         result = subprocess.run(
             [sys.executable, str(script), "--check"],
             capture_output=True, text=True,
@@ -385,7 +401,10 @@ class FastRouting(unittest.TestCase):
         self.assertIn("选刊 → `03_research`", ethics)
         self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", ethics)
         self.assertNotIn("radiology-ethics", ethics)
-        harvest = read("skill-harvest/references/route-map.md")
+        harvest_path = ROOT / "skill-harvest" / "references" / "route-map.md"
+        if not harvest_path.is_file():
+            self.skipTest("skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\")
+        harvest = harvest_path.read_text(encoding="utf-8")
         self.assertIn("选刊 → `03_research`", harvest)
         self.assertNotIn("选刊 → `05-write-venue`", harvest)
         self.assertIn("calc-sample-size", harvest)
@@ -405,7 +424,7 @@ class FastRouting(unittest.TestCase):
 class DeAiAndFigures(unittest.TestCase):
     def test_sci_manuscript_paths(self) -> None:
         sop = read("00_orchestrator/workflows/sci-manuscript.md")
-        self.assertIn("05_manuscript/personal/forbidden-phrases.md", sop)
+        self.assertIn("05_manuscript/personal/vocab/L1/ban-phrases.md", sop)
         self.assertIn("draw-flowchart", sop)
         self.assertIn("plot-figures", sop)
         self.assertNotIn("04-fig-flow", sop)
@@ -443,7 +462,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
         self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
         self.assertIn("不代替 citation-verify", mmd)
-        reg = read("01_skill-discovery-integration/registry.yaml")
+        reg = read("01_skill-integration/registry.yaml")
         self.assertIn("citation-verify-on-05-06", reg)
         self.assertIn("status: resolved", reg)
 
@@ -466,7 +485,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("G-04", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
-        self.assertIn("05_manuscript/personal/forbidden-phrases.md", sci)
+        self.assertIn("05_manuscript/personal/vocab/L1/ban-phrases.md", sci)
         wf = read("00_orchestrator/workflows/README.md")
         self.assertIn("gates.md", wf)
 
@@ -477,12 +496,12 @@ class OrchestratorLoop(unittest.TestCase):
 class AttributionAndFetch(unittest.TestCase):
 
     def test_skill_level_prefix_rules(self) -> None:
-        style = read("06_review/personal/personal-review-style.md")
+        style = read("06_review/personal/review.md")
         self.assertIn("[Nature:simulate-reviewers]", style)
         self.assertIn("包内skill-id", style.replace(" ", ""))
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
-        preset = read("01_skill-discovery-integration/mounts/presets/review-hybrid.yaml")
+        preset = read("01_skill-integration/mounts/presets/review-hybrid.yaml")
         self.assertIn("skills: [citation-management]", preset)
         self.assertIn("skills: [stats-guide]", preset)
         self.assertIn("required: false", preset)
@@ -490,7 +509,7 @@ class AttributionAndFetch(unittest.TestCase):
 
 
     def test_author_vs_prefix(self) -> None:
-        text = read("06_review/personal/personal-review-style.md")
+        text = read("06_review/personal/review.md")
         self.assertIn("作者字段", text)
         self.assertIn("作者栏 ≠ 来源标签", text)
         self.assertIn("双标", text)
@@ -500,14 +519,14 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("[Scientific:", text)
         self.assertIn("同一 DOI", text)
         zero = read("00_orchestrator/SKILL.md")
-        self.assertIn("personal-review-style.md` §0", zero)
+        self.assertIn("06_review/personal/review.md", zero)
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
         five = read("05_manuscript/SKILL.md")
         self.assertIn("New citation numbers", five)
 
     def test_fetch_merge_helpers(self) -> None:
-        fetch = read("mounts-cap/fetch.py")
+        fetch = (CAP_ROOT / "fetch.py").read_text(encoding="utf-8")
         self.assertIn("merge_source_state", fetch)
         self.assertIn("Prefer zip", fetch)
         self.assertIn("_state_lock", fetch)
@@ -516,19 +535,21 @@ class AttributionAndFetch(unittest.TestCase):
 
 class ReviewInteract(unittest.TestCase):
     def test_review_resolution_protocol(self) -> None:
-        text = read("06_review/personal/review-resolution.md")
+        # Wave3: review-resolution.md archived to D:\\0del\\06_review_reorg_20261016\\
+        path = ROOT / "06_review" / "personal" / "review-resolution.md"
+        if not path.is_file():
+            self.skipTest("review-resolution.md archived 2026-10-16 to 0del; resolution cues live in review.md / gates")
+        text = path.read_text(encoding="utf-8")
         self.assertIn("Review Issue", text)
         for s in ("resolved", "partially_resolved", "unresolved", "new_issue"):
             self.assertIn(s, text)
         self.assertIn("A 06 personal", text)
         self.assertIn("B06 upgrade", text)
-        skill = read("06_review/SKILL.md")
-        self.assertIn("review-resolution.md", skill)
         gates = read("00_orchestrator/gates.md")
         self.assertIn("review-resolution.md", gates)
 
     def test_personal_review_eight_sections(self) -> None:
-        text = read("06_review/personal/personal-review-style.md")
+        text = read("06_review/personal/review.md")
         for h in (
             "1. Title",
             "2. Abstract",
@@ -559,11 +580,11 @@ class ReviewInteract(unittest.TestCase):
         six = read("06_review/SKILL.md")
         self.assertIn("Personal review layout", six)
         self.assertIn("User decides", six)
-        resp = read("06_review/personal/personal-response-style.md")
+        resp = read("06_review/personal/response.md")
         self.assertIn("词或句", resp)
 
     def test_evidence_request_protocol(self) -> None:
-        text = read("05_manuscript/personal/evidence-request.md")
+        text = read("05_manuscript/personal/process/evidence.md")
         self.assertIn("Evidence Request", text)
         self.assertIn("Accept", text)
         self.assertIn("Weaken", text)
@@ -571,22 +592,22 @@ class ReviewInteract(unittest.TestCase):
         self.assertIn("03_research", text)
         self.assertNotIn("B05 = Personal Writing", text)
         skill = read("05_manuscript/SKILL.md")
-        self.assertIn("evidence-request.md", skill)
+        self.assertIn("process/evidence.md", skill)
         gates = read("00_orchestrator/gates.md")
-        self.assertIn("evidence-request.md", gates)
+        self.assertIn("process/evidence.md", gates)
 
 
 class MountsCap(unittest.TestCase):
     def test_cache_scaffold(self) -> None:
         self.assertFalse((ROOT / "archive").exists())
-        root = ROOT / "mounts-cap"
+        root = CAP_ROOT
         self.assertTrue((root / "README.md").is_file())
         self.assertTrue((root / "INDEX.yaml").is_file())
         self.assertTrue((root / "fetch.py").is_file())
-        gi = read("mounts-cap/.gitignore")
+        gi = (CAP_ROOT / ".gitignore").read_text(encoding="utf-8")
         for name in ("b/", "ars/", "medsci/", "scientific/", "openclaw/", "aipoch/", "nature/", "STATE.yaml"):
             self.assertIn(name, gi)
-        idx = read("mounts-cap/INDEX.yaml")
+        idx = (CAP_ROOT / "INDEX.yaml").read_text(encoding="utf-8")
         self.assertIn("on-demand-path-only", idx)
         self.assertIn("never_bulk_backup", idx)
         self.assertNotIn("openclaw-medical-skills: openclaw", idx)
@@ -605,14 +626,14 @@ class MountsCap(unittest.TestCase):
         self.assertEqual(tracked, "")
 
     def test_01_uses_cache_not_bulk(self) -> None:
-        one = read("01_skill-discovery-integration/SKILL.md")
-        self.assertIn("mounts-cap/", one)
+        one = read("01_skill-integration/SKILL.md")
+        self.assertIn("mounts_cap", one)  # alias {mounts_cap} after 0doc move
         self.assertIn("Download is not a mount", one)
         self.assertIn("Never bulk-download", one)
-        fetch = read("mounts-cap/fetch.py")
+        fetch = (CAP_ROOT / "fetch.py").read_text(encoding="utf-8")
         self.assertIn("ensure-b", fetch)
         self.assertNotIn("def download_all", fetch)
-        self.assertIn("archived:", read("01_skill-discovery-integration/SKILL.md"))
+        self.assertIn("archived:", read("01_skill-integration/SKILL.md"))
 
 
 class LocalLinkHygiene(unittest.TestCase):
@@ -633,6 +654,14 @@ class LocalLinkHygiene(unittest.TestCase):
 
 
 class HarvestHygiene(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls._harvest = ROOT / "skill-harvest"
+        if not cls._harvest.is_dir():
+            raise unittest.SkipTest(
+                "skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
+            )
+
     def test_harvest_orchestrator_slim(self) -> None:
         text = read("skill-harvest/SKILL.md")
         # Batch2: SKILL is orchestrator only (SCAN→PROPOSE→APPROVAL→MEASURE); detail in references/
@@ -680,7 +709,7 @@ class HarvestHygiene(unittest.TestCase):
         self.assertIn("00–06 skill", text)
 
     def test_medsci_unmapped_not_duplicated(self) -> None:
-        text = read("01_skill-discovery-integration/mounts/medsci.md")
+        text = read("01_skill-integration/mounts/medsci.md")
         self.assertEqual(text.count("## A 没有对应接口"), 1)
 
     def test_project_state_no_yellow(self) -> None:

@@ -1,19 +1,19 @@
-﻿# MedicalResearch Skills — framework A (2026-09-03)
+# MedicalResearch Skills — framework A (2026-09-03)
 
-Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (**B**, default chassis) or an approved external Skill. Menu shape is `01_skill-discovery-integration/registry.yaml` and the generated `MOUNTED_SKILLS.md` (do not restate totals here). `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
+Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (**B**, default chassis) or an approved external Skill. Menu shape is `01_skill-integration/registry.yaml` and the generated `MOUNTED_SKILLS.md` (do not restate totals here). `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
 
 ## Skills
 
 | # | Skill | Primary role |
 |---|--------|--------------|
 | 00 | `00_orchestrator` | Classify, route, composite workflow, Final QC + local recovery |
-| 01 | `01_skill-discovery-integration` | Discover / evaluate / mount external Skills; default source B |
+| 01 | `01_skill-integration` | Mount / index / hybrid recipes; default source B |
 | 02 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles |
 | 03 | `03_research` | Design, literature (03 only), **选刊**, grants (personal supplement), translational design, **ethics forms (seat Bai / fill-protocol path in 03)** |
 | 04 | `04_analysis` | Stats, prediction, figures (`draw-flowchart` / `plot-figures`); lab notes in `personal/` |
 | 05 | `05_manuscript` | Personal writing upper layer; B `05-manuscript/write-venue/` = journal templates / house style (not 选刊); de-AI at `personal/` |
 | 06 | `06_review` | Personal review/response upper layer |
-| — | `skill-harvest` | Evolution governance |
+| — | MY-RULES `skill-evolution.md` | Evolution governance (former skill-harvest archived) |
 
 ## Rules
 
@@ -23,6 +23,10 @@ Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-c
 - User approval required to mount or evolve. Never auto-mount a non-B source. Non-B status is per registry, not an all-PROPOSED backup set.
 - Former archive four packs rehomed under 02/03 (CHG-20260902-004). Ethics fill pack is under 03, not 02. Former `radiology-stats/` folder is merged into `04_analysis/personal/`.
 
+
+## History archive
+
+`history/` was moved to `D:/0del/00_orchestrator_reorg_20261017/_medical-research-meta_history/`. This folder keeps architecture, integration map, VERSION, tests, and `__init__.py` only.
 ## Tests
 
 ```

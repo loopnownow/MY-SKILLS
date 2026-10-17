@@ -1,0 +1,57 @@
+# Swappable core for default hybrid mount (v4 fine IDs).
+# Unit of attribution / scoring / path fetch = source + pack skill (not whole source).
+# Coarse buckets stay the session shell; fine ids are the picks. Mapping is not a mount.
+preset_id: review-hybrid-default
+version: "2026-09-22.1"
+status: default-session-recipe
+notes: >
+  Default for review / pre-review: B chassis + Scientific verify-refs
+  (citation-management) + B analyze-stats (stats-guide). Scientific
+  critical-thinking stays PROPOSED overlay (ask before load). Prefetch only
+  listed skill paths. Catalog backups MedSci/Scientific/AIPOCH/Nature only. A 06 personal adjudicates.
+
+chassis:
+  source: my-skills-capabilities
+  role: base
+  required: true
+
+personal:
+  - layer: 06_review/personal
+    role: adjudication
+    must_include: [review-resolution.md, 06_review/personal/review.md]
+
+# Per fine-id overrides (v4). Must match registry.yaml source/path/status.
+overrides:
+  - id: verify-refs
+    source: scientific-agent-skills
+    skills: [citation-management]
+    paths: [skills/citation-management/]
+    role: literature-verify
+    required: true
+    prefix_example: "[Scientific:citation-management]"
+  - id: analyze-stats
+    source: my-skills-capabilities
+    skills: [stats-guide]
+    paths: [04-analysis/stats-guide/]
+    role: reported-stats-audit
+    required: true
+    prefix_example: "[B:04-analysis/stats-guide]"
+  - id: scientific-critical-thinking
+    source: scientific-agent-skills
+    skills: [scientific-critical-thinking]
+    paths: [skills/scientific-critical-thinking/]
+    role: logic-mechanism-overlay
+    required: false
+    status_note: PROPOSED in registry — ask-each-run before load
+    prefix_example: "[Scientific:scientific-critical-thinking]"
+
+force_b:
+  - peer-review
+  - peer-review-pdf-scan
+  - revise
+  - self-review
+
+excluded_sources: []
+excluded_tools_note: "Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
+
+swappable: true

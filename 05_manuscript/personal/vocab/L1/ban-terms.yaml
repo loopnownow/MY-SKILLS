@@ -1,0 +1,123 @@
+﻿# Machine source for style_lint.py VOCAB_ALWAYS / VOCAB_LIMITED.
+# Humans read vocab/L1/ban-phrases.md. Change terms here first, then re-run tests.
+# style_lint.py loads this file at runtime (stdlib parser; no hardcoded word lists).
+#
+# Imaging / lab exceptions (do not add these to always):
+# - robustness is allowed (ICC / test-retest). Ban robust/robustly only.
+# - attenuation (noun) is allowed. Ban attenuate/attenuates/attenuated/attenuating.
+# - elevate / enhance stay off always (elevated ALT, contrast-enhanced).
+# - noun label stays off always; only labell?ed.
+
+limited_policy:
+  per_term: 1
+  total: 3
+
+always:
+  - probe: labeled
+    pattern: labell?ed
+  - probe: locked
+    pattern: locked
+  - probe: attenuated
+    pattern: attenuat(?:e|es|ed|ing)
+  - probe: delve
+    pattern: delv(?:e|es|ed|ing)
+  - probe: tapestry
+    pattern: tapestr(?:y|ies)
+  - probe: testament to
+    pattern: testament to
+  - probe: underscores
+    pattern: underscor(?:e|es|ed|ing)
+  - probe: seamless
+    pattern: seamless(?:ly)?
+  - probe: robust
+    pattern: robust(?:ly)?
+  - probe: landscape
+    pattern: landscapes?
+  - probe: leverage
+    pattern: leverag(?:e|es|ed|ing)
+  - probe: realm
+    pattern: realms?
+  - probe: myriad
+    pattern: myriad
+  - probe: plethora
+    pattern: plethora
+  - probe: ever-evolving
+    pattern: ever-evolving
+  - probe: cutting-edge
+    pattern: cutting-edge
+  - probe: transformative
+    pattern: transformative
+  - probe: paradigm shift
+    pattern: paradigm shifts?
+  - probe: holistic
+    pattern: holistic(?:ally)?
+  - probe: embark
+    pattern: embark(?:s|ed|ing)?
+  - probe: game-changing
+    pattern: game-changing
+  - probe: unlock
+    pattern: unlock(?:s|ed|ing)?
+  - probe: harness the power
+    pattern: harness(?:es|ed|ing)? the power
+  - probe: dive deep
+    pattern: dive(?:s|d)? deep
+  - probe: it is worth noting
+    pattern: "it(?:'s|’s| is) (?:important|worth) (?:to )?not(?:e|ing)"
+  - probe: that being said
+    pattern: that being said
+  - probe: at the end of the day
+    pattern: at the end of the day
+  - probe: in today's fast-paced world
+    pattern: "in today(?:'s|’s) (?:fast-paced|digital|modern) world"
+  - probe: pivotal
+    pattern: pivotal
+  - probe: crucial
+    pattern: crucial(?:ly)?
+  - probe: comprehensive
+    pattern: comprehensive
+  - probe: novel
+    pattern: novel
+  - probe: notably
+    pattern: notably
+  - probe: interestingly
+    pattern: interestingly
+  - probe: importantly
+    pattern: importantly
+  - probe: framework
+    pattern: frameworks?
+  - probe: elucidate
+    pattern: elucidat\w*
+  - probe: remarkably
+    pattern: remarkably
+  - probe: surprisingly
+    pattern: surprisingly
+  - probe: groundbreaking
+    pattern: groundbreaking
+  - probe: state-of-the-art
+    pattern: state-of-the-art
+  - probe: proved
+    pattern: proved
+  - probe: superior
+    pattern: superior
+  - probe: critical
+    pattern: critical
+  - probe: disentangled
+    pattern: disentangl(?:e|es|ed|ing)
+
+limited:
+  - probe: foster
+    pattern: foster(?:s|ed|ing)?
+  - probe: streamline
+    pattern: streamline(?:s|d)?
+  - probe: empower
+    pattern: empower(?:s|ed|ing)?
+  - probe: showcase
+    pattern: showcase(?:s|d)?
+  - probe: meticulous
+    pattern: meticulous(?:ly)?
+  - probe: compelling
+    pattern: compelling
+  - probe: innovative
+    pattern: innovative
+  - probe: journey
+    pattern: journeys?

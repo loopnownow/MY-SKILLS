@@ -41,6 +41,8 @@ BAN_TERMS_PATH = (
     Path(__file__).resolve().parents[2]
     / "05_manuscript"
     / "personal"
+    / "vocab"
+    / "L1"
     / "ban-terms.yaml"
 )
 
@@ -83,7 +85,7 @@ CONFIG = {
     "MAX_NON_LATIN_RATIO": 0.2,   # catalogue is English-only; CJK-heavy text would "pass" falsely
 
     # ---- 4. Vocabulary (regex fragments, matched on word boundaries, case-insensitive)
-    # ALWAYS / LIMITED are filled at import from 05_manuscript/personal/ban-terms.yaml.
+    # ALWAYS / LIMITED are filled at import from 05_manuscript/personal/vocab/L1/ban-terms.yaml.
     # Do not hand-edit term lists here. Imaging exceptions live in that yaml's header:
     # robustness allowed; attenuation (noun) allowed; elevate/enhance off always;
     # noun label off always (only labell?ed).
@@ -169,7 +171,7 @@ def load_ban_terms(path=None):
         bucket.append(item)
         item = None
 
-    for raw in src.read_text(encoding="utf-8").splitlines():
+    for raw in src.read_text(encoding="utf-8-sig").splitlines():
         stripped = raw.strip()
         if not stripped or stripped.startswith("#"):
             continue

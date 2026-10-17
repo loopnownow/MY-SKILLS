@@ -1,0 +1,46 @@
+# Shared alias table. Former scanner: skill-harvest/scripts/repo_qc.py (archived D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\).
+# Docs: 01_skill-integration/SKILL.md + references/id-rules.md
+# Runtime may resolve alias -> canonical. Workflows and other call sites use canonical ids only.
+# Confirmed against registry.yaml on 2026-10-03. The live fine id is the value.
+# The expected reverse map (clean-data -> 02-tables, and the other v3 names as live ids)
+# disagrees with the registry and is not applied.
+# 04-stats-models is the path unit 04-analysis/stats-models/, whose fine id is meta-analysis.
+# 04-model-eval shares 04-analysis/model-eval/ with model-validation; the alias target is model-evaluation.
+# 04-figure-engine is retired and is intentionally unmapped (split across draw-flowchart and plot-figures (legacy make-figures/fig-plot)).
+# R2a 2026-10-07: 12 English fine-id renames + coarse peer-review→manuscript-review alias.
+aliases:
+  02-tables: clean-data
+  02-imaging-qc: preprocess-imaging
+  02-radiomics-habitat: radiomics-ml
+  04-fig-flow: draw-flowchart
+  04-fig-plot: plot-figures
+  02-imaging-io: imaging-io
+  04-stats-models: meta-analysis
+  04-model-eval: model-evaluation
+  nature-academic-search: audit-citations
+  nature-proposal-writer: check-grant-proposal
+  nature-polishing: polish-latex
+  nature-reviewer: simulate-reviewers
+  nature-response: tighten-response
+  nature-figure: audit-figure-risk
+  nature-data: write-data-statement
+  scikit-survival: analyze-survival
+  make-figures: draw-flowchart
+  fig-plot: plot-figures
+  ma-scout: scout-meta-analysis
+  pydicom: audit-dicom
+
+# Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
+# R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
+coarse_aliases:
+  文献检索: lit-retrieval
+  选题探索: topic-explore
+  研究设计: study-design
+  正文写作: manuscript-body
+  语言润色: language-polish
+  数据处理: data-processing
+  统计分析: stats-analysis
+  图表呈现: figures
+  稿件评阅: manuscript-review
+  审稿回复: review-response
+  peer-review: manuscript-review

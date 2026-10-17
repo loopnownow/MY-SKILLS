@@ -1,4 +1,4 @@
-# Writing voice portrait (Ying Li / Jinshan)
+﻿# Writing voice portrait (Ying Li / Jinshan)
 
 Personal upper layer for **写作**. Corpus: multi-paper Track Changes + comments (SCI medical).  
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.
@@ -7,7 +7,7 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 **Paragraph lock (2026-10-01):** 正文写成段；不要一句一行 / 一句一段。短句可以，但相关句放在同一段里。Abstract 四段标签、Methods/Results 小标题、Highlights 条目、表注图注仍按 `Aitor-format.md`。
 
-**Pre-submit (2026-10-02):** run `pre-submit-consistency.md` before a house draft is called final. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
+**Pre-submit (2026-10-02):** run `00_orchestrator/references/manuscript-local-qc.md` before a house draft is called final. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
 
 ---
 
@@ -36,7 +36,7 @@ This portrait does **not** replace `Aitor-format.md`. On conflict, locks above +
 | Refs placement | After Conclusion, before Tables (full paper) |
 | Aim openers | `This study aimed to…` / `The aim of this study was to…` |
 | Voice | Methods: prefer passive where lab default applies; Discussion: calibrated hedges; Results: no hedges |
-| Banned hype | `novel`, `notably`, `interestingly`, `importantly` + `forbidden-phrases.md` |
+| Banned hype | `novel`, `notably`, `interestingly`, `importantly` + `vocab/L1/ban-phrases.md` |
 
 Do **not** add a Discussion page-length quota (no “cut to 1.5 pages”). Length follows `Aitor-format.md` word bands and content need.
 
@@ -86,4 +86,28 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 - Revise the original `.docx` in place with Track Changes; comments author **A**. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Missing facts → comment / ask; never yellow fill; never silent overwrite of existing corresponding-author / funding / ethics text.
 - Full delivery rules: `06_review/personal/word-edit-rules.md`.
-- Before calling the draft final, run `pre-submit-consistency.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.
+- Before calling the draft final, run `00_orchestrator/references/manuscript-local-qc.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.
+
+---
+
+## L2 format / paragraph slice (merged 2026-10-16)
+
+# L2 format / paragraph habits (writing layer)
+
+**Authority:** full locks and portrait stay in `../../voice-portrait.md` and IMRAD/DOCX in `../../Aitor-format.md`.
+This file is the **L2 writing slice** only (how paragraphs and set wording are preferred).
+
+## Preferred paragraph habit
+- One fact per sentence, inside **continuous paragraphs** (not one sentence per line/paragraph in IMRAD body).
+- Abstract headed labels, Methods/Results subheadings, Highlights, table/figure notes follow `Aitor-format.md`.
+
+## Preferred set wording
+- Body: **training / test**; Figure 1: Training Cohort / Test Cohort; external other-hospital only = **validation set**.
+- Never Development set; never call same-hospital random split external validation.
+
+## Figure legends
+- Legends **below** figures (`voice-portrait.md`).
+
+## Em-dash / typography that affect wording
+- Prediction-model full papers: no em-dash (see `Aitor-format.md`).
+

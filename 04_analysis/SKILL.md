@@ -10,6 +10,8 @@ description: >
 
 # Analysis & Visualization
 
+**Route:** `personal/route.md`. **Handoff:** `personal/handoff.md`.
+
 ## Purpose
 
 Transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
@@ -20,15 +22,16 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 
 | Task | Path |
 |---|---|
-| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/0rad-pipeline-rules.md` |
-| Console UI / results HTML / figure switches (persist choices, row layout, no Chinese in figures, external=same schema, switch-gated plots; HTML over companion xlsx on number conflict) | `personal/console-ui-and-report-rules.md` |
+| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/pipeline.md` |
+| Console UI / results HTML / figure switches (persist choices, row layout, no Chinese in figures, external=same schema, switch-gated plots; HTML over companion xlsx on number conflict) | `personal/console-ui.md` |
 | Radiology-grade stats (DeLong p, DCA, ICC, MRMC, sample size) | `personal/` (`MODULE.md` + diagnostic/survival/sample-size notes) |
-| Imaging statistics notes (lab) | `personal/statistics.md` |
-| Lab figure palettes | `personal/lab-palettes.md` |
-| Figure claim planning (pick the plot from the Discussion claim before drawing) | `personal/figure-claim-planning.md` |
-| Stats checklist | `personal/stats-checklist.md` |
-| Reported stats consistency (GRIM / NHST / CI vs p; threshold, implied *n*, multiplicity, relative units, circular *P*, inclusion scale) | `personal/stats-consistency.md` |
-| Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/personal/pre-submit-consistency.md` |
+| Imaging statistics notes (lab) | `personal/methods.md` |
+| Lab figure palettes | `personal/figures.md` |
+| Figure claim planning (pick the plot from the Discussion claim before drawing) | `personal/figures.md` |
+| Stats checklist | `personal/report-checks.md` |
+| Reported stats consistency (GRIM / NHST / CI vs p; threshold, implied *n*, multiplicity, relative units, circular *P*, inclusion scale) | `personal/report-checks.md` |
+| Pre-submit check ids (writing actions; 05 owns prose) | `00_orchestrator/references/manuscript-local-qc.md` |
+| Archify pin + visualization rebuild scripts (repo-map / IR) | `personal/visualization/` — generated HTML under `{doc_root}/04-lab-reference/my-skills-viz` (not in-repo `docs/`) |
 
 Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack. Lab numbers: `python -m modules.pipeline` → `*-results.html`.
 
@@ -57,7 +60,7 @@ Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figur
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
 - Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
-- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `personal/0rad-pipeline-rules.md`.
+- 0RAD test-set scoring: `VAL_MODE` ∈ {`refit`, `apply_formula`, `lock_threshold`} — **never re-select features**. Details: `personal/pipeline.md`.
 
 ## Precedence
 
@@ -77,7 +80,7 @@ Do not invent numbers the HTML does not contain.
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/lab-palettes.md`). Before drawing, load `personal/figure-claim-planning.md` (claim → plot type, evidence manifest, three-round render QC). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/figures.md`). Before drawing, load `personal/figures.md` (claim → plot type, evidence manifest, three-round render QC). Caption prose → `05_manuscript`. Figure 1 labels, downsample vs eligibility, and PDF (Times New Roman 12 pt) follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
 
 ## Boundaries
 
