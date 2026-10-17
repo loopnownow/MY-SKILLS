@@ -33,7 +33,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Voice portrait | `personal/voice-portrait.md` |
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
-| L1 / L2 / L3 vocabulary | `personal/vocab/` |
+| L1 / L2 / L3 vocabulary | B `05-manuscript/vocab/` (A `personal/vocab/` = pointer) |
 | Lab-STE (CM-01 ZH comments) | `personal/vocab/L3/lab-ste.md` |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `00_orchestrator/references/manuscript-local-qc.md` (owned by 00) |
@@ -79,7 +79,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 ## Not this skill
 
-- Pre-submission / 模拟审稿 / 评阅 → `06_review`
+- Pre-submission / 模拟审稿 / 评阅 → `06_review` (response -> `07_response`)
 - Response letter / 回复审稿人 → `06_review`
 - Statistics / figures → `04_analysis`
 - Literature landscape / 选刊 / where to submit → `03_research` (`personal/journal-selection.md`)
