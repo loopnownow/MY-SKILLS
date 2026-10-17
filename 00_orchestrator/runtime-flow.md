@@ -6,6 +6,27 @@
 
 00 = 控制层（入口、调度、Gate、回退）。业务在 02–06；外挂版本与缓存在 **01**；技能演进政策见 MY-RULES `skills.md`（skill-evolution；skill-harvest 已归档），只观察与提案，不执行流程。
 
+
+
+## A/B layering (2026-10-17)
+
+**Main loop:** B fine-ID **first-pass** capability loops -> **00 QC gate** -> A **top-layer re-loops**.
+
+| Layer | Repo | Owns |
+|---|---|---|
+| **B** | MY-SKILLS-capabilities | Capability bodies / fine-ID loops |
+| **00** | MY-SKILLS `00_orchestrator` | QC gate between B first-pass and A re-loop |
+| **A** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Bodies stay in B |
+
+Post-QC A re-loops (as needed):
+
+- **A03** -- may trigger `verify-refs` + `retraction-watcher` (executed in B)
+- **A05** -- `polish-language` -> `humanize` alongside Aitor-format/voice; vocab on first write
+- **A06** -- post-QC **re-review only**
+- **A07** -- **final authority for response** (`revise`/`tighten-response`/`response-tone-polisher` source=B)
+
+Do not change fine IDs for stats-analysis / figures / data-processing / study-design.
+
 ## 读图要点
 
 1. **Detect 定入口与终点**——已有 HTML 可停在 05，不必强进 06。已有统计可中途进 05，已有稿件可中途进 06，不必从 02 重跑。结果页和审稿信同时在、且没有点名入口时，先问从哪一站进。多节点 / 新能力 / 要用挂载时先 grilling + Plan card + 流程图审批。`结束` 或本次文件已在且最后一门 PASS → `pipeline.stage: done`。暂停，或停在结果页后 / 预审前，stage 留在当前站。**同一缺陷** `defects[].rounds` 第 3 轮仍失败：`unresolved`，stage 不往前（不是全局 `qc.rounds`）。同一次已批准运行里，后续过站报一行；患者信息、结果页数字、预审入口、审稿门仍停住。**凡写作或审稿（含中途进入）**，Gate · 05 的 done 之前、以及 06 审稿之内，必须经过 03 `citation-verify`（claim→ref 表 + 强断言抽查原文）。05 的核实不免除 06。Aitee 与 Lee 不得自证文献。Lee 仍先陈述一致、再数据一致；文献准确性与 Victor 共同负责。Ownership: see `00_orchestrator/references/ownership-contract.md`.
@@ -27,6 +48,7 @@
 | 03 文献研究 | 出口是 G0 + G-LIT + 证据/引文产物。不单列 03 门禁编号，也没有 03 自己的 G-FACT |
 | 04 统计 / 图表 | G0 + G-FACT（04 HTML 之后的事实链）+ G-04。数与图来自 HTML / settings；报告规范清单不归 G-04。N3 WRITE = 停 HTML 或进写作 |
 | 05 论文写作 | G0 + G-FACT（05 house.docx 之后再核）+ G-LIT + G-05（含 style-lint 子检）。Gate · 05 / done 之前必须有 03 citation-verify PASS（语义标签 **G-CIT-1**，草稿证据核实；`03_research/personal/citation-verify.md`）。N4 PREVIEW = 进 06 或停 |
+| 07 回复审稿人 | G0 + response resolution + G-LIT when cites appear; A07 final authority; revise/tighten-response/response-tone-polisher stay source=B |
 | 06 审稿 / 修回 | G0 + G-LIT + G-05 + G-06；引用了数字时再跑 G-FACT（`gates.md` 已写 before 06 if numbers cited）。06 内 citation-verify 语义标签 **G-CIT-2**（修订后 / 06 内），不可跳过；G-CIT-1 不免除 G-CIT-2。Lee 管陈述一致然后数据一致，文献准确性与 Victor 共同负责。Ownership: see `00_orchestrator/references/ownership-contract.md` |
 | 完整 02→04→05→06 | 各节点出口按上表；G-FACT 只在 04 HTML 之后、05 house.docx 之后，以及 06 引用数字时 |
 
@@ -42,3 +64,5 @@
 ## Before skills / mounts (standing)
 
 When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before 01 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
+
+Personal layers also include `07_response/personal` (response final authority). Flow: B fine-ID first -> 00 QC -> A re-loop.

@@ -85,3 +85,19 @@ Execution QC is diagnostic only: detect → name responsible node → local re-r
 ## Manuscript local QC checklists
 
 Writing-seat scorecard + pre-submit checks (body moved from 05): `references/manuscript-local-qc.md`. Formal Gate ownership stays here in 00.
+
+
+## A/B top-layer QC checks (2026-10-17)
+
+After B fine-ID first-pass and before / during A top-layer re-loops, 00 verifies:
+
+| Check | What | Fail -> |
+|---|---|---|
+| **(a) Isolated dual-review artifacts** | When `simulate-reviewers` / dual engines (`self-review` || `peer-review`) ran: finding sets are **isolated**; artifacts labeled by source prefix before A06 merges | B engines re-run; A06 does not invent isolation |
+| **(b) Vocab loaded on first write** | First-pass `write-paper` / `check-reporting` loaded B `05-manuscript/vocab/` before drafting. A `05_manuscript/personal/vocab/` is a pointer only | bounce to B write path |
+| **(c) A03 verify-refs / retraction re-run needed?** | Post-QC: if refs changed or G-LIT/G-CIT failed -> A03 triggers `verify-refs` + `retraction-watcher` (bodies in B); else skip | 03 / B verify-refs |
+| **(d) A05 polish / humanize** | Post-QC: `polish-language` -> `humanize` alongside Aitor-format/voice. Bodies remain B; A05 owns order | 05 Aitee |
+| **(e) A07 response** | Response enters **07** (not 06). A07 final authority; revise/tighten-response/response-tone-polisher stay source=B | 07 |
+
+These are checks on the existing gate set, not new gate ids.
+
