@@ -24,7 +24,7 @@ Attribution: `[Source:pack-skill]` per skill, not whole source.
 Machine core: [`presets/evidence-deep-L2.yaml`](presets/evidence-deep-L2.yaml).
 
 - B chassis + A03 evidence entry
-- Scientific `paper-lookup` (discovery) + `verify-refs` / citation-management
+- B/MOUNTED `lit-search` (discovery) + `verify-refs` / citation-management（`paper-lookup` archived 2026-10-17 round 1）
 - Optional full-text path when user asks (bulk full-text is archived; do not revive without ask)
 - Still ask-each-run. Prefer verify-refs over a second search engine.
 

@@ -13,6 +13,9 @@ empty_mount: notify-then-research-confirm
 notes: >
   Finer A ids (CHG-20260903-011). Empty listed below. shap is tabular XAI, not imaging Grad-CAM.
   Unmapped remainder grouped by domain.
+  Round-1 archive 2026-10-17: fine ids paper-lookup, analyze-survival, audit-dicom,
+  exploratory-data-analysis, statistical-power, venue-templates ARCHIVED in registry —
+  not active PROPOSED mount targets. Path strings under other fine ids kept for fetch/history.
 skills:
   - id: clean-data
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
@@ -85,10 +88,13 @@ skills:
     coverage: full
     note: not Aitor-format; clinical-reports not included
   - id: venue-templates
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 1
     path: skills/venue-templates/
     a_hook: 05_manuscript
     coverage: full
-    note: not Aitor-format
+    note: ARCHIVED 2026-10-17 round 1 in registry; not an active PROPOSED mount target. Was: not Aitor-format
   - id: polish-language
     path: skills/scientific-writing/
     a_hook: 05_manuscript

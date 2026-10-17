@@ -18,6 +18,8 @@ notes: >
   user's authenticated Chrome session with remote debugging — not a pure API call.
   polish-language overlaps with A personal de-AI stack; personal layer still wins.
   Mapping is not a mount. Default revise remains B.
+  Round-1 archive 2026-10-17: fine ids audit-citations, write-data-statement, polish-latex
+  ARCHIVED in registry — not active PROPOSED mount targets. check-grant-proposal stays PROPOSED.
 skills:
   - id: lit-search
     path: skills/nature-academic-search/; skills/nature-literature-pipeline/
@@ -109,5 +111,5 @@ empty:
   - calc-sample-size
   - meta-analysis
   - model-evaluation
-  - venue-templates
+  # venue-templates — archived registry 2026-10-17 round 1; removed from empty active list
   - humanize

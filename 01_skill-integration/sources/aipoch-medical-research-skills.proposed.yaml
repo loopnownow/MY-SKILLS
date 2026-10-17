@@ -17,6 +17,8 @@ notes: >
   Never auto-mount. B remains sole default. Writing/review packs are workers only.
   Meta-skills (e.g. systematic-review orchestrators) must not steal 00 authority.
   License: MIT (root LICENSE present).
+  Round-1 archive 2026-10-17: venue-templates fine id ARCHIVED in registry (A-side);
+  this source row marked archived — not an active PROPOSED mount target.
 skills:
   - id: clean-data
     path: scientific-skills/Data Analysis/baseline-extraction-for-clinical-trials/; scientific-skills/Data Analysis/clinical-data-cleaner/; scientific-skills/Data Analysis/data-transform/; scientific-skills/Data Analysis/exploratory-data-analysis/; scientific-skills/Data Analysis/table-1-generator/; scientific-skills/Data Analysis/table-1-generator-advanced/
@@ -104,10 +106,13 @@ skills:
     coverage: full
     note: worker only — Aitee 05 personal owns authority; +7 more under scientific-skills
   - id: venue-templates
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 1
     path: scientific-skills/Evidence Insight/venue-templates/; scientific-skills/Academic Writing/journal-cover-prompter/
     a_hook: 05_manuscript
     coverage: partial
-    note: journal matcher / preflight; journal pick still Victor/03
+    note: ARCHIVED 2026-10-17 round 1 in registry; not an active PROPOSED mount target. Was: journal matcher / preflight; journal pick still Victor/03
   - id: polish-language
     path: scientific-skills/Academic Writing/medical-email-polisher/; scientific-skills/Academic Writing/medical-translation/; scientific-skills/Other/content-proofreading/
     a_hook: 05_manuscript

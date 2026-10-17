@@ -39,5 +39,6 @@
 - **选刊权威：** `find-journal` 细 ID 可在 manuscript-body 桶展示，A 权威仍 `03_research/find-journal`。
 - **`humanize`：** 2026-10-17 吸收进 B `05-manuscript/humanize/`（✅ B默认）；个人 de-AI 仍在 A `05_manuscript/personal/`。
 - **图例 ⚪：** 2026-09-14 后本文件无残留规则参考行；原则已写入对应 B `external-principles.md`。
+- **PROPOSED cut round 1（2026-10-17）：** 归档 `paper-lookup` · `analyze-survival` · `audit-citations` · `audit-dicom` · `exploratory-data-analysis` · `polish-latex` · `statistical-power` · `venue-templates` · `write-data-statement`（registry `archived:`）；`check-grant-proposal` 本轮不动。
 
 **合计口径：** 注册表细 ID 数以 `registry.yaml` `fine_id_count_canonical` 为准（见生成表 `MOUNTED_SKILLS.md`）。

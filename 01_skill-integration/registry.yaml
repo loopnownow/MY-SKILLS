@@ -16,7 +16,7 @@
 meta:
   version: "4.0"
   change_id: CHG-20261007-001
-  fine_id_count_canonical: 52  # session-pick mounts; reference_only empty
+  fine_id_count_canonical: 43  # session-pick mounts; reference_only empty; -9 PROPOSED archived 2026-10-17 round 1
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
@@ -30,7 +30,7 @@ meta:
     - id: 样本量计算归属
       status: resolved
       resolved: 2026-09-26 (CHG-20260926-004)
-      decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size / statistical-power)
+      decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size; statistical-power archived 2026-10-17 round 1)
       note: 用户拍板归 04 / Loopnow；两细 ID 已移入统计分析。
     - id: citation-verify-on-05-06
       status: resolved
@@ -123,17 +123,6 @@ coarse_ids:
     specialist_hint: Lee
 
 mounts:
-  - id: paper-lookup
-    label: 广度检索
-    coarse: lit-retrieval
-    source: scientific-agent-skills
-    path: skills/paper-lookup/
-    a_domain: 03_research
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/paper-lookup/
-    note: 18 academic APIs; on-demand only
   - id: verify-refs
     label: 引用真实性核验
     coarse: lit-retrieval
@@ -176,18 +165,6 @@ mounts:
     status: MOUNTED
     load_priority: P1
     note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged.
-  - id: audit-citations
-
-    label: 严格他引审计
-    coarse: lit-retrieval
-    source: nature-skills
-    path: skills/nature-academic-search/
-    a_domain: 03_research
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/audit-citations/
   - id: lit-search
     label: 文献检索与公开数据集
     coarse: lit-retrieval
@@ -304,18 +281,6 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: write-data-statement
-
-    label: 数据可用性声明
-    coarse: manuscript-body
-    source: nature-skills
-    path: skills/nature-data/
-    a_domain: 05_manuscript
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/write-data-statement/
   - id: check-grant-proposal
 
     label: 基金标书-中文语境QA
@@ -347,16 +312,6 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     note: 引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05
-  - id: venue-templates
-    label: 期刊格式模板
-    coarse: manuscript-body
-    source: scientific-agent-skills
-    path: skills/venue-templates/
-    a_domain: 05_manuscript
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/venue-templates/
   - id: polish-language
     label: 一致性硬规则lint
     coarse: language-polish
@@ -375,19 +330,6 @@ mounts:
     status: MOUNTED
     load_priority: P1
     note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Personal de-AI stays A 05_manuscript/personal (not moved).
-  - id: polish-latex
-
-    label: LaTeX排版细节
-    coarse: language-polish
-    source: nature-skills
-    path: skills/nature-polishing/
-    a_domain: 05_manuscript
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    experimental: true
-    stub_in_b: cross-pack/nature/polish-latex/
   - id: clean-data
     label: 三阶段确认式清洗
     coarse: data-processing
@@ -407,16 +349,6 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     path_shared: true
-  - id: exploratory-data-analysis
-    label: EDA
-    coarse: data-processing
-    source: scientific-agent-skills
-    path: skills/exploratory-data-analysis/
-    a_domain: 02_data-processing
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/exploratory-data-analysis/
   - id: imaging-io
     label: CT/MRI DICOM与NIfTI读写
     coarse: data-processing
@@ -426,7 +358,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED audit-dicom."
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1."
   - id: preprocess-imaging
     label: ROI与读者质控
     coarse: data-processing
@@ -437,17 +369,6 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
-  - id: audit-dicom
-
-    label: DICOM底层与匿名化审计
-    coarse: data-processing
-    source: scientific-agent-skills
-    path: skills/pydicom/
-    a_domain: 02_data-processing
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/audit-dicom/
   - id: analyze-stats
     label: 检验方法选择与加权调查数据
     coarse: stats-analysis
@@ -466,17 +387,6 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: analyze-survival
-
-    label: 生存分析leakage-safe管道
-    coarse: stats-analysis
-    source: scientific-agent-skills
-    path: skills/scikit-survival/
-    a_domain: 04_analysis
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/analyze-survival/
   - id: radiomics-ml
     label: 放射组学建模pipeline审计
     coarse: stats-analysis
@@ -515,16 +425,6 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     note: "Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power"
-  - id: statistical-power
-    label: 样本量-复杂设计模拟法
-    coarse: stats-analysis
-    source: scientific-agent-skills
-    path: skills/statistical-power/
-    a_domain: 04_analysis
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/statistical-power/
   - id: draw-flowchart
 
     label: 患者流程图
@@ -699,6 +599,60 @@ archived:
     reason: 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
     revive_condition: 需要逐行全文证据且上游文件夹核实后重评
     old_path: skills/paperclip/
+  - id: paper-lookup
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps lit-search; cut 2026-10-17 round 1
+    revive_condition: session needs breadth APIs beyond lit-search and owner re-approves PROPOSED revive
+    old_path: skills/paper-lookup/
+    source: scientific-agent-skills
+  - id: analyze-survival
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps meta-analysis / analyze-stats; cut 2026-10-17 round 1
+    revive_condition: leakage-safe survival pipeline needed beyond meta-analysis and owner re-approves
+    old_path: skills/scikit-survival/
+    source: scientific-agent-skills
+  - id: audit-citations
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps verify-refs; cut 2026-10-17 round 1
+    revive_condition: strict third-party citation audit beyond verify-refs and owner re-approves
+    old_path: skills/nature-academic-search/
+    source: nature-skills
+  - id: audit-dicom
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps imaging-io / preprocess-imaging; cut 2026-10-17 round 1
+    revive_condition: tag-level DICOM anonymization audit needed beyond imaging-io and owner re-approves
+    old_path: skills/pydicom/
+    source: scientific-agent-skills
+  - id: exploratory-data-analysis
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps clean-data; cut 2026-10-17 round 1
+    revive_condition: dedicated EDA fine id needed beyond clean-data and owner re-approves
+    old_path: skills/exploratory-data-analysis/
+    source: scientific-agent-skills
+  - id: polish-latex
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps polish-language; cut 2026-10-17 round 1
+    revive_condition: LaTeX-layout polish beyond polish-language and owner re-approves
+    old_path: skills/nature-polishing/
+    source: nature-skills
+  - id: statistical-power
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps calc-sample-size; cut 2026-10-17 round 1
+    revive_condition: complex-design simulation power beyond calc-sample-size and owner re-approves
+    old_path: skills/statistical-power/
+    source: scientific-agent-skills
+  - id: venue-templates
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps find-journal; cut 2026-10-17 round 1
+    revive_condition: venue format templates beyond find-journal and owner re-approves
+    old_path: skills/venue-templates/
+    source: scientific-agent-skills
+  - id: write-data-statement
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
+    revive_condition: standalone data-availability statement beyond check-reporting and owner re-approves
+    old_path: skills/nature-data/
+    source: nature-skills
 
 # External source freshness fields (filled the next time that source is actually used):
 #   source_ref, resolved_commit, source_version, scanned_at, cache_commit,

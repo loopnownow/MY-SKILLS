@@ -14,7 +14,7 @@ Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apac
 Local bytes: `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 52 fine ids** (41 MOUNTED session-pick + 11 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 43 fine ids** (41 MOUNTED session-pick + 2 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
 Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids (status MOUNTED only)
@@ -162,44 +162,11 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.
 
 
-### lit-retrieval
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `paper-lookup` | 广度检索 | scientific-agent-skills | `skills/paper-lookup/` | PROPOSED | P2 | — |
-| `audit-citations` | 严格他引审计 | nature-skills | `skills/nature-academic-search/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 | — |
-
-
 ### manuscript-body
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `write-data-statement` | 数据可用性声明 | nature-skills | `skills/nature-data/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 | — |
 | `check-grant-proposal` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 | — |
-| `venue-templates` | 期刊格式模板 | scientific-agent-skills | `skills/venue-templates/` | PROPOSED | P2 | — |
-
-
-### language-polish
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `polish-latex` | LaTeX排版细节 | nature-skills | `skills/nature-polishing/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 | — |
-
-
-### data-processing
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `exploratory-data-analysis` | EDA | scientific-agent-skills | `skills/exploratory-data-analysis/` | PROPOSED | P2 | — |
-| `audit-dicom` | DICOM底层与匿名化审计 | scientific-agent-skills | `skills/pydicom/` | PROPOSED | P2 | — |
-
-
-### stats-analysis
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `analyze-survival` | 生存分析leakage-safe管道 | scientific-agent-skills | `skills/scikit-survival/` | PROPOSED | P2 | — |
-| `statistical-power` | 样本量-复杂设计模拟法 | scientific-agent-skills | `skills/statistical-power/` | PROPOSED | P2 | — |
 
 
 ### manuscript-review
@@ -225,6 +192,15 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 - `model-scaffold` — 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
 - `model-card` — 2026-09-20 候选，路径未核实；不代替 A 正文层
 - `paperclip` — 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
+- `paper-lookup` — PROPOSED never session-picked; overlaps lit-search; cut 2026-10-17 round 1
+- `analyze-survival` — PROPOSED never session-picked; overlaps meta-analysis / analyze-stats; cut 2026-10-17 round 1
+- `audit-citations` — PROPOSED never session-picked; overlaps verify-refs; cut 2026-10-17 round 1
+- `audit-dicom` — PROPOSED never session-picked; overlaps imaging-io / preprocess-imaging; cut 2026-10-17 round 1
+- `exploratory-data-analysis` — PROPOSED never session-picked; overlaps clean-data; cut 2026-10-17 round 1
+- `polish-latex` — PROPOSED never session-picked; overlaps polish-language; cut 2026-10-17 round 1
+- `statistical-power` — PROPOSED never session-picked; overlaps calc-sample-size; cut 2026-10-17 round 1
+- `venue-templates` — PROPOSED never session-picked; overlaps find-journal; cut 2026-10-17 round 1
+- `write-data-statement` — PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
 
 ## Package notes
 

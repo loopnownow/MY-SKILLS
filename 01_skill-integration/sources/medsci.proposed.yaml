@@ -14,6 +14,8 @@ notes: >
   Finer A ids (CHG-20260903-011). Backup candidate only.
   humanize ABSORBED into B 05-manuscript/humanize/ on 2026-10-17 (no longer active MedSci mount target).
   explainability archived. present-paper stays unmapped (not 05).
+  Round-1 archive 2026-10-17: venue-templates fine id ARCHIVED in registry (A-side);
+  this source row marked archived — not an active PROPOSED mount target.
 skills:
   - id: clean-data
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/
@@ -103,10 +105,13 @@ skills:
     a_hook: 05_manuscript
     coverage: full
   - id: venue-templates
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 1
     path: skills/find-journal/; skills/add-journal/
     a_hook: 05_manuscript
     coverage: full
-    note: not Aitor-format
+    note: ARCHIVED 2026-10-17 round 1 in registry; not an active PROPOSED mount target. Was: not Aitor-format
   - id: polish-language
     path: skills/polish-language/
     a_hook: 05_manuscript

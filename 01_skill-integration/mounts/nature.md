@@ -8,9 +8,9 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`audit-figure-risk` / `simulate-reviewers` / `tighten-response` 已 **MOUNTED**（2026-09-14，原 REFERENCE 升格）；其余细 ID 仍 PROPOSED（按需拉取） |
+| 状态 | 混合：`audit-figure-risk` / `simulate-reviewers` / `tighten-response` 已 **MOUNTED**（2026-09-14）；`check-grant-proposal` 仍 PROPOSED；`audit-citations` / `write-data-statement` / `polish-latex` 已 ARCHIVED（2026-10-17 round 1） |
 | v4 细 ID（MOUNTED） | `audit-figure-risk` · `simulate-reviewers` · `tighten-response` |
-| v4 细 ID（PROPOSED） | `audit-citations` · `write-data-statement` · `check-grant-proposal` · `polish-latex` |
+| v4 细 ID（PROPOSED） | `check-grant-proposal` |
 | license_flag | `Apache-2.0 verified 2026-09-14`（已清除「需核实」） |
 
 MOUNTED 细 ID 须本地 `{mounts_cap}/nature/skills/<id>/` 有字节。审稿混合配方可预勾 Nature skill 路径，prefix `[Nature:…]`。
