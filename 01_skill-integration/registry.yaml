@@ -1,18 +1,17 @@
-# MY-SKILLS Mount Registry v4.0 (CHG-20260913-001)
-# Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
-# Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
-# Default source is B (loopnownow/MY-SKILLS-base). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
+# MY-SKILLS Mount Registry v4.0 (skill-index rewrite 2026-10-17)
+# 01 = registry / session-pick / path resolve / legacy aliases / mounts_cap cache boundary.
+# Default UNIQUE runtime source = my-skills-base (MY-SKILLS-base). No multi-package mount narrative.
+# Non-base sources = default deny (see mounts/hybrid-mount-pointers.md). Never auto-mount non-base.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
-# Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
-# Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: {mounts_cap}/ = D:/0Grok/0doc/04-lab-reference/mounts-cap (B full; backups on-demand; outside repo).
-# A domains stay 00_orchestrator … 06_review. Do not rename A into Chinese top-level folders. Evolution policy: MY-RULES skills.md (skill-evolution).
+# Say 默认挂载 B = 本仓 — not 空挂. Local base bytes: {mounts_cap}/b/ (alias OK) = D:/0Grok/0doc/04-lab-reference/mounts-cap/b.
+# A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns B→QC→A).
+# Evolution policy: MY-RULES skills.md (skill-evolution).
 # 选刊 stays Victor / 03_research/find-journal — not moved into 05.
-# fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids. Do not split shared folders.
+# fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids.
 # Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
-# DISCOVERED, EVALUATED, APPROVED are discovery-workflow states, not required registry fields.
 # registry.yaml is the routing index, not the byte source of truth.
-# Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier. path is not an id and must never be used to infer one. QC uses registry.yaml id only.
+# Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier.
 meta:
   version: "4.0"
   change_id: CHG-20261007-001
@@ -23,8 +22,7 @@ meta:
     P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
     P1 common mounts (default session menu, about 25–30 MOUNTED ids).
     P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
-    Registry indexes → cache ({mounts_cap}/<atomic_package>/) is SSOT for external skill bytes;
-    stub_in_b is pointer-only (cross-pack/… or external-principles.md), never a second entity tree.
+        Registry indexes paths; base byte cache is {mounts_cap}/b/ (alias for my-skills-base). Bodies SSOT = B repo.
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -149,7 +147,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: 2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22.
   - id: design-study
     label: "研究设计审查"
@@ -159,7 +156,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Study design / feasibility / validation blueprints. Also covers former architecture-zoo, design-ai-benchmarking, frontier-hypothesize, find-cohort-gap, intake-project (B folders kept as reference under design-study) after 2026-10-17 round 2 absorb.
   - id: write-protocol
     label: "IRB方案撰写"
@@ -169,7 +165,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
   - id: fill-protocol
     label: "IRB方案填表"
     coarse: study-design
@@ -178,7 +173,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P2
-    atomic_package: MedSci
     note: "Canonical body B 03-research/fill-protocol/ (MedSci; pairs with write-protocol). A 03_research/fill-protocol/ is Bai seat pointer only; Jinshan PHI under 03_research/personal/fill-protocol/ (not B). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: write-paper
     label: "IMRAD正文起草"
@@ -188,7 +182,6 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
   - id: check-reporting
     label: "报告规范核验"
     coarse: manuscript-body
@@ -197,7 +190,6 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
   - id: grant-builder
     label: "基金标书-方法论"
     coarse: manuscript-body
@@ -206,7 +198,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive.
   - id: find-journal
     label: "选刊推荐"
@@ -216,7 +207,6 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: "引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05"
   - id: polish-language
     label: "一致性硬规则lint"
@@ -226,7 +216,6 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
   - id: humanize
     label: "去AI味"
     coarse: language-polish
@@ -244,7 +233,6 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
   - id: batch-cohort
     label: "批量队列分析生成"
     coarse: data-processing
@@ -253,7 +241,6 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     path_shared: true
   - id: imaging-io
     label: "CT/MRI DICOM与NIfTI读写"
@@ -263,7 +250,6 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1.
   - id: preprocess-imaging
     label: "ROI与读者质控"
@@ -273,7 +259,6 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path.
   - id: analyze-stats
     label: "检验方法选择与加权调查数据"
@@ -283,7 +268,6 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Test selection and weighted-survey guidance. Also routes radiomics pipeline audit (former radiomics-ml; B path 02-data-processing/radiomics-habitat/ still reachable) after 2026-10-17 round 2 absorb; pair with preprocess-imaging as needed.
   - id: meta-analysis
     label: "Meta分析抗数据操纵"
@@ -293,7 +277,6 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Meta-analysis anti-manipulation. Also covers former scout-meta-analysis (MA topic feasibility; B 03-research/lit-review/ kept) after 2026-10-17 round 2 absorb.
   - id: model-evaluation
     label: "模型-任务正确指标选择"
@@ -312,7 +295,6 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power
   - id: draw-flowchart
     label: "患者流程图"
@@ -322,7 +304,6 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: STROBE / patient-flow only. Statistical plots are fine id plot-figures.
   - id: plot-figures
     label: "统计图与影像面板"
@@ -332,7 +313,6 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: 2026-09-22. Distinct from draw-flowchart (fig-flow). Also covers former audit-figure-risk + scientific-visualization principles (see external-principles.md) after 2026-10-17 round 2 archive.
   - id: peer-review
     label: "审稿意见生成"
@@ -342,7 +322,6 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     path_shared: true
     note: path_shared with former peer-review-pdf-scan (same 06-review/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb.
   - id: self-review
@@ -353,7 +332,6 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive.
   - id: revise
     label: "修回分诊与数字血统追踪"
@@ -363,7 +341,6 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
     note: A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
   - id: response-tone-polisher
     label: "回复语气软化"

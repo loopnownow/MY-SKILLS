@@ -3,9 +3,9 @@ preset_id: evidence-deep-L2
 version: "2026-09-20.1"
 status: session-recipe
 notes: >
-  Literature deep check: B lit-search for discovery (paper-lookup archived 2026-10-17
-  round 1), Scientific/MedSci verify-refs for claim–source fit. A03 owns evidence cards.
-  Ask-each-run. Do not co-load a third AIPOCH literature-search by default.
+  Literature deep check. First-pass fine-ID list: lit-search, verify-refs.
+    A03 owns evidence cards. Ask-each-run. Chassis my-skills-base only.
+
 
 chassis:
   source: my-skills-base
@@ -34,5 +34,5 @@ overrides:
     prefix_example: "[B:verify-refs]"
 
 excluded_sources: []
-excluded_tools_note: "No triple search default. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
+excluded_tools_note: "No triple search default. Non-base default deny."
 swappable: true

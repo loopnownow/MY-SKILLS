@@ -3,10 +3,9 @@ preset_id: external-review-R1
 version: "2026-10-17.3"
 status: session-recipe
 notes: >
-  B/MedSci peer-review and self-review produce finding sets
-  (self-review covers former scientific-critical-thinking, archived round 3).
-  A06 personal merges, grades Major/Minor, owns envelope.
-  Engines never edit the manuscript. Ask-each-run. Related to review-hybrid-default.
+  External review. First-pass fine-ID list: peer-review, self-review.
+    A06 personal merges findings. Engines never edit the manuscript. Chassis my-skills-base only.
+
 
 chassis:
   source: my-skills-base
@@ -41,5 +40,5 @@ force_b:
   - self-review
 
 excluded_sources: []
-excluded_tools_note: "Findings only; A06 adjudicates. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
+excluded_tools_note: "Findings only; A06 adjudicates. Non-base default deny."
 swappable: true

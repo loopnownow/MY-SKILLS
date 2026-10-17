@@ -3,9 +3,10 @@ preset_id: manuscript-final-W2
 version: "2026-09-20.1"
 status: session-recipe
 notes: >
-  Final draft pass. write-paper may supply IMRAD structure; A/B05 personal owns
-  sentence authority (Intro v3, de-AI). verify-refs and check-reporting are QC.
-  Nature overlays only when venue-specific. Ask-each-run. First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
+  Final draft pass. First-pass fine-ID list: write-paper, verify-refs, check-reporting.
+    A/B05 personal owns sentence authority. Ask-each-run. Chassis my-skills-base only.
+    First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
+
 
 chassis:
   source: my-skills-base
@@ -40,5 +41,5 @@ overrides:
 
 force_b: []
 excluded_sources: []
-excluded_tools_note: "One authoring authority (personal). Engines do not co-edit sentences. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
+excluded_tools_note: "One authoring authority (personal). Engines do not co-edit sentences. Non-base default deny."
 swappable: true

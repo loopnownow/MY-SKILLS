@@ -1,34 +1,44 @@
 ---
-name: skill-integration
+name: skill-index
 description: >
-  Mount and index external Skills. Use for coarse/fine ids, registry lookup,
-  session pick, hybrid mount recipes, and the `{mounts_cap}` cache boundary. Infrastructure
-  only. Never literature research, statistics, manuscript writing, or peer review.
-  Not GitHub discovery (archived). Not skill evolution (MY-RULES `skills.md`).
-  Mount pointers live only here. Default mount is B (MY-SKILLS-base).
-  Every independent run needs a mount decision; reuse session_picked_fine_ids
-  when they already cover the task. Never auto-mount a non-B source. Non-B fine
-  ids are mixed per registry status. OpenClaw is not a default mount source.
+  Registry / session-pick / path resolve / legacy aliases / mounts_cap cache
+  boundary. Default unique runtime source is MY-SKILLS-base (source id
+  my-skills-base). Use for coarse/fine ids, registry lookup, session pick,
+  and resolving fine-id paths. Infrastructure only. Never literature research,
+  statistics, manuscript writing, or peer review. Not GitHub discovery
+  (archived). Not skill evolution (MY-RULES skills.md). A top layers are not
+  capability mounts — 00 owns B→QC→A flow. Non-base sources default deny.
 ---
 
-# Skill Integration
+# Skill Index (01)
+
+Folder path stays `01_skill-integration/` (rename deferred — too many call-site
+refs). Skill name / role: **skill-index**.
 
 ## Purpose
 
-Integration ledger only — resolve **where a capability comes from** (coarse/fine ids, registry, mounts, hybrid recipes). Professional work stays in 02–06.
-**All mount pointers live here.** Machine: `registry.yaml` + one yaml per external source under `sources/`.
-Human board: `mounts/` (`README.md`, **`hybrid-mount-pointers.md`**, `presets.md` + `presets/*.yaml`, `b.md` / `medsci.md` / `scientific.md` / `aipoch.md` / `nature.md`).
-Domain skills call fine ids; they do not keep a second pointer table.
-`{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is a verified local cache boundary (not SSOT). Download is not a mount.
+01 is the **routing index**, not a multi-package marketplace. Session lock key: `session_picked_fine_ids`.
 
-## Architecture (v4 · CHG-20260913-001)
+| Concern | Owner |
+|---|---|
+| Registry / fine-id menu / path resolve / legacy aliases | **01** |
+| `{mounts_cap}/` byte-cache boundary (`b/` alias for base) | **01** |
+| B fine-ID first-pass → 00 QC → A top-layer re-loops | **00** |
+| A personal / top layers (`00`–`07`) | **A** — not registered as capability mounts |
 
-- Coarse ids = welded stage buckets（文献检索 … 审稿回复）. Count lives in `registry.yaml` `coarse_id_count`. Not A folder renames.
-- Fine ids = session-pick mount points. Count lives in `fine_id_count_canonical`. The pick menu is status `MOUNTED` only.
-- **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id. Non-B rows are mixed PROPOSED/MOUNTED per registry, not an all-PROPOSED backup set.
-- **`fine_id` is the capability interface. `path` is the physical unit. `path_shared: true` means one path backs several fine ids. Do not split that folder.**
-- A domains stay `00_orchestrator` … `06_review`. Personal layers stay in A. Skill evolution policy: MY-RULES `skills.md` (skill-evolution).
-- 选刊 stays Victor / `03_research/find-journal` — do not move into 05.
+Professional work stays in 02–07. Capability bodies live in **B**
+(`my-skills-base` / `MY-SKILLS-base`). Domain skills call fine ids; they do not
+keep a second pointer table.
+
+## Default unique runtime source
+
+**`my-skills-base`** ([loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base)).
+
+- Session-pick unit = `fine_id` (status `MOUNTED` only). Reuse `session_picked_fine_ids` when they already cover the task.
+- Path resolve: `registry.yaml` → B path under live clone or `{mounts_cap}/b/`.
+- Non-base sources: **default deny**. See `mounts/hybrid-mount-pointers.md`.
+- ARS / OpenClaw: `ars_openclaw_policy: removed-from-catalog` — never remount.
+- A top layers are **not** mount picks.
 
 ## Pointers
 
@@ -36,27 +46,36 @@ Domain skills call fine ids; they do not keep a second pointer table.
 |---|---|
 | `registry.yaml` | Routing index (coarse / fine / status / path) |
 | `MOUNTED_SKILLS.md` | Generated session-pick human table |
-| `mounts/` | Human board: presets, per-source notes, hybrid recipe narrative |
-| `mounts/hybrid-mount-pointers.md` | Hybrid mount recipes (emphasize) |
-| `sources/` | One yaml per external source |
+| `mounts/` | Human board: presets (first-pass fine-ID lists), base notes, non-base stubs |
+| `mounts/hybrid-mount-pointers.md` | Non-base exceptions = default deny |
+| `sources/b-my-skills-base.yaml` | Sole live source config (base) |
 | `legacy_aliases.yaml` | Retired call-site id → canonical fine id |
 | `scripts/gen_mounted_skills.py` | Regenerates `MOUNTED_SKILLS.md` |
 | `references/id-rules.md` | Canonical ID Rule |
-| `references/lifecycle-cache.md` | Cache · Mount · Active; local cache; external mount lifecycle |
-| `references/session-pick.md` | Default mount; session pick; empty-mount; resolution order |
-| `references/hard-rules.md` | Forbidden combinations; hard rules; fine-id ceiling; load_priority |
-| `references/capability-contract.example.yaml` | Capability-contract template (ex-`interface.yaml`) |
+| `references/lifecycle-cache.md` | Cache · Mount · Active; base byte cache |
+| `references/session-pick.md` | Default base; session pick; empty-mount; resolve |
+| `references/hard-rules.md` | Forbidden combinations; ceiling; load_priority |
+| `references/capability-contract.example.yaml` | Capability-contract template |
+| `references/ab-top-vs-b-loops.md` | Pointer to 00 A/B layering |
 
-Discovery archived; if rare need, see `D:\0del\00_orchestrator_reorg_20261017\01_discovery-eval.md` / ask owner — do not run GitHub discovery from 01 by default. Registry `archived:` ids stay off the pick menu.
+Discovery archived; rare need → `D:\0del\00_orchestrator_reorg_20261017\01_discovery-eval.md`
+or ask owner. Registry `archived:` ids stay off the pick menu.
+
+## Architecture notes
+
+- Coarse ids = welded stage buckets. Count: `registry.yaml` `coarse_id_count`.
+- Fine ids = session-pick mount points. Count: `fine_id_count_canonical`.
+- `fine_id` = capability interface; `path` = physical unit; `path_shared: true`
+  = one path backs several fine ids — do not split that folder.
+- A domains stay `00_orchestrator`–`07_response`. Personal layers stay in A.
+- Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `03_research/find-journal`.
 
 ## Red lines (summary)
 
 Full text: [`references/hard-rules.md`](references/hard-rules.md).
 
-- Never auto-mount a **non-B** Skill; Never bulk-download MedSci / Scientific / AIPOCH / Nature.
-- Never remount ARS/OpenClaw (`removed-from-catalog`); never mix packages inside one fine id.
-- `PROPOSED` is not pickable; personal layers are not mount picks; sentence authority stays A/B05 personal.
-- Reviewer engines output findings only (no bypass of A06); Nature polish must not overwrite author voice.
-- Empty mount → notify → re-search → confirm (see [`references/session-pick.md`](references/session-pick.md)).
-- Fine-id ceiling / load_priority: see hard-rules; do not restate counts in prose.
-- `{mounts_cap}/` cache only; Download is not a mount.
+- Never auto-mount a **non-base** source; non-base = default deny.
+- Never remount ARS/OpenClaw; never invent a second runtime package menu.
+- `PROPOSED` is not pickable; personal / A top layers are not mount picks.
+- Empty mount → notify → re-search → confirm ([`references/session-pick.md`](references/session-pick.md)).
+- `{mounts_cap}/` cache only (`b/` = base bytes). Download is not a mount.

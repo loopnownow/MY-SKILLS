@@ -5,11 +5,10 @@ preset_id: review-hybrid-default
 version: "2026-10-17.3"
 status: default-session-recipe
 notes: >
-  Default for review / pre-review: B chassis + B verify-refs
-  (absorbed citation-management) + B analyze-stats (stats-guide).
-  Former scientific-critical-thinking archived→self-review (round 3).
-  Prefetch only listed skill paths. Catalog backups MedSci/Scientific/AIPOCH/Nature only.
-  A 06 personal adjudicates.
+  Default for review / pre-review. First-pass fine-ID list:
+    verify-refs, analyze-stats; force-B peer-review, revise, self-review.
+    Chassis my-skills-base only. A 06 personal adjudicates. Prefetch listed paths only.
+
 
 chassis:
   source: my-skills-base
@@ -52,6 +51,6 @@ force_b:
   - self-review  # scientific-critical-thinking archived→self-review round 3
 
 excluded_sources: []
-excluded_tools_note: "Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
+excluded_tools_note: "Out-of-band editors are suggestions-only; no silent numeric edits. Non-base default deny."
 
 swappable: true
