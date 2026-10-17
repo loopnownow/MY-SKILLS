@@ -41,7 +41,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 - `analyze-stats` — test selection / effect sizes
 - `calc-sample-size` — sample size / power; `statistical-power` is PROPOSED
-- `model-evaluation` / `model-validation` — calibration / DCA / external validation；脚本库：`{script_model_validation}\`
+- `model-evaluation`（含前 model-validation 泄漏门禁）— calibration / DCA / external validation + leakage gates；脚本库：`{script_model_validation}`
 - `meta-analysis` (`analyze-survival` is PROPOSED) — implementation; 0RAD personal still wins
 - `radiomics-ml` — radiomics modelling pipeline audit
 - `draw-flowchart` — STROBE / patient-flow

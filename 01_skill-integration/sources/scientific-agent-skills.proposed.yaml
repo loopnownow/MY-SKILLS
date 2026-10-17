@@ -17,6 +17,7 @@ notes: >
   exploratory-data-analysis, statistical-power, venue-templates ARCHIVED in registry —
   not active PROPOSED mount targets. Path strings under other fine ids kept for fetch/history.
   Round-2 archive 2026-10-17: manage-refs, lit-sync, scientific-visualization ARCHIVED in registry (manage-refs→verify-refs; viz→plot-figures).
+  Round-3 2026-10-17: scientific-critical-thinking ARCHIVED→self-review; verify-refs absorbed into B 03-research/verify-refs/.
 skills:
   - id: clean-data
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
@@ -44,6 +45,8 @@ skills:
     path: skills/citation-management/; skills/pyzotero/
     a_hook: 03_research
     coverage: full
+    note: Absorbed into B 03-research/verify-refs/ on 2026-10-17 round 3; this path kept for fetch/history only
+
   - id: design-study
     path: skills/experimental-design/
     a_hook: 03_research

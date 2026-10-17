@@ -14,20 +14,20 @@ Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apac
 Local bytes: `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 31 fine ids** (29 MOUNTED session-pick + 2 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 31 fine ids** (28 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
 Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids (status MOUNTED only)
 
 
-## P1 default (session menu) (26)
+## P1 default (session menu) (25)
 
 
 ### lit-retrieval
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P1 | path_shared |
+| `verify-refs` | 引用真实性核验 | my-skills-capabilities | `03-research/verify-refs/` | MOUNTED | P1 | — |
 | `retraction-watcher` | 撤稿检测 | my-skills-capabilities | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
 | `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED | P1 | — |
 
@@ -75,7 +75,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED | P1 | — |
 | `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED | P1 | — |
 | `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 | — |
-| `model-validation` | 模型-确定性泄漏门禁 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 | path_shared |
 | `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED | P1 | — |
 
 
@@ -93,7 +92,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|---|---|
 | `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 | path_shared |
 | `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED | P1 | — |
-| `simulate-reviewers` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P1 | — |
+| `simulate-reviewers` | 多审稿人隔离原则 | my-skills-capabilities | `06-review/simulate-reviewers/` | MOUNTED | P1 | — |
 
 
 ### review-response
@@ -118,7 +117,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
 | `response-tone-polisher` | 回复语气软化 | my-skills-capabilities | `06-review/response-tone-polisher/` | MOUNTED | P2 | — |
-| `tighten-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P2 | — |
+| `tighten-response` | 隔离与正文精简原则 | my-skills-capabilities | `06-review/tighten-response/` | MOUNTED | P2 | — |
 
 
 ## Optional candidates (status PROPOSED — not pickable)
@@ -126,18 +125,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.
 
 
-### manuscript-body
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `check-grant-proposal` | 基金标书-中文语境QA | nature-skills | `skills/nature-proposal-writer/` | PROPOSED · Apache-2.0 verified 2026-09-14 | P2 | — |
-
-
-### manuscript-review
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `scientific-critical-thinking` | 证据质量评估 | scientific-agent-skills | `skills/scientific-critical-thinking/` | PROPOSED | P2 | — |
+None.
 
 
 ## Reference-only (not session mounts)
@@ -177,6 +165,9 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 - `peer-review-pdf-scan` — same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
 - `scientific-visualization` — principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
 - `audit-figure-risk` — Nature P2; principles already in B 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `check-grant-proposal` — PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
+- `model-validation` — deterministic leakage gates folded into model-evaluation; same B path 04-analysis/model-eval/; absorb 2026-10-17 round 3
+- `scientific-critical-thinking` — PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3
 
 ## Package notes
 

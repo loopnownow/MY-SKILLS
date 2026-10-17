@@ -26,12 +26,12 @@ overrides:
     required: true
     note: paper-lookup archived 2026-10-17 round 1; use B lit-search
   - id: verify-refs
-    source: scientific-agent-skills
-    skills: [citation-management]
-    paths: [skills/citation-management/]
-    role: claim-source-verify
+    source: my-skills-capabilities
+    skills: [verify-refs]
+    paths: [03-research/verify-refs/]
+    role: literature-verify
     required: true
-    prefix_example: "[Scientific:citation-management]"
+    prefix_example: "[B:verify-refs]"
 
 excluded_sources: []
 excluded_tools_note: "No triple search default. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."

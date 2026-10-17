@@ -13,7 +13,7 @@ notes: >
   New mounts: intake-project, design-ai-benchmarking, architecture-zoo, fill-protocol.
   cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). ARS/OpenClaw catalog purged.
   CHG-20260913-001.
-  Round-2 absorb 2026-10-17: peer-review-pdf-scan→peer-review; radiomics-ml→analyze-stats; architecture-zoo/design-ai-benchmarking/frontier-hypothesize/find-cohort-gap/intake-project→design-study; scout-meta-analysis→meta-analysis. B folders kept.
+  Round-3 absorb 2026-10-17: verify-refs, simulate-reviewers, tighten-response into B domain folders; model-validation→model-evaluation. Round-2 absorb 2026-10-17: peer-review-pdf-scan→peer-review; radiomics-ml→analyze-stats; architecture-zoo/design-ai-benchmarking/frontier-hypothesize/find-cohort-gap/intake-project→design-study; scout-meta-analysis→meta-analysis. B folders kept.
 skills:
   - id: lit-search
     path: 03-research/lit-search/
@@ -160,11 +160,16 @@ skills:
     a_hook: 04_analysis
     label: 模型-任务正确指标选择
   - id: model-validation
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 3
+    absorbed_into: model-evaluation
     path: 04-analysis/model-eval/
     coarse: stats-analysis
     a_hook: 04_analysis
     label: 模型-确定性泄漏门禁
     path_shared: true
+
   - id: calc-sample-size
     path: 04-analysis/stats-power/
     coarse: stats-analysis
@@ -220,3 +225,18 @@ skills:
     coarse: review-response
     a_hook: 06_review
     label: 回复语气软化
+  - id: verify-refs
+    path: 03-research/verify-refs/
+    coarse: lit-retrieval
+    a_hook: 03_research
+    label: 引用真实性核验
+  - id: simulate-reviewers
+    path: 06-review/simulate-reviewers/
+    coarse: manuscript-review
+    a_hook: 06_review
+    label: 多审稿人隔离原则
+  - id: tighten-response
+    path: 06-review/tighten-response/
+    coarse: review-response
+    a_hook: 06_review
+    label: 隔离与正文精简原则

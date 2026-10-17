@@ -26,12 +26,13 @@ overrides:
     required: true
     prefix_example: "[B:write-manuscript]"
   - id: verify-refs
-    source: scientific-agent-skills
-    skills: [citation-management]
-    paths: [skills/citation-management/]
-    role: citation-qc
+    source: my-skills-capabilities
+    skills: [verify-refs]
+    paths: [03-research/verify-refs/]
+    role: literature-verify
     required: true
-    prefix_example: "[Scientific:citation-management]"
+    prefix_example: "[B:verify-refs]"
+
   - id: check-reporting
     source: my-skills-capabilities
     role: reporting-qc

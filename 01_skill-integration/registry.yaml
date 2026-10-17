@@ -126,14 +126,12 @@ mounts:
   - id: verify-refs
     label: "引用真实性核验"
     coarse: lit-retrieval
-    source: scientific-agent-skills
-    path: skills/citation-management/
+    source: my-skills-capabilities
+    path: 03-research/verify-refs/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    atomic_package: Scientific
-    path_shared: true
-    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against B thin lit-cite. Confirmed MIT (LICENSE.md present). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb.
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT.
   - id: retraction-watcher
     label: "撤稿检测"
     coarse: lit-retrieval
@@ -200,17 +198,6 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: check-grant-proposal
-    label: "基金标书-中文语境QA"
-    coarse: manuscript-body
-    source: nature-skills
-    path: skills/nature-proposal-writer/
-    a_domain: 05_manuscript
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    stub_in_b: cross-pack/nature/check-grant-proposal/
   - id: grant-builder
     label: "基金标书-方法论"
     coarse: manuscript-body
@@ -220,6 +207,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
+    note: Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive.
   - id: find-journal
     label: "选刊推荐"
     coarse: manuscript-body
@@ -315,17 +303,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
-  - id: model-validation
-    label: "模型-确定性泄漏门禁"
-    coarse: stats-analysis
-    source: my-skills-capabilities
-    path: 04-analysis/model-eval/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    atomic_package: MedSci
-    path_shared: true
+    note: Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Absorbed model-validation 2026-10-17 round 3; same B path 04-analysis/model-eval/.
   - id: calc-sample-size
     label: "样本量计算"
     coarse: stats-analysis
@@ -376,16 +354,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: scientific-critical-thinking
-    label: "证据质量评估"
-    coarse: manuscript-review
-    source: scientific-agent-skills
-    path: skills/scientific-critical-thinking/
-    a_domain: 06_review
-    status: PROPOSED
-    load_priority: P2
-    atomic_package: Scientific
-    stub_in_b: cross-pack/scientific/scientific-critical-thinking/
+    note: Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive.
   - id: revise
     label: "修回分诊与数字血统追踪"
     coarse: review-response
@@ -407,27 +376,22 @@ mounts:
   - id: simulate-reviewers
     label: "多审稿人隔离原则"
     coarse: manuscript-review
-    source: nature-skills
-    path: skills/nature-reviewer/
+    source: my-skills-capabilities
+    path: 06-review/simulate-reviewers/
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
-    stub_in_b: 06-review/review-peer/external-principles.md
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in review-peer/external-principles.md.
   - id: tighten-response
     label: "隔离与正文精简原则"
     coarse: review-response
-    source: nature-skills
-    path: skills/nature-response/
+    source: my-skills-capabilities
+    path: 06-review/tighten-response/
     a_domain: 06_review
     status: MOUNTED
     load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
-    stub_in_b: 06-review/review-response/external-principles.md
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md.
+
 archived:
   - id: deidentify
     status: ARCHIVED
@@ -605,38 +569,24 @@ archived:
     absorbed_into: plot-figures
     old_path: skills/nature-figure/
     source: nature-skills
-proposals:
-  - id: med-sci-skills
-    source: https://github.com/Aperivue/medsci-skills
-    config: sources/medsci.proposed.yaml
-    scanned: "2026-09-03"
-    scan_sha: "912f7e8"
-    metadata_refresh: on-next-use
-    status: PROPOSED
-    role: backup-candidate
-  - id: scientific-agent-skills
-    source: https://github.com/K-Dense-AI/scientific-agent-skills
-    config: sources/scientific-agent-skills.proposed.yaml
-    scanned: "2026-09-03"
-    scan_sha: "1e5eeff"
-    metadata_refresh: on-next-use
-    status: PROPOSED
-    role: backup-candidate
-  - id: aipoch-medical-research-skills
-    source: https://github.com/aipoch/medical-research-skills
-    config: sources/aipoch-medical-research-skills.proposed.yaml
-    scanned: "2026-09-06"
-    scan_sha: "f5ef65b"
-    metadata_refresh: on-next-use
-    status: PROPOSED
-    role: backup-candidate
-  - id: nature-skills
-    source: https://github.com/Yuan1z0825/nature-skills
-    config: sources/nature-skills.proposed.yaml
-    scanned: "2026-09-07"
-    scan_sha: "287ee37"
-    metadata_refresh: on-next-use
-    status: PROPOSED
-    role: backup-candidate
-    license_flag: Apache-2.0 verified 2026-09-14
-    note: "Apache-2.0 verified 2026-09-14. Register nature-shared as dependency of Nature fine ids (not a separate trigger skill). Refresh resolved_commit/inventory_hash the next time this source is actually used."
+  - id: check-grant-proposal
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
+    revive_condition: Chinese-context grant QA beyond grant-builder and owner re-approves PROPOSED revive
+    absorbed_into: grant-builder
+    old_path: skills/nature-proposal-writer/
+    source: nature-skills
+  - id: model-validation
+    status: ARCHIVED
+    reason: deterministic leakage gates folded into model-evaluation; same B path 04-analysis/model-eval/; absorb 2026-10-17 round 3
+    revive_condition: leakage-gate workflow needs a separate session pick beyond model-evaluation and owner re-approves
+    absorbed_into: model-evaluation
+    old_path: 04-analysis/model-eval/
+    source: my-skills-capabilities
+  - id: scientific-critical-thinking
+    status: ARCHIVED
+    reason: PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3
+    revive_condition: evidence-quality critique beyond self-review/peer-review and owner re-approves PROPOSED revive
+    absorbed_into: self-review
+    old_path: skills/scientific-critical-thinking/
+    source: scientific-agent-skills

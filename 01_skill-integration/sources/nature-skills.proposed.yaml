@@ -19,8 +19,9 @@ notes: >
   polish-language overlaps with A personal de-AI stack; personal layer still wins.
   Mapping is not a mount. Default revise remains B.
   Round-1 archive 2026-10-17: fine ids audit-citations, write-data-statement, polish-latex
-  ARCHIVED in registry — not active PROPOSED mount targets. check-grant-proposal stays PROPOSED.
+  ARCHIVED in registry — not active PROPOSED mount targets. check-grant-proposal ARCHIVED round 3.
   Round-2 archive 2026-10-17: audit-figure-risk ARCHIVED→plot-figures in registry.
+  Round-3 2026-10-17: check-grant-proposal ARCHIVED→grant-builder; simulate-reviewers/tighten-response absorbed into B (no longer external-only mounts).
 skills:
   - id: lit-search
     path: skills/nature-academic-search/; skills/nature-literature-pipeline/
