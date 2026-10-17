@@ -152,7 +152,7 @@ We tried our best to improve the manuscript and made some changes which marked
 in red in revised paper. We thank Editors and Reviewers' excellent works and
 hope the modifications above meet your requests, and we trouble you to revise
 any errors in this paper. If you have any queries about this modified paper,
-please email to me (dr.jinweiqiang@163.com). Once again, thank you very much
+please email to me (见 mem:response_email). Once again, thank you very much
 for your comments, suggestions and considering the publication of our paper.
 
 Your sincerely

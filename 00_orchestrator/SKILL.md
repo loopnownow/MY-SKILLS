@@ -42,7 +42,7 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Plan-card exception: [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
 
-**Plan card / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). **Grilling policy:** MY-RULES `grilling.md`. Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
+**Plan card / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). **Grilling policy:** MY-RULES `My rule.md` §2 (grilling). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
 
@@ -97,7 +97,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → MY-RULES `skill-evolution.md` (record/propose only when user asks to evolve skills).
+Cross-cut Consistency = **G-FACT**. Evolution QC → MY-RULES `skills.md` (skill-evolution / propose-only when user asks to evolve skills).
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
@@ -115,7 +115,7 @@ Triggers 「这个研究还能做什么」等 → [`workflows/research-explorati
 
 ## Boundaries
 
-**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`06` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `grilling.md`; Archify visualization → `04_analysis/personal/visualization/`.
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`06` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); Archify visualization → `04_analysis/personal/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0script` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 

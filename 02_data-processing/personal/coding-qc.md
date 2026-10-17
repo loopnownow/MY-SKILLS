@@ -4,7 +4,7 @@
 
 来源：2026-09-07 Deep Code QC Report（`modules.zip` / `{script_modules}`）+ 2026-09-22 Code QC Core 吸收方案  
 家园：`MY-SKILLS/02_data-processing/personal/coding-qc.md`（由 `code-refactoring/references/code-qc.md` 迁入）  
-**不**进：MY-RULES skill-evolution / archived skill-harvest/qc（仓治理）、`preprocess-imaging`（影像质控）、新建顶层技能、B 挂载菜单、平行的 `02_data-processing/code-qc.md` / `coding-principles.md`、mount Copilot `playbooks/quality/` / Council / CI。
+**不**进：MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc（仓治理）、`preprocess-imaging`（影像质控）、新建顶层技能、B 挂载菜单、平行的 `02_data-processing/code-qc.md` / `coding-principles.md`、mount Copilot `playbooks/quality/` / Council / CI。
 
 ## 何时触发
 - 审 / 深审 / Deep QC / 代码质控 `modules` / 0RAD 统计库

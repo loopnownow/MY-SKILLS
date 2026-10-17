@@ -13,7 +13,7 @@ Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-c
 | 04 | `04_analysis` | Stats, prediction, figures (`draw-flowchart` / `plot-figures`); lab notes in `personal/` |
 | 05 | `05_manuscript` | Personal writing upper layer; B `05-manuscript/write-venue/` = journal templates / house style (not 选刊); de-AI at `personal/` |
 | 06 | `06_review` | Personal review/response upper layer |
-| — | MY-RULES `skill-evolution.md` | Evolution governance (former skill-harvest archived) |
+| — | MY-RULES `skills.md` | Evolution governance / skill-evolution (former skill-harvest archived) |
 
 ## Rules
 

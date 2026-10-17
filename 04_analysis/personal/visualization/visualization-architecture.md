@@ -69,7 +69,7 @@ Show stable system components, about 6–12 primary components. Use a boundary o
 
 Primary chain: 00 Control / QC → 01 Discovery / Registry → 02 Data → 03 Literature → 04 Statistics → 05 Writing → 06 Review.
 
-Skill evolution stays MY-RULES `skill-evolution.md` (governance; propose only). External mounts stay one index node fed by the registry, not one node per fine id.
+Skill evolution stays MY-RULES `skills.md` (skill-evolution; governance; propose only). External mounts stay one index node fed by the registry, not one node per fine id.
 
 ### 5.2 Workflow
 
@@ -169,3 +169,5 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 What stays manual: this specification, `archify-version.yaml`, `visualization-source-contract.yaml`, and the generator.
 
 Local check/rebuild: `python 04_analysis/personal/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Fetches/unzips the pinned Archify release when needed and runs `node bin/archify.mjs render` at `--quality standard`. Lab OUT defaults to `D:/0Grok/0doc/04-lab-reference/my-skills-viz`. A failed render or shape check returns before replacing last-good lab files. The Archify schema stays inside the release zip, not as a second contract in MY-SKILLS. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
+
+**Size note:** scripts/gen_visualization.py is ~60 KB (single generator). Prefer edits in place; split only if edit friction rises.

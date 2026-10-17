@@ -6,7 +6,7 @@
 # Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: {mounts_cap}/ = D:/0Grok/0doc/04-lab-reference/mounts-cap (B full; backups on-demand; outside repo).
-# A domains stay 00_orchestrator … 06_review. Do not rename A into Chinese top-level folders. Evolution policy: MY-RULES skill-evolution.md.
+# A domains stay 00_orchestrator … 06_review. Do not rename A into Chinese top-level folders. Evolution policy: MY-RULES skills.md (skill-evolution).
 # 选刊 stays Victor / 03_research/find-journal — not moved into 05.
 # fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids. Do not split shared folders.
 # Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
