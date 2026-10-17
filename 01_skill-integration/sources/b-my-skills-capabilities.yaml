@@ -8,7 +8,8 @@ status: MOUNTED
 empty_mount: notify-then-research-confirm
 notes: >
   Default B pack (v4). Fine ids are mount points; 10 coarse are stage buckets.
-  de-AI personal stays in A 05_manuscript/personal. humanize is MedSci-only.
+  de-AI personal stays in A 05_manuscript/personal. Generic humanize absorbed into B 2026-10-17.
+  Also absorbed: retraction-watcher, response-tone-polisher (former AIPOCH).
   New mounts: intake-project, design-ai-benchmarking, architecture-zoo, fill-protocol.
   cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). ARS/OpenClaw catalog purged.
   CHG-20260913-001.
@@ -171,3 +172,18 @@ skills:
     coarse: review-response
     a_hook: 06_review
     label: 修回分诊与数字血统追踪
+  - id: humanize
+    path: 05-manuscript/humanize/
+    coarse: language-polish
+    a_hook: 05_manuscript
+    label: 去AI味
+  - id: retraction-watcher
+    path: 03-research/retraction-watcher/
+    coarse: lit-retrieval
+    a_hook: 03_research
+    label: 撤稿检测
+  - id: response-tone-polisher
+    path: 06-review/response-tone-polisher/
+    coarse: review-response
+    a_hook: 06_review
+    label: 回复语气软化

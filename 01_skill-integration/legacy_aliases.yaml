@@ -30,6 +30,11 @@ aliases:
   ma-scout: scout-meta-analysis
   pydicom: audit-dicom
 
+  05-humanize: humanize
+  skills/humanize: humanize
+  cross-pack/aipoch/retraction-watcher: retraction-watcher
+  cross-pack/aipoch/response-tone-polisher: response-tone-polisher
+
 # Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
 # R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
 coarse_aliases:

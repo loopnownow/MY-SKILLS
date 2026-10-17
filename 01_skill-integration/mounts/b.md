@@ -47,11 +47,12 @@
 | `peer-review` | 审稿意见生成 | `06-review/review-peer/` | manuscript-review |
 | `self-review` | 数值级自审核算 | `06-review/review-critique/` | manuscript-review |
 | `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | review-response |
+| `humanize` | 去AI味 | `05-manuscript/humanize/` | language-polish |
+| `retraction-watcher` | 撤稿检测 | `03-research/retraction-watcher/` | lit-retrieval |
+| `response-tone-polisher` | 回复语气软化 | `06-review/response-tone-polisher/` | review-response |
 
 ## 非 B 但默认菜单可见
 
-| Fine id | Source | Notes |
-|---|---|---|
-| `humanize` | MedSci | 去 AI 味（通用）；个人 de-AI 仍在 A |
+（2026-10-17）`humanize` / `retraction-watcher` / `response-tone-polisher` 已吸收进 B 上表；个人 de-AI 仍在 A `05_manuscript/personal/`。
 
 机器真源 `../registry.yaml`。

@@ -28,7 +28,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
 | `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P1 | path_shared |
-| `retraction-watcher` | 撤稿检测 | aipoch-medical-research-skills | `scientific-skills/Evidence Insight/retraction-watcher/` | MOUNTED | P1 | — |
+| `retraction-watcher` | 撤稿检测 | my-skills-capabilities | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
 | `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED | P1 | — |
 
 
@@ -62,7 +62,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
 | `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED | P1 | — |
-| `humanize` | 去AI味 | med-sci-skills | `skills/humanize/` | MOUNTED | P1 | — |
+| `humanize` | 去AI味 | my-skills-capabilities | `05-manuscript/humanize/` | MOUNTED | P1 | — |
 
 
 ### data-processing
@@ -153,7 +153,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `response-tone-polisher` | 回复语气软化 | aipoch-medical-research-skills | `scientific-skills/Academic Writing/response-tone-polisher/` | MOUNTED | P2 | — |
+| `response-tone-polisher` | 回复语气软化 | my-skills-capabilities | `06-review/response-tone-polisher/` | MOUNTED | P2 | — |
 | `tighten-response` | 隔离与正文精简原则 | nature-skills | `skills/nature-response/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P2 | — |
 
 

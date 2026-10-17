@@ -48,7 +48,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 - `check-reporting` — TRIPOD / CLAIM / CLEAR in the paper
 - `venue-templates` — journal templates / house style while writing. Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
-- `humanize` — generic de-AI / humanize. MedSci-only. Not in B. Does **not** replace `personal/route.md` + `personal/vocab/L1/ban-phrases.md`.
+- `humanize` — generic de-AI / humanize (B `05-manuscript/humanize/`). Does **not** replace `personal/route.md` + `personal/vocab/L1/ban-phrases.md`.
 
 选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
 

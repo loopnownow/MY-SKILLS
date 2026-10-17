@@ -170,14 +170,12 @@ mounts:
   - id: retraction-watcher
     label: 撤稿检测
     coarse: lit-retrieval
-    source: aipoch-medical-research-skills
-    path: scientific-skills/Evidence Insight/retraction-watcher/
+    source: my-skills-capabilities
+    path: 03-research/retraction-watcher/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
-    atomic_package: AIPOCH
-    stub_in_b: cross-pack/aipoch/retraction-watcher/
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged.
   - id: audit-citations
 
     label: 严格他引审计
@@ -371,13 +369,12 @@ mounts:
   - id: humanize
     label: 去AI味
     coarse: language-polish
-    source: med-sci-skills
-    path: skills/humanize/
+    source: my-skills-capabilities
+    path: 05-manuscript/humanize/
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    atomic_package: MedSci
-    note: MedSci-only interface; personal de-AI stays A 05_manuscript/personal
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Personal de-AI stays A 05_manuscript/personal (not moved).
   - id: polish-latex
 
     label: LaTeX排版细节
@@ -601,14 +598,12 @@ mounts:
   - id: response-tone-polisher
     label: 回复语气软化
     coarse: review-response
-    source: aipoch-medical-research-skills
-    path: scientific-skills/Academic Writing/response-tone-polisher/
+    source: my-skills-capabilities
+    path: 06-review/response-tone-polisher/
     a_domain: 06_review
     status: MOUNTED
     load_priority: P2
-    note: 2026-09-13 promoted after content audit — real 652-line script, tone-only, no overlap with `revise` (structure). Path corrected from stale `skills/response-tone-polisher/`.
-    atomic_package: AIPOCH
-    stub_in_b: cross-pack/aipoch/response-tone-polisher/
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`.
 
 
   - id: scientific-visualization

@@ -39,7 +39,7 @@ skills:
     coverage: full
     note: gap / landscape / screener — prefer over writing packs; +1 more under scientific-skills
   - id: verify-refs
-    path: scientific-skills/Evidence Insight/citation-chasing-mapping/; scientific-skills/Evidence Insight/citation-management/; scientific-skills/Evidence Insight/citation-network/; scientific-skills/Evidence Insight/crossref-database/; scientific-skills/Evidence Insight/retraction-watcher/; scientific-skills/Academic Writing/citation-formatter/
+    path: scientific-skills/Evidence Insight/citation-chasing-mapping/; scientific-skills/Evidence Insight/citation-management/; scientific-skills/Evidence Insight/citation-network/; scientific-skills/Evidence Insight/crossref-database/; scientific-skills/Academic Writing/citation-formatter/
     a_hook: 03_research
     coverage: full
     note: citation integrity / formatters; +4 more under scientific-skills
@@ -109,7 +109,7 @@ skills:
     coverage: partial
     note: journal matcher / preflight; journal pick still Victor/03
   - id: polish-language
-    path: scientific-skills/Academic Writing/medical-email-polisher/; scientific-skills/Academic Writing/medical-translation/; scientific-skills/Academic Writing/response-tone-polisher/; scientific-skills/Other/content-proofreading/
+    path: scientific-skills/Academic Writing/medical-email-polisher/; scientific-skills/Academic Writing/medical-translation/; scientific-skills/Other/content-proofreading/
     a_hook: 05_manuscript
     coverage: partial
     note: English / consistency workers; not de-AI
@@ -160,3 +160,15 @@ empty:
   - humanize
   - check-reporting
   - self-review
+
+absorbed_fine_ids:
+  - id: retraction-watcher
+    former_path: scientific-skills/Evidence Insight/retraction-watcher/
+    absorbed_into: my-skills-capabilities:03-research/retraction-watcher/
+    absorbed_on: "2026-10-17"
+    note: Retired as active AIPOCH mount target; body now owned by B.
+  - id: response-tone-polisher
+    former_path: scientific-skills/Academic Writing/response-tone-polisher/
+    absorbed_into: my-skills-capabilities:06-review/response-tone-polisher/
+    absorbed_on: "2026-10-17"
+    note: Retired as active AIPOCH mount target; body now owned by B.
