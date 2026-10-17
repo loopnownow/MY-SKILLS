@@ -37,5 +37,5 @@ No manuscript prose. Return a claim→ref table and a spot-check note.
 
 ## Not this file
 
-- New Introduction search → `literature/intro-evidence-pack.md`
-- Number conflicts inside the cohort → `04_analysis/personal/stats-consistency.md` and `05_manuscript/personal/pre-submit-consistency.md` (annotate only; do not invent the number)
+- New Introduction search → `intro-evidence-pack.md`
+- Number conflicts inside the cohort → `04_analysis/personal/report-checks.md` and `00_orchestrator/references/manuscript-local-qc.md` (annotate only; do not invent the number)

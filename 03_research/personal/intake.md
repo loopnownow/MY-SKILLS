@@ -5,7 +5,7 @@ AI request.
 
 Writing / figures → `05_manuscript`. Pre-submission / **journal** peer review / reviewer response → `06_review`.
 国自评别人的标书 → Voice A `grant-review.md`（本技能，不是 06_review）。写自己的标书 → Voice B `grant-writing.md`。两套口癖禁止混用。
-Clinical translation / reader studies → `clinical-translation`. Ethics form packs → `fill-protocol`.
+Clinical translation / reader studies → `clinical-translation/` (under `personal/`). Ethics form packs → `fill-protocol`.
 
 ## Task modes
 
@@ -32,7 +32,7 @@ Clinical translation / reader studies → `clinical-translation`. Ethics form pa
 | `writing` | User asks for Methods, Results, Discussion, abstract, title, or translation | 写作 |
 | `figures` | User asks about figures, tables, graphical abstracts, figure legends, workflows, ROC/calibration/DCA/KM plots, or mechanism diagrams | 图表 |
 | `pre-submission` | User asks for pre-submission audit, simulated reviewer critique, manuscript risk review, or top-journal readiness | 预审 |
-| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | 选刊 → `literature/journal-selection.md` + `find-journal/` |
+| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | 选刊 → `journal-selection.md` + `find-journal/` |
 | `clinical-translation` | User asks about clinical utility, reader study, prospective validation, workflow integration, PACS/RIS, deployment, or real-world evaluation | 转化 |
 | `response` | User gives reviewer comments or revision notes | 回复 |
 

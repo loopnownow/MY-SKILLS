@@ -2,7 +2,7 @@
 
 **Owner:** `00_orchestrator` (session mount pick). Word delivery rules SSOT:  
 `C:\Users\loopn\Documents\Cline\Rules\manuscript-docx.md`.  
-Review voice / prefixes: `06_review/personal/personal-review-style.md` §0.
+Review voice / prefixes: `06_review/personal/review.md` §0.
 
 ## Trigger patterns (user)
 
@@ -12,13 +12,13 @@ Typical one-liner (Chinese):
 使用我的技能，挂载 <pack>，评阅/润色 <path>.docx
 ```
 
-Pack names seen in lab traffic: `ars` / `scientific` / `medsci` / `nature` / `B` / `AIPOCH` / `MedSci` / `openclaw` (and user synonyms). Resolve to registry fine ids via `01_skill-discovery-integration` / `MOUNTED_SKILLS.md`. Do not invent ids.
+Pack names seen in lab traffic: `ars` / `scientific` / `medsci` / `nature` / `B` / `AIPOCH` / `MedSci` / `openclaw` (and user synonyms). Resolve to registry fine ids via `01_skill-integration` / `MOUNTED_SKILLS.md`. Do not invent ids.
 
 ## Default chain
 
 1. **00** — intent: review and/or polish on a `.docx`.
 2. **01** — session mount pick: attach **only** the named pack fine ids; record `session_picked_fine_ids`. Do not auto-load all `MOUNTED`.
-3. **06** — review / pre-review annotations (Lee). Comment author field **A**. Source tags per `manuscript-docx.md` + `personal-review-style.md` §0 — **no default-only `[A:personal]` when a mount supplied the finding**.
+3. **06** — review / pre-review annotations (Lee). Comment author field **A**. Source tags per `manuscript-docx.md` + `06_review/personal/review.md` §0 — **no default-only `[A:personal]` when a mount supplied the finding**.
 4. **05** — polish / Track Changes (Aitee) after user agrees on undecidable items.
 5. Deliver: Track Changes on the original docx + comments; intermediate QC → project `ref\`.
 

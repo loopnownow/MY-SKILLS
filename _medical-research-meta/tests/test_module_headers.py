@@ -1,16 +1,17 @@
 import unittest
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[2]
 SKILL_DIRS = (
     "00_orchestrator",
-    "01_skill-discovery-integration",
+    "01_skill-integration",
     "02_data-processing",
     "03_research",
     "04_analysis",
     "05_manuscript",
     "06_review",
-    "skill-harvest",
 )
 
 
@@ -21,16 +22,18 @@ class ModuleHeaderTests(unittest.TestCase):
         root_dirs = {p.name for p in ROOT.iterdir() if p.is_dir()}
         for expected in SKILL_DIRS:
             self.assertIn(expected, root_dirs)
+        self.assertNotIn("skill-harvest", root_dirs)  # archived 2026-10-17 → D:\\0del\\...
         self.assertNotIn("01_automation", root_dirs)
         self.assertNotIn("02_imaging", root_dirs)
-        self.assertIn("mounts-cap", root_dirs)
-        self.assertTrue((ROOT / "02_data-processing" / "clinical-data-extraction" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "02_data-processing" / "code-refactoring" / "SKILL.md").is_file())
+        self.assertNotIn("mounts-cap", root_dirs)  # cache moved to 0doc 04-lab-reference/mounts-cap
+        self.assertTrue((ROOT / "02_data-processing" / "personal" / "extract.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "03_research" / "clinical-translation" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "01_skill-discovery-integration" / "registry.yaml").is_file())
+        self.assertTrue((ROOT / "03_research" / "personal" / "clinical-translation").is_dir())
+        self.assertTrue((ROOT / "01_skill-integration" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "01_skill-integration" / "registry.yaml").is_file())
         for banned in ("markitdown", "tool-environment-setup", "imaging-omics-ml"):
             self.assertFalse(any(ROOT.rglob(banned)), banned)
 
@@ -48,8 +51,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((ROOT / "06_review" / "review-generic").exists())
         self.assertFalse((ROOT / "04_analysis" / "radiology-stats").exists())
 
-    def test_core_max_four_path_parts(self):
-        """skill / category-or-pack / (scripts|references|personal) / file — no fifth folder."""
+    def test_core_max_five_path_parts(self):
+        """skill / category-or-pack / (scripts|references|personal) / optional-leaf / file — max five parts."""
         violations = []
         for skill in SKILL_DIRS:
             base = ROOT / skill
@@ -69,12 +72,12 @@ class ModuleHeaderTests(unittest.TestCase):
                     and parts[3].isdigit()
                     and len(parts[3]) == 4
                 )
-                if len(rel.parts) > 4 and not data_year_ok:
+                if len(rel.parts) > 5 and not data_year_ok:
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
     def test_registry_default_is_b(self):
-        text = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
         self.assertIn("my-skills-capabilities", text)
         self.assertIn("default-mount", text)
         self.assertIn("notify-then-research-confirm", text)
@@ -96,11 +99,11 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("openclaw_policy: never-mount-as-atomic-source", text)
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
-        self.assertFalse((ROOT / "01_skill-discovery-integration" / "_history").exists())
-        self.assertFalse((ROOT / "01_skill-discovery-integration" / "mounts" / "MIGRATION_v3_to_v4.md").exists())
+        self.assertFalse((ROOT / "01_skill-integration" / "_history").exists())
+        self.assertFalse((ROOT / "01_skill-integration" / "mounts" / "MIGRATION_v3_to_v4.md").exists())
 
     def test_mounts_board(self):
-        d = ROOT / "01_skill-discovery-integration"
+        d = ROOT / "01_skill-integration"
         md = d / "mounts"
         index = (md / "README.md").read_text(encoding="utf-8")
         b = (md / "b.md").read_text(encoding="utf-8")
@@ -116,8 +119,14 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertEqual(list(md.glob("*.html")) + list(md.glob("*.css")), [])
         self.assertIn("b.md", index)
         self.assertNotIn("MIGRATION_v3_to_v4.md", index)
-        self.assertIn("10", index)
-        self.assertIn("52", index)
+        reg = yaml.safe_load((ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8"))
+        fine_n = str(len(reg["mounts"]))
+        coarse_n = str(reg.get("coarse_id_count") or len(reg.get("coarse_ids") or []))
+        self.assertIn(coarse_n, index)
+        # Fine-id total must not be hand-copied; board points at registry / MOUNTED_SKILLS.
+        self.assertIn("fine_id_count_canonical", index)
+        self.assertIn("registry.yaml", index)
+        self.assertIn("MOUNTED_SKILLS.md", index)
         self.assertIn("presets.md", index)
         self.assertIn("removed-from-catalog", index)
         self.assertNotIn("ars.md", index)
@@ -167,7 +176,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertTrue((d / "sources" / "b-my-skills-capabilities.yaml").is_file())
 
     def test_b_mount_paths_unique(self):
-        text = (ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
         # Collect B paths that are primary owners (not path_shared)
         paths = []
         cur = {}
@@ -203,9 +212,9 @@ class ModuleHeaderTests(unittest.TestCase):
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"
         self.assertTrue((rs / "MODULE.md").is_file())
-        self.assertTrue((rs / "diagnostic-accuracy.md").is_file())
-        self.assertTrue((rs / "0rad-pipeline-rules.md").is_file())
-        self.assertGreaterEqual(len(list(rs.glob("*.md"))), 11)
+        self.assertTrue((rs / "methods.md").is_file())  # diagnostic-accuracy merged into methods.md
+        self.assertTrue((rs / "pipeline.md").is_file())
+        self.assertGreaterEqual(len(list(rs.glob("*.md"))), 8)
 
     def test_no_legacy_manuscript_paths(self):
         skip_names = {

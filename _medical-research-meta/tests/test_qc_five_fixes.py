@@ -12,6 +12,10 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def load_repo_qc():
     path = ROOT / "skill-harvest" / "scripts" / "repo_qc.py"
+    if not path.is_file():
+        raise unittest.SkipTest(
+            "skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
+        )
     spec = importlib.util.spec_from_file_location("repo_qc_five", path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -53,7 +57,7 @@ class FiveFixes(unittest.TestCase):
         qc = load_repo_qc()
         scripts = {spec["script"].as_posix() for spec in qc.GENERATED_CHECKS}
         self.assertIn("00_orchestrator/scripts/gen_repo_map.py", scripts)
-        self.assertIn("01_skill-discovery-integration/scripts/gen_mounted_skills.py", scripts)
+        self.assertIn("01_skill-integration/scripts/gen_mounted_skills.py", scripts)
         results = []
         qc.check_generated_artifacts(ROOT, results)
         failed = [row for row in results if row[0] != "PASS"]

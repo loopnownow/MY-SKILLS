@@ -9,3 +9,7 @@ __pycache__/
 .idea/
 .vscode/
 .pytest_cache/
+
+# Accidental local mounts-cap copy — SSOT cache is outside repo at
+# D:/0Grok/0doc/04-lab-reference/mounts-cap (alias {mounts_cap}). Do not vendor pack bytes into git.
+mounts-cap/

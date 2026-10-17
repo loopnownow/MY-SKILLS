@@ -11,7 +11,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / "00_orchestrator" / "scripts" / "gen_visualization.py"
+SCRIPT = ROOT / "04_analysis" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
+VIZ_OUT = Path(r"D:/0Grok/0doc/04-lab-reference/my-skills-viz")
 FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
     "generated HTML",
@@ -33,16 +34,16 @@ def load_generator():
 class VisualizationContract(unittest.TestCase):
     def test_contract_files_exist(self) -> None:
         for rel in (
-            "00_orchestrator/visualization-architecture.md",
-            "00_orchestrator/archify-version.yaml",
-            "00_orchestrator/visualization-source-contract.yaml",
-            "00_orchestrator/scripts/gen_visualization.py",
-            ".github/workflows/visualization.yml",
+            "04_analysis/personal/visualization/visualization-architecture.md",
+            "04_analysis/personal/visualization/archify-version.yaml",
+            "04_analysis/personal/visualization/visualization-source-contract.yaml",
+            "04_analysis/personal/visualization/scripts/gen_visualization.py",
+            # ".github/workflows/visualization.yml",  # archived with .github/ 2026-10-17 to 0del
         ):
             self.assertTrue((ROOT / rel).is_file(), rel)
 
     def test_version_record_pins_archify(self) -> None:
-        record = yaml.safe_load((ROOT / "00_orchestrator" / "archify-version.yaml").read_text(encoding="utf-8"))
+        record = yaml.safe_load((ROOT / "04_analysis" / "personal" / "visualization" / "archify-version.yaml").read_text(encoding="utf-8"))
         self.assertEqual(record["source"], "tt-a1i/archify")
         self.assertEqual(record["expected_version"], "3.0.1")
         self.assertEqual(record["update_policy"], "check")
@@ -52,14 +53,14 @@ class VisualizationContract(unittest.TestCase):
         self.assertEqual(record["schema_pins"]["workflow"]["schema_version"], 2)
 
     def test_forbidden_fact_sources_are_listed(self) -> None:
-        text = (ROOT / "00_orchestrator" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "04_analysis" / "personal" / "visualization" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
         for phrase in FORBIDDEN_FACT_SOURCES:
             self.assertIn(phrase, text)
 
     def test_ir_json_parses_and_matches_pins(self) -> None:
-        record = yaml.safe_load((ROOT / "00_orchestrator" / "archify-version.yaml").read_text(encoding="utf-8"))
-        arch = json.loads((ROOT / "docs/architecture/architecture.json").read_text(encoding="utf-8"))
-        wf = json.loads((ROOT / "docs/workflow/runtime.workflow.json").read_text(encoding="utf-8"))
+        record = yaml.safe_load((ROOT / "04_analysis" / "personal" / "visualization" / "archify-version.yaml").read_text(encoding="utf-8"))
+        arch = json.loads((VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8"))
+        wf = json.loads((VIZ_OUT / "workflow/runtime.workflow.json").read_text(encoding="utf-8"))
         self.assertEqual(arch["diagram_type"], "architecture")
         self.assertEqual(wf["diagram_type"], "workflow")
         self.assertEqual(arch["schema_version"], record["schema_pins"]["architecture"]["schema_version"])
@@ -75,24 +76,24 @@ class VisualizationContract(unittest.TestCase):
         self.assertIn("lit06", node_ids)
         labels = " ".join(edge.get("label", "") for edge in wf["edges"])
         self.assertIn("mid-entry", labels)
-        self.assertTrue((ROOT / "docs/index.html").is_file())
-        home = (ROOT / "docs/index.html").read_text(encoding="utf-8")
+        self.assertTrue((VIZ_OUT / "index.html").is_file())
+        home = (VIZ_OUT / "index.html").read_text(encoding="utf-8")
         self.assertIn("generated: true", home)
         self.assertIn("archify-render: diagrams", home)
         self.assertIn('href="architecture/index.html"', home)
         self.assertIn('href="workflow/index.html"', home)
         self.assertIn("打开 Architecture 图", home)
         self.assertIn("打开 Workflow 图", home)
-        for rel in ("docs/architecture/index.html", "docs/workflow/index.html"):
-            page = (ROOT / rel).read_text(encoding="utf-8")
+        for rel in ("architecture/index.html", "workflow/index.html"):
+            page = (VIZ_OUT / rel).read_text(encoding="utf-8")
             self.assertIn('content="archify 3.0.1"', page, rel)
             self.assertIn("<svg", page, rel)
             self.assertNotIn("本页是 IR 状态页", page, rel)
-        history = (ROOT / "docs/design-history/index.html").read_text(encoding="utf-8")
+        history = (VIZ_OUT / "design-history/index.html").read_text(encoding="utf-8")
         self.assertIn("这不是文档首页", history)
 
     def test_openclaw_is_not_a_default_mount(self) -> None:
-        reg = yaml.safe_load((ROOT / "01_skill-discovery-integration" / "registry.yaml").read_text(encoding="utf-8"))
+        reg = yaml.safe_load((ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8"))
         default = reg["default_source"]
         self.assertEqual(default["id"], "my-skills-capabilities")
         self.assertNotIn("openclaw", default["id"].lower())
@@ -101,22 +102,22 @@ class VisualizationContract(unittest.TestCase):
             blob = " ".join(str(mount.get(key, "")) for key in ("id", "source", "atomic_package")).lower()
             self.assertNotIn("openclaw", blob, mount.get("id"))
         contract = yaml.safe_load(
-            (ROOT / "00_orchestrator" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
+            (ROOT / "04_analysis" / "personal" / "visualization" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
         )
         self.assertIn("OpenClaw", contract["forbidden_default_atomic_mount_sources"])
-        page = (ROOT / "docs/mounts/index.html").read_text(encoding="utf-8")
+        page = (VIZ_OUT / "mounts/index.html").read_text(encoding="utf-8")
         self.assertIn("Default atomic mount source", page)
         self.assertIn("my-skills-capabilities", page)
         self.assertIn("OpenClaw is not a default atomic mount source", page)
         self.assertNotIn("openclaw-medical-skills", page)
-        arch = (ROOT / "docs/architecture/architecture.json").read_text(encoding="utf-8").lower()
+        arch = (VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8").lower()
         self.assertNotIn("openclaw", arch)
 
     def test_no_new_top_level_07_skill(self) -> None:
         names = [path.name for path in ROOT.iterdir() if path.is_dir()]
         self.assertFalse([name for name in names if name.startswith("07")])
         self.assertFalse((ROOT / "07_visualization").exists())
-        arch = json.loads((ROOT / "docs/architecture/architecture.json").read_text(encoding="utf-8"))
+        arch = json.loads((VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8"))
         for component in arch["components"]:
             self.assertFalse(str(component["label"]).startswith("07"))
             self.assertNotEqual(component["id"], "c07")
@@ -143,14 +144,14 @@ class VisualizationContract(unittest.TestCase):
         blob = json.dumps(delta)
         self.assertNotIn("merge_safety", blob)
         self.assertNotIn("severity", blob)
-        page = (ROOT / "docs/changes/latest-delta.html").read_text(encoding="utf-8")
+        page = (VIZ_OUT / "changes/latest-delta.html").read_text(encoding="utf-8")
         self.assertIn("Added", page)
         self.assertIn("Removed", page)
         self.assertIn("Changed", page)
         self.assertIn("structural identifier and label changes only", page)
 
     def test_check_matches_committed_outputs(self) -> None:
-        before = (ROOT / "docs/architecture/architecture.json").read_bytes()
+        before = (VIZ_OUT / "architecture/architecture.json").read_bytes()
         result = subprocess.run(
             [sys.executable, str(SCRIPT), "--check"],
             cwd=ROOT,
@@ -158,17 +159,20 @@ class VisualizationContract(unittest.TestCase):
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(before, (ROOT / "docs/architecture/architecture.json").read_bytes())
+        self.assertEqual(before, (VIZ_OUT / "architecture/architecture.json").read_bytes())
 
     def test_shape_failure_does_not_publish(self) -> None:
         module = load_generator()
-        arch = json.loads((ROOT / "docs/architecture/architecture.json").read_text(encoding="utf-8"))
-        wf = json.loads((ROOT / "docs/workflow/runtime.workflow.json").read_text(encoding="utf-8"))
+        arch = json.loads((VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8"))
+        wf = json.loads((VIZ_OUT / "workflow/runtime.workflow.json").read_text(encoding="utf-8"))
         arch["schema_version"] = 9
         with self.assertRaises(module.GateFailure):
             module.validate_ir(arch, wf)
 
     def test_ci_does_not_fetch_or_publish_pages(self) -> None:
+        # Wave1 QC: .github/workflows/visualization.yml archived 2026-10-17 with .github/ to
+        # D:\\0del\\00_orchestrator_reorg_20261017\\MY-SKILLS_.github\\ — not restored.
+        self.skipTest(".github/workflows/visualization.yml intentionally archived 2026-10-17; CI gone on purpose")
         text = (ROOT / ".github" / "workflows" / "visualization.yml").read_text(encoding="utf-8")
         self.assertIn("auto_update is false", text)
         self.assertIn("Fail closed", text)

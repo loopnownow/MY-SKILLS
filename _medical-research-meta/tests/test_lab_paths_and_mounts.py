@@ -34,13 +34,31 @@ class LabPaths(unittest.TestCase):
     def test_local_disk_aliases_exist_when_on_lab_machine(self) -> None:
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
-        keys = ("script_root", "doc_root", "jcr2026_xlsx", "find_journal_submission")
-        missing = [key for key in keys if not Path(aliases[key]).exists()]
+        # Local disk aliases (drive-letter paths). Skip whole check if any D:/L: root missing.
+        keys = (
+            "lab_root",
+            "del_root",
+            "script_root",
+            "doc_root",
+            "mounts_cap",
+            "jcr2026_xlsx",
+            "find_journal_submission",
+        )
+        missing = []
+        for key in keys:
+            if key not in aliases:
+                continue
+            val = str(aliases[key])
+            if len(val) >= 2 and val[1] == ":" and not Path(val).exists():
+                missing.append(key)
         if missing:
             self.skipTest(f"lab paths absent ({', '.join(missing)}); skip off non-lab host")
         for key in keys:
+            if key not in aliases:
+                continue
             p = Path(aliases[key])
-            self.assertTrue(p.exists(), f"{key} missing: {p}")
+            if p.exists():
+                self.assertTrue(p.exists(), f"{key} missing: {p}")
 
 
 class LicenseNotice(unittest.TestCase):

@@ -1,0 +1,747 @@
+# MY-SKILLS Mount Registry v4.0 (CHG-20260913-001)
+# Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
+# Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
+# Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
+# ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
+# Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present.
+# Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
+# Say 默认挂载 B 包/本仓 — not 空挂. Local bytes: {mounts_cap}/ = D:/0Grok/0doc/04-lab-reference/mounts-cap (B full; backups on-demand; outside repo).
+# A domains stay 00_orchestrator … 06_review. Do not rename A into Chinese top-level folders. Evolution policy: MY-RULES skill-evolution.md.
+# 选刊 stays Victor / 03_research/find-journal — not moved into 05.
+# fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids. Do not split shared folders.
+# Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
+# DISCOVERED, EVALUATED, APPROVED are discovery-workflow states, not required registry fields.
+# registry.yaml is the routing index, not the byte source of truth.
+# Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier. path is not an id and must never be used to infer one. QC uses registry.yaml id only.
+meta:
+  version: "4.0"
+  change_id: CHG-20261007-001
+  fine_id_count_canonical: 52  # session-pick mounts; reference_only empty
+  fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
+  load_priority_scheme: >
+    Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
+    P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
+    P1 common mounts (default session menu, about 25–30 MOUNTED ids).
+    P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
+    Registry indexes → cache ({mounts_cap}/<atomic_package>/) is SSOT for external skill bytes;
+    stub_in_b is pointer-only (cross-pack/… or external-principles.md), never a second entity tree.
+  coarse_id_count: 10
+  open_decision_points:
+    - id: 样本量计算归属
+      status: resolved
+      resolved: 2026-09-26 (CHG-20260926-004)
+      decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size / statistical-power)
+      note: 用户拍板归 04 / Loopnow；两细 ID 已移入统计分析。
+    - id: citation-verify-on-05-06
+      status: resolved
+      resolved: 2026-10-02
+      decision: >
+        05 and 06 require 03 Victor citation-verify before Gate·05 done and inside 06.
+        Aitee and Lee do not self-certify lit. Mid-entry stays allowed.
+        Lee keeps statement then data consistency. Lit accuracy is joint with Victor.
+      note: checklist is 03_research/personal/citation-verify.md. Not a new fine id.
+    - id: word-tc-owned-by-aitee
+      status: resolved
+      resolved: 2026-10-02
+      decision: >
+        Ownership: see 00_orchestrator/references/ownership-contract.md
+      note: >
+        Retired default: Lee no longer applies body Track Changes on decidable fixes.
+        Lit05/Lit06 and do-not-self-certify-lit stay as citation-verify-on-05-06. Not a new fine id.
+default_source:
+  id: my-skills-capabilities
+  source: https://github.com/loopnownow/MY-SKILLS-capabilities
+  role: default-mount
+empty_mount: notify-then-research-confirm
+session_mount: ask-each-run
+session_pick_unit: fine_id
+ars_openclaw_policy: removed-from-catalog
+a_domain_override_policy: >
+  Identity is a four-tuple plus an optional A pack: fine_id, coarse_id,
+  a_domain, B path. Do not infer id from path or path from id.
+  Each coarse_id declares a default a_domain. A mount under `mounts:` may set
+  its own `a_domain` to override that default when the routing rule requires
+  it (documented exceptions: `find-journal` and `grant-builder` sit under
+  coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
+  ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research with A pack
+  `03_research/fill-protocol/`. `find-journal` A pack is `03_research/find-journal/`
+  even when B path is `05-manuscript/write-venue/`. This is intentional, not a
+  data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
+  default without checking its `note` field first.
+
+coarse_ids:
+  - id: lit-retrieval
+    label: 文献检索
+    slug: lit-retrieval
+    a_domains: [03_research]
+    specialist_hint: Victor
+  - id: topic-explore
+    label: 选题探索
+    slug: topic-explore
+    a_domains: [03_research]
+    specialist_hint: Victor
+  - id: study-design
+    label: 研究设计
+    slug: study-design
+    a_domains: [03_research]
+    specialist_hint: Victor
+  # 05 and 06 require 03 citation-verify. Aitee/Lee do not self-certify lit. Mid-entry still OK.
+  - id: manuscript-body
+    label: 正文写作
+    slug: manuscript-body
+    a_domains: [05_manuscript]
+    specialist_hint: Aitee
+  - id: language-polish
+    label: 语言润色
+    slug: language-polish
+    a_domains: [05_manuscript]
+    specialist_hint: Aitee
+  - id: data-processing
+    label: 数据处理
+    slug: data-processing
+    a_domains: [02_data-processing]
+    specialist_hint: Loopnow
+  - id: stats-analysis
+    label: 统计分析
+    slug: stats-analysis
+    a_domains: [04_analysis]
+    specialist_hint: Loopnow
+  - id: figures
+    label: 图表呈现
+    slug: figures
+    a_domains: [04_analysis]
+    specialist_hint: Loopnow
+  - id: manuscript-review
+    label: 稿件评阅
+    slug: manuscript-review
+    a_domains: [06_review]
+    specialist_hint: Lee
+  - id: review-response
+    label: 审稿回复
+    slug: review-response
+    a_domains: [06_review]
+    specialist_hint: Lee
+
+mounts:
+  - id: paper-lookup
+    label: 广度检索
+    coarse: lit-retrieval
+    source: scientific-agent-skills
+    path: skills/paper-lookup/
+    a_domain: 03_research
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/paper-lookup/
+    note: 18 academic APIs; on-demand only
+  - id: verify-refs
+    label: 引用真实性核验
+    coarse: lit-retrieval
+    source: scientific-agent-skills
+    path: skills/citation-management/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: Scientific
+    path_shared: true
+    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against B thin lit-cite. Confirmed MIT (LICENSE.md present).
+  - id: manage-refs
+    label: 引用格式化写入
+    coarse: lit-retrieval
+    source: scientific-agent-skills
+    path: skills/citation-management/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: Scientific
+    path_shared: true
+    note: 2026-09-13 swapped from thin B lit-cite to Scientific citation-management (bibtex_formatting.md + format_bibtex.py); shares folder with verify-refs.
+  - id: lit-sync
+    label: 个人文献库同步
+    coarse: lit-retrieval
+    source: scientific-agent-skills
+    path: skills/pyzotero/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: Scientific
+    path_shared: true
+    note: 2026-09-13 swapped from thin B lit-cite to Scientific pyzotero (154-line SKILL.md, real Zotero API — auth/read/full-text/exports/saved-searches), the actual Zotero-sync content this label was always meant to cover.
+  - id: retraction-watcher
+    label: 撤稿检测
+    coarse: lit-retrieval
+    source: aipoch-medical-research-skills
+    path: scientific-skills/Evidence Insight/retraction-watcher/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    note: 2026-09-13 promoted after content audit — real 732-line script (Retraction Watch/Crossref/PubMed), no overlap with verify-refs/manage-refs. Path corrected from stale `skills/retraction-watcher/`.
+    atomic_package: AIPOCH
+    stub_in_b: cross-pack/aipoch/retraction-watcher/
+  - id: audit-citations
+
+    label: 严格他引审计
+    coarse: lit-retrieval
+    source: nature-skills
+    path: skills/nature-academic-search/
+    a_domain: 03_research
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    stub_in_b: cross-pack/nature/audit-citations/
+  - id: lit-search
+    label: 文献检索与公开数据集
+    coarse: lit-retrieval
+    source: my-skills-capabilities
+    path: 03-research/lit-search/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22."
+  - id: find-cohort-gap
+    label: 队列选题空白发现
+    coarse: topic-explore
+    source: my-skills-capabilities
+    path: 03-research/frontier-ideate/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+  - id: scout-meta-analysis
+
+    label: MA选题可行性
+    coarse: topic-explore
+    source: my-skills-capabilities
+    path: 03-research/lit-review/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+    note: literature-review core; full review flow archived
+  - id: frontier-hypothesize
+    label: 假设形成
+    coarse: topic-explore
+    source: my-skills-capabilities
+    path: 03-research/frontier-hypothesize/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "Chosen over PROPOSED hypothesis-generation (2026-09-22). Question template lives in this B folder."
+  - id: intake-project
+    label: 项目启动分类
+    coarse: topic-explore
+    source: my-skills-capabilities
+    path: 03-research/intake-project/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+    note: new mount from B_updates
+  - id: design-study
+    label: 研究设计审查
+    coarse: study-design
+    source: my-skills-capabilities
+    path: 03-research/design-experiment/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: design-ai-benchmarking
+    label: AI专家评估设计
+    coarse: study-design
+    source: my-skills-capabilities
+    path: 03-research/design-ai-benchmarking/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+    note: new mount
+  - id: architecture-zoo
+    label: 模型架构选型
+    coarse: study-design
+    source: my-skills-capabilities
+    path: 03-research/architecture-zoo/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+    note: new mount
+  - id: write-protocol
+    label: IRB方案撰写
+    coarse: study-design
+    source: my-skills-capabilities
+    path: 03-research/design-protocol/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: fill-protocol
+    label: IRB方案填表
+    coarse: study-design
+    source: my-skills-capabilities
+    path: 03-research/fill-protocol/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: MedSci
+    note: "MedSci Word-template filler (pairs with write-protocol). A pack 03_research/fill-protocol/. Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
+  - id: write-paper
+    label: IMRAD正文起草
+    coarse: manuscript-body
+    source: my-skills-capabilities
+    path: 05-manuscript/write-manuscript/
+    a_domain: 05_manuscript
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: check-reporting
+    label: 报告规范核验
+    coarse: manuscript-body
+    source: my-skills-capabilities
+    path: 05-manuscript/write-reporting/
+    a_domain: 05_manuscript
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: write-data-statement
+
+    label: 数据可用性声明
+    coarse: manuscript-body
+    source: nature-skills
+    path: skills/nature-data/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    stub_in_b: cross-pack/nature/write-data-statement/
+  - id: check-grant-proposal
+
+    label: 基金标书-中文语境QA
+    coarse: manuscript-body
+    source: nature-skills
+    path: skills/nature-proposal-writer/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    stub_in_b: cross-pack/nature/check-grant-proposal/
+  - id: grant-builder
+    label: 基金标书-方法论
+    coarse: manuscript-body
+    source: my-skills-capabilities
+    path: 03-research/design-grant/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: find-journal
+    label: 选刊推荐
+    coarse: manuscript-body
+    source: my-skills-capabilities
+    path: 05-manuscript/write-venue/
+    a_domain: 03_research
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: 引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05
+  - id: venue-templates
+    label: 期刊格式模板
+    coarse: manuscript-body
+    source: scientific-agent-skills
+    path: skills/venue-templates/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/venue-templates/
+  - id: polish-language
+    label: 一致性硬规则lint
+    coarse: language-polish
+    source: my-skills-capabilities
+    path: 05-manuscript/write-polish/
+    a_domain: 05_manuscript
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: humanize
+    label: 去AI味
+    coarse: language-polish
+    source: med-sci-skills
+    path: skills/humanize/
+    a_domain: 05_manuscript
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: MedSci-only interface; personal de-AI stays A 05_manuscript/personal
+  - id: polish-latex
+
+    label: LaTeX排版细节
+    coarse: language-polish
+    source: nature-skills
+    path: skills/nature-polishing/
+    a_domain: 05_manuscript
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    experimental: true
+    stub_in_b: cross-pack/nature/polish-latex/
+  - id: clean-data
+    label: 三阶段确认式清洗
+    coarse: data-processing
+    source: my-skills-capabilities
+    path: 02-data-processing/tables/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: batch-cohort
+    label: 批量队列分析生成
+    coarse: data-processing
+    source: my-skills-capabilities
+    path: 02-data-processing/tables/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    path_shared: true
+  - id: exploratory-data-analysis
+    label: EDA
+    coarse: data-processing
+    source: scientific-agent-skills
+    path: skills/exploratory-data-analysis/
+    a_domain: 02_data-processing
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/exploratory-data-analysis/
+  - id: imaging-io
+    label: CT/MRI DICOM与NIfTI读写
+    coarse: data-processing
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-io/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization stays PROPOSED audit-dicom."
+  - id: preprocess-imaging
+    label: ROI与读者质控
+    coarse: data-processing
+    source: my-skills-capabilities
+    path: 02-data-processing/imaging-qc/
+    a_domain: 02_data-processing
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
+  - id: audit-dicom
+
+    label: DICOM底层与匿名化审计
+    coarse: data-processing
+    source: scientific-agent-skills
+    path: skills/pydicom/
+    a_domain: 02_data-processing
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/audit-dicom/
+  - id: analyze-stats
+    label: 检验方法选择与加权调查数据
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 04-analysis/stats-guide/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: meta-analysis
+    label: Meta分析抗数据操纵
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 04-analysis/stats-models/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: analyze-survival
+
+    label: 生存分析leakage-safe管道
+    coarse: stats-analysis
+    source: scientific-agent-skills
+    path: skills/scikit-survival/
+    a_domain: 04_analysis
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/analyze-survival/
+  - id: radiomics-ml
+    label: 放射组学建模pipeline审计
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 02-data-processing/radiomics-habitat/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: model-evaluation
+    label: 模型-任务正确指标选择
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 04-analysis/model-eval/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: model-validation
+    label: 模型-确定性泄漏门禁
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 04-analysis/model-eval/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    path_shared: true
+  - id: calc-sample-size
+    label: 样本量计算
+    coarse: stats-analysis
+    source: my-skills-capabilities
+    path: 04-analysis/stats-power/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power"
+  - id: statistical-power
+    label: 样本量-复杂设计模拟法
+    coarse: stats-analysis
+    source: scientific-agent-skills
+    path: skills/statistical-power/
+    a_domain: 04_analysis
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/statistical-power/
+  - id: draw-flowchart
+
+    label: 患者流程图
+    coarse: figures
+    source: my-skills-capabilities
+    path: 04-analysis/fig-flow/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: STROBE / patient-flow only. Statistical plots are fine id plot-figures.
+  - id: plot-figures
+
+    label: 统计图与影像面板
+    coarse: figures
+    source: my-skills-capabilities
+    path: 04-analysis/fig-plot/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: "2026-09-22. Distinct from draw-flowchart (fig-flow)."
+  - id: peer-review-pdf-scan
+    label: PDF注入攻击扫描
+    coarse: manuscript-review
+    source: my-skills-capabilities
+    path: 06-review/review-peer/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    note: peer-review Phase1.5
+  - id: peer-review
+    label: 审稿意见生成
+    coarse: manuscript-review
+    source: my-skills-capabilities
+    path: 06-review/review-peer/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+    path_shared: true
+  - id: self-review
+    label: 数值级自审核算
+    coarse: manuscript-review
+    source: my-skills-capabilities
+    path: 06-review/review-critique/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: scientific-critical-thinking
+    label: 证据质量评估
+    coarse: manuscript-review
+    source: scientific-agent-skills
+    path: skills/scientific-critical-thinking/
+    a_domain: 06_review
+    status: PROPOSED
+    load_priority: P2
+    atomic_package: Scientific
+    stub_in_b: cross-pack/scientific/scientific-critical-thinking/
+  - id: revise
+    label: 修回分诊与数字血统追踪
+    coarse: review-response
+    source: my-skills-capabilities
+    path: 06-review/review-response/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: MedSci
+  - id: response-tone-polisher
+    label: 回复语气软化
+    coarse: review-response
+    source: aipoch-medical-research-skills
+    path: scientific-skills/Academic Writing/response-tone-polisher/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P2
+    note: 2026-09-13 promoted after content audit — real 652-line script, tone-only, no overlap with `revise` (structure). Path corrected from stale `skills/response-tone-polisher/`.
+    atomic_package: AIPOCH
+    stub_in_b: cross-pack/aipoch/response-tone-polisher/
+
+
+  - id: scientific-visualization
+    label: 诚实可视化准则
+    coarse: figures
+    source: scientific-agent-skills
+    path: skills/scientific-visualization/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: Scientific
+    note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B plot-figures/external-principles.md."
+    stub_in_b: 04-analysis/fig-plot/external-principles.md
+  - id: audit-figure-risk
+
+    label: 审稿人风险预判
+    coarse: figures
+    source: nature-skills
+    path: skills/nature-figure/
+    a_domain: 04_analysis
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B plot-figures/external-principles.md."
+    stub_in_b: 04-analysis/fig-plot/external-principles.md
+  - id: simulate-reviewers
+
+    label: 多审稿人隔离原则
+    coarse: manuscript-review
+    source: nature-skills
+    path: skills/nature-reviewer/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P1
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
+    stub_in_b: 06-review/review-peer/external-principles.md
+  - id: tighten-response
+
+    label: 隔离与正文精简原则
+    coarse: review-response
+    source: nature-skills
+    path: skills/nature-response/
+    a_domain: 06_review
+    status: MOUNTED
+    load_priority: P2
+    atomic_package: Nature
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
+    stub_in_b: 06-review/review-response/external-principles.md
+
+reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
+
+archived:
+  - id: deidentify
+    status: ARCHIVED
+    reason: 导出已人工脱敏
+    revive_condition: 非脱敏实时院内系统时复活
+  - id: profile-imaging
+    status: ARCHIVED
+    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    revive_condition: B 出现独立的数据集画像技能时重评
+    old_path: 02-data-processing/imaging-qc/
+  - id: uncertainty-imaging
+    status: ARCHIVED
+    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    revive_condition: B 出现独立的不确定性量化技能时重评
+    old_path: 02-data-processing/imaging-qc/
+  - id: hypothesis-generation
+    status: ARCHIVED
+    reason: 未拉取字节；假设形成用已挂载的 frontier-hypothesize
+    revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评
+    old_path: skills/hypothesis-generation/
+  - id: database-lookup
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实，本地无字节
+    revive_condition: 上游文件夹核实且与 paper-lookup 不重复时重评
+    old_path: skills/database-lookup/
+  - id: model-scaffold
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
+    revive_condition: 对照 0RAD 后仍缺一块时重评
+    old_path: skills/model-scaffold/
+  - id: model-card
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；不代替 A 正文层
+    revive_condition: 论文需要独立模型卡且上游核实后重评
+    old_path: skills/model-card/
+  - id: paperclip
+    status: ARCHIVED
+    reason: 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
+    revive_condition: 需要逐行全文证据且上游文件夹核实后重评
+    old_path: skills/paperclip/
+
+# External source freshness fields (filled the next time that source is actually used):
+#   source_ref, resolved_commit, source_version, scanned_at, cache_commit,
+#   cache_status (fresh|stale|missing|blocked), license_status, inventory_hash, last_diff
+# metadata_refresh: on-next-use — leave scanned / scan_sha / hashes as last written.
+# Refresh that metadata when the source is actually used. A registry-only pass does not refresh it.
+proposals:
+  - id: med-sci-skills
+    source: https://github.com/Aperivue/medsci-skills
+    config: sources/medsci.proposed.yaml
+    scanned: "2026-09-03"
+    scan_sha: "912f7e8"
+    metadata_refresh: on-next-use
+    status: PROPOSED
+    role: backup-candidate
+  - id: scientific-agent-skills
+    source: https://github.com/K-Dense-AI/scientific-agent-skills
+    config: sources/scientific-agent-skills.proposed.yaml
+    scanned: "2026-09-03"
+    scan_sha: "1e5eeff"
+    metadata_refresh: on-next-use
+    status: PROPOSED
+    role: backup-candidate
+  - id: aipoch-medical-research-skills
+    source: https://github.com/aipoch/medical-research-skills
+    config: sources/aipoch-medical-research-skills.proposed.yaml
+    scanned: "2026-09-06"
+    scan_sha: "f5ef65b"
+    metadata_refresh: on-next-use
+    status: PROPOSED
+    role: backup-candidate
+  - id: nature-skills
+    source: https://github.com/Yuan1z0825/nature-skills
+    config: sources/nature-skills.proposed.yaml
+    scanned: "2026-09-07"
+    scan_sha: "287ee37"
+    metadata_refresh: on-next-use
+    status: PROPOSED
+    role: backup-candidate
+    license_flag: Apache-2.0 verified 2026-09-14
+    note: "Apache-2.0 verified 2026-09-14. Register nature-shared as dependency of Nature fine ids (not a separate trigger skill). Refresh resolved_commit/inventory_hash the next time this source is actually used."
