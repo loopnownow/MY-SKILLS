@@ -5,7 +5,7 @@ status: session-recipe
 notes: >
   Final draft pass. write-paper may supply IMRAD structure; A/B05 personal owns
   sentence authority (Intro v3, de-AI). verify-refs and check-reporting are QC.
-  Nature overlays only when venue-specific. Ask-each-run.
+  Nature overlays only when venue-specific. Ask-each-run. First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
 
 chassis:
   source: my-skills-capabilities
