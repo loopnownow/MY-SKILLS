@@ -1,4 +1,4 @@
-﻿# Aitor-format (Ying Li / Jinshan)
+# Aitor-format (Ying Li / Jinshan)
 
 Formerly `house-format.md`.
 
@@ -88,7 +88,7 @@ Title → Authors → Affiliation →
 | Field | Default text |
 |-------|----------------|
 | Affiliation | `1 Department of Radiology, Jinshan Hospital of Fudan University, 1508 Longhang Road, Shanghai 201508, China` |
-| Corresponding author | `Ying Li, E-mail: dr.yingli@foxmail.com` |
+| Corresponding author | `Ying Li, E-mail: `（见 mem:corresponding_email） |
 | Funding | `This work was funded by Jinshan Hospital (KYQDJJ202501) to Hai-Feng Shi.` |
 | Ethics | IRB of Jinshan Hospital of Fudan University (Date:  , NO:  ). Retrospective waiver. Helsinki allowed. |
 | Acknowledgments | `None` |
@@ -356,5 +356,5 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - No yellow empty slots; missing method/product facts in Word comments (author **A**)  
 - Word comments / Track Changes author **A** (never `Grok`)  
 - English punctuation  
-- Ethics Date/NO empty: Word comment, not yellow; email `dr.yingli@foxmail.com`  
+- Ethics Date/NO empty: Word comment, not yellow; email（见 mem:corresponding_email）  
 - Numbers match the latest results file (nomogram row, not a Combined-figure leftover)  

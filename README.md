@@ -36,9 +36,9 @@ Lab disks (not inside this repo): runnable SSOT `{script_root}`; human-doc SSOT 
 | `04_analysis` | Statistics, prediction, **figures** (`draw-flowchart` / `plot-figures`) |
 | `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; B `05-manuscript/write-venue/` = journal templates / house style, not 选刊) |
 | `06_review` | Personal review/response upper layer (reviewer response only here) |
-| *(archived)* | Former `skill-harvest` → `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`; standing policy → MY-RULES `skill-evolution.md` |
+| *(archived)* | Former `skill-harvest` → `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`; standing policy → MY-RULES `skills.md` (skill-evolution) |
 
-A = framework + personal. B = default chassis. The menu shape (coarse buckets and fine ids) lives in `01_skill-integration/registry.yaml` and the generated index `01_skill-integration/MOUNTED_SKILLS.md` — do not restate the totals here. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Every independent run needs a mount decision; reuse `session_picked_fine_ids` when they already cover the task. The pick menu is status MOUNTED only. Never auto-mount a non-B source. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
+Path depth: under `00`–`06`, at most **five** path parts from repo root (pytest `test_core_max_five_path_parts`; exception `03_research/find-journal/data/<YYYY>/file`). A = framework + personal. B = default chassis. The menu shape (coarse buckets and fine ids) lives in `01_skill-integration/registry.yaml` and the generated index `01_skill-integration/MOUNTED_SKILLS.md` — do not restate the totals here. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Every independent run needs a mount decision; reuse `session_picked_fine_ids` when they already cover the task. The pick menu is status MOUNTED only. Never auto-mount a non-B source. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
 
 
 ## Generated visualization

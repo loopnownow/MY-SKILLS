@@ -746,7 +746,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
     }
     files["skills/index.html"] = shell(
         "Skill index",
-        "<p>按 00–06 索引（演进政策见 MY-RULES skill-evolution.md）。页面来自 SKILL.md frontmatter。</p>" + "".join(sections),
+        "<p>按 00–06 索引（演进政策见 MY-RULES skills.md (skill-evolution)）。页面来自 SKILL.md frontmatter。</p>" + "".join(sections),
         version,
         digest,
         nav_for(**links),

@@ -278,12 +278,12 @@ class DiscoverySurface(unittest.TestCase):
         self.assertTrue("mounts-cap" in zero or "mounts_cap" in zero)
         self.assertIn("session_picked_fine_ids", zero)
         self.assertIn("session_picked_fine_ids", one)
-        # advertised skills = 00–06 only (skill-harvest archived → MY-RULES skill-evolution.md)
+        # advertised skills = 00–06 only (skill-harvest archived → MY-RULES skills.md / skill-evolution)
         self.assertIn("only `00_orchestrator`–`06_review`", zero)
         self.assertNotIn("and `skill-harvest`", zero)
         self.assertIn("`00`–`06` only", life)
         self.assertNotIn("and `skill-harvest` only", life)
-        self.assertIn("skill-evolution.md", one)
+        self.assertIn("skills.md", one)
 
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
         for rel in (
@@ -653,13 +653,39 @@ class LocalLinkHygiene(unittest.TestCase):
         self.assertEqual(errors, [], msg="\n".join(errors))
 
 
+class GateMetadata(unittest.TestCase):
+    """Live gates.md class rows (was under HarvestHygiene; does not need skill-harvest)."""
+
+    def test_gate_class_metadata(self) -> None:
+        gates = read("00_orchestrator/gates.md")
+        self.assertIn("Gate class", gates)
+        self.assertIn("HARD", gates)
+        self.assertIn("QUALITY", gates)
+        # Existing ids only — no invented G-HARD / G-QUALITY gate ids
+        self.assertNotIn("| G-HARD |", gates)
+        self.assertNotIn("| G-QUALITY |", gates)
+        for row in (
+            "| G0 | HARD |",
+            "| G-PHI | HARD |",
+            "| G-FACT | HARD |",
+            "| G-04 | QUALITY |",
+            "| G-05 | QUALITY |",
+            "| G-06 | QUALITY |",
+            "| G-LIT | QUALITY |",
+            "| G-CODE | QUALITY |",
+        ):
+            self.assertIn(row, gates)
+
+
 class HarvestHygiene(unittest.TestCase):
+    """Archived skill-harvest checks — class skipped while harvest lives under 0del."""
+
     @classmethod
     def setUpClass(cls) -> None:
         cls._harvest = ROOT / "skill-harvest"
         if not cls._harvest.is_dir():
             raise unittest.SkipTest(
-                "skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
+                "skill-harvest archived (permanent); see D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
             )
 
     def test_harvest_orchestrator_slim(self) -> None:
@@ -682,26 +708,6 @@ class HarvestHygiene(unittest.TestCase):
         self.assertGreaterEqual(n, 160)
         self.assertLessEqual(n, 260)
         self.assertTrue((ROOT / "skill-harvest" / "references" / "keep-merge-delete.md").is_file())
-
-    def test_gate_class_metadata(self) -> None:
-        gates = read("00_orchestrator/gates.md")
-        self.assertIn("Gate class", gates)
-        self.assertIn("HARD", gates)
-        self.assertIn("QUALITY", gates)
-        # Existing ids only — no invented G-HARD / G-QUALITY gate ids
-        self.assertNotIn("| G-HARD |", gates)
-        self.assertNotIn("| G-QUALITY |", gates)
-        for row in (
-            "| G0 | HARD |",
-            "| G-PHI | HARD |",
-            "| G-FACT | HARD |",
-            "| G-04 | QUALITY |",
-            "| G-05 | QUALITY |",
-            "| G-06 | QUALITY |",
-            "| G-LIT | QUALITY |",
-            "| G-CODE | QUALITY |",
-        ):
-            self.assertIn(row, gates)
 
     def test_keep_vs_skip_no_bundle(self) -> None:
         text = read("skill-harvest/references/keep-vs-skip.md")

@@ -25,7 +25,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Statistics / prediction / **figures** / 样本量 | `04_analysis` |
 | Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / **reviewer response** | `06_review` |
-| Evolution governance | MY-RULES `skill-evolution.md` (former skill-harvest archived) |
+| Evolution governance | MY-RULES `skills.md` (skill-evolution; former skill-harvest archived) |
 
 ### Lab-specific flows (Ying Li)
 

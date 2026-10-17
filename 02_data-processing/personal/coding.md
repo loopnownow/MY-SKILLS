@@ -49,7 +49,7 @@ Medical / Statistical Integrity：**只引用** `04_analysis/personal/report-che
 - 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `coding-qc.md`
 - 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `coding-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
-- 边界：≠ archived `skill-harvest/qc` / MY-RULES skill-evolution；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
+- 边界：≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution)；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
 - 不 vendor `{script_modules}` 整树
 - 00 路由：`gates.md` **G-CODE**
 

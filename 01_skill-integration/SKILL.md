@@ -4,7 +4,7 @@ description: >
   Mount and index external Skills. Use for coarse/fine ids, registry lookup,
   session pick, hybrid mount recipes, and the `{mounts_cap}` cache boundary. Infrastructure
   only. Never literature research, statistics, manuscript writing, or peer review.
-  Not GitHub discovery (archived). Not skill evolution (MY-RULES skill-evolution).
+  Not GitHub discovery (archived). Not skill evolution (MY-RULES `skills.md`).
   Mount pointers live only here. Default mount is B (MY-SKILLS-capabilities).
   Every independent run needs a mount decision; reuse session_picked_fine_ids
   when they already cover the task. Never auto-mount a non-B source. Non-B fine
@@ -27,7 +27,7 @@ Domain skills call fine ids; they do not keep a second pointer table.
 - Fine ids = session-pick mount points. Count lives in `fine_id_count_canonical`. The pick menu is status `MOUNTED` only.
 - **Hybrid mount:** different fine ids may use different packages; never mix packages inside one fine id. Non-B rows are mixed PROPOSED/MOUNTED per registry, not an all-PROPOSED backup set.
 - **`fine_id` is the capability interface. `path` is the physical unit. `path_shared: true` means one path backs several fine ids. Do not split that folder.**
-- A domains stay `00_orchestrator` … `06_review`. Personal layers stay in A. Skill evolution policy: MY-RULES `skill-evolution.md`.
+- A domains stay `00_orchestrator` … `06_review`. Personal layers stay in A. Skill evolution policy: MY-RULES `skills.md` (skill-evolution).
 - 选刊 stays Victor / `03_research/find-journal` — do not move into 05.
 
 ## Pointers

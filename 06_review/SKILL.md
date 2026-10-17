@@ -80,7 +80,7 @@ English peer-review / pre-review body follows `personal/review.md`: Opening, the
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-- **Rules SSOT for Word 批注/修订:** `C:\Users\loopn\Documents\Cline\Rules\manuscript-and-review.md`（正文与批注、Track Changes、来源标签、稿件细则）。`manuscript-docx.md` 仅为指针。本 skill 的前缀细则仍见 `personal/review.md` §0；冲突时以 Rules 文件为准并合并，不另立第二套。
+- **Rules SSOT for Word 批注/修订:** `{RULES}\manuscript-and-review.md`（正文与批注、Track Changes、来源标签、稿件细则）。`manuscript-docx.md` 仅为指针。本 skill 的前缀细则仍见 `personal/review.md` §0；冲突时以 Rules 文件为准并合并，不另立第二套。
 - Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/review.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[MedSci:…]` / `[Scientific:…]` / `[Nature:…]` / `[AIPOCH:…]` / `[B:…]`, dual-tag OK).
 - Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently. After the user decides, Aitee still applies Track Changes; Lee does not.
 - **Decidable issues:** Lee annotates for Aitee to TC-fix. The comment names the locus, the defect, and the exact word or sentence Aitee should revise.

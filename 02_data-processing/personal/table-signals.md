@@ -11,7 +11,7 @@ Raw measurement table QC signals: leading-digit distribution, terminal-digit pre
 ## Boundaries
 
 - Not `personal/coding.md` / `personal/coding-qc.md` (deep code QC)
-- Not archived `skill-harvest/qc/` / MY-RULES skill-evolution
+- Not archived `skill-harvest/qc/` / MY-RULES skills.md (skill-evolution)
 - Not `preprocess-imaging`
 - Reported stats consistency → `04_analysis/personal/report-checks.md`
 - No vendored checker scripts in this pack; Loopnow/Build may implement runners later
