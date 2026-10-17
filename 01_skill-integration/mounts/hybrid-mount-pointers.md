@@ -31,12 +31,16 @@
 
 机器真源与全量细 ID 表不在此重复。保留下列独有笔记：
 
-- **lit-cite 换源（CHG-20260913）：** `verify-refs` / `manage-refs` / `lit-sync` 自 B lit-cite 换为 Scientific（🟢）。
-- **AIPOCH promote（2026-09-13）：** `retraction-watcher`、`response-tone-polisher` 升 🟢；`clinic-research-design` 已拒绝。
-- **Nature / Scientific REFERENCE→MOUNTED（2026-09-14）：** `scientific-visualization`、`audit-figure-risk`、`simulate-reviewers`、`tighten-response` 升 🟢（Nature 行 Apache-2.0；仍需 ask-each-run + bytes）。
+- **lit-cite 换源（CHG-20260913）→ round 2：** `verify-refs` 仍 Scientific citation-management；`manage-refs`/`lit-sync` 已 ARCHIVED（2026-10-17 round 2；manage-refs 并入 verify-refs）。
+- **AIPOCH promote（2026-09-13）：** `retraction-watcher`、`response-tone-polisher` 曾升 🟢；`clinic-research-design` 已拒绝。
+- **AIPOCH absorb into B（2026-10-17）：** 上述两细 ID 改挂 `my-skills-capabilities` domain paths；`cross-pack/aipoch/` stubs 删除。
+- **Nature / Scientific（2026-10-17 round 2）：** `simulate-reviewers`、`tighten-response` 仍 MOUNTED；`scientific-visualization`/`audit-figure-risk` 已 ARCHIVED→`plot-figures`（原则在 B fig-plot/external-principles.md）。
 - **样本量归属（CHG-20260926-004）：** 样本量归粗 ID「统计分析」（04 / Loopnow），不在正文写作桶。
 - **选刊权威：** `find-journal` 细 ID 可在 manuscript-body 桶展示，A 权威仍 `03_research/find-journal`。
-- **`humanize`：** 可仍走 MedSci 接口；个人 de-AI 在 A `05_manuscript/personal/`，不是 B mount。
+- **`humanize`：** 2026-10-17 吸收进 B `05-manuscript/humanize/`（✅ B默认）；个人 de-AI 仍在 A `05_manuscript/personal/`。
 - **图例 ⚪：** 2026-09-14 后本文件无残留规则参考行；原则已写入对应 B `external-principles.md`。
+- **PROPOSED cut round 1（2026-10-17）：** 归档 `paper-lookup` · `analyze-survival` · `audit-citations` · `audit-dicom` · `exploratory-data-analysis` · `polish-latex` · `statistical-power` · `venue-templates` · `write-data-statement`（registry `archived:`）；`check-grant-proposal` / `scientific-critical-thinking` 已在 round 3 ARCHIVED。
+
+- **Round 3 2026-10-17：** `verify-refs` / `simulate-reviewers` / `tighten-response` 吸收进 B domain paths（bodies-to-b-keep-ids，细 ID 仍 MOUNTED）；`check-grant-proposal` ARCHIVED→`grant-builder`；`scientific-critical-thinking` ARCHIVED→`self-review`；`model-validation` ARCHIVED→`model-evaluation`（同 path `04-analysis/model-eval/`）。
 
 **合计口径：** 注册表细 ID 数以 `registry.yaml` `fine_id_count_canonical` 为准（见生成表 `MOUNTED_SKILLS.md`）。

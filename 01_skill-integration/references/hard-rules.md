@@ -22,7 +22,7 @@ Intro / Discussion default discovery: Scientific `paper-lookup` (or Research Loo
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
-- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (MedSci). The personal forbidden list still wins.
+- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (B `05-manuscript/humanize/`). The personal forbidden list still wins.
 
 ## Fine-id expansion ceiling
 

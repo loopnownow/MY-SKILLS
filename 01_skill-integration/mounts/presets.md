@@ -5,13 +5,12 @@ Presets must match `registry.yaml` source / path / MOUNTED|PROPOSED.
 
 ## review-hybrid-default
 
-Machine core: [`presets/review-hybrid.yaml`](presets/review-hybrid.yaml) (`2026-09-22.1`).
+Machine core: [`presets/review-hybrid.yaml`](presets/review-hybrid.yaml) (`2026-10-17.3`).
 
 - B chassis required
-- `verify-refs` → Scientific `citation-management` (MOUNTED)
+- `verify-refs` → B `03-research/verify-refs/` (MOUNTED; absorbed round 3)
 - `analyze-stats` → B `04-analysis/stats-guide/` (MOUNTED)
-- `scientific-critical-thinking` → Scientific overlay, **PROPOSED** (not required; ask before load)
-- Force B: `peer-review`, `peer-review-pdf-scan`, `revise`, `self-review`
+- Force B: `peer-review` (covers former peer-review-pdf-scan), `revise`, `self-review` (covers former scientific-critical-thinking)
 - Catalog backups offered: MedSci / Scientific / AIPOCH / Nature only (no other packs in session pick)
 
 Attribution: `[Source:pack-skill]` per skill, not whole source.
@@ -24,7 +23,7 @@ Attribution: `[Source:pack-skill]` per skill, not whole source.
 Machine core: [`presets/evidence-deep-L2.yaml`](presets/evidence-deep-L2.yaml).
 
 - B chassis + A03 evidence entry
-- Scientific `paper-lookup` (discovery) + `verify-refs` / citation-management
+- B/MOUNTED `lit-search` (discovery) + `verify-refs`（`paper-lookup` archived 2026-10-17 round 1）
 - Optional full-text path when user asks (bulk full-text is archived; do not revive without ask)
 - Still ask-each-run. Prefer verify-refs over a second search engine.
 
@@ -41,8 +40,8 @@ Machine core: [`presets/manuscript-final-W2.yaml`](presets/manuscript-final-W2.y
 
 ## external-review-R1
 
-Machine core: [`presets/external-review-R1.yaml`](presets/external-review-R1.yaml).
+Machine core: [`presets/external-review-R1.yaml`](presets/external-review-R1.yaml) (`2026-10-17.3`).
 
-- Optional Scientific critical-thinking (PROPOSED) + MedSci/B `peer-review` / `self-review` → **A06 adjudicates**
+- B/MedSci `peer-review` + `self-review` (covers former scientific-critical-thinking) — **A06 adjudicates**
 - Findings only; no direct manuscript edits by engines
 - Closely related to `review-hybrid-default`; R1 emphasizes dual finding sets before personal envelope

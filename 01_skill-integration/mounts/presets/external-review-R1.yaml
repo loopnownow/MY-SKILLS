@@ -1,10 +1,11 @@
-# R1 external review — dual engines → A06 only.
+# R1 external review — dual engines — A06 only.
 preset_id: external-review-R1
-version: "2026-09-22.1"
+version: "2026-10-17.3"
 status: session-recipe
 notes: >
-  Scientific critique overlay + B/MedSci peer-review and self-review produce
-  finding sets. A06 personal merges, grades Major/Minor, owns envelope.
+  B/MedSci peer-review and self-review produce finding sets
+  (self-review covers former scientific-critical-thinking, archived round 3).
+  A06 personal merges, grades Major/Minor, owns envelope.
   Engines never edit the manuscript. Ask-each-run. Related to review-hybrid-default.
 
 chassis:
@@ -18,14 +19,6 @@ personal:
     must_include: [review-resolution.md, 06_review/personal/review.md]
 
 overrides:
-  - id: scientific-critical-thinking
-    source: scientific-agent-skills
-    skills: [scientific-critical-thinking]
-    paths: [skills/scientific-critical-thinking/]
-    role: science-method-findings
-    required: false
-    status_note: PROPOSED in registry — ask before load
-    prefix_example: "[Scientific:scientific-critical-thinking]"
   - id: peer-review
     source: my-skills-capabilities
     skills: [review-peer]
@@ -38,12 +31,12 @@ overrides:
     skills: [review-critique]
     paths: [06-review/review-critique/]
     role: pre-submission-integrity
-    required: false
+    required: true
+    status_note: covers former scientific-critical-thinking (archived round 3)
     prefix_example: "[B:self-review]"
 
 force_b:
-  - peer-review
-  - peer-review-pdf-scan
+  - peer-review  # peer-review-pdf-scan absorbed 2026-10-17 round 2
   - revise
   - self-review
 

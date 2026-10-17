@@ -41,7 +41,7 @@ Never silently fall back to MedSci/Scientific/AIPOCH/Nature or invent a local co
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (coarse buckets + fine `mounts:`).
-2. Resolve each fine id against its `source`. Default source is B. `humanize` mounts from MedSci. Archived ids (registry `archived:`) are not in the default menu.
+2. Resolve each fine id against its `source`. Default source is B. `humanize` mounts from B (`05-manuscript/humanize/`). Archived ids (registry `archived:`) are not in the default menu.
 3. If that path is empty or missing → empty-mount protocol.
 4. Only after confirmation may a *different* backup candidate be proposed.
 5. Evaluate capability, boundaries, dependencies, and overlap.

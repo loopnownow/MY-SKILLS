@@ -10,10 +10,10 @@
 |---|---|
 | [配方 · 审稿混合默认](presets.md) | `review-hybrid-default`：B 底盘 + Nature/Scientific 细 ID 覆盖（仍 ask-each-run） |
 | [B · 当前默认](b.md) | B 默认已含细 ID + 新增挂载；跨包 stub 在 `cross-pack/` |
-| [MedSci · 备份](medsci.md) | 扫 `912f7e8`。多数 B 细 ID 的原子技能源；`humanize` 仍 MedSci 接口 |
-| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。跨包细 ID：paper-lookup / EDA / audit-dicom / … |
-| [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。retraction-watcher / response-tone-polisher（clinic-research-design 已拒绝） |
-| [Nature · 备份](nature.md) | 扫 `287ee37`。LICENSE Apache-2.0 已核实；`audit-figure-risk`/`simulate-reviewers`/`tighten-response` MOUNTED；其余 PROPOSED |
+| [MedSci · 备份](medsci.md) | 扫 `912f7e8`。多数 B 细 ID 的原子技能源；`humanize` 已吸收进 B（2026-10-17） |
+| [Scientific · 备份](scientific.md) | 扫 `1e5eeff`。MOUNTED 剩 `verify-refs`；PROPOSED 仅剩 `scientific-critical-thinking`；manage-refs/lit-sync/scientific-visualization 已归档 2026-10-17 round 2 |
+| [AIPOCH · 备份](aipoch.md) | 扫 `f5ef65b`。原 retraction-watcher / response-tone-polisher 已吸收进 B；clinic-research-design 已拒绝 |
+| [Nature · 备份](nature.md) | 扫 `287ee37`。LICENSE Apache-2.0 已核实；`simulate-reviewers`/`tighten-response` MOUNTED；`audit-figure-risk` 已归档→plot-figures（2026-10-17 round 2）；PROPOSED 仅剩 `check-grant-proposal` |
 
 **每次运行：** 先定粗 bucket → 多选细 ID；未选不加载。预审/审稿可预勾审稿混合配方（细 ID 级）。Registry 状态是菜单。
 

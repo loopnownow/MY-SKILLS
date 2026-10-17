@@ -6,8 +6,8 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`retraction-watcher`/`response-tone-polisher` 已 MOUNTED（2026-09-13）；其余 PROPOSED |
-| v4 细 ID（MOUNTED） | `retraction-watcher` · `response-tone-polisher` — 见 `_medical-research-meta/INTEGRATION_MAP.md` CHG-20260913-008 |
+| 状态 | PROPOSED 备份；`retraction-watcher`/`response-tone-polisher` 已于 2026-10-17 **吸收进 B**（细 ID 仍 MOUNTED，source=B） |
+| 已吸收进 B | `retraction-watcher` → `03-research/retraction-watcher/`；`response-tone-polisher` → `06-review/response-tone-polisher/` |
 | 已拒绝 | `clinic-research-design` — SKILL.md 描述的 `scripts/main.py` 及4个calculator脚本在实际仓库中不存在；其自评报告 `eval_report_*.json` 全部标 PASS，不可信 |
 
-引用前以 SKILL.md 原文核实（yaml 分类偶有错位）——`clinic-research-design` 就是一个反例。Stub：B `cross-pack/aipoch/`。
+引用前以 SKILL.md 原文核实（yaml 分类偶有错位）——`clinic-research-design` 就是一个反例。 原 B `cross-pack/aipoch/` 指针 stub 已于 2026-10-17 删除（两技能改入 domain folders）。

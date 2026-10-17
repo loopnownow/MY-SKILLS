@@ -11,8 +11,11 @@ metadata_refresh: on-next-use
 status: PROPOSED
 empty_mount: notify-then-research-confirm
 notes: >
-  Finer A ids (CHG-20260903-011). Two A interfaces mount from this repo:
-  humanize (explainability is archived). present-paper stays unmapped (not 05).
+  Finer A ids (CHG-20260903-011). Backup candidate only.
+  humanize ABSORBED into B 05-manuscript/humanize/ on 2026-10-17 (no longer active MedSci mount target).
+  explainability archived. present-paper stays unmapped (not 05).
+  Round-1 archive 2026-10-17: venue-templates fine id ARCHIVED in registry (A-side);
+  this source row marked archived — not an active PROPOSED mount target.
 skills:
   - id: clean-data
     path: skills/clean-data/; skills/batch-cohort/; skills/generate-codebook/; skills/define-variables/; skills/version-dataset/; skills/deidentify/
@@ -30,6 +33,10 @@ skills:
     coverage: full
     note: profile / uncertainty
   - id: radiomics-ml
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: analyze-stats
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
@@ -39,6 +46,10 @@ skills:
     a_hook: 03_research
     coverage: full
   - id: scout-meta-analysis
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: meta-analysis
     path: skills/ma-scout/
     a_hook: 03_research
     coverage: partial
@@ -61,10 +72,18 @@ skills:
     coverage: full
     note: does not replace A Voice A/B
   - id: find-cohort-gap
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/find-cohort-gap/; skills/architecture-zoo/
     a_hook: 03_research
     coverage: partial
   - id: frontier-hypothesize
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/find-cohort-gap/; skills/ma-scout/
     a_hook: 03_research
     coverage: partial
@@ -102,10 +121,13 @@ skills:
     a_hook: 05_manuscript
     coverage: full
   - id: venue-templates
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 1
     path: skills/find-journal/; skills/add-journal/
     a_hook: 05_manuscript
     coverage: full
-    note: not Aitor-format
+    note: ARCHIVED 2026-10-17 round 1 in registry; not an active PROPOSED mount target. Was: not Aitor-format
   - id: polish-language
     path: skills/polish-language/
     a_hook: 05_manuscript
@@ -115,7 +137,10 @@ skills:
     path: skills/humanize/
     a_hook: 05_manuscript
     coverage: full
-    note: does not replace A personal de-AI
+    absorbed: true
+    absorbed_into: my-skills-capabilities:05-manuscript/humanize/
+    absorbed_on: "2026-10-17"
+    note: ABSORBED into B; retired as active MedSci mount target. Personal de-AI stays A. Upstream path kept for fetch/history only.
   - id: peer-review
     path: skills/peer-review/; skills/review-paper/
     a_hook: 06_review

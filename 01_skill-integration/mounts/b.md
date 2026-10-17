@@ -16,14 +16,8 @@
 
 | Fine id | Label | B path | Coarse |
 |---|---|---|---|
-| `find-cohort-gap` | 队列选题空白发现 | `03-research/frontier-ideate/` | topic-explore |
-| `scout-meta-analysis` | MA选题可行性 | `03-research/lit-review/` | topic-explore |
 | `lit-search` | 文献检索与公开数据集 | `03-research/lit-search/` | lit-retrieval |
-| `frontier-hypothesize` | 假设形成 | `03-research/frontier-hypothesize/` | topic-explore |
-| `intake-project` | 项目启动分类 | `03-research/intake-project/` | topic-explore |
-| `design-study` | 研究设计审查 | `03-research/design-experiment/` | study-design |
-| `design-ai-benchmarking` | AI专家评估设计 | `03-research/design-ai-benchmarking/` | study-design |
-| `architecture-zoo` | 模型架构选型 | `03-research/architecture-zoo/` | study-design |
+| `design-study` | 研究设计审查（含原 architecture-zoo / design-ai-benchmarking / frontier-hypothesize / find-cohort-gap / intake-project） | `03-research/design-experiment/` | study-design |
 | `write-protocol` | IRB方案撰写 | `03-research/design-protocol/` | study-design |
 | `fill-protocol` | IRB方案填表 | `03-research/fill-protocol/` | study-design |
 | `write-paper` | IMRAD正文起草 | `05-manuscript/write-manuscript/` | manuscript-body |
@@ -35,23 +29,22 @@
 | `batch-cohort` | 批量队列分析生成 | `02-data-processing/tables/` | data-processing |
 | `imaging-io` | CT/MRI DICOM与NIfTI读写 | `02-data-processing/imaging-io/` | data-processing |
 | `preprocess-imaging` | ROI与读者质控 | `02-data-processing/imaging-qc/` | data-processing |
-| `analyze-stats` | 检验方法选择与加权调查数据 | `04-analysis/stats-guide/` | stats-analysis |
-| `meta-analysis` | Meta分析抗数据操纵 | `04-analysis/stats-models/` | stats-analysis |
-| `radiomics-ml` | 放射组学建模pipeline审计 | `02-data-processing/radiomics-habitat/` | stats-analysis |
+| `analyze-stats` | 检验方法选择与加权调查数据（含原 radiomics-ml 路由） | `04-analysis/stats-guide/` | stats-analysis |
+| `meta-analysis` | Meta分析抗数据操纵（含原 scout-meta-analysis） | `04-analysis/stats-models/` | stats-analysis |
 | `model-evaluation` | 模型-任务正确指标选择 | `04-analysis/model-eval/` | stats-analysis |
 | `model-validation` | 模型-确定性泄漏门禁 | `04-analysis/model-eval/` | stats-analysis |
 | `calc-sample-size` | 样本量计算 | `04-analysis/stats-power/` | stats-analysis |
 | `draw-flowchart` | 患者流程图 | `04-analysis/fig-flow/` | figures |
-| `plot-figures` | 统计图与影像面板 | `04-analysis/fig-plot/` | figures |
-| `peer-review-pdf-scan` | PDF注入攻击扫描 | `06-review/review-peer/` | manuscript-review |
-| `peer-review` | 审稿意见生成 | `06-review/review-peer/` | manuscript-review |
+| `plot-figures` | 统计图与影像面板（含原 audit-figure-risk / scientific-visualization 原则） | `04-analysis/fig-plot/` | figures |
+| `peer-review` | 审稿意见生成（含原 peer-review-pdf-scan） | `06-review/review-peer/` | manuscript-review |
 | `self-review` | 数值级自审核算 | `06-review/review-critique/` | manuscript-review |
 | `revise` | 修回分诊与数字血统追踪 | `06-review/review-response/` | review-response |
+| `humanize` | 去AI味 | `05-manuscript/humanize/` | language-polish |
+| `retraction-watcher` | 撤稿检测 | `03-research/retraction-watcher/` | lit-retrieval |
+| `response-tone-polisher` | 回复语气软化 | `06-review/response-tone-polisher/` | review-response |
 
 ## 非 B 但默认菜单可见
 
-| Fine id | Source | Notes |
-|---|---|---|
-| `humanize` | MedSci | 去 AI 味（通用）；个人 de-AI 仍在 A |
+（2026-10-17）`humanize` / `retraction-watcher` / `response-tone-polisher` 已吸收进 B 上表；个人 de-AI 仍在 A `05_manuscript/personal/`。
 
 机器真源 `../registry.yaml`。

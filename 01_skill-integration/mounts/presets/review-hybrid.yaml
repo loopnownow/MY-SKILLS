@@ -2,13 +2,14 @@
 # Unit of attribution / scoring / path fetch = source + pack skill (not whole source).
 # Coarse buckets stay the session shell; fine ids are the picks. Mapping is not a mount.
 preset_id: review-hybrid-default
-version: "2026-09-22.1"
+version: "2026-10-17.3"
 status: default-session-recipe
 notes: >
-  Default for review / pre-review: B chassis + Scientific verify-refs
-  (citation-management) + B analyze-stats (stats-guide). Scientific
-  critical-thinking stays PROPOSED overlay (ask before load). Prefetch only
-  listed skill paths. Catalog backups MedSci/Scientific/AIPOCH/Nature only. A 06 personal adjudicates.
+  Default for review / pre-review: B chassis + B verify-refs
+  (absorbed citation-management) + B analyze-stats (stats-guide).
+  Former scientific-critical-thinking archived→self-review (round 3).
+  Prefetch only listed skill paths. Catalog backups MedSci/Scientific/AIPOCH/Nature only.
+  A 06 personal adjudicates.
 
 chassis:
   source: my-skills-capabilities
@@ -23,12 +24,12 @@ personal:
 # Per fine-id overrides (v4). Must match registry.yaml source/path/status.
 overrides:
   - id: verify-refs
-    source: scientific-agent-skills
-    skills: [citation-management]
-    paths: [skills/citation-management/]
+    source: my-skills-capabilities
+    skills: [verify-refs]
+    paths: [03-research/verify-refs/]
     role: literature-verify
     required: true
-    prefix_example: "[Scientific:citation-management]"
+    prefix_example: "[B:verify-refs]"
   - id: analyze-stats
     source: my-skills-capabilities
     skills: [stats-guide]
@@ -36,20 +37,19 @@ overrides:
     role: reported-stats-audit
     required: true
     prefix_example: "[B:04-analysis/stats-guide]"
-  - id: scientific-critical-thinking
-    source: scientific-agent-skills
-    skills: [scientific-critical-thinking]
-    paths: [skills/scientific-critical-thinking/]
+  - id: self-review
+    source: my-skills-capabilities
+    skills: [review-critique]
+    paths: [06-review/review-critique/]
     role: logic-mechanism-overlay
     required: false
-    status_note: PROPOSED in registry — ask-each-run before load
-    prefix_example: "[Scientific:scientific-critical-thinking]"
+    status_note: covers former scientific-critical-thinking (archived round 3)
+    prefix_example: "[B:self-review]"
 
 force_b:
-  - peer-review
-  - peer-review-pdf-scan
+  - peer-review  # peer-review-pdf-scan absorbed 2026-10-17 round 2
   - revise
-  - self-review
+  - self-review  # scientific-critical-thinking archived→self-review round 3
 
 excluded_sources: []
 excluded_tools_note: "Out-of-band editors are suggestions-only; no silent numeric edits; must pass G0 if used as a mount. Catalog backups: MedSci/Scientific/AIPOCH/Nature only."
