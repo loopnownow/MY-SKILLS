@@ -131,7 +131,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT.
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT. Post-QC A03-triggered; body stays B. Routing 2026-10-17 ab-top-layer.
   - id: retraction-watcher
     label: "撤稿检测"
     coarse: lit-retrieval
@@ -140,7 +140,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged.
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged. Post-QC A03-triggered; body stays B. Routing 2026-10-17 ab-top-layer.
   - id: lit-search
     label: "文献检索与公开数据集"
     coarse: lit-retrieval
@@ -364,6 +364,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
+    note: A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
   - id: response-tone-polisher
     label: "回复语气软化"
     coarse: review-response
@@ -372,7 +373,7 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P2
-    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`.
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`. A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
   - id: simulate-reviewers
     label: "多审稿人隔离原则"
     coarse: manuscript-review
@@ -390,7 +391,7 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P2
-    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md.
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md. A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
 
 archived:
   - id: deidentify

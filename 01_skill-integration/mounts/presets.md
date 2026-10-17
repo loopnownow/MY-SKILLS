@@ -45,3 +45,7 @@ Machine core: [`presets/external-review-R1.yaml`](presets/external-review-R1.yam
 - B/MedSci `peer-review` + `self-review` (covers former scientific-critical-thinking) — **A06 adjudicates**
 - Findings only; no direct manuscript edits by engines
 - Closely related to `review-hybrid-default`; R1 emphasizes dual finding sets before personal envelope
+
+## A/B top-layer (2026-10-17)
+
+Flow: B fine-ID first-pass -> 00 QC -> A re-loops. Response final authority is A07 (`07_response`); revise/tighten-response/response-tone-polisher stay source=B. verify-refs / retraction-watcher may be A03-triggered post-QC (bodies in B).

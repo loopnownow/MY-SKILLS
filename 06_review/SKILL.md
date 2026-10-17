@@ -1,98 +1,72 @@
 ---
 name: medical-manuscript-review
 description: >
-  Personal review/response upper layer. Entry for 审稿, 投稿前预审, 回复审稿人 is always 06.
+  Personal review upper layer (post-QC re-review). Entry for review / pre-review / peer-review / re-review.
+  Response letter goes to 07_response (not here).
   Statement consistency before data consistency. Cross-manuscript overlap is commented, not invented.
-  May internally call 04/05/02/03. Does not write manuscript body. Literature → 03.
-  Figures → 04. Prose polish → 05.
+  May internally call 04/05/02/03/07. Does not write manuscript body.
 ---
 
-# Manuscript Review
+# Manuscript Review -- personal upper layer (re-review)
 
 **Route:** `personal/route.md`. **Handoff:** `personal/handoff.md`.
- — personal upper layer
 
 ## Purpose
 
-Find defects, write journal-system peer reviews, and draft point-by-point responses.
-**Never invent** rescue experiments, missing AUCs, ethics IDs, or unrun analyses.
-Do not rewrite the manuscript here — changed sentences go to `05_manuscript`. Ownership: see `00_orchestrator/references/ownership-contract.md`.
+Find defects, write journal-system peer reviews, and run **post-QC re-review**.
+Never invent rescue experiments, missing AUCs, ethics IDs, or unrun analyses.
+Do not rewrite the manuscript here -- changed sentences go to `05_manuscript`.
+Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-**Reviewer response enters through `06_review` only.**
-
-Path A (`落实审稿意见` / revise an existing manuscript) **skips the entire title page**: ethics number, author block, target journal, and whether the paper declares “not generated”. Do not fill, yellow-highlight, or rewrite those fields. From-scratch title page stays in `05_manuscript/personal/Aitor-format.md`.
-
-When reviewing an already-written manuscript, do **not** delete genuine references to hit the Intro 10–15 / Discussion 10–15-new quota; note over-quota only. New-I/D quota and evidence retrieval stay in `05_manuscript` / `03_research`.
+**Reviewer response enters through `07_response` only.**
 
 ## Layer model
 
-**Mounted review/response capability → 06 personal upper layer → 00 Final QC.**
+Flow: B fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`) -> **00 QC** -> **A06** post-QC re-review only.
 
-Mounted packs may raise findings; **A 06 personal** owns resolution status (`personal/response.md`). No permanent three-pack sub-dispatcher; no B06 “intelligence core.”
+Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
+Resolution status for response letters -> **A07**.
 
 ## Personal assets
 
 | Task | Path |
 |---|---|
 | English peer-review voice | `personal/review.md` |
-| Review comment habits (statement → data consistency; integrity stops; Chinese 稿面批注五槽 CM-01) | `personal/review.md` (+ Lab-STE pointer in `05_manuscript/personal/lab-ste.md`) |
-| Cross-manuscript and pre-submit QC (annotate conflicts; do not invent numbers) | `00_orchestrator/references/cross-manuscript-qc.md` |
-| Word comment delivery (Lee marks; Aitee applies manuscript Track Changes; 0del, TNR) | `personal/word-edit.md` |
-| Response-letter tone (opening default A) | `personal/response.md` |
-| 毕业论文评阅（中文；不要混进英文 peer review） | `personal/thesis-review.md` |
-| 中文刊审稿单 A–F | `personal/chinese-journal-score-sheet.md` |
-| Review Resolution (issue status / response re-check) | `personal/response.md` |
-| 内部评阅语料（我的评阅意见） | `{doc_review_corpus}\` |
-| 外部评阅语料（其他审稿人意见，外审模拟）与 revise 回复/修改语料 | `{doc_review_replies}\` |
+| Review comment habits | `personal/review.md` |
+| Cross-manuscript QC | `00_orchestrator/references/cross-manuscript-qc.md` |
+| Word comment delivery | `personal/word-edit.md` |
+| Dual-review isolation workflow | `personal/review-isolation.md` |
+| Thesis review | `personal/thesis-review.md` |
+| Chinese journal score sheet | `personal/chinese-journal-score-sheet.md` |
+| Response letter / resolution | **`07_response/personal/response.md`** (moved 2026-10-17) |
 
-## Mounted capability ids (generic; not present until mounted)
+## Mounted capability ids
 
-**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
-
-- `peer-review` — other-paper peer review
-- `self-review` — self-audit / pre-submission
-- `revise` — point-by-point letters /修回分诊；脚本库：`{script_revise}\`
-
-Do not recreate `review-generic/` in A. Grant Voice A stays in `03_research/personal/`.
+- `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (B)
+- `revise` / `tighten-response` / `response-tone-polisher` -- response path; **final authority A07**; bodies stay B
 
 ## Modes
 
-- `pre-review` — Blocking / Major / Minor on the user's manuscript (Path A: skip title page; do not cut real refs)
-- `peer-review` — English reviewer report for another paper (`personal/review.md`)
-- `response` — point-by-point letter (`personal/response.md`; opening **A**)
-- `thesis-review` / Chinese journal score sheet — separate templates; never mix into English peer review
+- `pre-review` / `peer-review` / `re-review` (post-QC only)
+- `thesis-review` / Chinese journal score sheet
+- `response` -- **moved to `07_response`**
 
-## Internal calls (not entry points)
+## Internal calls
 
-Use handoff cards. 00 owns cross-skill QC and whether a call actually runs.
+- Response letter -> `07_response`
+- Wording -> `05_manuscript`
+- Stats -> `04_analysis`
+- Imaging -> `02_data-processing`
+- Literature -> `03_research`
+- Exit -> `00_orchestrator`
 
-- Wording / layout → `05_manuscript` (**word/sentence** units only)
-- New statistics → `04_analysis`
-- Imaging verification → `02_data-processing`
-- Design / literature fact-check → `03_research`
-- Exit / multi-node → `00_orchestrator`
+## Comments / Track Changes
 
-## Personal review layout
-
-English peer-review / pre-review body follows `personal/review.md`: Opening, then eight sections (Title → Abstract → Introduction → Methods → Results → Discussion → References → Figures & Tables), each with Major / Minor. Run `personal/review.md` then `00_orchestrator/references/cross-manuscript-qc.md` before those sections. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee still does statement consistency, then data consistency. Literature accuracy is joint with Victor. A 05 pass does not waive this 06 pass. Ownership: see `00_orchestrator/references/ownership-contract.md`. Response letters stay on `personal/response.md`. Journal envelope stays English; Word-comment reasons and the user-facing summary stay Chinese.
-
-## Comments, conflicts, who applies Track Changes
-
-Ownership: see `00_orchestrator/references/ownership-contract.md`.
-
-- **Rules SSOT for Word 批注/修订:** `{RULES}\manuscript-and-review.md`（正文与批注、Track Changes、来源标签、稿件细则）。`manuscript-docx.md` 仅为指针。本 skill 的前缀细则仍见 `personal/review.md` §0；冲突时以 Rules 文件为准并合并，不另立第二套。
-- Comment **author field** is always **A**; never yellow. Source lives in the text prefix only — see `personal/review.md` §0 / §0.1 (author ≠ prefix; mount-driven items must carry `[MedSci:…]` / `[Scientific:…]` / `[Nature:…]` / `[AIPOCH:…]` / `[B:…]`, dual-tag OK).
-- Mount suggestion conflicts with lab rules → comment only: conflict + modification plan (before/after sentence). **User decides.** Do not apply silently. After the user decides, Aitee still applies Track Changes; Lee does not.
-- **Decidable issues:** Lee annotates for Aitee to TC-fix. The comment names the locus, the defect, and the exact word or sentence Aitee should revise.
-- **Undecidable issues:** Chinese 批注 plus English suggested wording and/or suggested literature (see ownership-contract). Ask the user. Do not edit the manuscript until the user picks; then Aitee applies Track Changes. Victor supplies suggested literature for comments when needed.
-- Word wording that differs from the last agent sentence is the user’s edit (`personal/word-edit.md`): ask before changing; do not restore. HTML / PDF / scripts are out of scope.
-- Response / re-audit: set each issue to Resolved / Partially resolved / Unresolved / New issue per `personal/response.md` (A 06 judges; mounts only draft).
-- Literature verify fail: dual plan in comments; 00 decides at QC whether to call 03. Writing-time claim gaps → `05_manuscript/personal/process/evidence.md`.
+See `personal/review.md` section 0. Response / re-audit resolution status -> `07_response/personal/response.md` (A07 judges).
 
 ## Not this skill
 
-- 写论著 / 润色 / 去AI / 引言 / 讨论 → `05_manuscript`
-- 选题 / 文献检索 → `03_research`
-- 选刊 → `03_research`
-- 样本量 → `04_analysis` (`calc-sample-size`)
-- 出图 → `04_analysis`
+- Response letter -> `07_response`
+- Manuscript prose / polish -> `05_manuscript`
+- Literature / journal select -> `03_research`
+- Stats / figures -> `04_analysis`
