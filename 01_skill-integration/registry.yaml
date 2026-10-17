@@ -63,8 +63,8 @@ a_domain_override_policy: >
   its own `a_domain` to override that default when the routing rule requires
   it (documented exceptions: `find-journal` and `grant-builder` sit under
   coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
-  ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research with A pack
-  `03_research/fill-protocol/`. `find-journal` A pack is `03_research/find-journal/`
+  ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research; capability body is B
+  `03-research/fill-protocol/`, A `03_research/fill-protocol/` is Bai seat pointer. `find-journal` A pack is `03_research/find-journal/`
   even when B path is `05-manuscript/write-venue/`. This is intentional, not a
   data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
   default without checking its `note` field first.
@@ -179,7 +179,7 @@ mounts:
     status: MOUNTED
     load_priority: P2
     atomic_package: MedSci
-    note: "MedSci Word-template filler (pairs with write-protocol). A pack 03_research/fill-protocol/. Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
+    note: "Canonical body B 03-research/fill-protocol/ (MedSci; pairs with write-protocol). A 03_research/fill-protocol/ is Bai seat pointer only; Jinshan PHI under 03_research/personal/fill-protocol/ (not B). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: write-paper
     label: "IMRAD正文起草"
     coarse: manuscript-body

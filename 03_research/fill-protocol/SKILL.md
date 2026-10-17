@@ -1,86 +1,34 @@
 ---
 name: fill-protocol
 description: >
-  Fill hospital IRB / ethics application form packs without changing template layout.
-  Use for 伦理申请, 填伦理, IRB, 伦理表, 按填写好格式写伦理.
+  Bai seat route for IRB / ethics form fill. Canonical capability body is B
+  MY-SKILLS-base/03-research/fill-protocol/ (MedSci Word-template filler).
+  Jinshan hospital pack and PHI stay under 03_research/personal/fill-protocol/.
   Do not invent ethics Date/NO, PI 学历, GCP, or team members.
-  Manuscript ethics prose stays in 05_manuscript; study design stays in 03_research.
 ---
 
-# 伦理申请表格填报
+# 伦理申请表格填报（A top-layer / Bai seat）
 
-**Seat:** Bai（投稿/伦理表专员）。Aitor 路由并盯梢。路径仍在 `03_research/fill-protocol/`；Victor 不填表。
+**Seat:** Bai（投审伦理表专员）。Aitor 路由并盯梢。Victor 不填表。
 
-家园 `03_research/fill-protocol/`。protocol-level 设计仍读 `03_research/personal/ethics.md`；本技能只填院内表格，不发明研究设计。
+**Canonical capability (B):** `MY-SKILLS-base/03-research/fill-protocol/`  
+(`SKILL.md` + `MODULE.md` — MedSci institutional Word-template filler; pairs with `write-protocol`.)
 
-## Purpose
+Load **B** for fill mechanics: open the existing template in place, convert `.doc`→`.docx` when needed, label-match cells, validate unmatched labels. Do **not** duplicate the MedSci body here.
 
-按院内**空白表格模板**把一项研究填成可递交的伦理材料包。核心是填表，不是另写一套方案。
-**铁律：只替换文字，不改版式。** 禁止另起空白 Word 重做表格。
-
-## Capability map
+## Bai / Jinshan seat (A personal — not B)
 
 | Task | Path |
 |------|------|
-| **填表（本技能）** | 下面工作流 + `{script_root}\study-design\fill-protocol\docx_cell_replace.py` / `word_find_replace.py` |
-| 金山医院空白包、递交清单、栏目 | `{doc_fill_protocol}\jinshan-form-pack.md` |
-| 已收到批件（含患者信息；只读；不复制进仓库） | `{doc_ethics}\批件\` + `批件索引.xlsx`（批号/日期/机构/页数/来源/备注） |
-| 申请材料（已摊平；只读） | `{doc_ethics}\raw\`（按项目 `_伦理` 夹） |
-| 空白母版与人员信息 | `{doc_ethics}\raw\0空白_申请模板\`（官方 10 份空白 + 填写规范 PDF + 人员信息汇总.xlsx） |
-| 填完自检 | `references/checklist.md` |
-| 研究类型 / 入排 / 终点 / 样本量口径 | `03_research` — 缺设计先问用户或走 03，不在本技能里发明 |
-| 统计 / 样本量公式 | `04_analysis` |
-| 知情同意通俗正文、论著里的伦理段落 | `05_manuscript` — 本技能只把已定正文填进表 |
-| Excel 登记表 | `02_data-processing`（mounted `clean-data` / `batch-cohort`）若 COM/xlsx 脚本不够用 |
+| Jinshan checklist / five-hospital boilerplate | `03_research/personal/fill-protocol/` |
+| Protocol-level ethics design notes | `03_research/personal/ethics.md` |
+| On-disk blanks / 批件 / 人员信息 / PHI | `{doc_ethics}` / `{doc_fill_protocol}` — never copy into B or public base |
 
-## Modes
-
-- `fill` — 默认。复制默认包（官方 10 份空白 + 立项申请表）→ 按参数填 0–6 号表与立项申请表
-- `plan` — 只出参数表和文件清单，等用户点头再填
-- `qc` — 对已填包做一致性检索，不改版式
-
-缺研究类型（干预 / 观察 / 免知情）或缺 PI 关键字段时**先问用户**，不要猜。
-
-## 从其他技能取什么
-
-填表前凑齐一套参数，能从已有技能/用户材料抄就抄，抄不到就标「待补充」：
-
-```text
-TITLE, PI, DEPT, PHONE, EMAIL, HOSP, TITLE_SHORT,
-N, START, END, VER, VER_DATE,
-DESIGN_TYPE (干预 / 观察 / 免知情),
-VULNERABLE, PRIMARY_EP, SECONDARY_EP, AE_PLAN
-```
-
-- 题目、设计、入排、终点 ← `03_research` 或用户方案
-- n、期限 ← 用户或 `04_analysis`，禁止编造
-- PI／科室／职称／电话／邮箱／学历／GCP／团队成员 ← 优先从 `{doc_ethics}\raw\0空白_申请模板\人员信息汇总.xlsx`「人员信息」sheet 取；取不到标「待补充」并问用户，禁止编造
-- ICF 通俗段落 ← 需要长文时请 `05_manuscript` 起草，再填入模板
-- 旧课题痕迹（姓名、电话、病种、例数）必须全局清掉
-
-## 填表工作流
-
-1. 母版取 `{doc_ethics}\raw\0空白_申请模板\临床研究-伦理初始审查申请.zip`，不用 `伦理/`、`填写好/`、`伦理/伦理/` 里的已填样例。
-2. **默认包（不可漂移）** = zip 内官方 **10 份空白** **加上** 工作夹立项申请表。`01.金山医院研究生科研课题开题提纲模板` **不在本包**（开题不是伦理初审）。
-3. 方案+知情共 5 份模板，**按研究类型选一对**（干预方案+干预知情 / 观察方案+观察知情 / 方案+免知情）。切勿五份全交，切勿交空白。
-4. 先输出规划表（题目、PI、类型、n、期限、版本、文件清单、待补项）。用户同意后再写文件。
-5. 复制 `{doc_ethics}\raw\0空白_申请模板\临床研究-伦理初始审查申请.zip` 内 10 份文件，并加上工作夹的立项申请表，到 `填写好_<PI>_<短题>/`，**不覆盖**母版、**不拷开题提纲**。
-6. 保格式填：`.docx` 用 python-docx（只改文字/勾选，保留签名表）；`.doc` 用 Word/WPS COM 查找替换，一次只开一个；`.xls` 只改数据行。
-7. 按 `references/checklist.md` 自检后交付路径、参数摘要、待签字项。
-
-登记表 `.xls` 只发伦理邮箱、不打印。初审申请表 PI 手签、日期写递交当天。干预性研究团队须有医生。科学性审查批件：院级立项、研究者发起自选（干预性）必须交；自选观察性可豁免。细节见 `{doc_fill_protocol}\jinshan-form-pack.md`。登记表固定栏目与五院差异见 `references/form-boilerplate.md`。
-
-立项申请表 `1-研究者发起的一般临床研究立项申请表.doc` **在默认包内**（官方空白 zip 未收，母版取工作夹空白/近空白件，填前清旧课题；不用 `伦理/伦理/` 已填件）。开题提纲仍不进默认包。
+缺研究类型或缺 PI 关键字段先问用户，不要猜。旧课题痕迹必须全局清掉。
 
 ## Not this skill
 
-- 选题 / 写研究设计 → `03_research`
-- 选刊 → `03_research`
+- 选题 / 研究设计 → `03_research`
 - 样本量 → `04_analysis` (`calc-sample-size`)
-- 写论著 Methods 伦理段、去 AI、配图 → `05_manuscript`
-- 评阅 / 回审稿 → `06_review`
-- 编造伦理批号、学历、GCP、未提供的团队成员（先查 `人员信息汇总.xlsx`，再问用户）
-
-## Progressive disclosure
-
-只发现本 `SKILL.md`。栏目和递交清单一律读 `{doc_fill_protocol}\jinshan-form-pack.md` / `references/checklist.md` / `references/form-boilerplate.md`，不要把医院 Word 原件推进公开仓库。
+- 论著 Methods 伦理段 → `05_manuscript`
+- 编造伦理批号、学历、GCP、未提供的团队成员
