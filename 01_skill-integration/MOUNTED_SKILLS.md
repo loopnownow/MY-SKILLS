@@ -46,7 +46,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `write-paper` | IMRAD正文起草 | my-skills-base | `05-manuscript/write-manuscript/` | MOUNTED | P1 | — |
 | `check-reporting` | 报告规范核验 | my-skills-base | `05-manuscript/write-reporting/` | MOUNTED | P1 | — |
 | `grant-builder` | 基金标书-方法论 | my-skills-base | `03-research/design-grant/` | MOUNTED | P1 | — |
-| `find-journal` | 选刊推荐 | my-skills-base | `05-manuscript/write-venue/` | MOUNTED | P1 | — |
+| `find-journal` | 选刊推荐 | my-skills-base | `03-research/find-journal/` | MOUNTED | P1 | — |
 
 
 ### language-polish

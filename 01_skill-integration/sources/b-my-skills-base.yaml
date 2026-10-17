@@ -57,7 +57,7 @@ skills:
   a_hook: 03_research
   label: 基金标书-方法论
 - id: find-journal
-  path: 05-manuscript/write-venue/
+  path: 03-research/find-journal/
   coarse: manuscript-body
   a_hook: 03_research
   label: 选刊推荐

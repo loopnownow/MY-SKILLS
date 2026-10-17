@@ -63,7 +63,7 @@ a_domain_override_policy: >
   coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
   ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research; capability body is B
   `03-research/fill-protocol/`, A `03_research/fill-protocol/` is Bai seat pointer. `find-journal` A pack is `03_research/find-journal/`
-  even when B path is `05-manuscript/write-venue/`. This is intentional, not a
+  B path is `03-research/find-journal/` (engine); companion styles in `05-manuscript/write-venue/`. This is intentional, not a
   data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
   default without checking its `note` field first.
 
@@ -203,11 +203,11 @@ mounts:
     label: "选刊推荐"
     coarse: manuscript-body
     source: my-skills-base
-    path: 05-manuscript/write-venue/
+    path: 03-research/find-journal/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05"
+    note: "Canonical body B 03-research/find-journal/ (rules + list gates + journal-format-compliance). A 03_research/find-journal/ is Victor seat pointer only; personal priors under {find_journal_submission} (not B). Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05"
   - id: polish-language
     label: "一致性硬规则lint"
     coarse: language-polish

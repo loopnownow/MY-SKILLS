@@ -1,3 +1,4 @@
+﻿<!-- Engine: B MY-SKILLS-base/03-research/find-journal/; A find-journal is Victor pointer only. -->
 # 选刊
 
 Use this file when a manuscript, abstract, or near-complete study is available and
