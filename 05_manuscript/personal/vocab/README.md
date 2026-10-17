@@ -1,19 +1,21 @@
-# 05 vocabulary -- pointer (2026-10-17)
+# 05 vocabulary -- A personal top + B body pointer (2026-10-17)
 
-**Canonical vocab body lives in B:**
+**Canonical generic vocab body lives in B (MY-SKILLS-base):**
 
-`MY-SKILLS-capabilities` / `05-manuscript/vocab/`
+`MY-SKILLS-base/05-manuscript/vocab/` (L1 ban lists, L2 preferred corpus, L3 pointer)
 
-(L1 / L2 / L3 preserved there.)
+A keeps:
+- this pointer
+- **personal SCI overrides:** `L1/sci-overrides.md` (moved from B 2026-10-17)
 
-A keeps this pointer only. First-pass `write-paper` / `check-reporting` **must load B vocab** before drafting (gates.md check **(b)**).
+First-pass `write-paper` / `check-reporting` **must load B vocab** before drafting (gates.md check **(b)**). Personal overrides and `Aitor-format.md` still win over B generics.
 
-| Layer | B path |
+| Layer | Where |
 |---|---|
-| L1 words | `05-manuscript/vocab/L1/ban-phrases.md` + `ban-terms.yaml` |
-| L1 patterns | `05-manuscript/vocab/L1/patterns.md` |
-| L1 SCI overrides | `05-manuscript/vocab/L1/sci-overrides.md` |
-| L2 preferred | `05-manuscript/vocab/L2/preferred.md` + `approved-en.tsv` |
-| L3 | `05-manuscript/vocab/L3/lab-ste.md` |
+| L1 hard bans (machine) | B `05-manuscript/vocab/L1/ban-terms.yaml` (+ `ban-phrases.md`) |
+| L1 patterns | B `L1/patterns.md` |
+| L1 SCI overrides (personal) | **A** `personal/vocab/L1/sci-overrides.md` |
+| L2 preferred | B `L2/preferred.md` + `approved-en.tsv` (contains lab Jinshan phrase banks — owner may later split) |
+| L3 | B `L3/lab-ste.md` (disk pointer) |
 
-Load order still documented in A `../route.md` (points at B paths).
+Load order still documented in A `../route.md`.

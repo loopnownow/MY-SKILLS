@@ -1,0 +1,38 @@
+# L1 SCI overrides (from former stop-slop-core)
+
+**Load after L1 ban words/patterns.** Blog/general stop-slop body archived.
+
+## Academic override (mandatory for SCI manuscripts)
+
+Stop-slop was written for general prose. For Ying Li imaging SCI:
+
+1. **Do not** insert colloquial "you" / room-narrator voice into Methods/Results/Discussion.
+2. **Methods** may stay predominantly **passive** (lab house style) — do not force active voice in Methods.
+3. **Never** change numbers, P, CI, HR/OR, units, citations, or ethics IDs.
+4. Prefer structural burstiness (sentence length mix) over informal register.
+5. Em-dash: prediction-model full papers forbid em-dash (use Aitor-format.md); other sections minimize AI-style em-dash stacks.
+6. Forbidden academic fluff is owned in manuscript-core hard rules + `vocab/L1/ban-phrases.md`.
+
+**Below this line is the original general-prose stop-slop ruleset, kept for reference.**
+**Where it conflicts with the override above, the override wins — do not apply Core Rule 3
+(active voice) to Methods, and do not apply Core Rule 7 (skip softening) to Discussion hedges.
+Items 1/5/8 below and most of `archive/blog/phrases.md` / `structures.md` / `examples.md` target informal/blog
+prose (e.g. "Plot twist:", "circle back") that does not occur in medical SCI writing — treat
+them as background reference, not active rules, unless polishing non-manuscript text.**
+
+
+## Structure-level tells (Introduction first) — mandatory for SCI manuscripts
+
+AI-writing detectors read structure before vocabulary. Repeated frames and enumerations are the strongest signal in an Introduction. Apply these bans to the **Introduction** now; extend to Discussion only when the user explicitly asks. The fix is structural, not lexical.
+
+Forbidden:
+
+1. **Study lists.** Consecutive sentences that each report one study ("In N patients, … A later study of N … In a multicenter study of N …"). Fold two or three results into one comparative sentence, then judge them.
+2. **Parallel frames.** Three or more sentences in a paragraph with the same opening words or the same syntax. Two items may be parallel; three may not.
+3. **Triplets as rhythm.** More than one "X, Y, and Z" series per paragraph. Prefer two items, or name the one that matters.
+4. **Number-and-cite chains.** A run of three sentences that each carry a number and a citation.
+5. **Balanced contrasts as filler.** "not only … but also", "on the one hand … on the other".
+6. **Connector chains.** Consecutive sentences opened by *However*, *Moreover*, *Therefore*, *In addition*. One connector per paragraph, only where the logic turns.
+7. **Uniform sentence length.** Three consecutive sentences within ±3 words of each other.
+
+Rewrite moves: put the number inside a comparison; change the grammatical subject (study, method, question, gap); end the paragraph on the judgement, not on a citation; cut the weakest of three.
