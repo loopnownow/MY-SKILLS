@@ -31,10 +31,10 @@
 
 机器真源与全量细 ID 表不在此重复。保留下列独有笔记：
 
-- **lit-cite 换源（CHG-20260913）：** `verify-refs` / `manage-refs` / `lit-sync` 自 B lit-cite 换为 Scientific（🟢）。
+- **lit-cite 换源（CHG-20260913）→ round 2：** `verify-refs` 仍 Scientific citation-management；`manage-refs`/`lit-sync` 已 ARCHIVED（2026-10-17 round 2；manage-refs 并入 verify-refs）。
 - **AIPOCH promote（2026-09-13）：** `retraction-watcher`、`response-tone-polisher` 曾升 🟢；`clinic-research-design` 已拒绝。
 - **AIPOCH absorb into B（2026-10-17）：** 上述两细 ID 改挂 `my-skills-capabilities` domain paths；`cross-pack/aipoch/` stubs 删除。
-- **Nature / Scientific REFERENCE→MOUNTED（2026-09-14）：** `scientific-visualization`、`audit-figure-risk`、`simulate-reviewers`、`tighten-response` 升 🟢（Nature 行 Apache-2.0；仍需 ask-each-run + bytes）。
+- **Nature / Scientific（2026-10-17 round 2）：** `simulate-reviewers`、`tighten-response` 仍 MOUNTED；`scientific-visualization`/`audit-figure-risk` 已 ARCHIVED→`plot-figures`（原则在 B fig-plot/external-principles.md）。
 - **样本量归属（CHG-20260926-004）：** 样本量归粗 ID「统计分析」（04 / Loopnow），不在正文写作桶。
 - **选刊权威：** `find-journal` 细 ID 可在 manuscript-body 桶展示，A 权威仍 `03_research/find-journal`。
 - **`humanize`：** 2026-10-17 吸收进 B `05-manuscript/humanize/`（✅ B默认）；个人 de-AI 仍在 A `05_manuscript/personal/`。

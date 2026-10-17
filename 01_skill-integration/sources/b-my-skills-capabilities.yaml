@@ -13,6 +13,7 @@ notes: >
   New mounts: intake-project, design-ai-benchmarking, architecture-zoo, fill-protocol.
   cross-pack/ holds Scientific/AIPOCH/Nature stubs (not default mounts). ARS/OpenClaw catalog purged.
   CHG-20260913-001.
+  Round-2 absorb 2026-10-17: peer-review-pdf-scan→peer-review; radiomics-ml→analyze-stats; architecture-zoo/design-ai-benchmarking/frontier-hypothesize/find-cohort-gap/intake-project→design-study; scout-meta-analysis→meta-analysis. B folders kept.
 skills:
   - id: lit-search
     path: 03-research/lit-search/
@@ -20,21 +21,37 @@ skills:
     a_hook: 03_research
     label: 文献检索与公开数据集
   - id: find-cohort-gap
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: 03-research/frontier-ideate/
     coarse: topic-explore
     a_hook: 03_research
     label: 队列选题空白发现
   - id: scout-meta-analysis
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: meta-analysis
     path: 03-research/lit-review/
     coarse: topic-explore
     a_hook: 03_research
     label: MA选题可行性
   - id: frontier-hypothesize
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: 03-research/frontier-hypothesize/
     coarse: topic-explore
     a_hook: 03_research
     label: 假设形成
   - id: intake-project
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: 03-research/intake-project/
     coarse: topic-explore
     a_hook: 03_research
@@ -45,11 +62,19 @@ skills:
     a_hook: 03_research
     label: 研究设计审查
   - id: design-ai-benchmarking
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: 03-research/design-ai-benchmarking/
     coarse: study-design
     a_hook: 03_research
     label: AI专家评估设计
   - id: architecture-zoo
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: 03-research/architecture-zoo/
     coarse: study-design
     a_hook: 03_research
@@ -121,6 +146,10 @@ skills:
     a_hook: 04_analysis
     label: Meta分析抗数据操纵
   - id: radiomics-ml
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: analyze-stats
     path: 02-data-processing/radiomics-habitat/
     coarse: stats-analysis
     a_hook: 04_analysis
@@ -152,6 +181,10 @@ skills:
     a_hook: 04_analysis
     label: 统计图与影像面板
   - id: peer-review-pdf-scan
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: peer-review
     path: 06-review/review-peer/
     coarse: manuscript-review
     a_hook: 06_review

@@ -33,6 +33,10 @@ skills:
     coverage: full
     note: profile / uncertainty
   - id: radiomics-ml
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: analyze-stats
     path: skills/radiomics-ml/
     a_hook: 02_data-processing
     coverage: partial
@@ -42,6 +46,10 @@ skills:
     a_hook: 03_research
     coverage: full
   - id: scout-meta-analysis
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: meta-analysis
     path: skills/ma-scout/
     a_hook: 03_research
     coverage: partial
@@ -64,10 +72,18 @@ skills:
     coverage: full
     note: does not replace A Voice A/B
   - id: find-cohort-gap
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/find-cohort-gap/; skills/architecture-zoo/
     a_hook: 03_research
     coverage: partial
   - id: frontier-hypothesize
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/find-cohort-gap/; skills/ma-scout/
     a_hook: 03_research
     coverage: partial

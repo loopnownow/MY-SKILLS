@@ -8,8 +8,8 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`audit-figure-risk` / `simulate-reviewers` / `tighten-response` 已 **MOUNTED**（2026-09-14）；`check-grant-proposal` 仍 PROPOSED；`audit-citations` / `write-data-statement` / `polish-latex` 已 ARCHIVED（2026-10-17 round 1） |
-| v4 细 ID（MOUNTED） | `audit-figure-risk` · `simulate-reviewers` · `tighten-response` |
+| 状态 | 混合：`simulate-reviewers` / `tighten-response` 已 **MOUNTED**；`check-grant-proposal` 仍 PROPOSED；`audit-figure-risk` 已 ARCHIVED→`plot-figures`（2026-10-17 round 2）；round-1 Nature archives 仍 ARCHIVED |
+| v4 细 ID（MOUNTED） | `simulate-reviewers` · `tighten-response` |
 | v4 细 ID（PROPOSED） | `check-grant-proposal` |
 | license_flag | `Apache-2.0 verified 2026-09-14`（已清除「需核实」） |
 

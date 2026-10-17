@@ -20,6 +20,7 @@ notes: >
   Mapping is not a mount. Default revise remains B.
   Round-1 archive 2026-10-17: fine ids audit-citations, write-data-statement, polish-latex
   ARCHIVED in registry — not active PROPOSED mount targets. check-grant-proposal stays PROPOSED.
+  Round-2 archive 2026-10-17: audit-figure-risk ARCHIVED→plot-figures in registry.
 skills:
   - id: lit-search
     path: skills/nature-academic-search/; skills/nature-literature-pipeline/

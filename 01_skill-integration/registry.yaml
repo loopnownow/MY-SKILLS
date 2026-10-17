@@ -16,7 +16,7 @@
 meta:
   version: "4.0"
   change_id: CHG-20261007-001
-  fine_id_count_canonical: 43  # session-pick mounts; reference_only empty; -9 PROPOSED archived 2026-10-17 round 1
+  fine_id_count_canonical: 31  # session-pick mounts; reference_only empty; -12 archive/absorb 2026-10-17 round 2 (was 43 after round 1)
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
@@ -124,7 +124,7 @@ coarse_ids:
 
 mounts:
   - id: verify-refs
-    label: 引用真实性核验
+    label: "引用真实性核验"
     coarse: lit-retrieval
     source: scientific-agent-skills
     path: skills/citation-management/
@@ -133,31 +133,9 @@ mounts:
     load_priority: P1
     atomic_package: Scientific
     path_shared: true
-    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against B thin lit-cite. Confirmed MIT (LICENSE.md present).
-  - id: manage-refs
-    label: 引用格式化写入
-    coarse: lit-retrieval
-    source: scientific-agent-skills
-    path: skills/citation-management/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: Scientific
-    path_shared: true
-    note: 2026-09-13 swapped from thin B lit-cite to Scientific citation-management (bibtex_formatting.md + format_bibtex.py); shares folder with verify-refs.
-  - id: lit-sync
-    label: 个人文献库同步
-    coarse: lit-retrieval
-    source: scientific-agent-skills
-    path: skills/pyzotero/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: Scientific
-    path_shared: true
-    note: 2026-09-13 swapped from thin B lit-cite to Scientific pyzotero (154-line SKILL.md, real Zotero API — auth/read/full-text/exports/saved-searches), the actual Zotero-sync content this label was always meant to cover.
+    note: 2026-09-13 swapped from thin B lit-cite (13 lines) to Scientific citation-management (346-line SKILL.md, citation_validation.md + validate_citations.py) after content-depth comparison against B thin lit-cite. Confirmed MIT (LICENSE.md present). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb.
   - id: retraction-watcher
-    label: 撤稿检测
+    label: "撤稿检测"
     coarse: lit-retrieval
     source: my-skills-capabilities
     path: 03-research/retraction-watcher/
@@ -166,7 +144,7 @@ mounts:
     load_priority: P1
     note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged.
   - id: lit-search
-    label: 文献检索与公开数据集
+    label: "文献检索与公开数据集"
     coarse: lit-retrieval
     source: my-skills-capabilities
     path: 03-research/lit-search/
@@ -174,49 +152,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22."
-  - id: find-cohort-gap
-    label: 队列选题空白发现
-    coarse: topic-explore
-    source: my-skills-capabilities
-    path: 03-research/frontier-ideate/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: MedSci
-  - id: scout-meta-analysis
-
-    label: MA选题可行性
-    coarse: topic-explore
-    source: my-skills-capabilities
-    path: 03-research/lit-review/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: MedSci
-    note: literature-review core; full review flow archived
-  - id: frontier-hypothesize
-    label: 假设形成
-    coarse: topic-explore
-    source: my-skills-capabilities
-    path: 03-research/frontier-hypothesize/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    atomic_package: MedSci
-    note: "Chosen over PROPOSED hypothesis-generation (2026-09-22). Question template lives in this B folder."
-  - id: intake-project
-    label: 项目启动分类
-    coarse: topic-explore
-    source: my-skills-capabilities
-    path: 03-research/intake-project/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: MedSci
-    note: new mount from B_updates
+    note: 2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22.
   - id: design-study
-    label: 研究设计审查
+    label: "研究设计审查"
     coarse: study-design
     source: my-skills-capabilities
     path: 03-research/design-experiment/
@@ -224,28 +162,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: design-ai-benchmarking
-    label: AI专家评估设计
-    coarse: study-design
-    source: my-skills-capabilities
-    path: 03-research/design-ai-benchmarking/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: MedSci
-    note: new mount
-  - id: architecture-zoo
-    label: 模型架构选型
-    coarse: study-design
-    source: my-skills-capabilities
-    path: 03-research/architecture-zoo/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: MedSci
-    note: new mount
+    note: Study design / feasibility / validation blueprints. Also covers former architecture-zoo, design-ai-benchmarking, frontier-hypothesize, find-cohort-gap, intake-project (B folders kept as reference under design-study) after 2026-10-17 round 2 absorb.
   - id: write-protocol
-    label: IRB方案撰写
+    label: "IRB方案撰写"
     coarse: study-design
     source: my-skills-capabilities
     path: 03-research/design-protocol/
@@ -254,7 +173,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: fill-protocol
-    label: IRB方案填表
+    label: "IRB方案填表"
     coarse: study-design
     source: my-skills-capabilities
     path: 03-research/fill-protocol/
@@ -264,7 +183,7 @@ mounts:
     atomic_package: MedSci
     note: "MedSci Word-template filler (pairs with write-protocol). A pack 03_research/fill-protocol/. Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
   - id: write-paper
-    label: IMRAD正文起草
+    label: "IMRAD正文起草"
     coarse: manuscript-body
     source: my-skills-capabilities
     path: 05-manuscript/write-manuscript/
@@ -273,7 +192,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: check-reporting
-    label: 报告规范核验
+    label: "报告规范核验"
     coarse: manuscript-body
     source: my-skills-capabilities
     path: 05-manuscript/write-reporting/
@@ -282,8 +201,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: check-grant-proposal
-
-    label: 基金标书-中文语境QA
+    label: "基金标书-中文语境QA"
     coarse: manuscript-body
     source: nature-skills
     path: skills/nature-proposal-writer/
@@ -294,7 +212,7 @@ mounts:
     license_flag: Apache-2.0 verified 2026-09-14
     stub_in_b: cross-pack/nature/check-grant-proposal/
   - id: grant-builder
-    label: 基金标书-方法论
+    label: "基金标书-方法论"
     coarse: manuscript-body
     source: my-skills-capabilities
     path: 03-research/design-grant/
@@ -303,7 +221,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: find-journal
-    label: 选刊推荐
+    label: "选刊推荐"
     coarse: manuscript-body
     source: my-skills-capabilities
     path: 05-manuscript/write-venue/
@@ -311,9 +229,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: 引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05
+    note: "引擎在 B write-venue; A pack 03_research/find-journal/; a_domain 03_research — do NOT move 选刊 to 05"
   - id: polish-language
-    label: 一致性硬规则lint
+    label: "一致性硬规则lint"
     coarse: language-polish
     source: my-skills-capabilities
     path: 05-manuscript/write-polish/
@@ -322,7 +240,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: humanize
-    label: 去AI味
+    label: "去AI味"
     coarse: language-polish
     source: my-skills-capabilities
     path: 05-manuscript/humanize/
@@ -331,7 +249,7 @@ mounts:
     load_priority: P1
     note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Personal de-AI stays A 05_manuscript/personal (not moved).
   - id: clean-data
-    label: 三阶段确认式清洗
+    label: "三阶段确认式清洗"
     coarse: data-processing
     source: my-skills-capabilities
     path: 02-data-processing/tables/
@@ -340,7 +258,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: batch-cohort
-    label: 批量队列分析生成
+    label: "批量队列分析生成"
     coarse: data-processing
     source: my-skills-capabilities
     path: 02-data-processing/tables/
@@ -350,7 +268,7 @@ mounts:
     atomic_package: MedSci
     path_shared: true
   - id: imaging-io
-    label: CT/MRI DICOM与NIfTI读写
+    label: "CT/MRI DICOM与NIfTI读写"
     coarse: data-processing
     source: my-skills-capabilities
     path: 02-data-processing/imaging-io/
@@ -358,9 +276,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1."
+    note: I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1.
   - id: preprocess-imaging
-    label: ROI与读者质控
+    label: "ROI与读者质控"
     coarse: data-processing
     source: my-skills-capabilities
     path: 02-data-processing/imaging-qc/
@@ -368,9 +286,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path."
+    note: Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path.
   - id: analyze-stats
-    label: 检验方法选择与加权调查数据
+    label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
     source: my-skills-capabilities
     path: 04-analysis/stats-guide/
@@ -378,8 +296,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
+    note: Test selection and weighted-survey guidance. Also routes radiomics pipeline audit (former radiomics-ml; B path 02-data-processing/radiomics-habitat/ still reachable) after 2026-10-17 round 2 absorb; pair with preprocess-imaging as needed.
   - id: meta-analysis
-    label: Meta分析抗数据操纵
+    label: "Meta分析抗数据操纵"
     coarse: stats-analysis
     source: my-skills-capabilities
     path: 04-analysis/stats-models/
@@ -387,17 +306,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-  - id: radiomics-ml
-    label: 放射组学建模pipeline审计
-    coarse: stats-analysis
-    source: my-skills-capabilities
-    path: 02-data-processing/radiomics-habitat/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    atomic_package: MedSci
+    note: Meta-analysis anti-manipulation. Also covers former scout-meta-analysis (MA topic feasibility; B 03-research/lit-review/ kept) after 2026-10-17 round 2 absorb.
   - id: model-evaluation
-    label: 模型-任务正确指标选择
+    label: "模型-任务正确指标选择"
     coarse: stats-analysis
     source: my-skills-capabilities
     path: 04-analysis/model-eval/
@@ -406,7 +317,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: model-validation
-    label: 模型-确定性泄漏门禁
+    label: "模型-确定性泄漏门禁"
     coarse: stats-analysis
     source: my-skills-capabilities
     path: 04-analysis/model-eval/
@@ -416,7 +327,7 @@ mounts:
     atomic_package: MedSci
     path_shared: true
   - id: calc-sample-size
-    label: 样本量计算
+    label: "样本量计算"
     coarse: stats-analysis
     source: my-skills-capabilities
     path: 04-analysis/stats-power/
@@ -424,10 +335,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power"
+    note: Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power
   - id: draw-flowchart
-
-    label: 患者流程图
+    label: "患者流程图"
     coarse: figures
     source: my-skills-capabilities
     path: 04-analysis/fig-flow/
@@ -437,8 +347,7 @@ mounts:
     atomic_package: MedSci
     note: STROBE / patient-flow only. Statistical plots are fine id plot-figures.
   - id: plot-figures
-
-    label: 统计图与影像面板
+    label: "统计图与影像面板"
     coarse: figures
     source: my-skills-capabilities
     path: 04-analysis/fig-plot/
@@ -446,19 +355,9 @@ mounts:
     status: MOUNTED
     load_priority: P1
     atomic_package: MedSci
-    note: "2026-09-22. Distinct from draw-flowchart (fig-flow)."
-  - id: peer-review-pdf-scan
-    label: PDF注入攻击扫描
-    coarse: manuscript-review
-    source: my-skills-capabilities
-    path: 06-review/review-peer/
-    a_domain: 06_review
-    status: MOUNTED
-    load_priority: P1
-    atomic_package: MedSci
-    note: peer-review Phase1.5
+    note: 2026-09-22. Distinct from draw-flowchart (fig-flow). Also covers former audit-figure-risk + scientific-visualization principles (see external-principles.md) after 2026-10-17 round 2 archive.
   - id: peer-review
-    label: 审稿意见生成
+    label: "审稿意见生成"
     coarse: manuscript-review
     source: my-skills-capabilities
     path: 06-review/review-peer/
@@ -467,8 +366,9 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
     path_shared: true
+    note: path_shared with former peer-review-pdf-scan (same 06-review/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb.
   - id: self-review
-    label: 数值级自审核算
+    label: "数值级自审核算"
     coarse: manuscript-review
     source: my-skills-capabilities
     path: 06-review/review-critique/
@@ -477,7 +377,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: scientific-critical-thinking
-    label: 证据质量评估
+    label: "证据质量评估"
     coarse: manuscript-review
     source: scientific-agent-skills
     path: skills/scientific-critical-thinking/
@@ -487,7 +387,7 @@ mounts:
     atomic_package: Scientific
     stub_in_b: cross-pack/scientific/scientific-critical-thinking/
   - id: revise
-    label: 修回分诊与数字血统追踪
+    label: "修回分诊与数字血统追踪"
     coarse: review-response
     source: my-skills-capabilities
     path: 06-review/review-response/
@@ -496,7 +396,7 @@ mounts:
     load_priority: P1
     atomic_package: MedSci
   - id: response-tone-polisher
-    label: 回复语气软化
+    label: "回复语气软化"
     coarse: review-response
     source: my-skills-capabilities
     path: 06-review/response-tone-polisher/
@@ -504,35 +404,8 @@ mounts:
     status: MOUNTED
     load_priority: P2
     note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`.
-
-
-  - id: scientific-visualization
-    label: 诚实可视化准则
-    coarse: figures
-    source: scientific-agent-skills
-    path: skills/scientific-visualization/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: Scientific
-    note: "2026-09-14 promoted from reference_only → MOUNTED; honest-encoding gate. Distilled principles also in B plot-figures/external-principles.md."
-    stub_in_b: 04-analysis/fig-plot/external-principles.md
-  - id: audit-figure-risk
-
-    label: 审稿人风险预判
-    coarse: figures
-    source: nature-skills
-    path: skills/nature-figure/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P2
-    atomic_package: Nature
-    license_flag: Apache-2.0 verified 2026-09-14
-    note: "2026-09-14 promoted from reference_only → MOUNTED (user ack; LICENSE Apache-2.0). Third-party Yuan1z0825 package, not Springer Nature official. Principles also distilled in B plot-figures/external-principles.md."
-    stub_in_b: 04-analysis/fig-plot/external-principles.md
   - id: simulate-reviewers
-
-    label: 多审稿人隔离原则
+    label: "多审稿人隔离原则"
     coarse: manuscript-review
     source: nature-skills
     path: skills/nature-reviewer/
@@ -544,8 +417,7 @@ mounts:
     note: "2026-09-14 promoted from reference_only → MOUNTED. Multi-reviewer blind isolation. Distilled in B review-peer/external-principles.md."
     stub_in_b: 06-review/review-peer/external-principles.md
   - id: tighten-response
-
-    label: 隔离与正文精简原则
+    label: "隔离与正文精简原则"
     coarse: review-response
     source: nature-skills
     path: skills/nature-response/
@@ -556,9 +428,6 @@ mounts:
     license_flag: Apache-2.0 verified 2026-09-14
     note: "2026-09-14 promoted from reference_only → MOUNTED. Reviewer-blind replies + anti-accretion. Distilled in B review-response/external-principles.md."
     stub_in_b: 06-review/review-response/external-principles.md
-
-reference_only: []  # former REFERENCE quartet promoted to mounts MOUNTED 2026-09-14
-
 archived:
   - id: deidentify
     status: ARCHIVED
@@ -576,8 +445,8 @@ archived:
     old_path: 02-data-processing/imaging-qc/
   - id: hypothesis-generation
     status: ARCHIVED
-    reason: 未拉取字节；假设形成用已挂载的 frontier-hypothesize
-    revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评
+    reason: 未拉取字节；假设形成经 frontier-hypothesize 已并入 design-study（2026-10-17 round 2）
+    revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评；当前入口为 design-study
     old_path: skills/hypothesis-generation/
   - id: database-lookup
     status: ARCHIVED
@@ -653,12 +522,89 @@ archived:
     revive_condition: standalone data-availability statement beyond check-reporting and owner re-approves
     old_path: skills/nature-data/
     source: nature-skills
-
-# External source freshness fields (filled the next time that source is actually used):
-#   source_ref, resolved_commit, source_version, scanned_at, cache_commit,
-#   cache_status (fresh|stale|missing|blocked), license_status, inventory_hash, last_diff
-# metadata_refresh: on-next-use — leave scanned / scan_sha / hashes as last written.
-# Refresh that metadata when the source is actually used. A registry-only pass does not refresh it.
+  - id: manage-refs
+    status: ARCHIVED
+    reason: path_shared with verify-refs; fold cite format/write into verify-refs; cut 2026-10-17 round 2
+    revive_condition: bibtex write path needs a separate session pick beyond verify-refs and owner re-approves
+    absorbed_into: verify-refs
+    old_path: skills/citation-management/
+    source: scientific-agent-skills
+  - id: lit-sync
+    status: ARCHIVED
+    reason: Scientific P2; rarely used; Zotero sync optional; cut 2026-10-17 round 2
+    revive_condition: session needs interactive Zotero API sync as a first-class fine id and owner re-approves
+    old_path: skills/pyzotero/
+    source: scientific-agent-skills
+  - id: find-cohort-gap
+    status: ARCHIVED
+    reason: cohort topic-gap discovery folded into design-study; B folder 03-research/frontier-ideate/ kept; absorb 2026-10-17 round 2
+    revive_condition: cohort-gap scout needs a separate session pick beyond design-study and owner re-approves
+    absorbed_into: design-study
+    old_path: 03-research/frontier-ideate/
+    source: my-skills-capabilities
+  - id: scout-meta-analysis
+    status: ARCHIVED
+    reason: MA topic feasibility before MA folded into meta-analysis; B folder 03-research/lit-review/ kept; absorb 2026-10-17 round 2
+    revive_condition: MA feasibility scout needs a separate session pick beyond meta-analysis and owner re-approves
+    absorbed_into: meta-analysis
+    old_path: 03-research/lit-review/
+    source: my-skills-capabilities
+  - id: frontier-hypothesize
+    status: ARCHIVED
+    reason: hypothesis formation folded into design-study; B folder 03-research/frontier-hypothesize/ kept; absorb 2026-10-17 round 2
+    revive_condition: hypothesis template needs a separate session pick beyond design-study and owner re-approves
+    absorbed_into: design-study
+    old_path: 03-research/frontier-hypothesize/
+    source: my-skills-capabilities
+  - id: intake-project
+    status: ARCHIVED
+    reason: project intake classification folded into design-study; B folder 03-research/intake-project/ kept; absorb 2026-10-17 round 2
+    revive_condition: project intake needs a separate session pick beyond design-study and owner re-approves
+    absorbed_into: design-study
+    old_path: 03-research/intake-project/
+    source: my-skills-capabilities
+  - id: design-ai-benchmarking
+    status: ARCHIVED
+    reason: AI expert-eval design folded into design-study; B folder 03-research/design-ai-benchmarking/ kept; absorb 2026-10-17 round 2
+    revive_condition: AI benchmarking design needs a separate session pick beyond design-study and owner re-approves
+    absorbed_into: design-study
+    old_path: 03-research/design-ai-benchmarking/
+    source: my-skills-capabilities
+  - id: architecture-zoo
+    status: ARCHIVED
+    reason: model architecture selection folded into design-study; B folder 03-research/architecture-zoo/ kept as reference; absorb 2026-10-17 round 2
+    revive_condition: architecture zoo needs a separate session pick beyond design-study and owner re-approves
+    absorbed_into: design-study
+    old_path: 03-research/architecture-zoo/
+    source: my-skills-capabilities
+  - id: radiomics-ml
+    status: ARCHIVED
+    reason: radiomics pipeline audit invoked via analyze-stats / preprocess-imaging; B folder 02-data-processing/radiomics-habitat/ kept; absorb 2026-10-17 round 2
+    revive_condition: radiomics habitat pipeline needs a first-class fine id again and owner re-approves
+    absorbed_into: analyze-stats
+    old_path: 02-data-processing/radiomics-habitat/
+    source: my-skills-capabilities
+  - id: peer-review-pdf-scan
+    status: ARCHIVED
+    reason: same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
+    revive_condition: PDF inject scan needs a separate session pick beyond peer-review and owner re-approves
+    absorbed_into: peer-review
+    old_path: 06-review/review-peer/
+    source: my-skills-capabilities
+  - id: scientific-visualization
+    status: ARCHIVED
+    reason: principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    revive_condition: full Scientific visualization skill body needed beyond fig-plot principles and owner re-approves
+    absorbed_into: plot-figures
+    old_path: skills/scientific-visualization/
+    source: scientific-agent-skills
+  - id: audit-figure-risk
+    status: ARCHIVED
+    reason: Nature P2; principles already in B 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    revive_condition: venue-specific Nature figure risk workflow beyond plot-figures + external-principles and owner re-approves
+    absorbed_into: plot-figures
+    old_path: skills/nature-figure/
+    source: nature-skills
 proposals:
   - id: med-sci-skills
     source: https://github.com/Aperivue/medsci-skills

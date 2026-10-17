@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`verify-refs`/`manage-refs`/`lit-sync` 已 MOUNTED（2026-09-13）；`scientific-critical-thinking` 仍 PROPOSED；`paper-lookup`/`statistical-power`/`venue-templates`/`exploratory-data-analysis`/`audit-dicom`/`analyze-survival` 已 ARCHIVED（2026-10-17 round 1） |
-| v4 细 ID（MOUNTED） | `verify-refs` → `skills/citation-management/` · `manage-refs` → `skills/citation-management/`（同目录） · `lit-sync` → `skills/pyzotero/` — 2026-09-13 内容深度对比后从 B `lit-cite`（13行桩）换过来，见 `_medical-research-meta/INTEGRATION_MAP.md` CHG-20260913-009 |
+| 状态 | 混合：`verify-refs` 已 MOUNTED（含原 manage-refs）；`scientific-critical-thinking` 仍 PROPOSED；`manage-refs`/`lit-sync`/`scientific-visualization` 已 ARCHIVED（2026-10-17 round 2）；round-1 archives 仍 ARCHIVED |
+| v4 细 ID（MOUNTED） | `verify-refs` → `skills/citation-management/`（含原 manage-refs；lit-sync 已 ARCHIVED 2026-10-17 round 2） |
 | v4 细 ID（PROPOSED） | `scientific-critical-thinking` |
-| v4 细 ID（MOUNTED，via B） | `scientific-visualization` → B `plot-figures/external-principles.md` |
+| v4 细 ID（ARCHIVED→plot-figures） | `scientific-visualization` 原则已并入 B `plot-figures/external-principles.md`（2026-10-17 round 2） |
 | 注意 | `skills/xlsx/` 曾标 Proprietary — 本 registry 未引用 |
 
 Stub 正文在 B `cross-pack/scientific/`。文献广度检索由已挂载 `lit-search` / `verify-refs` 承担（`paper-lookup` 已归档 2026-10-17）。勿把 Scientific 整仓 bulk 下载。

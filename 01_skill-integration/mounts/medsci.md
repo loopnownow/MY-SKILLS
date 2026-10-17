@@ -15,4 +15,4 @@
 
 （保留单节，避免重复）MedSci 独有扩展见 sources yaml；不自动改挂。
 
-v4 新增曾遗漏本体：`intake-project` · `design-ai-benchmarking` · `architecture-zoo` · `fill-protocol`（已写入 B）。
+v4 新增曾遗漏本体：ill-protocol（intake-project / design-ai-benchmarking / architecture-zoo 已并入 design-study，2026-10-17 round 2；已写入 B）。

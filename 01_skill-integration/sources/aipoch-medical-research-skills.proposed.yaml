@@ -36,6 +36,10 @@ skills:
     coverage: full
     note: high-value for Victor / Evidence Request; +16 more under scientific-skills
   - id: scout-meta-analysis
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: meta-analysis
     path: scientific-skills/Evidence Insight/clinical-study-info-extractor/; scientific-skills/Evidence Insight/patent-landscape/; scientific-skills/Evidence Insight/research-hotspot-analysis/; scientific-skills/Evidence Insight/systematic-review-screener/; scientific-skills/Data Analysis/meta-abstract-screener/; scientific-skills/Academic Writing/literature-review/
     a_hook: 03_research
     coverage: full
@@ -61,11 +65,19 @@ skills:
     coverage: full
     note: NIH-style helpers; Voice A/B still A personal; +3 more under scientific-skills
   - id: find-cohort-gap
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: scientific-skills/Evidence Insight/cross-disciplinary-bridge-finder/; scientific-skills/Evidence Insight/emerging-topic-scout/; scientific-skills/Other/brainstorming/
     a_hook: 03_research
     coverage: partial
     note: gap / novelty helpers
   - id: frontier-hypothesize
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: scientific-skills/Protocol Design/hypogenic/; scientific-skills/Protocol Design/hypothesis-generation/
     a_hook: 03_research
     coverage: partial

@@ -14,13 +14,13 @@ Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apac
 Local bytes: `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
 Say 默认挂载 B 包/本仓 — not 空挂.
 
-Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 43 fine ids** (41 MOUNTED session-pick + 2 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 31 fine ids** (29 MOUNTED session-pick + 2 PROPOSED candidates + 0 reference-only). Personal layers stay in A `00`–`06`.
 Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids (status MOUNTED only)
 
 
-## P1 default (session menu) (29)
+## P1 default (session menu) (26)
 
 
 ### lit-retrieval
@@ -30,13 +30,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `verify-refs` | 引用真实性核验 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P1 | path_shared |
 | `retraction-watcher` | 撤稿检测 | my-skills-capabilities | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
 | `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED | P1 | — |
-
-
-### topic-explore
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `frontier-hypothesize` | 假设形成 | my-skills-capabilities | `03-research/frontier-hypothesize/` | MOUNTED | P1 | — |
 
 
 ### study-design
@@ -81,7 +74,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 |---|---|---|---|---|---|---|
 | `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED | P1 | — |
 | `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED | P1 | — |
-| `radiomics-ml` | 放射组学建模pipeline审计 | my-skills-capabilities | `02-data-processing/radiomics-habitat/` | MOUNTED | P1 | — |
 | `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 | — |
 | `model-validation` | 模型-确定性泄漏门禁 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 | path_shared |
 | `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED | P1 | — |
@@ -99,7 +91,6 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `peer-review-pdf-scan` | PDF注入攻击扫描 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 | — |
 | `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 | path_shared |
 | `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED | P1 | — |
 | `simulate-reviewers` | 多审稿人隔离原则 | nature-skills | `skills/nature-reviewer/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P1 | — |
@@ -112,41 +103,14 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 | `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED | P1 | — |
 
 
-## P2 specialty (still pickable) (12)
-
-
-### lit-retrieval
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `manage-refs` | 引用格式化写入 | scientific-agent-skills | `skills/citation-management/` | MOUNTED | P2 | path_shared |
-| `lit-sync` | 个人文献库同步 | scientific-agent-skills | `skills/pyzotero/` | MOUNTED | P2 | path_shared |
-
-
-### topic-explore
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `find-cohort-gap` | 队列选题空白发现 | my-skills-capabilities | `03-research/frontier-ideate/` | MOUNTED | P2 | — |
-| `scout-meta-analysis` | MA选题可行性 | my-skills-capabilities | `03-research/lit-review/` | MOUNTED | P2 | — |
-| `intake-project` | 项目启动分类 | my-skills-capabilities | `03-research/intake-project/` | MOUNTED | P2 | — |
+## P2 specialty (still pickable) (3)
 
 
 ### study-design
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `design-ai-benchmarking` | AI专家评估设计 | my-skills-capabilities | `03-research/design-ai-benchmarking/` | MOUNTED | P2 | — |
-| `architecture-zoo` | 模型架构选型 | my-skills-capabilities | `03-research/architecture-zoo/` | MOUNTED | P2 | — |
 | `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED | P2 | — |
-
-
-### figures
-
-| Fine id | Label | Source | Path | Status | Priority | Shared |
-|---|---|---|---|---|---|---|
-| `scientific-visualization` | 诚实可视化准则 | scientific-agent-skills | `skills/scientific-visualization/` | MOUNTED | P2 | — |
-| `audit-figure-risk` | 审稿人风险预判 | nature-skills | `skills/nature-figure/` | MOUNTED · Apache-2.0 verified 2026-09-14 | P2 | — |
 
 
 ### review-response
@@ -187,7 +151,7 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 - `deidentify` — 导出已人工脱敏
 - `profile-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
 - `uncertainty-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
-- `hypothesis-generation` — 未拉取字节；假设形成用已挂载的 frontier-hypothesize
+- `hypothesis-generation` — 未拉取字节；假设形成经 frontier-hypothesize 已并入 design-study（2026-10-17 round 2）
 - `database-lookup` — 2026-09-20 候选，路径未核实，本地无字节
 - `model-scaffold` — 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
 - `model-card` — 2026-09-20 候选，路径未核实；不代替 A 正文层
@@ -201,6 +165,18 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 - `statistical-power` — PROPOSED never session-picked; overlaps calc-sample-size; cut 2026-10-17 round 1
 - `venue-templates` — PROPOSED never session-picked; overlaps find-journal; cut 2026-10-17 round 1
 - `write-data-statement` — PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
+- `manage-refs` — path_shared with verify-refs; fold cite format/write into verify-refs; cut 2026-10-17 round 2
+- `lit-sync` — Scientific P2; rarely used; Zotero sync optional; cut 2026-10-17 round 2
+- `find-cohort-gap` — cohort topic-gap discovery folded into design-study; B folder 03-research/frontier-ideate/ kept; absorb 2026-10-17 round 2
+- `scout-meta-analysis` — MA topic feasibility before MA folded into meta-analysis; B folder 03-research/lit-review/ kept; absorb 2026-10-17 round 2
+- `frontier-hypothesize` — hypothesis formation folded into design-study; B folder 03-research/frontier-hypothesize/ kept; absorb 2026-10-17 round 2
+- `intake-project` — project intake classification folded into design-study; B folder 03-research/intake-project/ kept; absorb 2026-10-17 round 2
+- `design-ai-benchmarking` — AI expert-eval design folded into design-study; B folder 03-research/design-ai-benchmarking/ kept; absorb 2026-10-17 round 2
+- `architecture-zoo` — model architecture selection folded into design-study; B folder 03-research/architecture-zoo/ kept as reference; absorb 2026-10-17 round 2
+- `radiomics-ml` — radiomics pipeline audit invoked via analyze-stats / preprocess-imaging; B folder 02-data-processing/radiomics-habitat/ kept; absorb 2026-10-17 round 2
+- `peer-review-pdf-scan` — same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
+- `scientific-visualization` — principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `audit-figure-risk` — Nature P2; principles already in B 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
 
 ## Package notes
 

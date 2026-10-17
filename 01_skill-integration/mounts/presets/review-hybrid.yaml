@@ -46,8 +46,7 @@ overrides:
     prefix_example: "[Scientific:scientific-critical-thinking]"
 
 force_b:
-  - peer-review
-  - peer-review-pdf-scan
+  - peer-review  # peer-review-pdf-scan absorbed 2026-10-17 round 2
   - revise
   - self-review
 

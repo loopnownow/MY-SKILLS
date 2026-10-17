@@ -16,6 +16,7 @@ notes: >
   Round-1 archive 2026-10-17: fine ids paper-lookup, analyze-survival, audit-dicom,
   exploratory-data-analysis, statistical-power, venue-templates ARCHIVED in registry —
   not active PROPOSED mount targets. Path strings under other fine ids kept for fetch/history.
+  Round-2 archive 2026-10-17: manage-refs, lit-sync, scientific-visualization ARCHIVED in registry (manage-refs→verify-refs; viz→plot-figures).
 skills:
   - id: clean-data
     path: skills/xlsx/; skills/polars/; skills/exploratory-data-analysis/
@@ -32,6 +33,10 @@ skills:
     a_hook: 03_research
     coverage: full
   - id: scout-meta-analysis
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: meta-analysis
     path: skills/literature-review/
     a_hook: 03_research
     coverage: full
@@ -50,10 +55,18 @@ skills:
     coverage: full
     note: does not replace A Voice A/B
   - id: find-cohort-gap
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/scientific-brainstorming/
     a_hook: 03_research
     coverage: full
   - id: frontier-hypothesize
+    status: ARCHIVED
+    archived_on: "2026-10-17"
+    archived_round: 2
+    absorbed_into: design-study
     path: skills/hypothesis-generation/; skills/hypogenic/
     a_hook: 03_research
     coverage: full

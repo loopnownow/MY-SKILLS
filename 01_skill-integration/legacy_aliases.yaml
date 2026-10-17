@@ -11,7 +11,7 @@
 aliases:
   02-tables: clean-data
   02-imaging-qc: preprocess-imaging
-  02-radiomics-habitat: radiomics-ml
+  02-radiomics-habitat: analyze-stats
   04-fig-flow: draw-flowchart
   04-fig-plot: plot-figures
   02-imaging-io: imaging-io
@@ -22,18 +22,31 @@ aliases:
   nature-polishing: polish-latex
   nature-reviewer: simulate-reviewers
   nature-response: tighten-response
-  nature-figure: audit-figure-risk
+  nature-figure: plot-figures
   nature-data: write-data-statement
   scikit-survival: analyze-survival
   make-figures: draw-flowchart
   fig-plot: plot-figures
-  ma-scout: scout-meta-analysis
+  ma-scout: meta-analysis
   pydicom: audit-dicom
 
   05-humanize: humanize
   skills/humanize: humanize
   cross-pack/aipoch/retraction-watcher: retraction-watcher
   cross-pack/aipoch/response-tone-polisher: response-tone-polisher
+
+  # Round-2 2026-10-17 archive/absorb fine-id aliases
+  audit-figure-risk: plot-figures
+  scientific-visualization: plot-figures
+  manage-refs: verify-refs
+  peer-review-pdf-scan: peer-review
+  radiomics-ml: analyze-stats
+  architecture-zoo: design-study
+  design-ai-benchmarking: design-study
+  frontier-hypothesize: design-study
+  find-cohort-gap: design-study
+  intake-project: design-study
+  scout-meta-analysis: meta-analysis
 
 # Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
 # R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
