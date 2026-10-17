@@ -4,25 +4,24 @@
 
 These are **mount-time** bans, not skill deletions:
 
-1. Do **not** default-load three literature search engines together (Scientific literature-review + MedSci literature-search + AIPOCH literature-search).
-2. Do **not** let Scientific scientific-writing + MedSci write-paper + A/B05 personal all **directly edit** the same manuscript sentences in one pass — one primary authoring engine; others are verifier / QC / venue only. **Sentence authority stays A/B05 personal** (Intro v3 / de-AI).
-3. Reviewer engines (Scientific / MedSci / Nature peer-review) output **findings only**; they must not edit the manuscript bypassing A06.
-4. Nature (or any venue) polishing must not overwrite B05 / A personal author voice.
-5. Never keep AIPOCH as a whole-pack resident context — fine ids only.
-6. Do not remount packs purged from catalog (`ars_openclaw_policy: removed-from-catalog`).
-
-Intro / Discussion default discovery: Scientific `paper-lookup` (or Research Lookup) + MedSci/Scientific **verify-refs**. Open MedSci literature-search only when a structured clinical search is needed.
+1. Do **not** offer a multi-package runtime menu. Default unique source = `my-skills-base`.
+2. Do **not** let multiple authoring engines **directly edit** the same manuscript sentences in one pass — one primary authoring authority (A/B05 personal); others are verifier / QC / venue only.
+3. Reviewer engines output **findings only**; they must not edit the manuscript bypassing A06.
+4. Venue polishing must not overwrite B05 / A personal author voice.
+5. Do not remount packs purged from catalog (`ars_openclaw_policy: removed-from-catalog`).
+6. Non-base exceptions = **default deny** (see `mounts/hybrid-mount-pointers.md`).
 
 ## Hard rules
 
-- Never perform literature research, statistics, manuscript writing, or peer review.
-- Never auto-install or auto-mount a **non-B** Skill.
-- Never bulk-download MedSci / Scientific / AIPOCH / Nature. On-demand paths only, after a pick.
+- Never perform literature research, statistics, manuscript writing, or peer review (01 is index only).
+- Never auto-install or auto-mount a **non-base** Skill.
+- Never bulk-download non-base packs.
 - Never remount ARS/OpenClaw (removed from catalog).
 - Never rewrite MY-SKILLS because an external pack exists.
-- Never replace a personal layer because an external Skill is more general.
+- Never replace a personal / A top layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
-- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (B `05-manuscript/humanize/`). The personal forbidden list still wins.
+- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (B). The personal forbidden list still wins.
+- A top layers are not capability mounts (00 owns B→QC→A).
 
 ## Fine-id expansion ceiling
 
@@ -34,6 +33,6 @@ Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** 
 
 | Level | Meaning |
 |---|---|
-| P0 | Rare always-on mounts (chassis is 00–06; usually unused on fine ids) |
-| P1 | Common mounts (verify-refs, write-paper, check-reporting, analyze-stats, draw-flowchart/plot-figures, peer-review, lit-search, imaging-io, preprocess-imaging, revise, self-review, …) |
-| P2 | Niche / PROPOSED / specialty |
+| P0 | Rare always-on mounts (chassis is 00–07; usually unused on fine ids) |
+| P1 | Common mounts (default session menu) |
+| P2 | Niche / specialty / second-pass |

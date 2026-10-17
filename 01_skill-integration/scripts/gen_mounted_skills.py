@@ -7,7 +7,7 @@ candidates and are not pickable. Do not hand-edit the tables below.
 Dependency: PyYAML (`pip install pyyaml`).
 
 Usage:
-    python3 01_skill-integration/scripts/gen_mounted_skills.py [--check]
+    python3 01_skill-integration/scripts/gen_mounted_skills.py [--check]  # folder name kept; skill = skill-index
 """
 from __future__ import annotations
 
@@ -24,21 +24,20 @@ OUTPUT = SKILL_DIR / "MOUNTED_SKILLS.md"
 
 HEADER = """# Mounted Skills Boundary (v{version})
 
-Canonical pointers live in 01 (`registry.yaml`, the routing index). This file is the human table,
+Canonical pointers live in 01 skill-index (`registry.yaml`, the routing index). This file is the human table,
 **generated** by `scripts/gen_mounted_skills.py` — do not hand-edit the tables below.
-Default chassis: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
-Non-B fine ids are mixed PROPOSED/MOUNTED per the registry rows below — not "all PROPOSED backups".
-OpenClaw is not a default mount source.
+Default UNIQUE runtime source: [loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base) (`my-skills-base`).
+Non-base sources = default deny. OpenClaw/ARS not in catalog.
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
-Never auto-mount a non-B source. `PROPOSED` is not pickable. Nature LICENSE Apache-2.0 verified (ask when a new mount decision is required + bytes).
+Never auto-mount a non-base source. `PROPOSED` is not pickable.
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
-**Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask.
+**Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer / A top-layer task with no mounted dependency does not ask.
 **Pick menu:** status `MOUNTED` only, grouped by the 10 coarse buckets then by `load_priority`. `path_shared` siblings are consecutive rows. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
-Local bytes: `{{mounts_cap}}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is a verified local cache, not a source of truth. Download ≠ mount ≠ active.
-Say 默认挂载 B 包/本仓 — not 空挂.
+Local base bytes: `{{mounts_cap}}/b/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap/b`) — base byte cache alias OK. Download ≠ mount ≠ active.
+Say 默认挂载 B = 本仓 — not 空挂.
 
-Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **{coarse} coarse buckets, {fine} fine ids** ({mounted_count} MOUNTED session-pick + {proposed_count} PROPOSED candidates + {ref_count} reference-only). Personal layers stay in A `00`–`06`.
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **{coarse} coarse buckets, {fine} fine ids** ({mounted_count} MOUNTED session-pick + {proposed_count} PROPOSED candidates + {ref_count} reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
 Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
 
 ## Session-pick fine ids (status MOUNTED only)
@@ -55,11 +54,11 @@ FOOTER_TEMPLATE = """
 
 {archived_rows}
 
-## Package notes
+## Source notes
 
-- Non-B fine ids follow the registry status on each row (mixed PROPOSED/MOUNTED). Do not describe a whole package as uniformly PROPOSED.
-- OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog`).
-- Nature LICENSE Apache-2.0 verified where the registry row says so.
+- Default unique runtime source = `my-skills-base`. Non-base = default deny.
+- OpenClaw/ARS: `ars_openclaw_policy: removed-from-catalog`.
+- A top layers are not capability mounts (00 owns B→QC→A).
 
 Mapping is not a source-wide mount. `fine_id` is the capability interface; `path` is the physical unit; `path_shared` means one path backs several fine ids — do not split that folder.
 """

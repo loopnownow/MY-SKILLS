@@ -7,7 +7,8 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Literature / Evidence Pack / 选刊 | `03_research` |
 | Numbers / figures | `04_analysis` |
 | Tables / imaging prep | `02_data-processing` |
-| Pre-review / response letter entry | `06_review` |
+| Pre-review / re-review | `06_review` |
+| Response letter | `07_response` |
 | Cross-skill exit QC / scoring Gates | `00_orchestrator` |
 | Manuscript local QC checklists (scorecard + pre-submit) | `00_orchestrator/references/manuscript-local-qc.md` |
 | Controllable-language tools | Lab-STE disk via `vocab/L3/lab-ste.md` |

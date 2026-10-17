@@ -1,42 +1,33 @@
 # 03_research personal handoff
 
+## A/B layering (2026-10-17)
+
+- B runs lit/design capability **first-pass**.
+- After **00 QC**, A03 may trigger `verify-refs` + `retraction-watcher` (bodies in B).
+- A keeps personal route/handoff/authority; do not bulk-move personal files this round.
+- Pointerize only where an A file duplicates a long B procedure.
+
 ## Layout (2026-10-16)
 
 - Top of `03_research/`: `SKILL.md`, `personal/`, `fill-protocol/`, `find-journal/`, `workflows/`.
-- Former `literature/`, `design/`, `frontier/` single files → `personal/`.
-- `clinical-translation/` → `personal/clinical-translation/` (whole pack).
+- Former `literature/`, `design/`, `frontier/` single files -> `personal/`.
 - `fill-protocol/` stays at `03_research/fill-protocol/` (Bai / ownership path stability).
-- `journal-patterns-2023-2026.md` merged into `personal/journal-selection.md`; old file archived under `D:\0del\03_research_reorg_20261016\`.
 
 ## Dual sync
 
 Keep identical:
 
-1. `{SKILLS}\03_research`
+1. `{SKILLS}/03_research`
 2. `D:\0Grok\0doc\GitHub\MY-SKILLS\03_research`
 
 ## find-journal data split
-
-| In MY-SKILLS `find-journal/data/2026/` | In 0doc `04-lab-reference\find-journal\data\2026\` |
-|---|---|
-| blacklist.csv / blacklist-names.csv | full-pool.csv |
-| graylist.csv / graylist-names.csv | category-index.csv |
-| whitelist-bmc-medicine.csv | layer1-*, layer2-*, layer2b-*, layer3-*, layer4-* |
-| submission-urls.csv (URL write-back) | priority-compact.json |
-| README.md, SUBMISSION_PRIVACY.md | publisher-fees.csv |
 
 Runtime selection pools live in **0doc**. Skill pack keeps list gates only.
 
 ## Project submission history
 
-选刊结果 / 已投杂志名单 live under **subproject folders**, e.g.:
-
-```text
-<project>/ref/journals-submitted.md
-```
-
-Do not store project submission history in MY-SKILLS. Lab-wide 投过 whitelist stays at `{find_journal_submission}\whitelist-submitted.csv`.
+Journal results / submitted lists live under **subproject folders** (`<project>/ref/`). Do not store in MY-SKILLS.
 
 ## Mounts
 
-Do not edit `registry.yaml` / mounts-cap / fine-id paths from this reorg. Mounted ids (`lit-search`, `design-study`, …) unchanged.
+Do not rename fine IDs. `verify-refs` / `retraction-watcher` remain source=B; A03 documents post-QC trigger only.

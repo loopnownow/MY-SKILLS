@@ -1,15 +1,13 @@
-# Scientific · 备份（v4 跨包）
+# Scientific · STUB (archived / default deny)
 
-[总览](README.md) · [Scientific · 备份](scientific.md)
+[总览](README.md) · [非 base 例外](hybrid-mount-pointers.md)
 
-来源 [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) · pin `1e5eeff`
+**Status:** dead package board. Runtime source is **only** `my-skills-base`.
+Non-base = **default deny**.
 
-| | |
-|---|---|
-| 状态 | 混合：`verify-refs` 已吸收进 **B**（仍 MOUNTED，source=`my-skills-capabilities`；含前 manage-refs）；`scientific-critical-thinking` 已 ARCHIVED→`self-review`（2026-10-17 round 3）；`manage-refs`/`lit-sync`/`scientific-visualization` 已 ARCHIVED（round 2）；round-1 archives 仍 ARCHIVED |
-| v4 细 ID（MOUNTED，现挂 B） | `verify-refs` → `03-research/verify-refs/`（含前 manage-refs） |
-| v4 细 ID（PROPOSED） | （无 — round 3 已清） |
-| v4 细 ID（ARCHIVED→plot-figures） | `scientific-visualization` 原则已并入 B `plot-figures/external-principles.md`（round 2） |
-| 注意 | `skills/xlsx/` 曾标 Proprietary → 本 registry 未引用 |
+Former source notes and proposed yaml archived at:
 
-Stub 正文见 B `cross-pack/scientific/`（历史指针；verify-refs 本体已迁出）。文献广度检索由已挂载 `lit-search` / `verify-refs` 承担（`paper-lookup` 已归档 2026-10-17）。勿做 Scientific 整仓 bulk 下载。
+`D:\0del\01_sources_archive_20261017\`
+
+Do not bulk-download, remount, or treat this pack as a session menu.
+Capabilities that once lived here were absorbed into B fine ids (see `registry.yaml` `archived:` and live `mounts:`).

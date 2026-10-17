@@ -1,18 +1,13 @@
-# MedSci · 备份 / 原子技能源（v4）
+# MedSci · STUB (archived / default deny)
 
-[总览](README.md) · [MedSci · 备份](medsci.md)
+[总览](README.md) · [非 base 例外](hybrid-mount-pointers.md)
 
-来源 [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills) · 扫 `912f7e8`
+**Status:** dead package board. Runtime source is **only** `my-skills-base`.
+Non-base = **default deny**.
 
-| | |
-|---|---|
-| 状态 | PROPOSED（多数能力已吸收进 B 细 ID；`humanize` 已于 2026-10-17 吸收进 B） |
-| 典型原子 | `preprocess-imaging` · `analyze-stats` · `find-journal` · `draw-flowchart` · `peer-review` · … |
-| 接口 | 无活动 MedSci-only 接口；`humanize` → B；`skills/explainability/` **已 ARCHIVED**（不进菜单） |
-| 扩展 | `skills/academic-aio/` kind: expansion |
+Former source notes and proposed yaml archived at:
 
-## A 没有对应接口
+`D:\0del\01_sources_archive_20261017\`
 
-（保留单节，避免重复）MedSci 独有扩展见 sources yaml；不自动改挂。
-
-v4 新增曾遗漏本体：ill-protocol（intake-project / design-ai-benchmarking / architecture-zoo 已并入 design-study，2026-10-17 round 2；已写入 B）。
+Do not bulk-download, remount, or treat this pack as a session menu.
+Capabilities that once lived here were absorbed into B fine ids (see `registry.yaml` `archived:` and live `mounts:`).

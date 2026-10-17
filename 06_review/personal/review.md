@@ -1,5 +1,8 @@
 # English peer review (style + habits)
 
+> **Post-QC re-review (2026-10-17):** A06 runs after B isolation + 00 QC. See `review-isolation.md`. Response letters -> `07_response`.
+
+
 ## Part A — English peer-review envelope
 
 # 个人审稿意见风格（英文 peer review）

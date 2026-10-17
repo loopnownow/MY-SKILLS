@@ -13,7 +13,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。Gate 条文真源 [`gates.md`](gates.md)。图节点 `Gate · NN` ↔ `G-NN`。
 
-**Seats:** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount MedSci `orchestrate` as a third SOP.
+**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount MedSci `orchestrate` as a third SOP.
 
 **Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
@@ -34,7 +34,7 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | `settings.ini` | 0RAD project; 02 or 04, not a new scaffold |
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
 | `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
-| reviewer letter / 审稿意见 | `06_review` as entry |
+| reviewer letter / 审稿意见 | `06_review` (review) or `07_response` (response letter) |
 | imaging / ROI / features, no HTML | `radiomics-study` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
@@ -52,13 +52,13 @@ SSOT: [`references/fast-routing.md`](references/fast-routing.md) (must match `ro
 
 ### Routing
 
-Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **reviewer response only here** (`06_review`). No archive-as-standalone routes.
+Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review` · `07_response`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **Reviewer response enters 07 only** (`07_response`). No archive-as-standalone routes.
 
 ### Session mount pick
 
 Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
 
-**Auto-discovery:** only `00_orchestrator`–`06_review` (including nested A packs). `{mounts_cap}/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
+**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested A packs). `{mounts_cap}/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.cursorignore` excludes `mounts-cap/`.
 
 **Mount → 评阅/润色 recipe:** when the user says 挂载 + 评阅/润色 on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
 
@@ -73,7 +73,8 @@ SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection 
 | 02 | analysis-ready table / aligned IDs | 04 |
 | 04 | one `*-results.html` per endpoint | 05 (numbers **only** from HTML) |
 | 05 | `Manuscript_<结局>_house.docx` | 06 |
-| 06 | pre-review or response; inventable items = questions | user, then 05 for sentences |
+| 06 | pre-review / re-review; inventable items = questions | user, then 05 for sentences |
+| 07 | response letter / resolution status | user, then 05 for sentences |
 | 00 | `ref/project-state.yaml` + last `handoff.yaml` | every later node |
 
 Copy `templates/handoff.yaml` at each skill crossing. Fill only known fields. Never invent n, AUC, PMID, or ethics IDs.
@@ -115,7 +116,7 @@ Triggers 「这个研究还能做什么」等 → [`workflows/research-explorati
 
 ## Boundaries
 
-**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`06` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); Archify visualization → `04_analysis/personal/visualization/`.
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); Archify visualization → `04_analysis/personal/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0script` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 

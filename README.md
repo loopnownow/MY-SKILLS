@@ -2,7 +2,7 @@
 
 Personal framework + lab layer for medical / imaging research.
 Agents load skills from the runtime tree `{skills_runtime}` (synced from this git repo after merge). Compatible with Cursor / Grok Build / Cline when that tree is on the skill path.
-Generic mountable capabilities live in a separate package: `loopnownow/MY-SKILLS-capabilities` (B).
+Generic mountable capabilities live in a separate package: `loopnownow/MY-SKILLS-base` (B).
 
 License: MIT (`LICENSE`). Third-party notices: `NOTICE`.
 Path aliases: `00_orchestrator/references/lab-paths.yaml`.

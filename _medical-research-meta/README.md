@@ -1,6 +1,6 @@
 # MedicalResearch Skills — framework A (2026-09-03)
 
-Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-capabilities` (**B**, default chassis) or an approved external Skill. Menu shape is `01_skill-integration/registry.yaml` and the generated `MOUNTED_SKILLS.md` (do not restate totals here). `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
+Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-base` (**B**, default chassis) or an approved external Skill. Menu shape is `01_skill-integration/registry.yaml` and the generated `MOUNTED_SKILLS.md` (do not restate totals here). `session_mount: ask-each-run`, `session_pick_unit: fine_id` — not `mounts: []`. Non-B fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
 
 ## Skills
 

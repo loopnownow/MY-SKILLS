@@ -95,7 +95,7 @@ class VisualizationContract(unittest.TestCase):
     def test_openclaw_is_not_a_default_mount(self) -> None:
         reg = yaml.safe_load((ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8"))
         default = reg["default_source"]
-        self.assertEqual(default["id"], "my-skills-capabilities")
+        self.assertEqual(default["id"], "my-skills-base")
         self.assertNotIn("openclaw", default["id"].lower())
         self.assertNotIn("openclaw", str(default["source"]).lower())
         for mount in reg["mounts"]:
@@ -107,7 +107,7 @@ class VisualizationContract(unittest.TestCase):
         self.assertIn("OpenClaw", contract["forbidden_default_atomic_mount_sources"])
         page = (VIZ_OUT / "mounts/index.html").read_text(encoding="utf-8")
         self.assertIn("Default atomic mount source", page)
-        self.assertIn("my-skills-capabilities", page)
+        self.assertIn("my-skills-base", page)
         self.assertIn("OpenClaw is not a default atomic mount source", page)
         self.assertNotIn("openclaw-medical-skills", page)
         arch = (VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8").lower()

@@ -232,24 +232,25 @@ Corpus habit for **审稿回复** (not for inventing data):
 
 # Review Resolution protocol (thin)
 
-**Bot map:** review/response upper layer → **Lee** (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript Track Changes → **Aitee** (`05`). Ownership: see `00_orchestrator/references/ownership-contract.md`.
+**Bot map:** response upper layer (07) → **Lee** (`07_response`); re-review Lee (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript Track Changes → **Aitee** (`05`). Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-**Owner:** `06_review` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
+**Owner:** `07_response` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
 
 **Loop (lab):**
 
 ```text
 Mounted review source (this-run pick: B / MedSci / Scientific / AIPOCH / Nature)
   → findings (optional status draft)
-  → A 06 personal: integrate / eight-section or response letter / resolution status
+  → A 06 personal: post-QC re-review integrate / eight-section
+  → A 07 personal: response letter / resolution status (final authority)
   → conflicts stay in comments; user decides
   → wording → 05; stats/figures → 04; evidence gap → Evidence Request → 03
   → 00 G-06 / G-LIT
 ```
 
-Mount packs **propose** findings. They do **not** free-collaborate with each other, do not own Ying Li review voice, and do not silently close an issue. A 06 **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
+Mount packs **propose** findings. They do **not** free-collaborate with each other, do not own Ying Li review voice, and do not silently close an issue. A **07** **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
 
-Related: English peer-review envelope `review.md`; response letter voice `response.md`; claim gaps while writing `05_manuscript/personal/process/evidence.md`.
+Related: English peer-review envelope `06_review/personal/review.md`; response letter voice this file; claim gaps while writing `05_manuscript/personal/process/evidence.md`.
 
 Disk corpus (external reviewer comments and revise replies; pointer only): `{doc_review_replies}\` (`{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`).
 

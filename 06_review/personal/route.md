@@ -1,9 +1,25 @@
-# 06 route
+# 06 route -- post-QC re-review only
 
-1. English peer review → `review.md`
-2. Response letter → `response.md`
-3. Word annotate / TC boundary → `word-edit.md`
-4. Chinese journal score sheet → `chinese-journal-score-sheet.md`
-5. Thesis review → `thesis-review.md`
-6. Cooperation → `handoff.md`
-7. QC bodies → 00: `references/manuscript-local-qc.md`, `references/cross-manuscript-qc.md`
+**Canonical entry:** `../SKILL.md`.
+
+## Flow (A/B layering 2026-10-17)
+
+1. B first-pass: `simulate-reviewers` **isolation** -> `self-review` || `peer-review` (finding sets kept separate)
+2. **00 QC** -- gates.md check **(a)** isolated dual-review artifacts
+3. **A06 re-review only** -- merge / grade / English envelope via `review.md`
+4. Response letter -> **`07_response`** (not this route)
+
+## Load order
+
+1. `review-isolation.md` -- when dual engines / simulate-reviewers used
+2. English peer review -- `review.md`
+3. Word annotate / TC boundary -- `word-edit.md`
+4. Chinese journal score sheet -- `chinese-journal-score-sheet.md`
+5. Thesis review -- `thesis-review.md`
+6. Cooperation -- `handoff.md`
+7. QC bodies -- 00 references
+
+## Do not
+
+- Draft response letters here (use `07_response`)
+- Run first-pass B engines inside A06 after QC (re-review only)
