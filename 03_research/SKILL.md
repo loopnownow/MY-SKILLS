@@ -1,4 +1,4 @@
----
+﻿---
 name: medical-research-design-and-evidence
 description: >
   Personal research top layer: study design, literature, evidence, frontier,
@@ -37,7 +37,7 @@ See `personal/route.md` for the full pointer table.
 |---|---|
 | Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (mounted B) |
 | Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> `fill-protocol/` |
-| Journal selection | `find-journal/` (list gates in-repo; runtime pools in 0doc) |
+| Journal selection | A `find-journal/` Victor pointer → B `03-research/find-journal/` (list gates in B; runtime pools in 0doc) |
 
 ## Literature rule
 
@@ -56,8 +56,8 @@ See `personal/route.md` for the full pointer table.
 | Journal-selection SOP | `personal/journal-selection.md` |
 | Grants / ethics / intake / multicenter / radiology | under `personal/` |
 | Clinical translation | `personal/clinical-translation/` |
-| Ethics forms | `fill-protocol/` |
-| Find-journal pack | `find-journal/` |
+| Ethics forms | A `fill-protocol/` Bai pointer → B `03-research/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
+| Find-journal pack | A pointer + B engine `MY-SKILLS-base/03-research/find-journal/` |
 | Question-to-reference spine | `workflows/question-to-reference.md` |
 
 Do not rewrite mounted B literature/systematic-review capability bodies inside these files.

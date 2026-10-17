@@ -1,4 +1,4 @@
-# 03_research personal route -- top layer
+﻿# 03_research personal route -- top layer
 
 Three pillars. Load only what the task needs.
 
@@ -34,8 +34,8 @@ Three pillars. Load only what the task needs.
 
 | Location | What |
 |---|---|
-| `../find-journal/` | JCR layered recommend pack |
+| `../find-journal/` | Victor seat pointer → B `03-research/find-journal/` |
 | Runtime pools | 0doc `04-lab-reference/find-journal/data/2026/` |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
-Call order: `journal-selection.md` -> `find-journal/SKILL.md`. Format after choice -> `find-journal/journal-format-compliance/`.
+Call order: `journal-selection.md` → A `find-journal/SKILL.md` (pointer) → B `03-research/find-journal/SKILL.md`. Format after choice → B `journal-format-compliance/` (+ companion `05-manuscript/write-venue/` styles).
