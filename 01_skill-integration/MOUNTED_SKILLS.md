@@ -98,7 +98,7 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `revise` | 修回分诊与数字血统追踪 | my-skills-base | `06-review/review-response/` | MOUNTED | P1 | — |
+| `revise` | 修回分诊与数字血统追踪 | my-skills-base | `07-response/review-response/` | MOUNTED | P1 | — |
 
 
 ## P2 specialty (still pickable) (3)
@@ -115,8 +115,8 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `response-tone-polisher` | 回复语气软化 | my-skills-base | `06-review/response-tone-polisher/` | MOUNTED | P2 | — |
-| `tighten-response` | 隔离与正文精简原则 | my-skills-base | `06-review/tighten-response/` | MOUNTED | P2 | — |
+| `response-tone-polisher` | 回复语气软化 | my-skills-base | `07-response/response-tone-polisher/` | MOUNTED | P2 | — |
+| `tighten-response` | 隔离与正文精简原则 | my-skills-base | `07-response/tighten-response/` | MOUNTED | P2 | — |
 
 
 ## Optional candidates (status PROPOSED — not pickable)

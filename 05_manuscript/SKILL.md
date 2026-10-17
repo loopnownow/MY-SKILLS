@@ -5,7 +5,7 @@ description: >
   Triggers: 润色, 去AI, de-AI, 写论文, 引言, Discussion, Aitor-format, 投稿前一致性.
   Mounted writing skills supply generic capability; this layer is the personal upper
   layer and final wording authority. Literature research → 03. Figures → 04.
-  Reviewer response → 06. Do not use for 评阅 or 回复审稿人.
+  Reviewer response → 07. Do not use for 评阅 or 回复审稿人.
 ---
 
 # Scientific Writing — personal upper layer
@@ -80,7 +80,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 ## Not this skill
 
 - Pre-submission / 模拟审稿 / 评阅 → `06_review` (response -> `07_response`)
-- Response letter / 回复审稿人 → `06_review`
+- Response letter / 回复审稿人 → `07_response`
 - Statistics / figures → `04_analysis`
 - Literature landscape / 选刊 / where to submit → `03_research` (`personal/journal-selection.md`)
 
@@ -92,7 +92,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Literature / 选刊 / evidence → `03_research`
 - Numbers / figures → `04_analysis`
 - Tables / imaging prep → `02_data-processing`
-- Pre-review / response entry → `06_review`
+- Pre-review / response entry → `06_review` (response -> `07_response`)
 - Cross-skill or exit QC → `00_orchestrator` decides whether to invoke
 
 ## Edit unit and comments

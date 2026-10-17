@@ -134,14 +134,14 @@ skills:
   a_hook: 06_review
   label: 数值级自审核算
 - id: revise
-  path: 06-review/review-response/
+  path: 07-response/review-response/
   coarse: review-response
-  a_hook: 06_review
+  a_hook: 07_response
   label: 修回分诊与数字血统追踪
 - id: response-tone-polisher
-  path: 06-review/response-tone-polisher/
+  path: 07-response/response-tone-polisher/
   coarse: review-response
-  a_hook: 06_review
+  a_hook: 07_response
   label: 回复语气软化
 - id: simulate-reviewers
   path: 06-review/simulate-reviewers/
@@ -149,7 +149,7 @@ skills:
   a_hook: 06_review
   label: 多审稿人隔离原则
 - id: tighten-response
-  path: 06-review/tighten-response/
+  path: 07-response/tighten-response/
   coarse: review-response
-  a_hook: 06_review
+  a_hook: 07_response
   label: 隔离与正文精简原则

@@ -36,9 +36,9 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 
 ## Mounted capability ids (bodies in B; source=B)
 
-- `revise` -- point-by-point structure (B `06-review/review-response/`)
-- `tighten-response` -- tightening principles (B)
-- `response-tone-polisher` -- tone only; structure stays `revise` (B)
+- `revise` -- point-by-point structure (B `07-response/review-response/`)
+- `tighten-response` -- tightening principles (B `07-response/tighten-response/`)
+- `response-tone-polisher` -- tone only; structure stays `revise` (B `07-response/response-tone-polisher/`)
 
 A07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 

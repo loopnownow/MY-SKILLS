@@ -117,7 +117,7 @@ coarse_ids:
   - id: review-response
     label: 审稿回复
     slug: review-response
-    a_domains: [06_review]
+    a_domains: [07_response]
     specialist_hint: Lee
 
 mounts:
@@ -337,20 +337,20 @@ mounts:
     label: "修回分诊与数字血统追踪"
     coarse: review-response
     source: my-skills-base
-    path: 06-review/review-response/
-    a_domain: 06_review
+    path: 07-response/review-response/
+    a_domain: 07_response
     status: MOUNTED
     load_priority: P1
-    note: A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
+    note: A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17.
   - id: response-tone-polisher
     label: "回复语气软化"
     coarse: review-response
     source: my-skills-base
-    path: 06-review/response-tone-polisher/
-    a_domain: 06_review
+    path: 07-response/response-tone-polisher/
+    a_domain: 07_response
     status: MOUNTED
     load_priority: P2
-    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`. A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
+    note: Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`. A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17.
   - id: simulate-reviewers
     label: "多审稿人隔离原则"
     coarse: manuscript-review
@@ -364,11 +364,11 @@ mounts:
     label: "隔离与正文精简原则"
     coarse: review-response
     source: my-skills-base
-    path: 06-review/tighten-response/
-    a_domain: 06_review
+    path: 07-response/tighten-response/
+    a_domain: 07_response
     status: MOUNTED
     load_priority: P2
-    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md. A07 (`07_response`) final authority for response; body stays B. Routing 2026-10-17 ab-top-layer.
+    note: Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md. A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17.
 
 archived:
   - id: deidentify
