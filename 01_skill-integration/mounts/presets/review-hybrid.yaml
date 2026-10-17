@@ -12,7 +12,7 @@ notes: >
   A 06 personal adjudicates.
 
 chassis:
-  source: my-skills-capabilities
+  source: my-skills-base
   role: base
   required: true
 
@@ -24,21 +24,21 @@ personal:
 # Per fine-id overrides (v4). Must match registry.yaml source/path/status.
 overrides:
   - id: verify-refs
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [verify-refs]
     paths: [03-research/verify-refs/]
     role: literature-verify
     required: true
     prefix_example: "[B:verify-refs]"
   - id: analyze-stats
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [stats-guide]
     paths: [04-analysis/stats-guide/]
     role: reported-stats-audit
     required: true
     prefix_example: "[B:04-analysis/stats-guide]"
   - id: self-review
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [review-critique]
     paths: [06-review/review-critique/]
     role: logic-mechanism-overlay

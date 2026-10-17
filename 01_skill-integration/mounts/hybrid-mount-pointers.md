@@ -10,7 +10,7 @@
 
 | 标记 | 含义 |
 |---|---|
-| ✅ B默认已含 | 原子技能已在 `MY-SKILLS-capabilities`（本仓 B） |
+| ✅ B默认已含 | 原子技能已在 `MY-SKILLS-base`（本仓 B） |
 | 🟡 新增挂载 | 审计补进 B 的 MedSci 本体（见 capabilities PR） |
 | 🔵 跨包补充 | Scientific / AIPOCH / Nature 等；多为 PROPOSED，启用前确认 |
 | 🟢 跨包已挂载 | 跨包来源，已从 PROPOSED confirm 为 MOUNTED（非 B 默认，仍需按细 ID 单独按需拉取） |
@@ -33,7 +33,7 @@
 
 - **lit-cite 换源（CHG-20260913）→ round 2：** `verify-refs` 仍 Scientific citation-management；`manage-refs`/`lit-sync` 已 ARCHIVED（2026-10-17 round 2；manage-refs 并入 verify-refs）。
 - **AIPOCH promote（2026-09-13）：** `retraction-watcher`、`response-tone-polisher` 曾升 🟢；`clinic-research-design` 已拒绝。
-- **AIPOCH absorb into B（2026-10-17）：** 上述两细 ID 改挂 `my-skills-capabilities` domain paths；`cross-pack/aipoch/` stubs 删除。
+- **AIPOCH absorb into B（2026-10-17）：** 上述两细 ID 改挂 `my-skills-base` domain paths；`cross-pack/aipoch/` stubs 删除。
 - **Nature / Scientific（2026-10-17 round 2）：** `simulate-reviewers`、`tighten-response` 仍 MOUNTED；`scientific-visualization`/`audit-figure-risk` 已 ARCHIVED→`plot-figures`（原则在 B fig-plot/external-principles.md）。
 - **样本量归属（CHG-20260926-004）：** 样本量归粗 ID「统计分析」（04 / Loopnow），不在正文写作桶。
 - **选刊权威：** `find-journal` 细 ID 可在 manuscript-body 桶展示，A 权威仍 `03_research/find-journal`。

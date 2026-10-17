@@ -13,7 +13,7 @@ aliases:
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
   mounts_cap: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   mounts_cap_cache: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
-  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-capabilities"
+  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-base"
   # 0doc
   doc_lab_ste: "D:\\0Grok\\0doc\\04-lab-reference\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026"

@@ -1,7 +1,7 @@
 # MY-SKILLS Mount Registry v4.0 (CHG-20260913-001)
 # Structure: 10 coarse stage buckets (焊死) > fine IDs (session-pick mount points) > one atomic skill each.
 # Hybrid mount: different fine IDs may use different packages; never mix packages inside one fine ID.
-# Default source is B (loopnownow/MY-SKILLS-capabilities). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
+# Default source is B (loopnownow/MY-SKILLS-base). Never auto-mount non-B. PROPOSED ≠ MOUNTED.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
 # Nature fine IDs: LICENSE Apache-2.0 verified 2026-09-14 (Yuan1z0825/nature-skills @287ee37; third-party, not Springer Nature official). MOUNTED allowed when bytes present.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
@@ -49,8 +49,8 @@ meta:
         Retired default: Lee no longer applies body Track Changes on decidable fixes.
         Lit05/Lit06 and do-not-self-certify-lit stay as citation-verify-on-05-06. Not a new fine id.
 default_source:
-  id: my-skills-capabilities
-  source: https://github.com/loopnownow/MY-SKILLS-capabilities
+  id: my-skills-base
+  source: https://github.com/loopnownow/MY-SKILLS-base
   role: default-mount
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
@@ -126,7 +126,7 @@ mounts:
   - id: verify-refs
     label: "引用真实性核验"
     coarse: lit-retrieval
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/verify-refs/
     a_domain: 03_research
     status: MOUNTED
@@ -135,7 +135,7 @@ mounts:
   - id: retraction-watcher
     label: "撤稿检测"
     coarse: lit-retrieval
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/retraction-watcher/
     a_domain: 03_research
     status: MOUNTED
@@ -144,7 +144,7 @@ mounts:
   - id: lit-search
     label: "文献检索与公开数据集"
     coarse: lit-retrieval
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/lit-search/
     a_domain: 03_research
     status: MOUNTED
@@ -154,7 +154,7 @@ mounts:
   - id: design-study
     label: "研究设计审查"
     coarse: study-design
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/design-experiment/
     a_domain: 03_research
     status: MOUNTED
@@ -164,7 +164,7 @@ mounts:
   - id: write-protocol
     label: "IRB方案撰写"
     coarse: study-design
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/design-protocol/
     a_domain: 03_research
     status: MOUNTED
@@ -173,7 +173,7 @@ mounts:
   - id: fill-protocol
     label: "IRB方案填表"
     coarse: study-design
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/fill-protocol/
     a_domain: 03_research
     status: MOUNTED
@@ -183,7 +183,7 @@ mounts:
   - id: write-paper
     label: "IMRAD正文起草"
     coarse: manuscript-body
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 05-manuscript/write-manuscript/
     a_domain: 05_manuscript
     status: MOUNTED
@@ -192,7 +192,7 @@ mounts:
   - id: check-reporting
     label: "报告规范核验"
     coarse: manuscript-body
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 05-manuscript/write-reporting/
     a_domain: 05_manuscript
     status: MOUNTED
@@ -201,7 +201,7 @@ mounts:
   - id: grant-builder
     label: "基金标书-方法论"
     coarse: manuscript-body
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 03-research/design-grant/
     a_domain: 03_research
     status: MOUNTED
@@ -211,7 +211,7 @@ mounts:
   - id: find-journal
     label: "选刊推荐"
     coarse: manuscript-body
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 05-manuscript/write-venue/
     a_domain: 03_research
     status: MOUNTED
@@ -221,7 +221,7 @@ mounts:
   - id: polish-language
     label: "一致性硬规则lint"
     coarse: language-polish
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 05-manuscript/write-polish/
     a_domain: 05_manuscript
     status: MOUNTED
@@ -230,7 +230,7 @@ mounts:
   - id: humanize
     label: "去AI味"
     coarse: language-polish
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 05-manuscript/humanize/
     a_domain: 05_manuscript
     status: MOUNTED
@@ -239,7 +239,7 @@ mounts:
   - id: clean-data
     label: "三阶段确认式清洗"
     coarse: data-processing
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 02-data-processing/tables/
     a_domain: 02_data-processing
     status: MOUNTED
@@ -248,7 +248,7 @@ mounts:
   - id: batch-cohort
     label: "批量队列分析生成"
     coarse: data-processing
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 02-data-processing/tables/
     a_domain: 02_data-processing
     status: MOUNTED
@@ -258,7 +258,7 @@ mounts:
   - id: imaging-io
     label: "CT/MRI DICOM与NIfTI读写"
     coarse: data-processing
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 02-data-processing/imaging-io/
     a_domain: 02_data-processing
     status: MOUNTED
@@ -268,7 +268,7 @@ mounts:
   - id: preprocess-imaging
     label: "ROI与读者质控"
     coarse: data-processing
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 02-data-processing/imaging-qc/
     a_domain: 02_data-processing
     status: MOUNTED
@@ -278,7 +278,7 @@ mounts:
   - id: analyze-stats
     label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/stats-guide/
     a_domain: 04_analysis
     status: MOUNTED
@@ -288,7 +288,7 @@ mounts:
   - id: meta-analysis
     label: "Meta分析抗数据操纵"
     coarse: stats-analysis
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/stats-models/
     a_domain: 04_analysis
     status: MOUNTED
@@ -298,7 +298,7 @@ mounts:
   - id: model-evaluation
     label: "模型-任务正确指标选择"
     coarse: stats-analysis
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/model-eval/
     a_domain: 04_analysis
     status: MOUNTED
@@ -307,7 +307,7 @@ mounts:
   - id: calc-sample-size
     label: "样本量计算"
     coarse: stats-analysis
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/stats-power/
     a_domain: 04_analysis
     status: MOUNTED
@@ -317,7 +317,7 @@ mounts:
   - id: draw-flowchart
     label: "患者流程图"
     coarse: figures
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/fig-flow/
     a_domain: 04_analysis
     status: MOUNTED
@@ -327,7 +327,7 @@ mounts:
   - id: plot-figures
     label: "统计图与影像面板"
     coarse: figures
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 04-analysis/fig-plot/
     a_domain: 04_analysis
     status: MOUNTED
@@ -337,7 +337,7 @@ mounts:
   - id: peer-review
     label: "审稿意见生成"
     coarse: manuscript-review
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/review-peer/
     a_domain: 06_review
     status: MOUNTED
@@ -348,7 +348,7 @@ mounts:
   - id: self-review
     label: "数值级自审核算"
     coarse: manuscript-review
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/review-critique/
     a_domain: 06_review
     status: MOUNTED
@@ -358,7 +358,7 @@ mounts:
   - id: revise
     label: "修回分诊与数字血统追踪"
     coarse: review-response
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/review-response/
     a_domain: 06_review
     status: MOUNTED
@@ -368,7 +368,7 @@ mounts:
   - id: response-tone-polisher
     label: "回复语气软化"
     coarse: review-response
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/response-tone-polisher/
     a_domain: 06_review
     status: MOUNTED
@@ -377,7 +377,7 @@ mounts:
   - id: simulate-reviewers
     label: "多审稿人隔离原则"
     coarse: manuscript-review
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/simulate-reviewers/
     a_domain: 06_review
     status: MOUNTED
@@ -386,7 +386,7 @@ mounts:
   - id: tighten-response
     label: "隔离与正文精简原则"
     coarse: review-response
-    source: my-skills-capabilities
+    source: my-skills-base
     path: 06-review/tighten-response/
     a_domain: 06_review
     status: MOUNTED
@@ -506,56 +506,56 @@ archived:
     revive_condition: cohort-gap scout needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-ideate/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: scout-meta-analysis
     status: ARCHIVED
     reason: MA topic feasibility before MA folded into meta-analysis; B folder 03-research/lit-review/ kept; absorb 2026-10-17 round 2
     revive_condition: MA feasibility scout needs a separate session pick beyond meta-analysis and owner re-approves
     absorbed_into: meta-analysis
     old_path: 03-research/lit-review/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: frontier-hypothesize
     status: ARCHIVED
     reason: hypothesis formation folded into design-study; B folder 03-research/frontier-hypothesize/ kept; absorb 2026-10-17 round 2
     revive_condition: hypothesis template needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-hypothesize/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: intake-project
     status: ARCHIVED
     reason: project intake classification folded into design-study; B folder 03-research/intake-project/ kept; absorb 2026-10-17 round 2
     revive_condition: project intake needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/intake-project/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: design-ai-benchmarking
     status: ARCHIVED
     reason: AI expert-eval design folded into design-study; B folder 03-research/design-ai-benchmarking/ kept; absorb 2026-10-17 round 2
     revive_condition: AI benchmarking design needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/design-ai-benchmarking/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: architecture-zoo
     status: ARCHIVED
     reason: model architecture selection folded into design-study; B folder 03-research/architecture-zoo/ kept as reference; absorb 2026-10-17 round 2
     revive_condition: architecture zoo needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/architecture-zoo/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: radiomics-ml
     status: ARCHIVED
     reason: radiomics pipeline audit invoked via analyze-stats / preprocess-imaging; B folder 02-data-processing/radiomics-habitat/ kept; absorb 2026-10-17 round 2
     revive_condition: radiomics habitat pipeline needs a first-class fine id again and owner re-approves
     absorbed_into: analyze-stats
     old_path: 02-data-processing/radiomics-habitat/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: peer-review-pdf-scan
     status: ARCHIVED
     reason: same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
     revive_condition: PDF inject scan needs a separate session pick beyond peer-review and owner re-approves
     absorbed_into: peer-review
     old_path: 06-review/review-peer/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: scientific-visualization
     status: ARCHIVED
     reason: principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
@@ -583,7 +583,7 @@ archived:
     revive_condition: leakage-gate workflow needs a separate session pick beyond model-evaluation and owner re-approves
     absorbed_into: model-evaluation
     old_path: 04-analysis/model-eval/
-    source: my-skills-capabilities
+    source: my-skills-base
   - id: scientific-critical-thinking
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3

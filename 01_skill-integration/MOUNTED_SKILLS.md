@@ -2,7 +2,7 @@
 
 Canonical pointers live in 01 (`registry.yaml`, the routing index). This file is the human table,
 **generated** by `scripts/gen_mounted_skills.py` — do not hand-edit the tables below.
-Default chassis: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
+Default chassis: [loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base) (**B**).
 Non-B fine ids are mixed PROPOSED/MOUNTED per the registry rows below — not "all PROPOSED backups".
 OpenClaw is not a default mount source.
 
@@ -27,79 +27,79 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `verify-refs` | 引用真实性核验 | my-skills-capabilities | `03-research/verify-refs/` | MOUNTED | P1 | — |
-| `retraction-watcher` | 撤稿检测 | my-skills-capabilities | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
-| `lit-search` | 文献检索与公开数据集 | my-skills-capabilities | `03-research/lit-search/` | MOUNTED | P1 | — |
+| `verify-refs` | 引用真实性核验 | my-skills-base | `03-research/verify-refs/` | MOUNTED | P1 | — |
+| `retraction-watcher` | 撤稿检测 | my-skills-base | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
+| `lit-search` | 文献检索与公开数据集 | my-skills-base | `03-research/lit-search/` | MOUNTED | P1 | — |
 
 
 ### study-design
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `design-study` | 研究设计审查 | my-skills-capabilities | `03-research/design-experiment/` | MOUNTED | P1 | — |
-| `write-protocol` | IRB方案撰写 | my-skills-capabilities | `03-research/design-protocol/` | MOUNTED | P1 | — |
+| `design-study` | 研究设计审查 | my-skills-base | `03-research/design-experiment/` | MOUNTED | P1 | — |
+| `write-protocol` | IRB方案撰写 | my-skills-base | `03-research/design-protocol/` | MOUNTED | P1 | — |
 
 
 ### manuscript-body
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `write-paper` | IMRAD正文起草 | my-skills-capabilities | `05-manuscript/write-manuscript/` | MOUNTED | P1 | — |
-| `check-reporting` | 报告规范核验 | my-skills-capabilities | `05-manuscript/write-reporting/` | MOUNTED | P1 | — |
-| `grant-builder` | 基金标书-方法论 | my-skills-capabilities | `03-research/design-grant/` | MOUNTED | P1 | — |
-| `find-journal` | 选刊推荐 | my-skills-capabilities | `05-manuscript/write-venue/` | MOUNTED | P1 | — |
+| `write-paper` | IMRAD正文起草 | my-skills-base | `05-manuscript/write-manuscript/` | MOUNTED | P1 | — |
+| `check-reporting` | 报告规范核验 | my-skills-base | `05-manuscript/write-reporting/` | MOUNTED | P1 | — |
+| `grant-builder` | 基金标书-方法论 | my-skills-base | `03-research/design-grant/` | MOUNTED | P1 | — |
+| `find-journal` | 选刊推荐 | my-skills-base | `05-manuscript/write-venue/` | MOUNTED | P1 | — |
 
 
 ### language-polish
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `polish-language` | 一致性硬规则lint | my-skills-capabilities | `05-manuscript/write-polish/` | MOUNTED | P1 | — |
-| `humanize` | 去AI味 | my-skills-capabilities | `05-manuscript/humanize/` | MOUNTED | P1 | — |
+| `polish-language` | 一致性硬规则lint | my-skills-base | `05-manuscript/write-polish/` | MOUNTED | P1 | — |
+| `humanize` | 去AI味 | my-skills-base | `05-manuscript/humanize/` | MOUNTED | P1 | — |
 
 
 ### data-processing
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `clean-data` | 三阶段确认式清洗 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED | P1 | — |
-| `batch-cohort` | 批量队列分析生成 | my-skills-capabilities | `02-data-processing/tables/` | MOUNTED | P1 | path_shared |
-| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-capabilities | `02-data-processing/imaging-io/` | MOUNTED | P1 | — |
-| `preprocess-imaging` | ROI与读者质控 | my-skills-capabilities | `02-data-processing/imaging-qc/` | MOUNTED | P1 | — |
+| `clean-data` | 三阶段确认式清洗 | my-skills-base | `02-data-processing/tables/` | MOUNTED | P1 | — |
+| `batch-cohort` | 批量队列分析生成 | my-skills-base | `02-data-processing/tables/` | MOUNTED | P1 | path_shared |
+| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-base | `02-data-processing/imaging-io/` | MOUNTED | P1 | — |
+| `preprocess-imaging` | ROI与读者质控 | my-skills-base | `02-data-processing/imaging-qc/` | MOUNTED | P1 | — |
 
 
 ### stats-analysis
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-capabilities | `04-analysis/stats-guide/` | MOUNTED | P1 | — |
-| `meta-analysis` | Meta分析抗数据操纵 | my-skills-capabilities | `04-analysis/stats-models/` | MOUNTED | P1 | — |
-| `model-evaluation` | 模型-任务正确指标选择 | my-skills-capabilities | `04-analysis/model-eval/` | MOUNTED | P1 | — |
-| `calc-sample-size` | 样本量计算 | my-skills-capabilities | `04-analysis/stats-power/` | MOUNTED | P1 | — |
+| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-base | `04-analysis/stats-guide/` | MOUNTED | P1 | — |
+| `meta-analysis` | Meta分析抗数据操纵 | my-skills-base | `04-analysis/stats-models/` | MOUNTED | P1 | — |
+| `model-evaluation` | 模型-任务正确指标选择 | my-skills-base | `04-analysis/model-eval/` | MOUNTED | P1 | — |
+| `calc-sample-size` | 样本量计算 | my-skills-base | `04-analysis/stats-power/` | MOUNTED | P1 | — |
 
 
 ### figures
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `draw-flowchart` | 患者流程图 | my-skills-capabilities | `04-analysis/fig-flow/` | MOUNTED | P1 | — |
-| `plot-figures` | 统计图与影像面板 | my-skills-capabilities | `04-analysis/fig-plot/` | MOUNTED | P1 | — |
+| `draw-flowchart` | 患者流程图 | my-skills-base | `04-analysis/fig-flow/` | MOUNTED | P1 | — |
+| `plot-figures` | 统计图与影像面板 | my-skills-base | `04-analysis/fig-plot/` | MOUNTED | P1 | — |
 
 
 ### manuscript-review
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `peer-review` | 审稿意见生成 | my-skills-capabilities | `06-review/review-peer/` | MOUNTED | P1 | path_shared |
-| `self-review` | 数值级自审核算 | my-skills-capabilities | `06-review/review-critique/` | MOUNTED | P1 | — |
-| `simulate-reviewers` | 多审稿人隔离原则 | my-skills-capabilities | `06-review/simulate-reviewers/` | MOUNTED | P1 | — |
+| `peer-review` | 审稿意见生成 | my-skills-base | `06-review/review-peer/` | MOUNTED | P1 | path_shared |
+| `self-review` | 数值级自审核算 | my-skills-base | `06-review/review-critique/` | MOUNTED | P1 | — |
+| `simulate-reviewers` | 多审稿人隔离原则 | my-skills-base | `06-review/simulate-reviewers/` | MOUNTED | P1 | — |
 
 
 ### review-response
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `revise` | 修回分诊与数字血统追踪 | my-skills-capabilities | `06-review/review-response/` | MOUNTED | P1 | — |
+| `revise` | 修回分诊与数字血统追踪 | my-skills-base | `06-review/review-response/` | MOUNTED | P1 | — |
 
 
 ## P2 specialty (still pickable) (3)
@@ -109,15 +109,15 @@ Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `fill-protocol` | IRB方案填表 | my-skills-capabilities | `03-research/fill-protocol/` | MOUNTED | P2 | — |
+| `fill-protocol` | IRB方案填表 | my-skills-base | `03-research/fill-protocol/` | MOUNTED | P2 | — |
 
 
 ### review-response
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `response-tone-polisher` | 回复语气软化 | my-skills-capabilities | `06-review/response-tone-polisher/` | MOUNTED | P2 | — |
-| `tighten-response` | 隔离与正文精简原则 | my-skills-capabilities | `06-review/tighten-response/` | MOUNTED | P2 | — |
+| `response-tone-polisher` | 回复语气软化 | my-skills-base | `06-review/response-tone-polisher/` | MOUNTED | P2 | — |
+| `tighten-response` | 隔离与正文精简原则 | my-skills-base | `06-review/tighten-response/` | MOUNTED | P2 | — |
 
 
 ## Optional candidates (status PROPOSED — not pickable)

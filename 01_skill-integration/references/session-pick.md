@@ -4,7 +4,7 @@
 
 **Session recipes:** `review-hybrid-default` (R-style); also `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1` in `mounts/presets.md`. Default review recipe: in `mounts/presets.md` (machine core `mounts/presets/review-hybrid.yaml`) — B chassis, Scientific `verify-refs` (`citation-management`), and B `analyze-stats` (`stats-guide`). Scientific `scientific-critical-thinking` is an optional PROPOSED overlay. This preset has no Nature overlay. Still ask each run; user may change picks. Attribution and fetch are **per pack skill** (see preset `skills:`), not whole source.
 
-**Default source is B:** [`loopnownow/MY-SKILLS-capabilities`](https://github.com/loopnownow/MY-SKILLS-capabilities).
+**Default source is B:** [`loopnownow/MY-SKILLS-base`](https://github.com/loopnownow/MY-SKILLS-base).
 MedSci, Scientific, AIPOCH, and Nature are hybrid sources: each fine id is PROPOSED or MOUNTED as the registry row says, never "all PROPOSED backups". OpenClaw is not a default mount source (`ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick).
 Nature LICENSE Apache-2.0 verified 2026-09-14; MOUNTED fine ids still need ask-each-run + `{mounts_cap}/` bytes — do not claim MOUNTED if bytes absent.
 

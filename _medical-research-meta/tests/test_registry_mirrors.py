@@ -19,8 +19,8 @@ def registry() -> dict:
 class RegistryMirrors(unittest.TestCase):
     def test_b_source_yaml_matches_registry(self) -> None:
         reg = registry()
-        reg_b = {m["id"]: m for m in reg["mounts"] if m["source"] == "my-skills-capabilities"}
-        b = yaml.safe_load((ONE / "sources" / "b-my-skills-capabilities.yaml").read_text(encoding="utf-8"))
+        reg_b = {m["id"]: m for m in reg["mounts"] if m["source"] == "my-skills-base"}
+        b = yaml.safe_load((ONE / "sources" / "b-my-skills-base.yaml").read_text(encoding="utf-8"))
         yaml_b = {s["id"]: s for s in b["skills"]}
         self.assertEqual(sorted(reg_b), sorted(yaml_b))
         for fid, m in reg_b.items():

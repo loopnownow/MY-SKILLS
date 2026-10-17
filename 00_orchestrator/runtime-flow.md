@@ -14,7 +14,7 @@
 
 | Layer | Repo | Owns |
 |---|---|---|
-| **B** | MY-SKILLS-capabilities | Capability bodies / fine-ID loops |
+| **B** | MY-SKILLS-base | Capability bodies / fine-ID loops |
 | **00** | MY-SKILLS `00_orchestrator` | QC gate between B first-pass and A re-loop |
 | **A** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Bodies stay in B |
 

@@ -78,7 +78,7 @@ class ModuleHeaderTests(unittest.TestCase):
 
     def test_registry_default_is_b(self):
         text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
-        self.assertIn("my-skills-capabilities", text)
+        self.assertIn("my-skills-base", text)
         self.assertIn("default-mount", text)
         self.assertIn("notify-then-research-confirm", text)
         self.assertIn("session_mount: ask-each-run", text)
@@ -162,7 +162,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("287ee37", nat_y)
         med_y = (d / "sources" / "medsci.proposed.yaml").read_text(encoding="utf-8")
         sci_y = (d / "sources" / "scientific-agent-skills.proposed.yaml").read_text(encoding="utf-8")
-        b_y = (d / "sources" / "b-my-skills-capabilities.yaml").read_text(encoding="utf-8")
+        b_y = (d / "sources" / "b-my-skills-base.yaml").read_text(encoding="utf-8")
         self.assertIn("scan_sha: \"912f7e8\"", med_y)
         self.assertIn("skills/humanize/", med_y)
         self.assertIn("skills/explainability/", med_y)
@@ -173,7 +173,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("id: verify-refs", b_y)
         self.assertIn("intake-project", b_y)
         self.assertIn("03-research/intake-project/", b_y)
-        self.assertTrue((d / "sources" / "b-my-skills-capabilities.yaml").is_file())
+        self.assertTrue((d / "sources" / "b-my-skills-base.yaml").is_file())
 
     def test_b_mount_paths_unique(self):
         text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
@@ -190,14 +190,14 @@ class ModuleHeaderTests(unittest.TestCase):
             if not in_mounts:
                 continue
             if line.startswith("  - id:"):
-                if cur.get("source") == "my-skills-capabilities" and not cur.get("path_shared"):
+                if cur.get("source") == "my-skills-base" and not cur.get("path_shared"):
                     if cur.get("path"):
                         paths.append(cur["path"])
                 cur = {"id": line.split(":", 1)[1].strip()}
             elif ":" in line and line.startswith("    "):
                 k, v = line.strip().split(":", 1)
                 cur[k.strip()] = v.strip()
-        if cur.get("source") == "my-skills-capabilities" and not cur.get("path_shared") and cur.get("path"):
+        if cur.get("source") == "my-skills-base" and not cur.get("path_shared") and cur.get("path"):
             paths.append(cur["path"])
         self.assertEqual(len(paths), len(set(paths)), msg=str(paths))
         self.assertGreaterEqual(len(paths), 20)

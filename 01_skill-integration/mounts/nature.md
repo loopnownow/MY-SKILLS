@@ -8,7 +8,7 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`simulate-reviewers` / `tighten-response` 已吸收进 **B**（仍 MOUNTED，source=`my-skills-capabilities`）；`check-grant-proposal` 已 ARCHIVED→`grant-builder`（2026-10-17 round 3）；`audit-figure-risk` 已 ARCHIVED→`plot-figures`（round 2）；round-1 Nature archives 仍 ARCHIVED |
+| 状态 | 混合：`simulate-reviewers` / `tighten-response` 已吸收进 **B**（仍 MOUNTED，source=`my-skills-base`）；`check-grant-proposal` 已 ARCHIVED→`grant-builder`（2026-10-17 round 3）；`audit-figure-risk` 已 ARCHIVED→`plot-figures`（round 2）；round-1 Nature archives 仍 ARCHIVED |
 | v4 细 ID（MOUNTED，现挂 B） | `simulate-reviewers` · `tighten-response` |
 | v4 细 ID（PROPOSED） | （无 — round 3 已清） |
 | license_flag | `Apache-2.0 verified 2026-09-14`（已清除「需核实」） |

@@ -138,7 +138,7 @@ skills:
     a_hook: 05_manuscript
     coverage: full
     absorbed: true
-    absorbed_into: my-skills-capabilities:05-manuscript/humanize/
+    absorbed_into: my-skills-base:05-manuscript/humanize/
     absorbed_on: "2026-10-17"
     note: ABSORBED into B; retired as active MedSci mount target. Personal de-AI stays A. Upstream path kept for fetch/history only.
   - id: peer-review

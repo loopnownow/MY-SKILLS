@@ -181,11 +181,11 @@ empty:
 absorbed_fine_ids:
   - id: retraction-watcher
     former_path: scientific-skills/Evidence Insight/retraction-watcher/
-    absorbed_into: my-skills-capabilities:03-research/retraction-watcher/
+    absorbed_into: my-skills-base:03-research/retraction-watcher/
     absorbed_on: "2026-10-17"
     note: Retired as active AIPOCH mount target; body now owned by B.
   - id: response-tone-polisher
     former_path: scientific-skills/Academic Writing/response-tone-polisher/
-    absorbed_into: my-skills-capabilities:06-review/response-tone-polisher/
+    absorbed_into: my-skills-base:06-review/response-tone-polisher/
     absorbed_on: "2026-10-17"
     note: Retired as active AIPOCH mount target; body now owned by B.

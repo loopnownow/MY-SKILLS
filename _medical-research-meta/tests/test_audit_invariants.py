@@ -318,7 +318,7 @@ class MountedBytesPresent(unittest.TestCase):
     or this fails instead of surviving until the next manual scan."""
 
     SRC_DIR = {
-        "my-skills-capabilities": "b",
+        "my-skills-base": "b",
         "med-sci-skills": "medsci",
         "nature-skills": "nature",
         "scientific-agent-skills": "scientific",

@@ -8,7 +8,7 @@ notes: >
   Nature overlays only when venue-specific. Ask-each-run. First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
 
 chassis:
-  source: my-skills-capabilities
+  source: my-skills-base
   role: base
   required: true
 
@@ -19,14 +19,14 @@ personal:
 
 overrides:
   - id: write-paper
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [write-manuscript]
     paths: [05-manuscript/write-manuscript/]
     role: structure-draft
     required: true
     prefix_example: "[B:write-manuscript]"
   - id: verify-refs
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [verify-refs]
     paths: [03-research/verify-refs/]
     role: literature-verify
@@ -34,7 +34,7 @@ overrides:
     prefix_example: "[B:verify-refs]"
 
   - id: check-reporting
-    source: my-skills-capabilities
+    source: my-skills-base
     role: reporting-qc
     required: false
 

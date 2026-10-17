@@ -5,7 +5,7 @@ description: >
   session pick, hybrid mount recipes, and the `{mounts_cap}` cache boundary. Infrastructure
   only. Never literature research, statistics, manuscript writing, or peer review.
   Not GitHub discovery (archived). Not skill evolution (MY-RULES `skills.md`).
-  Mount pointers live only here. Default mount is B (MY-SKILLS-capabilities).
+  Mount pointers live only here. Default mount is B (MY-SKILLS-base).
   Every independent run needs a mount decision; reuse session_picked_fine_ids
   when they already cover the task. Never auto-mount a non-B source. Non-B fine
   ids are mixed per registry status. OpenClaw is not a default mount source.

@@ -1,9 +1,9 @@
 # One config file per external source (recommended).
 # Human board: ../mounts/README.md   Canonical index: ../registry.yaml
-source_id: my-skills-capabilities
-name: MY-SKILLS-capabilities
+source_id: my-skills-base
+name: MY-SKILLS-base
 role: default-mount
-repo: https://github.com/loopnownow/MY-SKILLS-capabilities
+repo: https://github.com/loopnownow/MY-SKILLS-base
 status: MOUNTED
 empty_mount: notify-then-research-confirm
 notes: >

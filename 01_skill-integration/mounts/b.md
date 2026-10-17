@@ -2,7 +2,7 @@
 
 [总览](README.md) · [B · 当前默认](b.md)
 
-仅用 B 作为默认来源。[loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) · `../sources/b-my-skills-capabilities.yaml`
+仅用 B 作为默认来源。[loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base) · `../sources/b-my-skills-base.yaml`
 
 | | |
 |---|---|

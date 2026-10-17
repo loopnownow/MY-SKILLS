@@ -9,7 +9,7 @@ notes: >
   Engines never edit the manuscript. Ask-each-run. Related to review-hybrid-default.
 
 chassis:
-  source: my-skills-capabilities
+  source: my-skills-base
   role: base
   required: true
 
@@ -20,14 +20,14 @@ personal:
 
 overrides:
   - id: peer-review
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [review-peer]
     paths: [06-review/review-peer/]
     role: clinical-reporting-findings
     required: true
     prefix_example: "[B:peer-review]"
   - id: self-review
-    source: my-skills-capabilities
+    source: my-skills-base
     skills: [review-critique]
     paths: [06-review/review-critique/]
     role: pre-submission-integrity

@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| 状态 | 混合：`verify-refs` 已吸收进 **B**（仍 MOUNTED，source=`my-skills-capabilities`；含前 manage-refs）；`scientific-critical-thinking` 已 ARCHIVED→`self-review`（2026-10-17 round 3）；`manage-refs`/`lit-sync`/`scientific-visualization` 已 ARCHIVED（round 2）；round-1 archives 仍 ARCHIVED |
+| 状态 | 混合：`verify-refs` 已吸收进 **B**（仍 MOUNTED，source=`my-skills-base`；含前 manage-refs）；`scientific-critical-thinking` 已 ARCHIVED→`self-review`（2026-10-17 round 3）；`manage-refs`/`lit-sync`/`scientific-visualization` 已 ARCHIVED（round 2）；round-1 archives 仍 ARCHIVED |
 | v4 细 ID（MOUNTED，现挂 B） | `verify-refs` → `03-research/verify-refs/`（含前 manage-refs） |
 | v4 细 ID（PROPOSED） | （无 — round 3 已清） |
 | v4 细 ID（ARCHIVED→plot-figures） | `scientific-visualization` 原则已并入 B `plot-figures/external-principles.md`（round 2） |

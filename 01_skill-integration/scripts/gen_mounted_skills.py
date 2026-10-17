@@ -26,7 +26,7 @@ HEADER = """# Mounted Skills Boundary (v{version})
 
 Canonical pointers live in 01 (`registry.yaml`, the routing index). This file is the human table,
 **generated** by `scripts/gen_mounted_skills.py` — do not hand-edit the tables below.
-Default chassis: [loopnownow/MY-SKILLS-capabilities](https://github.com/loopnownow/MY-SKILLS-capabilities) (**B**).
+Default chassis: [loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base) (**B**).
 Non-B fine ids are mixed PROPOSED/MOUNTED per the registry rows below — not "all PROPOSED backups".
 OpenClaw is not a default mount source.
 
