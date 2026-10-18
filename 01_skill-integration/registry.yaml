@@ -1,13 +1,13 @@
 # MY-SKILLS Mount Registry v4.0 (skill-index rewrite 2026-10-17)
 # 01 = registry / session-pick / path resolve / legacy aliases / mounts_cap cache boundary.
-# Default UNIQUE runtime source = my-skills-base (MY-SKILLS-base). No multi-package mount narrative.
+# Default UNIQUE runtime source = my-skills (in-repo NN_slug/base/). No multi-package mount narrative.
 # Non-base sources = default deny (see references/hybrid-mount-pointers.md). Never auto-mount non-base.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
-# Say 默认挂载 B = 本仓 — not 空挂. Local base bytes: {mounts_cap}/b/ (alias OK) = D:/0Grok/0doc/04-lab-reference/mounts-cap/b.
-# A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns B→QC→A).
+# Say 默认挂载 = 本仓 NN_slug/base/ — not 空挂. Former B byte cache {mounts_cap}/b/ is retired (bodies in-repo).
+# A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns base→QC→A).
 # Evolution policy: MY-RULES skills.md (skill-evolution).
-# 选刊 stays Victor / B 03-research/find-journal — not moved into 05.
+# 选刊 stays Victor / 03_research/base/find-journal/ — not moved into 05.
 # fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids.
 # Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
 # registry.yaml is the routing index, not the byte source of truth.
@@ -23,7 +23,7 @@ meta:
     P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
     P1 common mounts (default session menu, about 25–30 MOUNTED ids).
     P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
-        Registry indexes paths; base byte cache is {mounts_cap}/b/ (alias for my-skills-base). Bodies SSOT = B repo.
+        Registry indexes paths; Former {mounts_cap}/b/ B cache retired. Bodies SSOT = in-repo NN_slug/base/ (source my-skills). Former B repo retired 2026-10-17.
   pilot_merge_02_20261017: >
     Domain 02 capability bodies piloted in-repo under 02_data-processing/base/.
     Fine ids clean-data, batch-cohort, imaging-io, preprocess-imaging use source my-skills
@@ -32,6 +32,9 @@ meta:
     Domains 03–07 capability bodies merged in-repo under NN_slug/base/.
     Fine ids formerly on my-skills-base paths 03-research/…07-response/ now use
     source my-skills (in-repo) with paths NN_slug/base/...; B repo kept.
+  retire_b_repo_20261017: >
+    Remote MY-SKILLS-base retired. default_source = my-skills (in-repo).
+    Bodies SSOT = A NN_slug/base/. Former {mounts_cap}/b/ cache obsolete for live mounts.
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -56,16 +59,19 @@ meta:
         Retired default: Lee no longer applies body Track Changes on decidable fixes.
         Lit05/Lit06 and do-not-self-certify-lit stay as citation-verify-on-05-06. Not a new fine id.
 default_source:
-  id: my-skills-base
-  source: https://github.com/loopnownow/MY-SKILLS-base
+  id: my-skills
+  source: in-repo
   role: default-mount
+  note: >
+    Capability bodies live under A NN_slug/base/ (domains 02–07).
+    Former remote default loopnownow/MY-SKILLS-base retired 2026-10-17.
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
 ars_openclaw_policy: removed-from-catalog
 a_domain_override_policy: >
   Identity is a four-tuple plus an optional A pack: fine_id, coarse_id,
-  a_domain, B path. Do not infer id from path or path from id.
+  a_domain, body path (NN_slug/base/...). Do not infer id from path or path from id.
   Each coarse_id declares a default a_domain. A mount under `mounts:` may set
   its own `a_domain` to override that default when the routing rule requires
   it (documented exceptions: `find-journal` and `grant-builder` sit under

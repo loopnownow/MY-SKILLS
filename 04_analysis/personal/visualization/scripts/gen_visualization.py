@@ -261,8 +261,8 @@ def require_anchors(mmd: str, gates: str, architecture: str) -> None:
 
 def check_registry(reg: dict) -> None:
     default = reg.get("default_source") or {}
-    if default.get("id") != "my-skills-base":
-        raise GateFailure("G-VIZ-01", "default atomic mount source is not my-skills-base")
+    if default.get("id") != "my-skills":
+        raise GateFailure("G-VIZ-01", "default atomic mount source is not my-skills")
     if "openclaw" in str(default.get("id", "")).lower() or "openclaw" in str(default.get("source", "")).lower():
         raise GateFailure("G-VIZ-01", "OpenClaw is listed as the default mount source")
     if reg.get("ars_openclaw_policy") != "removed-from-catalog":

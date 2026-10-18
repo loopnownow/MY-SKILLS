@@ -13,7 +13,8 @@ aliases:
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
   mounts_cap: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   mounts_cap_cache: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
-  b_capabilities_repo: "https://github.com/loopnownow/MY-SKILLS-base"
+  # b_capabilities_repo retired 2026-10-17 (bodies in-repo NN_slug/base/; remote MY-SKILLS-base deleted/archived)
+  b_capabilities_repo_retired: "https://github.com/loopnownow/MY-SKILLS-base"
   # 0doc
   doc_lab_ste: "D:\\0Grok\\0doc\\04-lab-reference\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\04-lab-reference\\jcr2026"
@@ -38,5 +39,6 @@ aliases:
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "0script / 0doc are never vendored into MY-SKILLS."
-  - "Public git omits mounts-cap pack bytes; SSOT cache is {mounts_cap} under 0doc (aliases mounts_cap / mounts_cap_cache). Not under MY-SKILLS or .grok/skills."
+  - "Public git omits mounts-cap pack bytes; {mounts_cap} under 0doc remains the lab pack-cache root (aliases mounts_cap / mounts_cap_cache). Not under MY-SKILLS or .grok/skills."
+  - "Former {mounts_cap}/b/ B byte cache is obsolete for live mounts -- capability bodies SSOT is in-repo NN_slug/base/ (2026-10-17)."
   - "Dated history files may keep raw D:\\0Grok strings."

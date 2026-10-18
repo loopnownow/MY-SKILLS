@@ -2,7 +2,7 @@
 
 Canonical pointers live in 01 skill-index (`registry.yaml`, the routing index). This file is the human table,
 **generated** by `scripts/gen_mounted_skills.py` — do not hand-edit the tables below.
-Default UNIQUE runtime source: [loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base) (`my-skills-base`).
+Default UNIQUE runtime source: in-repo `my-skills` (`NN_slug/base/`).
 Non-base sources = default deny. OpenClaw/ARS not in catalog.
 
 Empty mount → notify → re-search → confirm. Never silently fall back.
@@ -10,8 +10,8 @@ Never auto-mount a non-base source. `PROPOSED` is not pickable.
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 **Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer / A top-layer task with no mounted dependency does not ask.
 **Pick menu:** status `MOUNTED` only, grouped by the 10 coarse buckets then by `load_priority`. `path_shared` siblings are consecutive rows. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
-Local base bytes: `{mounts_cap}/b/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap/b`) — base byte cache alias OK. Download ≠ mount ≠ active.
-Say 默认挂载 B = 本仓 — not 空挂.
+Bodies live in-repo under `NN_slug/base/`. Former `{mounts_cap}/b/` B cache is obsolete for live mounts.
+Say default mount = in-repo base/ -- not empty mount.
 
 Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 28 fine ids** (28 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
 Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointers.md](references/hybrid-mount-pointers.md). Presets: [references/presets/](references/presets/).
@@ -170,8 +170,8 @@ None.
 
 ## Source notes
 
-- Default unique runtime source = `my-skills-base`. Non-base = default deny.
+- Default unique runtime source = `my-skills` (in-repo). Non-base = default deny.
 - OpenClaw/ARS: `ars_openclaw_policy: removed-from-catalog`.
-- A top layers are not capability mounts (00 owns B→QC→A).
+- A top layers are not capability mounts (00 owns base→QC→A).
 
 Mapping is not a source-wide mount. `fine_id` is the capability interface; `path` is the physical unit; `path_shared` means one path backs several fine ids — do not split that folder.

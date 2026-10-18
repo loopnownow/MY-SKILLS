@@ -37,11 +37,11 @@ import sys
 from pathlib import Path
 
 # Machine source for VOCAB_ALWAYS / VOCAB_LIMITED. Do not hard-code term lists below.
-# Canonical yaml lives in B (MY-SKILLS-base) 05-manuscript/vocab/L1/; A personal/vocab is pointer-only.
+# Canonical yaml lives in A 05_manuscript/base/vocab/L1/; personal/vocab is pointer-only.
 def _resolve_ban_terms() -> Path:
     a_root = Path(__file__).resolve().parents[2]
     candidates = [
-        a_root.parent / "MY-SKILLS-base" / "05-manuscript" / "vocab" / "L1" / "ban-terms.yaml",
+        a_root / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml",
         Path(r"D:/0Grok/0doc/04-lab-reference/mounts-cap/b/05-manuscript/vocab/L1/ban-terms.yaml"),
         a_root / "05_manuscript" / "personal" / "vocab" / "L1" / "ban-terms.yaml",
     ]

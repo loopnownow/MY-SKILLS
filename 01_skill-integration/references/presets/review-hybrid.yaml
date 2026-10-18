@@ -7,11 +7,11 @@ status: default-session-recipe
 notes: >
   Default for review / pre-review. First-pass fine-ID list:
     verify-refs, analyze-stats; force-B peer-review, revise, self-review.
-    Chassis my-skills-base only. A 06 personal adjudicates. Prefetch listed paths only.
+    Chassis my-skills (in-repo base/) only. A 06 personal adjudicates. Prefetch listed paths only.
 
 
 chassis:
-  source: my-skills-base
+  source: my-skills
   role: base
   required: true
 
@@ -23,21 +23,21 @@ personal:
 # Per fine-id overrides (v4). Must match registry.yaml source/path/status.
 overrides:
   - id: verify-refs
-    source: my-skills-base
+    source: my-skills
     skills: [verify-refs]
     paths: [03-research/verify-refs/]
     role: literature-verify
     required: true
     prefix_example: "[B:verify-refs]"
   - id: analyze-stats
-    source: my-skills-base
+    source: my-skills
     skills: [stats-guide]
     paths: [04-analysis/stats-guide/]
     role: reported-stats-audit
     required: true
     prefix_example: "[B:04-analysis/stats-guide]"
   - id: self-review
-    source: my-skills-base
+    source: my-skills
     skills: [review-critique]
     paths: [06-review/review-critique/]
     role: logic-mechanism-overlay

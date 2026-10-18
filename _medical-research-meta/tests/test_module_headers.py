@@ -83,7 +83,10 @@ class ModuleHeaderTests(unittest.TestCase):
 
     def test_registry_default_is_b(self):
         text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
-        self.assertIn("my-skills-base", text)
+        self.assertIn("default_source:", text)
+        self.assertIn("id: my-skills", text)
+        self.assertIn("source: in-repo", text)
+        self.assertIn("retire_b_repo_20261017", text)
         self.assertIn("default-mount", text)
         self.assertIn("notify-then-research-confirm", text)
         self.assertIn("session_mount: ask-each-run", text)
@@ -112,7 +115,8 @@ class ModuleHeaderTests(unittest.TestCase):
         refs = d / "references"
         skill = (d / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("name: skill-index", skill)
-        self.assertIn("my-skills-base", skill)
+        self.assertIn("my-skills", skill)
+        self.assertIn("NN_slug/base", skill)
         self.assertIn("references/hybrid-mount-pointers.md", skill)
         self.assertIn("references/presets", skill)
         self.assertNotIn("`mounts/`", skill)
@@ -134,19 +138,17 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("skills: [verify-refs]", yh)
         self.assertIn("skills: [stats-guide]", yh)
         self.assertIn("verify-refs", yh)
-        self.assertIn("my-skills-base", yh)
+        self.assertIn("my-skills", yh)
         self.assertNotIn("openclaw-medical-skills", yh)
         self.assertNotIn("academic-research-skills", yh)
         reg_text = (d / "registry.yaml").read_text(encoding="utf-8")
         self.assertIn("references/hybrid-mount-pointers.md", reg_text)
         self.assertIn("removed-from-catalog", reg_text)
-        b_y = (d / "sources" / "b-my-skills-base.yaml").read_text(encoding="utf-8")
-        # Domains 02–07 bodies in-repo (source my-skills); B source yaml skills empty.
-        self.assertIn("skills: []", b_y)
-        self.assertNotIn("03-research/lit-search/", b_y)
-        self.assertNotIn("id: verify-refs", b_y)
-        self.assertTrue((d / "sources" / "b-my-skills-base.yaml").is_file())
-        self.assertNotIn("mounts/README.md", b_y)
+        # B source yaml retired 2026-10-17; bodies in-repo under NN_slug/base/.
+        self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
+        src_readme = (d / "sources" / "README.md").read_text(encoding="utf-8")
+        self.assertIn("in-repo", src_readme)
+        self.assertIn("retired", src_readme.lower())
 
 
     def test_b_mount_paths_unique(self):

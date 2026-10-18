@@ -4,11 +4,11 @@ version: "2026-09-20.1"
 status: session-recipe
 notes: >
   Literature deep check. First-pass fine-ID list: lit-search, verify-refs.
-    A03 owns evidence cards. Ask-each-run. Chassis my-skills-base only.
+    A03 owns evidence cards. Ask-each-run. Chassis my-skills (in-repo base/) only.
 
 
 chassis:
-  source: my-skills-base
+  source: my-skills
   role: base
   required: true
 
@@ -21,12 +21,12 @@ personal:
 
 overrides:
   - id: lit-search
-    source: my-skills-base
+    source: my-skills
     role: discovery
     required: true
     note: paper-lookup archived 2026-10-17 round 1; use B lit-search
   - id: verify-refs
-    source: my-skills-base
+    source: my-skills
     skills: [verify-refs]
     paths: [03-research/verify-refs/]
     role: literature-verify

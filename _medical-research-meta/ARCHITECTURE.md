@@ -98,4 +98,4 @@ Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default 
 
 Generic local capabilities in `EXTERNALIZATION_CANDIDATES.md` stay until an approved mounted Skill covers them. Personal rules, scripts, and style assets are not removed merely because a generic external capability exists.
 
-Standalone packs live under domain skills (e.g. ethics fill pack under `MY-SKILLS-base/03-research/fill-protocol/`).
+Standalone packs live under domain skills (e.g. ethics fill pack under `03_research/base/fill-protocol/`).

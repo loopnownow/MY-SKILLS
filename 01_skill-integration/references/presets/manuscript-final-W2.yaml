@@ -4,12 +4,12 @@ version: "2026-09-20.1"
 status: session-recipe
 notes: >
   Final draft pass. First-pass fine-ID list: write-paper, verify-refs, check-reporting.
-    A/B05 personal owns sentence authority. Ask-each-run. Chassis my-skills-base only.
+    A/B05 personal owns sentence authority. Ask-each-run. Chassis my-skills (in-repo base/) only.
     First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
 
 
 chassis:
-  source: my-skills-base
+  source: my-skills
   role: base
   required: true
 
@@ -20,14 +20,14 @@ personal:
 
 overrides:
   - id: write-paper
-    source: my-skills-base
+    source: my-skills
     skills: [write-manuscript]
     paths: [05-manuscript/write-manuscript/]
     role: structure-draft
     required: true
     prefix_example: "[B:write-manuscript]"
   - id: verify-refs
-    source: my-skills-base
+    source: my-skills
     skills: [verify-refs]
     paths: [03-research/verify-refs/]
     role: literature-verify
@@ -35,7 +35,7 @@ overrides:
     prefix_example: "[B:verify-refs]"
 
   - id: check-reporting
-    source: my-skills-base
+    source: my-skills
     role: reporting-qc
     required: false
 

@@ -8,7 +8,7 @@ Wave2 path map (2026-10-17 reorg):
 - 05_manuscript/personal/pre-submit-consistency.md -> 00_orchestrator/references/manuscript-local-qc.md (Part B)
 - 06_review/personal/cross-manuscript-qc.md -> 00_orchestrator/references/cross-manuscript-qc.md
 - stats-consistency/stats-checklist -> 04_analysis/personal/report-checks.md
-- forbidden-phrases -> B 05-manuscript/vocab/L1/ban-phrases.md
+- forbidden-phrases -> 05_manuscript/base/vocab/L1/ban-phrases.md
 - introduction-scorecard -> manuscript-local-qc.md Part A
 - personal-review-style -> 06_review/personal/review.md
 - word-edit-rules -> 06_review/personal/word-edit.md
@@ -24,8 +24,8 @@ from pathlib import Path
 
 import yaml
 
-B_ROOT = Path(r"D:\0Grok\0doc\GitHub\MY-SKILLS-base")
 ROOT = Path(__file__).resolve().parents[2]
+B_ROOT = ROOT / "05_manuscript" / "base"
 
 REQUIRED_IDS = (
     "stat_vs_threshold",
@@ -178,7 +178,7 @@ class PreSubmitWiring(unittest.TestCase):
             self.assertIn(token, cites, token)
         self.assertIn("Methods: **no citations**", cites)
 
-        banned = (B_ROOT / "05-manuscript" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        banned = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         for token in (
             "TRAIN_RATIO",
             "as stated by the source",
@@ -210,7 +210,7 @@ class PreSubmitWiring(unittest.TestCase):
         structures = read("00_orchestrator/references/manuscript-local-qc.md")
         self.assertIn("paragraph_lock", structures)
         # Wave2: de-ai.md archived; TRAIN_RATIO / approach stay in ban-phrases
-        deai = (B_ROOT / "05-manuscript" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        deai = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         self.assertIn("TRAIN_RATIO", deai)
         self.assertIn("approach", deai)
 
