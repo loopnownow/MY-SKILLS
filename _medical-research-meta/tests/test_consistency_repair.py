@@ -1,56 +1,12 @@
 """Control-plane consistency repairs. No LLM."""
 from __future__ import annotations
 
-import importlib.util
 import unittest
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-
-
-def load_repo_qc():
-    path = ROOT / "skill-harvest" / "scripts" / "repo_qc.py"
-    if not path.is_file():
-        raise unittest.SkipTest(
-            "skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
-        )
-    spec = importlib.util.spec_from_file_location("repo_qc", path)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-class StaleIds(unittest.TestCase):
-    def test_known_retired_id_04_figure_engine(self) -> None:
-        qc = load_repo_qc()
-        canonical = qc.canonical_fine_ids(ROOT)
-        aliases = qc.load_alias_map(ROOT)
-        self.assertNotIn("04-figure-engine", canonical)
-        self.assertNotIn("04-figure-engine", aliases)
-        hits = qc.stale_id_hits(
-            "Load `04-figure-engine` for this figure.\n",
-            canonical,
-            aliases,
-            workflow=False,
-        )
-        self.assertEqual(hits, ["1:04-figure-engine"])
-
-    def test_confirmed_alias_resolves_and_is_not_unknown(self) -> None:
-        qc = load_repo_qc()
-        aliases = qc.load_alias_map(ROOT)
-        canonical = qc.canonical_fine_ids(ROOT)
-        self.assertEqual(aliases["02-tables"], "clean-data")
-        self.assertIn("clean-data", canonical)
-        self.assertEqual(qc.resolve_alias("02-tables", aliases), "clean-data")
-        hits = qc.stale_id_hits(
-            "historical note `02-tables`\n",
-            canonical,
-            aliases,
-            workflow=False,
-        )
-        self.assertEqual(hits, [])
 
 
 class RouteContract(unittest.TestCase):

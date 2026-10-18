@@ -177,22 +177,5 @@ class VisualizationContract(unittest.TestCase):
         with self.assertRaises(module.GateFailure):
             module.validate_ir(arch, wf)
 
-    def test_ci_does_not_fetch_or_publish_pages(self) -> None:
-        # Wave1 QC: .github/workflows/visualization.yml archived 2026-10-17 with .github/ to
-        # D:\\0del\\00_orchestrator_reorg_20261017\\MY-SKILLS_.github\\ — not restored.
-        self.skipTest(".github/workflows/visualization.yml intentionally archived 2026-10-17; CI gone on purpose")
-        text = (ROOT / ".github" / "workflows" / "visualization.yml").read_text(encoding="utf-8")
-        self.assertIn("auto_update is false", text)
-        self.assertIn("Fail closed", text)
-        self.assertIn("--check", text)
-        self.assertIn("archify-v3.0.1.zip", text)
-        self.assertNotIn("actions/deploy-pages", text)
-        self.assertNotIn("actions/upload-pages-artifact", text)
-        self.assertNotIn("npm install", text)
-        lowered = text.lower()
-        self.assertNotIn("curl ", lowered)
-        self.assertNotIn("wget ", lowered)
-
-
 if __name__ == "__main__":
     unittest.main()

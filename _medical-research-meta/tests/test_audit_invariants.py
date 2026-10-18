@@ -402,14 +402,6 @@ class FastRouting(unittest.TestCase):
         # Jinshan PHI pack; capability body is B fill-protocol; journal select not here
         self.assertIn("fill-protocol", ethics)
         self.assertNotIn("05-write-venue", ethics)
-        harvest_path = ROOT / "skill-harvest" / "references" / "route-map.md"
-        if not harvest_path.is_file():
-            self.skipTest("skill-harvest archived under D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\")
-        harvest = harvest_path.read_text(encoding="utf-8")
-        self.assertIn("选刊 → `03_research`", harvest)
-        self.assertNotIn("选刊 → `05-write-venue`", harvest)
-        self.assertIn("calc-sample-size", harvest)
-        self.assertNotIn("04-stats-power", harvest)
         five = read("05_manuscript/SKILL.md")
         self.assertIn("venue-templates", five)
         self.assertNotIn("05-write-venue", five)
@@ -535,20 +527,6 @@ class AttributionAndFetch(unittest.TestCase):
 
 
 class ReviewInteract(unittest.TestCase):
-    def test_review_resolution_protocol(self) -> None:
-        # Wave3: review-resolution.md archived to D:\\0del\\06_review_reorg_20261016\\
-        path = ROOT / "06_review" / "personal" / "review-resolution.md"
-        if not path.is_file():
-            self.skipTest("review-resolution.md archived 2026-10-16 to 0del; resolution cues live in review.md / gates")
-        text = path.read_text(encoding="utf-8")
-        self.assertIn("Review Issue", text)
-        for s in ("resolved", "partially_resolved", "unresolved", "new_issue"):
-            self.assertIn(s, text)
-        self.assertIn("A 06 personal", text)
-        self.assertIn("B06 upgrade", text)
-        gates = read("00_orchestrator/gates.md")
-        self.assertIn("review-resolution.md", gates)
-
     def test_personal_review_eight_sections(self) -> None:
         text = read("06_review/personal/review.md")
         for h in (
@@ -677,103 +655,6 @@ class GateMetadata(unittest.TestCase):
         ):
             self.assertIn(row, gates)
 
-
-class HarvestHygiene(unittest.TestCase):
-    """Archived skill-harvest checks — class skipped while harvest lives under 0del."""
-
-    @classmethod
-    def setUpClass(cls) -> None:
-        cls._harvest = ROOT / "skill-harvest"
-        if not cls._harvest.is_dir():
-            raise unittest.SkipTest(
-                "skill-harvest archived (permanent); see D:\\0del\\00_orchestrator_reorg_20261017\\skill-harvest_MY-SKILLS\\"
-            )
-
-    def test_harvest_orchestrator_slim(self) -> None:
-        text = read("skill-harvest/SKILL.md")
-        # Batch2: SKILL is orchestrator only (SCAN→PROPOSE→APPROVAL→MEASURE); detail in references/
-        for token in ("SCAN", "PROPOSE", "USER APPROVAL", "MEASURE"):
-            self.assertIn(token, text)
-        low = text.lower()
-        for token in ("decide", "modify", "deploy"):
-            self.assertIn(token, low)
-        for ref in (
-            "references/evolution-policy.md",
-            "references/benefit-metrics.md",
-            "references/keep-merge-delete.md",
-            "references/boundary-contract.md",
-            "references/route-map.md",
-        ):
-            self.assertIn(ref, text)
-        n = len(text.splitlines())
-        self.assertGreaterEqual(n, 160)
-        self.assertLessEqual(n, 260)
-        self.assertTrue((ROOT / "skill-harvest" / "references" / "keep-merge-delete.md").is_file())
-
-    def test_keep_vs_skip_no_bundle(self) -> None:
-        text = read("skill-harvest/references/keep-vs-skip.md")
-        self.assertNotIn("00–06 bundle", text)
-        self.assertIn("00–06 skill", text)
-
-    def test_medsci_unmapped_not_duplicated(self) -> None:
-        text = read("01_skill-integration/mounts/medsci.md")
-        # skill-index rewrite: dead-package board is a stub (default deny)
-        self.assertIn("default deny", text.lower())
-        self.assertIn("01_sources_archive_20261017", text)
-
-    def test_project_state_no_yellow(self) -> None:
-        text = read("00_orchestrator/templates/project-state.yaml")
-        self.assertNotIn("blank = yellow highlight", text.lower())
-        self.assertIn("never yellow highlight", text.lower())
-        self.assertIn("Word comment", text)
-
-    def test_externalization_has_fulltext_and_protocol(self) -> None:
-        text = read("EXTERNALIZATION_CANDIDATES.md")
-        self.assertIn("lit-fulltext/", text)
-        self.assertIn("design-protocol/", text)
-
-    def test_version_is_this_chg(self) -> None:
-        text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20261008-002", text)
-        self.assertIn("CHG-202610", text)
-        self.assertIn("INTEGRATION_MAP", text)
-        self.assertIn("_medical-research-meta_history", text)
-
-
-    def test_integration_map_has_this_chg(self) -> None:
-        stub = read("_medical-research-meta/INTEGRATION_MAP.md")
-        self.assertIn(
-            r"D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history",
-            stub,
-        )
-        self.assertIn("INTEGRATION_MAP-20261007.md", stub)
-        self.assertNotIn("]_medical-research-meta/history/", stub)
-        hist = Path(
-            r"D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history"
-            r"\MY-SKILLS_history\INTEGRATION_MAP-20261007.md"
-        )
-        self.assertTrue(hist.is_file(), hist)
-        text = hist.read_text(encoding="utf-8")
-        self.assertIn("CHG-20260913-001", text)
-        self.assertIn("CHG-20261007-010", text)
-
-
-    def test_skills_map_html_gone(self) -> None:
-        self.assertFalse((ROOT / "SKILLS_map.html").exists())
-        readme = read("README.md")
-        self.assertNotIn("SKILLS_map.html", readme)
-        self.assertNotIn("mounts: []", readme)
-
-
-    def test_harvest_qc_lean(self) -> None:
-        self.assertTrue((ROOT / "skill-harvest" / "qc" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "skill-harvest" / "qc" / "rules.md").is_file())
-        self.assertTrue((ROOT / "skill-harvest" / "templates" / "qc-evolution.html").is_file())
-        self.assertTrue((ROOT / "skill-harvest" / "data" / "qc-events" / "README.md").is_file())
-        qc = read("skill-harvest/qc/SKILL.md")
-        self.assertIn("Never auto-modify", qc)
-        self.assertIn("Do **not** create `07_QC`", qc)
-        self.assertIn("OBSERVED", read("skill-harvest/qc/SKILL.md"))
 
 
 if __name__ == "__main__":
