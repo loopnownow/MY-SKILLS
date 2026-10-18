@@ -17,7 +17,7 @@ When the user asks to **use skills or mount packs for a specific task**, before 
 
 1. Show a **complete** flowchart from [`runtime-flow.mmd`](../runtime-flow.mmd) (read [`runtime-flow.md`](../runtime-flow.md)).
 2. Highlight the path this run will take (entry → nodes → gates → QC loop).
-3. Wait for **explicit approval**. Do not load mounts or start 02–06 until they agree.
+3. Wait for **explicit approval**. Do not load mounts or start 02–07 until they agree.
 4. After approval, proceed with 01 session mount pick / G0 as on the map.
 
 ## Plan card (before dispatch)

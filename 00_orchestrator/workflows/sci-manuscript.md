@@ -18,8 +18,8 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 5. **De-AI (`05_manuscript`)** — `05_manuscript/personal/vocab/L1/ban-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`.
 5b. **Citation verify (`03_research`)** — semantic label **G-CIT-1** (draft evidence verification). Required before Gate **G-05** and before the house deliverable is done, including mid-entry. `03_research/personal/citation-verify.md`: claim→ref table + spot-check strong claims against sources. call/require 03 citation-verify — do not self-certify lit. Handoff `05 → 06` if N4 PREVIEW only after this pass. G-CIT-1 does not waive G-CIT-2.
 6. **Pre-review (`06_review`)** — Lee: statement consistency, then data consistency. Ownership: see `00_orchestrator/references/ownership-contract.md`. 03 citation-verify inside this review is semantic label **G-CIT-2** (post-revision / inside 06) and cannot be skipped; G-CIT-1 does not waive G-CIT-2. Literature accuracy is joint with Victor. Inventable items → questions for the user. Gate **G-06**.
-7. **Revise (`05_manuscript`)** after the user answers. Ownership: see `00_orchestrator/references/ownership-contract.md`. If reviewer comments exist → **`06_review` only as entry**, then `05_manuscript` for changed sentences.
-8. **Verify (`06_review`)** — `personal/review-resolution.md` in response / re-audit. Check only issues already listed (`manuscript.reviewer_items` or the step-6 cards). Do not open a new full pre-review.
+7. **Revise (`05_manuscript`)** after the user answers. Ownership: see `00_orchestrator/references/ownership-contract.md`. If reviewer comments exist → **`07_response` for the response letter** (Aitee); **`06_review` for re-review** (Lee); then `05_manuscript` for changed sentences.
+8. **Verify** — re-audit in **`06_review`** (Lee); response-letter resolution in **`07_response`** (`personal/response.md`, Aitee). Check only issues already listed (`manuscript.reviewer_items` or the step-6 cards). Do not open a new full pre-review.
 
 ## Close
 

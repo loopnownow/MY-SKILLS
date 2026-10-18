@@ -149,7 +149,7 @@ exploration_state:
 
 - `resolved` — return to the calling Main Pipeline node (03→04→05→06 as appropriate).
 - `stalled` — L2 cap or oscillation; partial report; human.
-- `handoff` — missing work outside this loop → normal coarse routing (02–06).
+- `handoff` — missing work outside this loop → normal coarse routing (02–07).
 
 ## 8. Interfaces
 

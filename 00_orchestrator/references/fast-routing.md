@@ -13,5 +13,6 @@
 - 样本量 → `04_analysis` (`calc-sample-size`)
 - 统计 / AUC / DeLong / DCA / **出图** → `04_analysis`
 - 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`
-- 预审 / 审稿 / **回复审稿人** → `06_review`
+- 预审 / 审稿 → `06_review`
+- **回复审稿人** → `07_response`
 - 技能迭代 / 整理聊天 / 收益评估 → MY-RULES `skills.md`（skill-evolution / propose-only；非 skill-harvest；已归档）
