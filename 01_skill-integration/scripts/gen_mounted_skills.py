@@ -34,7 +34,7 @@ Never auto-mount a non-base source. `PROPOSED` is not pickable.
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 **Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer / A top-layer task with no mounted dependency does not ask.
 **Pick menu:** status `MOUNTED` only, grouped by the 10 coarse buckets then by `load_priority`. `path_shared` siblings are consecutive rows. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
-Bodies live in-repo under `NN_slug/base/`. Former `{{mounts_cap}}/b/` B cache is obsolete for live mounts.
+Bodies live in-repo under `NN_slug/base/`.
 Say default mount = in-repo base/ -- not empty mount.
 
 Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **{coarse} coarse buckets, {fine} fine ids** ({mounted_count} MOUNTED session-pick + {proposed_count} PROPOSED candidates + {ref_count} reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).

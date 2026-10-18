@@ -3,7 +3,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIRS = (
     "00_orchestrator",
     "01_skill-integration",
@@ -145,11 +145,12 @@ class ModuleHeaderTests(unittest.TestCase):
         reg_text = (d / "registry.yaml").read_text(encoding="utf-8")
         self.assertIn("references/hybrid-mount-pointers.md", reg_text)
         self.assertIn("removed-from-catalog", reg_text)
-        # B source yaml retired 2026-10-17; bodies in-repo under NN_slug/base/.
+        # No separate capability-pack source yaml; bodies in-repo under NN_slug/base/.
         self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
         src_readme = (d / "sources" / "README.md").read_text(encoding="utf-8")
         self.assertIn("in-repo", src_readme)
-        self.assertIn("retired", src_readme.lower())
+        self.assertNotIn("MY-SKILLS-base", src_readme)
+        self.assertNotIn("my-skills-base", src_readme)
 
 
     def test_b_mount_paths_unique(self):
@@ -182,7 +183,7 @@ class ModuleHeaderTests(unittest.TestCase):
                 b_paths.append(cur["path"])
             elif cur.get("source") == "my-skills":
                 a_paths.append(cur["path"])
-        # Domains 02–07 moved in-repo: no remaining my-skills-base primary paths.
+        # Domains 02–07 in-repo: no my-skills-base primary paths.
         self.assertEqual(b_paths, [], msg=str(b_paths))
         self.assertEqual(len(a_paths), len(set(a_paths)), msg=str(a_paths))
         self.assertGreaterEqual(len(a_paths), 20)

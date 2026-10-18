@@ -4,9 +4,9 @@ Three pillars. Load only what the task needs.
 
 ## A/B flow (2026-10-17)
 
-1. **B first-pass** lit/design fine-IDs (`lit-search`, `design-study`, ...)
+1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
 2. **00 QC**
-3. **A03 re-loop** -- personal protocols; may **trigger** `verify-refs` + `retraction-watcher` (executed in B) when check (c) says needed
+3. **A03 re-loop** -- personal protocols; may **trigger** `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`) when check (c) says needed
 
 ## Evidence & literature
 

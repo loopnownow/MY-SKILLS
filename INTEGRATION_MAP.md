@@ -2,7 +2,7 @@
 
 Monthly full log is archived. Current roll starts empty after 2026-10-07.
 
-- **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `_medical-research-meta/history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
+- **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** [`INTEGRATION_MAP.archive.md`](INTEGRATION_MAP.archive.md)
 
 Append new CHG / decision rows **here** until the next monthly roll, then archive this file into `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\` (or a successor dated folder) as `INTEGRATION_MAP-YYYYMMDD.md` and replace with a fresh stub. Do not recreate an in-repo `history/` folder for the monthly roll.
@@ -11,10 +11,10 @@ Harvest must not invent a second evolution log file.
 
 ## CHG-20261017-001 — meta tidy: 06/07 seats + history path
 
-- `_medical-research-meta/README.md`: add `07_response` row; reviewer response → 07 (Aitee); 06 = review only (Lee).
-- `_medical-research-meta/ARCHITECTURE.md` intent tables: same 06/07 seat alignment; root `ARCHITECTURE.md` stays one-line pointer.
+- `README.md`: add `07_response` row; reviewer response → 07 (Aitee); 06 = review only (Lee).
+- `ARCHITECTURE.md` intent tables: same 06/07 seat alignment; root `ARCHITECTURE.md` stays one-line pointer.
 - History archive clarified at `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\` (broken relative `history/` links removed).
-- Drop `__pycache__` under `_medical-research-meta`; `.gitignore` already covers it.
+- Drop `__pycache__` under repo-root `tests/` (formerly a meta package folder); `.gitignore` already covers it.
 - Tests: expectation strings for 06→07 (response path, response-enters-07 phrase, allow top-level `07_response`).
 - `VERSION.txt` trimmed to recent Oct-2026 blocks; older → this map / archive / 0del history.
 

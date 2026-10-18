@@ -9,7 +9,7 @@ owner: "06-review/simulate-reviewers/MODULE.md"
 # simulate-reviewers
 
 Multi-reviewer blind isolation for practice / meta-review.
-Absorbed into B from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
+Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
 Sibling of `peer-review` / `review-peer`; isolation principles also in `06-review/review-peer/external-principles.md`.
 
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
@@ -38,12 +38,12 @@ response. If the user wants rebuttal writing, route to `nature-response`.
 - Identify technical failings that must be addressed before the authors' case is established.
 - Give every substantive concern a stable ID, a faithful `claim_pointer`, and a verifiable `evidence_pointer`; mark missing locations instead of inventing them.
 - Separate user-visible concerns into `Major Concerns` and `Minor Comments`. Mark a Major Concern
-  `Blocking Yes` only when the current manuscript cannot establish its central case until that
-  concern is resolved; Minor Comments are never blocking.
+ `Blocking Yes` only when the current manuscript cannot establish its central case until that
+ concern is resolved; Minor Comments are never blocking.
 - Do not impose a concern quota. If no grounded concern exists at a level, state that explicitly
-  instead of inventing one.
+ instead of inventing one.
 - Keep the critique intellectually sharp but professionally phrased; severity comes from impact
-  on the manuscript's case, not from hostile wording.
+ on the manuscript's case, not from hostile wording.
 - Avoid em dashes, en dashes, and colons as routine prose punctuation throughout reviewer reports and synthesis. Prefer a new sentence, comma, semicolon, parentheses, or a short heading followed by a new line. Retain ordinary hyphens in standard compound terms and stable IDs such as `R1-M1`. Preserve punctuation in source-faithful titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax when changing it would be inaccurate.
 - Distinguish clearly between what is supported, what is weak, and what is not assessable from the provided material.
 - When the manuscript has a clear technical domain, use claim-dependent domain gates as supporting checks, but keep the output inside the same 3-reviewer `nature-reviewer` structure.
@@ -152,7 +152,7 @@ Risk / unsupported claims
 - Do not omit technical failings when the provided evidence does not establish the authors' case.
 - Do not create Major or Minor concerns merely to fill a quota or make reviewer reports look balanced.
 - Do not downgrade a core evidence, validity, ethics, or integrity problem to Minor because it is
-  easy to describe, and do not upgrade a local presentation issue merely to sound severe.
+ easy to describe, and do not upgrade a local presentation issue merely to sound severe.
 - Do not label a numerical anomaly a confirmed error without arithmetic proof or source data.
 - Do not hide confirmed internal contradictions merely because no reviewer identified them.
 - Do not present an audit finding as reviewer consensus unless at least two frozen reports independently raised the same underlying concern.

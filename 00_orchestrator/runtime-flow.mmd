@@ -8,9 +8,9 @@
 %% Ownership: see 00_orchestrator/references/ownership-contract.md
 %% Seats: 02+04 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=伦理填表+投稿(非00主环)
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
-%% A/B layering (2026-10-17): B fine-ID first-pass loops -> 00 QC gate -> A top-layer re-loops.
-%% Capability bodies stay in B (MY-SKILLS-base). A keeps personal route/handoff/authority only.
-%% A03 post-QC may trigger verify-refs + retraction-watcher (bodies in B).
+%% Layering: base fine-ID first-pass loops -> 00 QC gate -> personal/top re-loops.
+%% Capability bodies live under NN_slug/base/. Personal layers keep route/handoff/authority only.
+%% A03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
 %% A05 post-QC: polish-language -> humanize alongside Aitor-format/voice.
 %% A06 post-QC: re-review only. A07 owns response (final authority).
 %% 02/03 exits are artifact or evidence checks, not a fact-lineage node.
@@ -58,11 +58,11 @@ flowchart TD
     GA0 -->|FAIL| Locate
     Personal --> Single
 
-    %% Main production pattern: B fine-ID first-pass -> 00 QC -> A top-layer re-loop
-    Ready --> LayerB[B · fine-ID first-pass loops]
-    LayerB --> LayerQC{{00 QC gate}}
-    LayerQC -->|PASS| LayerA[A · top-layer re-loops<br/>A03/A05/A06/A07 as needed]
-    LayerA --> Dispatch{目标节点}
+    %% Main production pattern: base fine-ID first-pass -> 00 QC -> personal/top re-loop
+    Ready --> LayerBasease[base · fine-ID first-pass loops]
+    LayerBasease --> LayerQC{{00 QC gate}}
+    LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>A03/A05/A06/A07 as needed]
+    LayerTop --> Dispatch{目标节点}
     LayerQC -->|FAIL| Locate
     Dispatch -->|02| P02[02 数据处理 · Loopnow]
     Dispatch -->|03| P03[03 医学研究 · Victor]

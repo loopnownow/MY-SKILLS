@@ -15,4 +15,4 @@
 
 ## A/B note
 
-Capability bodies for 04 mounts live in A `04_analysis/base/` (merged 2026-10-17; was B; B repo retained). A04 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.
+Capability bodies for 04 mounts live in A `04_analysis/base/` (merged 2026-10-17; was B; ). A04 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.

@@ -1,13 +1,13 @@
 ---
 name: medical-research-design-and-evidence
 description: >
-  Personal research top layer: study design, literature, evidence, frontier,
-  journal/topic selection, grants, translational/reader-study design.
-  Triggers: literature, journal select, grants, ethics, study design, translation,
-  reader study, lit-search, find-journal, fill-protocol.
-  Literature enters here only -- never via 01.
-  Personal layer is the A03 top authority (route/handoff/triggers), not a supplement-only folder.
-  Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 04.
+ Personal research top layer: study design, literature, evidence, frontier,
+ journal/topic selection, grants, translational/reader-study design.
+ Triggers: literature, journal select, grants, ethics, study design, translation,
+ reader study, lit-search, find-journal, fill-protocol.
+ Literature enters here only -- never via 01.
+ Personal layer is the A03 top authority (route/handoff/triggers), not a supplement-only folder.
+ Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 04.
 ---
 
 # Research Design & Evidence -- personal top layer
@@ -17,7 +17,7 @@ description: >
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **A03 is the personal top layer** (like A05/A06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
-Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17; was B; B repo retained).
+Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17; was B; ).
 
 ## Layer model (2026-10-17)
 
@@ -28,7 +28,7 @@ Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (m
 
 | Layer | Owns |
 |---|---|
-| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` (was B; B repo retained) |
+| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` (was B; ) |
 | 00 | QC gate; decides whether A03 re-triggers verify/retraction |
 | A03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in A `base/`) |
 
@@ -66,7 +66,7 @@ See `personal/route.md` for the full pointer table.
 Do not rewrite mounted B literature/systematic-review capability bodies inside these files.
 Where an A personal file only duplicates a long B procedure, prefer a short pointer to B (no bulk-move this round).
 
-## Mounted capability ids (bodies in B)
+## Mounted capability ids (bodies under `NN_slug/base/`)
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 

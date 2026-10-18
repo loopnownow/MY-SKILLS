@@ -12,14 +12,14 @@ Path aliases: `00_orchestrator/references/lab-paths.yaml`.
 ```
 00_orchestrator/
 01_skill-integration/
-# mounts-cap lab pack-cache (former B cache obsolete): {mounts_cap} = D:/0Grok/0doc/04-lab-reference/mounts-cap
+# mounts-cap lab pack-cache (non-base leftovers only): {mounts_cap} = D:/0Grok/0doc/04-lab-reference/mounts-cap
 02_data-processing/
 03_research/
 04_analysis/
 05_manuscript/
 06_review/
-_medical-research-meta/  Architecture, integration map, tests
-ARCHITECTURE.md          stub -> _medical-research-meta/ARCHITECTURE.md
+  Architecture, integration map, tests
+ARCHITECTURE.md          stub -> ARCHITECTURE.md
 MOUNTED_SKILLS.md          stub → 01 registry
 ```
 
@@ -43,10 +43,10 @@ Path depth: under `00`–`06`, at most **five** path parts from repo root (pytes
 
 ## Generated visualization
 
-Generated Archify/HTML viz lives under lab `D:/0Grok/0doc/04-lab-reference/my-skills-viz` (not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). `_medical-research-meta` holds tests + architecture notes (`history/` and former `.github/` archived under `D:/0del`).
+Generated Archify/HTML viz lives under lab `D:/0Grok/0doc/04-lab-reference/my-skills-viz` (not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). `repo-root docs/tests` holds tests + architecture notes (`history/` and former `.github/` archived under `D:/0del`).
 ## Maintenance
 
-GitHub MY-SKILLS is the A framework + capability-body source of truth. Capability bodies for domains 02-07 live in-repo under A `NN_slug/base/` (`source: my-skills`). Remote `MY-SKILLS-base` is retired. `{mounts_cap}/` remains a lab pack-cache root (former `b/` obsolete for live mounts), not a source of truth. `registry.yaml` is the routing index. Updates to this framework land here when requested; no local-folder scan.
+GitHub MY-SKILLS is the framework + capability-body source of truth. Capability bodies for domains 02-07 live in-repo under `NN_slug/base/` (`source: my-skills`). `{mounts_cap}/` remains a lab pack-cache root for non-base leftovers, not a source of truth for live bodies. `registry.yaml` is the routing index. Updates to this framework land here when requested; no local-folder scan.
 
 Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
 
@@ -54,7 +54,7 @@ Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
 
 | Term | Meaning |
 |---|---|
-| **Cache** | `{mounts_cap}/<pack>/` lab pack-cache under 0doc (not in this repo; former `b/` obsolete). Not a source of truth |
+| **Cache** | `{mounts_cap}/<pack>/` lab pack-cache under 0doc (not in this repo; non-base leftovers only). Not a source of truth for live bodies |
 | **Registry MOUNTED** | Catalog-approved and session-selectable |
 | **session_picked_fine_ids** | Selected this run |
 | **Active** | Actually loaded this run |

@@ -15,7 +15,7 @@ Light metadata on existing gate ids — **do not invent** `G-HARD` / `G-QUALITY`
 
 | Id | class | When | Pass | Fail → node (max 3 recoveries) |
 |---|---|---|---|---|
-| G0 | HARD | every independent run that loads a mount | mount decision done; loaded ids match `project-state.yaml` `mounts.session_picked_fine_ids` (and `handoff.yaml` `mounted_fine_ids`) — check the field, don't rely on memory; reuse the session lock when it already covers this task; empty mount → notify then re-search, never silent fallback; **if any non-B fine id is loaded, 01 must have provided verified provenance/cache state** (`cache_status` fresh or explicitly accepted stale) — else fail to 01 (00 does not query GitHub). For each selected fine id, G0 should be able to record `mount_provenance` with `fine_id`, `source`, `resolved_commit`, `path`, `content_hash`, `checked_at` (see `templates/project-state.yaml`). Do not invent hashes | 01 (re-ask pick / refresh lifecycle) |
+| G0 | HARD | every independent run that loads a mount | mount decision done; loaded ids match `project-state.yaml` `mounts.session_picked_fine_ids` (and `handoff.yaml` `mounted_fine_ids`) — check the field, don't rely on memory; reuse the session lock when it already covers this task; empty mount → notify then re-search, never silent fallback; **if any non-base fine id is loaded, 01 must have provided verified provenance/cache state** (`cache_status` fresh or explicitly accepted stale) — else fail to 01 (00 does not query GitHub). For each selected fine id, G0 should be able to record `mount_provenance` with `fine_id`, `source`, `resolved_commit`, `path`, `content_hash`, `checked_at` (see `templates/project-state.yaml`). Do not invent hashes | 01 (re-ask pick / refresh lifecycle) |
 | G-PHI | HARD | before 02 tables or clinical extraction | PHI status known; no HIS host/password in git or skill files; extraction uses env `HIS_USERNAME` / `HIS_PASSWORD` on the hospital machine only | stop; user |
 | G-04 | QUALITY | after each `*-results.html` | HTML exists, non-empty; n and AUC taken from HTML; split is training vs test (never Development set); `VAL_MODE` and columns only from `settings.ini`; DeLong is a paired comparison, not a CI | 04 Loopnow |
 | G-FACT | HARD | after 04 HTML and again after 05 house.docx (and before 06 if numbers cited) | same fact chain across 02→04→05→06: N / train·test split / population / outcome / model name / primary endpoint / cut-off / AUC·CI·P match the responsible upstream artifact (usually `*-results.html` or 02 handoff). Also record, when the study uses them: event count, missing count, exclusion count, analysis population, primary/secondary endpoint, time origin, reference category, OR/HR direction, units, threshold, 95% CI method, model formula. Source must be FILE / UPSTREAM / USER — never LLM guess. Do not auto-pick numbers. One FAIL = one responsible node | 04 Loopnow (stats) or 05 Aitee (prose drift); do not invent the number |
@@ -89,15 +89,15 @@ Writing-seat scorecard + pre-submit checks: `05_manuscript/qc/manuscript-local-q
 
 ## A/B top-layer QC checks (2026-10-17)
 
-After B fine-ID first-pass and before / during A top-layer re-loops, 00 verifies:
+After base fine-ID first-pass and before / during personal/top re-loops, 00 verifies:
 
 | Check | What | Fail -> |
 |---|---|---|
-| **(a) Isolated dual-review artifacts** | When `simulate-reviewers` / dual engines (`self-review` || `peer-review`) ran: finding sets are **isolated**; artifacts labeled by source prefix before A06 merges | B engines re-run; A06 does not invent isolation |
-| **(b) Vocab loaded on first write** | First-pass `write-paper` / `check-reporting` loaded B `05-manuscript/vocab/` before drafting. A `05_manuscript/personal/vocab/` is a pointer only | bounce to B write path |
-| **(c) A03 verify-refs / retraction re-run needed?** | Post-QC: if refs changed or G-LIT/G-CIT failed -> A03 triggers `verify-refs` + `retraction-watcher` (bodies in B); else skip | 03 / B verify-refs |
-| **(d) A05 polish / humanize** | Post-QC: `polish-language` -> `humanize` alongside Aitor-format/voice. Bodies remain B; A05 owns order | 05 Aitee |
-| **(e) A07 response** | Response enters **07** (not 06). A07 final authority; revise/tighten-response/response-tone-polisher stay source=B | 07 |
+| **(a) Isolated dual-review artifacts** | When `simulate-reviewers` / dual engines (`self-review` || `peer-review`) ran: finding sets are **isolated**; artifacts labeled by source prefix before A06 merges | base engines re-run; A06 does not invent isolation |
+| **(b) Vocab loaded on first write** | First-pass `write-paper` / `check-reporting` loaded `05_manuscript/base/vocab/` before drafting. `05_manuscript/personal/vocab/` is a pointer only | bounce to base write path |
+| **(c) A03 verify-refs / retraction re-run needed?** | Post-QC: if refs changed or G-LIT/G-CIT failed -> A03 triggers `verify-refs` + `retraction-watcher` (bodies under `03_research/base/`); else skip | 03 / base verify-refs |
+| **(d) A05 polish / humanize** | Post-QC: `polish-language` -> `humanize` alongside Aitor-format/voice. Bodies under `05_manuscript/base/`; A05 owns order | 05 Aitee |
+| **(e) A07 response** | Response enters **07** (not 06). A07 final authority; revise/tighten-response/response-tone-polisher stay `source: my-skills` under `07_response/base/` | 07 |
 
 These are checks on the existing gate set, not new gate ids.
 

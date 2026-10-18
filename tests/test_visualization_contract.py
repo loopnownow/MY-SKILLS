@@ -10,7 +10,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "04_analysis" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
 VIZ_OUT = Path(r"D:/0Grok/0doc/04-lab-reference/my-skills-viz")
 FORBIDDEN_FACT_SOURCES = (

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""lab-paths aliases resolve; LICENSE/NOTICE present; mount/B probes are documented."""
+"""lab-paths aliases resolve; LICENSE/NOTICE present; mount probes are documented."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 LAB_PATHS = ROOT / "00_orchestrator" / "references" / "lab-paths.yaml"
 
 
@@ -25,8 +25,7 @@ class LabPaths(unittest.TestCase):
             "skills_runtime",
             "jcr2026_xlsx",
             "find_journal_submission",
-            "b_capabilities_repo_retired",
-            "mounts_cap_cache",
+                        "mounts_cap_cache",
         ):
             self.assertIn(key, aliases)
             self.assertTrue(str(aliases[key]).strip())

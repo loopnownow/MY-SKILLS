@@ -24,8 +24,8 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
-B_ROOT = ROOT / "05_manuscript" / "base"
+ROOT = Path(__file__).resolve().parents[1]
+BASE_VOCAB = ROOT / "05_manuscript" / "base"
 
 REQUIRED_IDS = (
     "stat_vs_threshold",
@@ -178,7 +178,7 @@ class PreSubmitWiring(unittest.TestCase):
             self.assertIn(token, cites, token)
         self.assertIn("Methods: **no citations**", cites)
 
-        banned = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        banned = (BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         for token in (
             "TRAIN_RATIO",
             "as stated by the source",
@@ -210,7 +210,7 @@ class PreSubmitWiring(unittest.TestCase):
         structures = read("05_manuscript/qc/manuscript-local-qc.md")
         self.assertIn("paragraph_lock", structures)
         # Wave2: de-ai.md archived; TRAIN_RATIO / approach stay in ban-phrases
-        deai = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        deai = (BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         self.assertIn("TRAIN_RATIO", deai)
         self.assertIn("approach", deai)
 
@@ -275,12 +275,12 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
         # "ARCHITECTURE.md",  # root stub only; ownership lives in meta copy
-        "_medical-research-meta/ARCHITECTURE.md",
+        "ARCHITECTURE.md",
         "01_skill-integration/registry.yaml",
     )
     SCAN_SKIP = {
         CONTRACT,
-        "_medical-research-meta/tests/test_pre_submit_checks.py",
+        "tests/test_pre_submit_checks.py",
     }
 
     def test_contract_holds_full_sentences(self) -> None:

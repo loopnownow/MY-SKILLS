@@ -324,7 +324,7 @@ Need data, ethics, or unrun analysis → question the user; optional reference-o
 Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee 默认不改正文. Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
 ### C. Reschedule mount (rare)
-Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-B source.
+Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-base source.
 
 ## Out of scope
 

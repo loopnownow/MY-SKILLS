@@ -43,7 +43,7 @@ read-only visualization compiler. See `00_orchestrator/archify-version.yaml`.
 ### Mounted upstream packs
 
 Bytes under local `mounts-cap/` (not always in git) keep their upstream licenses.
-Registry sources: MedSci, Scientific, Nature, AIPOCH, MY-SKILLS-base.
+Registry sources: MedSci, Scientific, Nature, AIPOCH (non-base = default deny); live default = in-repo my-skills.
 Do not re-license upstream pack text when syncing cache.
 
 ### Journal data

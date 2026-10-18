@@ -9,7 +9,7 @@ owner: "07-response/response-tone-polisher/MODULE.md"
 # response-tone-polisher
 
 Tone-only softener for reviewer responses. Structure / point-by-point remains `revise` / `review-response`.
-Absorbed into B from AIPOCH on 2026-10-17 (MIT).
+Absorbed from AIPOCH on 2026-10-17 (MIT).
 
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
@@ -92,17 +92,17 @@ power analysis (as detailed in the Methods section).
 
 ```json
 {
-  "polished_response": "string",
-  "original_tone_score": "float (0-1, higher = more defensive)",
-  "improvements": [
-    {
-      "original_phrase": "string",
-      "polished_phrase": "string",
-      "issue_type": "string"
-    }
-  ],
-  "suggestions": ["string"],
-  "politeness_score": "float (0-1)"
+ "polished_response": "string",
+ "original_tone_score": "float (0-1, higher = more defensive)",
+ "improvements": [
+ {
+ "original_phrase": "string",
+ "polished_phrase": "string",
+ "issue_type": "string"
+ }
+ ],
+ "suggestions": ["string"],
+ "politeness_score": "float (0-1)"
 }
 ```
 
@@ -167,15 +167,15 @@ python scripts/main.py --interactive
 
 # File-based
 python scripts/main.py \
-  --reviewer-comment "comment.txt" \
-  --draft-response "draft.txt" \
-  --output "polished.txt"
+ --reviewer-comment "comment.txt" \
+ --draft-response "draft.txt" \
+ --output "polished.txt"
 
 # Direct input
 python scripts/main.py \
-  --reviewer "The data is insufficient." \
-  --draft "You are wrong. We have enough data." \
-  --polish-level heavy
+ --reviewer "The data is insufficient." \
+ --draft "You are wrong. We have enough data." \
+ --polish-level heavy
 ```
 
 ## Python API
@@ -185,10 +185,10 @@ from scripts.main import TonePolisher
 
 polisher = TonePolisher()
 result = polisher.polish(
-    reviewer_comment="The methodology is flawed.",
-    draft_response="No it's not. We did it right.",
-    response_type="decline",
-    polish_level="moderate"
+ reviewer_comment="The methodology is flawed.",
+ draft_response="No it's not. We did it right.",
+ response_type="decline",
+ polish_level="moderate"
 )
 
 print(result["polished_response"])
@@ -233,7 +233,7 @@ After polishing, verify:
 - [ ] No unauthorized file system access (../)
 - [ ] Output does not expose sensitive information
 - [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
+- [ ] Input file paths validated (no../ traversal)
 - [ ] Output directory restricted to workspace
 - [ ] Script execution in sandboxed environment
 - [ ] Error messages sanitized (no stack traces exposed)
@@ -265,8 +265,8 @@ pip install -r requirements.txt
 - **Next Review Date**: 2026-03-06
 - **Known Issues**: None
 - **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+ - Performance optimization
+ - Additional feature support
 
 ## Output Requirements
 

@@ -9,7 +9,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 CAP_ROOT = Path(r"D:\0Grok\0doc\04-lab-reference\mounts-cap")
 CLIN = ROOT / "02_data-processing" / "personal"
 REG = ROOT / "01_skill-integration" / "registry.yaml"
@@ -192,20 +192,18 @@ class RegistryMenu(unittest.TestCase):
 
 
 class ArchitectureSsot(unittest.TestCase):
-    """Root = layer/mount/ceiling SSOT. Meta = intent tables + QC/handoff + ownership.
-    Both must agree on live routing keywords; meta must not re-host full mount tables."""
+    """Single root ARCHITECTURE.md = intent tables + QC/handoff + ownership + live routing keywords."""
 
-    def test_root_and_meta_agree_on_live_rules(self) -> None:
-        # Wave3: root ARCHITECTURE.md is a stub; live rules live in meta only.
-        root = read("ARCHITECTURE.md")
-        meta = read("_medical-research-meta/ARCHITECTURE.md")
-        self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
-        self.assertLess(len(root), 500)
-        text = meta
+    def test_architecture_live_rules(self) -> None:
+        text = read("ARCHITECTURE.md")
         low = text.lower()
+        self.assertGreater(len(text), 500)
         self.assertRegex(text, r"(five parts|≤\s*5|at most five)")
         self.assertIn("default source", low)
-        self.assertRegex(low, r"\bb\b")
+        self.assertIn("my-skills", low)
+        self.assertIn("in-repo", low)
+        self.assertNotIn("my-skills-base", low)
+        self.assertNotIn("MY-SKILLS-base", text)
         self.assertIn("ethics", low)
         self.assertIn("03_research", text)
         self.assertIn("PROPOSED", text)
@@ -224,33 +222,28 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("Default candidate: `Imbad0202", text)
 
-    def test_meta_owns_intent_and_qc_not_mount_tables(self) -> None:
-        meta = read("_medical-research-meta/ARCHITECTURE.md")
-        self.assertIn("../ARCHITECTURE.md", meta)
-        self.assertIn("## Skill selection", meta)
-        self.assertIn("Lab-specific flows", meta)
-        self.assertIn("## Final QC", meta)
-        self.assertIn("Local recovery", meta)
-        self.assertIn("fill-protocol", meta)
-        self.assertIn("personal/extract.md", meta)
-        self.assertIn("Do not duplicate root mount policy", meta)
-        # Full A/B / ceiling / Cache tables stay on root only
-        self.assertNotIn("## A/B no-reflow contract", meta)
-        self.assertNotIn("## Fine-id expansion ceiling", meta)
-        self.assertNotIn("## Cache ≠ Mount ≠ Active", meta)
-        self.assertNotIn("## load_priority", meta)
+    def test_architecture_owns_intent_and_qc(self) -> None:
+        text = read("ARCHITECTURE.md")
+        self.assertIn("## Skill selection", text)
+        self.assertIn("Lab-specific flows", text)
+        self.assertIn("## Final QC", text)
+        self.assertIn("Local recovery", text)
+        self.assertIn("fill-protocol", text)
+        self.assertIn("personal/extract.md", text)
+        # Full mount/ceiling/Cache section headings stay out of this intent file
+        self.assertNotIn("## A/B no-reflow contract", text)
+        self.assertNotIn("## Fine-id expansion ceiling", text)
+        self.assertNotIn("## Cache ≠ Mount ≠ Active", text)
+        self.assertNotIn("## load_priority", text)
 
-    def test_root_keeps_mount_and_lab_homes(self) -> None:
-        # Wave3: mount/ceiling/lab-home prose moved to README; root ARCH is stub.
-        root = read("ARCHITECTURE.md")
-        self.assertIn("_medical-research-meta/ARCHITECTURE.md", root)
+    def test_readme_keeps_lab_homes(self) -> None:
         readme = read("README.md")
         self.assertIn("{script_root}", readme)
         self.assertIn("lab", readme.lower())
         self.assertIn("{doc_root}", readme)
-        meta = read("_medical-research-meta/ARCHITECTURE.md")
-        self.assertIn("find-journal", meta)
-        self.assertIn("fill-protocol", meta)
+        text = read("ARCHITECTURE.md")
+        self.assertIn("find-journal", text)
+        self.assertIn("fill-protocol", text)
 
 
 class RoutingFourTuple(unittest.TestCase):
@@ -270,7 +263,7 @@ class RoutingFourTuple(unittest.TestCase):
             "03-research/fill-protocol" in fp_note or "03_research/base/fill-protocol" in fp_note,
             fp_note,
         )
-        self.assertNotRegex(read("_medical-research-meta/ARCHITECTURE.md"), r"选刊\s*→\s*05")
+        self.assertNotRegex(read("ARCHITECTURE.md"), r"选刊\s*→\s*05")
         self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"选刊\s*→\s*05")
 
 
@@ -326,7 +319,6 @@ class MountedBytesPresent(unittest.TestCase):
     or this fails instead of surviving until the next manual scan."""
 
     SRC_DIR = {
-        "my-skills-base": "b",
         "med-sci-skills": "medsci",
         "nature-skills": "nature",
         "scientific-agent-skills": "scientific",
@@ -391,14 +383,12 @@ class ReadmeSsot(unittest.TestCase):
     fine). ArchitectureSsot only checked the two ARCHITECTURE.md files;
     this closes that blind spot for both README.md files."""
 
-    def test_root_and_meta_readme_match_v4(self) -> None:
-        root = read("README.md")
-        meta = read("_medical-research-meta/README.md")
-        for label, text in (("root", root), ("meta", meta)):
-            self.assertIn("registry.yaml", text, label)
-            self.assertNotRegex(text, r"52 fine", label)
-            self.assertNotIn("30-id", text, label)
-            self.assertNotIn("30 coarse", text, label)
+    def test_readme_match_v4(self) -> None:
+        text = read("README.md")
+        self.assertIn("registry.yaml", text)
+        self.assertNotRegex(text, r"52 fine")
+        self.assertNotIn("30-id", text)
+        self.assertNotIn("30 coarse", text)
 
 
 class FastRouting(unittest.TestCase):

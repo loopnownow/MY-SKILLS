@@ -8,22 +8,22 @@
 
 
 
-## A/B layering (2026-10-17)
+## Base / personal layering
 
-**Main loop:** B fine-ID **first-pass** capability loops -> **00 QC gate** -> A **top-layer re-loops**.
+**Main loop:** base fine-ID **first-pass** capability loops -> **00 QC gate** -> personal/top **re-loops**.
 
 | Layer | Repo | Owns |
 |---|---|---|
-| **A base/** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
-| **00** | MY-SKILLS `00_orchestrator` | QC gate between B first-pass and A re-loop |
-| **A** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Capability bodies for 02–07 live in A `NN_slug/base/` (B repo retained) |
+| **base** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
+| **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and personal/top re-loop |
+| **personal / top** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Capability bodies for 02–07 live under `NN_slug/base/` |
 
 Post-QC A re-loops (as needed):
 
-- **A03** -- may trigger `verify-refs` + `retraction-watcher` (executed in B)
+- **A03** -- may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`)
 - **A05** -- `polish-language` -> `humanize` alongside Aitor-format/voice; vocab on first write
 - **A06** -- post-QC **re-review only**
-- **A07** -- **final authority for response** (`revise`/`tighten-response`/`response-tone-polisher` source=B)
+- **A07** -- **final authority for response** (`revise`/`tighten-response`/`response-tone-polisher` source my-skills (in-repo base))
 
 Do not change fine IDs for stats-analysis / figures / data-processing / study-design.
 
@@ -38,7 +38,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 | **06** | **Lee** | **review / pre-review / re-review only** |
 | **07** | **Aitee** | **response letter final authority** |
 | 00 | Aitor | QC / gates / chain |
-| (off-loop) | **Bai** | ethics forms (`fill-protocol` in B) + portal submit |
+| (off-loop) | **Bai** | ethics forms (`03_research/base/fill-protocol`) + portal submit |
 
 **Response → 07 / Aitee. Review → 06 / Lee.** Do not route 回复 to 06. Gate ids (`G0`, `G-PHI`, `G-FACT`, `G-LIT`, `G-CODE`, `Gate · 04/05/06/07`) stay stable.
 
@@ -64,11 +64,11 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 | 03 文献研究 | 出口是 G0 + G-LIT + 证据/引文产物。不单列 03 门禁编号，也没有 03 自己的 G-FACT |
 | 04 统计 / 图表 | G0 + G-FACT（04 HTML 之后的事实链）+ G-04。数与图来自 HTML / settings；报告规范清单不归 G-04。N3 WRITE = 停 HTML 或进写作 |
 | 05 论文写作 | G0 + G-FACT（05 house.docx 之后再核）+ G-LIT + G-05（含 style-lint 子检）。Gate · 05 / done 之前必须有 03 citation-verify PASS（语义标签 **G-CIT-1**，草稿证据核实；`03_research/personal/citation-verify.md`）。N4 PREVIEW = 进 06 或停 |
-| 07 回复审稿人 | G0 + response resolution + G-LIT when cites appear; A07 final authority; revise/tighten-response/response-tone-polisher stay source=B |
+| 07 回复审稿人 | G0 + response resolution + G-LIT when cites appear; A07 final authority; revise/tighten-response/response-tone-polisher stay source my-skills (in-repo base) |
 | 06 审稿 / 修回 | G0 + G-LIT + G-05 + G-06；引用了数字时再跑 G-FACT（`gates.md` 已写 before 06 if numbers cited）。06 内 citation-verify 语义标签 **G-CIT-2**（修订后 / 06 内），不可跳过；G-CIT-1 不免除 G-CIT-2。Lee 管陈述一致然后数据一致，文献准确性与 Victor 共同负责。Ownership: see `00_orchestrator/references/ownership-contract.md` |
 | 完整 02→04→05→06 | 各节点出口按上表；G-FACT 只在 04 HTML 之后、05 house.docx 之后，以及 06 引用数字时 |
 
-个人层（写作风格 / 审稿框架）= `05_manuscript/personal`、`06_review/personal`（勿称 B05/B06，以免与 capabilities 的 B 包混淆）。句权与裁决在个人层；外挂只提供能力 / findings。
+个人层（写作风格 / 审稿框架）= `05_manuscript/personal`、`06_review/personal`。句权与裁决在个人层；能力正文在 `NN_slug/base/`。
 
 ## 调度冲突（摘要）
 
@@ -81,4 +81,4 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before 01 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
 
-Personal layers also include `07_response/personal` (response final authority). Flow: B fine-ID first -> 00 QC -> A re-loop.
+Personal layers also include `07_response/personal` (response final authority). Flow: base fine-ID first-pass -> 00 QC -> personal/top re-loop.

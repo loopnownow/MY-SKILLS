@@ -251,7 +251,7 @@ def render(reg: dict) -> str:
     aria-label="Filter skills">
   {''.join(sections)}
 </main>
-<footer>Routing index: 01_skill-integration/registry.yaml. A framework SSOT is this GitHub repo; B bytes stay in the B repo; mounts-cap (D:/0Grok/0doc/04-lab-reference/mounts-cap) is a cache. This page never hand-lists ids.</footer>
+<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/); mounts-cap (D:/0Grok/0doc/04-lab-reference/mounts-cap) is a non-base cache only. This page never hand-lists ids.</footer>
 <script>{JS}</script>
 </body>
 </html>

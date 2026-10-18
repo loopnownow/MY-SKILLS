@@ -1,12 +1,12 @@
 ---
 name: skill-index
 description: >
-  Registry / session-pick / path resolve / legacy aliases / mounts_cap cache
-  boundary. Default unique runtime source is in-repo my-skills (NN_slug/base/). Use for coarse/fine ids, registry lookup, session pick,
-  and resolving fine-id paths. Infrastructure only. Never literature research,
-  statistics, manuscript writing, or peer review. Not GitHub discovery
-  (archived). Not skill evolution (MY-RULES skills.md). A top layers are not
-  capability mounts — 00 owns base→QC→A flow. Non-base sources default deny.
+ Registry / session-pick / path resolve / legacy aliases / mounts_cap cache
+ boundary. Default unique runtime source is in-repo my-skills (NN_slug/base/). Use for coarse/fine ids, registry lookup, session pick,
+ and resolving fine-id paths. Infrastructure only. Never literature research,
+ statistics, manuscript writing, or peer review. Not GitHub discovery
+ (archived). Not skill evolution (MY-RULES skills.md). A top layers are not
+ capability mounts — 00 owns base→QC→A flow. Non-base sources default deny.
 ---
 
 # Skill Index (01)
@@ -55,7 +55,7 @@ keep a second pointer table.
 | `references/session-pick.md` | Default base; session pick; empty-mount; resolve |
 | `references/hard-rules.md` | Forbidden combinations; ceiling; load_priority |
 | `references/capability-contract.example.yaml` | Capability-contract template |
-| `references/ab-top-vs-b-loops.md` | Pointer to 00 A/B layering |
+| `references/base-vs-personal-top-loops.md` | Pointer to 00 A/B layering |
 
 Discovery archived; rare need → `D:\0del\00_orchestrator_reorg_20261017\01_discovery-eval.md`
 or ask owner. Registry `archived:` ids stay off the pick menu.
@@ -65,7 +65,7 @@ or ask owner. Registry `archived:` ids stay off the pick menu.
 - Coarse ids = welded stage buckets. Count: `registry.yaml` `coarse_id_count`.
 - Fine ids = session-pick mount points. Count: `fine_id_count_canonical`.
 - `fine_id` = capability interface; `path` = physical unit; `path_shared: true`
-  = one path backs several fine ids — do not split that folder.
+ = one path backs several fine ids — do not split that folder.
 - A domains stay `00_orchestrator`–`07_response`. Personal layers stay in A.
 - Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `03_research/base/find-journal/`.
 

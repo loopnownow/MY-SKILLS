@@ -1,10 +1,10 @@
 ---
 name: medical-statistics-analysis-and-visualization
 description: >
-  Personal analysis top layer: statistics, prediction, survival, diagnostic accuracy, figures.
-  Triggers: stats, AUC, DeLong, DCA, KM, calc-sample-size, plot-figures, draw-flowchart.
-  Capability bodies live in A `04_analysis/base/`. Cleaning/imputation -> 02. Captions/prose -> 05.
-  Literature -> 03. Review -> 06. Response -> 07.
+ Personal analysis top layer: statistics, prediction, survival, diagnostic accuracy, figures.
+ Triggers: stats, AUC, DeLong, DCA, KM, calc-sample-size, plot-figures, draw-flowchart.
+ Capability bodies live in A `04_analysis/base/`. Cleaning/imputation -> 02. Captions/prose -> 05.
+ Literature -> 03. Review -> 06. Response -> 07.
 ---
 
 # Analysis & Visualization -- personal top layer
@@ -15,7 +15,7 @@ description: >
 
 Transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 **A04 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC authority for lab numbers/figures.
-Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17; was B; B repo retained). Fine IDs are not renamed.
+Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17; was B; ). Fine IDs are not renamed.
 
 Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
@@ -28,7 +28,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 
 | Layer | Owns |
 |---|---|
-| A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` (was B; B repo retained) |
+| A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` (was B; ) |
 | 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
 | A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); Archify viz under `personal/visualization/` |
 
@@ -50,7 +50,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 
 Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
-## Mounted capability ids (bodies in B; fine IDs unchanged)
+## Mounted capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 

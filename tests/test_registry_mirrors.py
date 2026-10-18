@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 ONE = ROOT / "01_skill-integration"
 
 
@@ -15,11 +15,13 @@ def registry() -> dict:
 
 
 class RegistryMirrors(unittest.TestCase):
-    def test_b_source_yaml_retired(self) -> None:
-        """Remote B source yaml retired; live mounts use in-repo my-skills."""
+    def test_default_source_in_repo_my_skills(self) -> None:
+        """Live mounts use in-repo my-skills; no my-skills-base source id."""
         reg = registry()
-        live_b = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
-        self.assertEqual(live_b, [])
+        bad = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
+        self.assertEqual(bad, [])
+        arch_bad = [m["id"] for m in (reg.get("archived") or []) if m.get("source") == "my-skills-base"]
+        self.assertEqual(arch_bad, [])
         self.assertFalse((ONE / "sources" / "b-my-skills-base.yaml").exists())
         live_a = [m for m in reg["mounts"] if m.get("source") == "my-skills"]
         self.assertGreaterEqual(len(live_a), 20)

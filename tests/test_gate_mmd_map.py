@@ -8,7 +8,7 @@ import re
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 GATES = ROOT / "00_orchestrator" / "gates.md"
 MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 STATE = ROOT / "00_orchestrator" / "templates" / "project-state.yaml"

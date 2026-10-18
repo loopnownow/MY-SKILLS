@@ -4,7 +4,7 @@
 # Non-base sources = default deny (see references/hybrid-mount-pointers.md). Never auto-mount non-base.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
-# Say 默认挂载 = 本仓 NN_slug/base/ — not 空挂. Former B byte cache {mounts_cap}/b/ is retired (bodies in-repo).
+# Say 默认挂载 = 本仓 NN_slug/base/ — not 空挂. Bodies live in-repo under NN_slug/base/.
 # A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns base→QC→A).
 # Evolution policy: MY-RULES skills.md (skill-evolution).
 # 选刊 stays Victor / 03_research/base/find-journal/ — not moved into 05.
@@ -23,18 +23,16 @@ meta:
     P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
     P1 common mounts (default session menu, about 25–30 MOUNTED ids).
     P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
-        Registry indexes paths; Former {mounts_cap}/b/ B cache retired. Bodies SSOT = in-repo NN_slug/base/ (source my-skills). Former B repo retired 2026-10-17.
+        Registry indexes paths. Bodies SSOT = in-repo NN_slug/base/ (source my-skills).
   pilot_merge_02_20261017: >
     Domain 02 capability bodies piloted in-repo under 02_data-processing/base/.
     Fine ids clean-data, batch-cohort, imaging-io, preprocess-imaging use source my-skills
-    (in-repo) with paths 02_data-processing/base/...; B repo kept; domains 03–07 merged in merge_03_07_base_20261017.
+    (in-repo) with paths 02_data-processing/base/...; domains 03–07 merged in merge_03_07_base_20261017.
   merge_03_07_base_20261017: >
     Domains 03–07 capability bodies merged in-repo under NN_slug/base/.
-    Fine ids formerly on my-skills-base paths 03-research/…07-response/ now use
-    source my-skills (in-repo) with paths NN_slug/base/...; B repo kept.
+    Fine ids for domains 03–07 use source my-skills (in-repo) with paths NN_slug/base/...
   retire_b_repo_20261017: >
-    Remote MY-SKILLS-base retired. default_source = my-skills (in-repo).
-    Bodies SSOT = A NN_slug/base/. Former {mounts_cap}/b/ cache obsolete for live mounts.
+    default_source = my-skills (in-repo). Bodies SSOT = NN_slug/base/.
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -63,8 +61,7 @@ default_source:
   source: in-repo
   role: default-mount
   note: >
-    Capability bodies live under A NN_slug/base/ (domains 02–07).
-    Former remote default loopnownow/MY-SKILLS-base retired 2026-10-17.
+    Capability bodies live under NN_slug/base/ (domains 02–07).
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
@@ -144,7 +141,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT. Post-QC A03-triggered; body stays B. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/verify-refs (source my-skills in-repo); B repo retained."
+    note: "Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/verify-refs (source my-skills in-repo)."
   - id: retraction-watcher
     label: "撤稿检测"
     coarse: lit-retrieval
@@ -153,7 +150,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Personal layers unchanged. Post-QC A03-triggered; body stays B. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/retraction-watcher (source my-skills in-repo); B repo retained."
+    note: "Personal layers unchanged. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/retraction-watcher (source my-skills in-repo)."
   - id: lit-search
     label: "文献检索与公开数据集"
     coarse: lit-retrieval
@@ -162,7 +159,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "2026-09-22. A copies of literature.md, sources.md, and public-datasets.md retired 2026-09-22. Merge 2026-10-17 — body in A 03_research/base/lit-search (source my-skills in-repo); B repo retained."
+    note: "2026-09-22. A copies of literature. Merge 2026-10-17 — body in A 03_research/base/lit-search (source my-skills in-repo)."
   - id: design-study
     label: "研究设计审查"
     coarse: study-design
@@ -171,7 +168,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Study design / feasibility / validation blueprints. Also covers former architecture-zoo, design-ai-benchmarking, frontier-hypothesize, find-cohort-gap, intake-project (B folders kept as reference under design-study) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 03_research/base/design-experiment (source my-skills in-repo); B repo retained."
+    note: "Study design / feasibility / validation blueprints. Merge 2026-10-17 — body in A 03_research/base/design-experiment (source my-skills in-repo)."
   - id: write-protocol
     label: "IRB方案撰写"
     coarse: study-design
@@ -180,7 +177,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 03_research/base/design-protocol (source my-skills in-repo); B repo retained."
+    note: "Merge 2026-10-17 — body in A 03_research/base/design-protocol (source my-skills in-repo)."
   - id: fill-protocol
     label: "IRB方案填表"
     coarse: study-design
@@ -189,7 +186,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P2
-    note: "Canonical body B 03-research/fill-protocol/ (MedSci; pairs with write-protocol). Bai seats this B path (no A stub pack). Jinshan PHI under 03_research/personal/fill-protocol/ (not B). Declined AIPOCH clinic-research-design is NOT a stub for this id. Merge 2026-10-17 — body in A 03_research/base/fill-protocol (source my-skills in-repo); B repo retained."
+    note: "Declined AIPOCH clinic-research-design is NOT a stub for this id. Bai seats `03_research/base/fill-protocol/` (no personal stub pack). Merge 2026-10-17 — body in A 03_research/base/fill-protocol (source my-skills in-repo)."
   - id: write-paper
     label: "IMRAD正文起草"
     coarse: manuscript-body
@@ -198,7 +195,7 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-manuscript (source my-skills in-repo); B repo retained."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-manuscript (source my-skills in-repo)."
   - id: check-reporting
     label: "报告规范核验"
     coarse: manuscript-body
@@ -207,7 +204,7 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-reporting (source my-skills in-repo); B repo retained."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-reporting (source my-skills in-repo)."
   - id: grant-builder
     label: "基金标书-方法论"
     coarse: manuscript-body
@@ -216,7 +213,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 03_research/base/design-grant (source my-skills in-repo); B repo retained."
+    note: "Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 03_research/base/design-grant (source my-skills in-repo)."
   - id: find-journal
     label: "选刊推荐"
     coarse: manuscript-body
@@ -225,7 +222,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Canonical body B 03-research/find-journal/ (rules + list gates + journal-format-compliance). Victor seats this B path (no A stub pack). Personal priors under {find_journal_submission} (not B). Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05 Merge 2026-10-17 — body in A 03_research/base/find-journal (source my-skills in-repo); B repo retained."
+    note: "Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05 Victor seats `03_research/base/find-journal/`. Merge 2026-10-17 — body in A 03_research/base/find-journal (source my-skills in-repo)."
   - id: polish-language
     label: "一致性硬规则lint"
     coarse: language-polish
@@ -234,7 +231,7 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-polish (source my-skills in-repo); B repo retained."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-polish (source my-skills in-repo)."
   - id: humanize
     label: "去AI味"
     coarse: language-polish
@@ -243,7 +240,7 @@ mounts:
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Personal de-AI stays A 05_manuscript/personal (not moved). Merge 2026-10-17 — body in A 05_manuscript/base/humanize (source my-skills in-repo); B repo retained."
+    note: "Personal de-AI stays A 05_manuscript/personal (not moved). Merge 2026-10-17 — body in A 05_manuscript/base/humanize (source my-skills in-repo)."
   - id: clean-data
     label: "三阶段确认式清洗"
     coarse: data-processing
@@ -252,7 +249,7 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: "Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained; domains 03–07 merged 2026-10-17."
+    note: "domains 03–07 merged 2026-10-17 Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: batch-cohort
     label: "批量队列分析生成"
     coarse: data-processing
@@ -262,7 +259,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     path_shared: true
-    note: "Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained; domains 03–07 merged 2026-10-17."
+    note: "domains 03–07 merged 2026-10-17 Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: imaging-io
     label: "CT/MRI DICOM与NIfTI读写"
     coarse: data-processing
@@ -271,7 +268,7 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained."
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: preprocess-imaging
     label: "ROI与读者质控"
     coarse: data-processing
@@ -280,7 +277,7 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained."
+    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: analyze-stats
     label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
@@ -289,7 +286,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Test selection and weighted-survey guidance. Also routes radiomics pipeline audit (former radiomics-ml; B path 02-data-processing/radiomics-habitat/ still reachable) after 2026-10-17 round 2 absorb; pair with preprocess-imaging as needed. Merge 2026-10-17 — body in A 04_analysis/base/stats-guide (source my-skills in-repo); B repo retained."
+    note: "Test selection and weighted-survey guidance. Merge 2026-10-17 — body in A 04_analysis/base/stats-guide (source my-skills in-repo)."
   - id: meta-analysis
     label: "Meta分析抗数据操纵"
     coarse: stats-analysis
@@ -298,7 +295,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Meta-analysis anti-manipulation. Also covers former scout-meta-analysis (MA topic feasibility; B 03-research/lit-review/ kept) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 04_analysis/base/stats-models (source my-skills in-repo); B repo retained."
+    note: "Meta-analysis anti-manipulation. Merge 2026-10-17 — body in A 04_analysis/base/stats-models (source my-skills in-repo)."
   - id: model-evaluation
     label: "模型-任务正确指标选择"
     coarse: stats-analysis
@@ -307,7 +304,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Absorbed model-validation 2026-10-17 round 3; same B path 04-analysis/model-eval/. Merge 2026-10-17 — body in A 04_analysis/base/model-eval (source my-skills in-repo); B repo retained."
+    note: "Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Merge 2026-10-17 — body in A 04_analysis/base/model-eval (source my-skills in-repo)."
   - id: calc-sample-size
     label: "样本量计算"
     coarse: stats-analysis
@@ -316,7 +313,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Sample size owned by 04 / Loopnow (CHG-20260926-004); B path stays stats-power Merge 2026-10-17 — body in A 04_analysis/base/stats-power (source my-skills in-repo); B repo retained."
+    note: "Merge 2026-10-17 — body in A 04_analysis/base/stats-power (source my-skills in-repo)."
   - id: draw-flowchart
     label: "患者流程图"
     coarse: figures
@@ -325,7 +322,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "STROBE / patient-flow only. Statistical plots are fine id plot-figures. Merge 2026-10-17 — body in A 04_analysis/base/fig-flow (source my-skills in-repo); B repo retained."
+    note: "STROBE / patient-flow only. Statistical plots are fine id plot-figures. Merge 2026-10-17 — body in A 04_analysis/base/fig-flow (source my-skills in-repo)."
   - id: plot-figures
     label: "统计图与影像面板"
     coarse: figures
@@ -334,7 +331,7 @@ mounts:
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "2026-09-22. Distinct from draw-flowchart (fig-flow). Also covers former audit-figure-risk + scientific-visualization principles (see external-principles.md) after 2026-10-17 round 2 archive. Merge 2026-10-17 — body in A 04_analysis/base/fig-plot (source my-skills in-repo); B repo retained."
+    note: "Also covers former audit-figure-risk + scientific-visualization principles (see external-principles. 2026-09-22. Distinct from draw-flowchart (fig-flow). Merge 2026-10-17 — body in A 04_analysis/base/fig-plot (source my-skills in-repo)."
   - id: peer-review
     label: "审稿意见生成"
     coarse: manuscript-review
@@ -344,7 +341,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     path_shared: true
-    note: "path_shared with former peer-review-pdf-scan (same 06-review/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/review-peer (source my-skills in-repo); B repo retained."
+    note: "path_shared with former peer-review-pdf-scan (same 06-review/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/review-peer (source my-skills in-repo)."
   - id: self-review
     label: "数值级自审核算"
     coarse: manuscript-review
@@ -353,7 +350,7 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    note: "Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 06_review/base/review-critique (source my-skills in-repo); B repo retained."
+    note: "Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 06_review/base/review-critique (source my-skills in-repo)."
   - id: revise
     label: "修回分诊与数字血统追踪"
     coarse: review-response
@@ -362,7 +359,7 @@ mounts:
     a_domain: 07_response
     status: MOUNTED
     load_priority: P1
-    note: "A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/review-response (source my-skills in-repo); B repo retained."
+    note: "Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/review-response (source my-skills in-repo)."
   - id: response-tone-polisher
     label: "回复语气软化"
     coarse: review-response
@@ -371,7 +368,7 @@ mounts:
     a_domain: 07_response
     status: MOUNTED
     load_priority: P2
-    note: "Absorbed into B on 2026-10-17 (bodies-to-b-keep-ids). Former AIPOCH mount; stub_in_b removed. Tone-only; structure stays `revise`. A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/response-tone-polisher (source my-skills in-repo); B repo retained."
+    note: "Tone-only; structure stays `revise`. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/response-tone-polisher (source my-skills in-repo)."
   - id: simulate-reviewers
     label: "多审稿人隔离原则"
     coarse: manuscript-review
@@ -380,7 +377,7 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    note: "Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in review-peer/external-principles.md. Merge 2026-10-17 — body in A 06_review/base/simulate-reviewers (source my-skills in-repo); B repo retained."
+    note: "Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in review-peer/external-principles. Merge 2026-10-17 — body in A 06_review/base/simulate-reviewers (source my-skills in-repo)."
   - id: tighten-response
     label: "隔离与正文精简原则"
     coarse: review-response
@@ -389,7 +386,7 @@ mounts:
     a_domain: 07_response
     status: MOUNTED
     load_priority: P2
-    note: "Absorbed into B on 2026-10-17 round 3 (bodies-to-b-keep-ids). Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles.md. A07 (`07_response`) final authority; body in B `07-response/`. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/tighten-response (source my-skills in-repo); B repo retained."
+    note: "Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/tighten-response (source my-skills in-repo)."
 
 archived:
   - id: deidentify
@@ -500,70 +497,70 @@ archived:
     source: scientific-agent-skills
   - id: find-cohort-gap
     status: ARCHIVED
-    reason: cohort topic-gap discovery folded into design-study; B folder 03-research/frontier-ideate/ kept; absorb 2026-10-17 round 2
+    reason: cohort topic-gap discovery folded into design-study absorb 2026-10-17 round 2
     revive_condition: cohort-gap scout needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-ideate/
-    source: my-skills-base
+    source: my-skills
   - id: scout-meta-analysis
     status: ARCHIVED
-    reason: MA topic feasibility before MA folded into meta-analysis; B folder 03-research/lit-review/ kept; absorb 2026-10-17 round 2
+    reason: MA topic feasibility before MA folded into meta-analysis absorb 2026-10-17 round 2
     revive_condition: MA feasibility scout needs a separate session pick beyond meta-analysis and owner re-approves
     absorbed_into: meta-analysis
     old_path: 03-research/lit-review/
-    source: my-skills-base
+    source: my-skills
   - id: frontier-hypothesize
     status: ARCHIVED
-    reason: hypothesis formation folded into design-study; B folder 03-research/frontier-hypothesize/ kept; absorb 2026-10-17 round 2
+    reason: hypothesis formation folded into design-study absorb 2026-10-17 round 2
     revive_condition: hypothesis template needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-hypothesize/
-    source: my-skills-base
+    source: my-skills
   - id: intake-project
     status: ARCHIVED
-    reason: project intake classification folded into design-study; B folder 03-research/intake-project/ kept; absorb 2026-10-17 round 2
+    reason: project intake classification folded into design-study absorb 2026-10-17 round 2
     revive_condition: project intake needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/intake-project/
-    source: my-skills-base
+    source: my-skills
   - id: design-ai-benchmarking
     status: ARCHIVED
-    reason: AI expert-eval design folded into design-study; B folder 03-research/design-ai-benchmarking/ kept; absorb 2026-10-17 round 2
+    reason: AI expert-eval design folded into design-study absorb 2026-10-17 round 2
     revive_condition: AI benchmarking design needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/design-ai-benchmarking/
-    source: my-skills-base
+    source: my-skills
   - id: architecture-zoo
     status: ARCHIVED
-    reason: model architecture selection folded into design-study; B folder 03-research/architecture-zoo/ kept as reference; absorb 2026-10-17 round 2
+    reason: model architecture selection folded into design-study absorb 2026-10-17 round 2
     revive_condition: architecture zoo needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/architecture-zoo/
-    source: my-skills-base
+    source: my-skills
   - id: radiomics-ml
     status: ARCHIVED
-    reason: radiomics pipeline audit invoked via analyze-stats / preprocess-imaging; B folder 02-data-processing/radiomics-habitat/ kept; absorb 2026-10-17 round 2
+    reason: radiomics pipeline audit invoked via analyze-stats / preprocess-imaging absorb 2026-10-17 round 2
     revive_condition: radiomics habitat pipeline needs a first-class fine id again and owner re-approves
     absorbed_into: analyze-stats
     old_path: 02-data-processing/radiomics-habitat/
-    source: my-skills-base
+    source: my-skills
   - id: peer-review-pdf-scan
     status: ARCHIVED
-    reason: same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
+    reason: same path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
     revive_condition: PDF inject scan needs a separate session pick beyond peer-review and owner re-approves
     absorbed_into: peer-review
     old_path: 06-review/review-peer/
-    source: my-skills-base
+    source: my-skills
   - id: scientific-visualization
     status: ARCHIVED
-    reason: principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    reason: principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
     revive_condition: full Scientific visualization skill body needed beyond fig-plot principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/scientific-visualization/
     source: scientific-agent-skills
   - id: audit-figure-risk
     status: ARCHIVED
-    reason: Nature P2; principles already in B 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    reason: Nature P2; principles already in 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
     revive_condition: venue-specific Nature figure risk workflow beyond plot-figures + external-principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/nature-figure/
@@ -577,11 +574,11 @@ archived:
     source: nature-skills
   - id: model-validation
     status: ARCHIVED
-    reason: deterministic leakage gates folded into model-evaluation; same B path 04-analysis/model-eval/; absorb 2026-10-17 round 3
+    reason: deterministic leakage gates folded into model-evaluation; same path; absorb 2026-10-17 round 3
     revive_condition: leakage-gate workflow needs a separate session pick beyond model-evaluation and owner re-approves
     absorbed_into: model-evaluation
     old_path: 04-analysis/model-eval/
-    source: my-skills-base
+    source: my-skills
   - id: scientific-critical-thinking
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3

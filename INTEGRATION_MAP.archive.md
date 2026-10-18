@@ -46,7 +46,7 @@ next_action: live full-paper write/polish; confirm Word comments author A and no
 
 ```text
 CHG-20260921-002 | 01+03 | Regen MOUNTED_SKILLS 10+55; README 55 fine; flatten journal-format publisher-notes to find-journal/references/; qualify bare submission-urls.csv refs.
-CHG-20260921-001 | 01 | Fix registry.yaml: move P1 candidates before reference_only:[]; valid YAML; fine menu 55; regenerate MOUNTED_SKILLS; stub_in_b rename; scrub 52/30-id residue.
+CHG-20260921-001 | 01 | Fix registry.yaml: move P1 candidates before reference_only:[]; valid YAML; fine menu 55; regenerate MOUNTED_SKILLS; stub_removed rename; scrub 52/30-id residue.
 CHG-20260920-001 | 00 | Absorb the SlopMonster *mechanism* (pattern-group score + non-zero exit) as G-05 sub-check `style-lint`.
 Absorbed: scoring/exit-code loop, section scoping, fail-closed input guards, paired must-hit/must-stay-clean test discipline.
 Not absorbed: rival-model cleanse (owner: no manuscript text to other models), CI workflow, marketing rules,
@@ -126,4 +126,4 @@ next_action: watch routing accuracy on 润色 vs 审稿 vs 回复审稿人
 
 Replaced live `~\.grok\skills` with `skills-lean-v6.zip`. Pre-v6 tree archived at `D:\0Grok\0RAD\0scripts\skills_live_v1.3.1_20260825.zip`. Runtime XSD zip + extract: `D:\0Grok\0RAD\0scripts\skills-runtime-assets-v3.zip` and `D:\0Grok\0RAD\0scripts\runtime-assets\`.
 
-Active top-level: `00_orchestrator` … `06_review` + `skill-harvest` + `_medical-research-meta`. Review/response lives under `06_review/bundles/manuscript-quality`. Coding/Office under `01_automation`.
+Active top-level: `00_orchestrator` … `06_review` + `skill-harvest` + root `ARCHITECTURE.md` / `INTEGRATION_MAP.md` / `tests/`. Review/response lives under `06_review/bundles/manuscript-quality`. Coding/Office under `01_automation`.

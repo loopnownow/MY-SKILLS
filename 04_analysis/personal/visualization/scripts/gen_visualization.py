@@ -46,7 +46,7 @@ PRESETS = ROOT / "01_skill-integration" / "references" / "presets"
 RUNTIME_MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 RUNTIME_MD = ROOT / "00_orchestrator" / "runtime-flow.md"
 GATES = ROOT / "00_orchestrator" / "gates.md"
-ARCH_MD = ROOT / "_medical-research-meta" / "ARCHITECTURE.md"  # root ARCHITECTURE.md is a stub
+ARCH_MD = ROOT / "ARCHITECTURE.md"
 VERSION = VIZ_DIR / "archify-version.yaml"
 CONTRACT = VIZ_DIR / "visualization-source-contract.yaml"
 

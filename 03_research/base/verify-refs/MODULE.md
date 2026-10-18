@@ -9,7 +9,7 @@ owner: "03-research/verify-refs/MODULE.md"
 # verify-refs
 
 Citation authenticity check + BibTeX format/write.
-Absorbed into B from Scientific `skills/citation-management/` on 2026-10-17 (MIT).
+Absorbed from Scientific `skills/citation-management/` on 2026-10-17 (MIT).
 Also covers former manage-refs after round 2 absorb.
 
 > **Source**: [https://github.com/K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
@@ -77,8 +77,8 @@ Convert identifiers (DOI, PMID, PMCID, arXiv ID, URL) into complete metadata.
 CrossRef is the primary source for DOIs.
 
 ```bash
-python scripts/doi_to_bibtex.py 10.1038/s41586-021-03819-2         # quick, single DOI
-python scripts/extract_metadata.py --pmid 34265844                  # DOI/PMID/PMCID/arXiv/URL
+python scripts/doi_to_bibtex.py 10.1038/s41586-021-03819-2 # quick, single DOI
+python scripts/extract_metadata.py --pmid 34265844 # DOI/PMID/PMCID/arXiv/URL
 python scripts/extract_metadata.py --input identifiers.txt --output citations.bib
 ```
 
@@ -135,7 +135,7 @@ Check completeness, venue conformance, and agreement with the manuscript.
 python scripts/validate_citations.py references.bib --report report.json
 python scripts/validate_citations.py references.bib --venue nature
 python scripts/validate_citations.py references.bib --manuscript paper.tex
-python scripts/validate_citations.py references.bib --check-dois     # slow; hits CrossRef
+python scripts/validate_citations.py references.bib --check-dois # slow; hits CrossRef
 ```
 
 The script exits non-zero on high-severity errors — missing required fields,
@@ -171,35 +171,35 @@ references are illustrative unless recorded as live smoke tests there.
 ## Common Pitfalls to Avoid
 
 1. **Single source bias**: Only using one database
-   - **Solution**: Search at least OpenAlex and PubMed, then merge with
-     `format_bibtex.py --rekey --deduplicate`
+ - **Solution**: Search at least OpenAlex and PubMed, then merge with
+ `format_bibtex.py --rekey --deduplicate`
 
 2. **Accepting metadata blindly**: Not verifying extracted information
-   - **Solution**: Spot-check extracted metadata against original sources
+ - **Solution**: Spot-check extracted metadata against original sources
 
 3. **Ignoring DOI errors**: Broken or incorrect DOIs in bibliography
-   - **Solution**: Run validation before final submission
+ - **Solution**: Run validation before final submission
 
 4. **Inconsistent formatting**: Mixed citation key styles, formatting
-   - **Solution**: Use format_bibtex.py to standardize
+ - **Solution**: Use format_bibtex.py to standardize
 
 5. **Duplicate entries**: Same paper cited multiple times with different keys
-   - **Solution**: Use duplicate detection in validation
+ - **Solution**: Use duplicate detection in validation
 
 6. **Missing required fields**: Incomplete BibTeX entries (volume, pages, DOI missing)
-   - **Solution**: Check the publisher record, distinguish missing from not applicable or not yet assigned, and log unresolved fields without inventing metadata.
+ - **Solution**: Check the publisher record, distinguish missing from not applicable or not yet assigned, and log unresolved fields without inventing metadata.
 
 7. **Outdated preprints**: Citing preprint when published version exists
-   - **Solution**: Check if preprints have been published, update to journal version
+ - **Solution**: Check if preprints have been published, update to journal version
 
 8. **Special character issues**: Broken LaTeX compilation due to characters
-   - **Solution**: Use proper escaping or Unicode in BibTeX
+ - **Solution**: Use proper escaping or Unicode in BibTeX
 
 9. **No validation before submission**: Submitting with citation errors
-   - **Solution**: Always run validation as final check
+ - **Solution**: Always run validation as final check
 
 10. **Manual BibTeX entry**: Typing entries by hand
-    - **Solution**: Always extract from metadata sources using scripts
+ - **Solution**: Always extract from metadata sources using scripts
 
 ## Integration with Other Skills
 
@@ -286,7 +286,7 @@ references are illustrative unless recorded as live smoke tests there.
 ### Required Python Packages
 
 ```bash
-uv pip install requests  # HTTP access to CrossRef, PubMed, OpenAlex, arXiv
+uv pip install requests # HTTP access to CrossRef, PubMed, OpenAlex, arXiv
 ```
 
 BibTeX parsing, rendering, deduplication, and validation are standard library
@@ -296,7 +296,7 @@ BibTeX parsing, rendering, deduplication, and validation are standard library
 ### Optional
 
 ```bash
-uv pip install scholarly  # only for search_google_scholar.py
+uv pip install scholarly # only for search_google_scholar.py
 ```
 
 ### Where credentials are sent
