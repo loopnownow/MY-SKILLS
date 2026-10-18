@@ -12,6 +12,7 @@ SKILL_DIRS = (
     "04_analysis",
     "05_manuscript",
     "06_review",
+    "07_response",
 )
 
 

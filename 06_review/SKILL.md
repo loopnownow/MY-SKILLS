@@ -17,6 +17,7 @@ Find defects, write journal-system peer reviews, and run **post-QC re-review**.
 Never invent rescue experiments, missing AUCs, ethics IDs, or unrun analyses.
 Do not rewrite the manuscript here -- changed sentences go to `05_manuscript`.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
+05 and 06 call/require 03 citation-verify — do not self-certify lit.
 
 **Reviewer response enters through `07_response` only.**
 

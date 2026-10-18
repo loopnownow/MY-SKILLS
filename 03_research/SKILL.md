@@ -1,4 +1,4 @@
-﻿---
+---
 name: medical-research-design-and-evidence
 description: >
   Personal research top layer: study design, literature, evidence, frontier,
@@ -16,6 +16,7 @@ description: >
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **A03 is the personal top layer** (like A05/A06): route, handoff, and post-QC triggers.
+Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Capability **bodies** for lit/design mounts stay in **B**.
 
 ## Layer model (2026-10-17)
@@ -43,7 +44,7 @@ See `personal/route.md` for the full pointer table.
 
 - Introduction evidence pack: on 05 cards -> `personal/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 01 or 05.
-- **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`.
+- **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
 - **Post-QC (A03-triggered, bodies in B):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
 
 ## Personal assets (top layer)

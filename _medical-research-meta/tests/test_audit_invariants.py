@@ -734,25 +734,28 @@ class HarvestHygiene(unittest.TestCase):
 
     def test_version_is_this_chg(self) -> None:
         text = read("_medical-research-meta/VERSION.txt")
-        self.assertIn("CHG-20260913-001", text)
-        self.assertIn("v4", text.lower())
-        self.assertIn("fine", text.lower())
+        self.assertIn("CHG-20261008-002", text)
+        self.assertIn("CHG-202610", text)
+        self.assertIn("INTEGRATION_MAP", text)
+        self.assertIn("_medical-research-meta_history", text)
 
 
     def test_integration_map_has_this_chg(self) -> None:
         stub = read("_medical-research-meta/INTEGRATION_MAP.md")
-        self.assertIn("history/INTEGRATION_MAP-20261007.md", stub)
-        text = read("_medical-research-meta/history/INTEGRATION_MAP-20261007.md")
-        self.assertIn("CHG-20260906-003", text)
-        self.assertIn("CHG-20260906-006", text)
-        self.assertIn("CHG-20260906-007", text)
-        self.assertIn("CHG-20260906-008", text)
-        self.assertIn("CHG-20260906-009", text)
-        self.assertIn("CHG-20260907-001", text)
-        self.assertIn("CHG-20260907-002", text)
-        self.assertIn("CHG-20260906-002", text)
-        self.assertIn("CHG-20260906-001", text)
+        self.assertIn(
+            r"D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history",
+            stub,
+        )
+        self.assertIn("INTEGRATION_MAP-20261007.md", stub)
+        self.assertNotIn("]_medical-research-meta/history/", stub)
+        hist = Path(
+            r"D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history"
+            r"\MY-SKILLS_history\INTEGRATION_MAP-20261007.md"
+        )
+        self.assertTrue(hist.is_file(), hist)
+        text = hist.read_text(encoding="utf-8")
         self.assertIn("CHG-20260913-001", text)
+        self.assertIn("CHG-20261007-010", text)
 
 
     def test_skills_map_html_gone(self) -> None:
