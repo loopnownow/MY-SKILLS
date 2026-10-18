@@ -1,5 +1,7 @@
 # 2023-2026 期刊规律
 
+> **Snapshot note (QC 2026-10-18):** Filename dates a planning window / evidence harvest period. Treat contents as a **dated snapshot** — re-check current evidence, author instructions, and recent issues before relying on specifics.
+
 Venue-family **writing** patterns (what a known family tends to reward). This is not a 选刊 SOP.
 
 选刊 / “where to submit” → A `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`) and B `lit-search`.

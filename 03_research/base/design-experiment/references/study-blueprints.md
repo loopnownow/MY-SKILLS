@@ -1,5 +1,7 @@
 # Study blueprints — design templates with minimum-viable vs stronger versions
 
+> **分工 / Role split (D2, keep both):** This file = **English blueprint templates** (MVP vs stronger per study type). Design contract / feasibility / archetypes → same-folder `study-design.md`. Keep both; **do not merge**. End each blueprint with a plan from `validation-strategy.md`.
+
 Pick the template that matches the clinical question. For each, the **minimum-viable (MVP)**
 version is what is publishable now; the **stronger** version is what reaches a higher tier.
 Every blueprint must end with a validation plan (validation-strategy.md) and a reporting

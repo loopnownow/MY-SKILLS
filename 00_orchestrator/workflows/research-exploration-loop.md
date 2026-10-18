@@ -21,7 +21,7 @@ Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id
 
 Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/04/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
 
-Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live mounts: `lit-search`, `frontier-hypothesize`, `find-cohort-gap`, `verify-refs`, and 04 stats fine ids.
+Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live mounts: `lit-search`, `design-experiment`, `verify-refs`, and 04 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
 
 ```text
 00_orchestrator
@@ -109,9 +109,9 @@ When the missing work is **research content** (question / evidence / design / da
 
 | Gap type | Layer | Live fine ids / paths (examples) | Question answered |
 |---|---|---|---|
-| Evidence Discovery | 03 | `lit-search` (P1); optional `paper-lookup` if session-picked | What literature is still missing? |
+| Evidence Discovery | 03 | `lit-search` (P1) | What literature is still missing? |
 | Evidence Reasoning | 03 | `verify-refs` + Victor evidence cards; consistency via **G-FACT** / **G-LIT** | What do these studies claim (claim→source→population→endpoint→effect→conflict)? |
-| Gap / Hypothesis | 03 | `frontier-hypothesize`, `find-cohort-gap` | What new question is worth asking? |
+| Gap / Hypothesis | 03 | `design-experiment` | What new question is worth asking? |
 | Methodological Feasibility | 04 | existing 04 stats / sample-size / design personal | Can this idea be studied with our methods? |
 
 Writing / review exploration handoffs use 05 / 06 only when the gap is wording or reviewer-facing — not for inventing methods.

@@ -8,6 +8,7 @@ Loop: intent classify → skill chain → QC gate (`../gates.md`).
 | radiomics-study | 图像/ROI/特征 → `04_analysis` 出 HTML | `radiomics-study.md` |
 | sci-manuscript | 已有 HTML → Aitor 稿 → 预审/回信 | `sci-manuscript.md` |
 | research-exploration-loop | 研究还能做什么 / 缺口 / 选题探索（任意阶段接入） | `research-exploration-loop.md` |
+| review-isolation | 评阅隔离 / simulate→self/peer→00→A06 | `review-isolation.md` |
 
 On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unless directory detection already locked it. Do not infer against files.
 

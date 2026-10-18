@@ -1,5 +1,7 @@
 # Validation strategy — the spine of a generalisable imaging study
 
+> **分工 / Role split (D2, keep both):** This file = **English spine** (validation ladder, honest external/prospective definitions). Chinese operational checklist → same-folder `validation.md`. Keep both languages; **do not merge**.
+
 Validation type is what reviewers judge first. Decide it **before** modelling and describe it
 honestly. Discrimination on the training distribution proves almost nothing.
 

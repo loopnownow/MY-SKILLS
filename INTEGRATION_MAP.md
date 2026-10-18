@@ -3,11 +3,25 @@
 Monthly full log is archived. Current roll starts empty after 2026-10-07.
 
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
-- **Older archive:** [`INTEGRATION_MAP.archive.md`](INTEGRATION_MAP.archive.md)
+- **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
 
 Append new CHG / decision rows **here** until the next monthly roll, then archive this file into `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\` (or a successor dated folder) as `INTEGRATION_MAP-YYYYMMDD.md` and replace with a fresh stub. Do not recreate an in-repo `history/` folder for the monthly roll.
 
 Harvest must not invent a second evolution log file.
+
+
+## CHG-20261018-batch3-5 — QC structure + content + regression tests
+
+- A1: `INTEGRATION_MAP.archive.md` moved to `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\`; live stub points at absolute 0del path.
+- Caches (`.pytest_cache` + `__pycache__`) moved to `D:\0del\my-skills-qc-20261018\caches\` (not deleted); pytest uses `-p no:cacheprovider`.
+- `.cursorignore` mounts-cap dead entry removed; keep `.gitignore` defense; `00/SKILL.md` wording synced.
+- F42: `review-isolation` row added to `00_orchestrator/workflows/README.md`.
+- B2: `fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
+- D2: design-experiment bilingual pair headers (validation / study-design).
+- F46: Absent labels → 归档勿建.
+- Dated refs: snapshot notes on ai-radiogenomics-12-24-roadmap + journal-patterns-2023-2026.
+- Batch5: four regression tests under `tests/`.
+- Do **not** sync `.grok/skills`.
 
 ## CHG-20261017-001 — meta tidy: 06/07 seats + history path
 

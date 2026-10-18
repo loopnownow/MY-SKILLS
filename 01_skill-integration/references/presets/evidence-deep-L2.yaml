@@ -24,7 +24,7 @@ overrides:
     source: my-skills
     role: discovery
     required: true
-    note: paper-lookup archived 2026-10-17 round 1; use B lit-search
+    note: paper-lookup archived 2026-10-17 round 1; use lit-search
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]
