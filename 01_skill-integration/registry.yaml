@@ -7,10 +7,11 @@
 # Say 默认挂载 B = 本仓 — not 空挂. Local base bytes: {mounts_cap}/b/ (alias OK) = D:/0Grok/0doc/04-lab-reference/mounts-cap/b.
 # A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns B→QC→A).
 # Evolution policy: MY-RULES skills.md (skill-evolution).
-# 选刊 stays Victor / 03_research/find-journal — not moved into 05.
+# 选刊 stays Victor / B 03-research/find-journal — not moved into 05.
 # fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids.
 # Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
 # registry.yaml is the routing index, not the byte source of truth.
+# path labels / directory names must never be used to infer an id.
 # Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier.
 meta:
   version: "4.0"
@@ -62,7 +63,7 @@ a_domain_override_policy: >
   it (documented exceptions: `find-journal` and `grant-builder` sit under
   coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
   ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research; capability body is B
-  `03-research/fill-protocol/`, A `03_research/fill-protocol/` is Bai seat pointer. `find-journal` A pack is `03_research/find-journal/`
+  `03-research/fill-protocol/`, A `MY-SKILLS-base/03-research/fill-protocol/` is Bai seat pointer. `find-journal` A pack is `MY-SKILLS-base/03-research/find-journal/`
   B path is `03-research/find-journal/` (engine); companion styles in `05-manuscript/write-venue/`. This is intentional, not a
   data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
   default without checking its `note` field first.
@@ -173,7 +174,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P2
-    note: "Canonical body B 03-research/fill-protocol/ (MedSci; pairs with write-protocol). A 03_research/fill-protocol/ is Bai seat pointer only; Jinshan PHI under 03_research/personal/fill-protocol/ (not B). Declined AIPOCH clinic-research-design is NOT a stub for this id — do not point fill-protocol at cross-pack/aipoch/clinic-research-design."
+    note: "Canonical body B 03-research/fill-protocol/ (MedSci; pairs with write-protocol). Bai seats this B path (no A stub pack). Jinshan PHI under 03_research/personal/fill-protocol/ (not B). Declined AIPOCH clinic-research-design is NOT a stub for this id."
   - id: write-paper
     label: "IMRAD正文起草"
     coarse: manuscript-body
@@ -207,7 +208,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Canonical body B 03-research/find-journal/ (rules + list gates + journal-format-compliance). A 03_research/find-journal/ is Victor seat pointer only; personal priors under {find_journal_submission} (not B). Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05"
+    note: "Canonical body B 03-research/find-journal/ (rules + list gates + journal-format-compliance). Victor seats this B path (no A stub pack). Personal priors under {find_journal_submission} (not B). Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05"
   - id: polish-language
     label: "一致性硬规则lint"
     coarse: language-polish

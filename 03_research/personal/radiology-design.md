@@ -131,7 +131,7 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
 - Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
 - Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.
-- Clinical-use scenario, reader study, prospective plan → `03_research/personal/clinical-translation/SKILL.md`.
+- Clinical-use scenario, reader study, prospective plan → `03_research/personal/clinical-translation/README.md`.
 - Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md`（句库）. Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
 - Reviewing **other people's** NSFC/面上 (Voice A) → `../personal/grant-review.md`. Never mix those tics into own text.
 - English journal peer review → `06_review`. Not this module.

@@ -4,7 +4,7 @@
 
 # 个人回复审稿人风格（基于历史信函归纳）
 
-来源：他审 response 全库去重 42 封（Qiang lab、Ying Li/Ju lab 等多个课题组）。只收骨架与
+来源：他审 response 全库去重 42 封（Qiang lab、Aitor/Ju lab 等多个课题组）。只收骨架与
 谢词分布，不 dump 整信、不抄未刊结果。用于让起草的回信读起来像用户自己写的。
 **本文件即回信骨架与声音真源**（旧 `mode-3-response.md` 未单独建档）。开场默认 A；B 几乎不用。分诊与裁决另见 `response.md`。
 
@@ -248,7 +248,7 @@ Mounted review source (this-run pick: B / MedSci / Scientific / AIPOCH / Nature)
   → 00 G-06 / G-LIT
 ```
 
-Mount packs **propose** findings. They do **not** free-collaborate with each other, do not own Ying Li review voice, and do not silently close an issue. A **07** **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
+Mount packs **propose** findings. They do **not** free-collaborate with each other, do not own Aitor review voice, and do not silently close an issue. A **07** **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
 
 Related: English peer-review envelope `06_review/personal/review.md`; response letter voice this file; claim gaps while writing `05_manuscript/personal/process/evidence.md`.
 

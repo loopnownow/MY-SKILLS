@@ -1,4 +1,4 @@
-﻿# Ying Li section polishing rules (appendix)
+﻿# Aitor section polishing rules (appendix)
 
 **Canonical entry:** parent `../SKILL.md` (manuscript personal upper layer).
 Use this file for **section-by-section polish templates** (§1–§9).
@@ -8,9 +8,9 @@ Source: former `ying-li-polisher` skill (merged P1).
 
 ---
 
-# Ying Li Academic Manuscript Polisher
+# Aitor Academic Manuscript Polisher
 
-Polish medical manuscripts to match Dr. Ying Li's established SCI writing style:
+Polish medical manuscripts to match Aitor's established SCI writing style:
 **highly standardized · clinically oriented · quantitatively precise · objectively cautious**.
 
 ---

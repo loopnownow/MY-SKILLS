@@ -6,6 +6,8 @@
 %% 凡论文写作或审稿，done / Gate·05 / Gate·06 之前必须经过 03 citation-verify。
 %% 05 与 06 不得自证文献。Lee 管陈述一致→数据一致；文献准确性与 Victor 共同负责。
 %% Ownership: see 00_orchestrator/references/ownership-contract.md
+%% Seats: 02+04 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=伦理填表+投稿(非00主环)
+%% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
 %% A/B layering (2026-10-17): B fine-ID first-pass loops -> 00 QC gate -> A top-layer re-loops.
 %% Capability bodies stay in B (MY-SKILLS-base). A keeps personal route/handoff/authority only.
 %% A03 post-QC may trigger verify-refs + retraction-watcher (bodies in B).
@@ -27,13 +29,13 @@ flowchart TD
     Conflict -->|是| AskEntry[问从哪一站进]
     AskEntry --> Entry{运行入口}
     Conflict -->|否| Entry
-    Entry -->|完整研究流程| Need02[进入 02]
-    Entry -->|已有数据处理结果| Need04[进入 04]
-    Entry -->|已有统计结果 / 图表 · 中途可进| Need05[进入 05]
-    Entry -->|已有稿件 · 中途可进| Need06[进入 06]
-    Entry -->|审稿意见 / 修回| R06[06 修回主控]
-    Entry -->|回复审稿人 / response letter| Need07[进入 07]
-    Entry -->|独立文献任务| Need03[进入 03]
+    Entry -->|完整研究流程| Need02[进入 02 · Loopnow]
+    Entry -->|已有数据处理结果| Need04[进入 04 · Loopnow]
+    Entry -->|已有统计结果 / 图表 · 中途可进| Need05[进入 05 · Aitee]
+    Entry -->|审稿/预审 → 06 Lee| Need06[进入 06 · Lee 审稿]
+    Entry -->|修回无环 → 06 Lee| R06[06 修回主控]
+    Entry -->|回复/response → 07 Aitee| Need07[进入 07 · Aitee 回复]
+    Entry -->|独立文献任务| Need03[进入 03 · Victor]
     Entry -->|代码深审 / Deep QC| NeedCode[进入 02 code-refactoring]
     Entry -->|其他明确单域| NeedS[进入目标 Skill]
     Entry -->|单节点个人层 · 无挂载依赖| Personal[例：润色一句 · 不问挂载]
@@ -62,12 +64,12 @@ flowchart TD
     LayerQC -->|PASS| LayerA[A · top-layer re-loops<br/>A03/A05/A06/A07 as needed]
     LayerA --> Dispatch{目标节点}
     LayerQC -->|FAIL| Locate
-    Dispatch -->|02| P02[02 数据处理]
-    Dispatch -->|03| P03[03 文献研究]
-    Dispatch -->|04| P04[04 统计 / 图表]
-    Dispatch -->|05| P05[05 论文写作]
-    Dispatch -->|06| P06[06 审稿 / 预审]
-    Dispatch -->|07| P07[07 回复审稿人]
+    Dispatch -->|02| P02[02 数据处理 · Loopnow]
+    Dispatch -->|03| P03[03 医学研究 · Victor]
+    Dispatch -->|04| P04[04 统计/图表 · Loopnow]
+    Dispatch -->|05| P05[05 稿件写作 · Aitee]
+    Dispatch -->|06| P06[06 审稿/预审 · Lee]
+    Dispatch -->|07| P07[07 回复审稿 · Aitee]
     Dispatch -->|代码深审| PCode[02 · code-refactoring]
     Dispatch -->|单域| Single[目标 Skill]
 
@@ -96,7 +98,7 @@ flowchart TD
         GA06 -->|PASS · 需回信| P07
     end
 
-    P07 --> GA07{{Gate · 07 · response}}
+    P07 --> GA07{{Gate · 07 · response / Aitee}}
     GA07 -->|PASS| Out
 
     P03 --> Exit03{{03 出口 · G0 + G-LIT + 证据/引文产物}}

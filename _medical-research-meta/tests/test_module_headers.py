@@ -31,7 +31,9 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
+        # A stub removed 2026-10-17; body lives in B
+        self.assertFalse((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "03_research" / "personal" / "fill-protocol" / "README.md").is_file())
         self.assertTrue((ROOT / "03_research" / "personal" / "clinical-translation").is_dir())
         self.assertTrue((ROOT / "01_skill-integration" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "01_skill-integration" / "registry.yaml").is_file())
@@ -63,7 +65,7 @@ class ModuleHeaderTests(unittest.TestCase):
                 if "__pycache__" in p.parts or ".git" in p.parts:
                     continue
                 rel = p.relative_to(ROOT)
-                # Annual journal datasets: .../find-journal/data/<YYYY>/file
+                # Annual journal datasets lived under A find-journal/data; stub removed — pools in 0doc / B
                 parts = rel.parts
                 data_year_ok = (
                     len(parts) == 5
@@ -193,7 +195,7 @@ class ModuleHeaderTests(unittest.TestCase):
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"
-        self.assertTrue((rs / "MODULE.md").is_file())
+        self.assertTrue((rs / "module-notes.md").is_file())  # MODULE.md → module-notes.md
         self.assertTrue((rs / "methods.md").is_file())  # diagnostic-accuracy merged into methods.md
         self.assertTrue((rs / "pipeline.md").is_file())
         self.assertGreaterEqual(len(list(rs.glob("*.md"))), 8)

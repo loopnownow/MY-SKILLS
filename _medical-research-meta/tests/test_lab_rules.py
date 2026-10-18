@@ -5,6 +5,7 @@ import re
 import unittest
 from pathlib import Path
 
+B_ROOT = Path(r"D:\0Grok\0doc\GitHub\MY-SKILLS-base")
 SKILLS = Path(__file__).resolve().parents[2]
 
 
@@ -20,7 +21,7 @@ class DeAI(unittest.TestCase):
     )
 
     def test_sample_hits_forbidden_table(self) -> None:
-        table = read("05_manuscript", "personal", "vocab", "L1", "ban-phrases.md").lower()
+        table = (B_ROOT / "05-manuscript" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8").lower()
         hits = []
         for word in (
             "delve", "landscape", "pivotal", "robust", "comprehensive",
@@ -32,8 +33,8 @@ class DeAI(unittest.TestCase):
         self.assertGreaterEqual(len(hits), 6)
 
     def test_compared_and_attenuated_wording(self) -> None:
-        banned = read("05_manuscript", "personal", "vocab", "L1", "ban-phrases.md")
-        patterns = read("05_manuscript", "personal", "vocab", "L1", "patterns.md")
+        banned = (B_ROOT / "05-manuscript" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        patterns = (B_ROOT / "05-manuscript" / "vocab" / "L1" / "patterns.md").read_text(encoding="utf-8")
         lang = read("05_manuscript", "personal", "process", "citation-and-language.md")
         for text in (banned, patterns, lang):
             self.assertIn("attenuated", text)
@@ -51,9 +52,7 @@ class DeAI(unittest.TestCase):
         self.assertIn("write-paper", five)
         self.assertNotIn("05-write-manuscript", five)
         self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
-        self.assertTrue(
-            (SKILLS / "05_manuscript" / "personal" / "vocab" / "L1" / "ban-phrases.md").is_file()
-        )
+        self.assertTrue((B_ROOT / "05-manuscript" / "vocab" / "L1" / "ban-phrases.md").is_file())
 
 
 class Aitor(unittest.TestCase):
@@ -130,7 +129,7 @@ class Routing(unittest.TestCase):
 
 class LabSte(unittest.TestCase):
     def test_pointer_and_no_vendor(self) -> None:
-        lab = read("05_manuscript", "personal", "vocab", "L3", "lab-ste.md")
+        lab = (B_ROOT / "05-manuscript" / "vocab" / "L3" / "lab-ste.md").read_text(encoding="utf-8")
         self.assertIn("{doc_lab_ste}", lab)
         self.assertIn("Do not", lab)
         self.assertIn("vendor", lab.lower())
@@ -138,12 +137,9 @@ class LabSte(unittest.TestCase):
         self.assertIn("Compared", lab)
         self.assertIn("attenuated", lab)
         five = read("05_manuscript", "SKILL.md")
-        self.assertIn("personal/vocab/L3/lab-ste.md", five)
-        self.assertFalse((SKILLS / "05_manuscript" / "personal" / "approved-en.tsv").exists())
+        self.assertIn("05-manuscript/vocab/L3/lab-ste.md", five)
+        self.assertTrue((B_ROOT / "05-manuscript" / "vocab" / "L2" / "approved-en.tsv").is_file())
         self.assertFalse((SKILLS / "lab-ste").exists())
-        self.assertTrue(
-            (SKILLS / "05_manuscript" / "personal" / "vocab" / "L2" / "approved-en.tsv").is_file()
-        )
 
 
 if __name__ == "__main__":

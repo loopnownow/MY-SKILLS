@@ -9,9 +9,9 @@
 
 ## Layout (2026-10-16)
 
-- Top of `03_research/`: `SKILL.md`, `personal/`, `fill-protocol/`, `find-journal/`, `workflows/`.
+- Top of `03_research/`: `SKILL.md`, `personal/`, `workflows/` + personal/ (fill-protocol & find-journal live only in B).
 - Former `literature/`, `design/`, `frontier/` single files -> `personal/`.
-- `fill-protocol/` stays at `03_research/fill-protocol/` (Bai / ownership path stability).
+- `fill-protocol/` stays at `MY-SKILLS-base/03-research/fill-protocol/` (Bai / ownership path stability).
 
 ## Dual sync
 

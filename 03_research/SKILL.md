@@ -37,8 +37,8 @@ See `personal/route.md` for the full pointer table.
 | Pillar | Owns |
 |---|---|
 | Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (mounted B) |
-| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> `fill-protocol/` |
-| Journal selection | A `find-journal/` Victor pointer → B `03-research/find-journal/` (list gates in B; runtime pools in 0doc) |
+| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> B `03-research/fill-protocol/` (Bai) |
+| Journal selection | 选刊走 03 `find-journal` — Victor seats B `03-research/find-journal/` (no A stub) (list gates in B; runtime pools in 0doc) |
 
 ## Literature rule
 
@@ -57,8 +57,8 @@ See `personal/route.md` for the full pointer table.
 | Journal-selection SOP | `personal/journal-selection.md` |
 | Grants / ethics / intake / multicenter / radiology | under `personal/` |
 | Clinical translation | `personal/clinical-translation/` |
-| Ethics forms | A `fill-protocol/` Bai pointer → B `03-research/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
-| Find-journal pack | A pointer + B engine `MY-SKILLS-base/03-research/find-journal/` |
+| Ethics forms | Bai seats B `03-research/fill-protocol/` (no A stub); Jinshan PHI in `personal/fill-protocol/` |
+| Find-journal pack | B engine `MY-SKILLS-base/03-research/find-journal/` (no A stub) |
 | Question-to-reference spine | `workflows/question-to-reference.md` |
 
 Do not rewrite mounted B literature/systematic-review capability bodies inside these files.

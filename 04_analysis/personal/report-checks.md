@@ -2,7 +2,7 @@
 
 ## Part A — Statistical reporting checklist
 
-# Statistical Reporting Checklist — Ying Li Style
+# Statistical Reporting Checklist — Aitor Style
 
 Use this checklist when polishing Results and Methods sections.
 

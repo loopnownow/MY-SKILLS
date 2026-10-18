@@ -1,4 +1,4 @@
-﻿# Writing voice portrait (Ying Li / Jinshan)
+﻿# Writing voice portrait (Aitor / Jinshan)
 
 Personal upper layer for **写作**. Corpus: multi-paper Track Changes + comments (SCI medical).  
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.

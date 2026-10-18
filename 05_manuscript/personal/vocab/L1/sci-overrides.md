@@ -4,7 +4,7 @@
 
 ## Academic override (mandatory for SCI manuscripts)
 
-Stop-slop was written for general prose. For Ying Li imaging SCI:
+Stop-slop was written for general prose. For Aitor imaging SCI:
 
 1. **Do not** insert colloquial "you" / room-narrator voice into Methods/Results/Discussion.
 2. **Methods** may stay predominantly **passive** (lab house style) — do not force active voice in Methods.

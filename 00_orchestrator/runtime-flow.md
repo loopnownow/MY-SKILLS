@@ -27,6 +27,22 @@ Post-QC A re-loops (as needed):
 
 Do not change fine IDs for stats-analysis / figures / data-processing / study-design.
 
+
+## Seats on the map (2026-10-17 tidy)
+
+| Coarse | Seat | On-map role |
+|---|---|---|
+| 02 + 04 | Loopnow | data / stats / figures |
+| 03 | Victor | research / lit / 选刊 / citation-verify |
+| 05 | Aitee | manuscript prose + Track Changes |
+| **06** | **Lee** | **review / pre-review / re-review only** |
+| **07** | **Aitee** | **response letter final authority** |
+| 00 | Aitor | QC / gates / chain |
+| (off-loop) | **Bai** | ethics forms (`fill-protocol` in B) + portal submit |
+
+**Response → 07 / Aitee. Review → 06 / Lee.** Do not route 回复 to 06. Gate ids (`G0`, `G-PHI`, `G-FACT`, `G-LIT`, `G-CODE`, `Gate · 04/05/06/07`) stay stable.
+
+
 ## 读图要点
 
 1. **Detect 定入口与终点**——已有 HTML 可停在 05，不必强进 06。已有统计可中途进 05，已有稿件可中途进 06，不必从 02 重跑。结果页和审稿信同时在、且没有点名入口时，先问从哪一站进。多节点 / 新能力 / 要用挂载时先 grilling + Plan card + 流程图审批。`结束` 或本次文件已在且最后一门 PASS → `pipeline.stage: done`。暂停，或停在结果页后 / 预审前，stage 留在当前站。**同一缺陷** `defects[].rounds` 第 3 轮仍失败：`unresolved`，stage 不往前（不是全局 `qc.rounds`）。同一次已批准运行里，后续过站报一行；患者信息、结果页数字、预审入口、审稿门仍停住。**凡写作或审稿（含中途进入）**，Gate · 05 的 done 之前、以及 06 审稿之内，必须经过 03 `citation-verify`（claim→ref 表 + 强断言抽查原文）。05 的核实不免除 06。Aitee 与 Lee 不得自证文献。Lee 仍先陈述一致、再数据一致；文献准确性与 Victor 共同负责。Ownership: see `00_orchestrator/references/ownership-contract.md`.

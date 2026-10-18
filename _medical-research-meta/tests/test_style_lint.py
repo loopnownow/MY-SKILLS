@@ -26,7 +26,7 @@ import yaml
 # =============================================================================
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_PATH = REPO_ROOT / "00_orchestrator" / "scripts" / "style_lint.py"
-BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "personal" / "vocab" / "L1" / "ban-terms.yaml"
+BAN_TERMS_PATH = Path(r"D:\0Grok\0doc\GitHub\MY-SKILLS-base") / "05-manuscript" / "vocab" / "L1" / "ban-terms.yaml"
 
 # Modules the linter is allowed to import. Anything else (socket, urllib, http,
 # requests, subprocess, ...) would break the "manuscript text never leaves the

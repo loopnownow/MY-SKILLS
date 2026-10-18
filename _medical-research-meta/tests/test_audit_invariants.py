@@ -260,8 +260,8 @@ class RoutingFourTuple(unittest.TestCase):
         self.assertEqual(by_id["find-journal"]["a_domain"], "03_research")
         self.assertEqual(by_id["fill-protocol"]["a_domain"], "03_research")
         self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
-        self.assertIn("03_research/find-journal", by_id["find-journal"]["note"])
-        self.assertIn("03_research/fill-protocol", by_id["fill-protocol"]["note"])
+        self.assertIn("03-research/find-journal", by_id["find-journal"]["note"])
+        self.assertIn("03-research/fill-protocol", by_id["fill-protocol"]["note"])
         self.assertNotRegex(read("_medical-research-meta/ARCHITECTURE.md"), r"选刊\s*→\s*05")
         self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"选刊\s*→\s*05")
 
@@ -398,9 +398,9 @@ class FastRouting(unittest.TestCase):
         # A06 top layer: journal select out of scope (points to 03), not a fast-routing table
         self.assertIn("03_research", six)
         self.assertNotIn("05-write-venue", six)
-        ethics = read("03_research/fill-protocol/SKILL.md")
-        # Bai seat pointer; journal select lives in 03 find-journal, not fill-protocol
-        self.assertIn("03_research", ethics)
+        ethics = read("03_research/personal/fill-protocol/README.md")
+        # Jinshan PHI pack; capability body is B fill-protocol; journal select not here
+        self.assertIn("fill-protocol", ethics)
         self.assertNotIn("05-write-venue", ethics)
         harvest_path = ROOT / "skill-harvest" / "references" / "route-map.md"
         if not harvest_path.is_file():
@@ -425,7 +425,7 @@ class FastRouting(unittest.TestCase):
 class DeAiAndFigures(unittest.TestCase):
     def test_sci_manuscript_paths(self) -> None:
         sop = read("00_orchestrator/workflows/sci-manuscript.md")
-        self.assertIn("05_manuscript/personal/vocab/L1/ban-phrases.md", sop)
+        self.assertIn("05-manuscript/vocab/L1/ban-phrases.md", sop)
         self.assertIn("draw-flowchart", sop)
         self.assertIn("plot-figures", sop)
         self.assertNotIn("04-fig-flow", sop)
@@ -486,7 +486,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("G-04", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
-        self.assertIn("05_manuscript/personal/vocab/L1/ban-phrases.md", sci)
+        self.assertIn("05-manuscript/vocab/L1/ban-phrases.md", sci)
         wf = read("00_orchestrator/workflows/README.md")
         self.assertIn("gates.md", wf)
 

@@ -20,7 +20,7 @@ Check ids live in `qc/local-checks.md`. Apply them on every reference pass. call
 12. **Year and volume from the source** (`year_volume_from_source`). A year or volume correction is applied only after the source confirms it. An unverified correction stays a Word comment (author **A**).
 13. **Introduction opening.** When a verified source exists, the opening paragraph cites it. Element 6 (aim / hypothesis) and the Discussion first paragraph stay uncited (`Aitor-format.md`).
 
-## Language (李瀛 + this workflow)
+## Language (Aitor + this workflow)
 
 | Rule | Do | Don't |
 |------|----|-------|
