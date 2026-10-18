@@ -72,3 +72,20 @@ Canonical layout (enforced by `{script_root}\sync\sync_modules.py`, 2026-09-04):
 ## Coding
 
 Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `{script_modules}`.
+
+## A-class project (L:\00used\<project>\)
+
+- Project scripts → project `0script`; project notes → project `0doc`.
+- `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or Downloads).
+- Copy results out of `derivatives` by default; originals stay; `0result` holds copies.
+- Merge final tables that share a key (one description block, value columns prefixed). Moving an original out of `0result` needs approval.
+- Root keeps only: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `0result`, `ref`. Do not store project scripts in `{WORK_B}\0script`.
+- Before moving a script or doc, search `import` / `addpath` / `settings.ini` / README. Any un-updated reference blocks the move. After a move, fix paths and the `0doc` examples, then test.
+- Logs and dead old files → `{DEL}` (approval first; use `D:\0del`). Temp files → Rules §5.
+
+## B-class subproject (D:\0Grok\<subproject>\)
+
+- Reusable scripts → `{WORK_B}\0script`; long-term rules / references → `{WORK_B}\0doc`.
+- Engineering files to keep → subproject `ref`; newest SCI manuscript → subproject root. While a manuscript is being edited, keep it out of `{DEL}` / analysis output / `ref` / `结果`. Analysis exports stay in an analysis-output subfolder.
+- No temp / draft / one-off intermediates at the subproject root (exception: manuscript currently being edited). `stats-analysis\modules` add-move-rename needs approval.
+- No `*.tsv` indexes; register with `.xlsx` and explain with `.md`.

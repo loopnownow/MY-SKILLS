@@ -20,6 +20,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 **Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
 **Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
+**External executor monitoring:** [`references/handoff-monitor.md`](references/handoff-monitor.md).
 
 ## 1. Intent classify
 
@@ -98,7 +99,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → MY-RULES `skills.md` (skill-evolution / propose-only when user asks to evolve skills).
+Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate).
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 

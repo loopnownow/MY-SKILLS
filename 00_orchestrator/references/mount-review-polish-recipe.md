@@ -1,7 +1,7 @@
 # Mount → review / polish recipe (lab)
 
 **Owner:** `00_orchestrator` (session mount pick). Word delivery rules SSOT:  
-`{RULES}\manuscript-docx.md` (archived pointer; standing → `manuscript-and-review.md`).  
+Standing policy: `00_orchestrator/references/ownership-contract.md` + `06_review/personal/review.md` §0.  
 Review voice / prefixes: `06_review/personal/review.md` §0.
 
 ## Trigger patterns (user)
