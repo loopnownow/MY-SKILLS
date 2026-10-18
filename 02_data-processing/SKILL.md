@@ -56,7 +56,7 @@ Do not rewrite mounted data-processing capability bodies (now under `base/`) ins
 - `clean-data` / `batch-cohort` -- clinical Excel/CSV (A `02_data-processing/base/tables/`)
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (A `02_data-processing/base/imaging-io/`)
 - `preprocess-imaging` -- ROI / reader QC (A `02_data-processing/base/imaging-qc/`)
-- Radiomics / habitat **prep** -- still B `02-data-processing/radiomics-habitat/` if present (reachable via `analyze-stats` / `preprocess-imaging` after radiomics-ml absorb; modelling belongs to 04; not in this pilot)
+- Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (radiomics-ml absorb; modelling belongs to 04; no live radiomics-habitat path)
 
 Archived ids stay off the menu (registry `archived:`).
 

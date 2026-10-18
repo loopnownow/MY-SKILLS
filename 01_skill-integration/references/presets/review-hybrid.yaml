@@ -18,28 +18,28 @@ chassis:
 personal:
   - layer: 06_review/personal
     role: adjudication
-    must_include: [review-resolution.md, 06_review/personal/review.md]
+    must_include: [06_review/personal/review.md, 07_response/personal/response.md]
 
 # Per fine-id overrides (v4). Must match registry.yaml source/path/status.
 overrides:
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]
-    paths: [03-research/verify-refs/]
+    paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
     prefix_example: "[B:verify-refs]"
   - id: analyze-stats
     source: my-skills
     skills: [stats-guide]
-    paths: [04-analysis/stats-guide/]
+    paths: [04_analysis/base/stats-guide/]
     role: reported-stats-audit
     required: true
-    prefix_example: "[B:04-analysis/stats-guide]"
+    prefix_example: "[B:04_analysis/base/stats-guide]"
   - id: self-review
     source: my-skills
     skills: [review-critique]
-    paths: [06-review/review-critique/]
+    paths: [06_review/base/review-critique/]
     role: logic-mechanism-overlay
     required: false
     status_note: covers former scientific-critical-thinking (archived round 3)

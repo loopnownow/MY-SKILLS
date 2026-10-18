@@ -42,7 +42,6 @@ def _resolve_ban_terms() -> Path:
     a_root = Path(__file__).resolve().parents[2]
     candidates = [
         a_root / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml",
-        Path(r"D:/0Grok/0doc/04-lab-reference/mounts-cap/b/05-manuscript/vocab/L1/ban-terms.yaml"),
         a_root / "05_manuscript" / "personal" / "vocab" / "L1" / "ban-terms.yaml",
     ]
     for cand in candidates:

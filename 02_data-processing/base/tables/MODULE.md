@@ -27,7 +27,7 @@ not here.
 | Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
-| Patient-level leakage check on the table | Radiomics extraction (`02-radiomics-habitat`) |
+| Patient-level leakage check on the table | Radiomics extraction (`analyze-stats`) |
 | | Financial-model color scale as a lab default → [`xlsx-office/`](xlsx-office/) |
 | | OOXML pack/unpack / LibreOffice recalc → [`xlsx-office/`](xlsx-office/) |
 | | Reporting checklists CLAIM/TRIPOD/CLEAR → `05-write-reporting` |
@@ -88,7 +88,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 ## What not to do
 
 - **No LASSO / paper model fitting** here — that is `04-stats-models` / `04-model-eval` /
-  `02-radiomics-habitat` (preparation only).
+  `analyze-stats` (preparation only).
 - **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
   table files.
 - **No financial-model color convention as the lab default** (blue RGB 0,0,255 inputs, yellow
@@ -116,6 +116,6 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - Missing/outlier implementation → `02-tables` `impute/`
 - Spreadsheet XML packing / recalc / financial xlsx → `02-tables` `xlsx-office/`
 - Imaging I/O + availability statements → `02-imaging-io` (including `data.md`)
-- Radiomics / leakage audit on feature matrices → `02-radiomics-habitat`
+- Radiomics / leakage audit on feature matrices → `analyze-stats`
 - Modelling / calibration / DCA → `04-stats-models` / `04-model-eval`
 - Reporting checklists → `05-write-reporting`

@@ -40,7 +40,7 @@ bilingual reader. Full-text retrieve is `03-lit-fulltext`. I/O is `02-imaging-io
 3. **Reader protocol** (`reader-protocol.md`) — ≥2 blinded readers on a reproducibility subset; define the analysis mask provenance.
 4. **Reproducibility** (`reproducibility-qc.md`) — ICC/Dice/HD on that subset, **training only**; drop unstable features before selection.
 5. **Lesion rule** (`lesion-selection.md`) — pre-specify index lesion / aggregation; do not change it after seeing AUC.
-6. **Hand off** feature extraction / habitat clustering → `02-radiomics-habitat`. Do not fit models here.
+6. **Hand off** feature extraction / habitat clustering → `analyze-stats` / `preprocess-imaging`. Do not fit models here.
 
 ## Output contract
 
@@ -52,5 +52,5 @@ bilingual reader. Full-text retrieve is `03-lit-fulltext`. I/O is `02-imaging-io
 ## Handoffs
 
 - Volumetric I/O → `02-imaging-io`
-- Radiomics / habitat / leakage → `02-radiomics-habitat`
+- Radiomics / habitat / leakage → `analyze-stats` / `preprocess-imaging`
 - Modelling / calibration → `04-stats-models` / `04-model-eval`

@@ -211,7 +211,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("draw-flowchart", text)
         self.assertIn("plot-figures", text)
         self.assertIn("find-journal", text)
-        self.assertIn("venue-templates", text)
+        self.assertIn("write-venue", text)
         self.assertIn("calc-sample-size", text)
         self.assertNotIn("05-write-venue", text)
         self.assertNotIn("04-stats-power", text)
@@ -408,7 +408,7 @@ class FastRouting(unittest.TestCase):
         self.assertIn("fill-protocol", ethics)
         self.assertNotIn("05-write-venue", ethics)
         five = read("05_manuscript/SKILL.md")
-        self.assertIn("venue-templates", five)
+        self.assertIn("write-venue", five)
         self.assertNotIn("05-write-venue", five)
         self.assertIn("journal templates / house style", five)
         self.assertNotIn("选刊 is `05-write-venue`", five)
@@ -422,7 +422,7 @@ class FastRouting(unittest.TestCase):
 class DeAiAndFigures(unittest.TestCase):
     def test_sci_manuscript_paths(self) -> None:
         sop = read("00_orchestrator/workflows/sci-manuscript.md")
-        self.assertIn("05-manuscript/vocab/L1/ban-phrases.md", sop)
+        self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sop)
         self.assertIn("draw-flowchart", sop)
         self.assertIn("plot-figures", sop)
         self.assertNotIn("04-fig-flow", sop)
@@ -483,7 +483,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("G-04", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
-        self.assertIn("05-manuscript/vocab/L1/ban-phrases.md", sci)
+        self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sci)
         wf = read("00_orchestrator/workflows/README.md")
         self.assertIn("gates.md", wf)
 

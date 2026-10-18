@@ -21,7 +21,7 @@ State slice thickness and whether features are slice-thickness robust.
 - **Peritumoral ring** — fixed-distance dilation (state mm) capturing micro-environment/invasion;
   report how the ring is constructed and that it stays within anatomy.
 - **Habitats** — voxel clustering into sub-regions by multi-parametric signature; align with
-  spatial/regional omics (→ `02-radiomics-habitat` / `03-design-experiment`).
+  spatial/regional omics (→ `analyze-stats` / `03-design-experiment`).
 
 ## Multi-lesion handling (decide explicitly)
 

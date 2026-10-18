@@ -89,7 +89,8 @@ class CanonicalIdRule(unittest.TestCase):
         self.assertIn("must never be used to infer", header)
         rad = (ROOT / "00_orchestrator" / "workflows" / "radiomics-study.md").read_text(encoding="utf-8")
         self.assertLess(rad.index("`clean-data`"), rad.index("`preprocess-imaging`"))
-        self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`radiomics-ml`"))
+        self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`analyze-stats`"))
+        self.assertNotIn("`radiomics-ml`", rad)
         for banned in ("02-tables", "02-imaging-qc", "02-radiomics-habitat"):
             self.assertNotIn(banned, rad)
         aliases = yaml.safe_load((ROOT / "01_skill-integration" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]

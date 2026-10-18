@@ -7,7 +7,7 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 **Routing SSOT:** `01_skill-integration/registry.yaml` 
 **Generated mount index:** `01_skill-integration/MOUNTED_SKILLS.md`
 
-Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); default source my-skills (in-repo base); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-base packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；`venue-templates` 只管体例. 样本量: `calc-sample-size`.
+Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); default source my-skills (in-repo base); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-base packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`. 样本量: `calc-sample-size`.
 
 ---
 
@@ -35,14 +35,14 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 投稿前找问题 / dealbreaker | `06_review` |
 | 回复审稿人 | `07_response` only as entry (Aitee) |
 | 选题 / 文献 / 选刊 | `03_research` |
-| 选刊 | `03_research` (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例 |
+| 选刊 | `03_research` (`literature/journal-selection.md`). 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/` |
 | 样本量 | `04_analysis` (`calc-sample-size`) |
 | AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
 | 软编码 / dry-run | `02_data-processing` → `personal/coding.md` |
 | 批处理 / Excel / 0RAD 文件夹 | `02_data-processing` → `personal/workspace.md` |
 | VAL_MODE / 两两比较 / 亚组 ROC | `04_analysis` → `personal/pipeline.md` |
-| 伦理申请表填写 | `03_research` → `fill-protocol/` |
+| 伦理申请表填写 | `03_research` → `base/fill-protocol/` |
 | 临床提取（已导出文本） | `02_data-processing` → `personal/extract.md` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
 | 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `plot-figures` + `personal/lab-palettes.md`) |
@@ -89,11 +89,3 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 Session pick and mount steps live in root `ARCHITECTURE.md` (Mounts) and `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md`.
 
 Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default source my-skills (in-repo base); MedSci-only `humanize`; archived ids off menu) → empty path: notify, re-search, confirm → network discovery for **new** capability → evaluate → explicit user approval → mount. Never auto-mount a non-base source. Local cache: repo-root `mounts-cap/` (verified cache, not SSOT).
-
----
-
-## Externalization
-
-Generic local capabilities in `EXTERNALIZATION_CANDIDATES.md` stay until an approved mounted Skill covers them. Personal rules, scripts, and style assets are not removed merely because a generic external capability exists.
-
-Standalone packs live under domain skills (e.g. ethics fill pack under `03_research/base/fill-protocol/`).
