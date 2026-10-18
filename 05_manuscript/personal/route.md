@@ -4,11 +4,11 @@
 
 ## A/B layering (2026-10-17)
 
-- **B first-pass:** `write-paper` / `check-reporting` must **load vocab** (`05_manuscript/base/vocab/`) before drafting.
+- **base first-pass:** `write-paper` / `check-reporting` must **load vocab** (`05_manuscript/base/vocab/`) before drafting.
 - **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
 - **A05 re-loop:** post-QC chain `polish-language` -> `humanize` alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
 
-## Vocabulary (body in B; A pointer at `vocab/README.md`)
+## Vocabulary (body in base; personal pointer at `vocab/README.md`)
 
 1. **L1 words:** B `05-manuscript/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
 2. **L1 patterns:** B `05-manuscript/vocab/L1/patterns.md`

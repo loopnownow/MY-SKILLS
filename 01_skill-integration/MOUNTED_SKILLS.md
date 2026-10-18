@@ -10,7 +10,7 @@ Never auto-mount a non-base source. `PROPOSED` is not pickable.
 `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 **Mount decision:** every independent run needs one. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01. A single-node personal-layer / A top-layer task with no mounted dependency does not ask.
 **Pick menu:** status `MOUNTED` only, grouped by the 10 coarse buckets then by `load_priority`. `path_shared` siblings are consecutive rows. `PROPOSED` may be listed as optional candidates, separate from the pick menu.
-Bodies live in-repo under `NN_slug/base/`. Former `{mounts_cap}/b/` B cache is obsolete for live mounts.
+Bodies live in-repo under `NN_slug/base/`.
 Say default mount = in-repo base/ -- not empty mount.
 
 Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 28 fine ids** (28 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
@@ -154,18 +154,18 @@ None.
 - `write-data-statement` — PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
 - `manage-refs` — path_shared with verify-refs; fold cite format/write into verify-refs; cut 2026-10-17 round 2
 - `lit-sync` — Scientific P2; rarely used; Zotero sync optional; cut 2026-10-17 round 2
-- `find-cohort-gap` — cohort topic-gap discovery folded into design-study; B folder 03-research/frontier-ideate/ kept; absorb 2026-10-17 round 2
-- `scout-meta-analysis` — MA topic feasibility before MA folded into meta-analysis; B folder 03-research/lit-review/ kept; absorb 2026-10-17 round 2
-- `frontier-hypothesize` — hypothesis formation folded into design-study; B folder 03-research/frontier-hypothesize/ kept; absorb 2026-10-17 round 2
-- `intake-project` — project intake classification folded into design-study; B folder 03-research/intake-project/ kept; absorb 2026-10-17 round 2
-- `design-ai-benchmarking` — AI expert-eval design folded into design-study; B folder 03-research/design-ai-benchmarking/ kept; absorb 2026-10-17 round 2
-- `architecture-zoo` — model architecture selection folded into design-study; B folder 03-research/architecture-zoo/ kept as reference; absorb 2026-10-17 round 2
-- `radiomics-ml` — radiomics pipeline audit invoked via analyze-stats / preprocess-imaging; B folder 02-data-processing/radiomics-habitat/ kept; absorb 2026-10-17 round 2
-- `peer-review-pdf-scan` — same B path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
-- `scientific-visualization` — principles distilled into B plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-- `audit-figure-risk` — Nature P2; principles already in B 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `find-cohort-gap` — cohort topic-gap discovery folded into design-study absorb 2026-10-17 round 2
+- `scout-meta-analysis` — MA topic feasibility before MA folded into meta-analysis absorb 2026-10-17 round 2
+- `frontier-hypothesize` — hypothesis formation folded into design-study absorb 2026-10-17 round 2
+- `intake-project` — project intake classification folded into design-study absorb 2026-10-17 round 2
+- `design-ai-benchmarking` — AI expert-eval design folded into design-study absorb 2026-10-17 round 2
+- `architecture-zoo` — model architecture selection folded into design-study absorb 2026-10-17 round 2
+- `radiomics-ml` — radiomics pipeline audit invoked via analyze-stats / preprocess-imaging absorb 2026-10-17 round 2
+- `peer-review-pdf-scan` — same path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
+- `scientific-visualization` — principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `audit-figure-risk` — Nature P2; principles already in 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
 - `check-grant-proposal` — PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
-- `model-validation` — deterministic leakage gates folded into model-evaluation; same B path 04-analysis/model-eval/; absorb 2026-10-17 round 3
+- `model-validation` — deterministic leakage gates folded into model-evaluation; same path; absorb 2026-10-17 round 3
 - `scientific-critical-thinking` — PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3
 
 ## Source notes

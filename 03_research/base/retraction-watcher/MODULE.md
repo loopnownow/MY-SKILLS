@@ -9,7 +9,7 @@ owner: "03-research/retraction-watcher/MODULE.md"
 # retraction-watcher
 
 Pre-submission / evidence citation integrity check against retraction databases.
-Lit-related sibling of `lit-cite` / `lit-search`. Absorbed into B from AIPOCH on 2026-10-17 (MIT).
+Lit-related sibling of `lit-cite` / `lit-search`. Absorbed from AIPOCH on 2026-10-17 (MIT).
 
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
@@ -69,7 +69,7 @@ Activate this skill when:
 
 Accepted inputs:
 - PDF files (manuscripts, papers, theses)
-- Plain text files (.txt, .bib, .ris)
+- Plain text files (.txt,.bib,.ris)
 - Raw text containing reference lists
 - URLs to papers or reference lists
 - Clipboard content with citations
@@ -184,10 +184,10 @@ See `references/` for:
 
 ---
 
-**Author**: AI Assistant  
-**Version**: 1.0  
-**Last Updated**: 2026-02-06  
-**Status**: Ready for use  
+**Author**: AI Assistant 
+**Version**: 1.0 
+**Last Updated**: 2026-02-06 
+**Status**: Ready for use 
 **Requires**: Internet connection for database lookups
 
 ## Risk Assessment
@@ -241,8 +241,8 @@ pip install -r requirements.txt
 - **Next Review Date**: 2026-03-06
 - **Known Issues**: None
 - **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+ - Performance optimization
+ - Additional feature support
 
 ## Output Requirements
 

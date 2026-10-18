@@ -10,7 +10,7 @@ views:
   architecture:
     question: "What the system is made of and where the boundaries are."
     inputs:
-      - _medical-research-meta/ARCHITECTURE.md  # root stub points here
+      - ARCHITECTURE.md
       - 01_skill-integration/registry.yaml
       - top-level directories 00_orchestrator through 06_review
     archify_fields: [components, boundaries, connections]

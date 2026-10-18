@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 MOUNTS_CAP_TRACKED = {"INDEX.yaml"}
 SKIP_PARTS = {".git", "__pycache__", "node_modules"}
 

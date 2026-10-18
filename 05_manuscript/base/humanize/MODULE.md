@@ -12,7 +12,7 @@ Generic AI-pattern removal for manuscripts and response letters.
 Does **not** replace A personal de-AI (`05_manuscript/personal/` forbidden lists still win).
 Not general copy-editing (`polish-language` / `write-polish`).
 
-Absorbed into B from MedSci `skills/humanize/` on 2026-10-17 (MIT).
+Absorbed from MedSci `skills/humanize/` on 2026-10-17 (MIT).
 
 # Humanize Skill
 
@@ -45,7 +45,7 @@ Word count: {N}
 | # | Pattern | Count | Severity | Example from text |
 |---|---------|-------|----------|-------------------|
 | 1 | Significance inflation | 3 | HIGH | "...pivotal role in diagnostic imaging..." |
-| ... | ... | ... | ... | ... |
+|... |... |... |... |... |
 
 Patterns not detected: 2, 4, 9, 14, 15
 
@@ -65,27 +65,27 @@ AI pattern density: {N per 1000 words}
 Rewrite flagged passages with each pattern's fix from `ai_patterns.md`, under these rules:
 
 1. **Preserve technical accuracy.** Every number, statistic, p-value, confidence interval, and
-   clinical fact must remain identical.
+ clinical fact must remain identical.
 2. **Preserve citations.** Never add, remove, or relocate a citation.
 3. **Keep the formal academic register** of an experienced radiologist writing for peers in a
-   top-tier journal. Never make the text casual or conversational.
+ top-tier journal. Never make the text casual or conversational.
 4. **Keep domain-specific terminology intact.** "Convolutional neural network," "apparent diffusion
-   coefficient," "Fleiss' kappa" stay as-is.
+ coefficient," "Fleiss' kappa" stay as-is.
 5. **Never introduce new claims, remove existing ones, or change a sentence's meaning** — rephrase,
-   never reinterpret. If a passage cannot be fixed without changing its meaning, leave it and flag
-   it for the user.
+ never reinterpret. If a passage cannot be fixed without changing its meaning, leave it and flag
+ it for the user.
 6. **Use active voice** where natural: "We analyzed" rather than "Analysis was performed."
 7. **Vary sentence structure.** Mix short declarative sentences (8-12 words) with longer ones
-   (25-35 words). A de-AI pass tends to *flatten* rhythm — it shortens the long sentences and pads
-   the short ones toward a comfortable middle, which is itself a tell.
-   `scripts/check_sentence_variety.py` verifies this rule in Phase 4.
+ (25-35 words). A de-AI pass tends to *flatten* rhythm — it shortens the long sentences and pads
+ the short ones toward a comfortable middle, which is itself a tell.
+ `scripts/check_sentence_variety.py` verifies this rule in Phase 4.
 8. **Thin out antithesis and cleft constructions (Pattern 27, the M2 heuristic).** For each "X
-   rather than Y", "not X but Y" or "X, not Y", apply the negative-form test: delete the negative
-   half and rewrite the clause in the positive. If a fact disappears, the contrast was functional —
-   keep it; if nothing disappears, it was decoration — cut it. Judge by the manuscript's overall
-   rate, not instance by instance, and keep two or three for emphasis. Rewrite clefts ("What … is
-   …", "It is … that …") in plain subject-verb order ("What matters is X" → "X matters").
-   `scripts/check_rhetorical_density.py` (in `/self-review`) measures this in Phase 4.
+ rather than Y", "not X but Y" or "X, not Y", apply the negative-form test: delete the negative
+ half and rewrite the clause in the positive. If a fact disappears, the contrast was functional —
+ keep it; if nothing disappears, it was decoration — cut it. Judge by the manuscript's overall
+ rate, not instance by instance, and keep two or three for emphasis. Rewrite clefts ("What … is
+ …", "It is … that …") in plain subject-verb order ("What matters is X" → "X matters").
+ `scripts/check_rhetorical_density.py` (in `/self-review`) measures this in Phase 4.
 
 **Output:** Present the rewritten text with changes highlighted using diff format or tracked changes.
 
@@ -99,10 +99,10 @@ Run both deterministic checks, then re-scan the rewritten text using the same 27
 
 ```bash
 python3 "scripts/check_rewrite_fidelity.py" \
-    --before /tmp/pre_humanize.md --after manuscript.md \
-    --out qc/rewrite_fidelity.json --strict
+ --before /tmp/pre_humanize.md --after manuscript.md \
+ --out qc/rewrite_fidelity.json --strict
 python3 "scripts/check_sentence_variety.py" \
-    --manuscript manuscript.md --out qc/sentence_variety.json
+ --manuscript manuscript.md --out qc/sentence_variety.json
 ```
 
 `NUMBER_DRIFT`, `NUMBER_REASSIGNED`, `CITATION_DROP` or `CITATION_MOVED` means the rewrite broke an

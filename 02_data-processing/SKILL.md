@@ -1,10 +1,10 @@
 ---
 name: medical-data-processing
 description: >
-  Personal data-processing top layer: raw clinical/imaging/picture/fMRI to analysis-ready.
-  Triggers: Excel/CSV clean, DICOM/NIfTI, radiomics prep, extraction, coding, leakage checks.
-  Capability bodies for 02 mounts live in 02_data-processing/base/ (pilot). No feature selection or statistical modeling -- hand off to 04.
-  Literature -> 03. Writing -> 05. Review -> 06. Response -> 07.
+ Personal data-processing top layer: raw clinical/imaging/picture/fMRI to analysis-ready.
+ Triggers: Excel/CSV clean, DICOM/NIfTI, radiomics prep, extraction, coding, leakage checks.
+ Capability bodies for 02 mounts live in 02_data-processing/base/ (pilot). No feature selection or statistical modeling -- hand off to 04.
+ Literature -> 03. Writing -> 05. Review -> 06. Response -> 07.
 ---
 
 # Data Processing -- personal top layer
@@ -15,7 +15,7 @@ description: >
 
 Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** data with traceable QC.
 **A02 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC triggers.
-Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/base/`** (pilot 2026-10-17; was B; B repo retained).
+Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/base/`** (pilot 2026-10-17; was B; ).
 
 ## Layer model (2026-10-17)
 
@@ -26,7 +26,7 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 
 | Layer | Owns |
 |---|---|
-| A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` (was B; B repo retained; radiomics-habitat prep still B if present) |
+| A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` (was B; radiomics-habitat prep under base if present) |
 | 00 | QC gate; decides whether A02 re-triggers B mounts |
 | A02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; Loopnow seat (QC standards in `qc/`, 00-only) |
 

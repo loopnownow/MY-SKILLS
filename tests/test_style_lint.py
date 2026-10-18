@@ -7,7 +7,7 @@ DISCIPLINE (borrowed from SlopMonster's regression suite):
     fail if the rule became too broad. Touch a regex -> run this file.
 
 Run:
-    python3 -m unittest _medical-research-meta.tests.test_style_lint
+    python3 -m unittest tests.test_style_lint
 """
 import ast
 import contextlib
@@ -24,7 +24,7 @@ import yaml
 # =============================================================================
 # CONFIG -- paths and shared fixtures (edit here, nowhere else)
 # =============================================================================
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "00_orchestrator" / "scripts" / "style_lint.py"
 BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml"
 

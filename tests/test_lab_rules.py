@@ -5,8 +5,8 @@ import re
 import unittest
 from pathlib import Path
 
-SKILLS = Path(__file__).resolve().parents[2]
-B_ROOT = SKILLS / "05_manuscript" / "base"  # former MY-SKILLS-base vocab now in-repo
+SKILLS = Path(__file__).resolve().parents[1]
+BASE_VOCAB = SKILLS / "05_manuscript" / "base"  # in-repo manuscript vocab
 
 
 def read(*parts: str) -> str:
@@ -21,7 +21,7 @@ class DeAI(unittest.TestCase):
     )
 
     def test_sample_hits_forbidden_table(self) -> None:
-        table = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8").lower()
+        table = (BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8").lower()
         hits = []
         for word in (
             "delve", "landscape", "pivotal", "robust", "comprehensive",
@@ -33,8 +33,8 @@ class DeAI(unittest.TestCase):
         self.assertGreaterEqual(len(hits), 6)
 
     def test_compared_and_attenuated_wording(self) -> None:
-        banned = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
-        patterns = (B_ROOT / "vocab" / "L1" / "patterns.md").read_text(encoding="utf-8")
+        banned = (BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        patterns = (BASE_VOCAB / "vocab" / "L1" / "patterns.md").read_text(encoding="utf-8")
         lang = read("05_manuscript", "personal", "process", "citation-and-language.md")
         for text in (banned, patterns, lang):
             self.assertIn("attenuated", text)
@@ -52,7 +52,7 @@ class DeAI(unittest.TestCase):
         self.assertIn("write-paper", five)
         self.assertNotIn("05-write-manuscript", five)
         self.assertFalse((SKILLS / "05_manuscript" / "de-ai").exists())
-        self.assertTrue((B_ROOT / "vocab" / "L1" / "ban-phrases.md").is_file())
+        self.assertTrue((BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").is_file())
 
 
 class Aitor(unittest.TestCase):
@@ -129,7 +129,7 @@ class Routing(unittest.TestCase):
 
 class LabSte(unittest.TestCase):
     def test_pointer_and_no_vendor(self) -> None:
-        lab = (B_ROOT / "vocab" / "L3" / "lab-ste.md").read_text(encoding="utf-8")
+        lab = (BASE_VOCAB / "vocab" / "L3" / "lab-ste.md").read_text(encoding="utf-8")
         self.assertIn("{doc_lab_ste}", lab)
         self.assertIn("Do not", lab)
         self.assertIn("vendor", lab.lower())
@@ -142,7 +142,7 @@ class LabSte(unittest.TestCase):
             or "05_manuscript/base/vocab/L3/lab-ste.md" in five,
             five,
         )
-        self.assertTrue((B_ROOT / "vocab" / "L2" / "approved-en.tsv").is_file())
+        self.assertTrue((BASE_VOCAB / "vocab" / "L2" / "approved-en.tsv").is_file())
         self.assertFalse((SKILLS / "lab-ste").exists())
 
 
