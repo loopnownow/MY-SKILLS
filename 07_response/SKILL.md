@@ -24,6 +24,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 Flow: fine-ID first-pass (`revise` / `tighten-response` / `response-tone-polisher`; bodies in A `07_response/base/`) -> **00 QC** -> **A07** personal final authority.
 
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+
 Mounted packs may draft; **A 07 personal** owns resolution status and letter voice (`personal/response.md`).
 
 ## Personal assets

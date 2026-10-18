@@ -19,7 +19,7 @@ Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome f
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.  
 Letters / short communications: apply only if the user asks.
 
-Voice and de-AI lists stay in `personal/route.md` + `personal/vocab/L1/ban-phrases.md` (and `SKILL.md`); stats checklist stays in `04_analysis/personal/report-checks.md`.
+Voice and de-AI lists stay in `personal/route.md` + `personal/vocab/L1/ban-phrases.md` (and `SKILL.md`); stats checklist stays in `04_analysis/qc/report-checks.md`.
 
 ---
 
@@ -140,7 +140,7 @@ Methods still opens with Ethics even if ethics is on the title page.
 
 Six elements, in funnel order. Each element is one to three sentences except element 4.
 
-1. **Disease / burden.** This opening paragraph cites the verified source when one exists. Zero citations here is a fail (`00_orchestrator/references/manuscript-local-qc.md`, `intro_opening_has_citations`).
+1. **Disease / burden.** This opening paragraph cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/manuscript-local-qc.md`, `intro_opening_has_citations`).
 2. **Guideline definition.** Name the latest edition of the guideline that defines the endpoint or the clinical decision (issuing body and year, verified by 03 in the same session; see `personal/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
 3. **Limits of current practice.** Mine the gap from the guideline itself: what it leaves open (low level of evidence, information available only after surgery, "insufficient data", not recommended outside trials) and what the routine tests it relies on cannot resolve.
 4. **Related studies.** Main results of the two or three most relevant studies (n, design, effect). Then one or two sentences that appraise them as a group: the strength this study keeps and the weakness this study targets. No study-by-study list.
@@ -161,7 +161,7 @@ Structure bans (Introduction first; Discussion deferred until explicitly extende
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
-Evidence handling: `personal/process/evidence.md`. Scoring anchors and deduction codes: `00_orchestrator/references/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `00_orchestrator/references/manuscript-local-qc.md`.
+Evidence handling: `personal/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`.
 
 
 ---

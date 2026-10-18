@@ -25,6 +25,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in A `06_review/base/`) -> **00 QC** -> **A06** post-QC re-review only.
 
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+
 Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
 Resolution status for response letters -> **A07**.
 
@@ -34,7 +36,7 @@ Resolution status for response letters -> **A07**.
 |---|---|
 | English peer-review voice | `personal/review.md` |
 | Review comment habits | `personal/review.md` |
-| Cross-manuscript QC | `00_orchestrator/references/cross-manuscript-qc.md` |
+| Cross-manuscript QC | `qc/cross-manuscript-qc.md` (invoked only by 00) |
 | Word comment delivery | `personal/word-edit.md` |
 | Dual-review isolation workflow | `personal/review-isolation.md` |
 | Thesis review | `personal/thesis-review.md` |

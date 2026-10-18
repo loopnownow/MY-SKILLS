@@ -212,7 +212,7 @@ Thank you for inviting me to evaluate this article. The purpose of this study wa
 
 ### 4.9 Pre-submit consistency requests
 
-Chapter scans above point here. Full check ids: `00_orchestrator/references/manuscript-local-qc.md`. Run order and sister-paper rules: `00_orchestrator/references/cross-manuscript-qc.md`. Statement consistency first, then data. On a conflict, annotate. Do not invent the number.
+Chapter scans above point here. Full check ids: `05_manuscript/qc/manuscript-local-qc.md`. Run order and sister-paper rules: `06_review/qc/cross-manuscript-qc.md`. Statement consistency first, then data. On a conflict, annotate. Do not invent the number.
 
 Reusable requests (no unpublished results in the sentence):
 
@@ -267,7 +267,7 @@ This file is the **consistency-first** habit layer.
 
 **Locks (2026-09-24):** do **not** teach minimal `?` / bare “核实” as the house style. Lead with **statement consistency**, then **data consistency**, then integrity stops.
 
-**Locks (2026-10-02):** on a data conflict, annotate every locus. Do not invent a replacement number. Pre-submit classes and sister-paper checks: `00_orchestrator/references/cross-manuscript-qc.md`. Check ids: `00_orchestrator/references/manuscript-local-qc.md`. call/require 03 citation-verify — do not self-certify lit.
+**Locks (2026-10-02):** on a data conflict, annotate every locus. Do not invent a replacement number. Pre-submit classes and sister-paper checks: `06_review/qc/cross-manuscript-qc.md`. Check ids: `05_manuscript/qc/manuscript-local-qc.md`. call/require 03 citation-verify — do not self-certify lit.
 
 **Locks (Word revise ownership):** Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
@@ -319,7 +319,7 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 | Circular *P* | Selection, threshold, and group test on one cohort, *P* written as confirmatory | Ask to relabel as descriptive, or to show nested CV / bootstrap if it was run. Do not invent a corrected *P* |
 | Score identity | A named score is only a transform of one metric, or nested ROIs are treated as independent | Ask to name the transform and the dependence |
 | Process language | `TRAIN_RATIO`, "as stated by the source", 待补, internal labels, empty queries, placeholder scan parameters, repeated disclaimers | Ask to delete them from the body and legends. Missing facts stay comments |
-| Sister papers | Shared site, scanner, or ethics; an identical table; the same biomarker with a different *P* | `00_orchestrator/references/cross-manuscript-qc.md`. Comment the conflict; do not average *P* or invent overlap counts |
+| Sister papers | Shared site, scanner, or ethics; an identical table; the same biomarker with a different *P* | `06_review/qc/cross-manuscript-qc.md`. Comment the conflict; do not average *P* or invent overlap counts |
 
 **Hard rule:** when Abstract / body / table / sister paper disagree, **comment only**. Never silently pick a value for the author. A back-calculated *n* or critical value in the comment is labeled an estimate.
 
@@ -336,7 +336,7 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 
 ## 5. Where the long form lives
 
-`00_orchestrator/references/cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `00_orchestrator/references/manuscript-local-qc.md` is the check-id list. `04_analysis/personal/report-checks.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
+`06_review/qc/cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `05_manuscript/qc/manuscript-local-qc.md` is the check-id list. `04_analysis/qc/report-checks.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
 
 ## 5.1 Who revises the manuscript
 

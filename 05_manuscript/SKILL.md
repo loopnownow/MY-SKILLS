@@ -25,6 +25,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 **Flow:** writing fine-ID **first-pass** (A `05_manuscript/base/` bodies) -> **00 QC** -> **A05** personal upper layer.
 
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+
 | Layer | Owns |
 |---|---|
 | A `base/` | `write-paper`, `check-reporting`, `polish-language`, `humanize`, vocab, write-venue under `05_manuscript/base/` (was B; B repo retained) |
@@ -42,7 +44,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | L1 / L2 / L3 vocabulary | A `05_manuscript/base/vocab/` (A `personal/vocab/` = pointer) |
 | Lab-STE (CM-01 ZH comments) | A `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
-| Manuscript QC checklists | `00_orchestrator/references/manuscript-local-qc.md` (owned by 00) |
+| Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |
 | Diff harvest | `{script_write_paper}\diff_harvest.py` |
 
 
@@ -66,7 +68,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-cohort-gap`; hypothesis framing via `frontier-hypothesize`). 选刊 / where to submit → `03_research` (`personal/journal-selection.md`); not this skill.
 
-**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/personal/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `00_orchestrator/references/manuscript-local-qc.md`.
+**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/personal/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `05_manuscript/qc/manuscript-local-qc.md`.
 
 
 ## Core rule
@@ -114,6 +116,6 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 ## Writing QC (domain)
 
-terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `00_orchestrator/references/manuscript-local-qc.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
+terminology · tense · numbers match sources · no unsupported causality · abbreviations at first use · figure/table cites · refs coherent · abstract matches main text · de-AI ban list clean · Aitor-format QC · `05_manuscript/qc/manuscript-local-qc.md` (comment number conflicts; no pipeline tokens or placeholders in final prose)
 
 Overall Final QC and local recovery are owned by `00_orchestrator`.

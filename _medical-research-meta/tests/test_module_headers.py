@@ -29,7 +29,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("mounts-cap", root_dirs)  # cache moved to 0doc 04-lab-reference/mounts-cap
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "extract.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding.md").is_file())
-        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())  # stub
+        self.assertTrue((ROOT / "02_data-processing" / "qc" / "coding-qc.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
         # A stub removed 2026-10-17; body lives in B
         self.assertFalse((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())

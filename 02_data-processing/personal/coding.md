@@ -1,7 +1,7 @@
 # 代码优化与重构
 
 个人层：`02_data-processing/personal/coding.md`（由 `code-refactoring/SKILL.md` 迁入；复杂度阶梯并入下文）。  
-深度代码 QC 细则见同目录 `coding-qc.md`。不另建顶层、不登记 01/B 粗 ID。
+深度代码 QC 细则见`../qc/coding-qc.md`。不另建顶层、不登记 01/B 粗 ID。
 
 ## 适用场景
 - 代码软编码（配置置顶）
@@ -17,10 +17,10 @@
 | 任务 | 路径 |
 |---|---|
 | 软编码 + dry-run 模板 | `{script_root}\_templates\soft_code_template.py` |
-| 深度代码 QC（五轴/分级/Critical + Code QC Core） | `coding-qc.md` |
+| 深度代码 QC（五轴/分级/Critical + Code QC Core） | `../qc/coding-qc.md` |
 | 写时代码阶梯 + 强度/护栏 | 下文「Complexity ladder」节 |
 
-Medical / Statistical Integrity：**只引用** `04_analysis/personal/report-checks.md` 与 `04_analysis/personal/pipeline.md`，不在本技能复制金标准。
+Medical / Statistical Integrity：**只引用** `04_analysis/qc/report-checks.md` 与 `04_analysis/personal/pipeline.md`，不在本技能复制金标准。
 
 ## 核心原则
 
@@ -46,8 +46,8 @@ Medical / Statistical Integrity：**只引用** `04_analysis/personal/report-che
 - 先试运行；打印将执行操作供确认
 
 ### 7. 深度 QC
-- 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `coding-qc.md`
-- 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `coding-qc.md`
+- 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `../qc/coding-qc.md`
+- 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `../qc/coding-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
 - 边界：≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution)；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
 - 不 vendor `{script_modules}` 整树

@@ -13,3 +13,5 @@ Short pointer. Full flow: `../runtime-flow.md` A/B layering. Gates: `../gates.md
 - A does not host long procedure bodies that live in B.
 - Fine IDs for stats-analysis / figures / data-processing / study-design unchanged.
 - Registry source stays B; A documents trigger/authority only.
+
+**QC standards:** live in each domain `NN_slug/qc/`; `00_orchestrator/gates.md` decides WHEN / PASS-FAIL. Specialists and B first-pass do not self-invoke `qc/`.
