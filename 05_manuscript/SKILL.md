@@ -54,11 +54,11 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 - `write-paper` — manuscript/report draft. Not Aitor-format. `clinical-reports` is not this id.
 - `check-reporting` — TRIPOD / CLAIM / CLEAR in the paper
-- `venue-templates` — journal templates / house style while writing. Not journal selection / 选刊.
+- `write-venue` — journal templates / house style while writing (`05_manuscript/base/write-venue/`). Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
 - `humanize` — generic de-AI / humanize (A `05_manuscript/base/humanize/`). Does **not** replace `personal/route.md` + A `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
-选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
+选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 

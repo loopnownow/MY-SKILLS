@@ -26,6 +26,17 @@ model: inherit
 
 # Fill-Protocol Skill
 
+> **Provenance / on-disk status (Batch1 F9; full B2 trim = later batch):**  
+> Source: MedSci fill-protocol (MIT notice in HTML comment above); extracted 2026-09-13 into A.  
+> This MODULE documents the intended workflow. The following assets are **not present** in `03_research/base/fill-protocol/` today — do not pretend they exist; do not invent paths:
+> - `setup.sh`
+> - `scripts/doc_to_docx.py`, `scripts/inspect_template.py`, `scripts/fill_form.py`
+> - `examples/`
+> - `references/best_practices.md`  
+> Personal/Jinshan: `03_research/personal/fill-protocol/`. Registry path: `03_research/base/fill-protocol/`.
+
+
+
 You are helping a researcher populate an institutional Word form (IRB protocol,
 ethics application, grant proposal, etc.) without breaking the original document
 formatting. This skill is the formatting counterpart to `write-protocol`: where

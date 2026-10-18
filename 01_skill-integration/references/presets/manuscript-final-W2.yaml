@@ -5,7 +5,7 @@ status: session-recipe
 notes: >
   Final draft pass. First-pass fine-ID list: write-paper, verify-refs, check-reporting.
     A/B05 personal owns sentence authority. Ask-each-run. Chassis my-skills (in-repo base/) only.
-    First-pass write-paper/check-reporting must load B 05-manuscript/vocab/.
+    First-pass write-paper/check-reporting must load A 05_manuscript/base/vocab/.
 
 
 chassis:
@@ -16,20 +16,20 @@ chassis:
 personal:
   - layer: 05_manuscript/personal
     role: sentence-authority
-    must_include: [Aitor-format.md, vocab/L1/ban-phrases.md, process/evidence.md]
+    must_include: [Aitor-format.md, 05_manuscript/base/vocab/L1/ban-phrases.md, process/evidence.md, 03_research/personal/citation-verify.md]
 
 overrides:
   - id: write-paper
     source: my-skills
     skills: [write-manuscript]
-    paths: [05-manuscript/write-manuscript/]
+    paths: [05_manuscript/base/write-manuscript/]
     role: structure-draft
     required: true
     prefix_example: "[B:write-manuscript]"
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]
-    paths: [03-research/verify-refs/]
+    paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
     prefix_example: "[B:verify-refs]"

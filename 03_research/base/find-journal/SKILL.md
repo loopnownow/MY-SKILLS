@@ -17,8 +17,8 @@ metadata:
 
 - Lives in **B** `03-research/find-journal/` (capability). A `03_research/find-journal/` is Victor seat pointer only.
 - Called from A `03_research/personal/journal-selection.md` via A Victor pointer.
-- 选刊走 03 `find-journal`；`venue-templates` 只管体例.
-- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `venue-templates` only for formatting to the chosen family.
+- 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`.
+- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-venue` only for formatting to the chosen family.
 
 
 ## Layout (Logic / Dataset)

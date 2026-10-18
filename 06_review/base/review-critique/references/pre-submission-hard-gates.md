@@ -15,7 +15,7 @@ Each gate is `PASS`, `CONDITIONAL`, or `FAIL`.
 | Gate | What to check | Route if failed |
 |---|---|---|
 | Contribution map | The paper has a specific clinical/methodological contribution, not just "we built a model" | `05-write-manuscript`, `03-design-experiment` |
-| Data integrity | Patient-level split, no leakage, correct labels/reference standard, exclusions documented | `02-radiomics-habitat`, `02-imaging-qc` |
+| Data integrity | Patient-level split, no leakage, correct labels/reference standard, exclusions documented | `analyze-stats`, `preprocess-imaging` |
 | Validation | Internal/temporal/external/multicenter/prospective validation matches the claim level | `03-design-experiment`, `04-stats-guide` |
 | Results-as-validation | Every major claim maps to a result/figure/table and does not exceed evidence | `05-write-manuscript`, `04-stats-guide` |
 | Statistical completeness | CIs, calibration, DCA/clinical utility when relevant, multiplicity, survival assumptions, sample-size/event limits | `04-stats-guide` / `04-model-eval` |

@@ -4,7 +4,7 @@ Scope: English manuscript prose in Abstract / Introduction / Background / Discus
 Methods, Results, tables, figure legends and references are NOT scanned (passive voice,
 enumerations and numeric reporting are convention there, not AI tells).
 
-The machine-readable lists live in ONE place: `05_manuscript/personal/vocab/L1/ban-terms.yaml`.
+The machine-readable lists live in ONE place: `05_manuscript/base/vocab/L1/ban-terms.yaml`.
 `style_lint.py` loads that file at runtime. This page explains the rules; it does not duplicate the lists (one fact, one home).
 
 ## Four scored groups (1 point each; pass = 4/4)

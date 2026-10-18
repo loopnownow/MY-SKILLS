@@ -13,7 +13,7 @@ Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10
 
 User asks 推荐杂志 / 选刊 / 投稿去哪 / JCR·JCI 分区 / 影响因子分层 / 版面费·AIM（仅备选确认后）.
 
-Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are chosen. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are chosen. 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`.
 
 ## Data locations
 
@@ -56,7 +56,7 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 
 - Recommend the three blacklist titles.
 - Collapse default layers into one top-N list.
-- Route 选刊 to `venue-templates` (选刊走 03 `find-journal`).
+- Route formatting / house style (体例) to `write-venue` (选刊走 03 `find-journal`).
 - Invent word limits or APC; invent missing risk as “low.”
 - Persist annually updated IF / JCR·JCI/CAS / APC / review-time / volume values into CSV/DB-like files — **query capability only**.
 - Install external journal-recommender as a mounted skill; copy fixed Fit Score weights or abstract→CAS prediction.

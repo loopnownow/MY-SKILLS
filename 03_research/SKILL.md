@@ -59,7 +59,7 @@ See `personal/route.md` for the full pointer table.
 | Journal-selection SOP | `personal/journal-selection.md` |
 | Grants / ethics / intake / multicenter / radiology | under `personal/` |
 | Clinical translation | `personal/clinical-translation/` |
-| Ethics forms | Bai seats B `03-research/fill-protocol/` (no A stub); Jinshan PHI in `personal/fill-protocol/` |
+| Ethics forms | Bai seats A `03_research/base/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
 | Find-journal pack | engine `03_research/base/find-journal/` |
 | Question-to-reference spine | `workflows/question-to-reference.md` |
 

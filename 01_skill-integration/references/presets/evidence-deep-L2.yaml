@@ -28,7 +28,7 @@ overrides:
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]
-    paths: [03-research/verify-refs/]
+    paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
     prefix_example: "[B:verify-refs]"
