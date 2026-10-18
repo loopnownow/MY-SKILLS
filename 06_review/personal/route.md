@@ -17,7 +17,7 @@
 4. Chinese journal score sheet -- `chinese-journal-score-sheet.md`
 5. Thesis review -- `thesis-review.md`
 6. Cooperation -- `handoff.md`
-7. QC bodies -- 00 references
+7. QC bodies -- domain ``qc/`` (invoked only by 00 at Gate time)
 
 ## Do not
 

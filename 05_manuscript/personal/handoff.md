@@ -10,7 +10,7 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Pre-review / re-review | `06_review` |
 | Response letter | `07_response` |
 | Cross-skill exit QC / scoring Gates | `00_orchestrator` |
-| Manuscript local QC checklists (scorecard + pre-submit) | `00_orchestrator/references/manuscript-local-qc.md` |
+| Manuscript local QC checklists (scorecard + pre-submit) | `05_manuscript/qc/manuscript-local-qc.md` |
 | Controllable-language tools | Lab-STE disk via `vocab/L3/lab-ste.md` |
 
 ## Evidence

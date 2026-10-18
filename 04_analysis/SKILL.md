@@ -1,4 +1,4 @@
-﻿---
+---
 name: medical-statistics-analysis-and-visualization
 description: >
   Personal analysis top layer: statistics, prediction, survival, diagnostic accuracy, figures.
@@ -22,13 +22,15 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 ## Layer model (2026-10-17)
 
 **Flow:** stats/figures fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A04** top-layer re-loops
-(0RAD pipeline / report-checks / figures personal; may re-trigger mounts when 00 says needed).
+
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+(0RAD pipeline / figures personal; report-checks live in `qc/` for 00; may re-trigger mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
 | A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` (was B; B repo retained) |
 | 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
-| A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures/report-checks; Loopnow seat; Archify viz under `personal/visualization/` |
+| A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); Archify viz under `personal/visualization/` |
 
 Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack.
 
@@ -42,8 +44,8 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 | Console UI / results HTML / figure switches | `personal/console-ui.md` |
 | Radiology-grade stats index | `personal/module-notes.md` + `personal/methods.md` |
 | Lab figure palettes / claim planning | `personal/figures.md` |
-| Stats checklist / reported consistency | `personal/report-checks.md` |
-| Pre-submit check ids (writing actions; 05 owns prose) | `00_orchestrator/references/manuscript-local-qc.md` |
+| Stats checklist / reported consistency (00 gate standards) | `qc/report-checks.md` |
+| Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/qc/manuscript-local-qc.md` |
 | Archify pin + visualization rebuild scripts | `personal/visualization/` |
 
 Lab numbers: `python -m modules.pipeline` -> `*-results.html`.

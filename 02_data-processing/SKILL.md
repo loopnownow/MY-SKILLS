@@ -20,13 +20,15 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 ## Layer model (2026-10-17)
 
 **Flow:** data-processing fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A02** top-layer re-loops
+
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 (personal coding/extract/workspace protocols; may re-trigger B mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
 | A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` (was B; B repo retained; radiomics-habitat prep still B if present) |
 | 00 | QC gate; decides whether A02 re-triggers B mounts |
-| A02 | Personal route/handoff/authority; workspace/extract/coding/coding-qc/table-signals; Loopnow seat |
+| A02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; Loopnow seat (QC standards in `qc/`, 00-only) |
 
 ## Personal assets (top layer)
 
@@ -37,7 +39,7 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 | 0RAD workspace (folder names, `exc`, false-classification) | `personal/workspace.md` |
 | Clinical / HIS / pathology extraction | `personal/extract.md` |
 | Soft-coding / dry-run / complexity ladder | `personal/coding.md` |
-| Deep code QC | `personal/coding-qc.md` |
+| Deep code QC standards (00 / G-CODE) | `qc/coding-qc.md` |
 | Raw table digit / smoothness QC | `personal/table-signals.md` |
 | Lab MATLAB preprocess | `{script_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`, `{script_data_processing}\preprocess-imaging\fmri\run_preprocess.m` |
 | Leakage / split / radiology audit | `{script_model_validation}\split_leakage_check.py`, `{script_model_validation}\radiology_audit.py` |

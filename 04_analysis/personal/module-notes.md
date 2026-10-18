@@ -10,7 +10,7 @@ description: "Lab imaging biostatistics index for 04_analysis. Detail lives in m
 | Load order | `route.md` |
 | Other seats | `handoff.md` |
 | Methods handbook | `methods.md` |
-| Report checklist / consistency | `report-checks.md` |
+| Report checklist / consistency | `../qc/report-checks.md` |
 | 0RAD pipeline | `pipeline.md` |
 | Console UI / results report | `console-ui.md` |
 | Figures | `figures.md` |

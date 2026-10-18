@@ -4,10 +4,10 @@ Failure classes come from the SSD scoring-report lessons (stats/text, sister
 papers, circular analysis, process language, inclusion scale, citation hygiene,
 paragraph lock). The test locks the check ids, not any manuscript's numbers.
 
-Wave2 path map (2026-10-17 reorg):
-- 05_manuscript/personal/pre-submit-consistency.md -> 00_orchestrator/references/manuscript-local-qc.md (Part B)
-- 06_review/personal/cross-manuscript-qc.md -> 00_orchestrator/references/cross-manuscript-qc.md
-- stats-consistency/stats-checklist -> 04_analysis/personal/report-checks.md
+Wave2 path map (2026-10-17 reorg) + domain qc/ (2026-10-18):
+- 05_manuscript/personal/pre-submit-consistency.md -> 00 refs -> 05_manuscript/qc/manuscript-local-qc.md (Part B)
+- 06_review/personal/cross-manuscript-qc.md -> 00 refs -> 06_review/qc/cross-manuscript-qc.md
+- stats-consistency/stats-checklist -> 04_analysis/qc/report-checks.md
 - forbidden-phrases -> 05_manuscript/base/vocab/L1/ban-phrases.md
 - introduction-scorecard -> manuscript-local-qc.md Part A
 - personal-review-style -> 06_review/personal/review.md
@@ -65,8 +65,8 @@ REQUIRED_CLASSES = (
     "writing_craft",
 )
 
-WRITING = ROOT / "00_orchestrator" / "references" / "manuscript-local-qc.md"
-REVIEW = ROOT / "00_orchestrator" / "references" / "cross-manuscript-qc.md"
+WRITING = ROOT / "05_manuscript" / "qc" / "manuscript-local-qc.md"
+REVIEW = ROOT / "06_review" / "qc" / "cross-manuscript-qc.md"
 
 
 def read(rel: str) -> str:
@@ -122,7 +122,7 @@ class PreSubmitFrontmatter(unittest.TestCase):
         self.assertEqual(data["user_summary_language"], "zh")
         self.assertEqual(
             data["runs_checks_from"],
-            "00_orchestrator/references/manuscript-local-qc.md",
+            "05_manuscript/qc/manuscript-local-qc.md",
         )
         for cid in REQUIRED_IDS:
             self.assertIn(cid, body)
@@ -138,13 +138,13 @@ class PreSubmitWiring(unittest.TestCase):
         gates = read("00_orchestrator/gates.md")
         self.assertIn("manuscript-local-qc.md", five)
         self.assertIn("cross-manuscript-qc.md", six)
-        self.assertIn("00_orchestrator/references/manuscript-local-qc.md", four)
+        self.assertIn("05_manuscript/qc/manuscript-local-qc.md", four)
         self.assertIn("manuscript-local-qc.md", gates)
         self.assertIn("cross-manuscript-qc.md", gates)
 
     def test_extended_personal_files_hold_the_rules(self) -> None:
         # Wave2: stats-consistency + stats-checklist merged into report-checks.md
-        stats = read("04_analysis/personal/report-checks.md")
+        stats = read("04_analysis/qc/report-checks.md")
         checklist = stats  # single current file holds both id tables
         for token in (
             "stat_vs_threshold",
@@ -195,7 +195,7 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("training set", aitor)
 
         # Wave2: introduction-scorecard absorbed into manuscript-local-qc Part A
-        score = read("00_orchestrator/references/manuscript-local-qc.md")
+        score = read("05_manuscript/qc/manuscript-local-qc.md")
         for code in ("FLU-4", "CIT-5", "CIT-6", "CIT-7"):
             self.assertIn(code, score, code)
 
@@ -207,7 +207,7 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("voxel-wise or cluster-forming", style)
 
         # Wave2: structures.md archived; paragraph_lock lives in manuscript-local-qc
-        structures = read("00_orchestrator/references/manuscript-local-qc.md")
+        structures = read("05_manuscript/qc/manuscript-local-qc.md")
         self.assertIn("paragraph_lock", structures)
         # Wave2: de-ai.md archived; TRAIN_RATIO / approach stay in ban-phrases
         deai = (B_ROOT / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
@@ -236,9 +236,9 @@ class CitationVerifyRequired(unittest.TestCase):
             "03_research/SKILL.md",
             "05_manuscript/SKILL.md",
             "05_manuscript/personal/process/citation-and-language.md",
-            "00_orchestrator/references/manuscript-local-qc.md",
+            "05_manuscript/qc/manuscript-local-qc.md",
             "06_review/SKILL.md",
-            "00_orchestrator/references/cross-manuscript-qc.md",
+            "06_review/qc/cross-manuscript-qc.md",
             "00_orchestrator/SKILL.md",
             "00_orchestrator/workflows/sci-manuscript.md",
         ):
@@ -264,7 +264,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "06_review/personal/word-edit.md",
         "07_response/personal/response.md",
         "07_response/SKILL.md",
-        "00_orchestrator/references/cross-manuscript-qc.md",
+        "06_review/qc/cross-manuscript-qc.md",
         "05_manuscript/SKILL.md",
         "05_manuscript/personal/Aitor-format.md",
         "03_research/SKILL.md",

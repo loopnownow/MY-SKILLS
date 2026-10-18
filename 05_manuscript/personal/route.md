@@ -34,7 +34,7 @@ When polish requested after 00 QC:
 ## Cooperation
 
 - See `handoff.md` (02/03/04/06/07/00).
-- Manuscript local QC / scoring checklists live in **00**.
+- Manuscript local QC / scoring checklists live in ``qc/`` (invoked only by 00 at Gate time).
 
 ## Root keep
 

@@ -4,7 +4,7 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 
 | Need | Seat / skill |
 |---|---|
-| Methods / which test / pipeline / reported numbers | `04_analysis` (`personal/pipeline.md`, `personal/report-checks.md`) |
+| Methods / which test / pipeline / reported numbers | `04_analysis` (`personal/pipeline.md`, `04_analysis/qc/report-checks.md`) |
 | Literature / Evidence Pack | `03_research` |
 | Manuscript prose / Track Changes | `05_manuscript` |
 | Review annotate | `06_review` |

@@ -22,6 +22,8 @@ Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (m
 ## Layer model (2026-10-17)
 
 **Flow:** lit/design fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A03** top-layer re-loops
+
+**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 (may trigger `verify-refs` + `retraction-watcher`; bodies under A `03_research/base/`).
 
 | Layer | Owns |

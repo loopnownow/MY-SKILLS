@@ -8,7 +8,7 @@
 | Tables / imaging prep | `02_data-processing` |
 | Response letter / resolution | `07_response` |
 | Exit QC / Gates | `00_orchestrator` |
-| Local pre-submit + intro scorecard | `00_orchestrator/references/manuscript-local-qc.md` |
-| Cross-manuscript / sister-paper QC | `00_orchestrator/references/cross-manuscript-qc.md` |
+| Local pre-submit + intro scorecard | `05_manuscript/qc/manuscript-local-qc.md` |
+| Cross-manuscript / sister-paper QC | `06_review/qc/cross-manuscript-qc.md` |
 
 Lee (06) annotates by default; does not own manuscript body TC (`word-edit.md`).
