@@ -11,6 +11,5 @@ Live packs in this repo (capability bodies):
 - retraction-watcher
 - verify-refs
 
-Absent labels (not on disk): lit-fulltext, lit-review, lit-cite, 
-rontier-ideate, 
-rontier-hypothesize.
+归档勿建（历史标签，勿在本仓新建目录）: lit-fulltext, lit-review, lit-cite,
+frontier-ideate, frontier-hypothesize.

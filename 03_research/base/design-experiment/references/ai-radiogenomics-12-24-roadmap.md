@@ -1,5 +1,7 @@
 # 12-24 month AI/radiogenomics study roadmap
 
+> **Snapshot note (QC 2026-10-18):** Filename dates a planning window / evidence harvest period. Treat contents as a **dated snapshot** — re-check current evidence, author instructions, and recent issues before relying on specifics.
+
 Use this reference when a team wants a realistic publication plan for radiology AI, deep radiomics, or radiogenomics rather than a one-off model. It is best for teams with access to clinical imaging and at least some labels, clinical variables, molecular data, or external collaborators.
 
 ## Strategic principle

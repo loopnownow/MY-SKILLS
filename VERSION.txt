@@ -1,3 +1,7 @@
+CHG-20261018-batch3-5 (2026-10-18)
+QC Batches 3–5 on fix/qc-batch3-5: A1 archive→0del history; caches→0del; .cursorignore mounts-cap dead entry removed; review-isolation in workflows README; B2 fill-protocol MODULE principles+paths; D2 bilingual 分工 headers; F46 归档勿建; dated snapshot notes; four regression tests. Do not sync .grok/skills.
+Earlier: see CHG-20261018-batch2 and prior blocks below.
+
 CHG-20261018-batch2 (2026-10-18)
 QC Batch 2 metadata + old names (F15–F36): owner paths → NN_slug/base/; hyphen B paths → underscore/base; retired fine-ids → §7 map; clear (was B) residue; registry chassis 00–07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1); README layout + 07; tests tighten. Not A1 archive move / not full B2 fill trim / not D2 merge.
 Earlier: see CHG-20261008-002 and prior blocks below.

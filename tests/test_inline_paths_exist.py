@@ -1,0 +1,92 @@
+﻿"""QC Batch5: backtick in-repo paths under live domains must exist (allowlisted debt OK)."""
+from __future__ import annotations
+
+import re
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+BT = re.compile(r"`([^`]+)`")
+
+TOPS = (
+    "00_orchestrator/",
+    "01_skill-integration/",
+    "02_data-processing/",
+    "03_research/",
+    "04_analysis/",
+    "05_manuscript/",
+    "06_review/",
+    "07_response/",
+    "tests/",
+    "docs/",
+)
+
+# Known missing / relocated / archived path mentions still present in prose.
+# Prefer shrinking this list over growing it.
+ALLOW_MISSING = {
+    "docs/",  # optional viz outputs; often regenerated locally
+    "06_review/base/review-critique/paper-claim-audit.md",
+    "07_response/base/review-response/external-principles.md",
+    "06_review/base/review-peer/external-principles.md",
+    "06_review/personal/word-edit-rules.md",  # relocated; live is word-edit.md family
+    "05_manuscript/personal/qc/local-checks.md",
+    "03_research/medical-journal-submit/",
+    "03_research/base/lit-review",
+    "03_research/base/lit-review/",
+    "04_analysis/personal/high-dimensional-omics.md",
+    "03_research/base/architecture-zoo/",
+    "03_research/base/design-ai-benchmarking/",
+    "03_research/base/frontier-hypothesize/",
+    "03_research/base/frontier-ideate/",
+    "03_research/base/intake-project/",
+    "03_research/find-journal/",  # stub removed; body under base/
+    "03_research/literature/",
+    "02_data-processing/code-qc.md",
+}
+
+SKIP_FILE_PREFIXES = (
+    "VERSION.txt",
+    "INTEGRATION_MAP.md",
+)
+
+
+class InlinePathsExist(unittest.TestCase):
+    def test_backtick_repo_paths_exist_or_allowlisted(self) -> None:
+        missing: list[str] = []
+        for path in ROOT.rglob("*.md"):
+            if any(part in {".git", "__pycache__", ".pytest_cache"} for part in path.parts):
+                continue
+            if path.parts[0] == "tests":
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel in SKIP_FILE_PREFIXES or rel.startswith(SKIP_FILE_PREFIXES):
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for m in BT.finditer(text):
+                tok = m.group(1).strip()
+                if "/" not in tok and "\\" not in tok:
+                    continue
+                if tok.startswith(
+                    ("http://", "https://", "D:", "L:", "C:", "{", "<", "#", "mailto:", "file:")
+                ):
+                    continue
+                clean = tok.split()[0].rstrip(".,);:\"'")
+                clean = clean.replace("\\", "/").split("#", 1)[0]
+                if clean.startswith("./"):
+                    clean = clean[2:]
+                if not clean.startswith(TOPS):
+                    continue
+                if clean in ALLOW_MISSING:
+                    continue
+                if not (ROOT / clean).exists():
+                    missing.append(f"{rel}: `{clean}`")
+        self.assertEqual(
+            missing,
+            [],
+            "inline paths missing (add to ALLOW_MISSING only with cause):\n"
+            + "\n".join(missing[:50]),
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

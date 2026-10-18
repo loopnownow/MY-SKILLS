@@ -1,3 +1,4 @@
-# Accidental local mounts-cap only. SSOT cache: D:/0Grok/0doc/04-lab-reference/mounts-cap
-# Load a mounts-cap SKILL.md only after fine id is in session_picked_fine_ids.
-mounts-cap/
+# mounts-cap is NOT cursor-ignored here.
+# Accidental in-repo copies are blocked by .gitignore (SSOT cache:
+# D:/0Grok/0doc/04-lab-reference/mounts-cap). Load a mounts-cap SKILL.md
+# only after its fine id is in session_picked_fine_ids.
