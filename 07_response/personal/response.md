@@ -295,7 +295,7 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
 | Session mounts | 01 pick | Attach B / MedSci / Scientific / AIPOCH / Nature for this run | Permanent A06 three-pack sub-dispatcher; fixed Reviewer A/B/C pipeline |
 
-A06 stays the review/response **entry** and personal upper layer. Capability labels for mounts stay on `01_skill-integration/mounts/*.md` — do not fork a second A06-only registry of full skill texts.
+A06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` + generated `MOUNTED_SKILLS.md` — do not fork a second A06-only registry of full skill texts.
 
 ## Resolution checklist (A 06)
 

@@ -1,5 +1,5 @@
 # Sole live source config for 01 skill-index.
-# Human board: ../mounts/README.md   Canonical index: ../registry.yaml
+# Canonical index: ../registry.yaml (01 = registry/index only; no mount-package board)
 # Non-base proposed yamls archived: D:/0del/01_sources_archive_20261017/
 source_id: my-skills-base
 name: MY-SKILLS-base

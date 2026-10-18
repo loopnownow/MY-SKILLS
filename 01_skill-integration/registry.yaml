@@ -1,7 +1,7 @@
 # MY-SKILLS Mount Registry v4.0 (skill-index rewrite 2026-10-17)
 # 01 = registry / session-pick / path resolve / legacy aliases / mounts_cap cache boundary.
 # Default UNIQUE runtime source = my-skills-base (MY-SKILLS-base). No multi-package mount narrative.
-# Non-base sources = default deny (see mounts/hybrid-mount-pointers.md). Never auto-mount non-base.
+# Non-base sources = default deny (see references/hybrid-mount-pointers.md). Never auto-mount non-base.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
 # Say 默认挂载 B = 本仓 — not 空挂. Local base bytes: {mounts_cap}/b/ (alias OK) = D:/0Grok/0doc/04-lab-reference/mounts-cap/b.

@@ -5,11 +5,11 @@
 **Default unique runtime source = `my-skills-base`**
 ([loopnownow/MY-SKILLS-base](https://github.com/loopnownow/MY-SKILLS-base)).
 
-Session recipes in `mounts/presets.md` are **first-pass fine-ID lists**, not package menus:
+Session recipes in `references/presets/*.yaml` are **first-pass fine-ID lists**, not package menus:
 `review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`.
 Still ask each run; user may change picks. Attribution is per skill path, not a whole upstream pack.
 
-Non-base sources: **default deny** (`mounts/hybrid-mount-pointers.md`).
+Non-base sources: **default deny** (`references/hybrid-mount-pointers.md`).
 OpenClaw / ARS: `ars_openclaw_policy: removed-from-catalog` — never remount; not in session pick.
 
 **Mapping is not a mount.** Status stays `PROPOSED` until the user confirms (revive is owner-gated).
