@@ -2,6 +2,7 @@
 # Canonical index: ../registry.yaml (01 = registry/index only; no mount-package board)
 # Non-base proposed yamls archived: D:/0del/01_sources_archive_20261017/
 source_id: my-skills-base
+pilot_merge_02_20261017: "domain-02 fine ids clean-data/batch-cohort/imaging-io/preprocess-imaging moved to in-repo source my-skills under A 02_data-processing/base/; removed from this B source yaml. B repo retained; 03-07 not migrated."
 name: MY-SKILLS-base
 role: default-mount
 repo: https://github.com/loopnownow/MY-SKILLS-base
@@ -71,27 +72,6 @@ skills:
   coarse: language-polish
   a_hook: 05_manuscript
   label: 去AI味
-- id: clean-data
-  path: 02-data-processing/tables/
-  coarse: data-processing
-  a_hook: 02_data-processing
-  label: 三阶段确认式清洗
-- id: batch-cohort
-  path: 02-data-processing/tables/
-  coarse: data-processing
-  a_hook: 02_data-processing
-  label: 批量队列分析生成
-  path_shared: true
-- id: imaging-io
-  path: 02-data-processing/imaging-io/
-  coarse: data-processing
-  a_hook: 02_data-processing
-  label: CT/MRI DICOM与NIfTI读写
-- id: preprocess-imaging
-  path: 02-data-processing/imaging-qc/
-  coarse: data-processing
-  a_hook: 02_data-processing
-  label: ROI与读者质控
 - id: analyze-stats
   path: 04-analysis/stats-guide/
   coarse: stats-analysis

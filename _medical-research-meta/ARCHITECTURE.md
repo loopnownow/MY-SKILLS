@@ -7,7 +7,7 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 **Routing SSOT:** `01_skill-integration/registry.yaml`  
 **Generated mount index:** `01_skill-integration/MOUNTED_SKILLS.md`
 
-Live rules here **must agree** with root `ARCHITECTURE.md`: A skill path at most five parts from repo root; default source B; ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-B packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；`venue-templates` 只管体例. 样本量: `calc-sample-size`.
+Live rules here **must agree** with root `ARCHITECTURE.md`: A skill path at most five parts from repo root (pilot exception: `02_data-processing/base/**`); default source B; ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-B packages are mixed PROPOSED/MOUNTED per registry; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；`venue-templates` 只管体例. 样本量: `calc-sample-size`.
 
 Do not duplicate root mount policy, fine-id ceiling, Cache≠Mount, load_priority, or A/B contract tables here.
 

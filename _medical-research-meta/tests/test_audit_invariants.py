@@ -346,7 +346,14 @@ class MountedBytesPresent(unittest.TestCase):
         for m in reg["mounts"]:
             if m.get("status") != "MOUNTED":
                 continue
-            folder = self.SRC_DIR.get(m.get("source"))
+            src = m.get("source")
+            # Pilot 2026-10-17: in-repo source my-skills resolves under A ROOT, not mounts-cap.
+            if src == "my-skills":
+                full = ROOT / m.get("path", "")
+                if not full.exists():
+                    missing.append((m["id"], str(full)))
+                continue
+            folder = self.SRC_DIR.get(src)
             if not folder:
                 continue
             full = CAP_ROOT / folder / m.get("path", "")

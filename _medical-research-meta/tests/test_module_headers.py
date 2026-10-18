@@ -75,7 +75,10 @@ class ModuleHeaderTests(unittest.TestCase):
                     and parts[3].isdigit()
                     and len(parts[3]) == 4
                 )
-                if len(rel.parts) > 5 and not data_year_ok:
+                # Pilot 2026-10-17: domain-02 B bodies live under 02_data-processing/base/
+                # (tables/xlsx-office scripts nest deeper than five parts).
+                base_pilot_ok = len(parts) >= 2 and parts[1] == "base"
+                if len(rel.parts) > 5 and not data_year_ok and not base_pilot_ok:
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
@@ -173,7 +176,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertGreaterEqual(len(paths), 20)
         self.assertIn("04-analysis/fig-flow/", paths)
         self.assertIn("03-research/design-experiment/", paths)
-        self.assertIn("02-data-processing/tables/", paths)
+        self.assertNotIn("02-data-processing/tables/", paths)  # pilot 2026-10-17: in-repo my-skills base/
+        self.assertIn("04-analysis/stats-guide/", paths)
         self.assertNotIn("04-analysis/figure-engine/", paths)
         self.assertNotIn("02-data-processing/imaging/", paths)
         self.assertNotIn("02-data-processing/xlsx/", paths)

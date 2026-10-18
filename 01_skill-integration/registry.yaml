@@ -24,6 +24,10 @@ meta:
     P1 common mounts (default session menu, about 25–30 MOUNTED ids).
     P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
         Registry indexes paths; base byte cache is {mounts_cap}/b/ (alias for my-skills-base). Bodies SSOT = B repo.
+  pilot_merge_02_20261017: >
+    Domain 02 capability bodies piloted in-repo under 02_data-processing/base/.
+    Fine ids clean-data, batch-cohort, imaging-io, preprocess-imaging use source my-skills
+    (in-repo) with paths 02_data-processing/base/...; B repo kept; 03-07 not migrated.
   coarse_id_count: 10
   open_decision_points:
     - id: 样本量计算归属
@@ -229,38 +233,40 @@ mounts:
   - id: clean-data
     label: "三阶段确认式清洗"
     coarse: data-processing
-    source: my-skills-base
-    path: 02-data-processing/tables/
+    source: my-skills
+    path: 02_data-processing/base/tables/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
+    note: "Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained; 03-07 not migrated."
   - id: batch-cohort
     label: "批量队列分析生成"
     coarse: data-processing
-    source: my-skills-base
-    path: 02-data-processing/tables/
+    source: my-skills
+    path: 02_data-processing/base/tables/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
     path_shared: true
+    note: "Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained; 03-07 not migrated."
   - id: imaging-io
     label: "CT/MRI DICOM与NIfTI读写"
     coarse: data-processing
-    source: my-skills-base
-    path: 02-data-processing/imaging-io/
+    source: my-skills
+    path: 02_data-processing/base/imaging-io/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1.
+    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Tag-level anonymization (audit-dicom) archived 2026-10-17 round 1. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained."
   - id: preprocess-imaging
     label: "ROI与读者质控"
     coarse: data-processing
-    source: my-skills-base
-    path: 02-data-processing/imaging-qc/
+    source: my-skills
+    path: 02_data-processing/base/imaging-qc/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path.
+    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo); B repo retained."
   - id: analyze-stats
     label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
