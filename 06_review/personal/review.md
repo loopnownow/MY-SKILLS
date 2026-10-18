@@ -259,7 +259,7 @@ Reusable requests (no unpublished results in the sentence):
 
 ## Part B — Comment habits
 
-# Review comment habits (Ying Li / Jinshan)
+# Review comment habits (Aitor / Jinshan)
 
 Personal upper layer for **审稿** / 投稿前预审（找缺陷、出批注与可执行请求）.  
 Journal-facing English envelope stays in `review.md`.  

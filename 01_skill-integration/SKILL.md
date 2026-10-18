@@ -68,7 +68,7 @@ or ask owner. Registry `archived:` ids stay off the pick menu.
 - `fine_id` = capability interface; `path` = physical unit; `path_shared: true`
   = one path backs several fine ids — do not split that folder.
 - A domains stay `00_orchestrator`–`07_response`. Personal layers stay in A.
-- Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `03_research/find-journal`.
+- Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `MY-SKILLS-base/03-research/find-journal`.
 
 ## Red lines (summary)
 

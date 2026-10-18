@@ -2,7 +2,7 @@
 
 > Relocated from `0rad-workspace.md` → `personal/workspace.md` (2026-10-16).
 
-**Owner:** `02_data-processing`. Locked across Ying Li lab Grok sessions (through 2026-09-06).
+**Owner:** `02_data-processing`. Locked across Aitor lab Grok sessions (through 2026-09-06).
 
 Projects: `{lab_root}\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `received` `DER`). Code: `{script_root}`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired. A folder still named `reseived` is the `received` stage (`study_folder_stage_aliases` in `00_orchestrator/templates/project-state.yaml`). Leave that folder name as written.
 

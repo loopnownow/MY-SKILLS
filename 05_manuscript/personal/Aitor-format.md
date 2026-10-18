@@ -1,4 +1,4 @@
-# Aitor-format (Ying Li / Jinshan)
+# Aitor-format (Aitor / Jinshan)
 
 Formerly `house-format.md`.
 
@@ -55,7 +55,7 @@ Bold is a content mark, not a restyle pass:
 | Surface | Bold |
 |---------|------|
 | Paper title | **yes**, whole title |
-| Authors (`Ying Li¹`) | no |
+| Authors (`Aitor¹`) | no |
 | Affiliation | **no** |
 | Title-page / abstract **labels** (`Corresponding author:` `Objective:` …) | **label + colon only**; rest of the same paragraph not bold |
 | `Highlights` `Abbreviations` `Abstract` and IMRAD section titles | **yes** |
@@ -88,11 +88,11 @@ Title → Authors → Affiliation →
 | Field | Default text |
 |-------|----------------|
 | Affiliation | `1 Department of Radiology, Jinshan Hospital of Fudan University, 1508 Longhang Road, Shanghai 201508, China` |
-| Corresponding author | `Ying Li, E-mail: `（见 mem:corresponding_email） |
+| Corresponding author | `Aitor, E-mail: `（见 mem:corresponding_email） |
 | Funding | `This work was funded by Jinshan Hospital (KYQDJJ202501) to Hai-Feng Shi.` |
 | Ethics | IRB of Jinshan Hospital of Fudan University (Date:  , NO:  ). Retrospective waiver. Helsinki allowed. |
 | Acknowledgments | `None` |
-| Author contributions | `[]`: writing original draft, data collection, and statistical analysis. `[]`: data collection and manuscript revision. `Ying Li`: conceptualization, writing-review and editing, and correspondence. |
+| Author contributions | `[]`: writing original draft, data collection, and statistical analysis. `[]`: data collection and manuscript revision. `Aitor`: conceptualization, writing-review and editing, and correspondence. |
 | Data availability | `The raw data of this manuscript are available from the corresponding author on reasonable request.` |
 
 Delete pipeline banners. Hai-Feng Shi in **Funding only**.

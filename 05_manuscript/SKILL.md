@@ -1,7 +1,7 @@
 ---
 name: medical-scientific-writing
 description: >
-  Personal SCI original-article prose layer (Ying Li / Aitor-format / de-AI / pre-submit consistency).
+  Personal SCI original-article prose layer (Aitor / Aitor-format / de-AI / pre-submit consistency).
   Triggers: 润色, 去AI, de-AI, 写论文, 引言, Discussion, Aitor-format, 投稿前一致性.
   Mounted writing skills supply generic capability; this layer is the personal upper
   layer and final wording authority. Literature research → 03. Figures → 04.
@@ -17,7 +17,7 @@ Convert **validated** research information into precise, publication-ready origi
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable issues from 06: Lee annotates for Aitee to TC-fix; 05 applies those Track Changes. Apply Track Changes only after the user picks on undecidable issues.
 
-**Lab priority:** data truth > journal format > Ying Li voice > generic ornate English.
+**Lab priority:** data truth > journal format > Aitor voice > generic ornate English.
 
 **Every SCI full paper uses `personal/Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
 
@@ -34,7 +34,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
 | L1 / L2 / L3 vocabulary | B `05-manuscript/vocab/` (A `personal/vocab/` = pointer) |
-| Lab-STE (CM-01 ZH comments) | `personal/vocab/L3/lab-ste.md` |
+| Lab-STE (CM-01 ZH comments) | B `05-manuscript/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `00_orchestrator/references/manuscript-local-qc.md` (owned by 00) |
 | Diff harvest | `{script_write_paper}\diff_harvest.py` |
@@ -48,7 +48,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 - `check-reporting` — TRIPOD / CLAIM / CLEAR in the paper
 - `venue-templates` — journal templates / house style while writing. Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
-- `humanize` — generic de-AI / humanize (B `05-manuscript/humanize/`). Does **not** replace `personal/route.md` + `personal/vocab/L1/ban-phrases.md`.
+- `humanize` — generic de-AI / humanize (B `05-manuscript/humanize/`). Does **not** replace `personal/route.md` + B `05-manuscript/vocab/L1/ban-phrases.md`.
 
 选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
 
@@ -67,12 +67,12 @@ Literature search/evidence retrieval for Introduction/Discussion is executed thr
 
 Write from evidence and supplied results. Missing info → Word comment (author **A**); never yellow fill; never invent.
 
-## Lab voice (Ying Li) — summary
+## Lab voice (Aitor) — summary
 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: `personal/vocab/L1/ban-phrases.md`
+- Forbidden fluff: B `05-manuscript/vocab/L1/ban-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.

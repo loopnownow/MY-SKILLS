@@ -28,7 +28,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Reviewer response / response letter | `07_response` (Aitee) |
 | Evolution governance | MY-RULES `skills.md` (skill-evolution; former skill-harvest archived) |
 
-### Lab-specific flows (Ying Li)
+### Lab-specific flows (Aitor)
 
 | Intent | Route |
 |--------|--------|
@@ -98,4 +98,4 @@ Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default 
 
 Generic local capabilities in `EXTERNALIZATION_CANDIDATES.md` stay until an approved mounted Skill covers them. Personal rules, scripts, and style assets are not removed merely because a generic external capability exists.
 
-Standalone packs live under domain skills (e.g. ethics fill pack under `03_research/fill-protocol/`).
+Standalone packs live under domain skills (e.g. ethics fill pack under `MY-SKILLS-base/03-research/fill-protocol/`).
