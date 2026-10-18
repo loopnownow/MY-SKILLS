@@ -61,10 +61,10 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `clean-data` | 三阶段确认式清洗 | my-skills-base | `02-data-processing/tables/` | MOUNTED | P1 | — |
-| `batch-cohort` | 批量队列分析生成 | my-skills-base | `02-data-processing/tables/` | MOUNTED | P1 | path_shared |
-| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills-base | `02-data-processing/imaging-io/` | MOUNTED | P1 | — |
-| `preprocess-imaging` | ROI与读者质控 | my-skills-base | `02-data-processing/imaging-qc/` | MOUNTED | P1 | — |
+| `clean-data` | 三阶段确认式清洗 | my-skills | `02_data-processing/base/tables/` | MOUNTED | P1 | — |
+| `batch-cohort` | 批量队列分析生成 | my-skills | `02_data-processing/base/tables/` | MOUNTED | P1 | path_shared |
+| `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills | `02_data-processing/base/imaging-io/` | MOUNTED | P1 | — |
+| `preprocess-imaging` | ROI与读者质控 | my-skills | `02_data-processing/base/imaging-qc/` | MOUNTED | P1 | — |
 
 
 ### stats-analysis

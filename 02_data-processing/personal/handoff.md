@@ -19,4 +19,4 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 
 ## A/B note
 
-Capability bodies live in B `02-data-processing/`. A02 is personal top layer only (route/handoff + true personal files above).
+Capability bodies for 02 mounts live in A `02_data-processing/base/` (pilot 2026-10-17; was B; B repo retained). A02 personal top layer stays route/handoff + true personal files above.
