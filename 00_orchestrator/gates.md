@@ -77,7 +77,7 @@ ChatGPT-style Route/Mount/Boundary/Evidence/Consistency/Artifact map onto existi
 | Evidence | **G-LIT** + 05 Evidence QC; no unknown-source numbers |
 | Consistency | **G-FACT** |
 | Artifact | file-existence chain (this file) |
-| Stale-ref | meta hygiene / MY-RULES `skills.md` (skill-evolution) — **not** every manuscript run |
+| Stale-ref | meta hygiene / `references/skill-evolution.md` — **not** every manuscript run |
 | Code | **G-CODE** / 02 personal/coding.md |
 
 Execution QC is diagnostic only: detect → name responsible node → local re-run. Never auto-edit user files or fill missing numbers.

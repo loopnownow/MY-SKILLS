@@ -15,4 +15,4 @@
 - 写作 / 润色 / 引言 / Discussion / de-AI → `05_manuscript`
 - 预审 / 审稿 → `06_review`
 - **回复审稿人** → `07_response`
-- 技能迭代 / 整理聊天 / 收益评估 → MY-RULES `skills.md`（skill-evolution / propose-only；非 skill-harvest；已归档）
+- 技能迭代 / 整理聊天 / 收益评估 → `references/skill-evolution.md`（propose-only；一行政策在 Rules `skills.md`）

@@ -27,3 +27,9 @@ Bytes path: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`; o
 **Stale policy:** pull/sync MY-SKILLS when bodies change. Do not treat `{mounts_cap}/` pack folders as session candidates.
 
 **G0 handoff:** if an in-repo body path is missing, fail back to 01.
+
+## Post-merge deploy sync
+
+- After an MY-SKILLS merge, copy only the files changed in that merge from the GitHub working copy `D:\0Grok\0doc\GitHub\MY-SKILLS` into `{SKILLS}`. The whitelist is exactly that merge's changed paths.
+- No whole-tree overwrite, and no editing an unchanged skill under the name of a sync.
+- Acceptance: target path exists and the sampled file hash (or equivalent) matches the working copy.

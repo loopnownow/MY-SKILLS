@@ -214,6 +214,16 @@ Final prose does not say "as stated by the source", "according to the HTML", or 
 
 Final prose does not contain 待补, 待补充, TBD, XX, bracketed parameter slots, or internal QC labels such as 标签未与方案核对. Missing facts become a Word comment (author **A**).
 
+### agent_disclaimer_and_incomplete_claims_banned
+
+Agent-added disclaimers, placeholders, or internal notes never enter the manuscript body or a response letter. Banned strings include `Do not invent…`, `We did not invent…`, `cannot_invent`, `Undecidable pending source`, `will supply from source`, `pending source`, `not in the current files`, and figure/table placeholders such as `[Figure N near here]`.
+
+Agent must not add new negative gap lists either (`was not tested / measured / examined / included …`). A verifiable negative fact already present in the user's Methods or Limitations may stay. Unresolved items go to a Word comment (author **A**), with an English sentence starting `Suggested …`.
+
+### layout_priority
+
+Layout order: the user's instruction this run, then the target journal guide, then `05_manuscript/personal/Aitor-format.md` defaults. Paragraphs stay as paragraphs; new paragraphs only on topic change. Abstract labels, Methods/Results subheads, Highlights, and figure/table notes keep their format.
+
 ### repeated_disclaimer
 
 The same disclaimer or limitation sentence appears once. A second copy in the body or a legend is a fail. Collapse to one locus.

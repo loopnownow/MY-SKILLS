@@ -141,6 +141,10 @@ class LabSte(unittest.TestCase):
             "05_manuscript/base/vocab/L3/lab-ste.md",
             five,
         )
+        self.assertNotIn(
+            "05-manuscript/vocab/L3/lab-ste.md",
+            five,
+        )
         self.assertTrue((BASE_VOCAB / "vocab" / "L2" / "approved-en.tsv").is_file())
         self.assertFalse((SKILLS / "lab-ste").exists())
 

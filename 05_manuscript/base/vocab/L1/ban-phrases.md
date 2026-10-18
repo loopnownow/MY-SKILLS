@@ -1,7 +1,7 @@
 # Forbidden / replace table (lab SCI)
 
 **Owner:** manuscript-core. Apply on every polish/draft/de-ai pass.
-**Authority (Rules SSOT):** standing body/comment bans, figure/table placeholders, internal work notes, and negative-enumeration bans live in `{RULES}\manuscript-and-review.md`. This file is the phrase/table skill detail (`ban-terms.yaml` = machine source). Do not fork standing bans here.
+**Authority (skill SSOT after 2026-10-18):** standing body/comment bans live in `05_manuscript/qc/manuscript-local-qc.md`. This file is the phrase/table detail (`ban-terms.yaml` = machine source). Do not fork standing bans here.
 
 ## Exception checks (before applying a ban)
 

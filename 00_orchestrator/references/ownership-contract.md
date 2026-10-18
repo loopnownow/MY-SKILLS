@@ -2,7 +2,7 @@
 
 Single source for lab roles, manuscript Track Changes, and citation-verify. Other files point here. They do not paste this text.
 
-**Boundary:** Rules `{RULES}\manuscript-and-review.md` owns standing manuscript/review policy (body vs comment, TC author field, deliverable prefs). This file owns seat/role ownership and the skills-layer TC / citation-verify operational contract. Point to Rules for standing bans; do not paste or fork them here.
+**Boundary:** After the 2026-10-18 consolidation, this file plus domain `qc/` own standing manuscript/review policy. Standing bans live in `05_manuscript/qc/manuscript-local-qc.md`; review-side consistency in `06_review/qc/cross-manuscript-qc.md`. Rules `My rule.md` keeps only the minimal invariants and a pointer. Do not paste Rules text here.
 
 Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 
@@ -16,8 +16,16 @@ Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | 投稿 after review loop (06 re-review and/or 07 response as needed; not “after 06” as sole gate) + ethics forms | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/` (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
+| Cursor | 外挂 | 仓库内前端/后端（UI、API、测试、PR）；仅用户说「交给cursor」才交 |
+| Cline | 外挂 | 数据准备及同类（xlsx、归档、批处理、非仓库数据）；用户说「交给cline」或一般数据/脚本交接 |
 
 Per-paper channel seats all six (max).
+
+## Dispatch
+
+- 一个任务只交一个执行方（one executor；本条权威处）。Aitor 能在本地做完的短任务，不交 Cursor，不交 Cline。
+- Aitee、Lee 一般不调用 Cursor 或 Cline。任何座位要用 Cursor，必须用户先批准。
+- 外挂盯梢：`00_orchestrator/references/handoff-monitor.md`（仅该次任务期间）。
 
 ## Word Track Changes
 
