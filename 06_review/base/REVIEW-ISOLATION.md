@@ -1,4 +1,4 @@
-# Review isolation (B 06-review)
+# Review isolation (06_review)
 
 Capability engines live here. Orchestration / post-QC re-review authority lives in A `06_review`.
 
@@ -8,4 +8,4 @@ Capability engines live here. Orchestration / post-QC re-review authority lives 
 2. In parallel: `review-critique/` (self-review) || `review-peer/` (peer-review)
 3. Hand isolated finding artifacts to **00 QC**, then A06 re-review
 
-Do not merge finding sets inside B before A06. See A `06_review/personal/review-isolation.md`.
+Do not merge finding sets inside base before A06. See A `06_review/personal/review-isolation.md`.

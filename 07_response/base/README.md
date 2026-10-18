@@ -1,6 +1,6 @@
-# 07-response -- capability bodies for A07
+# 07_response/base — capability bodies for A07
 
-Response-letter fine IDs live here (moved from `06-review/` on 2026-10-17 for A/B symmetry).
+Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 for A/B symmetry).
 
 | Fine id | Path | Role |
 |---|---|---|
@@ -10,4 +10,4 @@ Response-letter fine IDs live here (moved from `06-review/` on 2026-10-17 for A/
 
 **Flow:** base first-pass -> 00 QC -> **A07** (`MY-SKILLS/07_response`) personal final authority.
 
-Review / re-review bodies stay under `06-review/`.
+Review / re-review bodies stay under `06_review/base/`.

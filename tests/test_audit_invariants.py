@@ -256,11 +256,11 @@ class RoutingFourTuple(unittest.TestCase):
         fj_note = by_id["find-journal"]["note"]
         fp_note = by_id["fill-protocol"]["note"]
         self.assertTrue(
-            "03-research/find-journal" in fj_note or "03_research/base/find-journal" in fj_note,
+            "03_research/base/find-journal" in fj_note,
             fj_note,
         )
         self.assertTrue(
-            "03-research/fill-protocol" in fp_note or "03_research/base/fill-protocol" in fp_note,
+            "03_research/base/fill-protocol" in fp_note,
             fp_note,
         )
         self.assertNotRegex(read("ARCHITECTURE.md"), r"选刊\s*→\s*05")

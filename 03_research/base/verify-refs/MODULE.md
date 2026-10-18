@@ -3,7 +3,7 @@ name: "verify-refs"
 domain: "03_research"
 trigger: ["verify-refs", "引用核验", "citation validation", "bibtex"]
 outputs: ["skill_output"]
-owner: "03-research/verify-refs/MODULE.md"
+owner: "03_research/base/verify-refs/MODULE.md"
 ---
 
 # verify-refs

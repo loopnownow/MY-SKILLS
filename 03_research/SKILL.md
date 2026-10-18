@@ -17,7 +17,7 @@ description: >
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **A03 is the personal top layer** (like A05/A06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
-Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17; was B; ).
+Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17).
 
 ## Layer model (2026-10-17)
 
@@ -28,7 +28,7 @@ Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (m
 
 | Layer | Owns |
 |---|---|
-| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` (was B; ) |
+| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
 | 00 | QC gate; decides whether A03 re-triggers verify/retraction |
 | A03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in A `base/`) |
 
@@ -63,8 +63,8 @@ See `personal/route.md` for the full pointer table.
 | Find-journal pack | engine `03_research/base/find-journal/` |
 | Question-to-reference spine | `workflows/question-to-reference.md` |
 
-Do not rewrite mounted B literature/systematic-review capability bodies inside these files.
-Where an A personal file only duplicates a long B procedure, prefer a short pointer to B (no bulk-move this round).
+Do not rewrite mounted literature/systematic-review capability bodies inside these files.
+Where an A personal file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
 
 ## Mounted capability ids (bodies under `NN_slug/base/`)
 
@@ -72,7 +72,7 @@ Where an A personal file only duplicates a long B procedure, prefer a short poin
 
 Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
 
-**Post-QC A03-triggered (bodies stay B):**
+**Post-QC A03-triggered:**
 
 - `verify-refs` -- literature verify / cite hygiene
 - `retraction-watcher` -- retraction check

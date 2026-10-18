@@ -1,7 +1,7 @@
 # 代码优化与重构
 
 个人层：`02_data-processing/personal/coding.md`（由 `code-refactoring/SKILL.md` 迁入；复杂度阶梯并入下文）。  
-深度代码 QC 细则见`../qc/coding-qc.md`。不另建顶层、不登记 01/B 粗 ID。
+深度代码 QC 细则见`../qc/coding-qc.md`。不另建顶层、不登记 01 coarse id。
 
 ## 适用场景
 - 代码软编码（配置置顶）
@@ -60,7 +60,7 @@ Medical / Statistical Integrity：**只引用** `04_analysis/qc/report-checks.md
 
 ## Complexity ladder（吸收自 complexity-ladder.md）
 
-Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a 01 mount / B coarse id.
+Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a 01 mount / coarse id.
 
 ## When writing (stop at first yes)
 

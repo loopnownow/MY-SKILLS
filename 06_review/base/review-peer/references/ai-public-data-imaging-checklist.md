@@ -1,6 +1,6 @@
 # AI + public-data / imaging peer-review checklist
 
-Short gate list for manuscripts that train or evaluate AI (especially imaging) on public corpora. Use beside `MODULE.md` / dealbreakers; cite items with `[B:06-review-peer]` when they drive a Major/Minor.
+Short gate list for manuscripts that train or evaluate AI (especially imaging) on public corpora. Use beside `MODULE.md` / dealbreakers; cite items with `[B:peer-review]` when they drive a Major/Minor.
 
 ## Framing
 

@@ -2,7 +2,7 @@
 name: "stats-models"
 domain: "04_analysis"
 description: Bayesian notes and assumption-check script.
-owner: "04-analysis/stats-models/MODULE.md"
+owner: "04_analysis/base/stats-models/MODULE.md"
 ---
 
 # stats-models

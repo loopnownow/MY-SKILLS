@@ -7,7 +7,7 @@ on training data only.
 
 | Metric | Measures | Notes |
 |---|---|---|
-| **ICC** | Agreement of continuous features / volumes across readers | State the ICC model (two-way random, absolute agreement, single vs average); → `04-stats-guide` |
+| **ICC** | Agreement of continuous features / volumes across readers | State the ICC model (two-way random, absolute agreement, single vs average); → `analyze-stats` |
 | **Dice (DSC)** | Volumetric overlap of masks | Sensitive to small structures; report per-region |
 | **Jaccard (IoU)** | Overlap (stricter than Dice) | Alternative to Dice |
 | **Hausdorff (HD95)** | Boundary distance | Use 95th percentile to limit outlier sensitivity |

@@ -1,7 +1,7 @@
 # Other-paper English peer review
 
 This file is the **other-paper** path only. Pre-submission of the user's own draft lives in
-`06-review-critique`. Response letters live in `06-review-response` (mode-3).
+`self-review`. Response letters live in `revise` (mode-3).
 
 Personal review-style corpora stay in A.
 
@@ -16,7 +16,7 @@ will accept.
 2. Open:
    - [dealbreakers.md](dealbreakers.md)
    - [review-report-format.md](review-report-format.md)
-   - Reporting checklists → `05-write-reporting` (not a retired writing-generic mount)
+   - Reporting checklists → `check-reporting` (not a retired writing-generic mount)
 3. Each comment: fact → why it is a problem → what the authors should do (point to Abstract /
    Methods / Table X). Do not invent unrun experiments or AUC.
 4. Deliver the letter below. Keep Accept/Minor/Major/Reject in an **internal note**.
@@ -70,7 +70,7 @@ the English letter; owning mode-3 response.
 ## Internal note (not submitted)
 
 ```text
-Skill: 06-review-peer
+Skill: peer-review
 Recommendation: Accept | Minor revision | Major revision | Reject
 Dealbreakers: [list, or none]
 ```

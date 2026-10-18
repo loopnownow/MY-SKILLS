@@ -4,12 +4,12 @@ description: >
   Zero-context verification that every number, comparison, and scope claim in the
   manuscript matches primary evidence tables/outputs. Fresh reviewer; no prior
   chat or summaries. Medical/clinical manuscript default (Word + tables).
-owner: "06-review/review-critique/MODULE.md"
+owner: "06_review/base/review-critique/MODULE.md"
 ---
 
 # Paper claim audit (zero-context)
 
-Advisory fidelity check: does the manuscript report primary evidence truthfully and at display precision? Not a scientific-support skill (that is design/stats packs). Not peer review of others' papers (`06-review-peer`).
+Advisory fidelity check: does the manuscript report primary evidence truthfully and at display precision? Not a scientific-support skill (that is design/stats packs). Not peer review of others' papers (`peer-review`).
 
 ## CONFIG (edit per run)
 
@@ -101,7 +101,7 @@ Write `PAPER_CLAIM_AUDIT.md` (and optional `.json` if useful) with:
 ### When to run
 
 - Before submission / after major manuscript number changes  
-- After revision letter that changes numbers → re-run (handoff from `07-response/review-response`)  
+- After revision letter that changes numbers → re-run (handoff from `07_response/base/review-response`)  
 - Not on a wall-clock timer; re-fire only when paper or evidence changed  
 
 ## Cut from upstream (not in this pack)

@@ -3,14 +3,14 @@
 Pick the template that matches the clinical question. For each, the **minimum-viable (MVP)**
 version is what is publishable now; the **stronger** version is what reaches a higher tier.
 Every blueprint must end with a validation plan (validation-strategy.md) and a reporting
-guideline (→ `05-write-reporting`).
+guideline (→ `check-reporting`).
 
 ## 1. Diagnostic accuracy (test vs reference standard)
 - **Question:** does the imaging/AI test correctly classify disease vs a reference standard?
 - **MVP:** prospective or consecutive retrospective cohort, credible reference standard,
   sensitivity/specificity/AUC with CIs, real prevalence reported.
 - **Stronger:** multi-reader comparison (radiologist vs AI vs radiologist+AI), external cohort,
-  reader study (→ A personal / `03-clinical`).
+  reader study (→ A personal).
 - **Guideline:** STARD 2015 (+ CLAIM if AI); QUADAS-2 if part of a review.
 
 ## 2. Prediction / prognosis model
@@ -40,7 +40,7 @@ guideline (→ `05-write-reporting`).
 - **Question:** do hand-crafted features predict the endpoint?
 - **MVP:** IBSI-compliant features, segmentation reproducibility (ICC), feature selection
   **inside** training only, model + calibration, internal validation.
-- **Stronger:** external validation, biological correlate (→ `02-radiomics-habitat` / `03-design-experiment`),
+- **Stronger:** external validation, biological correlate (→ `02-radiomics-habitat` / `design-study`),
   comparison vs deep features or clinical model.
 - **Guideline:** CLEAR (reporting) + METRICS/RQS (quality) + IBSI. (→ `02-radiomics-habitat`)
 
@@ -56,7 +56,7 @@ guideline (→ `05-write-reporting`).
 - **Question:** does AI change radiologist performance or workflow?
 - **MVP:** MRMC design, washout, with/without AI, reader experience reported.
 - **Stronger:** prospective, real-workflow, time and confidence outcomes, harm analysis.
-- **Guideline:** CLAIM + reader-study stats (MRMC → `04-stats-guide`). (→ A personal / `03-clinical`)
+- **Guideline:** CLAIM + reader-study stats (MRMC → `analyze-stats`). (→ A personal)
 
 ## Blueprint output skeleton
 
@@ -70,6 +70,6 @@ MVP version:        [what's publishable now]
 Stronger version:   [what raises the tier] + extra cost
 Unit of analysis:   patient / lesion / slice  (default: patient)
 Validation:         [→ validation-strategy.md]
-Reporting guideline:[→ `05-write-reporting`]
+Reporting guideline:[→ `check-reporting`]
 Binding constraint: [the one number everything hinges on]
 ```

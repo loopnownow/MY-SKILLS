@@ -1,8 +1,8 @@
 # Generic academic paper pipeline (outline)
 
 Condensed planning modes for non-imaging or cross-disciplinary outlines. Imaging prediction
-full papers prefer `pipeline-stages.md`. Language polish → `05-write-polish`. Reviewer
-response → `06-review-response`.
+full papers prefer `pipeline-stages.md`. Language polish → `polish-language`. Reviewer
+response → `revise`.
 
 ## Priority
 
@@ -15,7 +15,7 @@ Supplied facts > venue format > generic English. Do not invent results or citati
 | `full` | Draft the paper | Full draft from supplied facts |
 | `plan` | Uncertain structure | Chapter plan |
 | `outline-only` | Outline only | Outline + evidence map |
-| `revision` | Revise body after review | Revised prose (the letter itself → `06-review-response`) |
+| `revision` | Revise body after review | Revised prose (the letter itself → `revise`) |
 | `abstract-only` | Abstract only | Abstract + keywords |
 | `lit-review` | Review article | Annotated synthesis (`03-lit-review`) |
 | `citation-check` | Check citations | Citation audit (`03-lit-cite`) |
@@ -31,6 +31,6 @@ Default when unsure: **`plan`**.
 3 ARGUMENT claim–evidence chain
 4 DRAFT    section drafts (do not invent data/citations)
 5 CITE     format + DOI check
-6 REVIEW   self-audit → `06-review-critique`
-7 FORMAT   venue handoff → `05-write-venue`
+6 REVIEW   self-audit → `self-review`
+7 FORMAT   venue handoff → `05_manuscript/base/write-venue/`
 ```

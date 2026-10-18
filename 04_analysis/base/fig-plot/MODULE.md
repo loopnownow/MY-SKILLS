@@ -6,7 +6,7 @@ inputs: ["results_tables", "png_from_pipeline"]
 outputs: ["publication_figure", "legend"]
 tools: ["matplotlib", "palette"]
 quality_control: "CI and n match supplied results; colorblind-safe"
-owner: "04-analysis/fig-plot/MODULE.md"
+owner: "04_analysis/base/fig-plot/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -74,9 +74,9 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../fig-f
 
 ## Handoffs
 
-- Statistic behind the plot → `04-stats-guide` / `04-model-eval`
-- Checklist item (STROBE flow) → `04-fig-flow` and `05-write-reporting`
-- Captions / display-item plan → `05-write-manuscript` / `05-write-venue`
-- Harsh read before submission → `06-review-critique`
+- Statistic behind the plot → `analyze-stats` / `model-evaluation`
+- Checklist item (STROBE flow) → `04-fig-flow` and `check-reporting`
+- Captions / display-item plan → `write-paper` / `05_manuscript/base/write-venue/`
+- Harsh read before submission → `self-review`
 
 跨包调研提炼的原则(非挂载，仅规则参考)：[external-principles.md](references/external-principles.md)

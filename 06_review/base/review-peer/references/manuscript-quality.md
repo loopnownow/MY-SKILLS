@@ -2,13 +2,13 @@
 
 Companion to [MODULE.md](../MODULE.md). **Other-paper only.**
 
-Self-audit → `06-review-critique`. Point-by-point response → `06-review-response`.
+Self-audit → `self-review`. Point-by-point response → `revise`.
 Personal review voice stays in A.
 
 ## Job
 
 Write a submittable English review of **someone else's** manuscript. Do not rewrite the paper
-(sentence edits belong in `05-write-manuscript` / `05-write-polish`).
+(sentence edits belong in `write-paper` / `polish-language`).
 
 ## Path
 
@@ -17,7 +17,7 @@ Write a submittable English review of **someone else's** manuscript. Do not rewr
 3. Other-paper workflow in [mode-2-prereview.md](mode-2-prereview.md)
 
 Do **not** open mode-3 response files from this pack. Do not run a pre-submission self-audit
-here — that is `06-review-critique`.
+here — that is `self-review`.
 
 ## Honesty
 

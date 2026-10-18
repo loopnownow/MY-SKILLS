@@ -2,10 +2,10 @@
 
 ## A/B layering (2026-10-17)
 
-- B runs lit/design capability **first-pass**.
+- Base runs lit/design capability **first-pass**.
 - After **00 QC**, A03 may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`).
 - A keeps personal route/handoff/authority; do not bulk-move personal files this round.
-- Pointerize only where an A file duplicates a long B procedure.
+- Pointerize only where an A file duplicates a long base procedure.
 
 ## Layout (2026-10-16)
 

@@ -1,7 +1,7 @@
 # Section templates (short-sentence English)
 
 Generic IMRAD sentence shapes. Prefer clauses and periods over dashes. Language polish →
-`05-write-polish`.
+`polish-language`.
 
 ## Introduction (4 paragraphs)
 

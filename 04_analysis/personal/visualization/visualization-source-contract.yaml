@@ -12,7 +12,7 @@ views:
     inputs:
       - ARCHITECTURE.md
       - 01_skill-integration/registry.yaml
-      - top-level directories 00_orchestrator through 06_review
+      - top-level directories 00_orchestrator through 07_response
     archify_fields: [components, boundaries, connections]
     primary_component_band: "about 6-12 stable system components"
   workflow:
@@ -24,7 +24,7 @@ views:
     archify_fields: [lanes, phases, groups, mainPath, nodes, edges]
     geometry: new-workflow-schema-version-from-version-record
     must_show:
-      - layers 00 through 06
+      - layers 00 through 07 (07 = response)
       - Lit05
       - Lit06
       - mid-entry
@@ -40,7 +40,7 @@ views:
   skill_pages:
     question: "Documentation pages from skill sources. Do not force prose into a diagram."
     inputs:
-      - SKILL.md frontmatter under 00_orchestrator through 06_review
+      - SKILL.md frontmatter under 00_orchestrator through 07_response
 
 forbidden_fact_sources:
   - LLM inference
@@ -58,7 +58,7 @@ forbidden_default_atomic_mount_sources:
 rules:
   - MY-SKILLS is the only source of truth.
   - Archify is a read-only visualization compiler.
-  - Do not add a top-level 07 skill.
+  - Top-level 07_response is allowed (response letters); do not add other top-level 07* skills.
   - Mount diagrams come from registry and preset metadata.
   - Delta describes structural facts only.
   - Generated HTML under docs is rebuildable and is not a fact source.

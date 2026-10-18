@@ -3,7 +3,7 @@ name: "retraction-watcher"
 domain: "03_research"
 trigger: ["撤稿", "retraction", "Retraction Watch", "citation integrity"]
 outputs: ["retraction_report"]
-owner: "03-research/retraction-watcher/MODULE.md"
+owner: "03_research/base/retraction-watcher/MODULE.md"
 ---
 
 # retraction-watcher

@@ -2,7 +2,7 @@
 name: "lit-search"
 domain: "03_research"
 description: Literature search, sources, public datasets.
-owner: "03-research/lit-search/MODULE.md"
+owner: "03_research/base/lit-search/MODULE.md"
 ---
 
 # lit-search

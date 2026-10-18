@@ -3,7 +3,7 @@ name: "write-venue"
 domain: "05_manuscript"
 trigger: ["期刊体例", "Nature family", "house style", "venue template"]
 outputs: ["venue_shape"]
-owner: "05-manuscript/write-venue/MODULE.md"
+owner: "05_manuscript/base/write-venue/MODULE.md"
 ---
 
 # Venue templates / house style
@@ -13,7 +13,7 @@ is known (Radiology-family vs Nature-family article shape, house voice, word/fig
 conventions).
 
 It is **not** journal selection / 选刊 / “where to submit.” Route those to A `03_research`
-(`literature/journal-selection.md` + `medical-journal-submit/`) and B `03-lit-search`
+(`literature/journal-selection.md` + `medical-journal-submit/`) and B `lit-search`
 (search/evidence). Do not treat this id as a 选刊 SOP.
 
 House-style files: `radiology-writing/`, `radiology-polishing/radiology-house-style.md`,

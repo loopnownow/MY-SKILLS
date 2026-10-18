@@ -1,4 +1,4 @@
-# 03-research
+# 03_research/base
 
 Live packs in this repo (capability bodies):
 
@@ -11,4 +11,6 @@ Live packs in this repo (capability bodies):
 - retraction-watcher
 - verify-refs
 
-Absent labels (not on disk): lit-fulltext, lit-review, lit-cite, rontier-ideate, rontier-hypothesize.
+Absent labels (not on disk): lit-fulltext, lit-review, lit-cite, 
+rontier-ideate, 
+rontier-hypothesize.

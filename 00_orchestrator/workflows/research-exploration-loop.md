@@ -116,7 +116,7 @@ When the missing work is **research content** (question / evidence / design / da
 
 Writing / review exploration handoffs use 05 / 06 only when the gap is wording or reviewer-facing — not for inventing methods.
 
-**No new external source in this CHG.** Absorbing third-party scoring (e.g. idea-generation) requires license + grilling and must land inside existing `frontier-hypothesize` / B scripts — **not** a new fine id.
+**No new external source in this CHG.** Absorbing third-party scoring (e.g. idea-generation) requires license + grilling and must land inside existing `frontier-hypothesize` / scripts — **not** a new fine id.
 
 ## 5. QC — structural in 00, content in specialists
 

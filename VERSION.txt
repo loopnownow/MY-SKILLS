@@ -1,3 +1,10 @@
+CHG-20261018-batch2 (2026-10-18)
+QC Batch 2 metadata + old names (F15–F36): owner paths → NN_slug/base/; hyphen B paths → underscore/base; retired fine-ids → §7 map; clear (was B) residue; registry chassis 00–07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1); README layout + 07; tests tighten. Not A1 archive move / not full B2 fill trim / not D2 merge.
+Earlier: see CHG-20261008-002 and prior blocks below.
+
+CHG-20261018-batch1 (2026-10-18)
+QC Batch 1 P0 dead links (F1–F14) via PR #151: style_lint mounts-cap fallback removed; sci-manuscript path fixes; presets C1 in-repo paths; fill-protocol owners; radiomics/venue-templates live wording; style-tells → base ban-terms.yaml.
+Earlier: CHG-20261008-002.
 CHG-20261008-002 (2026-10-08)
 find-journal v1.18: similar-article check moves to round 2 of journal selection. Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link); never invent; a failed search is not a no-hit. Canonical text in SKILL.md; pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md.
 Earlier: CHG-20261008-001, CHG-20261007-010.

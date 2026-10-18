@@ -1,4 +1,4 @@
-# 05-manuscript
+# 05_manuscript/base
 
 Capability bodies for A05 manuscript. No domain-level SKILL.md.
 

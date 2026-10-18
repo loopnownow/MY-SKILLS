@@ -5,7 +5,7 @@ trigger: ["SCI写作", "写引言", "写讨论", "IMRAD", "起草全文"]
 inputs: ["results_tables", "draft"]
 outputs: ["imrad_draft"]
 quality_control: "numbers only from supplied results; no invented n/AUC/ethics IDs"
-owner: "05-manuscript/write-manuscript/MODULE.md"
+owner: "05_manuscript/base/write-manuscript/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -15,16 +15,16 @@ owner: "05-manuscript/write-manuscript/MODULE.md"
 Draft and revise **scientific prose** (Title / Abstract / Introduction / Methods / Results /
 Discussion). This pack is **generic IMRAD only**.
 
-**Not in this pack (stay in A personal, or other B ids):**
+**Not in this pack (stay in A personal, or other fine ids):**
 
 - Personal house format / title-page defaults
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
-- Language polish → [`05-write-polish`](../write-polish/MODULE.md)
-- Venue house style / article shape → [`05-write-venue`](../write-venue/MODULE.md)
-- 选刊 / where to submit → A `03_research` (journal-selection) / B `03-lit-search`
-- TRIPOD / CLAIM / CLEAR checklists → [`05-write-reporting`](../write-reporting/MODULE.md)
-- Self-audit → `06-review-critique`; other-paper review → `06-review-peer`; response → `06-review-response`
+- Language polish → [`polish-language`](../write-polish/MODULE.md)
+- Venue house style / article shape → [`05_manuscript/base/write-venue/`](../write-venue/MODULE.md)
+- 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`
+- TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../write-reporting/MODULE.md)
+- Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
 
 ## When to use
 
@@ -45,7 +45,7 @@ Discussion). This pack is **generic IMRAD only**.
 7. Missing facts → comments / open questions, never fabricated body text
 8. Patient-level split language when the study is predictive
 9. Dual-set reporting when the user supplied both training and test metrics
-10. Reporting guidelines (TRIPOD, CLAIM, CLEAR) are not named in the Introduction; route to `05-write-reporting`
+10. Reporting guidelines (TRIPOD, CLAIM, CLEAR) are not named in the Introduction; route to `check-reporting`
 11. Related studies are synthesized, not listed: at most one triplet per paragraph, no repeated sentence frames
 
 
@@ -58,9 +58,9 @@ Discussion). This pack is **generic IMRAD only**.
 | `methods-skeleton` | [methods_template_export.md](references/methods_template_export.md) + [radiology-writing/methods.md](radiology-writing/methods.md) |
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
-| `polish` | **handoff** → `05-write-polish` |
-| `venue-shape` | **handoff** → `05-write-venue` |
-| `reporting` | **handoff** → `05-write-reporting` |
+| `polish` | **handoff** → `polish-language` |
+| `venue-shape` | **handoff** → `05_manuscript/base/write-venue/` |
+| `reporting` | **handoff** → `check-reporting` |
 
 ## IMRAD map
 
@@ -77,7 +77,7 @@ Discussion). This pack is **generic IMRAD only**.
 ## Envelope
 
 ```text
-Skill: 05-write-manuscript
+Skill: write-paper
 Subtask: draft-section | full-imrad | methods-skeleton | outline
 Venue: (unknown unless user named one)
 
@@ -86,5 +86,5 @@ Venue: (unknown unless user named one)
 Missing inputs:
 - ...
 
-Next: 05-write-polish (language) · 05-write-venue (shape) · 06-review-critique (self-audit)
+Next: polish-language (language) · 05_manuscript/base/write-venue/ (shape) · self-review (self-audit)
 ```

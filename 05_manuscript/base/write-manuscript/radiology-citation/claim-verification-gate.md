@@ -103,4 +103,4 @@ For abstracts, Key Results, figure legends, graphical abstracts, tables, and sli
 | NOV-01 | ... | novelty | ... | ... | PARTIAL | soften novelty |
 | FIG-01 | ... | visual claim | source data / figure | n/a | UNSUPPORTED | correct figure or text |
 
-This gate feeds `06-review-critique` and should be repeated after major revision.
+This gate feeds `self-review` and should be repeated after major revision.

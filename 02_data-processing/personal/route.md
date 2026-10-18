@@ -4,7 +4,7 @@
 
 1. **base first-pass** data-processing fine-IDs (`clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, ...)
 2. **00 QC**
-3. **A02 re-loop** -- personal workspace/extract/coding protocols; may re-trigger B mounts when 00 says needed
+3. **A02 re-loop** -- personal workspace/extract/coding protocols; may re-trigger base mounts when 00 says needed
 
 ## Personal load order
 

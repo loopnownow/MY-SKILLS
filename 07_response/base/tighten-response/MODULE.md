@@ -3,14 +3,14 @@ name: "tighten-response"
 domain: "07_response"
 trigger: ["tighten-response", "回复精简", "anti-accretion", "nature-response"]
 outputs: ["skill_output"]
-owner: "07-response/tighten-response/MODULE.md"
+owner: "07_response/base/tighten-response/MODULE.md"
 ---
 
 # tighten-response
 
 Reviewer-blind response drafting + anti-accretion tightening.
 Absorbed from Nature `skills/nature-response/` on 2026-10-17 (Apache-2.0).
-Sibling of `revise` / `review-response`; principles also in `07-response/review-response/external-principles.md`.
+Sibling of `revise` / `review-response`; principles also in `07_response/base/review-response/external-principles.md`.
 
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 

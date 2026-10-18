@@ -168,7 +168,7 @@ def render(reg: dict) -> str:
         out.append(f"\n### {cid}\n")
         append_table(out, rows)
     if not any_proposed:
-        out.append("\nNone.\n")
+        out.append("\n- (none)\n")
 
     ref_rows = "\n".join(
         f"| `{r['id']}` | {r['label']} | `{r['applied_to']}` |" for r in ref_only

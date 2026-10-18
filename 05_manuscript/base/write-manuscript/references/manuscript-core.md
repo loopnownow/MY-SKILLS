@@ -2,8 +2,8 @@
 
 Companion to [MODULE.md](../MODULE.md). Generic scientific IMRAD — not a personal house format.
 
-Language polish → `05-write-polish`. Venue / house style → `05-write-venue`.
-Reporting checklists → `05-write-reporting`. Self-audit → `06-review-critique`.
+Language polish → `polish-language`. Venue / house style → `05_manuscript/base/write-venue/`.
+Reporting checklists → `check-reporting`. Self-audit → `self-review`.
 
 ## Section jobs
 

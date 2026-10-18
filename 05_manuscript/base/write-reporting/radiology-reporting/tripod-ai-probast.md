@@ -46,7 +46,7 @@ bias, and vice versa.
 tuning leakage, appropriate validation, computational reproducibility).
 
 ## Highest-yield prediction-model failures
-1. **Calibration not reported** — discrimination (AUC) only. Reviewers will ask. (`04-model-eval`)
+1. **Calibration not reported** — discrimination (AUC) only. Reviewers will ask. (`model-evaluation`)
 2. **Optimism** — performance reported on the same data used to build/tune the model.
 3. **EPV too low** / no sample-size justification → overfitting.
 4. Continuous predictors dichotomised, losing information.

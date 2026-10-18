@@ -20,7 +20,7 @@ These are **mount-time** bans, not skill deletions:
 - Never rewrite MY-SKILLS because an external pack exists.
 - Never replace a personal / A top layer because an external Skill is more general.
 - `PROPOSED` is not `MOUNTED`.
-- Personal de-AI (`05_manuscript/personal/`) is not a B mount. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The personal forbidden list still wins.
+- Personal de-AI (`05_manuscript/personal/`) is not a base mount. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The personal forbidden list still wins.
 - A top layers are not capability mounts (00 owns base→QC→A).
 
 ## Fine-id expansion ceiling

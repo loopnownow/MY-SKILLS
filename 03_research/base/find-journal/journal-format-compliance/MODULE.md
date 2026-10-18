@@ -1,6 +1,6 @@
 ---
 name: journal-format-compliance
-owner: "03-research/find-journal/journal-format-compliance/MODULE.md"
+owner: "03_research/base/find-journal/journal-format-compliance/MODULE.md"
 ---
 
 # Journal Format Compliance

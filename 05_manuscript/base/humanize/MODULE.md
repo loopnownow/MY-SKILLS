@@ -3,7 +3,7 @@ name: "humanize"
 domain: "05_manuscript"
 trigger: ["humanize", "去AI味", "de-AI", "AI patterns"]
 outputs: ["pattern_scan", "rewritten_prose"]
-owner: "05-manuscript/humanize/MODULE.md"
+owner: "05_manuscript/base/humanize/MODULE.md"
 ---
 
 # humanize (generic de-AI)

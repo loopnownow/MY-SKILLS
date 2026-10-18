@@ -15,19 +15,19 @@ description: >
 
 Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** data with traceable QC.
 **A02 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC triggers.
-Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/base/`** (pilot 2026-10-17; was B; ).
+Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/base/`** (pilot 2026-10-17).
 
 ## Layer model (2026-10-17)
 
 **Flow:** data-processing fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A02** top-layer re-loops
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
-(personal coding/extract/workspace protocols; may re-trigger B mounts when 00 says needed).
+(personal coding/extract/workspace protocols; may re-trigger base mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
-| A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` (was B; radiomics-habitat prep under base if present) |
-| 00 | QC gate; decides whether A02 re-triggers B mounts |
+| A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` |
+| 00 | QC gate; decides whether A02 re-triggers base mounts |
 | A02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; Loopnow seat (QC standards in `qc/`, 00-only) |
 
 ## Personal assets (top layer)

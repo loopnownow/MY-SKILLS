@@ -29,7 +29,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 | Layer | Owns |
 |---|---|
-| A `base/` | `write-paper`, `check-reporting`, `polish-language`, `humanize`, vocab, write-venue under `05_manuscript/base/` (was B; ) |
+| A `base/` | `write-paper`, `check-reporting`, `polish-language`, `humanize`, vocab, write-venue under `05_manuscript/base/` |
 | 00 | Final QC |
 | A05 | Personal Aitor-format / voice / process; final wording authority |
 

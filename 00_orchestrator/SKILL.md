@@ -64,7 +64,7 @@ Every independent run needs a mount decision. If `mounts.session_picked_fine_ids
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 discovery workflow; never auto-mount. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 

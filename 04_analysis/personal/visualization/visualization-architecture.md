@@ -30,7 +30,7 @@ Archify is not a new MY-SKILLS layer. It is a read-only visualization compiler. 
 | Component | Owns | Does not own |
 | --- | --- | --- |
 | 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose; external package bodies |
-| 01 | External skill discovery; version check; mount registry; index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
+| 01 | skill-integration: registry / session-pick / mount index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
 | Archify | Render typed JSON IR to HTML diagrams | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
 | Human | Review Delta, architecture changes, and the final PR | Hand-editing generated HTML |
 
@@ -67,7 +67,7 @@ Machine-readable copy: [`visualization-source-contract.yaml`](visualization-sour
 
 Show stable system components, about 6–12 primary components. Use a boundary only for a real ownership, trust, process, or deployment boundary. Do not turn every fine skill into a node.
 
-Primary chain: 00 Control / QC → 01 Discovery / Registry → 02 Data → 03 Literature → 04 Statistics → 05 Writing → 06 Review.
+Primary chain: 00 Control / QC → 01 skill-integration / Registry → 02 Data → 03 Literature → 04 Statistics → 05 Writing → 06 Review → 07 Response.
 
 Skill evolution stays MY-RULES `skills.md` (skill-evolution; governance; propose only). External mounts stay one index node fed by the registry, not one node per fine id.
 
@@ -119,7 +119,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 | Page | Content |
 | --- | --- |
 | Homepage | Architecture, workflow, system status, external mounts, build metadata |
-| Skill index | Indexed by 00–06, status, source, and entry |
+| Skill index | Indexed by 00–07, status, source, and entry |
 | Skill detail | Generated from `SKILL.md` frontmatter, with a path back to the source file |
 | Design history | Decisions and this specification. Not the homepage |
 

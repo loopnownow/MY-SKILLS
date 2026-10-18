@@ -86,6 +86,6 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ## Mount resolution (pointer)
 
-Session pick and mount steps live in root `ARCHITECTURE.md` (Mounts) and `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md`.
+Session pick and mount steps live in `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md` (this file has no Mounts section).
 
-Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default source my-skills (in-repo base); MedSci-only `humanize`; archived ids off menu) → empty path: notify, re-search, confirm → network discovery for **new** capability → evaluate → explicit user approval → mount. Never auto-mount a non-base source. Local cache: repo-root `mounts-cap/` (verified cache, not SSOT).
+Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default source my-skills (in-repo base); MedSci-only `humanize`; archived ids off menu) → empty path: notify, re-search, confirm → network discovery for **new** capability → evaluate → explicit user approval → mount. Never auto-mount a non-base source. Local cache: lab `{mounts_cap}/` (verified cache, not SSOT; see `.gitignore` / lab-paths).

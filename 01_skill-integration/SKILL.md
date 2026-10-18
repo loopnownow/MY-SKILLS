@@ -47,7 +47,7 @@ keep a second pointer table.
 | `MOUNTED_SKILLS.md` | Generated session-pick human table |
 | `references/hybrid-mount-pointers.md` | Non-base exceptions = default deny |
 | `references/presets/*.yaml` | First-pass fine-ID session recipes (not a package board) |
-| `sources/README.md` | Source yaml status (B yaml retired) |
+| `sources/README.md` | Source yaml status (source yaml retired) |
 | `legacy_aliases.yaml` | Retired call-site id → canonical fine id |
 | `scripts/gen_mounted_skills.py` | Regenerates `MOUNTED_SKILLS.md` |
 | `references/id-rules.md` | Canonical ID Rule |

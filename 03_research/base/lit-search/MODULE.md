@@ -3,7 +3,7 @@ name: "lit-search"
 domain: "03_research"
 trigger: ["文献检索", "PubMed", "search"]
 outputs: ["search_set"]
-owner: "03-research/lit-search/MODULE.md"
+owner: "03_research/base/lit-search/MODULE.md"
 ---
 
 # Literature search

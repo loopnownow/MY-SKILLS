@@ -57,7 +57,7 @@ def montage(images, rows, cols, labels=None, wlww=None, panel_letters=True, figw
 
 ## Caption must define
 modality/sequence, plane, WL/WW, arrows/symbols, scale, overlay meaning + colorbar units, and
-that images are de-identified. (Prose → `05-write-manuscript`.)
+that images are de-identified. (Prose → `write-paper`.)
 
 ## Not a patient-flow figure
 

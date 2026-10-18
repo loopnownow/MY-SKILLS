@@ -194,7 +194,7 @@ def skill_files() -> list[Path]:
             continue
         top = path.relative_to(ROOT).parts[0]
         if top not in SKILL_TOPS:
-            raise GateFailure("G-VIZ-01", f"SKILL.md outside 00-06: {path}")
+            raise GateFailure("G-VIZ-01", f"SKILL.md outside 00-07: {path}")
         found.append(path)
     return sorted(found, key=lambda p: (SKILL_TOPS.index(p.relative_to(ROOT).parts[0]), p.as_posix()))
 
@@ -329,14 +329,15 @@ def _box(row: int, col: int) -> dict:
 def architecture_ir() -> dict:
     components = [
         {"id": "c00", "type": "security", "label": "00 Control", "sublabel": "gate and QC", **_box(0, 0)},
-        {"id": "c01", "type": "backend", "label": "01 Registry", "sublabel": "mount index", **_box(0, 1)},
+        {"id": "c01", "type": "backend", "label": "01 skill-integration", "sublabel": "registry / mount index", **_box(0, 1)},
         {"id": "mounts", "type": "external", "label": "Mounts", "sublabel": "registry pointers", **_box(0, 2)},
         {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready", **_box(1, 0)},
         {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "citation-verify", **_box(1, 1)},
         {"id": "c04", "type": "backend", "label": "04 Statistics", "sublabel": "stats and figures", **_box(1, 2)},
         {"id": "c05", "type": "backend", "label": "05 Writing", "sublabel": "manuscript", **_box(2, 0)},
         {"id": "c06", "type": "backend", "label": "06 Review", "sublabel": "review", **_box(2, 1)},
-        {"id": "harvest", "type": "backend", "label": "skill-harvest", "sublabel": "proposals", **_box(2, 2)},
+        {"id": "c07", "type": "backend", "label": "07 Response", "sublabel": "response letter", **_box(2, 2)},
+        {"id": "rules", "type": "backend", "label": "MY-RULES", "sublabel": "skill-evolution", **_box(3, 0)},
     ]
     return {
         "schema_version": 1,
@@ -361,7 +362,7 @@ def architecture_ir() -> dict:
             {
                 "kind": "region",
                 "label": "A ownership",
-                "wraps": ["c00", "c01", "c02", "c03", "c04", "c05", "c06", "harvest"],
+                "wraps": ["c00", "c01", "c02", "c03", "c04", "c05", "c06", "c07", "rules"],
             },
             {
                 "kind": "region",
@@ -382,7 +383,9 @@ def architecture_ir() -> dict:
             {"id": "lit05", "from": "c03", "to": "c05", "label": "Lit05"},
             {"id": "lit06", "from": "c03", "to": "c06", "label": "Lit06", "labelDy": 24},
             {"id": "manuscript-06", "from": "c05", "to": "c06", "label": "manuscript"},
-            {"id": "propose", "from": "harvest", "to": "c01", "label": "proposal", "variant": "dashed", "labelDy": 21},
+            {"id": "dispatch-07", "from": "c00", "to": "c07", "label": "dispatch"},
+            {"id": "revise-07", "from": "c06", "to": "c07", "label": "response"},
+            {"id": "propose", "from": "rules", "to": "c01", "label": "proposal", "variant": "dashed", "labelDy": 21},
         ],
     }
 
@@ -419,7 +422,7 @@ def workflow_ir() -> dict:
         node("p02", "produce", 2, "backend", "02 Data", "processing"),
         node("p04", "produce", 3, "backend", "04 Statistics", "figures"),
         node("p05", "produce", 4, "backend", "05 Writing", "manuscript"),
-        node("p06", "produce", 5, "backend", "06 Review", "response"),
+        node("p06", "produce", 5, "backend", "06 Review", "review"),
         node("p03", "literature", 2, "backend", "03 Literature", "evidence"),
         node("lit05", "literature", 4, "security", "Lit05", "G-CIT-1 before Gate 05"),
         node("lit06", "literature", 5, "security", "Lit06", "G-CIT-2 inside 06"),
@@ -545,8 +548,6 @@ def validate_ir(arch: dict, wf: dict) -> None:
             label.startswith("07_response") or "response" in label.lower()
         ):
             raise GateFailure("G-VIZ-02", f"unexpected architecture 07 label: {label}")
-        if comp["id"] == "c07":
-            raise GateFailure("G-VIZ-02", "architecture must not use component id c07")
     known = set(ids)
     for boundary in arch["boundaries"]:
         if boundary["kind"] not in {"region", "security-group"}:
@@ -752,7 +753,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
     }
     files["skills/index.html"] = shell(
         "Skill index",
-        "<p>按 00–06 索引（演进政策见 MY-RULES skills.md (skill-evolution)）。页面来自 SKILL.md frontmatter。</p>" + "".join(sections),
+        "<p>按 00–07 索引（演进政策见 MY-RULES skills.md (skill-evolution)）。页面来自 SKILL.md frontmatter。</p>" + "".join(sections),
         version,
         digest,
         nav_for(**links),
@@ -1003,7 +1004,7 @@ def build() -> dict:
         f"<p>默认原子挂载源 <code>{esc(reg['default_source']['id'])}</code>。"
         "OpenClaw is not a default atomic mount source.</p>"
         "<p><a href=\"mounts/index.html\">打开 mount 索引</a></p></section>"
-        "<section class=\"card\"><h2>Skills</h2><p>00–06 的 frontmatter 页面。</p>"
+        "<section class=\"card\"><h2>Skills</h2><p>00–07 的 frontmatter 页面。</p>"
         "<p><a href=\"skills/index.html\">打开 Skill 索引</a></p></section>"
         "</div>"
         "<h2>Build</h2><dl>"
@@ -1054,7 +1055,7 @@ def build() -> dict:
         "index.html": shell("MY-SKILLS", home_body, version, digest, nav_for(**home_links)),
         "architecture/status.html": render_status(
             "Architecture IR status",
-            "Stable system components from ARCHITECTURE.md and the 00-06 directories.",
+            "Stable system components from ARCHITECTURE.md and the 00-07 directories.",
             comp_rows,
             arch_extra,
             version,

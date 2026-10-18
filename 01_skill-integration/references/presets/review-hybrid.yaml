@@ -28,14 +28,14 @@ overrides:
     paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
-    prefix_example: "[B:verify-refs]"
+    prefix_example: "[verify-refs]"
   - id: analyze-stats
     source: my-skills
     skills: [stats-guide]
     paths: [04_analysis/base/stats-guide/]
     role: reported-stats-audit
     required: true
-    prefix_example: "[B:04_analysis/base/stats-guide]"
+    prefix_example: "[04_analysis/base/stats-guide]"
   - id: self-review
     source: my-skills
     skills: [review-critique]
@@ -43,9 +43,9 @@ overrides:
     role: logic-mechanism-overlay
     required: false
     status_note: covers former scientific-critical-thinking (archived round 3)
-    prefix_example: "[B:self-review]"
+    prefix_example: "[self-review]"
 
-force_b:
+force_fine_ids:
   - peer-review  # peer-review-pdf-scan absorbed 2026-10-17 round 2
   - revise
   - self-review  # scientific-critical-thinking archived→self-review round 3

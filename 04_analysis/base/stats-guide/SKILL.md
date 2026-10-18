@@ -2,7 +2,7 @@
 name: "stats-guide"
 domain: "04_analysis"
 description: Test selection and assumption guidance.
-owner: "04-analysis/stats-guide/MODULE.md"
+owner: "04_analysis/base/stats-guide/MODULE.md"
 ---
 
 # stats-guide

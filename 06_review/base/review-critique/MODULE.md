@@ -3,7 +3,7 @@ name: "review-critique"
 domain: "06_review"
 trigger: ["自审", "投稿前预审", "找洞", "论文数字核对", "check paper claims"]
 outputs: ["blocking_major_minor", "paper_claim_audit"]
-owner: "06-review/review-critique/MODULE.md"
+owner: "06_review/base/review-critique/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -11,7 +11,7 @@ owner: "06-review/review-critique/MODULE.md"
 # Self-audit / pre-submission
 
 Find holes in **the user's own** manuscript before submission. Other-paper review is
-`06-review-peer`. Point-by-point **response** is `07-review-response` — this pack does not
+`peer-review`. Point-by-point **response** is `revise` — this pack does not
 own 回复审稿人.
 
 Personal review voice stays in A.
@@ -30,5 +30,5 @@ Personal review voice stays in A.
 1. Confirm venue/study type. Do not fill title-page ethics/author fields here.
 2. Scan leakage, split, validation, overclaim, reporting gaps.
 3. Output Blocking / Major / Minor with a concrete fix each.
-4. Do not invent rescue experiments. Prose rewrite → `05-write-manuscript`.
+4. Do not invent rescue experiments. Prose rewrite → `write-paper`.
 5. For number fidelity vs primary tables → [paper-claim-audit.md](references/paper-claim-audit.md).

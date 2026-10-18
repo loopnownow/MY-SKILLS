@@ -25,21 +25,21 @@ overrides:
     paths: [05_manuscript/base/write-manuscript/]
     role: structure-draft
     required: true
-    prefix_example: "[B:write-manuscript]"
+    prefix_example: "[write-manuscript]"
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]
     paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
-    prefix_example: "[B:verify-refs]"
+    prefix_example: "[verify-refs]"
 
   - id: check-reporting
     source: my-skills
     role: reporting-qc
     required: false
 
-force_b: []
+force_fine_ids: []
 excluded_sources: []
 excluded_tools_note: "One authoring authority (personal). Engines do not co-edit sentences. Non-base default deny."
 swappable: true

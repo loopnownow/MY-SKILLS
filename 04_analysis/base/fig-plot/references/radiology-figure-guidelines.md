@@ -48,7 +48,7 @@
 
 ## Legends/captions
 - Self-contained: define abbreviations, arrows, error bars, n, statistical test, and
-  windowing. (Prose → `05-write-manuscript`.)
+  windowing. (Prose → `write-paper`.)
 
 ## Final QA
 `vector + 300dpi raster? · text-as-text? · column width? · fonts legible at size? ·

@@ -1,4 +1,4 @@
-# 04-analysis
+# 04_analysis/base
 
 Capability bodies for A04 analysis. No domain-level SKILL.md.
 
