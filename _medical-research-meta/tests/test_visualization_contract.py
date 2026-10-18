@@ -115,11 +115,19 @@ class VisualizationContract(unittest.TestCase):
 
     def test_no_new_top_level_07_skill(self) -> None:
         names = [path.name for path in ROOT.iterdir() if path.is_dir()]
-        self.assertFalse([name for name in names if name.startswith("07")])
+        # 07_response is the intentional response seat; forbid other 07_* (e.g. visualization).
+        other_07 = [name for name in names if name.startswith("07") and name != "07_response"]
+        self.assertFalse(other_07)
+        self.assertIn("07_response", names)
         self.assertFalse((ROOT / "07_visualization").exists())
         arch = json.loads((VIZ_OUT / "architecture/architecture.json").read_text(encoding="utf-8"))
         for component in arch["components"]:
-            self.assertFalse(str(component["label"]).startswith("07"))
+            label = str(component["label"])
+            if label.startswith("07"):
+                self.assertTrue(
+                    label.startswith("07_response") or "response" in label.lower(),
+                    f"unexpected viz component label {label!r}",
+                )
             self.assertNotEqual(component["id"], "c07")
 
     def test_delta_lists_structural_facts_only(self) -> None:

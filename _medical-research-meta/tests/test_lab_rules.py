@@ -112,10 +112,10 @@ class Routing(unittest.TestCase):
         five = read("05_manuscript", "SKILL.md")
         self.assertIn("This-run pick", five)
 
-    def test_literature_to_03_response_to_06(self) -> None:
+    def test_literature_to_03_response_to_07(self) -> None:
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("Literature enters 03 only", zero)
-        self.assertIn("reviewer response only here", zero)
+        self.assertIn("Reviewer response enters 07 only", zero)
 
 
 class LabSte(unittest.TestCase):

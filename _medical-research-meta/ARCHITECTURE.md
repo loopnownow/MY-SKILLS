@@ -24,7 +24,8 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Literature research / evidence / study design / grants / translational design / ethics forms (Bai seats fill-protocol) | `03_research` |
 | Statistics / prediction / **figures** / 样本量 | `04_analysis` |
 | Scientific writing / personal style / de-AI | `05_manuscript` |
-| Peer review / **reviewer response** | `06_review` |
+| Peer review / re-review | `06_review` (Lee) |
+| Reviewer response / response letter | `07_response` (Aitee) |
 | Evolution governance | MY-RULES `skills.md` (skill-evolution; former skill-harvest archived) |
 
 ### Lab-specific flows (Ying Li)
@@ -34,7 +35,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 按我的风格润色 / SCI 写作 | `05_manuscript` |
 | 写引言 / 写讨论（成文） | `03_research` retrieves; `05_manuscript` writes (`personal/process/evidence.md`) |
 | 投稿前找问题 / dealbreaker | `06_review` |
-| 回复审稿人 | `06_review` only as entry |
+| 回复审稿人 | `07_response` only as entry (Aitee) |
 | 选题 / 文献 / 选刊 | `03_research` |
 | 选刊 | `03_research` (`literature/journal-selection.md`). 选刊走 03 `find-journal`；`venue-templates` 只管体例 |
 | 样本量 | `04_analysis` (`calc-sample-size`) |
@@ -68,7 +69,7 @@ Interactive by default (plan card before multi-node dispatch). Prose repairs are
 
 ---
 
-## Ownership (pinned; agrees with root Core layers 05/06)
+## Ownership (pinned; agrees with ownership-contract; seats 05/06/07)
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 citation-verify (cannot skip). Lee owns statement then data consistency; lit accuracy is joint with Victor.
 
@@ -80,7 +81,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 - `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol`, **seat Bai**), translational design, **选刊**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role. Victor does not fill ethics forms.
 - `04_analysis`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
 - `05_manuscript`: personal writing layer. Literature retrieval and 选刊 → `03_research`; figures → `04_analysis`. de-AI at `05_manuscript/personal/`. Mid-entry does not waive citation-verify.
-- `06_review`: personal review/response layer. Changed wording → `05_manuscript`.
+- `06_review`: personal review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
+- `07_response`: personal response-letter layer (**Aitee**). Changed wording → `05_manuscript`.
 
 ---
 

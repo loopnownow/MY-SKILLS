@@ -12,7 +12,7 @@ Wave2 path map (2026-10-17 reorg):
 - introduction-scorecard -> manuscript-local-qc.md Part A
 - personal-review-style -> 06_review/personal/review.md
 - word-edit-rules -> 06_review/personal/word-edit.md
-- personal-response-style -> 06_review/personal/response.md
+- personal-response-style -> 07_response/personal/response.md
 - structures.md / de-ai.md / review-resolution.md / review-comment-habits.md -> archived under 0del
 """
 from __future__ import annotations
@@ -261,7 +261,8 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "06_review/SKILL.md",
         "06_review/personal/review.md",
         "06_review/personal/word-edit.md",
-        "06_review/personal/response.md",
+        "07_response/personal/response.md",
+        "07_response/SKILL.md",
         "00_orchestrator/references/cross-manuscript-qc.md",
         "05_manuscript/SKILL.md",
         "05_manuscript/personal/Aitor-format.md",

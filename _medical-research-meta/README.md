@@ -12,13 +12,14 @@ Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-b
 | 03 | `03_research` | Design, literature (03 only), **选刊**, grants (personal supplement), translational design, **ethics forms (seat Bai / fill-protocol path in 03)** |
 | 04 | `04_analysis` | Stats, prediction, figures (`draw-flowchart` / `plot-figures`); lab notes in `personal/` |
 | 05 | `05_manuscript` | Personal writing upper layer; B `05-manuscript/write-venue/` = journal templates / house style (not 选刊); de-AI at `personal/` |
-| 06 | `06_review` | Personal review/response upper layer |
+| 06 | `06_review` | Personal review / re-review upper layer (**Lee**) |
+| 07 | `07_response` | Personal response-letter upper layer (**Aitee**) |
 | — | MY-RULES `skills.md` | Evolution governance / skill-evolution (former skill-harvest archived) |
 
 ## Rules
 
 - Software packages are tools, not top-level skills.
-- Literature → 03 only. Figures → 04. Reviewer response → 06 only. Excel/0RAD/extraction/coding-principles → 02. ethics forms (seat Bai / fill-protocol path in 03) + translational design → 03. 选刊 → `03_research` (not 05). 样本量 → `04_analysis` (`calc-sample-size`).
+- Literature → 03 only. Figures → 04. **Reviewer response → 07 only (Aitee).** **Review / re-review → 06 only (Lee).** Excel/0RAD/extraction/coding-principles → 02. ethics forms (seat Bai / fill-protocol path in 03) + translational design → 03. 选刊 → `03_research` (not 05). 样本量 → `04_analysis` (`calc-sample-size`).
 - An A skill path ≤ 4 directories from repo root (`<skill>/<category-or-pack>/<scripts|references|personal>/file`). No `core/`, no `bundles/` in A.
 - User approval required to mount or evolve. Never auto-mount a non-B source. Non-B status is per registry, not an all-PROPOSED backup set.
 - Former archive four packs rehomed under 02/03 (CHG-20260902-004). Ethics fill pack is under 03, not 02. Former `radiology-stats/` folder is merged into `04_analysis/personal/`.
@@ -26,15 +27,15 @@ Personal **framework + lab layer**. Generic capabilities mount from `MY-SKILLS-b
 
 ## History archive
 
-`history/` was moved to `D:/0del/00_orchestrator_reorg_20261017/_medical-research-meta_history/`. This folder keeps architecture, integration map, VERSION, tests, and `__init__.py` only.
+`history/` was moved to `D:/0del/00_orchestrator_reorg_20261017/_medical-research-meta_history/` (see `MY-SKILLS_history/` and `grok_history/` under that folder). This folder keeps architecture, integration map, VERSION, tests, and `__init__.py` only.
 ## Tests
 
 ```
-python -m unittest discover -s _medical-research-meta/tests -v
+python -m pytest _medical-research-meta/tests -q
 ```
 
 ## See also
 
-- `ARCHITECTURE.md` — handoff / QC / mount contract (agrees with root `ARCHITECTURE.md`)
+- `ARCHITECTURE.md` — handoff / QC / mount contract (agrees with root `ARCHITECTURE.md` pointer)
 - `INTEGRATION_MAP.md` — changelog including CHG-20260903-014
 - `../MOUNTED_SKILLS.md`, `../EXTERNALIZATION_CANDIDATES.md`
