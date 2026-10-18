@@ -25,7 +25,7 @@ class LabPaths(unittest.TestCase):
             "skills_runtime",
             "jcr2026_xlsx",
             "find_journal_submission",
-            "b_capabilities_repo",
+            "b_capabilities_repo_retired",
             "mounts_cap_cache",
         ):
             self.assertIn(key, aliases)
@@ -74,12 +74,12 @@ class LicenseNotice(unittest.TestCase):
 
 class SubmissionPrivacy(unittest.TestCase):
     def test_priors_not_in_git_data_folder(self) -> None:
-        # A find-journal stub removed 2026-10-17; capability body is B; priors stay out of git
+        # A find-journal stub removed 2026-10-17; capability body is in-repo base/; priors stay out of git
         self.assertFalse((ROOT / "03_research" / "find-journal").exists())
-        b_fj = Path(r"D:\0Grok\0doc\GitHub\MY-SKILLS-base") / "03-research" / "find-journal"
-        self.assertTrue((b_fj / "SKILL.md").is_file())
-        # No submission priors inside A or B git trees
-        for root in (ROOT, b_fj):
+        a_fj = ROOT / "03_research" / "base" / "find-journal"
+        self.assertTrue((a_fj / "SKILL.md").is_file())
+        # No submission priors inside A git tree (incl. in-repo base)
+        for root in (ROOT, a_fj):
             for name in ("submission-prior.jsonl", "whitelist-submitted.csv"):
                 hits = list(root.rglob(name)) if root.exists() else []
                 self.assertEqual(hits, [], f"prior file must not be in git: {hits}")

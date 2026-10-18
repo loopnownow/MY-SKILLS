@@ -1,8 +1,8 @@
 # Jinshan / seat fill pack (A personal)
 
-Hospital-specific IRB fill notes for Bai seat. **Do not copy into MY-SKILLS-base (B) or public GitHub base.**
+Hospital-specific IRB fill notes for Bai seat. **Do not copy into public capability trees carelessly.**
 
-Canonical fill mechanics live in B: `MY-SKILLS-base/03-research/fill-protocol/`.
+Canonical fill mechanics live in-repo: `03_research/base/fill-protocol/`.
 
 | File | Role |
 |------|------|

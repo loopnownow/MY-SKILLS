@@ -58,7 +58,7 @@ See `personal/route.md` for the full pointer table.
 | Grants / ethics / intake / multicenter / radiology | under `personal/` |
 | Clinical translation | `personal/clinical-translation/` |
 | Ethics forms | Bai seats B `03-research/fill-protocol/` (no A stub); Jinshan PHI in `personal/fill-protocol/` |
-| Find-journal pack | B engine `MY-SKILLS-base/03-research/find-journal/` (no A stub) |
+| Find-journal pack | engine `03_research/base/find-journal/` |
 | Question-to-reference spine | `workflows/question-to-reference.md` |
 
 Do not rewrite mounted B literature/systematic-review capability bodies inside these files.

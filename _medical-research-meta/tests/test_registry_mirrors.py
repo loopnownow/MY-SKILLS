@@ -15,15 +15,15 @@ def registry() -> dict:
 
 
 class RegistryMirrors(unittest.TestCase):
-    def test_b_source_yaml_matches_registry(self) -> None:
+    def test_b_source_yaml_retired(self) -> None:
+        """Remote B source yaml retired; live mounts use in-repo my-skills."""
         reg = registry()
-        reg_b = {m["id"]: m for m in reg["mounts"] if m["source"] == "my-skills-base"}
-        b = yaml.safe_load((ONE / "sources" / "b-my-skills-base.yaml").read_text(encoding="utf-8"))
-        yaml_b = {s["id"]: s for s in b["skills"]}
-        self.assertEqual(sorted(reg_b), sorted(yaml_b))
-        for fid, m in reg_b.items():
-            self.assertEqual(yaml_b[fid]["path"], m["path"], fid)
-            self.assertEqual(yaml_b[fid]["coarse"], m["coarse"], fid)
+        live_b = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
+        self.assertEqual(live_b, [])
+        self.assertFalse((ONE / "sources" / "b-my-skills-base.yaml").exists())
+        live_a = [m for m in reg["mounts"] if m.get("source") == "my-skills"]
+        self.assertGreaterEqual(len(live_a), 20)
+        self.assertEqual(reg["default_source"]["id"], "my-skills")
 
 
 if __name__ == "__main__":
