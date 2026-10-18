@@ -10,6 +10,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261018-slim-rules-landing — absorb MY-RULES standing policy (PR #154)
+
+- Branch `chore/slim-rules-landing-20261018` merge `4aedd18` (commit `9eadf89`).
+- Reverse Rules authority into `ownership-contract` + domain `qc/`; add `handoff-monitor` and `skill-evolution`.
+- Extend standing-delivery, workspace A/B, manuscript bans, response hard rules; point SKILL/gates/routing/runtime-flow/mount-recipe.
+- Post-merge sync noted in `lifecycle-cache`; new `tests/test_rule_landing.py` + tighten lab-ste path assert.
+- Do **not** sync `.grok/skills` (repo policy landing only).
+
 ## CHG-20261018-batch3-5 — QC structure + content + regression tests
 
 - A1: `INTEGRATION_MAP.archive.md` moved to `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\`; live stub points at absolute 0del path.
@@ -21,6 +29,22 @@ Harvest must not invent a second evolution log file.
 - F46: Absent labels → 归档勿建.
 - Dated refs: snapshot notes on ai-radiogenomics-12-24-roadmap + journal-patterns-2023-2026.
 - Batch5: four regression tests under `tests/`.
+- Do **not** sync `.grok/skills`.
+
+## CHG-20261018-batch2 — QC Batch 2 metadata + old names (F15–F36)
+
+- PR #152 (`fix/qc-batch2-old-names`, merge `71c74f3`, commit `e9a2c2d`).
+- Owner paths → `NN_slug/base/`; hyphen B paths → underscore/base; retired fine-ids → §7 map; clear (was B) residue.
+- Registry chassis 00–07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1).
+- README layout + 07; tests tighten.
+- Not A1 archive move / not full B2 fill trim / not D2 merge.
+- Do **not** sync `.grok/skills`.
+
+## CHG-20261018-batch1 — QC Batch 1 P0 dead links (F1–F14)
+
+- PR #151 (`fix/qc-batch1-p0-deadlinks`, merge `84a7f8e`, commit `098166a`).
+- style_lint mounts-cap fallback removed; sci-manuscript path fixes; presets C1 in-repo paths.
+- fill-protocol owners; radiomics/venue-templates live wording; style-tells → base ban-terms.yaml.
 - Do **not** sync `.grok/skills`.
 
 ## CHG-20261017-001 — meta tidy: 06/07 seats + history path
