@@ -8,7 +8,7 @@ only formatting and completeness (flag if a required element, e.g. a CI, is abse
 > leading zero (`P = 0.03`, not `P = .03`); confirm the exact convention against the specific
 > target journal's current style guide before polishing a Nature-family manuscript — do not
 > silently apply the _Radiology_ rule below to a Nature submission. Reference style also differs
-> (Nature-family: numbered, in citation order → `05-write-manuscript` `radiology-citation/export-formats.md`; not the
+> (Nature-family: numbered, in citation order → `write-paper` `radiology-citation/export-formats.md`; not the
 > author–year/AMA-numbered style assumed elsewhere in this file).
 
 ## P-values (_Radiology_ / AMA style — confirm before reusing for a non-AMA venue)
@@ -48,7 +48,7 @@ only — keep the leading zero if the venue is Nature-family); percentage withou
 "(x of y)"; mean without SD → add dispersion.
 
 ## Before polishing a non-_Radiology_ manuscript
-Confirm the target venue first (house style → `05-write-venue`; 选刊 → A `03_research` / B `03-lit-search`). This file's leading-zero and reference
+Confirm the target venue first (house style → `05_manuscript/base/write-venue/`; 选刊 → A `03_research` / `lit-search`). This file's leading-zero and reference
 rules are _Radiology_/AMA-specific; applying them to a Nature-family manuscript is itself a
 polishing error. When in doubt, flag the formatting choice to the author rather than silently
 picking one.

@@ -2,7 +2,7 @@
 name: "fig-plot"
 domain: "04_analysis"
 description: Statistical plots and imaging panels.
-owner: "04-analysis/fig-plot/MODULE.md"
+owner: "04_analysis/base/fig-plot/MODULE.md"
 ---
 
 # fig-plot

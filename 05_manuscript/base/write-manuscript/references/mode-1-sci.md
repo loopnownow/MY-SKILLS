@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Personal house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → `05-write-polish`. Venue shape → `05-write-venue`. Reporting checklists → `05-write-reporting`.
+Polish → `polish-language`. Venue shape → `05_manuscript/base/write-venue/`. Reporting checklists → `check-reporting`.
 
 ## 1.1 When to use
 
@@ -16,21 +16,21 @@ Polish → `05-write-polish`. Venue shape → `05-write-venue`. Reporting checkl
 ## 1.2 Workflow
 
 1. Subtask: `draft-section` | `full-imrad` | `methods-skeleton` | `outline`
-2. If the user named a venue family, **handoff** `05-write-venue` for shape; do not load a personal format file
+2. If the user named a venue family, **handoff** `05_manuscript/base/write-venue/` for shape; do not load a personal format file
 3. Open the table below
 4. Output the envelope in `MODULE.md`
 
 | Subtask | Open |
 |--------|------|
 | Section draft | `section-templates.md`, `radiology-writing/*` |
-| Prediction full paper | `pipeline-stages.md`, `section-templates.md`, then `05-write-reporting` |
+| Prediction full paper | `pipeline-stages.md`, `section-templates.md`, then `check-reporting` |
 | Ethics sentence | `radiology-ethics/approval-consent.md` (placeholders; no lab IRB default) |
 | Claim/citation gate | `radiology-citation/*` |
 | Outline | `mode-academic-pipeline.md` |
-| Language polish | **handoff** `05-write-polish` |
+| Language polish | **handoff** `polish-language` |
 
 ## 1.3 Honesty
 
 - Do not invent n, AUC, ethics IDs, or unrun experiments.
 - Dual-set: training fit / test evaluate. Validation set = external cohort.
-- Self-audit after drafting → `06-review-critique` (not this file).
+- Self-audit after drafting → `self-review` (not this file).

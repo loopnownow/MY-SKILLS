@@ -209,7 +209,6 @@ class ModuleHeaderTests(unittest.TestCase):
         skip_names = {
             "INTEGRATION_MAP.md",
             "INTEGRATION_MAP.archive.md",
-            "EXTERNALIZATION_CANDIDATES.md",
             "MOUNTED_SKILLS.md",
             "VERSION.txt",
         }

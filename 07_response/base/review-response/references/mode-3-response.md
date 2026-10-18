@@ -7,7 +7,7 @@ Full protocol (atomize, three gates, journal default, checklist): [rebuttal-prot
 ## When to use
 
 - Reviewer comments exist; need a point-by-point letter
-- Revision note + paste-ready changed sentences (prose rewrite → `05-write-manuscript`)
+- Revision note + paste-ready changed sentences (prose rewrite → `write-paper`)
 
 ## Workflow
 
@@ -17,7 +17,7 @@ Full protocol (atomize, three gates, journal default, checklist): [rebuttal-prot
 4. Audit: every claimed change is locatable; run provenance / commitment / coverage ([response-audit-gate.md](response-audit-gate.md))
 5. Action table: [action-mapping.md](action-mapping.md)
 6. Tone: courteous, specific, one-to-one. Personal phrasing banks stay in A.
-7. After number changes: hand off to `06-review/review-critique/paper-claim-audit.md`
+7. After number changes: hand off to `06_review/base/review-critique/paper-claim-audit.md`
 
 ## Letter skeleton
 
@@ -38,7 +38,7 @@ and still improve the wording if possible.
 ## Output
 
 ```text
-Skill: 07-review-response
+Skill: revise
 
 Letter (paste-ready)
 

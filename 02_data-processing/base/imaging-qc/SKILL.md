@@ -2,7 +2,7 @@
 name: "imaging-qc"
 domain: "02_data-processing"
 description: ROI, reader, and mask quality control.
-owner: "02-data-processing/imaging-qc/MODULE.md"
+owner: "02_data-processing/base/imaging-qc/MODULE.md"
 ---
 
 # imaging-qc

@@ -2,7 +2,7 @@
 name: "stats-power"
 domain: "04_analysis"
 description: Sample size and power.
-owner: "04-analysis/stats-power/MODULE.md"
+owner: "04_analysis/base/stats-power/MODULE.md"
 ---
 
 # stats-power

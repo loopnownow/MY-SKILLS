@@ -2,7 +2,7 @@
 name: "xlsx-office"
 domain: "02_data-processing"
 trigger: ["xlsx", "LibreOffice", "OOXML", "financial model", "recalc"]
-owner: "02-data-processing/tables/xlsx-office/MODULE.md"
+owner: "02_data-processing/base/tables/xlsx-office/MODULE.md"
 ---
 
 # Office / xlsx mechanics (nested)

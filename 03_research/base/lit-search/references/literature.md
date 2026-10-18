@@ -25,7 +25,7 @@ Search for concepts, not only exact titles. Combine:
 When the user asks for "近三年", "前沿", "高水平期刊", "发表规律", "选题依据",
 or journal-fit evidence, load search/evidence files in this domain
 (`../lit-review/literature-evidence-2023-2026.md` and sibling frontier files).
-选刊 / where to submit → A `03_research` (journal-selection). Do not use `05-write-venue`
+选刊 / where to submit → A `03_research` (journal-selection). Do not use `05_manuscript/base/write-venue/`
 as a 选刊 SOP (that pack is house style after a venue is known).
 
 Use this evidence layer as a PubMed-verified seed map. Do not call it exhaustive.

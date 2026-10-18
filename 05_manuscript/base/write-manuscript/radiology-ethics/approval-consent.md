@@ -8,7 +8,7 @@ Match the consent model to the design; report the approval honestly with author-
 |---|---|---|
 | **Retrospective, existing data** | Often a **documented waiver** of informed consent | The committee granted a waiver; the basis (minimal risk, impracticable to obtain, de-identified) |
 | **Prospective** | **Informed consent obtained** | The consent process, who consented, language/version if relevant |
-| **Registered trial** | Consent + trial registration | Registry + ID; SPIRIT/CONSORT context (→ `05-write-reporting`) |
+| **Registered trial** | Consent + trial registration | Registry + ID; SPIRIT/CONSORT context (→ `check-reporting`) |
 | **Multi-center** | Approval at each site or a recognised lead-site/central IRB | Which model; per-center numbers or the central approval |
 | **Secondary use of public data** | Governed by the original consent/DUA | Cite the source's governance; don't re-consent fictitiously |
 

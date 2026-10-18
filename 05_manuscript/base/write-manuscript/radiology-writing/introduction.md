@@ -19,10 +19,10 @@ Aligned with A `05_manuscript` Introduction v3 (six elements, claim coverage, Fr
 - Synthesize; do not list. No run of sentences that each report one study. At most one triplet per paragraph. No repeated sentence openers.
 - Scarcity is worded as what a logged search found ("in the studies we identified"), not as what exists.
 - Inference about why a method may help is allowed. Hedge it, and keep the gap → method → expected benefit → measured output map in a comment.
-- Reporting guidelines (TRIPOD, CLAIM, CLEAR) belong to the checklist and the submission form, not to the Introduction. Route to `05-write-reporting`.
+- Reporting guidelines (TRIPOD, CLAIM, CLEAR) belong to the checklist and the submission form, not to the Introduction. Route to `check-reporting`.
 - Numbers only from sources read at abstract level or above; guideline definitions and appraisals from the full text.
 - Missing evidence → an Evidence Request card (`missing_prior_result`, `guideline_definition`, `related_work_appraisal`, `scarcity_check`), never a guessed citation.
 
 ## Handoff
 
-Evidence: `03-research/lit-review` (Introduction evidence pack). Language: `05-write-polish`. Reporting: `05-write-reporting`. Self-audit: `06-review-critique`. Personal scoring / house quotas: A `05_manuscript/personal/` (not duplicated here).
+Evidence: `03_research/base/lit-review` (Introduction evidence pack). Language: `polish-language`. Reporting: `check-reporting`. Self-audit: `self-review`. Personal scoring / house quotas: A `05_manuscript/personal/` (not duplicated here).

@@ -96,7 +96,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 ## Out of scope
 
-- Upgrading B into a personal writing orchestrator or Evidence QC home  
+- Upgrading base into a personal writing orchestrator or Evidence QC home  
 - Hard-wiring MedSci + Scientific under A05 every run  
 - New coarse ids or `ocms-*` writing mounts  
 - Letting any backup become default

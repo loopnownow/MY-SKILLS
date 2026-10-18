@@ -20,7 +20,7 @@ meta:
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
-    P0 reserved for rare always-on mounts (chassis is 00–06, not fine ids; Batch 1 assigns none).
+    P0 reserved for rare always-on mounts (chassis is 00–07, not fine ids; Batch 1 assigns none).
     P1 common mounts (default session menu, about 25–30 MOUNTED ids).
     P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
         Registry indexes paths. Bodies SSOT = in-repo NN_slug/base/ (source my-skills).
@@ -130,7 +130,7 @@ coarse_ids:
     label: 审稿回复
     slug: review-response
     a_domains: [07_response]
-    specialist_hint: Lee
+    specialist_hint: Aitee
 
 mounts:
   - id: verify-refs
@@ -222,7 +222,7 @@ mounts:
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Companion house style: 05-manuscript/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05 Victor seats `03_research/base/find-journal/`. Merge 2026-10-17 — body in A 03_research/base/find-journal (source my-skills in-repo)."
+    note: "Companion house style: 05_manuscript/base/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05 Victor seats `03_research/base/find-journal/`. Merge 2026-10-17 — body in A 03_research/base/find-journal (source my-skills in-repo)."
   - id: polish-language
     label: "一致性硬规则lint"
     coarse: language-polish
@@ -341,7 +341,7 @@ mounts:
     status: MOUNTED
     load_priority: P1
     path_shared: true
-    note: "path_shared with former peer-review-pdf-scan (same 06-review/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/review-peer (source my-skills in-repo)."
+    note: "path_shared with former peer-review-pdf-scan (same 06_review/base/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/review-peer (source my-skills in-repo)."
   - id: self-review
     label: "数值级自审核算"
     coarse: manuscript-review
@@ -398,89 +398,105 @@ archived:
     reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
     revive_condition: B 出现独立的数据集画像技能时重评
     old_path: 02-data-processing/imaging-qc/
+    historical: true
   - id: uncertainty-imaging
     status: ARCHIVED
     reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
     revive_condition: B 出现独立的不确定性量化技能时重评
     old_path: 02-data-processing/imaging-qc/
+    historical: true
   - id: hypothesis-generation
     status: ARCHIVED
     reason: 未拉取字节；假设形成经 frontier-hypothesize 已并入 design-study（2026-10-17 round 2）
     revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评；当前入口为 design-study
     old_path: skills/hypothesis-generation/
+    historical: true
   - id: database-lookup
     status: ARCHIVED
     reason: 2026-09-20 候选，路径未核实，本地无字节
     revive_condition: 上游文件夹核实且与 paper-lookup 不重复时重评
     old_path: skills/database-lookup/
+    historical: true
   - id: model-scaffold
     status: ARCHIVED
     reason: 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
     revive_condition: 对照 0RAD 后仍缺一块时重评
     old_path: skills/model-scaffold/
+    historical: true
   - id: model-card
     status: ARCHIVED
     reason: 2026-09-20 候选，路径未核实；不代替 A 正文层
     revive_condition: 论文需要独立模型卡且上游核实后重评
     old_path: skills/model-card/
+    historical: true
   - id: paperclip
     status: ARCHIVED
     reason: 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
     revive_condition: 需要逐行全文证据且上游文件夹核实后重评
     old_path: skills/paperclip/
+    historical: true
   - id: paper-lookup
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps lit-search; cut 2026-10-17 round 1
     revive_condition: session needs breadth APIs beyond lit-search and owner re-approves PROPOSED revive
     old_path: skills/paper-lookup/
+    historical: true
     source: scientific-agent-skills
   - id: analyze-survival
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps meta-analysis / analyze-stats; cut 2026-10-17 round 1
     revive_condition: leakage-safe survival pipeline needed beyond meta-analysis and owner re-approves
     old_path: skills/scikit-survival/
+    historical: true
     source: scientific-agent-skills
   - id: audit-citations
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps verify-refs; cut 2026-10-17 round 1
     revive_condition: strict third-party citation audit beyond verify-refs and owner re-approves
     old_path: skills/nature-academic-search/
+    historical: true
     source: nature-skills
   - id: audit-dicom
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps imaging-io / preprocess-imaging; cut 2026-10-17 round 1
     revive_condition: tag-level DICOM anonymization audit needed beyond imaging-io and owner re-approves
     old_path: skills/pydicom/
+    historical: true
     source: scientific-agent-skills
   - id: exploratory-data-analysis
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps clean-data; cut 2026-10-17 round 1
     revive_condition: dedicated EDA fine id needed beyond clean-data and owner re-approves
     old_path: skills/exploratory-data-analysis/
+    historical: true
     source: scientific-agent-skills
   - id: polish-latex
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps polish-language; cut 2026-10-17 round 1
     revive_condition: LaTeX-layout polish beyond polish-language and owner re-approves
     old_path: skills/nature-polishing/
+    historical: true
     source: nature-skills
   - id: statistical-power
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps calc-sample-size; cut 2026-10-17 round 1
     revive_condition: complex-design simulation power beyond calc-sample-size and owner re-approves
     old_path: skills/statistical-power/
+    historical: true
     source: scientific-agent-skills
   - id: venue-templates
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps find-journal; cut 2026-10-17 round 1
     revive_condition: venue format templates beyond find-journal and owner re-approves
     old_path: skills/venue-templates/
+    historical: true
     source: scientific-agent-skills
   - id: write-data-statement
     status: ARCHIVED
     reason: PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
     revive_condition: standalone data-availability statement beyond check-reporting and owner re-approves
     old_path: skills/nature-data/
+    historical: true
     source: nature-skills
   - id: manage-refs
     status: ARCHIVED
@@ -488,12 +504,14 @@ archived:
     revive_condition: bibtex write path needs a separate session pick beyond verify-refs and owner re-approves
     absorbed_into: verify-refs
     old_path: skills/citation-management/
+    historical: true
     source: scientific-agent-skills
   - id: lit-sync
     status: ARCHIVED
     reason: Scientific P2; rarely used; Zotero sync optional; cut 2026-10-17 round 2
     revive_condition: session needs interactive Zotero API sync as a first-class fine id and owner re-approves
     old_path: skills/pyzotero/
+    historical: true
     source: scientific-agent-skills
   - id: find-cohort-gap
     status: ARCHIVED
@@ -501,6 +519,7 @@ archived:
     revive_condition: cohort-gap scout needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-ideate/
+    historical: true
     source: my-skills
   - id: scout-meta-analysis
     status: ARCHIVED
@@ -508,6 +527,7 @@ archived:
     revive_condition: MA feasibility scout needs a separate session pick beyond meta-analysis and owner re-approves
     absorbed_into: meta-analysis
     old_path: 03-research/lit-review/
+    historical: true
     source: my-skills
   - id: frontier-hypothesize
     status: ARCHIVED
@@ -515,6 +535,7 @@ archived:
     revive_condition: hypothesis template needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/frontier-hypothesize/
+    historical: true
     source: my-skills
   - id: intake-project
     status: ARCHIVED
@@ -522,6 +543,7 @@ archived:
     revive_condition: project intake needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/intake-project/
+    historical: true
     source: my-skills
   - id: design-ai-benchmarking
     status: ARCHIVED
@@ -529,6 +551,7 @@ archived:
     revive_condition: AI benchmarking design needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/design-ai-benchmarking/
+    historical: true
     source: my-skills
   - id: architecture-zoo
     status: ARCHIVED
@@ -536,6 +559,7 @@ archived:
     revive_condition: architecture zoo needs a separate session pick beyond design-study and owner re-approves
     absorbed_into: design-study
     old_path: 03-research/architecture-zoo/
+    historical: true
     source: my-skills
   - id: radiomics-ml
     status: ARCHIVED
@@ -543,6 +567,7 @@ archived:
     revive_condition: radiomics habitat pipeline needs a first-class fine id again and owner re-approves
     absorbed_into: analyze-stats
     old_path: 02-data-processing/radiomics-habitat/
+    historical: true
     source: my-skills
   - id: peer-review-pdf-scan
     status: ARCHIVED
@@ -550,6 +575,7 @@ archived:
     revive_condition: PDF inject scan needs a separate session pick beyond peer-review and owner re-approves
     absorbed_into: peer-review
     old_path: 06-review/review-peer/
+    historical: true
     source: my-skills
   - id: scientific-visualization
     status: ARCHIVED
@@ -557,13 +583,15 @@ archived:
     revive_condition: full Scientific visualization skill body needed beyond fig-plot principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/scientific-visualization/
+    historical: true
     source: scientific-agent-skills
   - id: audit-figure-risk
     status: ARCHIVED
-    reason: Nature P2; principles already in 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    reason: Nature P2; principles already in 04_analysis/base/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
     revive_condition: venue-specific Nature figure risk workflow beyond plot-figures + external-principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/nature-figure/
+    historical: true
     source: nature-skills
   - id: check-grant-proposal
     status: ARCHIVED
@@ -571,6 +599,7 @@ archived:
     revive_condition: Chinese-context grant QA beyond grant-builder and owner re-approves PROPOSED revive
     absorbed_into: grant-builder
     old_path: skills/nature-proposal-writer/
+    historical: true
     source: nature-skills
   - id: model-validation
     status: ARCHIVED
@@ -578,6 +607,7 @@ archived:
     revive_condition: leakage-gate workflow needs a separate session pick beyond model-evaluation and owner re-approves
     absorbed_into: model-evaluation
     old_path: 04-analysis/model-eval/
+    historical: true
     source: my-skills
   - id: scientific-critical-thinking
     status: ARCHIVED
@@ -585,4 +615,5 @@ archived:
     revive_condition: evidence-quality critique beyond self-review/peer-review and owner re-approves PROPOSED revive
     absorbed_into: self-review
     old_path: skills/scientific-critical-thinking/
+    historical: true
     source: scientific-agent-skills

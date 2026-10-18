@@ -6,7 +6,7 @@ inputs: ["images", "masks", "reader_logs"]
 outputs: ["qc_report"]
 tools: ["SimpleITK"]
 quality_control: "geometry match before features; ICC/Dice on training subset only"
-owner: "02-data-processing/imaging-qc/MODULE.md"
+owner: "02_data-processing/base/imaging-qc/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -53,4 +53,4 @@ bilingual reader. Full-text retrieve is `03-lit-fulltext`. I/O is `02-imaging-io
 
 - Volumetric I/O → `02-imaging-io`
 - Radiomics / habitat / leakage → `analyze-stats` / `preprocess-imaging`
-- Modelling / calibration → `04-stats-models` / `04-model-eval`
+- Modelling / calibration → `04-stats-models` / `model-evaluation`

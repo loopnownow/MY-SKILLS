@@ -29,7 +29,7 @@ routes:
     contains: ["de-AI", "05_manuscript"]
   - intent: 预审
     contains: ["预审", "06_review"]
-  # ethics forms seat Bai; skill path is B 03-research/fill-protocol (no A stub)
+  # ethics forms seat Bai; skill path is B 03_research/base/fill-protocol (no A stub)
   - intent: 伦理
     contains: ["伦理申请表", "03_research"]
   - intent: HIS提取
@@ -54,7 +54,7 @@ counterexamples:
   - intent: 选刊误路由到05
     must_not_contain: ["选刊 → `05_manuscript`"]
   - intent: 旧venue id
-    must_not_contain: ["05-write-venue"]
+    must_not_contain: ["05_manuscript/base/write-venue/"]
   - intent: 文献进01
     must_not_contain: ["文献 → `01_skill-integration`"]
   - intent: 回复进05

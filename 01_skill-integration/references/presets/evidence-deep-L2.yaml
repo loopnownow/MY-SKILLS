@@ -31,7 +31,7 @@ overrides:
     paths: [03_research/base/verify-refs/]
     role: literature-verify
     required: true
-    prefix_example: "[B:verify-refs]"
+    prefix_example: "[verify-refs]"
 
 excluded_sources: []
 excluded_tools_note: "No triple search default. Non-base default deny."

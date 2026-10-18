@@ -2,7 +2,7 @@
 name: "review-response"
 domain: "07_response"
 description: Point-by-point reviewer response with rebuttal protocol and hard gates.
-owner: "07-response/review-response/MODULE.md"
+owner: "07_response/base/review-response/MODULE.md"
 ---
 
 # review-response

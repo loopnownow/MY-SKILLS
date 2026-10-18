@@ -59,5 +59,5 @@ implication, explicit limitations. No disclaimer stack.
 
 ## P6 — Export
 
-Typography and house DOCX live in A personal / `05-write-venue`. Figures: STROBE flow →
+Typography and house DOCX live in A personal / `05_manuscript/base/write-venue/`. Figures: STROBE flow →
 `04-fig-flow`; plots → `04-fig-plot`. A validation set appears only when an external cohort exists.

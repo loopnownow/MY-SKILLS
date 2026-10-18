@@ -18,6 +18,6 @@ Entry stage and rollback are coordinated with 00 (`research-exploration-loop`).
 
 ## Not this skill
 
-- Literature search mechanics → B `03-research/lit-search/`
-- Journal selection → `03_research/base/find-journal/` (Victor seat) + B find-journal
+- Literature search mechanics → B `03_research/base/lit-search/`
+- Journal selection → `03_research/base/find-journal/` (Victor seat) + `find-journal`
 - Ethics form fill → `03_research/base/fill-protocol/` (Bai)

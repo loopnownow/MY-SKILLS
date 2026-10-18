@@ -3,7 +3,7 @@ name: "design-protocol"
 domain: "03_research"
 status: stub
 description: Protocol write/fill slot.
-owner: "03-research/design-protocol/MODULE.md"
+owner: "03_research/base/design-protocol/MODULE.md"
 ---
 
 # design-protocol

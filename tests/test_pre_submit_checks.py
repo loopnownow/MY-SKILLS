@@ -274,7 +274,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "00_orchestrator/workflows/sci-manuscript.md",
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
-        # "ARCHITECTURE.md",  # root stub only; ownership lives in meta copy
+        # ARCHITECTURE.md is live ownership SSOT (scanned below)
         "ARCHITECTURE.md",
         "01_skill-integration/registry.yaml",
     )

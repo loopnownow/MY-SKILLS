@@ -24,7 +24,7 @@ modelling; they determine the design, the metric, and the reporting guideline.
 ## Primary vs secondary
 
 - Declare **one** primary endpoint and primary analysis. Everything else is secondary or
-  exploratory and must be labelled so (multiplicity → `04-stats-guide`).
+  exploratory and must be labelled so (multiplicity → `analyze-stats`).
 - The primary endpoint should match the clinical-use scenario, not the metric that looks best.
 
 ## Map endpoint → metric → what else is mandatory
@@ -43,7 +43,7 @@ modelling; they determine the design, the metric, and the reporting guideline.
   prioritises specificity. State which, and choose the threshold on the **training/derivation**
   data, never the test set.
 - Tie the threshold to the **consequence**: what action follows a positive/negative, and what a
-  false positive/negative costs the patient. (→ `04-model-eval` for net benefit; A personal / `03-clinical` for translation.)
+  false positive/negative costs the patient. (→ `model-evaluation` for net benefit; A personal for translation.)
 
 ## Common framing errors to fix
 

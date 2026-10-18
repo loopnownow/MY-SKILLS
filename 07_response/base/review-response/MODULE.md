@@ -3,15 +3,15 @@ name: "review-response"
 domain: "07_response"
 trigger: ["回复审稿人", "point-by-point", "回信", "rebuttal"]
 outputs: ["response_letter", "revision_checklist"]
-owner: "07-response/review-response/MODULE.md"
+owner: "07_response/base/review-response/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
 
 # Reviewer response (point-by-point)
 
-Draft a submittable point-by-point letter. Self-audit is `06-review-critique`. Other-paper
-review is `06-review-peer`. Personal letter voice stays in **A personal**.
+Draft a submittable point-by-point letter. Self-audit is `self-review`. Other-paper
+review is `peer-review`. Personal letter voice stays in **A personal**.
 
 ## When to open
 
@@ -27,5 +27,5 @@ review is `06-review-peer`. Personal letter voice stays in **A personal**.
 ## Hard rules
 
 - One comment → one response. Do not invent unrun experiments.
-- Sentence rewrites → `05-write-manuscript` / `05-write-polish`.
-- After letter changes numbers → `06-review/review-critique/paper-claim-audit.md`.
+- Sentence rewrites → `write-paper` / `polish-language`.
+- After letter changes numbers → `06_review/base/review-critique/paper-claim-audit.md`.

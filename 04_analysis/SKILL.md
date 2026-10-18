@@ -15,7 +15,7 @@ description: >
 
 Transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 **A04 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC authority for lab numbers/figures.
-Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17; was B; ). Fine IDs are not renamed.
+Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17). Fine IDs are not renamed.
 
 Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
@@ -28,7 +28,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 
 | Layer | Owns |
 |---|---|
-| A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` (was B; ) |
+| A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` |
 | 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
 | A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); Archify viz under `personal/visualization/` |
 

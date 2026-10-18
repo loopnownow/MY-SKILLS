@@ -2,7 +2,7 @@
 name: "humanize"
 domain: "05_manuscript"
 description: Detect and remove common AI writing patterns; preserve facts, numbers, citations.
-owner: "05-manuscript/humanize/MODULE.md"
+owner: "05_manuscript/base/humanize/MODULE.md"
 ---
 
 # humanize

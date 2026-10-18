@@ -1,4 +1,4 @@
-# 06-review
+# 06_review/base
 
 Capability bodies for A06 review. No domain-level SKILL.md.
 
@@ -10,4 +10,4 @@ Capability bodies for A06 review. No domain-level SKILL.md.
 
 **Isolation contract:** see [REVIEW-ISOLATION.md](REVIEW-ISOLATION.md) (kept as the domain isolation note; do not merge away).
 
-Response-letter packs live under `07-response/` (moved 2026-10-17).
+Response-letter packs live under `07_response/base/` (moved 2026-10-17).

@@ -6,7 +6,7 @@ inputs: ["excel_or_csv", "group_column"]
 outputs: ["imputed_table", "impute_qc", "backup"]
 tools: ["Python"]
 quality_control: "group-stratified; observed cells unchanged; align_decimals"
-owner: "02-data-processing/tables/impute/MODULE.md"
+owner: "02_data-processing/base/tables/impute/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.

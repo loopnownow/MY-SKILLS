@@ -2,7 +2,7 @@
 name: "vocab"
 domain: "05_manuscript"
 description: Lab vocabulary layers L1/L2/L3 (ban phrases, preferred terms, specialty nouns). Load before drafting.
-owner: "05-manuscript/vocab/MODULE.md"
+owner: "05_manuscript/base/vocab/MODULE.md"
 ---
 
 # vocab

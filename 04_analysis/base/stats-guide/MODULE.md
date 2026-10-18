@@ -6,7 +6,7 @@ inputs: ["outcome_type", "n_groups", "paired_flag", "normality"]
 outputs: ["named_test"]
 tools: ["decision_tree"]
 quality_control: "two independent groups + continuous non-normal -> Mann-Whitney U"
-owner: "04-analysis/stats-guide/MODULE.md"
+owner: "04_analysis/base/stats-guide/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -72,5 +72,5 @@ Do **not** import `scripts.assumption_checks` from this pack — that module is 
 
 - n / power / Riley → `04-stats-power`
 - Bayesian / regression implementation → `04-stats-models`
-- Calibration / DCA / external validation → `04-model-eval`
+- Calibration / DCA / external validation → `model-evaluation`
 - Plots → `04-fig-plot`

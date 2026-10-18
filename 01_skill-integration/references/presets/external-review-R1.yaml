@@ -24,7 +24,7 @@ overrides:
     paths: [06_review/base/review-peer/]
     role: clinical-reporting-findings
     required: true
-    prefix_example: "[B:peer-review]"
+    prefix_example: "[peer-review]"
   - id: self-review
     source: my-skills
     skills: [review-critique]
@@ -32,9 +32,9 @@ overrides:
     role: pre-submission-integrity
     required: true
     status_note: covers former scientific-critical-thinking (archived round 3)
-    prefix_example: "[B:self-review]"
+    prefix_example: "[self-review]"
 
-force_b:
+force_fine_ids:
   - peer-review  # peer-review-pdf-scan absorbed 2026-10-17 round 2
   - revise
   - self-review

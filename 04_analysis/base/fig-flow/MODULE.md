@@ -3,7 +3,7 @@ name: "fig-flow"
 domain: "04_analysis"
 trigger: ["STROBE", "流程图", "patient flow", "入组图"]
 outputs: ["flow_figure"]
-owner: "04-analysis/fig-flow/MODULE.md"
+owner: "04_analysis/base/fig-flow/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.

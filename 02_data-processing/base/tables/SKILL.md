@@ -4,7 +4,7 @@ domain: "02_data-processing"
 description: >
   Clinical Excel/CSV: headers, missingness, ID integrity, cohort columns
   (training/test; validation = external only). Nested impute/ and xlsx-office/.
-owner: "02-data-processing/tables/MODULE.md"
+owner: "02_data-processing/base/tables/MODULE.md"
 ---
 
 # tables

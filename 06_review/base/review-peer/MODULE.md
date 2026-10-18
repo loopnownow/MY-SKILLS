@@ -8,7 +8,7 @@ inputs: ["manuscript_docx"]
 outputs: ["peer_review_letter"]
 tools: ["dealbreakers"]
 quality_control: "flag leakage first; do not invent rescue experiments"
-owner: "06-review/review-peer/MODULE.md"
+owner: "06_review/base/review-peer/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -19,9 +19,9 @@ Write an English review of **someone else's** manuscript. This pack is **other-p
 
 Also covers former fine id `peer-review-pdf-scan` (PDF inject/attack scan, Phase1.5) — same folder; fine id archived 2026-10-17 round 2.
 
-- Self-audit / pre-submission of the user's own draft → `06-review-critique`
-- Point-by-point response letter → `06-review-response` (this MODULE does **not** own mode-3)
-- Sentence rewrite → `05-write-manuscript` / `05-write-polish`
+- Self-audit / pre-submission of the user's own draft → `self-review`
+- Point-by-point response letter → `revise` (this MODULE does **not** own mode-3)
+- Sentence rewrite → `write-paper` / `polish-language`
 - Personal review voice stays in **A personal**
 
 ## When to use
@@ -61,7 +61,7 @@ generalisability, overclaim, missing calibration/DCA when clinical utility is cl
 ## Envelope
 
 ```text
-Skill: 06-review-peer
+Skill: peer-review
 Path: peer-review-others
 
 [Letter]

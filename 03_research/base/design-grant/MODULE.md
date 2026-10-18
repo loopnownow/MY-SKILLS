@@ -4,7 +4,7 @@ domain: "03_research"
 status: stub
 trigger: ["标书", "grant"]
 outputs: ["grant_outline"]
-owner: "03-research/design-grant/MODULE.md"
+owner: "03_research/base/design-grant/MODULE.md"
 ---
 
 # Grant text (generic slot)

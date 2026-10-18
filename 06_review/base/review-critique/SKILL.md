@@ -2,7 +2,7 @@
 name: "review-critique"
 domain: "06_review"
 description: Self-audit / pre-submission, including zero-context paper-claim audit.
-owner: "06-review/review-critique/MODULE.md"
+owner: "06_review/base/review-critique/MODULE.md"
 ---
 
 # review-critique

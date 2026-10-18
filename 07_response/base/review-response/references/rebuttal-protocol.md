@@ -4,7 +4,7 @@ description: >
   Journal-first point-by-point rebuttal protocol: atomize concerns, provenance /
   commitment / coverage gates, analysis triad, revision checklist. Tone defers
   to A personal. No auto new experiments.
-owner: "07-response/review-response/MODULE.md"
+owner: "07_response/base/review-response/MODULE.md"
 ---
 
 # Rebuttal protocol (journal point-by-point)
@@ -28,7 +28,7 @@ Personal opening banks and Voice A/B stay in **A personal** — do not invent a 
 5. **No fabrication.** No invented numbers, citations, or unrun experiments.
 6. **No auto new experiments.** Analysis gaps go to the user; only `user_confirmed_result` enters the letter.
 7. **Optional `QUICK_MODE`** — issue board + strategy only (no full letter).
-8. **Optional stress-test** — when `06-review/simulate-reviewers` is available, use it on the draft; never invent a Codex/MCP-only path as required.
+8. **Optional stress-test** — when `06_review/base/simulate-reviewers` is available, use it on the draft; never invent a Codex/MCP-only path as required.
 
 ## Default output shape (journal)
 
@@ -70,7 +70,7 @@ Only **user-confirmed** results enter the letter as done work.
 5. Run the three hard gates ([response-audit-gate.md](response-audit-gate.md)).  
 6. Optional: stress-test via simulate-reviewers.  
 7. Deliver **final letter + checklist** (not draft-only for items that already have commitment).  
-8. **Handoff:** after the letter changes numbers, run `06-review/review-critique/paper-claim-audit.md` on the revised manuscript.
+8. **Handoff:** after the letter changes numbers, run `06_review/base/review-critique/paper-claim-audit.md` on the revised manuscript.
 
 ## Cut from upstream (not in this pack)
 

@@ -6,14 +6,14 @@ inputs: ["clinical_question", "modality", "cohort_sketch"]
 outputs: ["design_blueprint", "blocking_risks"]
 tools: ["checklist"]
 quality_control: "patient-level split; no slice-level external validation"
-owner: "03-research/design-experiment/MODULE.md"
+owner: "03_research/base/design-experiment/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
-Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.`architecture-zoo` → `03-research/architecture-zoo/`, `design-ai-benchmarking` → `03-research/design-ai-benchmarking/`, `frontier-hypothesize` → `03-research/frontier-hypothesize/`, `find-cohort-gap` → `03-research/frontier-ideate/`, `intake-project` → `03-research/intake-project/`.
+Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.`architecture-zoo` → `03_research/base/architecture-zoo/`, `design-ai-benchmarking` → `03_research/base/design-ai-benchmarking/`, `frontier-hypothesize` → `03_research/base/frontier-hypothesize/`, `find-cohort-gap` → `03_research/base/frontier-ideate/`, `intake-project` → `03_research/base/intake-project/`.
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe
 clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —
@@ -91,7 +91,7 @@ generalisable or single-center-anecdote.
 3. **`Study blueprint`** — clinical question, population, primary endpoint/estimand, comparator,
    clinical-use scenario; design type.
 4. **`Method options`** — minimum-viable vs stronger, with the trade-off and which reporting
-   guideline each will be judged against (→ `05-write-reporting`).
+   guideline each will be judged against (→ `check-reporting`).
 5. **`Validation plan`** — split scheme, internal + external/temporal/geographic/multi-center
    design, and the honest definition of "external" for this data.
 6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
@@ -108,15 +108,15 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 
 ## Handoffs
 
-- Frontier framing / is this direction novel & publishable → `03-frontier-ideate` / `03-frontier-hypothesize`.
+- Frontier framing / is this direction novel & publishable → `design-study` / `03-frontier-hypothesize`.
 - Sample size, EPV, power, Riley minimum sample size → `04-stats-power`.
 - Hand-crafted radiomics pipeline design → `analyze-stats`.
-- Deep-learning architecture & training design → A personal (not a B id).
+- Deep-learning architecture & training design → A personal (not a fine id).
 - Imaging × omics mechanism design → `analyze-stats` / this pack.
 - ROI/mask annotation SOP → `02-imaging-qc`.
-- Which checklist the design must satisfy → `05-write-reporting`.
-- Ethics/consent/data-sharing feasibility → `05-write-manuscript` radiology-ethics (placeholders only).
-- Clinical-use scenario, reader study, prospective plan → A personal (`03-clinical` / clinical-translation).
+- Which checklist the design must satisfy → `check-reporting`.
+- Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
+- Clinical-use scenario, reader study, prospective plan → A personal.
 - Own funding proposal → `03-design-grant` (generic slot) / A personal Voice A/B. Do not copy grant skeletons into this pack.
-- English journal peer review → `06-review-peer`. Not this module.
+- English journal peer review → `peer-review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.

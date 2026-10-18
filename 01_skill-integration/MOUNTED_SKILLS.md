@@ -124,7 +124,7 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a session pick.
 
 
-None.
+- (none)
 
 
 ## Reference-only (not session mounts)
@@ -163,7 +163,7 @@ None.
 - `radiomics-ml` — radiomics pipeline audit invoked via analyze-stats / preprocess-imaging absorb 2026-10-17 round 2
 - `peer-review-pdf-scan` — same path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
 - `scientific-visualization` — principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-- `audit-figure-risk` — Nature P2; principles already in 04-analysis/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `audit-figure-risk` — Nature P2; principles already in 04_analysis/base/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
 - `check-grant-proposal` — PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
 - `model-validation` — deterministic leakage gates folded into model-evaluation; same path; absorb 2026-10-17 round 3
 - `scientific-critical-thinking` — PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3

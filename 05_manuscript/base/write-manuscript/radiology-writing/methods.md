@@ -27,7 +27,7 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 - Preprocessing (registration, resampling, normalisation) — **fit on training only**.
 - Radiomics: IBSI-compliant extraction (resampling, **discretisation**, filters, software +
   version), feature reproducibility filtering, harmonisation (ComBat, train-only). (→
-  `05-write-reporting`)
+  `check-reporting`)
 - Model: architecture/algorithm, hyperparameter tuning (on validation), training details,
   seed, hardware; code/model availability.
 - Radiogenomics: omics source/processing, batch correction, integration/association method.
@@ -35,11 +35,11 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 ## 6. Statistical analysis
 - Primary endpoint and analysis; metrics (with the **CI method**); comparison tests (e.g.
   **DeLong**); **calibration** and **decision-curve** for prediction models; **multiplicity**
-  control; software + version; significance threshold. (→ `04-stats-guide` / `04-model-eval`)
+  control; software + version; significance threshold. (→ `analyze-stats` / `model-evaluation`)
 
 ## Tense & style
 Past tense; specific not vague ("3-T MRI" not "high-field"); name versions; one method, one
-place (don't scatter the same detail). Hand wording to `05-write-polish`.
+place (don't scatter the same detail). Hand wording to `polish-language`.
 
 ## Self-check
 `design+ethics? · eligibility+flow? · scanner+protocol? · reference standard+reader blinding+

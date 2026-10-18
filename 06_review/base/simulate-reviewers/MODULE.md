@@ -3,14 +3,14 @@ name: "simulate-reviewers"
 domain: "06_review"
 trigger: ["simulate-reviewers", "多审稿人", "blind review", "nature-reviewer"]
 outputs: ["skill_output"]
-owner: "06-review/simulate-reviewers/MODULE.md"
+owner: "06_review/base/simulate-reviewers/MODULE.md"
 ---
 
 # simulate-reviewers
 
 Multi-reviewer blind isolation for practice / meta-review.
 Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
-Sibling of `peer-review` / `review-peer`; isolation principles also in `06-review/review-peer/external-principles.md`.
+Sibling of `peer-review` / `review-peer`; isolation principles also in `06_review/base/review-peer/external-principles.md`.
 
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 

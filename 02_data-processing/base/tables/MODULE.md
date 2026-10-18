@@ -5,7 +5,7 @@ trigger: ["Excel", "CSV", "临床数据", "表头", "缺失值", "ID", "队列"]
 inputs: ["clinical_table"]
 outputs: ["qc_notes", "analysis_ready_table"]
 quality_control: "headers; missingness inventory; unique patient ID; patient-level split"
-owner: "02-data-processing/tables/MODULE.md"
+owner: "02_data-processing/base/tables/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
@@ -23,14 +23,14 @@ not here.
 
 | In | Out |
 |---|---|
-| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`04-stats-models` / `04-model-eval`) |
+| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`04-stats-models` / `model-evaluation`) |
 | Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
 | Patient-level leakage check on the table | Radiomics extraction (`analyze-stats`) |
 | | Financial-model color scale as a lab default → [`xlsx-office/`](xlsx-office/) |
 | | OOXML pack/unpack / LibreOffice recalc → [`xlsx-office/`](xlsx-office/) |
-| | Reporting checklists CLAIM/TRIPOD/CLEAR → `05-write-reporting` |
+| | Reporting checklists CLAIM/TRIPOD/CLEAR → `check-reporting` |
 
 ## Required columns
 
@@ -87,7 +87,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 
 ## What not to do
 
-- **No LASSO / paper model fitting** here — that is `04-stats-models` / `04-model-eval` /
+- **No LASSO / paper model fitting** here — that is `04-stats-models` / `model-evaluation` /
   `analyze-stats` (preparation only).
 - **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
   table files.
@@ -109,7 +109,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 2. Header QC + ID uniqueness + missingness inventory. Write a short QC note.
 3. Confirm split column semantics (training/test; validation only if external).
 4. If fill/outliers are requested → `impute/`. If OOXML pack/recalc/financial model → `xlsx-office/`.
-5. Hand modelling to `04-analysis`. Do not fit LASSO here.
+5. Hand modelling to `04_analysis`. Do not fit LASSO here.
 
 ## Handoffs
 
@@ -117,5 +117,5 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - Spreadsheet XML packing / recalc / financial xlsx → `02-tables` `xlsx-office/`
 - Imaging I/O + availability statements → `02-imaging-io` (including `data.md`)
 - Radiomics / leakage audit on feature matrices → `analyze-stats`
-- Modelling / calibration / DCA → `04-stats-models` / `04-model-eval`
-- Reporting checklists → `05-write-reporting`
+- Modelling / calibration / DCA → `04-stats-models` / `model-evaluation`
+- Reporting checklists → `check-reporting`

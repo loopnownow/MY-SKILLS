@@ -3,7 +3,7 @@ name: "stats-models"
 domain: "04_analysis"
 trigger: ["Bayesian", "回归实现", "statsmodels"]
 outputs: ["model_notes"]
-owner: "04-analysis/stats-models/MODULE.md"
+owner: "04_analysis/base/stats-models/MODULE.md"
 ---
 
 # Statistical / ML implementation notes

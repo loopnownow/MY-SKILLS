@@ -2,7 +2,7 @@
 name: "write-venue"
 domain: "05_manuscript"
 description: Venue templates and house style for writing (not journal selection).
-owner: "05-manuscript/write-venue/MODULE.md"
+owner: "05_manuscript/base/write-venue/MODULE.md"
 ---
 
 # write-venue

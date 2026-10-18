@@ -19,7 +19,7 @@ External `journal-recommender` (and similar tools) are **data/capability provide
 
 | Layer | Role |
 |---|---|
-| **01** Discovery / integration | External skill discovery; journal-skill query interface; mount management |
+| **01** skill-integration | Registry / session-pick / mount index; journal-skill query interface |
 | **03** External mounts / query | PubMed, OpenAlex, Crossref, Europe PMC, JCR/JIF/JCI, CAS, indexing, APC/OA, review data, candidate retrieval — **current evidence only** |
 | **04** Statistics / decision | JDI, JEI/JESI, MJF, Risk, PAI, dynamic weighting, Submission Tier |
 | **05** Writing | Adapt manuscript to chosen target (after selection) |

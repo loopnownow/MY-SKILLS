@@ -22,7 +22,7 @@ Before plotting, write a one-line contract:
 This figure should convince the reader that [claim] because [visual evidence] in [cohort/data], with the caveat that [boundary].
 ```
 
-If the contract cannot be written, the figure is not ready to draw. Route back to `05-write-manuscript` or `04-stats-guide` to clarify the claim.
+If the contract cannot be written, the figure is not ready to draw. Route back to `write-paper` or `analyze-stats` to clarify the claim.
 
 ## WALTER narration for each panel
 

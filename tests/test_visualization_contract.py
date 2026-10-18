@@ -1,4 +1,4 @@
-"""Visualization architecture v1.0: contract, IR shape, mount policy, no 07 skill."""
+"""Visualization architecture v1.0: contract, IR shape, mount policy; 07_response allowed."""
 from __future__ import annotations
 
 import importlib.util
@@ -128,7 +128,8 @@ class VisualizationContract(unittest.TestCase):
                     label.startswith("07_response") or "response" in label.lower(),
                     f"unexpected viz component label {label!r}",
                 )
-            self.assertNotEqual(component["id"], "c07")
+                if component["id"] == "c07":
+                    self.assertIn("response", label.lower())
 
     def test_delta_lists_structural_facts_only(self) -> None:
         module = load_generator()
@@ -139,7 +140,7 @@ class VisualizationContract(unittest.TestCase):
             "edges": {},
         }
         after = {
-            "components": {"c00": "00 Control / QC", "c01": "01 Discovery / Registry"},
+            "components": {"c00": "00 Control / QC", "c01": "01 skill-integration / Registry"},
             "connections": {},
             "nodes": {"task": "Task"},
             "edges": {},

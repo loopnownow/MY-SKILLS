@@ -1,7 +1,7 @@
 ---
 name: "vocab"
 domain: "05_manuscript"
-owner: "05-manuscript/vocab/MODULE.md"
+owner: "05_manuscript/base/vocab/MODULE.md"
 ---
 
 # vocab

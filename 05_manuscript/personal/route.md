@@ -10,12 +10,12 @@
 
 ## Vocabulary (body in base; personal pointer at `vocab/README.md`)
 
-1. **L1 words:** B `05-manuscript/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
-2. **L1 patterns:** B `05-manuscript/vocab/L1/patterns.md`
-3. **L1 SCI overrides:** B `05-manuscript/vocab/L1/sci-overrides.md`
-4. **L2 preferred:** B `05-manuscript/vocab/L2/preferred.md` + `approved-en.tsv`
+1. **L1 words:** B `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
+2. **L1 patterns:** B `05_manuscript/base/vocab/L1/patterns.md`
+3. **L1 SCI overrides:** B `05_manuscript/base/vocab/L1/sci-overrides.md`
+4. **L2 preferred:** B `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`
 5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
-6. **L3 specialty + Lab-STE:** B `05-manuscript/vocab/L3/lab-ste.md`
+6. **L3 specialty + Lab-STE:** B `05_manuscript/base/vocab/L3/lab-ste.md`
 
 ## Process (05-owned)
 

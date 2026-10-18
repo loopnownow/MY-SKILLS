@@ -2,7 +2,7 @@
 name: "design-experiment"
 domain: "03_research"
 description: Study design, feasibility, validation blueprints.
-owner: "03-research/design-experiment/MODULE.md"
+owner: "03_research/base/design-experiment/MODULE.md"
 ---
 
 # design-experiment
