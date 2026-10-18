@@ -27,15 +27,15 @@ Three pillars. Load only what the task needs.
 | `ethics.md` / `intake.md` / `multicenter.md` | Protocol ethics / triage / multicentre |
 | Grant Voice A/B files | Grants |
 | `clinical-translation/` | Reader study / deployment design |
-| B `03-research/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
+| A `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
 | `../workflows/question-to-reference.md` | R1-R5 spine |
 
 ## Journal selection
 
 | Location | What |
 |---|---|
-| B `03-research/find-journal/` | Victor seats engine (no A stub) |
+| A `03_research/base/find-journal/` | Victor seats engine (no A stub) |
 | Runtime pools | 0doc `04-lab-reference/find-journal/data/2026/` |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
-Call order: `journal-selection.md` → B `03-research/find-journal/SKILL.md`. Format after choice → B `journal-format-compliance/` (+ companion `05-manuscript/write-venue/` styles).
+Call order: `journal-selection.md` → B `03-research/find-journal/SKILL.md`. Format after choice → A `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-venue/` styles).

@@ -1,0 +1,5 @@
+license: MIT
+upstream: https://github.com/Aperivue/medsci-skills (skills/humanize/)
+copyright: Copyright (c) 2026 Aperivue (https://aperivue.com)
+absorbed_into_b: 2026-10-17
+note: Retain MIT notice with substantial portions. Personal A de-AI lists are not included.

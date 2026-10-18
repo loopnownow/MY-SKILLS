@@ -1,0 +1,5 @@
+license: MIT
+upstream: https://github.com/K-Dense-AI/scientific-agent-skills (skills/citation-management/)
+copyright: Copyright (c) K-Dense-AI / scientific-agent-skills contributors
+absorbed_into_b: 2026-10-17
+note: Retain MIT notice with substantial portions.

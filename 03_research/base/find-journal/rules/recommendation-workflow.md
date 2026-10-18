@@ -1,0 +1,72 @@
+# Recommendation workflow
+
+## Mounted blacklist
+
+PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
+
+## Mounted lists (order)
+
+1. **Blacklist** — never recommend (`blacklist.csv`).
+2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers 系列** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
+3. **投过/选刊 whitelist** — `{find_journal_submission}\whitelist-submitted.csv` (seeded from `data/2026/submission-urls.csv`). Stronger boost inside layer after MJF.
+4. **BMC/Medicine pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
+
+## Decision flow (ChatGPT architecture mapped to this pack)
+
+External tools supply **candidates and current evidence**; MY-SKILLS owns the decision.
+
+```text
+[Optional] External journal-recommender / query mounts
+        → Candidate journal pool + current metadata
+        → Journal Difficulty (JDI) + Manuscript Fit (MJF) + Risk
+        → MY-SKILLS decision (modules.md / jesi-model.md)
+        → Challenge / Target / Safety / Not recommended
+```
+
+| Step | Owner | Pack mapping |
+|---|---|---|
+| Candidate pool + live metrics | 03 query mounts (`query-sources.md`) | Layer CSVs = yearly screening pool; live APIs for rates/APC/AIM |
+| Difficulty + Capacity | 04 `jesi-calculator` / JDI · JCI-C · JEI | `jesi-model.md` |
+| Fit | 04 `manuscript-fit-analyzer` / **MJF (=MFI)** | Scope, methods, recent papers |
+| Risk | 04 Risk Assessment | **Unknown ≠ Low Risk** |
+| Personal prior | 04 `submission-prior-logger` / **PAI** | `submission-prior.jsonl` |
+| Final tier + layer tables | 04 decision + this workflow | Challenge / Target / Safety → layers below |
+
+Do **not** let an external Fit Score or fixed-weight template pick the final list.
+
+## Every paper: default three layers, **ten** each (+ optional 层2补)
+
+Order of tables (v1.16)
+
+1. 层2 — Q1, IF<5 — **10本** → primary **主攻 / Target** band
+2. 层3 — Q2 — **10本** → **Safety偏上/稳妥** band
+3. 层4 — Q3 — **10本** → **默认给出** (broader Q3 pool)
+4. 层2补 — Q1, 5≤IF≤10 — **10本 if opted in** → **冲刺 / Challenge**; **ask before each use**; **default OFF**
+
+Note: default table order is 层2 → 层3 → 层4. 层2补 is Challenge/optional stretch. **Comprehensive/general medical journals** may be listed when manuscript fit is reasonable (not specialty-only).
+
+Tier labels must be driven by **Journal Ease (JEI/JESI) × MJF × PAI × Practicality − Risk**, not IF/CAS alone.
+
+Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **投过/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Prefer non-gray; skip Frontiers/graylist when better matches fill the layer. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
+
+**Similar-article check (2026-10-08), round 2:** round 1 ranks by the criteria above and does not search. Round 2 searches each candidate journal for similar articles from the last 3–5 years. No similar article → lower it inside its layer and write 「近年未见类似文章，已降级」 in 匹配理由. Full rule: `SKILL.md` § Similar-article check.
+
+## Four-module pipeline
+
+```text
+sci-metrics-retriever → manuscript-fit-analyzer → jesi-calculator → submission-prior-logger
+```
+
+Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, persist: `persistence.md`.
+
+## Two phases
+
+**Phase 1:** tables for 层2 + 层3 + 层4 (**10 rows each** by default); **ask before each run** whether to add 层2补 (**default OFF**); columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). No 分层/策略 column (titles carry layer; checkboxes keep data-layer/data-tier). Always show rate columns (blank if unknown). JESI always from available metrics; mark partial with in-cell `*` + `缺:…` (`jesi-model.md`). No curated 易投指数. No 置信度/ISO/JIF分区/JCI分区 columns. Comprehensive/general medical titles OK when match is reasonable. No live AIM/fee lookup. Prefer HTML delivery. Do not write yearly metrics/rates into `data/2026/submission-urls.csv`.
+
+**Phase 2:** only confirmed titles (`aim-author-checklist.md`). **User delivery HTML = per-paper 短表** with columns only: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知. Put portal + author-instruction **full URLs** in the last column (visible URL text). **Omit** ISO, OA, 置信, 分刊详情, APC from that short table. Quartile/IF/volume display-only; persist portal URLs to `data/2026/submission-urls.csv` (URL fields only). Optionally log outcomes later to `submission-prior.jsonl`.
+
+## Phase-1 HTML marks (v1.15)
+- Yellow highlight **only** when 投稿易投指数 ≥ 80.
+- Load blacklist → graylist → whitelist-submitted → BMC/Medicine pattern on every Phase-1 run.
+- **投过/选刊** boost stronger than BMC/Medicine pattern; **do not** mark 可疑 / red for either whitelist.
+- Graylist (incl. Frontiers): use only if layer short or user asks; LWW MEDICINE stays blacklisted.

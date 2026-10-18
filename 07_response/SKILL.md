@@ -3,7 +3,7 @@ name: medical-manuscript-response
 description: >
   Personal response-letter upper layer. Entry for response letter is 07.
   Final authority for point-by-point response and resolution status.
-  Mounted revise / tighten-response / response-tone-polisher stay source=B.
+  Mounted revise / tighten-response / response-tone-polisher use source my-skills under A `07_response/base/`.
   Re-review stays in 06. Prose Track Changes to 05. Literature to 03.
 ---
 
@@ -22,7 +22,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: B fine-ID first-pass (`revise` / `tighten-response` / `response-tone-polisher`) -> **00 QC** -> **A07** personal final authority.
+Flow: fine-ID first-pass (`revise` / `tighten-response` / `response-tone-polisher`; bodies in A `07_response/base/`) -> **00 QC** -> **A07** personal final authority.
 
 Mounted packs may draft; **A 07 personal** owns resolution status and letter voice (`personal/response.md`).
 
@@ -34,11 +34,11 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 | Route | `personal/route.md` |
 | Handoff | `personal/handoff.md` |
 
-## Mounted capability ids (bodies in B; source=B)
+## Mounted capability ids (bodies in A `base/`; source my-skills)
 
-- `revise` -- point-by-point structure (B `07-response/review-response/`)
-- `tighten-response` -- tightening principles (B `07-response/tighten-response/`)
-- `response-tone-polisher` -- tone only; structure stays `revise` (B `07-response/response-tone-polisher/`)
+- `revise` -- point-by-point structure (A `07_response/base/review-response/`)
+- `tighten-response` -- tightening principles (A `07_response/base/tighten-response/`)
+- `response-tone-polisher` -- tone only; structure stays `revise` (A `07_response/base/response-tone-polisher/`)
 
 A07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 

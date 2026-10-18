@@ -1,0 +1,86 @@
+# AGENTS — find-journal
+
+Authority order: `SKILL.md` → `rules/policy.md` → `rules/recommendation-workflow.md` → this file.
+If this file conflicts with `SKILL.md` / `policy.md`, **follow SKILL/policy** (zip processed pack).
+
+Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + 可荐综合刊).
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## When to use
+
+User asks 推荐杂志 / 选刊 / 投稿去哪 / JCR·JCI 分区 / 影响因子分层 / 版面费·AIM（仅备选确认后）.
+
+Owner: **Victor** · A `03_research`. Bai owns 选刊推进 after titles are chosen. 选刊走 03 `find-journal`；`venue-templates` 只管体例.
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## Every 推荐杂志 run
+
+1. Mount blacklist first (`data/2026/blacklist.csv`): never list PLoS One / Scientific Reports / MEDICINE (LWW Baltimore).
+2. Read the manuscript. **Ask before each run** whether to include 层2补 (Challenge); **default OFF**.
+   - Always: 层2 — Q1 and IF < 5 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer2-q1-if-lt5.csv` (Target; **10** journals)
+   - Always: 层3 — Q2 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer3-q2.csv` (Safety偏上/稳妥; **10** journals)
+   - Always: 层4 — Q3 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer4-q3.csv` (**默认给出**; **10** journals)
+   - Only if user opts in: 层2补 — Q1 and 5 ≤ IF ≤ 10 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer2b-q1-if-5to10.csv` (Challenge)
+3. Do **not** use layer1 (IF>10) unless the user asks. Comprehensive/general medical journals OK when match is reasonable.
+4. Rank inside a layer by: **稿件匹配度** (MJF/MFI, highest) → **BMC/Medicine 白名单优先** → **投稿易投指数** (JESI/JEI) → capacity signal (年发文量 / log volume as weak tie-breaker). Load `data/2026/whitelist-bmc-medicine.csv`. Use **dynamic weights** when user constraints differ (speed / Q1 / APC); no fixed weights as policy. Do not use curated 易投指数 in ranking/JDI.
+   - Similar-article check (2026-10-08), round 2: round 1 ranks first and does not search. In round 2, no similar article in the last 3–5 years → lower it inside its layer; write 「近年未见类似文章，已降级」. Full rule: `SKILL.md` § Similar-article check.
+5. Phase-1 columns: 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标)
+   - No 分层/策略 column (layer in section titles; keep data-layer/data-tier on checkboxes). Chinese score headers; always show rate columns (blank/`—` if unknown). Do **not** show 置信度 / ISO / JIF分区 / JCI分区.
+   - JESI: always from available A/R/P+MJF; partial scores marked in-cell (`*` + `缺:…`); never invent rates. See `jesi-model.md`.
+   - JIF / volume / rates are **display-only**; do **not** persist them into `data/2026/submission-urls.csv`.
+   - **Ask before each run** whether to include 层2补 (Challenge); **default OFF** (层2 + 层3 + 层4 by default).
+   - Per-layer default count: **10**. Specialty preferred; **综合/全科刊** allowed when fit is reasonable.
+6. No AIM / author instructions / APC in phase 1. Then ask user to circle 备选杂志.
+7. Phase 2 only after confirmation — see `rules/aim-author-checklist.md`.
+   - **User HTML 短表 (per paper):** 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知.
+   - Same last column for portal + author instructions; show **full URLs** (not bare 「投稿须知」).
+   - Short table **omits** ISO, OA, 置信, 分刊详情, **APC**.
+   - Quartile/IF/volume display-only; portal URLs → `data/2026/submission-urls.csv`.
+8. Pipeline: optional external candidate pool → metrics → fit → JESI → prior (`modules.md`, `jesi-model.md`). External recommender = query provider only.
+9. Delivery: HTML for user; write submission URLs only back to `data/2026/submission-urls.csv`; optional prior lines → `{find_journal_submission}\submission-prior.jsonl`.
+10. Risk: **Unknown ≠ Low Risk.**
+
+Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## Do not
+
+- Recommend the three blacklist titles.
+- Collapse default layers into one top-N list.
+- Route 选刊 to `venue-templates` (选刊走 03 `find-journal`).
+- Invent word limits or APC; invent missing risk as “low.”
+- Persist annually updated IF / JCR·JCI/CAS / APC / review-time / volume values into CSV/DB-like files — **query capability only**.
+- Install external journal-recommender as a mounted skill; copy fixed Fit Score weights or abstract→CAS prediction.
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## Display hard rules (v1.16)
+- BMC/Medicine **whitelist priority** (`data/2026/whitelist-bmc-medicine.csv`); **no** 「可疑」/红标；LWW MEDICINE still blacklisted (never on whitelist).
+- Phase-1 HTML：only **投稿易投指数 ≥80** yellow highlight.
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## Wording
+- Say **默认挂载 B 包/本仓**, never 「空挂」.
+
+## Data locations
+
+- List gates: `data/2026/` (blacklist/graylist/whitelist).
+- **Runtime selection pools live in 0doc:** `{doc_root}\04-lab-reference\find-journal\data\2026`.`n
+## Journal format compliance (nested)
+
+Not a registry fine id. After 备选杂志 are chosen, invoke `journal-format-compliance/SKILL.md` by path/keyword (format for [journal] / 按作者须知改格式). Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` § Journal format compliance.
+

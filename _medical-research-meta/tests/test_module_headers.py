@@ -75,8 +75,7 @@ class ModuleHeaderTests(unittest.TestCase):
                     and parts[3].isdigit()
                     and len(parts[3]) == 4
                 )
-                # Pilot 2026-10-17: domain-02 B bodies live under 02_data-processing/base/
-                # (tables/xlsx-office scripts nest deeper than five parts).
+                # 2026-10-17: domain bodies under NN_slug/base/ may nest deeper than five parts.
                 base_pilot_ok = len(parts) >= 2 and parts[1] == "base"
                 if len(rel.parts) > 5 and not data_year_ok and not base_pilot_ok:
                     violations.append((len(rel.parts), str(rel)))
@@ -142,16 +141,19 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("references/hybrid-mount-pointers.md", reg_text)
         self.assertIn("removed-from-catalog", reg_text)
         b_y = (d / "sources" / "b-my-skills-base.yaml").read_text(encoding="utf-8")
-        self.assertIn("03-research/lit-search/", b_y)
-        self.assertIn("id: verify-refs", b_y)
+        # Domains 02–07 bodies in-repo (source my-skills); B source yaml skills empty.
+        self.assertIn("skills: []", b_y)
+        self.assertNotIn("03-research/lit-search/", b_y)
+        self.assertNotIn("id: verify-refs", b_y)
         self.assertTrue((d / "sources" / "b-my-skills-base.yaml").is_file())
         self.assertNotIn("mounts/README.md", b_y)
 
 
     def test_b_mount_paths_unique(self):
         text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
-        # Collect B paths that are primary owners (not path_shared)
-        paths = []
+        # Collect primary-owner paths (not path_shared) for live sources.
+        b_paths = []
+        a_paths = []
         cur = {}
         in_mounts = False
         for line in text.splitlines():
@@ -163,25 +165,34 @@ class ModuleHeaderTests(unittest.TestCase):
             if not in_mounts:
                 continue
             if line.startswith("  - id:"):
-                if cur.get("source") == "my-skills-base" and not cur.get("path_shared"):
-                    if cur.get("path"):
-                        paths.append(cur["path"])
+                if cur.get("path") and not cur.get("path_shared"):
+                    if cur.get("source") == "my-skills-base":
+                        b_paths.append(cur["path"])
+                    elif cur.get("source") == "my-skills":
+                        a_paths.append(cur["path"])
                 cur = {"id": line.split(":", 1)[1].strip()}
             elif ":" in line and line.startswith("    "):
                 k, v = line.strip().split(":", 1)
                 cur[k.strip()] = v.strip()
-        if cur.get("source") == "my-skills-base" and not cur.get("path_shared") and cur.get("path"):
-            paths.append(cur["path"])
-        self.assertEqual(len(paths), len(set(paths)), msg=str(paths))
-        self.assertGreaterEqual(len(paths), 20)
-        self.assertIn("04-analysis/fig-flow/", paths)
-        self.assertIn("03-research/design-experiment/", paths)
-        self.assertNotIn("02-data-processing/tables/", paths)  # pilot 2026-10-17: in-repo my-skills base/
-        self.assertIn("04-analysis/stats-guide/", paths)
-        self.assertNotIn("04-analysis/figure-engine/", paths)
-        self.assertNotIn("02-data-processing/imaging/", paths)
-        self.assertNotIn("02-data-processing/xlsx/", paths)
-        self.assertNotIn("03-research/literature/", paths)
+        if cur.get("path") and not cur.get("path_shared"):
+            if cur.get("source") == "my-skills-base":
+                b_paths.append(cur["path"])
+            elif cur.get("source") == "my-skills":
+                a_paths.append(cur["path"])
+        # Domains 02–07 moved in-repo: no remaining my-skills-base primary paths.
+        self.assertEqual(b_paths, [], msg=str(b_paths))
+        self.assertEqual(len(a_paths), len(set(a_paths)), msg=str(a_paths))
+        self.assertGreaterEqual(len(a_paths), 20)
+        self.assertIn("04_analysis/base/fig-flow/", a_paths)
+        self.assertIn("03_research/base/design-experiment/", a_paths)
+        self.assertIn("02_data-processing/base/tables/", a_paths)
+        self.assertIn("04_analysis/base/stats-guide/", a_paths)
+        self.assertIn("05_manuscript/base/write-manuscript/", a_paths)
+        self.assertIn("06_review/base/review-critique/", a_paths)
+        self.assertIn("07_response/base/review-response/", a_paths)
+        self.assertNotIn("04-analysis/figure-engine/", a_paths)
+        self.assertNotIn("02-data-processing/tables/", a_paths)
+        self.assertNotIn("03-research/literature/", a_paths)
 
     def test_personal_radiology_stats_stays_in_a(self):
         rs = ROOT / "04_analysis" / "personal"

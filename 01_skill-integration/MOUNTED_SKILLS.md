@@ -26,35 +26,35 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `verify-refs` | 引用真实性核验 | my-skills-base | `03-research/verify-refs/` | MOUNTED | P1 | — |
-| `retraction-watcher` | 撤稿检测 | my-skills-base | `03-research/retraction-watcher/` | MOUNTED | P1 | — |
-| `lit-search` | 文献检索与公开数据集 | my-skills-base | `03-research/lit-search/` | MOUNTED | P1 | — |
+| `verify-refs` | 引用真实性核验 | my-skills | `03_research/base/verify-refs/` | MOUNTED | P1 | — |
+| `retraction-watcher` | 撤稿检测 | my-skills | `03_research/base/retraction-watcher/` | MOUNTED | P1 | — |
+| `lit-search` | 文献检索与公开数据集 | my-skills | `03_research/base/lit-search/` | MOUNTED | P1 | — |
 
 
 ### study-design
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `design-study` | 研究设计审查 | my-skills-base | `03-research/design-experiment/` | MOUNTED | P1 | — |
-| `write-protocol` | IRB方案撰写 | my-skills-base | `03-research/design-protocol/` | MOUNTED | P1 | — |
+| `design-study` | 研究设计审查 | my-skills | `03_research/base/design-experiment/` | MOUNTED | P1 | — |
+| `write-protocol` | IRB方案撰写 | my-skills | `03_research/base/design-protocol/` | MOUNTED | P1 | — |
 
 
 ### manuscript-body
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `write-paper` | IMRAD正文起草 | my-skills-base | `05-manuscript/write-manuscript/` | MOUNTED | P1 | — |
-| `check-reporting` | 报告规范核验 | my-skills-base | `05-manuscript/write-reporting/` | MOUNTED | P1 | — |
-| `grant-builder` | 基金标书-方法论 | my-skills-base | `03-research/design-grant/` | MOUNTED | P1 | — |
-| `find-journal` | 选刊推荐 | my-skills-base | `03-research/find-journal/` | MOUNTED | P1 | — |
+| `write-paper` | IMRAD正文起草 | my-skills | `05_manuscript/base/write-manuscript/` | MOUNTED | P1 | — |
+| `check-reporting` | 报告规范核验 | my-skills | `05_manuscript/base/write-reporting/` | MOUNTED | P1 | — |
+| `grant-builder` | 基金标书-方法论 | my-skills | `03_research/base/design-grant/` | MOUNTED | P1 | — |
+| `find-journal` | 选刊推荐 | my-skills | `03_research/base/find-journal/` | MOUNTED | P1 | — |
 
 
 ### language-polish
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `polish-language` | 一致性硬规则lint | my-skills-base | `05-manuscript/write-polish/` | MOUNTED | P1 | — |
-| `humanize` | 去AI味 | my-skills-base | `05-manuscript/humanize/` | MOUNTED | P1 | — |
+| `polish-language` | 一致性硬规则lint | my-skills | `05_manuscript/base/write-polish/` | MOUNTED | P1 | — |
+| `humanize` | 去AI味 | my-skills | `05_manuscript/base/humanize/` | MOUNTED | P1 | — |
 
 
 ### data-processing
@@ -71,34 +71,34 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills-base | `04-analysis/stats-guide/` | MOUNTED | P1 | — |
-| `meta-analysis` | Meta分析抗数据操纵 | my-skills-base | `04-analysis/stats-models/` | MOUNTED | P1 | — |
-| `model-evaluation` | 模型-任务正确指标选择 | my-skills-base | `04-analysis/model-eval/` | MOUNTED | P1 | — |
-| `calc-sample-size` | 样本量计算 | my-skills-base | `04-analysis/stats-power/` | MOUNTED | P1 | — |
+| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills | `04_analysis/base/stats-guide/` | MOUNTED | P1 | — |
+| `meta-analysis` | Meta分析抗数据操纵 | my-skills | `04_analysis/base/stats-models/` | MOUNTED | P1 | — |
+| `model-evaluation` | 模型-任务正确指标选择 | my-skills | `04_analysis/base/model-eval/` | MOUNTED | P1 | — |
+| `calc-sample-size` | 样本量计算 | my-skills | `04_analysis/base/stats-power/` | MOUNTED | P1 | — |
 
 
 ### figures
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `draw-flowchart` | 患者流程图 | my-skills-base | `04-analysis/fig-flow/` | MOUNTED | P1 | — |
-| `plot-figures` | 统计图与影像面板 | my-skills-base | `04-analysis/fig-plot/` | MOUNTED | P1 | — |
+| `draw-flowchart` | 患者流程图 | my-skills | `04_analysis/base/fig-flow/` | MOUNTED | P1 | — |
+| `plot-figures` | 统计图与影像面板 | my-skills | `04_analysis/base/fig-plot/` | MOUNTED | P1 | — |
 
 
 ### manuscript-review
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `peer-review` | 审稿意见生成 | my-skills-base | `06-review/review-peer/` | MOUNTED | P1 | path_shared |
-| `self-review` | 数值级自审核算 | my-skills-base | `06-review/review-critique/` | MOUNTED | P1 | — |
-| `simulate-reviewers` | 多审稿人隔离原则 | my-skills-base | `06-review/simulate-reviewers/` | MOUNTED | P1 | — |
+| `peer-review` | 审稿意见生成 | my-skills | `06_review/base/review-peer/` | MOUNTED | P1 | path_shared |
+| `self-review` | 数值级自审核算 | my-skills | `06_review/base/review-critique/` | MOUNTED | P1 | — |
+| `simulate-reviewers` | 多审稿人隔离原则 | my-skills | `06_review/base/simulate-reviewers/` | MOUNTED | P1 | — |
 
 
 ### review-response
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `revise` | 修回分诊与数字血统追踪 | my-skills-base | `07-response/review-response/` | MOUNTED | P1 | — |
+| `revise` | 修回分诊与数字血统追踪 | my-skills | `07_response/base/review-response/` | MOUNTED | P1 | — |
 
 
 ## P2 specialty (still pickable) (3)
@@ -108,15 +108,15 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `fill-protocol` | IRB方案填表 | my-skills-base | `03-research/fill-protocol/` | MOUNTED | P2 | — |
+| `fill-protocol` | IRB方案填表 | my-skills | `03_research/base/fill-protocol/` | MOUNTED | P2 | — |
 
 
 ### review-response
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `response-tone-polisher` | 回复语气软化 | my-skills-base | `07-response/response-tone-polisher/` | MOUNTED | P2 | — |
-| `tighten-response` | 隔离与正文精简原则 | my-skills-base | `07-response/tighten-response/` | MOUNTED | P2 | — |
+| `response-tone-polisher` | 回复语气软化 | my-skills | `07_response/base/response-tone-polisher/` | MOUNTED | P2 | — |
+| `tighten-response` | 隔离与正文精简原则 | my-skills | `07_response/base/tighten-response/` | MOUNTED | P2 | — |
 
 
 ## Optional candidates (status PROPOSED — not pickable)
