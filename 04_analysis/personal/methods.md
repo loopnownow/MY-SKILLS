@@ -1,6 +1,6 @@
-# Methods handbook (04)
+﻿# Methods handbook (04)
 
-Merged 2026-10-16 from personal topic files. Use with `MODULE.md` as thin index.
+Merged 2026-10-16 from personal topic files. Use with `module-notes.md` as thin index.
 
 
 ---
