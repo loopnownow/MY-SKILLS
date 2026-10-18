@@ -6,4 +6,4 @@ Former proposed yamls (MedSci / Scientific / AIPOCH / Nature) archived at:
 
 `D:\0del\01_sources_archive_20261017\`
 
-Non-base = default deny. See `../mounts/hybrid-mount-pointers.md`.
+Non-base = default deny. See `../references/hybrid-mount-pointers.md`.

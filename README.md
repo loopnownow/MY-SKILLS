@@ -30,7 +30,7 @@ Lab disks (not inside this repo): runnable SSOT `{script_root}`; human-doc SSOT 
 | Skill | Role |
 |-------|------|
 | `00_orchestrator` | Intent classify, skill chain, QC closed loop (file gates + local recovery) |
-| `01_skill-integration` | Mount / index / hybrid recipes; pointers + `mounts/*.md` live here; default source B; bytes in `{mounts_cap}/` |
+| `01_skill-integration` | Registry / index / session-pick only; hybrid deny + presets under `references/`; default source B; bytes in `{mounts_cap}/` |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
 | `03_research` | Research framework + literature (03 only) + **选刊** + personal grant supplement + translational design + ethics forms |
 | `04_analysis` | Statistics, prediction, **figures** (`draw-flowchart` / `plot-figures`) |

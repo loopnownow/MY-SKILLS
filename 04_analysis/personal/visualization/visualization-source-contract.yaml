@@ -33,7 +33,7 @@ views:
     inputs:
       - 01_skill-integration/registry.yaml
       - 01_skill-integration/sources
-      - 01_skill-integration/mounts/presets
+      - 01_skill-integration/references/presets
     not_inputs:
       - mounts-cap bytes (SSOT D:/0Grok/0doc/04-lab-reference/mounts-cap; do not crawl)
       - a crawl of mounted skill files

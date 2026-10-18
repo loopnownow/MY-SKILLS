@@ -9,7 +9,7 @@ These are **mount-time** bans, not skill deletions:
 3. Reviewer engines output **findings only**; they must not edit the manuscript bypassing A06.
 4. Venue polishing must not overwrite B05 / A personal author voice.
 5. Do not remount packs purged from catalog (`ars_openclaw_policy: removed-from-catalog`).
-6. Non-base exceptions = **default deny** (see `mounts/hybrid-mount-pointers.md`).
+6. Non-base exceptions = **default deny** (see `references/hybrid-mount-pointers.md`).
 
 ## Hard rules
 

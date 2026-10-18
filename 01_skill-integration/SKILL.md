@@ -17,7 +17,7 @@ refs). Skill name / role: **skill-index**.
 
 ## Purpose
 
-01 is the **routing index**, not a multi-package marketplace. Session lock key: `session_picked_fine_ids`.
+01 is the **routing index** only (registry / session-pick / path resolve). No mount-package board; capabilities via A+B only. Session lock key: `session_picked_fine_ids`.
 
 | Concern | Owner |
 |---|---|
@@ -36,7 +36,7 @@ keep a second pointer table.
 
 - Session-pick unit = `fine_id` (status `MOUNTED` only). Reuse `session_picked_fine_ids` when they already cover the task.
 - Path resolve: `registry.yaml` → B path under live clone or `{mounts_cap}/b/`.
-- Non-base sources: **default deny**. See `mounts/hybrid-mount-pointers.md`.
+- Non-base sources: **default deny**. See `references/hybrid-mount-pointers.md`.
 - ARS / OpenClaw: `ars_openclaw_policy: removed-from-catalog` — never remount.
 - A top layers are **not** mount picks.
 
@@ -46,8 +46,8 @@ keep a second pointer table.
 |---|---|
 | `registry.yaml` | Routing index (coarse / fine / status / path) |
 | `MOUNTED_SKILLS.md` | Generated session-pick human table |
-| `mounts/` | Human board: presets (first-pass fine-ID lists), base notes, non-base stubs |
-| `mounts/hybrid-mount-pointers.md` | Non-base exceptions = default deny |
+| `references/hybrid-mount-pointers.md` | Non-base exceptions = default deny |
+| `references/presets/*.yaml` | First-pass fine-ID session recipes (not a package board) |
 | `sources/b-my-skills-base.yaml` | Sole live source config (base) |
 | `legacy_aliases.yaml` | Retired call-site id → canonical fine id |
 | `scripts/gen_mounted_skills.py` | Regenerates `MOUNTED_SKILLS.md` |

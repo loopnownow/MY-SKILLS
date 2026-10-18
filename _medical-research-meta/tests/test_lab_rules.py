@@ -78,7 +78,7 @@ class Routing(unittest.TestCase):
     def test_01_is_discovery_not_excel(self) -> None:
         readme = (SKILLS / "README.md").read_text(encoding="utf-8")
         self.assertIn("01_skill-integration", readme)
-        self.assertIn("Mount / index / hybrid recipes", readme)
+        self.assertIn("Registry / index / session-pick only", readme)
         self.assertNotIn("01_automation", readme)
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("01_skill-integration", zero)

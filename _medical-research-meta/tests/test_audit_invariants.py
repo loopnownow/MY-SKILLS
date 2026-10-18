@@ -287,7 +287,7 @@ class DiscoverySurface(unittest.TestCase):
 
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
         for rel in (
-            "01_skill-integration/mounts/README.md",
+            "01_skill-integration/references/hybrid-mount-pointers.md",
             "00_orchestrator/workflows/research-exploration-loop.md",
         ):
             self.assertNotRegex(read(rel), r"52 fine", rel)
@@ -494,7 +494,7 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("包内skill-id", style.replace(" ", ""))
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
-        preset = read("01_skill-integration/mounts/presets/review-hybrid.yaml")
+        preset = read("01_skill-integration/references/presets/review-hybrid.yaml")
         self.assertIn("skills: [verify-refs]", preset)
         self.assertIn("skills: [stats-guide]", preset)
         self.assertIn("required: false", preset)

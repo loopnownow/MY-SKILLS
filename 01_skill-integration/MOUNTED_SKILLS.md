@@ -14,7 +14,7 @@ Local base bytes: `{mounts_cap}/b/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap/
 Say 默认挂载 B = 本仓 — not 空挂.
 
 Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 28 fine ids** (28 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
-Machine source: `registry.yaml`. Human boards: [mounts/README.md](mounts/README.md).
+Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointers.md](references/hybrid-mount-pointers.md). Presets: [references/presets/](references/presets/).
 
 ## Session-pick fine ids (status MOUNTED only)
 
