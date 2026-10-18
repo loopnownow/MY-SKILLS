@@ -1,4 +1,4 @@
-# 04_analysis personal route -- top layer
+﻿# 04_analysis personal route -- top layer
 
 ## A/B flow (2026-10-17)
 
@@ -10,7 +10,7 @@ Fine IDs for stats-analysis / figures are **not** renamed.
 
 ## Personal load order
 
-1. Methods / which test -> `methods.md` (index: `MODULE.md`)
+1. Methods / which test -> `methods.md` (index: `module-notes.md`)
 2. Already-reported numbers / polish checks -> `report-checks.md`
 3. Pipeline implementation rules -> `pipeline.md`
 4. Console UI / results HTML -> `console-ui.md`

@@ -1,4 +1,4 @@
----
+﻿---
 name: medical-statistics-analysis-and-visualization
 description: >
   Personal analysis top layer: statistics, prediction, survival, diagnostic accuracy, figures.
@@ -40,7 +40,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 | Handoff | `personal/handoff.md` |
 | Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/pipeline.md` |
 | Console UI / results HTML / figure switches | `personal/console-ui.md` |
-| Radiology-grade stats index | `personal/MODULE.md` + `personal/methods.md` |
+| Radiology-grade stats index | `personal/module-notes.md` + `personal/methods.md` |
 | Lab figure palettes / claim planning | `personal/figures.md` |
 | Stats checklist / reported consistency | `personal/report-checks.md` |
 | Pre-submit check ids (writing actions; 05 owns prose) | `00_orchestrator/references/manuscript-local-qc.md` |
