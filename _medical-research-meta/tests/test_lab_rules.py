@@ -116,6 +116,16 @@ class Routing(unittest.TestCase):
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("Literature enters 03 only", zero)
         self.assertIn("Reviewer response enters 07 only", zero)
+        fast = read("00_orchestrator", "references", "fast-routing.md")
+        self.assertIn("回复审稿人", fast)
+        self.assertIn("07_response", fast)
+        self.assertIn("- **回复审稿人** → `07_response`", fast)
+        self.assertNotIn("预审 / 审稿 / **回复审稿人** → `06_review`", fast)
+        self.assertIn("- 预审 / 审稿 → `06_review`", fast)
+        gates = read("00_orchestrator", "gates.md")
+        self.assertIn("after Lee pre-review or re-review only", gates)
+        self.assertNotIn("after pre-review or reviewer response", gates)
+        self.assertIn("A07 / `07_response`", gates)
 
 
 class LabSte(unittest.TestCase):

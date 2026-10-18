@@ -12,7 +12,7 @@ routes:
   - intent: 写论文
     contains: ["写作", "05_manuscript"]
   - intent: 回复审稿人
-    contains: ["回复审稿人", "06_review"]
+    contains: ["回复审稿人", "07_response"]
   - intent: 新技能
     contains: ["新技能", "01_skill-integration"]
   - intent: 技能迭代
@@ -59,3 +59,5 @@ counterexamples:
     must_not_contain: ["文献 → `01_skill-integration`"]
   - intent: 回复进05
     must_not_contain: ["回复审稿人 → `05_manuscript`"]
+  - intent: 回复进06
+    must_not_contain: ["回复审稿人 → `06_review`"]
