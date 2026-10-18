@@ -1,0 +1,6 @@
+license: MIT
+upstream: https://github.com/aipoch/medical-research-skills
+  (scientific-skills/Academic Writing/response-tone-polisher/)
+copyright: Copyright (c) 2026 AIpoch
+absorbed_into_b: 2026-10-17
+note: Retain MIT notice with substantial portions.

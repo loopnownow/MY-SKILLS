@@ -3,7 +3,7 @@ name: medical-statistics-analysis-and-visualization
 description: >
   Personal analysis top layer: statistics, prediction, survival, diagnostic accuracy, figures.
   Triggers: stats, AUC, DeLong, DCA, KM, calc-sample-size, plot-figures, draw-flowchart.
-  Capability bodies stay in B. Cleaning/imputation -> 02. Captions/prose -> 05.
+  Capability bodies live in A `04_analysis/base/`. Cleaning/imputation -> 02. Captions/prose -> 05.
   Literature -> 03. Review -> 06. Response -> 07.
 ---
 
@@ -15,19 +15,19 @@ description: >
 
 Transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 **A04 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC authority for lab numbers/figures.
-Capability **bodies** for stats/figures mounts stay in **B**. Fine IDs are not renamed.
+Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17; was B; B repo retained). Fine IDs are not renamed.
 
 Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
 ## Layer model (2026-10-17)
 
-**Flow:** B stats/figures fine-ID **first-pass** -> **00 QC** -> **A04** top-layer re-loops
-(0RAD pipeline / report-checks / figures personal; may re-trigger B mounts when 00 says needed).
+**Flow:** stats/figures fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A04** top-layer re-loops
+(0RAD pipeline / report-checks / figures personal; may re-trigger mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
-| B | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` bodies under `04-analysis/` |
-| 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers B mounts |
+| A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` (was B; B repo retained) |
+| 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
 | A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures/report-checks; Loopnow seat; Archify viz under `personal/visualization/` |
 
 Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack.
@@ -52,12 +52,12 @@ Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 
-- `analyze-stats` -- test selection / effect sizes (B `04-analysis/stats-guide/`)
-- `calc-sample-size` -- sample size / power (B `04-analysis/stats-power/`)
-- `model-evaluation` -- calibration / DCA / external validation + leakage gates (B `04-analysis/model-eval/`)
-- `meta-analysis` -- implementation (B `04-analysis/stats-models/`); 0RAD personal still wins
-- `draw-flowchart` -- STROBE / patient-flow (B `04-analysis/fig-flow/`)
-- `plot-figures` -- statistical plots / imaging panels (B `04-analysis/fig-plot/`)
+- `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/stats-guide/`)
+- `calc-sample-size` -- sample size / power (A `04_analysis/base/stats-power/`)
+- `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-eval/`)
+- `meta-analysis` -- implementation (A `04_analysis/base/stats-models/`); 0RAD personal still wins
+- `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/fig-flow/`)
+- `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/fig-plot/`)
 
 Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
 

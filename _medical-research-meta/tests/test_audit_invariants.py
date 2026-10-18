@@ -260,8 +260,16 @@ class RoutingFourTuple(unittest.TestCase):
         self.assertEqual(by_id["find-journal"]["a_domain"], "03_research")
         self.assertEqual(by_id["fill-protocol"]["a_domain"], "03_research")
         self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
-        self.assertIn("03-research/find-journal", by_id["find-journal"]["note"])
-        self.assertIn("03-research/fill-protocol", by_id["fill-protocol"]["note"])
+        fj_note = by_id["find-journal"]["note"]
+        fp_note = by_id["fill-protocol"]["note"]
+        self.assertTrue(
+            "03-research/find-journal" in fj_note or "03_research/base/find-journal" in fj_note,
+            fj_note,
+        )
+        self.assertTrue(
+            "03-research/fill-protocol" in fp_note or "03_research/base/fill-protocol" in fp_note,
+            fp_note,
+        )
         self.assertNotRegex(read("_medical-research-meta/ARCHITECTURE.md"), r"选刊\s*→\s*05")
         self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"选刊\s*→\s*05")
 

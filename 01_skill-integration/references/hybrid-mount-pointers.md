@@ -23,5 +23,13 @@ Domain `02_data-processing` capability bodies were copied from B into A
 Fine ids `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging` use
 registry `source: my-skills` (in-repo) with paths under `02_data-processing/base/`.
 Personal top layer and domain `SKILL.md` stay in A. B repo is **not** deleted;
-domains 03–07 are **not** migrated in this pilot.
+Domain 02 was the pilot; domains 03–07 were merged 2026-10-17 (see below).
 
+
+## Merge: domains 03–07 in-repo base (2026-10-17)
+
+Domains `03_research` … `07_response` capability bodies were copied from B into A
+`NN_slug/base/` (same pattern as domain-02 pilot). Fine ids that pointed at B
+`03-research/` … `07-response/` now use registry `source: my-skills` (in-repo)
+with paths under `NN_slug/base/`. Personal top layers and domain `SKILL.md` stay
+in A. B repo is **not** deleted.

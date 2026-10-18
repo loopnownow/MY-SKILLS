@@ -9,4 +9,4 @@
 | Tables / imaging prep | `02_data-processing` |
 | Exit QC / Gates | `00_orchestrator` |
 
-Response final authority is **07**. Mounted `revise` / `tighten-response` / `response-tone-polisher` remain source=B.
+Response final authority is **07**. Mounted `revise` / `tighten-response` / `response-tone-polisher` use source my-skills under A `07_response/base/`.

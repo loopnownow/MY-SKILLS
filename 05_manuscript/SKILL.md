@@ -21,9 +21,15 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 **Every SCI full paper uses `personal/Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
 
-## Layer model
+## Layer model (2026-10-17)
 
-**Mounted writing capability → 05 personal upper layer → 00 Final QC.**
+**Flow:** writing fine-ID **first-pass** (A `05_manuscript/base/` bodies) -> **00 QC** -> **A05** personal upper layer.
+
+| Layer | Owns |
+|---|---|
+| A `base/` | `write-paper`, `check-reporting`, `polish-language`, `humanize`, vocab, write-venue under `05_manuscript/base/` (was B; B repo retained) |
+| 00 | Final QC |
+| A05 | Personal Aitor-format / voice / process; final wording authority |
 
 ## Personal assets
 
@@ -33,14 +39,14 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Voice portrait | `personal/voice-portrait.md` |
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
-| L1 / L2 / L3 vocabulary | B `05-manuscript/vocab/` (A `personal/vocab/` = pointer) |
-| Lab-STE (CM-01 ZH comments) | B `05-manuscript/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
+| L1 / L2 / L3 vocabulary | A `05_manuscript/base/vocab/` (A `personal/vocab/` = pointer) |
+| Lab-STE (CM-01 ZH comments) | A `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `00_orchestrator/references/manuscript-local-qc.md` (owned by 00) |
 | Diff harvest | `{script_write_paper}\diff_harvest.py` |
 
 
-## Mounted capability ids (generic; not present until mounted)
+## Mounted capability ids (bodies in A `base/`; not present until mounted)
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
@@ -48,7 +54,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 - `check-reporting` — TRIPOD / CLAIM / CLEAR in the paper
 - `venue-templates` — journal templates / house style while writing. Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
-- `humanize` — generic de-AI / humanize (B `05-manuscript/humanize/`). Does **not** replace `personal/route.md` + B `05-manuscript/vocab/L1/ban-phrases.md`.
+- `humanize` — generic de-AI / humanize (A `05_manuscript/base/humanize/`). Does **not** replace `personal/route.md` + A `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 选刊走 03 `find-journal`；`venue-templates` 只管体例. Personal de-AI stays in A (`personal/`).
 
@@ -72,7 +78,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: B `05-manuscript/vocab/L1/ban-phrases.md`
+- Forbidden fluff: A `05_manuscript/base/vocab/L1/ban-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.

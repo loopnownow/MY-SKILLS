@@ -23,7 +23,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: B fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`) -> **00 QC** -> **A06** post-QC re-review only.
+Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in A `06_review/base/`) -> **00 QC** -> **A06** post-QC re-review only.
 
 Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
 Resolution status for response letters -> **A07**.
@@ -43,8 +43,8 @@ Resolution status for response letters -> **A07**.
 
 ## Mounted capability ids
 
-- `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (B)
-- `revise` / `tighten-response` / `response-tone-polisher` -- response path; **final authority A07**; bodies stay B
+- `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (A `06_review/base/`)
+- `revise` / `tighten-response` / `response-tone-polisher` -- response path; **final authority A07**; bodies in A `07_response/base/`
 
 ## Modes
 

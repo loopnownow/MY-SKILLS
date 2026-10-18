@@ -137,7 +137,11 @@ class LabSte(unittest.TestCase):
         self.assertIn("Compared", lab)
         self.assertIn("attenuated", lab)
         five = read("05_manuscript", "SKILL.md")
-        self.assertIn("05-manuscript/vocab/L3/lab-ste.md", five)
+        self.assertTrue(
+            "05-manuscript/vocab/L3/lab-ste.md" in five
+            or "05_manuscript/base/vocab/L3/lab-ste.md" in five,
+            five,
+        )
         self.assertTrue((B_ROOT / "05-manuscript" / "vocab" / "L2" / "approved-en.tsv").is_file())
         self.assertFalse((SKILLS / "lab-ste").exists())
 

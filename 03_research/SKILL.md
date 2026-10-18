@@ -17,18 +17,18 @@ description: >
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **A03 is the personal top layer** (like A05/A06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
-Capability **bodies** for lit/design mounts stay in **B**.
+Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17; was B; B repo retained).
 
 ## Layer model (2026-10-17)
 
-**Flow:** B lit/design fine-ID **first-pass** -> **00 QC** -> **A03** top-layer re-loops
-(may trigger `verify-refs` + `retraction-watcher`; bodies executed in B).
+**Flow:** lit/design fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A03** top-layer re-loops
+(may trigger `verify-refs` + `retraction-watcher`; bodies under A `03_research/base/`).
 
 | Layer | Owns |
 |---|---|
-| B | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03-research capability bodies |
+| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` (was B; B repo retained) |
 | 00 | QC gate; decides whether A03 re-triggers verify/retraction |
-| A03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of B verify-refs / retraction-watcher |
+| A03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in A `base/`) |
 
 ## Three pillars
 
@@ -36,16 +36,16 @@ See `personal/route.md` for the full pointer table.
 
 | Pillar | Owns |
 |---|---|
-| Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (mounted B) |
-| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> B `03-research/fill-protocol/` (Bai) |
-| Journal selection | 选刊走 03 `find-journal` — Victor seats B `03-research/find-journal/` (no A stub) (list gates in B; runtime pools in 0doc) |
+| Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (A `base/`) |
+| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> A `03_research/base/fill-protocol/` (Bai) |
+| Journal selection | 选刊走 03 `find-journal` — Victor seats A `03_research/base/find-journal/` (list gates in base/; runtime pools in 0doc) |
 
 ## Literature rule
 
 - Introduction evidence pack: on 05 cards -> `personal/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 01 or 05.
 - **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
-- **Post-QC (A03-triggered, bodies in B):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
+- **Post-QC (A03-triggered, bodies in A `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
 
 ## Personal assets (top layer)
 

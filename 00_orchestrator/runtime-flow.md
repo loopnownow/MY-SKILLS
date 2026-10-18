@@ -14,9 +14,9 @@
 
 | Layer | Repo | Owns |
 |---|---|---|
-| **B** | MY-SKILLS-base | Capability bodies / fine-ID loops |
+| **A base/** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
 | **00** | MY-SKILLS `00_orchestrator` | QC gate between B first-pass and A re-loop |
-| **A** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Bodies stay in B |
+| **A** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Capability bodies for 02–07 live in A `NN_slug/base/` (B repo retained) |
 
 Post-QC A re-loops (as needed):
 
