@@ -83,6 +83,7 @@ SKILL_TOPS = (
     "04_analysis",
     "05_manuscript",
     "06_review",
+    "07_response",
     )
 ID_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]*$")
 TS_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z")
@@ -254,8 +255,8 @@ def require_anchors(mmd: str, gates: str, architecture: str) -> None:
         if not (ROOT / folder).is_dir():
             raise GateFailure("G-VIZ-01", f"missing directory {folder}")
     for entry in ROOT.iterdir():
-        if entry.is_dir() and entry.name.startswith("07"):
-            raise GateFailure("G-VIZ-01", f"top-level 07 skill is present: {entry.name}")
+        if entry.is_dir() and entry.name.startswith("07") and entry.name != "07_response":
+            raise GateFailure("G-VIZ-01", f"unexpected top-level 07 skill: {entry.name}")
 
 
 def check_registry(reg: dict) -> None:
@@ -539,8 +540,13 @@ def validate_ir(arch: dict, wf: dict) -> None:
         _check_id(comp["id"], "component")
         if comp["type"] not in COMPONENT_TYPES or not comp.get("label"):
             raise GateFailure("G-VIZ-02", f"bad component {comp['id']}")
-        if str(comp["label"]).startswith("07"):
-            raise GateFailure("G-VIZ-02", "architecture label starts a 07 skill")
+        label = str(comp["label"])
+        if label.startswith("07") and not (
+            label.startswith("07_response") or "response" in label.lower()
+        ):
+            raise GateFailure("G-VIZ-02", f"unexpected architecture 07 label: {label}")
+        if comp["id"] == "c07":
+            raise GateFailure("G-VIZ-02", "architecture must not use component id c07")
     known = set(ids)
     for boundary in arch["boundaries"]:
         if boundary["kind"] not in {"region", "security-group"}:

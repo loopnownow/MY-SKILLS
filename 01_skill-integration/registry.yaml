@@ -16,7 +16,7 @@
 meta:
   version: "4.0"
   change_id: CHG-20261007-001
-  fine_id_count_canonical: 31  # session-pick mounts; reference_only empty; -12 archive/absorb 2026-10-17 round 2 (was 43 after round 1)
+  fine_id_count_canonical: 28  # session-pick mounts; reference_only empty; live count after #142 tidy (was 31; was 43 after round 1)
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
