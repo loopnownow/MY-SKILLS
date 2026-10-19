@@ -38,3 +38,7 @@ Use the `00` close rules. `pipeline.stage: done` when this run's file is in plac
 
 Overwrite `Manuscript_<结局>_house.docx` in place (or `_polished.docx` after an archive pass).
 After a 05/06 Word pass, append `ref/manuscript-revision.md` (`06_review/personal/word-edit.md`). Do not re-polish logged sections.
+
+## Project `ref/` layout
+
+Use `00_orchestrator/references/project-ref-layout.md`. Keep `ref/manuscript-revision.md` and `ref/settings.ini` at **ref root**. Put new review/citation/gate/code/results/exec artifacts in the matching subfolders; read manuscript-revision + citation ledger before re-running the same gate/layer.
