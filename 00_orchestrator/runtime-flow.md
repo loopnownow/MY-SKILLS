@@ -114,7 +114,7 @@ Seats unchanged: **Lee = 06 review/re-review**; **Aitee = 05 + 07**. Do **not** 
 
 ## Domain QC standards (not capability bodies)
 
-Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 05 / Integrity · pre-06) and `06_review/qc/` (Gate · 06 / `P06r` re-review). 00 loads them at gate time; specialists do not self-certify via `qc/`. See `gates.md` Manuscript local QC + Integrity compositions.
+Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 05 / Integrity · pre-06) and `06_review/qc/` (Gate · 06 / `P06r` re-review). 00 loads them at gate time; specialists do not self-certify via `qc/`. See `gates.md` Manuscript local QC + Integrity compositions. P0 absorb also loads `05_manuscript/qc/figure-stats-legend.md`, `figure-qa-minima.md`, `reporting-guidelines-router.json` and `06_review/qc/stats-failure-modes.md`, `forensic-consistency.md`, `technical-concern-coverage.md`, `review-release-gates.md` (see `gates.md`).
 
 ## Before skills / mounts (standing)
 

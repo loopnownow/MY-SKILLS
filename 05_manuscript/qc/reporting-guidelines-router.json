@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0-myskills",
+  "notice": "Selection router only (id / study_types / official URL). Not a merit score. Do not paste EQUATOR checklist item text. Verify official source and venue policy before use.",
+  "upstream": {
+    "repo": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "path": "skills/peer-review/assets/reporting_guidelines.json",
+    "license": "MIT",
+    "reviewed_on_upstream": "2026-10-01"
+  },
+  "guidelines": [
+    {
+      "id": "ARRIVE-2.0",
+      "name": "ARRIVE",
+      "version": "2.0 (2020)",
+      "status": "current",
+      "study_types": [
+        "animal_in_vivo"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://arriveguidelines.org/arrive-guidelines"
+    },
+    {
+      "id": "CARE-2013",
+      "name": "CARE",
+      "version": "2013 checklist; 2017 explanation",
+      "status": "current",
+      "study_types": [
+        "case_report"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.care-statement.org/checklist"
+    },
+    {
+      "id": "CHEERS-2022",
+      "name": "CHEERS",
+      "version": "2022",
+      "status": "current",
+      "study_types": [
+        "economic_evaluation"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.ispor.org/heor-resources/good-practices/cheers"
+    },
+    {
+      "id": "CONSORT-2025",
+      "name": "CONSORT",
+      "version": "2025",
+      "status": "current",
+      "study_types": [
+        "randomized_trial"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.consort-spirit.org/"
+    },
+    {
+      "id": "CONSORT-AI-2020",
+      "name": "CONSORT-AI",
+      "version": "2020 extension",
+      "status": "current",
+      "study_types": [
+        "randomized_trial"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [
+        "ai_intervention"
+      ],
+      "url": "https://www.equator-network.org/reporting-guidelines/consort-artificial-intelligence/"
+    },
+    {
+      "id": "COREQ-2007",
+      "name": "COREQ",
+      "version": "2007",
+      "status": "current",
+      "study_types": [
+        "qualitative_interview",
+        "qualitative_focus_group"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.equator-network.org/reporting-guidelines/coreq/"
+    },
+    {
+      "id": "PRISMA-2020",
+      "name": "PRISMA",
+      "version": "2020 (published 2021)",
+      "status": "current",
+      "study_types": [
+        "systematic_review"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.prisma-statement.org/prisma-2020"
+    },
+    {
+      "id": "PRISMA-P-2015",
+      "name": "PRISMA-P",
+      "version": "2015",
+      "status": "current",
+      "study_types": [
+        "systematic_review"
+      ],
+      "report_kinds": [
+        "protocol"
+      ],
+      "required_features": [],
+      "url": "https://www.equator-network.org/reporting-guidelines/prisma-protocols/"
+    },
+    {
+      "id": "SPIRIT-2025",
+      "name": "SPIRIT",
+      "version": "2025",
+      "status": "current",
+      "study_types": [
+        "randomized_trial"
+      ],
+      "report_kinds": [
+        "protocol"
+      ],
+      "required_features": [],
+      "url": "https://www.consort-spirit.org/"
+    },
+    {
+      "id": "SPIRIT-AI-2020",
+      "name": "SPIRIT-AI",
+      "version": "2020 extension",
+      "status": "current",
+      "study_types": [
+        "randomized_trial"
+      ],
+      "report_kinds": [
+        "protocol"
+      ],
+      "required_features": [
+        "ai_intervention"
+      ],
+      "url": "https://www.equator-network.org/reporting-guidelines/spirit-artificial-intelligence/"
+    },
+    {
+      "id": "SQUIRE-2.0",
+      "name": "SQUIRE",
+      "version": "2.0 (2015)",
+      "status": "current",
+      "study_types": [
+        "quality_improvement"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.squire-statement.org/index.cfm?fuseaction=page.viewPage&pageID=471&nodeID=1"
+    },
+    {
+      "id": "SRQR-2014",
+      "name": "SRQR",
+      "version": "2014",
+      "status": "current",
+      "study_types": [
+        "qualitative_study"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.equator-network.org/reporting-guidelines/srqr"
+    },
+    {
+      "id": "STARD-2015",
+      "name": "STARD",
+      "version": "2015",
+      "status": "current",
+      "study_types": [
+        "diagnostic_accuracy"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.equator-network.org/reporting-guidelines/stard/"
+    },
+    {
+      "id": "STARD-AI-2025",
+      "name": "STARD-AI",
+      "version": "2025",
+      "status": "current",
+      "study_types": [
+        "diagnostic_accuracy"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [
+        "ai_based"
+      ],
+      "url": "https://www.nature.com/articles/s41591-025-03953-8"
+    },
+    {
+      "id": "STROBE-2007",
+      "name": "STROBE",
+      "version": "2007",
+      "status": "current",
+      "study_types": [
+        "observational_study",
+        "cohort_study",
+        "case_control_study",
+        "cross_sectional_study"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.strobe-statement.org/"
+    },
+    {
+      "id": "TRIPOD-AI-2024",
+      "name": "TRIPOD+AI",
+      "version": "2024",
+      "status": "current",
+      "study_types": [
+        "prediction_model"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [],
+      "url": "https://www.tripod-statement.org/"
+    },
+    {
+      "id": "TRIPOD-LLM-2025",
+      "name": "TRIPOD-LLM",
+      "version": "2025",
+      "status": "current",
+      "study_types": [
+        "llm_study",
+        "prediction_model"
+      ],
+      "report_kinds": [
+        "results"
+      ],
+      "required_features": [
+        "large_language_model"
+      ],
+      "url": "https://www.equator-network.org/reporting-guidelines/the-tripod-llm-reporting-guideline-for-studies-using-large-language-models/"
+    },
+    {
+      "id": "MIAME-2001",
+      "name": "MIAME",
+      "version": "2001 content standard; repository guidance current",
+      "status": "legacy_current_qualified",
+      "study_types": [
+        "microarray"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/info/MIAME.html"
+    },
+    {
+      "id": "MIAPE-CURRENT",
+      "name": "MIAPE",
+      "version": "modular released components",
+      "status": "legacy_current_qualified",
+      "study_types": [
+        "proteomics"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://www.psidev.info/miape"
+    },
+    {
+      "id": "MIAPPE-1.2",
+      "name": "MIAPPE",
+      "version": "1.2 (October 2024)",
+      "status": "current",
+      "study_types": [
+        "plant_phenotyping"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://www.miappe.org/releases"
+    },
+    {
+      "id": "MIFlowCyt-1.0",
+      "name": "MIFlowCyt",
+      "version": "1.0; ISAC recommendation current",
+      "status": "legacy_current_qualified",
+      "study_types": [
+        "flow_cytometry"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://isac-net.org/miflowcyt-2/"
+    },
+    {
+      "id": "MINSEQE-CURRENT",
+      "name": "MINSEQE",
+      "version": "repository guidance current",
+      "status": "legacy_current_qualified",
+      "study_types": [
+        "high_throughput_sequencing"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/info/MIAME.html"
+    },
+    {
+      "id": "MIxS-CURRENT",
+      "name": "MIxS",
+      "version": "current GSC release",
+      "status": "current",
+      "study_types": [
+        "genome_sequence",
+        "metagenome_sequence"
+      ],
+      "report_kinds": [
+        "results",
+        "data_release"
+      ],
+      "required_features": [],
+      "url": "https://www.gensc.org/pages/standards-intro.html"
+    }
+  ]
+}
