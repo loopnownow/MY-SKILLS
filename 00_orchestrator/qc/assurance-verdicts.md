@@ -59,6 +59,12 @@ One-liner: **a loop may DRIVE; it must not ACQUIT.**
 - Same-family interim review → label `provisional`; do not present as submission-ready yes.
 - Human / recorded stop remains mandatory at Integrity FAIL and before `stage: done` (see `gates.md`).
 
+## Soft pointers (ARIS P1 · no new G-* ids)
+
+- **Stage map W1→W3** (IDEA / EXPERIMENT / NARRATIVE / paper → seats): `research-stage-artifacts.md`.
+- **Review loop + REVIEW_STATE resume**: `06_review/qc/review-loop-state.md` (Lee seat; compose `assurance-audit-chain.md`).
+- **Resubmit text-only whitelist / ledger**: `resubmit-edit-whitelist.md`.
+
 ## Soft wiring (no new G-* ids)
 
 - **G-FACT** / **Integrity · pre-06**: when numbers cited, compose layers 1–3 per `assurance-audit-chain.md`.

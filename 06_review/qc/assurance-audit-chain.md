@@ -44,10 +44,11 @@
 | Lee (06) | Path collection / cold-read / kill-argument; marks, does not self-revise ms by default |
 | Bai | Portal submit only after submission-level assurance green or user override recorded |
 
-## Out of scope this absorb (P1)
+## ARIS P1 process standards (absorbed 2026-10-19)
 
-- Full ARIS research-pipeline / auto-review-loop
-- resubmit-pipeline edit-whitelist
-- Installing ARIS runtime / host MCP / `verify_paper_audits.sh` as-is
+- Stage map W1→W3 + artifact contracts → seats: `00_orchestrator/qc/research-stage-artifacts.md`
+- Review→fix→re-review + resumable `REVIEW_STATE`: `06_review/qc/review-loop-state.md` (Lee)
+- Resubmit edit-whitelist + failure ledger: `00_orchestrator/qc/resubmit-edit-whitelist.md`
+- Still **out of scope**: installing ARIS runtime / host MCP / `verify_paper_audits.sh` as-is
 
 *Attribution: ARIS (wanshuiyin/Auto-claude-code-research-in-sleep) assurance chain; lab A/B layout + seats.*

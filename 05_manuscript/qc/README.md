@@ -15,7 +15,7 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `style-spotcheck.md` | **G-05** — Vancouver+DOI / Aitor-format spot (not APA-primary) |
 | `figure-stats-legend.md` | **G-05** / Integrity · pre-06 — legend minima by plot type |
 | `figure-qa-minima.md` | **G-05** — image-integrity + pre-submission figure pass/fail |
-| `refs-verified.md` | **G-05** / Integrity · pre-06 — DOI-first field audit pass/fail + unresolved list |
+| `refs-verified.md` | **G-05** / Integrity · pre-06 · DOI-first + Crossref Critical/Warning/Info axes (compose citation-audit-gate) |
 | `venue-compliance-minima.md` | **G-05** — venue Final Compliance Checklist (pass/fail) |
 | `venue-currency.md` | **G-05** / find-journal — verify official URL + date before template trust |
 | `data-code-availability.md` | **G-05** / Integrity · pre-06 — Data/Code Availability statement gate |
@@ -39,3 +39,8 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 
 - wanshuiyin/Auto-claude-code-research-in-sleep — assurance-contract + result-to-claim / paper-claim-audit / citation-audit — lab rewrite, host-agnostic
 - Chain index: `06_review/qc/assurance-audit-chain.md`
+
+### Attribution (ARIS P1 process 2026-10-19)
+
+- Stage/resubmit process lives under `00_orchestrator/qc/` + `06_review/qc/review-loop-state.md` (not 05).
+- Item-3 nature-ref Crossref axes extended in `refs-verified.md` (Yuan1z Apache-2.0); venue minima/currency already present (K-Dense MIT).

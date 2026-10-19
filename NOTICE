@@ -78,3 +78,9 @@ Short original QC/capability distillations:
 - Yuan1z0825/nature-skills — Apache-2.0 — `nature-ref-verifier` → `03_research/base/verify-refs/references/doi-crossref-field-audit.md` + `05_manuscript/qc/refs-verified.md`; `nature-response` → `07_response/base/routing.md`; `nature-data` → `05_manuscript/qc/data-code-availability.md`; literature skills → `03_research/base/lit-pipeline-router.md` (thin router; no cron product).
 - K-Dense-AI/scientific-agent-skills — MIT — `venue-templates` → `05_manuscript/qc/venue-compliance-minima.md` + `venue-currency.md`; `scientific-critical-thinking` → `06_review/qc/appraisal-tool-route.md` (routing only; no EQUATOR/Cochrane item bodies).
 No Nature format dumps, no AutoResearchClaw pipeline, no bundled LaTeX/BST.
+
+### ARIS P1 process absorb 2026-10-19 (wanshuiyin · host-agnostic)
+
+Short original QC distillations under `00_orchestrator/qc/` and `06_review/qc/` (research-stage-artifacts W1→W3; review-loop-state; resubmit-edit-whitelist) were adapted from https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep skills `research-pipeline`, `auto-review-loop`, `resubmit-pipeline`, and `shared-references/{acceptance-gate,resumable-runs}` — lab rewrite only. No ARIS runtime, Codex MCP, or `verify_paper_audits.sh` installed. Extends ARIS P0 assurance files from PR #159.
+
+Item-3 nature-ref Crossref field axes extended in `05_manuscript/qc/refs-verified.md` (Yuan1z0825/nature-skills `nature-ref-verifier`, Apache-2.0); venue compliance/currency already absorbed (K-Dense `venue-templates`, MIT).
