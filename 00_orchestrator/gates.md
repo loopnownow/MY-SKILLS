@@ -109,7 +109,7 @@ Documented on `runtime-flow.mmd` as **Integrity · pre-06** (`I25`) and **Integr
 
 | Station | Composes | HARD block? | Notes |
 |---|---|---|---|
-| **Integrity · pre-06** | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** + **05 reporting-guideline subset** (`reporting-guideline-route.md` + `reporting-guidelines-router.json`) + claim-number-align / anti-leak / manuscript-local-qc AI-fail lite + **figure-stats-legend** / **figure-qa-minima** / **refs-verified** / **data-code-availability** / **venue-compliance-minima** + **forensic-consistency** / **stats-failure-modes** (HARD compose with G-FACT on confirmed central numeric/stats P0) | **Yes** before Lee 06 if G-FACT or G-CIT/G-LIT or RG subset FAIL | Runs after Gate · 05 / N4→06 and on mid-entry Need06 before P06 |
+| **Integrity · pre-06** | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** + **05 reporting-guideline subset** (`reporting-guideline-route.md` + `reporting-guidelines-router.json`) + claim-number-align / anti-leak / manuscript-local-qc AI-fail lite + **figure-stats-legend** / **figure-qa-minima** / **refs-verified** / **data-code-availability** / **venue-compliance-minima** + **forensic-consistency** / **stats-failure-modes** + **assurance-audit-chain** L1–L4 as applicable (HARD compose with G-FACT on confirmed central numeric/stats P0) | **Yes** before Lee 06 if G-FACT or G-CIT/G-LIT or RG subset FAIL | Runs after Gate · 05 / N4→06 and on mid-entry Need06 before P06 |
 | **Integrity · post-re-review lite** | G-FACT spot-check + AI-fail lite after `P06r` | Same HARD recovery if fact/lit broken | Not a full first-pass re-run |
 
 ### MANDATORY checkpoints (see also `runtime-flow.md`)
@@ -119,4 +119,11 @@ Integrity FAIL (I25/I45), review decision (Rev / re-review verdict), and before 
 ### R&R re-review
 
 06 re-review (`P06r`) is **verification only** (frozen Round-1 items). Standards: `06_review/qc/rr-re-review.md` + decision `editorial-decision-matrix.md` + `stats-reporting-spotcheck.md` + `stats-failure-modes.md` + `forensic-consistency.md` + `review-release-gates.md`. Traceability template: `00_orchestrator/templates/rr-traceability.md`. Cap re-review loops at 2, then escalate like `defects[].rounds`.
+
+### Assurance contract (soft)
+
+Effort vs assurance axes and 6-state verdicts: `00_orchestrator/qc/assurance-verdicts.md`.
+Five-layer audit map (experiment → claim science → paper numbers → citations → kill-argument): `06_review/qc/assurance-audit-chain.md`.
+At `assurance: submission`, mandatory layers must emit `PASS | WARN | FAIL | BLOCKED | ERROR | NOT_APPLICABLE` — silent skip forbidden.
+Executor must not self-judge integrity (Type-B). Compose with G-FACT / G-LIT / Integrity · pre-06; do not invent gate ids.
 

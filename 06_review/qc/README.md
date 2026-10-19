@@ -15,6 +15,9 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `forensic-consistency.md` | **G-06** / Integrity · pre-06 — arithmetic↔figure layers; HARD with G-FACT |
 | `technical-concern-coverage.md` | **G-06** — 12-axis coverage router |
 | `review-release-gates.md` | **G-06** — isolation / grounding / severity / release rule |
+| `experiment-integrity-audit.md` | Integrity · pre-06 / G-FACT — Layer 1 eval honesty |
+| `kill-argument-preflight.md` | **G-06** / pre-submit — Layer 5 strongest-rejection self-check |
+| `assurance-audit-chain.md` | Index — 5 layers → paths → seats |
 | `appraisal-tool-route.md` | **G-06** — RoB/GRADE/QUADAS/PROBAST+AI **routing only** (when appraisal applies) |
 
 Reporting-guideline **router** lives under 05: `05_manuscript/qc/reporting-guideline-route.md` + `reporting-guidelines-router.json` (Integrity · pre-06).
@@ -28,3 +31,8 @@ Reporting-guideline **router** lives under 05: `05_manuscript/qc/reporting-guide
 
 - K-Dense-AI/scientific-agent-skills (`scientific-critical-thinking`) — MIT — appraisal tool router only
 - See also root `NOTICE`
+
+### Attribution (ARIS P0 absorb 2026-10-19)
+
+- wanshuiyin/Auto-claude-code-research-in-sleep — experiment-audit / kill-argument / assurance chain — lab rewrite
+- Contract: `00_orchestrator/qc/assurance-verdicts.md`

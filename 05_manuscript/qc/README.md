@@ -19,6 +19,9 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `venue-compliance-minima.md` | **G-05** — venue Final Compliance Checklist (pass/fail) |
 | `venue-currency.md` | **G-05** / find-journal — verify official URL + date before template trust |
 | `data-code-availability.md` | **G-05** / Integrity · pre-06 — Data/Code Availability statement gate |
+| `result-to-claim.md` | **G-FACT** / Integrity · pre-06 — Layer 2 scientific support |
+| `paper-claim-audit-gate.md` | **G-05** / **G-FACT** — Layer 3 cold-read number fidelity (+ base paper-claim-audit) |
+| `citation-audit-gate.md` | **G-LIT** / **G-CIT** — Layer 4 existence+metadata+context (extends refs-verified) |
 
 ### Attribution (P0 absorb 2026-10-19)
 
@@ -31,3 +34,8 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 - Yuan1z0825/nature-skills (`nature-ref-verifier`, `nature-data`) — Apache-2.0 — refs-verified + data/code availability gates
 - K-Dense-AI/scientific-agent-skills (`venue-templates`) — MIT — venue compliance minima + currency rule
 - See also root `NOTICE`
+
+### Attribution (ARIS P0 absorb 2026-10-19)
+
+- wanshuiyin/Auto-claude-code-research-in-sleep — assurance-contract + result-to-claim / paper-claim-audit / citation-audit — lab rewrite, host-agnostic
+- Chain index: `06_review/qc/assurance-audit-chain.md`
