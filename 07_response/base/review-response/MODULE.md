@@ -28,4 +28,4 @@ review is `peer-review`. Personal letter voice stays in **A personal**.
 
 - One comment → one response. Do not invent unrun experiments.
 - Sentence rewrites → `write-paper` / `polish-language`.
-- After letter changes numbers → `06_review/base/review-critique/paper-claim-audit.md`.
+- After letter changes numbers → `06_review/base/review-critique/references/paper-claim-audit.md`.

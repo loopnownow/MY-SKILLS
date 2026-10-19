@@ -10,6 +10,28 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261019-scan-fix-p0-p2 — scan fix absorb (PR pending)
+
+- Branch `chore/scan-fix-p0-p2-20261019`: apply SCAN-REPORT P0/P1/P2 (Asia/Shanghai 2026-10-19).
+- P0: rewrite live `~/.grok/AGENTS.md` required reads → My rule / network-security / skills (+ optional workspace-layout); replace all bare qc/local-checks cites cites → `05_manuscript/qc/manuscript-local-qc.md`; Aitor-format ban-phrases → `05_manuscript/base/vocab/L1/ban-phrases.md` (+ sci-overrides).
+- P1: cross-link qc `reporting-guideline-route` ↔ base `guideline-router` (Gate SSOT vs writing audit; CLAIM/CLEAR footnotes); align Integrity·pre-06 mid-entry G-CIT wording with gates.md; add `nature-reporting-summary.md` stub; add **G-07** QUALITY row; fix manuscript-local-qc / cross-manuscript-qc ownership/move headers; retarget paper-claim-audit / external-principles cites to `references/…` and shrink `ALLOW_MISSING`; NOTICE Archify → `04_analysis/personal/visualization/`.
+- P2: mmd `LayerBasease`→`LayerBase`; NOTICE pack 00–07 + ARS topology-inspiration line; bare-relative cite regression in `test_inline_paths_exist.py`.
+- Also documents prior same-day merges already on main: Integrity pre-06 + R&R (PR #156), P0 nature-stats/reviewer/figure + K-Dense router, P1 ref-verify/response/venue/data-avail/lit-appraisal (PR #157).
+- Sync whitelist post-merge: changed skill bodies + `INTEGRATION_MAP.md` + `VERSION.txt` → `{SKILLS}` per skills.md §1b.
+
+## CHG-20261019-integrity-rereview — Integrity · pre-06 + R&R (PR #156)
+
+- Documented on main via PR #156: `I25` Integrity · pre-06, `I45` / `P06r` re-review lite; mid-entry Need06 OK; gates.md Integrity compositions; runtime-flow(.md/.mmd) nodes.
+- No second SSOT: compositions reuse G-FACT / G-CIT / G-LIT + 05/06 qc checklists.
+
+## CHG-20261019-p0-absorb — nature-stats/reviewer/figure + K-Dense reporting router
+
+- P0 absorb already on main (merge path via chore/runtime-flow-integrity + follow-ons): figure-stats-legend / figure-qa-minima; stats-failure-modes / forensic-consistency / technical-concern-coverage / review-release-gates; reporting-guidelines-router.json (K-Dense MIT metadata).
+
+## CHG-20261019-p1-absorb — ref-verify / response / venue / data-avail / lit-appraisal (PR #157)
+
+- P1 absorb already on main (PR #157): refs-verified, venue-compliance-minima / venue-currency, data-code-availability, 07 routing, appraisal-tool-route, doi-crossref-field-audit / lit-pipeline-router pointers. NOTICE covers Yuan1z Apache-2.0 + K-Dense MIT.
+
 ## CHG-20261018-slim-rules-landing — absorb MY-RULES standing policy (PR #154)
 
 - Branch `chore/slim-rules-landing-20261018` merge `4aedd18` (commit `9eadf89`).

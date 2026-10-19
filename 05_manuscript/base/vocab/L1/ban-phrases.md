@@ -61,7 +61,7 @@ Do **not** rewrite technical metric names (*relative CBF*, *relCBF*, and other "
 
 ## Process and placeholder language (final body and legends)
 
-Banned in the manuscript the authors call final, including figure legends. Missing facts become a Word comment (author **A**). Check ids: `qc/local-checks.md`.
+Banned in the manuscript the authors call final, including figure legends. Missing facts become a Word comment (author **A**). Check ids: `05_manuscript/qc/manuscript-local-qc.md`.
 
 | Avoid | What to do |
 |-------|------------|

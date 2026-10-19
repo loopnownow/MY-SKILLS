@@ -25,11 +25,7 @@ TOPS = (
 # Prefer shrinking this list over growing it.
 ALLOW_MISSING = {
     "docs/",  # optional viz outputs; often regenerated locally
-    "06_review/base/review-critique/paper-claim-audit.md",
-    "07_response/base/review-response/external-principles.md",
-    "06_review/base/review-peer/external-principles.md",
     "06_review/personal/word-edit-rules.md",  # relocated; live is word-edit.md family
-    "05_manuscript/personal/qc/local-checks.md",
     "03_research/medical-journal-submit/",
     "03_research/base/lit-review",
     "03_research/base/lit-review/",
@@ -87,6 +83,29 @@ class InlinePathsExist(unittest.TestCase):
             + "\n".join(missing[:50]),
         )
 
+
+
+
+# Bare relative cites that historically bypassed the TOP-prefix checker.
+FORBIDDEN_BARE_RELATIVE = (
+    "qc/local-checks.md",
+)
+
+class BareRelativeCites(unittest.TestCase):
+    def test_no_forbidden_bare_relative_cites(self) -> None:
+        hits: list[str] = []
+        for path in ROOT.rglob("*.md"):
+            if any(part in {".git", "__pycache__", ".pytest_cache"} for part in path.parts):
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel.startswith("tests/") or rel in SKIP_FILE_PREFIXES or rel.startswith(SKIP_FILE_PREFIXES):
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for bare in FORBIDDEN_BARE_RELATIVE:
+                needle = f"`{bare}`"
+                if needle in text:
+                    hits.append(f"{rel}: {needle}")
+        self.assertEqual(hits, [], "forbidden bare relative cites:\n" + "\n".join(hits[:40]))
 
 if __name__ == "__main__":
     unittest.main()

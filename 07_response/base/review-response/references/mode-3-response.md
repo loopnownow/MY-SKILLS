@@ -17,7 +17,7 @@ Full protocol (atomize, three gates, journal default, checklist): [rebuttal-prot
 4. Audit: every claimed change is locatable; run provenance / commitment / coverage ([response-audit-gate.md](response-audit-gate.md))
 5. Action table: [action-mapping.md](action-mapping.md)
 6. Tone: courteous, specific, one-to-one. Personal phrasing banks stay in A.
-7. After number changes: hand off to `06_review/base/review-critique/paper-claim-audit.md`
+7. After number changes: hand off to `06_review/base/review-critique/references/paper-claim-audit.md`
 
 ## Letter skeleton
 

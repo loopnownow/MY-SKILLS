@@ -1,7 +1,8 @@
-# Manuscript local QC (owned by 00)
+# Manuscript local QC (standards checklist; gate authority = 00)
 
-**Moved from** `05_manuscript/qc/manuscript-local-qc.md` (2026-10-18). Prior: `05_manuscript/personal/qc/local-checks.md`.
-**Gate / scoring authority:** `00_orchestrator`. 05 does not keep a parallel QC body—only a pointer in `route.md` / `handoff.md`.
+**Prior path:** former `personal/qc/local-checks.md` under 05_manuscript (moved 2026-10-18 into domain `qc/`).
+**Gate / scoring authority:** `00_orchestrator` (Gate · 05 / Integrity · pre-06). This file is a **standards checklist** invoked by 00; seats execute but do **not** self-certify. 05 keeps only pointers in `route.md` / `handoff.md`.
+**Owner (file seat):** `05_manuscript` (checklist body); gate pass/fail = 00.
 
 ---
 
@@ -14,7 +15,7 @@
 > **QC routing:** Formal Gate/scoring ownership: `00_orchestrator`. This file is the 05 local checklist.
 
 
-**Owner:** `05_manuscript` personal. Use it as a self-check after drafting and as an independent score before submission. A drafter's own score is provisional; it is never the final score.
+**Owner (checklist body):** `05_manuscript`. Use as a self-check after drafting and as an independent score before submission. A drafter's own score is provisional; **final Gate / scoring authority = `00_orchestrator`** (seats do not self-certify).
 
 Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the deductions below, floor at 0, then apply the caps. Write the deduction codes next to each score.
 

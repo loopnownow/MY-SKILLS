@@ -10,4 +10,4 @@ owner: "05_manuscript/base/write-reporting/MODULE.md"
 
 CLAIM / TRIPOD+AI / CLEAR / RQS wording. Not 选刊 (A `03_research` journal-selection / `lit-search`), not venue house-style (`05_manuscript/base/write-venue/`), and not prose draft (`write-manuscript/`).
 
-After major number edits, fidelity check vs primary tables → `06_review/base/review-critique/paper-claim-audit.md` (no new mount id).
+After major number edits, fidelity check vs primary tables → `06_review/base/review-critique/references/paper-claim-audit.md` (no new mount id).

@@ -24,6 +24,16 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ~23 entries in `reporting-guidelines-router.json`: ARRIVE, CARE, CHEERS, CONSORT-2025, CONSORT-AI, COREQ, PRISMA, PRISMA-P, SPIRIT-2025, SPIRIT-AI, SQUIRE, SRQR, STARD, STARD-AI, STROBE, TRIPOD+AI, TRIPOD-LLM, plus domain metadata standards (MIAME, MIAPE, MIAPPE, MIFlowCyt, MINSEQE, MIxS). Fields: `id`, `name`, `version`, `status`, `study_types`, `report_kinds`, `required_features`, `url`.
 
+
+## Relation to base guideline-router
+
+**Gate SSOT** for Integrity · pre-06 / Gate · 05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/base/write-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the base stack for the gate subset, or the gate subset for a full writing audit.
+
+Also-check when imaging AI / radiomics (record if applicable; not a substitute for the table above):
+- **CLAIM 2024** — DL/AI imaging methods reporting.
+- **CLEAR** (+ METRICS/RQS + IBSI as needed) — hand-crafted radiomics.
+- Full stacks and Nature Reporting Summary logistics → base `guideline-router.md`.
+
 ## Ambiguity
 
 If study type is unclear or mixed — **ask / escalate**. Do **not** force the nearest guideline.

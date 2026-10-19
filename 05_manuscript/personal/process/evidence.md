@@ -112,7 +112,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 Gap discovery from mounted packs → `05_manuscript/personal/process/evidence.md` (Part A) (A 05 judges; 03 searches).
 
-Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `qc/local-checks.md`.
+Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `05_manuscript/qc/manuscript-local-qc.md`.
 
 ## When to load
 
@@ -127,7 +127,7 @@ Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800�
 5. **Budget references before drafting.** Select at most 15 rows. Rank: guideline > systematic review or meta-analysis > multicenter study > single-center study. Assign each row to Intro or Discussion, not both. If more than 15 remain, drop by rank and record why.
 6. **Draft** with `Aitor-format.md` + `polisher-sections.md` §2.
 7. **Verify (03).** Ledger at the level required below; retraction and correction check on every reference.
-8. **Score.** `qc/local-checks.md`, by a scorer independent of the drafter.
+8. **Score.** `05_manuscript/qc/manuscript-local-qc.md`, by a scorer independent of the drafter.
 
 ```text
 Claim | Source (PMID/DOI) | Class | Design · n · effect | Strength | Weakness relevant to this study | Level (L1-L3) | Intro or Discussion | Keep?

@@ -70,7 +70,7 @@ Only **user-confirmed** results enter the letter as done work.
 5. Run the three hard gates ([response-audit-gate.md](response-audit-gate.md)).  
 6. Optional: stress-test via simulate-reviewers.  
 7. Deliver **final letter + checklist** (not draft-only for items that already have commitment).  
-8. **Handoff:** after the letter changes numbers, run `06_review/base/review-critique/paper-claim-audit.md` on the revised manuscript.
+8. **Handoff:** after the letter changes numbers, run `06_review/base/review-critique/references/paper-claim-audit.md` on the revised manuscript.
 
 ## Cut from upstream (not in this pack)
 

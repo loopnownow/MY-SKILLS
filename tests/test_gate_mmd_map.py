@@ -15,7 +15,7 @@ STATE = ROOT / "00_orchestrator" / "templates" / "project-state.yaml"
 HANDOFF = ROOT / "00_orchestrator" / "templates" / "handoff.yaml"
 
 # Canonical gate ids from gates.md table (exclude invented G-HARD / G-QUALITY).
-GATE_IDS = ("G0", "G-PHI", "G-FACT", "G-LIT", "G-CODE", "G-04", "G-05", "G-06")
+GATE_IDS = ("G0", "G-PHI", "G-FACT", "G-LIT", "G-CODE", "G-04", "G-05", "G-06", "G-07")
 
 
 def gate_ids_from_gates_md(text: str) -> set[str]:
@@ -59,7 +59,7 @@ class GateMmdMap(unittest.TestCase):
 
     def test_mmd_gate_dot_maps_to_g_nn(self) -> None:
         mmd = MMD.read_text(encoding="utf-8")
-        for n in ("04", "05", "06"):
+        for n in ("04", "05", "06", "07"):
             self.assertIn(f"Gate · {n}", mmd)
         self.assertIn("Gate · NN ↔ gates.md 的 G-NN", mmd)
         md = (ROOT / "00_orchestrator" / "runtime-flow.md").read_text(encoding="utf-8")

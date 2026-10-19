@@ -1,7 +1,7 @@
 MY-SKILLS
 ==========
 
-Lab skill pack (00–06 + skill-harvest). Primary license: MIT (see LICENSE).
+Lab skill pack (00–07 + skill-harvest). Primary license: MIT (see LICENSE).
 
 Third-party / adapted notices
 -----------------------------
@@ -37,8 +37,11 @@ SOFTWARE.
 
 ### Archify
 
-Pinned compiler zip under `00_orchestrator/archify-v3.0.1.zip` is used only as a
-read-only visualization compiler. See `00_orchestrator/archify-version.yaml`.
+Pinned Archify artifacts live under `04_analysis/personal/visualization/` (see `archify-version.yaml`; compiler zip alongside when present). Read-only visualization compiler only.
+
+### Agentic Reviewer System (ARS) — topology inspiration only
+
+Several `05_manuscript/qc/` and `06_review/qc/` checklists and `00_orchestrator/runtime-flow` note "Inspired by ARS… (no ARS copy)". Topology/checklist *structure* inspiration only; no ARS source text is copied into this pack.
 
 ### Mounted upstream packs
 

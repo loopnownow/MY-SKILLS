@@ -1,7 +1,8 @@
-# Cross-manuscript QC (owned by 00)
+# Cross-manuscript QC (standards checklist; gate authority = 00)
 
-**Moved from** `06_review/qc/cross-manuscript-qc.md` (2026-10-18). Prior: `06_review/qc/cross-manuscript-qc.md`.
-Related: `05_manuscript/qc/manuscript-local-qc.md`.
+**Prior path:** lived under `06_review` personal/qc naming before domain `qc/` (2026-10-18). Related checklist: `05_manuscript/qc/manuscript-local-qc.md`.
+**Gate / scoring authority:** `00_orchestrator` (Gate · 06). Standards checklist invoked by 00; Lee executes comments but does not self-certify.
+**Owner (file seat):** `06_review` (checklist body); gate pass/fail = 00.
 
 ---
 

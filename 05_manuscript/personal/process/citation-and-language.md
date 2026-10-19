@@ -12,7 +12,7 @@
 
 ## Citation hygiene (pre-submit)
 
-Check ids live in `qc/local-checks.md`. Apply them on every reference pass. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Aitee does not sign the claim→ref table.
+Check ids live in `05_manuscript/qc/manuscript-local-qc.md`. Apply them on every reference pass. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Aitee does not sign the claim→ref table.
 
 9. **Consecutive same paper** (`consecutive_same_cite`). Do not cite the same work in consecutive sentences unless the second sentence adds a distinct claim that work supports. Shared neighbouring sentences cite once.
 10. **Claim matches the source** (`claim_matches_source`). Population, modality, and direction of effect in the sentence are claims the cited work makes. A mismatch is weaken or replace (`evidence-request.md`), not a decorative number.
