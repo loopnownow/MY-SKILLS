@@ -17,7 +17,7 @@ Never upgrade suspicion to confirmed without proof from supplied material.
 
 | # | Layer | PASS | FAIL → |
 |---|---|---|---|
-| 1 | **Arithmetic** | Subgroup sums, %, deltas, paired diffs, ranges, integer counts reconcile | G-FACT + 04/05 |
+| 1 | **Arithmetic** | Subgroup sums, %, deltas, paired diffs, ranges, integer counts reconcile; when mean±SD+*n* (or contingency counts) are shown with a *P*, a rough table→*p* estimate must agree in direction/order-of-magnitude or be Word-commented (pointer: `06_review/personal/review.md` §3 / §3.1) | G-FACT + 04/05; unresolved central table→*p* mismatch → annotate 06, escalate 04 |
 | 2 | **Metric bounds** | Metric definition + aggregation known; values inside possible bounds | 04 / 05 (or ambiguity → comment) |
 | 3 | **Prose ↔ table ↔ figure** | Headline ranks/“always/only/best” match displays; same quantity consistent precision | G-FACT + 05 |
 | 4 | **Aggregation / unit** | Inferential unit stated at each level (patient vs image vs tile; macro/micro) | 04 / 05 |
