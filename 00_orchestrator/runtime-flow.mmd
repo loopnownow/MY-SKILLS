@@ -10,6 +10,7 @@
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
 %% Layering: base fine-ID first-pass loops -> 00 QC gate -> personal/top re-loops.
 %% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
+%% QC standards (pass/fail only) live under 05_manuscript/qc/ and 06_review/qc/; 00 loads at gates — not capability bodies.
 %% Capability bodies live under NN_slug/base/. Personal layers keep route/handoff/authority only.
 %% A03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
 %% A05 post-QC: polish-language -> humanize alongside Aitor-format/voice.
@@ -70,7 +71,7 @@ flowchart TD
     Dispatch -->|04| P04[04 统计/图表 · Loopnow]
     Dispatch -->|05| P05[05 稿件写作 · Aitee]
     Dispatch -->|06| I25
-    I25[Integrity · pre-06<br/>G-FACT+G-CIT + AI-fail lite] --> P06[06 审稿/预审 · Lee]
+    I25[Integrity · pre-06<br/>G-FACT+G-CIT + RG subset + AI-fail lite] --> P06[06 审稿/预审 · Lee]
     Dispatch -->|07| P07[07 回复审稿 · Aitee]
     Dispatch -->|代码深审| PCode[02 · code-refactoring]
     Dispatch -->|单域| Single[目标 Skill]

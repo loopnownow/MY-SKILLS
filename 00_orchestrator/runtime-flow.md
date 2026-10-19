@@ -112,6 +112,10 @@ Seats unchanged: **Lee = 06 review/re-review**; **Aitee = 05 + 07**. Do **not** 
 **Rule:** after **≥4 consecutive SLIM continues**, force the next checkpoint to **FULL**.
 
 
+## Domain QC standards (not capability bodies)
+
+Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 05 / Integrity · pre-06) and `06_review/qc/` (Gate · 06 / `P06r` re-review). 00 loads them at gate time; specialists do not self-certify via `qc/`. See `gates.md` Manuscript local QC + Integrity compositions.
+
 ## Before skills / mounts (standing)
 
 When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before 01 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
