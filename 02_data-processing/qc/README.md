@@ -7,5 +7,6 @@
 |---|---|
 | `coding-qc.md` | **G-CODE** — deep code QC standards for release-ready processing scripts |
 | `phi-exit.md` | **G-PHI** — thin checklist pointer to gates.md PHI pass criteria (no new policy) |
+| `experiment-log-minima.md` | Experiment/acquisition log hygiene (no guess; ID + raw locus; no Feishu runtime) |
 
 Capability packs that stay in `base/` (e.g. `base/imaging-qc`) are not QC standards and are not listed here.

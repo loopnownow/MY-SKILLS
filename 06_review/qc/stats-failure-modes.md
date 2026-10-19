@@ -34,6 +34,15 @@
 
 Undefined error bars; panel-specific `n` missing; star legend undefined; software/version omitted; `ns` hiding exact *p*.
 
+
+## Soft-check Hook D — lab extreme / exclusion
+
+| Id | When | Fail → comment |
+|---|---|---|
+| **Hook D** (`LAB-EXTREME-REVIEW`) | Outlier / exclusion review of extreme lab covariates | `LAB-EXTREME-REVIEW`: list value vs soft ceiling and nearest cohort quote `record_id`; request human check of unit and inclusion criteria. |
+
+Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `D:\0Grok\0doc\04-lab-reference\lab-ref-ranges\qc\gate-hooks.md` (wrap mirror: `/workspace/lab-ref-ranges-wrap-20261019/qc/gate-hooks.md`). Soft only; `confidence=gap` analytes → NOT_APPLICABLE.
+
 ## Cross-link
 
 - Spot list: `06_review/qc/stats-reporting-spotcheck.md`

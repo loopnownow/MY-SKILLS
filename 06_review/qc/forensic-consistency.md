@@ -29,6 +29,15 @@ Never upgrade suspicion to confirmed without proof from supplied material.
 - Confirmed central arithmetic/bounds/prose contradiction → **HARD** with G-FACT; do not release review as clean.
 - Ambiguity / not_assessable → Word comment; do not invent numbers.
 
+
+## Soft-check Hook C — lab physio (Layers 1–2)
+
+| Id | When | Fail → comment |
+|---|---|---|
+| **Hook C** (`LAB-PHYSIO-SOFT`) | Forensic arithmetic / bounds pass on reported lab values | `LAB-PHYSIO-SOFT`: flag impossible/extreme value (e.g. negative concentration, Ki-67 >100%). Audit hint only — do not accuse fraud. |
+
+Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `D:\0Grok\0doc\04-lab-reference\lab-ref-ranges\qc\gate-hooks.md` (wrap mirror: `/workspace/lab-ref-ranges-wrap-20261019/qc/gate-hooks.md`). Soft ceilings from lab-ref `06_qc_rules`; never auto-edit cells.
+
 **PASS:** layers 1–3 clean on cited numbers; 4–6 clean or commented.
 **FAIL:** `confirmed_internal_error` on a central claim → block next node until 04/05 clears.
 
