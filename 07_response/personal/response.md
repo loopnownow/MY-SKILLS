@@ -1,5 +1,14 @@
 # Response letter (style + resolution)
 
+## Hard rules (owner 2026-10-19)
+
+- **Do not invent** response-letter format. Follow the existing comment shell / venue template / gold layout only.
+- Keep each reviewer/editor comment **verbatim and complete**. Do not simplify, paraphrase, shorten, or drop clauses.
+- **Do not** add invented subheadings (no extra `Editor comment N` / thematic mini-titles unless already in the shell).
+- Editing an existing `.docx` response or comments shell: use **Track Changes**; word- or sentence-level inserts only—**no** large-block overwrite.
+- Typography (manuscript = comments = response): Times New Roman, 12 pt, 1.5 line spacing, paragraph before/after 0, text before/after 0, justify, LTR, **no special paragraph format**. Do not change fonts/layout unless the owner asks this turn.
+
+
 ## Part A — Response letter voice
 
 ## Package and wording hard rules
