@@ -109,6 +109,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Revise at **word or sentence** unit. Never rewrite a whole paragraph to satisfy one comment.
 - Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
+- Project `ref/` subfolders: follow `00_orchestrator/references/project-ref-layout.md` (keep manuscript-revision + settings.ini at root).
 - Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:polish-language]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `personal/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.

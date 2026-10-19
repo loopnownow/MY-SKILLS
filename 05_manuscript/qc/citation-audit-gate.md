@@ -55,7 +55,7 @@ Uncited bib entries (optional detect) are **advisory only** — never upgrade ov
 
 ## Verdict artifact
 
-- `CITATION_AUDIT.json` (+ `.md`)
+- `ref/citation/CITATION_AUDIT.json` (+ optional `.md` sibling); see `00_orchestrator/references/project-ref-layout.md`
 - `details.per_entry[]` with axis_failures
 - Cross-link RV-1…4 and G-CIT claim→ref table in summary
 

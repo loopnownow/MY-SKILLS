@@ -20,6 +20,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 **Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
 **Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
+**Project `ref/` layout:** [`references/project-ref-layout.md`](references/project-ref-layout.md).
 **External executor monitoring:** [`references/handoff-monitor.md`](references/handoff-monitor.md).
 
 ## 1. Intent classify

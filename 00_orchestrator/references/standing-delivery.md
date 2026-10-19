@@ -29,3 +29,8 @@ Archify is a read-only visualization compiler. It is not a skill and not a top-l
 - Small task (single-file edit) → one line: result + absolute paths.
 - Multi-file / pipeline / move / needs verification → four parts: (1) status (2) changes (absolute path + new/modified/moved + reason) (3) verification (mark unverified) (4) next; then a cleanup list (original → 0del / size / reason) and a keep list. Result first, reason second.
 - Report times and ETAs: Asia/Shanghai (UTC+08:00).
+
+## Project `ref/` subfolders
+
+QC/citation/gate/exec ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md). Keep `settings.ini` and `manuscript-revision.md` at ref root.
+
