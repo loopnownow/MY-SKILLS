@@ -27,6 +27,15 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 | `ref/code/` | Script/path notes, patch pointers (no secrets, no tokens) | Raw credentials |
 | `ref/results/` | Table/figure lock notes and content hashes | Large binary datasets (stay in `0result` / derivatives) |
 | `ref/exec/` | Optional `EXECUTION.md` wrap-ups; ops notes that are not review-round ledgers | Owner-facing ACCEPT reports unless the owner asked |
+| `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/收工 | Current finals (stay at project root); closed-round changelogs (`review/`); citation/gates ledgers; secrets |
+
+
+### `ref/tmp/` cleanup
+
+- Create on first need (copy-on-need with the other subfolders).
+- Assistants may stage intermediates here instead of scattering at `ref/` root or project root.
+- **Do not** silent-delete. When the owner says clean / 清理 / 收工 for that project, move the whole `ref/tmp/` tree (or named files) into `D:\0del\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful.
+- After cleanup, leave an empty `ref/tmp/` or recreate on next write; do not invent clinical content there.
 
 Also keep a short **`ref/README.md`** map (see template) once a project adopts this layout.
 
