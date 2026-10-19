@@ -77,6 +77,45 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 - G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID. Do not add a 02-only or 03-only gate id. Citation-verify is a branch on `runtime-flow.mmd` (Lit05 / semantic label G-CIT-1 before Gate · 05; Lit06 / semantic label G-CIT-2 inside 06). G-CIT-1 does not waive G-CIT-2. These labels are not new gate ids.
 
+## Integrity · pre-06 / post-re-review (named nodes, not new gate ids)
+
+**Inspired by ARS pipeline topology** (short original text only; no ARS copy).
+
+| Node | Where | Reuses (existing gates/checks) | On FAIL |
+|---|---|---|---|
+| **Integrity · pre-06** (`I25`) | After Gate · 05 / N4→06, and mid-entry Need06 (Mount→Ready→…→Dispatch→I25→P06) | **G-FACT** (when numbers cited) + **G-CIT-1** evidence already required before Gate · 05 + short AI-failure / manuscript-local-qc spot checklist (`05_manuscript/qc/manuscript-local-qc.md`) | HARD-style block before Lee 06 (same recovery as G-FACT / G-CIT) |
+| **Integrity · post-re-review lite** (`I45`) | After `P06r` 06 re-review | G-FACT spot + AI-fail lite (not full first-pass) | Locate / local rework |
+
+Do **not** invent a new `G-*` id for these stations. They are compositions documented in `gates.md`.
+
+
+## Review ↔ revise topology (R&R)
+
+After 06 first-pass findings that need fix:
+
+1. **Rev** decision → **05** (body Track Changes, Aitee) and/or **07** (response letter, Aitee).
+2. Body fixes return to **`P06r` 06 re-review** (Lee): **verification only**; Round-1 findings frozen; fill R&R traceability (`00_orchestrator/templates/rr-traceability.md`).
+3. **I45** integrity-lite → optional second revise (same Rev) → final out.
+4. **Cap:** re-review loops ≤ **2**; then escalate / `unresolved` like `defects[].rounds`.
+
+Seats unchanged: **Lee = 06 review/re-review**; **Aitee = 05 + 07**. Do **not** route response to 06.
+
+
+## Checkpoint tiers (FULL / SLIM / MANDATORY)
+
+| Tier | When | Behavior |
+|---|---|---|
+| **FULL** | Decision points (entry/plan, N2/N3/N4, gate FAIL needing user choice, budget escalate) | Show options; wait for explicit decision |
+| **SLIM** | User already said continue / same approved run next station | One-line status; do not re-grill |
+| **MANDATORY** | Integrity FAIL (I25/I45), review decision (Rev / re-review verdict), before `stage: done` | Must stop for user (or recorded PASS) |
+
+**Rule:** after **≥4 consecutive SLIM continues**, force the next checkpoint to **FULL**.
+
+
+## Domain QC standards (not capability bodies)
+
+Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 05 / Integrity · pre-06) and `06_review/qc/` (Gate · 06 / `P06r` re-review). 00 loads them at gate time; specialists do not self-certify via `qc/`. See `gates.md` Manuscript local QC + Integrity compositions. P0 absorb also loads `05_manuscript/qc/figure-stats-legend.md`, `figure-qa-minima.md`, `reporting-guidelines-router.json` and `06_review/qc/stats-failure-modes.md`, `forensic-consistency.md`, `technical-concern-coverage.md`, `review-release-gates.md` (see `gates.md`).
+
 ## Before skills / mounts (standing)
 
 When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before 01 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.

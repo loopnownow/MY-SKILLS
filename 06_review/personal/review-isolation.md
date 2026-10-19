@@ -26,3 +26,7 @@ B: simulate-reviewers (isolation)
 - 00 checks: `00_orchestrator/gates.md` section A/B top-layer QC checks
 - Body engines: `06_review/base/simulate-reviewers/`, `review-critique/` (self-review), `review-peer/` (peer-review)
 - Optional base README: `06_review/base/REVIEW-ISOLATION.md`
+
+## R&R re-review
+
+Post-QC A06 re-review is **verification only**. Use `00_orchestrator/templates/rr-traceability.md`. See `runtime-flow.mmd` `P06r` / `handoff.md`.

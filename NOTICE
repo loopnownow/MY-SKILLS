@@ -51,3 +51,19 @@ Do not re-license upstream pack text when syncing cache.
 Curated JCR xlsx and personal submission priors live outside this public repo
 (see `{doc_root}/04-lab-reference/` in `00_orchestrator/references/lab-paths.yaml`).
 Redistribution of Clarivate-derived tables is the operator's responsibility.
+
+### Yuan1z0825/nature-skills (Apache-2.0)
+
+Short original QC distillations under `05_manuscript/qc/` and `06_review/qc/`
+(figure legend/QA minima; stats failure-mode taxonomy; forensic consistency;
+technical-concern coverage router; review release gates) were adapted from
+https://github.com/Yuan1z0825/nature-skills skills `nature-statistics`,
+`nature-reviewer`, and `nature-figure` (Apache License 2.0). No long Nature
+journal prose or full mock-review package was copied.
+
+### K-Dense-AI/scientific-agent-skills (MIT)
+
+Reporting-guideline router metadata (`05_manuscript/qc/reporting-guidelines-router.json`)
+is adapted from `skills/peer-review/assets/reporting_guidelines.json` in
+https://github.com/K-Dense-AI/scientific-agent-skills (MIT). Catalog fields only
+(id / study_types / official URL); EQUATOR checklist item text is not included.
