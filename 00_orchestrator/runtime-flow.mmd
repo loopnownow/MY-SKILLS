@@ -9,6 +9,7 @@
 %% Seats: 02+04 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=伦理填表+投稿(非00主环)
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
 %% Layering: base fine-ID first-pass loops -> 00 QC gate -> personal/top re-loops.
+%% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
 %% Capability bodies live under NN_slug/base/. Personal layers keep route/handoff/authority only.
 %% A03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
 %% A05 post-QC: polish-language -> humanize alongside Aitor-format/voice.
@@ -68,7 +69,8 @@ flowchart TD
     Dispatch -->|03| P03[03 医学研究 · Victor]
     Dispatch -->|04| P04[04 统计/图表 · Loopnow]
     Dispatch -->|05| P05[05 稿件写作 · Aitee]
-    Dispatch -->|06| P06[06 审稿/预审 · Lee]
+    Dispatch -->|06| I25
+    I25[Integrity · pre-06<br/>G-FACT+G-CIT + AI-fail lite] --> P06[06 审稿/预审 · Lee]
     Dispatch -->|07| P07[07 回复审稿 · Aitee]
     Dispatch -->|代码深审| PCode[02 · code-refactoring]
     Dispatch -->|单域| Single[目标 Skill]
@@ -87,7 +89,7 @@ flowchart TD
         Lit05 -->|PASS| StyleLint{{G-05 · style-lint 子检}}
         StyleLint -->|PASS| GA05{{Gate · 05}}
         GA05 -->|PASS · 未到终点| N4{N4 PREVIEW<br/>进 06 或停?}
-        N4 -->|进 06| P06
+        N4 -->|进 06| I25
         N4 -->|停| Out
         P06 --> Lee06[Lee · 陈述一致 → 数据一致<br/>只批注 · 不默认自行修订]
         P06 --> Lit06[03 Victor · citation-verify<br/>G-CIT-2 修订后 / 06 内<br/>不可跳过 · G-CIT-1 不免除 G-CIT-2<br/>文献准确性与 Lee 共同负责]
@@ -96,6 +98,16 @@ flowchart TD
         GF06 -->|PASS| Join06
         Join06 --> GA06{{Gate · 06}}
         GA06 -->|PASS · 需回信| P07
+        GA06 -->|findings · 需修订| Rev{需修订?}
+        Rev -->|正文 TC · Aitee| Need05
+        Rev -->|回复 · Aitee| Need07
+        Rev -->|否 · 齐套| I45
+        Need05 -.->|06 findings 修订后 · R&R| P06r
+        P06r[06 re-review · R&amp;R 追溯<br/>verification only · frozen Round-1] --> I45[Integrity · post-re-review lite<br/>G-FACT spot + AI-fail lite]
+        I45 --> RRBud{re-review loops ≤2?}
+        RRBud -->|是 · 仍需修订| Rev
+        RRBud -->|齐套| Out
+        RRBud -->|否 · 超预算| Escalate
     end
 
     P07 --> GA07{{Gate · 07 · response / Aitee}}
@@ -103,7 +115,7 @@ flowchart TD
 
     P03 --> Exit03{{03 出口 · G0 + G-LIT + 证据/引文产物}}
     Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P05
-    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P06
+    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| I25
     PCode --> GCODE{{G-CODE}}
     GCODE -->|PASS| Out
     Single --> GAS{{Gate · 目标 Skill}}
@@ -118,6 +130,7 @@ flowchart TD
 
     %% QC 环：回到失败节点并复用 session lock。缺依赖 / provenance 过期 / 新能力才重进 01。
     Exit02 & N2 & GF04 & GA04 & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[定位最小负责节点]
+    I25 & I45 -->|FAIL · HARD integrity| Locate
     Lit05 & Lit06 -->|FAIL| Locate
     Locate --> Impact{上游错误是否<br/>使下游结果失效?}
     Impact -->|否| Local[局部返工 · 仅目标节点]

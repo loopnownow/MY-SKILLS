@@ -101,3 +101,21 @@ After base fine-ID first-pass and before / during personal/top re-loops, 00 veri
 
 These are checks on the existing gate set, not new gate ids.
 
+
+## Integrity compositions (named nodes — not new gate ids)
+
+Documented on `runtime-flow.mmd` as **Integrity · pre-06** (`I25`) and **Integrity · post-re-review lite** (`I45`). No new `G-*` row.
+
+| Station | Composes | HARD block? | Notes |
+|---|---|---|---|
+| **Integrity · pre-06** | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** evidence already required before Gate · 05 + manuscript-local-qc / short AI-failure checklist pointer (`05_manuscript/qc/manuscript-local-qc.md`) | **Yes** before Lee 06 if G-FACT or G-CIT/G-LIT FAIL | Runs after Gate · 05 / N4→06 and on mid-entry Need06 before P06 |
+| **Integrity · post-re-review lite** | G-FACT spot-check + AI-fail lite after `P06r` | Same HARD recovery if fact/lit broken | Not a full first-pass re-run |
+
+### MANDATORY checkpoints (see also `runtime-flow.md`)
+
+Integrity FAIL (I25/I45), review decision (Rev / re-review verdict), and before `stage: done` are **MANDATORY** user/recorded stops. FULL / SLIM / MANDATORY tiers and the ≥4 consecutive continues → force FULL rule live in `runtime-flow.md`.
+
+### R&R re-review
+
+06 re-review (`P06r`) is **verification only** (frozen Round-1 items). Traceability template: `00_orchestrator/templates/rr-traceability.md`. Cap re-review loops at 2, then escalate like `defects[].rounds`.
+
