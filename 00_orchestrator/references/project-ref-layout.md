@@ -68,3 +68,9 @@ Cross-links:
 ## Template
 
 Copy-on-need tree: [`project-ref-template/`](project-ref-template/).
+
+## Pre-edit originals (`-org`) (2026-10-19)
+
+- Files named `*-org` / `*org*` (e.g. `comments-org.docx`, `SARC_CT_MRI_manuscript-org.docx`) are **pre-edit originals**. Keep them in the project — typically `ref/review/`.
+- On owner 收工/清理: **do not discard** `-org` originals. Move only true intermediates from `ref/tmp/` to `D:\0del\_by-project\<project>\`. If an `-org` was parked in `tmp/`, promote it to `ref/review/` (or leave at root) before cleaning `tmp/`.
+
