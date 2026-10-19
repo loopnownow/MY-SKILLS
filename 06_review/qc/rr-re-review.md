@@ -23,6 +23,7 @@ Fill `00_orchestrator/templates/rr-traceability.md`:
 
 - Re-review = **verification only** — do not open a new full pre-review.
 - Response letter stays in **07** (Aitee); do not route 回复 into 06.
+- R&R verification uses **07 drafts** as `author_claim` input (see `07_response/base/routing.md`); Lee verifies, does not rewrite the letter.
 - Cap re-review loops at **2**, then escalate like `defects[].rounds`.
 
 **PASS:** every open Round-1 item has a verified row; no MADE_WORSE without escalate note.
