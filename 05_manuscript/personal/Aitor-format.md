@@ -46,9 +46,9 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 
 ## DOCX typography
 
-**Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified** (两端对齐). Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**.
+**Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified** (两端对齐). Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**. **Special paragraph format: none** (特殊格式：无). Same typography for manuscript, comments shell, and response letter.
 
-When **revising an existing `.docx`**: do **not** change Word format. Wording only (Track Changes). See `06_review/personal/word-edit-rules.md`.
+When **revising an existing `.docx`**: do **not** change Word format unless the owner asks this turn. Wording only via **Track Changes**, at **word- or sentence-level** (no large-block overwrite). See `06_review/personal/word-edit.md`.
 
 Bold is a content mark, not a restyle pass:
 
