@@ -88,6 +88,8 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 Do **not** invent a new `G-*` id for these stations. They are compositions documented in `gates.md`.
 
+P1 05 qc pointers (Gate · 05 / Integrity · pre-06): `refs-verified.md`, `venue-compliance-minima.md`, `venue-currency.md`, `data-code-availability.md`. 07 routing: `07_response/base/routing.md` (Aitee; Lee does not draft responses). 06 appraisal router when needed: `06_review/qc/appraisal-tool-route.md`.
+
 
 ## Review ↔ revise topology (R&R)
 

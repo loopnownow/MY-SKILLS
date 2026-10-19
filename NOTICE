@@ -67,3 +67,11 @@ Reporting-guideline router metadata (`05_manuscript/qc/reporting-guidelines-rout
 is adapted from `skills/peer-review/assets/reporting_guidelines.json` in
 https://github.com/K-Dense-AI/scientific-agent-skills (MIT). Catalog fields only
 (id / study_types / official URL); EQUATOR checklist item text is not included.
+
+### P1 absorb 2026-10-19 (Yuan1z Apache-2.0 + K-Dense MIT)
+
+Short original QC/capability distillations:
+
+- Yuan1z0825/nature-skills — Apache-2.0 — `nature-ref-verifier` → `03_research/base/verify-refs/references/doi-crossref-field-audit.md` + `05_manuscript/qc/refs-verified.md`; `nature-response` → `07_response/base/routing.md`; `nature-data` → `05_manuscript/qc/data-code-availability.md`; literature skills → `03_research/base/lit-pipeline-router.md` (thin router; no cron product).
+- K-Dense-AI/scientific-agent-skills — MIT — `venue-templates` → `05_manuscript/qc/venue-compliance-minima.md` + `venue-currency.md`; `scientific-critical-thinking` → `06_review/qc/appraisal-tool-route.md` (routing only; no EQUATOR/Cochrane item bodies).
+No Nature format dumps, no AutoResearchClaw pipeline, no bundled LaTeX/BST.

@@ -15,9 +15,19 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `style-spotcheck.md` | **G-05** — Vancouver+DOI / Aitor-format spot (not APA-primary) |
 | `figure-stats-legend.md` | **G-05** / Integrity · pre-06 — legend minima by plot type |
 | `figure-qa-minima.md` | **G-05** — image-integrity + pre-submission figure pass/fail |
+| `refs-verified.md` | **G-05** / Integrity · pre-06 — DOI-first field audit pass/fail + unresolved list |
+| `venue-compliance-minima.md` | **G-05** — venue Final Compliance Checklist (pass/fail) |
+| `venue-currency.md` | **G-05** / find-journal — verify official URL + date before template trust |
+| `data-code-availability.md` | **G-05** / Integrity · pre-06 — Data/Code Availability statement gate |
 
 ### Attribution (P0 absorb 2026-10-19)
 
 - Yuan1z0825/nature-skills (`nature-statistics`, `nature-figure`) — Apache-2.0 — figure legend/QA minima
 - K-Dense-AI/scientific-agent-skills (`peer-review` reporting_guidelines.json) — MIT — router metadata only
+- See also root `NOTICE`
+
+### Attribution (P1 absorb 2026-10-19)
+
+- Yuan1z0825/nature-skills (`nature-ref-verifier`, `nature-data`) — Apache-2.0 — refs-verified + data/code availability gates
+- K-Dense-AI/scientific-agent-skills (`venue-templates`) — MIT — venue compliance minima + currency rule
 - See also root `NOTICE`
