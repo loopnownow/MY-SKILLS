@@ -83,7 +83,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 | Node | Where | Reuses (existing gates/checks) | On FAIL |
 |---|---|---|---|
-| **Integrity · pre-06** (`I25`) | After Gate · 05 / N4→06, and mid-entry Need06 (Mount→Ready→…→Dispatch→I25→P06) | **G-FACT** (when numbers cited) + **G-CIT-1** evidence already required before Gate · 05 + short AI-failure / manuscript-local-qc spot checklist (`05_manuscript/qc/manuscript-local-qc.md`) | HARD-style block before Lee 06 (same recovery as G-FACT / G-CIT) |
+| **Integrity · pre-06** (`I25`) | After Gate · 05 / N4→06, and mid-entry Need06 (Mount→Ready→…→Dispatch→I25→P06) | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** (Must run citation-verify even on mid-entry Need06 when Gate · 05 was skipped) + **05 reporting-guideline subset** + short AI-failure / manuscript-local-qc spot checklist (`05_manuscript/qc/manuscript-local-qc.md`) | HARD-style block before Lee 06 (same recovery as G-FACT / G-CIT) |
 | **Integrity · post-re-review lite** (`I45`) | After `P06r` 06 re-review | G-FACT spot + AI-fail lite (not full first-pass) | Locate / local rework |
 
 Do **not** invent a new `G-*` id for these stations. They are compositions documented in `gates.md`.

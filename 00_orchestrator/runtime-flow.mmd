@@ -61,8 +61,8 @@ flowchart TD
     Personal --> Single
 
     %% Main production pattern: base fine-ID first-pass -> 00 QC -> personal/top re-loop
-    Ready --> LayerBasease[base · fine-ID first-pass loops]
-    LayerBasease --> LayerQC{{00 QC gate}}
+    Ready --> LayerBase[base · fine-ID first-pass loops]
+    LayerBase --> LayerQC{{00 QC gate}}
     LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>A03/A05/A06/A07 as needed]
     LayerTop --> Dispatch{目标节点}
     LayerQC -->|FAIL| Locate

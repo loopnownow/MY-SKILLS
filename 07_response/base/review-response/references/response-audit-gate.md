@@ -72,7 +72,7 @@ Before finalizing each response, verify:
 - A limitation is not presented as solved unless it truly is solved.
 - Letter claims match Word Track Changes.
 
-After number-changing revisions: hand off to `06_review/base/review-critique/paper-claim-audit.md`.
+After number-changing revisions: hand off to `06_review/base/review-critique/references/paper-claim-audit.md`.
 
 ## Tone rules
 

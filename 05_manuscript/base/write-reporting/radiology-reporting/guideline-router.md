@@ -4,6 +4,9 @@ Imaging-AI papers almost always need **more than one** guideline: a *reporting* 
 (what to write) **and** a *quality / risk-of-bias* tool (how good / how biased). Choose the
 full stack first, then audit each.
 
+
+> **Gate SSOT** (Integrity · pre-06 / Gate · 05 must-check subset) = `05_manuscript/qc/reporting-guideline-route.md` + `reporting-guidelines-router.json`. This file is the **writing / audit stack** (CLAIM/CLEAR/PROBAST/…). Do not substitute one for the other.
+
 ## Step 1 — answer six questions
 
 1. **Is there an AI/ML/DL component?** → CLAIM 2024 is in scope.
