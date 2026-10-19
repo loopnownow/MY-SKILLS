@@ -26,10 +26,13 @@ Every citation: **exists**, **metadata correct**, **context-appropriate** (suppo
 | Axis | PASS | FAIL / action |
 |---|---|---|
 | **Existence** | DOI/PMID/arXiv resolves | REMOVE / hallucinated |
-| **Metadata** | author / year / title / venue match canonical | FIX |
+| **Metadata** | author / year / title / venue match canonical; severity via `refs-verified.md` Crossref Critical/Warning/Info axes | FIX |
 | **Context** | cited work actually supports the sentence | REPLACE or soften sentence |
 
 Per-entry ledger: `KEEP` | `FIX` | `REPLACE` | `REMOVE`.
+
+
+Field-verify severity (Critical/Warning/Info) and DOI-first Crossref steps: `refs-verified.md` + `03_research/base/verify-refs/references/doi-crossref-field-audit.md`. This gate adds claim-**context** (KEEP/FIX/REPLACE/REMOVE); do not fork the field matrix.
 
 ## Pass / fail (overall six-state)
 

@@ -18,6 +18,7 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `experiment-integrity-audit.md` | Integrity · pre-06 / G-FACT — Layer 1 eval honesty |
 | `kill-argument-preflight.md` | **G-06** / pre-submit — Layer 5 strongest-rejection self-check |
 | `assurance-audit-chain.md` | Index — 5 layers → paths → seats |
+| `review-loop-state.md` | Internal QC / G-06 · review→fix→re-review + REVIEW_STATE resume |
 | `appraisal-tool-route.md` | **G-06** — RoB/GRADE/QUADAS/PROBAST+AI **routing only** (when appraisal applies) |
 
 Reporting-guideline **router** lives under 05: `05_manuscript/qc/reporting-guideline-route.md` + `reporting-guidelines-router.json` (Integrity · pre-06).
@@ -36,3 +37,7 @@ Reporting-guideline **router** lives under 05: `05_manuscript/qc/reporting-guide
 
 - wanshuiyin/Auto-claude-code-research-in-sleep — experiment-audit / kill-argument / assurance chain — lab rewrite
 - Contract: `00_orchestrator/qc/assurance-verdicts.md`
+
+### Attribution (ARIS P1 absorb 2026-10-19)
+
+- wanshuiyin/Auto-claude-code-research-in-sleep — auto-review-loop / resumable-runs — lab rewrite; Lee seat + assurance-audit-chain

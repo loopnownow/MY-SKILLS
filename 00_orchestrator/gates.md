@@ -127,3 +127,16 @@ Five-layer audit map (experiment → claim science → paper numbers → citatio
 At `assurance: submission`, mandatory layers must emit `PASS | WARN | FAIL | BLOCKED | ERROR | NOT_APPLICABLE` — silent skip forbidden.
 Executor must not self-judge integrity (Type-B). Compose with G-FACT / G-LIT / Integrity · pre-06; do not invent gate ids.
 
+
+### Research stage map + review-loop state (soft · ARIS P1)
+
+Host-agnostic process standards only — do **not** install ARIS runtime / Codex MCP / `verify_paper_audits.sh`.
+
+| Standard | Path |
+|---|---|
+| W1→W3 stage map + IDEA/EXPERIMENT/NARRATIVE/paper contracts → Victor/Loopnow/Aitee/Lee | `00_orchestrator/qc/research-stage-artifacts.md` |
+| review→fix→re-review + resumable `REVIEW_STATE` | `06_review/qc/review-loop-state.md` |
+| Resubmit edit-whitelist + failure ledger | `00_orchestrator/qc/resubmit-edit-whitelist.md` |
+
+Compose with existing Assurance contract soft section above; no new `G-*` ids.
+
