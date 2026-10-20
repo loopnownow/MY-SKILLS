@@ -24,7 +24,7 @@ Use this reference to build an internal concern ledger after the five source-gro
 For every axis, record one of:
 
 - `applicable`: the manuscript makes a claim or presents evidence that activates the check;
-- `not applicable`: the axis is genuinely outside the manuscript's design or claims;
+- `NOT_APPLICABLE`: the axis is genuinely outside the manuscript's design or claims;
 - `not assessable`: the axis could matter, but the supplied material is insufficient.
 
 Do not turn `not assessable` into a presumed flaw. State the assessment boundary when the missing material affects confidence.

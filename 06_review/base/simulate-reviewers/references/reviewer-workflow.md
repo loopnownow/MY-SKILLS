@@ -25,7 +25,7 @@
    - Within that context, independently extract the central claim, key evidence, stated significance, implied audience, visible limitations, and missing material.
    - Independently apply `originality`, `scientific importance`, `interdisciplinary interest`, `technical soundness`, and `readability for nonspecialists`.
 5. Build one private concern ledger per reviewer.
-   - Load `technical-concern-taxonomy.md` and mark each axis `applicable`, `not applicable`, or `not assessable` without access to any other reviewer's ledger.
+   - Load `technical-concern-taxonomy.md` and mark each axis `APPLICABLE`, `NOT_APPLICABLE`, or `NOT_ASSESSABLE` without access to any other reviewer's ledger.
    - Give every supported concern a reviewer-local issue key, `major` or `minor` severity, a blocking flag for Major Concerns, severity rationale, `claim_pointer`, `evidence_pointer`, and resolution test.
    - Keep the ledger private to that reviewer; expose only the fields needed to make emitted concerns traceable.
 6. Freeze all reviewer reports.

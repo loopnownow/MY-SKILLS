@@ -23,7 +23,7 @@
 ## Technical coverage checks
 
 - The internal 12-axis matrix was considered without being dumped into the final report.
-- Each axis is marked internally as `applicable`, `not applicable`, or `not assessable`; absence of evidence is not silently treated as a defect.
+- Each axis is marked internally as `APPLICABLE`, `NOT_APPLICABLE`, or `NOT_ASSESSABLE`; absence of evidence is not silently treated as a defect.
 - The technical taxonomy supplements the five source-grounded Nature axes and does not create policy claims or severity statistics.
 
 ## Forensic consistency checks

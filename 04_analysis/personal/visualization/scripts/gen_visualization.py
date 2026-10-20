@@ -5,8 +5,8 @@ Reads registry, preset metadata, and 00 runtime-flow. Writes Archify IR and
 generated HTML under the lab viz out dir (default Windows lab path
 D:/0Grok/0doc/04-lab-reference/my-skills-viz). Override with env
 MY_SKILLS_VIZ_OUT or --out. Does not write into the MY-SKILLS repo (no in-repo
-docs/ tree). Does not read mounts-cap. Fetches the pinned release zip into a
-temp dir only when package.file is absent.
+docs/ tree). Does not read mounts-cap. Renders diagrams locally from the IR;
+no external renderer package is fetched, unpacked, or verified.
 
 Shape checks follow the pins in archify-version.yaml (tt-a1i/archify v3.0.1:
 architecture schema_version 1, new workflow schema_version 2). This script is
@@ -28,10 +28,8 @@ import html
 import json
 import re
 import shutil
-import subprocess
 import sys
 import tempfile
-import zipfile
 from pathlib import Path
 
 import yaml
@@ -346,7 +344,7 @@ def architecture_ir() -> dict:
             "title": "MY-SKILLS Architecture",
             "subtitle": "Source, registry, skills, QC",
             "locale": "zh-CN",
-            "output": "architecture/index.html",
+            "output": "architecture/status.html",
         },
         "layout": {
             "mode": "grid",
@@ -474,7 +472,7 @@ def workflow_ir() -> dict:
             "title": "MY-SKILLS Workflow",
             "subtitle": "Task, gates, mounts, mid-entry, Lit05, Lit06, QC loop",
             "locale": "zh-CN",
-            "output": "workflow/index.html",
+            "output": "workflow/status.html",
         },
         "lanes": lanes,
         "phases": [
@@ -667,7 +665,7 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
 <!-- archify_version: {esc(version)} -->
 <!-- source_fingerprint: {esc(digest)} -->
 <!-- build_status: ir-shape-checked -->
-<!-- archify-render: diagrams -->
+<!-- ir-render: local -->
 <!-- github_pages: not-published -->
 <header>
   <h1>{esc(title)}</h1>
@@ -675,7 +673,7 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
   <nav>{nav}</nav>
 </header>
 <main>
-  <p class="banner">生成时间 @@GENERATED_AT@@。Archify {esc(version)} 渲染 Architecture 与 Workflow 图。构建状态 ir-shape-checked。GitHub Pages 未发布。事实源是 MY-SKILLS，不是本页。</p>
+  <p class="banner">生成时间 @@GENERATED_AT@@。本页由仓库内 IR 直接生成为 HTML（不经任何外部渲染包）。构建状态 ir-shape-checked。GitHub Pages 未发布。事实源是 MY-SKILLS，不是本页。</p>
   {body}
 </main>
 <footer>
@@ -721,8 +719,8 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
         )
         links = {
             "home": "../index.html",
-            "arch": "../architecture/index.html",
-            "wf": "../workflow/index.html",
+            "arch": "../architecture/status.html",
+            "wf": "../workflow/status.html",
             "skills": "index.html",
             "mounts": "../mounts/index.html",
             "delta": "../changes/latest-delta.html",
@@ -744,8 +742,8 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
         sections.append(f"<section><h2><code>{esc(top)}</code></h2><ul>{lis}</ul></section>")
     links = {
         "home": "../index.html",
-        "arch": "../architecture/index.html",
-        "wf": "../workflow/index.html",
+        "arch": "../architecture/status.html",
+        "wf": "../workflow/status.html",
         "skills": "index.html",
         "mounts": "../mounts/index.html",
         "delta": "../changes/latest-delta.html",
@@ -829,8 +827,8 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
     """
     links = {
         "home": "../index.html",
-        "arch": "../architecture/index.html",
-        "wf": "../workflow/index.html",
+        "arch": "../architecture/status.html",
+        "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
         "mounts": "index.html",
         "delta": "../changes/latest-delta.html",
@@ -877,8 +875,8 @@ def render_delta(delta: dict, after: dict, version: str, digest: str, before_lab
     )
     links = {
         "home": "../index.html",
-        "arch": "../architecture/index.html",
-        "wf": "../workflow/index.html",
+        "arch": "../architecture/status.html",
+        "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
         "mounts": "../mounts/index.html",
         "delta": "latest-delta.html",
@@ -956,8 +954,8 @@ def build() -> dict:
     version = str(record["expected_version"])
     home_links = {
         "home": "index.html",
-        "arch": "architecture/index.html",
-        "wf": "workflow/index.html",
+        "arch": "architecture/status.html",
+        "wf": "workflow/status.html",
         "skills": "skills/index.html",
         "mounts": "mounts/index.html",
         "delta": "changes/latest-delta.html",
@@ -965,8 +963,8 @@ def build() -> dict:
     }
     root_links = {
         "home": "../index.html",
-        "arch": "index.html",
-        "wf": "../workflow/index.html",
+        "arch": "status.html",
+        "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
         "mounts": "../mounts/index.html",
         "delta": "../changes/latest-delta.html",
@@ -974,8 +972,8 @@ def build() -> dict:
     }
     wf_links = {
         "home": "../index.html",
-        "arch": "../architecture/index.html",
-        "wf": "index.html",
+        "arch": "../architecture/status.html",
+        "wf": "status.html",
         "skills": "../skills/index.html",
         "mounts": "../mounts/index.html",
         "delta": "../changes/latest-delta.html",
@@ -984,12 +982,12 @@ def build() -> dict:
     comp_rows = [(c["id"], c["label"]) for c in arch["components"]]
     node_rows = [(n["id"], n["label"]) for n in wf["nodes"]]
     arch_extra = (
-        "<p>图在 <a href=\"index.html\">index.html</a>，由固定的 Archify 包渲染。本页只列 IR。"
+        "<p>本页由仓库内 IR 生成，不经外部渲染包。下列字段来自同一份 IR。"
         " IR 文件是 <a href=\"architecture.json\"><code>architecture.json</code></a>。"
         f" schema_version {arch['schema_version']}。字段 components / boundaries / connections。</p>"
     )
     wf_extra = (
-        "<p>图在 <a href=\"index.html\">index.html</a>，由固定的 Archify 包渲染。本页只列 IR。"
+        "<p>本页由仓库内 IR 生成，不经外部渲染包。下列字段来自同一份 IR。"
         " IR 文件是 <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>。"
         f" schema_version {wf['schema_version']}。字段 lanes / phases / groups / mainPath / nodes / edges。"
         " 03、Lit05、Lit06 与 mid-entry 在节点和边上。</p>"
@@ -997,9 +995,9 @@ def build() -> dict:
     home_body = (
         "<div class=\"grid\">"
         "<section class=\"card\"><h2>Architecture</h2><p>系统组成与边界。</p>"
-        "<p><a href=\"architecture/index.html\">打开 Architecture 图</a></p></section>"
+        "<p><a href=\"architecture/status.html\">打开 Architecture 状态页</a></p></section>"
         "<section class=\"card\"><h2>Workflow</h2><p>任务如何运行，含中途入口、Lit05、Lit06 与 QC 环。</p>"
-        "<p><a href=\"workflow/index.html\">打开 Workflow 图</a></p></section>"
+        "<p><a href=\"workflow/status.html\">打开 Workflow 状态页</a></p></section>"
         "<section class=\"card\"><h2>Mounts</h2>"
         f"<p>默认原子挂载源 <code>{esc(reg['default_source']['id'])}</code>。"
         "OpenClaw is not a default atomic mount source.</p>"
@@ -1043,7 +1041,6 @@ def build() -> dict:
         "schema_version": {"architecture": 1, "workflow": 2},
         "build_status": "ir-shape-checked",
         "archify_render": "rendered",
-        "archify_package_sha256": (record.get("package") or {}).get("sha256"),
         "github_pages": "not-published",
         "source_fingerprint": digest,
         "sources": [path.relative_to(ROOT).as_posix() for path in source_paths()],
@@ -1082,8 +1079,8 @@ def build() -> dict:
             digest,
             nav_for(
                 home="../index.html",
-                arch="../architecture/index.html",
-                wf="../workflow/index.html",
+                arch="../architecture/status.html",
+                wf="../workflow/status.html",
                 skills="../skills/index.html",
                 mounts="../mounts/index.html",
                 delta="../changes/latest-delta.html",
@@ -1102,107 +1099,6 @@ def build() -> dict:
     }
 
 
-PINNED_DIAGRAMS = (
-    ("architecture/index.html", "architecture", "architecture/architecture.json"),
-    ("workflow/index.html", "workflow", "workflow/runtime.workflow.json"),
-)
-
-
-def _resolve_archify_zip(package: dict) -> Path:
-    """Return path to pinned Archify zip (in-repo or on-demand temp under D:/0del)."""
-    expected = package.get("sha256")
-    if not expected:
-        raise GateFailure("G-VIZ-02", "archify-version.yaml is missing package.sha256")
-    rel = package.get("file")
-    candidates: list[Path] = []
-    if rel:
-        p = Path(rel)
-        candidates.append(p if p.is_absolute() else ROOT / rel)
-    candidates.append(Path(r"D:/0del/00_orchestrator_reorg_20261017/archify-v3.0.1.zip"))
-    for zip_path in candidates:
-        if zip_path.is_file():
-            digest = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-            if digest != expected:
-                raise GateFailure("G-VIZ-02", f"Archify zip sha256 mismatch at {zip_path}")
-            return zip_path
-    asset = package.get("release_asset")
-    if not asset:
-        raise GateFailure(
-            "G-VIZ-02",
-            "pinned Archify zip not in-repo and package.release_asset is empty; "
-            "download once (owner network consent) from the release URL into D:/0del",
-        )
-    try:
-        import urllib.request
-    except ImportError as exc:  # pragma: no cover
-        raise GateFailure("G-VIZ-02", f"urllib unavailable to fetch Archify: {exc}") from exc
-    del_root = Path(r"D:/0del/00_orchestrator_reorg_20261017")
-    del_root.mkdir(parents=True, exist_ok=True)
-    dest = del_root / "archify-v3.0.1.zip"
-    try:
-        urllib.request.urlretrieve(asset, dest)
-    except Exception as exc:
-        raise GateFailure(
-            "G-VIZ-02",
-            f"failed to fetch {asset} into {dest}: {exc}. "
-            "Download once with owner network consent, verify sha256, then rebuild.",
-        ) from exc
-    digest = hashlib.sha256(dest.read_bytes()).hexdigest()
-    if digest != expected:
-        raise GateFailure("G-VIZ-02", f"downloaded Archify zip sha256 mismatch at {dest}")
-    return dest
-
-
-def render_pinned_archify(record: dict, files: dict[str, str]) -> dict[str, str]:
-    """Render IR with the pinned Archify zip (vendored or release_asset temp)."""
-    package = record.get("package") or {}
-    zip_path = _resolve_archify_zip(package)
-    if shutil.which("node") is None:
-        raise GateFailure("G-VIZ-04", "node is required to run the pinned Archify renderer")
-    staging = Path(tempfile.mkdtemp(prefix="archify-pin-"))
-    work = Path(tempfile.mkdtemp(prefix="archify-render-"))
-    try:
-        with zipfile.ZipFile(zip_path) as archive:
-            for info in archive.infolist():
-                parts = Path(info.filename).parts
-                if info.filename.startswith("/") or ".." in parts:
-                    raise GateFailure("G-VIZ-02", "pinned Archify zip has an unsafe path")
-            archive.extractall(staging)
-        cli = staging / "archify" / "bin" / "archify.mjs"
-        package_json = staging / "archify" / "package.json"
-        if not cli.is_file() or not package_json.is_file():
-            raise GateFailure("G-VIZ-02", "pinned zip is missing bin/archify.mjs or package.json")
-        pinned = json.loads(package_json.read_text(encoding="utf-8"))
-        if pinned.get("version") != record.get("expected_version"):
-            raise GateFailure(
-                "G-VIZ-02",
-                f"zip package version {pinned.get('version')} != expected_version {record.get('expected_version')}",
-            )
-        rendered: dict[str, str] = {}
-        for html_rel, kind, json_rel in PINNED_DIAGRAMS:
-            source = work / f"{kind}.json"
-            dest = work / f"{kind}.html"
-            source.write_text(files[json_rel], encoding="utf-8")
-            proc = subprocess.run(
-                ["node", str(cli), "render", kind, str(source), str(dest), "--quality", "standard"],
-                capture_output=True,
-                text=True,
-            )
-            if proc.returncode != 0 or not dest.is_file():
-                detail = (proc.stderr or proc.stdout or "").strip()
-                raise GateFailure("G-VIZ-04", f"{kind} render failed; last-good HTML kept\n{detail}")
-            text = dest.read_text(encoding="utf-8")
-            marker = f'content="archify {record["expected_version"]}"'
-            if marker not in text or "<svg" not in text:
-                raise GateFailure("G-VIZ-04", f"{kind} output is not Archify HTML; last-good HTML kept")
-            rendered[html_rel] = text
-        return rendered
-    finally:
-        shutil.rmtree(staging, ignore_errors=True)
-        shutil.rmtree(work, ignore_errors=True)
-
-
-
 def publish(files: dict[str, str], out: Path) -> None:
     staging = Path(tempfile.mkdtemp(prefix="viz-stage-"))
     try:
@@ -1215,10 +1111,6 @@ def publish(files: dict[str, str], out: Path) -> None:
         out.mkdir(parents=True, exist_ok=True)
         for rel, body in files.items():
             target = out_fs_path(out, rel)
-            if target.exists():
-                current = target.read_text(encoding="utf-8")
-                if "archify-rendered: true" in current:
-                    continue
             target.parent.mkdir(parents=True, exist_ok=True)
             temporary = target.with_suffix(target.suffix + ".tmp")
             temporary.write_text(body, encoding="utf-8")
@@ -1324,13 +1216,11 @@ def main(argv: list[str] | None = None) -> int:
         built = build()
         if args.delta_against:
             return emit_delta(built, args.delta_against, args.delta_out)
-        diagrams = render_pinned_archify(built["record"], built["files"])
     except GateFailure as exc:
         print(exc, file=sys.stderr)
         return 1
     when = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     files = {rel: body.replace("@@GENERATED_AT@@", when) for rel, body in built["files"].items()}
-    files.update(diagrams)
     if args.check:
         return check(files, out)
     if out is None:
@@ -1341,10 +1231,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
     publish(files, out)
-    print(
-        f"Wrote {len(files)} visualization files under {out}."
-        f" Archify {built['version']} rendered the diagrams."
-    )
+    print(f"Wrote {len(files)} visualization files under {out}.")
     return 0
 
 

@@ -65,14 +65,35 @@ def _scan_paths() -> list[Path]:
     for pat in (
         "*_*/SKILL.md",
         "*_*/personal/route.md",
+        "*_*/base/**/MODULE.md",
         "00_orchestrator/workflows/*.md",
         "00_orchestrator/gates.md",
+        "00_orchestrator/runtime-flow.mmd",
         "ARCHITECTURE.md",
         "README.md",
         "01_skill-integration/references/presets/*.yaml",
     ):
         out.extend(ROOT.glob(pat))
     return sorted({p.resolve() for p in out if p.is_file()})
+
+
+# MODULE.md files carry upstream attribution and trigger words that legitimately
+# echo retired source names. Only the routing section is a control-plane target.
+HANDOFF_HEAD = re.compile(
+    r"^#{1,6}\s*(handoffs?\b|routes?\b|next steps?\b|open when\b)", re.I
+)
+
+
+def _routing_lines(path: Path, text: str) -> list[tuple[int, str]]:
+    rows: list[tuple[int, str]] = []
+    in_section = False
+    for i, line in enumerate(text.splitlines(), 1):
+        if re.match(r"^#{1,6}\s", line):
+            in_section = bool(HANDOFF_HEAD.match(line))
+            continue
+        if in_section:
+            rows.append((i, line))
+    return rows
 
 
 class NoRetiredIds(unittest.TestCase):
@@ -85,7 +106,11 @@ class NoRetiredIds(unittest.TestCase):
             if rel in ALLOW_FILES:
                 continue
             text = path.read_text(encoding="utf-8")
-            for i, line in enumerate(text.splitlines(), 1):
+            if rel.endswith("MODULE.md"):
+                rows = _routing_lines(path, text)
+            else:
+                rows = list(enumerate(text.splitlines(), 1))
+            for i, line in rows:
                 if HIST_LINE.search(line):
                     continue
                 for rid in retired:

@@ -43,14 +43,3 @@ schema_pins:
       schema_version 1 is the fixed-layout compatibility contract.
       This repository has no legacy workflow geometry to preserve.
     fields: [lanes, phases, groups, mainPath, nodes, edges]
-package:
-  file: null  # not vendored; rebuild uses release_asset -> D:/0del temp
-  sha256: b0b23bd28db314f04ca8ab9620fe20f8c1ac6474a3546bd8fe4679508aa1b7f5
-  bytes: 2157085
-  release_asset: https://github.com/tt-a1i/archify/releases/download/v3.0.1/archify.zip
-  note: >
-    Zip is NOT vendored in MY-SKILLS. Historical verify: sha256/bytes below
-    record the official v3.0.1 release asset. Rebuild downloads from
-    package.release_asset into a temp folder under D:/0del only when
-    regenerating. Do not commit the zip. Network fetch needs owner consent
-    per network-security.

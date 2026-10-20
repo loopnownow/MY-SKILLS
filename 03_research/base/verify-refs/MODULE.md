@@ -187,7 +187,7 @@ references are illustrative unless recorded as live smoke tests there.
  - **Solution**: Use duplicate detection in validation
 
 6. **Missing required fields**: Incomplete BibTeX entries (volume, pages, DOI missing)
- - **Solution**: Check the publisher record, distinguish missing from not applicable or not yet assigned, and log unresolved fields without inventing metadata.
+ - **Solution**: Check the publisher record, distinguish missing from `NOT_APPLICABLE` or not yet assigned, and log unresolved fields without inventing metadata.
 
 7. **Outdated preprints**: Citing preprint when published version exists
  - **Solution**: Check if preprints have been published, update to journal version

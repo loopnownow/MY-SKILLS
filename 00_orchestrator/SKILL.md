@@ -97,6 +97,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-FACT | after 04 HTML; again after 05 house.docx; before 06 if numbers cited |
 | G-05 | after house.docx |
 | G-06 | after pre-review / re-review (not response; response → 07) |
+| G-07 | after the response letter (entry 07); qc standards in `07_response/qc/` |
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 

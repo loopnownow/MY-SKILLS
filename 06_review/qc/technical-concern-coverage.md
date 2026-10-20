@@ -5,7 +5,7 @@
 
 ## Twelve axes (mark each)
 
-For every axis record: `applicable` | `not applicable` | `not assessable`. Absence of evidence ≠ automatic defect.
+For every axis record: `APPLICABLE` | `NOT_APPLICABLE` | `NOT_ASSESSABLE`. Absence of evidence ≠ automatic defect.
 
 | Axis | Coverage question (one line) |
 |---|---|
@@ -26,7 +26,7 @@ For every axis record: `applicable` | `not applicable` | `not assessable`. Absen
 
 | id | Check | Fail → |
 |---|---|---|
-| TC-1 | All 12 axes marked applicable / N/A / not assessable | 06 |
+| TC-1 | All 12 axes marked `APPLICABLE` / `NOT_APPLICABLE` / `NOT_ASSESSABLE` | 06 |
 | TC-2 | Every `applicable` axis has at least a brief address or explicit “none identified” | 06 |
 | TC-3 | Emitted concerns carry axis + severity (major/minor) + evidence pointer | 06 |
 | TC-4 | No invented concerns to fill quotas; empty tier allowed | 06 |

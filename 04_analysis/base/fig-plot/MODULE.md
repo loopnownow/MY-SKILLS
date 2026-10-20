@@ -80,3 +80,9 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../fig-f
 - Harsh read before submission → `self-review`
 
 跨包调研提炼的原则(非挂载，仅规则参考)：[external-principles.md](references/external-principles.md)
+
+## On-demand references
+
+| File | Open when |
+|---|---|
+| `references/radiology-figures.md` | Radiology-family figure conventions (panel labels, size, legends); pair with `references/nature-figure-spec.md` when the target is a Nature-portfolio venue |

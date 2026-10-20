@@ -20,3 +20,10 @@ House-style files: `radiology-writing/`, `radiology-polishing/radiology-house-st
 `journal-patterns-2023-2026.md` (venue-family writing patterns, not a submit-here list).
 
 This pack must **not** contain `journal-selection.md`.
+
+## On-demand references
+
+| File | Open when |
+|---|---|
+| `radiology-writing/journal-family-writing-style.md` | Journal-family wording and counts for a named family (JCO, NEJM AI, ...); verify against the live guide |
+| `radiology-polishing/venue-voice-and-house-style.md` | Venue voice, house style, and tone once the target venue is known |

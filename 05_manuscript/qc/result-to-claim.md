@@ -11,7 +11,7 @@ Does the **scientific claim** follow from the reported result (scope, direction,
 
 ## When
 
-- After Layer 1 (or when `EXPERIMENT_AUDIT` N/A) and primary numbers exist.
+- After Layer 1 (or when `EXPERIMENT_AUDIT` `NOT_APPLICABLE`) and primary numbers exist.
 - Before freezing abstract/Conclusions for Lee / submit.
 - Mandatory emit at `assurance: submission` / `conference-ready`.
 

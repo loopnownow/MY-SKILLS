@@ -23,7 +23,7 @@
 | `cover-letter` | Editor-facing summary only | Preferred known |
 | `audit` / `revise` | Findings or tightened draft of supplied text | No (local) |
 | `latex-template` | Templates / filled `.tex` when requested | No |
-| `appeal-like` | Route out; explain separate handling | N/A |
+| `appeal-like` | Route out; explain separate handling | `NOT_APPLICABLE` |
 
 ## Seat rules (do not break)
 
