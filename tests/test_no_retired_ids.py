@@ -1,4 +1,4 @@
-﻿"""QC Batch5: archived fine-ids must not reappear as live routing targets.
+"""QC Batch5: archived fine-ids must not reappear as live routing targets.
 
 Retired set = registry.yaml archived ids (+ legacy_aliases keys that are not
 still-on-disk path-unit directory names). Historical mention lines are allowed.

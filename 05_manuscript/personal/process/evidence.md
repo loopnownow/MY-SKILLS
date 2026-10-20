@@ -1,4 +1,4 @@
-﻿# Evidence (request + I/D consumption)
+# Evidence (request + I/D consumption)
 
 ## Part A — Evidence Request
 

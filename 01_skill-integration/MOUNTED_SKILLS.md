@@ -13,13 +13,13 @@ Never auto-mount a non-base source. `PROPOSED` is not pickable.
 Bodies live in-repo under `NN_slug/base/`.
 Say default mount = in-repo base/ -- not empty mount.
 
-Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 28 fine ids** (28 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
+Generator stamp from `registry.yaml` (do not copy this sentence into hand-written docs): **10 coarse buckets, 27 fine ids** (27 MOUNTED session-pick + 0 PROPOSED candidates + 0 reference-only). Personal / A top layers stay in A `00`–`07` (not capability mounts).
 Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointers.md](references/hybrid-mount-pointers.md). Presets: [references/presets/](references/presets/).
 
 ## Session-pick fine ids (status MOUNTED only)
 
 
-## P1 default (session menu) (25)
+## P1 default (session menu) (24)
 
 
 ### lit-retrieval
@@ -35,17 +35,17 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `design-study` | 研究设计审查 | my-skills | `03_research/base/design-experiment/` | MOUNTED | P1 | — |
-| `write-protocol` | IRB方案撰写 | my-skills | `03_research/base/design-protocol/` | MOUNTED | P1 | — |
+| `design-study` | 研究设计审查 | my-skills | `03_research/base/design-study/` | MOUNTED | P1 | — |
+| `write-protocol` | IRB方案撰写 | my-skills | `03_research/base/write-protocol/` | MOUNTED | P1 | — |
 
 
 ### manuscript-body
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `write-paper` | IMRAD正文起草 | my-skills | `05_manuscript/base/write-manuscript/` | MOUNTED | P1 | — |
-| `check-reporting` | 报告规范核验 | my-skills | `05_manuscript/base/write-reporting/` | MOUNTED | P1 | — |
-| `grant-builder` | 基金标书-方法论 | my-skills | `03_research/base/design-grant/` | MOUNTED | P1 | — |
+| `write-paper` | IMRAD正文起草 | my-skills | `05_manuscript/base/write-paper/` | MOUNTED | P1 | — |
+| `check-reporting` | 报告规范核验 | my-skills | `05_manuscript/base/check-reporting/` | MOUNTED | P1 | — |
+| `grant-builder` | 基金标书-方法论 | my-skills | `03_research/base/grant-builder/` | MOUNTED | P1 | — |
 | `find-journal` | 选刊推荐 | my-skills | `03_research/base/find-journal/` | MOUNTED | P1 | — |
 
 
@@ -53,7 +53,7 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `polish-language` | 一致性硬规则lint | my-skills | `05_manuscript/base/write-polish/` | MOUNTED | P1 | — |
+| `polish-language` | 一致性硬规则lint | my-skills | `05_manuscript/base/polish-language/` | MOUNTED | P1 | — |
 | `humanize` | 去AI味 | my-skills | `05_manuscript/base/humanize/` | MOUNTED | P1 | — |
 
 
@@ -61,36 +61,35 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `clean-data` | 三阶段确认式清洗 | my-skills | `02_data-processing/base/tables/` | MOUNTED | P1 | — |
-| `batch-cohort` | 批量队列分析生成 | my-skills | `02_data-processing/base/tables/` | MOUNTED | P1 | path_shared |
+| `clean-data` | 三阶段确认式清洗 | my-skills | `02_data-processing/base/clean-data/` | MOUNTED | P1 | — |
 | `imaging-io` | CT/MRI DICOM与NIfTI读写 | my-skills | `02_data-processing/base/imaging-io/` | MOUNTED | P1 | — |
-| `preprocess-imaging` | ROI与读者质控 | my-skills | `02_data-processing/base/imaging-qc/` | MOUNTED | P1 | — |
+| `preprocess-imaging` | ROI与读者质控 | my-skills | `02_data-processing/base/preprocess-imaging/` | MOUNTED | P1 | — |
 
 
 ### stats-analysis
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills | `04_analysis/base/stats-guide/` | MOUNTED | P1 | — |
-| `meta-analysis` | Meta分析抗数据操纵 | my-skills | `04_analysis/base/stats-models/` | MOUNTED | P1 | — |
-| `model-evaluation` | 模型-任务正确指标选择 | my-skills | `04_analysis/base/model-eval/` | MOUNTED | P1 | — |
-| `calc-sample-size` | 样本量计算 | my-skills | `04_analysis/base/stats-power/` | MOUNTED | P1 | — |
+| `analyze-stats` | 检验方法选择与加权调查数据 | my-skills | `04_analysis/base/analyze-stats/` | MOUNTED | P1 | — |
+| `meta-analysis` | Meta分析抗数据操纵 | my-skills | `04_analysis/base/meta-analysis/` | MOUNTED | P1 | — |
+| `model-evaluation` | 模型-任务正确指标选择 | my-skills | `04_analysis/base/model-evaluation/` | MOUNTED | P1 | — |
+| `calc-sample-size` | 样本量计算 | my-skills | `04_analysis/base/calc-sample-size/` | MOUNTED | P1 | — |
 
 
 ### figures
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `draw-flowchart` | 患者流程图 | my-skills | `04_analysis/base/fig-flow/` | MOUNTED | P1 | — |
-| `plot-figures` | 统计图与影像面板 | my-skills | `04_analysis/base/fig-plot/` | MOUNTED | P1 | — |
+| `draw-flowchart` | 患者流程图 | my-skills | `04_analysis/base/draw-flowchart/` | MOUNTED | P1 | — |
+| `plot-figures` | 统计图与影像面板 | my-skills | `04_analysis/base/plot-figures/` | MOUNTED | P1 | — |
 
 
 ### manuscript-review
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `peer-review` | 审稿意见生成 | my-skills | `06_review/base/review-peer/` | MOUNTED | P1 | path_shared |
-| `self-review` | 数值级自审核算 | my-skills | `06_review/base/review-critique/` | MOUNTED | P1 | — |
+| `peer-review` | 审稿意见生成 | my-skills | `06_review/base/peer-review/` | MOUNTED | P1 | — |
+| `self-review` | 数值级自审核算 | my-skills | `06_review/base/self-review/` | MOUNTED | P1 | — |
 | `simulate-reviewers` | 多审稿人隔离原则 | my-skills | `06_review/base/simulate-reviewers/` | MOUNTED | P1 | — |
 
 
@@ -98,7 +97,7 @@ Machine source: `registry.yaml`. Non-base deny: [references/hybrid-mount-pointer
 
 | Fine id | Label | Source | Path | Status | Priority | Shared |
 |---|---|---|---|---|---|---|
-| `revise` | 修回分诊与数字血统追踪 | my-skills | `07_response/base/review-response/` | MOUNTED | P1 | — |
+| `revise` | 修回分诊与数字血统追踪 | my-skills | `07_response/base/revise/` | MOUNTED | P1 | — |
 
 
 ## P2 specialty (still pickable) (3)
@@ -163,10 +162,11 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 - `radiomics-ml` — radiomics pipeline audit invoked via analyze-stats / preprocess-imaging absorb 2026-10-17 round 2
 - `peer-review-pdf-scan` — same path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
 - `scientific-visualization` — principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-- `audit-figure-risk` — Nature P2; principles already in 04_analysis/base/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+- `audit-figure-risk` — Nature P2; principles already in 04_analysis/base/plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
 - `check-grant-proposal` — PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
 - `model-validation` — deterministic leakage gates folded into model-evaluation; same path; absorb 2026-10-17 round 3
 - `scientific-critical-thinking` — PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3
+- `batch-cohort` — shared body with clean-data in A 02_data-processing/base/clean-data; no separate doc; owner decision 2026-10-20
 
 ## Source notes
 

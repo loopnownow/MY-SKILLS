@@ -1,4 +1,4 @@
-﻿# L2 preferred phrases + patterns
+# L2 preferred phrases + patterns
 
 ## Part A — corpus phrase bank
 

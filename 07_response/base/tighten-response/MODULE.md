@@ -10,7 +10,7 @@ owner: "07_response/base/tighten-response/MODULE.md"
 
 Reviewer-blind response drafting + anti-accretion tightening.
 Absorbed from Nature `skills/nature-response/` on 2026-10-17 (Apache-2.0).
-Sibling of `revise` / `review-response`; principles also in `07_response/base/review-response/references/external-principles.md`.
+Sibling of `revise` / `review-response`; principles also in `07_response/base/revise/references/external-principles.md`.
 
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 

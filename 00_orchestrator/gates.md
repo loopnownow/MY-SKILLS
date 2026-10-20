@@ -51,7 +51,7 @@ Record only. Do not auto-pick numbers. Blank stays blank or becomes one question
 
 Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `D:\0Grok\0doc\04-lab-reference\lab-ref-ranges\qc\gate-hooks.md`. Soft only — never auto-rewrite from the lab-ref KB.
 
-G-FACT is fact-lineage completeness after 04 HTML and again after 05 house.docx, and before 06 only if numbers are cited. 02 exit is not a G-FACT. 03 exit is not a G-FACT. There is no G-02 and no G-03.
+G-FACT is fact-lineage completeness after 04 HTML and again after 05 house.docx, and before 06 only if numbers are cited. 02 exit is not a G-FACT. 03 exit is not a G-FACT. There is no G-02 and no G-03. Visualization gates `G-VIZ-01` / `G-VIZ-02` are domain-held by `04_analysis/personal/visualization/`; 00 does not route them.
 
 File-existence (chain, every node): expected output missing or empty → do not start the next skill.
 

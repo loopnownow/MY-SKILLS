@@ -170,10 +170,7 @@ Validate BibTeX entries for accuracy, completeness, citation count standard comp
 # Basic validation
 python scripts/validate_citations.py references.bib
 
-# Validate against a venue standard (e.g., Nature, NeurIPS, Literature Review)
-python scripts/validate_citations.py references.bib --venue nature
-python scripts/validate_citations.py references.bib --venue neurips
-python scripts/validate_citations.py references.bib --venue review
+示例调用见 [`core_workflow.md`](core_workflow.md)（同一组命令，不在本文件重复）。
 
 # Validate with custom minimum citation count
 python scripts/validate_citations.py references.bib --min-count 40

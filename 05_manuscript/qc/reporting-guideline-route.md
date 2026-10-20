@@ -27,7 +27,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Relation to base guideline-router
 
-**Gate SSOT** for Integrity · pre-06 / Gate · 05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/base/write-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the base stack for the gate subset, or the gate subset for a full writing audit.
+**Gate SSOT** for Integrity · pre-06 / Gate · 05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/base/check-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the base stack for the gate subset, or the gate subset for a full writing audit.
 
 Also-check when imaging AI / radiomics (record if applicable; not a substitute for the table above):
 - **CLAIM 2024** — DL/AI imaging methods reporting.

@@ -1,4 +1,4 @@
-﻿<!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
+<!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
 # 选刊
 
 Use this file when a manuscript, abstract, or near-complete study is available and
@@ -14,7 +14,7 @@ how to position the paper for submission.
 当用户要求“结合近三年高水平期刊发表规律”“这篇文章适合投 Radiology/Lancet Digital
 Health/Nature Medicine/npj Precision Oncology 吗”时，先读取：
 
-- mounted `meta-analysis` (B `04_analysis/base/stats-models/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
+- mounted `meta-analysis` (B `04_analysis/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
 - this file §「2023-2026 期刊规律」(merged below; former journal-patterns-2023-2026.md archived 2026-10-16)
 
 这些文件提供的是 PubMed 验证的种子证据和期刊规律，不是完整系统综述。最终投稿建议仍需当天核验目标期刊官网和近期同类文章。
@@ -153,28 +153,15 @@ grounded in recent high-impact publication patterns.
 
 ## Evidence boundary
 
-This file summarizes journal-fit signals from PubMed-verified seed papers on 2026-06-18.
-It is not a substitute for checking the current author instructions, scope, article type,
-APC, word limits, data policy, or recent issue contents.
+本文件只负责「证据强度 vs 期刊偏好」的取舍。期刊家族规律表及其免责声明以 `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` 为准，不在本文件重复。
 
 ## Journal pattern table
 
-| Journal family | Recent signal from seeds | What a manuscript usually needs | Caution for ordinary retrospective radiomics |
-|---|---|---|---|
-| Nature Medicine | real-world mammography implementation, improved screening detection, LungIMPACT randomized pathway trial, biomedical/echo/generative foundation models | clinical or workflow significance, prospective/real-world/reader evidence, broad biomedical impact, strong validation | single-center retrospective AUC-only work is usually not aligned |
-| The Lancet Digital Health | prospective mammography MASAI, CT immune-checkpoint benefit, multicenter CTA aneurysm validation | clinically relevant digital health question, validation beyond one center, workflow or patient-impact framing | methods-only novelty without clinical validation is weak |
-| The Lancet Oncology | PI-CAI prostate MRI, PANORAMA pancreatic CT | oncology diagnostic/treatment relevance, paired reader or confirmatory validation, standard-of-care imaging | requires oncology relevance and rigorous clinical framing |
-| Radiology | IBSI standardization and clinically important radiology evidence | radiology-centered question, methodological rigor, clinical imaging relevance, reproducibility | pure algorithm novelty may fit less well unless radiology impact is clear |
-| Radiology: Artificial Intelligence | CLAIM 2024, TotalSegmentator and imaging AI methods | imaging AI method/reporting clarity, datasets, validation, reproducibility | weak reporting or no validation will be exposed |
-| Nature Communications | CT/foundation segmentation, lung CT foundation model, distributed heterogeneity, low-data segmentation | broad method novelty, technical contribution, external validation, reusable model/data/pipeline when possible | small single-task retrospective models rarely fit unless method is genuinely novel |
-| eClinicalMedicine / EBioMedicine | multicenter HCC early warning, 2D/3D/radiomics/fusion clinical validation | clinically meaningful cohort study with transparent validation and translational framing | needs more than local model performance |
-| Cell Reports Medicine | gastric cancer TME/response, multimodal response model, synthetic PET, PET/CT plus multi-omics lymphoma | biological or translational mechanism plus clinical prediction | mechanism claims must be supported, not decorative |
-| npj Digital Medicine | digital medicine, AI deployment, clinical evaluation, model generalization | digital health relevance, generalizable methods, transparent validation | narrow radiomics without digital medicine framing may be less aligned |
-| npj Precision Oncology | radiology-pathology, radio-multiomics, glioma molecular prediction, Ki-67 and precision oncology markers | oncology precision marker, molecular/pathology/multi-omics link, validation | radiogenomics needs real paired labels and cautious mechanism claims |
+| 期刊家族信号表（2023–2026 种子） | 见 `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md`（SSOT，本文件不再复制） |
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,
-41339572, and 38809149. Use mounted `meta-analysis` (B `04_analysis/base/stats-models/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
+41339572, and 38809149. Use mounted `meta-analysis` (B `04_analysis/base/meta-analysis/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
 table and DOI-level metadata.
 
 ## Submission-tier logic

@@ -9,7 +9,7 @@ aliases:
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
-  # mounts_cap / mounts_cap_cache: RETIRED — dir deleted 2026-10-20; do not use.
+  # mounts_cap / mounts_cap_cache: RETIRED 2026-10-20 (dir emptied); kept for path history only.
   mounts_cap: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   mounts_cap_cache: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   # 0doc

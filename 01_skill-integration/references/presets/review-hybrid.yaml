@@ -32,14 +32,14 @@ overrides:
   - id: analyze-stats
     source: my-skills
     skills: [stats-guide]
-    paths: [04_analysis/base/stats-guide/]
+    paths: [04_analysis/base/analyze-stats/]
     role: reported-stats-audit
     required: true
-    prefix_example: "[04_analysis/base/stats-guide]"
+    prefix_example: "[04_analysis/base/analyze-stats]"
   - id: self-review
     source: my-skills
     skills: [review-critique]
-    paths: [06_review/base/review-critique/]
+    paths: [06_review/base/self-review/]
     role: logic-mechanism-overlay
     required: false
     status_note: covers former scientific-critical-thinking (archived round 3)

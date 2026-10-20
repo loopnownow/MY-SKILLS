@@ -64,8 +64,8 @@ or ask owner. Registry `archived:` ids stay off the pick menu.
 
 - Coarse ids = welded stage buckets. Count: `registry.yaml` `coarse_id_count`.
 - Fine ids = session-pick mount points. Count: `fine_id_count_canonical`.
-- `fine_id` = capability interface; `path` = physical unit; `path_shared: true`
- = one path backs several fine ids — do not split that folder.
+- `fine_id` = capability interface; `path` = physical unit. They are aligned: every `base/<dir>` is named after its canonical fine id (2026-10-20), enforced by `tests/test_registry_paths.py`.
+- `path_shared: true` = one path backs several fine ids — do not split that folder. No live mount sets it today; `batch-cohort` was archived into `clean-data` on 2026-10-20.
 - A domains stay `00_orchestrator`–`07_response`. Personal layers stay in A.
 - Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `03_research/base/find-journal/`.
 

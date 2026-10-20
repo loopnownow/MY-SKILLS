@@ -26,7 +26,7 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 
 | Layer | Owns |
 |---|---|
-| A `base/` (pilot) | `clean-data`, `batch-cohort`, `imaging-io`, `preprocess-imaging`, tables/impute under `02_data-processing/base/` |
+| A `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, clean-data/impute under `02_data-processing/base/` |
 | 00 | QC gate; decides whether A02 re-triggers base mounts |
 | A02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; Loopnow seat (QC standards in `qc/`, 00-only) |
 
@@ -53,9 +53,9 @@ Do not rewrite mounted data-processing capability bodies (now under `base/`) ins
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 
-- `clean-data` / `batch-cohort` -- clinical Excel/CSV (A `02_data-processing/base/tables/`)
+- `clean-data` -- clinical Excel/CSV cleaning and cohort tables (A `02_data-processing/base/clean-data/`); the former `batch-cohort` entry point is an archived alias to this body
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (A `02_data-processing/base/imaging-io/`)
-- `preprocess-imaging` -- ROI / reader QC (A `02_data-processing/base/imaging-qc/`)
+- `preprocess-imaging` -- ROI / reader QC (A `02_data-processing/base/preprocess-imaging/`)
 - Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (radiomics-ml absorb; modelling belongs to 04; no live radiomics-habitat path)
 
 Archived ids stay off the menu (registry `archived:`).

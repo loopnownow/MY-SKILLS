@@ -1,4 +1,4 @@
-﻿---
+---
 name: find-journal
 label_cn: 选刊推荐
 mount_status: absorbed_from_A

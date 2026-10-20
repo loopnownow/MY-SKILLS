@@ -1,3 +1,13 @@
+---
+name: "fill-protocol"
+domain: "03_research"
+trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol"]
+inputs: ["protocol_template"]
+outputs: ["filled_protocol"]
+quality_control: "placeholders only; no patient data; never invent ethics numbers"
+owner: "03_research/base/fill-protocol/MODULE.md"
+---
+
 <!--
 本文件为迁移承接(MedSci骨架，原30-id列表遗漏)
 细ID: IRB表单填充(格式层；write-protocol内容)

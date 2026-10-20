@@ -1,10 +1,8 @@
 # Visualization Source Contract v1.0
-# Mapping from MY-SKILLS facts to Archify IR. Not a copy of the Archify schema.
+# Mapping from MY-SKILLS facts to the typed IR. Not a copy of any external schema.
 version: "1.0"
 approved: "2026-10-03"
 role: mapping-contract
-copies_archify_schema: false
-version_record: archify-version.yaml
 
 views:
   architecture:
@@ -13,7 +11,7 @@ views:
       - ARCHITECTURE.md
       - 01_skill-integration/registry.yaml
       - top-level directories 00_orchestrator through 07_response
-    archify_fields: [components, boundaries, connections]
+    ir_fields: [components, boundaries, connections]
     primary_component_band: "about 6-12 stable system components"
   workflow:
     question: "How a task runs, including branches, exceptions, and loops."
@@ -21,8 +19,8 @@ views:
       - 00_orchestrator/runtime-flow.mmd
       - 00_orchestrator/runtime-flow.md
       - 00_orchestrator/gates.md
-    archify_fields: [lanes, phases, groups, mainPath, nodes, edges]
-    geometry: new-workflow-schema-version-from-version-record
+    ir_fields: [lanes, phases, groups, mainPath, nodes, edges]
+    geometry: workflow-schema-version-2
     must_show:
       - layers 00 through 07 (07 = response)
       - Lit05
@@ -57,7 +55,7 @@ forbidden_default_atomic_mount_sources:
 
 rules:
   - MY-SKILLS is the only source of truth.
-  - Archify is a read-only visualization compiler.
+  - Rendering IR to HTML is local and read-only; no external renderer runs.
   - Top-level 07_response is allowed (response letters); do not add other top-level 07* skills.
   - Mount diagrams come from registry and preset metadata.
   - Delta describes structural facts only.

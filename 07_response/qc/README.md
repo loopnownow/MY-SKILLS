@@ -5,7 +5,7 @@
 
 | File | Gate(s) / use |
 |---|---|
-| `response-audit.md` | Pointer to `base/review-response/references/response-audit-gate.md` (00 gate-time audit standard) |
+| `response-audit.md` | Pointer to `base/revise/references/response-audit-gate.md` (00 gate-time audit standard) |
 | `tighten-qa.md` | Pointer to `base/tighten-response/references/qa-checklist.md` (00 gate-time tighten QA) |
 
 Capability routing (not qc self-certify): `07_response/base/routing.md` (decision-type × task-mode; Aitee owns 07).

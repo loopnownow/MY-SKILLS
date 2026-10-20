@@ -30,7 +30,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 |---|---|
 | A `base/` | `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `04_analysis/base/` |
 | 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
-| A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); Archify viz under `personal/visualization/` |
+| A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
 
 Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack.
 
@@ -46,7 +46,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 | Lab figure palettes / claim planning | `personal/figures.md` |
 | Stats checklist / reported consistency (00 gate standards) | `qc/report-checks.md` |
 | Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/qc/manuscript-local-qc.md` |
-| Archify pin + visualization rebuild scripts | `personal/visualization/` |
+| Visualization IR + rebuild scripts | `personal/visualization/` |
 
 Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
@@ -54,12 +54,12 @@ Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 
-- `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/stats-guide/`)
-- `calc-sample-size` -- sample size / power (A `04_analysis/base/stats-power/`)
-- `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-eval/`)
-- `meta-analysis` -- implementation (A `04_analysis/base/stats-models/`); 0RAD personal still wins
-- `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/fig-flow/`)
-- `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/fig-plot/`)
+- `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/analyze-stats/`)
+- `calc-sample-size` -- sample size / power (A `04_analysis/base/calc-sample-size/`)
+- `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-evaluation/`)
+- `meta-analysis` -- implementation (A `04_analysis/base/meta-analysis/`); 0RAD personal still wins
+- `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/draw-flowchart/`)
+- `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/plot-figures/`)
 
 Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
 

@@ -1,4 +1,4 @@
-﻿"""QC Batch5: owner: fields under base/** must point at in-repo paths."""
+"""QC Batch5: owner: fields under base/** must point at in-repo paths."""
 from __future__ import annotations
 
 import re

@@ -1,4 +1,4 @@
-﻿# 03_research personal route -- top layer
+# 03_research personal route -- top layer
 
 Three pillars. Load only what the task needs.
 

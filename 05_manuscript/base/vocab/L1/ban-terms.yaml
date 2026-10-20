@@ -1,4 +1,4 @@
-﻿# Machine source for style_lint.py VOCAB_ALWAYS / VOCAB_LIMITED.
+# Machine source for style_lint.py VOCAB_ALWAYS / VOCAB_LIMITED.
 # Humans read vocab/L1/ban-phrases.md. Change terms here first, then re-run tests.
 # style_lint.py loads this file at runtime (stdlib parser; no hardcoded word lists).
 #

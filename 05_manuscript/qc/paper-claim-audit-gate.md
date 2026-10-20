@@ -2,7 +2,7 @@
 
 **Owner:** `00_orchestrator` at G-05 / G-FACT / Integrity · pre-06.
 **Seat:** Independent cold-reader (prefer Lee session or fresh thread). Aitee (05) repairs prose; Loopnow (04) if evidence wrong.
-**Capability body:** `06_review/base/review-critique/references/paper-claim-audit.md` (medical/Word workflow).
+**Capability body:** `06_review/base/self-review/references/paper-claim-audit.md` (medical/Word workflow).
 **Also compose:** `claim-number-align.md` (CN-1…4). Do **not** re-copy forensic layers — link `06_review/qc/forensic-consistency.md`.
 
 ## Purpose

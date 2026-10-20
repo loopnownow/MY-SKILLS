@@ -6,7 +6,7 @@ Whenever this lab **creates or edits** `.html`, follow [`html-visual-design.md`]
 
 ## Visualization compiler
 
-Archify is a read-only visualization compiler. It is not a skill and not a top-level `07` layer. MY-SKILLS sources stay authoritative. Contract lives under **`04_analysis/personal/visualization/`**: `visualization-architecture.md`, `archify-version.yaml`, `visualization-source-contract.yaml`. Rebuild: `python3 04_analysis/personal/visualization/scripts/gen_visualization.py` (pinned Archify via release URL / temp under `D:\0del`; zip not vendored in 00). Default lab OUT `{doc_root}/04-lab-reference/my-skills-viz` is retired (deleted 2026-10-20; pass `MY_SKILLS_VIZ_OUT` / `--out`); generated HTML is disposable and is not a fact source. It is **not** committed under MY-SKILLS (`docs/` removed). Mount diagrams use registry and preset metadata. `{mounts_cap}/` is retired (deleted 2026-10-20).
+Visualization is rendered locally from the repository's own IR. It is not a skill and not a top-level `07` layer, and no external renderer runs. MY-SKILLS sources stay authoritative. Contract lives under **`04_analysis/personal/visualization/`**: `visualization-architecture.md`, `visualization-source-contract.yaml`. Rebuild: `python3 04_analysis/personal/visualization/scripts/gen_visualization.py` (offline; nothing is downloaded or unpacked). Generated HTML under the dir given by `--out` / env `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) is disposable and is not a fact source. It is **not** committed under MY-SKILLS (`docs/` removed). Mount diagrams use registry and preset metadata. The former `{mounts_cap}/` cache is retired (2026-10-20); do not crawl it.
 
 ## Deliverable drop points (lab)
 
