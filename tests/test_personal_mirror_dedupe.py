@@ -27,6 +27,26 @@ def _paragraphs(path: Path) -> set[str]:
     return out
 
 
+    def test_no_cross_file_long_paragraph(self) -> None:
+        seen: dict[str, str] = {}
+        hits: list[str] = []
+        skip = {".git", "__pycache__", ".pytest_cache", "mounts-cap", "fixtures"}
+        for path in ROOT.rglob("*.md"):
+            if set(path.parts) & skip:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel == "INTEGRATION_MAP.md":
+                continue
+            for para in re.split(r"\n\s*\n", path.read_text(encoding="utf-8-sig", errors="ignore")):
+                norm = re.sub(r"\s+", " ", para).strip()
+                if len(norm) < MIN_CHARS:
+                    continue
+                if norm in seen and seen[norm] != rel:
+                    hits.append(f"{rel} duplicates {seen[norm]}: {norm[:70]}")
+                seen.setdefault(norm, rel)
+        self.assertEqual(hits, [], "shared long paragraphs:\n" + "\n".join(hits[:10]))
+
+
 class PersonalMirrorDedupe(unittest.TestCase):
     def test_mirror_pairs_share_no_long_paragraph(self) -> None:
         problems = []

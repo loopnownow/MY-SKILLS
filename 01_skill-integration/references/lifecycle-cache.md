@@ -1,16 +1,16 @@
 # Cache · Mount · Active · Registry = index
 
 - **Bodies SSOT:** in-repo `NN_slug/base/` (`source: my-skills`).
-- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is retired (deleted 2026-10-20). Live capability bodies are **not** resolved from `{mounts_cap}/`.
+- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is RETIRED as of 2026-10-20 (dir emptied); it was the lab pack-cache root for non-base leftovers only. Live capability bodies are **not** resolved from `{mounts_cap}/`.
 - **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run. Cache is not mount is not active.
-- **Advertised / auto-discovery:** `00`–`07` only. Do not load anything from `{mounts_cap}/` (retired).
+- **Advertised / auto-discovery:** `00`–`07` only. Never load from the retired `{mounts_cap}/`.
 - **Registry:** routing index only. GitHub MY-SKILLS is the framework + body SSOT.
 
-## Local cache (`{mounts_cap}/`)
+## Local cache (`{mounts_cap}/`, retired)
 
-RETIRED: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`) was deleted 2026-10-20; the bullets below are historical.
+Bytes path: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`; outside MY-SKILLS repo). Retired 2026-10-20; kept here for path history only.
 
 - Live resolve targets are `NN_slug/base/` in this repo (or `{skills_runtime}` after sync).
 - Non-base pack folders may still exist as historical cache leftovers; they are **not** a runtime menu. Do not fetch ARS/OpenClaw (purged). Non-base = default deny.
@@ -24,7 +24,7 @@ RETIRED: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`) was 
 3. **Pick** -- user multi-selects fine ids (ask-each-run).
 4. **Post-mount QC** -- loaded bytes match registry source + path.
 
-**Stale policy:** pull/sync MY-SKILLS when bodies change. Do not treat `{mounts_cap}/` pack folders as session candidates.
+**Stale policy:** pull/sync MY-SKILLS when bodies change. The retired `{mounts_cap}/` folders are never session candidates.
 
 **G0 handoff:** if an in-repo body path is missing, fail back to 01.
 
