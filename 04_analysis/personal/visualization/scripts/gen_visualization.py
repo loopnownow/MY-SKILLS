@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Read-only visualization compiler for MY-SKILLS.
 
-Reads registry, preset metadata, and 00 runtime-flow. Writes Archify IR and
+Reads registry, preset metadata, and 00 runtime-flow. Writes the typed JSON IR and
 generated HTML under the output dir given by --out or env MY_SKILLS_VIZ_OUT
 (required; no default, exits non-zero if neither is set). Does not write into
 the MY-SKILLS repo (no in-repo docs/ tree). Does not read mounts-cap. Renders diagrams locally from the IR;
 no external renderer package is fetched, unpacked, or verified.
 
-Shape checks follow the pins in archify-version.yaml (tt-a1i/archify v3.0.1:
-architecture schema_version 1, new workflow schema_version 2). This script is
-a mapping checker, not a copy of the Archify schema.
+Shape checks use fixed IR schema versions (architecture 1, workflow 2). This
+script is a mapping checker, not a copy of any external schema.
 
 Usage:
     python3 04_analysis/personal/visualization/scripts/gen_visualization.py
@@ -44,7 +43,6 @@ RUNTIME_MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 RUNTIME_MD = ROOT / "00_orchestrator" / "runtime-flow.md"
 GATES = ROOT / "00_orchestrator" / "gates.md"
 ARCH_MD = ROOT / "ARCHITECTURE.md"
-VERSION = VIZ_DIR / "archify-version.yaml"
 CONTRACT = VIZ_DIR / "visualization-source-contract.yaml"
 
 
@@ -214,7 +212,6 @@ def source_paths() -> list[Path]:
         RUNTIME_MD,
         GATES,
         ARCH_MD,
-        VERSION,
         CONTRACT,
     ]
     # SOURCES is a directory; replace it with files below.
@@ -280,24 +277,7 @@ def check_registry(reg: dict) -> None:
             raise GateFailure("G-VIZ-01", "OpenClaw appeared in registry proposals")
 
 
-def check_version(record: dict, contract: dict) -> None:
-    if record.get("source") != "tt-a1i/archify":
-        raise GateFailure("G-VIZ-01", "Archify source is not tt-a1i/archify")
-    if record.get("auto_update") is not False:
-        raise GateFailure("G-VIZ-01", "auto_update must be false")
-    if record.get("update_policy") != "check":
-        raise GateFailure("G-VIZ-01", "update_policy must be check")
-    if record.get("visualization_only") is not True:
-        raise GateFailure("G-VIZ-01", "visualization_only must be true")
-    if record.get("network_at_build") is not False:
-        raise GateFailure("G-VIZ-01", "network_at_build must be false")
-    pins = record.get("schema_pins") or {}
-    arch_pin = (pins.get("architecture") or {}).get("schema_version")
-    wf_pin = (pins.get("workflow") or {}).get("schema_version")
-    if arch_pin != 1:
-        raise GateFailure("G-VIZ-01", "architecture schema_version pin must stay 1 for the v3.0.1 schema")
-    if wf_pin != 2:
-        raise GateFailure("G-VIZ-01", "workflow schema_version pin must stay 2 for a new workflow")
+def check_contract(contract: dict) -> None:
     phrases = contract.get("forbidden_fact_sources") or []
     required = [
         "LLM inference",
@@ -658,7 +638,7 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
 <!-- generated: true -->
 <!-- rebuild: {REBUILD} -->
 <!-- generated_at: @@GENERATED_AT@@ -->
-<!-- archify_version: {esc(version)} -->
+<!-- ir_schema: architecture 1 / workflow 2 -->
 <!-- source_fingerprint: {esc(digest)} -->
 <!-- build_status: ir-shape-checked -->
 <!-- ir-render: local -->
@@ -912,9 +892,8 @@ def load_sidecar_metadata() -> tuple[list[dict], list[dict]]:
 
 
 def build() -> dict:
-    record = read_yaml(VERSION)
     contract = read_yaml(CONTRACT)
-    check_version(record, contract)
+    check_contract(contract)
     reg = read_yaml(REGISTRY)
     check_registry(reg)
     mmd = read_text(RUNTIME_MMD)
@@ -942,12 +921,12 @@ def build() -> dict:
     sources, presets = load_sidecar_metadata()
     arch = architecture_ir()
     wf = workflow_ir()
-    # Emitted schema_version values come from the pinned record, not a second guess.
-    arch["schema_version"] = record["schema_pins"]["architecture"]["schema_version"]
-    wf["schema_version"] = record["schema_pins"]["workflow"]["schema_version"]
+    # Fixed IR schema versions: architecture 1, workflow 2 (see visualization-architecture.md).
+    arch["schema_version"] = 1
+    wf["schema_version"] = 2
     validate_ir(arch, wf)
     digest = fingerprint(source_paths())
-    version = str(record["expected_version"])
+    version = "local-ir"
     home_links = {
         "home": "index.html",
         "arch": "architecture/status.html",
@@ -1002,12 +981,9 @@ def build() -> dict:
         "<p><a href=\"skills/index.html\">打开 Skill 索引</a></p></section>"
         "</div>"
         "<h2>Build</h2><dl>"
-        f"<dt>Archify</dt><dd><code>{esc(record['source'])}</code> {esc(version)}</dd>"
-        "<dt>auto_update</dt><dd>false</dd>"
-        "<dt>update_policy</dt><dd>check</dd>"
         "<dt>schema_version</dt><dd>architecture 1 · workflow 2</dd>"
         "<dt>build_status</dt><dd>ir-shape-checked</dd>"
-        "<dt>archify_render</dt><dd>rendered</dd>"
+        "<dt>render</dt><dd>local (in-repo IR to HTML)</dd>"
         "<dt>github_pages</dt><dd>not-published</dd>"
         f"<dt>fingerprint</dt><dd><code>{esc(digest)}</code></dd>"
         "</dl>"
@@ -1025,18 +1001,9 @@ def build() -> dict:
         "generated": True,
         "rebuild_command": REBUILD,
         "generated_at": "@@GENERATED_AT@@",
-        "archify": {
-            "source": record["source"],
-            "expected_version": version,
-            "tag": record.get("tag"),
-            "commit": record.get("commit"),
-            "auto_update": False,
-            "update_policy": "check",
-            "visualization_only": True,
-        },
         "schema_version": {"architecture": 1, "workflow": 2},
         "build_status": "ir-shape-checked",
-        "archify_render": "rendered",
+        "render": "local",
         "github_pages": "not-published",
         "source_fingerprint": digest,
         "sources": [path.relative_to(ROOT).as_posix() for path in source_paths()],
@@ -1091,7 +1058,6 @@ def build() -> dict:
         "workflow": wf,
         "version": version,
         "fingerprint": digest,
-        "record": record,
     }
 
 

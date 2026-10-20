@@ -1,42 +1,42 @@
-# MY-SKILLS Visualization Architecture v1.0
+# MY-SKILLS Visualization Architecture v1.1
 
-Approved design specification. User approved execution on 2026-10-03. This file is a source document. It is not the documentation homepage. The generated homepage is under lab `{doc_root}/04-lab-reference/my-skills-viz/index.html` (default `D:/0Grok/0doc/04-lab-reference/my-skills-viz/index.html`); not in-repo. Design-history pages only point here.
+Approved design specification. User approved execution on 2026-10-03. Revision 1.1 (2026-10-20) removed the external renderer: the IR is rendered to HTML by the in-repo generator only. This file is a source document. It is not the documentation homepage. The generated homepage is under lab `{doc_root}/04-lab-reference/my-skills-viz/index.html` (default `D:/0Grok/0doc/04-lab-reference/my-skills-viz/index.html`); not in-repo. Design-history pages only point here.
 
 ## Implementation record
 
-Archify is pinned to `tt-a1i/archify` **3.0.1** (tag `v3.0.1`, commit `2ab3cae7ac2c2a55d7386ca789d03c4fcd31816c`, published 2026-09-28). Verification on 2026-10-03 used the GitHub tags list (newest tag `v3.0.1`), the [v3.0.1 release](https://github.com/tt-a1i/archify/releases/tag/v3.0.1), and the schema README plus `architecture.schema.json` and `workflow.schema.json` at that tag. The record is [`archify-version.yaml`](archify-version.yaml). `update_policy` is `check`. `auto_update` is `false`. `visualization_only` is `true`.
+The renderer is the in-repo generator [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It renders the typed IR to HTML locally. No external renderer package is fetched, unpacked, verified, or executed, and no pin record is kept: the former `archify-version.yaml` was deleted on 2026-10-20 together with its G-VIZ-01 field checks.
 
-`schema_version` follows that pin. Architecture IR uses **1** because `architecture.schema.json` at v3.0.1 sets `schema_version` to the constant 1. Workflow IR uses **2** because the v3.0.1 schema README says new workflows use schema version 2, and this repository has no legacy workflow geometry to keep on version 1.
+`schema_version` is fixed by this specification: Architecture IR uses **1**; Workflow IR uses **2**. Both constants live in the generator and are asserted by `tests/test_visualization_contract.py`.
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../01_skill-integration/registry.yaml). It does not read `mounts-cap/`.
 
-Default lab OUT `{doc_root}/04-lab-reference/my-skills-viz` is retired (deleted 2026-10-20; no outputs exist there). Generated files go to the chosen OUT (former default `D:/0Grok/0doc/04-lab-reference/my-skills-viz`; override `MY_SKILLS_VIZ_OUT` / `--out`) and carry a generated marker, a rebuild command, the source fingerprint, the Archify pin, and a build status. `architecture/index.html` and `workflow/index.html` under that OUT are self-contained diagrams from the pinned Archify 3.0.1 zip. The id tables sit beside them as `status.html`. Hand-authored sources are this note, the version record, the mapping contract, and that zip. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A render or schema failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
+Generated files live under lab `{doc_root}/04-lab-reference/my-skills-viz` (default `D:/0Grok/0doc/04-lab-reference/my-skills-viz`; override `MY_SKILLS_VIZ_OUT` / `--out`) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
 
 Delta output lists added, removed, and changed identifiers and labels. It does not assign merge risk.
 
 ## 1. Design decision
 
-Archify is not a new MY-SKILLS layer. It is a read-only visualization compiler. It reads defined registry and runtime metadata and emits Architecture and Workflow graphics. Skill prose and repository structure stay facts of MY-SKILLS.
+Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of registry and runtime metadata; it emits the typed IR, the Architecture page, and the Workflow page. Skill prose and repository structure stay facts of MY-SKILLS.
 
 | Layer | Role |
 | --- | --- |
 | Fact source | `SKILL.md`, registry, runtime-flow, configuration, and the real repository structure |
 | Index | `01` discovers external packages, versions, and the mount index. It indexes. It does not rewrite external skill bodies |
 | Schedule | `00` decides entry, Gate, QC, visualization build, and failure fallback |
-| Display | Archify HTML and skill documentation are derived. They can be deleted and rebuilt. They do not become the fact source |
+| Display | Generated HTML and skill documentation are derived from the IR. They can be deleted and rebuilt. They do not become the fact source |
 
-## 2. Boundary: 00 / 01 / Archify
+## 2. Boundary: 00 / 01 / generator
 
 | Component | Owns | Does not own |
 | --- | --- | --- |
 | 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose; external package bodies |
 | 01 | skill-integration: registry / session-pick / mount index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
-| Archify | Render typed JSON IR to HTML diagrams | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
+| Generator (`scripts/gen_visualization.py`) | Render typed JSON IR to HTML pages | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
 | Human | Review Delta, architecture changes, and the final PR | Hand-editing generated HTML |
 
 ## 3. Canonical data flow
 
-MY-SKILLS source → 01 registry / runtime metadata → 00 visualization gate → Archify JSON IR → schema validation → render → HTML QC → lab `my-skills-viz` OUT.
+MY-SKILLS source → 01 registry / runtime metadata → 00 visualization gate → typed JSON IR → IR shape validation → local HTML render → HTML QC → lab `my-skills-viz` OUT.
 
 Reverse dependency is forbidden. Generated HTML, previous generated HTML, screenshots, and an LLM guess about the repository are not the next round's architecture facts.
 
@@ -61,7 +61,7 @@ These are not fact sources:
 
 Machine-readable copy: [`visualization-source-contract.yaml`](visualization-source-contract.yaml).
 
-## 5. Two primary Archify views
+## 5. Two primary views
 
 ### 5.1 Architecture
 
@@ -79,36 +79,38 @@ Task → 00 Detect / Gate → 01 Mount / Dispatch → 02 Data → 04 Statistics 
 
 The machine graph is [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd).
 
-## 6. Archify schema policy
+## 6. IR schema policy
 
-This project does not copy Archify's full schema. It keeps a mapping of MY-SKILLS facts onto Archify IR. The schema is the one shipped by the pinned Archify version.
+This project keeps its own small typed IR mapping of MY-SKILLS facts; it does not vendor an external schema. The shape is defined by [`visualization-source-contract.yaml`](visualization-source-contract.yaml) and enforced by `validate_ir()` in the generator.
 
-Architecture documents use `components`, `boundaries`, and `connections`, with `schema_version` 1 under the v3.0.1 pin. Workflow documents use `lanes`, `phases`, `groups`, `mainPath`, `nodes`, and `edges`. New workflow IR uses schema version 2. An existing version-1 workflow would stay on version 1 only to preserve fixed geometry. None is stored here.
+Architecture documents use `components`, `boundaries`, and `connections` with `schema_version` 1. Workflow documents use `lanes`, `phases`, `groups`, `mainPath`, `nodes`, and `edges` with `schema_version` 2. Changing either version is a specification change: update this file, the contract, and the shape test together.
 
-## 7. External Archify version policy
+## 7. External renderer policy
 
 | Field | Value |
 | --- | --- |
-| source | `tt-a1i/archify` |
-| version | explicit, currently `3.0.1` |
-| update_policy | `check` |
-| auto_update | `false` |
+| external renderer | none (removed 2026-10-20) |
+| render | in-repo generator, offline, read-only |
 | network | builds stay offline and reproducible |
-| upgrade | 01 lifecycle check, then human confirmation, then update the record, then rebuild |
+| upgrade | none; adding a renderer requires a new approved revision of this file |
+
+There is no version record and no update policy, because nothing outside the repository is consumed. If a renderer is ever reintroduced, it must arrive with a pinned version, an offline build path, and a gate that fails closed.
 
 ## 8. CI / build pipeline
 
-On relevant path changes, regenerate IR and docs from sources. Shape or schema failure does not overwrite the last good artifact. Render with Archify only from a pinned local binary. This repository's CI does not fetch Archify. GitHub Pages is not configured here.
+On relevant path changes, regenerate IR and docs from sources. Shape or schema failure does not overwrite the last good artifact. Rendering is local: no download, unzip, or external process runs at build time. This repository's CI does not fetch anything. GitHub Pages is not configured here.
 
 Gates:
 
 | Gate | Check | On failure |
 | --- | --- | --- |
 | G-VIZ-01 | Source completeness and registry consistency | Block IR generation |
-| G-VIZ-02 | Shape check against the mapping pin | Do not write a new artifact |
+| G-VIZ-02 | IR shape check against the fixed schema versions | Do not write a new artifact |
 | G-VIZ-03 | Layout, route, and label diagnostics | Local repair. Do not delete a semantic edge to pass a visual check |
 | G-VIZ-04 | HTML artifact check | Keep last-good |
 | G-VIZ-05 | Architecture Delta review | A human confirms it on a PR |
+
+G-VIZ-01 and G-VIZ-02 are **domain-held**: the generator raises them, and `00_orchestrator` does not route them. `00_orchestrator/gates.md` records only that fact.
 
 ## 9. Architecture Delta
 
@@ -129,10 +131,10 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 {doc_root}/04-lab-reference/my-skills-viz/
 ├── index.html
 ├── architecture/
-│   ├── index.html
+│   ├── status.html
 │   └── architecture.json
 ├── workflow/
-│   ├── index.html
+│   ├── status.html
 │   └── runtime.workflow.json
 ├── skills/
 │   ├── index.html
@@ -141,11 +143,12 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 │   └── index.html
 ├── changes/
 │   └── latest-delta.html
-└── design-history/
-    └── index.html
+├── design-history/
+│   └── index.html
+└── build-manifest.json
 ```
 
-`architecture/index.html` and `workflow/index.html` are the Archify diagrams. `architecture/status.html` and `workflow/status.html` list the IR ids beside those drawings. The homepage links to the drawings.
+`architecture/status.html` and `workflow/status.html` list the IR ids and link to the IR JSON. The homepage links to both pages. There is no externally rendered diagram page to link to.
 
 ## 12. Repository safety rules
 
@@ -158,7 +161,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A schema failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, Archify version, and build status.
+Deleting generated lab `my-skills-viz` artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py`). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 
@@ -166,8 +169,8 @@ No pull request is opened by the branch that introduced this file. GitHub Pages 
 
 What is generated: IR JSON, homepage, status pages, skill pages from frontmatter, mounts page, Delta page, design-history index, `build-manifest.json` under lab OUT.
 
-What stays manual: this specification, `archify-version.yaml`, `visualization-source-contract.yaml`, and the generator.
+What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 
-Local check/rebuild: `python 04_analysis/personal/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Fetches/unzips the pinned Archify release when needed and runs `node bin/archify.mjs render` at `--quality standard`. Lab OUT defaults to `D:/0Grok/0doc/04-lab-reference/my-skills-viz`. A failed render or shape check returns before replacing last-good lab files. The Archify schema stays inside the release zip, not as a second contract in MY-SKILLS. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
+Local check/rebuild: `python 04_analysis/personal/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/04-lab-reference/my-skills-viz`. A failed shape check returns before replacing last-good lab files. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
 
-**Size note:** scripts/gen_visualization.py is ~60 KB (single generator). Prefer edits in place; split only if edit friction rises.
+**Size note:** scripts/gen_visualization.py is ~55 KB (single generator). Prefer edits in place; split only if edit friction rises.
