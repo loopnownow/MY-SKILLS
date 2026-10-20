@@ -21,4 +21,4 @@ Reporting checklists → `check-reporting`. Self-audit → `self-review`.
 
 - Do not invent n, AUC, ethics IDs, or unrun experiments.
 - Dual-set metrics: training fit / test evaluate. A validation set is an **external** cohort.
-- Figures: STROBE flow → `04-fig-flow`; statistical plots → `04-fig-plot`.
+- Figures: STROBE flow → `draw-flowchart`; statistical plots → `plot-figures`.

@@ -3,7 +3,7 @@
 **Owner:** `00_orchestrator` at G-06 / pre-submit when assurance ≥ conference-ready.
 **Seat:** Lee (06) runs adversarial preflight; Aitee (05) applies Track Changes after user decision. Not a substitute for external peer review.
 **Distill of:** ARIS `kill-argument`. Host-agnostic: two fresh independent reads (attack → adjudicate); no MCP binding.
-**Do not duplicate:** balanced weakness lists live in `review-critique` / `simulate-reviewers`; this is the **single strongest rejection** self-check.
+**Do not duplicate:** balanced weakness lists live in `self-review` / `simulate-reviewers`; this is the **single strongest rejection** self-check.
 
 ## Purpose
 

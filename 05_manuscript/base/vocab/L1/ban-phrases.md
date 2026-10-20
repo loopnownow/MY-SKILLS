@@ -97,7 +97,7 @@ These used to appear as recommended conclusion templates. Harvest of 389 unique 
 | suggesting its potential | name the task (`could assist [task]`) or drop the clause |
 | demonstrated good performance | report `AUC of X (95% CI: X–X)` in training **and** test |
 
-See `sentence-templates.md` and `corpus-phrase-bank.md` §1c.
+See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `corpus-phrase-bank.md` were merged into it on 2026-10-16).
 
 ## Also cut (stop-slop / detector overlap)
 

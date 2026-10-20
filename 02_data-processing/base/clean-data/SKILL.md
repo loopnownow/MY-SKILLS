@@ -7,7 +7,7 @@ description: >
 owner: "02_data-processing/base/clean-data/MODULE.md"
 ---
 
-# tables
+# clean-data
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

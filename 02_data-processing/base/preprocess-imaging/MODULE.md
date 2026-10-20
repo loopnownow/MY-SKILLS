@@ -15,7 +15,7 @@ owner: "02_data-processing/base/preprocess-imaging/MODULE.md"
 
 Quality-control the **region of interest**, **reader protocol**, and **mask geometry** before
 radiomics or modelling. This pack does **not** translate papers and does **not** launch a
-bilingual reader. Full-text retrieve is `03-lit-fulltext`. I/O is `02-imaging-io`.
+bilingual reader. Full-text retrieve is `lit-search`. I/O is `imaging-io`.
 
 ## When to use
 
@@ -51,6 +51,6 @@ bilingual reader. Full-text retrieve is `03-lit-fulltext`. I/O is `02-imaging-io
 
 ## Handoffs
 
-- Volumetric I/O → `02-imaging-io`
+- Volumetric I/O → `imaging-io`
 - Radiomics / habitat / leakage → `analyze-stats` / `preprocess-imaging`
-- Modelling / calibration → `04-stats-models` / `model-evaluation`
+- Modelling / calibration → `meta-analysis` / `model-evaluation`

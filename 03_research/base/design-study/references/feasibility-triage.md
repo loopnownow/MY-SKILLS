@@ -12,12 +12,12 @@ not encouragement.
 | n (patients **and** lesions) | Caps model complexity; lesion-level n ≠ patient-level n |
 | Centers / scanners / protocols | Decides whether external/multi-center validation is possible |
 | Label source & quality | Pathology > consensus read > single read > report-mined; noisy labels cap ceiling |
-| Segmentation masks | Needed for radiomics/segmentation; absence = annotation cost (→ `02-imaging-qc`) |
+| Segmentation masks | Needed for radiomics/segmentation; absence = annotation cost (→ `preprocess-imaging`) |
 | Events & follow-up | Prognosis needs event count + mature follow-up, not just patient count |
 | Molecular/pathology data | Enables radiogenomics only if **matched** to imaging (same patient/lesion) |
 | Time span | Enables temporal validation; flags scanner/protocol drift |
 
-## Task-ceiling heuristics (orientation, not hard cut-offs — confirm power with `04-stats-power`)
+## Task-ceiling heuristics (orientation, not hard cut-offs — confirm power with `calc-sample-size`)
 
 - **Segmentation:** needs high-quality masks; tens of well-annotated cases can pilot, but
   generalisable models need scanner/center diversity.
@@ -29,7 +29,7 @@ not encouragement.
 - **Treatment-response / recurrence:** needs defined response criteria, baseline+follow-up
   imaging, and the outcome ascertained the same way across centers.
 - **Radiogenomics:** binding constraint is the **matched** imaging∩omics intersection, almost
-  always much smaller than either alone (→ `02-radiomics-habitat` / `design-study`).
+  always much smaller than either alone (→ `analyze-stats` / `design-study`).
 
 ## Showstoppers (any one forces "Feasibility study only" or "Not yet")
 

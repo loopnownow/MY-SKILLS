@@ -5,7 +5,7 @@ description: Point-by-point reviewer response with rebuttal protocol and hard ga
 owner: "07_response/base/revise/MODULE.md"
 ---
 
-# review-response
+# revise
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

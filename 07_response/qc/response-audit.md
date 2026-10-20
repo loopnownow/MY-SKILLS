@@ -1,7 +1,7 @@
 # Response audit (00 gate pointer)
 
 **Owner:** `00_orchestrator` at Gate time.
-**Body stays in the fine-ID pack** (do not break `review-response`):
+**Body stays in the fine-ID pack** (do not break `revise`):
 
 → `07_response/base/revise/references/response-audit-gate.md`
 

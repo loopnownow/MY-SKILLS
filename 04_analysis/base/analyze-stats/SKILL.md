@@ -5,7 +5,7 @@ description: Test selection and assumption guidance.
 owner: "04_analysis/base/analyze-stats/MODULE.md"
 ---
 
-# stats-guide
+# analyze-stats
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

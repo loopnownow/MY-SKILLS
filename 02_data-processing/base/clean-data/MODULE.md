@@ -16,14 +16,14 @@ owner: "02_data-processing/base/clean-data/MODULE.md"
 cohort columns. Nested `impute/` implements fill/outlier. Nested `xlsx-office/` is spreadsheet
 XML packing (Anthropic office/xlsx skill). This file is **not** that financial-model skill.
 
-Imaging data-availability statements live in `02-imaging-io` [`data.md`](../imaging-io/references/data.md),
+Imaging data-availability statements live in `imaging-io` [`data.md`](../imaging-io/references/data.md),
 not here.
 
 ## Scope
 
 | In | Out |
 |---|---|
-| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`04-stats-models` / `model-evaluation`) |
+| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`meta-analysis` / `model-evaluation`) |
 | Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
@@ -87,7 +87,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 
 ## What not to do
 
-- **No LASSO / paper model fitting** here — that is `04-stats-models` / `model-evaluation` /
+- **No LASSO / paper model fitting** here — that is `meta-analysis` / `model-evaluation` /
   `analyze-stats` (preparation only).
 - **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
   table files.
@@ -115,7 +115,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 
 - Missing/outlier implementation → `clean-data` `impute/`
 - Spreadsheet XML packing / recalc / financial xlsx → `clean-data` `xlsx-office/`
-- Imaging I/O + availability statements → `02-imaging-io` (including `data.md`)
+- Imaging I/O + availability statements → `imaging-io` (including `data.md`)
 - Radiomics / leakage audit on feature matrices → `analyze-stats`
-- Modelling / calibration / DCA → `04-stats-models` / `model-evaluation`
+- Modelling / calibration / DCA → `meta-analysis` / `model-evaluation`
 - Reporting checklists → `check-reporting`

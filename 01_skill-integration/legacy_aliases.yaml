@@ -51,6 +51,12 @@ aliases:
   # Round-4 2026-10-20: batch-cohort archived into clean-data (shared body, no separate doc)
   batch-cohort: clean-data
 
+  # 2026-10-20 deep-scan fix: B-era ids that were still cited in live bodies
+  # (canonical targets taken from registry archived rows / renewals)
+  04-stats-power: calc-sample-size
+  03-lit-fulltext: lit-search
+  03-lit-cite: verify-refs
+
   # Round-3 2026-10-17 archive/absorb fine-id aliases
   check-grant-proposal: grant-builder
   scientific-critical-thinking: self-review

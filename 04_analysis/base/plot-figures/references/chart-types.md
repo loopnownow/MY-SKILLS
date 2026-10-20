@@ -16,7 +16,7 @@ Map the **message** to the chart; reviewers expect specific ones for specific cl
 | Feature/sample structure | **Heatmap / clustermap** | clear colorbar with units; clustering method noted |
 | Multi-omics latent structure | **Factor/loadings plot** | factor variance explained; top loadings |
 | Cell-type composition | **Stacked bar** | fractions sum to 1; consistent cell-type colors |
-| Patient selection | **Not this pack** — `04-fig-flow` | STROBE / enrolment Figure 1 (type A). `patient-flow.md` and `draw_strobe_flow.py` live in `04-fig-flow`, not here. |
+| Patient selection | **Not this pack** — `draw-flowchart` | STROBE / enrolment Figure 1 (type A). `patient-flow.md` and `draw_strobe_flow.py` live in `draw-flowchart`, not here. |
 | Confusion of classes | **Confusion matrix** | counts + row/col normalised option |
 | Whole-study summary (graphical/visual abstract) | **Graphical abstract** | one schematic panel: data/cohort → method/pipeline → key finding (icon + one headline number); no new data, must match numbers already in the main figures; commonly required/expected by Nature Communications, npj-family, Cell Reports Medicine — see `nature-figure-spec.md`; keep to the venue's aspect-ratio/size spec (verify live) |
 

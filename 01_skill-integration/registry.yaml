@@ -15,7 +15,7 @@
 # Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier.
 meta:
   version: "4.0"
-  change_id: CHG-20261007-001
+  change_id: CHG-20261020-deepscan-fix
   fine_id_count_canonical: 27  # session-pick mounts; batch-cohort archived 2026-10-20 (was 28)
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
@@ -267,7 +267,7 @@ mounts:
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: "Sole fine id for imaging-qc. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
+    note: "Sole fine id for preprocess-imaging. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: analyze-stats
     label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
@@ -366,7 +366,7 @@ mounts:
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    note: "Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in review-peer/external-principles. Merge 2026-10-17 — body in A 06_review/base/simulate-reviewers (source my-skills in-repo)."
+    note: "Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in peer-review/external-principles. Merge 2026-10-17 — body in A 06_review/base/simulate-reviewers (source my-skills in-repo)."
   - id: tighten-response
     label: "隔离与正文精简原则"
     coarse: review-response
@@ -375,7 +375,7 @@ mounts:
     a_domain: 07_response
     status: MOUNTED
     load_priority: P2
-    note: "Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in review-response/external-principles. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/tighten-response (source my-skills in-repo)."
+    note: "Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in revise/external-principles. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/tighten-response (source my-skills in-repo)."
 
 archived:
   - id: deidentify
@@ -384,13 +384,13 @@ archived:
     revive_condition: 非脱敏实时院内系统时复活
   - id: profile-imaging
     status: ARCHIVED
-    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    reason: 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
     revive_condition: B 出现独立的数据集画像技能时重评
     old_path: 02-data-processing/imaging-qc/
     historical: true
   - id: uncertainty-imaging
     status: ARCHIVED
-    reason: 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+    reason: 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
     revive_condition: B 出现独立的不确定性量化技能时重评
     old_path: 02-data-processing/imaging-qc/
     historical: true
@@ -569,7 +569,7 @@ archived:
   - id: scientific-visualization
     status: ARCHIVED
     reason: principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-    revive_condition: full Scientific visualization skill body needed beyond fig-plot principles and owner re-approves
+    revive_condition: full Scientific visualization skill body needed beyond plot-figures principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/scientific-visualization/
     historical: true

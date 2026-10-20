@@ -205,7 +205,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("MY-SKILLS-base", text)
         self.assertIn("ethics", low)
         self.assertIn("03_research", text)
-        self.assertIn("PROPOSED", text)
+        self.assertIn("ARCHIVED", text)
         self.assertIn("ask-each-run", text)
         self.assertIn("draw-flowchart", text)
         self.assertIn("plot-figures", text)
@@ -216,7 +216,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("04-stats-power", text)
         self.assertIn("01_skill-integration/registry.yaml", text)
         self.assertNotRegex(text, r"52 fine")
-        self.assertIn("per registry", low)
+        self.assertIn("stay archived", low)
         self.assertNotRegex(low, r"≤\s*3")
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("Default candidate: `Imbad0202", text)
@@ -432,9 +432,9 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("skill-level prefix", gates)
         preset = read("01_skill-integration/references/presets/review-hybrid.yaml")
         self.assertIn("skills: [verify-refs]", preset)
-        self.assertIn("skills: [stats-guide]", preset)
+        self.assertIn("skills: [analyze-stats]", preset)
         self.assertIn("required: false", preset)
-        self.assertIn("skills: [review-critique]", preset)  # self-review; scientific-critical-thinking archived
+        self.assertIn("skills: [self-review]", preset)  # self-review; scientific-critical-thinking archived
 
 
     def test_author_vs_prefix(self) -> None:

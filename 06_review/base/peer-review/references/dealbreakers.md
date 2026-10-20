@@ -14,7 +14,7 @@ and the fix to hand back.
 | **Overclaiming** | "Clinically applicable" from retrospective AUC; "causal"/"first" | Re-word to bounded claims (→ `write-paper` / `polish-language`) |
 | **Weak/absent baseline** | DL "wins" vs a strawman or nothing | Add a fair, tuned baseline (radiomics/clinical/radiologist) |
 | **Prevalence/spectrum mismatch** | Artificial 1:1; enriched cohort claimed as screening | Report real prevalence; bound the setting |
-| **Data/code unavailable without reason** | Bare "on request"; no accession | Provide repository/accession or a justified controlled-access route (→ `02-imaging-io` (`data.md`) |
+| **Data/code unavailable without reason** | Bare "on request"; no accession | Provide repository/accession or a justified controlled-access route (→ `imaging-io` (`data.md`) |
 | **Ethics inconsistency** | Sharing promise exceeds consent; no approval | Align ethics ↔ availability; supply approval/consent (→ `write-paper` `radiology-ethics/approval-consent.md`) |
 
 ## Triage rule

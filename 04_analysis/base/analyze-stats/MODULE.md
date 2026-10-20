@@ -14,8 +14,8 @@ owner: "04_analysis/base/analyze-stats/MODULE.md"
 # Statistical test selection
 
 Choose an appropriate test and check the assumptions that justify it. This pack does **not**
-teach sample-size/power (→ `04-stats-power`), Bayesian/model implementation (→ `04-stats-models`),
-or the `assumption_checks.py` script (that file lives in `04-stats-models`).
+teach sample-size/power (→ `calc-sample-size`), Bayesian/model implementation (→ `meta-analysis`),
+or the `assumption_checks.py` script (that file lives in `meta-analysis`).
 
 Lab stats policy stays in A personal.
 
@@ -66,11 +66,11 @@ violations with n > 30 per group may still support a parametric test; otherwise 
 non-parametric alternative or Welch variants (`assumptions_and_diagnostics.md`).
 
 Do **not** import `scripts.assumption_checks` from this pack — that module is under
-`04-stats-models/scripts/`.
+`meta-analysis/scripts/`.
 
 ## Handoffs
 
-- n / power / Riley → `04-stats-power`
-- Bayesian / regression implementation → `04-stats-models`
+- n / power / Riley → `calc-sample-size`
+- Bayesian / regression implementation → `meta-analysis`
 - Calibration / DCA / external validation → `model-evaluation`
-- Plots → `04-fig-plot`
+- Plots → `plot-figures`

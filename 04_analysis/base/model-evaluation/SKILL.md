@@ -5,6 +5,6 @@ description: Calibration, DCA, external validation, and deterministic leakage ga
 owner: "04_analysis/base/model-evaluation/MODULE.md"
 ---
 
-# model-eval
+# model-evaluation
 
 Capability body: [MODULE.md](MODULE.md). Fine id `model-evaluation` (covers former `model-validation`).

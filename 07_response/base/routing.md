@@ -1,7 +1,7 @@
 # Response routing table (07 capability · short)
 
 **Owner:** Aitee / `07_response` (final authority). Lee does **not** draft responses.
-**Distill of:** Yuan1z `nature-response` decision-type × task-mode shape (Apache-2.0). Short table only; bodies stay in `review-response/` / `tighten-response/`.
+**Distill of:** Yuan1z `nature-response` decision-type × task-mode shape (Apache-2.0). Short table only; bodies stay in `revise/` / `tighten-response/`.
 
 ## Decision-type × default posture
 

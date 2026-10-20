@@ -20,8 +20,8 @@ Each gate is `PASS`, `CONDITIONAL`, or `FAIL`.
 | Results-as-validation | Every major claim maps to a result/figure/table and does not exceed evidence | `write-paper`, `analyze-stats` |
 | Statistical completeness | CIs, calibration, DCA/clinical utility when relevant, multiplicity, survival assumptions, sample-size/event limits | `analyze-stats` / `model-evaluation` |
 | Reporting stack | CLAIM/TRIPOD+AI/CLEAR/STARD/IBSI/RQS/Nature Reporting Summary items are materially satisfied | `check-reporting` |
-| Figure/data crosswalk | Figures match data and manuscript claims; no render/overlap defects | `04-fig-plot` / `04-fig-flow` |
-| Citation verification | Key background, novelty, comparison, and guideline claims are supported by a fixed two-pass claim audit | `03-lit-cite` / `write-paper` radiology-citation |
+| Figure/data crosswalk | Figures match data and manuscript claims; no render/overlap defects | `plot-figures` / `draw-flowchart` |
+| Citation verification | Key background, novelty, comparison, and guideline claims are supported by a fixed two-pass claim audit | `verify-refs` / `write-paper` radiology-citation |
 | Ethics/data availability | IRB/consent/de-identification/data availability/code availability are consistent | `write-paper` radiology-ethics |
 | Reviewer objection register | Likely objections are anticipated with evidence or bounded language | relevant skill |
 

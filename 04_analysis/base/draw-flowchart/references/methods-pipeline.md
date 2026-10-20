@@ -8,4 +8,4 @@ Type C is a different figure: boxes for MRI / segmentation / feature extraction 
 
 If the manuscript also needs patient selection, draw that as a separate type A Figure 1. Do not glue a methods bar under the STROBE spine (the auto-generated lab-figure anti-pattern).
 
-Imaging montages (annotated slices) stay in `04-fig-plot` `imaging-panels.md`; they are not patient-flow and not a STROBE substitute.
+Imaging montages (annotated slices) stay in `plot-figures` `imaging-panels.md`; they are not patient-flow and not a STROBE substitute.

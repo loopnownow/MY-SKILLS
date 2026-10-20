@@ -1,7 +1,7 @@
 ---
 name: "xlsx-office"
 domain: "02_data-processing"
-description: Nested Anthropic office/xlsx mechanics (not the 02-tables clinical front).
+description: Nested Anthropic office/xlsx mechanics (not the clean-data clinical front).
 owner: "02_data-processing/base/clean-data/xlsx-office/MODULE.md"
 ---
 

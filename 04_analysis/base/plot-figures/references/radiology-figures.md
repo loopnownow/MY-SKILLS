@@ -30,7 +30,7 @@ widths, display-item limits, Source Data expectations, and legend conventions.
 
 | Figure/Table | Purpose | Contents |
 |---|---|---|
-| Figure 1 | study design | Patient-selection Figure 1 is `04-fig-flow` (STROBE type A). Do not draw enrolment flow here. |
+| Figure 1 | study design | Patient-selection Figure 1 is `draw-flowchart` (STROBE type A). Do not draw enrolment flow here. |
 | Table 1 | cohort description | demographics, clinical variables, endpoints by split |
 | Figure 2 | model pipeline | segmentation, feature extraction/modeling, validation |
 | Table 2 | model performance | AUC/C-index, CI, sensitivity, specificity, calibration |
@@ -117,7 +117,7 @@ Each legend should state:
 
 ## Common missing figures
 
-- Patient flow diagram (→ `04-fig-flow`, not this pack).
+- Patient flow diagram (→ `draw-flowchart`, not this pack).
 - External validation performance.
 - Calibration curve.
 - Decision curve analysis.

@@ -5,7 +5,7 @@ description: Generic IMRAD draft. Polish and venue are other ids.
 owner: "05_manuscript/base/write-paper/MODULE.md"
 ---
 
-# write-manuscript
+# write-paper
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

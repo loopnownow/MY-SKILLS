@@ -6,6 +6,6 @@ description: Generic grant slot; A Voice A/B still wins.
 owner: "03_research/base/grant-builder/MODULE.md"
 ---
 
-# design-grant
+# grant-builder
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.

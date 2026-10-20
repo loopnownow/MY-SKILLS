@@ -137,7 +137,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertTrue(preset.is_file())
         yh = preset.read_text(encoding="utf-8")
         self.assertIn("skills: [verify-refs]", yh)
-        self.assertIn("skills: [stats-guide]", yh)
+        self.assertIn("skills: [analyze-stats]", yh)
         self.assertIn("verify-refs", yh)
         self.assertIn("my-skills", yh)
         self.assertNotIn("openclaw-medical-skills", yh)

@@ -20,7 +20,7 @@ rebuilding a structured abstract into an unstructured one is easy but not the re
 | Title | Concrete, modality + finding | Often shorter and more declarative/punchy; still no "novel"/"first" without a live literature check (→ `design-study` / `lit-search`) |
 | Main-text word limit | Verify current limit | Typically tighter than _Radiology_ and **excludes** Methods (see below) — verify live per venue |
 | Methods placement | Inline, ordered section (see methods.md) | Frequently placed **after References**, online-only, not counted in the main word limit — still needs the same content (design, cohort, technique, model/statistics) and the same reporting-guideline coverage; check the specific venue's current instructions for placement |
-| Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `04-fig-plot`/`nature-figure-spec.md` and A personal |
+| Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `plot-figures`/`nature-figure-spec.md` and A personal |
 | Reference style | Author–year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — hand off to `write-paper` `radiology-citation/export-formats.md` |
 | Statistics disclosure | Reported in Methods/Results prose | Prose **plus** a separate **Reporting Summary** for life-sciences submissions (→ `check-reporting`) |
 
@@ -91,7 +91,7 @@ to stand alone from the main text.
    venue (→ `check-reporting`).
 
 ## Handoffs
-- Figure sizing, panel-letter case, Extended Data figure limits → `04-fig-plot` /
+- Figure sizing, panel-letter case, Extended Data figure limits → `plot-figures` /
   `../../../../04_analysis/base/plot-figures/references/nature-figure-spec.md`.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
   → A personal.

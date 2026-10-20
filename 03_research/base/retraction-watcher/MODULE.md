@@ -173,10 +173,8 @@ python scripts/main.py --input paper.pdf --format summary
 
 ## References
 
-See `references/` for:
-- `citation-formats.md`: Supported citation format specifications
-- `api-documentation.md`: Database API reference and rate limits
-- `example-reports/`: Sample output reports for testing
+See `references/audit-reference.md` for the audit criteria. Upstream format specs and API
+notes were not vendored (upstream pack text stays upstream).
 
 ---
 

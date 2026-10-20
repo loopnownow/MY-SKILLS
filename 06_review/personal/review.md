@@ -33,7 +33,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
   - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
   - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[lit-search]`（个人/细 ID 任务）
   - 挂载 + 个人都成立 → **双标**，例：`[Nature:simulate-reviewers] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
-- **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。**禁止默认回落 `[A:personal]`**（Rules：`manuscript-docx.md` §1）。
+- **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。**禁止默认回落 `[A:personal]`**（Rules：`My rule.md` §5.1 + 本文件 §0）。
 - 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。无从判定来源时才用 `[A:personal]`。
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍由 Aitee 落 Track Changes，Lee 只批注。
 - **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee 默认不改正文。

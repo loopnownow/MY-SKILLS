@@ -8,7 +8,7 @@ owner: "07_response/base/response-tone-polisher/MODULE.md"
 
 # response-tone-polisher
 
-Tone-only softener for reviewer responses. Structure / point-by-point remains `revise` / `review-response`.
+Tone-only softener for reviewer responses. Structure / point-by-point remains `revise`.
 Absorbed from AIPOCH on 2026-10-17 (MIT).
 
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

@@ -6,6 +6,6 @@ description: Protocol write/fill slot.
 owner: "03_research/base/write-protocol/MODULE.md"
 ---
 
-# design-protocol
+# write-protocol
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.

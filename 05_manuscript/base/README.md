@@ -4,10 +4,10 @@ Capability bodies for A05 manuscript. No domain-level SKILL.md.
 
 | Pack | Path | Role |
 |---|---|---|
-| `write-manuscript` | `write-manuscript/` | Generic writing |
-| `write-reporting` | `write-reporting/` | TRIPOD / CLAIM / CLEAR |
+| `write-paper` | `write-paper/` | Generic writing |
+| `check-reporting` | `check-reporting/` | TRIPOD / CLAIM / CLEAR |
 | `write-venue` | `write-venue/` | Venue templates / house style (not 选刊) |
-| `write-polish` | `write-polish/` | Generic academic English (not de-AI) |
+| `polish-language` | `polish-language/` | Generic academic English (not de-AI) |
 | `humanize` | `humanize/` | Generic AI-pattern removal (personal de-AI stays A) |
 | `vocab` | `vocab/` | L1/L2/L3 vocabulary layers |
 

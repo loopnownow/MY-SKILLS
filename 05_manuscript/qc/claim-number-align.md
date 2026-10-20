@@ -25,7 +25,7 @@ Points to **G-FACT** composition in `00_orchestrator/gates.md`. Integrity · pre
 |---|---|---|
 | **Hook B** / **CN-R** | After CN-1–4; background/methods claim of the form “normal is X–Y” / “cutoff was X” | `CN-R-UNPROVENANCED`: ask author to add cite or mark as study-specific dichotomization (`study_cutoff`), not institutional RI. |
 
-Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `D:\0Grok\0doc\04-lab-reference\lab-ref-ranges\qc\gate-hooks.md`. Detect only; do not demand RI for Table-1 cohort stats or `path_category` labels.
+Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\04-lab-reference\lab-ref-ranges\qc\gate-hooks.md`. Detect only; do not demand RI for Table-1 cohort stats or `path_category` labels.
 
 **PASS:** CN-1…4 clean or commented with edit plan.
 **FAIL:** silent mismatch → HARD block (G-FACT) before next node / before 06.

@@ -12,7 +12,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 
 | Kind | Path | Rule |
 |------|------|------|
-| Scratch / old drafts / one-off scripts | `0del/`（A 类 `{del_root}\<项目名>\`；其他 `{del_root}`） | Never treat as current results |
+| Scratch / old drafts / one-off scripts | `{DEL}/<task>/`（本机新建目录只允许 `{DEL}/_by-project/` 或 `{DEL}/_by-function/`） | Never treat as current results |
 | Shared stats library | `{script_modules}/` (gold) | Entry: `PYTHONPATH={script_stats}` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `{script_modules}`, do not modify that library; project HTML only points at it. |
 | Ops / clean-data / stats | `0script/` (besides `stats-analysis/modules/`) | Organize / clean / sync — **not** the stats engine. Children: `data-processing/clean-data/` `data-processing/clinical-data-extraction/` `data-processing/preprocess-imaging/` `stats-analysis/model-validation/` `figures/draw-flowchart/` `study-design/fill-protocol/` `manuscript-body/write-paper/` `review-response/revise/` `_templates/` `sync/`. 细 ID 索引：`{script_root}\SCRIPT_ROLES.md`. |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
@@ -21,7 +21,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 
 | Project-level QC | `<project>/ref/qc.html` | Main QC is `<project>/ref/qc.html`. External QC is `<project>/ref/qc-ext-*.html` (the filename is never `qc.html`). Console「整体 QC」or pipeline start. Combined workbook + imaging QC. Grouping / subgroup → `04_analysis/personal/pipeline.md`. |
 
-Same folder, multiple manuscripts: keep the latest that matches the current HTML; archive the rest to `0del` only if the user asks.
+Same folder, multiple manuscripts: keep the latest that matches the current HTML; archive the rest to `{DEL}` only if the user asks.
 
 ## Named entry points (do not vendor `.py`)
 
@@ -34,7 +34,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 1. Align clinical rows to the radiomics ID list. Unmatched IDs go to a separate sheet. Do not rename radiomics feature columns after alignment.
 2. Clinical categoricals: English labels (`Positive`/`Negative`, `Male`/`Female`). Do not write 0/1 unless the column is a score or a count.
 3. Drop columns above the missingness cutoff (lab default **>50%**; user may raise it) **before** imputation.
-4. Impute with `04_analysis` `data-impute` (group-stratified; default `mice`; decimal-align). Use the global `{script_modules}\utils\u_impute.py`（独立运行：`0script\data-processing\clean-data\tidy_complete.py --strategy impute`）.
+4. Impute with the `clean-data` impute module (`02_data-processing/base/clean-data/impute/`; group-stratified; default `mice`; decimal-align). Use the global `{script_modules}\utils\u_impute.py`（独立运行：`0script\data-processing\clean-data\tidy_complete.py --strategy impute`）.
 5. `exc` sheet: first column = IDs to drop. **Exclude, then analyze.** Building an analysis workbook creates a blank `exc` if missing. Sync 已并入 `modules/stats/data_io.py` + `false_class.py`；旧同步脚本已归档，不再运行。
 6. Columns at or before `record_id` (IDs, names, match-status) do not enter models.
 
@@ -73,7 +73,7 @@ Canonical layout (enforced by `{script_root}\sync\sync_modules.py`, 2026-09-04):
 
 Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `{script_modules}`.
 
-## A-class project (L:\00used\<project>\)
+## A-class project (`{WORK_A}\<project>\`)
 
 - Project scripts → project `0script`; project notes → project `0doc`.
 - `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or Downloads).
@@ -81,9 +81,9 @@ Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint res
 - Merge final tables that share a key (one description block, value columns prefixed). Moving an original out of `0result` needs approval.
 - Root keeps only: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `0result`, `ref`. Do not store project scripts in `{WORK_B}\0script`.
 - Before moving a script or doc, search `import` / `addpath` / `settings.ini` / README. Any un-updated reference blocks the move. After a move, fix paths and the `0doc` examples, then test.
-- Logs and dead old files → `{DEL}` (approval first; use `D:\0del`). Temp files → Rules §5.
+- Logs and dead old files → `{DEL}` (approval first; use `{DEL}`). Temp files → Rules §5.
 
-## B-class subproject (D:\0Grok\<subproject>\)
+## B-class subproject (`{WORK_B}\<subproject>\`)
 
 - Reusable scripts → `{WORK_B}\0script`; long-term rules / references → `{WORK_B}\0doc`.
 - Engineering files to keep → subproject `ref`; newest SCI manuscript → subproject root. While a manuscript is being edited, keep it out of `{DEL}` / analysis output / `ref` / `结果`. Analysis exports stay in an analysis-output subfolder.

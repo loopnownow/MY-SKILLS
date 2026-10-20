@@ -21,11 +21,11 @@ personal:
 overrides:
   - id: write-paper
     source: my-skills
-    skills: [write-manuscript]
+    skills: [write-paper]
     paths: [05_manuscript/base/write-paper/]
     role: structure-draft
     required: true
-    prefix_example: "[write-manuscript]"
+    prefix_example: "[write-paper]"
   - id: verify-refs
     source: my-skills
     skills: [verify-refs]

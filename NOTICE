@@ -1,7 +1,7 @@
 MY-SKILLS
 ==========
 
-Lab skill pack (00–07 + skill-harvest). Primary license: MIT (see LICENSE).
+Lab skill pack (00–07). Primary license: MIT (see LICENSE). Former `skill-harvest` is archived outside this repo (see `README.md`).
 
 Third-party / adapted notices
 -----------------------------
@@ -37,7 +37,7 @@ SOFTWARE.
 
 ### Archify
 
-Pinned Archify artifacts live under `04_analysis/personal/visualization/` (see `archify-version.yaml`; compiler zip alongside when present). Read-only visualization compiler only.
+Archify-derived artifacts (compiler zip, `archify-version.yaml`) were removed on 2026-10-20; no Archify code remains in this repo. IR to HTML is rendered locally by `04_analysis/personal/visualization/scripts/gen_visualization.py`.
 
 ### Agentic Reviewer System (ARS) — topology inspiration only
 
@@ -45,9 +45,13 @@ Several `05_manuscript/qc/` and `06_review/qc/` checklists and `00_orchestrator/
 
 ### Mounted upstream packs
 
-Bytes under local `mounts-cap/` (not always in git) keep their upstream licenses.
-Registry sources: MedSci, Scientific, Nature, AIPOCH (non-base = default deny); live default = in-repo my-skills.
-Do not re-license upstream pack text when syncing cache.
+Upstream bytes that were absorbed into this repo keep their upstream licenses:
+AIPOCH `response-tone-polisher` → `07_response/base/response-tone-polisher/`,
+AIPOCH `retraction-watcher` → `03_research/base/retraction-watcher/`.
+The former local `mounts-cap/` cache was retired 2026-10-20 (bytes moved to `D:\0del`).
+Registry sources: `scientific-agent-skills` and `nature-skills` appear only on archived rows
+(non-base = default deny); live default = in-repo `my-skills`.
+Do not re-license upstream pack text when syncing.
 
 ### Journal data
 

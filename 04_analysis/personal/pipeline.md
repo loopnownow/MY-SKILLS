@@ -97,7 +97,7 @@ Validation modes keep the clinical meanings: `refit` locks the feature list and 
 
 ## Missingness and HTML
 
-- Drop columns above the missingness cutoff **before** `data-impute` (default >50%).
+- Drop columns above the missingness cutoff **before** imputation (`02_data-processing/base/clean-data/impute/`; default >50%).
 - Results HTML: if a survival curve is drawn twice (sidebar + main), keep the **main** pane only.
 
 ## Run

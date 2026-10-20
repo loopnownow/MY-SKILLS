@@ -20,14 +20,14 @@ personal:
 overrides:
   - id: peer-review
     source: my-skills
-    skills: [review-peer]
+    skills: [peer-review]
     paths: [06_review/base/peer-review/]
     role: clinical-reporting-findings
     required: true
     prefix_example: "[peer-review]"
   - id: self-review
     source: my-skills
-    skills: [review-critique]
+    skills: [self-review]
     paths: [06_review/base/self-review/]
     role: pre-submission-integrity
     required: true

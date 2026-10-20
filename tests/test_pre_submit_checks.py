@@ -298,13 +298,22 @@ class WordTrackChangesOwnership(unittest.TestCase):
 
     def test_full_sentences_appear_only_in_contract(self) -> None:
         hits = {phrase: [] for phrase in self.PHRASES}
-        tracked = subprocess.check_output(
-            ["git", "-c", "core.quotepath=false", "ls-files"],
-            cwd=ROOT,
-            text=True,
-            encoding="utf-8",
-        )
-        for rel in tracked.splitlines():
+        try:
+            tracked = subprocess.check_output(
+                ["git", "-c", "core.quotepath=false", "ls-files"],
+                cwd=ROOT,
+                text=True,
+                encoding="utf-8",
+            ).splitlines()
+        except (OSError, subprocess.CalledProcessError):
+            # Not a git worktree (the runtime tree is a plain copy) -> walk instead.
+            tracked = [
+                p.relative_to(ROOT).as_posix()
+                for p in ROOT.rglob("*")
+                if p.is_file()
+                and not any(x in p.parts for x in (".git", "__pycache__", ".pytest_cache"))
+            ]
+        for rel in tracked:
             if not rel or rel in self.SCAN_SKIP:
                 continue
             if rel.startswith("mounts-cap/"):

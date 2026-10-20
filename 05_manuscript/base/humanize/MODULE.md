@@ -10,7 +10,7 @@ owner: "05_manuscript/base/humanize/MODULE.md"
 
 Generic AI-pattern removal for manuscripts and response letters.
 Does **not** replace A personal de-AI (`05_manuscript/personal/` forbidden lists still win).
-Not general copy-editing (`polish-language` / `write-polish`).
+Not general copy-editing (`polish-language`).
 
 Absorbed from MedSci `skills/humanize/` on 2026-10-17 (MIT).
 

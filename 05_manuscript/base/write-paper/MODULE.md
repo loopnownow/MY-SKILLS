@@ -72,7 +72,7 @@ Discussion). This pack is **generic IMRAD only**.
 | Results | [radiology-writing/results.md](radiology-writing/results.md) |
 | Discussion | [radiology-writing/discussion.md](radiology-writing/discussion.md) |
 | Citation gate | [radiology-citation/claim-verification-gate.md](radiology-citation/claim-verification-gate.md) |
-| Figures | patient-flow → `04-fig-flow`; plots → `04-fig-plot` |
+| Figures | patient-flow → `draw-flowchart`; plots → `plot-figures` |
 
 ## Envelope
 

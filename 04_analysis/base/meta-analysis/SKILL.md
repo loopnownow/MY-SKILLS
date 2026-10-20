@@ -5,7 +5,7 @@ description: Bayesian notes and assumption-check script.
 owner: "04_analysis/base/meta-analysis/MODULE.md"
 ---
 
-# stats-models
+# meta-analysis
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
