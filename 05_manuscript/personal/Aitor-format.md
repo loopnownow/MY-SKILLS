@@ -11,7 +11,7 @@ Formerly `house-format.md`.
 `{doc_review_replies}\_templates\02-layout-template.docx`
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
-`{lab_root}\polishing\lxf_RP\Response\Manuscript_Response_polished.docx` (CI en-dash; table `NC`) ·  
+`{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·  
 `{lab_root}\polishing\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
 Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
@@ -32,7 +32,7 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
 - Ownership: see `00_orchestrator/references/ownership-contract.md`.
-- **Do not change Word format** on an existing `.docx`. If a sentence differs from the last agent wording, treat it as the user’s edit: ask before touching it; do not restore the old sentence. HTML / PDF / scripts are out of scope. See `06_review/personal/word-edit-rules.md`.
+- **Do not change Word format** on an existing `.docx`. If a sentence differs from the last agent wording, treat it as the user’s edit: ask before touching it; do not restore the old sentence. HTML / PDF / scripts are out of scope. See `06_review/personal/word-edit.md`.
 - **Do not overwrite existing front-matter:** if the manuscript already states corresponding author, funding, ethics (Date/NO), or affiliations, keep that text. Never replace it with lab defaults/templates unless the user explicitly asks. Missing items → Word comment / ask; do not fill placeholders with defaults.
 
 ---

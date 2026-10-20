@@ -396,7 +396,7 @@ Strip leading source tags like `[A:personal]` before counting slots; tags stay a
 
 **Bad:** 方法部分整体不够清晰，建议完善并提升规范性，同时注意语言润色。
 
-Full thresholds and regexes: `{doc_lab_ste}\` (`config.yaml` comment_schema; `Lab-STE-SPEC.md` CM-01). Summary pointer: `05_manuscript/personal/lab-ste.md`. Do not vendor the lab-ste tree.
+Full thresholds and regexes: `{doc_lab_ste}\` (`config.yaml` comment_schema; `Lab-STE-SPEC.md` CM-01). Summary pointer: `05_manuscript/base/vocab/L3/lab-ste.md`. Do not vendor the lab-ste tree.
 
 Internal-review corpus (the user's own comments; style source only): `{doc_review_corpus}\`. Do not vendor.
 

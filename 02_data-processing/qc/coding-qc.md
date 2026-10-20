@@ -3,7 +3,7 @@
 副标题：亦覆盖科研数据处理脚本（R / Python / MATLAB / shell；raw → analysis-ready）的轻量 **Code QC Core**（吸收自 awesome-copilot 类稳定原则，已医学科研适配）。
 
 来源：2026-09-07 Deep Code QC Report（`modules.zip` / `{script_modules}`）+ 2026-09-22 Code QC Core 吸收方案  
-家园：`MY-SKILLS/02_data-processing/qc/coding-qc.md`（由 `code-refactoring/references/code-qc.md` 迁入）  
+家园：`02_data-processing/qc/coding-qc.md`（由 `code-refactoring/references/code-qc.md` 迁入）  
 **不**进：MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc（仓治理）、`preprocess-imaging`（影像质控）、新建顶层技能、B 挂载菜单、平行的 `02_data-processing/code-qc.md` / `coding-principles.md`、mount Copilot `playbooks/quality/` / Council / CI。
 
 ## 何时触发
@@ -87,7 +87,7 @@ Verdict — PASS / PASS_WITH_WARNINGS / FAIL
 - 不要用裸 `except Exception: pass`（或等价写法）吞掉错误，使失败的运行看起来像成功结束；失败必须可见。
 
 ### QC 废料进 0del
-- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物：A 类放到 `{del_root_a}\<项目名>\`；其他放到 `{del_root}`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
+- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物：A 类放到 `{del_root}\<项目名>\`；其他放到 `{del_root}`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
 
 ## 明确不要
 - 不把整树 `.py` / 患者表 / 课题 Excel vendor 进 GitHub

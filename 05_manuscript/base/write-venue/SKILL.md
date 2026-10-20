@@ -11,7 +11,7 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
 ## Journal lists (A owns 选刊)
 
-Venue formatting only. Journal **selection** and list tiers live in A `03_research/medical-journal-submit/`:
+Venue formatting only. Journal **selection** and list tiers live in A `03_research/base/find-journal/`:
 - blacklist (never)
 - graylist (Frontiers series; use only if better non-gray options cannot fill the layer, or user asks)
 - whitelist-submitted (投过/选刊, seeded from submission-urls)

@@ -98,7 +98,7 @@ Nature-specific.
 - Figure content rules (chart choice, imaging panels, de-identification) → `04-fig-plot`
   main workflow (venue-independent).
 - Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-venue/` /
-  `../../../05_manuscript/base/write-venue/radiology-writing/nature-family-shape.md`.
+  `../../../../05_manuscript/base/write-venue/radiology-writing/nature-family-shape.md`.
 - Source Data / Extended Data availability wording, "condition of publication" language →
   A personal.
 - Reporting Summary cross-check for any figure that reports a statistic → `check-reporting`.

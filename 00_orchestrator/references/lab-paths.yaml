@@ -5,11 +5,9 @@ version: 2
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
-  # A类废料：{del_root_a}\<项目名>\
-  del_root_a: "L:\\0del"
   script_root: "D:\\0Grok\\0script"
   doc_root: "D:\\0Grok\\0doc"
-  skills_git: "C:\\Users\\loopn\\GitHub\\MY-SKILLS"
+  skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
   mounts_cap: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   mounts_cap_cache: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"

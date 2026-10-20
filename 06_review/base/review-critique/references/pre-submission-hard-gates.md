@@ -27,7 +27,7 @@ Each gate is `PASS`, `CONDITIONAL`, or `FAIL`.
 
 ## Two-pass claim audit gate
 
-Before final submission, run or request `../../05_manuscript/base/write-manuscript/radiology-citation/claim-verification-gate.md` for the abstract, Key Results, figure legends, tables, Discussion comparison claims, novelty claims, and graphical abstract text.
+Before final submission, run or request `../../../../05_manuscript/base/write-manuscript/radiology-citation/claim-verification-gate.md` for the abstract, Key Results, figure legends, tables, Discussion comparison claims, novelty claims, and graphical abstract text.
 
 | Pass | Requirement | Failure mode |
 |---|---|---|

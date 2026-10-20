@@ -1,6 +1,6 @@
 ﻿# Aitor section polishing rules (appendix)
 
-**Canonical entry:** parent `../SKILL.md` (manuscript personal upper layer).
+**Canonical entry:** parent `../../SKILL.md` (manuscript personal upper layer).
 Use this file for **section-by-section polish templates** (§1–§9).
 If anything conflicts with `Aitor-format.md` or top-level `05_manuscript` hard rules, **prefer Aitor-format / top-level** (e.g. prediction-model CI is `95% CI: X–X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
 

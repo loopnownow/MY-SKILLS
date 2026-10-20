@@ -127,7 +127,6 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - Sample size, EPV, power, Riley minimum sample size → `04_analysis` / Loopnow (`calc-sample-size`; lab notes `04_analysis/personal/methods.md`).
 - Hand-crafted radiomics pipeline design → `04_analysis` (mounted `radiomics-ml`; lab rules `04_analysis/personal/pipeline.md`).
 - Deep-learning architecture & training design → mounted `architecture-zoo` (`03_research`).
-- Imaging × omics mechanism design → `04_analysis/personal/high-dimensional-omics.md`.
 - ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
 - Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
 - Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.

@@ -13,7 +13,7 @@ owner: "03_research/base/design-experiment/MODULE.md"
 
 # Imaging Study Design & Feasibility
 
-Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.`architecture-zoo` → `03_research/base/architecture-zoo/`, `design-ai-benchmarking` → `03_research/base/design-ai-benchmarking/`, `frontier-hypothesize` → `03_research/base/frontier-hypothesize/`, `find-cohort-gap` → `03_research/base/frontier-ideate/`, `intake-project` → `03_research/base/intake-project/`.
+Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe
 clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —

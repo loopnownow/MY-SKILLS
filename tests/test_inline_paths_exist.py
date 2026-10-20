@@ -25,18 +25,8 @@ TOPS = (
 # Prefer shrinking this list over growing it.
 ALLOW_MISSING = {
     "docs/",  # optional viz outputs; often regenerated locally
-    "06_review/personal/word-edit-rules.md",  # relocated; live is word-edit.md family
-    "03_research/medical-journal-submit/",
-    "03_research/base/lit-review",
-    "03_research/base/lit-review/",
-    "04_analysis/personal/high-dimensional-omics.md",
-    "03_research/base/architecture-zoo/",
-    "03_research/base/design-ai-benchmarking/",
-    "03_research/base/frontier-hypothesize/",
-    "03_research/base/frontier-ideate/",
-    "03_research/base/intake-project/",
-    "03_research/find-journal/",  # stub removed; body under base/
-    "03_research/literature/",
+    # Explicit "do NOT create this parallel file" example in coding-qc.md.
+    # Not a pointer; keep the token so the ban stays readable.
     "02_data-processing/code-qc.md",
 }
 

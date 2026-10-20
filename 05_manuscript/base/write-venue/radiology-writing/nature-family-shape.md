@@ -86,15 +86,15 @@ to stand alone from the main text.
    limit live if not already confirmed for this venue).
 3. **`Claim–evidence map`** — unchanged from the main workflow.
 4. **`Display-item plan`** — which results go to main figures/tables vs Extended Data/Supplementary
-   Information (→ `../../../04_analysis/base/fig-plot/references/nature-figure-spec.md`, A personal).
+   Information (→ `../../../../04_analysis/base/fig-plot/references/nature-figure-spec.md`, A personal).
 5. **`Reporting check`** — checklist items **plus** whether a Reporting Summary is required for this
    venue (→ `check-reporting`).
 
 ## Handoffs
 - Figure sizing, panel-letter case, Extended Data figure limits → `04-fig-plot` /
-  `../../../04_analysis/base/fig-plot/references/nature-figure-spec.md`.
+  `../../../../04_analysis/base/fig-plot/references/nature-figure-spec.md`.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
   → A personal.
 - Reporting Summary / Editorial Policy Checklist → `check-reporting`.
 - Numbered reference style, export format → `write-paper` radiology-citation.
-- 选刊 / venue fit → A `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`) / `lit-search`. Word/figure limits (house style) → this pack.
+- 选刊 / venue fit → A `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.
