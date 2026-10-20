@@ -1,16 +1,16 @@
 # Cache · Mount · Active · Registry = index
 
 - **Bodies SSOT:** in-repo `NN_slug/base/` (`source: my-skills`).
-- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) remains the lab pack-cache root for non-base leftovers only. Live capability bodies are **not** resolved from `{mounts_cap}/`.
+- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is retired (deleted 2026-10-20). Live capability bodies are **not** resolved from `{mounts_cap}/`.
 - **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run. Cache is not mount is not active.
-- **Advertised / auto-discovery:** `00`–`07` only. Do not load `{mounts_cap}/**/SKILL.md` unless the fine id is in `session_picked_fine_ids`.
+- **Advertised / auto-discovery:** `00`–`07` only. Do not load anything from `{mounts_cap}/` (retired).
 - **Registry:** routing index only. GitHub MY-SKILLS is the framework + body SSOT.
 
 ## Local cache (`{mounts_cap}/`)
 
-Bytes path: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`; outside MY-SKILLS repo). Pointers stay in this skill.
+RETIRED: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`) was deleted 2026-10-20; the bullets below are historical.
 
 - Live resolve targets are `NN_slug/base/` in this repo (or `{skills_runtime}` after sync).
 - Non-base pack folders may still exist as historical cache leftovers; they are **not** a runtime menu. Do not fetch ARS/OpenClaw (purged). Non-base = default deny.

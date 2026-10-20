@@ -1,5 +1,5 @@
 # Pinned Archify release for the read-only visualization compiler.
-# Generated HTML/IR default OUT: D:/0Grok/0doc/04-lab-reference/my-skills-viz
+# Generated HTML/IR default OUT: D:/0Grok/0doc/04-lab-reference/my-skills-viz (retired: deleted 2026-10-20)
 # (MY_SKILLS_VIZ_OUT / --out). Not committed under MY-SKILLS/docs/.
 # CI must not fetch or install a newer Archify at build time.
 source: tt-a1i/archify
