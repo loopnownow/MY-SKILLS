@@ -80,7 +80,7 @@ generalisable or single-center-anecdote.
 6. **Design the validation** (validation-strategy.md). Specify the split (patient-level),
    internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
    out and what "external" honestly means here.
-7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to `04-stats-power`).
+7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to `calc-sample-size`).
 8. **Return** the blueprint + feasibility verdict + validation plan + the prioritised list of
    what to secure next.
 

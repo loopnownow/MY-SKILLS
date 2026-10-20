@@ -18,7 +18,7 @@ Supplied facts > venue format > generic English. Do not invent results or citati
 | `revision` | Revise body after review | Revised prose (the letter itself → `revise`) |
 | `abstract-only` | Abstract only | Abstract + keywords |
 | `lit-review` | Review article | Annotated synthesis (`meta-analysis`) |
-| `citation-check` | Check citations | Citation audit (`03-lit-cite`) |
+| `citation-check` | Check citations | Citation audit (`verify-refs`) |
 
 Default when unsure: **`plan`**.
 

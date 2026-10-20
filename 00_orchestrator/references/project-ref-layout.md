@@ -34,7 +34,7 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 
 - Create on first need (copy-on-need with the other subfolders).
 - Assistants may stage intermediates here instead of scattering at `ref/` root or project root.
-- **Do not** silent-delete. When the owner says clean / 清理 / 收工 for that project, move the whole `ref/tmp/` tree (or named files) into `D:\0del\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful.
+- **Do not** silent-delete. When the owner says clean / 清理 / 收工 for that project, move the whole `ref/tmp/` tree (or named files) into `{DEL}\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful.
 - After cleanup, leave an empty `ref/tmp/` or recreate on next write; do not invent clinical content there.
 
 Also keep a short **`ref/README.md`** map (see template) once a project adopts this layout.
@@ -72,5 +72,5 @@ Copy-on-need tree: [`project-ref-template/`](project-ref-template/).
 ## Pre-edit originals (`-org`) (2026-10-19)
 
 - Files named `*-org` / `*org*` (e.g. `comments-org.docx`, `SARC_CT_MRI_manuscript-org.docx`) are **pre-edit originals**. Keep them in the project — typically `ref/review/`.
-- On owner 收工/清理: **do not discard** `-org` originals. Move only true intermediates from `ref/tmp/` to `D:\0del\_by-project\<project>\`. If an `-org` was parked in `tmp/`, promote it to `ref/review/` (or leave at root) before cleaning `tmp/`.
+- On owner 收工/清理: **do not discard** `-org` originals. Move only true intermediates from `ref/tmp/` to `{DEL}\_by-project\<project>\`. If an `-org` was parked in `tmp/`, promote it to `ref/review/` (or leave at root) before cleaning `tmp/`.
 

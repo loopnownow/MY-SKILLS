@@ -19,9 +19,10 @@ class OwnerFields(unittest.TestCase):
         for path in ROOT.rglob("*"):
             if not path.is_file() or path.name not in ("SKILL.md", "MODULE.md"):
                 continue
-            if "base" not in path.parts:
+            rel_parts = path.relative_to(ROOT).parts
+            if "base" not in rel_parts:
                 continue
-            if any(p.startswith(".") for p in path.parts):
+            if any(p.startswith(".") for p in rel_parts):
                 continue
             text = path.read_text(encoding="utf-8")
             for m in OWNER_RE.finditer(text):

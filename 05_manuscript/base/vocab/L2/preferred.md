@@ -18,7 +18,8 @@ settled.
 Do **not** vendor unpublished full texts, title dumps, `corpus-raw/`, or
 patient identifiers into this file. Templates are generic slots only.
 
-Use this file alongside `polisher-sections.md` and `sentence-templates.md`.
+Use this file alongside `polisher-sections.md`. The sentence templates now live in this
+same file (merged 2026-10-16), so there is no separate template file to load.
 Where a pattern here disagrees with either of those files, **this file wins**
 for anything the corpus can settle (it's verbatim evidence); `Aitor-format.md`
 still wins for hard formatting/QC rules (CI dashes, banned voice, etc.).

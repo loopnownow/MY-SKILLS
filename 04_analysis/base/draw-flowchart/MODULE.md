@@ -11,7 +11,7 @@ owner: "04_analysis/base/draw-flowchart/MODULE.md"
 # Study / patient flow figures
 
 STROBE-style enrolment flow, study-workflow diagrams, and methods-pipeline cartoons.
-Statistical plots live in `04-fig-plot`.
+Statistical plots live in `plot-figures`.
 
 `scripts/draw_strobe_flow.py` draws **type A only**. Do not invent n.
 

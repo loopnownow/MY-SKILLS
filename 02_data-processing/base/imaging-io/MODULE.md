@@ -25,6 +25,6 @@ Backup sources (not vendored): Scientific `pydicom` / `bids` / `imaging-data-com
 ## Data availability
 
 Imaging formats, labels, masks, privacy, repositories, and availability wording:
-[data.md](references/data.md). That file is **not** the `02-tables` clinical-Excel front.
+[data.md](references/data.md). That file is **not** the `clean-data` clinical-Excel front.
 
-Clinical Excel/CSV (headers, missingness, ID, cohort) → `02-tables`.
+Clinical Excel/CSV (headers, missingness, ID, cohort) → `clean-data`.

@@ -15,7 +15,7 @@
 # Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier.
 meta:
   version: "4.0"
-  change_id: CHG-20261007-001
+  change_id: CHG-20261020-deepscan-fix
   fine_id_count_canonical: 27  # session-pick mounts; batch-cohort archived 2026-10-20 (was 28)
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >

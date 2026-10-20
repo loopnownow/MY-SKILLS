@@ -12,7 +12,7 @@ Annual **list gates** for `find-journal`. Large runtime selection pools live in 
 
 ## Runtime pools (0doc — not in git)
 
-Path: `D:\0Grok\0doc\04-lab-reference\find-journal\data\2026`
+Path: `{find_journal_pools}`
 
 (alias: `{doc_root}\04-lab-reference\find-journal\data\2026`)
 

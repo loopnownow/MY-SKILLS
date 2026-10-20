@@ -8,7 +8,7 @@
 
 | Task | Route |
 |---|---|
-| 研究计划 / 开题报告 / 科研项目申请书 | This pack pointer → proposal project under `D:\0Grok\proposal\` (or owner-named path) |
+| 研究计划 / 开题报告 / 科研项目申请书 | This pack pointer → proposal project under `{lab_root}\proposal\` (or owner-named path) |
 | Journal manuscript / R&R | **Do not** use this file — stay on 05/06/07 gates |
 
 ## Thin standards (host-agnostic)

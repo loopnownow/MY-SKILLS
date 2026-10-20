@@ -2,7 +2,7 @@
 
 Formerly `house-format.md`.
 
-**Owner:** `manuscript-core`. Single source for **every English SCI full paper** in this lab.
+**Owner:** `05_manuscript/personal/`. Single source for **every English SCI full paper** in this lab.
 
 **Gold reference (reply-letter template, Markdown):**  
 `{doc_review_replies}\_templates\01-response-letter-template.md`

@@ -18,7 +18,7 @@
 Keep identical:
 
 1. `{SKILLS}/03_research`
-2. `D:\0Grok\0doc\GitHub\MY-SKILLS\03_research`
+2. `{skills_git}\03_research`
 
 ## find-journal data split
 

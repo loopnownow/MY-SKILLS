@@ -14,7 +14,7 @@ owner: "02_data-processing/base/clean-data/impute/MODULE.md"
 # Group-stratified missing-value imputation
 
 Reusable CLI + library for **group-stratified imputation + decimal alignment + backup/QC**.
-Nested under `02-tables`. Not an analysis-domain pack.
+Nested under `clean-data`. Not an analysis-domain pack.
 
 Header / ID / cohort QC before fill → parent [`../MODULE.md`](../MODULE.md).
 Spreadsheet XML packing → [`../xlsx-office/`](../xlsx-office/). Do not treat this nested pack as modelling.
@@ -126,4 +126,4 @@ impute_qc present
 
 Impute after merging clinical+features and **before** LASSO. After a train/test split, fit the
 imputer on train and transform test (current CLI imputes the whole table by group; post-split
-use needs a custom call). Modelling → `04-stats-models` / `analyze-stats`.
+use needs a custom call). Modelling → `meta-analysis` / `analyze-stats`.

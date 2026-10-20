@@ -231,6 +231,6 @@ def breslow_S0(t,e,lp,grid):                        # baseline survival for a Co
 # survival DCA at t: nb(p) = (n_flag/N)*( ev - (1-ev)*p/(1-p) ), ev = 1 - KM_t within {risk>p};
 #                    clip the y-axis to the decision band (treat-all dives steeply negative)
 ```
-Statistics (AUC 95% CI by bootstrap, C-index, NRI/IDI, calibration slope) -> `04-stats-models` / `model-evaluation`;
+Statistics (AUC 95% CI by bootstrap, C-index, NRI/IDI, calibration slope) -> `meta-analysis` / `model-evaluation`;
 this file renders them. KM/ROC/calibration/DCA must use the **same** palette roles as the rest of
 the figure set (`figure-set-consistency.md`).

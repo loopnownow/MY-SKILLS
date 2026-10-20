@@ -36,22 +36,22 @@ guideline (→ `check-reporting`).
   cases shown.
 - **Stronger:** multi-center/scanner test, inter-observer reference, downstream-task impact
   (does better segmentation improve the clinical endpoint?).
-- **Guideline:** CLAIM; report annotation protocol (→ `02-imaging-qc`).
+- **Guideline:** CLAIM; report annotation protocol (→ `preprocess-imaging`).
 
 ## 5. Radiomics signature
 - **Question:** do hand-crafted features predict the endpoint?
 - **MVP:** IBSI-compliant features, segmentation reproducibility (ICC), feature selection
   **inside** training only, model + calibration, internal validation.
-- **Stronger:** external validation, biological correlate (→ `02-radiomics-habitat` / `design-study`),
+- **Stronger:** external validation, biological correlate (→ `analyze-stats` / `design-study`),
   comparison vs deep features or clinical model.
-- **Guideline:** CLEAR (reporting) + METRICS/RQS (quality) + IBSI. (→ `02-radiomics-habitat`)
+- **Guideline:** CLEAR (reporting) + METRICS/RQS (quality) + IBSI. (→ `analyze-stats`)
 
 ## 6. Radiogenomics / imaging-multi-omics
 - **Question:** what biology underlies an imaging phenotype?
 - **MVP:** matched imaging∩omics cohort (state the intersection n), FDR-controlled association,
   bounded interpretation.
 - **Stronger:** independent validation cohort, multi-omics integration, single-cell/spatial
-  linkage via habitats. (→ `02-radiomics-habitat`)
+  linkage via habitats. (→ `analyze-stats`)
 - **Guideline:** CLEAR/IBSI for imaging side; document omics accessions.
 
 ## 7. Reader / clinical-utility study

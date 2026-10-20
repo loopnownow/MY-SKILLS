@@ -10,6 +10,16 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261020-deepscan-fix — deep-scan P0/P1 absorb
+
+- Branch `fix/deepscan-p0-p1-20261020` (Asia/Shanghai 2026-10-20), registry `change_id` bumped.
+- **Ids**: 66 B-era call-site ids in 29 files → canonical fine ids (04-fig-flow→draw-flowchart ×13, 04-fig-plot→plot-figures ×13, 04-stats-models→meta-analysis ×12, 02-imaging-io→imaging-io ×5, 02-tables→clean-data ×4, 04-stats-power→calc-sample-size ×4, 02-imaging-qc→preprocess-imaging ×3, 02-radiomics-habitat→analyze-stats ×7, 02-lit fixes ×3). Three unmapped names (`04-stats-power`, `03-lit-fulltext`, `03-lit-cite`) added to `legacy_aliases.yaml`.
+- **Dead pointers**: `ban-phrases.md` → `vocab/L2/preferred.md` §1c; `report-checks.md` self-row → "Part A of this file"; `guideline-router.md` → `write-venue/radiology-writing/journal-family-writing-style.md`; `mount-review-polish-recipe.md` → `06_review/personal/review.md` §0; `ai_patterns.md` → `vocab/L1/patterns.md`; `retraction-watcher/MODULE.md` → `references/audit-reference.md`; `data-impute` → `clean-data` impute module.
+- **mounts-cap**: bytes (624 files) moved to `D:\0del\_by-function\mounts-cap-retired-20261020`; README / lab-paths / lifecycle-cache / NOTICE narratives unified (was "dir emptied" vs "dir deleted" vs "bytes exist").
+- **State claims**: `PROPOSED/MOUNTED` mix removed from README + ARCHITECTURE (registry has 0 PROPOSED); 01 SKILL documents the A-local-pack exception (`base/vocab/`, `base/write-venue/`); `Aitor-format.md` owner → `05_manuscript/personal/`; raw lab paths → `{alias}` in 13 files.
+- **Tests**: `PATH_UNIT_ALIAS_KEYS` emptied (no B-era directory exists); new `test_bare_md_cites`, `test_alias_targets_exist`, `test_no_raw_lab_paths`, `test_docs_match_registry_state`, `test_ledger_freshness`; `test_owner_fields` / `test_pre_submit_checks` now run on the runtime tree (relative parts + rglob fallback).
+- Sync whitelist post-merge: changed skill bodies + `registry.yaml` + `legacy_aliases.yaml` + `VERSION.txt` + `INTEGRATION_MAP.md` → `{SKILLS}` per skills.md §1b.
+
 ## CHG-20261019-scan-fix-p0-p2 — scan fix absorb (PR pending)
 
 - Branch `chore/scan-fix-p0-p2-20261019`: apply SCAN-REPORT P0/P1/P2 (Asia/Shanghai 2026-10-19).

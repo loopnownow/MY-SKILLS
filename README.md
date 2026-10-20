@@ -22,7 +22,7 @@ ARCHITECTURE.md
 MOUNTED_SKILLS.md            # → 01_skill-integration/MOUNTED_SKILLS.md
 ```
 
-# mounts-cap lab pack-cache: RETIRED 2026-10-20 — {mounts_cap} = D:/0Grok/0doc/04-lab-reference/mounts-cap (do not use)
+# mounts-cap lab pack-cache: RETIRED 2026-10-20 — {mounts_cap} = D:/0Grok/0doc/04-lab-reference/mounts-cap (do not use; bytes moved to {DEL}/_by-function/mounts-cap-retired-20261020/)
 
 
 Skill paths are at most five parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/<optional-leaf>/file`. No `core/`, no `bundles/`, no `merged/`. Vendored third-party libraries may nest deeper (e.g. `02_data-processing/base/clean-data/xlsx-office/scripts/office/**`); they are byte-faithful copies, not skill bodies.
@@ -41,7 +41,7 @@ Lab disks (not inside this repo): runnable SSOT `{script_root}`; human-doc SSOT 
 | `07_response` | Response-letter upper layer (Aitee) |
 | *(archived)* | Former `skill-harvest` → `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`; standing policy → MY-RULES `skills.md` (skill-evolution) |
 
-Path depth: under `00`–`07`, at most **five** path parts from repo root (pytest `test_core_max_five_path_parts`; exceptions: `NN_slug/base/**` (in-repo capability bodies; includes former find-journal data years)). A = framework + personal + in-repo `base/` chassis. The menu shape (coarse buckets and fine ids) lives in `01_skill-integration/registry.yaml` and the generated index `01_skill-integration/MOUNTED_SKILLS.md` — do not restate the totals here. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Every independent run needs a mount decision; reuse `session_picked_fine_ids` when they already cover the task. The pick menu is status MOUNTED only. Never auto-mount a non-default source. Non-default fine ids are mixed PROPOSED/MOUNTED per registry. OpenClaw is not a default mount source.
+Path depth: under `00`–`07`, at most **five** path parts from repo root (pytest `test_core_max_five_path_parts`; exceptions: `NN_slug/base/**` (in-repo capability bodies; includes former find-journal data years)). A = framework + personal + in-repo `base/` chassis. The menu shape (coarse buckets and fine ids) lives in `01_skill-integration/registry.yaml` and the generated index `01_skill-integration/MOUNTED_SKILLS.md` — do not restate the totals here. `session_mount: ask-each-run`, `session_pick_unit: fine_id`. Every independent run needs a mount decision; reuse `session_picked_fine_ids` when they already cover the task. The pick menu is status MOUNTED only. Never auto-mount a non-default source. Registry status values are MOUNTED / ARCHIVED today (no live PROPOSED row); archived ids stay off the menu. OpenClaw is not a default mount source.
 
 
 ## Generated visualization
@@ -57,7 +57,7 @@ Maintained by Aitor for [loopnownow](https://github.com/loopnownow).
 
 | Term | Meaning |
 |---|---|
-| **Cache** | `{mounts_cap}/<pack>/` RETIRED 2026-10-20 (dir emptied); was a lab pack-cache under 0doc. Not a source of truth for live bodies |
+| **Cache** | `{mounts_cap}/<pack>/` RETIRED 2026-10-20; bytes moved to `{DEL}/_by-function/mounts-cap-retired-20261020/`. Not a source of truth for live bodies |
 | **Registry MOUNTED** | Catalog-approved and session-selectable |
 | **session_picked_fine_ids** | Selected this run |
 | **Active** | Actually loaded this run |

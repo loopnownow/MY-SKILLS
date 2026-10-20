@@ -18,7 +18,7 @@ Layout contract: `00_orchestrator/references/project-ref-layout.md` (in MY-SKILL
 | `code/` | Script/path notes, patch pointers |
 | `results/` | Table/figure lock notes |
 | `exec/` | Optional EXECUTION wrap-ups |
-| `tmp/` | Intermediate Word/PDF/scratch until owner clean → `D:\0del\_by-project\<code>\` |
+| `tmp/` | Intermediate Word/PDF/scratch until owner clean → `{DEL}\_by-project\<code>\` |
 
 ## Skip (short)
 

@@ -95,7 +95,7 @@ Nature-specific.
 - [ ] Main vs Extended Data split decided and consistent with the manuscript's display-item plan.
 
 ## Handoffs
-- Figure content rules (chart choice, imaging panels, de-identification) → `04-fig-plot`
+- Figure content rules (chart choice, imaging panels, de-identification) → `plot-figures`
   main workflow (venue-independent).
 - Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-venue/` /
   `../../../../05_manuscript/base/write-venue/radiology-writing/nature-family-shape.md`.

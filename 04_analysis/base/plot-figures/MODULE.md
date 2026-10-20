@@ -18,7 +18,7 @@ palettes, honest axes, and the chart types imaging-AI reviewers expect (ROC, cal
 decision-curve, forest/SROC, Kaplan-Meier, Bland-Altman), plus **de-identified** annotated
 imaging panels.
 
-**STROBE / patient-selection Figure 1 belongs in `04-fig-flow`**, not here.
+**STROBE / patient-selection Figure 1 belongs in `draw-flowchart`**, not here.
 
 ## Core stance
 
@@ -32,7 +32,7 @@ imaging panels.
 
 - Statistical figures: ROC, calibration, DCA, forest, SROC, KM, Bland-Altman, box/violin, heatmaps.
 - Imaging panels: montages, arrows/insets, windowing labels.
-- **Not** enrolment flowcharts — those are `04-fig-flow`.
+- **Not** enrolment flowcharts — those are `draw-flowchart`.
 
 ## When to open extra files
 
@@ -58,7 +58,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 
 0. Confirm the target venue before sizing (column widths and panel-letter case differ).
 1. For full sets, open `figure-intent-and-render-qa.md` and build the intent table.
-2. Pick the chart for the message (`chart-types.md`). Patient selection → `04-fig-flow`.
+2. Pick the chart for the message (`chart-types.md`). Patient selection → `draw-flowchart`.
 3. Start the script with the rcParams preamble (`api.md`).
 4. Build panels; add CI, n, units; label via helpers — never hardcode `chr(65+i)` per script.
 5. Imaging panels: de-identify, windowing, scale bar.
@@ -75,7 +75,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 ## Handoffs
 
 - Statistic behind the plot → `analyze-stats` / `model-evaluation`
-- Checklist item (STROBE flow) → `04-fig-flow` and `check-reporting`
+- Checklist item (STROBE flow) → `draw-flowchart` and `check-reporting`
 - Captions / display-item plan → `write-paper` / `05_manuscript/base/write-venue/`
 - Harsh read before submission → `self-review`
 

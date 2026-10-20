@@ -34,7 +34,7 @@ A "yes" to several is normal. Stack them.
 | Deep-learning segmentation tool | CLAIM 2024 (segmentation metrics: DSC, HD95, surface metrics) |
 | Meta-analysis of CT radiomics for cancer diagnosis | PRISMA-DTA + QUADAS-2 + (RQS to grade primary studies) |
 | Prospective reader study with vs. without AI | STARD + MRMC design (see `analyze-stats`) + (CONSORT-AI if randomised) |
-| Radiogenomics: imaging features ↔ RNA-seq | CLEAR + IBSI for imaging; + multi-omics/leakage rules (`02-radiomics-habitat` / `design-study`); TRIPOD+AI if a predictive model is built |
+| Radiogenomics: imaging features ↔ RNA-seq | CLEAR + IBSI for imaging; + multi-omics/leakage rules (`analyze-stats` / `design-study`); TRIPOD+AI if a predictive model is built |
 | Any of the above, submitted to a Nature-portfolio journal | same stack **+ Reporting Summary/Editorial Policy Checklist** (`nature-reporting-summary.md`) **+** FUTURE-AI as the trustworthy/deployable-AI framing where clinical deployment is discussed |
 
 ## Step 3 — separate the three jobs
@@ -64,13 +64,13 @@ strengthen Methods, FUTURE-AI to frame deployability, and pre-empt reviewer crit
 - Reference the guideline in Methods ("We report this study following the [guideline]
   checklist").
 - For trials, register prospectively and report the registry ID.
-- See `radiology-submission-map.md` for where each item belongs in the manuscript.
+- Where each item belongs in the manuscript: `05_manuscript/base/write-venue/radiology-writing/journal-family-writing-style.md`.
 
 **Nature-portfolio-family** (in addition to the primary reporting-guideline checklist above):
 - Complete the **Reporting Summary** (published with the article) and, if requested, the
   **Editorial Policy Checklist** (→ `nature-reporting-summary.md`).
 - Plan the **Extended Data / Supplementary Information / Source Data** split
-  (→ `04-fig-plot` (`nature-figure-spec.md`)).
+  (→ `plot-figures` (`nature-figure-spec.md`)).
 - Venue-specific pre-flight / 选刊 logistics → A `03_research` (journal-selection); house style → `05_manuscript/base/write-venue/`.
 
 ## Edge cases

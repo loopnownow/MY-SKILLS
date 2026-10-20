@@ -36,18 +36,9 @@ ALLOW_FILES = {
 }
 
 # Path-unit directory names that coincide with alias keys (not retired fine ids).
-PATH_UNIT_ALIAS_KEYS = {
-    "02-tables",
-    "02-imaging-qc",
-    "02-imaging-io",
-    "02-radiomics-habitat",
-    "04-fig-flow",
-    "04-fig-plot",
-    "04-stats-models",
-    "04-model-eval",
-    "fig-plot",
-    "make-figures",
-}
+# 2026-10-20: emptied — no directory in the repo or in 0script carries a B-era
+# name any more, so every alias key counts as retired and must not appear live.
+PATH_UNIT_ALIAS_KEYS: set[str] = set()
 
 
 def _retired_ids() -> set[str]:
