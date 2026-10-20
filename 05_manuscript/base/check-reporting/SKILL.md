@@ -5,7 +5,7 @@ description: TRIPOD / CLAIM / CLEAR reporting.
 owner: "05_manuscript/base/check-reporting/MODULE.md"
 ---
 
-# write-reporting
+# check-reporting
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

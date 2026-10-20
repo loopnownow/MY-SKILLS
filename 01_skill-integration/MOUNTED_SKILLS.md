@@ -135,8 +135,8 @@ Not a pick menu. List only. Promoting one to MOUNTED is a registry change, not a
 ## Archived (not in default menus)
 
 - `deidentify` — 导出已人工脱敏
-- `profile-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
-- `uncertainty-imaging` — 与 preprocess-imaging 共用 imaging-qc，没有单独正文
+- `profile-imaging` — 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
+- `uncertainty-imaging` — 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
 - `hypothesis-generation` — 未拉取字节；假设形成经 frontier-hypothesize 已并入 design-study（2026-10-17 round 2）
 - `database-lookup` — 2026-09-20 候选，路径未核实，本地无字节
 - `model-scaffold` — 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠

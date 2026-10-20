@@ -1,5 +1,3 @@
-
-Checklist (AI + public-data/imaging): [references/ai-public-data-imaging-checklist.md](references/ai-public-data-imaging-checklist.md).
 ---
 name: "peer-review"
 domain: "06_review"
@@ -10,6 +8,8 @@ tools: ["dealbreakers"]
 quality_control: "flag leakage first; do not invent rescue experiments"
 owner: "06_review/base/peer-review/MODULE.md"
 ---
+
+Checklist (AI + public-data/imaging): [references/ai-public-data-imaging-checklist.md](references/ai-public-data-imaging-checklist.md).
 
 # trigger is documentation only; not independently discoverable.
 

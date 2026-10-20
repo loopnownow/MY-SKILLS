@@ -5,7 +5,7 @@ description: Self-audit / pre-submission, including zero-context paper-claim aud
 owner: "06_review/base/self-review/MODULE.md"
 ---
 
-# review-critique
+# self-review
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

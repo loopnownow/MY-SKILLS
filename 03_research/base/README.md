@@ -2,9 +2,9 @@
 
 Live packs in this repo (capability bodies):
 
-- design-experiment
-- design-grant
-- design-protocol
+- design-study
+- grant-builder
+- write-protocol
 - fill-protocol
 - find-journal
 - lit-search

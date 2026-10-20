@@ -5,7 +5,7 @@ description: Other-paper peer review.
 owner: "06_review/base/peer-review/MODULE.md"
 ---
 
-# review-peer
+# peer-review
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

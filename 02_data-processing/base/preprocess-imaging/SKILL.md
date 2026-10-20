@@ -5,6 +5,6 @@ description: ROI, reader, and mask quality control.
 owner: "02_data-processing/base/preprocess-imaging/MODULE.md"
 ---
 
-# imaging-qc
+# preprocess-imaging
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.

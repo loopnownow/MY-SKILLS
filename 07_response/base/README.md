@@ -4,7 +4,7 @@ Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 f
 
 | Fine id | Path | Role |
 |---|---|---|
-| `revise` | `review-response/` | Point-by-point structure |
+| `revise` | `revise/` | Point-by-point structure |
 | `tighten-response` | `tighten-response/` | Tightening / anti-accretion |
 | `response-tone-polisher` | `response-tone-polisher/` | Tone only |
 

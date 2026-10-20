@@ -5,6 +5,6 @@ description: STROBE / patient-flow figures.
 owner: "04_analysis/base/draw-flowchart/MODULE.md"
 ---
 
-# fig-flow
+# draw-flowchart
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.

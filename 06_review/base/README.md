@@ -4,8 +4,8 @@ Capability bodies for A06 review. No domain-level SKILL.md.
 
 | Pack | Path | Role |
 |---|---|---|
-| `review-critique` | `review-critique/` | Self-audit / pre-submission |
-| `review-peer` | `review-peer/` | Other-paper peer review |
+| `self-review` | `self-review/` | Self-audit / pre-submission |
+| `peer-review` | `peer-review/` | Other-paper peer review |
 | `simulate-reviewers` | `simulate-reviewers/` | Multi-reviewer blind isolation |
 
 **Isolation contract:** see [REVIEW-ISOLATION.md](REVIEW-ISOLATION.md) (kept as the domain isolation note; do not merge away).

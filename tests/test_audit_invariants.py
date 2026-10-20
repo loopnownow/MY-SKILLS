@@ -432,9 +432,9 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("skill-level prefix", gates)
         preset = read("01_skill-integration/references/presets/review-hybrid.yaml")
         self.assertIn("skills: [verify-refs]", preset)
-        self.assertIn("skills: [stats-guide]", preset)
+        self.assertIn("skills: [analyze-stats]", preset)
         self.assertIn("required: false", preset)
-        self.assertIn("skills: [review-critique]", preset)  # self-review; scientific-critical-thinking archived
+        self.assertIn("skills: [self-review]", preset)  # self-review; scientific-critical-thinking archived
 
 
     def test_author_vs_prefix(self) -> None:

@@ -37,7 +37,7 @@ SOFTWARE.
 
 ### Archify
 
-Pinned Archify artifacts live under `04_analysis/personal/visualization/` (see `archify-version.yaml`; compiler zip alongside when present). Read-only visualization compiler only.
+Archify-derived artifacts (compiler zip, `archify-version.yaml`) were removed on 2026-10-20; no Archify code remains in this repo. IR to HTML is rendered locally by `04_analysis/personal/visualization/scripts/gen_visualization.py`.
 
 ### Agentic Reviewer System (ARS) — topology inspiration only
 

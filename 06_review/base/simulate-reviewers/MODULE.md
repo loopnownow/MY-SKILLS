@@ -10,7 +10,7 @@ owner: "06_review/base/simulate-reviewers/MODULE.md"
 
 Multi-reviewer blind isolation for practice / meta-review.
 Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
-Sibling of `peer-review` / `review-peer`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
+Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
 
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 

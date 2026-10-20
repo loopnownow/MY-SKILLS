@@ -1,7 +1,7 @@
 ---
 name: "impute"
 domain: "02_data-processing"
-description: Group-stratified missing-value imputation nested under tables (MICE / median / align_decimals).
+description: Group-stratified missing-value imputation nested under clean-data (MICE / median / align_decimals).
 owner: "02_data-processing/base/clean-data/impute/MODULE.md"
 ---
 

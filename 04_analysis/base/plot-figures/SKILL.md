@@ -5,7 +5,7 @@ description: Statistical plots and imaging panels.
 owner: "04_analysis/base/plot-figures/MODULE.md"
 ---
 
-# fig-plot
+# plot-figures
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
