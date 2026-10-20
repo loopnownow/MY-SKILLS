@@ -1,4 +1,4 @@
-﻿---
+---
 name: "meta-analysis"
 domain: "04_analysis"
 description: Bayesian notes and assumption-check script.

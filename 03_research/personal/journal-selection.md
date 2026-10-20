@@ -1,4 +1,4 @@
-﻿<!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
+<!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
 # 选刊
 
 Use this file when a manuscript, abstract, or near-complete study is available and

@@ -1,4 +1,4 @@
-﻿# Aitor section polishing rules (appendix)
+# Aitor section polishing rules (appendix)
 
 **Canonical entry:** parent `../../SKILL.md` (manuscript personal upper layer).
 Use this file for **section-by-section polish templates** (§1–§9).

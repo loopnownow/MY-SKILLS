@@ -10,46 +10,13 @@ quality_control: "patient-level split; no slice-level external validation"
 owner: "03_research/personal/radiology-design.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
-
 The 样本量 trigger only frames the question here. Numbers go to `04_analysis` / Loopnow (`calc-sample-size`).
 
 # Imaging Study Design & Feasibility
 
-Use this skill at the **front of the research chain**: someone has imaging data (and maybe
-clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —
-can this data support a credible study at all? — and (2) converts a feasible idea into a
-**complete, submittable design**: clinical question, population, endpoint, methods (minimum
-viable → stronger), and the **validation strategy** that decides whether the work is
-generalisable or single-center-anecdote.
-
-## Core stance
-
-- **Clinical question first, model second.** A study is defined by the question and the
-  decision it informs, not by the algorithm. "Build a model" is not a study.
-- **Match data to task, honestly.** The same images support very different ceilings. Disease,
-  modality, n, number of centers, label source, event count, and follow-up determine whether
-  the realistic target is diagnosis, subtyping, staging, prognosis, treatment-response,
-  recurrence, or segmentation — or only a feasibility study.
-- **Validation is the spine.** Internal cross-validation alone is weak. State the validation
-  type explicitly and design it **before** modelling; external/temporal/geographic validation
-  is what separates _Radiology_-tier work from a desk reject.
-- **Surface the binding constraint.** Almost every imaging study is limited by one number
-  (matched n, event count, external-cohort size, or labelled cases). Name it up front; the
-  design must respect it.
-- **Pre-specify.** Primary endpoint, primary analysis, and the split scheme are decided before
-  looking at results. Retro-fitting the question to the result is the cardinal sin.
-- **Integrity.** Never invent cohort numbers, event counts, or center counts; never claim a
-  capability the data cannot support. If the honest answer is "not yet — do X first," say so.
-
-## When to use
-
-- "I have [N] cases of [disease] [modality] — what can I actually study?" / "这批数据能不能做研究？"
-- "Turn my data into a complete, submittable project." / "帮我把现有数据设计成一个完整课题。"
-- "Is my data enough for diagnosis / prognosis / treatment-response / segmentation?"
-- "Design a multi-center / external-validation / temporal-validation plan." / "多中心外部验证怎么设计？"
-- "How do I show generalisability across scanners/hospitals?" / center, scanner, batch effects.
-- Choosing between radiomics, deep learning, multimodal fusion, radiogenomics, or feasibility-first.
+Generic stance, intake questions, workflow steps, and the output contract live in
+`03_research/base/design-study/MODULE.md` (single source). This page keeps only the
+lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 
 ## When to open extra files
 
@@ -101,7 +68,6 @@ generalisable or single-center-anecdote.
 7. **`Next actions`** — what to collect, label, or confirm before/while running it, in priority
    order. Questions only the author can answer go here.
 
-
 ## Own-proposal chapter skeleton (Voice B only)
 
 When the user is **writing their own** 国自 / 开题 / 市科委 / 卫健委 / 院级 / 临床研究方案, open `grant-own-skeleton.md`. Do not use Voice A 评议口癖.
@@ -113,13 +79,6 @@ Compact contract (details in that file):
 3. **可行性三块**：模型成熟（点名造模/时间点）+ 平台点名到仪器 + 人（[PI]、SCI [n] 篇、在研基金）。临床另写病源「每年接诊 [疾病] 超过 [n] 例」。
 4. **目标三档**：确定（有无变化/干预是否有效）/ 阐明（机制、谱、通路）/ 探讨（诊断分级、转化）。不要把探讨当唯一目标。
 5. 句库（中英摘要、假说、入排）只从 `grant-writing.md` 取。方法升级写进立项 → `radiology-frontier`.
-
-## Quality bar
-
-A good design read sounds like a senior imaging-AI mentor who has reviewed for _Radiology_:
-it tells the author honestly whether the data can carry the ambition, designs the validation
-that will survive review, and surfaces the one constraint everything hinges on — without
-inflating a single-center retrospective dataset into a claim it cannot support.
 
 ## Handoffs
 

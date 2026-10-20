@@ -1,4 +1,4 @@
-﻿"""QC Batch5: backtick in-repo paths under live domains must exist (allowlisted debt OK)."""
+"""QC Batch5: backtick in-repo paths under live domains must exist (allowlisted debt OK)."""
 from __future__ import annotations
 
 import re

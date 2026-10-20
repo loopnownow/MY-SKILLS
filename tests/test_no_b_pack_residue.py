@@ -1,4 +1,4 @@
-﻿"""QC Batch5: live B-pack path residue must stay in historical / allowlisted files only."""
+"""QC Batch5: live B-pack path residue must stay in historical / allowlisted files only."""
 from __future__ import annotations
 
 import re

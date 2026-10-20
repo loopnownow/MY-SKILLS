@@ -1,4 +1,4 @@
-﻿---
+---
 name: "analyze-stats"
 domain: "04_analysis"
 description: Test selection and assumption guidance.

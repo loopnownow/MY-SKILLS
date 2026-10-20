@@ -1,4 +1,4 @@
-﻿# Citation and language rules
+# Citation and language rules
 
 ## Citation
 

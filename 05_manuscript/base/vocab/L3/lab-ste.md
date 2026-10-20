@@ -1,4 +1,4 @@
-﻿## L3 specialty terms (merged)
+## L3 specialty terms (merged)
 
 # L3 specialty terms (pointer)
 

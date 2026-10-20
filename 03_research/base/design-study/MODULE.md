@@ -1,4 +1,4 @@
-﻿---
+---
 name: "design-study"
 domain: "03_research"
 trigger: ["研究设计", "可行性", "imaging feasibility", "样本量"]
