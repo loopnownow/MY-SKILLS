@@ -1,17 +1,12 @@
 """Visualization architecture v1.0: contract, IR shape, mount policy; 07_response allowed."""
 from __future__ import annotations
 
-import importlib.util
-import json
-import subprocess
-import sys
 import unittest
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "04_analysis" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
 FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
     "generated HTML",
@@ -21,13 +16,6 @@ FORBIDDEN_FACT_SOURCES = (
     "visual appearance",
     "unvalidated JSON",
 )
-
-
-def load_generator():
-    spec = importlib.util.spec_from_file_location("gen_visualization", SCRIPT)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
 
 
 class VisualizationContract(unittest.TestCase):

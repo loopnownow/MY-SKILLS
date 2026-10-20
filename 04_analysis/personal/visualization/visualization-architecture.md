@@ -152,13 +152,13 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 1. The visualization build does not rewrite MY-SKILLS skill prose.
 2. Fixes to a diagram go back to source, registry, or IR. Generated HTML is not hand-edited.
 3. Mount contents do not redefine architecture. External packages enter through the 01 registry first.
-4. HTML is not a fact source. Deleting generated lab `my-skills-viz` HTML and IR leaves the sources able to rebuild them.
+4. HTML is not a fact source. Deleting generated HTML and IR leaves the sources able to rebuild them (pass `--out DIR`; no default dir).
 5. Delta is evidence. A human decides merge.
 6. A layout failure does not justify deleting a semantic edge.
 
 ## 13. Acceptance
 
-Deleting generated lab `my-skills-viz` artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py`). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A schema failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, Archify version, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A schema failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, Archify version, and build status.
 
 ## 14. Notes for a later pull request
 

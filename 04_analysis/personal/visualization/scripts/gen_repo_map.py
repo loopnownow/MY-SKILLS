@@ -16,7 +16,7 @@ Dependency: PyYAML (`pip install pyyaml`).
 
 Usage:
     python3 04_analysis/personal/visualization/scripts/gen_repo_map.py [--check] [--out DIR]
-Default out: D:/0Grok/0doc/04-lab-reference/my-skills-viz/repo-map.html
+Output: <--out or MY_SKILLS_VIZ_OUT>/repo-map.html (required; no default dir).
 """
 from __future__ import annotations
 
@@ -34,7 +34,6 @@ HERE = Path(__file__).resolve().parent
 VIZ_DIR = HERE.parent  # 04_analysis/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
 REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
-DEFAULT_VIZ_OUT = Path(r"D:/0Grok/0doc/04-lab-reference/my-skills-viz")
 
 
 def resolve_viz_out(cli_out: Path | None = None) -> Path | None:
@@ -43,8 +42,6 @@ def resolve_viz_out(cli_out: Path | None = None) -> Path | None:
     env = os.environ.get("MY_SKILLS_VIZ_OUT", "").strip()
     if env:
         return Path(env).expanduser().resolve()
-    if os.name == "nt" or DEFAULT_VIZ_OUT.exists():
-        return DEFAULT_VIZ_OUT
     return None
 
 CSS = """
@@ -251,7 +248,7 @@ def render(reg: dict) -> str:
     aria-label="Filter skills">
   {''.join(sections)}
 </main>
-<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/); mounts-cap (D:/0Grok/0doc/04-lab-reference/mounts-cap) is a non-base cache only. This page never hand-lists ids.</footer>
+<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/); the former mounts-cap cache is retired. This page never hand-lists ids.</footer>
 <script>{JS}</script>
 </body>
 </html>
@@ -268,7 +265,7 @@ def main() -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        help="lab output directory (default: MY_SKILLS_VIZ_OUT or D:/0Grok/0doc/04-lab-reference/my-skills-viz)",
+        help="output directory (required unless MY_SKILLS_VIZ_OUT is set; no default)",
     )
     args = parser.parse_args()
 
@@ -293,8 +290,8 @@ def main() -> int:
 
     if out_dir is None or output is None:
         print(
-            "refusing to write: set --out or MY_SKILLS_VIZ_OUT"
-            " (lab default D:/0Grok/0doc/04-lab-reference/my-skills-viz)",
+            "error: no output dir; pass --out DIR or set MY_SKILLS_VIZ_OUT"
+            " (there is no default output dir)",
             file=sys.stderr,
         )
         return 2

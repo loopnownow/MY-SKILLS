@@ -2,10 +2,9 @@
 """Read-only visualization compiler for MY-SKILLS.
 
 Reads registry, preset metadata, and 00 runtime-flow. Writes Archify IR and
-generated HTML under the lab viz out dir (default Windows lab path
-D:/0Grok/0doc/04-lab-reference/my-skills-viz). Override with env
-MY_SKILLS_VIZ_OUT or --out. Does not write into the MY-SKILLS repo (no in-repo
-docs/ tree). Does not read mounts-cap. Renders diagrams locally from the IR;
+generated HTML under the output dir given by --out or env MY_SKILLS_VIZ_OUT
+(required; no default, exits non-zero if neither is set). Does not write into
+the MY-SKILLS repo (no in-repo docs/ tree). Does not read mounts-cap. Renders diagrams locally from the IR;
 no external renderer package is fetched, unpacked, or verified.
 
 Shape checks follow the pins in archify-version.yaml (tt-a1i/archify v3.0.1:
@@ -49,22 +48,19 @@ VERSION = VIZ_DIR / "archify-version.yaml"
 CONTRACT = VIZ_DIR / "visualization-source-contract.yaml"
 
 
-DEFAULT_VIZ_OUT = Path(r"D:/0Grok/0doc/04-lab-reference/my-skills-viz")
 
 
 def resolve_viz_out(cli_out: Path | None = None) -> Path | None:
     """Lab output root for generated HTML/IR (not inside the MY-SKILLS repo).
 
-    Order: --out, MY_SKILLS_VIZ_OUT, Windows lab default. On Linux CI without an
-    override, return None so --check can stay in-memory / skip disk compare.
+    Order: --out, MY_SKILLS_VIZ_OUT. No default: without either,
+    return None so --check can stay in-memory / skip disk compare.
     """
     if cli_out is not None:
         return cli_out.expanduser().resolve()
     env = os.environ.get("MY_SKILLS_VIZ_OUT", "").strip()
     if env:
         return Path(env).expanduser().resolve()
-    if os.name == "nt" or DEFAULT_VIZ_OUT.exists():
-        return DEFAULT_VIZ_OUT
     return None
 
 
@@ -1203,7 +1199,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        help="lab output directory (default: MY_SKILLS_VIZ_OUT or D:/0Grok/0doc/04-lab-reference/my-skills-viz)",
+        help="output directory (required unless MY_SKILLS_VIZ_OUT is set; no default)",
     )
     parser.add_argument("--delta-against", type=Path, help="base viz directory for a structural delta")
     parser.add_argument("--delta-out", type=Path, help="write only the delta HTML here")
@@ -1225,8 +1221,8 @@ def main(argv: list[str] | None = None) -> int:
         return check(files, out)
     if out is None:
         print(
-            "refusing to write: set --out or MY_SKILLS_VIZ_OUT"
-            " (lab default D:/0Grok/0doc/04-lab-reference/my-skills-viz)",
+            "error: no output dir; pass --out DIR or set MY_SKILLS_VIZ_OUT"
+            " (there is no default output dir)",
             file=sys.stderr,
         )
         return 2
