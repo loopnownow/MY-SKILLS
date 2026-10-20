@@ -38,7 +38,7 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 
 ## Mounted capability ids (bodies in A `base/`; source my-skills)
 
-- `revise` -- point-by-point structure (A `07_response/base/review-response/`)
+- `revise` -- point-by-point structure (A `07_response/base/revise/`)
 - `tighten-response` -- tightening principles (A `07_response/base/tighten-response/`)
 - `response-tone-polisher` -- tone only; structure stays `revise` (A `07_response/base/response-tone-polisher/`)
 

@@ -7,8 +7,8 @@ Hard rule. Do not rename fine ids to match a folder.
 3. `label` is descriptive and must not be used for routing.
 4. `coarse` is only the session-pick bucket.
 5. `a_domain` is the execution owner.
-6. One path may back several fine ids (`path_shared`).
-7. Renaming a physical path does not rename the fine id.
+6. One path may back several fine ids (`path_shared`). Currently no live mount does: `batch-cohort` was archived into `clean-data` on 2026-10-20 and survives only as an alias.
+7. Renaming a physical path does not rename the fine id. Alignment runs the other way: the directory takes the fine id name (`base/<fine_id>/`), and `tests/test_registry_paths.py` enforces it.
 8. Renaming a fine id requires an explicit registry migration.
 9. The live identity is the four-tuple `fine_id` / `coarse_id` / `a_domain` / `path`, plus A pack when the note names one (`find-journal` → `03_research/base/find-journal/`; `fill-protocol` → `03_research/base/fill-protocol/`).
 

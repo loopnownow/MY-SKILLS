@@ -16,7 +16,7 @@
 meta:
   version: "4.0"
   change_id: CHG-20261007-001
-  fine_id_count_canonical: 28  # session-pick mounts; reference_only empty; live count after #142 tidy (was 31; was 43 after round 1)
+  fine_id_count_canonical: 27  # session-pick mounts; batch-cohort archived 2026-10-20 (was 28)
   fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
   load_priority_scheme: >
     Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
@@ -164,20 +164,20 @@ mounts:
     label: "研究设计审查"
     coarse: study-design
     source: my-skills
-    path: 03_research/base/design-experiment/
+    path: 03_research/base/design-study/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Study design / feasibility / validation blueprints. Merge 2026-10-17 — body in A 03_research/base/design-experiment (source my-skills in-repo)."
+    note: "Study design / feasibility / validation blueprints. Merge 2026-10-17 — body in A 03_research/base/design-study (source my-skills in-repo)."
   - id: write-protocol
     label: "IRB方案撰写"
     coarse: study-design
     source: my-skills
-    path: 03_research/base/design-protocol/
+    path: 03_research/base/write-protocol/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 03_research/base/design-protocol (source my-skills in-repo)."
+    note: "Merge 2026-10-17 — body in A 03_research/base/write-protocol (source my-skills in-repo)."
   - id: fill-protocol
     label: "IRB方案填表"
     coarse: study-design
@@ -191,29 +191,29 @@ mounts:
     label: "IMRAD正文起草"
     coarse: manuscript-body
     source: my-skills
-    path: 05_manuscript/base/write-manuscript/
+    path: 05_manuscript/base/write-paper/
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-manuscript (source my-skills in-repo)."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-paper (source my-skills in-repo)."
   - id: check-reporting
     label: "报告规范核验"
     coarse: manuscript-body
     source: my-skills
-    path: 05_manuscript/base/write-reporting/
+    path: 05_manuscript/base/check-reporting/
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-reporting (source my-skills in-repo)."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/check-reporting (source my-skills in-repo)."
   - id: grant-builder
     label: "基金标书-方法论"
     coarse: manuscript-body
     source: my-skills
-    path: 03_research/base/design-grant/
+    path: 03_research/base/grant-builder/
     a_domain: 03_research
     status: MOUNTED
     load_priority: P1
-    note: "Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 03_research/base/design-grant (source my-skills in-repo)."
+    note: "Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 03_research/base/grant-builder (source my-skills in-repo)."
   - id: find-journal
     label: "选刊推荐"
     coarse: manuscript-body
@@ -227,11 +227,11 @@ mounts:
     label: "一致性硬规则lint"
     coarse: language-polish
     source: my-skills
-    path: 05_manuscript/base/write-polish/
+    path: 05_manuscript/base/polish-language/
     a_domain: 05_manuscript
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-polish (source my-skills in-repo)."
+    note: "Merge 2026-10-17 — body in A 05_manuscript/base/polish-language (source my-skills in-repo)."
   - id: humanize
     label: "去AI味"
     coarse: language-polish
@@ -245,20 +245,10 @@ mounts:
     label: "三阶段确认式清洗"
     coarse: data-processing
     source: my-skills
-    path: 02_data-processing/base/tables/
+    path: 02_data-processing/base/clean-data/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
-    note: "domains 03–07 merged 2026-10-17 Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
-  - id: batch-cohort
-    label: "批量队列分析生成"
-    coarse: data-processing
-    source: my-skills
-    path: 02_data-processing/base/tables/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    load_priority: P1
-    path_shared: true
     note: "domains 03–07 merged 2026-10-17 Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
   - id: imaging-io
     label: "CT/MRI DICOM与NIfTI读写"
@@ -273,7 +263,7 @@ mounts:
     label: "ROI与读者质控"
     coarse: data-processing
     source: my-skills
-    path: 02_data-processing/base/imaging-qc/
+    path: 02_data-processing/base/preprocess-imaging/
     a_domain: 02_data-processing
     status: MOUNTED
     load_priority: P1
@@ -282,84 +272,83 @@ mounts:
     label: "检验方法选择与加权调查数据"
     coarse: stats-analysis
     source: my-skills
-    path: 04_analysis/base/stats-guide/
+    path: 04_analysis/base/analyze-stats/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Test selection and weighted-survey guidance. Merge 2026-10-17 — body in A 04_analysis/base/stats-guide (source my-skills in-repo)."
+    note: "Test selection and weighted-survey guidance. Merge 2026-10-17 — body in A 04_analysis/base/analyze-stats (source my-skills in-repo)."
   - id: meta-analysis
     label: "Meta分析抗数据操纵"
     coarse: stats-analysis
     source: my-skills
-    path: 04_analysis/base/stats-models/
+    path: 04_analysis/base/meta-analysis/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Meta-analysis anti-manipulation. Merge 2026-10-17 — body in A 04_analysis/base/stats-models (source my-skills in-repo)."
+    note: "Meta-analysis anti-manipulation. Merge 2026-10-17 — body in A 04_analysis/base/meta-analysis (source my-skills in-repo)."
   - id: model-evaluation
     label: "模型-任务正确指标选择"
     coarse: stats-analysis
     source: my-skills
-    path: 04_analysis/base/model-eval/
+    path: 04_analysis/base/model-evaluation/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Merge 2026-10-17 — body in A 04_analysis/base/model-eval (source my-skills in-repo)."
+    note: "Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Merge 2026-10-17 — body in A 04_analysis/base/model-evaluation (source my-skills in-repo)."
   - id: calc-sample-size
     label: "样本量计算"
     coarse: stats-analysis
     source: my-skills
-    path: 04_analysis/base/stats-power/
+    path: 04_analysis/base/calc-sample-size/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Merge 2026-10-17 — body in A 04_analysis/base/stats-power (source my-skills in-repo)."
+    note: "Merge 2026-10-17 — body in A 04_analysis/base/calc-sample-size (source my-skills in-repo)."
   - id: draw-flowchart
     label: "患者流程图"
     coarse: figures
     source: my-skills
-    path: 04_analysis/base/fig-flow/
+    path: 04_analysis/base/draw-flowchart/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "STROBE / patient-flow only. Statistical plots are fine id plot-figures. Merge 2026-10-17 — body in A 04_analysis/base/fig-flow (source my-skills in-repo)."
+    note: "STROBE / patient-flow only. Statistical plots are fine id plot-figures. Merge 2026-10-17 — body in A 04_analysis/base/draw-flowchart (source my-skills in-repo)."
   - id: plot-figures
     label: "统计图与影像面板"
     coarse: figures
     source: my-skills
-    path: 04_analysis/base/fig-plot/
+    path: 04_analysis/base/plot-figures/
     a_domain: 04_analysis
     status: MOUNTED
     load_priority: P1
-    note: "Also covers former audit-figure-risk + scientific-visualization principles (see external-principles. 2026-09-22. Distinct from draw-flowchart (fig-flow). Merge 2026-10-17 — body in A 04_analysis/base/fig-plot (source my-skills in-repo)."
+    note: "Also covers former audit-figure-risk + scientific-visualization principles (see external-principles. 2026-09-22. Distinct from draw-flowchart (fig-flow). Merge 2026-10-17 — body in A 04_analysis/base/plot-figures (source my-skills in-repo)."
   - id: peer-review
     label: "审稿意见生成"
     coarse: manuscript-review
     source: my-skills
-    path: 06_review/base/review-peer/
+    path: 06_review/base/peer-review/
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    path_shared: true
-    note: "path_shared with former peer-review-pdf-scan (same 06_review/base/review-peer/). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/review-peer (source my-skills in-repo)."
+    note: "Former peer-review-pdf-scan shared this path; the path_shared flag was dropped 2026-10-20 (no live second id after batch-cohort was archived). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/peer-review (source my-skills in-repo)."
   - id: self-review
     label: "数值级自审核算"
     coarse: manuscript-review
     source: my-skills
-    path: 06_review/base/review-critique/
+    path: 06_review/base/self-review/
     a_domain: 06_review
     status: MOUNTED
     load_priority: P1
-    note: "Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 06_review/base/review-critique (source my-skills in-repo)."
+    note: "Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 06_review/base/self-review (source my-skills in-repo)."
   - id: revise
     label: "修回分诊与数字血统追踪"
     coarse: review-response
     source: my-skills
-    path: 07_response/base/review-response/
+    path: 07_response/base/revise/
     a_domain: 07_response
     status: MOUNTED
     load_priority: P1
-    note: "Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/review-response (source my-skills in-repo)."
+    note: "Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/revise (source my-skills in-repo)."
   - id: response-tone-polisher
     label: "回复语气软化"
     coarse: review-response
@@ -587,7 +576,7 @@ archived:
     source: scientific-agent-skills
   - id: audit-figure-risk
     status: ARCHIVED
-    reason: Nature P2; principles already in 04_analysis/base/fig-plot/external-principles.md; use plot-figures; cut 2026-10-17 round 2
+    reason: Nature P2; principles already in 04_analysis/base/plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
     revive_condition: venue-specific Nature figure risk workflow beyond plot-figures + external-principles and owner re-approves
     absorbed_into: plot-figures
     old_path: skills/nature-figure/
@@ -617,3 +606,21 @@ archived:
     old_path: skills/scientific-critical-thinking/
     historical: true
     source: scientific-agent-skills
+  - id: batch-cohort
+    status: ARCHIVED
+    reason: shared body with clean-data in A 02_data-processing/base/clean-data; no separate doc; owner decision 2026-10-20
+    revive_condition: a real batch queue analysis flow appears with its own inputs, outputs, or QC standard
+    absorbed_into: clean-data
+    old_path: 02_data-processing/base/clean-data/
+    historical: true
+    source: my-skills
+
+# A-local capability packs: not session-pick mounts, no fine id of their own.
+# Dir name is the pack name; tests/test_dir_equals_fine_id asserts coverage.
+local_packs:
+  - id: vocab
+    path: 05_manuscript/base/vocab/
+    note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
+  - id: write-venue
+    path: 05_manuscript/base/write-venue/
+    note: venue templates and house style; A-local, never mounted

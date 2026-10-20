@@ -21,14 +21,14 @@ overrides:
   - id: peer-review
     source: my-skills
     skills: [review-peer]
-    paths: [06_review/base/review-peer/]
+    paths: [06_review/base/peer-review/]
     role: clinical-reporting-findings
     required: true
     prefix_example: "[peer-review]"
   - id: self-review
     source: my-skills
     skills: [review-critique]
-    paths: [06_review/base/review-critique/]
+    paths: [06_review/base/self-review/]
     role: pre-submission-integrity
     required: true
     status_note: covers former scientific-critical-thinking (archived round 3)

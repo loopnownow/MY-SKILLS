@@ -54,12 +54,12 @@ Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
 **This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
 
-- `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/stats-guide/`)
-- `calc-sample-size` -- sample size / power (A `04_analysis/base/stats-power/`)
-- `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-eval/`)
-- `meta-analysis` -- implementation (A `04_analysis/base/stats-models/`); 0RAD personal still wins
-- `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/fig-flow/`)
-- `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/fig-plot/`)
+- `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/analyze-stats/`)
+- `calc-sample-size` -- sample size / power (A `04_analysis/base/calc-sample-size/`)
+- `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-evaluation/`)
+- `meta-analysis` -- implementation (A `04_analysis/base/meta-analysis/`); 0RAD personal still wins
+- `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/draw-flowchart/`)
+- `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/plot-figures/`)
 
 Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
 

@@ -22,7 +22,7 @@ overrides:
   - id: write-paper
     source: my-skills
     skills: [write-manuscript]
-    paths: [05_manuscript/base/write-manuscript/]
+    paths: [05_manuscript/base/write-paper/]
     role: structure-draft
     required: true
     prefix_example: "[write-manuscript]"

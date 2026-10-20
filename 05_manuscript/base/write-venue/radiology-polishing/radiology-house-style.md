@@ -42,7 +42,7 @@ venue, keep the clarity/concision/structure-level rules (they're not journal-spe
 | Element | _Radiology_ (above) | Nature-family |
 |---|---|---|
 | P-value leading zero | Omitted (`.03`) | Commonly retained (`0.03`) — confirm live, see `stat-reporting.md` |
-| Reference style | AMA/numbered per _Radiology_ convention | Numbered, strictly in order of first citation (Vancouver-style superscript) → `../../write-manuscript/radiology-citation/export-formats.md` |
+| Reference style | AMA/numbered per _Radiology_ convention | Numbered, strictly in order of first citation (Vancouver-style superscript) → `../../write-paper/radiology-citation/export-formats.md` |
 | Abbreviations | Defined at first use; avoided in Key Results | Defined at first use; avoided almost entirely in the abstract (no Key Results box exists — see `../radiology-writing/nature-family-shape.md`) |
 | "Summary statement" / "Key Results" labels | Required section labels | **Do not use these labels** — they signal the wrong house style; fold the equivalent single-sentence claim into the abstract's last sentence |
 | Section labels in Methods | Continuous prose under "Materials and Methods" | Short labelled subheadings are typical; Methods often runs online-only after References |

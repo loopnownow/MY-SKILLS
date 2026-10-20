@@ -8,4 +8,4 @@ Pass criteria are defined in `00_orchestrator/gates.md` (**G-PHI**). Before 02 t
 - [ ] No HIS host/password in git or skill files
 - [ ] Extraction uses env `HIS_USERNAME` / `HIS_PASSWORD` on the hospital machine only
 
-On fail: stop; user. Related capability packs (e.g. `base/imaging-qc`) stay out of this folder.
+On fail: stop; user. Related capability packs (e.g. `base/preprocess-imaging`) stay out of this folder.
