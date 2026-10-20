@@ -13,7 +13,7 @@ owner: "03_research/base/design-experiment/MODULE.md"
 
 # Imaging Study Design & Feasibility
 
-Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.`architecture-zoo` → `03_research/base/architecture-zoo/`, `design-ai-benchmarking` → `03_research/base/design-ai-benchmarking/`, `frontier-hypothesize` → `03_research/base/frontier-hypothesize/`, `find-cohort-gap` → `03_research/base/frontier-ideate/`, `intake-project` → `03_research/base/intake-project/`.
+Also covers (fine ids archived 2026-10-17 round 2; trees pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe
 clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —
@@ -108,15 +108,15 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 
 ## Handoffs
 
-- Frontier framing / is this direction novel & publishable → `design-study` / `03-frontier-hypothesize`.
-- Sample size, EPV, power, Riley minimum sample size → `04-stats-power`.
+- Frontier framing / is this direction novel & publishable → `design-study`.
+- Sample size, EPV, power, Riley minimum sample size → `calc-sample-size`.
 - Hand-crafted radiomics pipeline design → `analyze-stats`.
 - Deep-learning architecture & training design → A personal (not a fine id).
 - Imaging × omics mechanism design → `analyze-stats` / this pack.
-- ROI/mask annotation SOP → `02-imaging-qc`.
+- ROI/mask annotation SOP → `preprocess-imaging`.
 - Which checklist the design must satisfy → `check-reporting`.
 - Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
 - Clinical-use scenario, reader study, prospective plan → A personal.
-- Own funding proposal → `03-design-grant` (generic slot) / A personal Voice A/B. Do not copy grant skeletons into this pack.
+- Own funding proposal → `grant-builder` (generic slot) / A personal Voice A/B. Do not copy grant skeletons into this pack.
 - English journal peer review → `peer-review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.

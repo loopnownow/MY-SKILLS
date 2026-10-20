@@ -22,7 +22,7 @@ ARCHITECTURE.md
 MOUNTED_SKILLS.md            # → 01_skill-integration/MOUNTED_SKILLS.md
 ```
 
-# mounts-cap lab pack-cache (non-base leftovers only): {mounts_cap} = D:/0Grok/0doc/04-lab-reference/mounts-cap
+# mounts-cap lab pack-cache: RETIRED — D:/0Grok/0doc/04-lab-reference/mounts-cap deleted 2026-10-20; do not use
 
 
 Skill paths are at most five parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/<optional-leaf>/file`. No `core/`, no `bundles/`, no `merged/`.
@@ -46,7 +46,7 @@ Path depth: under `00`–`07`, at most **five** path parts from repo root (pytes
 
 ## Generated visualization
 
-Generated Archify/HTML viz lives under lab `D:/0Grok/0doc/04-lab-reference/my-skills-viz` (not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). Tests live under `tests/`; architecture notes in root `ARCHITECTURE.md` (former `docs/` / `.github/` archived under `D:/0del`).
+Generated Archify/HTML viz: former lab OUT `D:/0Grok/0doc/04-lab-reference/my-skills-viz` retired (deleted 2026-10-20); no outputs exist there (not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). Tests live under `tests/`; architecture notes in root `ARCHITECTURE.md` (former `docs/` / `.github/` archived under `D:/0del`).
 ## Maintenance
 
 GitHub MY-SKILLS is the framework + capability-body source of truth. Capability bodies for domains 02-07 live in-repo under `NN_slug/base/` (`source: my-skills`). `{mounts_cap}/` remains a lab pack-cache root for non-base leftovers, not a source of truth for live bodies. `registry.yaml` is the routing index. Updates to this framework land here when requested; no local-folder scan.

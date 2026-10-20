@@ -70,3 +70,9 @@ Internal note: dealbreakers — [list or none]
 ```
 
 跨包调研提炼的原则(非挂载，仅规则参考)：[external-principles.md](references/external-principles.md)
+
+## On-demand references
+
+| File | Open when |
+|---|---|
+| `references/manuscript-quality.md` | What "quality" means in an other-paper review report |

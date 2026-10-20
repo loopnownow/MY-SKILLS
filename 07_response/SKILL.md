@@ -44,6 +44,8 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 
 A07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 
+**Exit gate: G-07** (defined in `00_orchestrator/gates.md`; class QUALITY). Every response point is either resolved with a traced manuscript change or recorded as unresolved; the letter must not claim a fix that the manuscript does not contain. 00 runs the gate; a FAIL loops back here for local rework.
+
 ## Not this skill
 
 - Pre-review / peer-review / re-review -> `06_review`

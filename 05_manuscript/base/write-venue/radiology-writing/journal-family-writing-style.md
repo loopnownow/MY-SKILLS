@@ -210,4 +210,4 @@ Route the design to its required guideline: STARD for diagnostic accuracy, STROB
 
 ## Pending exact profiles
 
-For ASCO/JCO-family targets and NEJM AI/Catalyst-specific targets, do not enforce exact word counts, figure counts, or reference style from memory. Ask for the browser-printed guide or A `03_research` (`literature/journal-selection.md` + `medical-journal-submit/`) / `05_manuscript/base/write-venue/` house style to verify current instructions. You may still draft a clinically consequential, generalist-readable version, but label formatting limits as `VERIFY FROM GUIDE`.
+For ASCO/JCO-family targets and NEJM AI/Catalyst-specific targets, do not enforce exact word counts, figure counts, or reference style from memory. Ask for the browser-printed guide or A `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `05_manuscript/base/write-venue/` house style to verify current instructions. You may still draft a clinically consequential, generalist-readable version, but label formatting limits as `VERIFY FROM GUIDE`.

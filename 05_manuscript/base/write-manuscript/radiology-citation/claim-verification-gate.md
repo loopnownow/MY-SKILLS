@@ -101,6 +101,6 @@ For abstracts, Key Results, figure legends, graphical abstracts, tables, and sli
 |---|---|---|---|---|---|---|
 | BKG-01 | ... | background | ... | ... | VERIFIED | cite |
 | NOV-01 | ... | novelty | ... | ... | PARTIAL | soften novelty |
-| FIG-01 | ... | visual claim | source data / figure | n/a | UNSUPPORTED | correct figure or text |
+| FIG-01 | ... | visual claim | source data / figure | NOT_APPLICABLE | UNSUPPORTED | correct figure or text |
 
 This gate feeds `self-review` and should be repeated after major revision.

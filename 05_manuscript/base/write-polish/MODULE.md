@@ -11,3 +11,9 @@ owner: "05_manuscript/base/write-polish/MODULE.md"
 Academic English / house polish. Does **not** replace A personal de-AI. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`); personal list still wins.
 
 Backup: MedSci `skills/polish-language/`.
+
+## On-demand references
+
+| File | Open when |
+|---|---|
+| `radiology-polishing/style-guardrails.md` | Overclaiming / causation / hedging sweep while polishing prose |

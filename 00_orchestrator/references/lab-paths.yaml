@@ -5,12 +5,11 @@ version: 2
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
-  # A类废料：{del_root_a}\<项目名>\
-  del_root_a: "L:\\0del"
   script_root: "D:\\0Grok\\0script"
   doc_root: "D:\\0Grok\\0doc"
-  skills_git: "C:\\Users\\loopn\\GitHub\\MY-SKILLS"
+  skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
+  # mounts_cap / mounts_cap_cache: RETIRED — dir deleted 2026-10-20; do not use.
   mounts_cap: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   mounts_cap_cache: "D:\\0Grok\\0doc\\04-lab-reference\\mounts-cap"
   # 0doc
@@ -37,6 +36,6 @@ aliases:
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "0script / 0doc are never vendored into MY-SKILLS."
-  - "Public git omits mounts-cap pack bytes; {mounts_cap} under 0doc remains the lab pack-cache root (aliases mounts_cap / mounts_cap_cache). Not under MY-SKILLS or .grok/skills."
+  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) is retired; dir deleted 2026-10-20. Not under MY-SKILLS or .grok/skills."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\0Grok strings."

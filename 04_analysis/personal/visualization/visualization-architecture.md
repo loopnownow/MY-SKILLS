@@ -10,7 +10,7 @@ Archify is pinned to `tt-a1i/archify` **3.0.1** (tag `v3.0.1`, commit `2ab3cae7a
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../01_skill-integration/registry.yaml). It does not read `mounts-cap/`.
 
-Generated files live under lab `{doc_root}/04-lab-reference/my-skills-viz` (default `D:/0Grok/0doc/04-lab-reference/my-skills-viz`; override `MY_SKILLS_VIZ_OUT` / `--out`) and carry a generated marker, a rebuild command, the source fingerprint, the Archify pin, and a build status. `architecture/index.html` and `workflow/index.html` under that OUT are self-contained diagrams from the pinned Archify 3.0.1 zip. The id tables sit beside them as `status.html`. Hand-authored sources are this note, the version record, the mapping contract, and that zip. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A render or schema failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
+Default lab OUT `{doc_root}/04-lab-reference/my-skills-viz` is retired (deleted 2026-10-20; no outputs exist there). Generated files go to the chosen OUT (former default `D:/0Grok/0doc/04-lab-reference/my-skills-viz`; override `MY_SKILLS_VIZ_OUT` / `--out`) and carry a generated marker, a rebuild command, the source fingerprint, the Archify pin, and a build status. `architecture/index.html` and `workflow/index.html` under that OUT are self-contained diagrams from the pinned Archify 3.0.1 zip. The id tables sit beside them as `status.html`. Hand-authored sources are this note, the version record, the mapping contract, and that zip. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A render or schema failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
 
 Delta output lists added, removed, and changed identifiers and labels. It does not assign merge risk.
 
@@ -123,7 +123,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 | Skill detail | Generated from `SKILL.md` frontmatter, with a path back to the source file |
 | Design history | Decisions and this specification. Not the homepage |
 
-## 11. Suggested lab OUT layout (`my-skills-viz`)
+## 11. Suggested lab OUT layout (`my-skills-viz`, retired 2026-10-20)
 
 ```text
 {doc_root}/04-lab-reference/my-skills-viz/
@@ -152,13 +152,13 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 1. The visualization build does not rewrite MY-SKILLS skill prose.
 2. Fixes to a diagram go back to source, registry, or IR. Generated HTML is not hand-edited.
 3. Mount contents do not redefine architecture. External packages enter through the 01 registry first.
-4. HTML is not a fact source. Deleting generated lab `my-skills-viz` HTML and IR leaves the sources able to rebuild them.
+4. HTML is not a fact source. Deleting generated HTML and IR leaves the sources able to rebuild them (pass `--out DIR`; no default dir).
 5. Delta is evidence. A human decides merge.
 6. A layout failure does not justify deleting a semantic edge.
 
 ## 13. Acceptance
 
-Deleting generated lab `my-skills-viz` artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py`). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A schema failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, Archify version, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 04_analysis/personal/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A schema failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, Archify version, and build status.
 
 ## 14. Notes for a later pull request
 

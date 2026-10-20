@@ -12,7 +12,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 
 | Kind | Path | Rule |
 |------|------|------|
-| Scratch / old drafts / one-off scripts | `0del/`（A 类 `{del_root_a}\<项目名>\`；其他 `{del_root}`） | Never treat as current results |
+| Scratch / old drafts / one-off scripts | `0del/`（A 类 `{del_root}\<项目名>\`；其他 `{del_root}`） | Never treat as current results |
 | Shared stats library | `{script_modules}/` (gold) | Entry: `PYTHONPATH={script_stats}` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `{script_modules}`, do not modify that library; project HTML only points at it. |
 | Ops / clean-data / stats | `0script/` (besides `stats-analysis/modules/`) | Organize / clean / sync — **not** the stats engine. Children: `data-processing/clean-data/` `data-processing/clinical-data-extraction/` `data-processing/preprocess-imaging/` `stats-analysis/model-validation/` `figures/draw-flowchart/` `study-design/fill-protocol/` `manuscript-body/write-paper/` `review-response/revise/` `_templates/` `sync/`. 细 ID 索引：`{script_root}\SCRIPT_ROLES.md`. |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |

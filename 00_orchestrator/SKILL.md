@@ -60,7 +60,7 @@ Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_anal
 
 Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
 
-**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested A packs). `{mounts_cap}/**/SKILL.md` is cache — not a session skill unless its fine id is in `session_picked_fine_ids`. `.gitignore` excludes accidental in-repo `mounts-cap/` copies (SSOT cache outside repo).
+**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested A packs). `{mounts_cap}` is retired (deleted 2026-10-20) — never load from it. `.gitignore` excludes accidental in-repo `mounts-cap/` copies (SSOT cache outside repo).
 
 **Mount → 评阅/润色 recipe:** when the user says 挂载 + 评阅/润色 on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
 
@@ -97,6 +97,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-FACT | after 04 HTML; again after 05 house.docx; before 06 if numbers cited |
 | G-05 | after house.docx |
 | G-06 | after pre-review / re-review (not response; response → 07) |
+| G-07 | after the response letter (entry 07); qc standards in `07_response/qc/` |
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 

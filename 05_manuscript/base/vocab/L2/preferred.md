@@ -93,7 +93,7 @@ Direct side-by-side AUCs are more common than `outperformed`.
 
 **Do not use** as recommended stock: `suggesting its potential`,
 `demonstrated good performance` (0 hits in 389 unique drafts). Listed in
-`../vocab/L1/ban-phrases.md`.
+`../L1/ban-phrases.md`.
 
 ---
 

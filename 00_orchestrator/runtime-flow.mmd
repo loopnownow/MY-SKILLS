@@ -38,7 +38,7 @@ flowchart TD
     Entry -->|修回无环 → 06 Lee| R06[06 修回主控]
     Entry -->|回复/response → 07 Aitee| Need07[进入 07 · Aitee 回复]
     Entry -->|独立文献任务| Need03[进入 03 · Victor]
-    Entry -->|代码深审 / Deep QC| NeedCode[进入 02 code-refactoring]
+    Entry -->|代码深审 / Deep QC| NeedCode[进入 02 code QC]
     Entry -->|其他明确单域| NeedS[进入目标 Skill]
     Entry -->|单节点个人层 · 无挂载依赖| Personal[例：润色一句 · 不问挂载]
 
@@ -73,7 +73,7 @@ flowchart TD
     Dispatch -->|06| I25
     I25[Integrity · pre-06<br/>G-FACT+G-CIT + RG subset + AI-fail lite] --> P06[06 审稿/预审 · Lee]
     Dispatch -->|07| P07[07 回复审稿 · Aitee]
-    Dispatch -->|代码深审| PCode[02 · code-refactoring]
+    Dispatch -->|代码深审| PCode[02 · code QC]
     Dispatch -->|单域| Single[目标 Skill]
 
     subgraph CHAIN[主生产链 · PASS 才向前 · 中途入口仍可 · 写作/审稿必须经 03 citation-verify]

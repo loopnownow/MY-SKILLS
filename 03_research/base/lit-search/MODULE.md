@@ -10,4 +10,4 @@ owner: "03_research/base/lit-search/MODULE.md"
 
 Generic search / source hierarchy / public datasets for radiology AI.
 
-A `03_research/literature/` may still hold a dual-track copy. Personal search logs stay in A.
+A copy of this pack may still sit under the former `literature/` tree on A machines (archived 2026-10-17). Personal search logs stay in A.

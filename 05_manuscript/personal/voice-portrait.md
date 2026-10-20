@@ -85,7 +85,7 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 
 - Revise the original `.docx` in place with Track Changes; comments author **A**. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Missing facts → comment / ask; never yellow fill; never silent overwrite of existing corresponding-author / funding / ethics text.
-- Full delivery rules: `06_review/personal/word-edit-rules.md`.
+- Full delivery rules: `06_review/personal/word-edit.md`.
 - Before calling the draft final, run `05_manuscript/qc/manuscript-local-qc.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.
 
 ---
@@ -94,7 +94,7 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 
 # L2 format / paragraph habits (writing layer)
 
-**Authority:** full locks and portrait stay in `../../voice-portrait.md` and IMRAD/DOCX in `../../Aitor-format.md`.
+**Authority:** full locks and portrait stay in `voice-portrait.md` and IMRAD/DOCX in `Aitor-format.md`.
 This file is the **L2 writing slice** only (how paragraphs and set wording are preferred).
 
 ## Preferred paragraph habit

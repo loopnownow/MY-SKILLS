@@ -34,7 +34,7 @@ Persist ordered phases with status. Resume walks to the first **non-terminal** p
 | `pending` / `running` / `failed` | Execution | Executor |
 | `done` | Artifact written (execution-complete) | Executor |
 | **`accepted`** | Quality acquittal recorded | **Only** cross-seat / independent reviewer **or** deterministic verifier — never executor self-report |
-| `skipped` | Config says stage N/A | Executor (config) |
+| `skipped` | Config says stage `NOT_APPLICABLE` | Executor (config) |
 
 `done` ≠ `accepted`. A `done`-but-unaccepted phase is **re-validated** on resume. See `assurance-verdicts.md` Type-B ACCEPT rule.
 

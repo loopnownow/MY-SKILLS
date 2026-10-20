@@ -33,7 +33,7 @@ Default mapping when only depth is stated: light/balanced work → `draft`; max/
 
 **`NOT_APPLICABLE` ≠ silent skip.** Phase ran; detector negative; JSON/MD artifact exists. Silent skip leaves no record — forbidden at `submission` / `conference-ready`.
 
-**`BLOCKED` > `NOT_APPLICABLE`.** Example: numeric claims present but no primary results files → `BLOCKED`, not N/A.
+**`BLOCKED` > `NOT_APPLICABLE`.** Example: numeric claims present but no primary results files → `BLOCKED`, not `NOT_APPLICABLE`.
 
 ## Minimal artifact fields
 

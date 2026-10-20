@@ -35,7 +35,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 投稿前找问题 / dealbreaker | `06_review` |
 | 回复审稿人 | `07_response` only as entry (Aitee) |
 | 选题 / 文献 / 选刊 | `03_research` |
-| 选刊 | `03_research` (`literature/journal-selection.md`). 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/` |
+| 选刊 | `03_research` (`personal/journal-selection.md`). 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/` |
 | 样本量 | `04_analysis` (`calc-sample-size`) |
 | AUC / DeLong / DCA / 统计计划 / 出图 | `04_analysis` |
 | 组学 / ROI / 泄漏审计 / 预处理 | `02_data-processing` |
@@ -45,7 +45,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | 伦理申请表填写 | `03_research` → `base/fill-protocol/` |
 | 临床提取（已导出文本） | `02_data-processing` → `personal/extract.md` |
 | 转化 / reader study | `03_research` → `clinical-translation/` |
-| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `plot-figures` + `personal/lab-palettes.md`) |
+| 期刊级 ROC/校准/DCA 图 | `04_analysis` (mounted `plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
 | STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `draw-flowchart`) |
 | 新外接技能 | `01_skill-integration` |
 
