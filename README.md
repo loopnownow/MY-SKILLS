@@ -46,7 +46,7 @@ Path depth: under `00`–`07`, at most **five** path parts from repo root (pytes
 
 ## Generated visualization
 
-Generated HTML + JSON IR viz lives under lab `D:/0Grok/0doc/04-lab-reference/my-skills-viz` (not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). Tests live under `tests/`; architecture notes in root `ARCHITECTURE.md` (former `docs/` / `.github/` archived under `D:/0del`).
+Generated HTML + JSON IR viz goes to the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; former `my-skills-viz` retired 2026-10-20; not a committed `docs/` tree). Rebuild locally via `04_analysis/personal/visualization/scripts/gen_visualization.py` (no in-repo `.github` CI). Tests live under `tests/`; architecture notes in root `ARCHITECTURE.md` (former `docs/` / `.github/` archived under `D:/0del`).
 ## Maintenance
 
 GitHub MY-SKILLS is the framework + capability-body source of truth. Capability bodies for domains 02-07 live in-repo under `NN_slug/base/` (`source: my-skills`). The former `{mounts_cap}/` lab pack-cache is retired (2026-10-20) and is not a source of truth for live bodies. `registry.yaml` is the routing index. Updates to this framework land here when requested; no local-folder scan.
