@@ -6,3 +6,5 @@
 → `07_response/base/tighten-response/references/qa-checklist.md`
 
 A07 first-pass must not self-certify via `qc/`. 00 may load this standard when checking a tightened response letter.
+
+Also compose `disclaimer-comment-only.md` (letter/revised-ms 正文: no disclaimer/未做-class; 批注 + 建议修改后内容).

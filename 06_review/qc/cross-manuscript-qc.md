@@ -74,7 +74,8 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 | pipeline_tokens_banned | Minor in one legend, Major if pipeline tokens remain in the body the authors call final. |
 | source_attribution_banned | Minor. Delete "as stated by the source" and its cousins. The fact stays; the hedge goes. |
 | placeholder_and_internal_labels_banned | Major. 待补, TBD, XX, and internal labels such as 标签未与方案核对 do not survive in the body. |
-| repeated_disclaimer | Minor unless the same caveat is doing the work of a missing analysis. Keep one copy. |
+| agent_disclaimer_and_incomplete_claims_banned | Major. Disclaimer / CYA / 未做-class hedges do not survive in 正文 (AL-5). Word 批注 only, and the comment **must** include 建议修改后内容. See `disclaimer-comment-only.md`. |
+| repeated_disclaimer | Minor unless the same caveat is doing the work of a missing analysis. Keep one copy; prefer comment-only per AL-5. |
 | empty_retrieval_and_scan_placeholders | Major. Empty queries and missing scan parameters are unfinished Methods. |
 | cutoff_vs_included_distribution | Major when an included group's median, Q1, or minimum falls on the excluded side of the entry cutoff. |
 | iqr_scale_sanity | Major when IQR exceeds the instrument range or contradicts the cutoff. |

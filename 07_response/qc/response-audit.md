@@ -14,3 +14,7 @@ A07 first-pass must not self-certify via `qc/`. 00 may load this standard when a
 - [ ] No invented letter format (shell/template only)
 - [ ] Edits via Track Changes; word/sentence units; no large-block overwrite
 - [ ] Uniform typography: TNR 12 / 1.5 / spacing 0 / justify / LTR / no special format
+
+## Disclaimer / incompleteness (owner 2026-10-21)
+
+- [ ] Response-letter **正文** and revised manuscript body have **no** disclaimer/CYA/未做-class hedges → see `disclaimer-comment-only.md` (compose AL-5). Comments only + 建议修改后内容.

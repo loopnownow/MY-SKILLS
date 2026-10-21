@@ -31,6 +31,10 @@
 
 ## 1. 开头信件模板（默认 A；B 几乎不用）
 
+**Standing letter opener (owner 2026-10-21):** After the salutation, open with one of:
+**Thank you for your comments** | **Thank you for your suggestions** | **Thank you for your inquiry** —
+pick the noun that fits the reviewer's tone/content (comments = observations/critique; suggestions = concrete change requests; inquiry = questions/clarifications). Do not invent a fourth noun bank for the letter opener. Per-point谢词 still follow §2.
+
 **A. 标准型（最常用，中等正式）**
 ```text
 Dear Editors and Reviewers:
@@ -229,6 +233,7 @@ PCOS 等系列稿件。
 - 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**。点头后仍由 Aitee 用 Track Changes 改正文。Lee 默认不改正文。
 - 可决定的正文修改：Lee 批注交给 Aitee TC-fix。过去时只用于已经落地的修改。
 - 事实仍不可决（缺来源、缺分析、伦理号未定）：回复信**对应那一条**必须写明未决，并写待补来源（pending source）。不得把该条写成已经改完。`Suggested …` 建议句只放 Word 批注（见 ownership-contract），不作为 invent / disclaimer 写进回复正文。不假装已做实验。
+- **Disclaimer / CYA / 「未做」类（owner 2026-10-21）：** 回复信正文与同期修订稿正文均不得出现；只进 Word 批注，且必须含建议修改后内容（`07_response/qc/disclaimer-comment-only.md` / AL-5）。
 
 ---
 

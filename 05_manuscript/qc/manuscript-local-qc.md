@@ -121,6 +121,8 @@ checks:
     class: process_language
   - id: placeholder_and_internal_labels_banned
     class: process_language
+  - id: agent_disclaimer_and_incomplete_claims_banned
+    class: process_language
   - id: repeated_disclaimer
     class: process_language
   - id: empty_retrieval_and_scan_placeholders
@@ -219,7 +221,9 @@ Final prose does not contain 待补, 待补充, TBD, XX, bracketed parameter slo
 
 Agent-added disclaimers, placeholders, or internal notes never enter the manuscript body or a response letter. Banned strings include `Do not invent…`, `We did not invent…`, `cannot_invent`, `Undecidable pending source`, `will supply from source`, `pending source`, `not in the current files`, and figure/table placeholders such as `[Figure N near here]`.
 
-Agent must not add new negative gap lists either (`was not tested / measured / examined / included …`). A verifiable negative fact already present in the user's Methods or Limitations may stay. Unresolved items go to a Word comment (author **A**), with an English sentence starting `Suggested …`.
+**Disclaimer / CYA / incompleteness (owner 2026-10-21; compose AL-5):** 「某某未做」「我们未做」「未进行…」, *not performed* / *we did not* / *was not done*, and similar hedges that flag work not done **must not appear in 正文**. Same rule for response-letter body and revised manuscript body. Such language may appear **only** in Word 批注 (author **A**), and every such 批注 **must** include **建议修改后内容** (suggested revised body wording)—not a bare flag. Fail → remove from body / move to comment with rewrite (`05_manuscript/qc/anti-leak-placeholders.md` AL-5).
+
+Agent must not add new negative gap lists either (`was not tested / measured / examined / included …`). A verifiable negative fact already present in the user's Methods or Limitations may stay. Unresolved items go to a Word comment (author **A**), with an English sentence starting `Suggested …` that supplies the preferred body wording.
 
 ### layout_priority
 
@@ -227,7 +231,7 @@ Layout order: the user's instruction this run, then the target journal guide, th
 
 ### repeated_disclaimer
 
-The same disclaimer or limitation sentence appears once. A second copy in the body or a legend is a fail. Collapse to one locus.
+The same disclaimer or limitation sentence appears once. A second copy in the body or a legend is a fail. Collapse to one locus. Prefer **no** disclaimer/CYA/未做-class language in 正文 at all (AL-5 / `agent_disclaimer_and_incomplete_claims_banned`): if it must be recorded, one Word 批注 with suggested rewrite—not repeated body hedges.
 
 ### empty_retrieval_and_scan_placeholders
 
