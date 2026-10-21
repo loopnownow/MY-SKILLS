@@ -84,3 +84,60 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 ## 4. 风格与配色是两个独立开关，不要合并成一次询问的两个选项
 
 **风格**（这张图集是给 0RAD console 内部看，还是给期刊投稿；是否需要额外的组合子图）和**配色**（用 `lab-palettes.md` 的 console 五套，还是发表用扩展的10套）是两件不相关的事，能任意组合。两者都不确定时可以合并成一次询问，但只要有一个已经在项目里确定过（比如这次任务已经定了投稿风格），后续只问缺的那一个，不要连已经定过的一起重新问一遍。同一任务里的补图、改图沿用已确定的两个选择，不逐图重复询问——和已经写进 `00_orchestrator` Plan card 的"问清楚一次不重复问"是同一个习惯。
+
+---
+
+## Part C — Imaging montage workflow (多图拼版：去标识 → 网格 → 分层交付)
+
+**Owner:** `04_analysis`（个人层）。通用规则（去标识、WL/WW、注释、图注）见 `04_analysis/base/plot-figures/references/imaging-panels.md`；本节只记本人拼版的默认做法与交付格式，不覆盖 base。
+
+### 1. 步骤
+
+1. **去标识（先做）**：裁剪掉所有烧录文字——姓名（含中文名）、`Page x of y`、`IM/SE`、标尺/刻度线、边缘竖线、多余黑边。**逐张打开裁剪结果肉眼确认**无残留文字，不是"坐标算过就算过"。
+2. **不改窗宽窗位/对比度**：只裁剪 + 重采样（Lanczos），像素值不做任何调整。
+3. **网格**：行×列按本人指定；面板顺序按本人原始文件名 a–f（文件改名后按文件大小等对应回去），不按序列类型自行排序。
+4. **单元格**：等大正方形，保持原始比例缩放，不足处**黑色填充**。
+5. **间隔（gutter）**：按本次要求；默认 6 px 白色间隔；本人说"不要间隔"时为 0 px，背景改为黑色（任何地方不露白）。
+6. **标注**：A–F 大写，粗体白色无衬线字体 + 细黑描边，默认放每格**左下角**；打印尺寸约 10–12 pt（300 dpi 下字高约 48 px）。
+7. **尺寸**：双栏 ~174 mm @ 300 dpi ≈ 2055 px 宽（例：6 px 间隔 → 677 px 格，2055×1372；0 间隔 → 685 px 格，2055×1370）。
+
+### 2. 默认交付
+
+- **分层 PSD**：Background + 每个面板一层（全画布尺寸，格外透明）+ 标签层；尺寸**宽在前**；写入 300 dpi（ResolutionInfo 1005）；**必须写入扁平合成图**（image data），否则多数查看器显示全黑。PSD >25 MB 时另附 zip。
+- **PNG 预览**（300 dpi）。
+- **TIFF 仅在本人明确要求时**：扁平、LZW、300 dpi。多页 TIFF 不做，除非要求。
+- 真正的分层 TIFF 在没有 GIMP/Photoshop 的环境里做不出来 → 交 PSD，由本人在 Photoshop 中"另存为 TIFF（保留图层）"。
+
+### 3. QC（每次交付前全部跑一遍）
+
+- 用 psd_tools 重新打开 PSD：`size == (W, H)` 且为横向。
+- `composite()` 与 PNG 预览逐像素比较，diff 必须为 0（存储合成图和 `force=True` 由图层重建各比一次）。
+- 每个面板层的不透明 bbox 落在自己的格子内；标签层只有字母。
+- 0 间隔时：格子交界的行/列及四边白色像素数为 0；Background 层纯黑。
+- zip `testzip()` 返回 None。
+- 预览图打开实际看一遍（同 Part B §3：看图，不是看脚本没报错）。
+
+### 4. 已知坑
+
+- **pytoshop 的 `size` 参数是 (width, height)**，numpy 通道数组是 (H, W)；传反会得到竖版 PSD。
+- pytoshop 默认不写合成图 → 打开 PSD 全黑；需设 `psd.image_data`。其 RLE 压缩在新版 Python 下报错（`packbits` 未定义），用 raw（文件大，所以 zip）。
+
+关键片段（pytoshop，`flat`/`labels`/各面板为 PIL RGBA 全画布图）：
+
+```python
+from pytoshop import enums, image_resources as ir
+from pytoshop.user import nested_layers as nl
+from pytoshop.image_data import ImageData
+import numpy as np, struct
+def lay(name, img):
+    a = np.asarray(img.convert("RGBA"))
+    return nl.Image(name=name, visible=True, opacity=255,
+                    channels={0: a[..., 0], 1: a[..., 1], 2: a[..., 2], -1: a[..., 3]})
+layers = [lay("Labels", labels)] + [lay(f"Panel {L}", p) for L, p in reversed(panels)] + [lay("Background", bg)]
+psd = nl.nested_layers_to_psd(layers, color_mode=enums.ColorMode.rgb,
+                              size=(W, H), compression=enums.Compression.raw)   # width first!
+psd.image_resources.blocks.append(ir.GenericImageResourceBlock(
+    resource_id=1005, data=struct.pack(">IHHIHH", 300 << 16, 1, 2, 300 << 16, 1, 2)))
+psd.image_data = ImageData(channels=np.asarray(flat.convert("RGB")).transpose(2, 0, 1).copy(),
+                           compression=enums.Compression.raw)                # flattened composite
+```
