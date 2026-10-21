@@ -10,7 +10,7 @@
 D:\0Grok\0doc\04-lab-reference\lit-corpus\
   README.md
   index.csv                 # master ledger (one row per DOI)
-  personal\                 # 本组已发 SCI（叶莹 / 强金伟 / 石海峰）
+  personal\                 # 本组已发 SCI（Aitor / 强金伟 / 石海峰）
   base\                     # DOI 审过的外源文献（近 5 年；或现行指南/诊断标准）
   _archived\                # base 过窗研究文（可选）
 ```
@@ -21,7 +21,7 @@ Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Cre
 
 | Layer | Who / what | Keep |
 |---|---|---|
-| `personal` | SCI with group authors **Yi Ying / 叶莹**, **Qiang Jinwei / 强金伟**, **Shi Haifeng / 石海峰** (any co-author position) | All years; tag `themes[]` by research direction |
+| `personal` | SCI with group authors **Aitor** (published author forms on group papers), **Qiang Jinwei / 强金伟**, **Shi Haifeng / 石海峰** (any co-author position) | All years; tag `themes[]` by research direction |
 | `base` | External refs that passed DOI verify (`verify-refs` / citation-verify) | Research: **publication year ≥ now−5**. **Guideline / diagnostic standard:** latest edition only (may be older than 5y); set `kind=guideline` or `standard` + `edition` |
 
 Own-group papers live in **personal** only (do not duplicate into base).
@@ -56,7 +56,7 @@ doi,pmid,year,citation_nlm,result_conclusion,themes,layer,kind,edition,verified_
 | `edition` | Guideline/standard edition or year label; empty for research |
 | `verified_at` | ISO date when DOI verify passed; required for `base` |
 | `source_project` | Project id that triggered ingest (optional for personal backfill) |
-| `group_authors` | For personal: which of Yi/Qiang/Shi appear, e.g. `Yi\|Shi` |
+| `group_authors` | For personal: which of Aitor/Qiang/Shi appear, e.g. `Aitor|Shi` (Aitor row = owner's published name forms) |
 | `notes` | Short only |
 
 Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\<doi-or-slug>.md` with the same NLM line + `result_conclusion` — only when the CSV cell is too tight; CSV remains SSOT.
@@ -65,7 +65,7 @@ Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\
 
 ### A. New group SCI → `personal`
 
-1. Confirm author match (叶莹 / 强金伟 / 石海峰).
+1. Confirm author match (Aitor's published name forms + 强金伟 / 石海峰).
 2. Build `citation_nlm` from Crossref/PubMed (no invented fields).
 3. Write `result_conclusion` from abstract or owner-supplied bullets (1–3 sentences).
 4. Assign `themes`; append one row to `index.csv`.
