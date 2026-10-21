@@ -98,7 +98,7 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 3. **网格**：行×列按本人指定；面板顺序按本人原始文件名 a–f（文件改名后按文件大小等对应回去），不按序列类型自行排序。
 4. **单元格**：等大正方形，保持原始比例缩放，不足处**黑色填充**。
 5. **间隔（gutter）**：按本次要求；默认 6 px 白色间隔；本人说"不要间隔"时为 0 px，背景改为黑色（任何地方不露白）。
-6. **标注**：A–F 大写，粗体白色无衬线字体 + 细黑描边，默认放每格**左下角**；打印尺寸约 10–12 pt（300 dpi 下字高约 48 px）。
+6. **标注**：A–F 大写，**Arial Bold**（`arialbd.ttf`；PIL 用 `ImageFont.truetype("arialbd.ttf", 48)`，不要用 DejaVu 等默认字体），白色 + 细黑描边（stroke 2 px），默认放每格**左下角**；打印尺寸约 10–12 pt（300 dpi 下字高约 48 px）。
 7. **尺寸**：双栏 ~174 mm @ 300 dpi ≈ 2055 px 宽（例：6 px 间隔 → 677 px 格，2055×1372；0 间隔 → 685 px 格，2055×1370）。
 
 ### 2. 默认交付
@@ -121,6 +121,8 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 
 - **pytoshop 的 `size` 参数是 (width, height)**，numpy 通道数组是 (H, W)；传反会得到竖版 PSD。
 - pytoshop 默认不写合成图 → 打开 PSD 全黑；需设 `psd.image_data`。其 RLE 压缩在新版 Python 下报错（`packbits` 未定义），用 raw（文件大，所以 zip）。
+
+标签字体：Arial Bold；Linux 环境若装不到 Arial（`ttf-mscorefonts-installer` 无源），用度量兼容的 Liberation Sans Bold 并在交付说明里写明替代。
 
 关键片段（pytoshop，`flat`/`labels`/各面板为 PIL RGBA 全画布图）：
 
