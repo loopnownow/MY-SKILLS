@@ -1,4 +1,4 @@
-# 03_research personal route -- top layer
+﻿# 03_research personal route -- top layer
 
 Three pillars. Load only what the task needs.
 
@@ -39,3 +39,10 @@ Three pillars. Load only what the task needs.
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
 Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → A `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-venue/` styles).
+
+## 0doc document DB (Bai)
+
+| File | When |
+|---|---|
+| `0doc-db.md` | Owner asks to search/look up/inventory `D:\0Grok\0doc` (Bai seat; Aitor routes only) |
+
