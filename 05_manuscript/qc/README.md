@@ -11,7 +11,7 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | `reporting-guideline-route.md` | **G-05** / **Integrity · pre-06** — TRIPOD/STARD/STROBE/PRISMA + JSON router |
 | `reporting-guidelines-router.json` | **G-05** / Integrity · pre-06 — id→study_type→URL metadata only (MIT upstream) |
 | `claim-number-align.md` | **G-05** / **G-FACT** — claim↔number/table/figure align |
-| `anti-leak-placeholders.md` | **G-05** / Integrity · pre-06 — 批注-only gaps; no negation lists |
+| `anti-leak-placeholders.md` | **G-05** / Integrity · pre-06 — 批注-only gaps; no negation lists; **AL-5** disclaimer/CYA/未做-class → comment + 建议修改后内容 |
 | `style-spotcheck.md` | **G-05** — Vancouver+DOI / Aitor-format spot (not APA-primary) |
 | `figure-stats-legend.md` | **G-05** / Integrity · pre-06 — legend minima by plot type |
 | `figure-qa-minima.md` | **G-05** — image-integrity + pre-submission figure pass/fail |

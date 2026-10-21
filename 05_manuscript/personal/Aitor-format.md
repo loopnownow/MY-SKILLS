@@ -257,7 +257,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 ## No disclaimers, no repetition
 
-SCI full papers have **no disclaimer**. Ban:
+SCI full papers have **no disclaimer**. Ban (owner 2026-10-21 reinforce: disclaimer/CYA/未做-class belongs in Word 批注 only, with 建议修改后内容 — never 正文; see `qc/anti-leak-placeholders.md` AL-5):
 
 - *for research use only* / *not medical advice* / *the authors disclaim*  
 - *not a ready clinical tool*  

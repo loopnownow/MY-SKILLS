@@ -10,8 +10,8 @@
 
 ## Load order
 
-1. `response.md` Part A -- letter voice / templates
-2. `response.md` Part B -- resolution protocol
+1. `response.md` Part A -- letter voice / templates (standing opener: Thank you for your comments|suggestions|inquiry; §2 per-point谢词)
+2. `response.md` Part B -- resolution protocol (disclaimer/未做-class → 批注 only + 建议改写; see `qc/disclaimer-comment-only.md`)
 3. Sibling handoffs via `handoff.md`
 
 ## Cooperation

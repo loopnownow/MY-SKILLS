@@ -8,6 +8,7 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 | File | Gate(s) |
 |---|---|
 | `cross-manuscript-qc.md` | **G-06** — sister-paper / statement-then-data consistency (annotate only) |
+| `disclaimer-comment-only.md` | **G-06** / Integrity · pre-06 — disclaimer/CYA/未做-class → 批注 only + 建议修改后内容 (compose AL-5) |
 | `editorial-decision-matrix.md` | **G-06** — Accept / Minor / Major / Reject (no hard score threshold) |
 | `rr-re-review.md` | **G-06** / `P06r` — R&R verification enum → `00_orchestrator/templates/rr-traceability.md` |
 | `stats-reporting-spotcheck.md` | **G-06** — short radiology/prediction stats spot list |

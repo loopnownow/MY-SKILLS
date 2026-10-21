@@ -10,3 +10,4 @@
 | Exit QC / Gates | `00_orchestrator` |
 
 Response final authority is **07**. Mounted `revise` / `tighten-response` / `response-tone-polisher` use source my-skills under A `07_response/base/`.
+Style (letter): standing opener + disclaimer/未做-class rule live in `response.md` / `qc/disclaimer-comment-only.md`.

@@ -7,6 +7,8 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 Missing material → **Word 批注 only**. Never invent filler in body prose. Never add "not tested" / "we did not examine…" **negation lists** (owner de-AI ban).
 
+**Disclaimer / CYA / incompleteness (owner 2026-10-21):** Language that flags work not done (agent hedges or CYA) **must not appear in 正文**. It may appear **only** in Word 批注, and every such 批注 **must** include **建议修改后内容** (suggested revised body wording)—not a bare flag. Fail → remove from body / move to comment with suggested rewrite.
+
 ## Must-check
 
 | id | Check | Fail → |
@@ -15,6 +17,9 @@ Missing material → **Word 批注 only**. Never invent filler in body prose. Ne
 | AL-2 | Gaps flagged as Word comments with owner, not invented sentences | 05 |
 | AL-3 | No negation-list padding for unrun analyses | 05 — delete / comment |
 | AL-4 | No leaked prompt/instruction text in manuscript | 05 |
+| AL-5 | Body has no disclaimer / CYA / incompleteness hedges (e.g. 「某某未做」「我们未做」「未进行…»; *not performed* / *we did not* / *was not done* and kin). If the point must be recorded: **Word 批注 only**, and the comment **must** include suggested revised body wording (建议修改后内容). Bare flags fail. | 05 — strip from 正文; comment with rewrite |
 
-**PASS:** AL-1…4 clean.
-**FAIL:** body leak or negation-list → rollback **05** (comment-only fix; do not auto-fill).
+**PASS:** AL-1…5 clean.
+**FAIL:** body leak, negation-list, or disclaimer/未做-class in 正文 (or a bare disclaimer comment without suggested rewrite) → rollback **05** (comment-only fix; do not auto-fill).
+
+Shared compose pointer for 06/07: `disclaimer-comment-only.md` under those domains' `qc/`.
