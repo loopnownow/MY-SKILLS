@@ -18,6 +18,7 @@ Three pillars. Load only what the task needs.
 | mounted `lit-search` (B) | Generic retrieval (first-pass) |
 | mounted `verify-refs` (B) | **Post-QC A03-triggered** verify |
 | mounted `retraction-watcher` (B) | **Post-QC A03-triggered** retraction check |
+| `lit-corpus.md` | Lab citation corpus (NLM store / Vancouver cite; personal=group SCI; base=DOI-verified 5y or current guideline) |
 
 ## Design & exploration
 

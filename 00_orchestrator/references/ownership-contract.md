@@ -12,7 +12,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 |---|---|---|
 | Aitor | `00_orchestrator` | QC, intent classify, skill chain, gates, local recovery |
 | Loopnow | `02_data-processing` + `04_analysis` | data processing, stats, figures |
-| Victor | `03_research` | 文献与证据 / 研究设计与探索 / 选刊, Voice B grant, citation-verify |
+| Victor | `03_research` | 文献与证据 / 研究设计与探索 / 选刊, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | 投稿 after review loop + ethics forms + **0doc 文档库查询** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `D:\0Grok\0doc`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
