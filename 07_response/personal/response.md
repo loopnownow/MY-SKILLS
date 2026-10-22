@@ -233,7 +233,7 @@ PCOS 等系列稿件。
 - 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**。点头后仍由 Aitee 用 Track Changes 改正文。Lee 默认不改正文。
 - 可决定的正文修改：Lee 批注交给 Aitee TC-fix。过去时只用于已经落地的修改。
 - 事实仍不可决（缺来源、缺分析、伦理号未定）：回复信**对应那一条**必须写明未决，并写待补来源（pending source）。不得把该条写成已经改完。`Suggested …` 建议句只放 Word 批注（见 ownership-contract），不作为 invent / disclaimer 写进回复正文。不假装已做实验。
-- **Disclaimer / CYA / 「未做」类（owner 2026-10-21）：** 回复信正文与同期修订稿正文均不得出现；只进 Word 批注，且必须含建议修改后内容（`07_response/qc/disclaimer-comment-only.md` / AL-5）。
+- **否定句 / 未做类（owner 2026-10-23）：** 凡标「未做 / 未进行 / 我们未…」或同类 CYA 的过程性否定句，**不得写入正文**（稿件、修订稿、回复信）。只进 Word **批注**（作者 **A**），且每条批注必须含 **建议修改后内容**；禁止裸 flag。研究本身的阴性结果（如 *no significant difference*、*was not associated with*）不受本条禁止。质控：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
 
 ---
 
