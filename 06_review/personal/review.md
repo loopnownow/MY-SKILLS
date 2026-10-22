@@ -38,7 +38,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍由 Aitee 落 Track Changes，Lee 只批注。
 - **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee 默认不改正文。
 - 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户。中文批注加英文建议措辞和/或建议文献（见 ownership-contract）。建议文献由 Victor 供给。Lee 不落稿件修订；用户选定后由 Aitee 用 Track Changes 改正文。
-- **Disclaimer / CYA / 「未做」类（owner 2026-10-21）：** 正文不得保留；只进 Word 批注，且批注必须含 **建议修改后内容**（见 `06_review/qc/disclaimer-comment-only.md` / AL-5）。禁止裸 flag。
+- **否定句 / 未做类（owner 2026-10-23）：** 凡标「未做 / 未进行 / 我们未…」或同类 CYA 的过程性否定句，**不得写入正文**（稿件、修订稿、回复信）。只进 Word **批注**（作者 **A**），且每条批注必须含 **建议修改后内容**；禁止裸 flag。研究本身的阴性结果（如 *no significant difference*、*was not associated with*）不受本条禁止。质控：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
 - 改文单元：**词或句**，禁止整段重写。
 
 ---
