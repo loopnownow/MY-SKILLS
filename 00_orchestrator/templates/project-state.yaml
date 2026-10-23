@@ -1,9 +1,12 @@
-# Copy to {lab_root}\<stage>\<project>\ref\project-state.yaml when starting a study (stage: preparing | polishing | submitting | accepted).
+# Copy to {lab_root}\<stage>\<project>\ref\project-state.yaml when starting a study (stage: drafting | pre-submit | in-review | accepted).
 # study_folder_stage_aliases is the path-segment alias table. It is not pipeline.stage.
 # Already-written project folders may still use the alias. Read the alias as the live name. Do not rewrite those folders.
 study_folder_stage_aliases:
-  reseived: accepted   # historical typo folder name
-  received: accepted   # old stage name; disk renamed to accepted
+  preparing: drafting
+  polishing: pre-submit
+  submitting: in-review
+  reseived: accepted
+  received: accepted
 # Do NOT put VAL_MODE, column names, FIG_PALETTE, GROUP_KEEP here — those stay in ref/settings.ini.
 # Leave unknown fields empty. Never invent ethics IDs, n, or AUC.
 

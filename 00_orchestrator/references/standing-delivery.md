@@ -12,7 +12,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 | Artifact | Format | Where |
 |---|---|---|
-| Report / phase QC | HTML | A-class → project `ref`; B-class → subproject or `submitting\<project>`; no subproject → `C:\Users\loopn\Downloads` |
+| Report / phase QC | HTML | A-class → project `ref`; B-class → subproject or `in-review\<project>`; no subproject → `C:\Users\loopn\Downloads` |
 | Manuscript / Track Changes | DOCX | subproject if any; else Downloads |
 | Data table / filled form | XLSX | A-class final → project `0result`; else same as manuscript |
 | Intermediate from derivatives | copy | A-class: copy out of `derivatives` into `0result` when final; originals stay |

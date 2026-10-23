@@ -12,7 +12,7 @@ Formerly `house-format.md`.
 
 **Voice and revision marks (same Aitor-format, do not fork):**  
 `{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·  
-`{lab_root}\polishing\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
+`{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
 Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 
