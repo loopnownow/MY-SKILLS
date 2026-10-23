@@ -82,19 +82,17 @@ Canonical layout (enforced by `{code_sync}\sync_modules.py`, 2026-09-04):
 
 Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint resume. Shared library: `{code_modules}`.
 
-## A-class project (`{WORK_A}\<project>\`)
+## Subproject layout (no A/B class)
 
-- Project scripts → project `0script`; project notes → project `0doc`.
-- `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or Downloads).
+A-class / B-class / `{WORK_A}` / `{WORK_B}` retired 2026-10-24. Deliverables live in the **subproject**; everything else → `{DEL}` (Downloads only when named).
+
+- Project scripts → project `0script` (if used) or `{code_root}` when reusable; project notes → project `0doc` only when user says 「放 0doc」.
+- `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or `{DEL}` / Downloads if named).
 - Copy results out of `derivatives` by default; originals stay; `0result` holds copies.
 - Merge final tables that share a key (one description block, value columns prefixed). Moving an original out of `0result` needs approval.
-- Root keeps only: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `0result`, `ref`. Do not store project scripts in `{WORK_B}\0doc\_code`.
+- Data-project roots may keep: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `0result`, `ref`. Reusable scripts → `{code_root}` (`{doc_root}\_code`), not scattered in random roots.
 - Before moving a script or doc, search `import` / `addpath` / `settings.ini` / README. Any un-updated reference blocks the move. After a move, fix paths and the `0doc` examples, then test.
-- Logs and dead old files → `{DEL}` (approval first; use `{DEL}`). Temp files → Rules §5.
-
-## B-class subproject (`{WORK_B}\<subproject>\`)
-
-- Reusable scripts → `{WORK_B}\0doc\_code`; long-term rules / references → `{WORK_B}\0doc`.
-- Engineering files to keep → subproject `ref`; newest SCI manuscript → subproject root. While a manuscript is being edited, keep it out of `{DEL}` / analysis output / `ref` / `结果`. Analysis exports stay in an analysis-output subfolder.
-- No temp / draft / one-off intermediates at the subproject root (exception: manuscript currently being edited). `04-analysis\stats-analysis\modules` (`{code_modules}`) add-move-rename needs approval.
+- Logs and dead old files → `{DEL}` (approval first). Temp files → Rules §5 / MY-RULES delivery table.
+- Engineering keepers → subproject `ref`; newest SCI manuscript → subproject root. While editing a manuscript, keep it out of `{DEL}` / analysis output / `ref` / `结果`. Analysis exports stay in an analysis-output subfolder.
+- No temp / draft / one-off intermediates at the subproject root (exception: manuscript currently being edited). `{code_modules}` add-move-rename needs approval.
 - No `*.tsv` indexes; register with `.xlsx` and explain with `.md`.

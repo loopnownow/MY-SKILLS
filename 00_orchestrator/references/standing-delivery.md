@@ -12,17 +12,18 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 | Artifact | Format | Where |
 |---|---|---|
-| Report / phase QC | HTML | A-class → project `ref`; B-class → subproject or `in-review\<project>`; no subproject → `C:\Users\loopn\Downloads` |
-| Manuscript / Track Changes | DOCX | subproject if any; else Downloads |
-| Data table / filled form | XLSX | A-class final → project `0result`; else same as manuscript |
-| Intermediate from derivatives | copy | A-class: copy out of `derivatives` into `0result` when final; originals stay |
+| Report / phase QC | HTML | Subproject → that project `ref` or `in-review\<project>`; else `{DEL}` unless user names Downloads |
+| Manuscript / Track Changes | DOCX | Subproject if any; else `{DEL}` unless user names Downloads |
+| Data table / filled form | XLSX | Final tables → subproject `0result`; else same as manuscript |
+| Intermediate from derivatives | copy | Copy out of `derivatives` into `0result` when final; originals stay |
 | Notes for an LLM | MD | per task |
 | User names a place this run | from the user | from the user |
 
 - Temporary / intermediate files → `{DEL}\<task>` only; never delivered as output.
-- `Downloads\<task>` only for a final delivery with no subproject, or when the user says so.
-- Write `{WORK_B}\0doc` or a project `0doc` only when the user says 「放 0doc」.
+- Downloads **only** when the user names 「下载」/「Downloads」 this run.
+- Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」.
 - Never delete. Files removed from a project move into `{DEL}` with the relative path kept.
+- No A-class / B-class / `{WORK_A}` / `{WORK_B}` (retired 2026-10-24).
 
 ## Reporting levels
 
