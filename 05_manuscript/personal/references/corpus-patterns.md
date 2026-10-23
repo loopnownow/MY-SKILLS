@@ -33,4 +33,4 @@
 ## Pointers
 
 - Process slices: `../process/polisher-sections.md`, `../process/citation-and-language.md`
-- Harvest draft: `D:\0Grok\0doc\_corpus\skill-harvest\05-patterns-summary.md`
+- Harvest draft: `{doc_root}\_corpus\skill-harvest\05-patterns-summary.md`

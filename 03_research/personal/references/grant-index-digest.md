@@ -7,9 +7,9 @@
 
 | Role | Path |
 |---|---|
-| Durable full originals | `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-ftp-20261023\` |
-| Park (pending purge) | `D:\0del\_by-project\0doc-library-ftp-20261023\` |
-| Word archives (unchanged) | `D:\0del\_by-project\0doc-word-sources\03-research\grants\` |
+| Durable full originals | `{doc_root}\_corpus\skill-harvest\sources\library-ftp-20261023\` |
+| Park (pending purge) | `{DEL}\_by-project\0doc-library-ftp-20261023\` |
+| Word archives (unchanged) | `{DEL}\_by-project\0doc-word-sources\03-research\grants\` |
 | Writing skeleton (Voice B) | `03_research/personal/grant-own-skeleton.md` |
 | Writing voice | `03_research/personal/grant-writing.md` |
 
@@ -48,6 +48,6 @@
 ## Bans / checklist
 
 - Do **not** paste full grant/application bodies into GitHub / skills.
-- Ethics / PHI: out of FTS/GitHub (N/A for these nine unless PHI found — then park only).
+- Ethics / PHI: out of FTS/GitHub (NOT_APPLICABLE for these nine unless PHI found — then park only).
 - Prefer `grant-own-skeleton.md` + this index for structure; open park/`_corpus` only when needing verbatim paragraphs.
-- Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in park); `D:\00db\…` paths in that log are **void**.
+- Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in park); `{raw_root}\…` paths in that log are **void**.

@@ -8,11 +8,11 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-methods-20261023\lit-corpus-method\` |
-| Park | `D:\0del\_by-project\0doc-library-methods-20261023\lit-corpus-method\` |
-| Data SSOT (stays live) | `D:\0Grok\0doc\_library\lit-corpus\` (`index.csv`, `themes.md`, layer READMEs) |
+| Durable original | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\lit-corpus-method\` |
+| Park | `{DEL}\_by-project\0doc-library-methods-20261023\lit-corpus-method\` |
+| Data SSOT (stays live) | `{doc_root}\_library\lit-corpus\` (`index.csv`, `themes.md`, layer READMEs) |
 | CSV header template | `03_research/personal/references/lit-corpus-index.template.csv` |
-| One-shot scripts (not in skills) | `D:\0del\_by-project\lit-corpus\*.py` |
+| One-shot scripts (not in skills) | `{DEL}\_by-project\lit-corpus\*.py` |
 
 ## Invariant rules
 
@@ -36,7 +36,7 @@
 7  check_index / validate_index / make_report
 ```
 
-Batch artifacts (`ann-NN.tsv`, `batch-NN.txt`, `base-todo.csv`) live under `D:\0del\_by-project\lit-corpus\` — never inside `_library\lit-corpus\`.
+Batch artifacts (`ann-NN.tsv`, `batch-NN.txt`, `base-todo.csv`) live under `{DEL}\_by-project\lit-corpus\` — never inside `_library\lit-corpus\`.
 
 ## Script groups (26 one-shots — path pointers only)
 

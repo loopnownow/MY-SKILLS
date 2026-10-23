@@ -37,4 +37,4 @@ Buckets: grant-review 40 · journal-review 25 · projects 50 · thesis-review 1.
 ## Pointers
 
 - Envelope: `../review.md`
-- Harvest draft: `D:\0Grok\0doc\_corpus\skill-harvest\06-review-habits-candidates.md`
+- Harvest draft: `{doc_root}\_corpus\skill-harvest\06-review-habits-candidates.md`

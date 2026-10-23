@@ -7,9 +7,9 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-methods-20261023\lab-ref-method\` |
-| Park (pending purge) | `D:\0del\_by-project\0doc-library-methods-20261023\lab-ref-method\` |
-| Data SSOT (stays live) | `D:\0Grok\0doc\_library\lab-ref-ranges\` (`README` + `schema.yaml` + xlsx + `qc\gate-hooks.md`) |
+| Durable original | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\lab-ref-method\` |
+| Park (pending purge) | `{DEL}\_by-project\0doc-library-methods-20261023\lab-ref-method\` |
+| Data SSOT (stays live) | `{doc_root}\_library\lab-ref-ranges\` (`README` + `schema.yaml` + xlsx + `qc\gate-hooks.md`) |
 | Related method | `scanner-registry-digest.md`（抽取结构先例）; Lab-STE = 语言 only |
 
 ## Corpus facts (snapshot 2026-10-19; not estimates)

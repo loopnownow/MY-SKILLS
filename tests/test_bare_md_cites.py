@@ -48,6 +48,20 @@ EXTERNAL = {
     "INTEGRATION_MAP-20261007.md",  # monthly archive under {DEL}
     "INTEGRATION_MAP.archive.md",  # older archive under {DEL}
     "INTEGRATION_MAP-YYYYMMDD.md",  # archive naming pattern
+    # 0doc / park / harvest (not vendored into MY-SKILLS)
+    "INDEX-thesis.md",  # roles-park thesis quote index
+    "themes.md",  # {doc_root}\_library\lit-corpus\themes.md
+    "HARVEST-STANDARD.md",  # {doc_root}\_corpus\skill-harvest\
+    "harvest-projects-cut.md",  # skill-harvest companion
+    "harvest-verified-links.md",  # skill-harvest companion
+    # grant fulltext skeleton section headings (park originals, not in repo)
+    "03-002-03-guojiazirankexuejijin-qingnianxiangmu.md",
+    "03-003-03-fudandaxue-boshibaokao.md",
+    "03-004-03-jinshanquweijianwei.md",
+    "03-005-03-jinshanyiyuan-yanjiushengketi.md",
+    "03-006-03-jinshanyiyuan-yanjiushengketi-2.md",
+    "03-007-03-jinshanyiyuan-yanjiushengketi-3.md",
+    "03-008-03-jinshanyiyuan-yuanjikeyanjijin.md",
 }
 
 # Report artifacts the running task writes; they are names, not repo files.

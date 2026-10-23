@@ -25,4 +25,4 @@
 
 - Live portrait: `../voice-portrait.md`
 - Format locks: `../Aitor-format.md`
-- Harvest draft (full scored list): `D:\0Grok\0doc\_corpus\skill-harvest\05-voice-from-quotes.md`
+- Harvest draft (full scored list): `{doc_root}\_corpus\skill-harvest\05-voice-from-quotes.md`

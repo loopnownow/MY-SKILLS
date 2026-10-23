@@ -45,4 +45,4 @@ Prefer variety across points (suggestion vs inquiry vs comment) so the letter do
 ## Pointers
 
 - Full voice + hard rules: `../response.md`
-- Harvest draft: `D:\0Grok\0doc\_corpus\skill-harvest\07-reply-skeletons.md`
+- Harvest draft: `{doc_root}\_corpus\skill-harvest\07-reply-skeletons.md`
