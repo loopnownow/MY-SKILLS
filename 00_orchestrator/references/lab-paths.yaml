@@ -20,8 +20,13 @@ aliases:
   jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\0Grok\\0doc\\_library\\jcr2026\\submission"
   find_journal_pools: "D:\\0Grok\\0doc\\_library\\find-journal\\data\\2026"
-  doc_review_corpus: "D:\\0Grok\\0doc\\06-review\\personal"
-  doc_review_replies: "D:\\0Grok\\0doc\\07-response\\personal"
+  # was 06-review/personal (retired human seat 2026-10-23 → 0del\\_by-project\\0doc-03-07-seats-20261023\\06-review).
+  # Live review-text SSOT: _corpus\\corpus\\review-text.jsonl (+ REVIEW-TEXT.tsv).
+  doc_review_corpus: "D:\\0Grok\\0doc\\_corpus"
+  # was 07-response/personal (retired human seat → 0del\\_by-project\\0doc-03-07-seats-20261023\\07-response;
+  # Word reply originals also under 0del\\_by-project\\0doc-word-sources\\07-response).
+  # Live flattened SSOT: _corpus\\corpus\\flattened.jsonl.
+  doc_review_replies: "D:\\0Grok\\0doc\\_corpus"
   doc_grants: "D:\\0Grok\\0doc\\_library\\grants"
   # 学位论文 Word 原件 2026-10-22 已迁 0del 归档区；0doc 内只剩 md 视图。
   doc_thesis: "D:\\0del\\_by-project\\0doc-word-sources\\05-manuscript\\thesis"
@@ -35,23 +40,28 @@ aliases:
   code_model_validation: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis\\model-validation"
   # 算法库主库（2026-10-23 P1）：只本地 git、无远端；GOLD(code_modules) 经 sync_modules.py --promote 单向同步
   code_modules_master: "D:\\0Grok\\0doc\\GitHub\\stats-analysis\\modules"
-  code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing\\base"
+  # no base\ under _code 02–07 (fine-ID folders are direct children)
+  code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing"
   code_clean_data: "D:\\0Grok\\0doc\\_code\\02-data-processing\\clean-data"
   code_preprocess_imaging: "D:\\0Grok\\0doc\\_code\\02-data-processing\\preprocess-imaging"
   code_fill_protocol: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol"
   code_figures: "D:\\0Grok\\0doc\\_code\\04-analysis\\draw-flowchart"
   code_write_paper: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
   code_revise: "D:\\0Grok\\0doc\\_code\\07-response\\revise"
-  code_md_corpus: "D:\\0Grok\\0doc\\_code\\_infra\\review-response\\md-corpus"
-  code_lab_reference: "D:\\0Grok\\0doc\\_code\\_infra\\lab-reference"
-  code_sync: "D:\\0Grok\\0doc\\_code\\_infra\\sync"
+  code_md_corpus: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response\\md-corpus"
+  code_lab_reference: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol\\lab-reference"
+  code_sync: "D:\\0Grok\\0doc\\_code\\02-data-processing\\_shared\\sync"
+  code_docx_extract: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
+  code_tighten_response: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response"
+  code_06_review: "D:\\0Grok\\0doc\\_code\\06-review"
+  # 2026-10-23 infra rehome: md-corpus/lab-reference/sync left _infra
   code_code_manifest: "D:\\0Grok\\0doc\\_code\\CODE-MANIFEST.tsv"
   code_corpus_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}; master copy (local git only) at {code_modules_master}."
-  - "2026-10-23: 0doc theme trees are README + personal/ + base/; live content under personal\\ (aliases above). base\\ is reserved for shared materials."
+  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\0del\\_by-project\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
   - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\\\0del\\\\_by-function\\\\mounts-cap-retired-20261020. Not under MY-SKILLS or .grok/skills."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
