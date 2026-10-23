@@ -1,20 +1,19 @@
 # Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
 # Agents expand from this file at read time. Do not vendor 0doc\_code / 0doc into git.
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
-version: 3
+version: 4
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
+  raw_root: "D:\\00db"  # organized raw DB (was 00ds); read-only unless named
   code_root: "D:\\0Grok\\0doc\\_code"
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
-  # mounts_cap / mounts_cap_cache: RETIRED 2026-10-20; bytes moved to D:\0del\_by-function\mounts-cap-retired-20261020.
-  # Historical aliases only (0del park folder may still exist); not required by tests.
-  mounts_cap: "D:\\0del\\_by-function\\mounts-cap-retired-20261020"  # RETIRED path; do not recreate under 0doc
-  mounts_cap_cache: "D:\\0del\\_by-function\\mounts-cap-retired-20261020"
+  # mounts_cap / mounts_cap_cache: DELETED 2026-10-24 (RETIRED 2026-10-20).
+  # Former bytes parked at D:\0del\_by-function\mounts-cap-retired-20261020 — do not recreate; do not alias.
   # 0doc — 2026-10-23：人读层收成 <粗ID>/personal|base；现役内容在 personal\。
   doc_lab_ste: "D:\\0Grok\\0doc\\_library\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
@@ -68,3 +67,4 @@ notes:
   - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\\\0del\\\\_by-function\\\\mounts-cap-retired-20261020. Not under MY-SKILLS."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
+  - "mounts_cap aliases deleted 2026-10-24 (retired 2026-10-20); park folder D:\\0del\\_by-function\\mounts-cap-retired-20261020 only. No {MOUNTS}/{mounts_cap} alias. raw_root=D:\\00db (was 00ds)."
