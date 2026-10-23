@@ -50,7 +50,7 @@ class NoRawLabPaths(unittest.TestCase):
             bad,
             [],
             "raw lab drive paths in live bodies (use {doc_root} / {DEL} / {WORK_A} / "
-            "{script_modules} / {skills_git} / {lab_root}):\n" + "\n".join(bad[:40]),
+            "{code_modules} / {skills_git} / {lab_root}):\n" + "\n".join(bad[:40]),
         )
 
 

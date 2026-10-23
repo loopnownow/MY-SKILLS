@@ -1,11 +1,11 @@
 # Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
-# Agents expand from this file at read time. Do not vendor 0script/0doc into git.
+# Agents expand from this file at read time. Do not vendor 0doc\_code / 0doc into git.
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 version: 2
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
-  script_root: "D:\\0Grok\\0script"
+  code_root: "D:\\0Grok\\0doc\\_code"
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
@@ -25,17 +25,25 @@ aliases:
   doc_ethics: "D:\\0Grok\\0doc\\07-ethics"
   doc_fill_protocol: "D:\\0Grok\\0doc\\04-lab-reference\\study-design\\fill-protocol"
   doc_migrate: "D:\\0Grok\\0doc\\MIGRATE_FROM_SKILLS.md"
-  # 0script
-  script_stats: "D:\\0Grok\\0script\\stats-analysis"
-  script_modules: "D:\\0Grok\\0script\\stats-analysis\\modules"
-  script_model_validation: "D:\\0Grok\\0script\\stats-analysis\\model-validation"
-  script_data_processing: "D:\\0Grok\\0script\\data-processing"
-  script_revise: "D:\\0Grok\\0script\\review-response\\revise"
-  script_figures: "D:\\0Grok\\0script\\figures"
-  script_write_paper: "D:\\0Grok\\0script\\manuscript-body\\write-paper"
+  # 0doc\_code — stats engine + stage scripts (0script retired 2026-10-23)
+  code_stats: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis"
+  code_modules: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis\\modules"
+  code_model_validation: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis\\model-validation"
+  code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing\\base"
+  code_clean_data: "D:\\0Grok\\0doc\\_code\\02-data-processing\\base\\clean-data"
+  code_preprocess_imaging: "D:\\0Grok\\0doc\\_code\\02-data-processing\\base\\preprocess-imaging"
+  code_fill_protocol: "D:\\0Grok\\0doc\\_code\\03-research\\base\\fill-protocol"
+  code_figures: "D:\\0Grok\\0doc\\_code\\04-analysis\\base\\draw-flowchart"
+  code_write_paper: "D:\\0Grok\\0doc\\_code\\05-manuscript\\base\\write-paper"
+  code_revise: "D:\\0Grok\\0doc\\_code\\07-response\\base\\revise"
+  code_md_corpus: "D:\\0Grok\\0doc\\_code\\_infra\\review-response\\md-corpus"
+  code_lab_reference: "D:\\0Grok\\0doc\\_code\\_infra\\lab-reference"
+  code_sync: "D:\\0Grok\\0doc\\_code\\_infra\\sync"
+  code_code_manifest: "D:\\0Grok\\0doc\\_code\\CODE-MANIFEST.tsv"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
-  - "0script / 0doc are never vendored into MY-SKILLS."
+  - "0doc\_code / 0doc are never vendored into MY-SKILLS."
+  - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}."
   - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\0del\\_by-function\\mounts-cap-retired-20261020. Not under MY-SKILLS or .grok/skills."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\0Grok strings."

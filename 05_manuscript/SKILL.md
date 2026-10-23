@@ -45,7 +45,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Lab-STE (CM-01 ZH comments) | A `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |
-| Diff harvest | `{script_write_paper}\diff_harvest.py` |
+| Diff harvest | `{code_write_paper}\diff_harvest.py` |
 
 
 ## Mounted capability ids (bodies in A `base/`; not present until mounted)

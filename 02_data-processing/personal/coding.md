@@ -16,7 +16,7 @@
 
 | 任务 | 路径 |
 |---|---|
-| 软编码 + dry-run 模板 | `{script_root}\_templates\soft_code_template.py` |
+| 软编码 + dry-run 模板 | `{code_root}\_infra\_templates\soft_code_template.py` |
 | 深度代码 QC（五轴/分级/Critical + Code QC Core） | `../qc/coding-qc.md` |
 | 写时代码阶梯 + 强度/护栏 | 下文「Complexity ladder」节 |
 
@@ -50,11 +50,11 @@ Medical / Statistical Integrity：**只引用** `04_analysis/qc/report-checks.md
 - 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `../qc/coding-qc.md`
 - Critical/Required/Optional 为主标签；P0–P3 为报告别名
 - 边界：≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution)；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
-- 不 vendor `{script_modules}` 整树
+- 不 vendor `{code_modules}` 整树
 - 00 路由：`gates.md` **G-CODE**
 
 ## 附带的模板
-- `{script_root}\_templates\soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
+- `{code_root}\_infra\_templates\soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
 
 ---
 

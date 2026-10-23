@@ -27,7 +27,7 @@ MOUNTED_SKILLS.md            # → 01_skill-integration/MOUNTED_SKILLS.md
 
 Skill paths are at most five parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/<optional-leaf>/file`. No `core/`, no `bundles/`, no `merged/`. Vendored third-party libraries may nest deeper (e.g. `02_data-processing/base/clean-data/xlsx-office/scripts/office/**`); they are byte-faithful copies, not skill bodies.
 
-Lab disks (not inside this repo): runnable SSOT `{script_root}`; human-doc SSOT `{doc_root}`. Skills keep rules + pointers — see `ARCHITECTURE.md` · Lab workspace SSOT.
+Lab disks (not inside this repo): runnable SSOT `{code_root}`; human-doc SSOT `{doc_root}`. Skills keep rules + pointers — see `ARCHITECTURE.md` · Lab workspace SSOT.
 
 | Skill | Role |
 |-------|------|

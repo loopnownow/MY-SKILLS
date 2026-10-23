@@ -258,7 +258,7 @@ Lab 0RAD **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 - For models vs readers in a reader study → use **MRMC** (see agreement-mrmc.md), not a plain
   DeLong, because both readers and cases are random.
 
-Do not vendor `{script_root}` Python. Do not `pip install delong` / call R `pROC` as if that
+Do not vendor `{code_root}` Python. Do not `pip install delong` / call R `pROC` as if that
 were the lab runner.
 
 ## Calibration (frequently missing → reviewer flag)
@@ -331,7 +331,7 @@ Use when the endpoint is **time-to-event** (OS, PFS, recurrence). Common in radi
   competing-risks (Fine-Gray), RMST. You may say these are not implemented. Never write them
   as what the lab ran.
 
-Do not vendor `{script_root}` Python.
+Do not vendor `{code_root}` Python.
 
 ```python
 # Optional univariable Cox — statsmodels PHReg, Breslow. Not lifelines.
@@ -587,7 +587,7 @@ This breaks naive analysis in three ways: multiplicity, overfitting/optimism, an
   implemented.
 - Harrell bootstrap optimism correction is **not** a lab default.
 
-Do not vendor `{script_root}` Python. Full lock: `04_analysis/personal/pipeline.md`.
+Do not vendor `{code_root}` Python. Full lock: `04_analysis/personal/pipeline.md`.
 
 ## 1. Multiple testing
 

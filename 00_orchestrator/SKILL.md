@@ -121,6 +121,6 @@ Triggers 「这个研究还能做什么」等 → [`workflows/research-explorati
 
 **00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); visualization → `04_analysis/personal/visualization/`.
 
-**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0script` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
+**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `MOUNTED_SKILLS.md` / `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click 投稿, or absorb harvest/01 implementation.
