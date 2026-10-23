@@ -1,0 +1,26 @@
+# term-lock-default.tsv  Lab-STE 默认术语锁定模板（领域通用词，所有课题共用）
+# 列：concept_id, canonical, aliases, lang, note   （aliases 用 | 分隔；以 # 开头的行为注释）
+# 用途：这些词不进批准词典，但每个课题几乎都会用到；命中视为已登录（见 config dictionary 段）。
+# aliases 是“建议统一的别名”，不是同义词定论；按课题改写，课题表同 concept_id 时以课题表为准。
+concept_id	canonical	aliases	lang	note
+T-PAT	patient	patients	en	研究对象；健康对照另建 concept
+T-FEA	feature		en	影像或临床特征；不与 variable 混用
+T-SLI	slice		en	影像层面
+T-REA	reader	rater|observer	en	阅片者；全文固定一个词
+T-IMG	image		en	
+T-SCN	scan		en	
+T-SEQ	sequence		en	成像序列；不指核酸序列
+T-COH	cohort		en	
+T-DAT	dataset	data set	en	
+T-ROI	region of interest	ROI	en	首次写全称加缩写，其后用 ROI
+T-VAR	variable		en	统计变量
+T-PAR	parameter		en	
+T-TRN	training cohort	training set|derivation cohort	en	按课题选定一个写法
+T-TST	test cohort	test set|testing set	en	按课题选定一个写法
+T-VAL	validation cohort	validation set	en	按课题选定一个写法
+T-RND	randomize	randomise	en	拼写固定美式
+T-MEA	mean		en	通用描述统计，默认锁定；AUC/HR/OR 等具名指标进课题表
+T-MED	median		en	通用描述统计，默认锁定；AUC/HR/OR 等具名指标进课题表
+Z-PAT	患者	病人	zh	
+Z-REA	阅片者	读片者|阅片医师|观察者	zh	
+Z-SLI	层面	切片|层	zh	影像层面；病理切片另建 concept

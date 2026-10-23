@@ -17,7 +17,7 @@ Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Cre
 
 ## Layout note (2026-10-23)
 
-On disk under `_library\lit-corpus\` the old `personal\` / `base\` **directory wrappers were flattened**. `layer=personal|base` remains a **CSV column**, not a folder. Method docs: `_library\lit-corpus-method\`.
+On disk under `_library\lit-corpus\` the old `personal\` / `base\` **directory wrappers were flattened**. `layer=personal|base` remains a **CSV column**, not a folder. Method docs: skill `personal/references/lit-corpus-method-digest.md` (absorbed 2026-10-23; originals parked under `0del\_by-project\0doc-library-methods-20261023\lit-corpus-method\`).
 
 ## Layers
 

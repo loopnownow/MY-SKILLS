@@ -78,3 +78,7 @@ Full text: [`references/hard-rules.md`](references/hard-rules.md).
 - `PROPOSED` is not pickable; personal / A top layers are not mount picks.
 - Empty mount → notify → re-search → confirm ([`references/session-pick.md`](references/session-pick.md)).
 - `{mounts_cap}/` is historical pack-cache only; live bodies are in-repo `NN_slug/base/`. Download is not a mount.
+
+## Owner text harvest
+
+Default filter for owner-supplied text: `references/text-harvest-by-fine-id.md` (细ID → 语料库要素 / 过程 / 注意事项). Disk SSOT: `_corpus/skill-harvest/HARVEST-STANDARD.md` §7.
