@@ -1,5 +1,10 @@
 # Response letter (style + resolution)
 
+## Structure digest (0doc absorb 2026-10-23)
+
+Letter skeleton + unique bans: `references/response-structure-digest.md`. Type stubs: `references/response-letter-template-digest.md`. **Do not fork** opener nouns / thanks bank — this file remains SSOT.
+
+
 ## Hard rules (owner 2026-10-19)
 
 - **Do not invent** response-letter format. Follow the existing comment shell / venue template / gold layout only.
