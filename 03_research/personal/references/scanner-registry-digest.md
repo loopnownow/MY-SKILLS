@@ -1,17 +1,17 @@
 # scanner-registry-digest
 
 **Absorbed:** 2026-10-23 from `_library/scanner-registry/README.md` (method only).
-**Data workbook:** live copy under `D:\0Grok\0doc\templates\scanner-parameter-registry.xlsx` (refreshing query table — not vendored into GitHub).
+**Data workbook:** live copy under `{doc_root}\templates\scanner-parameter-registry.xlsx` (refreshing query table — not vendored into GitHub).
 
 ## Live pointers (after move)
 
 | Role | Path |
 |---|---|
-| Durable original (README + xlsx) | `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-methods-20261023\scanner-registry\` |
-| Park | `D:\0del\_by-project\0doc-library-methods-20261023\scanner-registry\` |
-| Live xlsx (query) | `D:\0Grok\0doc\templates\scanner-parameter-registry.xlsx` |
-| Build scripts (stay in `_code`) | `D:\0Grok\0doc\_code\_infra\lab-reference\scanner_registry_{extract,build,rows}.py` |
-| Word archives | `D:\0del\_by-project\0doc-word-sources\` |
+| Durable original (README + xlsx) | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\scanner-registry\` |
+| Park | `{DEL}\_by-project\0doc-library-methods-20261023\scanner-registry\` |
+| Live xlsx (query) | `{doc_root}\templates\scanner-parameter-registry.xlsx` |
+| Build scripts (stay in `_code`) | `{code_root}\_infra\lab-reference\scanner_registry_{extract,build,rows}.py` |
+| Word archives | `{DEL}\_by-project\0doc-word-sources\` |
 
 ## Coverage snapshot (as of README 2026-10-17)
 
@@ -44,11 +44,11 @@
 ## Rebuild / extend (path pointers — do not vendor `.py`)
 
 ```text
-python D:\0Grok\0doc\_code\_infra\lab-reference\scanner_registry_extract.py --stage all
-python D:\0Grok\0doc\_code\_infra\lab-reference\scanner_registry_build.py
+python {code_root}\_infra\lab-reference\scanner_registry_extract.py --stage all
+python {code_root}\_infra\lab-reference\scanner_registry_build.py
 ```
 
-Extract scratch → `D:\0del\scanner-registry\`. New study: append `ROWS` in `scanner_registry_rows.py` as `记录ID|key=value|…` (ID like `MR17-01`). New enums → `DICT_ROWS`. New field → `COLS` then rebuild; `01_query` row count must equal non-empty `ROWS`.
+Extract scratch → `{DEL}\scanner-registry\`. New study: append `ROWS` in `scanner_registry_rows.py` as `记录ID|key=value|…` (ID like `MR17-01`). New enums → `DICT_ROWS`. New field → `COLS` then rebuild; `01_query` row count must equal non-empty `ROWS`.
 
 ## Gaps pointer
 

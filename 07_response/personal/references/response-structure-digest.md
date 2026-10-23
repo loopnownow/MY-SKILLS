@@ -1,7 +1,7 @@
 # Response-letter structure digest (0doc base absorb)
 
 > Digested 2026-10-23 from park `…/07-response/base/response-structure/README.md`.
-> Provenance (durable): `D:\\0Grok\\0doc\\_corpus\\skill-harvest\\sources\\0doc-base-absorbed-20261023\\response-structure\\README.md`.
+> Provenance (durable): `{doc_root}\_corpus\skill-harvest\sources\0doc-base-absorbed-20261023\response-structure\README.md`.
 > **Voice / opener / thanks bank SSOT remains** `../response.md` — this file is skeleton + unique bans only. Do not triplicate opener nouns.
 
 ## Letter skeleton (fixed order)
@@ -54,4 +54,4 @@ Already covered in `../response.md` Hard rules — **do not fork:** no invent fo
 - Template type stubs (no PII dump): `response-letter-template-digest.md`
 - Corpus stems: `corpus-reply-skeletons.md`
 - Regenerable reply units: `_code/_infra/review-response/md-corpus/s18_reply_units.py`; harvest `…/skill-harvest/07-reply-skeletons.md`
-- Bulk cards / flattened (purge risk): `D:\\0del\\_by-project\\0doc-05-07-roles-20261023\\07-response\\personal\\`
+- Bulk cards / flattened (purge risk): `{DEL}\_by-project\0doc-05-07-roles-20261023\07-response\personal\`

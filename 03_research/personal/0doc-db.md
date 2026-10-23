@@ -2,9 +2,9 @@
 
 **Standing rule (2026-10-21 owner):** searching / looking up / inventorying `{doc_root}` is **Bai’s** job. Aitor routes and monitors.
 
-**Tree revision (2026-10-23):** machine library is **`_library/`** (renamed from `03-research/`; skill seat `03_research` unchanged). SSOT lit index: `_library\lit-corpus\index.csv`. **Method absorb (2026-10-23):** `_library\{lab-ref-method,lit-corpus-method,lab-ste,scanner-registry}` + `study-design\fill-protocol\jinshan-form-pack.md` → digests in `03_research/personal/references/` + `fill-protocol/jinshan-form-pack-digest.md` + expanded `05_manuscript/base/vocab/L3/`；park `D:\0del\_by-project\0doc-library-methods-20261023\`；durable `_corpus\skill-harvest\sources\library-methods-20261023\`. Live scanner xlsx → `templates\scanner-parameter-registry.xlsx`. Ethics / lab-ref-ranges / lit-corpus data **untouched**.
+**Tree revision (2026-10-23):** machine library is **`_library/`** (renamed from `03-research/`; skill seat `03_research` unchanged). SSOT lit index: `_library\lit-corpus\index.csv`. **Method absorb (2026-10-23):** `_library\{lab-ref-method,lit-corpus-method,lab-ste,scanner-registry}` + `study-design\fill-protocol\jinshan-form-pack.md` → digests in `03_research/personal/references/` + `fill-protocol/jinshan-form-pack-digest.md` + expanded `05_manuscript/base/vocab/L3/`；park `{DEL}\_by-project\0doc-library-methods-20261023\`；durable `_corpus\skill-harvest\sources\library-methods-20261023\`. Live scanner xlsx → `templates\scanner-parameter-registry.xlsx`. Ethics / lab-ref-ranges / lit-corpus data **untouched**.
 
-**Tree revision (2026-10-23 seats):** top-level seats align with MY-SKILLS `03/05/06/07`. Old names (`00-inbox`, `01-thesis`, `02-manuscripts`, `03-review-replies`, `04-lab-reference`, `05-grants`, `06-review-corpus`, `07-ethics`, `doc-word`) are **retired** — do not look for them under `0doc`. Map table: `D:\0Grok\0doc\README.md` + `STRUCTURE.md`.
+**Tree revision (2026-10-23 seats):** top-level seats align with MY-SKILLS `03/05/06/07`. Old names (`00-inbox`, `01-thesis`, `02-manuscripts`, `03-review-replies`, `04-lab-reference`, `05-grants`, `06-review-corpus`, `07-ethics`, `doc-word`) are **retired** — do not look for them under `0doc`. Map table: `{doc_root}\README.md` + `STRUCTURE.md`.
 
 ## When
 
@@ -12,7 +12,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 | Folder | Typical ask |
 |---|---|
-| `_library` (ex-`03-research`) | 文献库 lit-corpus、选刊、伦理 ethics（含 PHI）、~~lab-ste / lab-ref-method / lit-corpus-method / scanner-registry method~~（→ methods park 20261023） / lab-ref-ranges、study-design（STROBE→templates；fill-protocol digest）、figures；~~papers/fulltext/grants~~ → `D:\0del\_by-project\0doc-library-ftp-20261023\`（digest: `03_research/personal/references/grant-*` + `papers-card-schema.md`；durable `_corpus\skill-harvest\sources\library-ftp-20261023\`） |
+| `_library` (ex-`03-research`) | 文献库 lit-corpus、选刊、伦理 ethics（含 PHI）、~~lab-ste / lab-ref-method / lit-corpus-method / scanner-registry method~~（→ methods park 20261023） / lab-ref-ranges、study-design（STROBE→templates；fill-protocol digest）、figures；~~papers/fulltext/grants~~ → `{DEL}\_by-project\0doc-library-ftp-20261023\`（digest: grant-* digests under 03_research/personal/references/ + `papers-card-schema.md`；durable `_corpus\skill-harvest\sources\library-ftp-20261023\`） |
 | `05-manuscript` | 学位论文与投稿稿 papers/fulltext/units/quotes；`revision-history` 不可再生 |
 | `06-review` | 本人评阅语料：`source/` 原件 + `text/` 提取 |
 | `07-response` | 外审意见与回复：`units/`、`flattened/`、`_meta/`、papers/fulltext/links |
@@ -26,7 +26,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 ## How
 
-1. Start from README + STRUCTURE + the relevant index file (`D:\0del\_by-project\0doc-library-ftp-20261023\grants\_index\00-master-index.md`（park） / skill `grant-index-digest.md`、`06-review\00-index.csv`、`<主题>\INDEX.md`) when present.
+1. Start from README + STRUCTURE + the relevant index file (`{DEL}\_by-project\0doc-library-ftp-20261023\grants\_index\00-master-index.md`（park） / skill `grant-index-digest.md`、`06-review\00-index.csv`、`<主题>\INDEX.md`) when present.
 2. Prefer filename + index hits; open files only as needed (read-only).
 3. Reply in Chinese: **paths first**, then 2–6 lines of what was found; list approval numbers for ethics.
 4. `_library\ethics`: minimize PHI in chat; never commit ethics originals to GitHub. JIEC2025-S79 跟踪审查 locked files — do not edit.

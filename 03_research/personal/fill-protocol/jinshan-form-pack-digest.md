@@ -7,9 +7,9 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-methods-20261023\study-design\fill-protocol\` |
-| Park | `D:\0del\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\` |
-| Blank templates | `D:\0Grok\0doc\templates\ethics-blank\` |
+| Durable original | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\study-design\fill-protocol\` |
+| Park | `{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\` |
+| Blank templates | `{doc_root}\templates\ethics-blank\` |
 | Filled/PHI | ethics tree / `0del\_by-project\0doc-ethics-raw-20261023\` — **never GitHub** |
 | Seat | `03_research/personal/fill-protocol/` (`README`, `checklist`, `form-boilerplate`) |
 

@@ -1,7 +1,7 @@
 # Writing / revision hard constraints (0doc base absorb)
 
 > Digested 2026-10-23 from park `0doc-03-07-seats-20261023/05-manuscript/base/writing-rules/README.md`.
-> Provenance (durable): `D:\\0Grok\\0doc\\_corpus\\skill-harvest\\sources\\0doc-base-absorbed-20261023\\writing-rules\\README.md`.
+> Provenance (durable): `{doc_root}\_corpus\skill-harvest\sources\0doc-base-absorbed-20261023\writing-rules\README.md`.
 > Lab standing next to Aitor personal authority — not a second copy of `Aitor-format.md`.
 
 ## Three hard constraints
@@ -12,6 +12,6 @@
 
 ## Related (do not duplicate here)
 
-- Format gold parameters → `../Aitor-format.md` + `D:\\0Grok\\0doc\\templates\\Aitor-format-gold-response.docx`
+- Format gold parameters → `../Aitor-format.md` + `{doc_root}\templates\Aitor-format-gold-response.docx`
 - Authority map → `writing-rules-map.md`
 - Vocab / QC bans → `../vocab/`, `../../qc/manuscript-local-qc.md`, `../../qc/claim-number-align.md`

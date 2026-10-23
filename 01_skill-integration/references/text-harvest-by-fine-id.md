@@ -2,7 +2,7 @@
 
 **Standing (2026-10-23, 城城):** when the owner gives free-form text to harvest, classify by **fine-ID (细ID)** and extract only three buckets per lane.
 
-Disk SSOT: `D:\0Grok\0doc\_corpus\skill-harvest\HARVEST-STANDARD.md` §7.
+Disk SSOT: `{doc_root}\_corpus\skill-harvest\HARVEST-STANDARD.md` §7.
 
 | Bucket | Store |
 |---|---|
