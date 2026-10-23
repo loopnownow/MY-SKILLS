@@ -11,12 +11,12 @@ Trigger phrases: 更新JCR, 新的影响因子表, 换2027表, 重建推荐库.
 
 Derived only. Do not hand-edit 22k rows.
 
-- **Curated xlsx SSOT (0doc, not in git):** `{doc_jcr2026}\医学投稿推荐_JCR20XX.xlsx` (current: `…\jcr2026\医学投稿推荐_JCR2026.xlsx`).
+- **Curated xlsx SSOT (0doc `mem\`, not in git):** `{jcr2026_xlsx}` (current: `D:\0Grok\0doc\mem\医学投稿推荐_JCR2026.xlsx`). Mutable workbook lives under `mem\`, not the theme tree.
 - **List gates (skill pack):** `data/<YEAR>/` (current: `data/2026/`) — blacklist/graylist/whitelist + `submission-urls.csv` only.
 - **Runtime pools (0doc):** `{doc_root}\03-research\find-journal\data\<YEAR>\` — layer CSVs, `category-index.csv`, `full-pool.csv`, `priority-compact.json`.
 - Rebuild curated xlsx into the 0doc `jcr2026/` folder + layer CSVs into `data/<YEAR>/`, then **discard** the raw Clarivate file from the skill pack (user keeps a private copy if needed).
 
-When the year rolls (e.g. 2027), create `data/2027/` for list gates and `{doc_root}\03-research\find-journal\data\2027\` for layer CSVs, put the new curated xlsx under `{doc_root}\03-research\jcr2027\` (or keep year in filename under `jcr2026/` if you prefer one folder), point SKILL `source_table` there, and keep prior year layers under `data/2026/` as historical cache.
+When the year rolls (e.g. 2027), create `data/2027/` for list gates and `{doc_root}\_library\find-journal\data\2027\` for layer CSVs, put the new curated xlsx under `{doc_root}\mem\医学投稿推荐_JCR20XX.xlsx` (update `{jcr2026_xlsx}`), and keep prior year layers under `data/2026/` as historical cache. Submission priors stay under `{doc_jcr2026}\submission\`.
 
 ## Never merge yearly metrics into URL persist
 
