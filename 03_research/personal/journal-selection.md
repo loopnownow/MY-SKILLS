@@ -145,7 +145,7 @@ publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / �
 
 ## 2023-2026 期刊规律（merged from journal-patterns-2023-2026.md, 2026-10-16）
 
-> Former standalone file archived to `D:\0del\03_research_reorg_20261016\`. Keep this section with the 选刊 SOP.
+> Former standalone file archived to `{DEL}\03_research_reorg_20261016\`. Keep this section with the 选刊 SOP.
 
 Use this section when the user asks where to submit a radiomics,
 medical imaging AI, radiogenomics, or imaging deep learning manuscript and wants advice

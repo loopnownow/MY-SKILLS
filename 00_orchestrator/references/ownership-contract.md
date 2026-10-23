@@ -1,4 +1,4 @@
-﻿# Ownership contract
+# Ownership contract
 
 Single source for lab roles, manuscript Track Changes, and citation-verify. Other files point here. They do not paste this text.
 
@@ -15,7 +15,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 | Victor | `03_research` | 文献与证据 / 研究设计与探索 / 选刊, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
-| Bai | 投稿 after review loop + ethics forms + **0doc 文档库查询** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `D:\0Grok\0doc`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
+| Bai | 投稿 after review loop + ethics forms + **0doc 文档库查询** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
 | Cursor | 外挂 | 仓库内前端/后端（UI、API、测试、PR）；仅用户说「交给cursor」才交 |
 | Cline | 外挂 | 数据准备及同类（xlsx、归档、批处理、非仓库数据）；用户说「交给cline」或一般数据/脚本交接 |
 
@@ -51,10 +51,10 @@ Checklist: `03_research/personal/citation-verify.md`.
 
 **Owner:** Bai. **Router:** Aitor (does not self-search for general 查/找/盘点 asks).
 
-When the owner asks to search, look up, locate, or inventory materials in the lab document database `D:\0Grok\0doc` (any of `00-inbox` … `07-ethics`, including indexes under `_index` / `02-flattened` / `revision-history`), Aitor hands the ask to **Bai**.
+When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (any of `00-inbox` … `03-research\ethics`, including indexes under `_index` / `02-flattened` / `revision-history`), Aitor hands the ask to **Bai**.
 
-Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `07-ethics` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
+Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `03-research\ethics` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
-**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says「交给cline」for bulk scripts. Live project folders under `D:\0Grok\` outside `0doc` stay with the seat that owns that workstream.
+**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says「交给cline」for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 
 Procedure: `03_research/personal/0doc-db.md`.

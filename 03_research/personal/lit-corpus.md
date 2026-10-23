@@ -1,4 +1,4 @@
-﻿# 实验室文献库（lit-corpus）
+# 实验室文献库（lit-corpus）
 
 **Standing (2026-10-21 owner):** maintain a reusable citation corpus — **no PDF/full text**. Store bibliographic records in **NLM** form; when inserting into a manuscript, render as **Vancouver**. Every record must carry a short **主要结果|结论** line for next-time reuse.
 
@@ -7,7 +7,7 @@
 ## SSOT location (0doc)
 
 ```
-D:\0Grok\0doc\04-lab-reference\lit-corpus\
+{doc_root}\03-research\lit-corpus\
   README.md
   index.csv                 # master ledger (one row per DOI)
   personal\                 # 本组已发 SCI（Aitor / 强金伟 / 石海峰）
@@ -94,11 +94,11 @@ Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\
 ## Out of scope
 
 - Live project `ref/citation/` working sets (per-project; may cite corpus rows by DOI)
-- `02-manuscripts` submission Word archive
+- `05-manuscript` submission Word archive
 - Web search scratch lists that never passed DOI verify
 
 ## Pointers
 
 - Verify body: `03_research/base/verify-refs/`
 - Personal verify protocol: `03_research/personal/citation-verify.md`
-- 0doc map: `D:\0Grok\0doc\README.md` (add lit-corpus row when folder exists)
+- 0doc map: `{doc_root}\README.md` (add lit-corpus row when folder exists)

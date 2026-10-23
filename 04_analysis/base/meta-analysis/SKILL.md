@@ -9,4 +9,4 @@ owner: "04_analysis/base/meta-analysis/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
-Also covers former fine id `scout-meta-analysis` (lit-review tree pruned to D:\0del\b-prune-findjournal-fill-20261017\ on 2026-10-17; archived round 2).
+Also covers former fine id `scout-meta-analysis` (lit-review tree pruned to {DEL}\b-prune-findjournal-fill-20261017\ on 2026-10-17; archived round 2).

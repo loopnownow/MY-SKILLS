@@ -1,7 +1,7 @@
 # Cache · Mount · Active · Registry = index
 
 - **Bodies SSOT:** in-repo `NN_slug/base/` (`source: my-skills`).
-- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/04-lab-reference/mounts-cap`) is RETIRED as of 2026-10-20 and its bytes were moved to `D:/0del/_by-function/mounts-cap-retired-20261020`. It was the lab pack-cache root for non-base leftovers only. Live capability bodies are **not** resolved from `{mounts_cap}/`.
+- **Cache:** `{mounts_cap}/` (`D:/0Grok/0doc/03-research/mounts-cap`) is RETIRED as of 2026-10-20 and its bytes were moved to `D:/0del/_by-function/mounts-cap-retired-20261020`. It was the lab pack-cache root for non-base leftovers only. Live capability bodies are **not** resolved from `{mounts_cap}/`.
 - **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run. Cache is not mount is not active.
@@ -10,7 +10,7 @@
 
 ## Local cache (`{mounts_cap}/`, retired)
 
-Bytes path: `D:/0Grok/0doc/04-lab-reference/mounts-cap` (alias `{mounts_cap}`; outside MY-SKILLS repo). Retired 2026-10-20; the bytes now sit at `D:/0del/_by-function/mounts-cap-retired-20261020`, and the alias stays here for path history only.
+Bytes path: `D:/0Grok/0doc/03-research/mounts-cap` (alias `{mounts_cap}`; outside MY-SKILLS repo). Retired 2026-10-20; the bytes now sit at `D:/0del/_by-function/mounts-cap-retired-20261020`, and the alias stays here for path history only.
 
 - Live resolve targets are `NN_slug/base/` in this repo (or `{skills_runtime}` after sync).
 - Non-base pack folders are no longer in the workspace (archived under `D:/0del`); they are **not** a runtime menu. Do not fetch ARS/OpenClaw (purged). Non-base = default deny.

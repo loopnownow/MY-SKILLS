@@ -33,7 +33,7 @@ views:
       - 01_skill-integration/sources
       - 01_skill-integration/references/presets
     not_inputs:
-      - mounts-cap bytes (SSOT D:/0Grok/0doc/04-lab-reference/mounts-cap; do not crawl)
+      - mounts-cap bytes (SSOT D:/0Grok/0doc/03-research/mounts-cap; do not crawl)
       - a crawl of mounted skill files
   skill_pages:
     question: "Documentation pages from skill sources. Do not force prose into a diagram."
@@ -60,4 +60,4 @@ rules:
   - Mount diagrams come from registry and preset metadata.
   - Delta describes structural facts only.
   - Generated HTML under docs is rebuildable and is not a fact source.
-  - Do not crawl mounts-cap (D:/0Grok/0doc/04-lab-reference/mounts-cap).
+  - Do not crawl mounts-cap (D:/0Grok/0doc/03-research/mounts-cap).
