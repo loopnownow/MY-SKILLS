@@ -355,3 +355,8 @@ Only if this-run pick left a needed pack unloaded — go through **01 session-mo
 - Fixed Reviewer A→B→C personas  
 - Mount packs writing free-form Word comments without status cards when this protocol is in use  
 - Any backup becoming a standing fourth reviewer
+
+## Corpus reply skeletons (2026-10-23)
+
+Frequency evidence + per-point skeleton: `personal/references/corpus-reply-skeletons.md`.
+Standing letter opener remains authoritative here: **Thank you for your comments** | **suggestions** | **inquiry**.

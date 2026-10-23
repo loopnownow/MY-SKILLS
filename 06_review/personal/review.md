@@ -24,6 +24,8 @@
 
 ---
 
+**Corpus harvest (2026-10-23):** checklist themes in `personal/references/corpus-review-habits.md` (methods / consistency / overclaim). Envelope rules in this file win on conflict.
+
 ## 0. 批注与冲突（实验室硬规则）
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
