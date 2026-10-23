@@ -10,7 +10,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 | Folder | Typical ask |
 |---|---|
-| `_library` (ex-`03-research`) | 文献库 lit-corpus、选刊、申报 grants、伦理 ethics（含 PHI）、lab-ste / lab-ref-ranges、study-design、papers/fulltext/figures |
+| `_library` (ex-`03-research`) | 文献库 lit-corpus、选刊、伦理 ethics（含 PHI）、lab-ste / lab-ref-ranges、study-design、figures；~~papers/fulltext/grants~~ → `D:\0del\_by-project\0doc-library-ftp-20261023\`（digest: `03_research/personal/references/grant-*` + `papers-card-schema.md`；durable `_corpus\skill-harvest\sources\library-ftp-20261023\`） |
 | `05-manuscript` | 学位论文与投稿稿 papers/fulltext/units/quotes；`revision-history` 不可再生 |
 | `06-review` | 本人评阅语料：`source/` 原件 + `text/` 提取 |
 | `07-response` | 外审意见与回复：`units/`、`flattened/`、`_meta/`、papers/fulltext/links |
@@ -24,7 +24,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 ## How
 
-1. Start from README + STRUCTURE + the relevant index file (`_library\grants\_index\00-master-index.md`、`06-review\00-index.csv`、`<主题>\INDEX.md`) when present.
+1. Start from README + STRUCTURE + the relevant index file (`D:\0del\_by-project\0doc-library-ftp-20261023\grants\_index\00-master-index.md`（park） / skill `grant-index-digest.md`、`06-review\00-index.csv`、`<主题>\INDEX.md`) when present.
 2. Prefer filename + index hits; open files only as needed (read-only).
 3. Reply in Chinese: **paths first**, then 2–6 lines of what was found; list approval numbers for ethics.
 4. `_library\ethics`: minimize PHI in chat; never commit ethics originals to GitHub. JIEC2025-S79 跟踪审查 locked files — do not edit.
