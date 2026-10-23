@@ -44,3 +44,9 @@ When polish requested after 00 QC:
 
 - `references/corpus-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
 - `references/corpus-patterns.md` — revision-pattern taxonomy (7255-unit summary)
+
+## 0doc writing-rules absorb (2026-10-23)
+
+- Hard constraints: `references/writing-rules-hard.md` (Track Changes; no invented docx/pdf layout; do not alter outcome/cutoff/covariate/missingness semantics).
+- Authority map (retargeted after seat move): `references/writing-rules-map.md`.
+- Optional base pointer: `../base/write-paper/references/0doc-writing-rules-pointer.md`.
