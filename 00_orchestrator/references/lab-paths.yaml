@@ -10,7 +10,7 @@ aliases:
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
   # mounts_cap / mounts_cap_cache: RETIRED 2026-10-20; bytes moved to D:\0del\_by-function\mounts-cap-retired-20261020.
-  # Kept as a dead sentinel on purpose: tests/test_lab_paths_and_mounts.py asserts this path does NOT exist.
+  # Historical aliases only (0del park folder may still exist); not required by tests.
   mounts_cap: "D:\\0del\\_by-function\\mounts-cap-retired-20261020"  # RETIRED path; do not recreate under 0doc
   mounts_cap_cache: "D:\\0del\\_by-function\\mounts-cap-retired-20261020"
   # 0doc — 2026-10-23：人读层收成 <粗ID>/personal|base；现役内容在 personal\。

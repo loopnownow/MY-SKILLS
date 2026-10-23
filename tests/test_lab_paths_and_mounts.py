@@ -25,7 +25,6 @@ class LabPaths(unittest.TestCase):
             "skills_runtime",
             "jcr2026_xlsx",
             "find_journal_submission",
-                        "mounts_cap_cache",
         ):
             self.assertIn(key, aliases)
             self.assertTrue(str(aliases[key]).strip())
@@ -34,7 +33,7 @@ class LabPaths(unittest.TestCase):
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
         # Local disk aliases (drive-letter paths). Skip whole check if any D:/L: root missing.
-        # mounts_cap is deliberately absent (retired 2026-10-20) -> covered below.
+        # mounts_cap / mounts_cap_cache retired 2026-10-20; not required aliases.
         keys = (
             "lab_root",
             "del_root",
@@ -58,19 +57,6 @@ class LabPaths(unittest.TestCase):
             p = Path(aliases[key])
             if p.exists():
                 self.assertTrue(p.exists(), f"{key} missing: {p}")
-
-    def test_retired_mounts_cap_is_documented(self) -> None:
-        """mounts-cap is retired: either absent, or explicitly marked retired."""
-        data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
-        val = str((data.get("aliases") or {}).get("mounts_cap") or "")
-        notes = " ".join(str(x) for x in (data.get("notes") or []))
-        self.assertIn("retired", notes.lower())
-        self.assertIn("mounts-cap-retired", notes)
-        if val and Path(val).exists():
-            self.fail(
-                "mounts_cap exists again; retirement moved its bytes to "
-                "{DEL}\\_by-function\\mounts-cap-retired-20261020"
-            )
 
 
 class LicenseNotice(unittest.TestCase):
