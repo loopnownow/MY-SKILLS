@@ -11,6 +11,8 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 ---
 
+**Corpus harvest (2026-10-23):** additive notes in `personal/references/corpus-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
+
 ## 1. Overall portrait
 
 Priority order: **data accuracy and term consistency first**, then **restrained clinical wording**.

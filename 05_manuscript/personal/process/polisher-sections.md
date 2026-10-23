@@ -307,3 +307,7 @@ Conclusion : 1-2 sentences, echo objective, affirm clinical value
 
 For extended examples and sentence-level templates, see `references/sentence-templates.md`.
 For statistical reporting checklists, see `references/stats-checklist.md`.
+
+## Corpus patterns (2026-10-23)
+
+See `../references/corpus-patterns.md` for the tagged revision taxonomy when routing polish edits.

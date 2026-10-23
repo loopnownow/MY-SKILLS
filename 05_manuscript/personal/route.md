@@ -39,3 +39,8 @@ When polish requested after 00 QC:
 ## Root keep
 
 `Aitor-format.md` / `voice-portrait.md` / `route.md` / `handoff.md` / `vocab/README.md` (pointer) / `process/`
+
+## Corpus references (2026-10-23)
+
+- `references/corpus-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
+- `references/corpus-patterns.md` — revision-pattern taxonomy (7255-unit summary)
