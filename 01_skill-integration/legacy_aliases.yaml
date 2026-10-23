@@ -1,4 +1,4 @@
-# Shared alias table. Former scanner: skill-harvest/scripts/repo_qc.py (archived D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\).
+# Shared alias table. Former scanner: skill-harvest/scripts/repo_qc.py (archived {DEL}\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\).
 # Docs: 01_skill-integration/SKILL.md + references/id-rules.md
 # Runtime may resolve alias -> canonical. Workflows and other call sites use canonical ids only.
 # Confirmed against registry.yaml on 2026-10-03. The live fine id is the value.

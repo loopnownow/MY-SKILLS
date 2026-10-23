@@ -35,7 +35,7 @@ import yaml
 HERE = Path(__file__).resolve().parent
 VIZ_DIR = HERE.parent  # 04_analysis/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
-CAP = Path(r"D:\0Grok\0doc\04-lab-reference\mounts-cap").resolve()  # SSOT under 0doc; refuse-read guard
+CAP = Path(r"{doc_root}\03-research\mounts-cap").resolve()  # SSOT under 0doc; refuse-read guard
 REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
 SOURCES = ROOT / "01_skill-integration" / "sources"
 PRESETS = ROOT / "01_skill-integration" / "references" / "presets"

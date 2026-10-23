@@ -41,6 +41,7 @@ REQUIRED_IDS = (
     "pipeline_tokens_banned",
     "source_attribution_banned",
     "placeholder_and_internal_labels_banned",
+    "agent_disclaimer_and_incomplete_claims_banned",
     "repeated_disclaimer",
     "empty_retrieval_and_scan_placeholders",
     "cutoff_vs_included_distribution",
