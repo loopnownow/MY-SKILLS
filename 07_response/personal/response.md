@@ -21,7 +21,7 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 - Deliver as `.docx`. Requirements read `Please …`, never `Please fix:`.
 - Quote the reviewer comment in full; use past tense for changes already made.
 - Do not open a resolved item with `We agree that…`. Do not write `we will…` for a change already claimed.
-- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{WORK_B}\in-review\<project>`).
+- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\in-review\<project>`).
 - Each point maps to one reply row and names its location; after revision re-check page, number, sample size, and citation.
 
 # 个人回复审稿人风格（基于历史信函归纳）
@@ -275,7 +275,7 @@ Mounted review source (this-run pick: B / MedSci / Scientific / AIPOCH / Nature)
   → 00 G-06 / G-LIT
 ```
 
-Mount packs **propose** findings. They do **not** free-collaborate with each other, do not own Aitor review voice, and do not silently close an issue. A **07** **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
+Specialist packs **propose** findings. They do **not** free-collaborate with each other, do not own Aitor review voice, and do not silently close an issue. A **07** **judges** Resolved / Partially resolved / Unresolved / New issue. 00 owns cross-skill QC and whether to re-invoke siblings.
 
 Related: English peer-review envelope `06_review/personal/review.md`; response letter voice this file; claim gaps while writing `05_manuscript/personal/process/evidence.md`.
 
@@ -358,7 +358,7 @@ Only if this-run pick left a needed pack unloaded — go through **01 session-mo
 - B06 as “Review Intelligence Core” or resolution home  
 - A06 as always-on MedSci+Scientific dispatcher  
 - Fixed Reviewer A→B→C personas  
-- Mount packs writing free-form Word comments without status cards when this protocol is in use  
+- Specialist packs writing free-form Word comments without status cards when this protocol is in use  
 - Any backup becoming a standing fourth reviewer
 
 ## Corpus reply skeletons (2026-10-23)

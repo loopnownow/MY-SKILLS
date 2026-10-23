@@ -1,6 +1,6 @@
 # Plan card & decision nodes (00)
 
-Load from `00_orchestrator/SKILL.md` when the run is multi-node, a new capability, or will use mounts.
+Load from `00_orchestrator/SKILL.md` when the run is multi-node, a new capability, or high risk.
 
 **Grilling policy SSOT:** MY-RULES `My rule.md` §2 (grilling). Do not duplicate full grill text here. 00 only owns Plan card, flowchart approval, Q0–Q3, and N1–N4.
 
@@ -11,20 +11,20 @@ Load from `00_orchestrator/SKILL.md` when the run is multi-node, a new capabilit
 - **Q2** — multi-node, a new capability, or high risk: grilling is allowed (follow MY-RULES `My rule.md` §2).
 - **Q3** — if a file or the web can answer, look it up; do not ask.
 
-## Flow chart approval (skills / mounts)
+## Flow chart approval (skills)
 
-When the user asks to **use skills or mount packs for a specific task**, before session mount pick or specialist dispatch:
+When the user asks to **use skills for a specific multi-node task**, before specialist dispatch:
 
 1. Show a **complete** flowchart from [`runtime-flow.mmd`](../runtime-flow.mmd) (read [`runtime-flow.md`](../runtime-flow.md)).
 2. Highlight the path this run will take (entry → nodes → gates → QC loop).
-3. Wait for **explicit approval**. Do not load mounts or start 02–07 until they agree.
-4. After approval, proceed with 01 session mount pick / G0 as on the map.
+3. Wait for **explicit approval**. Do not start 02–07 until they agree.
+4. After approval, proceed with 01 session pick / G0 as on the map. (Mount packs retired 2026-10-20; no mounts-pack approval.)
 
 ## Plan card (before dispatch)
 
 Default is **interactive**. Before the first specialist runs a multi-node job, or before 01 evaluates a new external capability, run **grilling** per MY-RULES `My rule.md` §2 (`grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first.
 
-Then show the plan: candidate mount ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
+Then show the plan: candidate fine ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
 
 Loop shape: `clarify round (grilling) → plan → execute node → file check → integrity gate → (repair broken node only) → execute`.
 
@@ -41,4 +41,4 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 | N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
 
-Never `--e2e`. MountQ reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node personal-layer task with no mounted dependency does not ask.
+Never `--e2e`. Session pick reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node personal-layer task with no extra dependency does not ask.
