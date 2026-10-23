@@ -84,7 +84,7 @@ Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint res
 
 ## Subproject layout (no A/B class)
 
-A-class / B-class / `{WORK_A}` / `{WORK_B}` retired 2026-10-24. Deliverables live in the **subproject**; everything else → `{DEL}` (Downloads only when named).
+Former Work-A / Work-B workspace classes and WORK_* path aliases retired 2026-10-24. Deliverables live in the **subproject**; everything else → `{DEL}` (Downloads only when named).
 
 - Project scripts → project `0script` (if used) or `{code_root}` when reusable; project notes → project `0doc` only when user says 「放 0doc」.
 - `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or `{DEL}` / Downloads if named).

@@ -23,7 +23,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 - Downloads **only** when the user names 「下载」/「Downloads」 this run.
 - Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」.
 - Never delete. Files removed from a project move into `{DEL}` with the relative path kept.
-- No A-class / B-class / `{WORK_A}` / `{WORK_B}` (retired 2026-10-24).
+- No Work-A / Work-B workspace classes or WORK_* path aliases (retired 2026-10-24).
 
 ## Reporting levels
 

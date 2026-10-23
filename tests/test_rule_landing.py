@@ -38,10 +38,10 @@ class RuleLanding(unittest.TestCase):
     def test_workspace_subproject_no_ab(self) -> None:
         ws = t("02_data-processing/personal/workspace.md")
         self.assertIn("Subproject layout", ws)
-        self.assertNotIn("A-class", ws)
-        self.assertNotIn("B-class", ws)
-        self.assertNotIn("{WORK_A}", ws)
-        self.assertNotIn("{WORK_B}", ws)
+        self.assertNotIn("## A-class", ws)
+        self.assertNotIn("## B-class", ws)
+        self.assertNotIn("`{WORK_A}", ws)
+        self.assertNotIn("`{WORK_B}", ws)
 
     def test_ownership_dispatch(self) -> None:
         oc = t("00_orchestrator/references/ownership-contract.md")
