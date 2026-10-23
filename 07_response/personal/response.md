@@ -16,7 +16,7 @@
 - Deliver as `.docx`. Requirements read `Please …`, never `Please fix:`.
 - Quote the reviewer comment in full; use past tense for changes already made.
 - Do not open a resolved item with `We agree that…`. Do not write `we will…` for a change already claimed.
-- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{WORK_B}\submitting\<project>`).
+- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{WORK_B}\in-review\<project>`).
 - Each point maps to one reply row and names its location; after revision re-check page, number, sample size, and citation.
 
 # 个人回复审稿人风格（基于历史信函归纳）

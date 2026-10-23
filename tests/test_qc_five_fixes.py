@@ -15,9 +15,13 @@ class FiveFixes(unittest.TestCase):
             (ROOT / "00_orchestrator" / "templates" / "project-state.yaml").read_text(encoding="utf-8")
         )
         aliases = state["study_folder_stage_aliases"]
+        self.assertEqual(aliases["preparing"], "drafting")
+        self.assertEqual(aliases["polishing"], "pre-submit")
+        self.assertEqual(aliases["submitting"], "in-review")
         self.assertEqual(aliases["reseived"], "accepted")
         self.assertEqual(aliases.get("received"), "accepted")
         self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
+        self.assertNotIn("preparing", (state.get("pipeline") or {}).get("stage", ""))
 
 
 if __name__ == "__main__":

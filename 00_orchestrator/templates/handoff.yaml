@@ -1,5 +1,5 @@
-# Copy into the project (e.g. {lab_root}\<stage>\<project>\ref\handoff-<from>-<to>.yaml; stage = preparing | polishing | submitting | accepted)
-# Study-folder aliases: reseived/received → accepted (project-state.yaml study_folder_stage_aliases). Do not rewrite already-written folders; do not create DER.
+# Copy into the project (e.g. {lab_root}\<stage>\<project>\ref\handoff-<from>-<to>.yaml; stage = drafting | pre-submit | in-review | accepted)
+# Study-folder aliases: preparing->drafting, polishing->pre-submit, submitting->in-review, reseived/received->accepted (project-state.yaml study_folder_stage_aliases). Do not rewrite already-written folders; do not create DER.
 # at each skill crossing. Leave unknown fields empty. Never invent n, AUC, PMID, or ethics.
 
 from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manuscript | 06_review | 00_orchestrator
