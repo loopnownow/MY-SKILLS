@@ -1,7 +1,7 @@
 # MY-SKILLS
 
 Personal framework + lab layer for medical / imaging research.
-Agents load skills from the runtime tree `{skills_runtime}` (synced from this git repo after merge). Compatible with Cursor / Grok Build / Cline when that tree is on the skill path.
+Agents load skills from {skills_runtime} (= this GitHub clone / {skills_git}; former .grok\skills retired 2026-10-23). Compatible with Cursor / Grok Build / Cline when that tree is on the skill path.
 Capability bodies for domains 02-07 live in-repo under `NN_slug/base/` (`source: my-skills`).
 
 License: MIT (`LICENSE`). Third-party notices: `NOTICE`.

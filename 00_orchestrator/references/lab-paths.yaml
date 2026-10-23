@@ -8,7 +8,9 @@ aliases:
   code_root: "D:\\0Grok\\0doc\\_code"
   doc_root: "D:\\0Grok\\0doc"
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
-  skills_runtime: "C:\\Users\\loopn\\.grok\\skills"
+  skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
+  rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
+  rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   # mounts_cap / mounts_cap_cache: RETIRED 2026-10-20; bytes moved to D:\0del\_by-function\mounts-cap-retired-20261020.
   # Historical aliases only (0del park folder may still exist); not required by tests.
   mounts_cap: "D:\\0del\\_by-function\\mounts-cap-retired-20261020"  # RETIRED path; do not recreate under 0doc
@@ -59,9 +61,10 @@ aliases:
   code_corpus_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_runtime}/{rules_git} = MY-RULES clone; Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}; master copy (local git only) at {code_modules_master}."
   - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\0del\\_by-project\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
-  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\\\0del\\\\_by-function\\\\mounts-cap-retired-20261020. Not under MY-SKILLS or .grok/skills."
+  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\\\0del\\\\_by-function\\\\mounts-cap-retired-20261020. Not under MY-SKILLS."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
