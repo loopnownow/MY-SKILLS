@@ -1,11 +1,11 @@
 """Live skill bodies must cite lab paths through {alias}, not raw drive letters.
 
 `lab-paths.yaml` is the only place that may write `D:\\0Grok` / `D:\\0del` /
-`L:\\00used`. Historical / archive lines (dates, 0del move notes) may keep them.
+`D:\\00db`. Historical / archive lines (dates, 0del move notes) may keep them.
 
 Deep-scan 2026-10-20 converted the last live bodies (gates.md, claim-number-align,
 forensic-consistency, console-ui, find-journal data README, 03 handoff,
-workspace A/B headings, project-ref layout/template).
+workspace subproject headings, project-ref layout/template).
 """
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "tests"}
 
-RAW_RE = re.compile(r"[A-Za-z]:\\{1,2}(0Grok|0del|00used)\b")
+RAW_RE = re.compile(r"[A-Za-z]:\\{1,2}(0Grok|0del|00db|00used)\b")
 HIST_LINE = re.compile(
     r"archived|historical|legacy|former|formerly|pruned|relocated|absorbed|retired|"
     r"勿建|归档|历史|moved to",
@@ -49,7 +49,7 @@ class NoRawLabPaths(unittest.TestCase):
         self.assertEqual(
             bad,
             [],
-            "raw lab drive paths in live bodies (use {doc_root} / {DEL} / {WORK_A} / "
+            "raw lab drive paths in live bodies (use {doc_root} / {DEL} / {raw_root} / "
             "{code_modules} / {skills_git} / {lab_root}):\n" + "\n".join(bad[:40]),
         )
 

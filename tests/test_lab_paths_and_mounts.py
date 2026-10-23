@@ -25,6 +25,7 @@ class LabPaths(unittest.TestCase):
             "skills_runtime",
             "jcr2026_xlsx",
             "find_journal_submission",
+            "raw_root",
         ):
             self.assertIn(key, aliases)
             self.assertTrue(str(aliases[key]).strip())
@@ -33,7 +34,7 @@ class LabPaths(unittest.TestCase):
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
         # Local disk aliases (drive-letter paths). Skip whole check if any D:/L: root missing.
-        # mounts_cap / mounts_cap_cache retired 2026-10-20; not required aliases.
+        # mounts_cap aliases deleted 2026-10-24; raw_root required.
         keys = (
             "lab_root",
             "del_root",
