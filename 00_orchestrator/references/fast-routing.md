@@ -1,4 +1,4 @@
-﻿# Fast routing (single-skill)
+# Fast routing (single-skill)
 
 - 新技能 / 外接 / 挂载 → `01_skill-integration`
 - grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求盘问 → MY-RULES `My rule.md` §2（grilling；非 00 grilling skill）

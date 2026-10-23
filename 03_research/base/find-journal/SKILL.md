@@ -25,7 +25,7 @@ metadata:
 
 - **Rules / methods:** `SKILL.md` + `rules/` (policy, workflow, JESI, persistence, …)
 - **List gates (in-repo SSOT):** `data/2026/` — blacklist / graylist / whitelist-bmc-medicine + `submission-urls.csv` write-back. Do not duplicate under `references/` or `artifacts/`.
-- **Runtime selection pools (0doc):** `{doc_root}\04-lab-reference\find-journal\data\2026` — `full-pool.csv`, `category-index.csv`, `layer1-*` … `layer4-*`, `priority-compact.json`, `publisher-fees.csv`. **Pools live in 0doc; skill keeps list gates only.**
+- **Runtime selection pools (0doc):** `{doc_root}\03-research\find-journal\data\2026` — `full-pool.csv`, `category-index.csv`, `layer1-*` … `layer4-*`, `priority-compact.json`, `publisher-fees.csv`. **Pools live in 0doc; skill keeps list gates only.**
 - **`references/`:** retired mix; pointer README only.
 - **Per-project 选刊/已投:** `<project>/ref/` (e.g. `journals-submitted.md`) — not in MY-SKILLS.
 
@@ -52,10 +52,10 @@ Name-only mount list: `data/2026/blacklist-names.csv` (subset of `data/2026/blac
 
 Read the uploaded manuscript. Output three tables, **10 journals each**, in this default layer order
 
-1. 层2 — Q1 and IF < 5 — Target/主攻 — 10本 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer2-q1-if-lt5.csv`
-2. 层3 — Q2 — Safety偏上/稳妥 — 10本 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer3-q2.csv`
-3. 层4 — **Q3 — 默认给出** — 10本 — `{doc_root}\04-lab-reference\find-journal\data\2026\layer4-q3.csv`
-4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{doc_root}\04-lab-reference\find-journal\data\2026\layer2b-q1-if-5to10.csv`
+1. 层2 — Q1 and IF < 5 — Target/主攻 — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv`
+2. 层3 — Q2 — Safety偏上/稳妥 — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv`
+3. 层4 — **Q3 — 默认给出** — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer4-q3.csv`
+4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{doc_root}\03-research\find-journal\data\2026\layer2b-q1-if-5to10.csv`
 
 Default total **30** titles (10+10+10) unless a layer has fewer acceptable matches. Do not use layer 1 (IF>10) unless the user asks. **Comprehensive / general medical journals** (e.g. Medicine, General & Internal / multidisciplinary clinical) may be recommended when scope match is reasonable — not specialty-only.
 
@@ -145,11 +145,11 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 
 1. `data/2026/blacklist.csv`
 2. `rules/recommendation-workflow.md`
-3. `{doc_root}\04-lab-reference\find-journal\data\2026\category-index.csv` (0doc runtime pool)
-4. `{doc_root}\04-lab-reference\find-journal\data\2026\layer2-q1-if-lt5.csv`
-5. `{doc_root}\04-lab-reference\find-journal\data\2026\layer3-q2.csv`
-6. `{doc_root}\04-lab-reference\find-journal\data\2026\layer4-q3.csv` — default Q3 layer
-7. `{doc_root}\04-lab-reference\find-journal\data\2026\layer2b-q1-if-5to10.csv` — Challenge; ask-first default OFF
+3. `{doc_root}\03-research\find-journal\data\2026\category-index.csv` (0doc runtime pool)
+4. `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv`
+5. `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv`
+6. `{doc_root}\03-research\find-journal\data\2026\layer4-q3.csv` — default Q3 layer
+7. `{doc_root}\03-research\find-journal\data\2026\layer2b-q1-if-5to10.csv` — Challenge; ask-first default OFF
 8. `rules/aim-author-checklist.md` — phase 2 only
 9. `{jcr2026_xlsx}` — curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
 10. `rules/policy.md` — stable rules

@@ -10,12 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class FiveFixes(unittest.TestCase):
-    def test_reseived_study_folder_alias_parses_as_received(self) -> None:
+    def test_reseived_study_folder_alias_parses_as_accepted(self) -> None:
         state = yaml.safe_load(
             (ROOT / "00_orchestrator" / "templates" / "project-state.yaml").read_text(encoding="utf-8")
         )
         aliases = state["study_folder_stage_aliases"]
-        self.assertEqual(aliases["reseived"], "received")
+        self.assertEqual(aliases["reseived"], "accepted")
+        self.assertEqual(aliases.get("received"), "accepted")
         self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
 
 

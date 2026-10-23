@@ -4,7 +4,16 @@
 
 **Owner:** `02_data-processing`. Locked across Aitor lab Grok sessions (through 2026-09-06).
 
-Projects: `{lab_root}\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `received` `DER`). Code: `{code_root}`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired. A folder still named `reseived` is the `received` stage (`study_folder_stage_aliases` in `00_orchestrator/templates/project-state.yaml`). Leave that folder name as written.
+Projects: `{lab_root}\<stage>\<project>` (stage folders `preparing` `polishing` `submitting` `accepted`). Code: `{code_root}`. Project folders: `lowercase_UPPERCASE` (`fyh_CAC`, `xlm_LG`). Old names (`CAC_fyh`, `lung_xlm`) are retired. Historical aliases `reseived`/`received` → read as `accepted` (`study_folder_stage_aliases` in `00_orchestrator/templates/project-state.yaml`); do not rewrite already-written folders; do not create `DER`.
+
+| Stage | Meaning |
+|-------|---------|
+| preparing | 立题/数据/house |
+| polishing | 定投前打磨 |
+| submitting | 已投/在审/改稿再投（含收到审稿意见——事件不是舞台） |
+| accepted | 已录用/校样 |
+
+Pause: STATUS.md in project; never 0del for keep-worthy (0del is periodically emptied).
 
 If the user only opens/`cd`s into a project and names no 01–06 verb, **ask which skill to fire** (`00_orchestrator` → Project open, no skill). Do not start work.
 

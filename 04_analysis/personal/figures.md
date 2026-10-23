@@ -1,4 +1,4 @@
-﻿# Figures (palettes + claim planning)
+# Figures (palettes + claim planning)
 
 ## Part A — Lab palettes
 
@@ -103,7 +103,7 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 
 ### 2. 默认交付
 
-- **给本人看的交付物（默认）**：**PNG 预览**（300 dpi）+ **分层 PSD 的 zip**（`.psd.zip`，交付前 `testzip()`）。**不要把裸 `.psd` 交给本人**（文件通常很大）；本人要打开图层时解压 zip 即可。裸 `.psd` 可留在 `ref/tmp` 或 `D:\0del\_by-project\<project>\` 供 QC，不列入「交给本人」清单。
+- **给本人看的交付物（默认）**：**PNG 预览**（300 dpi）+ **分层 PSD 的 zip**（`.psd.zip`，交付前 `testzip()`）。**不要把裸 `.psd` 交给本人**（文件通常很大）；本人要打开图层时解压 zip 即可。裸 `.psd` 可留在 `ref/tmp` 或 `{DEL}\_by-project\<project>\` 供 QC，不列入「交给本人」清单。
 - **分层 PSD 内容**（写进 zip 里的那份）：Background + 每个面板一层（全画布尺寸，格外透明）+ 标签层；尺寸**宽在前**；写入 300 dpi（ResolutionInfo 1005）；**必须写入扁平合成图**（image data），否则多数查看器显示全黑。
 - **TIFF 仅在本人明确要求时**：扁平、LZW、300 dpi。多页 TIFF 不做，除非要求。
 - 真正的分层 TIFF 在没有 GIMP/Photoshop 的环境里做不出来 → 交 **PSD.zip**，由本人解压后在 Photoshop 中「另存为 TIFF（保留图层）」。

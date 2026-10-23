@@ -1,6 +1,8 @@
-﻿# 0doc 文档库查询（Bai）
+# 0doc 文档库查询（Bai）
 
-**Standing rule (2026-10-21 owner):** searching / looking up / inventorying `D:\0Grok\0doc` is **Bai’s** job. Aitor routes and monitors.
+**Standing rule (2026-10-21 owner):** searching / looking up / inventorying `{doc_root}` is **Bai’s** job. Aitor routes and monitors.
+
+**Tree revision (2026-10-23):** top-level seats align with MY-SKILLS `03/05/06/07`. Old names (`00-inbox`, `01-thesis`, `02-manuscripts`, `03-review-replies`, `04-lab-reference`, `05-grants`, `06-review-corpus`, `07-ethics`, `doc-word`) are **retired** — do not look for them under `0doc`. Map table: `D:\0Grok\0doc\README.md` + `STRUCTURE.md`.
 
 ## When
 
@@ -8,23 +10,24 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 | Folder | Typical ask |
 |---|---|
-| `01-thesis` | 学位论文正文 |
-| `02-manuscripts` (+ `revision-history`, `md/`) | 投稿稿、修订抽取 |
-| `03-review-replies` (+ `02-flattened`, `_index`) | 外审意见与回复 |
-| `04-lab-reference` | 实验室长参考（含 find-journal pools、lab-ste） |
-| `05-grants` | 申报书、开题 |
-| `06-review-corpus` | 本人评阅语料 |
-| `07-ethics` | 伦理批件 / 申请材料（含 PHI） |
-| `00-inbox` / `templates` / `mem` | 改名记录、模板、备忘 |
+| `03-research` | 文献库 lit-corpus、选刊、申报 grants、伦理 ethics（含 PHI）、lab-ste / lab-ref-ranges、study-design、papers/fulltext/figures |
+| `05-manuscript` | 学位论文与投稿稿 papers/fulltext/units/quotes；`revision-history` 不可再生 |
+| `06-review` | 本人评阅语料：`source/` 原件 + `text/` 提取 |
+| `07-response` | 外审意见与回复：`units/`、`flattened/`、`_meta/`、papers/fulltext/links |
+| `_corpus` | 机器层 JSONL/FTS/GATES/抢救文本（脚本产出） |
+| `_code` | 按技能树 `NN-层\base\细ID` 组织的可运行脚本 |
+| `templates` / `mem` | skill 钉死模板金文件；长期备忘 |
 
-Map table: `D:\0Grok\0doc\README.md`.
+**Word 原件**不在 `0doc` 树内：`{DEL}\_by-project\0doc-word-sources\`。
+
+**已迁 0del（勿再当现役）:** `03-research\briefs`、`07-response\reply-units`、`_corpus\md-build` → `{DEL}\_by-project\0doc-struct-20261022\`（2026-10-23 减夹）。
 
 ## How
 
-1. Start from README + the relevant `_index` / `00-master-index.md` / `00-index.csv` when present.
+1. Start from README + STRUCTURE + the relevant index file (`03-research\grants\_index\00-master-index.md`、`06-review\00-index.csv`、`<主题>\INDEX.md`) when present.
 2. Prefer filename + index hits; open files only as needed (read-only).
 3. Reply in Chinese: **paths first**, then 2–6 lines of what was found; list approval numbers for ethics.
-4. `07-ethics`: minimize PHI in chat; never commit ethics originals to GitHub.
+4. `03-research\ethics`: minimize PHI in chat; never commit ethics originals to GitHub. JIEC2025-S79 跟踪审查 locked files — do not edit.
 
 ## Out of scope
 

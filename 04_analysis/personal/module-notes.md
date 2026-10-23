@@ -15,4 +15,4 @@ description: "Lab imaging biostatistics index for 04_analysis. Detail lives in m
 | Console UI / results report | `console-ui.md` |
 | Figures | `figures.md` |
 
-Full former MODULE body archived in `D:\0del\04_analysis_reorg_20261016\MODULE.md.bak`.
+Full former MODULE body archived in `{DEL}\04_analysis_reorg_20261016\MODULE.md.bak`.

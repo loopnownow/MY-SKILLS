@@ -57,7 +57,7 @@ keep a second pointer table.
 | `references/capability-contract.example.yaml` | Capability-contract template |
 | `references/base-vs-personal-top-loops.md` | Pointer to 00 A/B layering |
 
-Discovery archived; rare need → `D:\0del\00_orchestrator_reorg_20261017\01_discovery-eval.md`
+Discovery archived; rare need → `{DEL}\00_orchestrator_reorg_20261017\01_discovery-eval.md`
 or ask owner. Registry `archived:` ids stay off the pick menu.
 
 ## Architecture notes

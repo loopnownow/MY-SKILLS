@@ -12,7 +12,7 @@
 | BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
 | 投过/选刊 whitelist | `{find_journal_submission}\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
-| Yearly screening cache (layer membership) | 0doc `{doc_root}\04-lab-reference\find-journal\data\2026` (`layer2-*.csv`, `layer3-*.csv`, …) + curated xlsx — rebuilt annually |
+| Yearly screening cache (layer membership) | 0doc `{doc_root}\03-research\find-journal\data\2026` (`layer2-*.csv`, `layer3-*.csv`, …) + curated xlsx — rebuilt annually |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |
 
 ## DO NOT SAVE into CSV / DB-like persist files
