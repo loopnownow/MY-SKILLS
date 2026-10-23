@@ -3,7 +3,7 @@
 # L3 specialty terms (pointer)
 
 **Specialty nouns** (disease names, anatomy-specific labels, study-unique endpoints, named devices/software) live in:
-1. Lab-STE project / default term-lock on disk — see `../../vocab/L3/lab-ste.md` → `{doc_lab_ste}\` (`term-lock-default.tsv`, per-project tables)
+1. Lab-STE default term-lock in this folder (`term-lock-default.tsv`) + per-project lock tables under the study folder
 2. Per-project glossary under the study folder (when present)
 
 Do **not** dump specialty nouns into L2 `approved-en.tsv`.
@@ -13,26 +13,29 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 
 ---
 
-﻿# Lab-STE — pointer + reusable rules
+# Lab-STE — pointer + reusable rules
 
-**Disk SSOT (do not vendor):** `{doc_lab_ste}\`  
-**Spec version on disk:** see that folder's `config.yaml` / `Lab-STE-SPEC.md` / `CHANGELOG.md` (currently 0.2.1).  
+**Skill SSOT (method):** this file + `lab-ste-spec-digest.md` + `lexicons/` + `term-lock-default.tsv`.  
+**Approved EN lexicon:** `../L2/approved-en.tsv` (+ lemmas; hash-matched at absorb).  
+**Full SPEC / config / tools / HTML (parked 2026-10-23):**  
+`D:\0del\_by-project\0doc-library-methods-20261023\lab-ste\`  
+Durable: `D:\0Grok\0doc\_corpus\skill-harvest\sources\library-methods-20261023\lab-ste\`  
+**Spec version at absorb:** 0.2.1.  
 **Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese 稿面批注, or tuning controllable-language checks.
 
-## What lives on disk (pointer only)
+## What lives where (after absorb)
 
-| Path under lab-ste | Role |
+| Asset | Location |
 |---|---|
-| `Lab-STE-SPEC.md` | Full rule IDs (EN-*/ZH-*/AI-*/CM-01), examples, conflict order |
-| `config.yaml` | Thresholds, profiles, comment_schema numbers |
-| `approved-en.tsv` + `approved-en.lemmas.txt` | English approved general lexicon (no specialty English) |
-| `approved-en` (05 mirror) | Same lexicon also at `personal/vocab/L2/approved-en.tsv` (+ lemmas); refresh from disk SSOT |
-| `term-lock-default.tsv` | Domain-general lock template (patient, feature, slice, reader, …) |
-| `lexicons/*.tsv` | de-AI / nominalization / hedge / idiom tables |
-| `tools/` | Checker and HTML builder — run from disk; do not copy into MY-SKILLS |
-| `spec.html` | Generated human view — regenerate on disk, do not vendor |
+| Everyday rules + overrides | this `lab-ste.md` |
+| Rule-ID index / profiles | `lab-ste-spec-digest.md` |
+| `lexicons/*.tsv` | `L3/lexicons/` (vendored — small) |
+| `term-lock-default.tsv` | `L3/term-lock-default.tsv` |
+| `approved-en.tsv` | `L2/approved-en.tsv` (already mirrored) |
+| Full SPEC + `config.yaml` + CHANGELOG | park / `_corpus` durable only |
+| `tools/` + `spec.html` | park / durable only — **do not** vendor into MY-SKILLS |
 
-**Do not** copy Lab-STE Python tools or HTML into this repo. `approved-en.tsv` (+ lemmas) may be mirrored under `personal/vocab/` for 05 load; other TSV dictionaries stay disk-only. Skills keep rules + pointers (`ARCHITECTURE.md` Lab workspace SSOT).
+Project term-lock tables stay with each study folder. Per-project specialty nouns never enter L2.
 
 ## Standing overrides (05 / 06 win)
 
@@ -81,14 +84,14 @@ Use with the standing Methods-passive override above.
 - Same subsection: do not mix past-tense procedure verbs with present-tense procedure verbs (Figure N shows may stay present when the house allows).
 - Prefer one subordinate clause; avoid stacked non-restrictive `which`.
 
-Numeric caps (words/sentence, passive ratio, etc.) live only in on-disk `config.yaml` — do not hard-code a second copy here.
+Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` (see `lab-ste-spec-digest.md`) — do not hard-code a second copy here.
 
 ### Chinese habits (批注 / LLM reply)
 
 - One fact per sentence; avoid long comma chains.
 - Prefer verbs: `提取特征` not `进行特征提取` (and similar `进行/开展/实施/做出 + verbal noun`).
 - Quantify hedges: replace bare `较大/明显/一定程度/较好` with a number or named comparator (统计术语如相对危险度除外).
-- Cut empty 四字格 / 套话 in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv`.
+- Cut empty 四字格 / 套话 in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv` (this folder).
 - Bare `该/其/此/这` need a unique antecedent; otherwise repeat the noun.
 
 ### Chinese 稿面批注 five slots → 06

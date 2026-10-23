@@ -5,7 +5,7 @@
 | Need | Current SSOT | Notes |
 |---|---|---|
 | **Unified format** (manuscript / comments / response) | Skill `05_manuscript/personal/Aitor-format.md`; gold docx `D:\\0Grok\\0doc\\templates\\Aitor-format-gold-response.docx` | TNR 12 / 1.5 / before-after 0 / justify / LTR — **docx wins**; this map does not restate params |
-| **STE / controlled English** | `D:\\0Grok\\0doc\\_library\\lab-ste\\Lab-STE-SPEC.md`; skill `05_manuscript/base/vocab/` (+ personal `vocab/README.md`) | STE = language only; no values / reference intervals |
+| **STE / controlled English** | skill `05_manuscript/base/vocab/L3/lab-ste.md` + `lab-ste-spec-digest.md` (+ L3 lexicons); full SPEC parked `D:\\0del\\_by-project\\0doc-library-methods-20261023\\lab-ste\\` | STE = language only; no values / reference intervals |
 | **Revision pattern taxonomy** | Skill `05_manuscript/personal/references/corpus-patterns.md`; harvest `D:\\0Grok\\0doc\\_corpus\\skill-harvest\\05-patterns-summary.md` | Regenerable via `_code/_infra/review-response/md-corpus/s19_patterns.py`. Bulk INDEX/units were under 0doc personal (now roles park) — **do not hand-edit generated cards** |
 | **Revision unit cards** (before→after) | Regenerable: `s19_patterns.py`. Parked bulk (purge risk): `D:\\0del\\_by-project\\0doc-05-07-roles-20261023\\05-manuscript\\personal\\units\\` | Prefer taxonomy digest + regenerate; do not vendor 7k cards into GitHub |
 | **Source fulltext / papers** | Live library: `D:\\0Grok\\0doc\\_library\\fulltext\\`, `D:\\0Grok\\0doc\\_library\\papers\\`. Roles park mirror (purge risk): `…/0doc-05-07-roles-20261023/05-manuscript/personal/{fulltext,papers}/` | Read before revising claims |
