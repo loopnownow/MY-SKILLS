@@ -7,15 +7,17 @@
 ## SSOT location (0doc)
 
 ```
-{doc_root}\03-research\lit-corpus\
+{doc_root}\_library\lit-corpus\
   README.md
   index.csv                 # master ledger (one row per DOI)
-  personal\                 # 本组已发 SCI（Aitor / 强金伟 / 石海峰）
-  base\                     # DOI 审过的外源文献（近 5 年；或现行指南/诊断标准）
   _archived\                # base 过窗研究文（可选）
 ```
 
 Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Create the `lit-corpus\` tree on 0doc only after owner consent (folder-create rule).
+
+## Layout note (2026-10-23)
+
+On disk under `_library\lit-corpus\` the old `personal\` / `base\` **directory wrappers were flattened**. `layer=personal|base` remains a **CSV column**, not a folder. Method docs: `_library\lit-corpus-method\`.
 
 ## Layers
 

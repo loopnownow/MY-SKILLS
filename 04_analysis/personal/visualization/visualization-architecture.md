@@ -1,6 +1,6 @@
 # MY-SKILLS Visualization Architecture v1.1
 
-Approved design specification. User approved execution on 2026-10-03. Revision 1.1 (2026-10-20) removed the external renderer: the IR is rendered to HTML by the in-repo generator only. This file is a source document. It is not the documentation homepage. The generated homepage is under lab `{doc_root}/03-research/my-skills-viz/index.html` (default `D:/0Grok/0doc/03-research/my-skills-viz/index.html`); not in-repo. Design-history pages only point here.
+Approved design specification. User approved execution on 2026-10-03. Revision 1.1 (2026-10-20) removed the external renderer: the IR is rendered to HTML by the in-repo generator only. This file is a source document. It is not the documentation homepage. The generated homepage is under lab `{doc_root}/03-research/my-skills-viz/index.html` (default `D:/0Grok/0doc/_library/my-skills-viz/index.html`); not in-repo. Design-history pages only point here.
 
 ## Implementation record
 
@@ -171,6 +171,6 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 
 What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 
-Local check/rebuild: `python 04_analysis/personal/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/03-research/my-skills-viz`. A failed shape check returns before replacing last-good lab files. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
+Local check/rebuild: `python 04_analysis/personal/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/_library/my-skills-viz`. A failed shape check returns before replacing last-good lab files. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
 
 **Size note:** scripts/gen_visualization.py is ~55 KB (single generator). Prefer edits in place; split only if edit friction rises.
