@@ -41,10 +41,10 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 | Soft-coding / dry-run / complexity ladder | `personal/coding.md` |
 | Deep code QC standards (00 / G-CODE) | `qc/coding-qc.md` |
 | Raw table digit / smoothness QC | `personal/table-signals.md` |
-| Lab MATLAB preprocess | `{script_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`, `{script_data_processing}\preprocess-imaging\fmri\run_preprocess.m` |
-| Leakage / split / radiology audit | `{script_model_validation}\split_leakage_check.py`, `{script_model_validation}\radiology_audit.py` |
-| Clinical / HIS extraction scripts | `{script_data_processing}\clinical-data-extraction\` |
-| Soft-coding / dry-run / CONFIG on top | `{script_root}\_templates\soft_code_template.py` (see `personal/coding.md`) |
+| Lab MATLAB preprocess | `{code_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`, `{code_data_processing}\preprocess-imaging\fmri\run_preprocess.m` |
+| Leakage / split / radiology audit | `{code_model_validation}\split_leakage_check.py`, `{code_model_validation}\radiology_audit.py` |
+| Clinical / HIS extraction scripts | `{code_clean_data}\clinical-data-extraction\` |
+| Soft-coding / dry-run / CONFIG on top | `{code_root}\_infra\_templates\soft_code_template.py` (see `personal/coding.md`) |
 
 Personal scripts are not replaced by a mounted pack.
 Do not rewrite mounted data-processing capability bodies (now under `base/`) inside these personal files.

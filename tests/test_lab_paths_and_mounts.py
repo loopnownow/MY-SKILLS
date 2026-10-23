@@ -19,7 +19,7 @@ class LabPaths(unittest.TestCase):
         aliases = data["aliases"]
         for key in (
             "lab_root",
-            "script_root",
+            "code_root",
             "doc_root",
             "skills_git",
             "skills_runtime",
@@ -38,7 +38,7 @@ class LabPaths(unittest.TestCase):
         keys = (
             "lab_root",
             "del_root",
-            "script_root",
+            "code_root",
             "doc_root",
             "jcr2026_xlsx",
             "find_journal_submission",

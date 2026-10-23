@@ -13,7 +13,7 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 
 ## Boundary
 
-- **Receives:** raw clinical / imaging / picture / fMRI exports; user scripts under `{script_data_processing}` / `{script_root}`.
+- **Receives:** raw clinical / imaging / picture / fMRI exports; user scripts under `{code_data_processing}` / `{code_root}`.
 - **Gives:** analysis-ready tables, QC logs, extraction outputs, leakage/split notes -- then **handoff to 04**.
 - **Does not:** feature selection, model fitting, Table 1 / NHST ownership, IMRAD prose.
 

@@ -237,7 +237,7 @@ class ArchitectureSsot(unittest.TestCase):
 
     def test_readme_keeps_lab_homes(self) -> None:
         readme = read("README.md")
-        self.assertIn("{script_root}", readme)
+        self.assertIn("{code_root}", readme)
         self.assertIn("lab", readme.lower())
         self.assertIn("{doc_root}", readme)
         text = read("ARCHITECTURE.md")

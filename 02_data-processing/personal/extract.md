@@ -4,7 +4,7 @@
 
 Extract clinical data from txt/docx, labs, and pathology text already exported off the hospital machine. Use for 提取检验, 病理全文, 临床数据提取, 出院小结抽取. Dash/阴性 = Negative, not missing. Do not invent labs. HIS login clients stay on the hospital machine, never in git.
 
-个人层：`02_data-processing/personal/extract.md`（由 `clinical-data-extraction/SKILL.md` 迁入）。脚本仍在 `{script_data_processing}\clinical-data-extraction\`，不进本仓库。
+个人层：`02_data-processing/personal/extract.md`（由 `clinical-data-extraction/SKILL.md` 迁入）。脚本仍在 `{code_clean_data}\clinical-data-extraction\`，不进本仓库。
 
 ## 适用场景
 - 从 .txt / .docx 提取患者信息（姓名、性别、年龄、门诊号）
@@ -42,5 +42,5 @@ HIS login automation must not live in A. Hospital-system clients stay on the hos
 10. 分类标签用英文（`Positive`/`Negative`），规则见 `workspace.md`，此处不另写一套。
 
 ## 附带的脚本
-- `{script_data_processing}\clinical-data-extraction\extract_patient_data.py` — 患者信息与检验指标提取
-- `{script_data_processing}\clinical-data-extraction\extract_docx.py` — docx 文档批量提取
+- `{code_clean_data}\clinical-data-extraction\extract_patient_data.py` — 患者信息与检验指标提取
+- `{code_clean_data}\clinical-data-extraction\extract_docx.py` — docx 文档批量提取

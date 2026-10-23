@@ -4,7 +4,7 @@
 
 # Lab figure palettes (0RAD console)
 
-**Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{script_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
+**Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
 
 Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the 0RAD pipeline.
 

@@ -1,7 +1,7 @@
 # Console UI and results-report rules (lab)
 
 **Owner:** `04_analysis`. Source: session harvest 2026-10-07 (P-04–P-08).  
-Implementation: `{script_modules}\console\` and results HTML writers.  
+Implementation: `{code_modules}\console\` and results HTML writers.  
 Word / 0doc 政策不在本文件；见 `{RULES}`.
 
 ## 1 Interactive HTML acceptance (P-04)

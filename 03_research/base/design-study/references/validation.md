@@ -16,7 +16,7 @@ Block or flag the study if:
 - test data are used for threshold selection, model selection, or early stopping
 - external validation is from the same source population without clear independence
 
-Use `{script_model_validation}\\split_leakage_check.py` when a CSV with patient and split columns is available.
+Use `{code_model_validation}\\split_leakage_check.py` when a CSV with patient and split columns is available.
 
 ## Validation levels
 

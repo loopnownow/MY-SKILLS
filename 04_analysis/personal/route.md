@@ -8,6 +8,8 @@
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 
+Algorithm library entity = `{code_stats}` (not under `base\analyze-stats\`).
+
 ## Personal load order
 
 1. Methods / which test -> `methods.md` (index: `module-notes.md`)
