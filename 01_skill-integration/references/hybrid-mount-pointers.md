@@ -1,6 +1,6 @@
 # Non-base exceptions -- default deny
 
-[registry.yaml](../registry.yaml) · [MOUNTED_SKILLS.md](../MOUNTED_SKILLS.md) · [session-pick.md](session-pick.md)
+[registry.yaml](../registry.yaml) · [session-pick.md](session-pick.md)
 
 **Default unique runtime source = `my-skills` (in-repo `NN_slug/base/`).**
 
@@ -11,7 +11,7 @@ Non-base packs (MedSci / Scientific / AIPOCH / Nature catalogs, ARS, OpenClaw, o
 - Archived registry rows may still name a historical upstream `source` for revive notes; they are **not** pickable.
 - 01 keeps registry/index only (no per-pack mount stubs).
 
-**Owner exception only:** if the owner explicitly approves one non-base fine-id revive, update `registry.yaml` + add that source yaml under `sources/`, then re-run `gen_mounted_skills.py`. Silence is not approval.
+**Owner exception only:** if the owner explicitly approves one non-base fine-id revive, update that fine id in `registry.yaml` only (no `sources/` yaml seat; registry is SSOT). Silence is not approval.
 
 **Personal top layers** are not capability mounts. Flow: base fine-ID first-pass -> 00 QC -> personal/top re-loops (see `00_orchestrator/references/base-vs-personal-top-loops.md`).
 

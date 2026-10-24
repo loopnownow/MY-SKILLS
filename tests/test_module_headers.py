@@ -119,7 +119,6 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("my-skills", skill)
         self.assertIn("NN_slug/base", skill)
         self.assertIn("references/hybrid-mount-pointers.md", skill)
-        self.assertIn("references/presets", skill)
         self.assertNotIn("`mounts/`", skill)
         self.assertFalse((d / "mounts").exists())
         hybrid = (refs / "hybrid-mount-pointers.md").read_text(encoding="utf-8")
@@ -133,24 +132,15 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((d / "sources" / "scientific-agent-skills.proposed.yaml").exists())
         self.assertFalse((d / "sources" / "aipoch-medical-research-skills.proposed.yaml").exists())
         self.assertFalse((d / "mounts" / "MIGRATION_v3_to_v4.md").exists())
-        preset = refs / "presets" / "review-hybrid.yaml"
-        self.assertTrue(preset.is_file())
-        yh = preset.read_text(encoding="utf-8")
-        self.assertIn("skills: [verify-refs]", yh)
-        self.assertIn("skills: [analyze-stats]", yh)
-        self.assertIn("verify-refs", yh)
-        self.assertIn("my-skills", yh)
-        self.assertNotIn("openclaw-medical-skills", yh)
-        self.assertNotIn("academic-research-skills", yh)
         reg_text = (d / "registry.yaml").read_text(encoding="utf-8")
         self.assertIn("references/hybrid-mount-pointers.md", reg_text)
         self.assertIn("removed-from-catalog", reg_text)
         # No separate capability-pack source yaml; bodies in-repo under NN_slug/base/.
         self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
-        src_readme = (d / "sources" / "README.md").read_text(encoding="utf-8")
-        self.assertIn("in-repo", src_readme)
-        self.assertNotIn("MY-SKILLS-base", src_readme)
-        self.assertNotIn("my-skills-base", src_readme)
+        self.assertFalse((d / "sources").exists())
+        self.assertFalse((refs / "presets").exists())
+        self.assertFalse((d / "scripts").exists())
+        self.assertFalse((d / "MOUNTED_SKILLS.md").exists())
 
 
     def test_b_mount_paths_unique(self):

@@ -37,8 +37,6 @@ VIZ_DIR = HERE.parent  # 04_analysis/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
 CAP = Path(r"{doc_root}\03-research\mounts-cap").resolve()  # SSOT under 0doc; refuse-read guard
 REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
-SOURCES = ROOT / "01_skill-integration" / "sources"
-PRESETS = ROOT / "01_skill-integration" / "references" / "presets"
 RUNTIME_MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 RUNTIME_MD = ROOT / "00_orchestrator" / "runtime-flow.md"
 GATES = ROOT / "00_orchestrator" / "gates.md"
@@ -207,17 +205,13 @@ def frontmatter(path: Path) -> dict:
 def source_paths() -> list[Path]:
     paths = [
         REGISTRY,
-        SOURCES,
         RUNTIME_MMD,
         RUNTIME_MD,
         GATES,
         ARCH_MD,
         CONTRACT,
     ]
-    # SOURCES is a directory; replace it with files below.
     paths = [p for p in paths if p.is_file()]
-    paths.extend(sorted(SOURCES.glob("*.yaml")))
-    paths.extend(sorted(PRESETS.glob("*.yaml")))
     paths.extend(skill_files())
     return paths
 
@@ -763,16 +757,6 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
             f"<td><code>{esc(item.get('path', ''))}</code></td>"
             "</tr>"
         )
-    source_rows = "".join(
-        f"<tr><td><code>{esc(item['source_id'])}</code></td><td>{esc(item.get('role', ''))}</td>"
-        f"<td>{esc(item.get('status', ''))}</td><td>{esc(item.get('repo', ''))}</td></tr>"
-        for item in sources
-    )
-    preset_rows = "".join(
-        f"<tr><td><code>{esc(item['preset_id'])}</code></td><td>{esc(item.get('status', ''))}</td>"
-        f"<td>{esc(item.get('version', ''))}</td><td>{esc(item.get('chassis_source', ''))}</td></tr>"
-        for item in presets
-    )
     proposal_rows = "".join(
         f"<tr><td><code>{esc(item.get('id'))}</code></td><td>{esc(item.get('status'))}</td>"
         f"<td>{esc(item.get('role'))}</td></tr>"
@@ -792,12 +776,8 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
     <h2>Fine ids</h2>
     <table><thead><tr><th>id</th><th>label</th><th>coarse</th><th>source</th><th>status</th><th>package</th><th>a_domain</th><th>priority</th><th>registry path</th></tr></thead>
     <tbody>{''.join(mount_rows)}</tbody></table>
-    <h2>Source records</h2>
-    <table><thead><tr><th>source_id</th><th>role</th><th>status</th><th>repo</th></tr></thead>
-    <tbody>{source_rows}</tbody></table>
-    <h2>Presets</h2>
-    <table><thead><tr><th>preset</th><th>status</th><th>version</th><th>chassis source</th></tr></thead>
-    <tbody>{preset_rows}</tbody></table>
+    <h2>Source records / presets</h2>
+    <p class="muted">Retired: no <code>sources/</code> yaml seat and no <code>references/presets/</code>. Registry is SSOT.</p>
     <h2>Proposals</h2>
     <table><thead><tr><th>id</th><th>status</th><th>role</th></tr></thead><tbody>{proposal_rows}</tbody></table>
     """
@@ -862,33 +842,8 @@ def render_delta(delta: dict, after: dict, version: str, digest: str, before_lab
 
 
 def load_sidecar_metadata() -> tuple[list[dict], list[dict]]:
-    sources = []
-    for path in sorted(SOURCES.glob("*.yaml")):
-        data = read_yaml(path)
-        source_id = str(data.get("source_id", ""))
-        if "openclaw" in source_id.lower():
-            raise GateFailure("G-VIZ-01", f"OpenClaw source record {path.name}")
-        sources.append(
-            {
-                "source_id": source_id,
-                "role": data.get("role", ""),
-                "status": data.get("status", ""),
-                "repo": data.get("repo", ""),
-            }
-        )
-    presets = []
-    for path in sorted(PRESETS.glob("*.yaml")):
-        data = read_yaml(path)
-        chassis = data.get("chassis") or {}
-        presets.append(
-            {
-                "preset_id": data.get("preset_id", path.stem),
-                "status": data.get("status", ""),
-                "version": data.get("version", ""),
-                "chassis_source": chassis.get("source", ""),
-            }
-        )
-    return sources, presets
+    """Presets / sources/ yaml seats retired; registry.yaml is SSOT."""
+    return [], []
 
 
 def build() -> dict:

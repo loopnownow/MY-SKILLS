@@ -123,4 +123,4 @@ Triggers 「这个研究还能做什么」等 → [`01_skill-integration/workflo
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 
-Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `MOUNTED_SKILLS.md` / `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click 投稿, or absorb harvest/01 implementation.
+Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click 投稿, or absorb harvest/01 implementation.

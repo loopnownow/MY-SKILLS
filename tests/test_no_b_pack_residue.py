@@ -13,7 +13,6 @@ B_PAT = re.compile(r"(?:\bB\s+0[0-7]-[a-z0-9-]+/?\b|\bforce_b\b|\bMY-SKILLS-base
 ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
     "01_skill-integration/legacy_aliases.yaml",
-    "01_skill-integration/MOUNTED_SKILLS.md",
     "01_skill-integration/references/id-rules.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",

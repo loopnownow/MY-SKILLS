@@ -5,7 +5,6 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 **Architecture SSOT** for this repo: this file (layers, mounts, lab homes, fine-id ceiling, base/personal contract, Cache≠Mount, load_priority).
 
 **Routing SSOT:** `01_skill-integration/registry.yaml` 
-**Generated mount index:** `01_skill-integration/MOUNTED_SKILLS.md`
 
 Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); default source my-skills (in-repo base); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-base packages stay ARCHIVED unless the owner revives one; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`. 样本量: `calc-sample-size`.
 

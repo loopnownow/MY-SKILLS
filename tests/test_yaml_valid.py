@@ -38,15 +38,6 @@ class YamlValid(unittest.TestCase):
                 bad.append(f"{p.relative_to(ROOT)}: {exc}")
         self.assertEqual(bad, [], msg="\n".join(bad))
 
-    def test_presets_are_included(self) -> None:
-        names = {p.name for p in repo_yaml_files()}
-        for n in (
-            "review-hybrid.yaml",
-            "evidence-deep-L2.yaml",
-            "manuscript-final-W2.yaml",
-            "external-review-R1.yaml",
-        ):
-            self.assertIn(n, names)
 
 
 if __name__ == "__main__":
