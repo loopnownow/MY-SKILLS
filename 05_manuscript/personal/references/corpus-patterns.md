@@ -1,6 +1,6 @@
 # Corpus revision patterns (harvest 2026-10-23)
 
-> Curated from `_corpus/skill-harvest/05-patterns-summary.md` + `05-manuscript/personal/patterns` INDEX (7,255 tagged units).
+> Curated from `skill-harvest/05-patterns-summary.md` + `05-manuscript/personal/patterns` INDEX (7,255 tagged units).
 > For `write-paper` polish / revise routing. Prefer this taxonomy when labeling an edit; do not invent parallel tag names.
 
 ## Tag → when to use (counts = corpus hits)
@@ -28,9 +28,9 @@
 
 - High-volume language tags (`wording`, `tense-voice`, `sentence-polish`, `article-prep`) → polish-language / humanize chain after content is locked.
 - `claim-down` / `limitation` / `hedge` → respect voice-portrait: Results unhedged; Discussion calibrated; process 否定句 → Word comment only.
-- Full pattern pages + units remain regenerable under 0doc (or 0del after move); skills keep this summary.
+- Full pattern pages + units remain regenerable under 0doc (or the {raw_root}\_lab originals park after move); skills keep this summary.
 
 ## Pointers
 
 - Process slices: `../process/polisher-sections.md`, `../process/citation-and-language.md`
-- Harvest draft: `{doc_root}\_corpus\skill-harvest\05-patterns-summary.md`
+- Harvest draft: `{doc_root}\skill-harvest\05-patterns-summary.md`

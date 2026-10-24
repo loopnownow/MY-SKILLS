@@ -12,7 +12,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 | Artifact | Format | Where |
 |---|---|---|
-| **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `D:\0Grok\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
+| **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `{lab_root}\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
 | **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`gates/`/`code/`/`results/`/`exec/`/`tmp/` per `project-ref-layout.md`); else `{DEL}` |
 | Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`in-review\…`); else `{DEL}` unless user names Downloads |
 | Manuscript / Track Changes (final) | DOCX | Subproject **root** if any; else `{DEL}` unless user names Downloads |

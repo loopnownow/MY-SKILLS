@@ -1,7 +1,7 @@
 # Writing / revision hard constraints (0doc base absorb)
 
 > Digested 2026-10-23 from park `0doc-03-07-seats-20261023/05-manuscript/base/writing-rules/README.md`.
-> Provenance (durable): `{doc_root}\_corpus\skill-harvest\sources\0doc-base-absorbed-20261023\writing-rules\README.md`.
+> Provenance (durable): `{doc_root}\skill-harvest\sources\0doc-base-absorbed-20261023\writing-rules\README.md`.
 > Lab standing next to Aitor personal authority — not a second copy of `Aitor-format.md`.
 
 ## Three hard constraints

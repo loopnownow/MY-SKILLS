@@ -2,7 +2,7 @@
 
 Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `skills.md` §1b).
 
-**Harvest 任务流程**（本文件 §「Harvest 任务流程」）由 **00_orchestrator** 管理；收集口径 SSOT 见 `_corpus/skill-harvest/HARVEST-STANDARD.md`（收集标准）。**不**新增顶层 evolution skill / evolution agent / 第 5 知识库。
+**Harvest 任务流程**（本文件 §「Harvest 任务流程」）由 **00_orchestrator** 管理；收集口径 SSOT 见 `skill-harvest/HARVEST-STANDARD.md`（收集标准）。**不**新增顶层 evolution skill / evolution agent / 第 5 知识库。
 
 ## Evidence
 
@@ -36,7 +36,7 @@ Owner（2026-10-24）：harvest 同样更新任务流程，由 skill-00 管理�
 | Skills (S) | 00–07 技能正文 / personal | MY-SKILLS |
 | Registry (Reg) | fine-ID / mount 登记 | `01_skill-integration/registry.yaml` 等 |
 | Capabilities (Cap) | 可挂载能力包 | MY-SKILLS `NN_slug/base/` + registry（**无**单独 capabilities 克隆） |
-| Corpus | 语料 / harvest 草稿 | `D:\0Grok\0doc\_corpus\skill-harvest\`（SSOT）；`D:\0del` = 工作副本 |
+| Corpus | 语料 / harvest 草稿 | `{doc_root}\skill-harvest\`（SSOT）；`{DEL}` = 工作副本 |
 
 **硬门**
 
@@ -126,6 +126,6 @@ Cap 变更 = 改 `base/` 与/或 registry，**不**新建 capabilities 仓。
 
 ### 指针
 
-- 收集标准（SSOT）：`D:\0Grok\0doc\_corpus\skill-harvest\HARVEST-STANDARD.md`
+- 收集标准（SSOT）：`{doc_root}\skill-harvest\HARVEST-STANDARD.md`
 - 细ID 薄指针：`01_skill-integration/references/text-harvest-by-fine-id.md`
 - Rules 门：`MY-RULES/skills.md` §3（propose-only；任务流正文在本文件）
