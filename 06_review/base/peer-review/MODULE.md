@@ -69,7 +69,7 @@ Path: peer-review-others
 Internal note: dealbreakers — [list or none]
 ```
 
-跨包调研提炼的原则(非挂载，仅规则参考)：[external-principles.md](references/external-principles.md)
+Principles extracted from cross-package research (not a mount; rule reference only): [external-principles.md](references/external-principles.md)
 
 ## On-demand references
 

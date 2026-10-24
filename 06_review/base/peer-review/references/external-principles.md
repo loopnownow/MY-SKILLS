@@ -1,27 +1,18 @@
-<!--
-本文件性质: 规则参考(非挂载)
-用途: 记录跨包调研中发现的、值得借鉴但不整包挂载的设计原则。
-来源: Nature(Yuan1z0825/nature-skills) nature-reviewer SKILL.md
-提炼日期: 2026-09-13
--->
+# External principles for peer review
 
-# 审稿环节的外部原则参考
+File role: rule reference (not a mount).
+Purpose: record design principles found in cross-package research that are worth borrowing without mounting the whole package.
+Source: Nature (Yuan1z0825/nature-skills) nature-reviewer SKILL.md
+Extracted: 2026-09-13
 
-## 原则：多审稿人盲态隔离（来自 Nature nature-reviewer）
+# External principle reference for the review step
 
-如果同一份稿件需要模拟/产出多个独立审稿视角（例如自己练习从不同
-角度审一篇稿子，或需要综合多轮审稿意见给出元评审建议），应遵守：
+## Principle: multi-reviewer blind isolation (from Nature nature-reviewer)
 
-1. **先各自冻结，后比较**——每个审稿视角的意见必须独立形成、独立
-   写完、"冻结"（不再修改）之后，才允许拿出来跟其他视角的意见比较
-   或综合，不能一边写A视角一边参考B视角的结论。
-2. **禁止相互泄露**——如果本次任务涉及生成多份审稿意见，各份意见
-   之间不得互相引用对方的表述、编号或推荐结论，避免出现"审稿人
-   趋同"的假象。
-3. **综合意见单独产出**——需要给出元评审/综合结论时，这一步必须
-   在所有独立意见冻结完成之后单独进行，且要明确标注这是"综合"
-   而非"第N位审稿人"的意见。
+When the same manuscript needs multiple independent review viewpoints simulated or produced (e.g. practicing different angles, or synthesizing multi-round opinions into a meta-review), obey:
 
-这条原则主要用于防止AI辅助审稿时出现的"自我印证"风险——如果不
-做盲态隔离，后生成的意见容易不自觉地被先生成的意见"带偏"，看起来
-像是多个独立视角，实际上只是同一套判断的重复表述。
+1. **Freeze each first, compare later** — each viewpoint's opinion must form independently, finish independently, and “freeze” (no further edits) before it may be compared or synthesized with other viewpoints. Do not write viewpoint A while consulting viewpoint B's conclusions.
+2. **No mutual leakage** — when this task generates multiple review opinions, they must not cite each other's wording, numbering, or recommendation. Avoid a false “reviewers converged” picture.
+3. **Synthesis is a separate product** — meta-review / synthesis happens only after all independent opinions are frozen, and must be labeled as synthesis, not as “reviewer N”.
+
+This principle mainly prevents AI-assisted review “self-confirmation”: without blind isolation, later opinions unconsciously follow earlier ones and look like multiple viewpoints while repeating one judgment.

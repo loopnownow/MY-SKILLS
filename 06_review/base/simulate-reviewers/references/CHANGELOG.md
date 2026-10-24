@@ -58,15 +58,15 @@ The default reviewer count and report structure are unchanged. The main visible 
 - No manuscript-specific examples, local paths, or private project content are included.
 - The audit was designed not to contaminate reviewer contexts or manufacture consensus.
 
-### 中文摘要
+### Chinese summary (EN)
 
-`1.5.0` 主要增加了强制执行的 forensic consistency audit。该检查在三位 reviewer 报告全部冻结后、cross-review synthesis 之前运行，重点检查：
+`1.5.0` mainly adds a mandatory forensic consistency audit. It runs after all three reviewer reports are frozen and before cross-review synthesis. Focus:
 
-- 算术、百分比、delta、range 和计数一致性；
-- metric 数学上下限与聚合层级；
-- 正文、表格、图件之间的数值和排序矛盾；
-- 重复行、相同区间、离散度异常和高影响组；
-- train、validation、test、placebo、support、query 和数据泄漏；
-- 新实验前，旧结果是否能够复现。
+- arithmetic, percentage, delta, range, and count consistency;
+- metric mathematical bounds and aggregation level;
+- body / table / figure numeric and ranking contradictions;
+- duplicate rows, identical intervals, dispersion anomalies, and high-impact groups;
+- train / validation / test / placebo / support / query and data leakage;
+- whether prior results can be reproduced before new experiments.
 
-审计结果不会反馈给 reviewer，也不会修改冻结报告。它只进入 synthesis 和 risk，并与 reviewer consensus 保持分离。
+Audit results do not feed back to reviewers and do not rewrite frozen reports. They enter synthesis and risk only, kept separate from reviewer consensus.

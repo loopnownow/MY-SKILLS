@@ -1,4 +1,4 @@
-# 预审
+# Pre-submission review
 
 Use this file when the user asks for pre-submission review, simulated reviewer
 critique, manuscript risk audit, top-journal readiness, or final checks before
@@ -6,16 +6,16 @@ submitting a radiomics or medical imaging AI manuscript.
 
 ## Core goal
 
-预审模块要像审稿人和方法学编辑一样工作：先找会导致拒稿或大修的硬伤，再给可执行修改方案。
+The pre-submission module works like a reviewer and a methods editor: find hard defects that would cause reject or major revision first, then give actionable fixes.
 
 ## First questions
 
-- 目标期刊或期刊梯队是什么？
-- 文章题目、摘要、Methods、Results 和 Discussion 是否已有？
-- 研究是单中心、多中心、外部验证、前瞻性还是回顾性？
-- 主要终点、样本量、事件数、模型性能和验证方式是什么？
-- 是否有伦理、数据可用性、代码可用性、报告 checklist？
-- 作者最担心的问题是什么：外部验证、样本量、模型新颖性、临床价值，还是机制解释？
+- What is the target journal or journal tier?
+- Are title, abstract, Methods, Results, and Discussion already available?
+- Is the study single-center, multi-center, externally validated, prospective, or retrospective?
+- What are the primary endpoint, sample size, events, model performance, and validation scheme?
+- Are ethics, data availability, code availability, and reporting checklists present?
+- What do the authors worry about most: external validation, sample size, novelty, clinical value, or mechanism?
 
 ## Audit priority
 
@@ -74,24 +74,24 @@ Do not promise suitability for a journal based only on AUC.
 ## Output format
 
 ```text
-投稿前预审结论
-- 当前档位：
-- 最大硬伤：
-- 最容易补强的点：
+Pre-submission review conclusion
+- Current tier:
+- Biggest hard defect:
+- Easiest strengthen point:
 
-高风险问题
-| 优先级 | 问题 | 为什么危险 | 建议修改 |
+High-risk issues
+| Priority | Issue | Why dangerous | Suggested fix |
 
-Methods 必改
+Methods must-fix
 - [data split, segmentation, preprocessing, model, validation, ethics]
 
-Results 必补
+Results must-add
 - [CI, calibration, DCA, subgroup, external validation, failure cases]
 
-Discussion 降调
+Discussion tone-down
 - [overclaims and limitations]
 
-投稿前清单
+Pre-submission checklist
 - [checklist, data/code availability, figures, tables, cover letter points]
 ```
 

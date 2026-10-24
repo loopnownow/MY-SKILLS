@@ -1,36 +1,36 @@
-# Word 编辑与交付（个人层）
+# Word edit and delivery (personal)
 
-## 修订
+Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-Ownership: see `00_orchestrator/references/ownership-contract.md`. call/require 03 citation-verify — do not self-certify lit.
+## Revisions
 
-- 稿件正文的修订由 **Aitee（05）** 落地。Lee（06）默认只批注、不自行修订。可决定的问题写成给 Aitee 的 TC-fix 批注。定不了 / 缺事实：中文原因，再加一行以 `Suggested …` 开头的英文建议（或同等 Suggested 措辞），和/或建议文献（文献由 Victor 供给；句式见 ownership-contract）。发明或免责语不进稿件正文。
-- 下面的修订模式是 **Aitee 落修订** 时的操作，不是 Lee 自己改稿的默认。
-- 所有对 `.docx` 的修改 **一律修订模式（Track Changes）**。
+- Manuscript body revisions are landed by **Aitee (05)**. Lee (06) defaults to comments only and does not revise the body. Decidable issues become TC-fix comments for Aitee. Undecidable / missing facts: Chinese reason, then one English line starting with `Suggested ...` (or equivalent Suggested wording), and/or suggested literature (Victor supplies literature). Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
+- The revision modes below are how **Aitee lands edits**, not Lee's default for rewriting the paper.
+- Every change to a `.docx` uses **Track Changes**.
 
-## 修订粒度（主人 2026-10-19）
+## Revision grain (owner 2026-10-19)
 
-- 文稿修改以 **词** 或 **句** 为修改单位；**禁止**大段覆盖整段/整节。
-- 已有 `.docx` 一律 **修订模式（Track Changes）** 落字；禁止无痕明文覆写 `-copy` 壳。
-- **用户手改优先（仅 Word）。** 若当前句与代理上次写入的句子不同，视为用户修改。要再动那段，先问用户；禁止擅自改回。此条 **不** 适用于 HTML、PDF、脚本。
-- 不明处：先 **批注（作者 A）** 或问用户；不无痕直接改、不擅自 Accept/Reject 修订。
-- **保留原稿前页信息：** 若文中已有通讯作者、基金、伦理（Date/NO）、作者单位等，**禁止**用实验室默认/模板句覆盖；只在用户点名时改。缺项用批注问，不填默认值。
+- Edit by **word** or **sentence**; **forbid** wholesale overwrite of whole paragraphs/sections.
+- Existing `.docx` always lands text under **Track Changes**; forbid silent plain-text overwrite of a `-copy` shell.
+- **User hand-edits win (Word only).** If the current sentence differs from what the agent last wrote, treat it as a user edit. To touch that span again, ask the user first; do not silently revert. This does **not** apply to HTML, PDF, or scripts.
+- Unclear spots: **comment (author A)** or ask the user first; no silent direct edits; no unilateral Accept/Reject of revisions.
+- **Keep front-matter already in the file:** if corresponding author, funding, ethics (Date/NO), affiliations, etc. are already present, **forbid** overwriting with lab default/template sentences; change only when the user names them. Missing items -> ask via comment; do not fill defaults.
 
-## 文件
+## Files
 
-- **尽量不新建文件**；优先在用户指定的现有终稿上修订。
-- **中间文件尽量不产生**；若必须产生，任务结束后移入 `0del`（本机常见 `{del_root}`）。
-- 除非用户点名，否则不要另做备份副本。
-- Aitee 用 Track Changes 改过、或 Lee 只批注审过 Word 后，在该课题 **`ref/manuscript-revision.md`** 追加记录（日期、文件、已修订 / 只审核 / 未动 / 未决）。后一轮不得再润、再审已记录段落，除非上游数字变了、用户点名，或未决批注被授权落地。Lee 的记录默认是「只审核」，不是「已修订」。
+- **Prefer not creating new files**; revise the existing final the user named.
+- **Avoid intermediate files**; if unavoidable, move them into `0del` after the task (local usual `{del_root}`).
+- Do not make backup copies unless the user asks.
+- After Aitee applies Track Changes, or after Lee comments-only review of Word, append a record to that project's **`ref/manuscript-revision.md`** (date, file, revised / review-only / untouched / open). Later rounds must not re-polish or re-review already recorded spans unless upstream numbers changed, the user named them, or open comments remain.
 
-## 语言与版式
+## Language and layout
 
-- 期刊信封：**英文**。给用户看的总括/内部备注/QC：**中文**。
-- **禁止擅自改 Word/PDF 格式。** 除非主人当轮点名，否则修订已有 `.docx`/`.pdf` 只改文字（Track Changes / 批注）。不要改样式、字体、字号、对齐、缩进、段前段后、文本前后间距、行距、文字方向、分节、页边距、表格几何、特殊格式。用户手改的格式同样保留。
-- **统一正文字体版式**（手稿、审稿意见壳、审稿人回复同一套）：Times New Roman，12 磅，1.5 倍行距，段前/段后 0，文本前/后 0，两端对齐，从左到右，**特殊格式：无**。结构细则见 `05_manuscript/personal/Aitor-format.md`。
-- 新写段落若必须带格式（用户点名排版，或空白新稿）：同上统一版式，勿另起样式。
+- Journal envelope: **English**. Owner-facing summary / internal notes / QC: **Chinese**.
+- **Forbid unilateral Word/PDF format changes.** Unless the owner names formatting this turn, revising an existing `.docx`/`.pdf` changes text only (Track Changes / comments). Do not change styles, font, size, alignment, indent, space before/after paragraph, space before/after text, line spacing, text direction, sections, margins, table geometry, or special format. Keep user hand-edited format too.
+- **Unified body typography** (manuscript, review shell, response letter): Times New Roman, 12 pt, 1.5 line spacing, space before/after paragraph 0, space before/after text 0, justified, left-to-right, **special format: none**. Structure detail: `05_manuscript/personal/Aitor-format.md`.
+- New paragraphs that must carry format (user-named layout, or blank new draft): same unified typography; do not invent another style.
 
-## 衔接
+## Handoff
 
-- 定位规则见 `review.md` §0.1。
-- 来源标签与中文原因见 `review.md` §0.1（批注文首；此处不复制规则正文）。
+- Localization rules: `review.md` section 0.1.
+- Source tags and Chinese reasons: `review.md` section 0.1 (comment lead-in; this file does not copy the rule body).
