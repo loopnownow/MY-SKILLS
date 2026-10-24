@@ -101,7 +101,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate) Harvest ????????? intake????????? SSOT ? `skill-harvest/HARVEST-STANDARD.md`?
+Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate). Harvest intake → that file, section «Harvest task flow»; collection SSOT `{doc_skill_harvest}\HARVEST-STANDARD.md` (extract ≠ promote).
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
@@ -121,6 +121,6 @@ Triggers 「这个研究还能做什么」 / what-else-can-this-study-do and pee
 
 **00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); visualization → `04_analysis/personal/visualization/`.
 
-**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
+**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click submission, or absorb harvest/01 implementation.
