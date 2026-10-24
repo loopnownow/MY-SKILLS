@@ -29,7 +29,6 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 | `ref/exec/` | Optional `EXECUTION.md` wrap-ups; ops notes that are not review-round ledgers | Owner-facing ACCEPT reports unless the owner asked |
 | `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/收工 | Current finals (stay at project root); closed-round changelogs (`review/`); citation/gates ledgers; secrets |
 
-
 ### `ref/tmp/` cleanup
 
 - Create on first need (copy-on-need with the other subfolders).
@@ -37,7 +36,7 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 - **Do not** silent-delete. When the owner says clean / 清理 / 收工 for that project, move the whole `ref/tmp/` tree (or named files) into `{DEL}\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful.
 - After cleanup, leave an empty `ref/tmp/` or recreate on next write; do not invent clinical content there.
 
-Also keep a short **`ref/README.md`** map (see template) once a project adopts this layout.
+Also keep a short **`ref/README.md`** map at `ref/` root once a project adopts this layout (subfolder roles above).
 
 ## Skip / idempotent rules (read ledgers before re-run)
 
@@ -50,7 +49,7 @@ Assistants **must** read `ref/manuscript-revision.md` and the citation ledger **
 | Review round | Round marked completed in `ref/review/changelog.md` (Implemented / Not implemented closed) | Open a new round file or append; do not rewrite closed rounds without owner ask |
 | Gates / assurance | Same gate id + matching `audited_input_hashes` already PASS at required assurance level | Re-run if hashes stale or assurance upgraded (`submission` / `conference-ready` forbid silent skip) |
 
-Citation ledger key shape (internal; not a user-facing slogan): `DOI|citekey` + `layer` + `fine_id`. Prefer JSON array or `{"entries":[]}` envelope — see template.
+Citation ledger key shape (internal; not a user-facing slogan): `DOI|citekey` + `layer` + `fine_id`. Prefer JSON array or `{"entries":[]}` envelope.
 
 Cross-links:
 
@@ -61,16 +60,11 @@ Cross-links:
 
 ## What this contract does **not** do
 
-- Does not mass-require empty folders on greenfield projects until first artifact write (template exists for copy-on-need).
+- Does not mass-require empty folders on greenfield projects until first artifact write (create subfolders copy-on-need).
 - Does not move ethics locked trees or write `personal/`.
 - Does not install ARIS runtime.
-
-## Template
-
-Copy-on-need tree: [`project-ref-template/`](project-ref-template/).
 
 ## Pre-edit originals (`-org`) (2026-10-19)
 
 - Files named `*-org` / `*org*` (e.g. `comments-org.docx`, `SARC_CT_MRI_manuscript-org.docx`) are **pre-edit originals**. Keep them in the project — typically `ref/review/`.
 - On owner 收工/清理: **do not discard** `-org` originals. Move only true intermediates from `ref/tmp/` to `{DEL}\_by-project\<project>\`. If an `-org` was parked in `tmp/`, promote it to `ref/review/` (or leave at root) before cleaning `tmp/`.
-
