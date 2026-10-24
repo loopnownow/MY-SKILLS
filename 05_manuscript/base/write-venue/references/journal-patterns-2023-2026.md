@@ -1,4 +1,4 @@
-# 2023-2026 期刊规律
+# 2023-2026 journal patterns
 
 > **Snapshot note (QC 2026-10-18):** Filename dates a planning window / evidence harvest period. Treat contents as a **dated snapshot** — re-check current evidence, author instructions, and recent issues before relying on specifics.
 

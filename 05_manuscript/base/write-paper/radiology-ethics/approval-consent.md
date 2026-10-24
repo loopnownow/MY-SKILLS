@@ -43,4 +43,4 @@ waived at all sites given the retrospective design."* (Confirm the actual model 
   vice versa) — must match reality.
 - Omitting per-center approval in a multi-center study.
 - Claiming Helsinki adherence with no ethics approval named.
-- Approval number/date invented to fill the template — never do this; flag as 待确认.
+- Approval number/date invented to fill the template — never do this; flag as to confirm.

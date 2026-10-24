@@ -1,11 +1,11 @@
 # Writing voice portrait (Aitor / Jinshan)
 
-Personal upper layer for **写作**. Corpus: multi-paper Track Changes + comments (SCI medical).  
+Personal upper layer for **writing**. Corpus: multi-paper Track Changes + comments (SCI medical).  
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.
 
 **Locks (2026-09-24 / 2026-10-01):** keep **set** (`training` / `test` / `validation set`); **short sentences** (one fact per sentence) **inside continuous paragraphs**; figure legends **below** figures; Discussion **not** compressed by page quota.
 
-**Paragraph lock (2026-10-01):** 正文写成段；不要一句一行 / 一句一段。短句可以，但相关句放在同一段里。Abstract 四段标签、Methods/Results 小标题、Highlights 条目、表注图注仍按 `Aitor-format.md`。
+**Paragraph lock (2026-10-01):** Write body as paragraphs; do not one-sentence-per-line / one-sentence-per-paragraph. Short sentences OK, but keep related sentences in the same paragraph. Abstract four-section labels, Methods/Results subheads, Highlights bullets, table/figure notes still follow `Aitor-format.md`.
 
 **Pre-submit (2026-10-02):** run `05_manuscript/qc/manuscript-local-qc.md` before a house draft is called final. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
 

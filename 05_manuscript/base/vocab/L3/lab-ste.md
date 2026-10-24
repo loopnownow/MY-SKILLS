@@ -22,7 +22,7 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 `{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`  
 Durable: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste\`  
 **Spec version at absorb:** 0.2.1.  
-**Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese 稿面批注, or tuning controllable-language checks.
+**Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese manuscript comments (稿面批注), or tuning controllable-language checks.
 
 ## What lives where (after absorb)
 
@@ -91,11 +91,11 @@ Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` 
 
 - One fact per sentence; avoid long comma chains.
 - Prefer verbs: `提取特征` not `进行特征提取` (and similar `进行/开展/实施/做出 + verbal noun`).
-- Quantify hedges: replace bare `较大/明显/一定程度/较好` with a number or named comparator (统计术语如相对危险度除外).
-- Cut empty 四字格 / 套话 in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv` (this folder).
+- Quantify hedges: replace bare `较大/明显/一定程度/较好` with a number or named comparator (except stats terms such as relative risk).
+- Cut empty four-character / stock phrases in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv` (this folder).
 - Bare `该/其/此/这` need a unique antecedent; otherwise repeat the noun.
 
-### Chinese 稿面批注 five slots → 06
+### Chinese manuscript-comment (稿面批注) five slots → 06
 
 Face comments (Word author **A**) use the five-slot habit in `06_review/personal/review.md` (CM-01). Journal English envelope stays `Lines n–m: + defect + Please…` in `06_review/personal/review.md`. Lab-STE does not change the Word author field.
 
@@ -104,8 +104,8 @@ Face comments (Word author **A**) use the five-slot habit in `06_review/personal
 | Profile | Use |
 |---|---|
 | `manuscript-methods-en` | English Methods controllable language (with passive override) |
-| `review-comment-zh` | Chinese 稿面批注 five slots |
-| `llm-reply-zh` | Chinese LLM replies — format / 套话 first (on disk; optional) |
+| `review-comment-zh` | Chinese manuscript-comment (稿面批注) five slots |
+| `llm-reply-zh` | Chinese LLM replies — format / stock phrases first (on disk; optional) |
 | `manuscript-id-en` | I/D readability + de-AI; no approved-lexicon coverage force |
 
 ## Related personal files

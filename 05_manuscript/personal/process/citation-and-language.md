@@ -42,4 +42,4 @@ delve, landscape, pivotal, robust, comprehensive, leverage, seamless, game-chang
 
 ## Chinese side notes (if bilingual abstract)
 
-少用“值得注意的是 / 综上所述 / 全面系统”。数字贴断言。
+Use sparingly: “值得注意的是 / 综上所述 / 全面系统”. Attach numbers to claims.

@@ -17,10 +17,10 @@
 
 | Family | IDs |
 |---|---|
-| EN | EN-S01 句长 · EN-V01 语态 · EN-L01 一词一词性/一义 · EN-VB01 动词 · EN-R01 指代 · EN-N01 名词串 · EN-T01 时态 · EN-C01 从句/which |
+| EN | EN-S01 sentence length · EN-V01 voice · EN-L01 one word one POS/sense · EN-VB01 verbs · EN-R01 reference · EN-N01 noun strings · EN-T01 tense · EN-C01 clauses/which |
 | ZH | ZH-S01 · ZH-SUB01 · ZH-R01 · ZH-NOM01 · ZH-DE01 · ZH-BEI01 · ZH-Q01 · ZH-ID01 · ZH-TERM01 · ZH-PUN01 |
-| AI | AI-L01 词汇 · AI-S01 句式 · AI-D01 篇章 · AI-F01 格式 |
-| Comment | CM-01 五槽 |
+| AI | AI-L01 lexicon · AI-S01 sentence patterns · AI-D01 discourse · AI-F01 format |
+| Comment | CM-01 five slots |
 
 ## Conflict order (SPEC §8)
 
@@ -34,7 +34,7 @@
 | Profile | Use |
 |---|---|
 | `manuscript-methods-en` | Methods EN (with house **conventional_passive** override) |
-| `review-comment-zh` | 稿面批注五槽 |
+| `review-comment-zh` | manuscript-face 批注 five slots |
 | `llm-reply-zh` | Chinese LLM reply hygiene |
 | `manuscript-id-en` | I/D readability + de-AI (no approved-lexicon coverage force) |
 

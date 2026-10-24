@@ -162,6 +162,6 @@ Every literature claim is covered by a citation in its own sentence or by the sa
 - Scarcity claims backed by a logged search
 - Discussion first paragraph: **no** citations, **no** result numbers
 - Methods still citation-free
-- Page/year/author checked when the user asks to 核对
+- Page/year/author checked when the user asks to 核对 (verify citations)
 
 Scarcity checks use PubMed plus one other source; they are not a systematic sweep. Do not run Embase+Cochrane by default. Do not generate PRISMA or AI schematics.
