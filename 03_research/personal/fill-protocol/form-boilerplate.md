@@ -1,34 +1,34 @@
-# 登记表固定栏目与五院差异
+# Registration-form fixed fields and five-site differences
 
-与 `{doc_ethics}\raw\0空白_申请模板\人员信息汇总.xlsx`「登记表要点」sheet 一致。
+Aligned with `{doc_ethics}\raw\0空白_申请模板\人员信息汇总.xlsx` sheet「登记表要点」.
 
-## 固定栏目
+## Fixed fields
 
-| 栏目 | 固定内容 / 填写规则 |
+| Field | Fixed content / fill rule |
 |---|---|
-| 单位 | 复旦大学附属金山医院（默认）；亦见上海市第八人民医院 / 同济大学附属肺科医院 / 蚌埠市第一人民医院 / 常州市第二人民医院 |
-| 伦理邮箱 | （见 mem:ethics_email） |
-| 经费来源 | 外来经费 / 院内经费（与经费预算表一致；无经费不勾选） |
-| 经费预算(元) | 院级、区级勾 500；市级以上勾 1000；自选课题不勾选 |
-| 课题类型 | 按资助分类填，如「科研-X级」；自选课题填「自选课题」 |
-| 课题编号 | 已立项填编号；自选课题填「无」（勿留空） |
-| 题目 | 与方案、知情一致 |
-| 申请负责人 | 与简历、声明、名单一致 |
-| 科室 | 与简历一致 |
-| 职称 | 与简历一致 |
-| 联系电话 | （见 mem:phone）|
-| 项目来源、申办单位 | 按立项/资助填写 |
-| 其他研究单位 | 多中心时填；单中心可空 |
-| 研究期限 | 与方案起止一致 |
-| 招募人数/受试者总人数 | 与方案样本量一致 |
-| 研究中心数目 | 单中心填 1 |
-| 方案版本号与版本日期 | 与方案首页一致 |
-| 知情同意书版本号与版本日期 | 与知情首页一致；免知情时按申请表 |
-| 递交材料清单 | 见下固定 6 项 |
-| 必填标识 | 黄色部分为必填项 |
-| 提交方式 | 填好发邮件到伦理委员会办公室邮箱 |
+| Institution | 复旦大学附属金山医院 (default); also 上海市第八人民医院 / 同济大学附属肺科医院 / 蚌埠市第一人民医院 / 常州市第二人民医院 |
+| Ethics email | (see mem:ethics_email) |
+| Funding source | 外来经费 / 院内经费 (match budget sheet; leave unchecked if no funding) |
+| Budget (CNY) | Hospital/district level check 500; municipal+ check 1000; self-selected leave unchecked |
+| Project type | By funding class, e.g.「科研-X级」; self-selected「自选课题」 |
+| Project ID | Funded → number; self-selected「无」(do not leave blank) |
+| Title | Match protocol and ICF |
+| Applicant PI | Match CV, declaration, and roster |
+| Department | Match CV |
+| Title/rank | Match CV |
+| Phone | (see mem:phone) |
+| Project source / sponsor | Per award / funding |
+| Other research sites | Fill for multicenter; single-center may blank |
+| Study period | Match protocol start/end |
+| Enrollment / total subjects | Match protocol sample size |
+| Number of centers | Single-center → 1 |
+| Protocol version + date | Match protocol cover |
+| ICF version + date | Match ICF cover; if waiver, follow application form |
+| Materials checklist | Fixed 6 items below |
+| Required mark | Yellow cells are required |
+| Submit method | Email completed forms to ethics office mailbox |
 
-## 递交材料清单（固定 6 项）
+## Materials checklist (fixed 6 items)
 
 1. 伦理初审申请表（科研）
 2. 临床研究方案（版本号+日期）
@@ -37,45 +37,4 @@
 5. 主要研究者声明
 6. 研究人员名单
 
-登记表 `.xls` 只发伦理邮箱，不打印进纸质包。
-
-## 五院模板差异
-
-| 医院 | 用法 |
-|---|---|
-| 复旦大学附属金山医院 | 默认；用 `0空白_申请模板` 官方包 |
-| 上海市第八人民医院 | 换该院单位栏与院章位；栏目结构同金山 |
-| 同济大学附属肺科医院 | 换该院单位栏与院章位；栏目结构同金山 |
-| 蚌埠市第一人民医院 | 换该院单位栏与院章位；栏目结构同金山 |
-| 常州市第二人民医院 | 换该院单位栏与院章位；栏目结构同金山 |
-
-非默认医院时，单位栏与签字页按该院模板改；经费勾选与递交清单仍按上表。
-
-## 官方 10 份空白表
-
-母版目录：`{doc_ethics}\raw\0空白_申请模板\`
-
-| 文件 | 用途 |
-|---|---|
-| `0-科研伦理审查申请材料登记表.xls` | 登记表（只发邮件） |
-| `1-伦理审查初审申请表.docx` | 初审申请表 |
-| `2-干预性研究方案模板.doc` | 干预方案 |
-| `2-观察性研究方案模板.doc` | 观察方案 |
-| `3-干预性研究知情同意书模版.docx` | 干预知情 |
-| `3-观察性研究知情同意书模版.docx` | 观察知情 |
-| `3-免知情同意书申请表.docx` | 免知情申请 |
-| `4-研究者简历.docx` | 简历 |
-| `5-主要研究者声明.doc` | 声明 |
-| `6-课题组成员名单.doc` | 名单 |
-
-另有：`临床研究-伦理初始审查申请.zip`（源包）、`临床研究-伦理初始审查申请_填写规范.pdf`、`人员信息汇总.xlsx`。
-
-## 方案 + 知情只交一对
-
-| 研究类型 | 交 |
-|---|---|
-| 干预 | `2-干预性研究方案模板.doc` + `3-干预性研究知情同意书模版.docx` |
-| 观察 | `2-观察性研究方案模板.doc` + `3-观察性研究知情同意书模版.docx` |
-| 免知情 | 对应方案 + `3-免知情同意书申请表.docx` |
-
-切勿五份全交，切勿交空白表。
+Registration `.xls` goes only to the ethics email — do not print into the paper pack.

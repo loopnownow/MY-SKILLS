@@ -1,39 +1,38 @@
-# 基金（写自己的 — Voice B）
+# Grants (writing your own — Voice B)
 
-**这是写自己的申请书 / 开题 / 方案 / 摘要。**
-评别人的国自 / 面上 / 交叉 → `grant-review.md`（Voice A）。两套口癖禁止混用：不要把「创新性有限」「可行性欠佳」「方案过于粗陋」写进本稿。
+**This file is for writing your own proposal / proposal defense / protocol / abstract.**
+Reviewing someone else's NSFC / general / cross-disciplinary → `grant-review.md` (Voice A). Do **not** mix voice habits: never put 「创新性有限」「可行性欠佳」「方案过于粗陋」 into your own draft.
 
-章节骨架（立项五步、创新两栏、可行性三块、目标三档）→ `grant-own-skeleton.md`。
-方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML）→ `method-upgrade-into-grant.md`。
-中英摘要、假说、入排句式只用下面句库（占位 `[Title]` `[疾病]` `[n]` `[PI]`），不要从评议口癖抄。
+Chapter skeleton (five-step justification, two innovation columns, three feasibility blocks, three goal tiers) → `grant-own-skeleton.md`.
+Method upgrades into the proposal (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML) → `method-upgrade-into-grant.md`.
+Chinese/English abstracts, hypotheses, and inclusion/exclusion phrasing use **only** the sentence bank below (placeholders `[Title]` `[疾病]` `[n]` `[PI]`); do not copy Voice A critique habits.
 
 Use this file when the user asks to write, polish, restructure, or strengthen a
 grant/funding proposal for radiomics, medical imaging deep learning, or imaging AI
-projects, including 国家自然科学基金、国自然、省级自然科学基金、省自然、院校级课题、
-青年基金、面上项目、重点项目申报书等。For international schemes such as NIH R01,
+projects, including 国家自然科学基金 / 国自然, provincial NSFC, university/hospital schemes,
+青年基金, 面上项目, 重点项目, and similar. For international schemes such as NIH R01,
 ERC, or Wellcome, verify applicant and host-institution eligibility before drafting
-（无独立 radiology-grant bundle；国际通道资格不清时不要生成“可申报”承诺）。
+(no separate radiology-grant bundle; when international eligibility is unclear, do not promise “ready to submit”).
 
+## Core principles
 
-## 核心原则
+Polishing a grant is not making the language prettier. It is making the chain
+“clinical need → scientific question → hypothesis → aims → technical route → innovation → feasibility” clear.
 
-基金申报书润色不是把语言写得更华丽，而是把“临床需求 -> 科学问题 -> 研究假设 ->
-研究内容 -> 技术路线 -> 创新点 -> 可行性”的逻辑链写清楚。
+Do not paste paper-style prose into a grant. Grant text must stress why funding is warranted, what the scientific question is, why the applicant can finish, and how risk is controlled.
 
-不要把论文式表达直接搬进基金。基金文本要突出“为什么值得资助、科学问题是什么、申请人为什么能完成、风险如何控制”。
+Guidelines change by year, region, and scheme. For limits, format, word count, codes, budget, ethics, host institution, attachments, and annual priorities, remind the user to follow **this year's** official guide and verify online when needed.
 
-不同年份、不同地区、不同项目类型的申报指南会变化。涉及限项、格式、字数、代码、预算、伦理、依托单位、附件和年度重点方向时，必须提醒用户以当年官方申报指南为准，必要时联网核验。
+International schemes cannot simply reuse NSFC logic. For NIH, ERC, Wellcome, or other cross-border funds, first check
+PI nationality/region, host institution, collaborators, budget channel, subaward/host institution, data export, and ethics
+requirements; if eligibility or channel is unclear, do not generate a full “ready to submit” commitment.
 
-国际基金不能简单套用国自然逻辑。涉及 NIH、ERC、Wellcome 或其他跨境基金时，先核查
-PI 国籍/地区、依托机构、合作单位、预算通道、subaward/host institution、数据出境和伦理
-要求；没有资格或通道不清楚时，不要直接生成“可申报”的完整承诺。
-
-## 需要收集的信息
+## Information to collect
 
 ```yaml
 funding_scheme: 国自然青年/面上/地区/省自然/院校课题/其他
-eligibility_context: 申请人/依托单位/合作单位/地区/是否国际基金
-proposal_section: 题目/摘要/立项依据/研究内容/研究目标/关键科学问题/技术路线/创新点/可行性/研究基础/年度计划/预期成果
+eligibility_context: applicant / host / collaborators / region / international?
+proposal_section: title/abstract/justification/aims/key questions/route/innovation/feasibility/basis/timeline/outcomes
 disease:
 modality:
 clinical_problem:
@@ -50,115 +49,115 @@ target_year_or_guideline:
 current_text:
 ```
 
-如果用户只给了粗略想法，先补研究逻辑；如果用户给了具体段落，先诊断再润色。
+If the user only has a rough idea, fill the research logic first; if they gave concrete paragraphs, diagnose then polish.
 
-## 申报书常见模块
+## Common proposal modules
 
-| 模块 | 应该写什么 | 常见问题 |
+| Module | What to write | Common failure |
 |---|---|---|
-| 项目名称 | 疾病、模态、核心方法、科学问题或应用场景 | 题目像论文题目，缺少科学问题 |
-| 摘要 | 背景痛点、科学问题、研究假设、三项研究内容、预期贡献 | 堆技术名词，无清晰假设 |
-| 立项依据 | 临床需求、国内外现状、关键缺口、本项目切入点 | 文献综述多，问题凝练少 |
-| 科学问题 | 机制/规律/泛化/可解释/临床转化中的核心问题 | 写成工程任务或模型搭建 |
-| 研究目标 | 项目完成后要回答什么科学问题 | 目标过大或不可验证 |
-| 研究内容 | 2-4 个递进任务，每项有输入、方法和输出 | 内容并列堆砌，缺少逻辑递进 |
-| 技术路线 | 数据、模型、验证、解释、统计和风险控制 | 只画流程，不说明关键节点 |
-| 创新点 | 问题创新、数据创新、方法创新、验证创新、机制解释 | “首次”“填补空白”但无证据 |
-| 可行性 | 前期数据、团队基础、技术基础、平台条件、伦理和协作 | 只说有条件，缺少证据 |
-| 预期成果 | 科学认识、模型/工具、论文、数据/代码、转化基础 | 只列论文数量 |
+| Title | Disease, modality, core method, scientific question or use case | Reads like a paper title; missing scientific question |
+| Abstract | Pain point, question, hypothesis, ~3 aims, expected contribution | Tech-noun pile-up; no clear hypothesis |
+| Justification | Clinical need, domestic/international status, key gap, this project's entry | Literature dump; weak problem condensation |
+| Scientific question | Core mechanism / law / generalization / interpretability / translation question | Written as an engineering task or “build a model” |
+| Aims | What question is answered when the project finishes | Aims too large or unverifiable |
+| Content | 2–4 progressive work packages; each has input, method, output | Parallel pile-up; no progression |
+| Technical route | Data, model, validation, explanation, statistics, risk control | Flowchart only; no critical nodes |
+| Innovation | Problem / data / method / validation / mechanism novelty | “First / fills a gap” without evidence |
+| Feasibility | Prior data, team, tech base, platform, ethics, collaboration | “We have conditions” without evidence |
+| Expected outcomes | Scientific insight, model/tool, papers, data/code, translation base | Paper-count only |
 
-## NSFC 结构与评审轴（面上 / 青年形状；其他类型以当年提纲为准）
+## NSFC structure and review axes (general / youth shape; other types follow this year's outline)
 
-提交通道是科学基金网络信息系统（grants.nsfc.gov.cn）。开放窗口与截止日、包干制 vs 预算制、限项，一律核当年度《项目指南》，不要沿用上一年日期或预算规则。依托单位账户与签章是行政前置，不是写作步骤，但有提前量。
+Submission channel: NSFC information system (grants.nsfc.gov.cn). Open window, deadlines, lump-sum vs itemized budget, and application limits — always verify against **this year's** Project Guide; do not reuse last year's dates or budget rules. Host-institution account and seals are administrative prerequisites, not writing steps, but they take lead time.
 
-段落职责不要混：
+Do not mix paragraph duties:
 
-| 段落 | 写什么 | 不要写成 |
+| Paragraph | Write | Do not write as |
 |------|--------|----------|
-| 立项依据 | 论证缺口：问题 → 现状 → 本项目切入。审稿权重最高 | 文献综述堆砌 |
-| 研究内容 | 实际做哪些工作包 | 目标的同义反复 |
-| 研究目标 | 完成后能证明/交出什么 | 再列一遍任务 |
-| 拟解决的关键科学问题 | 1–3 句、可证伪 | 把题目复述一遍 |
-| 研究方案及技术路线 | 方法细到能判断可行性，通常配技术路线图 | 只画空流程 |
-| 可行性分析 | 向前：这支队伍、这批预实验、这套方法现在能不能做完 | 写成研究基础的副本 |
-| 特色与创新之处 | 相对已引用工作新在何处 | “首次/填补空白”而无对照 |
-| 研究基础与工作条件 | 向后：预实验、相关论文、设备/队列/协作 | “经验丰富”而不点名 |
-| 年度计划及预期成果 | 年节点映射回目标 | 泛泛列论文篇数 |
-| 经费预算 | 仅预算制；青年目前多为包干制，仍以当年指南为准 | 包干制硬编分项 |
+| Justification | Argue the gap: problem → status → this entry. Highest review weight | Literature dump |
+| Research content | Actual work packages | Synonym restatement of aims |
+| Aims | What will be proven / delivered | Another task list |
+| Key scientific questions | 1–3 falsifiable sentences | Title restated |
+| Plan and technical route | Methods detailed enough to judge feasibility; usually with a route figure | Empty flowchart |
+| Feasibility analysis | Forward: can this team, these pilots, these methods finish now | A copy of “research basis” |
+| Features and innovation | What is new vs cited work | “First / fills a gap” without contrast |
+| Research basis and conditions | Backward: pilots, related papers, equipment / cohort / collab | “Experienced” without names |
+| Annual plan and outcomes | Year milestones mapped to aims | Vague paper counts |
+| Budget | Itemized schemes only; youth is often lump-sum — follow this year's guide | Fake line items under lump-sum |
 
-评审轴（写完对照，不要只用文笔补）：**创新性**、**科学价值/意义**、**研究基础**、**可行性**。一项弱，润色补不回来。
+Review axes (check after drafting; prose polish cannot fix a weak axis): **innovation**, **scientific value/significance**, **research basis**, **feasibility**.
 
-影像/组学方案至少写清：入组计划、扫描协议、ROI/分割、特征提取与验证、统计验证计划。研究基础要点名本疾病方向的已有论文与队列，不写“长期从事”。
+Imaging / radiomics plans must at least state: enrollment plan, scan protocol, ROI/segmentation, feature extraction and validation, statistical validation plan. Research basis should name prior papers and cohorts in this disease — not “long engaged in.”
 
-润色语气跟 `05_manuscript` 的谨慎口径（禁止无证据的“首次/填补空白”、校准 hedge），但**不要**把论著 IMRAD / Aitor 标签式摘要套进申请书。
+Tone follows `05_manuscript` caution (no unsupported “first / fills a gap”; calibrate hedges), but **do not** force paper IMRAD / Aitor labeled-abstract style into a proposal.
 
-## 影像组学/影像深度学习基金表达重点
+## Radiomics / imaging-DL grant emphasis
 
-### 影像组学
+### Radiomics
 
-- 强调影像表型与病理、分子、免疫微环境、疗效或预后的关系。
-- 说明 ROI/mask、特征稳定性、IBSI、批次效应、特征筛选和模型验证。
-- 不要把“提取特征并建模”写成科学问题；要写成“影像可量化表型能否反映某种生物学异质性或临床转归”。
+- Stress links between imaging phenotype and pathology, molecular, immune microenvironment, efficacy, or prognosis.
+- State ROI/mask, feature stability, IBSI, batch effects, feature selection, and model validation.
+- Do not write “extract features and model” as the scientific question; write whether a quantifiable imaging phenotype reflects a biological heterogeneity or clinical outcome.
 
-### 影像深度学习
+### Imaging deep learning
 
-- 强调弱标注、小样本、多中心差异、模型泛化、可解释性、校准和临床工作流。
-- 说明模型为什么必要，不能只写“采用 Transformer/CNN/基础模型提高准确率”。
-- 需要把算法创新和临床科学问题连接起来。
+- Stress weak labels, small samples, multi-center shift, generalization, interpretability, calibration, and clinical workflow.
+- Explain why the model is necessary — not only “use Transformer/CNN/foundation model to raise accuracy.”
+- Connect algorithm novelty to the clinical scientific question.
 
-### 多模态/放射基因组学
+### Multimodal / radiogenomics
 
-- 强调影像、临床、病理、分子和组学信息之间的互补机制。
-- 说明缺失值、样本量、标签可靠性和外部验证。
-- 避免把多模态写成简单拼接。
+- Stress complementary mechanisms across imaging, clinical, pathology, molecular, and omics.
+- State missingness, sample size, label reliability, and external validation.
+- Avoid writing multimodal as simple concatenation.
 
-## 润色策略
+## Polish strategy
 
-把弱表达改成基金式表达：
+Turn weak phrasing into grant-style phrasing:
 
-| 弱表达 | 更适合申报书的方向 |
+| Weak | Better grant direction |
 |---|---|
-| 本研究拟构建一个预测模型 | 本项目拟解析影像表型与[终点/生物学过程]之间的关联规律，并建立可验证的风险评估框架 |
-| 提高诊断准确率 | 提升模型在跨中心、跨设备条件下的稳定性和可解释性 |
-| 使用深度学习算法 | 围绕[科学问题]设计可解释、可校准、可外部验证的影像 AI 方法 |
-| 具有重要临床意义 | 有望为[人群]的[筛查/分层/疗效评估/随访决策]提供量化依据 |
-| 国内外尚无报道 | 现有研究在[数据/标签/验证/机制/场景]方面仍存在不足 |
+| We will build a prediction model | Parse association between imaging phenotype and [endpoint/biology], and build a verifiable risk framework |
+| Raise diagnostic accuracy | Improve stability and interpretability across centers/devices |
+| Use deep learning | Design interpretable, calibratable, externally validatable imaging-AI methods around [question] |
+| Important clinical significance | May provide quantitative basis for [population]'s [screening/stratification/efficacy/follow-up] |
+| No reports domestic or abroad | Prior work still weak on [data/labels/validation/mechanism/setting] |
 
-## 输出格式
+## Output format
 
 ```text
-基金申报定位
-- 项目类型：
-- 适合强调的主线：
-- 当前最弱环节：
+Grant positioning
+- Scheme type:
+- Main line to emphasize:
+- Weakest link now:
 
-原文问题诊断
-- 科学问题：
-- 逻辑结构：
-- 语言风格：
-- 方法可信度：
+Diagnosis of the draft
+- Scientific question:
+- Logic structure:
+- Language style:
+- Method credibility:
 
-结构补强建议
-- 立项依据：
-- 研究目标：
-- 研究内容：
-- 技术路线：
-- 创新点：
-- 可行性：
+Structure strengthen
+- Justification:
+- Aims:
+- Content:
+- Technical route:
+- Innovation:
+- Feasibility:
 
-润色稿
-[按用户提供段落改写，不新增未提供事实]
+Polished text
+[Rewrite only provided paragraphs; invent no new facts]
 
-需要作者确认
-- [样本量、前期结果、团队基础、伦理、经费类型、字数限制等]
+Author must confirm
+- [sample size, prior results, team basis, ethics, budget type, word limits, …]
 ```
 
 
-## 句库（中英摘要 / 假说 / 入排）— 只用于 Voice B
+## Sentence bank (ZH/EN abstract / hypothesis / inclusion) — Voice B only
 
 占位：`[Title]` `[疾病]` `[表型]` `[技术]` `[n]` `[PI]` `[假说]` `[动物模型]` `[平台]`。人名、电话、伦理号不要写进句中。
 
-### 中文摘要骨架
+### Chinese abstract skeleton (keep ZH templates)
 
 ```
 [疾病]（[英文缩写]）在[人群]中[发生率/危害]，[临床隐匿/缺乏客观指标]。
@@ -184,7 +183,7 @@ current_text:
 理论上创新性提出[分子]通过[通路]导致[细胞事件]，最终导致[表型]。
 ```
 
-### 英文摘要骨架
+### English abstract skeleton
 
 早期（青年）：
 
@@ -206,7 +205,7 @@ Through systematic research, we hope to clarify the mechanism of [A] in regulati
 
 关键词中英各 4–5 个，顺序：疾病、机制词、方法、表型。不要把医院名和基金类型写进关键词。
 
-### 假说
+### Hypothesis (ZH templates)
 
 - `故推测[因素]可能是导致[表型]的主要和起始因素。`
 - `基于前期研究提出如下假说：[表型]是由[因素A]与[因素B]共同驱动的[下游事件]所致。`
@@ -218,7 +217,7 @@ Through systematic research, we hope to clarify the mechanism of [A] in regulati
 - `[表型]指没有典型临床表现及体征，但在某些认知领域已经发生异常的一种[疾病]亚型。`
 - `[表型]以[注意力/反应时间/工作记忆]缺陷为特征，严重影响患者生活质量。如不及早诊断和干预，将进展为更严重的[显性表型]，增加死亡率。`
 
-### 纳入 / 排除（临床方案用条目，不用段落）
+### Inclusion / exclusion (bullet items for clinical protocols; not paragraphs)
 
 ```
 纳入：（1）有[疾病]病史；（2）[影像]有[疾病]表现；（3）近期（[窗口]内）确诊[表型]。
@@ -227,7 +226,7 @@ Through systematic research, we hope to clarify the mechanism of [A] in regulati
 
 例数写在设计句：`收集[疾病]患者[n]例。` 不要把入排写成长段落。
 
-### 创新两栏 / 可行性三块（句式；章节节奏见 design 骨架）
+### Two innovation columns / three feasibility blocks (phrasing; chapter rhythm in design skeleton)
 
 ```
 技术方法创新：本课题组拟通过更高灵敏度、分辨率和特异度的[技术]，对[分子]进行精准定量。
@@ -241,13 +240,14 @@ Through systematic research, we hope to clarify the mechanism of [A] in regulati
 每年接诊[疾病]超过[n]例，积累了图像和临床诊断数据，为课题提供数据基础。
 ```
 
-## 红线
+## Red lines
 
-- 不要把 Voice A 评议口癖（「创新性有限」「可行性欠佳」）写进自己的申请书。
-- 不要把申请书全文、未刊患者表、伦理批件扫描、手机号提交到 GitHub 或技能正文。
-- 不要编造前期结果、论文、专利、基金基础、团队成员、协作单位、伦理批件或设备平台。
-- 不要使用“国内外首次”“填补空白”“显著提高”等无法支撑的强表述。
-- 不要把临床应用承诺写得超过验证证据。
-- 不要忽略当年官方申报指南、格式和字数限制。
-- 不要把模型性能当成唯一创新点。
-- 不要在未核验资格时假设中国申请人或中国机构可以直接作为 NIH、ERC、Wellcome 等国际基金的主申请方。
+- Do not put Voice A critique habits (「创新性有限」「可行性欠佳」) into your own proposal.
+- Do not put full proposal text, unpublished patient tables, ethics-scan PDFs, or phone numbers into GitHub or skill bodies.
+- Do not invent prior results, papers, patents, prior grants, team members, collaborators, ethics approvals, or platforms.
+- Do not use unsupported “first worldwide,” “fills a gap,” or “significantly improves.”
+- Do not promise clinical use beyond the validation evidence.
+- Do not ignore this year's official guide, format, and word limits.
+- Do not treat model performance as the only innovation.
+- Do not assume a China-based applicant/institution can be the primary NIH/ERC/Wellcome applicant without checking eligibility.
+

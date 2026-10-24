@@ -27,7 +27,7 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 | mounted `design-study` → `references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
 | mounted `design-study` → `references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
 | mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
-| [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B 写自己的标书**：立项五步、创新两栏、可行性三块、目标「确定/阐明/探讨」。评别人的国自不要打开本文件 |
+| [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 
 ## Workflow
 
@@ -70,15 +70,15 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 
 ## Own-proposal chapter skeleton (Voice B only)
 
-When the user is **writing their own** 国自 / 开题 / 市科委 / 卫健委 / 院级 / 临床研究方案, open `grant-own-skeleton.md`. Do not use Voice A 评议口癖.
+When the user is **writing their own** NSFC / opening / municipal science / health-commission / hospital-level / clinical protocol, open `grant-own-skeleton.md`. Do not use Voice A review tics.
 
 Compact contract (details in that file):
 
-1. **立项五步**：负担+分型 → 主流学说及具体缺口 → 前期（文献+自己，至少两条链）→ 假说一句 → 本研究要做什么。小节标题用机制节点，不是方法名。
-2. **创新两栏**：学术思想创新（往前推一步）+ 技术方法创新（针对立项里点名的技术缺口）。不要写「我们用了 MRI」。
-3. **可行性三块**：模型成熟（点名造模/时间点）+ 平台点名到仪器 + 人（[PI]、SCI [n] 篇、在研基金）。临床另写病源「每年接诊 [疾病] 超过 [n] 例」。
-4. **目标三档**：确定（有无变化/干预是否有效）/ 阐明（机制、谱、通路）/ 探讨（诊断分级、转化）。不要把探讨当唯一目标。
-5. 句库（中英摘要、假说、入排）只从 `grant-writing.md` 取。方法升级写进立项 → `radiology-frontier`.
+1. **Justification five steps**: burden + typology → mainstream theory and concrete gap → prior work (literature + own, ≥2 chains) → one-sentence hypothesis → what this study will do. Subsection titles are mechanism nodes, not method names.
+2. **Two innovation columns**: academic-idea innovation (one step forward) + technical-method innovation (against the tech gap named in justification). Do not write 「我们用了 MRI」.
+3. **Three feasibility blocks**: mature model (name modeling / timepoints) + platform named to instruments + people ([PI], SCI [n] papers, ongoing grants). For clinical, also write case source「每年接诊 [疾病] 超过 [n] 例」.
+4. **Three goal verbs**: 确定 (whether change exists / intervention works) / 阐明 (mechanism, spectrum, pathway) / 探讨 (diagnostic grading, translation). Do not make 探讨 the only goal.
+5. Sentence bank (CN/EN abstracts, hypothesis, inclusion/exclusion) only from `grant-writing.md`. Method upgrade into justification → `radiology-frontier`.
 
 ## Handoffs
 
@@ -90,7 +90,7 @@ Compact contract (details in that file):
 - Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
 - Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.
 - Clinical-use scenario, reader study, prospective plan → `03_research/personal/clinical-translation/README.md`.
-- Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md`（句库）. Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
-- Reviewing **other people's** NSFC/面上 (Voice A) → `../personal/grant-review.md`. Never mix those tics into own text.
+- Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md` (sentence bank). Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
+- Reviewing **other people's** NSFC/general (Voice A) → `../personal/grant-review.md`. Never mix those tics into own text.
 - English journal peer review → `06_review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.

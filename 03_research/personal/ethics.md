@@ -1,4 +1,4 @@
-# 伦理
+# Ethics
 
 Use this file when the user asks about ethics approval, consent waiver, retrospective
 clinical imaging research, privacy, de-identification, data sharing restrictions,
@@ -6,17 +6,17 @@ multi-center data use agreements, or manuscript ethics statements.
 
 ## Core goal
 
-伦理模块的目标是帮助作者准确表达已有审批和限制。它不能替代 IRB/伦理委员会意见，也不能创造不存在的审批。
+Goal: help authors state existing approvals and limits accurately. This does not replace an IRB/ethics-committee opinion and must not invent approvals that do not exist.
 
 ## First questions
 
-- 研究是回顾性、前瞻性、注册研究，还是多中心数据回顾分析？
-- 是否已有伦理审批？审批机构、编号、日期、适用中心是什么？
-- 是否豁免知情同意？豁免依据由谁批准？
-- 是否涉及影像、临床、病理、基因组、转录组、单细胞或空间组学数据？
-- 是否涉及跨机构数据传输、云端训练、模型部署或公共共享？
-- 数据是否已去标识化？有哪些字段不能共享？
-- 目标期刊是否要求特定 Ethics/Consent/Data Availability 格式？
+- Is the study retrospective, prospective, registry, or multi-center retrospective analysis?
+- Is ethics approval already in place? Which body, number, date, and which centers does it cover?
+- Is informed consent waived? Who approved the waiver basis?
+- Does it involve imaging, clinical, pathology, genomics, transcriptomics, single-cell, or spatial-omics data?
+- Does it involve cross-institution transfer, cloud training, model deployment, or public sharing?
+- Are data de-identified? Which fields cannot be shared?
+- Does the target journal require a specific Ethics/Consent/Data Availability format?
 
 ## Ethics statement elements
 
@@ -80,23 +80,23 @@ Use mounted `clean-data` (`data.md`) and mounted `preprocess-imaging` (`notes/re
 ## Output format
 
 ```text
-伦理定位
-- 研究类型：
-- 审批状态：
-- 数据类型和隐私风险：
+Ethics framing
+- Study type:
+- Approval status:
+- Data types and privacy risks:
 
-需要作者确认
+Needs author confirmation
 - [IRB, approval number, consent waiver, data-use agreement, sharing limits]
 
-伦理/知情同意文本
+Ethics / informed-consent text
 [only after facts are supplied]
 
-数据共享限制
-- 可共享：
-- 受控访问：
-- 不可共享：
+Data-sharing limits
+- Shareable:
+- Controlled access:
+- Not shareable:
 
-投稿前风险
+Pre-submission risks
 - [missing approval, unclear waiver, identifiable metadata, omics privacy]
 ```
 

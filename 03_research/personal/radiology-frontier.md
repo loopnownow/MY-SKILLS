@@ -52,7 +52,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 | mounted `frontier-hypothesize` → `references/evidence-layer.md` | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
 | mounted `frontier-hypothesize` → `references/idea-to-question.md` | Converting a trend into a concrete, executable, submittable research question; novelty framing |
 | mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
-| [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**：把方法升级写进立项（MRS → 超极化 13C / 代谢流 → 多模态+ML），而不是只放创新栏。评别人的国自不要打开 |
+| [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
 
 ## Workflow
 
@@ -85,16 +85,16 @@ worth doing and likely to be accepted at a high-impact venue*.
    (handed to mounted `lit-search`); nothing here is presented as already-verified.
 
 
-## Method upgrades into 立项 (Voice B only)
+## Method upgrades into justification (立项) (Voice B only)
 
-When the user is writing **their own** 立项 and the method is moving along
+When the user is writing **their own** justification and the method is moving along
 **MRS → hyperpolarized 13C / metabolic flux → multimodal + interpretable ML**,
-open `method-upgrade-into-grant.md`. Put the technical gap **in 立项**, not only in 创新.
+open `method-upgrade-into-grant.md`. Put the technical gap **in the justification**, not only in the innovation box.
 
-- 立项小节标题用机制节点，方法是证据。
-- 点名缺口（1H-MRS 不能定量 [分子]；量表主观）→ 本研究用升级技术。
-- 不要把尚未开展的技术写成已完成基础。不要把 Voice A 评语写进立项。
-- Chapter skeleton / 确定·阐明·探讨 → `radiology-design`. 中英摘要句库 → `grant-writing.md`.
+- Justification subsection titles are mechanism nodes; methods are evidence.
+- Name the gap (1H-MRS cannot quantify [molecule]; subjective scales) → this study uses the upgraded technique.
+- Do not write unfinished techniques as completed basis. Do not put Voice A critique into the justification.
+- Chapter skeleton / 确定·阐明·探讨 → `radiology-design`. CN/EN abstract sentence bank → `grant-writing.md`.
 
 ## Quality bar
 
@@ -112,5 +112,5 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 - The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
   `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
 - Reviewing **other people's** NSFC (Voice A) → `../personal/grant-review.md`.
-  Never mix 评议口癖 into 立项.
+  Never mix review tics (评议口癖) into the justification.
 - This skill advises on research strategy; specific recent claims must be verified live.

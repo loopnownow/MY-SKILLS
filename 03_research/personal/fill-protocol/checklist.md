@@ -1,68 +1,68 @@
-# 伦理材料包自检清单
+# Ethics materials pack — self-check list
 
-## 默认包范围（与填写说明对齐，不可漂移）
+## Default pack scope (align with fill instructions; do not drift)
 
-默认包 = 官方 10 份金山空白 **加** 立项申请表。开题提纲 **不在本包**。
+Default pack = official 10 blank Kingsoft forms **plus** the project-initiation application. Opening outline is **not** in this pack.
 
-- [ ] 官方 10 份空白均从 `0空白` zip 复制，未用 `伦理/伦理/` 已填件
-- [ ] 立项申请表（1b）已纳入默认包并已填（工作夹母版，已去旧课题）
-- [ ] 开题提纲未纳入本包（开题不是伦理初审）
-- [ ] 方案+知情 5 份模板只交与研究类型匹配的一对，未五份全交、未交空白
+- [ ] All 10 official blanks copied from the `0空白` zip; did not reuse filled files under `伦理/伦理/`
+- [ ] Project-initiation application (1b) included in the default pack and filled (working-folder master, old project removed)
+- [ ] Opening outline not included (opening is not ethics initial review)
+- [ ] Protocol + ICF: submit only the pair matching the study type among the 5 templates — not all five, not blanks
 
-## 参数一致性
+## Parameter consistency
 
-- [ ] 题目全文一致（封面题可与短标题策略统一说明）  
-- [ ] PI、科室、职称、电话、邮箱一致  
-- [ ] 样本量（本院/总计）一致  
-- [ ] 起止日期一致  
-- [ ] 方案版本号/日期 = ICF 版本号/日期  
-- [ ] 登记表材料清单 = 实际文件  
-- [ ] 立项申请表（1b）题目/PI/n/期限/干预vs观察与初审包一致  
+- [ ] Full title consistent (cover title may unify short-title strategy with a note)
+- [ ] PI, department, title, phone, email consistent
+- [ ] Sample size (this site / total) consistent
+- [ ] Start/end dates consistent
+- [ ] Protocol version/date = ICF version/date
+- [ ] Registration form materials list = actual files
+- [ ] Project-initiation application (1b) title/PI/n/duration/intervention-vs-observation matches the initial-review pack
 
-## 设计一致性
+## Design consistency
 
-- [ ] 研究类型勾选 ↔ 方案设计  
-- [ ] 干预描述 ↔ 知情同意过程描述  
-- [ ] 主要/次要终点 ↔ 统计与样本量  
-- [ ] 入排标准 ↔ ICF 通俗表述  
-- [ ] 弱势群体、年龄范围合理  
+- [ ] Study-type checkbox ↔ protocol design
+- [ ] Intervention description ↔ informed-consent process description
+- [ ] Primary/secondary endpoints ↔ statistics and sample size
+- [ ] Inclusion/exclusion ↔ ICF plain-language wording
+- [ ] Vulnerable populations and age range reasonable
 
-## 隐私与安全
+## Privacy and safety
 
-- [ ] 保密/编码方式已勾  
-- [ ] 云端/AI/外送数据范围在 ICF 披露  
-- [ ] AE/SAE 报告路径写清  
-- [ ] 急救措施匹配本病种风险  
+- [ ] Confidentiality / coding method checked
+- [ ] Cloud / AI / outbound data scope disclosed in ICF
+- [ ] AE/SAE reporting path written clearly
+- [ ] Emergency measures match disease-specific risks
 
-## 格式
+## Format
 
-- [ ] 输出目录未覆盖原模板  
-- [ ] 文件扩展名与模板一致（.doc/.docx/.xls）  
-- [ ] 签名表、声明结尾仍在  
-- [ ] 无大量「空白重建」导致的版式漂移  
+- [ ] Output directory does not overwrite original templates
+- [ ] File extensions match templates (.doc/.docx/.xls)
+- [ ] Signature sheets and declaration endings still present
+- [ ] No large layout drift from “blank rebuild”
 
-## 检索负向
+## Search negatives
 
-全文搜索应尽量为 0：
+Full-text search should ideally hit 0:
 
-- 样例 PI 姓名、样例手机号  
-- 样例病种关键词（若本课题无关）  
-- 错误样本量（如样例 400）  
+- Sample PI names, sample mobile numbers
+- Sample disease keywords (if unrelated to this project)
+- Wrong sample size (e.g. sample 400)
 
-## 交付物
+## Deliverables
 
-- [ ] `00-填写说明（未改模板格式）.txt`（与递交 8 文件一一对应；只换文字不改版式；忽略 `(1)` 重复件）  
-- [ ] 待签字/待补项列表
+- [ ] `00-填写说明（未改模板格式）.txt` (1:1 with the 8 submission files; change text only, not layout; ignore `(1)` duplicates)
+- [ ] List of items pending signature / pending fill
 
-## 递交（金山医院官方清单）
+## Submission (Jinshan Hospital official list)
 
-- [ ] 默认包 = 官方 10 份空白 + 立项申请表；开题提纲未装订、未提交
-- [ ] 立项申请表已一并填写（工作夹母版，已去旧课题）
-- [ ] 方案+知情只交与设计匹配的一对模板，未把 5 份都交上、未交空白
-- [ ] 登记表 xls 只发伦理邮箱（见 mem:ethics_email），纸质包里没有打印登记表
-- [ ] 初审申请表预留 PI 手签，日期拟为递交当天
-- [ ] 干预性研究：团队名单含医生
-- [ ] 科学性审查批件：院级立项 / 研究者发起自选（干预性）必须交；自选观察性可豁免
-- [ ] 参加单位：方案用组长单位版本 + 本院签字页
-- [ ] 涉及新技术 / 企业申办 / 药品器械 / EDC 或外送统计时，8–14 对应件已齐
-- [ ] 邮件主题为「申请类型＋申请人姓名」
+- [ ] Default pack = official 10 blanks + project-initiation application; opening outline not bound and not submitted
+- [ ] Project-initiation application filled together (working-folder master, old project removed)
+- [ ] Protocol + ICF: only the design-matching template pair — not all 5, not blanks
+- [ ] Registration `.xls` emailed only to ethics mailbox (see mem:ethics_email); paper pack has no printed registration form
+- [ ] Initial-review application reserves PI wet signature; date intended as submission day
+- [ ] Interventional studies: team list includes a physician
+- [ ] Scientific-review approval letter: required for hospital-level initiation / investigator-initiated optional (interventional); optional observational may waive
+- [ ] Participating sites: protocol uses lead-site version + this site signature page
+- [ ] When new technology / industry sponsor / drug-device / EDC or outsourced stats apply, items 8–14 are complete
+- [ ] Email subject =「申请类型＋申请人姓名」

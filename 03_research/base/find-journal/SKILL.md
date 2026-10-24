@@ -17,7 +17,7 @@ metadata:
 
 - Lives in **B** `03_research/base/find-journal/` (capability). The former A-side `find-journal/` stub was removed 2026-10-17; do not recreate it.
 - Called from A `03_research/personal/journal-selection.md` via A Victor pointer.
-- 选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`.
+- Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-venue/`.
 - Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-venue` only for formatting to the chosen family.
 
 
@@ -34,7 +34,7 @@ metadata:
 Load in this order on every Phase-1 run:
 
 1. `data/2026/blacklist.csv` — never list these titles.
-2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers 系列**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
+2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers family**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
 3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`). Stronger layer boost.
 4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
 
@@ -48,23 +48,23 @@ Load `data/2026/blacklist.csv` first. Never list these titles.
 
 Name-only mount list: `data/2026/blacklist-names.csv` (subset of `data/2026/blacklist.csv`).
 
-## Every 推荐杂志 request
+## Every journal-recommendation (推荐杂志) request
 
 Read the uploaded manuscript. Output three tables, **10 journals each**, in this default layer order
 
-1. 层2 — Q1 and IF < 5 — Target/主攻 — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv`
-2. 层3 — Q2 — Safety偏上/稳妥 — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv`
-3. 层4 — **Q3 — 默认给出** — 10本 — `{doc_root}\03-research\find-journal\data\2026\layer4-q3.csv`
+1. 层2 — Q1 and IF < 5 — Target/primary — 10 titles — `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv`
+2. 层3 — Q2 — Safer/steady — 10 titles — `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv`
+3. 层4 — **Q3 — default on** — 10 titles — `{doc_root}\03-research\find-journal\data\2026\layer4-q3.csv`
 4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{doc_root}\03-research\find-journal\data\2026\layer2b-q1-if-5to10.csv`
 
 Default total **30** titles (10+10+10) unless a layer has fewer acceptable matches. Do not use layer 1 (IF>10) unless the user asks. **Comprehensive / general medical journals** (e.g. Medicine, General & Internal / multidisciplinary clinical) may be recommended when scope match is reasonable — not specialty-only.
 
 Inside each layer rank by
 
-1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs `医学相关学科` (**MJF = MFI**; display **稿件匹配度**)
-2. **投过/选刊白名单优先** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
-3. **BMC/Medicine 模式白名单** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
-4. **灰名单** (`data/2026/graylist.csv`, Frontiers 系列): 有更好非灰匹配则不用；never boost
+1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs medical-related categories (`医学相关学科`) (**MJF = MFI**; display **稿件匹配度**)
+2. **Submitted/选刊 whitelist first** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
+3. **BMC/Medicine pattern whitelist** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
+4. **Graylist** (`data/2026/graylist.csv`, Frontiers family): skip when a better non-gray match exists; never boost
 3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
 4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
 
@@ -79,7 +79,7 @@ Do this check in round 2 only.
 
 1. Use the manuscript title and its key topic terms as the query.
 2. Search the candidate journal for articles with similar content from the last 3–5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
-3. If the search finds similar articles, cite them in 匹配理由. Give title, year, and DOI or link for each article. Cite 1–3 articles.
+3. If the search finds similar articles, cite them in 匹配理由 (match rationale). Give title, year, and DOI or link for each article. Cite 1–3 articles.
 4. If the search finds no similar article, lower the recommendation tier of that journal. Rank it below each journal in the same layer that has similar articles. Write 「近年未见类似文章，已降级」 in 匹配理由.
 5. Do not invent articles, titles, years, DOIs, or links. List only articles that a real search returned.
 6. A failed search is not a search with no hits. Retry it. If it still fails, write that the search failed. Do not write 「近年未见类似文章，已降级」 for a failed search.
@@ -102,16 +102,16 @@ Phase 1 columns for every layer table
   - Full (rates available): `JESI = 0.50×(100−JDI) + 0.20×JCI-C + 0.30×稿件匹配度` (A/R/P components as in `rules/jesi-model.md`).
   - Partial: skip missing inputs and renormalize, or capacity+MJF fallback when A/R both absent; show in-cell marker e.g. `62.4*` + `缺:接收率,初筛拒稿率` (tooltip OK). Persist `投稿易投指数` + `jesi_missing: [...]` in Phase-1 JSON. **Never invent rates.**
   - **Unknown ≠ Low Risk.**
-- **层4 (Q3):** included **by default** (10本).
+- **层4 (Q3):** included **by default** (10 titles).
 - **层2补 (Challenge):** ask the user **before each run** whether to include 层2补; **default OFF** (show 层2 + 层3 + 层4 unless user opts in to Challenge).
-- **综合刊：** when fit is reasonable, general/comprehensive medical titles are allowed alongside specialty journals.
-- No AIM, author instructions, or APC in phase 1. After the tables, ask the user to circle 备选杂志.
+- **General/comprehensive journals:** when fit is reasonable, general/comprehensive medical titles are allowed alongside specialty journals.
+- No AIM, author instructions, or APC in phase 1. After the tables, ask the user to circle shortlist journals (备选杂志).
 
-## Phase 2 — user short HTML (after confirmed 备选)
+## Phase 2 — user short HTML (after confirmed shortlist / 备选)
 
 Phase 2 runs only after the user confirms titles. Lookups (AIM / author instructions / portal URLs; APC only if the user asks beyond the short table) follow `rules/aim-author-checklist.md`.
 
-**User-facing Phase-2 HTML is a per-paper 短表** (one section per manuscript / paper id). Columns **only**:
+**User-facing Phase-2 HTML is a per-paper short table (短表)** (one section per manuscript / paper id). Columns **only**:
 
 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知
 
@@ -159,24 +159,24 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 14. `rules/persistence.md` — absorb / query / delete + what to save
 15. `rules/modules.md` — four logical modules + naming
 16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine pattern whitelist (LWW MEDICINE excluded)
-17. `{find_journal_submission}\whitelist-submitted.csv` — 投过/选刊 whitelist (seed: submission-urls)
+17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊 whitelist (seed: submission-urls)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
 17. `data/2026/submission-urls.csv` — URL fields only
 18. `{find_journal_submission}\submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
 
-## 投过/选刊白名单（更强优先）
+## Submitted / 选刊 whitelist (stronger priority)
 
 Load `{find_journal_submission}\whitelist-submitted.csv`. Seeded from journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
 
 Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not auto-fill.
 
-## 灰名单（不推荐）
+## Graylist (not recommended)
 
-Load `data/2026/graylist.csv`. Includes **Frontiers 系列** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.mount.md`).
+Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.mount.md`).
 
 **Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
 
-## BMC / Medicine 模式白名单（次优先）
+## BMC / Medicine pattern whitelist (secondary priority)
 
 Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** mounted blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
 
@@ -191,7 +191,7 @@ Highlight **only** cells/rows where **投稿易投指数 ≥ 80** (yellow backgr
 
 ## Wording (mounts)
 
-When talking about default external packs for this lab, say **默认挂载 B 包/本仓** — do **not** say 「空挂」.
+When talking about default external packs for this lab, say **default-mounted B pack / this repo** (默认挂载 B 包/本仓) — do **not** say 「空挂」.
 
 ## What not to do
 
