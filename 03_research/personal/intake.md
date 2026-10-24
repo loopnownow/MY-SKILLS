@@ -1,40 +1,40 @@
-# 入口
+# Intake
 
 Use this file first when the user gives an incomplete, mixed, or high-level radiology
 AI request.
 
 Writing / figures → `05_manuscript`. Pre-submission / **journal** peer review / reviewer response → `06_review`.
-国自评别人的标书 → Voice A `grant-review.md`（本技能，不是 06_review）。写自己的标书 → Voice B `grant-writing.md`。两套口癖禁止混用。
+Reviewing someone else's NSFC → Voice A `grant-review.md` (this skill, not 06_review). Writing your own → Voice B `grant-writing.md`. Do not mix the two voice habits.
 Clinical translation / reader studies → `clinical-translation/` (under `personal/`). Ethics form packs → `fill-protocol`.
 
 ## Task modes
 
 | Mode | Use when | Default next module |
 |---|---|---|
-| `frontier` | User wants new research directions, hotspots, or innovation points | 前沿 |
-| `literature` | User wants recent papers, evidence maps, or search terms | 文献 |
-| `evidence` | User wants 2023-2026 high-impact literature patterns, representative PMID/DOI seed papers, or journal publication规律 behind topic selection | 证据 |
-| `public-datasets` | User asks about TCIA, TCGA, GEO, CPTAC, IDC, public imaging/omics datasets, or public validation cohorts | 公库 |
-| `radiomics` | User describes handcrafted features or Pyradiomics-style workflow | 组学 |
-| `deep-learning` | User describes CNN, transformer, segmentation, classification, foundation models, or multimodal AI | 深度 |
-| `mechanism` | User asks how radiomics/deep learning model scores relate to genomics, transcriptomics, single-cell, spatial transcriptomics, pathways, immune microenvironment, or biological mechanisms | 机制 |
-| `study-design` | User gives data and asks what project can be done | 设计 |
-| `grant-writing` | User asks to **write/polish their own** NSFC/省自然/院校标书、开题、方案、摘要（Voice B） | 基金（写自己的）→ `grant-writing.md` + design 骨架 + frontier 方法升级 |
-| `grant-review` | User asks to **review someone else's** 国自/面上/交叉申请（Voice A） | 基金（评别人的）→ `grant-review.md` only。不要用 06_review 英文套话 |
-| `annotation` | User asks about ROI, VOI, mask, lesion selection, segmentation annotation, reader agreement, or ICC/Dice | 标注 |
-| `statistics` | User asks about statistical analysis, sample size, feature selection, LASSO, Cox, C-index, calibration, DCA, confidence intervals, or survival analysis | 统计 |
-| `validation` | User asks whether the model or result is reliable | 验证 |
-| `multicenter` | User asks about multicenter data, external validation by center, scanner/vendor/protocol differences, center effects, harmonization, or domain shift | 多中心 |
-| `checklist` | User asks about CLAIM, CLEAR, RQS, IBSI, TRIPOD+AI, PROBAST+AI, STARD-AI, METRICS | 规范 |
-| `data` | User asks about DICOM, NIfTI, masks, labels, privacy, repository, or sharing | 数据 |
-| `ethics` | User asks about ethics approval, IRB, consent waiver, privacy, de-identification, or data-use limits | 伦理 |
-| `reproducibility` | User asks about code, model weights, feature tables, random seeds, environment, supplementary files, or reproducibility | 复现 |
-| `writing` | User asks for Methods, Results, Discussion, abstract, title, or translation | 写作 |
-| `figures` | User asks about figures, tables, graphical abstracts, figure legends, workflows, ROC/calibration/DCA/KM plots, or mechanism diagrams | 图表 |
-| `pre-submission` | User asks for pre-submission audit, simulated reviewer critique, manuscript risk review, or top-journal readiness | 预审 |
-| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | 选刊 → `journal-selection.md` + `find-journal/` |
-| `clinical-translation` | User asks about clinical utility, reader study, prospective validation, workflow integration, PACS/RIS, deployment, or real-world evaluation | 转化 |
-| `response` | User gives reviewer comments or revision notes | 回复 |
+| `frontier` | User wants new research directions, hotspots, or innovation points | Frontier |
+| `literature` | User wants recent papers, evidence maps, or search terms | Literature |
+| `evidence` | User wants 2023-2026 high-impact literature patterns, representative PMID/DOI seed papers, or journal publication patterns behind topic selection | Evidence |
+| `public-datasets` | User asks about TCIA, TCGA, GEO, CPTAC, IDC, public imaging/omics datasets, or public validation cohorts | Public datasets |
+| `radiomics` | User describes handcrafted features or Pyradiomics-style workflow | Radiomics |
+| `deep-learning` | User describes CNN, transformer, segmentation, classification, foundation models, or multimodal AI | Deep learning |
+| `mechanism` | User asks how radiomics/deep learning model scores relate to genomics, transcriptomics, single-cell, spatial transcriptomics, pathways, immune microenvironment, or biological mechanisms | Mechanism |
+| `study-design` | User gives data and asks what project can be done | Design |
+| `grant-writing` | User asks to **write/polish their own** NSFC/provincial/university proposals, opening, protocol, abstract (Voice B) | Grant (own) → `grant-writing.md` + design skeleton + frontier method upgrade |
+| `grant-review` | User asks to **review someone else's** NSFC/general/cross applications (Voice A) | Grant (others) → `grant-review.md` only. Do not use 06_review English boilerplate |
+| `annotation` | User asks about ROI, VOI, mask, lesion selection, segmentation annotation, reader agreement, or ICC/Dice | Annotation |
+| `statistics` | User asks about statistical analysis, sample size, feature selection, LASSO, Cox, C-index, calibration, DCA, confidence intervals, or survival analysis | Statistics |
+| `validation` | User asks whether the model or result is reliable | Validation |
+| `multicenter` | User asks about multicenter data, external validation by center, scanner/vendor/protocol differences, center effects, harmonization, or domain shift | Multicenter |
+| `checklist` | User asks about CLAIM, CLEAR, RQS, IBSI, TRIPOD+AI, PROBAST+AI, STARD-AI, METRICS | Checklists |
+| `data` | User asks about DICOM, NIfTI, masks, labels, privacy, repository, or sharing | Data |
+| `ethics` | User asks about ethics approval, IRB, consent waiver, privacy, de-identification, or data-use limits | Ethics |
+| `reproducibility` | User asks about code, model weights, feature tables, random seeds, environment, supplementary files, or reproducibility | Reproducibility |
+| `writing` | User asks for Methods, Results, Discussion, abstract, title, or translation | Writing |
+| `figures` | User asks about figures, tables, graphical abstracts, figure legends, workflows, ROC/calibration/DCA/KM plots, or mechanism diagrams | Figures |
+| `pre-submission` | User asks for pre-submission audit, simulated reviewer critique, manuscript risk review, or top-journal readiness | Pre-submission |
+| `journal-selection` | User has a draft/manuscript and asks where to submit, whether a journal fits, or how to choose target journals | Journal selection (选刊) → `journal-selection.md` + `find-journal/` |
+| `clinical-translation` | User asks about clinical utility, reader study, prospective validation, workflow integration, PACS/RIS, deployment, or real-world evaluation | Translation |
+| `response` | User gives reviewer comments or revision notes | Response |
 
 ## Study card
 
@@ -101,22 +101,22 @@ Ask before final wording when missing facts would otherwise fabricate:
 
 ## Fast routing examples
 
-- "我有 200 例 CT 想做预后模型" -> 设计 + 组学 or 深度 + 验证
-- "近三年影像 AI 前沿有哪些" -> 前沿 + 文献
-- "根据近三年高水平期刊发表规律帮我选题" -> 证据 + 前沿 + 文献 + 设计
-- "影像组学模型做完了，想结合转录组和单细胞解释机制" -> 机制 + 组学 + 文献 + 验证
-- "帮我润色国自然立项依据" -> Voice B 基金（写自己的）+ 设计骨架 + 前沿方法升级。禁止评议口癖
-- "帮我评这份国自/面上" -> Voice A `grant-review.md` 五栏。不要写立项五步或中英摘要骨架
-- "ROI 是两位医生勾画的，Methods 怎么写" -> 标注 + 组学 + 规范
-- "LASSO、Cox、DCA、C-index 这部分统计对不对" -> 统计 + 验证
-- "帮我看 Methods 是否符合 CLAIM" -> 规范 + 深度 + 验证
-- "帮我规划论文图表和 figure legend" -> 图表 + 写作 + 规范
-- "投稿前帮我模拟审稿人预审" -> 预审 + 验证 + 规范 + 图表
-- "代码、特征表和模型参数怎么放补充材料" -> 复现 + 数据 + 伦理
-- "4 家医院数据怎么做外部验证和中心差异分析" -> 多中心 + 验证 + 统计
-- "想用 TCIA/TCGA/GEO 做验证或机制解释" -> 公库 + 文献 + 机制 + 数据
-- "伦理、知情同意豁免和数据共享怎么写" -> 伦理 + 数据 + 复现
-- "这个模型怎么做读者研究和临床转化" -> 转化 + 验证 + 统计
-- "文章写好了，帮我选刊" -> 选刊 + 文献 + 规范 + 验证
-- "结合近三年类似文章发表情况判断能不能投 Nature Medicine" -> 证据 + 选刊 + 文献 + 预审
-- "审稿人说没有外部验证怎么回复" -> 回复 + 验证
+- "我有 200 例 CT 想做预后模型" -> Design + radiomics or DL + validation
+- "近三年影像 AI 前沿有哪些" -> Frontier + literature
+- "根据近三年高水平期刊发表规律帮我选题" -> Evidence + frontier + literature + design
+- "影像组学模型做完了，想结合转录组和单细胞解释机制" -> Mechanism + radiomics + literature + validation
+- "帮我润色国自然立项依据" -> Voice B grant (own) + design skeleton + frontier method upgrade. No review tics
+- "帮我评这份国自/面上" -> Voice A `grant-review.md` five columns. Do not write justification five steps or CN/EN abstract skeleton
+- "ROI 是两位医生勾画的，Methods 怎么写" -> Annotation + radiomics + checklists
+- "LASSO、Cox、DCA、C-index 这部分统计对不对" -> Statistics + validation
+- "帮我看 Methods 是否符合 CLAIM" -> Checklists + DL + validation
+- "帮我规划论文图表和 figure legend" -> Figures + writing + checklists
+- "投稿前帮我模拟审稿人预审" -> Pre-submission + validation + checklists + figures
+- "代码、特征表和模型参数怎么放补充材料" -> Reproducibility + data + ethics
+- "4 家医院数据怎么做外部验证和中心差异分析" -> Multicenter + validation + statistics
+- "想用 TCIA/TCGA/GEO 做验证或机制解释" -> Public datasets + literature + mechanism + data
+- "伦理、知情同意豁免和数据共享怎么写" -> Ethics + data + reproducibility
+- "这个模型怎么做读者研究和临床转化" -> Translation + validation + statistics
+- "文章写好了，帮我选刊" -> Journal selection (选刊) + literature + checklists + validation
+- "结合近三年类似文章发表情况判断能不能投 Nature Medicine" -> Evidence + journal selection + literature + pre-submission
+- "审稿人说没有外部验证怎么回复" -> Response + validation

@@ -1,27 +1,26 @@
 <!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
-# 选刊
+# Journal selection (选刊)
 
 Use this file when a manuscript, abstract, or near-complete study is available and
 the user asks where to submit, which journal fits, how to rank target journals, or
 how to position the paper for submission.
 
-## 核心原则
+## Core principles
 
-选刊不是只看影响因子。先判断“文章证据强度”和“期刊发表偏好”是否匹配，再决定冲刺、稳妥和保底梯队。
+Journal selection is not IF alone. First match evidence strength to journal preferences, then set stretch / solid / safety tiers.
 
-不要承诺“必中”“容易中”或用过期影响因子做决定。期刊范围、版面费、审稿政策、开放获取政策、影响因子和文章类型要求可能变化；给最终建议前要联网核验目标期刊官网、近期发表文章和投稿须知，并写明检索日期。
+Do not promise “sure accept” / “easy accept” or decide on stale IF. Scope, APCs, review policy, OA, IF, and article types change; before a final recommendation, verify the journal site, recent papers, and author instructions online, and state the retrieval date.
 
-当用户要求“结合近三年高水平期刊发表规律”“这篇文章适合投 Radiology/Lancet Digital
-Health/Nature Medicine/npj Precision Oncology 吗”时，先读取：
+When the user asks for “patterns from high-tier journals in the last three years” or whether the paper fits Radiology / Lancet Digital Health / Nature Medicine / npj Precision Oncology, first read:
 
 - mounted `meta-analysis` (B `04_analysis/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
-- this file §「2023-2026 期刊规律」(merged below; former journal-patterns-2023-2026.md archived 2026-10-16)
+- this file §「2023-2026 journal patterns」(merged below; former journal-patterns-2023-2026.md archived 2026-10-16)
 
-这些文件提供的是 PubMed 验证的种子证据和期刊规律，不是完整系统综述。最终投稿建议仍需当天核验目标期刊官网和近期同类文章。
+Those files give PubMed-verified seed evidence and journal patterns — not a full systematic review. Final submit advice still needs same-day verification of the journal site and recent similar papers.
 
-## 输入信息
+## Inputs
 
-尽量收集：
+Collect when possible:
 
 ```yaml
 title:
@@ -43,107 +42,107 @@ target_region_or_specialty:
 article_type:
 candidate_journals:
 must_avoid:
-publication_goal: 冲高分 / 稳妥发表 / 快速发表 / 专科影响力 / 开放获取
+publication_goal: stretch IF / solid accept / fast publish / specialty impact / OA
 ```
 
-## 评价维度
+## Evaluation axes
 
-| 维度 | 高匹配信号 | 降级信号 |
+| Axis | Strong-match signals | Downgrade signals |
 |---|---|---|
-| 临床问题 | 明确临床痛点、目标人群和使用场景 | 只是“建一个模型” |
-| 数据强度 | 多中心、外部验证、前瞻/读者研究、清楚标签 | 单中心、小样本、标签弱、无外部验证 |
-| 方法可靠性 | 患者级划分、避免泄漏、校准、DCA、亚组和失败案例 | 只报告 AUC 或 Dice |
-| 创新性 | 临床工作流、泛化、机制解释、多模态生物学联系 | 仅更换模型结构 |
-| 期刊契合 | 近期发表同类主题、栏目匹配、读者群一致 | 主题偏离期刊 scope |
-| 可复现性 | 代码、模型、数据或特征表有可用路径 | 数据/代码完全不说明 |
+| Clinical question | Clear pain point, population, use case | “Just build a model” |
+| Data strength | Multi-center, external validation, prospective/reader study, clear labels | Single-center, small n, weak labels, no external validation |
+| Method reliability | Patient-level split, no leakage, calibration, DCA, subgroups and failure cases | AUC or Dice only |
+| Novelty | Clinical workflow, generalization, mechanism, multimodal biology link | Architecture swap only |
+| Journal fit | Recent similar topics, section match, reader match | Topic off scope |
+| Reproducibility | Usable path to code/model/data/feature tables | Data/code unexplained |
 
-## 期刊梯队逻辑
+## Tier logic
 
-按稿件证据强度给 3 个梯队：
+Give three tiers by evidence strength:
 
-1. **冲刺期刊**：需要临床问题强、验证强、创新点清楚。通常适合多中心、外部验证、前瞻/读者研究、真实工作流或机制解释充分的文章。
-2. **主投期刊**：与疾病、模态、方法和读者群高度匹配，是最现实的投稿目标。
-3. **备选期刊**：当创新性、样本量或验证强度不足时，选择专业方向更匹配、方法学要求相对适中的期刊。
+1. **Stretch journals**: need a strong clinical question, strong validation, clear novelty. Usually multi-center, external validation, prospective/reader study, real workflow, or strong mechanism.
+2. **Primary targets**: high match on disease, modality, methods, and readers — the realistic submit goal.
+3. **Backup journals**: when novelty, n, or validation is weaker, prefer specialty fit with more moderate methods bars.
 
-影像 AI 常见候选池可以从这些类别开始，再按具体稿件核验：
+Imaging-AI candidate pools often start from these classes, then verify per manuscript:
 
-- 综合医学和数字医学：Nature Medicine、The Lancet Digital Health、npj Digital Medicine、JAMA Network Open、eClinicalMedicine、EBioMedicine。
-- 肿瘤和精准医学：The Lancet Oncology、Cell Reports Medicine、npj Precision Oncology、Clinical Cancer Research、European Journal of Cancer。
-- 影像和放射学：Radiology、Radiology: Artificial Intelligence、European Radiology、Investigative Radiology、American Journal of Roentgenology、Academic Radiology。
-- 专病专科：按疾病选择肝胆、肺癌、乳腺、神经肿瘤、泌尿、消化、核医学或超声方向期刊。
-- 方法和工程：Medical Image Analysis、IEEE Transactions on Medical Imaging、IEEE Journal of Biomedical and Health Informatics、Computerized Medical Imaging and Graphics。
+- General medicine and digital medicine: Nature Medicine、The Lancet Digital Health、npj Digital Medicine、JAMA Network Open、eClinicalMedicine、EBioMedicine。
+- Oncology and precision medicine: The Lancet Oncology、Cell Reports Medicine、npj Precision Oncology、Clinical Cancer Research、European Journal of Cancer。
+- Imaging and radiology: Radiology、Radiology: Artificial Intelligence、European Radiology、Investigative Radiology、American Journal of Roentgenology、Academic Radiology。
+- Disease specialty: pick hepatobiliary, lung, breast, neuro-oncology, urology, GI, nuclear medicine, or ultrasound journals by disease.
+- Methods and engineering: Medical Image Analysis、IEEE Transactions on Medical Imaging、IEEE Journal of Biomedical and Health Informatics、Computerized Medical Imaging and Graphics。
 
-不要把这些期刊当成固定推荐清单。必须结合文章主题、近期发表情况、栏目类型、文章长度、开放获取、版面费和投稿政策重新筛选。
+Do not treat these as a fixed recommendation list. Re-filter by topic, recent publications, section type, length, OA, APC, and submit policy.
 
-## 近期发表情况整合
+## Integrating recent publication patterns
 
-当用户要求“结合现有文章和发表情况选刊”时：
+When the user asks to “select journals from existing papers and publication patterns”:
 
-1. 用文章关键词生成检索式：疾病 + 模态 + 任务 + 方法 + endpoint。
-2. 检索近 3-5 年目标期刊同类文章，优先看同疾病/同模态/同任务文章。
-3. 提取每篇文章的：期刊、年份、疾病、模态、样本量、验证方式、主要方法、主要结论。
-4. 判断用户文章与这些文章相比的强项和短板。
-5. 将期刊分为 `高度匹配`、`可尝试`、`不建议优先`。
+1. Build a query from keywords: disease + modality + task + method + endpoint.
+2. Search similar papers in target journals over the last 3–5 years; prefer same disease/modality/task.
+3. Extract per paper: journal, year, disease, modality, n, validation, main method, main conclusion.
+4. Compare strengths and gaps vs the user's manuscript.
+5. Bucket journals as `high match`, `worth trying`, `do not prioritize`.
 
-## 输出格式
+## Output format
 
 ```text
-投稿定位
-- 文章类型：
-- 核心卖点：
-- 最大短板：
-- 适合的读者群：
+Submit positioning
+- Article type:
+- Core sell:
+- Biggest gap:
+- Fit readers:
 
-期刊梯队
-| 梯队 | 期刊 | 匹配理由 | 需要补强 | 风险 |
+Journal tiers
+| Tier | Journal | Match reason | Need to strengthen | Risk |
 
-近期发表对照
-| 期刊 | 近年同类文章特点 | 与本文相比 |
+Recent publication contrast
+| Journal | Recent similar-paper traits | Vs this manuscript |
 
-文献规律差距
-- 与 2023-2026 高水平期刊规律相比：
-- 代表性 PMID 种子：
+Evidence-pattern gap
+- Vs 2023–2026 high-tier journal patterns:
+- Representative PMID seeds:
 
-投稿前修改建议
-- 标题/摘要：
-- Methods：
-- Results：
-- Discussion：
-- 数据和代码：
+Pre-submit revision advice
+- Title/abstract:
+- Methods:
+- Results:
+- Discussion:
+- Data and code:
 
-不建议投稿的期刊或方向
-- [期刊/方向]：原因
+Journals/directions not recommended
+- [journal/direction]: reason
 
-需要作者确认
-- [缺失事实]
+Author must confirm
+- [missing facts]
 ```
 
-## 红线
+## Red lines
 
-- 不要只按影响因子排序。
-- 不要推荐掠夺性期刊或无法核验的期刊。
-- 不要说“这个一定能中”。
-- 不要忽略目标期刊是否近期发表过同类研究。
-- 不要把无外部验证、小样本、弱标签研究包装成适合顶刊，除非它有其他非常强的设计优势。
+- Do not rank by IF alone.
+- Do not recommend predatory or unverifiable journals.
+- Do not say “this will definitely be accepted.”
+- Do not ignore whether the target recently published similar work.
+- Do not package no-external-validation / small-n / weak-label studies as top-tier fits unless another design advantage is very strong.
 
 
-## JCR 分层荐刊包（金山）
+## JCR tiered journal pack (Jinshan)
 
-当用户要「推荐杂志 / 按 JCR·JCI 分层选刊 / 易投指数」时，加载个人包：
+When the user wants “recommend journals / JCR·JCI tiered selection / ease-of-submit index”, load the personal pack:
 
-- `03_research/base/find-journal/SKILL.md`（权威流程；Victor；version ≥ **1.14**；Gemini+ChatGPT 2026-09）
-- `03_research/base/find-journal/references/AGENTS.md`（须与 SKILL/policy 一致）
-- 策展表：`{jcr2026_xlsx}`
-- 指数与模块：`03_research/base/find-journal/rules/jesi-model.md`（JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI）、`modules.md`、`query-sources.md`
-- 持久化：`03_research/base/find-journal/rules/persistence.md` — **absorb / query / delete** 表；投稿 URL 与个人先验可存；年度 IF/分区/年发文量/APC 等 **QUERY ONLY**（勿写入 `{find_journal_pools}/2026/submission-urls.csv`）；**Unknown ≠ Low Risk**；无固定权重政策（动态加权）
+- `03_research/base/find-journal/SKILL.md` (authoritative flow; Victor; version ≥ **1.14**; Gemini+ChatGPT 2026-09)
+- `03_research/base/find-journal/references/AGENTS.md` (must stay consistent with SKILL/policy)
+- Curated table: `{jcr2026_xlsx}`
+- Indices and modules: `03_research/base/find-journal/rules/jesi-model.md` (JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI), `modules.md`, `query-sources.md`
+- Persistence: `03_research/base/find-journal/rules/persistence.md` — **absorb / query / delete** table; submission URLs and personal priors may be stored; annual IF/quartile/volume/APC etc. **QUERY ONLY** (do not write into `{find_journal_pools}/2026/submission-urls.csv`); **Unknown ≠ Low Risk**; no fixed-weight policy (dynamic weighting)
 
-本文件仍负责证据强度 vs 期刊偏好、冲刺/稳妥/保底叙事，以及 §「2023-2026 期刊规律」 below / mounted `meta-analysis` 对照。分层表输出以个人包为准（默认**层2→层3→层4，每层10本**；层2≈主攻/Target、层3≈稳妥/Safety偏上、层4≈Q3；**层2补**冲刺默认不出、每次用前询问；黑名单三刊永不荐；投过/选刊白名单（`whitelist-submitted.csv`）层内优先；灰名单（含 Frontiers 系列）有更好匹配则不荐（`graylist.csv`））。层内排序：稿件匹配度 → 投稿易投指数 → 年发文量（弱）。Medicine 刊名层内降权、表中不标可疑；仅 JESI≥80 黄底。外部 journal-recommender 仅作查询/候选池，不作顶层决策。 Phase-2 用户短表（按 paper）：期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知（完整 URL）；无 ISO/OA/置信/APC/分刊详情；细则见 `03_research/base/find-journal/`。
+This file still owns evidence-strength vs journal-preference, stretch/solid/safety narrative, and §「2023-2026 journal patterns」 below / mounted `meta-analysis` contrast. Tier-table output follows the personal pack (default **tier2→tier3→tier4, 10 journals each**; tier2≈primary/Target, tier3≈solid/Safety-upper, tier4≈Q3; **tier2 stretch-supplement** is off by default — ask before each use; three blacklist journals never recommended; submitted/选刊 whitelist (`whitelist-submitted.csv`) prioritised within tier; graylist (incl. Frontiers series) skipped when a better match exists (`graylist.csv`)). Within-tier sort: manuscript match → ease-of-submit index → annual volume (weak). Medicine titles demoted within tier; do not mark “suspicious” in the table; yellow highlight only for JESI≥80. External journal-recommenders are query/candidate pools only — not top-level decisions. Phase-2 user short table (per paper): full journal name | JCR quartile | IF | annual volume | submit URL / author instructions (full URL); no ISO/OA/confidence/APC/split-journal detail; details in `03_research/base/find-journal/`.
 
-选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`。
+Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-venue/`.
 
 ---
 
-## 2023-2026 期刊规律（merged from journal-patterns-2023-2026.md, 2026-10-16）
+## 2023-2026 journal patterns (merged from journal-patterns-2023-2026.md, 2026-10-16)
 
 > Former standalone file archived to `{DEL}\03_research_reorg_20261016\`. Keep this section with the 选刊 SOP.
 
@@ -153,11 +152,11 @@ grounded in recent high-impact publication patterns.
 
 ## Evidence boundary
 
-本文件只负责「证据强度 vs 期刊偏好」的取舍。期刊家族规律表及其免责声明以 `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` 为准，不在本文件重复。
+This file only owns the trade-off “evidence strength vs journal preference.” Journal-family pattern tables and disclaimers live in `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` (SSOT) — do not duplicate here.
 
 ## Journal pattern table
 
-| 期刊家族信号表（2023–2026 种子） | 见 `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md`（SSOT，本文件不再复制） |
+| Journal-family signal table (2023–2026 seeds) | See `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` (SSOT; not copied here) |
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,
@@ -216,18 +215,18 @@ Usually suitable when:
 ## Output rule
 
 ```text
-文献规律驱动的选刊判断
-- 证据来源边界：
-- 文章当前证据等级：
-- 与近三年高水平期刊规律的差距：
+Literature-pattern-driven journal judgment
+- Evidence-source boundary:
+- Current evidence grade of the manuscript:
+- Gap vs last-three-years high-tier journal patterns:
 
-期刊梯队
-| 梯队 | 期刊 | 近三年规律匹配 | 当前短板 | 投稿前升级动作 |
+Journal tiers
+| Tier | Journal | Match to last-3y patterns | Current gap | Pre-submit upgrade |
 
-不建议直接投的期刊
-| 期刊 | 原因 |
+Do not submit directly to
+| Journal | Reason |
 
-需要当天核验
+Must verify same day
 - scope, author instructions, data/code policy, article type, similar recent papers
 ```
 

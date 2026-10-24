@@ -1,4 +1,4 @@
-# 多中心
+# Multicenter
 
 Use this file when the user asks about multicenter imaging datasets, external
 validation, scanner/vendor/protocol differences, center effects, harmonization,
@@ -6,16 +6,16 @@ domain shift, temporal validation, or generalizability.
 
 ## Core goal
 
-多中心模块的目标是把“多个医院的数据”转化为可信的泛化验证，而不是简单混在一起增加样本量。
+Goal: turn “data from several hospitals” into credible generalization validation — not simply pooling to inflate n.
 
 ## First questions
 
-- 有几个中心？每个中心的患者数、阳性/事件数、时间范围是多少？
-- 每个中心的扫描仪厂家、型号、层厚、重建核、MRI 序列、增强期相是否一致？
-- 中心之间的病例来源、治疗策略、随访方式、标签定义是否一致？
-- 哪些中心用于训练，哪些用于外部验证？
-- 是否有时间验证或地理验证？
-- 是否计划做 harmonization、domain adaptation、federated learning，还是只做外部测试？
+- How many centers? Patients, positives/events, and time span per center?
+- Are scanner vendor, model, slice thickness, reconstruction kernel, MRI sequences, and contrast phases consistent across centers?
+- Are case mix, treatment strategy, follow-up, and label definitions consistent across centers?
+- Which centers train, which externally validate?
+- Is there temporal or geographic validation?
+- Plan for harmonization, domain adaptation, federated learning, or external test only?
 
 ## Multicenter design patterns
 
@@ -95,27 +95,27 @@ Results should include:
 ## Output format
 
 ```text
-多中心定位
-- 中心数量和分布：
-- 主要差异来源：
-- 目标验证类型：
+Multicenter framing
+- Center count and distribution:
+- Main sources of difference:
+- Target validation type:
 
-推荐划分
-- 训练：
-- 内部验证：
-- 外部/时间验证：
+Recommended split
+- Train:
+- Internal validation:
+- External / temporal validation:
 
-中心差异处理
-- 图像参数：
-- 标签/治疗：
-- harmonization/domain shift：
+Handling center differences
+- Image parameters:
+- Labels / treatment:
+- Harmonization / domain shift:
 
-报告建议
-- 表格：
-- 图表：
-- Methods 文本：
+Reporting suggestions
+- Tables:
+- Figures:
+- Methods text:
 
-高风险问题
+High-risk issues
 - [pooled random split, center imbalance, test-center tuning]
 ```
 
