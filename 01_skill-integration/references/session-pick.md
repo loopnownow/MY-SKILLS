@@ -5,8 +5,9 @@
 **Default unique runtime source = `my-skills`**
 (in-repo capability bodies under A `NN_slug/base/`).
 
-Session recipes in `references/presets/*.yaml` are **first-pass fine-ID lists**, not package menus:
+First-pass fine-ID recipe names (plain text only; no preset YAML files):
 `review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`.
+Agents propose MOUNTED fine ids from `registry.yaml`; these names are optional pre-check hints, not files to load.
 Still ask each run; user may change picks. Attribution is per skill path, not a whole upstream pack.
 
 Non-base sources: **default deny** (`references/hybrid-mount-pointers.md`).
@@ -49,4 +50,4 @@ Never silently fall back to a non-base pack or invent a local copy.
 3. If that path is empty or missing -> empty-mount protocol.
 4. Non-base revive requires explicit owner approval (default deny).
 5. Evaluate capability, boundaries, dependencies, and overlap.
-6. After approval the registry status becomes `MOUNTED`. Update `registry.yaml` and regenerate `MOUNTED_SKILLS.md`.
+6. After approval the registry status becomes `MOUNTED`. Update `registry.yaml` only (no generated mirror).

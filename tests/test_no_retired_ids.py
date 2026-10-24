@@ -26,7 +26,6 @@ HIST_LINE = re.compile(
 ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
     "01_skill-integration/legacy_aliases.yaml",
-    "01_skill-integration/MOUNTED_SKILLS.md",
     "01_skill-integration/references/id-rules.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
@@ -61,7 +60,6 @@ def _scan_paths() -> list[Path]:
         "00_orchestrator/runtime-flow.mmd",
         "ARCHITECTURE.md",
         "README.md",
-        "01_skill-integration/references/presets/*.yaml",
     ):
         out.extend(ROOT.glob(pat))
     return sorted({p.resolve() for p in out if p.is_file()})
@@ -111,48 +109,6 @@ class NoRetiredIds(unittest.TestCase):
                         violations.append(f"{rel}:{i}: {rid} :: {line.strip()[:100]}")
         self.assertEqual(violations, [], "live retired-id mentions:\n" + "\n".join(violations[:40]))
 
-    def test_preset_include_lists_exclude_archived_ids(self) -> None:
-        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
-        archived = {a["id"] for a in (reg.get("archived") or []) if a.get("id")}
-        preset_dir = ONE / "references" / "presets"
-        bad: list[str] = []
-        for path in sorted(preset_dir.glob("*.yaml")):
-            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-            # Collect list-like include fields only (not free-text notes).
-            chunks: list[object] = []
-            for key in (
-                "must_include",
-                "fine_ids",
-                "force_fine_ids",
-                "include",
-                "mounts",
-                "skills",
-                "ids",
-            ):
-                if key in data:
-                    chunks.append(data[key])
-            # nested common shapes
-            for section in data.values():
-                if isinstance(section, dict):
-                    for key in ("must_include", "fine_ids", "force_fine_ids", "ids"):
-                        if key in section:
-                            chunks.append(section[key])
-
-            def walk(obj: object) -> None:
-                if isinstance(obj, str):
-                    tok = obj.split("#", 1)[0].strip()
-                    if tok in archived:
-                        bad.append(f"{path.name}: active include `{tok}`")
-                elif isinstance(obj, list):
-                    for x in obj:
-                        walk(x)
-                elif isinstance(obj, dict):
-                    for x in obj.values():
-                        walk(x)
-
-            for c in chunks:
-                walk(c)
-        self.assertEqual(bad, [], "presets still include archived ids:\n" + "\n".join(bad))
 
 
 if __name__ == "__main__":

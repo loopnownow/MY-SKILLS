@@ -12,7 +12,7 @@ Typical one-liner (Chinese):
 使用我的技能，挂载 <pack>，评阅/润色 <path>.docx
 ```
 
-Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via `01_skill-integration` / `MOUNTED_SKILLS.md`. Do not invent ids. Historical pack nicknames are not live menus.
+Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via `01_skill-integration/registry.yaml`. Do not invent ids. Historical pack nicknames are not live menus.
 
 ## Default chain
 

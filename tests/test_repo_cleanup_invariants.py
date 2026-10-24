@@ -18,9 +18,6 @@ STATUS_TOKENS = re.compile(r"\b(MOUNTED|PROPOSED|ARCHIVED)\b")
 STATUS_ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
     "01_skill-integration/legacy_aliases.yaml",
-    "01_skill-integration/MOUNTED_SKILLS.md",
-    "01_skill-integration/scripts/gen_mounted_skills.py",
-    "MOUNTED_SKILLS.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
     "ARCHITECTURE.md",
@@ -60,8 +57,6 @@ PACK_EXTRA_LITERALS = ("B包", "A包")
 
 PACK_ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
-    "01_skill-integration/MOUNTED_SKILLS.md",
-    "MOUNTED_SKILLS.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
     "ARCHITECTURE.md",
