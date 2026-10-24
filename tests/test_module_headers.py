@@ -87,7 +87,6 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("default_source:", text)
         self.assertIn("id: my-skills", text)
         self.assertIn("source: in-repo", text)
-        self.assertIn("retire_b_repo_20261017", text)
         self.assertIn("default-mount", text)
         self.assertIn("notify-then-research-confirm", text)
         self.assertIn("session_mount: ask-each-run", text)
@@ -95,9 +94,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("write-paper", text)
         self.assertIn("humanize", text)
         self.assertIn("draw-flowchart", text)
-        self.assertIn("ARCHIVED", text)
-        self.assertIn("paperclip", text)  # archived entry
-        self.assertNotIn("04-explainability", text)  # v3 archived record removed
+        self.assertNotIn("04-explainability", text)
         self.assertNotIn("05-de-ai", text)
         self.assertNotIn("Imbad0202/academic-research-skills", text)
         self.assertNotIn("FreedomIntelligence/OpenClaw-Medical-Skills", text)
@@ -105,6 +102,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("openclaw_policy: never-mount-as-atomic-source", text)
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
+        self.assertNotIn("\narchived:\n", text)  # t1123: no archived bloat
         self.assertTrue("default deny" in text.lower() or "UNIQUE" in text)
         self.assertFalse((ROOT / "01_skill-integration" / "_history").exists())
         self.assertFalse((ROOT / "01_skill-integration" / "mounts").exists())
@@ -144,35 +142,22 @@ class ModuleHeaderTests(unittest.TestCase):
 
 
     def test_b_mount_paths_unique(self):
-        text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
-        # Collect primary-owner paths (not path_shared) for live sources.
-        b_paths = []
+        import yaml
+        reg = yaml.safe_load(
+            (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
+        )
         a_paths = []
-        cur = {}
-        in_mounts = False
-        for line in text.splitlines():
-            if line.startswith("mounts:"):
-                in_mounts = True
+        b_paths = []
+        for m in reg.get("mounts") or []:
+            if m.get("path_shared"):
                 continue
-            if in_mounts and line.startswith("reference_only:"):
-                break
-            if not in_mounts:
+            path = m.get("path")
+            if not path:
                 continue
-            if line.startswith("  - id:"):
-                if cur.get("path") and not cur.get("path_shared"):
-                    if cur.get("source") == "my-skills-base":
-                        b_paths.append(cur["path"])
-                    elif cur.get("source") == "my-skills":
-                        a_paths.append(cur["path"])
-                cur = {"id": line.split(":", 1)[1].strip()}
-            elif ":" in line and line.startswith("    "):
-                k, v = line.strip().split(":", 1)
-                cur[k.strip()] = v.strip()
-        if cur.get("path") and not cur.get("path_shared"):
-            if cur.get("source") == "my-skills-base":
-                b_paths.append(cur["path"])
-            elif cur.get("source") == "my-skills":
-                a_paths.append(cur["path"])
+            if m.get("source") == "my-skills-base":
+                b_paths.append(path)
+            elif m.get("source") == "my-skills":
+                a_paths.append(path)
         # Domains 02–07 in-repo: no my-skills-base primary paths.
         self.assertEqual(b_paths, [], msg=str(b_paths))
         self.assertEqual(len(a_paths), len(set(a_paths)), msg=str(a_paths))

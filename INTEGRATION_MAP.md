@@ -12,6 +12,13 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261024-registry-thin — thin registry (live mounts only)
+
+- Drop `archived:` section + historical meta essays from `01_skill-integration/registry.yaml`.
+- Live SSOT: 27 MOUNTED mounts + coarse_ids + local_packs + session/empty/ars policy.
+- `legacy_aliases.yaml` absorbs retired-id resolution (orphan chains retargeted to live mounts).
+- Tests: alias targets / retired-ids / docs-match / module_headers / mirrors / audit mounts regex.
+
 ## CHG-20261020-deepscan-fix — deep-scan P0/P1 absorb
 
 - Branch `fix/deepscan-p0-p1-20261020` (Asia/Shanghai 2026-10-20), registry `change_id` bumped.

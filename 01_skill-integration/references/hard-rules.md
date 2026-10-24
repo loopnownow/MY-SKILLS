@@ -1,4 +1,4 @@
-# Forbidden combinations · Hard rules · Ceiling · load_priority
+# Forbidden combinations · Hard rules · Fine-id expansion
 
 ## Forbidden combinations (mount red lines)
 
@@ -23,16 +23,12 @@ These are **mount-time** bans, not skill deletions:
 - Personal de-AI (`05_manuscript/personal/`) is not a base mount. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The personal forbidden list still wins.
 - A top layers are not capability mounts (00 owns base→QC→A).
 
-## Fine-id expansion ceiling
+## Fine-id expansion
 
-`fine_id_count_canonical` in `registry.yaml` is the **v4 expansion ceiling**. Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves. Do not restate the number in prose.
+Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves. Live count is `fine_id_count_canonical` in `registry.yaml` (must equal `len(mounts)`). Do not restate the number in prose.
 
-## load_priority (optional YAML)
 
-Registry fine ids may carry `load_priority: P0|P1|P2` (metadata only — **no** P0/P1/P2 folders).
+## load_priority
 
-| Level | Meaning |
-|---|---|
-| P0 | Rare always-on mounts (chassis is 00–07; usually unused on fine ids) |
-| P1 | Common mounts (default session menu) |
-| P2 | Niche / specialty / second-pass |
+Optional historical metadata. Live mounts no longer carry `load_priority`. Session pick order follows coarse grouping + agent judgment, not P0/P1/P2 folders.
+

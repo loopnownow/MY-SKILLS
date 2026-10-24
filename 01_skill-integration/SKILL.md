@@ -49,12 +49,12 @@ keep a second pointer table.
 | `references/id-rules.md` | Canonical ID Rule |
 | `references/lifecycle-cache.md` | Cache · Mount · Active; base byte cache |
 | `references/session-pick.md` | Default base; session pick; empty-mount; resolve |
-| `references/hard-rules.md` | Forbidden combinations; ceiling; load_priority |
+| `references/hard-rules.md` | Forbidden combinations; fine-id expansion |
 | `references/capability-contract.example.yaml` | Capability-contract template |
 | `references/base-vs-personal-top-loops.md` | Pointer to 00 A/B layering |
 
 Discovery archived; rare need → `{DEL}\00_orchestrator_reorg_20261017\01_discovery-eval.md`
-or ask owner. Registry `archived:` ids stay off the pick menu.
+or ask owner. Retired fine ids live only in `legacy_aliases.yaml` — never session-pick them.
 
 ## Architecture notes
 

@@ -46,7 +46,7 @@ Never silently fall back to a non-base pack or invent a local copy.
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (coarse buckets + fine `mounts:`).
-2. Resolve each fine id against `source: my-skills` (default unique; paths under `NN_slug/base/`). Archived ids are not in the default menu.
+2. Resolve each fine id against `source: my-skills` (default unique; paths under `NN_slug/base/`). Retired ids (legacy_aliases.yaml only) are not in the default menu.
 3. If that path is empty or missing -> empty-mount protocol.
 4. Non-base revive requires explicit owner approval (default deny).
 5. Evaluate capability, boundaries, dependencies, and overlap.

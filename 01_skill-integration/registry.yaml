@@ -1,626 +1,293 @@
-# MY-SKILLS Mount Registry v4.0 (skill-index rewrite 2026-10-17)
-# 01 = registry / session-pick / path resolve / legacy aliases / mounts_cap cache boundary.
-# Default UNIQUE runtime source = my-skills (in-repo NN_slug/base/). No multi-package mount narrative.
-# Non-base sources = default deny (see references/hybrid-mount-pointers.md). Never auto-mount non-base.
+# MY-SKILLS Mount Registry v4.0
+# SSOT for session-pick / path resolve. Bodies live under NN_slug/base/ (source my-skills).
+# Non-base = default deny (references/hybrid-mount-pointers.md). Never auto-mount non-base.
 # ars_openclaw_policy: removed-from-catalog — never remount; not in session pick.
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty mount → notify-then-confirm.
-# Say 默认挂载 = 本仓 NN_slug/base/ — not 空挂. Bodies live in-repo under NN_slug/base/.
-# A domains stay 00_orchestrator – 07_response. A top layers are NOT capability mounts (00 owns base→QC→A).
-# Evolution policy: MY-RULES skills.md (skill-evolution).
-# 选刊 stays Victor / 03_research/base/find-journal/ — not moved into 05.
-# fine_id is the capability interface. path is the physical unit. path_shared: one path may back several fine ids.
-# Registry status values: PROPOSED, MOUNTED, DISABLED, ARCHIVED, REJECTED.
-# registry.yaml is the routing index, not the byte source of truth.
+# Canonical ID Rule: 01_skill-integration/references/id-rules.md. id is the only runtime identifier.
 # path labels / directory names must never be used to infer an id.
-# Canonical ID Rule: 01 references/id-rules.md. id is the only runtime and session-pick identifier.
+# Retired fine ids live in legacy_aliases.yaml only (not listed here). Do not remount them.
+# Live rows are status MOUNTED. Prefer merge into an existing fine id over opening a new one.
+# Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
-  version: "4.0"
-  change_id: CHG-20261020-deepscan-fix
-  fine_id_count_canonical: 27  # session-pick mounts; batch-cohort archived 2026-10-20 (was 28)
-  fine_id_expansion_ceiling: 52  # v4 ceiling; new capability → merge into existing fine id / sub-capability / same source-path — not a new fine id
-  load_priority_scheme: >
-    Optional YAML-only field on each fine id: P0|P1|P2. No P0/P1/P2 directories.
-    P0 reserved for rare always-on mounts (chassis is 00–07, not fine ids; Batch 1 assigns none).
-    P1 common mounts (default session menu, about 25–30 MOUNTED ids).
-    P2 niche / PROPOSED / specialty / second-pass (still pickable when selected).
-        Registry indexes paths. Bodies SSOT = in-repo NN_slug/base/ (source my-skills).
-  pilot_merge_02_20261017: >
-    Domain 02 capability bodies piloted in-repo under 02_data-processing/base/.
-    Fine ids clean-data, batch-cohort, imaging-io, preprocess-imaging use source my-skills
-    (in-repo) with paths 02_data-processing/base/...; domains 03–07 merged in merge_03_07_base_20261017.
-  merge_03_07_base_20261017: >
-    Domains 03–07 capability bodies merged in-repo under NN_slug/base/.
-    Fine ids for domains 03–07 use source my-skills (in-repo) with paths NN_slug/base/...
-  retire_b_repo_20261017: >
-    default_source = my-skills (in-repo). Bodies SSOT = NN_slug/base/.
+  version: '4.0'
+  change_id: CHG-20261024-registry-thin
+  fine_id_count_canonical: 27
   coarse_id_count: 10
-  open_decision_points:
-    - id: 样本量计算归属
-      status: resolved
-      resolved: 2026-09-26 (CHG-20260926-004)
-      decision: 统计分析 / 04_analysis / Loopnow (calc-sample-size; statistical-power archived 2026-10-17 round 1)
-      note: 用户拍板归 04 / Loopnow；两细 ID 已移入统计分析。
-    - id: citation-verify-on-05-06
-      status: resolved
-      resolved: 2026-10-02
-      decision: >
-        05 and 06 require 03 Victor citation-verify before Gate·05 done and inside 06.
-        Aitee and Lee do not self-certify lit. Mid-entry stays allowed.
-        Lee keeps statement then data consistency. Lit accuracy is joint with Victor.
-      note: checklist is 03_research/personal/citation-verify.md. Not a new fine id.
-    - id: word-tc-owned-by-aitee
-      status: resolved
-      resolved: 2026-10-02
-      decision: >
-        Ownership: see 00_orchestrator/references/ownership-contract.md
-      note: >
-        Retired default: Lee no longer applies body Track Changes on decidable fixes.
-        Lit05/Lit06 and do-not-self-certify-lit stay as citation-verify-on-05-06. Not a new fine id.
 default_source:
   id: my-skills
   source: in-repo
   role: default-mount
-  note: >
-    Capability bodies live under NN_slug/base/ (domains 02–07).
+  note: Capability bodies live under NN_slug/base/ (domains 02–07).
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
 ars_openclaw_policy: removed-from-catalog
-a_domain_override_policy: >
-  Identity is a four-tuple plus an optional A pack: fine_id, coarse_id,
-  a_domain, body path (NN_slug/base/...). Do not infer id from path or path from id.
-  Each coarse_id declares a default a_domain. A mount under `mounts:` may set
-  its own `a_domain` to override that default when the routing rule requires
-  it (documented exceptions: `find-journal` and `grant-builder` sit under
-  coarse manuscript-body (正文写作) but route to a_domain 03_research per the 选刊/基金 rule in
-  ARCHITECTURE.md). `fill-protocol` stays a_domain 03_research; capability body is A
-  `03_research/base/fill-protocol/` (Bai seat). `find-journal` body is A
-  `03_research/base/find-journal/` (engine); companion styles in `05_manuscript/base/write-venue/`. This is intentional, not a
-  data-entry error — do not "fix" a mount's a_domain to match its coarse_id's
-  default without checking its `note` field first.
-
+a_domain_override_policy: 'Identity is a four-tuple plus an optional A pack: fine_id, coarse_id, a_domain,
+  body path (NN_slug/base/...). Do not infer id from path or path from id. Each coarse_id declares a default
+  a_domain. A mount may set its own a_domain to override that default when routing requires it (documented
+  exceptions: find-journal and grant-builder sit under coarse manuscript-body but route to a_domain 03_research).
+  fill-protocol stays a_domain 03_research. find-journal body is 03_research/base/find-journal/; companion
+  styles in 05_manuscript/base/write-venue/. Do not force a mount a_domain to match its coarse default
+  without checking this policy.'
 coarse_ids:
-  - id: lit-retrieval
-    label: 文献检索
-    slug: lit-retrieval
-    a_domains: [03_research]
-    specialist_hint: Victor
-  - id: topic-explore
-    label: 选题探索
-    slug: topic-explore
-    a_domains: [03_research]
-    specialist_hint: Victor
-  - id: study-design
-    label: 研究设计
-    slug: study-design
-    a_domains: [03_research]
-    specialist_hint: Victor
-  # 05 and 06 require 03 citation-verify. Aitee/Lee do not self-certify lit. Mid-entry still OK.
-  - id: manuscript-body
-    label: 正文写作
-    slug: manuscript-body
-    a_domains: [05_manuscript]
-    specialist_hint: Aitee
-  - id: language-polish
-    label: 语言润色
-    slug: language-polish
-    a_domains: [05_manuscript]
-    specialist_hint: Aitee
-  - id: data-processing
-    label: 数据处理
-    slug: data-processing
-    a_domains: [02_data-processing]
-    specialist_hint: Loopnow
-  - id: stats-analysis
-    label: 统计分析
-    slug: stats-analysis
-    a_domains: [04_analysis]
-    specialist_hint: Loopnow
-  - id: figures
-    label: 图表呈现
-    slug: figures
-    a_domains: [04_analysis]
-    specialist_hint: Loopnow
-  - id: manuscript-review
-    label: 稿件评阅
-    slug: manuscript-review
-    a_domains: [06_review]
-    specialist_hint: Lee
-  - id: review-response
-    label: 审稿回复
-    slug: review-response
-    a_domains: [07_response]
-    specialist_hint: Aitee
-
+- id: lit-retrieval
+  label: 文献检索
+  slug: lit-retrieval
+  a_domains:
+  - 03_research
+  specialist_hint: Victor
+- id: topic-explore
+  label: 选题探索
+  slug: topic-explore
+  a_domains:
+  - 03_research
+  specialist_hint: Victor
+- id: study-design
+  label: 研究设计
+  slug: study-design
+  a_domains:
+  - 03_research
+  specialist_hint: Victor
+- id: manuscript-body
+  label: 正文写作
+  slug: manuscript-body
+  a_domains:
+  - 05_manuscript
+  specialist_hint: Aitee
+- id: language-polish
+  label: 语言润色
+  slug: language-polish
+  a_domains:
+  - 05_manuscript
+  specialist_hint: Aitee
+- id: data-processing
+  label: 数据处理
+  slug: data-processing
+  a_domains:
+  - 02_data-processing
+  specialist_hint: Loopnow
+- id: stats-analysis
+  label: 统计分析
+  slug: stats-analysis
+  a_domains:
+  - 04_analysis
+  specialist_hint: Loopnow
+- id: figures
+  label: 图表呈现
+  slug: figures
+  a_domains:
+  - 04_analysis
+  specialist_hint: Loopnow
+- id: manuscript-review
+  label: 稿件评阅
+  slug: manuscript-review
+  a_domains:
+  - 06_review
+  specialist_hint: Lee
+- id: review-response
+  label: 审稿回复
+  slug: review-response
+  a_domains:
+  - 07_response
+  specialist_hint: Aitee
 mounts:
-  - id: verify-refs
-    label: "引用真实性核验"
-    coarse: lit-retrieval
-    source: my-skills
-    path: 03_research/base/verify-refs/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Also covers former manage-refs (bibtex format/write) after 2026-10-17 round 2 absorb. Former Scientific citation-management; MIT. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/verify-refs (source my-skills in-repo)."
-  - id: retraction-watcher
-    label: "撤稿检测"
-    coarse: lit-retrieval
-    source: my-skills
-    path: 03_research/base/retraction-watcher/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Personal layers unchanged. Routing 2026-10-17 ab-top-layer. Merge 2026-10-17 — body in A 03_research/base/retraction-watcher (source my-skills in-repo)."
-  - id: lit-search
-    label: "文献检索与公开数据集"
-    coarse: lit-retrieval
-    source: my-skills
-    path: 03_research/base/lit-search/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "2026-09-22. A copies of literature. Merge 2026-10-17 — body in A 03_research/base/lit-search (source my-skills in-repo)."
-  - id: design-study
-    label: "研究设计审查"
-    coarse: study-design
-    source: my-skills
-    path: 03_research/base/design-study/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Study design / feasibility / validation blueprints. Merge 2026-10-17 — body in A 03_research/base/design-study (source my-skills in-repo)."
-  - id: write-protocol
-    label: "IRB方案撰写"
-    coarse: study-design
-    source: my-skills
-    path: 03_research/base/write-protocol/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Merge 2026-10-17 — body in A 03_research/base/write-protocol (source my-skills in-repo)."
-  - id: fill-protocol
-    label: "IRB方案填表"
-    coarse: study-design
-    source: my-skills
-    path: 03_research/base/fill-protocol/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P2
-    note: "Declined AIPOCH clinic-research-design is NOT a stub for this id. Bai seats `03_research/base/fill-protocol/` (no personal stub pack). Merge 2026-10-17 — body in A 03_research/base/fill-protocol (source my-skills in-repo)."
-  - id: write-paper
-    label: "IMRAD正文起草"
-    coarse: manuscript-body
-    source: my-skills
-    path: 05_manuscript/base/write-paper/
-    a_domain: 05_manuscript
-    status: MOUNTED
-    load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/write-paper (source my-skills in-repo)."
-  - id: check-reporting
-    label: "报告规范核验"
-    coarse: manuscript-body
-    source: my-skills
-    path: 05_manuscript/base/check-reporting/
-    a_domain: 05_manuscript
-    status: MOUNTED
-    load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/check-reporting (source my-skills in-repo)."
-  - id: grant-builder
-    label: "基金标书-方法论"
-    coarse: manuscript-body
-    source: my-skills
-    path: 03_research/base/grant-builder/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Also covers former check-grant-proposal (Chinese-context grant QA) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 03_research/base/grant-builder (source my-skills in-repo)."
-  - id: find-journal
-    label: "选刊推荐"
-    coarse: manuscript-body
-    source: my-skills
-    path: 03_research/base/find-journal/
-    a_domain: 03_research
-    status: MOUNTED
-    load_priority: P1
-    note: "Companion house style: 05_manuscript/base/write-venue/ (not the engine). a_domain 03_research — do NOT move to 05 Victor seats `03_research/base/find-journal/`. Merge 2026-10-17 — body in A 03_research/base/find-journal (source my-skills in-repo)."
-  - id: polish-language
-    label: "一致性硬规则lint"
-    coarse: language-polish
-    source: my-skills
-    path: 05_manuscript/base/polish-language/
-    a_domain: 05_manuscript
-    status: MOUNTED
-    load_priority: P1
-    note: "Merge 2026-10-17 — body in A 05_manuscript/base/polish-language (source my-skills in-repo)."
-  - id: humanize
-    label: "去AI味"
-    coarse: language-polish
-    source: my-skills
-    path: 05_manuscript/base/humanize/
-    a_domain: 05_manuscript
-    status: MOUNTED
-    load_priority: P1
-    note: "Personal de-AI stays A 05_manuscript/personal (not moved). Merge 2026-10-17 — body in A 05_manuscript/base/humanize (source my-skills in-repo)."
-  - id: clean-data
-    label: "三阶段确认式清洗"
-    coarse: data-processing
-    source: my-skills
-    path: 02_data-processing/base/clean-data/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    load_priority: P1
-    note: "domains 03–07 merged 2026-10-17 Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
-  - id: imaging-io
-    label: "CT/MRI DICOM与NIfTI读写"
-    coarse: data-processing
-    source: my-skills
-    path: 02_data-processing/base/imaging-io/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    load_priority: P1
-    note: "I/O only. ROI / reader / mask QC is preprocess-imaging. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
-  - id: preprocess-imaging
-    label: "ROI与读者质控"
-    coarse: data-processing
-    source: my-skills
-    path: 02_data-processing/base/preprocess-imaging/
-    a_domain: 02_data-processing
-    status: MOUNTED
-    load_priority: P1
-    note: "Sole fine id for preprocess-imaging. profile-imaging and uncertainty-imaging archived 2026-09-22; they shared this path. Pilot 2026-10-17 — body in A 02_data-processing/base/ (source my-skills in-repo)."
-  - id: analyze-stats
-    label: "检验方法选择与加权调查数据"
-    coarse: stats-analysis
-    source: my-skills
-    path: 04_analysis/base/analyze-stats/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "Test selection and weighted-survey guidance. Merge 2026-10-17 — body in A 04_analysis/base/analyze-stats (source my-skills in-repo)."
-  - id: meta-analysis
-    label: "Meta分析抗数据操纵"
-    coarse: stats-analysis
-    source: my-skills
-    path: 04_analysis/base/meta-analysis/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "Meta-analysis anti-manipulation. Merge 2026-10-17 — body in A 04_analysis/base/meta-analysis (source my-skills in-repo)."
-  - id: model-evaluation
-    label: "模型-任务正确指标选择"
-    coarse: stats-analysis
-    source: my-skills
-    path: 04_analysis/base/model-evaluation/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "Calibration / DCA / external validation plus deterministic leakage gates (former model-validation). Merge 2026-10-17 — body in A 04_analysis/base/model-evaluation (source my-skills in-repo)."
-  - id: calc-sample-size
-    label: "样本量计算"
-    coarse: stats-analysis
-    source: my-skills
-    path: 04_analysis/base/calc-sample-size/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "Merge 2026-10-17 — body in A 04_analysis/base/calc-sample-size (source my-skills in-repo)."
-  - id: draw-flowchart
-    label: "患者流程图"
-    coarse: figures
-    source: my-skills
-    path: 04_analysis/base/draw-flowchart/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "STROBE / patient-flow only. Statistical plots are fine id plot-figures. Merge 2026-10-17 — body in A 04_analysis/base/draw-flowchart (source my-skills in-repo)."
-  - id: plot-figures
-    label: "统计图与影像面板"
-    coarse: figures
-    source: my-skills
-    path: 04_analysis/base/plot-figures/
-    a_domain: 04_analysis
-    status: MOUNTED
-    load_priority: P1
-    note: "Also covers former audit-figure-risk + scientific-visualization principles (see external-principles. 2026-09-22. Distinct from draw-flowchart (fig-flow). Merge 2026-10-17 — body in A 04_analysis/base/plot-figures (source my-skills in-repo)."
-  - id: peer-review
-    label: "审稿意见生成"
-    coarse: manuscript-review
-    source: my-skills
-    path: 06_review/base/peer-review/
-    a_domain: 06_review
-    status: MOUNTED
-    load_priority: P1
-    note: "Former peer-review-pdf-scan shared this path; the path_shared flag was dropped 2026-10-20 (no live second id after batch-cohort was archived). Also covers PDF inject/attack scan (Phase1.5) after 2026-10-17 round 2 absorb. Merge 2026-10-17 — body in A 06_review/base/peer-review (source my-skills in-repo)."
-  - id: self-review
-    label: "数值级自审核算"
-    coarse: manuscript-review
-    source: my-skills
-    path: 06_review/base/self-review/
-    a_domain: 06_review
-    status: MOUNTED
-    load_priority: P1
-    note: "Also covers former scientific-critical-thinking (evidence-quality) after 2026-10-17 round 3 archive. Merge 2026-10-17 — body in A 06_review/base/self-review (source my-skills in-repo)."
-  - id: revise
-    label: "修回分诊与数字血统追踪"
-    coarse: review-response
-    source: my-skills
-    path: 07_response/base/revise/
-    a_domain: 07_response
-    status: MOUNTED
-    load_priority: P1
-    note: "Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/revise (source my-skills in-repo)."
-  - id: response-tone-polisher
-    label: "回复语气软化"
-    coarse: review-response
-    source: my-skills
-    path: 07_response/base/response-tone-polisher/
-    a_domain: 07_response
-    status: MOUNTED
-    load_priority: P2
-    note: "Tone-only; structure stays `revise`. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/response-tone-polisher (source my-skills in-repo)."
-  - id: simulate-reviewers
-    label: "多审稿人隔离原则"
-    coarse: manuscript-review
-    source: my-skills
-    path: 06_review/base/simulate-reviewers/
-    a_domain: 06_review
-    status: MOUNTED
-    load_priority: P1
-    note: "Former Nature nature-reviewer; Apache-2.0 verified 2026-09-14. Principles also distilled in peer-review/external-principles. Merge 2026-10-17 — body in A 06_review/base/simulate-reviewers (source my-skills in-repo)."
-  - id: tighten-response
-    label: "隔离与正文精简原则"
-    coarse: review-response
-    source: my-skills
-    path: 07_response/base/tighten-response/
-    a_domain: 07_response
-    status: MOUNTED
-    load_priority: P2
-    note: "Former Nature nature-response; Apache-2.0 verified 2026-09-14. Principles also distilled in revise/external-principles. Symmetry move 2026-10-17. Merge 2026-10-17 — body in A 07_response/base/tighten-response (source my-skills in-repo)."
-
-archived:
-  - id: deidentify
-    status: ARCHIVED
-    reason: 导出已人工脱敏
-    revive_condition: 非脱敏实时院内系统时复活
-  - id: profile-imaging
-    status: ARCHIVED
-    reason: 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
-    revive_condition: B 出现独立的数据集画像技能时重评
-    old_path: 02-data-processing/imaging-qc/
-    historical: true
-  - id: uncertainty-imaging
-    status: ARCHIVED
-    reason: 与 preprocess-imaging 共用 preprocess-imaging，没有单独正文
-    revive_condition: B 出现独立的不确定性量化技能时重评
-    old_path: 02-data-processing/imaging-qc/
-    historical: true
-  - id: hypothesis-generation
-    status: ARCHIVED
-    reason: 未拉取字节；假设形成经 frontier-hypothesize 已并入 design-study（2026-10-17 round 2）
-    revive_condition: 需要独立 HARKing 方法正文且上游文件夹核实后重评；当前入口为 design-study
-    old_path: skills/hypothesis-generation/
-    historical: true
-  - id: database-lookup
-    status: ARCHIVED
-    reason: 2026-09-20 候选，路径未核实，本地无字节
-    revive_condition: 上游文件夹核实且与 paper-lookup 不重复时重评
-    old_path: skills/database-lookup/
-    historical: true
-  - id: model-scaffold
-    status: ARCHIVED
-    reason: 2026-09-20 候选，路径未核实；训练脚手架与 0RAD 重叠
-    revive_condition: 对照 0RAD 后仍缺一块时重评
-    old_path: skills/model-scaffold/
-    historical: true
-  - id: model-card
-    status: ARCHIVED
-    reason: 2026-09-20 候选，路径未核实；不代替 A 正文层
-    revive_condition: 论文需要独立模型卡且上游核实后重评
-    old_path: skills/model-card/
-    historical: true
-  - id: paperclip
-    status: ARCHIVED
-    reason: 2026-09-20 候选，路径未核实；全文提取与已归档的批量全文同类
-    revive_condition: 需要逐行全文证据且上游文件夹核实后重评
-    old_path: skills/paperclip/
-    historical: true
-  - id: paper-lookup
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps lit-search; cut 2026-10-17 round 1
-    revive_condition: session needs breadth APIs beyond lit-search and owner re-approves PROPOSED revive
-    old_path: skills/paper-lookup/
-    historical: true
-    source: scientific-agent-skills
-  - id: analyze-survival
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps meta-analysis / analyze-stats; cut 2026-10-17 round 1
-    revive_condition: leakage-safe survival pipeline needed beyond meta-analysis and owner re-approves
-    old_path: skills/scikit-survival/
-    historical: true
-    source: scientific-agent-skills
-  - id: audit-citations
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps verify-refs; cut 2026-10-17 round 1
-    revive_condition: strict third-party citation audit beyond verify-refs and owner re-approves
-    old_path: skills/nature-academic-search/
-    historical: true
-    source: nature-skills
-  - id: audit-dicom
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps imaging-io / preprocess-imaging; cut 2026-10-17 round 1
-    revive_condition: tag-level DICOM anonymization audit needed beyond imaging-io and owner re-approves
-    old_path: skills/pydicom/
-    historical: true
-    source: scientific-agent-skills
-  - id: exploratory-data-analysis
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps clean-data; cut 2026-10-17 round 1
-    revive_condition: dedicated EDA fine id needed beyond clean-data and owner re-approves
-    old_path: skills/exploratory-data-analysis/
-    historical: true
-    source: scientific-agent-skills
-  - id: polish-latex
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps polish-language; cut 2026-10-17 round 1
-    revive_condition: LaTeX-layout polish beyond polish-language and owner re-approves
-    old_path: skills/nature-polishing/
-    historical: true
-    source: nature-skills
-  - id: statistical-power
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps calc-sample-size; cut 2026-10-17 round 1
-    revive_condition: complex-design simulation power beyond calc-sample-size and owner re-approves
-    old_path: skills/statistical-power/
-    historical: true
-    source: scientific-agent-skills
-  - id: venue-templates
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps find-journal; cut 2026-10-17 round 1
-    revive_condition: venue format templates beyond find-journal and owner re-approves
-    old_path: skills/venue-templates/
-    historical: true
-    source: scientific-agent-skills
-  - id: write-data-statement
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps check-reporting / write-reporting; cut 2026-10-17 round 1
-    revive_condition: standalone data-availability statement beyond check-reporting and owner re-approves
-    old_path: skills/nature-data/
-    historical: true
-    source: nature-skills
-  - id: manage-refs
-    status: ARCHIVED
-    reason: path_shared with verify-refs; fold cite format/write into verify-refs; cut 2026-10-17 round 2
-    revive_condition: bibtex write path needs a separate session pick beyond verify-refs and owner re-approves
-    absorbed_into: verify-refs
-    old_path: skills/citation-management/
-    historical: true
-    source: scientific-agent-skills
-  - id: lit-sync
-    status: ARCHIVED
-    reason: Scientific P2; rarely used; Zotero sync optional; cut 2026-10-17 round 2
-    revive_condition: session needs interactive Zotero API sync as a first-class fine id and owner re-approves
-    old_path: skills/pyzotero/
-    historical: true
-    source: scientific-agent-skills
-  - id: find-cohort-gap
-    status: ARCHIVED
-    reason: cohort topic-gap discovery folded into design-study absorb 2026-10-17 round 2
-    revive_condition: cohort-gap scout needs a separate session pick beyond design-study and owner re-approves
-    absorbed_into: design-study
-    old_path: 03-research/frontier-ideate/
-    historical: true
-    source: my-skills
-  - id: scout-meta-analysis
-    status: ARCHIVED
-    reason: MA topic feasibility before MA folded into meta-analysis absorb 2026-10-17 round 2
-    revive_condition: MA feasibility scout needs a separate session pick beyond meta-analysis and owner re-approves
-    absorbed_into: meta-analysis
-    old_path: 03-research/lit-review/
-    historical: true
-    source: my-skills
-  - id: frontier-hypothesize
-    status: ARCHIVED
-    reason: hypothesis formation folded into design-study absorb 2026-10-17 round 2
-    revive_condition: hypothesis template needs a separate session pick beyond design-study and owner re-approves
-    absorbed_into: design-study
-    old_path: 03-research/frontier-hypothesize/
-    historical: true
-    source: my-skills
-  - id: intake-project
-    status: ARCHIVED
-    reason: project intake classification folded into design-study absorb 2026-10-17 round 2
-    revive_condition: project intake needs a separate session pick beyond design-study and owner re-approves
-    absorbed_into: design-study
-    old_path: 03-research/intake-project/
-    historical: true
-    source: my-skills
-  - id: design-ai-benchmarking
-    status: ARCHIVED
-    reason: AI expert-eval design folded into design-study absorb 2026-10-17 round 2
-    revive_condition: AI benchmarking design needs a separate session pick beyond design-study and owner re-approves
-    absorbed_into: design-study
-    old_path: 03-research/design-ai-benchmarking/
-    historical: true
-    source: my-skills
-  - id: architecture-zoo
-    status: ARCHIVED
-    reason: model architecture selection folded into design-study absorb 2026-10-17 round 2
-    revive_condition: architecture zoo needs a separate session pick beyond design-study and owner re-approves
-    absorbed_into: design-study
-    old_path: 03-research/architecture-zoo/
-    historical: true
-    source: my-skills
-  - id: radiomics-ml
-    status: ARCHIVED
-    reason: radiomics pipeline audit invoked via analyze-stats / preprocess-imaging absorb 2026-10-17 round 2
-    revive_condition: radiomics habitat pipeline needs a first-class fine id again and owner re-approves
-    absorbed_into: analyze-stats
-    old_path: 02-data-processing/radiomics-habitat/
-    historical: true
-    source: my-skills
-  - id: peer-review-pdf-scan
-    status: ARCHIVED
-    reason: same path already path_shared with peer-review; PDF inject scan covered by peer-review; absorb 2026-10-17 round 2
-    revive_condition: PDF inject scan needs a separate session pick beyond peer-review and owner re-approves
-    absorbed_into: peer-review
-    old_path: 06-review/review-peer/
-    historical: true
-    source: my-skills
-  - id: scientific-visualization
-    status: ARCHIVED
-    reason: principles distilled into plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-    revive_condition: full Scientific visualization skill body needed beyond plot-figures principles and owner re-approves
-    absorbed_into: plot-figures
-    old_path: skills/scientific-visualization/
-    historical: true
-    source: scientific-agent-skills
-  - id: audit-figure-risk
-    status: ARCHIVED
-    reason: Nature P2; principles already in 04_analysis/base/plot-figures/external-principles.md; use plot-figures; cut 2026-10-17 round 2
-    revive_condition: venue-specific Nature figure risk workflow beyond plot-figures + external-principles and owner re-approves
-    absorbed_into: plot-figures
-    old_path: skills/nature-figure/
-    historical: true
-    source: nature-skills
-  - id: check-grant-proposal
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps grant-builder; cut 2026-10-17 round 3
-    revive_condition: Chinese-context grant QA beyond grant-builder and owner re-approves PROPOSED revive
-    absorbed_into: grant-builder
-    old_path: skills/nature-proposal-writer/
-    historical: true
-    source: nature-skills
-  - id: model-validation
-    status: ARCHIVED
-    reason: deterministic leakage gates folded into model-evaluation; same path; absorb 2026-10-17 round 3
-    revive_condition: leakage-gate workflow needs a separate session pick beyond model-evaluation and owner re-approves
-    absorbed_into: model-evaluation
-    old_path: 04-analysis/model-eval/
-    historical: true
-    source: my-skills
-  - id: scientific-critical-thinking
-    status: ARCHIVED
-    reason: PROPOSED never session-picked; overlaps self-review / peer-review; cut 2026-10-17 round 3
-    revive_condition: evidence-quality critique beyond self-review/peer-review and owner re-approves PROPOSED revive
-    absorbed_into: self-review
-    old_path: skills/scientific-critical-thinking/
-    historical: true
-    source: scientific-agent-skills
-  - id: batch-cohort
-    status: ARCHIVED
-    reason: shared body with clean-data in A 02_data-processing/base/clean-data; no separate doc; owner decision 2026-10-20
-    revive_condition: a real batch queue analysis flow appears with its own inputs, outputs, or QC standard
-    absorbed_into: clean-data
-    old_path: 02_data-processing/base/clean-data/
-    historical: true
-    source: my-skills
-
-# A-local capability packs: not session-pick mounts, no fine id of their own.
-# Dir name is the pack name; tests/test_dir_equals_fine_id asserts coverage.
+- id: verify-refs
+  label: 引用真实性核验
+  coarse: lit-retrieval
+  source: my-skills
+  path: 03_research/base/verify-refs/
+  a_domain: 03_research
+  status: MOUNTED
+- id: retraction-watcher
+  label: 撤稿检测
+  coarse: lit-retrieval
+  source: my-skills
+  path: 03_research/base/retraction-watcher/
+  a_domain: 03_research
+  status: MOUNTED
+- id: lit-search
+  label: 文献检索与公开数据集
+  coarse: lit-retrieval
+  source: my-skills
+  path: 03_research/base/lit-search/
+  a_domain: 03_research
+  status: MOUNTED
+- id: design-study
+  label: 研究设计审查
+  coarse: study-design
+  source: my-skills
+  path: 03_research/base/design-study/
+  a_domain: 03_research
+  status: MOUNTED
+- id: write-protocol
+  label: IRB方案撰写
+  coarse: study-design
+  source: my-skills
+  path: 03_research/base/write-protocol/
+  a_domain: 03_research
+  status: MOUNTED
+- id: fill-protocol
+  label: IRB方案填表
+  coarse: study-design
+  source: my-skills
+  path: 03_research/base/fill-protocol/
+  a_domain: 03_research
+  status: MOUNTED
+  note: 'a_domain 03_research. Body: 03_research/base/fill-protocol/ (Bai seat).'
+- id: write-paper
+  label: IMRAD正文起草
+  coarse: manuscript-body
+  source: my-skills
+  path: 05_manuscript/base/write-paper/
+  a_domain: 05_manuscript
+  status: MOUNTED
+- id: check-reporting
+  label: 报告规范核验
+  coarse: manuscript-body
+  source: my-skills
+  path: 05_manuscript/base/check-reporting/
+  a_domain: 05_manuscript
+  status: MOUNTED
+- id: grant-builder
+  label: 基金标书-方法论
+  coarse: manuscript-body
+  source: my-skills
+  path: 03_research/base/grant-builder/
+  a_domain: 03_research
+  status: MOUNTED
+  note: 'a_domain 03_research (override). Body: 03_research/base/grant-builder/.'
+- id: find-journal
+  label: 选刊推荐
+  coarse: manuscript-body
+  source: my-skills
+  path: 03_research/base/find-journal/
+  a_domain: 03_research
+  status: MOUNTED
+  note: 'a_domain 03_research (override). Body: 03_research/base/find-journal/. Companion house style:
+    05_manuscript/base/write-venue/ (not the engine).'
+- id: polish-language
+  label: 一致性硬规则lint
+  coarse: language-polish
+  source: my-skills
+  path: 05_manuscript/base/polish-language/
+  a_domain: 05_manuscript
+  status: MOUNTED
+- id: humanize
+  label: 去AI味
+  coarse: language-polish
+  source: my-skills
+  path: 05_manuscript/base/humanize/
+  a_domain: 05_manuscript
+  status: MOUNTED
+- id: clean-data
+  label: 三阶段确认式清洗
+  coarse: data-processing
+  source: my-skills
+  path: 02_data-processing/base/clean-data/
+  a_domain: 02_data-processing
+  status: MOUNTED
+- id: imaging-io
+  label: CT/MRI DICOM与NIfTI读写
+  coarse: data-processing
+  source: my-skills
+  path: 02_data-processing/base/imaging-io/
+  a_domain: 02_data-processing
+  status: MOUNTED
+- id: preprocess-imaging
+  label: ROI与读者质控
+  coarse: data-processing
+  source: my-skills
+  path: 02_data-processing/base/preprocess-imaging/
+  a_domain: 02_data-processing
+  status: MOUNTED
+- id: analyze-stats
+  label: 检验方法选择与加权调查数据
+  coarse: stats-analysis
+  source: my-skills
+  path: 04_analysis/base/analyze-stats/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: meta-analysis
+  label: Meta分析抗数据操纵
+  coarse: stats-analysis
+  source: my-skills
+  path: 04_analysis/base/meta-analysis/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: model-evaluation
+  label: 模型-任务正确指标选择
+  coarse: stats-analysis
+  source: my-skills
+  path: 04_analysis/base/model-evaluation/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: calc-sample-size
+  label: 样本量计算
+  coarse: stats-analysis
+  source: my-skills
+  path: 04_analysis/base/calc-sample-size/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: draw-flowchart
+  label: 患者流程图
+  coarse: figures
+  source: my-skills
+  path: 04_analysis/base/draw-flowchart/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: plot-figures
+  label: 统计图与影像面板
+  coarse: figures
+  source: my-skills
+  path: 04_analysis/base/plot-figures/
+  a_domain: 04_analysis
+  status: MOUNTED
+- id: peer-review
+  label: 审稿意见生成
+  coarse: manuscript-review
+  source: my-skills
+  path: 06_review/base/peer-review/
+  a_domain: 06_review
+  status: MOUNTED
+- id: self-review
+  label: 数值级自审核算
+  coarse: manuscript-review
+  source: my-skills
+  path: 06_review/base/self-review/
+  a_domain: 06_review
+  status: MOUNTED
+- id: revise
+  label: 修回分诊与数字血统追踪
+  coarse: review-response
+  source: my-skills
+  path: 07_response/base/revise/
+  a_domain: 07_response
+  status: MOUNTED
+- id: response-tone-polisher
+  label: 回复语气软化
+  coarse: review-response
+  source: my-skills
+  path: 07_response/base/response-tone-polisher/
+  a_domain: 07_response
+  status: MOUNTED
+- id: simulate-reviewers
+  label: 多审稿人隔离原则
+  coarse: manuscript-review
+  source: my-skills
+  path: 06_review/base/simulate-reviewers/
+  a_domain: 06_review
+  status: MOUNTED
+- id: tighten-response
+  label: 隔离与正文精简原则
+  coarse: review-response
+  source: my-skills
+  path: 07_response/base/tighten-response/
+  a_domain: 07_response
+  status: MOUNTED
 local_packs:
-  - id: vocab
-    path: 05_manuscript/base/vocab/
-    note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
-  - id: write-venue
-    path: 05_manuscript/base/write-venue/
-    note: venue templates and house style; A-local, never mounted
+- id: vocab
+  path: 05_manuscript/base/vocab/
+  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
+- id: write-venue
+  path: 05_manuscript/base/write-venue/
+  note: venue templates and house style; A-local, never mounted

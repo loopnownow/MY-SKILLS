@@ -41,13 +41,12 @@ PATH_UNIT_ALIAS_KEYS: set[str] = set()
 
 
 def _retired_ids() -> set[str]:
-    reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
-    archived = {a["id"] for a in (reg.get("archived") or []) if a.get("id")}
+    # t1123: retired set = legacy_aliases keys (registry no longer lists archived).
     la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8"))
     alias_keys = set((la.get("aliases") or {}).keys())
     # Keep path-style / still-on-disk unit names out of the retired scan set.
     alias_keys -= PATH_UNIT_ALIAS_KEYS
-    return archived | alias_keys
+    return alias_keys
 
 
 def _scan_paths() -> list[Path]:

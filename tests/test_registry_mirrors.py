@@ -20,8 +20,7 @@ class RegistryMirrors(unittest.TestCase):
         reg = registry()
         bad = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
         self.assertEqual(bad, [])
-        arch_bad = [m["id"] for m in (reg.get("archived") or []) if m.get("source") == "my-skills-base"]
-        self.assertEqual(arch_bad, [])
+        self.assertNotIn("archived", reg)  # t1123: live mounts only
         self.assertFalse((ONE / "sources" / "b-my-skills-base.yaml").exists())
         live_a = [m for m in reg["mounts"] if m.get("source") == "my-skills"]
         self.assertGreaterEqual(len(live_a), 20)
