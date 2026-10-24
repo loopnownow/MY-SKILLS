@@ -87,7 +87,7 @@ FORBIDDEN_06_NAMES = (
 )
 
 WORKFLOW_SOP_NAMES = (
-    "radiomics-study.md",
+    "statistics.md",
     "sci-manuscript.md",
     "research-exploration-loop.md",
     "review-isolation.md",

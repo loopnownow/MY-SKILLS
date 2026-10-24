@@ -4,7 +4,7 @@
 
 Use when the user picks this SOP, or 写稿 / 按我的风格写 / 全线写论著（且选了本 SOP），or directory detection finds `*-results.html` and they lock N3 WRITE.
 
-Numbers **only** from that endpoint’s `*-results.html`. Format: `Aitor-format.md`. Missing HTML → do not start this SOP; send back to `radiomics-study` / 04.
+Numbers **only** from that endpoint’s `*-results.html`. Format: `Aitor-format.md`. Missing HTML → do not start this SOP; send back to `statistics` / 04.
 
 If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, reviewer_items) and `pipeline` / `qc`. Do not overwrite `settings.ini`. Set `pipeline.sop: sci-manuscript`.
 

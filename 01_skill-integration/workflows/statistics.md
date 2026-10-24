@@ -1,10 +1,10 @@
-# SOP: radiomics-study
+# SOP: statistics
 
 **Owner:** `00_orchestrator`. Cross-skill only. Modeling / LASSO / ROC / DCA stay in `04_analysis`.
 
 Use when the user picks this SOP, or says 组学全线 / habitat 流程 / 从图像到模型（且选了本 SOP），or directory detection finds imaging/ROI without `*-results.html`.
 
-If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/project-state.yaml` into the project `ref/` and fill only what the user stated. Do not invent ethics or n. Set `pipeline.sop: radiomics-study`.
+If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/project-state.yaml` into the project `ref/` and fill only what the user stated. Do not invent ethics or n. Set `pipeline.sop: statistics`.
 
 ## Sequence
 

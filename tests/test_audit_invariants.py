@@ -109,7 +109,7 @@ class SessionPick(unittest.TestCase):
     def test_workflows_ask_session_mount_pick(self) -> None:
         for rel in (
             "01_skill-integration/workflows/sci-manuscript.md",
-            "01_skill-integration/workflows/radiomics-study.md",
+            "01_skill-integration/workflows/statistics.md",
             "01_skill-integration/workflows/README.md",
         ):
             text = read(rel).lower()
@@ -340,7 +340,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("defects:", state)
 
     def test_sops_wired_by_html(self) -> None:
-        rad = read("01_skill-integration/workflows/radiomics-study.md")
+        rad = read("01_skill-integration/workflows/statistics.md")
         sci = read("01_skill-integration/workflows/sci-manuscript.md")
         self.assertIn("sci-manuscript", rad)
         self.assertIn("G-04", rad)
