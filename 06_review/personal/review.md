@@ -134,7 +134,9 @@ Dear Editor:
 Thank you for inviting me to evaluate this article. The purpose of this study was to …. However, details for explanation of replicability of the methods should be provided.
 ```
 
-Do not put Accept/Reject in the Opening. Recent years may keep the footnote `AI was used to refine the readability of the peer review comments, all of which came from the reviewer.` — polish syntax only; do not change the judgment.
+Do not put Accept/Reject in the Opening.
+
+**AI disclosure (owner 2026-10-24):** Do **not** write an AI-disclosure footnote by default. Only when 城城 explicitly asks for AI disclosure, append exactly: `AI was used to refine the readability of the peer review comments, all of which came from the reviewer.` — polish syntax only; do not change the judgment.
 
 ---
 
