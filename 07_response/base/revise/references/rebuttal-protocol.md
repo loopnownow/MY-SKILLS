@@ -55,9 +55,9 @@ Conference venues (ICML / OpenReview character budgets, paste-ready plain text) 
 
 | Status | Meaning | Letter? |
 |---|---|---|
-| 已有结果 | User-confirmed existing result | Yes, with location |
-| 需补做 | Needs new analysis | Ask user; do not invent |
-| 不采纳 + 理由 | Decline with scientific reason | Yes, with scope/limitation |
+| Existing result (已有结果) | User-confirmed existing result | Yes, with location |
+| Needs new work (需补做) | Needs new analysis | Ask user; do not invent |
+| Decline + reason (不采纳 + 理由) | Decline with scientific reason | Yes, with scope/limitation |
 
 Only **user-confirmed** results enter the letter as done work.
 

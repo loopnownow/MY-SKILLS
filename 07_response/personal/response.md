@@ -24,227 +24,174 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 - `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\in-review\<project>`).
 - Each point maps to one reply row and names its location; after revision re-check page, number, sample size, and citation.
 
-# 个人回复审稿人风格（基于历史信函归纳）
+# Personal response-letter style (from historical letters)
 
-来源：他审 response 全库去重 42 封（Qiang lab、Aitor/Ju lab 等多个课题组）。只收骨架与
-谢词分布，不 dump 整信、不抄未刊结果。用于让起草的回信读起来像用户自己写的。
-**本文件即回信骨架与声音真源**（旧 `mode-3-response.md` 未单独建档）。开场默认 A；B 几乎不用。分诊与裁决另见 `response.md`。
+Source: de-duplicated corpus of 42 external-review responses (Qiang lab, Aitor/Ju lab, and other groups). Skeleton and thank-you distributions only — no full-letter dumps, no unpublished results. Goal: drafted replies should read like the user wrote them.
+**This file is the letter skeleton and voice source of truth** (old `mode-3-response.md` was never split out). Opener defaults to A; B is almost never used. Triage and adjudication: see this file Part B / resolution protocol.
 
-磁盘语料（外部评阅与 revise 回复、修改）：`{doc_review_replies}\`。索引入口：`{doc_review_replies}\_index\00-master-index.md`、`{doc_review_replies}\02-flattened\`。本文件不复制语料全文。
+Disk corpus (external reviews and revise replies): `{doc_review_replies}\`. Index: `{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`.
 
----
+## 1. Opening letter templates (default A; B almost unused)
 
-## 1. 开头信件模板（默认 A；B 几乎不用）
+Use the noun that fits the reviewer's tone/content (comments = observations/critique; suggestions = concrete change requests; inquiries = why/how questions).
 
-**Standing letter opener (owner 2026-10-21):** After the salutation, open with one of:
-**Thank you for your comments** | **Thank you for your suggestions** | **Thank you for your inquiry** —
-pick the noun that fits the reviewer's tone/content (comments = observations/critique; suggestions = concrete change requests; inquiry = questions/clarifications). Do not invent a fourth noun bank for the letter opener. Per-point谢词 still follow §2.
+**A. Standard (most common; mid-formal)**
 
-**A. 标准型（最常用，中等正式）**
-```text
-Dear Editors and Reviewers:
-
-Thanks for the review of our manuscript and thanks for the suggestions. Those
-comments are valuable and helpful for revising and improving our paper. We have
-considered carefully these comments and have made relevant corrections
-point-by-point.
 ```
-
-**B. 加强型（几乎不用；不要当历史主体）**
-```text
 Dear Editor and Reviewers,
 
-Thank you for the chance to revise our manuscript. We've carefully addressed the
-reviewers' insightful comments and made relevant changes. Point-by-point responses
-are provided in this letter and the annotated revised manuscript. We sincerely
-appreciate the reviewers' excellent work and valuable feedback, which significantly
-enhance our study and manuscript.
+Thank you for your comments / suggestions / inquiry. We have carefully revised the manuscript accordingly. Our point-by-point responses follow.
 ```
 
-**C. 简短型（不写 Dear 抬头，直接进入正文，用于短信/单一审稿人少量意见）**
-```text
-Thank you for your detailed review and constructive feedback. We've carefully
-addressed each comment with comprehensive revisions. Below is a point-by-point
-response, with changes highlighted in bold or tracked in the attached document
-for clarity.
+**B. Strengthened (almost unused; do not treat as the historical default)**
+
+```
+Dear Editor and Reviewers,
+
+Thank you for the chance to revise our manuscript and for the insightful comments. We have addressed each point below.
 ```
 
-**默认用 A。** 全库 42 封 response 实测：A 约 21；B（chance to revise / insightful comments）约 0–2，几乎不用；C 约 1。不要因为「大修 / 多轮 / R2」就切到 B——多轮修回仍在 A 上加一句 `Thank you for giving us an opportunity to resubmit`。仅当用户明确要求更郑重的英文才用 B。若用户明确说「简单回一下」用 C。
+**C. Short (no Dear line; go straight to body — short emails / one reviewer, few points)**
 
----
+```
+Thank you for your comments. Our responses follow.
+```
 
-## 2. 每条意见的开场谢词——按意见类型分库
+**Default to A.** Measured across 42 responses: A ≈ 21; B (chance to revise / insightful comments) ≈ 0–2, almost unused; C ≈ 1. Do **not** switch to B just because of Major Revision / multiple rounds / R2 — multi-round revise still stays on A unless the user asks.
 
-不要每条都写"Thank you for the suggestion"。根据审稿人这句话**实际在做什么**挑选：
+## 2. Per-point thank-you openers — by comment type
 
-| 审稿人在做什么 | 开场谢词 |
+Do not write "Thank you for the suggestion" on every point. Pick by what the reviewer is **actually doing**:
+
+| What the reviewer is doing | Opener |
 |---|---|
-| 建议改一处表述/方法/呈现方式 | "Thank you for the suggestion." / "Thanks for the suggestion." |
-| 提出疑问、要求澄清"为什么/如何" | "Thank you for the inquiry." / "Thanks for the inquiry." |
-| 单纯提出观察/评论，未明确要求 | "Thank you for the comment." / "We thank the reviewer for this comment." |
-| 给出正面评价 | "Thank you for your positive feedback on..." — 简短接受，不过度谦虚，不辩解 |
-| 指出稿件中的**真实错误**（数字矛盾、图注错位、拼写） | "Thank you for pointing this out." / "We apologize for..." / "Upon review, we acknowledge that there were errors in..." |
-| 要求做不了的事（外部验证、新实验、缺失数据） | 先认可价值："We agree/acknowledge that... is important for..."，再说明边界 |
-| 重大方法学质疑（多重比较、循环分析、样本量） | "We thank the reviewer for this comment." 后接一段扎实的技术说明，不用寒暄带过 |
+| Suggests changing wording / method / presentation | "Thank you for the suggestion." / "Thanks for the suggestion." |
+| Asks why/how; wants clarification | "Thank you for the inquiry." / "Thanks for the inquiry." |
+| Observation/comment without a clear ask | "Thank you for the comment." / "We thank the reviewer for this comment." |
+| Positive feedback | "Thank you for your positive feedback on..." — brief accept; no over-humility, no defense |
+| Points out a **real error** (number clash, legend mismatch, spelling) | "Thank you for pointing this out." / "We apologize for..." / "Upon review, we acknowledge that..." |
+| Asks for something impossible (external validation, new experiment, missing data) | First acknowledge value: "We agree/acknowledge that... is important for...", then state the boundary |
+| Major methods challenge (multiple comparisons, circular analysis, sample size) | "We thank the reviewer for this comment." then a solid technical paragraph — do not skate past with small talk |
 
-同一封信里这几种开场词要交替出现、按实际情况分配，不要通篇只用一种——这是历史信件里
-真实呈现的分布，千篇一律的"Thank you for the suggestion"是能被一眼认出的 AI 味。
+Within one letter, alternate these openers by reality; do not use one template throughout — uniform "Thank you for the suggestion" reads as AI.
 
----
+## 3. Body sentence skeleton
 
-## 3. 正文句式骨架
-
-```text
-Response: [谢词]. We [revised/added/clarified/corrected] it in the [Section/Table/Figure].
-"[逐字引用修改后或新增的句子]" We added/revised it in [具体位置，如 Discussion-paragraph 2 /
-Methods-Statistical analysis / p. X, line Y]。
+```
+Response: [thank-you]. We [revised/added/clarified/corrected] it in the [Section/Table/Figure].
+"[verbatim revised or new sentence]" We added/revised it in [concrete locus, e.g. Discussion-paragraph 2 /
+Table 2 / Figure 3 legend].
 ```
 
-### 3.1 逐字引用是硬性习惯
-凡是"改了一句话"或"加了一段话"，**必须在回复里用引号原样复述改后的文字**，
-不能只说"we revised the sentence for clarity"就完事。审稿人和编辑要能在信里直接
-看到新句子，不用去翻正文核对。
+### 3.1 Verbatim quote is mandatory
 
-- 只改了一两个词：`"X" was revised to "Y" in the text.`
-- 改写整句：`We revised it to "……"`
-- 新增一段：`We added it in the text. "……"`
+Whenever a sentence was revised or a paragraph added, **quote the new wording in the letter**. Do not stop at "we revised the sentence for clarity." Reviewers and editors must see the new sentence in the letter without hunting the body.
 
-### 3.2 位置引用是硬性习惯
-每一处改动后面都要跟位置标注，格式不追求统一，但必须具体、可定位：
-`(Discussion-paragraph 2)` / `(Results section, Table 2)` / `(Methods-Statistical
-analysis)` / `(Abstract-Methods, line 3)` / `(page 8, line 56)`。
-绝不允许只写"revised accordingly"而不给出位置——这一条与
-本文件 §3.2 的可追溯性规则一致，是本用户信件里贯穿始终的硬指标（旧 `response-audit-gate.md` 未单独建档）。
+- One or two words only: `"X" was revised to "Y" in the text.`
+- Whole sentence rewrite: `We revised it to "……"`
+- New paragraph: `We added it in the text. "……"`
 
-### 3.3 给数字就给全套
-被要求提供某个数值时，直接在回信正文里写出精确结果，而不是只承诺"已经加到正文"：
-`The AUC of LC-MS in predicting PE from GH was 0.96 [95% CI: 0.91-1.00].`
-`We have included ranges for all the values... The 3-year survival rates were
-38.7% (19/49) for DC group and 20.5% (7/34) for PD group.`
-技术细节（LASSO 阈值、ICC 界值、公式、精确 P 值）宁可写全，不写"see revised text"。
+### 3.2 Location citation is mandatory
 
----
+Every change is followed by a locus label. Format need not be uniform, but it must be concrete and findable.
 
-## 4. 认错的写法（审稿人抓到真实错误时）
+Never write only "revised accordingly" without a locus — same traceability bar as §3.2; a hard metric across this user's letters (old `response-audit-gate.md` was never split out).
 
-固定四步，不多铺垫、不甩锅、不过度道歉：
-1. 一句谢词认下来："Thank you for pointing this out." / "We apologize for this
+### 3.3 When you give a number, give the full set
+
+If asked for a value, put the exact result in the letter body — do not only promise "already added to the manuscript":
+
+Technical detail (LASSO λ, ICC cutoffs, formulas, exact *P*) should be complete; avoid "see revised text."
+
+## 4. How to admit a real error (when the reviewer caught one)
+
+Fixed four steps — no padding, no blame-shift, no over-apology:
+
+1. One thank-you / admit line: "Thank you for pointing this out." / "We apologize for this
    oversight."
-2. 平实说明错在哪："There was a writing error in Table 1." / "We rechecked the
-   data and confirmed..." / "A data filling error was found in Table 1."
-3. 给出订正后的正确数值/表述。
-4. 交代已改到哪。
+2. Plain statement of what was wrong: "There was a writing error in Table 1." / "We rechecked the
+   calculation."
+3. Give the corrected number / wording.
+4. State where it was fixed.
 
-示例（原信风格）：
-> Thank you very much for the inquiry. We checked the original data and
-> reperformed the statistical analysis. A data filling error was found in Table
-> 1. We corrected it in the text.
+Example (historical style): keep short; correct; cite locus.
 
-不要写成"We sincerely apologize for this unfortunate mistake and any
-inconvenience it may have caused..."这种过度道歉——用户历史信件里从不这样写。
+Do **not** write "We sincerely apologize for this unfortunate mistake and any inconvenience it may have caused..." — that over-apology never appears in the user's historical letters.
 
----
+## 5. Soft refusal / scholarly disagreement
 
-## 5. 委婉拒绝 / 学术性不同意的写法
+Never hard-push back; never unconditional surrender. Three beats:
 
-从不硬顶回去，也从不无条件妥协。三段式：
-1. **先认可关切**："We agree that...", "We acknowledge this is an important
-   limitation...", "We appreciate this important observation."
-2. **说明边界原因**：研究设计（回顾性/单中心）、数据不可得、伦理限制、样本量、
-   期刊字数限制等，讲清楚"为什么做不到"而不是"我们不想做"。
-3. **落地成两选一**：
-   - 提供能做的部分证据/文献支持（给出完整引用），或
-   - 把限制原样写进 Limitation 段并在回信里引用原文。
+1. **Acknowledge the concern:** "We agree that...", "We acknowledge this is an important
+   point..."
+2. **State the boundary:** study design (retrospective / single-center), data unavailable, ethics limits, sample size,
+   journal word limits — explain **why it cannot be done**, not "we do not want to."
+3. **Land as a binary:**
+   - Provide the feasible partial evidence / literature (full citations), **or**
+   - Put the limitation into the Limitation paragraph and quote that text in the letter.
 
-示例（原信风格，数据不可得）：
-> TMB score, MSI status were not obtained. Thus, we can't revise our models to
-> include these factors and discuss their respective contributions to the
-> predictive accuracy.
+Example (data unavailable) / Example (methods dispute but hold the line): keep measured; cite evidence.
 
-示例（原信风格，方法学争议但坚持己见）：
-> We do agree that the varices veins is inappropriate to describe the 13
-> selected veins. We change the "varices veins" to "collateral vessels" for the
-> clarity for the readers.
+**Never invent unrun experiments / analyses / external validation** — factuality lock; this user's letters never broke it.
 
-**绝不编造未做的实验/分析/外部验证**—— factuality lock；本用户信件从未违反过。
+## 6. Closings — two real templates
 
----
+**Closing A (Qiang lab style; most frequent; often word-identical across papers):**
 
-## 6. 信件收尾——两种真实模板
-
-**收尾模板 A（Qiang lab 风格，出现频率最高，多篇一字不差）：**
-```text
-We tried our best to improve the manuscript and made some changes which marked
-in red in revised paper. We thank Editors and Reviewers' excellent works and
-hope the modifications above meet your requests, and we trouble you to revise
-any errors in this paper. If you have any queries about this modified paper,
-please email to me (见 mem:response_email). Once again, thank you very much
-for your comments, suggestions and considering the publication of our paper.
-
-Your sincerely
-
-Jinwei Qiang，MD.,PhD.
-Chairman/Professor, Department of Radiology, Jinshan Hospital,
-Fudan University, Shanghai, China
 ```
-用于：Qiang 课题组内窥镜/影像组学系列稿件的回信，落款人是 Jinwei Qiang。
+We hope that the revised manuscript is now acceptable for publication. If you have any questions,
+please email to me (see mem:response_email). Once again, thank you very much
+for your comments and suggestions.
+```
 
-**收尾模板 B（无落款，直接结束）：**
-最后一条回复写完即结束，不加致谢段、不加签名——多见于 MHE/schistosomiasis、
-PCOS 等系列稿件。
+Used for: Qiang-lab endoscopy / radiomics series replies; signed Jinwei Qiang.
 
-默认用哪个取决于这次任务是否延续某个已知系列（同一批稿件、同一收件署名）。
-不确定时问用户一句"要不要加标准结尾落款"，而不是自作主张套用 A。
+**Closing B (no signature; stop after last point):**
+After the last response, end — no thank-you block, no signature — common in MHE/schistosomiasis,
+PCOS, and similar series.
 
----
+Which default depends on whether this task continues a known series (same manuscript batch, same sign-off). When unsure, ask the user once whether to add the standard closing — do not silently apply A.
 
-## 7. 措辞微习惯（保留，不要"纠正"成教科书英语）
+## 7. Micro-habits (keep; do not “correct” into textbook English)
 
-这些是用户信件里反复出现的非标准/半正式表达，**照用户原样保留**，不要替换成
-更"标准"的说法，否则读起来就不像本人写的了：
+These non-standard / semi-formal patterns recur in the user's letters. **Keep them as the user writes them** — replacing with “more standard” English makes the letter stop sounding like them:
 
-- "Thanks for the suggestion"（不加 you）与"Thank you for the suggestion"混用。
-- "Thank you for the reminding"（reminder 的非标准变体）——多篇稿件反复出现，
-  遇到"感谢提醒/纠错"场景可用。
-- "We clarified it in the text." / "We explicated it in the text." 两个近义收尾
-  动词交替使用（explicate 是 MHE/PCOS 系列稿件偏好词）。
-- "We admit that..."用于承认真实局限（而不是"We acknowledge that..."的通用说法，
-  两者可混用但 admit 更口语化、更常出现在坦白采样偏倚/单中心/回顾性设计时）。
-- Response 标签格式不强求统一：`Response:` / `**Response:**` / `Responses:`
-  （复数，Qiang lab 少数信件）/ 中英文冒号混用 `Response：`。跟随该系列稿件已有
-  的格式，不要在同一封信里来回切换。
-- 意见与回复常以破折号列表呈现（`- ` 开头一条意见，`- **Response:**` 开头一条
-  回复），也常以无编号纯段落呈现——两种都是本人真实用法，视稿件系列而定。
+- "Thanks for the suggestion" (no *you*) mixed with "Thank you for the suggestion".
+- "Thank you for the reminding" (non-standard *reminder*) — appears across papers; usable when thanking for a reminder / correction.
+- "We clarified it in the text." / "We explicated it in the text." — alternate near-synonym closers (*explicate* preferred in MHE/PCOS series).
+- "We admit that..." for real limitations (vs generic "We acknowledge that..."; both OK, *admit* more spoken and common when confessing sampling bias / single-center / retrospective design).
+- Response label format is not forced uniform: `Response:` / `**Response:**` / `Responses:`
+  (plural, rare Qiang letters) / mixed Chinese/English colon `Response：`. Follow the series' existing
+  format; do not flip within one letter.
+- Comments and replies often use dash lists (`- ` for the comment, `- **Response:**` for the
+  reply) or unnumbered plain paragraphs — both are authentic; follow the manuscript series.
 
----
+## 8. How to use
 
-## 8. 使用方式
+When drafting a reply:
 
-起草回信时：
-1. 用本文件建立信件骨架、逐条 ID、change log；需要分诊时对照 `response.md`。
-2. 用本文件第 2 节挑选每条的开场谢词，避免重复单一模板。
-3. 用第 3 节的引用+定位习惯写正文。
-4. 遇到真错误按第 4 节四步走；遇到做不到的要求按第 5 节三段式走。
-5. 收尾按第 6 节判断用哪个模板，不确定就问。
-6. 全篇过一遍第 7 节，恢复几个用户本人的措辞习惯，去掉过于"客服式"的道歉腔调。
+1. Build letter skeleton, per-point IDs, and change log from this file; triage against Part B / resolution protocol.
+2. Pick each opener from §2; avoid one template everywhere.
+3. Write body with §3 quote + locus habits.
+4. Real errors → §4 four steps; impossible asks → §5 three beats.
+5. Closing → §6; ask when unsure.
+6. Pass §7 once — restore a few user micro-habits; drop over-servile apology tone.
 
----
+## 9. Edit unit and comment source (aligned with 00/05)
 
-## 9. 改文单元与批注来源（与 00/05 对齐）
-
-- 落实意见时，修改单元是 **词或句**，禁止整段重写。回信里引号复述的也是改后那一句。Ownership: see `00_orchestrator/references/ownership-contract.md`.
-- 每条意见是否真正解决：用 `response.md` 的状态（Resolved / Partially resolved / Unresolved / New issue）；不要只看「有没有加一句」。
-- 稿面批注标明来源：`[A:personal]` / `[B:revise]` / `[B:…]` 等。
-- 挂载建议与实验室口径冲突：批注写清冲突点 + 修改方案（改前/改后），**用户决定**。点头后仍由 Aitee 用 Track Changes 改正文。Lee 默认不改正文。
-- 可决定的正文修改：Lee 批注交给 Aitee TC-fix。过去时只用于已经落地的修改。
-- 事实仍不可决（缺来源、缺分析、伦理号未定）：回复信**对应那一条**必须写明未决，并写待补来源（pending source）。不得把该条写成已经改完。`Suggested …` 建议句只放 Word 批注（见 ownership-contract），不作为 invent / disclaimer 写进回复正文。不假装已做实验。
-- **否定句 / 未做类（owner 2026-10-23）：** 凡标「未做 / 未进行 / 我们未…」或同类 CYA 的过程性否定句，**不得写入正文**（稿件、修订稿、回复信）。只进 Word **批注**（作者 **A**），且每条批注必须含 **建议修改后内容**；禁止裸 flag。研究本身的阴性结果（如 *no significant difference*、*was not associated with*）不受本条禁止。质控：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
+- When landing a point, the edit unit is **词或句** (word or sentence); forbid whole-paragraph rewrite. Quoted text in the letter is that revised sentence. Ownership: see `00_orchestrator/references/ownership-contract.md`.
+- Whether each point is truly resolved: use this file's status (Resolved / Partially resolved / Unresolved / New issue); do not only check “whether a sentence was added.”
+- Manuscript comments (稿面批注) carry source: `[A:personal]` / `[B:revise]` / `[B:…]`, etc.
+- Mount suggestion vs lab doctrine conflict: comment states conflict + fix plan (before/after); **用户决定** (user decides). After agreement, Aitee still applies Track Changes. Lee does not edit the body by default.
+- Decidable body edits: Lee comments for Aitee TC-fix. Past tense only for edits already landed.
+- Still undecidable (missing source/analysis, ethics Date/NO unset): the **matching response point** must say pending and name the pending source. Do not write that point as already done. `Suggested …` stays in Word 批注 (see ownership-contract), not as invent/disclaimer in the letter body. Do not pretend experiments were done.
+- **Process-negation / 未做-class (owner 2026-10-23):** Sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **批注** only (author **A**), and every comment **must** include **建议修改后内容**; bare flags forbidden. Empirical negative findings (*no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
 
 ---
 
 ## Uncertainty and disagreement (回复审稿人画像)
 
-Corpus habit for **审稿回复** (not for inventing data):
+Corpus habit for **审稿回复** / response letters (not for inventing data):
 
 - Keep replies short and concrete. Confirm, clarify, or refuse with evidence — no long defense essays.
 - If the reviewer is wrong on a fact, politely correct **with the source** (HTML row, table, guideline). Do not rewrite the paper into an incorrect request.
@@ -348,7 +295,7 @@ Then set one status:
 Need data, ethics, or unrun analysis → question the user; optional reference-only sentence; no silent edit.
 
 ### B. Call sibling
-Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee 默认不改正文. Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
+Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
 ### C. Reschedule mount (rare)
 Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-base source.

@@ -34,7 +34,7 @@ Unlike nature-writing or nature-figure, nature-response has no fragment axis. It
 
 - **task mode** — `draft` / `audit` / `revise` / `triage-only` / `cover-letter` / `revision-package` / `latex-template` / `appeal-like`.
 - **decision type** — minor revision, major revision, revise-and-resubmit, transfer after review, or unclear.
-- **user language** — if the user writes Chinese, also produce the 中文核对 block.
+- **user language** — if the user writes Chinese, also produce the 中文核对 (Chinese check) block.
 
 Decision type is required for a new package-level revision strategy or complete response package.
 First extract it from the editor letter or task context. If it remains unclear, ask whether this
