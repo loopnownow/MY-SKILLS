@@ -2,7 +2,7 @@
 
 Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `skills.md` §1b).
 
-**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `skill-harvest/HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base.
+**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `0doc` trees.
 
 ## Evidence
 
@@ -126,6 +126,6 @@ Any “no” → do not promote; fall back to corpus-only or revise the candidat
 
 ### Pointers
 
-- Collection standard (SSOT): `{doc_root}\skill-harvest\HARVEST-STANDARD.md`
+- Collection standard (SSOT): `{doc_skill_harvest}\HARVEST-STANDARD.md`
 - Fine-ID thin pointer: `01_skill-integration/references/text-harvest-by-fine-id.md`
 - Rules gate: `MY-RULES/skills.md` §3 (propose-only; task-flow body lives in this file)

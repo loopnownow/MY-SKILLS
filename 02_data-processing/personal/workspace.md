@@ -29,7 +29,7 @@ If the user only opens/`cd`s into a project and names no 01–06 verb, **ask whi
 |------|------|------|
 | Scratch / old drafts / one-off scripts | `{DEL}/<task>/` (on this machine, new directories only under `{DEL}/_by-project/` or `{DEL}/_by-function/`) | Never treat as current results |
 | Shared stats library | `{code_modules}/` (gold) | Entry: `PYTHONPATH={code_stats}` then `python -m modules.pipeline`. Projects **point at** this tree; do not vendor it and do not keep a second `modules/` inside each project. If the current request does not explicitly ask to change `{code_modules}`, do not modify that library; project HTML only points at it. |
-| Ops / clean-data / sync | `{code_root}/` children | Organize / clean / sync — **not** the stats engine. Children: `02-data-processing/base/clean-data/` `02-data-processing/base/clean-data/clinical-data-extraction/` `02-data-processing/base/preprocess-imaging/` `03-research/base/fill-protocol/` `04-analysis/base/draw-flowchart/` `05-manuscript/base/write-paper/` `07-response/base/revise/` `_infra/_templates/` `_infra/sync/` `_infra/lab-reference/` `_infra/review-response/md-corpus/`. Stats via `{code_modules}/` with `PYTHONPATH={code_stats}`. Fine-ID index: `{code_root}\README.md` (+ `CODE-MANIFEST.tsv`). |
+| Ops / clean-data / sync | `{code_root}/` children | Organize / clean / sync — **not** the stats engine. 02 routes, tidy, and smoke live under `0doc\_code\02-data-processing\` (`{code_data_processing}`; **no** `base\`): `{code_clean_data}` (incl. `clinical-data-extraction\`, `tidy_complete.py`), `{code_preprocess_imaging}`, `{code_sync}` (`smoke_test.py`, `sync_modules.py`). Other stage children (no `base\`): `{code_fill_protocol}` `{code_figures}` `{code_write_paper}` `{code_revise}` `{code_lab_reference}` `{code_md_corpus}`. Templates stay `{code_root}\_infra\_templates\`. Stats via `{code_modules}/` with `PYTHONPATH={code_stats}`. Fine-ID index: `{code_root}\README.md` (+ `{code_code_manifest}`). |
 | Reference packs | project `ref/` or `0ref/` | Templates, checklists, locked notes |
 | Study/write state (optional) | `ref/project-state.yaml` | Copy from `00_orchestrator/templates/project-state.yaml`. Design + manuscript progress only. **Run keys stay in `settings.ini`.** |
 | Current analysis | `<project>/<endpoint>/` or `<project>/<endpoint>/<positive_display>_vs_<negative_display>/` | One `Results{subproject}.html` / `Results{subproject}.html` ↔ one live manuscript. Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Unpolished: `Manuscript_<outcome>_house.docx`. After a polish archive: live `Manuscript_<outcome>_polished.docx`, house draft in `0del/<project>/<outcome>/`. Pairwise always nests under the outcome folder; pair folder uses display names. |
@@ -49,7 +49,7 @@ Same folder, multiple manuscripts: keep the latest that matches the current HTML
 1. Align clinical rows to the radiomics ID list. Unmatched IDs go to a separate sheet. Do not rename radiomics feature columns after alignment.
 2. Clinical categoricals: English labels (`Positive`/`Negative`, `Male`/`Female`). Do not write 0/1 unless the column is a score or a count.
 3. Drop columns above the missingness cutoff (lab default **>50%**; user may raise it) **before** imputation.
-4. Impute with the `clean-data` impute module (`02_data-processing/base/clean-data/impute/`; group-stratified; default `mice`; decimal-align). Use the global `{code_modules}\utils\u_impute.py` (standalone: `0doc\_code\02-data-processing\base\clean-data\tidy_complete.py --strategy impute`).
+4. Impute with the `clean-data` impute module (`02_data-processing/base/clean-data/impute/`; group-stratified; default `mice`; decimal-align). Use the global `{code_modules}\utils\u_impute.py` (standalone: `{code_clean_data}\tidy_complete.py --strategy impute`, under `0doc\_code\02-data-processing\clean-data\`).
 5. `exc` sheet: first column = IDs to drop. **Exclude, then analyze.** Building an analysis workbook creates a blank `exc` if missing. Sync is merged into `modules/stats/data_io.py` + `false_class.py`; old sync scripts are archived and no longer run.
 6. Columns at or before `record_id` (IDs, names, match-status) do not enter models.
 
@@ -59,7 +59,7 @@ Do not invent values. Ask when a label or ID is ambiguous.
 
 - One workbook: `false_classification.xlsx`.
 - Required columns include **Group** and **Pattern** (not a separate `all_FN_or_all_FP` sheet).
-- Color FN/FP cells. Sync: `modules/stats/false_class.py` (`save_false_classification_xlsx`); smoke test `0doc/_code/_infra/sync/smoke_test.py`.
+- Color FN/FP cells. Sync: `modules/stats/false_class.py` (`save_false_classification_xlsx`); smoke test `{code_sync}\smoke_test.py` (`0doc\_code\02-data-processing\_shared\sync\smoke_test.py`).
 
 ## Console vs settings / `sync_modules`
 
