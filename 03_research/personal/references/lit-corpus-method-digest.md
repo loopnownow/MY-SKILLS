@@ -8,7 +8,7 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_root}\skill-harvest\sources\library-methods-20261023\lit-corpus-method\` |
+| Durable original | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lit-corpus-method\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\lit-corpus-method\` |
 | Data SSOT (stays live) | `{doc_root}\_library\lit-corpus\` (`index.csv`, `themes.md`, layer READMEs) |
 | CSV header template | `03_research/personal/references/lit-corpus-index.template.csv` |

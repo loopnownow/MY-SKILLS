@@ -7,7 +7,7 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_root}\skill-harvest\sources\library-methods-20261023\lab-ref-method\` |
+| Durable original | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ref-method\` |
 | Park (pending purge) | `{DEL}\_by-project\0doc-library-methods-20261023\lab-ref-method\` |
 | Data SSOT (stays live) | `{doc_root}\_library\lab-ref-ranges\` (`README` + `schema.yaml` + xlsx + `qc\gate-hooks.md`) |
 | Related method | `scanner-registry-digest.md`（抽取结构先例）; Lab-STE = 语言 only |
