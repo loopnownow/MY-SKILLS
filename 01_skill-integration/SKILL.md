@@ -81,4 +81,4 @@ Full text: [`references/hard-rules.md`](references/hard-rules.md).
 
 ## Owner text harvest
 
-Default filter for owner-supplied text: `references/text-harvest-by-fine-id.md` (细ID → 语料库要素 / 过程 / 注意事项). Disk SSOT: `_corpus/skill-harvest/HARVEST-STANDARD.md` §7.
+Default filter for owner-supplied text: `references/text-harvest-by-fine-id.md` (细ID → 语料库要素 / 过程 / 注意事项). Disk SSOT: `skill-harvest/HARVEST-STANDARD.md` §7.

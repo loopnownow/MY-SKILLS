@@ -101,7 +101,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate) Harvest ????????? intake????????? SSOT ? `_corpus/skill-harvest/HARVEST-STANDARD.md`?
+Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate) Harvest ????????? intake????????? SSOT ? `skill-harvest/HARVEST-STANDARD.md`?
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 

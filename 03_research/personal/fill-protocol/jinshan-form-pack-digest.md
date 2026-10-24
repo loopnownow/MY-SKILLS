@@ -7,7 +7,7 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\study-design\fill-protocol\` |
+| Durable original | `{doc_root}\skill-harvest\sources\library-methods-20261023\study-design\fill-protocol\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\` |
 | Blank templates | `{doc_root}\templates\ethics-blank\` |
 | Filled/PHI | ethics tree / `{raw_root}\_lab\ethics\raw-20261023\` — **never GitHub** |

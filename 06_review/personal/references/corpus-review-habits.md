@@ -1,6 +1,6 @@
 # Corpus review habits (harvest 2026-10-23)
 
-> Curated from `_corpus/skill-harvest/06-review-habits-candidates.md` (116 review-text files; ethics PDFs excluded).
+> Curated from `skill-harvest/06-review-habits-candidates.md` (116 review-text files; ethics PDFs excluded).
 > Additive checklist for `peer-review` / `self-review` / `simulate-reviewers`. Does not replace `review.md` envelope.
 
 ## Theme coverage (file-level hits)
@@ -37,4 +37,4 @@ Buckets: grant-review 40 · journal-review 25 · projects 50 · thesis-review 1.
 ## Pointers
 
 - Envelope: `../review.md`
-- Harvest draft: `{doc_root}\_corpus\skill-harvest\06-review-habits-candidates.md`
+- Harvest draft: `{doc_root}\skill-harvest\06-review-habits-candidates.md`

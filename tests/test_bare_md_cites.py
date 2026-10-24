@@ -51,7 +51,7 @@ EXTERNAL = {
     # 0doc / park / harvest (not vendored into MY-SKILLS)
     "INDEX-thesis.md",  # roles-park thesis quote index
     "themes.md",  # {doc_root}\_library\lit-corpus\themes.md
-    "HARVEST-STANDARD.md",  # {doc_root}\_corpus\skill-harvest\
+    "HARVEST-STANDARD.md",  # {doc_root}\skill-harvest\
     "harvest-projects-cut.md",  # skill-harvest companion
     "harvest-verified-links.md",  # skill-harvest companion
     # grant fulltext skeleton section headings (park originals, not in repo)

@@ -1,6 +1,6 @@
 # Corpus voice notes (harvest 2026-10-23)
 
-> Curated from `_corpus/skill-harvest/05-voice-from-quotes.md` (312 quote cards → top patterns).
+> Curated from `skill-harvest/05-voice-from-quotes.md` (312 quote cards → top patterns).
 > **Additive** reference for `write-paper` / `voice-portrait`. Does **not** replace `voice-portrait.md` or `Aitor-format.md`.
 > Standing: process 否定句 / CYA hedges → Word 批注 only (AL-5). Do **not** copy disclaimer hedges into manuscript body from this file.
 
@@ -25,4 +25,4 @@
 
 - Live portrait: `../voice-portrait.md`
 - Format locks: `../Aitor-format.md`
-- Harvest draft (full scored list): `{doc_root}\_corpus\skill-harvest\05-voice-from-quotes.md`
+- Harvest draft (full scored list): `{doc_root}\skill-harvest\05-voice-from-quotes.md`

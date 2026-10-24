@@ -60,6 +60,7 @@ aliases:
   code_corpus_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-10-24: harvest SSOT moved {_corpus\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_runtime}/{rules_git} = MY-RULES clone; Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}; master copy (local git only) at {code_modules_master}."

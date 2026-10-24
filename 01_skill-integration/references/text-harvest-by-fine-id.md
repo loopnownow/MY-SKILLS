@@ -4,7 +4,7 @@
 
 **Standing (2026-10-24, 城城):** harvest **任务流程**由 **00_orchestrator** 管理，并做成收集标准（非新 evolution 树）。流程正文 → `00_orchestrator/references/skill-evolution.md`「Harvest 任务流程」。候选/证据字段 → 收集标准 §8。
 
-Disk SSOT: `{doc_root}\_corpus\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
+Disk SSOT: `{doc_root}\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
 
 | Bucket | Store |
 |---|---|
@@ -18,7 +18,7 @@ Disk SSOT: `{doc_root}\_corpus\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
 
 1. Resolve fine-ID via `01_skill-integration` / skill tree (`NN_slug/base/<fine-id>/`).
 2. One text → possibly many fine-IDs; **split** — do not paste the whole text into every lane.
-3. Draft under `_corpus/skill-harvest/` (prefer `<fine-id>-harvest.md` with the three Chinese `##` headings). Absorb into skills only when owner says「进skills」(**extract ≠ promote**).
+3. Draft under `skill-harvest/` (prefer `<fine-id>-harvest.md` with the three Chinese `##` headings). Absorb into skills only when owner says「进skills」(**extract ≠ promote**).
 4. Drop sentences that fit no bucket for any fine-ID (or park as owner triage notes).
 5. Never harvest ethics/PHI, full grant/manuscript bodies, or `_code` `.py` trees into skills.
 6. 成功案例默认进 corpus；AI假设永不自动改 runtime。调度与回归四问 → 00 `skill-evolution.md`。
