@@ -214,4 +214,4 @@ Fixed spine from forms:
 - 五、完成指标
 
 ## NOT absorbed
-Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `_corpus/.../library-ftp-20261023/fulltext/` and 0del park.
+Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `_corpus/.../library-ftp-20261023/fulltext/` and the {raw_root}\_lab park.

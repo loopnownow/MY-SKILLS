@@ -28,7 +28,7 @@
 
 - High-volume language tags (`wording`, `tense-voice`, `sentence-polish`, `article-prep`) → polish-language / humanize chain after content is locked.
 - `claim-down` / `limitation` / `hedge` → respect voice-portrait: Results unhedged; Discussion calibrated; process 否定句 → Word comment only.
-- Full pattern pages + units remain regenerable under 0doc (or 0del after move); skills keep this summary.
+- Full pattern pages + units remain regenerable under 0doc (or the {raw_root}\_lab originals park after move); skills keep this summary.
 
 ## Pointers
 

@@ -22,7 +22,7 @@
 - `slug`: stable id (`03-<pinyin>-<doctype>`)
 - `fidelity`: `final-text` (docx) or `salvaged-text` (doc / docbin)
 - `mode`: always `write` in this batch
-- `source_docx` / `source_sha256`: point at Word under `0del\_by-project\0doc-word-sources\03-research\grants\`
+- `source_docx` / `source_sha256`: point at Word under `{raw_root}\_lab\doc-word\03-research\grants\`
 - Body = **verbatim excerpt** with trailing `¶N` paragraph markers — not rewrite
 
 ## `##` section union (frequency)
