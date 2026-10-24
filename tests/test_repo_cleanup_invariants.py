@@ -216,7 +216,7 @@ class Forbidden06StandaloneSheets(unittest.TestCase):
 
 
 class WorkflowLocation(unittest.TestCase):
-    """SOPs live under 01_skill-integration/workflows/; not under 00 or 03."""
+    """SOPs live under 01_skill-integration/workflows/; 00/03 workflow dirs absent."""
 
     def test_sops_home_under_01(self) -> None:
         missing = [
@@ -231,46 +231,28 @@ class WorkflowLocation(unittest.TestCase):
             + "\n".join(missing),
         )
 
-    def test_no_sop_bodies_under_00_or_03(self) -> None:
-        bad: list[str] = []
-        for folder in WORKFLOW_FORBIDDEN_DIRS:
-            if not folder.is_dir():
-                continue
-            for path in folder.glob("*.md"):
-                if path.name.lower() == "readme.md":
-                    continue
-                bad.append(path.relative_to(ROOT).as_posix())
+    def test_00_and_03_workflow_dirs_absent(self) -> None:
+        present = [
+            folder.relative_to(ROOT).as_posix()
+            for folder in WORKFLOW_FORBIDDEN_DIRS
+            if folder.exists()
+        ]
         self.assertEqual(
-            bad,
+            present,
             [],
-            "Workflow SOP/bodies must not live under 00 or 03 "
-            "(README pointers only):\n" + "\n".join(bad),
+            "00_orchestrator/workflows and 03_research/workflows must NOT exist "
+            "(call 01_skill-integration/workflows/ directly):\n" + "\n".join(present),
         )
 
 
 class Qc00PointersOnly(unittest.TestCase):
-    """00_orchestrator/qc holds stubs/pointers only; bodies live in 02-07/qc."""
+    """00_orchestrator/qc must NOT exist; bodies live in 02-07/qc only."""
 
-    def test_00_qc_non_readme_are_stubs_or_absent(self) -> None:
-        if not QC00.is_dir():
-            return
-        bad: list[str] = []
-        for path in sorted(QC00.rglob("*")):
-            if not path.is_file():
-                continue
-            if path.name.lower() == "readme.md":
-                continue
-            rel = path.relative_to(ROOT).as_posix()
-            text = path.read_text(encoding="utf-8", errors="ignore")
-            stubby = bool(QC_STUB.search(text)) and len(text) < 800
-            if not stubby:
-                bad.append(f"{rel} ({len(text)} bytes)")
-        self.assertEqual(
-            bad,
-            [],
-            "Substantive QC under 00_orchestrator/qc/ "
-            "(move bodies to 02-07/qc/, leave stubs/pointers only):\n"
-            + "\n".join(bad),
+    def test_00_qc_dir_absent(self) -> None:
+        self.assertFalse(
+            QC00.exists(),
+            "00_orchestrator/qc/ must NOT exist "
+            "(seat standards under 02-07/qc/; 00 calls them via gates.md)",
         )
 
 

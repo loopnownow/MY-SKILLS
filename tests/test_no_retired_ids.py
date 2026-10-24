@@ -57,7 +57,6 @@ def _scan_paths() -> list[Path]:
         "*_*/SKILL.md",
         "*_*/personal/route.md",
         "*_*/base/**/MODULE.md",
-        "00_orchestrator/workflows/*.md",
         "00_orchestrator/gates.md",
         "00_orchestrator/runtime-flow.mmd",
         "ARCHITECTURE.md",
