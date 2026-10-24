@@ -643,12 +643,12 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
   <nav>{nav}</nav>
 </header>
 <main>
-  <p class="banner">生成时间 @@GENERATED_AT@@。本页由仓库内 IR 直接生成为 HTML（不经任何外部渲染包）。构建状态 ir-shape-checked。GitHub Pages 未发布。事实源是 MY-SKILLS，不是本页。</p>
+  <p class="banner">Generated @@GENERATED_AT@@. This page is HTML built directly from in-repo IR (no external renderer). Build status ir-shape-checked. GitHub Pages not published. Fact source is MY-SKILLS, not this page.</p>
   {body}
 </main>
 <footer>
   <p>source fingerprint <code>{esc(digest)}</code></p>
-  <p>设计历史不是首页。规格在 <code>04_analysis/personal/visualization/visualization-architecture.md</code>。</p>
+  <p>Design history is not the home page. Spec lives in <code>04_analysis/personal/visualization/visualization-architecture.md</code>。</p>
 </footer>
 </body>
 </html>
@@ -656,13 +656,13 @@ def shell(title: str, body: str, version: str, digest: str, nav: str) -> str:
 
 
 NAV = (
-    '<a href="{home}">首页</a>'
-    '<a href="{arch}">Architecture 状态</a>'
-    '<a href="{wf}">Workflow 状态</a>'
-    '<a href="{skills}">Skill 索引</a>'
+    '<a href="{home}">Home</a>'
+    '<a href="{arch}">Architecture status</a>'
+    '<a href="{wf}">Workflow status</a>'
+    '<a href="{skills}">Skill index</a>'
     '<a href="{mounts}">Mounts</a>'
     '<a href="{delta}">Delta</a>'
-    '<a href="{history}">设计历史</a>'
+    '<a href="{history}">Design history</a>'
 )
 
 
@@ -685,7 +685,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
             f"<dl><dt>source</dt><dd><code>{esc(skill['path'])}</code></dd>"
             f"<dt>name</dt><dd><code>{esc(skill['name'])}</code></dd>"
             f"<dt>description</dt><dd>{esc(skill['description'])}</dd></dl>"
-            "<p>正文仍在源 SKILL.md。本页只取 frontmatter，不把正文画成图。</p>"
+            "<p>Body text stays in source SKILL.md. This page takes frontmatter only; it does not draw the body as a diagram.</p>"
         )
         links = {
             "home": "../index.html",
@@ -721,7 +721,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
     }
     files["skills/index.html"] = shell(
         "Skill index",
-        "<p>按 00–07 索引（演进政策见 MY-RULES skills.md (skill-evolution)）。页面来自 SKILL.md frontmatter。</p>" + "".join(sections),
+        "<p>Indexed by 00–07 (evolution policy: MY-RULES skills.md (skill-evolution)). Pages from SKILL.md frontmatter.</p>" + "".join(sections),
         version,
         digest,
         nav_for(**links),
@@ -912,28 +912,28 @@ def build() -> dict:
     comp_rows = [(c["id"], c["label"]) for c in arch["components"]]
     node_rows = [(n["id"], n["label"]) for n in wf["nodes"]]
     arch_extra = (
-        "<p>本页由仓库内 IR 生成，不经外部渲染包。下列字段来自同一份 IR。"
-        " IR 文件是 <a href=\"architecture.json\"><code>architecture.json</code></a>。"
-        f" schema_version {arch['schema_version']}。字段 components / boundaries / connections。</p>"
+        "<p>This page is generated from in-repo IR with no external renderer. Fields below come from the same IR."
+        " IR file: <a href=\"architecture.json\"><code>architecture.json</code></a>."
+        f" schema_version {arch['schema_version']}. Fields: components / boundaries / connections.</p>"
     )
     wf_extra = (
-        "<p>本页由仓库内 IR 生成，不经外部渲染包。下列字段来自同一份 IR。"
-        " IR 文件是 <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>。"
-        f" schema_version {wf['schema_version']}。字段 lanes / phases / groups / mainPath / nodes / edges。"
-        " 03、Lit05、Lit06 与 mid-entry 在节点和边上。</p>"
+        "<p>This page is generated from in-repo IR with no external renderer. Fields below come from the same IR."
+        " IR file: <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>."
+        f" schema_version {wf['schema_version']}. Fields: lanes / phases / groups / mainPath / nodes / edges."
+        " 03, Lit05, Lit06, and mid-entry appear on nodes and edges.</p>"
     )
     home_body = (
         "<div class=\"grid\">"
-        "<section class=\"card\"><h2>Architecture</h2><p>系统组成与边界。</p>"
-        "<p><a href=\"architecture/status.html\">打开 Architecture 状态页</a></p></section>"
-        "<section class=\"card\"><h2>Workflow</h2><p>任务如何运行，含中途入口、Lit05、Lit06 与 QC 环。</p>"
-        "<p><a href=\"workflow/status.html\">打开 Workflow 状态页</a></p></section>"
+        "<section class=\"card\"><h2>Architecture</h2><p>System components and boundaries.</p>"
+        "<p><a href=\"architecture/status.html\">Open Architecture status</a></p></section>"
+        "<section class=\"card\"><h2>Workflow</h2><p>How tasks run, including mid-entry, Lit05, Lit06, and the QC loop.</p>"
+        "<p><a href=\"workflow/status.html\">Open Workflow status</a></p></section>"
         "<section class=\"card\"><h2>Mounts</h2>"
-        f"<p>默认原子挂载源 <code>{esc(reg['default_source']['id'])}</code>。"
+        f"<p>Default atomic mount source <code>{esc(reg['default_source']['id'])}</code>."
         "OpenClaw is not a default atomic mount source.</p>"
-        "<p><a href=\"mounts/index.html\">打开 mount 索引</a></p></section>"
-        "<section class=\"card\"><h2>Skills</h2><p>00–07 的 frontmatter 页面。</p>"
-        "<p><a href=\"skills/index.html\">打开 Skill 索引</a></p></section>"
+        "<p><a href=\"mounts/index.html\">Open mount index</a></p></section>"
+        "<section class=\"card\"><h2>Skills</h2><p>Frontmatter pages for 00–07.</p>"
+        "<p><a href=\"skills/index.html\">Open Skill index</a></p></section>"
         "</div>"
         "<h2>Build</h2><dl>"
         "<dt>schema_version</dt><dd>architecture 1 · workflow 2</dd>"
@@ -946,9 +946,9 @@ def build() -> dict:
         "<a href=\"changes/latest-delta.html\">structural Delta</a></p>"
     )
     history_body = (
-        "<p>这不是文档首页。首页是 <a href=\"../index.html\">index.html</a>。</p>"
-        "<p>批准的规格在 <a href=\"../../04_analysis/personal/visualization/visualization-architecture.md\">04_analysis/personal/visualization/visualization-architecture.md</a>。</p>"
-        "<p>本索引由生成器写出，规格正文不是生成物。</p>"
+        "<p>This is not the docs home page. Home is <a href=\"../index.html\">index.html</a>.</p>"
+        "<p>Approved spec: <a href=\"../../04_analysis/personal/visualization/visualization-architecture.md\">04_analysis/personal/visualization/visualization-architecture.md</a>。</p>"
+        "<p>This index is written by the generator; the spec body is not a generated artifact.</p>"
     )
     after = facts_from_ir(arch, wf)
     delta = structural_delta(empty_facts(), after)

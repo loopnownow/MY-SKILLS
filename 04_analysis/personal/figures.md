@@ -17,119 +17,119 @@ One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical,
 
 | id | Label | Use | Main (5) | Aux (5) |
 |----|-------|-----|----------|---------|
-| `npg` | NPG 现行 | **Default.** Revisions / extra panels so Combined / RadScore / Clinical do not jump | `#D55E00` `#B2182B` `#2166AC` `#762A83` `#117733` | `#44AA99` `#DDCC77` `#EE8866` `#AA4499` `#332288` |
+| `npg` | NPG current | **Default.** Revisions / extra panels so Combined / RadScore / Clinical do not jump | `#D55E00` `#B2182B` `#2166AC` `#762A83` `#117733` | `#44AA99` `#DDCC77` `#EE8866` `#AA4499` `#332288` |
 | `okabe` | Okabe–Ito | **New project first choice.** Color-blind safe | `#D55E00` `#0072B2` `#009E73` `#CC79A7` `#E69F00` | `#56B4E9` `#332288` `#882255` `#44AA99` `#999999` |
 | `tol` | Paul Tol | Print / Radiology large figures | `#CC6677` `#332288` `#117733` `#88CCEE` `#DDCC77` | `#AA4499` `#44AA99` `#882255` `#6699CC` `#999933` |
-| `radiology` | 青橙 | Lab console / series papers | `#0F4C5C` `#C44E52` `#3B6EA5` `#E07A3D` `#2F6F4E` | `#7EB6A4` `#88B4D8` `#D4A373` `#6B5B95` `#8A8A8A` |
+| `radiology` | teal-orange | Lab console / series papers | `#0F4C5C` `#C44E52` `#3B6EA5` `#E07A3D` `#2F6F4E` | `#7EB6A4` `#88B4D8` `#D4A373` `#6B5B95` `#8A8A8A` |
 | `ibm` | IBM | Projection / results HTML | `#DA1E28` `#0F62FE` `#198038` `#8A3FFC` `#B28600` | `#1192E8` `#009D9A` `#FA4D56` `#A56EFF` `#6F6F6F` |
 
 `npg` keeps the **legacy named** map for clinical covariates (LNM, FIGO, …) so old figures do not recolor.
 
 Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swatches become custom; write-back goes to `ref/settings.ini`.
 
-## 发表用扩展色板（10套，非 console 绑定）
+## Publication extension palettes (10 sets; not console-bound)
 
-不进 `style.py` / `console.html`，不受 `FIG_PALETTE` 管理；手动引用，用于投稿图表而非 0RAD 流水线出图。全部来自公开科研配色规范（ColorBrewer / matplotlib 内建 / Paul Tol / Crameri / ggsci 开源包），按图表类型分类，覆盖 `lab-palettes` 五套 + 挂载 `plot-figures`（Okabe-Ito/NPG/Morandi）没有覆盖到的连续量、发散量、灰阶安全场景。
+Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not 0RAD pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the five `lab-palettes` sets plus mounted `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
 
-| id | Label | 类型 | 用途 | 取值/来源 |
-|----|-------|-----|------|-----------|
-| `brewer-set2` | ColorBrewer Set2 | 分类，柔和 | 分组少（≤6）的柱状/散点图，色盲友好 | `#66C2A5 #FC8D62 #8DA0CB #E78AC3 #A6D854 #FFD92F` |
-| `brewer-dark2` | ColorBrewer Dark2 | 分类，饱和 | 多组折线图，需要强区分度时 | `#1B9E77 #D95F02 #7570B3 #E7298A #66A61E #E6AB02` |
-| `viridis` | Viridis | 连续，感知均匀 | 热图/密度图/连续风险评分，色盲与灰阶均安全 | matplotlib 内建 colormap，直接 `cmap="viridis"` |
-| `magma` | Magma | 连续，暖色 | viridis 的暖色替代，radiomics 特征热图避免"绿=正常"的临床联想 | matplotlib 内建，`cmap="magma"` |
-| `cividis` | Cividis | 连续，色盲优化 | 审稿人可能色弱时的连续量首选，专为色盲设计 | matplotlib 内建，`cmap="cividis"` |
-| `rdbu` | RdBu Diverging | 发散 | 相关矩阵/特征选择热图，正负值对称场景 | ColorBrewer diverging，`cmap="RdBu_r"` |
-| `prgn` | PRGn Diverging | 发散，紫绿 | 需要避开红-绿关联（政治/临床）时的发散量替代 | ColorBrewer diverging，`cmap="PRGn"` |
-| `batlow` | Batlow (Crameri) | 连续，科学色图 | 期刊（Nature/Science系）近年要求的抗感知畸变色图，替代传统 jet/rainbow | Fabio Crameri scientific colour maps，开源 BSD |
-| `grayscale-safe` | 灰阶安全斜坡 | 单色渐变 | 部分期刊仍要求黑白打印可辨；投稿前用此渐变复核 | `#F7F7F7 #CCCCCC #969696 #636363 #252525` |
-| `ggsci-lancet` | ggsci Lancet | 分类，期刊风格 | 投柳叶刀系期刊时接近其视觉规范 | R 包 `ggsci::pal_lancet()`，开源 MIT |
+| id | Label | Type | Use | Values / source |
+|----|-------|------|-----|-----------------|
+| `brewer-set2` | ColorBrewer Set2 | categorical, soft | ≤6-group bar/scatter; color-blind friendly | `#66C2A5 #FC8D62 #8DA0CB #E78AC3 #A6D854 #FFD92F` |
+| `brewer-dark2` | ColorBrewer Dark2 | categorical, saturated | multi-series line charts needing strong separation | `#1B9E77 #D95F02 #7570B3 #E7298A #66A61E #E6AB02` |
+| `viridis` | Viridis | continuous, perceptually uniform | heatmaps / density / continuous risk scores; color-blind and grayscale safe | matplotlib built-in; `cmap="viridis"` |
+| `magma` | Magma | continuous, warm | warm alternative to viridis; radiomics feature heatmaps avoid “green = normal” clinical cue | matplotlib built-in; `cmap="magma"` |
+| `cividis` | Cividis | continuous, color-blind optimized | first choice for continuous values when reviewers may be color-weak | matplotlib built-in; `cmap="cividis"` |
+| `rdbu` | RdBu Diverging | diverging | correlation / feature-selection heatmaps; signed symmetric values | ColorBrewer diverging; `cmap="RdBu_r"` |
+| `prgn` | PRGn Diverging | diverging, purple-green | diverging alternative when red–green associations (political/clinical) must be avoided | ColorBrewer diverging; `cmap="PRGn"` |
+| `batlow` | Batlow (Crameri) | continuous, scientific | perceptually safe maps journals (Nature/Science family) increasingly expect; replaces jet/rainbow | Fabio Crameri scientific colour maps; BSD |
+| `grayscale-safe` | grayscale-safe ramp | mono gradient | some journals still require B&W print legibility; re-check with this ramp before submission | `#F7F7F7 #CCCCCC #969696 #636363 #252525` |
+| `ggsci-lancet` | ggsci Lancet | categorical, journal style | closer to Lancet-family visual norms | R package `ggsci::pal_lancet()`; MIT |
 
-选择规则：分类变量（≤6组）用 `brewer-set2`/`brewer-dark2`；连续量（风险评分/概率/密度）用 `viridis`/`magma`/`cividis`；相关矩阵/差值热图用 `rdbu`/`prgn`；投稿前灰阶复核统一过一遍 `grayscale-safe`；投特定期刊时叠加对应 `ggsci-*` 风格。与 `lab-palettes` 五套的关系：console 出图（KM/ROC/风险分层）继续用 npg/okabe/tol/radiology/ibm；这10套用于连续量/矩阵类图或首次投稿的期刊适配，两者不混用同一张图。
+Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continuous (risk/probability/density) → `viridis` / `magma` / `cividis`; correlation / difference heatmaps → `rdbu` / `prgn`; grayscale pre-submission pass → `grayscale-safe`; journal-specific overlay → matching `ggsci-*`. Relation to the five `lab-palettes`: console plots (KM/ROC/risk strata) keep npg/okabe/tol/radiology/ibm; these 10 are for continuous/matrix figures or first-submission journal fit. Do not mix both on the same figure.
 
 
 ---
 
 ## Part B — Figure claim planning
 
-# Figure claim planning (放射组学/临床预测图表规划)
+# Figure claim planning (radiomics / clinical prediction)
 
-**Owner:** `04_analysis`. 适用于生成投稿图表前的规划阶段，不是画完图再补救。与 `personal/figures.md`（配色）、mounted `plot-figures`（具体图型模板）配合使用，本文件只管"先想清楚"这一步。
+**Owner:** `04_analysis`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `personal/figures.md` (palettes) and mounted `plot-figures` (chart templates). This section only covers “think first”.
 
-## 1. 先问论断，再选图型——不按"这类数据通常怎么画"选图
+## 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 
-选图前问自己：**这张图要向读者证明哪一句 Discussion 里的话？** 论断决定图型，不是数据类型或美观偏好决定图型。本实验室常见论断 → 图型映射：
+Before choosing a chart, ask: **which Discussion sentence must this figure prove to the reader?** The claim picks the chart type, not the data type or aesthetics. Lab claim → chart map:
 
-| 论断类型 | 用这个 | 不要用这个 |
+| Claim type | Use this | Do not use this |
 |---|---|---|
-| "Combined 模型优于 Clinical" | 配对 ROC 叠加图 + 图注标 DeLong p | 把两个 AUC 分别画柱状图对比（丢了配对信息） |
-| "模型概率预测校准良好" | 校准曲线（预测概率 vs 观察频率） | 只报一个 Brier score 数字，没有图 |
-| "高低风险组生存有差异" | KM + log-rank，风险表放在图下 | Cox 森林图（本实验室不做多变量 Cox，见 `personal/pipeline.md`） |
-| "特征选择稳定" | LASSO 路径图（TRAIN-only StratifiedKFold AUC path） | 特征重要性柱状图（掩盖了选择过程的不稳定性） |
-| "影像组学可重复" | ICC 分布图/森林图，标注 ICC≥0.75 阈值线 | 只报文字"ICC 良好" |
+| “Combined outperforms Clinical” | paired ROC overlay + DeLong p in the legend | two separate AUC bar charts (drops pairing) |
+| “Predicted probabilities are well calibrated” | calibration curve (predicted vs observed) | a lone Brier score with no figure |
+| “High vs low risk differ in survival” | KM + log-rank, risk table under the plot | Cox forest (lab does not run multivariate Cox; see `personal/pipeline.md`) |
+| “Feature selection is stable” | LASSO path (TRAIN-only StratifiedKFold AUC path) | feature-importance bars (hides selection instability) |
+| “Radiomics is reproducible” | ICC distribution / forest with ICC≥0.75 threshold line | prose-only “ICC was good” |
 
-不确定论断是什么时，先把 Discussion 里对应那句话写出来，再倒推图型——句子写不出来，说明这张图还不该动手画。
+If the claim is unclear, write the Discussion sentence first, then back into the chart — if the sentence will not write, the figure should not start.
 
-## 2. 图表-证据清单：动笔前先建，不是画完再对账
+## 2. Figure–evidence checklist: build before drawing, not after reconciling
 
-投一篇稿子前，先列一张清单（可以直接写在 `handoff.yaml` 的 `outputs` 里，或单独存一份 `figure-manifest.md`），每张计划图记三件事：
+Before a submission, list planned figures (in `handoff.yaml` `outputs` or a `figure-manifest.md`). For each figure record three things:
 
-| 图 | 论断（对应 Discussion 哪句） | 数据来源（哪个 `*-results.html`） |
+| Figure | Claim (which Discussion sentence) | Data source (which `*-results.html`) |
 |---|---|---|
-| Fig 2 | Combined 优于 Clinical | `RadScore-results.html` |
-| Fig 3 | 高低风险组生存有差异 | `Survival-results.html` |
+| Fig 2 | Combined outperforms Clinical | `RadScore-results.html` |
+| Fig 3 | High vs low risk differ in survival | `Survival-results.html` |
 
-这张清单不是新发明——它是把已有的 **G-FACT / G-04**（数字必须来自上游 `*-results.html`，不能编造）从"05 写作时事后核对"前移到"04 画图前先登记"。清单建好之后，画图和写作两边都对着同一份表核对，避免图和正文数字对不上却各自都"看起来对"的情况。
+This is not a new invention — it moves existing **G-FACT / G-04** (numbers must come from upstream `*-results.html`, never invented) from “05 checks after writing” to “04 registers before plotting”. Once the list exists, plotting and writing both check the same table, so figure and prose cannot each “look right” while disagreeing.
 
-## 3. 单图修复上限：三轮，第三轮后仍有问题就如实标"未解决"
+## 3. Per-figure repair cap: three rounds; after round 3 mark “unresolved” honestly
 
-每张图：渲染 → 打开实际生成的图片检查（不是看代码觉得应该对）→ 有问题就修 → 重新渲染 → 再检查。**最多三轮**，首次渲染不计入修复轮次。第三轮之后还有问题，保留结果、在 `qc`/`defects` 里如实标注"未解决"，不要为了交付硬把有问题的图标成"通过"。
+Per figure: render → open the actual image (not “the code should be fine”) → fix → re-render → re-check. **At most three repair rounds**; the first render does not count. After round 3, keep the result and mark “unresolved” in `qc`/`defects` — do not stamp a broken figure “pass” just to deliver.
 
-这条复用的是 `gates.md` 里"同一缺陷最多3轮，之后标 unresolved 并停"的通用规则，不是给图表单独定的新上限——只是提醒：图表检查必须是"打开图片看"，不能是"跑完脚本没报错就算过"。
+This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and stop”. Reminder only: figure QC means “open the image”, not “script exited zero”.
 
-## 4. 风格与配色是两个独立开关，不要合并成一次询问的两个选项
+## 4. Style and palette are two independent switches — do not fuse them into one two-option question
 
-**风格**（这张图集是给 0RAD console 内部看，还是给期刊投稿；是否需要额外的组合子图）和**配色**（用 `lab-palettes.md` 的 console 五套，还是发表用扩展的10套）是两件不相关的事，能任意组合。两者都不确定时可以合并成一次询问，但只要有一个已经在项目里确定过（比如这次任务已经定了投稿风格），后续只问缺的那一个，不要连已经定过的一起重新问一遍。同一任务里的补图、改图沿用已确定的两个选择，不逐图重复询问——和已经写进 `00_orchestrator` Plan card 的"问清楚一次不重复问"是同一个习惯。
+**Style** (console-internal vs journal submission; extra composite panels or not) and **palette** (five console `lab-palettes` vs the ten publication extensions) are unrelated and freely combinable. If both are unknown, one combined ask is fine; if either is already fixed for the project (e.g. submission style), ask only for the missing one — do not re-ask what is settled. Extra/reworked figures in the same task reuse both choices; do not re-ask per figure — same habit as the `00_orchestrator` Plan card “ask once, do not re-ask”.
 
 ---
 
-## Part C — Imaging montage workflow (多图拼版：去标识 → 网格 → 分层交付)
+## Part C — Imaging montage workflow (de-identify → grid → layered delivery)
 
-**Owner:** `04_analysis`（个人层）。通用规则（去标识、WL/WW、注释、图注）见 `04_analysis/base/plot-figures/references/imaging-panels.md`；本节只记本人拼版的默认做法与交付格式，不覆盖 base。
+**Owner:** `04_analysis` (personal). Generic rules (de-identify, WL/WW, annotations, legends) live in `04_analysis/base/plot-figures/references/imaging-panels.md`. This section only records the owner's montage defaults and delivery format; it does not override base.
 
-### 1. 步骤
+### 1. Steps
 
-1. **去标识（先做）**：裁剪掉烧录文字中的患者标识——姓名（含中文名）、病历号等 PHI。`Page x of y`、`IM/SE`、标尺/刻度线、边缘竖线、多余黑边按本次要求处理。**Standing (owner 2026-10-21):** 去掉**非患者**烧录标签/文字（设备参数、序列名、非 PHI 注解等）之前，**先问本人**是否保留；未获明确同意不得擅自剥离。**逐张打开裁剪结果肉眼确认**无残留患者标识，不是"坐标算过就算过"。
-2. **不改窗宽窗位/对比度**：只裁剪 + 重采样（Lanczos），像素值不做任何调整。
-3. **网格**：行×列按本人指定；面板顺序按本人原始文件名 a–f（文件改名后按文件大小等对应回去），不按序列类型自行排序。
-4. **单元格**：等大正方形，保持原始比例缩放，不足处**黑色填充**。
-5. **间隔（gutter）**：按本次要求；默认 6 px 白色间隔；本人说"不要间隔"时为 0 px，背景改为黑色（任何地方不露白）。
-6. **标注**：A–F 大写，**Arial Bold**（`arialbd.ttf`；PIL 用 `ImageFont.truetype("arialbd.ttf", 48)`，不要用 DejaVu 等默认字体），白色 + 细黑描边（stroke 2 px），默认放每格**左下角**；打印尺寸约 10–12 pt（300 dpi 下字高约 48 px）。
-7. **尺寸**：双栏 ~174 mm @ 300 dpi ≈ 2055 px 宽（例：6 px 间隔 → 677 px 格，2055×1372；0 间隔 → 685 px 格，2055×1370）。
+1. **De-identify first:** crop burned-in patient identifiers — name (including Chinese names), MRN, and other PHI. Handle `Page x of y`, `IM/SE`, rulers/tick marks, edge bars, and extra black borders per this run's brief. **Standing (owner 2026-10-21):** before stripping **non-patient** burned-in labels/text (device params, sequence names, non-PHI notes, …), **ask the owner** whether to keep them; do not strip without explicit consent. **Open every cropped result and visually confirm** no residual patient ID — “coordinates were calculated” is not enough.
+2. **Do not change WL/WW or contrast:** crop + resample (Lanczos) only; leave pixel values untouched.
+3. **Grid:** rows×cols as the owner specifies; panel order follows the owner's original filenames a–f (after rename, map back by size etc.); do not reorder by sequence type.
+4. **Cells:** equal squares; scale preserving aspect; **black fill** for empty margins.
+5. **Gutter:** per this run; default 6 px white; when the owner says “no gutter”, use 0 px and a black background (no white showing anywhere).
+6. **Labels:** A–F uppercase, **Arial Bold** (`arialbd.ttf`; PIL `ImageFont.truetype("arialbd.ttf", 48)` — not DejaVu defaults), white + thin black stroke (2 px), default **lower-left** of each cell; print size ~10–12 pt (~48 px tall at 300 dpi).
+7. **Size:** dual-column ~174 mm @ 300 dpi ≈ 2055 px wide (e.g. 6 px gutter → 677 px cells, 2055×1372; 0 gutter → 685 px cells, 2055×1370).
 
-### 2. 默认交付
+### 2. Default delivery
 
-- **给本人看的交付物（默认）**：**PNG 预览**（300 dpi）+ **分层 PSD 的 zip**（`.psd.zip`，交付前 `testzip()`）。**不要把裸 `.psd` 交给本人**（文件通常很大）；本人要打开图层时解压 zip 即可。裸 `.psd` 可留在 `ref/tmp` 或 `{DEL}\_by-project\<project>\` 供 QC，不列入「交给本人」清单。
-- **分层 PSD 内容**（写进 zip 里的那份）：Background + 每个面板一层（全画布尺寸，格外透明）+ 标签层；尺寸**宽在前**；写入 300 dpi（ResolutionInfo 1005）；**必须写入扁平合成图**（image data），否则多数查看器显示全黑。
-- **TIFF 仅在本人明确要求时**：扁平、LZW、300 dpi。多页 TIFF 不做，除非要求。
-- 真正的分层 TIFF 在没有 GIMP/Photoshop 的环境里做不出来 → 交 **PSD.zip**，由本人解压后在 Photoshop 中「另存为 TIFF（保留图层）」。
+- **Owner-facing deliverables (default):** **PNG preview** (300 dpi) + **layered PSD zip** (`.psd.zip`, `testzip()` before handoff). **Do not hand the owner a bare `.psd`** (usually huge); unzip when layers are needed. Bare `.psd` may stay in `ref/tmp` or `{DEL}\_by-project\<project>\` for QC — not on the “hand to owner” list (「交给本人」).
+- **Layered PSD contents** (the file inside the zip): Background + one layer per panel (full-canvas size, transparent outside its cell) + Labels layer; size is **width first**; write 300 dpi (ResolutionInfo 1005); **must write a flattened composite** (image data) or most viewers show solid black.
+- **TIFF only when the owner explicitly asks:** flat, LZW, 300 dpi. No multi-page TIFF unless asked.
+- True layered TIFF is impractical without GIMP/Photoshop → deliver **PSD.zip**; owner unzips and “Save As TIFF (preserve layers)” in Photoshop.
 
-### 3. QC（每次交付前全部跑一遍）
+### 3. QC (run all before every delivery)
 
-- 用 psd_tools 重新打开 PSD：`size == (W, H)` 且为横向。
-- `composite()` 与 PNG 预览逐像素比较，diff 必须为 0（存储合成图和 `force=True` 由图层重建各比一次）。
-- 每个面板层的不透明 bbox 落在自己的格子内；标签层只有字母。
-- 0 间隔时：格子交界的行/列及四边白色像素数为 0；Background 层纯黑。
-- zip `testzip()` 返回 None。
-- 预览图打开实际看一遍（同 Part B §3：看图，不是看脚本没报错）。
+- Re-open PSD with psd_tools: `size == (W, H)` and landscape.
+- Pixel-compare `composite()` vs PNG preview; diff must be 0 (once for stored composite, once rebuilt with `force=True`).
+- Each panel layer's opaque bbox stays inside its cell; Labels layer is letters only.
+- With 0 gutter: white pixel count on cell borders/edges is 0; Background is pure black.
+- zip `testzip()` returns None.
+- Actually open the preview (same as Part B §3: look at the image, not “script exited zero”).
 
-### 4. 已知坑
+### 4. Known pitfalls
 
-- **pytoshop 的 `size` 参数是 (width, height)**，numpy 通道数组是 (H, W)；传反会得到竖版 PSD。
-- pytoshop 默认不写合成图 → 打开 PSD 全黑；需设 `psd.image_data`。其 RLE 压缩在新版 Python 下报错（`packbits` 未定义），用 raw（文件大，所以 zip）。
+- **pytoshop `size` is (width, height)**; numpy channel arrays are (H, W); swap them and you get a portrait PSD.
+- pytoshop does not write a composite by default → PSD opens black; set `psd.image_data`. Its RLE path errors on newer Python (`packbits` undefined) — use raw (large files → zip).
 
-标签字体：Arial Bold；Linux 环境若装不到 Arial（`ttf-mscorefonts-installer` 无源），用度量兼容的 Liberation Sans Bold 并在交付说明里写明替代。
+Label font: Arial Bold; on Linux without Arial (`ttf-mscorefonts-installer` unavailable), use metric-compatible Liberation Sans Bold and note the substitute in the delivery note.
 
-关键片段（pytoshop，`flat`/`labels`/各面板为 PIL RGBA 全画布图）：
+Code fragment (pytoshop; `flat` / `labels` / each panel = full-canvas PIL RGBA):
 
 ```python
 from pytoshop import enums, image_resources as ir

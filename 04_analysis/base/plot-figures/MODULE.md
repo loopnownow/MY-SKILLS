@@ -79,7 +79,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 - Captions / display-item plan → `write-paper` / `05_manuscript/base/write-venue/`
 - Harsh read before submission → `self-review`
 
-跨包调研提炼的原则(非挂载，仅规则参考)：[external-principles.md](references/external-principles.md)
+Principles extracted from cross-package research (not a mount; rule reference only): [external-principles.md](references/external-principles.md)
 
 ## On-demand references
 

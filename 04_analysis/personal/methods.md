@@ -7,7 +7,7 @@ Merged 2026-10-16 from personal topic files. Use with `module-notes.md` as thin 
 
 ## General statistics index
 
-# 统计
+# Statistics
 
 Use this file when the user asks about statistical analysis plans, sample size,
 feature selection, modeling, metrics, survival analysis, calibration, decision curve
@@ -16,19 +16,19 @@ imaging AI studies.
 
 ## Core goal
 
-统计模块的目标是把模型结果从“看起来 AUC 很高”变成“设计、分析和报告都可审查”。优先检查
-数据单位、事件数、验证方式、特征筛选位置、指标完整性和结论强度。
+The stats module turns “AUC looks high” into designs, analyses, and reports that can be audited. Prefer checking
+data unit, event counts, validation scheme, where feature selection ran, metric completeness, and claim strength.
 
 ## First questions
 
-- 研究任务是诊断、分型、分期、预后、复发、疗效预测、分割，还是检测？
-- 统计单位是 patient、lesion、slice、scan、time point，还是 patch？
-- 样本量、阳性/阴性数量、事件数、删失比例、随访时间是多少？
-- 训练、验证、测试、外部验证如何划分？是否按患者级和中心级划分？
-- 特征筛选、标准化、缺失值填补、ComBat、阈值选择发生在哪个数据集内？
-- 模型有哪些：临床模型、影像组学模型、深度学习模型、联合模型？
-- 主要指标和预设主要终点是什么？
-- 是否有校准、DCA、置信区间、敏感性分析和亚组分析？
+- Is the task diagnosis, subtyping, staging, prognosis, recurrence, treatment response, segmentation, or detection?
+- Is the analysis unit patient, lesion, slice, scan, time point, or patch?
+- What are sample size, positive/negative counts, events, censoring rate, and follow-up time?
+- How are train / validation / test / external validation split? Patient-level and center-level?
+- Inside which dataset did feature selection, scaling, imputation, ComBat, and threshold choice run?
+- Which models: clinical, radiomics, deep learning, combined?
+- What are the primary metrics and the prespecified primary endpoint?
+- Are calibration, DCA, CIs, sensitivity analyses, and subgroups present?
 
 ## Study type to analysis route
 
@@ -128,26 +128,26 @@ derive it in training data and apply unchanged to validation data.
 ## Output format
 
 ```text
-统计定位
-- 任务类型：
-- 分析单位：
-- 样本量/事件数：
-- 当前模型：
+Stats framing
+- Task type:
+- Analysis unit:
+- Sample size / events:
+- Current models:
 
-主要风险
+Main risks
 - [leakage, low events, class imbalance, missing calibration, weak validation]
 
-推荐统计路线
-- 数据划分：
-- 特征筛选：
-- 模型：
-- 指标：
-- 敏感性/亚组：
+Recommended stats route
+- Data split:
+- Feature selection:
+- Models:
+- Metrics:
+- Sensitivity / subgroups:
 
-Methods/Results 需要补充
+Methods/Results still need
 - [specific missing details]
 
-需要作者确认
+Needs author confirmation
 - [numbers and analysis facts]
 ```
 
