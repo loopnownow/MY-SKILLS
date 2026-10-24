@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-impute_excel.py — 分组缺失值插补 CLI（data-impute skill）
+impute_excel.py — group-stratified missing-value imputation CLI (data-impute skill)
 
-用法示例:
+Usage examples:
     python impute_excel.py --input data.xlsx --sheet cln --group Group --method mice
     python impute_excel.py --input data.xlsx --sheet 0 --method median --output out.xlsx
     python impute_excel.py --input data.xlsx --all-sheets --method mice
 
-依赖: pandas, openpyxl, numpy, scikit-learn
+Deps: pandas, openpyxl, numpy, scikit-learn
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from typing import List, Optional
 
 import pandas as pd
 
-# 同目录 u_impute
+# u_impute in the same directory
 _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))

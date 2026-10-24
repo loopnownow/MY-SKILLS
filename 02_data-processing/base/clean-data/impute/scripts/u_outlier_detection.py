@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""u_outlier_detection.py - 异常值检测（模板）
-功能：基于临床参考范围 + SD 检测异常值
-依赖：pandas, numpy
-用法：修改配置后运行
+"""u_outlier_detection.py - outlier detection (template)
+Purpose: Detect outliers from clinical reference ranges + SD
+Deps: pandas, numpy
+Usage: edit config, then run
 """
 
 import os
@@ -10,17 +10,17 @@ import os
 import pandas as pd
 import numpy as np
 
-# ==================== 配置区（软编码，置顶） ====================
-DATA_FILE = os.environ.get("DATA_FILE", r"path/to/data.xlsx")  # 输入数据
-OUTPUT_FILE = os.environ.get("OUTPUT_FILE", r"path/to/data_outliers.xlsx")  # 输出
-GROUP_COL = "Group"                              # 分组列（可选，可为空）
-START_COL = "E1"                                 # 起始列（Excel 单元格）
-END_COL = "BD1"                                  # 结束列（Excel 单元格）
+# ==================== Config (soft-coded, top) ====================
+DATA_FILE = os.environ.get("DATA_FILE", r"path/to/data.xlsx")  # input data
+OUTPUT_FILE = os.environ.get("OUTPUT_FILE", r"path/to/data_outliers.xlsx")  # output
+GROUP_COL = "Group"                              # group column (optional, may be empty)
+START_COL = "E1"                                 # start column (Excel cell)
+END_COL = "BD1"                                  # end column (Excel cell)
 OUTLIER_METHOD = "both"                          # clinical / sd / both
-SD_THRESHOLD = 3                                 # SD 阈值
+SD_THRESHOLD = 3                                 # SD threshold
 # ================================================================
 
-# 临床参考范围库（指标名 -> (下限, 上限)）
+# clinical reference ranges (marker -> (lo, hi))
 CLINICAL_RANGES = {
     "White Blood Cell Count WBC (10^9/L)": (3.5, 9.5),
     "Hemoglobin Hb (g/L)": (130, 175),
@@ -37,7 +37,7 @@ CLINICAL_RANGES = {
 
 
 def excel_col_to_index(cell):
-    """Excel 单元格（如 E1）转列索引"""
+    """Excel cell (e.. E1) → column index"""
     import re
     m = re.match(r"([A-Z]+)(\d+)", cell)
     col = 0
@@ -47,7 +47,7 @@ def excel_col_to_index(cell):
 
 
 def detect_clinical(df, cols):
-    """基于临床参考范围检测异常值"""
+    """Detect outliers from clinical reference ranges"""
     flags = pd.DataFrame(False, index=df.index, columns=cols)
     for col in cols:
         if col in CLINICAL_RANGES:
@@ -57,7 +57,7 @@ def detect_clinical(df, cols):
 
 
 def detect_sd(df, cols, threshold=3):
-    """基于 SD 检测异常值"""
+    """Detect outliers from SD"""
     flags = pd.DataFrame(False, index=df.index, columns=cols)
     for col in cols:
         mean = df[col].mean()
@@ -68,33 +68,33 @@ def detect_sd(df, cols, threshold=3):
 
 
 def main():
-    # 读取数据
+    # load data
     df = pd.read_excel(DATA_FILE) if DATA_FILE.endswith(".xlsx") else pd.read_csv(DATA_FILE)
 
-    # 确定列范围
+    # resolve column range
     start = excel_col_to_index(START_COL)
     end = excel_col_to_index(END_COL) + 1
     cols = df.columns[start:end]
 
-    # 检测异常值
+    # detect outliers
     flags = pd.DataFrame(False, index=df.index, columns=cols)
     if OUTLIER_METHOD in ("clinical", "both"):
         flags |= detect_clinical(df, cols)
     if OUTLIER_METHOD in ("sd", "both"):
         flags |= detect_sd(df, cols, SD_THRESHOLD)
 
-    # 标记异常值（红色升高，绿色降低）
+    # mark outliers (red=high, green=low)
     result = df.copy()
     for col in cols:
         if col in CLINICAL_RANGES:
             lo, hi = CLINICAL_RANGES[col]
-            result.loc[df[col] > hi, col] = f"↑{df[col]}"  # 升高
-            result.loc[df[col] < lo, col] = f"↓{df[col]}"  # 降低
+            result.loc[df[col] > hi, col] = f"↑{df[col]}"  # high
+            result.loc[df[col] < lo, col] = f"↓{df[col]}"  # low
 
-    # 输出
+    # output
     result.to_excel(OUTPUT_FILE, index=False)
     n_outliers = int(flags.sum().sum())
-    print(f"✅ 检测完成，共 {n_outliers} 个异常值，已写入 {OUTPUT_FILE}")
+    print(f"✅ detection done; {n_outliers} outliers; wrote {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

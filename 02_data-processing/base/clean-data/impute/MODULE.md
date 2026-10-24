@@ -26,7 +26,7 @@ the user points at a project-local module.
 
 | Trigger | Action |
 |------|------|
-| Excel/CSV + 插补 / 补缺失 / 按组填 | Run CLI or `z_impute` |
+| Excel/CSV + impute / fill missing / fill by group | Run CLI or `z_impute` |
 | Block missingness (whole feature block NA) | Prefer `median` or `mice` |
 | missForest too slow | `mice` / `median` or faster knobs |
 | Imputed values should look like original decimals | keep `align_decimals=True` |

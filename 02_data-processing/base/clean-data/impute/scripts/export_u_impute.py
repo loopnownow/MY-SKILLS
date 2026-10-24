@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""u_impute.py - 缺失值插补（模板）
-功能：对临床数据执行缺失值插补（mice / mean / median）
-依赖：pandas, numpy
-用法：修改配置后运行
+"""u_impute.py - missing-value imputation (template)
+Purpose: Impute missing clinical values (mice / mean / median)
+Deps: pandas, numpy
+Usage: edit config, then run
 """
 
 import os
@@ -10,19 +10,19 @@ import os
 import pandas as pd
 import numpy as np
 
-# ==================== 配置区（软编码，置顶） ====================
-DATA_FILE = os.environ.get("DATA_FILE", r"path/to/data.xlsx")  # 输入数据
-OUTPUT_FILE = os.environ.get("OUTPUT_FILE", r"path/to/data_imputed.xlsx")  # 输出
-GROUP_COL = "Group"                              # 分组列（可选）
+# ==================== Config (soft-coded, top) ====================
+DATA_FILE = os.environ.get("DATA_FILE", r"path/to/data.xlsx")  # input data
+OUTPUT_FILE = os.environ.get("OUTPUT_FILE", r"path/to/data_imputed.xlsx")  # output
+GROUP_COL = "Group"                              # group column (optional)
 IMPUTE_METHOD = "mice"                           # mice / mean / median
-IMPUTE_COLS = None                               # 指定列（None=全部数值列）
-START_COL = 0                                    # 起始列索引
-END_COL = None                                   # 结束列索引（None=末尾）
+IMPUTE_COLS = None                               # columns (None=all numeric)
+START_COL = 0                                    # start column index
+END_COL = None                                   # end column index (None=end)
 # ================================================================
 
 
 def impute_mean_median(df, method="median"):
-    """均值/中位数插补"""
+    """mean/median imputation"""
     if method == "mean":
         return df.fillna(df.mean())
     elif method == "median":
@@ -31,14 +31,14 @@ def impute_mean_median(df, method="median"):
 
 
 def impute_mice(df):
-    """简化版 mice 插补（实际应使用 fancyimpute / miceforest）"""
+    """Simplified mice (prefer fancyimpute / miceforest in production)"""
     try:
         from fancyimpute import IterativeImputer
     except ImportError:
-        print("⚠️ fancyimpute 未安装，使用中位数插补代替")
+        print("⚠️ fancyimpute not installed; falling back to median")
         return impute_mean_median(df, "median")
 
-    # 保存非数值列
+    # keep non-numeric columns
     num_cols = df.select_dtypes(include=[np.number]).columns
     non_num = df.drop(columns=num_cols)
     num_df = df[num_cols]
@@ -50,20 +50,20 @@ def impute_mice(df):
 
 
 def main():
-    # 读取数据
+    # load data
     if DATA_FILE.endswith(".xlsx"):
         df = pd.read_excel(DATA_FILE)
     else:
         df = pd.read_csv(DATA_FILE)
 
-    # 选择列范围
+    # select column range
     if IMPUTE_COLS is not None:
         cols = IMPUTE_COLS
     else:
         num_cols = df.select_dtypes(include=[np.number]).columns
         cols = num_cols[START_COL:END_COL]
 
-    # 按组插补（如果指定 GROUP_COL）
+    # impute by group if GROUP_COL set
     result = df.copy()
     if GROUP_COL and GROUP_COL in df.columns:
         for group in df[GROUP_COL].unique():
@@ -80,9 +80,9 @@ def main():
         else:
             result[cols] = impute_mean_median(df[cols], IMPUTE_METHOD)
 
-    # 输出
+    # output
     result.to_excel(OUTPUT_FILE, index=False)
-    print(f"✅ 插补完成，已写入 {OUTPUT_FILE}")
+    print(f"✅ imputation done; wrote {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

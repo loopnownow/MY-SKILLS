@@ -1,20 +1,20 @@
 """
-u_impute.py — 分组分层缺失值插补
+u_impute.py — group-stratified missing-value imputation
 ═══════════════════════════════════════════════════════════════════
-功能：对数据框按 Group 分层执行缺失值插补。支持：
-      - 数值列：直接参与插补
-      - 分类列（可选）：先整数编码 → 插补 → 就近取整还原类别
-      方法（由快到慢）：
-        * median / mean — 组内中位数/均值（秒级）
-        * mice           — IterativeImputer + BayesianRidge（数秒～十余秒）
-        * missForest     — IterativeImputer + RandomForest（可调快/慢）
+Impute missing values in a DataFrame stratified by Group. Supports:
+      - numeric columns: impute directly
+      - categorical (optional): int-encode → impute → nearest-int decode
+      methods (fast → slow):
+        * median / mean — within-group median/mean (seconds)
+        * mice           — IterativeImputer + BayesianRidge (seconds–tens of seconds)
+        * missForest     — IterativeImputer + RandomForest (tunable fast/slow)
 
-加速要点（missForest）：
-      - n_nearest_features：每列只用最相关的 k 个预测变量（默认 32）
-      - skip_complete：完整列不做目标建模
-      - 更少树 / 更浅树 / 更少迭代（见 §1 默认参数）
+Speed knobs (missForest):
+      - n_nearest_features: per column use only the k strongest predictors (default 32)
+      - skip_complete: complete columns are not iteration targets
+      - fewer/shallower trees / fewer iterations (see §1 defaults)
 
-独立运行：
+Standalone:
     python impute_excel.py --input path/to/data.xlsx --sheet cln --group Group --method mice
 ═══════════════════════════════════════════════════════════════════
 """
@@ -30,22 +30,22 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import BayesianRidge
 
 # ═════════════════════════════════════════════════════════════════
-# §1  顶层可调参数（速度优先的默认值；要更高质量可加大）
+# §1  Top-level knobs (speed-first defaults; raise for quality)
 # ═════════════════════════════════════════════════════════════════
-IMPUTE_GROUP_COL = "Group"       # 分组列名
-IMPUTE_SEED = 66                 # 随机种子
-IMPUTE_MAX_ITER = 10             # 迭代次数（原 20；10 通常足够）
-IMPUTE_MF_N_TREES = 30           # missForest 树数（原 100；30 通常 3–5× 加速）
-IMPUTE_MF_MAX_DEPTH = 8          # RF 最大深度（None=不限，更慢）
-IMPUTE_MF_MAX_FEATURES = "sqrt"  # RF 每次分裂考虑特征子集
-IMPUTE_N_NEAREST = 32            # 每列只用 |corr| 最大的 k 个预测变量；None=全部
-IMPUTE_MIN_NONMISSING = 2        # 每列建模所需最少非缺失值数
-IMPUTE_MIN_UNIQUE = 2            # 每列建模所需最少不同取值数
-# 分类列：唯一值超过该比例/频数时视为 ID 类，不参与插补
+IMPUTE_GROUP_COL = "Group"       # group column name
+IMPUTE_SEED = 66                 # random seed
+IMPUTE_MAX_ITER = 10             # iterations (was 20; 10 usually enough)
+IMPUTE_MF_N_TREES = 30           # missForest trees (was 100; 30 usually 3–5× faster)
+IMPUTE_MF_MAX_DEPTH = 8          # RF max depth (None=unlimited, slower)
+IMPUTE_MF_MAX_FEATURES = "sqrt"  # RF feature subset per split
+IMPUTE_N_NEAREST = 32            # per column, k predictors with largest |corr|; None=all
+IMPUTE_MIN_NONMISSING = 2        # min non-missing values required to model a column
+IMPUTE_MIN_UNIQUE = 2            # min unique values required to model a column
+# categorical: above this unique ratio/count → treat as ID, skip impute
 IMPUTE_CAT_MAX_UNIQUE = 50
 IMPUTE_CAT_MAX_UNIQUE_RATIO = 0.5
 
-# 合法 method 别名
+# allowed method aliases
 _METHOD_ALIASES = {
     "missforest": "missForest",
     "miss_forest": "missForest",
@@ -69,7 +69,7 @@ def _normalize_method(method: str) -> str:
 
 
 def _is_id_like(series: pd.Series, name: str) -> bool:
-    """启发式：几乎全唯一的 object 列（如 patient_id）不参与插补。"""
+    """Heuristic: nearly-all-unique object columns (e.g. patient_id) skip impute."""
     n = name.lower()
     if any(k in n for k in ("patient_id", "pat_id", "subject_id", "sample_id")):
         return True
@@ -86,7 +86,7 @@ def _is_id_like(series: pd.Series, name: str) -> bool:
 
 def _detect_categorical_cols(df: pd.DataFrame, group_col: str,
                              explicit: Optional[Sequence[str]] = None) -> List[str]:
-    """选取可编码插补的分类列（object / category / bool）。"""
+    """Pick categorical columns that can be encode-imputed (object / category / bool)."""
     if explicit is not None:
         missing = [c for c in explicit if c not in df.columns]
         if missing:
@@ -111,8 +111,8 @@ def _encode_categoricals(
     df: pd.DataFrame, cat_cols: Sequence[str]
 ) -> Tuple[pd.DataFrame, Dict[str, Dict[int, object]]]:
     """
-    将分类列编码为 float（缺失保持 NaN）。
-    返回 (工作副本, {col: {code: label}})。
+    Encode categoricals as float (missing stays NaN).
+    Returns (working copy, {col: {code: label}}).
     """
     work = df.copy()
     code_to_label: Dict[str, Dict[int, object]] = {}
@@ -128,7 +128,7 @@ def _encode_categoricals(
 def _decode_categoricals(
     df: pd.DataFrame, code_to_label: Dict[str, Dict[int, object]]
 ) -> pd.DataFrame:
-    """插补后的浮点编码 → 就近整数 → 原类别标签。"""
+    """Post-impute float codes → nearest int → original category labels."""
     out = df.copy()
     for c, mapping in code_to_label.items():
         if c not in out.columns:
@@ -143,8 +143,8 @@ def _decode_categoricals(
 
 def _decimal_places(x: object, max_places: int = 12) -> int:
     """
-    有效小数位数：能在浮点容差内还原该值的最少小数位；整数为 0。
-    上限 max_places，避免 float64 二进制噪声被算成 15 位。
+    Effective decimal places: fewest digits that recover the value within float tol; integers = 0.
+    Cap at max_places so float64 binary noise is not counted as 15 digits.
     """
     if x is None or (isinstance(x, float) and np.isnan(x)) or pd.isna(x):
         return 0
@@ -164,7 +164,7 @@ def _decimal_places(x: object, max_places: int = 12) -> int:
 
 
 def mean_decimal_places(series: pd.Series, max_places: int = 12) -> int:
-    """非缺失观测小数位数的均值，四舍五入为整数 ndigits。无观测时返回 0。"""
+    """Mean decimal places of non-missing observations, rounded to int ndigits. 0 if none."""
     obs = series.dropna()
     if len(obs) == 0:
         return 0
@@ -179,9 +179,9 @@ def apply_decimal_alignment(
     verbose: bool = False,
 ) -> Tuple[pd.DataFrame, Dict[str, int]]:
     """
-    仅对「原表缺失、插补后非缺失」的格子 round 到该列观测小数位数均值；
-    原非缺失格保持 original 原值。
-    返回 (对齐后的 DataFrame, {col: ndigits})。
+    Round only cells that were missing then filled, to the column’s mean observed decimal places;
+    original non-missing cells keep their values.
+    Returns (aligned DataFrame, {col: ndigits}).
     """
     out = imputed.copy()
     ndigits_map: Dict[str, int] = {}
@@ -210,7 +210,7 @@ def _simple_group_impute(
     cols: Sequence[str],
     how: str,
 ) -> None:
-    """组内 median/mean 就地填充（仅填缺失）。"""
+    """Within-group median/mean in-place fill (missing only)."""
     g = work.loc[g_mask, list(cols)]
     if how == "median":
         fill = g.median(numeric_only=True)
@@ -256,23 +256,23 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
              mf_max_features: Union[str, float, int, None] = IMPUTE_MF_MAX_FEATURES,
              skip_complete: bool = True) -> Optional[pd.DataFrame]:
     """
-    对 DataFrame 中每个 Group 内的列执行缺失值插补，各组独立处理。
+    Impute missing values within each Group of a DataFrame; groups are independent.
 
-    参数
+    Parameters
     ----
-    data                 : DataFrame 或 Excel 文件路径
-    sheet                : 当 data 为文件路径时必须提供的工作表名
-    group_col            : 分组列名（各组独立插补）
-    method               : "median" | "mean" | "mice"（默认，快）| "missForest"（慢、非线性）
-    include_categorical  : True 时对分类列先编码再插补再还原
-    categorical_cols     : 显式指定分类列；None 时自动检测 object/category
-    align_decimals       : True 时，新插补值小数位 = 该列非缺失观测小数位均值
-    n_nearest_features   : missForest/mice 每列预测变量数；None=用全部列（更慢）
-    mf_n_trees           : missForest 树数（默认 30）
-    mf_max_depth         : RF 深度上限（默认 8）
-    mf_max_features      : RF max_features（默认 "sqrt"）
-    skip_complete        : True 时完整列不做迭代目标（加速）
-    output               : 可选，插补结果写出的 Excel 路径
+    data                 : DataFrame or Excel path
+    sheet                : required sheet name when data is a file path
+    group_col            : group column (independent impute per group)
+    method               : "median" | "mean" | "mice" (default, fast) | "missForest" (slow, nonlinear)
+    include_categorical  : if True, encode categoricals → impute → decode
+    categorical_cols     : explicit categoricals; None = auto-detect object/category
+    align_decimals       : if True, new imputed values use mean observed decimal places of that column
+    n_nearest_features   : predictors per column for missForest/mice; None=all columns (slower)
+    mf_n_trees           : missForest trees (default 30)
+    mf_max_depth         : RF max depth (default 8)
+    mf_max_features      : RF max_features (default "sqrt")
+    skip_complete        : if True, complete columns are not iteration targets (faster)
+    output               : optional Excel path for imputed output
     """
     method = _normalize_method(method)
 
@@ -302,11 +302,11 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
                 )
             )
 
-    # —— 数值列 ——
+    # — numeric —
     num_cols = [c for c in df.columns
                 if pd.api.types.is_numeric_dtype(df[c]) and c != group_col]
 
-    # —— 分类列（可选）——
+    # — categorical (optional) —
     cat_cols: List[str] = []
     code_to_label: Dict[str, Dict[int, object]] = {}
     work = df.copy()
@@ -328,7 +328,7 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
         print(f"Impute columns: {len(impute_cols)} "
               f"(numeric={len(num_cols)}, categorical={len(cat_cols)})")
         if before_miss:
-            # 避免刷屏：只打印缺失列数与总缺失格
+            # avoid spam: print only missing-column count and total missing cells
             n_cells = sum(before_miss.values())
             print(f"Missing before: {len(before_miss)} cols, {n_cells} cells")
 
@@ -363,7 +363,7 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
                 msg += f" (skip low-info: {len(skipped)} cols)"
             print(msg)
 
-        # —— 快速路径：组内 median / mean ——
+        # — fast path: within-group median / mean —
         if method in ("median", "mean"):
             _simple_group_impute(work, g_mask, valid_cols, how=method)
             continue
@@ -385,7 +385,7 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
             random_state=seed + gi,
             n_nearest_features=nn,
             skip_complete=skip_complete,
-            # 放宽 tol 可略早停；不改变算法主路径
+            # looser tol may stop slightly earlier; does not change the main algorithm path
             tol=1e-3,
         )
         try:
@@ -397,11 +397,11 @@ def z_impute(data: Union[str, pd.DataFrame], sheet: Optional[str] = None,
                 print("    fallback → group median")
             _simple_group_impute(work, g_mask, valid_cols, how="median")
 
-    # 还原分类列标签
+    # restore categorical labels
     if code_to_label:
         work = _decode_categoricals(work, code_to_label)
 
-    # 小数位对齐
+    # decimal alignment
     if align_decimals and num_cols:
         if verbose:
             print("Aligning imputed decimals to mean of observed decimal places…")

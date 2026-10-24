@@ -1,46 +1,46 @@
-# 临床数据提取
+# Clinical data extraction
 
 ## Purpose
 
-Extract clinical data from txt/docx, labs, and pathology text already exported off the hospital machine. Use for 提取检验, 病理全文, 临床数据提取, 出院小结抽取. Dash/阴性 = Negative, not missing. Do not invent labs. HIS login clients stay on the hospital machine, never in git.
+Extract clinical data from txt/docx, labs, and pathology text already exported off the hospital machine. Use for lab extraction, pathology full text, clinical data extraction, discharge-summary extract. Dash/阴性 = Negative, not missing. Do not invent labs. HIS login clients stay on the hospital machine, never in git.
 
-个人层：`02_data-processing/personal/extract.md`（由 `clinical-data-extraction/SKILL.md` 迁入）。脚本仍在 `{code_clean_data}\clinical-data-extraction\`，不进本仓库。
+Personal layer: `02_data-processing/personal/extract.md` (moved from `clinical-data-extraction/SKILL.md`). Scripts stay under `{code_clean_data}\clinical-data-extraction\`, not in this repo.
 
-## 适用场景
-- 从 .txt / .docx 提取患者信息（姓名、性别、年龄、门诊号）
-- 提取检验指标（血常规、肝功能、肾功能、血糖血脂、肿瘤指标等）
-- 出院小结、入院记录内容抽取
-- 临床数据合并、去重、格式化
+## When it applies
+- Extract patient info from .txt / .docx (name, sex, age, outpatient ID)
+- Extract lab markers (CBC, liver/renal panels, glucose/lipids, tumor markers, etc.)
+- Discharge summary / admission-note content extract
+- Clinical merge, dedupe, formatting
 
-HIS / PACS 登录与查询客户端只在医院机器上运行，**不得进入本仓库**。本技能只处理已经导出到本地的文本/文档。
+HIS / PACS login and query clients run only on the hospital machine and **must not enter this repo**. This skill only handles text/docs already exported locally.
 
-## 核心工作流
+## Core workflow
 
-### 1. 文本/文档提取
+### 1. Text/document extract
 ```
-[Step 1] 遍历目录下所有 .txt / .docx 文件
-[Step 2] 用 LAB_DICT 关键词字典匹配指标
-[Step 3] 提取患者基本信息与检验结果
-[Step 4] 去除单位，列名使用英文全称+缩写+(单位)
-[Step 5] 输出 CSV / Excel
+[Step 1] Walk all .txt / .docx under the directory
+[Step 2] Match markers with the LAB_DICT keyword dictionary
+[Step 3] Extract patient basics and lab results
+[Step 4] Strip units; column names = English full name + abbreviation + (unit)
+[Step 5] Write CSV / Excel
 ```
 
-### 2. HIS 客户端（不在 A）
+### 2. HIS client (not in A)
 
 HIS login automation must not live in A. Hospital-system clients stay on the hospital machine and are never committed to git. Do not add Selenium/HIS URLs, usernames, or passwords here. Feed this skill exported txt/docx/CSV only.
 
-## 关键规则
-1. **LAB_DICT 字典**：所有检验指标关键词集中管理，便于增删
-2. **软编码**：路径、关键词、输出文件作为顶层配置
-3. **单位处理**：单位从数据中去除，放入列名
-4. **断点续传**：查询/提取中断后可从上次位置继续
-5. **最大程度提取**：优先完整提取，遗漏信息向用户报告并让其决策
-6. **去重合并**：相同患者数据合并，重复内容只录一次
-7. **免疫组化**：从病理**全文**抽（`指标（结果）`）。结构化 `病理_ER` 等列若过工作区缺失阈值（见 `workspace.md`），不要整列写入，改从全文解析。
-8. **阴性不是缺失**：括号里的 `-` / `－` / `—` / `阴性` 编码为 `Negative`，不得当空值丢掉。
-9. **标记名完整匹配**：`ER` 不得命中 `HER2`；在标记名前要求非字母（或词界）。`P16` 的斑驳/斑片单独记 `Mosaic`，不要并进 `Positive`。
-10. 分类标签用英文（`Positive`/`Negative`），规则见 `workspace.md`，此处不另写一套。
+## Key rules
+1. **LAB_DICT**: all lab-marker keywords in one place for easy add/remove
+2. **Soft-coding**: paths, keywords, and output files as top-level config
+3. **Units**: strip units from values; put them in the column name
+4. **Checkpoint resume**: after a query/extract interrupt, continue from the last position
+5. **Maximize extraction**: prefer complete extract; report omissions to the user for decision
+6. **Dedupe merge**: merge same-patient rows; record repeated content once
+7. **IHC**: pull from pathology **full text** (`marker (result)`). If structured `病理_ER`-style columns trip the workspace missingness cutoff (see `workspace.md`), do not write the whole column — parse from full text instead.
+8. **Negative is not missing**: parenthetical `-` / `－` / `—` / `阴性` encode as `Negative`; never drop as empty.
+9. **Full marker-name match**: `ER` must not hit `HER2`; require a non-letter (or word boundary) before the marker name. For `P16`, mottled/patchy → `Mosaic` alone; do not fold into `Positive`.
+10. Category labels in English (`Positive`/`Negative`); rules in `workspace.md` — do not write a second set here.
 
-## 附带的脚本
-- `{code_clean_data}\clinical-data-extraction\extract_patient_data.py` — 患者信息与检验指标提取
-- `{code_clean_data}\clinical-data-extraction\extract_docx.py` — docx 文档批量提取
+## Bundled scripts
+- `{code_clean_data}\clinical-data-extraction\extract_patient_data.py` — patient info + lab markers
+- `{code_clean_data}\clinical-data-extraction\extract_docx.py` — batch docx extract

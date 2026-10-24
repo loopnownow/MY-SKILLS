@@ -1,71 +1,71 @@
-# 代码优化与重构
+# Code optimization and refactor
 
-个人层：`02_data-processing/personal/coding.md`（由 `code-refactoring/SKILL.md` 迁入；复杂度阶梯并入下文）。  
-深度代码 QC 细则见`../qc/coding-qc.md`。不另建顶层、不登记 01 coarse id。
+Personal layer: `02_data-processing/personal/coding.md` (moved from `code-refactoring/SKILL.md`; complexity ladder merged below).  
+Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill or register a 01 coarse id.
 
-## 适用场景
-- 代码软编码（配置置顶）
-- 大幅精简、去除无用部分
-- 断点续传 / 并行 / CUDA
+## When it applies
+- Soft-coding (CONFIG on top)
+- Large trim / remove dead parts
+- Checkpoint resume / parallel / CUDA
 - dry-run
-- **深审 / Deep QC / modules 代码质控**（五轴 + 医学完整性**引用** 04）
-- 写时代码阶梯 / 写后复杂度检查（稳定方法论吸收，非外挂）
-- 科研数据处理脚本（R/Python/MATLAB/shell；raw→analysis-ready）release-ready QC
+- **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 04)
+- Write-time code ladder / post-write complexity check (stable method absorption, not an external mount)
+- Research data-processing scripts (R/Python/MATLAB/shell; raw→analysis-ready) release-ready QC
 
 ## Capability map
 
-| 任务 | 路径 |
+| Task | Path |
 |---|---|
-| 软编码 + dry-run 模板 | `{code_root}\_infra\_templates\soft_code_template.py` |
-| 深度代码 QC（五轴/分级/Critical + Code QC Core） | `../qc/coding-qc.md` |
-| 写时代码阶梯 + 强度/护栏 | 下文「Complexity ladder」节 |
+| Soft-coding + dry-run template | `{code_root}\_infra\_templates\soft_code_template.py` |
+| Deep code QC (five axes / severity / Critical + Code QC Core) | `../qc/coding-qc.md` |
+| Write-time ladder + intensity / guardrails | “Complexity ladder” below |
 
-Medical / Statistical Integrity：**只引用** `04_analysis/qc/report-checks.md` 与 `04_analysis/personal/pipeline.md`，不在本技能复制金标准。
+Medical / Statistical Integrity: **only reference** `04_analysis/qc/report-checks.md` and `04_analysis/personal/pipeline.md`; do not copy gold standards into this skill.
 
-## 核心原则
+## Core principles
 
-权威总则（含配置置顶 / 仅注释配置与运行说明 / 不写回退 / 多模块可配置可选 / dry-run / 断点续传）→ MY-RULES `My rule.md` §3。下文为技能侧展开与模板指针。
+Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume) → MY-RULES `My rule.md` §3. Below is the skill-side expansion and template pointers.
 
-### 1. 软编码（配置置顶）
-- 路径、关键词、参数集中在文件顶部配置区（配置块在逻辑之前）
-- 避免硬编码；配置字段加注释
-- 允许多模块；模块可用配置开关可选启用
+### 1. Soft-coding (CONFIG on top)
+- Paths, keywords, and params live in a top-of-file config block (config before logic)
+- Avoid hard-coding; comment config fields
+- Multi-module OK; modules may be optional via config switches
 
-### 2. 精简 + 阶梯
-- 最少必要代码；不为单次使用建抽象
-- 写前按下文「Complexity ladder」节停在第一个「是」
-- 医学入口禁用 **ultra** 强度
+### 2. Brevity + ladder
+- Minimal necessary code; do not build abstractions for one-off use
+- Before writing, stop at the first “yes” on the Complexity ladder below
+- Medical entrypoints: **ultra** intensity disabled
 
-### 3. 断点续传
-- 已处理结果跳过；检查中间文件或完成标记
+### 3. Checkpoint resume
+- Skip already-processed results; check intermediate files or done markers
 
-### 4. 并行 / CUDA
-- 独立任务可并行；注意内存
+### 4. Parallel / CUDA
+- Independent tasks may run in parallel; watch memory
 
-### 5. 注释规范
-- **2026-10-24 裁决维持**：注释 = 配置字段含义 + 如何运行；**不写业务「为什么」**。权威 → `{RULES}` `My rule.md` §3。
-- **仅**注释：(a) 配置字段含义；(b) 脚本如何运行。不对业务逻辑写长文注释。
+### 5. Comment rules
+- **2026-10-24 decision kept**: comments = config-field meaning + how to run; **do not** write long business “why”. Authority → `{RULES}` `My rule.md` §3.
+- Comment **only**: (a) config-field meaning; (b) how to run the script. No long business-logic comments.
 
-### 5b. 不写回退
-- 禁止 fallback / 静默降级；勿用 try-except 吞失败后走默认路径；失败要响
+### 5b. No fallback
+- No fallback / silent degrade; do not try-except-swallow then take a default path; failures must be loud
 
 ### 6. Dry Run
-- 先试运行；打印将执行操作供确认
+- Trial run first; print the operations that would run for confirmation
 
-### 7. 深度 QC
-- 触发、分级、Preflight→Verdict、Data Safety / Reproducibility 见 `../qc/coding-qc.md`
-- 废料进 `0del`、子模块 dry-run、禁止静默成功：见 `../qc/coding-qc.md`
-- Critical/Required/Optional 为主标签；P0–P3 为报告别名
-- 边界：≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution)；≠ `preprocess-imaging`；≠ 04 model/figure QC；≠ Copilot playbooks/`quality/`
-- 不 vendor `{code_modules}` 整树
-- 00 路由：`gates.md` **G-CODE**
+### 7. Deep QC
+- Triggers, severity, Preflight→Verdict, Data Safety / Reproducibility: `../qc/coding-qc.md`
+- Scrap → `0del`, submodule dry-run, no silent success: `../qc/coding-qc.md`
+- Critical/Required/Optional are primary labels; P0–P3 are report aliases
+- Boundary: ≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution); ≠ `preprocess-imaging`; ≠ 04 model/figure QC; ≠ Copilot playbooks/`quality/`
+- Do not vendor the whole `{code_modules}` tree
+- 00 routing: `gates.md` **G-CODE**
 
-## 附带的模板
-- `{code_root}\_infra\_templates\soft_code_template.py` — 软编码 + 断点续传 + dry run 模板
+## Bundled template
+- `{code_root}\_infra\_templates\soft_code_template.py` — soft-coding + checkpoint resume + dry-run template
 
 ---
 
-## Complexity ladder（吸收自 complexity-ladder.md）
+## Complexity ladder (absorbed from complexity-ladder.md)
 
 Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a 01 mount / coarse id.
 

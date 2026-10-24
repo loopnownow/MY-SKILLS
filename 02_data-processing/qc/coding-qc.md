@@ -1,50 +1,50 @@
-# 0RAD modules 深度代码 QC — 可复用规则
+# 0RAD modules deep code QC — reusable rules
 
-副标题：亦覆盖科研数据处理脚本（R / Python / MATLAB / shell；raw → analysis-ready）的轻量 **Code QC Core**（吸收自 awesome-copilot 类稳定原则，已医学科研适配）。
+Subtitle: also covers a light **Code QC Core** for research data-processing scripts (R / Python / MATLAB / shell; raw → analysis-ready), adapted from stable awesome-copilot-style principles for medical research.
 
-来源：2026-09-07 Deep Code QC Report（`modules.zip` / `{code_modules}`）+ 2026-09-22 Code QC Core 吸收方案  
-家园：`02_data-processing/qc/coding-qc.md`（由 `code-refactoring/references/code-qc.md` 迁入）  
-**不**进：MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc（仓治理）、`preprocess-imaging`（影像质控）、新建顶层技能、B 挂载菜单、平行的 `02_data-processing/code-qc.md` / `coding-principles.md`、mount Copilot `playbooks/quality/` / Council / CI。
+Source: 2026-09-07 Deep Code QC Report (`modules.zip` / `{code_modules}`) + 2026-09-22 Code QC Core absorption plan  
+Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/references/code-qc.md`)  
+**Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, B mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md`, mount Copilot `playbooks/quality/` / Council / CI.
 
-## 何时触发
-- 审 / 深审 / Deep QC / 代码质控 `modules` / 0RAD 统计库
-- 发布前、大改 pipeline/console/radiomics/clinical/impute 后复测
-- 与软编码 / dry-run / 重构同一入口（`personal/coding.md`），先 QC 再改或改后复测
-- 科研数据处理脚本（raw→analysis-ready）release-ready / 深审
+## When to trigger
+- Review / deep review / Deep QC / code QC for `modules` / 0RAD stats library
+- Before release; re-test after major pipeline/console/radiomics/clinical/impute changes
+- Same entry as soft-coding / dry-run / refactor (`personal/coding.md`): QC first, then change, or re-test after change
+- Research data-processing scripts (raw→analysis-ready) release-ready / deep review
 
-00 仅路由：见 `00_orchestrator/gates.md` **G-CODE**；细则只在本文件。
+00 only routes: see `00_orchestrator/gates.md` **G-CODE**; detail lives only in this file.
 
-## 五轴 + 医学轴（Deep QC 保留）
-| 轴 | 审什么 |
-|----|--------|
-| Correctness | 启动、默认参数、公式/检验选择、注释与实现一致性；错位筛选/计算、错误输出、数据泄漏 |
-| Architecture | 超大函数、职责耦合、可测边界（**完整保留**；不以「仅 02 边界」窄化） |
-| Data Safety（原 Security 扩展） | PHI/PII；secrets/tokens 进代码/日志/输出；勿在未显式要求且无版本化前提下覆盖 raw；输出污染；**保留**本地 console CORS、路径是否 project-scoped |
-| Performance | 高维相关矩阵、重复全表扫描、不必要全量预计算；无明确 perf 问题不优化 |
-| Testability / Verification | 有无单测 / smoke / 合成数据回归；科研脚本以 sanity（n、dims、NA、ranges、output counts）与边角为主，**不强制**生产级 test coverage |
-| Medical / Statistical Integrity | **只对照** `04_analysis/personal/pipeline.md` 与 `04_analysis/qc/report-checks.md`，不在本技能重写方法 |
-| Reproducibility（Core 新增） | 输入、参数、环境、随机种子、路径、输出是否足以复现；能定则定；拆分时确认 train/test 分离 |
-| Boundary（P2 附加） | 02 不得拥有统计建模 / 稿件写作 / 审稿 QC（→ 04 / 05 / 06） |
+## Five axes + medical axis (Deep QC kept)
+| Axis | What to review |
+|------|----------------|
+| Correctness | Startup, default params, formula/test choice, comment↔implementation consistency; misaligned filter/compute, wrong output, data leakage |
+| Architecture | Oversized functions, coupled responsibilities, testable boundaries (**keep fully**; do not narrow to “02-only boundary”) |
+| Data Safety (Security extended) | PHI/PII; secrets/tokens in code/logs/outputs; do not overwrite raw without explicit ask and versioning; output pollution; **keep** local console CORS and whether paths are project-scoped |
+| Performance | High-dim correlation matrices, repeated full-table scans, needless full precompute; do not optimize without a clear perf problem |
+| Testability / Verification | Unit / smoke / synthetic regression; for research scripts prefer sanity (n, dims, NA, ranges, output counts) and edge cases — **do not require** production-grade coverage |
+| Medical / Statistical Integrity | **Only point to** `04_analysis/personal/pipeline.md` and `04_analysis/qc/report-checks.md`; do not rewrite methods in this skill |
+| Reproducibility (Core add) | Inputs, params, env, seeds, paths, outputs enough to reproduce; pin when possible; confirm train/test separation on split |
+| Boundary (P2 add-on) | 02 must not own statistical modeling / manuscript writing / review QC (→ 04 / 05 / 06) |
 
-医学轴必对照（指针，正文在 `04_analysis/personal/pipeline.md` / `report-checks.md`）：
-- AUC 95% CI = 1000 bootstrap；成对 DeLong 是 **p** 不是 CI
-- LASSO / 预筛 / impute / scale / NZV / corr filter：**折内**拟合，禁止全训练集预筛后再 CV
-- VAL_MODE ∈ {refit, apply_formula, lock_threshold}；不重筛特征
-- 内部拆分 training/test；外部验证 = 外院；禁用 Development set
-- Cox 可选默认关；声称 MICE 须真多重插补 + Rubin，否则改名
-- 插补分层禁止用 outcome 派生 Group；transformer 在 train 拟合再应用到 test
+Medical axis must cross-check (pointers; body in `04_analysis/personal/pipeline.md` / `report-checks.md`):
+- AUC 95% CI = 1000 bootstrap; paired DeLong is a **p**, not a CI
+- LASSO / pre-filter / impute / scale / NZV / corr filter: fit **inside folds**; forbid full-training-set pre-filter then CV
+- VAL_MODE ∈ {refit, apply_formula, lock_threshold}; do not re-select features
+- Internal split = training/test; external validation = outside hospital; ban “Development set”
+- Cox optional, default off; claiming MICE requires true multiple imputation + Rubin, else rename
+- Stratified impute must not use outcome-derived Group; fit transformers on train, then apply to test
 
-## 分级（主标签 + 报告别名）
-| 主标签（报告优先） | 别名（P0–P3） | 含义 |
+## Severity (primary label + report alias)
+| Primary (prefer in report) | Alias (P0–P3) | Meaning |
 |---|---|---|
-| **Critical** | P0 BLOCK | 启动级故障、CV leakage、本机 console 可跨项目读写、错误结果/腐蚀/泄漏、不安全数据处置、关键步不可复现 → 未修不作为可发布/正式建模版；**遇 Critical/P0 即停** |
-| **Required** | P1 FIX | 统计实现边界、选择偏倚、静默 except、无测试、缺 lock、实质性可靠性/验证缺口 → 修完再复测 |
-| **Optional** | P2 WARN / P3 NOTE | 风格/命名/小优化；可维护性、明显 perf、Boundary；P3 = 可选备注 |
+| **Critical** | P0 BLOCK | Startup failure, CV leakage, local console can read/write across projects, wrong/corrupt/leaked results, unsafe data handling, key step not reproducible → not release-/model-ready until fixed; **stop on Critical/P0** |
+| **Required** | P1 FIX | Stats implementation boundary, selection bias, silent except, no tests, missing lock, material reliability/verification gap → fix then re-test |
+| **Optional** | P2 WARN / P3 NOTE | Style/naming/small opts; maintainability, clear perf, Boundary; P3 = optional note |
 
-输出：HTML 或表格式报告（ID / 级别[+P别名] / 轴 / 问题 / 证据路径 / 影响 / 建议）。结论句先写能不能当正式建模版。  
-Verdict：`PASS` / `PASS_WITH_WARNINGS` / `FAIL`。
+Output: HTML or tabular report (ID / level[+P alias] / axis / issue / evidence path / impact / suggestion). Lead the conclusion with whether it can be a formal modeling build.  
+Verdict: `PASS` / `PASS_WITH_WARNINGS` / `FAIL`.
 
-## 最小流程（Preflight → Verdict）
+## Minimal flow (Preflight → Verdict)
 ```
 Code / Script
     ↓
@@ -55,55 +55,55 @@ Code / Script
     ↓  (stop on Critical/P0)
 2. P1 Verification — sanity: n, dims, NA, ranges, output counts; edge cases
     ↓
-3. P1 Maintainability — 命名、重复、错误处理、函数职责、关键注释
+3. P1 Maintainability — naming, duplication, error handling, function duties, key comments
     ↓
 4. P2 Performance / Boundary
     ↓
 Verdict — PASS / PASS_WITH_WARNINGS / FAIL
 ```
 
-不要求每次跑满；大型影像处理、批量变换、train/test 构建优先 P0/P1；小型格式转换可走轻量路径。
+Do not require a full run every time; large imaging, batch transforms, train/test builds prioritize P0/P1; small format conversions may take a light path.
 
 ### Existing Pattern First
-结构改动前先检查项目既有约定（布局、命名、CONFIG 风格、日志与路径习惯）；禁止 AI 强行套用外来编码风格。
+Before structural change, check the project’s existing conventions (layout, naming, CONFIG style, logging and path habits); do not force an external coding style.
 
-### Findings 规则
-- 尽量引用 **file / function / line**
-- 说明机制 + 下游影响，不只复述规则名
-- 证据不足 → **QUESTION**，不是 BUG
-- 不发明缺失需求
-- 无可靠性/可复现/可维护影响时，不做纯风格 nit
-- 无明确 perf 问题不优化
+### Findings rules
+- Cite **file / function / line** when possible
+- Explain mechanism + downstream impact; do not only restate the rule name
+- Insufficient evidence → **QUESTION**, not BUG
+- Do not invent missing requirements
+- No pure style nits when there is no reliability / reproducibility / maintainability impact
+- Do not optimize without a clear perf problem
 
-## 已验证通过也要记
-语法 compileall、无明显 os.system/exec/pickle、subprocess 列表调用、patient-level split 检查、VAL_MODE 设计意图 —— 报告里单独「已通过」块，避免只报问题。
+## Also record what already passed
+compileall syntax, no obvious os.system/exec/pickle, list-form subprocess, patient-level split checks, VAL_MODE design intent — keep a separate “Passed” block so the report is not only findings.
 
-## 与 coding.md 原原则的关系
-保留：CONFIG 置顶、dry-run、checkpoint、模块化、精简、注释。  
-新增：深审流程与分级；Code QC Core（Data Safety、Reproducibility、Preflight→Verdict、P0–P3 别名）；重构建议仍遵循「重构与功能修改分开」。
+## Relation to coding.md principles
+Keep: CONFIG-on-top, dry-run, checkpoint, modularity, brevity, comments.  
+Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, Preflight→Verdict, P0–P3 aliases); refactor advice still “separate refactor from behavior change”.
 
-### 子模块 dry-run 与禁止静默成功
-- 受审的每个子模块须有 dry-run 路径，或等价的、可单测的 dry path。
-- 不要用裸 `except Exception: pass`（或等价写法）吞掉错误，使失败的运行看起来像成功结束；失败必须可见。
+### Submodule dry-run and no silent success
+- Every reviewed submodule must have a dry-run path, or an equivalent unit-testable dry path.
+- Do not swallow errors with bare `except Exception: pass` (or equivalent) so a failed run looks successful; failures must be visible.
 
-### QC 废料进 0del
-- Deep QC / modules QC 之后，未再用的缓存与一次性中间产物：A 类放到 `{del_root}\<项目名>\`；其他放到 `{del_root}`（或课题 `0del`）。不要留在 `modules/` 或课题根目录。不要把整树 vendor 进本技能。
+### QC scrap → 0del
+- After Deep QC / modules QC, unused caches and one-shot intermediates: class A under `{del_root}\<project>\`; others under `{del_root}` (or project `0del`). Do not leave them in `modules/` or the project root. Do not vendor the whole tree into this skill.
 
-## 明确不要
-- 不把整树 `.py` / 患者表 / 课题 Excel vendor 进 GitHub
-- 不把 Medical 轴写成第二套 04 金标准
-- 不把 archived skill-harvest `repo_qc.py` 与本流程混为一谈
-- ≠ archived skill-harvest/qc；≠ imaging-qc；≠ 04 model/figure QC；≠ mount Copilot playbooks/`quality/` / Council / CI
-- 不另建 `02_data-processing/code-qc.md`、`coding-principles.md`，不建 `code-qc/` / `quality/` / `testing/` 目录
+## Explicit do-nots
+- Do not vendor whole-tree `.py` / patient tables / project Excel into GitHub
+- Do not turn the Medical axis into a second copy of 04 gold standards
+- Do not conflate archived skill-harvest `repo_qc.py` with this flow
+- ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 04 model/figure QC; ≠ mount Copilot playbooks/`quality/` / Council / CI
+- Do not add `02_data-processing/code-qc.md`, `coding-principles.md`, or `code-qc/` / `quality/` / `testing/` directories
 
-## 写后复杂度检查（吸收自稳定阶梯共识）
+## Post-write complexity check (stable ladder consensus)
 
-见 `coding.md`「Complexity ladder」节。在 Deep QC 报告中可作为 Architecture / Optional（或重复实现时 Required）条目；**不得**压过 Critical。
+See `coding.md` “Complexity ladder”. In Deep QC reports this may appear under Architecture / Optional (or Required when duplicating an existing module); **must not** outrank Critical.
 
-## Critical 检查项（来自 2026-09-07 modules 深审；改 modules 须用户点名）
+## Critical checklist (from 2026-09-07 modules deep review; changing modules needs an explicit user ask)
 
-- **C-01**：无 `settings.ini` 时 config fallback 键不全 → stats 导入失败（启动级）
-- **C-02**：LASSO CV 前全训练集 impute/scale/NZV/corr + AUC top-k → 折间泄漏
-- **C-03**：console `CORS=*` + `under_root` 仅限 `GROK_ROOT` → 跨项目路径风险
+- **C-01**: incomplete config-fallback keys without `settings.ini` → stats import fails (startup)
+- **C-02**: full-training-set impute/scale/NZV/corr + AUC top-k before LASSO CV → fold leakage
+- **C-03**: console `CORS=*` + `under_root` limited only by `GROK_ROOT` → cross-project path risk
 
-路径指针（不 vendor）：`{code_modules}`
+Path pointer (do not vendor): `{code_modules}`
