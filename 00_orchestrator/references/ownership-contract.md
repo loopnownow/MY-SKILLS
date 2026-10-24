@@ -12,20 +12,20 @@ Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 |---|---|---|
 | Aitor | `00_orchestrator` | QC, intent classify, skill chain, gates, local recovery |
 | Loopnow | `02_data-processing` + `04_analysis` | data processing, stats, figures |
-| Victor | `03_research` | 文献与证据 / 研究设计与探索 / 选刊, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
+| Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
-| Bai | 投稿 after review loop + ethics forms + **0doc 文档库查询** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
-| Cursor | 外挂 | 仓库内前端/后端（UI、API、测试、PR）；仅用户说「交给cursor」才交 |
-| Cline | 外挂 | 数据准备及同类（xlsx、归档、批处理、非仓库数据）；用户说「交给cline」或一般数据/脚本交接 |
+| Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
+| Cursor | external pack | in-repo frontend/backend (UI, API, tests, PR); hand off only when user says「交给cursor」 |
+| Cline | external pack | data prep and peers (xlsx, archive, batch, non-repo data); when user says「交给cline」 or general data/script handoff |
 
 Per-paper channel seats all six (max).
 
 ## Dispatch
 
-- 一个任务只交一个执行方（one executor；本条权威处）。Aitor 能在本地做完的短任务，不交 Cursor，不交 Cline。
-- Aitee、Lee 一般不调用 Cursor 或 Cline。任何座位要用 Cursor，必须用户先批准。
-- 外挂盯梢：`00_orchestrator/references/handoff-monitor.md`（仅该次任务期间）。
+- One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to Cursor or Cline.
+- Aitee and Lee generally do not call Cursor or Cline. Any seat using Cursor needs prior user approval.
+- External-pack watch: `00_orchestrator/references/handoff-monitor.md`（only for that task window）。
 
 ## Word Track Changes
 
@@ -49,7 +49,7 @@ Checklist: `03_research/personal/citation-verify.md`.
 
 ## 0doc database lookup
 
-**Owner:** Bai. **Router:** Aitor (does not self-search for general 查/找/盘点 asks).
+**Owner:** Bai. **Router:** Aitor (does not self-search for general lookup/search/inventory asks).
 
 When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (any of `00-inbox` … `03-research\ethics`, including indexes under `_index` / `02-flattened` / `revision-history`), Aitor hands the ask to **Bai**.
 

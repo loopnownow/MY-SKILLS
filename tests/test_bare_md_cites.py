@@ -24,7 +24,7 @@ TICK_RE = re.compile(r"`([^`]{2,90})`")
 HIST_LINE = re.compile(
     r"archived|historical|legacy|former|formerly|merged|absorbed|retired|relocated|"
     r"pruned|not on disk|do not recreate|do not create|distill of|dated snapshot|"
-    r"勿建|不另建|归档|已并入|历史",
+    r"勿建|do not recreate|不另建|do not create separately|归档|archive|archived|已并入|merged into|历史|historical",
     re.I,
 )
 

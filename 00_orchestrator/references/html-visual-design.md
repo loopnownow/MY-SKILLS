@@ -1,6 +1,6 @@
 # HTML Visual Design (standing delivery rules)
 
-**Owner:** `00_orchestrator`. Applies whenever any skill **generates or edits** a `.html` for this lab (选刊交付、QC、架构建议、报告页等).
+**Owner:** `00_orchestrator`. Applies whenever any skill **generates or edits** a `.html` for this lab (journal-selection deliverables, QC, architecture notes, report pages, etc.).
 
 **Source:** user Principles HTML 2026-09-10 (full sample in skill-library `extracts/00_orchestrator/`; do not require reading the full HTML at runtime).
 

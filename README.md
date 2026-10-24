@@ -33,9 +33,9 @@ Lab disks (not inside this repo): runnable SSOT `{code_root}`; human-doc SSOT `{
 | `00_orchestrator` | Intent classify, skill chain, QC closed loop (file gates + local recovery) |
 | `01_skill-integration` | Registry / index / session-pick only; hybrid deny under `references/`; default source in-repo `my-skills`; bodies in `NN_slug/base/` |
 | `02_data-processing` | Raw → analysis-ready; Excel/0RAD; imaging prep; extraction; coding principles; no modeling |
-| `03_research` | Research framework + literature (03 only) + **选刊** + personal grant supplement + translational design + ethics forms |
+| `03_research` | Research framework + literature (03 only) + **journal selection** + personal grant supplement + translational design + ethics forms |
 | `04_analysis` | Statistics, prediction, **figures** (`draw-flowchart` / `plot-figures`) |
-| `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; `05_manuscript/base/write-venue/` = journal templates / house style, not 选刊) |
+| `05_manuscript` | Personal writing upper layer (de-AI at `personal/`; `05_manuscript/base/write-venue/` = journal templates / house style, not journal selection) |
 | `06_review` | Personal review upper layer (Lee); reviewer response → `07_response` |
 | `07_response` | Response-letter upper layer (Aitee) |
 | *(archived)* | Former `skill-harvest` → `{DEL}\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`; standing policy → MY-RULES `skills.md` (skill-evolution) |

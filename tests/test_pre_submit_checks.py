@@ -348,7 +348,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         self.assertIn("Aitee", own)
         self.assertIn("Lee", own)
         mmd = read("00_orchestrator/runtime-flow.mmd")
-        self.assertIn("Lee \u00b7 \u9648\u8ff0\u4e00\u81f4", mmd)
+        self.assertIn("Lee · statement", mmd)
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate \u00b7 05"))
         self.assertLess(mmd.index("Lit06"), mmd.index("Gate \u00b7 06"))
 

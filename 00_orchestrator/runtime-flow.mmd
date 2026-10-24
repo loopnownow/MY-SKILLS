@@ -1,12 +1,12 @@
-%% MY-SKILLS · 唯一官方运行图 (00)
-%% 更新流程/QC/入口时只改本文件。子流程 = 本图分支，不另立主图。
-%% 门禁细则真源: gates.md；外挂 lifecycle: 01
-%% 图节点命名: Gate · NN ↔ gates.md 的 G-NN；G0 / G-PHI / G-FACT / G-LIT / G-CODE 同名。
-%% 中途入口仍可（已有统计→05，已有稿件→06，不必从 02 重跑）。
-%% 凡论文写作或审稿，done / Gate·05 / Gate·06 之前必须经过 03 citation-verify。
-%% 05 与 06 不得自证文献。Lee 管陈述一致→数据一致；文献准确性与 Victor 共同负责。
+%% MY-SKILLS · sole official runtime map (00)
+%% When updating flow/QC/entry, edit only this file. Sub-flows = branches here; no second master map.
+%% Gate detail SSOT: gates.md; external-pack lifecycle: 01
+%% Diagram node naming: Gate · NN ↔ gates.md G-NN; G0 / G-PHI / G-FACT / G-LIT / G-CODE same names.
+%% Mid-entry still allowed (existing stats→05, existing manuscript→06; do not re-run from 02).
+%% Any manuscript writing or review must pass 03 citation-verify before done / Gate·05 / Gate·06.
+%% 05 and 06 must not self-certify literature. Lee: statement consistency → data consistency; lit accuracy joint with Victor.
 %% Ownership: see 00_orchestrator/references/ownership-contract.md
-%% Seats: 02+04 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=伦理填表+投稿(非00主环)
+%% Seats: 02+04 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=ethics forms+portal submit (off 00 main loop)
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
 %% Layering: base fine-ID first-pass loops -> 00 QC gate -> personal/top re-loops.
 %% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
@@ -16,47 +16,47 @@
 %% A05 post-QC: polish-language -> humanize alongside Aitor-format/voice.
 %% A06 post-QC: re-review only. A07 owns response (final authority).
 %% 02/03 exits are artifact or evidence checks, not a fact-lineage node.
-%% 返工预算按同一缺陷计（defects[].rounds ≤ 3），不是全局 qc.rounds。
+%% Rework budget is per same defect (defects[].rounds ≤ 3), not global qc.rounds.
 
 flowchart TD
-    Start([任务进入]) --> Detect[00 · 识别材料 / 意图 / 入口 / 终点]
+    Start([Task enter]) --> Detect[00 · Detect materials / intent / entry / exit]
 
-    %% Plan card / grilling / 流程图审批（多节点、新能力、或要用挂载时）
-    Detect --> MultiQ{多节点 / 新能力 / 要用挂载?}
-    MultiQ -->|是| GrillPlan[grilling · Plan card]
-    GrillPlan --> FlowAppr[流程图审批 · 整图高亮本路径]
-    %% 结果页与审稿信同时在、且用户未点名入口：先问，不按更近的材料自动选。
-    FlowAppr -->|明确批准| Conflict{结果页与审稿信同时在<br/>且未点名入口?}
-    MultiQ -->|否 · 单节点个人层| Conflict
-    Conflict -->|是| AskEntry[问从哪一站进]
-    AskEntry --> Entry{运行入口}
-    Conflict -->|否| Entry
-    Entry -->|完整研究流程| Need02[进入 02 · Loopnow]
-    Entry -->|已有数据处理结果| Need04[进入 04 · Loopnow]
-    Entry -->|已有统计结果 / 图表 · 中途可进| Need05[进入 05 · Aitee]
-    Entry -->|审稿/预审 → 06 Lee| Need06[进入 06 · Lee 审稿]
-    Entry -->|修回无环 → 06 Lee| R06[06 修回主控]
-    Entry -->|回复/response → 07 Aitee| Need07[进入 07 · Aitee 回复]
-    Entry -->|独立文献任务| Need03[进入 03 · Victor]
-    Entry -->|代码深审 / Deep QC| NeedCode[进入 02 code QC]
-    Entry -->|其他明确单域| NeedS[进入目标 Skill]
-    Entry -->|单节点个人层 · 无挂载依赖| Personal[例：润色一句 · 不问挂载]
+    %% Plan card / grilling / flowchart approval (multi-node, new capability, or mounts needed)
+    Detect --> MultiQ{Multi-node / new capability / mounts needed?}
+    MultiQ -->|yes| GrillPlan[grilling · Plan card]
+    GrillPlan --> FlowAppr[Flowchart approval · highlight this path on full map]
+    %% Results page and reviewer letter both present and user did not name entry: ask first; do not auto-pick by nearest artifact.
+    FlowAppr -->|explicit approve| Conflict{Results page + reviewer letter both present<br/>and entry not named?}
+    MultiQ -->|no · single-node personal| Conflict
+    Conflict -->|yes| AskEntry[Ask which station to enter]
+    AskEntry --> Entry{Run entry}
+    Conflict -->|no| Entry
+    Entry -->|Full research pipeline| Need02[Enter 02 · Loopnow]
+    Entry -->|Data-processing results exist| Need04[Enter 04 · Loopnow]
+    Entry -->|Stats/figures exist · mid-entry OK| Need05[Enter 05 · Aitee]
+    Entry -->|Review/pre-review → 06 Lee| Need06[Enter 06 · Lee review]
+    Entry -->|R&R main loop → 06 Lee| R06[06 R&R control]
+    Entry -->|Reply/response → 07 Aitee| Need07[Enter 07 · Aitee reply]
+    Entry -->|Standalone lit task| Need03[Enter 03 · Victor]
+    Entry -->|Deep code QC| NeedCode[Enter 02 code QC]
+    Entry -->|Other clear single domain| NeedS[Enter target Skill]
+    Entry -->|Single-node personal · no mount dependency| Personal[e.g. polish one sentence · no mount ask]
 
-    %% 修回：先分诊再回节点，之后只向前重跑受影响链
-    R06 --> Decide{06 判断问题来源}
-    Decide -->|数据| Need02
-    Decide -->|统计 / 图表| Need04
-    Decide -->|文献证据| Need03
-    Decide -->|写作| Need05
-    Decide -->|审稿整合| Need06
-    Decide -->|回信 / response| Need07
+    %% R&R: triage then return to node; re-run only forward affected chain
+    R06 --> Decide{06 locate problem source}
+    Decide -->|Data| Need02
+    Decide -->|Stats / figures| Need04
+    Decide -->|Lit evidence| Need03
+    Decide -->|Writing| Need05
+    Decide -->|Review integration| Need06
+    Decide -->|Reply / response| Need07
 
-    %% 独立运行需要一次挂载决定。锁已覆盖则复用，否则才进 01。
-    Need02 & Need03 & Need04 & Need05 & Need06 & Need07 & NeedS & NeedCode --> MountQ{session_picked_fine_ids<br/>已覆盖本任务细 ID?}
-    MountQ -->|是 · 复用 session lock| GA0
-    MountQ -->|否| S01[01 · Session Mount / Lifecycle]
+    %% Independent run needs one mount decision. Reuse lock if covered; else enter 01.
+    Need02 & Need03 & Need04 & Need05 & Need06 & Need07 & NeedS & NeedCode --> MountQ{session_picked_fine_ids<br/>covers this task fine IDs?}
+    MountQ -->|yes · reuse session lock| GA0
+    MountQ -->|no| S01[01 · Session Mount / Lifecycle]
     S01 --> GA0{{G0}}
-    GA0 -->|PASS| Ready[挂载就绪]
+    GA0 -->|PASS| Ready[Mounts ready]
     GA0 -->|FAIL| Locate
     Personal --> Single
 
@@ -64,85 +64,85 @@ flowchart TD
     Ready --> LayerBase[base · fine-ID first-pass loops]
     LayerBase --> LayerQC{{00 QC gate}}
     LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>A03/A05/A06/A07 as needed]
-    LayerTop --> Dispatch{目标节点}
+    LayerTop --> Dispatch{Target node}
     LayerQC -->|FAIL| Locate
-    Dispatch -->|02| P02[02 数据处理 · Loopnow]
-    Dispatch -->|03| P03[03 医学研究 · Victor]
-    Dispatch -->|04| P04[04 统计/图表 · Loopnow]
-    Dispatch -->|05| P05[05 稿件写作 · Aitee]
+    Dispatch -->|02| P02[02 data processing · Loopnow]
+    Dispatch -->|03| P03[03 medical research · Victor]
+    Dispatch -->|04| P04[04 stats/figures · Loopnow]
+    Dispatch -->|05| P05[05 manuscript writing · Aitee]
     Dispatch -->|06| I25
-    I25[Integrity · pre-06<br/>G-FACT+G-CIT + RG subset + AI-fail lite] --> P06[06 审稿/预审 · Lee]
-    Dispatch -->|07| P07[07 回复审稿 · Aitee]
-    Dispatch -->|代码深审| PCode[02 · code QC]
-    Dispatch -->|单域| Single[目标 Skill]
+    I25[Integrity · pre-06<br/>G-FACT+G-CIT + RG subset + AI-fail lite] --> P06[06 review/pre-review · Lee]
+    Dispatch -->|07| P07[07 reply to reviewers · Aitee]
+    Dispatch -->|Deep code QC| PCode[02 · code QC]
+    Dispatch -->|Single domain| Single[Target Skill]
 
-    subgraph CHAIN[主生产链 · PASS 才向前 · 中途入口仍可 · 写作/审稿必须经 03 citation-verify]
-        P02 --> N2{{N2 · G-PHI<br/>表/临床提取前}}
-        N2 -->|PASS| Exit02{{02 出口 · G0 + G-PHI（适用时）+ 产物存在}}
-        Exit02 -->|PASS · 未到终点| P04
-        P04 --> GF04{{G-FACT · 04 HTML 之后}}
+    subgraph CHAIN[Main production chain · advance only on PASS · mid-entry OK · writing/review must pass 03 citation-verify]
+        P02 --> N2{{N2 · G-PHI<br/>before table/clinical extract}}
+        N2 -->|PASS| Exit02{{02 exit · G0 + G-PHI (when applicable) + artifact exists}}
+        Exit02 -->|PASS · not at destination| P04
+        P04 --> GF04{{G-FACT · after 04 HTML}}
         GF04 -->|PASS| GA04{{Gate · 04}}
-        GA04 -->|PASS · 未到终点| N3{N3 WRITE<br/>停 HTML 或进 sci-manuscript?}
-        N3 -->|进写作| P05
-        N3 -->|停在 HTML| Out
-        P05 --> GF05{{G-FACT · 05 house.docx 之后}}
-        GF05 -->|PASS| Lit05[03 Victor · citation-verify<br/>G-CIT-1 草稿证据核实<br/>claim→ref 表 + 强断言抽查原文]
-        Lit05 -->|PASS| StyleLint{{G-05 · style-lint 子检}}
+        GA04 -->|PASS · not at destination| N3{N3 WRITE<br/>Stop at HTML or enter sci-manuscript?}
+        N3 -->|Enter writing| P05
+        N3 -->|Stop at HTML| Out
+        P05 --> GF05{{G-FACT · after 05 house.docx}}
+        GF05 -->|PASS| Lit05[03 Victor · citation-verify<br/>G-CIT-1 draft evidence verify<br/>claim→ref table + spot-check strong claims vs full text]
+        Lit05 -->|PASS| StyleLint{{G-05 · style-lint sub-check}}
         StyleLint -->|PASS| GA05{{Gate · 05}}
-        GA05 -->|PASS · 未到终点| N4{N4 PREVIEW<br/>进 06 或停?}
-        N4 -->|进 06| I25
-        N4 -->|停| Out
-        P06 --> Lee06[Lee · 陈述一致 → 数据一致<br/>只批注 · 不默认自行修订]
-        P06 --> Lit06[03 Victor · citation-verify<br/>G-CIT-2 修订后 / 06 内<br/>不可跳过 · G-CIT-1 不免除 G-CIT-2<br/>文献准确性与 Lee 共同负责]
-        Lee06 --> Join06[06 齐套 · 一致性 + 文献核实]
-        Lit06 -->|PASS| GF06{{G-FACT · 仅当 06 引用了数字}}
+        GA05 -->|PASS · not at destination| N4{N4 PREVIEW<br/>Enter 06 or stop?}
+        N4 -->|Enter 06| I25
+        N4 -->|Stop| Out
+        P06 --> Lee06[Lee · statement → data consistency<br/>comments only · no default auto-edit]
+        P06 --> Lit06[03 Victor · citation-verify<br/>G-CIT-2 post-revision / inside 06<br/>mandatory · G-CIT-1 does not waive G-CIT-2<br/>lit accuracy joint with Lee]
+        Lee06 --> Join06[06 complete · consistency + lit verify]
+        Lit06 -->|PASS| GF06{{G-FACT · only when 06 cites numbers}}
         GF06 -->|PASS| Join06
         Join06 --> GA06{{Gate · 06}}
-        GA06 -->|PASS · 需回信| P07
-        GA06 -->|findings · 需修订| Rev{需修订?}
-        Rev -->|正文 TC · Aitee| Need05
-        Rev -->|回复 · Aitee| Need07
-        Rev -->|否 · 齐套| I45
-        Need05 -.->|06 findings 修订后 · R&R| P06r
-        P06r[06 re-review · R&amp;R 追溯<br/>verification only · frozen Round-1] --> I45[Integrity · post-re-review lite<br/>G-FACT spot + AI-fail lite]
+        GA06 -->|PASS · reply needed| P07
+        GA06 -->|findings · revise needed| Rev{Revise needed?}
+        Rev -->|Body TC · Aitee| Need05
+        Rev -->|Reply · Aitee| Need07
+        Rev -->|no · complete| I45
+        Need05 -.->|after 06 findings revise · R&R| P06r
+        P06r[06 re-review · R&amp;R traceability<br/>verification only · frozen Round-1] --> I45[Integrity · post-re-review lite<br/>G-FACT spot + AI-fail lite]
         I45 --> RRBud{re-review loops ≤2?}
-        RRBud -->|是 · 仍需修订| Rev
-        RRBud -->|齐套| Out
-        RRBud -->|否 · 超预算| Escalate
+        RRBud -->|yes · still needs revise| Rev
+        RRBud -->|Complete| Out
+        RRBud -->|no · over budget| Escalate
     end
 
     P07 --> GA07{{Gate · 07 · response / Aitee}}
     GA07 -->|PASS| Out
 
-    P03 --> Exit03{{03 出口 · G0 + G-LIT + 证据/引文产物}}
-    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| P05
-    Exit03 -.->|PASS · 起草时证据供给 · 不代替 citation-verify| I25
+    P03 --> Exit03{{03 exit · G0 + G-LIT + evidence/citation artifacts}}
+    Exit03 -.->|PASS · evidence supply at draft time · does not replace citation-verify| P05
+    Exit03 -.->|PASS · evidence supply at draft time · does not replace citation-verify| I25
     PCode --> GCODE{{G-CODE}}
     GCODE -->|PASS| Out
-    Single --> GAS{{Gate · 目标 Skill}}
+    Single --> GAS{{Gate · target Skill}}
 
-    %% 到达终点且最后一门 PASS，或用户说结束 → stage: done，不打开下一站。
-    %% 05 交付 done / Gate·05 之前：Lit05 必须 PASS（claim→ref 表 + 强断言抽查）。
-    %% 06 审稿：Lit06 不可跳过；Lee 仍做陈述一致然后数据一致。先前的 05 核实不免除 06。
-    %% 稿件 Track Changes 由 Aitee 落地。Ownership: see 00_orchestrator/references/ownership-contract.md
-    %% 暂停，或停在结果页后 / 预审前：stage 留在当前站，不写 done。
-    %% 同一次已批准运行的后续过站报一行；N2、结果页 G-FACT、N4、G-06 仍停住。
-    Exit02 & GA04 & GA05 & GA06 & GA07 & Exit03 & GAS & GCODE -->|PASS · 到达终点| Out([最终输出<br/>stage: done])
+    %% At destination with last gate PASS, or user says end → stage: done; do not open next station.
+    %% Before 05 delivery done / Gate·05: Lit05 must PASS (claim→ref table + strong-claim spot-check).
+    %% 06 review: Lit06 is mandatory; Lee still does statement then data consistency. Prior 05 verify does not waive 06.
+    %% Manuscript Track Changes are landed by Aitee.Ownership: see 00_orchestrator/references/ownership-contract.md
+    %% Pause, or stop after results page / before pre-review: leave stage at current station; do not write done.
+    %% Later stations in the same approved run report one line; N2, results-page G-FACT, N4, G-06 still stop.
+    Exit02 & GA04 & GA05 & GA06 & GA07 & Exit03 & GAS & GCODE -->|PASS · at destination| Out([Final output<br/>stage: done])
 
-    %% QC 环：回到失败节点并复用 session lock。缺依赖 / provenance 过期 / 新能力才重进 01。
-    Exit02 & N2 & GF04 & GA04 & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[定位最小负责节点]
+    %% QC loop: return to failed node and reuse session lock. Re-enter 01 only on missing dependency / stale provenance / new capability.
+    Exit02 & N2 & GF04 & GA04 & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[Locate minimal responsible node]
     I25 & I45 -->|FAIL · HARD integrity| Locate
     Lit05 & Lit06 -->|FAIL| Locate
-    Locate --> Impact{上游错误是否<br/>使下游结果失效?}
-    Impact -->|否| Local[局部返工 · 仅目标节点]
-    Impact -->|是| Rollback[回退至最早受影响节点]
-    Local --> Budget{同一缺陷 defects[].rounds ≤ 3?}
+    Locate --> Impact{Does upstream error<br/>invalidate downstream results?}
+    Impact -->|no| Local[Local rework · target node only]
+    Impact -->|yes| Rollback[Roll back to earliest affected node]
+    Local --> Budget{Same defect defects[].rounds ≤ 3?}
     Rollback --> Budget
-    Budget -->|是| Resume[重入失败节点 · 复用 session mount lock]
-    Resume --> Re01{依赖缺失、provenance 过期、或需要新能力?}
-    Re01 -->|否| BackNode[回到失败节点]
+    Budget -->|yes| Resume[Re-enter failed node · reuse session mount lock]
+    Resume --> Re01{Missing dependency, stale provenance, or new capability needed?}
+    Re01 -->|no| BackNode[Return to failed node]
     BackNode --> Dispatch
-    Re01 -->|是| S01
-    Budget -->|否| Escalate[停止自动循环 · unresolved<br/>stage 不往前]
-    Escalate --> Wait([等待用户决策])
-    Wait -.->|授权继续 · 重置该缺陷 rounds| Locate
+    Re01 -->|yes| S01
+    Budget -->|no| Escalate[Stop auto-loop · unresolved<br/>stage does not advance]
+    Escalate --> Wait([Wait for user decision])
+    Wait -.->|Authorized continue · reset that defect rounds| Locate

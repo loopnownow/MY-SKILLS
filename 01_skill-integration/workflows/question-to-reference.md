@@ -6,11 +6,11 @@ description: >
   Each stage emits a card; later stages consume prior cards. Mid-chain entry allowed.
   00 chooses entry / rollback / stop; 03 owns content. lit-search is a tool under R2 only.
 triggers:
-  - 这个课题能不能做
-  - 研究问题怎么拆
-  - 证据和机制
-  - 数据够不够做
-  - 研究探索
+  - Can this topic be done
+  - How to split the research question
+  - Evidence and mechanism
+  - Is the data enough
+  - Research exploration
   - question-to-reference
 owner: 03_research
 type: 03-workflow
@@ -155,8 +155,8 @@ Prefer storing under `<project>/ref/` (e.g. extend `project-state.yaml` or sibli
 
 Examples:
 
-- “肝硬化患者 + CT，想做侧支与并发症” → often enter **R1** (question still fuzzy) then R2→R5.
-- “已定脾肾分流与曲张出血关系，看现有数据能不能做” → enter **R2/R3 as needed**, focus **R4**; skip a locked R1.
+- “Cirrhosis patients + CT, collateral/complication idea” → often enter **R1** (question still fuzzy) then R2→R5.
+- “Splenorenal shunt vs variceal bleed locked; check if current data can support it” → enter **R2/R3 as needed**, focus **R4**; skip a locked R1.
 
 Reuse rule: completed card with intact sources → do not re-run that stage without cause (aligns with 00 exploration-loop reusable work).
 
@@ -265,7 +265,7 @@ No new fine ids for R1–R5.
 | This file | 03 content spine + cards |
 | `01_skill-integration/workflows/research-exploration-loop.md` | Entry node, reuse, L1/L2, structural QC |
 | `personal/intro-evidence-pack.md` | 05-driven Intro cards — later, narrower than this spine |
-| `personal/journal-selection.md` | 选刊 — not this chain |
+| `personal/journal-selection.md` | journal selection — not this chain |
 
 ---
 

@@ -61,16 +61,16 @@ class GateMmdMap(unittest.TestCase):
         mmd = MMD.read_text(encoding="utf-8")
         for n in ("04", "05", "06", "07"):
             self.assertIn(f"Gate · {n}", mmd)
-        self.assertIn("Gate · NN ↔ gates.md 的 G-NN", mmd)
+        self.assertIn("Gate · NN ↔ gates.md G-NN", mmd)
         md = (ROOT / "00_orchestrator" / "runtime-flow.md").read_text(encoding="utf-8")
-        self.assertIn("Gate · NN` ↔ `gates.md` 的 `G-NN`", md)
+        self.assertIn("Gate · NN` ↔ `gates.md` `G-NN`", md)
 
     def test_mmd_has_plan_n_nodes_style_lint_and_defect_budget(self) -> None:
         mmd = MMD.read_text(encoding="utf-8")
         for token in (
             "grilling",
             "Plan card",
-            "流程图审批",
+            "flowchart approval",
             "N2 · G-PHI",
             "N3 WRITE",
             "N4 PREVIEW",

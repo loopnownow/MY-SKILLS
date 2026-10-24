@@ -19,7 +19,7 @@ Integrity · pre-06 (I25) + R&R lite (I45/P06r) on runtime-flow + gates (PR #156
 Earlier: CHG-20261018-batch3-5.
 
 CHG-20261018-batch3-5 (2026-10-18)
-QC Batches 3–5 on fix/qc-batch3-5: A1 archive→0del history; caches→0del; .cursorignore mounts-cap dead entry removed; review-isolation in workflows README; B2 fill-protocol MODULE principles+paths; D2 bilingual 分工 headers; F46 归档勿建; dated snapshot notes; four regression tests. Do not sync .grok/skills.
+QC Batches 3–5 on fix/qc-batch3-5: A1 archive→0del history; caches→0del; .cursorignore mounts-cap dead entry removed; review-isolation in workflows README; B2 fill-protocol MODULE principles+paths; D2 bilingual role split headers; F46 archived — do not recreate; dated snapshot notes; four regression tests. Do not sync .grok/skills.
 Earlier: see CHG-20261018-batch2 and prior blocks below.
 
 CHG-20261018-batch2 (2026-10-18)
@@ -33,7 +33,7 @@ CHG-20261008-002 (2026-10-08)
 find-journal v1.18: similar-article check moves to round 2 of journal selection. Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link); never invent; a failed search is not a no-hit. Canonical text in SKILL.md; pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md.
 Earlier: CHG-20261008-001, CHG-20261007-010.
 CHG-20261008-001 (2026-10-08)
-find-journal v1.17: user rule 2026-10-08 similar-article check. For each candidate journal, search the last 3–5 years for articles similar to the manuscript title; cite found articles (title, year, DOI/link) in 匹配理由; none found → lower its tier and write 「近年未见类似文章，已降级」; never invent articles; a failed search is not a no-hit. Canonical text in SKILL.md; one-line pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md. Regenerated docs/ visualization HTML (was stale after #126). repo_qc treats history/ as historical; history archive link repointed (broken since #124 roll).
+find-journal v1.17: user rule 2026-10-08 similar-article check. For each candidate journal, search the last 3–5 years for articles similar to the manuscript title; cite found articles (title, year, DOI/link) in match rationale; none found → lower its tier and write 「no similar articles in recent years — demoted」; never invent articles; a failed search is not a no-hit. Canonical text in SKILL.md; one-line pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md. Regenerated docs/ visualization HTML (was stale after #126). repo_qc treats history/ as historical; history archive link repointed (broken since #124 roll).
 Earlier: CHG-20261007-010, CHG-20261007-009.
 CHG-20261007-010 (2026-10-07)
 Batch D/E: identity four-tuple + A pack exceptions (find-journal / fill-protocol); path_shared grouped in generated menus; handwritten 52-fine restated as registry ceiling; auto-discovery limited to 00–06 + skill-harvest (.cursorignore mounts-cap/). Measured this PC: 41 MOUNTED, 17 A-layer SKILL.md, 60 mounts-cap SKILL.md ads. Do not sync .grok/skills until user merges.
@@ -48,40 +48,40 @@ CHG-20261007-007 (2026-10-07)
 Final cleanup batch (user-approved): no fallback paths, clear errors instead. modules (disk, no git): paths.py drops the 0preparing/0RAD stage fallback; console.py resolve_modules_dir needs MODULES_DIR in ref/settings.ini (no RAD_MODULES/gold default); __init__.py and writeback raise on invalid MODULES_DIR; ini_io drops default_preparing_root; project.html + project-shim console.html stop swapping a saved MODULES_DIR and show an error when it is empty. sync_modules/batch_rerun/smoke_test, tidy_paths and compare_val_modes use current stage roots only and raise on missing/duplicate projects. Retired traces parked in 0del\english_cleanup2_20261007 (migrate_legacy_to_0del.ps1, 0doc 03-rollback.ps1, stale __pycache__, console.override.json, empty 0RAD memory). Skills: 0rad-workspace PYTHONPATH=0script\stats-analysis + MODULES_DIR rule; Aitor-format voice refs repointed to live docx. Do not sync .grok/skills.
 Earlier: CHG-20261007-006, CHG-20261007-005.
 CHG-20261007-006 (2026-10-07)
-Cleanup after English naming: live skill text drops retired ids/paths (mounts-cap Nature ids, 0rad-workspace archive pointers, ARCHITECTURE rehome note). Disk (no git): 0script README/SCRIPT_ROLES/sub-READMEs drop archive and 原… notes; 0doc pointers to fill-protocol; modules u_QC.py→u_qc.py (+imports) and console_api.js MODULES_DIR fallback → clear error (user-approved); My rule.md adds no-fallback and QC-trace rules; .grok memory repointed. legacy_aliases and dated history kept. Do not sync .grok/skills.
+Cleanup after English naming: live skill text drops retired ids/paths (mounts-cap Nature ids, 0rad-workspace archive pointers, ARCHITECTURE rehome note). Disk (no git): 0script README/SCRIPT_ROLES/sub-READMEs drop archive and former… notes; 0doc pointers to fill-protocol; modules u_QC.py→u_qc.py (+imports) and console_api.js MODULES_DIR fallback → clear error (user-approved); My rule.md adds no-fallback and QC-trace rules; .grok memory repointed. legacy_aliases and dated history kept. Do not sync .grok/skills.
 Earlier: CHG-20261007-005, CHG-20261007-004.
 CHG-20261007-005 (2026-10-07)
 R2c 0script: make-figures→draw-flowchart, docx_revise→review-response/revise, clean-data/clinical-extraction→data-processing/clinical-data-extraction, sync/project_shim→project-shim; tidy_yt→tidy_yt_rdl, fill_cln_from_xue→fill_cln_from_supplement, setup_clin_only→setup_cln_only (+ optional one-offs). Skill pointers + 0script/0doc docs + My rule.md updated. modules untouched. Do not sync .grok/skills.
 Earlier: CHG-20261007-004, CHG-20261007-003.
 CHG-20261007-004 (2026-10-07)
-R2b 0doc: English kebab rename for ~15 Chinese subfolders + ~50 index/helper files under D:\0Grok\0doc (revision-history, _index, _templates, 02-flattened, source/text + journal-review/grant-review/thesis-review/projects, lab-ste spec.html); 伦理→ethics under 06 only (no PHI open); 07-ethics skipped. Skill pointers updated. 0script/My rule = R2c. Do not sync .grok/skills.
+R2b 0doc: English kebab rename for ~15 Chinese subfolders + ~50 index/helper files under D:\0Grok\0doc (revision-history, _index, _templates, 02-flattened, source/text + journal-review/grant-review/thesis-review/projects, lab-ste spec.html); ethics→ethics under 06 only (no PHI open); 07-ethics skipped. Skill pointers updated. 0script/My rule = R2c. Do not sync .grok/skills.
 Earlier: CHG-20261007-003, CHG-20261007-002.
 CHG-20261007-003 (2026-10-07)
-R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label 稿件评阅; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
+R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label Manuscript review; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
 Earlier: CHG-20261007-002, CHG-20261007-001.
 CHG-20261007-002 (2026-10-07)
-0doc top-level archives renamed to English kebab with numeric prefix (00-inbox, 01-thesis, 02-manuscripts, 03-review-replies, 04-lab-reference, 05-grants, 06-review-corpus, 07-ethics); inside 04-lab-reference, 研究设计 → study-design. README/MIGRATE and skill pointers updated. Fine-ID round deferred. 0doc 顶层档案英文化；细 ID 轮次另议。
+0doc top-level archives renamed to English kebab with numeric prefix (00-inbox, 01-thesis, 02-manuscripts, 03-review-replies, 04-lab-reference, 05-grants, 06-review-corpus, 07-ethics); inside 04-lab-reference, 研究设计 → study-design. README/MIGRATE and skill pointers updated. Fine-ID round deferred. 0doc top-level archives Englishized; fine-ID round deferred.
 Earlier: CHG-20261007-001, CHG-20261006-003.
 CHG-20261007-001 (2026-10-07)
 English coarse-layer ids (kebab): registry coarse id = English slug; Chinese kept as label; legacy_aliases.coarse_aliases maps old Chinese ids. 0script coarse folders renamed to match (data-processing/stats-analysis/figures/study-design/manuscript-body); modules moved under stats-analysis/modules; unused archive/ethics_index retired to 0del. Fine ids and script filenames unchanged. 0doc top-level archives deferred (phase 2).
 Earlier: CHG-20261006-003, CHG-20261006-002.
 CHG-20261006-003 (2026-10-06)
-Point 05/06/03 skills at D:\0Grok\0doc review, grant, ethics, and manuscript folders. The ethics long text now lives at D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md (pointer only). 0doc 语料只留指针。伦理长文外置。
+Point 05/06/03 skills at D:\0Grok\0doc review, grant, ethics, and manuscript folders. The ethics long text now lives at D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md (pointer only). 0doc corpus keeps pointers only. Ethics long text externalized.
 Earlier: CHG-20261006-002, CHG-20261006-001.
 CHG-20261006-002 (2026-10-06)
-0script reorganized by MY-SKILLS coarse/fine id (数据处理/统计分析/图表呈现/研究设计/正文写作 + _templates); 10 MY-SKILLS scripts copied into 0script and removed from the repo; skill pointers repointed to D:\0Grok\0script\...; SCRIPT_ROLES.md gains a 细 ID → path table. modules/sync/docx_revise/archive unchanged. 全局脚本库按技能重组；脚本外置，技能只留指针。
+0script reorganized by MY-SKILLS coarse/fine id (数据处理/统计分析/图表呈现/研究设计/正文写作 + _templates); 10 MY-SKILLS scripts copied into 0script and removed from the repo; skill pointers repointed to D:\0Grok\0script\...; SCRIPT_ROLES.md gains a fine-ID → path table. modules/sync/docx_revise/archive unchanged. Global script library reorganized by skill; scripts externalized; skills keep pointers only.
 Earlier: CHG-20261006-001, CHG-20261003-003.
 CHG-20261006-001 (2026-10-06)
-Lab runnable-code folder renamed D:\0Grok\0scripts → D:\0Grok\0script; live skill path pointers follow. Dated history lines keep the old name. 全局脚本库改名 0script；历史条目保留旧名。
+Lab runnable-code folder renamed D:\0Grok\0scripts → D:\0Grok\0script; live skill path pointers follow. Dated history lines keep the old name. Global script library renamed 0script; historical entries keep old name.
 Earlier: CHG-20261003-003, CHG-20261003-002.
 CHG-20261003-003 (2026-10-03)
-Retrospective fixed N stays in 04 sample-size (calc-sample-size / Loopnow): no post-hoc / observed power from the obtained p (Hoenig & Heisey 2001). Four approaches: pre-study power, EPV 10–15 / Riley pmsampsize, MDES at 80% power, or CI half-width. 回顾性固定 N 不计算观察功效。
+Retrospective fixed N stays in 04 sample-size (calc-sample-size / Loopnow): no post-hoc / observed power from the obtained p (Hoenig & Heisey 2001). Four approaches: pre-study power, EPV 10–15 / Riley pmsampsize, MDES at 80% power, or CI half-width. Retrospective fixed N: do not compute observed power.
 Earlier: CHG-20261003-002, CHG-20261003-001.
 CHG-20261003-002 (2026-10-03)
-Lab-STE pointer + reusable rules into 05/06 (disk SSOT D:\0Grok\0doc\04_实验室参考\lab-ste\). Chinese 稿面批注五槽 CM-01. No lexicon/tools vendored; not Gate. Standing Compared/attenuated/Methods-passive/set/Aitee rules unchanged.
+Lab-STE pointer + reusable rules into 05/06 (disk SSOT D:\0Grok\0doc\04_实验室参考\lab-ste\). Chinese manuscript-surface annotation five-slot CM-01. No lexicon/tools vendored; not Gate. Standing Compared/attenuated/Methods-passive/set/Aitee rules unchanged.
 Earlier: CHG-20261003-001, CHG-20260929-006.
 CHG-20261003-001 (2026-10-03)
-SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF / relCBF metric names). Ban attenuated (use reduced / lower / decreased); attenuation (imaging noun) stays. 比较词用 Compared；禁 attenuated。
+SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF / relCBF metric names). Ban attenuated (use reduced / lower / decreased); attenuation (imaging noun) stays. Prefer Compared as comparison word; ban attenuated.
 Earlier: CHG-20260929-006, CHG-20260929-005.
 
 Policy: VERSION.txt keeps recent Oct-2026 blocks (CHG-202610*). Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first), INTEGRATION_MAP.archive.md, and D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\ (monthly INTEGRATION_MAP-YYYYMMDD.md under MY-SKILLS_history/ / grok_history/).

@@ -11,9 +11,9 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-**唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。Gate 条文真源 [`gates.md`](gates.md)。图节点 `Gate · NN` ↔ `G-NN`。
+**sole official runtime map：** [`runtime-flow.mmd`](runtime-flow.mmd)（how to read the map [`runtime-flow.md`](runtime-flow.md)）。Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md)。Diagram nodes `Gate · NN` ↔ `G-NN`。
 
-**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
+**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
 
 **Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
@@ -36,7 +36,7 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | `settings.ini` | 0RAD project; 02 or 04, not a new scaffold |
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
 | `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
-| reviewer letter / 审稿意见 | `06_review` (review) or `07_response` (response letter) |
+| reviewer letter / reviewer comments | `06_review` (review) or `07_response` (response letter) |
 | imaging / ROI / features, no HTML | `statistics` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
@@ -62,11 +62,11 @@ Every independent run needs a mount decision. If `mounts.session_picked_fine_ids
 
 **Auto-discovery:** only `00_orchestrator`–`07_response` (including nested A packs). `{mounts_cap}` is RETIRED (2026-10-20) — never load skill bodies from it. `.gitignore` excludes accidental in-repo `mounts-cap/` copies (SSOT cache outside repo).
 
-**Mount → 评阅/润色 recipe:** when the user says 挂载 + 评阅/润色 on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
+**Mount → review/polish recipe:** when the user says mount + review/polish on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on 「full-pipeline」/full-pipeline / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 
@@ -74,7 +74,7 @@ SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection 
 |---|---|---|
 | 02 | analysis-ready table / aligned IDs | 04 |
 | 04 | one `*-results.html` per endpoint | 05 (numbers **only** from HTML) |
-| 05 | `Manuscript_<结局>_house.docx` | 06 |
+| 05 | `Manuscript_<endpoint>_house.docx` | 06 |
 | 06 | pre-review / re-review; inventable items = questions | user, then 05 for sentences |
 | 07 | response letter / resolution status | user, then 05 for sentences |
 | 00 | `ref/project-state.yaml` + last `handoff.yaml` | every later node |
@@ -107,15 +107,15 @@ Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolutio
 
 **Close.** Write `pipeline.stage` from the template (`classify | 02 | 03 | 04 | 05 | 06 | qc | done`).
 
-- 结束 / requested file on disk + last gate passed → `done`. Do not open the next SOP.
-- 暂停 → leave `stage` at the current station; next session does not re-init.
+- end / requested file on disk + last gate passed → `done`. Do not open the next SOP.
+- pause → leave `stage` at the current station; next session does not re-init.
 - Stop after results / before pre-review → `04` or `05` (not `done`).
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 
 ## Research exploration
 
-Triggers 「这个研究还能做什么」等 → [`01_skill-integration/workflows/research-exploration-loop.md`](../01_skill-integration/workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
+Triggers 「这个研究还能做什么」 / what-else-can-this-study-do and peers → [`01_skill-integration/workflows/research-exploration-loop.md`](../01_skill-integration/workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
 
 ## Boundaries
 
@@ -123,4 +123,4 @@ Triggers 「这个研究还能做什么」等 → [`01_skill-integration/workflo
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Before adding to `00`: **runtime decision vs domain knowledge?**
 
-Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click 投稿, or absorb harvest/01 implementation.
+Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: `registry.yaml` — **this-run pick first** (01). 00 does not write prose, invent numbers, click submission, or absorb harvest/01 implementation.

@@ -1,4 +1,4 @@
-"""CHG-20260903-013 audit invariants + CHG-20260903-014 选刊→03. No-LLM fixtures."""
+"""CHG-20260903-013 audit invariants + CHG-20260903-014 journal-selection→03. No-LLM fixtures."""
 from __future__ import annotations
 
 import re
@@ -204,8 +204,8 @@ class RoutingFourTuple(unittest.TestCase):
             "03_research/base/fill-protocol" in fp_note,
             fp_note,
         )
-        self.assertNotRegex(read("ARCHITECTURE.md"), r"选刊\s*→\s*05")
-        self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"选刊\s*→\s*05")
+        self.assertNotRegex(read("ARCHITECTURE.md"), r"(选刊|journal selection)\s*→\s*05")
+        self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"(选刊|journal selection)\s*→\s*05")
 
 
 class DiscoverySurface(unittest.TestCase):
@@ -313,12 +313,12 @@ class OrchestratorLoop(unittest.TestCase):
         mmd = read("00_orchestrator/runtime-flow.mmd")
         self.assertIn("citation-verify", mmd)
         self.assertIn("claim→ref", mmd)
-        self.assertIn("不可跳过", mmd)
-        self.assertIn("中途可进", mmd)
-        self.assertIn("Lee · 陈述一致", mmd)
+        self.assertIn("mandatory", mmd)
+        self.assertIn("mid-entry OK", mmd)
+        self.assertIn("Lee · statement", mmd)
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
         self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
-        self.assertIn("不代替 citation-verify", mmd)
+        self.assertIn("does not replace citation-verify", mmd)
         # t1123: citation-verify ownership lives in ownership-contract, not registry meta
         own = read("00_orchestrator/references/ownership-contract.md")
         self.assertIn("citation-verify", own.lower())

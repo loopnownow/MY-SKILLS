@@ -2,7 +2,7 @@
 
 **Owner:** `00_orchestrator`. Prediction-model SCI from existing HTML, not from scratch stats.
 
-Use when the user picks this SOP, or 写稿 / 按我的风格写 / 全线写论著（且选了本 SOP），or directory detection finds `*-results.html` and they lock N3 WRITE.
+Use when the user picks this SOP, or write manuscript / write in my voice / full-pipeline paper (and this SOP was chosen)，or directory detection finds `*-results.html` and they lock N3 WRITE.
 
 Numbers **only** from that endpoint’s `*-results.html`. Format: `Aitor-format.md`. Missing HTML → do not start this SOP; send back to `statistics` / 04.
 
@@ -15,7 +15,7 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 2. **Methods / Results (`05_manuscript`)** — personal upper layer + Aitor. Table 1 = training vs test. Nomogram not “Combined”.
 3. **Figure 1 (`04_analysis`)** — Figure 1 is the study flowchart read from Methods (`Aitor-format.md`). STROBE / patient-flow: mounted `draw-flowchart`. Statistical plots / imaging panels: mounted `plot-figures`. Palette: `04_analysis/personal/figures.md` (lab palettes) / `FIG_PALETTE` in ini. Captions still 05. Do not draw Figure 1 with `plot-figures` and “no inclusion box”.
 4. **Introduction / Discussion** — literature via `03_research`; 05 consumes `05_manuscript/personal/process/evidence.md` then polisher §2/§5. Quotas only in Aitor.
-5. **De-AI (`05_manuscript`)** — `05_manuscript/base/vocab/L1/ban-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<结局>_house.docx`.
+5. **De-AI (`05_manuscript`)** — `05_manuscript/base/vocab/L1/ban-phrases.md` then ai-isms. Methods stay passive. File check: `Manuscript_<endpoint>_house.docx`.
 5b. **Citation verify (`03_research`)** — semantic label **G-CIT-1** (draft evidence verification). Required before Gate **G-05** and before the house deliverable is done, including mid-entry. `03_research/personal/citation-verify.md`: claim→ref table + spot-check strong claims against sources. call/require 03 citation-verify — do not self-certify lit. Handoff `05 → 06` if N4 PREVIEW only after this pass. G-CIT-1 does not waive G-CIT-2.
 5c. **Integrity · pre-06** — after Gate **G-05** / before Lee 06 (also when mid-entering Need06). Composition only: G-FACT (if numbers cited) + G-CIT-1 already required + short AI-failure / manuscript-local-qc spot checklist. **Not** a new gate id. HARD block before 06 if G-FACT/G-CIT fail. See `gates.md` / `runtime-flow.mmd` node `I25`.
 6. **Pre-review (`06_review`)** — Lee: statement consistency, then data consistency. Ownership: see `00_orchestrator/references/ownership-contract.md`. 03 citation-verify inside this review is semantic label **G-CIT-2** (post-revision / inside 06) and cannot be skipped; G-CIT-1 does not waive G-CIT-2. Literature accuracy is joint with Victor. Inventable items → questions for the user. Gate **G-06**.
@@ -24,7 +24,7 @@ If `ref/project-state.yaml` exists, read `manuscript:` (journal, docx paths, rev
 
 ## Close
 
-Use the `00` close rules. `pipeline.stage: done` when this run's file is in place and the last gate passed, or the user says 结束. Stopping after the results page, or before step 6, leaves `stage` at `04` or `05`.
+Use the `00` close rules. `pipeline.stage: done` when this run's file is in place and the last gate passed, or the user says end. Stopping after the results page, or before step 6, leaves `stage` at `04` or `05`.
 
 ## Do not
 
@@ -36,7 +36,7 @@ Use the `00` close rules. `pipeline.stage: done` when this run's file is in plac
 
 ## Output
 
-Overwrite `Manuscript_<结局>_house.docx` in place (or `_polished.docx` after an archive pass).
+Overwrite `Manuscript_<endpoint>_house.docx` in place (or `_polished.docx` after an archive pass).
 After a 05/06 Word pass, append `ref/manuscript-revision.md` (`06_review/personal/word-edit.md`). Do not re-polish logged sections.
 
 ## Project `ref/` layout

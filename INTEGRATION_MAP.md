@@ -67,7 +67,7 @@ Harvest must not invent a second evolution log file.
 - F42: `review-isolation` row added to `01_skill-integration/workflows/README.md` (formerly under 00 workflows pointer).
 - B2: `fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
 - D2: design-experiment bilingual pair headers (validation / study-design).
-- F46: Absent labels → 归档勿建.
+- F46: Absent labels → archived — do not recreate.
 - Dated refs: snapshot notes on ai-radiogenomics-12-24-roadmap + journal-patterns-2023-2026.
 - Batch5: four regression tests under `tests/`.
 - Do **not** sync `.grok/skills`.
@@ -99,7 +99,7 @@ Harvest must not invent a second evolution log file.
 
 ## CHG-20261008-001 — find-journal similar-article check
 
-- User rule 2026-10-08: for each candidate journal, search the last 3–5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in 匹配理由. None found → lower the tier and write 「近年未见类似文章，已降级」. Never invent articles. A failed search is not a no-hit.
+- User rule 2026-10-08: for each candidate journal, search the last 3–5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in match rationale. None found → lower the tier and write 「no similar articles in recent years — demoted」. Never invent articles. A failed search is not a no-hit.
 - Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.
 - Regenerated `docs/` visualization HTML via `04_analysis/personal/visualization/scripts/gen_visualization.py` (outputs were stale on main after #126).
 - `skill-harvest/scripts/repo_qc.py` (archived under `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`): historical map files under the 0del `_medical-research-meta_history` tree count as historical (legacy-active-refs, stale-ids), like this stub and archive. The Oct-7 monthly file is at `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\INTEGRATION_MAP-20261007.md` (in-repo `history/` link removed).

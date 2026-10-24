@@ -9,7 +9,7 @@ Review voice / prefixes: `06_review/personal/review.md` §0.
 Typical one-liner (Chinese):
 
 ```text
-使用我的技能，挂载 <pack>，评阅/润色 <path>.docx
+Use my skills, mount <pack>, review/polish <path>.docx
 ```
 
 Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via `01_skill-integration/registry.yaml`. Do not invent ids. Historical pack nicknames are not live menus.
@@ -24,7 +24,7 @@ Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via
 
 ## Plan-first
 
-If the user asks for 方案 / 计划 / 同意后再做: stop after the plan card; wait for explicit agree (e.g. `同意` / `1-4同意` / `全同意`).
+If the user asks for plan / proposal / do after agree: stop after the plan card; wait for explicit agree (e.g. `agree` / `1-4agree` / `agree-all`).
 
 ## Isolation
 

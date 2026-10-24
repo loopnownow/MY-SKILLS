@@ -56,14 +56,14 @@ aliases:
 # Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
 # R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
 coarse_aliases:
-  文献检索: lit-retrieval
-  选题探索: topic-explore
-  研究设计: study-design
-  正文写作: manuscript-body
-  语言润色: language-polish
-  数据处理: data-processing
-  统计分析: stats-analysis
-  图表呈现: figures
-  稿件评阅: manuscript-review
-  审稿回复: review-response
+  Literature retrieval: lit-retrieval
+  Topic exploration: topic-explore
+  Study design: study-design
+  Manuscript body writing: manuscript-body
+  Language polish: language-polish
+  Data processing: data-processing
+  Statistical analysis: stats-analysis
+  Figures: figures
+  Manuscript review: manuscript-review
+  Reviewer response: review-response
   peer-review: manuscript-review
