@@ -10,7 +10,7 @@
 | Durable original | `{doc_root}\_corpus\skill-harvest\sources\library-methods-20261023\study-design\fill-protocol\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\` |
 | Blank templates | `{doc_root}\templates\ethics-blank\` |
-| Filled/PHI | ethics tree / `0del\_by-project\0doc-ethics-raw-20261023\` — **never GitHub** |
+| Filled/PHI | ethics tree / `{raw_root}\_lab\ethics\raw-20261023\` — **never GitHub** |
 | Seat | `03_research/personal/fill-protocol/` (`README`, `checklist`, `form-boilerplate`) |
 
 ## Default pack (align with 填写说明 — do not drift)

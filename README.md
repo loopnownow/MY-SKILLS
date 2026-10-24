@@ -22,7 +22,7 @@ ARCHITECTURE.md
 MOUNTED_SKILLS.md            # → 01_skill-integration/MOUNTED_SKILLS.md
 ```
 
-# mounts-cap lab pack-cache: RETIRED 2026-10-20 — {mounts_cap} = D:/0del/_by-function/mounts-cap-retired-20261020 (do not use; bytes moved to {DEL}/_by-function/mounts-cap-retired-20261020/)
+# mounts-cap lab pack-cache: RETIRED 2026-10-20 — {mounts_cap} = D:/00db/_lab/originals/_leftover-20261024/_by-function/mounts-cap-retired-20261020 (do not use; 0del cleared 2026-10-24)
 
 
 Skill paths are at most five parts from repo root: `<skill>/<category-or-pack>/<scripts|references|personal>/<optional-leaf>/file`. No `core/`, no `bundles/`, no `merged/`. Vendored third-party libraries may nest deeper (e.g. `02_data-processing/base/clean-data/xlsx-office/scripts/office/**`); they are byte-faithful copies, not skill bodies.

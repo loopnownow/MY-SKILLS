@@ -22,7 +22,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 **Word 原件**不在 `0doc` 树内：`{DEL}\_by-project\0doc-word-sources\`。
 
-**已迁 0del（勿再当现役）:** `03-research\briefs (historical; now under 0del)`、`07-response\reply-units`、`_corpus\md-build` → `{DEL}\_by-project\0doc-struct-20261022\`（2026-10-23 减夹）。
+**已迁 0del（勿再当现役）:** `03-research\briefs (historical; now under D:\00db\_lab\originals)`、`07-response\reply-units`、`_corpus\md-build` → `D:\00db\_lab\originals\0doc-struct-20261022\`（2026-10-23 减夹）。
 
 ## How
 

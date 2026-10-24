@@ -13,7 +13,7 @@ aliases:
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   # mounts_cap / mounts_cap_cache: DELETED 2026-10-24 (RETIRED 2026-10-20).
-  # Former bytes parked at D:\0del\_by-function\mounts-cap-retired-20261020 — do not recreate; do not alias.
+  # Former bytes parked at D:\00db\_lab\originals\_leftover-20261024\_by-function\mounts-cap-retired-20261020 (0del cleared 2026-10-24) — do not recreate; do not alias.
   # 0doc — 2026-10-23：人读层收成 <粗ID>/personal|base；现役内容在 personal\。
   doc_lab_ste: "D:\\0Grok\\0doc\\_library\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
@@ -21,20 +21,20 @@ aliases:
   jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\0Grok\\0doc\\_library\\jcr2026\\submission"
   find_journal_pools: "D:\\0Grok\\0doc\\_library\\find-journal\\data\\2026"
-  # was 06-review/personal (retired human seat 2026-10-23 → 0del\\_by-project\\0doc-03-07-seats-20261023\\06-review).
+  # was 06-review/personal (retired human seat 2026-10-23 → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\06-review).
   # Live review-text SSOT: _corpus\\corpus\\review-text.jsonl (+ REVIEW-TEXT.tsv).
   doc_review_corpus: "D:\\0Grok\\0doc\\_corpus"
-  # was 07-response/personal (retired human seat → 0del\\_by-project\\0doc-03-07-seats-20261023\\07-response;
-  # Word reply originals also under 0del\\_by-project\\0doc-word-sources\\07-response).
+  # was 07-response/personal (retired human seat → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\07-response;
+  # Word reply originals also under D:\\00db\\_lab\\doc-word\\07-response).
   # Live flattened SSOT: _corpus\\corpus\\flattened.jsonl.
   doc_review_replies: "D:\\0Grok\\0doc\\_corpus"
   doc_grants: "D:\\0Grok\\0doc\\_library\\grants"
-  # 学位论文 Word 原件 2026-10-22 已迁 0del 归档区；0doc 内只剩 md 视图。
-  doc_thesis: "D:\\0del\\_by-project\\0doc-word-sources\\05-manuscript\\thesis"
-  doc_word_archive: "D:\\0del\\_by-project\\0doc-word-sources"
+  # 学位论文 Word 原件 2026-10-22 已迁 D:\\00db\\_lab\\doc-word 归档区；0doc 内只剩 md 视图。
+  doc_thesis: "D:\\00db\\_lab\\doc-word\\05-manuscript\\thesis"
+  doc_word_archive: "D:\\00db\\_lab\\doc-word"
   doc_ethics: "D:\\0Grok\\0doc\\_library\\ethics"
   doc_fill_protocol: "D:\\0Grok\\0doc\\_library\\study-design\\fill-protocol"
-  doc_migrate: "D:\\0del\\_by-project\\0doc-tidy-20261022-r2\\MIGRATE_FROM_SKILLS.md"
+  doc_migrate: "D:\\00db\\_lab\\_ledgers\\0doc-tidy-20261022-r2\\MIGRATE_FROM_SKILLS.md"
   # 0doc\_code — stats engine + stage scripts (0script retired 2026-10-23)
   code_stats: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis"
   code_modules: "D:\\0Grok\\0doc\\_code\\04-analysis\\stats-analysis\\modules"
@@ -63,8 +63,8 @@ notes:
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_runtime}/{rules_git} = MY-RULES clone; Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}; master copy (local git only) at {code_modules_master}."
-  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\0del\\_by-project\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
-  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\\\0del\\\\_by-function\\\\mounts-cap-retired-20261020. Not under MY-SKILLS."
+  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
+  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\00db\\_lab\\originals\\_leftover-20261024\\_by-function\\mounts-cap-retired-20261020. Not under MY-SKILLS."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
-  - "mounts_cap aliases deleted 2026-10-24 (retired 2026-10-20); park folder D:\\0del\\_by-function\\mounts-cap-retired-20261020 only. No {MOUNTS}/{mounts_cap} alias. raw_root=D:\\00db (was 00ds)."
+  - "mounts_cap aliases deleted 2026-10-24 (retired 2026-10-20); park folder D:\\00db\\_lab\\originals\\_leftover-20261024\\_by-function\\mounts-cap-retired-20261020 only. No {MOUNTS}/{mounts_cap} alias. raw_root=D:\\00db (was 00ds)."
