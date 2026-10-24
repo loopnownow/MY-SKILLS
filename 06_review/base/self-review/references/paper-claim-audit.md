@@ -71,7 +71,7 @@ Per claim:
 4. **N staircase mismatch** — inclusion → exclusion → final N does not add up  
 5. **Arithmetic error** — AUC delta, OR/HR, % with wrong denominator  
 6. **Caption vs content** — caption disagrees with table/figure  
-7. **Scope overclaim** — e.g. 证明 / 独立预测因子 / “validates” in single-center retrospective without support  
+7. **Scope overclaim** — e.g. 证明 (prove) / 独立预测因子 (independent predictor) / “validates” in single-center retrospective without support  
 
 Also check:
 

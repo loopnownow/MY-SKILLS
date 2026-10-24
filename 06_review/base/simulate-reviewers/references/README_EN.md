@@ -1,6 +1,6 @@
 # `nature-reviewer` Skill
 
-[中文说明](../README.md)
+[Chinese notes / README](../README.md)
 
 `nature-reviewer` simulates Nature-style pre-submission review from the reviewer perspective, helping authors find risks in novelty, significance, technical soundness, and reader value before submission.
 

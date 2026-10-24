@@ -1,54 +1,65 @@
-# 论文审阅检查清单
+# Manuscript review checklist
 
-用于系统性地审阅学术论文，逐项检查并记录问题。
+Use this to systematically review an academic paper, check items one by one, and record issues.
 
-## 1. 标题与摘要
-- [ ] 标题是否准确反映研究内容？
-- [ ] 摘要是否包含背景、方法、结果、结论四要素？
-- [ ] 摘要中的关键数据是否与正文一致？
+## 1. Title and abstract
+- [ ] Does the title accurately reflect the study content?
+- [ ] Does the abstract include background, methods, results, and conclusion?
+- [ ] Do key numbers in the abstract match the body?
 
-## 2. 引言
-- [ ] 研究背景是否充分？
-- [ ] 研究空白/问题是否明确？
-- [ ] 研究目的与假设是否清晰？
+## 2. Introduction
+- [ ] Is the background sufficient?
+- [ ] Is the research gap / question clear?
+- [ ] Are the aims and hypotheses clear?
 
-## 3. 方法
-- [ ] 研究对象描述是否完整（纳入/排除标准）？
-- [ ] 数据采集与处理流程是否可复现？
-- [ ] 统计方法是否恰当并说明软件版本？
-- [ ] 是否报告了所有参数（如 LASSO lambda、插补方法）？
-- [ ] 是否说明显著性水平与多重比较校正？
+## 3. Methods
+- [ ] Are participants described completely (inclusion / exclusion)?
+- [ ] Are data acquisition and processing reproducible?
+- [ ] Are statistical methods appropriate, with software versions stated?
+- [ ] Are all parameters reported (e.g. LASSO lambda, imputation method)?
+- [ ] Are significance level and multiple-comparison correction stated?
 
-## 4. 结果
-- [ ] 结果是否与原始数据一致？
-- [ ] 是否报告了 CI、p 值等统计量？
-- [ ] 图表是否清晰、标注完整？
-- [ ] Table1 基线表是否完整？
+## 4. Results
+- [ ] Do results match the source data?
+- [ ] Are CIs, p-values, and other statistics reported?
+- [ ] Are figures and tables clear with complete labels?
+- [ ] Are negative / null results reported rather than omitted?
+- [ ] Do figure and table numbers match in-text citations?
 
-## 5. 讨论
-- [ ] 结果解释是否合理？
-- [ ] 是否与既往研究对比？
-- [ ] 局限性是否充分说明？
+## 5. Discussion
+- [ ] Are main findings summarized without overclaiming?
+- [ ] Is comparison with prior work fair and specific?
+- [ ] Are limitations stated honestly?
+- [ ] Are clinical / scientific implications proportional to the evidence?
 
-## 6. 结论
-- [ ] 结论是否由结果直接支持？
-- [ ] 是否过度推断？
+## 6. Conclusion
+- [ ] Does the conclusion match the results?
+- [ ] Does it avoid unsupported generalization?
 
-## 7. 参考文献
-- [ ] 引用格式是否符合期刊要求？
-- [ ] 参考文献是否完整、无遗漏？
+## 7. References
+- [ ] Are key claims backed by citations?
+- [ ] Are recent and foundational works included appropriately?
+- [ ] Is citation formatting consistent?
 
-## 8. 投稿合规
-- [ ] 是否遵循期刊的 Checklist 要求？
-- [ ] 伦理声明、利益冲突是否齐全？
-- [ ] 数据可用性声明是否提供？
+## 8. Ethics and transparency
+- [ ] Ethics approval / informed consent stated when required?
+- [ ] Data / code availability statements present?
+- [ ] Conflicts of interest disclosed?
+- [ ] Funding acknowledged?
 
----
+## 9. Reporting standards
+- [ ] Appropriate checklist used (TRIPOD, STARD, CONSORT, PRISMA, etc.)?
+- [ ] Checklist items mapped to manuscript locations?
 
-## 检查报告格式
+## 10. Language and presentation
+- [ ] Terminology consistent across sections?
+- [ ] Units and abbreviations defined on first use?
+- [ ] No unexplained acronyms in abstract or figures?
 
-对每个问题，记录：
-- **位置**：页码/行号/小节
-- **问题**：具体描述
-- **严重程度**：严重 / 中等 / 轻微
-- **修改建议**：如何修改
+## Issue log
+
+| ID | Section | Issue | Severity | Suggested fix |
+|----|---------|-------|----------|---------------|
+| 1  |         |       |          |               |
+
+Severity: Blocking / Major / Minor / Nit.

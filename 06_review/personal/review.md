@@ -5,79 +5,79 @@
 
 ## Part A — English peer-review envelope
 
-# 个人审稿意见风格（英文 peer review）
+# Personal peer-review style (English peer review)
 
-来源：2014–2026 自审期刊意见全文库，去重 57 份。只收结构、口气与高频要害，不收录他人未刊题目、数据、伦理号或患者标识。
+Source: 2014–2026 self-authored journal-review full-text corpus, 57 deduplicated files. Keep structure, tone, and high-frequency attack points only — do not ingest others' unpublished titles, data, ethics IDs, or patient identifiers.
 
-磁盘语料（内部评阅，用户本人的意见风格来源）：`{doc_review_corpus}\`。本文件不复制语料全文。
+On-disk corpus (internal review; source of the owner's comment style): `{doc_review_corpus}\`. This file does not copy the corpus body.
 
-本文件只服务 **英文期刊 peer review**（给别人写、可提交系统的审稿信；本室预审也可套同一章节骨架）。下面两件事走别的模板，禁止混进本信封：
+This file serves **English journal peer review** only (letters written for others and submittable to the system; lab pre-review may reuse the same chapter skeleton). The two tasks below use other templates — do not mix them into this envelope:
 
-| 任务 | 文件 |
+| Task | File |
 |---|---|
-| 毕业论文 / 学位论文评阅 | this file § Thesis review digest |
-| 中文杂志 1–5 分项 + A–F / 学术审稿单 | this file § Chinese journal score digest |
+| Thesis / dissertation review | this file § Thesis review digest |
+| Chinese-journal 1–5 scores + A–F / academic review form | this file § Chinese journal score digest |
 
-早期中文审稿单可以很冲（「并无新意」「选择偏倚」「未交代」）。**英文稿不要学那种冲法。** 英文用礼貌、直接、可执行的祈使。
+Early Chinese review forms can be blunt («并无新意» / «选择偏倚» / «未交代»). **Do not import that bluntness into English.** English uses polite, direct, actionable imperatives.
 
-**模式入口：** `06_review/SKILL.md`（`pre-review` / `peer-review` / `response`）。不要引用已删除的 `mode-2-*.md`。
+**Mode entry:** `06_review/SKILL.md` (`pre-review` / `peer-review` / `response`). Do not cite deleted `mode-2-*.md`.
 
 ---
 
 **Corpus harvest (2026-10-23):** checklist themes in `personal/references/corpus-review-habits.md` (methods / consistency / overclaim). Envelope rules in this file win on conflict.
 
-## 0. 批注与冲突（实验室硬规则）
+## 0. Comments and conflicts (lab hard rules)
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-- Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
-- 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
-  - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
-  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]`（个人/细 ID 任务）
-  - 挂载 + 个人都成立 → **双标**，例：`[Nature:simulate-reviewers] [A:personal]` / `[self-review] [A:personal]`
-- **强制：** 本轮挂了外部审稿源（Nature / peer-review / self-review 等，或非个人 B）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。**禁止默认回落 `[A:personal]`**（Rules：`My rule.md` §5.1 + 本文件 §0）。
-- 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。无从判定来源时才用 `[A:personal]`。
-- **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍由 Aitee 落 Track Changes，Lee 只批注。
-- **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee 默认不改正文。
-- 定不了的事实（缺 n、伦理、未做分析）：标 `cannot_invent`，问用户。中文批注加英文建议措辞和/或建议文献（见 ownership-contract）。建议文献由 Victor 供给。Lee 不落稿件修订；用户选定后由 Aitee 用 Track Changes 改正文。
-- **否定句 / 未做类（owner 2026-10-23）：** 凡标「未做 / 未进行 / 我们未…」或同类 CYA 的过程性否定句，**不得写入正文**（稿件、修订稿、回复信）。只进 Word **批注**（作者 **A**），且每条批注必须含 **建议修改后内容**；禁止裸 flag。研究本身的阴性结果（如 *no significant difference*、*was not associated with*）不受本条禁止。质控：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
-- 改文单元：**词或句**，禁止整段重写。
+- Word / 稿面批注 **作者字段** is always **A**. No yellow highlight. 作者栏 ≠ 来源标签.
+- Source goes only in the comment **body prefix** (lead-in): which layer this judgment came from — not an envelope label.
+  - **Format (mounted items):** `[源:包内skill-id]`. Forbid source-only tags (bare `[Nature:]` / `[Scientific:]`). B uses v4 fine IDs: `[B:peer-review]`.
+  - Examples: `[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]` (personal / fine-ID tasks)
+  - Mount + personal both apply → **双标** (dual tag), e.g. `[Nature:simulate-reviewers] [A:personal]` / `[self-review] [A:personal]`
+- **Mandatory:** when this round mounts an external review source (Nature / peer-review / self-review, or non-personal B), every finding/gate/checklist item from that mount **must** carry a **skill-level** tag in the prefix (e.g. `[Nature:simulate-reviewers]`), not source-only. Forbid rewriting everything as `[A:personal]` just because the personal eight-chapter envelope was used. **Forbid defaulting to `[A:personal]`** (Rules: `My rule.md` §5.1 + this file §0).
+- With no mount, empty source prefixes must not appear. Pure lab sentence edits (grammar, Aitor punctuation) take `[A:personal]` only. Use `[A:personal]` only when the source cannot be determined.
+- **When a mount suggestion conflicts with lab doctrine:** do not silently adopt the mount fix. Put everything in the comment: conflict point + **fix plan** (before/after sentence, or “keep sentence + swap reference”). **最终由用户决定.** After the user agrees, Aitee still lands Track Changes; Lee comments only.
+- **Decidable issues:** Lee writes a clear comment (locus, defect, 词或句 to change) and hands Aitee a TC-fix. Lee does not edit the body by default.
+- Undecidable facts (missing n, ethics, analysis not done): mark `cannot_invent`, ask the user. Chinese comment plus English suggested wording and/or suggested literature (see ownership-contract). Victor supplies suggested literature. Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
+- **Process-negation / not-done class (owner 2026-10-23):** Process-negation sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **comments** only (author **A**), and every comment must include **建议修改后内容** (suggested revised content); bare flags are forbidden. True negative study results (e.g. *no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
+- Edit unit: **word or sentence**; forbid whole-paragraph rewrites.
 
 ---
 
 
-## 0.1 意见条目定位（硬规则）
+## 0.1 Opinion-item localization (hard rules)
 
-- 每条 Major / Minor **正文**：`Lines n–m:`（或图/表/章节定位）+ 哪里不好 + Please 怎么改。
-- **优先：** Proof/原稿行号，如 `Lines 76–79:` / `Line 216:`。
-- **无可靠行号时：** `Introduction, paragraph 2, line 3:`；或 `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`。
-- **已给行号则不复述、不引用原稿句子。**
-- **来源标签**（如 `[B:self-review][A:personal]`）只写在 Word **批注**文首；作者字段 **A**。不好的原因用**中文**写在同一条批注里，放在来源标签后面。`cannot_invent` / G-LIT 双轨也只进批注（不进信封正文）。
-- **禁止**把行号埋在句中或句末；禁止无定位的空泛指摘（Opening 总述除外，Opening 可不写行号）。
-- **定位不确定时：** 不硬编精确行号。在 Word **批注**中说明不确定原因 + 建议 locator + 建议修改内容；批注**作者字段 = A**。用户确认后，只可改审稿**信封**里对应的那一条。稿件正文不在这里用修订模式改（见 ownership-contract）。
-- 用户若粘贴原文句子：先在 Proof/plain 对齐行号，再写入对应章节；不要另起新的审稿 docx。
+- Every Major / Minor **body**: `Lines n–m:` (or figure/table/section locus) + what is wrong + Please how to fix.
+- **Prefer:** Proof/manuscript line numbers, e.g. `Lines 76–79:` / `Line 216:`.
+- **When no reliable line numbers:** `Introduction, paragraph 2, line 3:`; or `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`.
+- **If line numbers are given, do not restate or quote the manuscript sentence.**
+- **Source tags** (e.g. `[B:self-review][A:personal]`) go only at the Word **comment** lead-in; author field **A**. Write the Chinese reason in the same comment after the source tag. `cannot_invent` / G-LIT dual-track also go in comments only (not the envelope body).
+- **Forbid** burying line numbers mid-sentence or at the end; forbid unlocalized vague attacks (Opening summary excepted — Opening may omit line numbers).
+- **When the locus is uncertain:** do not invent precise line numbers. In the Word **comment**, state why it is uncertain + suggested locator + suggested revision; comment **author field = A**. After the user confirms, change only that item in the review **envelope**. Do not Track-Change the manuscript body here (see ownership-contract).
+- If the user pastes a source sentence: align line numbers on Proof/plain first, then write into the matching chapter; do not spawn a new review docx.
 
-## 1. 年代分层（决定信封，不决定把中文冲法搬进英文）
+## 1. Era layering (picks the envelope; does not import Chinese bluntness into English)
 
-| 大约年份 | 形态 | 英文 peer review 怎么用 |
+| Approx. years | Form | How English peer review uses it |
 |---|---|---|
-| 2014–2018 | 中文杂志审稿单 | **不要**当英文信模板。走本文件 § Chinese journal score digest |
-| 2019–2023 | `Dear Editor` + 行号优先（Lines n–m / Section, paragraph, line）出条 | 仅当邀请信/系统仍要抬头时用 |
-| 2024–2026 | 无抬头或一行邀请致谢；Opening → 按章节 Major/Minor | **默认信封** |
+| 2014–2018 | Chinese-journal review form | **Do not** use as an English-letter template. Use this file § Chinese journal score digest |
+| 2019–2023 | `Dear Editor` + line-number-first items (Lines n–m / Section, paragraph, line) | Only when the invitation/system still requires a salutation |
+| 2024–2026 | No salutation or one-line invite thanks; Opening → chapter Major/Minor | **Default envelope** |
 
-正文一般不写 Accept / Reject / Major revision 分数；分数放内部备注或中文审稿单。
+Do not put Accept / Reject / Major revision scores in the body; scores go in internal notes or the Chinese review form.
 
 ---
 
-## 2. 默认信封（2024–2026）
+## 2. Default envelope (2024–2026)
 
-按用户模版分八章出条。每章内先 **Major Issues**，再 **Minor Issues**。Major = 可改变结论/可重复性/伦理/数据一致性；Minor = 字词、格式、图注补全。
+Issue items by the owner's eight-chapter template. Inside each chapter: **Major Issues** first, then **Minor Issues**. Major = can change conclusions / reproducibility / ethics / data consistency; Minor = wording, format, legend completion.
 
 ```text
 [Opening 2–4 sentences: design + clinical question + overall value + the methodological catch]
 
 1. Title
-Major Issues: [Lines n–m: / Section, paragraph, line: + defect + Please fix]  （来源标签进批注，见 §0.1）
+Major Issues: [Lines n–m: / Section, paragraph, line: + defect + Please fix]  (source tags go in comments; see §0.1)
 Minor Issues: …
 
 2. Abstract
@@ -109,101 +109,101 @@ Major Issues:
 Minor Issues:
 ```
 
-需要时加一行 `Major Comments`。不要写成 25 问问卷（除非编辑部表格强制）。空章写 `None` 或省略，不要注水。
+Add a `Major Comments` line when needed. Do not write a 25-item questionnaire (unless the editorial form forces it). Empty chapters: write `None` or omit — do not pad.
 
-**每条：** `Lines n–m:`（或 section）→ 缺陷 → **Please** 明确修改建议。来源标签与中文原因进批注（§0.1）。不编造未做实验，不替作者补 AUC。
+**Per item:** `Lines n–m:` (or section) → defect → **Please** with a clear fix. Source tags and Chinese reasons go in comments (§0.1). Do not invent experiments not done; do not invent AUCs for the authors.
 
 ---
 
-## 3. Opening（2–4 句）
+## 3. Opening (2–4 sentences)
 
-点明设计 + 临床问题 → 总体有无价值 → 但方法学仍有要害。少空夸 *interesting*。
+Name the design + clinical question → overall value or not → but methods still have a catch. Avoid empty praise (*interesting*).
 
-**默认：**
+**Default:**
 ```text
 This [design] study [does X] to [clinical question]. The topic is clinically relevant, but methodological limitations—particularly [theme], [theme], and [theme]—currently weaken the strength of the conclusions.
 ```
 
-变体（稿较好）：`While the study is methodologically sound and clinically promising, a few key areas would benefit from further revision.`
+Variant (stronger manuscript): `While the study is methodologically sound and clinically promising, a few key areas would benefit from further revision.`
 
-变体（要可重复性）：`This study had certain clinical usefulness. However, the method was not rigorous. Details should be provided for the repeatability. These are my comments.`
+Variant (reproducibility focus): `This study had certain clinical usefulness. However, the method was not rigorous. Details should be provided for the repeatability. These are my comments.`
 
-**Dear Editor（系统仍要抬头时）：**
+**Dear Editor (when the system still wants a salutation):**
 ```text
 Dear Editor:
 Thank you for inviting me to evaluate this article. The purpose of this study was to …. However, details for explanation of replicability of the methods should be provided.
 ```
 
-不要在 Opening 里写 Accept/Reject。近年若保留脚注 `AI was used to refine the readability of the peer review comments, all of which came from the reviewer.` —— 只润色句法，不改判断。
+Do not put Accept/Reject in the Opening. Recent years may keep the footnote `AI was used to refine the readability of the peer review comments, all of which came from the reviewer.` — polish syntax only; do not change the judgment.
 
 ---
 
-## 4. 分章审查重点（模版）与高频要害
+## 4. Chapter review focus (template) and high-frequency attack points
 
-写意见时按章扫；有则写，无则跳过。英文用礼貌祈使。
+Scan by chapter when writing; write what applies, skip the rest. English = polite imperatives.
 
 ### 4.1 Title
-**重点：** 是否准确反映核心内容与研究类型（RCT / 队列 / 诊断性试验 / 预测模型）。
-- Major：题不对文；把 temporal split 写成 external validation。
-- Minor：冗余词、缩写未展开。
+**Focus:** accurately reflects core content and study type (RCT / cohort / diagnostic / prediction model).
+- Major: title mismatches body; temporal split labeled as external validation.
+- Minor: fluff words; abbreviation not expanded.
 
 ### 4.2 Abstract
-**重点：** 结构完整；目的/方法/主要数据（OR/HR、95% CI、*P*）及结论与正文一致。
-- Major：藏低特异度；缺 95% CI；与正文数字不符。（命中约 10）
-- Minor：字数、缩写首次展开。
+**Focus:** complete structure; objective/methods/key numbers (OR/HR, 95% CI, *P*) and conclusion match the body.
+- Major: hides low specificity; missing 95% CI; numbers disagree with the body. (~10 hits)
+- Minor: word count; first-use expansion of abbreviations.
 
 ### 4.3 Introduction
-**重点：** 背景是否引出空白；假说与目的是否清晰。
-- Major：末段无清楚假设。（命中约 5）`Please clearly state the research hypothesis in the last paragraph of the Introduction.`
-- Minor：背景过长、引用堆砌（预审：不删真文献，只注 over-quota）。
-- Minor：开头段有可引用的证据却 0 条文献；连续两句引用同一篇却没有新论点。见 §4.9。Aim 段仍不引用。
+**Focus:** background leads to a gap; hypothesis and aim are clear.
+- Major: last paragraph lacks a clear hypothesis. (~5 hits) `Please clearly state the research hypothesis in the last paragraph of the Introduction.`
+- Minor: background too long; citation stacking (pre-review: do not delete real refs; note over-quota only).
+- Minor: opening paragraph has citable evidence but 0 refs; two consecutive sentences cite the same paper with no new claim. See §4.9. Aim paragraph still takes no citations.
 
 ### 4.4 Methods
-**重点：** 设计是否匹配问题；对照是否合理；样本量依据；入排是否严密；技术/序列/软件版本可重复；IRB/知情同意/注册。
-- Major（高频）：
-  - ROI / 分割可重复性（约 23）
-  - 样本量 / 连续入组 / 缺记录处理（约 19）
-  - 伦理占位符 / 缺伦理号（约 18）
-  - 特征筛选泄漏 / LASSO λ / 折内 nested（约 12）
-  - 扫描参数 / 多设备一致性（约 12）
-  - 「external」实为同院时间划分（约 11）
-- Minor：试剂厂家、软件版本、参数补全。
-- Major：同一队列上既筛选又取阈值又做组间检验，却把 *P* 写成确认性结果。请改为描述性，或提供真实做过的 nested CV / bootstrap。不要替作者写成做过 nested CV。
-- Major：入组阈值与纳入组的中位数、Q1 或最小值矛盾；IQR 超出量表范围。只批注，不改数字。
-- Major：检索式为空，或扫描参数仍是占位。见 §4.9。
+**Focus:** design matches the question; controls sensible; sample-size rationale; inclusion/exclusion tight; tech/sequence/software versions reproducible; IRB/consent/registration.
+- Major (high frequency):
+  - ROI / segmentation reproducibility (~23)
+  - sample size / consecutive enrollment / missing-record handling (~19)
+  - ethics placeholders / missing ethics ID (~18)
+  - feature-selection leakage / LASSO λ / nested-in-fold (~12)
+  - scan parameters / multi-vendor consistency (~12)
+  - “external” that is same-hospital temporal split (~11)
+- Minor: reagent vendor, software version, parameter completion.
+- Major: same cohort used for screening, thresholding, and between-group tests, yet *P* is written as confirmatory. Relabel as descriptive, or provide nested CV / bootstrap that was actually run. Do not invent nested CV for the authors.
+- Major: inclusion cutoff contradicts the enrolled group's median, Q1, or minimum; IQR outside the scale range. Comment only; do not change numbers.
+- Major: empty search string, or scan parameters still placeholders. See §4.9.
 
 ### 4.5 Results
-**重点：** 统计与分布匹配；正文与图表一致；无选择性汇报；无对非显著结果过度解读。
-- Major：过拟合（训练近完美、测试掉点，约 13）；未与常规/临床模型比（DeLong、校准、DCA，约 15）；p 与表不符。
-- Major：*t*/*F*/*z* 达不到所述体素或团块阈值；相关的 *r* 与 *P* 隐含的 *n* 与文中分析 *n* 不符；大量 ROI 相关未交代多重比较；relative 指标未定义分母。只标矛盾，不补数字。见 §4.9。
-- Minor：表注 Mean±SD / Median(IQR) 未标明。
+**Focus:** stats match distributions; body matches figures/tables; no selective reporting; no over-reading non-significant results.
+- Major: overfitting (near-perfect train, drop on test, ~13); no comparison to conventional/clinical models (DeLong, calibration, DCA, ~15); p disagrees with tables.
+- Major: *t*/*F*/*z* cannot meet the named voxel or cluster threshold; correlation *r* and *P* imply an *n* that disagrees with the analysis *n*; many ROI correlations without multiple-comparison control; relative metrics without a defined denominator. Flag contradictions only; do not invent numbers. See §4.9.
+- Minor: table notes omit Mean±SD / Median(IQR).
 
 ### 4.6 Discussion
-**重点：** 结论是否由数据支撑；有无把相关当因果；与既往研究比较；局限性是否客观。
-- Major：局限未写清（约 24）；因果措辞 vs 回顾性（约 8）。
-- Minor：结构松散、重复 Results。
+**Focus:** conclusions supported by data; no correlation-as-causation; compared with prior work; limitations stated objectively.
+- Major: limitations unclear (~24); causal wording vs retrospective design (~8).
+- Minor: loose structure; repeats Results.
 
 ### 4.7 References
-**重点：** 是否客观代表性；近 2–3 年关键文献；格式；有无重复条目。
-- Major：同一 DOI / 同一题名出现两次 → Major：先并号或换文献；换文献时**不得**把旧篇独有数字（病例数、AUC 等）抄到新篇。
-- Major：文献核对有误 → 批注给 **双轨方案**（见下），由 00 QC 决定是否调 `03_research`；不编造 PMID。
-- Minor：格式、DOI 缺漏。
-- Major：作者名单、DOI、年份或卷号从另一篇稿抄来，或年份/卷号未对照原文就改。请对照原文核对。不要凭记忆填“正确”年份。见 §4.9。
-- 文献准确性与 Victor 共同负责。call/require 03 citation-verify — do not self-certify lit。Lee 不签 claim→ref 表。
+**Focus:** representative; key literature from last 2–3 years; format; no duplicate entries.
+- Major: 同一 DOI / same title twice → Major: merge numbers or swap the reference; when swapping, **do not** copy numbers unique to the old paper (case counts, AUC, …) onto the new one.
+- Major: citation verify failed → comment with the **dual-track plan** (below); 00 QC decides whether to call `03_research`; do not invent PMIDs.
+- Minor: format, missing DOI.
+- Major: author list, DOI, year, or volume copied from another manuscript, or year/volume changed without checking the source. Verify against the source. Do not fill “correct” years from memory. See §4.9.
+- Literature accuracy is shared with Victor. call/require 03 citation-verify — do not self-certify lit. Lee does not sign the claim→ref table.
 
-**文献核对失败（双轨，写入批注，用户拍板）：**
-1. **改原文方案**（词/句级）：改前句 / 改后句。
-2. **不改原文方案**：交接 03 检索可支撑现句的替代文献（真实 PMID/DOI）。  
-是否真调 03 → **00 在 QC 决定**；吃不准问用户一句。换上的新篇只带该篇真实信息；旧篇数字不迁移。
+**Citation-verify failure (dual track; write into the comment; user decides):**
+1. **Change-the-prose plan** (word/sentence): before / after.
+2. **Keep-the-prose plan:** hand off to 03 to find a replacement that supports the current sentence (real PMID/DOI).  
+Whether 03 is actually called → **00 decides at QC**; if unsure, ask the user one question. The replacement carries only that paper's real info; old-paper numbers do not migrate.
 
 ### 4.8 Figures & Tables
-**重点：** 自明性；与正文一致；分辨率、比例尺、图例、统计符号。
-- Major：图数与正文矛盾；Figure 1 无 inclusion 框却自称 STROBE 流。
-- Minor：缺 scale bar；Table 1 未标 Mean±SD / Median(IQR)。
-- Major：表与另一篇稿完全相同，却未说明样本是否重叠。
-- Minor：图注残留 `TRAIN_RATIO` 或其他流程词。见 §4.9。
+**Focus:** self-explanatory; consistent with body; resolution, scale bar, legends, stats symbols.
+- Major: figure count disagrees with body; Figure 1 has no inclusion box yet claims STROBE flow.
+- Minor: missing scale bar; Table 1 omits Mean±SD / Median(IQR).
+- Major: table identical to another manuscript without stating sample overlap.
+- Minor: legend still has `TRAIN_RATIO` or other pipeline tokens. See §4.9.
 
-可复用短句（占位符，不贴未刊数字）：
+Reusable short lines (placeholders; no unpublished numbers):
 - `Please specify if this is a retrospective or a prospective study.`
 - `Please acknowledge and describe how cases were consecutively or randomly selected.`
 - `Please provide the exclusion criteria.`
@@ -234,28 +234,28 @@ Reusable requests (no unpublished results in the sentence):
 
 ---
 
-## 5. 口气与质量自检
+## 5. Tone and quality self-check
 
-- 礼貌、直接、可执行。先事实，再为什么成问题，再作者该改哪里。
-- 不编造未做实验、不替作者补 AUC、不在意见里复述可识别的未刊结果表。
-- 只打分不写改法 = 禁止。
-- 英文 **禁止**导入中文审稿单冲词直译（*no novelty* / *selection bias* 作为骂句）。同一事实写成可执行请求。
+- Polite, direct, actionable. Facts first, then why it matters, then what the author should change.
+- Do not invent experiments not done; do not invent AUCs; do not restate identifiable unpublished result tables in the opinion.
+- Score-only with no fix = forbidden.
+- English **must not** import blunt Chinese-form translations (*no novelty* / *selection bias* as insults). Write the same fact as an actionable request.
 
-提交前自检四维：
-1. **精准可操作** — 有 Lines n–m / Section, paragraph, line（或 section）+ 明确改法。
-2. **结构清晰** — Major / Minor 分清。
-3. **建设性** — 学术尊重；即使得拒稿建议也指出可改进方向。
-4. **辅助编辑** — Opening 已概括核心优势与关键短板。
+Pre-submit self-check (four axes):
+1. **Precise and actionable** — has Lines n–m / Section, paragraph, line (or section) + a clear fix.
+2. **Clear structure** — Major / Minor separated.
+3. **Constructive** — academic respect; even a reject suggestion names improvement directions.
+4. **Editor-helpful** — Opening already summarizes core strengths and key weaknesses.
 
 ---
 
-## 6. 禁止
+## 6. Forbidden
 
-- 把他人稿 PDF、补充材料、CSV、未刊题目写入技能或公开仓库
-- 把毕业论文评阅或国自评议套话写进英文 peer review
-- 把中文刊 A–F 分项整段贴进英文信
-- 空夸 interesting；emoji；灌水恭维
-- 静默采用与实验室冲突的挂载改法（必须进批注，用户决定）
+- Putting others' manuscript PDFs, supplements, CSVs, or unpublished titles into the skill or a public repo
+- Putting thesis-review or national-self-eval boilerplate into English peer review
+- Pasting whole Chinese-journal A–F score blocks into the English letter
+- Empty praise (*interesting*); emoji; padded compliments
+- Silently adopting mount fixes that conflict with the lab (must go into comments; user decides)
 
 
 ---
@@ -264,7 +264,7 @@ Reusable requests (no unpublished results in the sentence):
 
 # Review comment habits (Aitor / Jinshan)
 
-Personal upper layer for **审稿** / 投稿前预审（找缺陷、出批注与可执行请求）.  
+Personal upper layer for **review** / pre-submission pre-review (find defects, emit comments and actionable requests).  
 Journal-facing English envelope stays in `review.md`.  
 This file is the **consistency-first** habit layer.
 
@@ -372,7 +372,7 @@ Undecidable issues: Chinese 批注 plus English suggested wording and/or suggest
 
 ---
 
-## 5.2 Chinese 稿面批注五槽 (Lab-STE CM-01)
+## 5.2 Chinese manuscript-comment five slots (稿面批注; Lab-STE CM-01)
 
 Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please…).  
 **Chinese Word face comments** (author field still **A**; source tag at text start) use five fixed slots, one problem per comment:
