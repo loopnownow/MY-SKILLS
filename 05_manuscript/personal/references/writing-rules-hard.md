@@ -21,5 +21,5 @@
 
 If Word/manuscript body **differs from text 城城 already edited** (tracked changes / known owner edits), **ask before overwriting**. Do not silently restore prior agent wording.
 
-- Authority: `{RULES}` `My rule.md` §5.1（城城已改先问）.
+- Authority: `{RULES}` `My rule.md` §5.1（if 城城 already edited, ask first）.
 - Also: `../Aitor-format.md`; `../../06_review/personal/word-edit.md`; revise skill must point here — do not bury only in revise.

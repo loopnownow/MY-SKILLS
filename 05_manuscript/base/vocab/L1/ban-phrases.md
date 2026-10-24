@@ -10,7 +10,7 @@
 3. **Keep list** — Sequence/gene/anatomy terms, reporting-guideline language (STROBE/TRIPOD/CLAIM), and calibrated Discussion hedges (*may* / *might* / *could* / *suggest*) stay; see **Keep (discipline-specific)** below.
 
 
-**机器源 = `ban-terms.yaml`；改词先改 yaml，再生成/同步表与 linter。** 本文件给人看。Hard ban 词的机器执行以 `05_manuscript/base/vocab/L1/ban-terms.yaml` (personal/vocab is pointer-only) 为准（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
+**Machine source = `ban-terms.yaml`; edit the yaml first, then regenerate/sync tables and linters.** This file is for humans. Machine enforcement of hard-ban terms follows `05_manuscript/base/vocab/L1/ban-terms.yaml` (personal/vocab is pointer-only) as authority（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
 
 ## Hard ban (unless literally quoted from a source)
 

@@ -1,4 +1,4 @@
-# 写作
+# Writing
 
 Use this file for radiology AI manuscript sections.
 

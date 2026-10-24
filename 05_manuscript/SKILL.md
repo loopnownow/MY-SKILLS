@@ -58,7 +58,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 - `polish-language` — generic academic English. Not de-AI.
 - `humanize` — generic de-AI / humanize (A `05_manuscript/base/humanize/`). Does **not** replace `personal/route.md` + A `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
-选刊走 03 `find-journal`；体例走 `05_manuscript/base/write-venue/`. Personal de-AI stays in A (`personal/`).
+选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-venue/`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 

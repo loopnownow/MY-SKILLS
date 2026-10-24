@@ -14,7 +14,7 @@ Formerly `house-format.md`.
 `{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·  
 `{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
-Later-polish live files are `Manuscript_<结局>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
+Later-polish live files are `Manuscript_<outcome>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.  
 Letters / short communications: apply only if the user asks.
@@ -27,7 +27,7 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 
 - Write or revise an SCI paper → follow this file.
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
-- Canonical file: `Manuscript_<结局>_house.docx` (unpolished) or `Manuscript_<结局>_polished.docx` after archive. **Overwrite in place.**
+- Canonical file: `Manuscript_<outcome>_house.docx` (unpolished) or `Manuscript_<outcome>_polished.docx` after archive. **Overwrite in place.**
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
@@ -46,7 +46,7 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 
 ## DOCX typography
 
-**Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified** (两端对齐). Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**. **Special paragraph format: none** (特殊格式：无). Same typography for manuscript, comments shell, and response letter.
+**Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified**. Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**. **Special paragraph format: none** (special format: none). Same typography for manuscript, comments shell, and response letter.
 
 **Dual track (2026-10-24):** body / legends shell = Times New Roman; **in-figure text (axes, panel labels, flowchart boxes) = Arial**. Do not mix the two inside one surface.
 
@@ -71,7 +71,7 @@ There is **no 16 pt title** and **no 14 pt section title**. Do not restyle table
 
 - *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. No em-dash as punctuation.
 - **English punctuation only.**
-- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons or stacked *and*. Related short sentences still belong in the **same paragraph** (成段); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
+- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons or stacked *and*. Related short sentences still belong in the **same paragraph** (as paragraphs); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
 - Software: `Analyses were performed in Python 3.13.` (version after Python; no parentheses unless the user adds a build, e.g. 3.13.9).
 - Split names (full paper), three words only:  
   - **training set** — internal fitting (never `development set` / `Dev`)  
@@ -90,7 +90,7 @@ Title → Authors → Affiliation →
 | Field | Default text |
 |-------|----------------|
 | Affiliation | `1 Department of Radiology, Jinshan Hospital of Fudan University, 1508 Longhang Road, Shanghai 201508, China` |
-| Corresponding author | `Aitor, E-mail: `（见 mem:corresponding_email） |
+| Corresponding author | `Aitor, E-mail: `(see mem:corresponding_email) |
 | Funding | `This work was funded by Jinshan Hospital (KYQDJJ202501) to Hai-Feng Shi.` |
 | Ethics | IRB of Jinshan Hospital of Fudan University (Date:  , NO:  ). Retrospective waiver. Helsinki allowed. |
 | Acknowledgments | `None` |
@@ -259,9 +259,9 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 ## No disclaimers, no repetition
 
-**否定句 / 未做类（owner 2026-10-23）：** 凡标「未做 / 未进行 / 我们未…」或同类 CYA 的过程性否定句，**不得写入正文**（稿件、修订稿、回复信）。只进 Word **批注**（作者 **A**），且每条批注必须含 **建议修改后内容**；禁止裸 flag。研究本身的阴性结果（如 *no significant difference*、*was not associated with*）不受本条禁止。质控：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
+**Process negation / not-done class (owner 2026-10-23):** Process-negation sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Put them only in Word **批注** (author **A**), and every comment must include **建议修改后内容**; bare flags forbidden. Empirical negative findings of the study itself (e.g. *no significant difference*、*was not associated with*）not banned by this rule。QC：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
 
-SCI full papers have **no disclaimer**. Ban (owner 2026-10-21 / 2026-10-23: process 否定句 / disclaimer/CYA/未做-class → Word 批注 only, with 建议修改后内容 — never 正文; see `qc/anti-leak-placeholders.md` AL-5):
+SCI full papers have **no disclaimer**. Ban (owner 2026-10-21 / 2026-10-23: process-negation / disclaimer/CYA/未做-class → Word 批注 only, with 建议修改后内容 — never body; see `qc/anti-leak-placeholders.md` AL-5):
 
 - *for research use only* / *not medical advice* / *the authors disclaim*  
 - *not a ready clinical tool*  
@@ -360,5 +360,5 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - No yellow empty slots; missing method/product facts in Word comments (author **A**)  
 - Word comments / Track Changes author **A** (never `Grok`)  
 - English punctuation  
-- Ethics Date/NO empty: Word comment, not yellow; email（见 mem:corresponding_email）  
+- Ethics Date/NO empty: Word comment, not yellow; email(see mem:corresponding_email)  
 - Numbers match the latest results file (nomogram row, not a Combined-figure leftover)  

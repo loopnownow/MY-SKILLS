@@ -7,7 +7,7 @@ owner: "05_manuscript/base/write-paper/MODULE.md"
 
 # write-paper
 
-**Hard rule (写作):** process 否定句 / 未做类 → Word 批注 only + 建议修改后内容; never 正文. See MODULE Hard rules §8 / AL-5.
+**Hard rule (writing):** process 否定句 / 未做类 → Word 批注 only + 建议修改后内容; never body. See MODULE Hard rules §8 / AL-5.
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
