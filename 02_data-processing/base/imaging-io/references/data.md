@@ -1,4 +1,4 @@
-# 数据
+# Data
 
 Use this file for imaging data formats, labels, masks, privacy, repositories, and
 availability statements.
