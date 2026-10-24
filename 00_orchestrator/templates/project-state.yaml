@@ -14,7 +14,7 @@ project: ""          # e.g. fyh_CAC
 updated: ""          # YYYY-MM-DD
 
 pipeline:
-  sop: ""            # radiomics-study | sci-manuscript | none
+  sop: ""            # statistics | sci-manuscript | none
   stage: ""          # classify | 02 | 03 | 04 | 05 | 06 | qc | done
                      # done: 结束, or this run's file is on disk and the last gate passed.
                      # 暂停, or a stop after the results page / before pre-review: leave the current station. Do not write done.

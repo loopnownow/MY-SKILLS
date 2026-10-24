@@ -36,7 +36,7 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 
 | Node | When | Options |
 |---|---|---|
-| N1 SOP | 「全线」 / multi-stage with no lock | `radiomics-study` / `sci-manuscript` / `research-exploration-loop` / no SOP (single skill) |
+| N1 SOP | 「全线」 / multi-stage with no lock | `statistics` / `sci-manuscript` / `research-exploration-loop` / no SOP (single skill) |
 | N2 PHI | before 02 tables or clinical extraction | PHI present → de-identify / stop; none → proceed |
 | N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |

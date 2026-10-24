@@ -37,7 +37,7 @@ Look in the working / 0RAD project folder. Echo one lock line when the artifact 
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
 | `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
 | reviewer letter / 审稿意见 | `06_review` (review) or `07_response` (response letter) |
-| imaging / ROI / features, no HTML | `radiomics-study` unless the user says otherwise |
+| imaging / ROI / features, no HTML | `statistics` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
 
 `*-results.html` and a reviewer letter in the same folder, and the user did not name the entry: ask which station. One bounded task still goes to that skill, not the full SOP.
@@ -66,7 +66,7 @@ Every independent run needs a mount decision. If `mounts.session_picked_fine_ids
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `radiomics-study` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on 「全线」 / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 

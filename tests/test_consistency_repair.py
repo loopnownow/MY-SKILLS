@@ -87,7 +87,7 @@ class CanonicalIdRule(unittest.TestCase):
         header = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8").split("meta:", 1)[0]
         self.assertIn("Canonical ID Rule", header)
         self.assertIn("must never be used to infer", header)
-        rad = (ROOT / "01_skill-integration" / "workflows" / "radiomics-study.md").read_text(encoding="utf-8")
+        rad = (ROOT / "01_skill-integration" / "workflows" / "statistics.md").read_text(encoding="utf-8")
         self.assertLess(rad.index("`clean-data`"), rad.index("`preprocess-imaging`"))
         self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`analyze-stats`"))
         self.assertNotIn("`radiomics-ml`", rad)
