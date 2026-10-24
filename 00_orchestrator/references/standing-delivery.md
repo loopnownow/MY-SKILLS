@@ -12,18 +12,21 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 | Artifact | Format | Where |
 |---|---|---|
-| Report / phase QC | HTML | Subproject → that project `ref` or `in-review\<project>`; else `{DEL}` unless user names Downloads |
-| Manuscript / Track Changes | DOCX | Subproject if any; else `{DEL}` unless user names Downloads |
-| Data table / filled form | XLSX | Final tables → subproject `0result`; else same as manuscript |
-| Intermediate from derivatives | copy | Copy out of `derivatives` into `0result` when final; originals stay |
+| **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `D:\0Grok\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
+| **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`gates/`/`code/`/`results/`/`exec/`/`tmp/` per `project-ref-layout.md`); else `{DEL}` |
+| Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`in-review\…`); else `{DEL}` unless user names Downloads |
+| Manuscript / Track Changes (final) | DOCX | Subproject **root** if any; else `{DEL}` unless user names Downloads |
+| Data table / filled form (final) | XLSX | Subproject **root** (do **not** create `0result\`); else same as manuscript |
+| Intermediate from derivatives | copy | When final, copy to **subproject root**; originals stay in `derivatives` |
 | Notes for an LLM | MD | per task |
 | User names a place this run | from the user | from the user |
 
-- Temporary / intermediate files → `{DEL}\<task>` only; never delivered as output.
+- Temporary / non-deliverable → `{DEL}\<task>` only; never delivered as output.
 - Downloads **only** when the user names 「下载」/「Downloads」 this run.
 - Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」.
 - Never delete. Files removed from a project move into `{DEL}` with the relative path kept.
 - No Work-A / Work-B workspace classes or WORK_* path aliases (retired 2026-10-24).
+- Subprojects do **not** use a live `0result\` folder as the standard deliverable seat.
 
 ## Reporting levels
 

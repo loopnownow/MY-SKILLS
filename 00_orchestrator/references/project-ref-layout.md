@@ -25,7 +25,7 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 | `ref/citation/` | `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | Full PDF corpora |
 | `ref/gates/` | `GATE*_report.md`, number-lock, input/output hash reports | Live `settings.ini` |
 | `ref/code/` | Script/path notes, patch pointers (no secrets, no tokens) | Raw credentials |
-| `ref/results/` | Table/figure lock notes and content hashes | Large binary datasets (stay in `0result` / derivatives) |
+| `ref/results/` | Table/figure lock notes and content hashes | Large binary datasets (stay in derivatives); finals at **subproject root** (do **not** create `0result\`) |
 | `ref/exec/` | Optional `EXECUTION.md` wrap-ups; ops notes that are not review-round ledgers | Owner-facing ACCEPT reports unless the owner asked |
 | `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/收工 | Current finals (stay at project root); closed-round changelogs (`review/`); citation/gates ledgers; secrets |
 

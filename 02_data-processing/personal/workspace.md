@@ -84,13 +84,13 @@ Same as `personal/coding.md`: CONFIG on top, dry-run for bulk IO, checkpoint res
 
 ## Subproject layout (no A/B class)
 
-Former Work-A / Work-B workspace classes and WORK_* path aliases retired 2026-10-24. Deliverables live in the **subproject**; everything else → `{DEL}` (Downloads only when named).
+Former Work-A / Work-B workspace classes and WORK_* path aliases retired 2026-10-24. **Final** deliverables → **subproject root**; **intermediate** → `ref/` map; **no** live `0result\` folder; everything else → `{DEL}` (Downloads only when named). Authority: MY-RULES `My rule.md` §5 / `standing-delivery.md`.
 
 - Project scripts → project `0script` (if used) or `{code_root}` when reusable; project notes → project `0doc` only when user says 「放 0doc」.
-- `0result` holds final tables only (no QC HTML, no per-subject intermediates, no quant metadata, no run logs). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or `{DEL}` / Downloads if named).
-- Copy results out of `derivatives` by default; originals stay; `0result` holds copies.
-- Merge final tables that share a key (one description block, value columns prefixed). Moving an original out of `0result` needs approval.
-- Data-project roots may keep: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `0result`, `ref`. Reusable scripts → `{code_root}` (`{doc_root}\_code`), not scattered in random roots.
+- **Final** tables / manuscripts / final reports → **subproject root** (no QC HTML, no per-subject intermediates, no quant metadata, no run logs at root unless they are the named final). Unclear ownership → ask. Report / phase QC HTML → project `ref` (or `{DEL}` / Downloads if named).
+- Copy results out of `derivatives` by default; originals stay; when final, copies land at **subproject root** (not `0result\`).
+- Merge final tables that share a key (one description block, value columns prefixed). Moving an original out of the subproject root needs approval.
+- Data-project roots may keep: `rawdata`, `derivatives`, `atlases`, index/manifest, `0script`, `0doc`, `ref` (**not** `0result`). Reusable scripts → `{code_root}` (`{doc_root}\_code`), not scattered in random roots.
 - Before moving a script or doc, search `import` / `addpath` / `settings.ini` / README. Any un-updated reference blocks the move. After a move, fix paths and the `0doc` examples, then test.
 - Logs and dead old files → `{DEL}` (approval first). Temp files → Rules §5 / MY-RULES delivery table.
 - Engineering keepers → subproject `ref`; newest SCI manuscript → subproject root. While editing a manuscript, keep it out of `{DEL}` / analysis output / `ref` / `结果`. Analysis exports stay in an analysis-output subfolder.

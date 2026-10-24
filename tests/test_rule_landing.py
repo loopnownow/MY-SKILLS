@@ -22,8 +22,14 @@ class RuleLanding(unittest.TestCase):
 
     def test_standing_delivery_drop_points(self) -> None:
         sd = t("00_orchestrator/references/standing-delivery.md")
-        for needle in ("0result", "derivatives", "Asia/Shanghai"):
+        for needle in ("subproject root", "derivatives", "Asia/Shanghai"):
             self.assertIn(needle, sd, f"standing-delivery missing {needle}")
+        # 0result retired as standard deliverable folder (2026-10-24)
+        self.assertIn("no", sd.lower())
+        self.assertTrue(
+            ("do **not** create `0result" in sd) or ("do not create `0result" in sd) or ("no** live `0result" in sd) or ("no live `0result" in sd.lower()) or ("**no** `0result" in sd),
+            "standing-delivery should scrub/forbid live 0result as deliverable seat",
+        )
 
     def test_manuscript_local_qc_bans(self) -> None:
         ml = t("05_manuscript/qc/manuscript-local-qc.md")
