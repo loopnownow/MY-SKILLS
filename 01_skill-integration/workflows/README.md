@@ -1,6 +1,6 @@
 # Workflows (01)
 
-Canonical SOP bodies for lab composites. **00 calls these**; it does not host SOP bodies under `00_orchestrator/workflows/` (README pointers only there).
+Canonical SOP bodies for lab composites. **00 calls these files directly**; there is no parallel workflows tree under 00 or 03.
 
 | SOP | When | File |
 |-----|------|------|

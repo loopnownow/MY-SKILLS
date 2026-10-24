@@ -57,7 +57,7 @@ Harvest must not invent a second evolution log file.
 - A1: `INTEGRATION_MAP.archive.md` moved to `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\`; live stub points at absolute 0del path.
 - Caches (`.pytest_cache` + `__pycache__`) moved to `D:\0del\my-skills-qc-20261018\caches\` (not deleted); pytest uses `-p no:cacheprovider`.
 - `.cursorignore` mounts-cap dead entry removed; keep `.gitignore` defense; `00/SKILL.md` wording synced.
-- F42: `review-isolation` row added to `00_orchestrator/workflows/README.md`.
+- F42: `review-isolation` row added to `01_skill-integration/workflows/README.md` (formerly under 00 workflows pointer).
 - B2: `fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
 - D2: design-experiment bilingual pair headers (validation / study-design).
 - F46: Absent labels → 归档勿建.

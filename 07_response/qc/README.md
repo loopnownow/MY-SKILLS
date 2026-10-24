@@ -13,4 +13,4 @@ Capability routing (not qc self-certify): `07_response/base/routing.md` (decisio
 
 ### Soft pointer (ARIS P1)
 
-Text-only resubmit whitelist / failure ledger (not a 07 self-certify gate): `00_orchestrator/qc/resubmit-edit-whitelist.md`. Response letters remain Aitee **07** (`base/routing.md`); do not put resubmit standards under `personal/`.
+Text-only resubmit whitelist / failure ledger (not a 07 self-certify gate): `07_response/qc/resubmit-edit-whitelist.md`. Response letters remain Aitee **07** (`base/routing.md`); do not put resubmit standards under `personal/`.

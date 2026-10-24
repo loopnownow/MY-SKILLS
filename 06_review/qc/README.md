@@ -37,7 +37,7 @@ Reporting-guideline **router** lives under 05: `05_manuscript/qc/reporting-guide
 ### Attribution (ARIS P0 absorb 2026-10-19)
 
 - wanshuiyin/Auto-claude-code-research-in-sleep — experiment-audit / kill-argument / assurance chain — lab rewrite
-- Contract: `00_orchestrator/qc/assurance-verdicts.md`
+- Contract: `06_review/qc/assurance-verdicts.md`
 
 ### Attribution (ARIS P1 absorb 2026-10-19)
 

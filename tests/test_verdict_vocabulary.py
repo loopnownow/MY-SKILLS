@@ -1,6 +1,6 @@
 """One verdict vocabulary: NOT_APPLICABLE, not N/A / n/a / "not applicable" / SKIP.
 
-`00_orchestrator/qc/assurance-verdicts.md` owns the six states. Drift into
+`06_review/qc/assurance-verdicts.md` owns the six states. Drift into
 prose variants made machine reads (and human greps) miss real verdicts, so the
 variants are rejected here. Line-level exemptions cover the three legitimate
 uses that are not verdicts.
