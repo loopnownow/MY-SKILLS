@@ -2,15 +2,15 @@
 name: "fill-protocol"
 label_cn: "IRB方案填表(格式，与write-protocol配对)"
 mount_status: "new_mount"
-source_package: "MedSci(本体，此前遗漏)"
-description: "IRB方案填表(格式，与write-protocol配对)"
+source_package: "MedSci (body; previously omitted)"
+description: "IRB protocol form fill (format; pairs with write-protocol)"
 owner: "03_research/base/fill-protocol/MODULE.md"
 ---
 
-# IRB方案填表(格式，与write-protocol配对)
+# IRB protocol form fill (format; pairs with write-protocol)
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
 Hospital / Bai seat routing and Jinshan PHI packs live in A (`03_research/base/fill-protocol/` capability body + `03_research/personal/fill-protocol/` Jinshan/PHI pack). Do not vendor PHI here.
 
-来源: MedSci(本体，此前遗漏) | 挂载状态: 新增挂载(MedSci本体，原30-id列表遗漏)
+Source: MedSci (body; previously omitted) | mount: new (MedSci body; omitted from original 30-id list)

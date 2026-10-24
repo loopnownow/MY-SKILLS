@@ -1,6 +1,6 @@
 # AIM, author instructions, and further checks
 
-Use this file only in phase 2, after the user has confirmed 备选杂志.
+Use this file only in phase 2, after the user has confirmed the shortlist (备选杂志).
 
 Phase 1 forbids live lookups of AIM, author instructions, and APC.
 
@@ -17,7 +17,7 @@ Search
 
 Record article types, exclusions, word limits, abstract structure, reference style, reporting guideline, ethics, data policy, APC or subscription path, reviewer suggestions, preprint policy.
 
-If the official page cannot be opened, write 未核实. Never invent a word limit or fee.
+If the official page cannot be opened, write 「未核实」 (unverified). Never invent a word limit or fee.
 
 ## Manuscript cleanup after one target is chosen
 
@@ -29,7 +29,7 @@ Quote AIM against the paper aim. Confirm article type. Restate IF and layer. Mar
 
 ## Phase-2 short HTML (user delivery)
 
-After confirmed 备选, deliver **one short HTML table per paper** (not a long “分刊详情” dump).
+After confirmed shortlist (备选), deliver **one short HTML table per paper** (not a long 「分刊详情」 dump).
 
 | Column | Rule |
 |---|---|

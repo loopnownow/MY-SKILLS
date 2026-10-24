@@ -1,11 +1,11 @@
 # Annual JCR refresh
 
-Trigger phrases: 更新JCR, 新的影响因子表, 换2027表, 重建推荐库.
+Trigger phrases: 更新JCR, 新的影响因子表, 换2027表, 重建推荐库 (keep ZH match keys).
 
 ## What the user should send
 
 1. New raw workbook, same role as raw rebuild input `JCR20XX影响因子.xlsx` (do not keep in this pack after rebuild).
-2. Whether blacklist / layers / 默认每层10本（层2/3/4）；层2补可选 changed. If they say nothing, keep `rules/policy.md`.
+2. Whether blacklist / layers / default 10 titles per layer (层2/3/4); optional 层2补 changed. If they say nothing, keep `rules/policy.md`.
 
 ## What to rebuild
 

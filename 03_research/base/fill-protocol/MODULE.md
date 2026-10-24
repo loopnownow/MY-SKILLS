@@ -9,15 +9,15 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 ---
 
 <!--
-本文件为迁移承接(MedSci骨架，原30-id列表遗漏)
-细ID: IRB表单填充(格式层；write-protocol内容)
-原始来源: MedSci(骨架，当前遗漏)
-来源文件: 5/medsci_fill-protocol.md
-许可证提示: MIT(来源仓库)
-提取日期: 2026-09-13
-维护说明: 本文件仅作空白来源/原貌承接；未按Aitor-format重写。
-          若来源有更新，需要重新提取比对；许可证提示为"待核实"。
-          正式使用前请确认各来源仓库LICENSE条款。
+Migration stub (MedSci skeleton; omitted from the original 30-id list)
+fine_id: IRB form fill (format layer; write-protocol owns content)
+source: MedSci (skeleton; previously omitted)
+source file: 5/medsci_fill-protocol.md
+license hint: MIT (source repo)
+extracted: 2026-09-13
+maintain: blank-source / as-absorbed stub only; not rewritten to Aitor-format.
+          Re-extract and diff if upstream updates; license hint is "verify".
+          Confirm source-repo LICENSE before production use.
 -->
 
 ---

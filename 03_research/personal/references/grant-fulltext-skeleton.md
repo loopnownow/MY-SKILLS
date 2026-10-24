@@ -7,7 +7,7 @@ Reuse with `grant-own-skeleton.md` / `grant-writing.md`. Do not triplicate Voice
 ## By scheme (repeated headings)
 
 ### 院级科研基金 / 申请书（例：东院院级、金山院级）
-Common spine:
+Common spine (official ZH titles kept):
 1. 申请人信息 / 简表
 2. 项目摘要（常限字）
 3. 立题依据 / 立论依据
@@ -20,7 +20,7 @@ Common spine:
 10. 科室 / 医院意见栏
 
 ### 国自然青年 · 报告正文（NSFC Youth style）
-Official-ish major blocks seen in corpus:
+Official-ish major blocks seen in corpus (ZH titles are SSOT):
 - （一）立项依据与研究内容
   - 1．项目的立项依据（意义、国内外现状、发展趋势；附主要参考文献）
   - 2．项目的研究内容、研究目标，以及拟解决的关键科学问题
@@ -32,7 +32,7 @@ Official-ish major blocks seen in corpus:
 Keep official guideline as SSOT when drafting live applications.
 
 ### 研究生开题报告 / 提纲（金山医院课题）
-Fixed spine from forms:
+Fixed spine from forms (ZH titles kept):
 1．课题的立项依据（意义、国内外现状；附参考文献）
 2．研究内容、研究目标，以及拟解决的关键科学问题
 3．拟采取的研究方案（方法、技术路线、样本、对照、统计等）

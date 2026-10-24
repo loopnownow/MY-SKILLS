@@ -1,4 +1,4 @@
-# 公库
+# Public datasets
 
 Use this file when the user asks about public datasets, TCIA, TCGA, GEO, CPTAC,
 IDC, public imaging cohorts, public transcriptomics, public single-cell or spatial
@@ -6,17 +6,17 @@ transcriptomics datasets, external validation, or public-data-based mechanism an
 
 ## Core goal
 
-公库模块的目标是帮助作者把公共数据用在正确位置：外部验证、机制注释、背景支持或方法比较。必须区分
-“配对数据验证”和“非配对数据解释”。
+Goal: put public data in the right role — external validation, mechanism annotation, background support, or method comparison. Always distinguish
+“paired-data validation” from “unpaired-data interpretation.”
 
 ## First questions
 
-- 想用公库做什么：外部验证、机制解释、补充文献证据、训练预训练模型，还是复现对照？
-- 目标疾病、模态、治疗场景、终点和样本量是什么？
-- 公共数据是否有原始影像、mask、临床终点、病理/分子标签、随访？
-- 影像和组学是否来自同一患者、同一病灶、同一时间点？
-- 数据许可证、引用要求、访问限制和下载日期是否能记录？
-- 是否需要当前联网核验数据集可用性、版本和访问政策？
+- What is the public data for: external validation, mechanism explanation, extra literature evidence, pretraining, or replication control?
+- Target disease, modality, treatment setting, endpoint, and sample size?
+- Does the public set have raw imaging, masks, clinical endpoints, pathology/molecular labels, follow-up?
+- Are imaging and omics from the same patient, lesion, and timepoint?
+- Can license, citation requirements, access limits, and download date be recorded?
+- Need a live check of availability, version, and access policy?
 
 ## Common public resources
 
@@ -102,23 +102,23 @@ Methods should state:
 ## Output format
 
 ```text
-公库定位
-- 使用目的：
-- 目标疾病/模态：
-- 是否需要配对数据：
+Public-data framing
+- Purpose:
+- Target disease / modality:
+- Need paired data?
 
-候选公库
-| 数据库 | 可能用途 | 必须核验 | 风险 |
+Candidate public sets
+| Dataset | Likely use | Must verify | Risks |
 
-使用路线
-- 外部验证：
-- 机制解释：
-- 背景支持：
+Use path
+- External validation:
+- Mechanism explanation:
+- Background support:
 
-写作和引用
-- 方法描述：
-- 数据可用性：
-- 引用/访问日期：
+Writing and citation
+- Methods wording:
+- Data availability:
+- Citation / access date:
 ```
 
 ## Red lines
