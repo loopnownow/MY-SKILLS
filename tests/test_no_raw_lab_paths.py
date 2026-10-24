@@ -19,7 +19,7 @@ SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "tests"}
 RAW_RE = re.compile(r"[A-Za-z]:\\{1,2}(0Grok|0del|00db|00used)\b")
 HIST_LINE = re.compile(
     r"archived|historical|legacy|former|formerly|pruned|relocated|absorbed|retired|"
-    r"勿建|归档|历史|moved to",
+    r"勿建|do not recreate|归档|archive|archived|历史|historical|moved to",
     re.I,
 )
 ALLOW_FILES = {

@@ -5,7 +5,7 @@ description: >
   Detect completed / uncertain / missing work; dispatch existing 03/04 (and 05/06 when needed);
   forbid pointless re-runs of reusable completed work. Structural QC only in 00;
   content judgment stays with specialists / fine ids.
-triggers: ["这个研究还能做什么", "这个结果怎么解释", "还缺哪些文献", "研究空白", "选题探索"]
+triggers: ["what else can this study do", "how to interpret this result", "what literature is still missing", "research gap", "Topic exploration"]
 owner: 00_orchestrator
 type: 00-sub-component
 ---

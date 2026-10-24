@@ -53,7 +53,7 @@ PACK_LABEL = re.compile(
     r"/\s*Scientific\s*/)"
 )
 # Chinese pack shorthand labels (kept out of the regex for source encoding safety).
-PACK_EXTRA_LITERALS = ("B包", "A包")
+PACK_EXTRA_LITERALS = ("B包", "A包", "B-pack", "A-pack")
 
 PACK_ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
@@ -76,7 +76,7 @@ PACK_ALLOW_LINE = re.compile(
     r"Scientific Reports|Scientific content|Scientific writing|"
     r"Scientific/clinical|Scientific Reviews|Scientific Agent|"
     r"Scientific Writing|Citing Scientific|Soft pointer|ARIS P1|"
-    r"ARIS-ish|Source map|Backup:|来源:|原始来源|"
+    r"ARIS-ish|Source map|Backup:|来源:|Source:|原始来源|original source|"
     r"does not install|out of scope",
     re.I,
 )

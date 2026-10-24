@@ -63,7 +63,7 @@ or ask owner. Retired fine ids live only in `legacy_aliases.yaml` — never sess
 - `fine_id` = capability interface; `path` = physical unit. They are aligned: every session-pick `base/<dir>` is named after its canonical fine id (2026-10-20), enforced by `tests/test_registry_paths.py`. Exception: A-local packs with no fine id of their own (`base/vocab/`, `base/write-venue/`) are listed at the bottom of `registry.yaml`.
 - `path_shared: true` = one path backs several fine ids — do not split that folder. No live mount sets it today; `batch-cohort` was archived into `clean-data` on 2026-10-20.
 - A domains stay `00_orchestrator`–`07_response`. Personal layers stay in A.
-- Skill evolution: MY-RULES `skills.md`. 选刊 stays Victor / `03_research/base/find-journal/`.
+- Skill evolution: MY-RULES `skills.md`. journal selection stays Victor / `03_research/base/find-journal/`.
 
 ## Red lines (summary)
 
@@ -77,4 +77,4 @@ Full text: [`references/hard-rules.md`](references/hard-rules.md).
 
 ## Owner text harvest
 
-Default filter for owner-supplied text: `references/text-harvest-by-fine-id.md` (细ID → 语料库要素 / 过程 / 注意事项). Disk SSOT: `skill-harvest/HARVEST-STANDARD.md` §7.
+Default filter for owner-supplied text: `references/text-harvest-by-fine-id.md` (fine-ID → corpus elements / process / cautions). Disk SSOT: `skill-harvest/HARVEST-STANDARD.md` §7.

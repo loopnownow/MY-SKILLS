@@ -2,12 +2,12 @@
 
 Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `skills.md` §1b).
 
-**Harvest 任务流程**（本文件 §「Harvest 任务流程」）由 **00_orchestrator** 管理；收集口径 SSOT 见 `skill-harvest/HARVEST-STANDARD.md`（收集标准）。**不**新增顶层 evolution skill / evolution agent / 第 5 知识库。
+**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `skill-harvest/HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base.
 
 ## Evidence
 
 - Default evidence level **E4** = the same class of user correction repeated. A single event never evolves a skill.
-- Priority: user edits the deliverable 高于 explicit correction 高于 named issue 高于 observation 高于 self-review.
+- Priority: user edits the deliverable > explicit correction > named issue > observation > self-review.
 
 ## Keep or skip
 
@@ -24,108 +24,108 @@ Applies to skills 00–07. Never edit live skill bodies directly; post-merge dep
 
 ---
 
-## Harvest 任务流程（00 管理）
+## Harvest task flow (owned by 00)
 
-Owner（2026-10-24）：harvest 同样更新任务流程，由 skill-00 管理，并做成收集标准。
+Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and turns it into a collection standard.
 
-**层级（保持，不另开树）**
+**Layers (keep; do not open a parallel tree)**
 
-| 层 | 含义 | 物理落点 |
+| Layer | Meaning | Physical home |
 |---|---|---|
-| Rules (R) | 跨技能硬契约 | MY-RULES |
-| Skills (S) | 00–07 技能正文 / personal | MY-SKILLS |
-| Registry (Reg) | fine-ID / mount 登记 | `01_skill-integration/registry.yaml` 等 |
-| Capabilities (Cap) | 可挂载能力包 | MY-SKILLS `NN_slug/base/` + registry（**无**单独 capabilities 克隆） |
-| Corpus | 语料 / harvest 草稿 | `{doc_root}\skill-harvest\`（SSOT）；`{DEL}` = 工作副本 |
+| Rules (R) | Cross-skill hard contracts | MY-RULES |
+| Skills (S) | 00–07 skill bodies / personal | MY-SKILLS |
+| Registry (Reg) | fine-ID / mount registry | `01_skill-integration/registry.yaml` etc. |
+| Capabilities (Cap) | Mountable capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
+| Corpus | Corpus / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
 
-**硬门**
+**Hard gates**
 
-- **Extract ≠ promote**：抽取只写 corpus / candidate；**「进skills」** 才允许改 runtime。
-- Corpus 更新 ≠ runtime 更新；runtime 只经 MY-SKILLS PR → merge → `git pull` 活克隆（Rules `skills.md` §1b）。
-- **无评分系统**；候选只记最小字段。
+- **Extract ≠ promote**: extraction writes only corpus / candidates; only **「进skills」 / promote-to-skills** may change runtime.
+- Corpus update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `skills.md` §1b).
+- **No scoring system**; candidates record minimal fields only.
 
-### 步骤
+### Steps
 
 ```text
-1 证据摄入 (intake)
-      │  格式 = 收集标准 HARVEST-STANDARD（细ID 三桶 + 候选字段）
+1 Evidence intake
+      │  Format = collection standard HARVEST-STANDARD (fine-ID three buckets + candidate fields)
       ▼
-2 证据类型 (type)
-      │  用户纠正 | 失败返工 | 成功案例 | AI假设
+2 Evidence type
+      │  user correction | failure rework | success case | AI hypothesis
       ▼
-3 归属 (ownership)
+3 Ownership
       │  R / S / Reg / Cap / Corpus
       ▼
-4 候选记录 (candidate)
-      │  最小字段；落 corpus，不改 live
+4 Candidate record
+      │  Minimal fields; land in corpus; do not change live
       ▼
-5 人工批准 (human gate)
-      │  城城说「进skills」（或等价显式批准）
+5 Human gate
+      │  城城 says 「进skills」 (or equivalent explicit approval)
       ▼
-6 范围变更 (scoped change)
-      │  按归属改一处；遵守预算；按风险分级
+6 Scoped change
+      │  Change one place by ownership; respect budget; risk-tiered
       ▼
-7 回归四问 (regression)
-      │  全过才可合入
+7 Regression four questions
+      │  All yes before merge
       ▼
-8 晋升或回滚 (promote / rollback)
+8 Promote or rollback
 ```
 
-### 1–2 证据摄入与类型
+### 1–2 Evidence intake and types
 
-| 证据类型 | 默认处置 | 自动改 runtime？ |
+| Evidence type | Default disposition | Auto-change runtime? |
 |---|---|---|
-| 用户纠正 | 候选 → 待「进skills」 | 否 |
-| 失败返工 | 候选 → 待「进skills」 | 否 |
-| 成功案例 | **默认进 Corpus**（可再候选晋升） | 否 |
-| AI假设 | 只记候选 / 备注；**永不**自动改 runtime | 否 |
+| User correction | Candidate → await 「进skills」 | No |
+| Failure rework | Candidate → await 「进skills」 | No |
+| Success case | **Default into Corpus** (may later candidate for promote) | No |
+| AI hypothesis | Record candidate / note only; **never** auto-change runtime | No |
 
-摄入格式指针：收集标准 `HARVEST-STANDARD.md`（细ID：**语料库要素 / 过程 / 注意事项**；另附候选字段，不替换三桶）。
+Intake format pointer: collection standard `HARVEST-STANDARD.md` (fine-ID: **corpus elements / process / cautions**; candidate fields attached, do not replace the three buckets).
 
-### 3–4 归属与候选最小字段
+### 3–4 Ownership and minimal candidate fields
 
-候选记录（corpus 侧）至少含：
+Candidate records (corpus side) at least include:
 
-| 字段 | 说明 |
+| Field | Notes |
 |---|---|
-| 证据类型 | 用户纠正 / 失败返工 / 成功案例 / AI假设 |
-| 归属 | R / S / Reg / Cap / Corpus |
-| 强度 | 低 / 中 / 高（定性；非打分） |
-| 处置 | 记 corpus / 待批准 / 已晋升 / 拒绝 / 回滚 |
-| 摘要 | 一句话；可附 fine-ID / 路径指针 |
+| Evidence type | user correction / failure rework / success case / AI hypothesis |
+| Ownership | R / S / Reg / Cap / Corpus |
+| Strength | low / mid / high (qualitative; not a score) |
+| Disposition | corpus-only / awaiting approval / promoted / rejected / rolled back |
+| Summary | one sentence; may attach fine-ID / path pointer |
 
-可选：`source`、`date`、`fine_id`、`risk_tier`。不要分数、不要排行榜。
+Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
 
-### 5–6 批准与范围变更 · 风险分级
+### 5–6 Approval and scoped change · risk tiers
 
-| 风险分级 | 例子 | 门 |
+| Risk tier | Examples | Gate |
 |---|---|---|
-| content | corpus 草稿、personal `corpus-*.md` 增补 | 「进skills」+ 预算 |
-| merge | 改已有 skill 正文 / 合入 PR | 清单 + 用户同意 merge |
-| registry/ID | registry、fine-ID、mount 映射 | 显式批准；禁止 silently 改 ID |
-| Rules | MY-RULES | 最高门；propose-only，显式批准 |
+| content | corpus draft, personal `corpus-*.md` addenda | 「进skills」 + budget |
+| merge | edit existing skill body / merge PR | checklist + user agree to merge |
+| registry/ID | registry, fine-ID, mount map | explicit approval; never silently change IDs |
+| Rules | MY-RULES | highest gate; propose-only; explicit approval |
 
-Cap 变更 = 改 `base/` 与/或 registry，**不**新建 capabilities 仓。
+Cap changes = edit `base/` and/or registry; do **not** create a capabilities repo.
 
-### 7 回归四问
+### 7 Regression four questions
 
-合入前必须书面回答（可写在 PR 说明）：
+Before merge, answer in writing (PR description is fine):
 
-1. **防复发**：挡住的是哪类重复失败 / 纠正？
-2. **可观测**：合并后怎样知道有效（一次失败复现或检查点即可）？
-3. **SSOT**：是否重复或抢别层权威？权威家是否唯一？
-4. **预算与边界**：是否 ≤1 核心行为变更、≤3 新规则、无未批边界扩张？
+1. **Recurrence prevented**: which class of repeated failure / correction does this block?
+2. **Observable**: after merge, how will we know it works (one failure replay or checkpoint is enough)?
+3. **SSOT**: does it duplicate or steal another layer’s authority? Is the authority home unique?
+4. **Budget and boundary**: ≤1 core behaviour change, ≤3 new rules, no unapproved boundary expansion?
 
-任一项否 → 不晋升；可回退为「只记 corpus」或修订候选。
+Any “no” → do not promote; fall back to corpus-only or revise the candidate.
 
-### 8 晋升 / 回滚
+### 8 Promote / rollback
 
-- 晋升：按归属开/更新 PR → 完整变更清单 → merge → 活克隆 `git pull`。
-- 回滚：回到已记录 git 点；**禁止**在回归上叠第二次 evolution。
-- delete：须显式批准（见上「Budget and outcome」）。
+- Promote: open/update PR by ownership → full change list → merge → live clone `git pull`.
+- Rollback: restore a recorded git point; **do not** stack a second evolution on a regression.
+- delete: needs explicit approval (see «Budget and outcome» above).
 
-### 指针
+### Pointers
 
-- 收集标准（SSOT）：`{doc_root}\skill-harvest\HARVEST-STANDARD.md`
-- 细ID 薄指针：`01_skill-integration/references/text-harvest-by-fine-id.md`
-- Rules 门：`MY-RULES/skills.md` §3（propose-only；任务流正文在本文件）
+- Collection standard (SSOT): `{doc_root}\skill-harvest\HARVEST-STANDARD.md`
+- Fine-ID thin pointer: `01_skill-integration/references/text-harvest-by-fine-id.md`
+- Rules gate: `MY-RULES/skills.md` §3 (propose-only; task-flow body lives in this file)

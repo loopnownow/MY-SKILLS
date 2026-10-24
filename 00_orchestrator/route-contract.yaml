@@ -3,61 +3,61 @@
 version: 2
 min_routes: 20
 routes:
-  - intent: 文献检索
+  - intent: literature-search
     contains: ["文献", "03_research"]
-  - intent: Excel清洗
+  - intent: excel-clean
     contains: ["Excel", "02_data-processing"]
-  - intent: 样本量
+  - intent: sample-size
     contains: ["样本量", "04_analysis"]
-  - intent: 写论文
+  - intent: write-paper
     contains: ["写作", "05_manuscript"]
-  - intent: 回复审稿人
+  - intent: reply-to-reviewers
     contains: ["回复审稿人", "07_response"]
-  - intent: 新技能
+  - intent: new-skill
     contains: ["新技能", "01_skill-integration"]
-  - intent: 技能迭代
+  - intent: skill-evolution
     contains: ["技能迭代", "skill-evolution"]
-  - intent: 选刊
+  - intent: journal-selection
     contains: ["选刊", "03_research"]
-  - intent: 出图
+  - intent: figures
     contains: ["出图", "04_analysis"]
-  - intent: 统计
+  - intent: stats
     contains: ["统计", "04_analysis"]
-  - intent: 润色
+  - intent: polish
     contains: ["润色", "05_manuscript"]
-  - intent: 去AI
+  - intent: de-ai
     contains: ["de-AI", "05_manuscript"]
-  - intent: 预审
+  - intent: pre-review
     contains: ["预审", "06_review"]
   # ethics forms seat Bai; skill path is B 03_research/base/fill-protocol (no A stub)
-  - intent: 伦理
+  - intent: ethics
     contains: ["伦理申请表", "03_research"]
-  - intent: HIS提取
+  - intent: his-extract
     contains: ["HIS", "02_data-processing"]
-  - intent: 影像预处理
+  - intent: imaging-preprocess
     contains: ["DICOM", "02_data-processing"]
-  - intent: 代码原则
+  - intent: coding-principles
     contains: ["coding", "02_data-processing"]
-  - intent: 转化研究
+  - intent: translational
     contains: ["clinical-translation", "03_research"]
   - intent: grilling
     contains: ["grill-me", "grilling"]
-  - intent: 挂载发现
+  - intent: mount-discovery
     contains: ["挂载", "01_skill-integration"]
-  - intent: 标书
+  - intent: grant
     contains: ["选题", "03_research"]
   - intent: DCA
     contains: ["DCA", "04_analysis"]
 
 # Counter-examples: these must NOT appear as positive routes in the Fast routing section.
 counterexamples:
-  - intent: 选刊误路由到05
-    must_not_contain: ["选刊 → `05_manuscript`"]
-  - intent: 旧venue id
+  - intent: journal-selection-misroute-to-05
+    must_not_contain: ["选刊 → `05_manuscript`", "journal selection → `05_manuscript`"]
+  - intent: old-venue-id
     must_not_contain: ["05_manuscript/base/write-venue/"]
-  - intent: 文献进01
-    must_not_contain: ["文献 → `01_skill-integration`"]
-  - intent: 回复进05
-    must_not_contain: ["回复审稿人 → `05_manuscript`"]
-  - intent: 回复进06
-    must_not_contain: ["回复审稿人 → `06_review`"]
+  - intent: literature-into-01
+    must_not_contain: ["文献 → `01_skill-integration`", "literature → `01_skill-integration`"]
+  - intent: reply-into-05
+    must_not_contain: ["回复审稿人 → `05_manuscript`", "Reply to reviewers → `05_manuscript`"]
+  - intent: reply-into-06
+    must_not_contain: ["回复审稿人 → `06_review`", "Reply to reviewers → `06_review`"]

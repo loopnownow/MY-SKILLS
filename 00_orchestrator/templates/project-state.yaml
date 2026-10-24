@@ -16,8 +16,8 @@ updated: ""          # YYYY-MM-DD
 pipeline:
   sop: ""            # statistics | sci-manuscript | none
   stage: ""          # classify | 02 | 03 | 04 | 05 | 06 | qc | done
-                     # done: 结束, or this run's file is on disk and the last gate passed.
-                     # 暂停, or a stop after the results page / before pre-review: leave the current station. Do not write done.
+                     # done: end, or this run's file is on disk and the last gate passed.
+                     # pause, or a stop after the results page / before pre-review: leave the current station. Do not write done.
                      # Same defect unresolved after 3 rounds: defects[].status unresolved; do not advance stage.
   last_handoff: ""   # relative path to the last handoff yaml, if any
 
@@ -67,7 +67,7 @@ analysis_plan:
 manuscript:
   target_journal: ""
   format: "Aitor-format"
-  house_docx: ""     # Manuscript_<结局>_house.docx
+  house_docx: ""     # Manuscript_<endpoint>_house.docx
   polished_docx: ""
   results_html: ""   # one HTML per endpoint; numbers only from here
   intro_discussion_lit: pending   # pending | done

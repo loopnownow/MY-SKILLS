@@ -31,103 +31,103 @@ a_domain_override_policy: 'Identity is a four-tuple plus an optional A pack: fin
   without checking this policy.'
 coarse_ids:
 - id: lit-retrieval
-  label: 文献检索
+  label: Literature retrieval
   slug: lit-retrieval
   a_domains:
   - 03_research
   specialist_hint: Victor
 - id: topic-explore
-  label: 选题探索
+  label: Topic exploration
   slug: topic-explore
   a_domains:
   - 03_research
   specialist_hint: Victor
 - id: study-design
-  label: 研究设计
+  label: Study design
   slug: study-design
   a_domains:
   - 03_research
   specialist_hint: Victor
 - id: manuscript-body
-  label: 正文写作
+  label: Manuscript body writing
   slug: manuscript-body
   a_domains:
   - 05_manuscript
   specialist_hint: Aitee
 - id: language-polish
-  label: 语言润色
+  label: Language polish
   slug: language-polish
   a_domains:
   - 05_manuscript
   specialist_hint: Aitee
 - id: data-processing
-  label: 数据处理
+  label: Data processing
   slug: data-processing
   a_domains:
   - 02_data-processing
   specialist_hint: Loopnow
 - id: stats-analysis
-  label: 统计分析
+  label: Statistical analysis
   slug: stats-analysis
   a_domains:
   - 04_analysis
   specialist_hint: Loopnow
 - id: figures
-  label: 图表呈现
+  label: Figures
   slug: figures
   a_domains:
   - 04_analysis
   specialist_hint: Loopnow
 - id: manuscript-review
-  label: 稿件评阅
+  label: Manuscript review
   slug: manuscript-review
   a_domains:
   - 06_review
   specialist_hint: Lee
 - id: review-response
-  label: 审稿回复
+  label: Reviewer response
   slug: review-response
   a_domains:
   - 07_response
   specialist_hint: Aitee
 mounts:
 - id: verify-refs
-  label: 引用真实性核验
+  label: Citation authenticity verify
   coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/verify-refs/
   a_domain: 03_research
   status: MOUNTED
 - id: retraction-watcher
-  label: 撤稿检测
+  label: Retraction watch
   coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/retraction-watcher/
   a_domain: 03_research
   status: MOUNTED
 - id: lit-search
-  label: 文献检索与公开数据集
+  label: Lit search and public datasets
   coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/lit-search/
   a_domain: 03_research
   status: MOUNTED
 - id: design-study
-  label: 研究设计审查
+  label: Study-design review
   coarse: study-design
   source: my-skills
   path: 03_research/base/design-study/
   a_domain: 03_research
   status: MOUNTED
 - id: write-protocol
-  label: IRB方案撰写
+  label: IRB protocol drafting
   coarse: study-design
   source: my-skills
   path: 03_research/base/write-protocol/
   a_domain: 03_research
   status: MOUNTED
 - id: fill-protocol
-  label: IRB方案填表
+  label: IRB form fill
   coarse: study-design
   source: my-skills
   path: 03_research/base/fill-protocol/
@@ -135,21 +135,21 @@ mounts:
   status: MOUNTED
   note: 'a_domain 03_research. Body: 03_research/base/fill-protocol/ (Bai seat).'
 - id: write-paper
-  label: IMRAD正文起草
+  label: IMRAD body drafting
   coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/base/write-paper/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: check-reporting
-  label: 报告规范核验
+  label: Reporting-guideline check
   coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/base/check-reporting/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: grant-builder
-  label: 基金标书-方法论
+  label: Grant proposal — methods
   coarse: manuscript-body
   source: my-skills
   path: 03_research/base/grant-builder/
@@ -157,7 +157,7 @@ mounts:
   status: MOUNTED
   note: 'a_domain 03_research (override). Body: 03_research/base/grant-builder/.'
 - id: find-journal
-  label: 选刊推荐
+  label: Journal recommendation
   coarse: manuscript-body
   source: my-skills
   path: 03_research/base/find-journal/
@@ -166,119 +166,119 @@ mounts:
   note: 'a_domain 03_research (override). Body: 03_research/base/find-journal/. Companion house style:
     05_manuscript/base/write-venue/ (not the engine).'
 - id: polish-language
-  label: 一致性硬规则lint
+  label: Consistency hard-rule lint
   coarse: language-polish
   source: my-skills
   path: 05_manuscript/base/polish-language/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: humanize
-  label: 去AI味
+  label: De-AI tone
   coarse: language-polish
   source: my-skills
   path: 05_manuscript/base/humanize/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: clean-data
-  label: 三阶段确认式清洗
+  label: Three-stage confirm cleaning
   coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/clean-data/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: imaging-io
-  label: CT/MRI DICOM与NIfTI读写
+  label: CT/MRI DICOM and NIfTI I/O
   coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/imaging-io/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: preprocess-imaging
-  label: ROI与读者质控
+  label: ROI and reader QC
   coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/preprocess-imaging/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: analyze-stats
-  label: 检验方法选择与加权调查数据
+  label: Test selection and weighted survey data
   coarse: stats-analysis
   source: my-skills
   path: 04_analysis/base/analyze-stats/
   a_domain: 04_analysis
   status: MOUNTED
 - id: meta-analysis
-  label: Meta分析抗数据操纵
+  label: Meta-analysis anti-manipulation
   coarse: stats-analysis
   source: my-skills
   path: 04_analysis/base/meta-analysis/
   a_domain: 04_analysis
   status: MOUNTED
 - id: model-evaluation
-  label: 模型-任务正确指标选择
+  label: Model-task correct metric selection
   coarse: stats-analysis
   source: my-skills
   path: 04_analysis/base/model-evaluation/
   a_domain: 04_analysis
   status: MOUNTED
 - id: calc-sample-size
-  label: 样本量计算
+  label: Sample-size calculation
   coarse: stats-analysis
   source: my-skills
   path: 04_analysis/base/calc-sample-size/
   a_domain: 04_analysis
   status: MOUNTED
 - id: draw-flowchart
-  label: 患者流程图
+  label: Patient flow diagram
   coarse: figures
   source: my-skills
   path: 04_analysis/base/draw-flowchart/
   a_domain: 04_analysis
   status: MOUNTED
 - id: plot-figures
-  label: 统计图与影像面板
+  label: Stats plots and imaging panels
   coarse: figures
   source: my-skills
   path: 04_analysis/base/plot-figures/
   a_domain: 04_analysis
   status: MOUNTED
 - id: peer-review
-  label: 审稿意见生成
+  label: Reviewer-comment generation
   coarse: manuscript-review
   source: my-skills
   path: 06_review/base/peer-review/
   a_domain: 06_review
   status: MOUNTED
 - id: self-review
-  label: 数值级自审核算
+  label: Numeric self-audit
   coarse: manuscript-review
   source: my-skills
   path: 06_review/base/self-review/
   a_domain: 06_review
   status: MOUNTED
 - id: revise
-  label: 修回分诊与数字血统追踪
+  label: R&R triage and numeric lineage
   coarse: review-response
   source: my-skills
   path: 07_response/base/revise/
   a_domain: 07_response
   status: MOUNTED
 - id: response-tone-polisher
-  label: 回复语气软化
+  label: Response-tone softening
   coarse: review-response
   source: my-skills
   path: 07_response/base/response-tone-polisher/
   a_domain: 07_response
   status: MOUNTED
 - id: simulate-reviewers
-  label: 多审稿人隔离原则
+  label: Multi-reviewer isolation principle
   coarse: manuscript-review
   source: my-skills
   path: 06_review/base/simulate-reviewers/
   a_domain: 06_review
   status: MOUNTED
 - id: tighten-response
-  label: 隔离与正文精简原则
+  label: Isolation and body-tighten principle
   coarse: review-response
   source: my-skills
   path: 07_response/base/tighten-response/

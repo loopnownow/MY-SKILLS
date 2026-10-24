@@ -17,7 +17,7 @@ ONE = ROOT / "01_skill-integration"
 # Line-level historical / archival context (Chinese + English).
 HIST_LINE = re.compile(
     r"archived|historical|legacy|absorb|absorbed|formerly|old_path|"
-    r"status_note|covers former|round\s*[123]|勿建|归档|was\s+B|retired|"
+    r"status_note|covers former|round\s*[123]|勿建|do not recreate|归档|archive|archived|was\s+B|retired|"
     r"not on disk|do not recreate|do not mount|not a live",
     re.I,
 )
@@ -29,8 +29,8 @@ ALLOW_FILES = {
     "01_skill-integration/references/id-rules.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
-    "02_data-processing/base/README.md",  # 归档勿建 list
-    "03_research/base/README.md",  # 归档勿建 list
+    "02_data-processing/base/README.md",  # archived — do not recreate list
+    "03_research/base/README.md",  # archived — do not recreate list
     "04_analysis/base/README.md",  # path-unit table may echo alias keys
 }
 
