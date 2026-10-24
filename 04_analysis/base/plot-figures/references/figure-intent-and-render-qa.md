@@ -1,6 +1,6 @@
 # Figure intent and render QA
 
-Use this reference when building a full figure set, revising crowded figures, preparing a graphical abstract, or fixing problems such as overlapping labels, clipped ticks, DCA layout issues, sparse whitespace, or "数字穿模".
+Use this reference when building a full figure set, revising crowded figures, preparing a graphical abstract, or fixing problems such as overlapping labels, clipped ticks, DCA layout issues, sparse whitespace, or number punch-through ("数字穿模").
 
 ## Figure intent table
 

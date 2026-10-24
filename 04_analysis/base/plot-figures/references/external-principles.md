@@ -1,38 +1,36 @@
-<!--
-本文件性质: 规则参考(非挂载)
-用途: 记录跨包调研中发现的、值得借鉴但不整包挂载的设计原则。
-      这些原则应作为门禁规则叠加在fig-plot(make-figures)现有流程上，
-      不引入任何外部包的实际调用。
-来源: Scientific(K-Dense) scientific-visualization SKILL.md
-      Nature(Yuan1z0825/nature-skills) nature-figure SKILL.md
-提炼日期: 2026-09-13
--->
+# External principles for figure production
 
-# 出图环节的外部原则参考
+File role: rule reference (not a mount).
+Purpose: record design principles found in cross-package research that are worth borrowing
+without mounting the whole package. Stack these as gate rules on top of the fig-plot
+(make-figures) flow; do not call any external package.
+Source: Scientific (K-Dense) scientific-visualization SKILL.md
+Extracted: 2026-09-13
 
-本文件不是独立技能，是两条从外部包调研中提炼、决定叠加进本技能(fig-plot)
-出图流程的门禁规则。执行出图任务时，在完成图表后、交付前，应对照下方
-两条规则做一次自查。
+# External principle reference for figure production
 
-## 原则一：诚实编码非协商准则（来自 Scientific scientific-visualization）
+This file is not a standalone skill. It holds two gate rules extracted from external-package
+research and stacked onto this skill's (fig-plot) figure flow. When producing figures, after
+the charts are done and before delivery, self-check against both rules below.
 
-出图前后必须自查，任一项不满足即视为不合格图表，需重做：
+## Principle 1: Honest encoding is non-negotiable (from Scientific scientific-visualization)
 
-- 坐标轴不得截断以夸大差异（尤其是柱状图的y轴起点）
-- 不得用误导性的双y轴刻度制造虚假相关
-- 面积/角度编码（饼图、气泡图）优先换成条形图等更易判读的形式
-- 色彩映射对色盲友好，且不用颜色本身承载唯一的关键信息
-- 误差线/置信区间的定义在图注中明确标出（SD还是SEM还是CI）
+Self-check before and after plotting. Any fail means the figure is unfit and must be redone:
 
-## 原则二：投稿前审稿人风险预判（来自 Nature nature-figure）
+- Do not truncate axes to exaggerate differences (especially bar-chart y-axis origins)
+- Do not use misleading dual-y scales to invent a false correlation
+- Prefer bar charts (or other easy-to-read forms) over area/angle encodings (pie, bubble)
+- Color maps must be color-blind friendly; color alone must not carry the only categorical cue
+- Define error bars / CIs in the legend (SD vs SEM vs CI)
 
-出图完成后，在正式交付前，主动从"审稿人视角"过一遍每张图，回答：
+## Principle 2: Pre-submission reviewer-risk preview (from Nature nature-figure)
 
-1. 这张图最可能被审稿人质疑的一点是什么？（例如：样本量是否标出、
-   是否存在幸存者偏差式的病例挑选、统计检验方法是否与图表类型匹配）
-2. 如果这张图被要求做敏感性分析或亚组拆分，现有数据/代码是否能
-   快速响应？
-3. 图注是否独立于正文也能让审稿人看懂（不依赖翻回正文查方法）？
+After figures are done and before formal delivery, walk each figure from a reviewer viewpoint:
 
-若某张图在这三点上有明显弱点，应在图表生成阶段就一并调整，而不是
-等审稿意见回来再补救。
+1. What is this figure most likely to be challenged on? (e.g. sample size shown, survivor-bias
+   case picking, whether the statistical test matches the chart type)
+2. If a sensitivity analysis or subgroup split is requested, can current data/code respond fast?
+3. Can the legend stand alone so a reviewer need not flip back to Methods?
+
+If a figure is clearly weak on these three points, fix it during figure generation — do not wait
+for reviewer comments.

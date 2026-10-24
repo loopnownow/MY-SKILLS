@@ -21,7 +21,7 @@ General threshold doctrine (never tune the cut on the test set to maximise accur
 ## Live lab modules (v4.3.0; rules aligned 2026-09-12)
 
 Do **not** vendor `{code_root}` Python into this skill. Implementation stays in `modules/`.
-Paper numbers come from `python -m modules.pipeline` → `Results{子项目}.html` / `Results{subproject}.html` (e.g. `Resultsperfusion.html`). Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.
+Paper numbers come from `python -m modules.pipeline` → `Results{subproject}.html` (e.g. `Resultsperfusion.html`). Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.
 
 | Topic | Live behavior | Not the lab |
 |-------|---------------|-------------|
@@ -47,16 +47,16 @@ A Group column may have 3, 4, or more levels (e.g. `dll_OV`). Modes:
 - pick any two levels (positive / negative)
 - all pairwise (every unordered pair)
 
-Default lock: `GROUP_KEEP = []`（不筛行）, `PAIRWISE_GROUPS = []`, `PAIRWISE_ALL = false`. Do not invent a two-group keep list or turn on pairwise. The only standing exception is `dll_OV` (multi-level Group, pairwise on). User must explicitly ask before screening or pairwise on any other project.
+Default lock: `GROUP_KEEP = []` (no row filter), `PAIRWISE_GROUPS = []`, `PAIRWISE_ALL = false`. Do not invent a two-group keep list or turn on pairwise. The only standing exception is `dll_OV` (multi-level Group, pairwise on). User must explicitly ask before screening or pairwise on any other project.
 
 Not limited to three groups. Console keys: `GROUP_KEEP`, `PAIRWISE_GROUPS`, `PAIRWISE_ALL`.
 
 Pairwise is the same pagination case as multiple outcomes:
 
-- ≥3 pairs → second tab row: 公共 | 各对。Each pair page picks positive / negative.
+- ≥3 pairs → second tab row: Public | Each pair. Each pair page picks positive / negative.
 - Multiple outcomes **and** ≥3 pairs → outcome row first; pair row only after entering an outcome
-- Output dirs are `{outcome}/{阳性展示名}_vs_{阴性展示名}` (single endpoint still uses the outcome column name as the parent). Pairwise PNG/QC live only in the pair folder — do not leave `{outcome}/PNG`
-- Per-pair overrides: `PAIRWISE_OVERRIDES[outcome][列值阳_vs_列值阴]`; folder name follows display names. Missing keys inherit that outcome, then public
+- Output dirs are `{outcome}/{pos_display}_vs_{neg_display}` (single endpoint still uses the outcome column name as the parent). Pairwise PNG/QC live only in the pair folder — do not leave `{outcome}/PNG`
+- Per-pair overrides: `PAIRWISE_OVERRIDES[outcome][pos_value_vs_neg_value]`; folder name follows display names. Missing keys inherit that outcome, then public
 - `GROUP_LEVEL_DISPLAY` maps Group-column values to short labels (e.g. `Clear Cell Carcinoma` → `CCC`). Pair folders and legends default to these names. Table 1 group headers and legends use short display names (`GROUP_LEVEL_DISPLAY` when a level is mapped; otherwise `GROUP_DISPLAY_POS` / `GROUP_DISPLAY_NEG`). Positive/negative are chosen on the pair page, not the public group card.
 - Do not infer groups from ID prefixes in the console (`GROUP_FROM_ID` stays off unless an old ini still sets it)
 
@@ -67,19 +67,19 @@ Pairwise is the same pagination case as multiple outcomes:
 - `record_id` and every column to its left stay out of models.
 - Outcomes listed in `OUTCOME_COLS` are never used as predictors of each other.
 - Clinical column roles, skip first: `SKIP_CLIN_FEATURES` (ID / outcome / marker — no Table 1, no nomogram) outranks `FORCE_REMOVE_FEATURES` (Table 1 yes, nomogram no). Overlap stays in skip. Implicit locked skip is `CLIN_ID_COL`, `LABEL_COL`, `Patient_ID`, `Group`, `OUTCOME_COLS`. Do not hardcode `Name`.
-- Clinical Table 1 types apply to every 0RAD project / 子工程: a raw column that is all numbers (including integer 0–6 such as `Reproductive_History`) is **continuous** by default. English labels and roman/ordinal tokens stay categorical. `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` override. `ORDINAL_MAX_LEVELS` no longer reclassifies raw integer columns as counts.
-- User-facing endpoints are `OUTCOME_COLS` only (single endpoint = one-item list). `GROUP_SOURCE_COL` is a runtime slot written by `set_outcome`, not a console key. Output dirs are `{outcome}` or `{outcome}/{阳性展示名}_vs_{阴性展示名}` when pairwise; `SUBPROJECT_BY_OUTCOME` still remaps the parent. `OUT_DIR_BASE` is retired.
-- 子结局分组来自该结局列：跑 `response_6m` 就用 `response_6m` 的水平（再按 `OUTCOME_BINARIZE` 收成 0/1）。表里即使已有 `Group`，也不许拿它或别的结局列当这个子结局的分组。仅当当前结局列不存在时才回退到 `Group` / `GROUP_COL_KEYWORD`。
-- `SUBGROUP_COL`：与结局列不同时，**只评估、不重训**。全队列按结局训主模型（列线图 / RadScore / Clinical）；再把锁死公式套到该列各水平（ROC、校准、DCA）。`GROUP_KEEP` / 两两名单只决定评估哪些层，不筛训练行，也不再走 pairwise 重训。空或等于当前结局=不做分层评估。
-- 公共页三个独立下拉（不互相跟随）：`VAL_MODE` 内部验证、`SUBGROUP_VAL_MODE` 亚组验证、`EXTERNAL_VAL_MODE` 外部验证。选项均为 `refit`（重新拟合）/ `apply_formula`（套公式）/ `lock_threshold`（锁定阈值）。均不重筛。亚组留空 = `apply_formula`。外验留空 = `refit`。两者都不跟随内部 `VAL_MODE`。控制台若写空跟随内部验证，以这两句为准。
-- 外验整队列评估（不按亚组再拆）。须 `EXTERNAL_FILE`+双 sheet；多条横拼，一条不拼。列表键 `EXTERNAL_TESTS`（起始页可多条）。
-- `FORCE_INTER_FEATURES`：键保留兼容，**不再参与入选**。缺键继承公共/ini；某一结局的覆盖不写进其它结局。控制台多结局时只在各结局页改（公共页不画）。
-- `FORCE_MODEL_FEATURES`：非空时是唯一临床入选源（Selected / Clinical score / Combined 临床列 / 单临床 ROC）。空则用候选池里多因素 p < `ROC_MV_P_THRESHOLD` 的变量。候选池：单因素 Logistic p < `TABLE1_P_THRESHOLD`，去掉完全分离，去掉单因素 VIF ≥ `VIF_THRESHOLD_HIGH`。Table 1 组间 p 不决定入池。跳过列和强制剔除列不能选。缺键继承公共；各结局覆盖互不影响。控制台「列线图变量」= 该手动名单。
-- `FORCE_CLIN_FOR_ROC`：只额外画 ROC/NRI/DCA 线，**不得**把已在 `FORCE_MODEL` 中的列从列线图/Combined 剔除。
-- **列线图 / Combined**：临床列 = `FORCE_MODEL_FEATURES`；有组学时加 **RadScore**（`FORCE_MODEL` 里字面量 `RadScore` 当组学分数，不当临床列）。有 rad sheet 时下拉须含 RadScore。图面**不**再画右侧 `max … pts` / `OR=` / `β=` 侧注。
-- **外验**：须 `EXTERNAL_FILE` + 临床 sheet + 组学 sheet；仅默认 sheet 名、无文件 = **不做外验**（勿把主表 input 冒充外验）；未启用时报告不出 locked-nomogram 外验块。
-- **高级分析报告门控**：`DO_NRI` / `DO_DAG` / `DO_MEDIATION` 为关时不出对应报告块（默认 False）。
-- **样本排除**：`DO_EXCLUDE_*` / `EXCLUDE_*` 为**工程级**，不进结局覆盖；空选项文案「空＝默认 …」。
+- Clinical Table 1 types apply to every 0RAD project / subproject: a raw column that is all numbers (including integer 0–6 such as `Reproductive_History`) is **continuous** by default. English labels and roman/ordinal tokens stay categorical. `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` override. `ORDINAL_MAX_LEVELS` no longer reclassifies raw integer columns as counts.
+- User-facing endpoints are `OUTCOME_COLS` only (single endpoint = one-item list). `GROUP_SOURCE_COL` is a runtime slot written by `set_outcome`, not a console key. Output dirs are `{outcome}` or `{outcome}/{pos_display}_vs_{neg_display}` when pairwise; `SUBPROJECT_BY_OUTCOME` still remaps the parent. `OUT_DIR_BASE` is retired.
+- Sub-outcome grouping comes from that outcome column: running `response_6m` uses `response_6m` levels (then collapsed to 0/1 via `OUTCOME_BINARIZE`). Even if the sheet already has `Group`, do not use it or another outcome column as this sub-outcome's grouping. Fall back to `Group` / `GROUP_COL_KEYWORD` only when the current outcome column is missing.
+- `SUBGROUP_COL`: when different from the outcome column, **evaluate only — do not retrain**. Train the primary model on the full cohort by outcome (nomogram / RadScore / Clinical); then apply the locked formula to each level of this column (ROC, calibration, DCA). `GROUP_KEEP` / pairwise lists only decide which strata to evaluate — they do not filter training rows and do not trigger pairwise retrain. Empty or equal to the current outcome = no stratified evaluation.
+- Public page has three independent dropdowns (do not follow each other): `VAL_MODE` internal validation, `SUBGROUP_VAL_MODE` subgroup validation, `EXTERNAL_VAL_MODE` external validation. Options are always `refit` (refit) / `apply_formula` (apply formula) / `lock_threshold` (lock threshold). None re-select features (不重筛). Subgroup blank = `apply_formula`. External blank = `refit`. Neither follows internal `VAL_MODE`. If the console copy says blank follows internal validation, these two sentences win.
+- External validation evaluates the whole cohort (no further subgroup split). Requires `EXTERNAL_FILE` + dual sheets; multiple rows concatenate horizontally, a single row does not. List key `EXTERNAL_TESTS` (start page may hold several).
+- `FORCE_INTER_FEATURES`: key kept for compatibility, **no longer participates in selection**. Missing key inherits public/ini; one outcome's override does not write into others. With multi-outcome console, edit only on each outcome page (public page does not draw it).
+- `FORCE_MODEL_FEATURES`: when non-empty, is the sole clinical selection source (Selected / Clinical score / Combined clinical cols / single-clinical ROC). When empty, use candidate-pool multivariate p < `ROC_MV_P_THRESHOLD`. Candidate pool: univariate Logistic p < `TABLE1_P_THRESHOLD`, drop complete separation, drop univariate VIF ≥ `VIF_THRESHOLD_HIGH`. Table 1 between-group p does not decide pool entry. Skip cols and force-remove cols cannot be selected. Missing key inherits public; per-outcome overrides do not affect each other. Console “nomogram variables” = this manual list.
+- `FORCE_CLIN_FOR_ROC`: draws extra ROC/NRI/DCA lines only; **must not** drop columns already in `FORCE_MODEL` from the nomogram/Combined.
+- **Nomogram / Combined:** clinical cols = `FORCE_MODEL_FEATURES`; when radiomics is present add **RadScore** (literal `RadScore` in `FORCE_MODEL` is the radiomics score, not a clinical col). Dropdown must include RadScore when a rad sheet exists. Figure **must not** draw right-side `max … pts` / `OR=` / `β=` side notes.
+- **External validation:** requires `EXTERNAL_FILE` + clinical sheet + radiomics sheet; default sheet names with no file = **no external validation** (do not pass the main-table input off as external); when disabled the report omits the locked-nomogram external block.
+- **Advanced-analysis report gates:** when `DO_NRI` / `DO_DAG` / `DO_MEDIATION` are off, omit those report blocks (default False).
+- **Sample exclusion:** `DO_EXCLUDE_*` / `EXCLUDE_*` are **project-level**, not outcome overrides; blank-option copy is “blank = default …”.
 
 ## Radiomics Logistic and preprocess
 
@@ -108,7 +108,7 @@ From the project folder, after the console or `settings.ini` is set:
 python -m modules.pipeline
 ```
 
-One `Results{子项目}.html` / `Results{subproject}.html` per subproject. Numbers in the manuscript come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name.
+One `Results{subproject}.html` per subproject. Numbers in the manuscript come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name.
 
 ## HTML Logistic tables
 

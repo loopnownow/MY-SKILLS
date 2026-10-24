@@ -244,7 +244,7 @@ def render(reg: dict) -> str:
     <div class="domain">hand-authored from 00_orchestrator/SKILL.md "Composite workflows" — resync manually if that section changes</div>
     {SOP_SVG}
   </section>
-  <input id="search" type="search" placeholder="筛选 id / label / source / status…"
+  <input id="search" type="search" placeholder="Filter id / label / source / status…"
     aria-label="Filter skills">
   {''.join(sections)}
 </main>

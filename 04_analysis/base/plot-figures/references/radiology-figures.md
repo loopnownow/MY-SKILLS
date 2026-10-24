@@ -1,4 +1,4 @@
-# 图表
+# Figures
 
 Use this file when the user asks how to design manuscript figures, tables, graphical
 abstracts, workflow diagrams, performance plots, radiomics pipeline figures, deep
@@ -11,18 +11,18 @@ widths, display-item limits, Source Data expectations, and legend conventions.
 
 ## Core goal
 
-图表模块的目标是让图表服务于论文论证，而不是简单堆放 ROC。先明确每张图回答什么问题，再决定图形类型。
+The figures module makes charts serve the paper's argument — not a pile of ROCs. Decide what each figure answers, then pick the chart type.
 
 ## First questions
 
-- 文章核心结论是什么？
-- 研究类型是影像组学、深度学习、多模态、机制解析、疗效预测，还是临床转化？
-- 目前已有结果有哪些：AUC、C-index、Dice、校准、DCA、KM、SHAP、Grad-CAM、机制分析？
-- 是否有外部验证、多中心验证、亚组和失败案例？
-- 目标期刊或文章类型是什么？
-- 需要主图、补充图，还是投稿前图表审查？
-- 目标是 Radiology/RSNA、Nature/npj、Lancet、Cell Reports Medicine、European Radiology，
-  还是尚未定刊？
+- What is the paper's core conclusion?
+- Is the study radiomics, deep learning, multimodal, mechanism, treatment response, or clinical translation?
+- What results exist already: AUC, C-index, Dice, calibration, DCA, KM, SHAP, Grad-CAM, mechanism analyses?
+- Are external validation, multi-center validation, subgroups, and failure cases present?
+- What is the target journal or article type?
+- Need main figures, supplements, or a pre-submission figure review?
+- Target Radiology/RSNA, Nature/npj, Lancet, Cell Reports Medicine, European Radiology,
+  or still undecided?
 
 ## Recommended figure set
 
@@ -132,21 +132,21 @@ Each legend should state:
 ## Output format
 
 ```text
-图表定位
-- 文章类型：
-- 核心结论：
-- 现有图表：
+Figure framing
+- Article type:
+- Core conclusion:
+- Existing figures:
 
-推荐主图
-| 图号 | 目的 | 内容 | 需要的数据 | 风险 |
+Recommended main figures
+| Fig # | Purpose | Content | Data needed | Risks |
 
-推荐表格
-| 表号 | 目的 | 内容 |
+Recommended tables
+| Table # | Purpose | Content |
 
-补充材料
+Supplements
 - [parameter tables, robustness figures, checklist]
 
-Figure legend 草稿
+Figure legend draft
 [only when figure facts are supplied]
 ```
 
