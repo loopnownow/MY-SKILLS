@@ -114,3 +114,18 @@ See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `corpus-p
 - Calibrated hedges in Discussion only: may, might, could, suggest
 
 See also: `archive/blog/` (archived blog references), parent hard rules.
+
+
+## Meta-narration / pipeline self-talk / QC-in-body (2026-10-24)
+
+Banned in manuscript **body** and figure legends (put in Word comment author **A** if needed). From Grok-session triage; not already covered by the pipeline-token row above.
+
+| Avoid | What to do |
+|-------|------------|
+| Meta draft banners (“Working manuscript draft covering…”, “Do not submit until…”) | Delete; never ship tool status as prose |
+| Pipeline self-narration (“The present clinical matrix stored a binary Group column…”, console/HTML process paragraphs) | Rewrite as Methods facts, or comment |
+| QC intermediate dumps in body (e.g. `QC_MI_Warn 0.0674`, mutual-information registration warning counts) | Comment / QC report only |
+| “A formal a priori sample-size calculation was not performed.” when an estimate exists | Use the post hoc / performed estimate wording |
+| “the band limits are not stated in the current draft” style gap-exposure | Move to a Word comment with suggested fix |
+
+Polish-language: no separate personal digest — these bans live here.
