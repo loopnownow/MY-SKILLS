@@ -3,7 +3,7 @@
 **Owner:** `00_orchestrator` at **G-06** / internal QC loops / Integrity · pre-06 when a multi-round review loop runs.
 **Seat:** Lee (06) owns marks & loop ledger; Aitee (05) Track Changes; Loopnow (04) data/stats repairs; Victor (03) cites. Lee does **not** draft response letters (→ **07**).
 **Distill of:** ARIS `auto-review-loop` state + `resumable-runs` (host-agnostic). **No** Codex/MCP/runtime install.
-**Compose:** `assurance-audit-chain.md` · `rr-re-review.md` · `review-release-gates.md` · `00_orchestrator/qc/assurance-verdicts.md`.
+**Compose:** `assurance-audit-chain.md` · `rr-re-review.md` · `review-release-gates.md` · `06_review/qc/assurance-verdicts.md`.
 
 ## Loop shape
 
@@ -60,6 +60,6 @@ Host-specific reviewer backend / MCP thread ids are **optional** and must not lo
 - 5-layer audits → `assurance-audit-chain.md`
 - Isolation / release → `review-release-gates.md`
 - External R&R verify enum → `rr-re-review.md`
-- Stage map W1→W3 → `00_orchestrator/qc/research-stage-artifacts.md`
+- Stage map W1→W3 → `03_research/qc/research-stage-artifacts.md`
 
 *Attribution: ARIS auto-review-loop + resumable-runs; lab G-06 / Lee seat remain authoritative.*

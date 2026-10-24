@@ -241,7 +241,7 @@ class CitationVerifyRequired(unittest.TestCase):
             "06_review/SKILL.md",
             "06_review/qc/cross-manuscript-qc.md",
             "00_orchestrator/SKILL.md",
-            "00_orchestrator/workflows/sci-manuscript.md",
+            "01_skill-integration/workflows/sci-manuscript.md",
         ):
             self.assertIn(self.PHRASE, read(rel), rel)
 
@@ -272,7 +272,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "03_research/personal/citation-verify.md",
         "00_orchestrator/SKILL.md",
         "00_orchestrator/gates.md",
-        "00_orchestrator/workflows/sci-manuscript.md",
+        "01_skill-integration/workflows/sci-manuscript.md",
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
         # ARCHITECTURE.md is live ownership SSOT (scanned below)

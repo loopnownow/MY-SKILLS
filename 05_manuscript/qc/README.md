@@ -42,5 +42,5 @@ QC **standards only** (pass/fail + fail→rollback station). Capability bodies s
 
 ### Attribution (ARIS P1 process 2026-10-19)
 
-- Stage/resubmit process lives under `00_orchestrator/qc/` + `06_review/qc/review-loop-state.md` (not 05).
+- Stage/resubmit process lives under domain `qc/` (00 stubs point here) + `06_review/qc/review-loop-state.md` (not 05).
 - Item-3 nature-ref Crossref axes extended in `refs-verified.md` (Yuan1z Apache-2.0); venue minima/currency already present (K-Dense MIT).

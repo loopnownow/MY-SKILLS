@@ -54,7 +54,7 @@ Citation ledger key shape (internal; not a user-facing slogan): `DOI|citekey` + 
 Cross-links:
 
 - Citation L4 / three-axis + six-state → `05_manuscript/qc/citation-audit-gate.md`
-- Assurance six-state → `00_orchestrator/qc/assurance-verdicts.md`
+- Assurance six-state → `06_review/qc/assurance-verdicts.md`
 - Word append rule → `06_review/personal/word-edit.md` + `05_manuscript/SKILL.md`
 - Deliverable drop points → `00_orchestrator/references/standing-delivery.md`
 

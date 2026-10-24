@@ -1,11 +1,10 @@
-# Workflows (03)
+# Workflows (03) — pointers only
 
-SOPs that **schedule** literature / design / frontier mounts for research exploration.
-Not registry fine ids.
+Canonical SOP bodies live under `01_skill-integration/workflows/`.
+03 runs the research content spine; 00 chooses entry / rollback / STOP.
 
-| SOP | When | File |
-|-----|------|------|
-| question-to-reference | 课题探索 / 问题→证据→设计→数据→研究简报 | `question-to-reference.md` |
+| SOP | When | Canonical file |
+|-----|------|----------------|
+| question-to-reference | question → evidence → design → data → brief | `01_skill-integration/workflows/question-to-reference.md` |
 
-Default spine for Victor (03). `lit-search` is a **tool under R2**, not the center of 03.
-Entry stage and rollback are coordinated with 00 (`research-exploration-loop`).
+Entry/rollback coordinated with `01_skill-integration/workflows/research-exploration-loop.md`.

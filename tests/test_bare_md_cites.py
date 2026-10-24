@@ -42,6 +42,11 @@ EXTERNAL = {
     "evidence-request.md",  # A05 evidence-request template (lab, not vendored)
     "skills.md",  # MY-RULES skills.md
     "coding-principles.md",  # named only as a "do not create" ban
+    "changelog.md",  # per-project ref/review artifact
+    "CHANGELOG_*.md",  # glob form in docs; ignore if matched
+    "manuscript-revision.md",  # per-project Word change ledger
+    "EXECUTION.md",  # optional per-project wrap-up
+    "workspace-layout.md",  # standing-delivery pointer name
     "structures.md",  # upstream/general-prose reference list
     "examples.md",  # upstream/general-prose reference list
     "literature-evidence-2023-2026.md",  # dated snapshot note (归档勿建)

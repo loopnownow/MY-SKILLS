@@ -26,9 +26,9 @@ Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypo
 ```text
 00_orchestrator
 │
-├── workflows/radiomics-study.md
-├── workflows/sci-manuscript.md
-└── workflows/research-exploration-loop.md   ← this SOP
+├── 01_skill-integration/workflows/radiomics-study.md
+├── 01_skill-integration/workflows/sci-manuscript.md
+└── 01_skill-integration/workflows/research-exploration-loop.md   ← this SOP
        │
        ├── detect-entry
        ├── detect-gap
@@ -42,7 +42,7 @@ Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypo
 
 ## 1. Entry — detect-entry
 
-Read `<project>/ref/project-state.yaml` (template: `../templates/project-state.yaml`). Do not assume the user starts at day one.
+Read `<project>/ref/project-state.yaml` (template: `../../00_orchestrator/templates/project-state.yaml`). Do not assume the user starts at day one.
 
 Structural fields 00 may compute itself:
 
@@ -104,7 +104,7 @@ Unlock re-call of upstream skills only on:
 
 ## 4. Dispatch existing skills (no new pipeline nodes)
 
-When the missing work is **research content** (question / evidence / design / data need / planning brief), dispatch **03** on [`../../03_research/workflows/question-to-reference.md`](../../03_research/workflows/question-to-reference.md) at the right **R1–R5** stage. 00 still chooses entry and STOP; 03 fills the cards.
+When the missing work is **research content** (question / evidence / design / data need / planning brief), dispatch **03** on [`question-to-reference.md`](question-to-reference.md) at the right **R1–R5** stage. 00 still chooses entry and STOP; 03 fills the cards.
 
 
 | Gap type | Layer | Live fine ids / paths (examples) | Question answered |

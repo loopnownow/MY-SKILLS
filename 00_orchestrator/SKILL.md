@@ -13,7 +13,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **唯一官方运行图：** [`runtime-flow.mmd`](runtime-flow.mmd)（读图说明 [`runtime-flow.md`](runtime-flow.md)）。入口 / QC / 局部回退以该图为准；更新流程时**只改这一张 mmd**。Gate 条文真源 [`gates.md`](gates.md)。图节点 `Gate · NN` ↔ `G-NN`。
 
-**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount MedSci `orchestrate` as a third SOP.
+**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · 投稿+伦理表 Bai（`fill-protocol` 路径仍在 03；不进 00 主环）. Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
 
 **Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
@@ -115,7 +115,7 @@ Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolutio
 
 ## Research exploration
 
-Triggers 「这个研究还能做什么」等 → [`workflows/research-exploration-loop.md`](workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
+Triggers 「这个研究还能做什么」等 → [`01_skill-integration/workflows/research-exploration-loop.md`](../01_skill-integration/workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
 
 ## Boundaries
 

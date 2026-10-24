@@ -39,8 +39,8 @@ Resolution status for response letters -> **A07**.
 | Cross-manuscript QC | `qc/cross-manuscript-qc.md` (invoked only by 00) |
 | Word comment delivery | `personal/word-edit.md` |
 | Dual-review isolation workflow | `personal/review-isolation.md` |
-| Thesis review | `personal/thesis-review.md` |
-| Chinese journal score sheet | `personal/chinese-journal-score-sheet.md` |
+| Thesis review | `personal/review.md` § Thesis review digest |
+| Chinese journal score sheet | `personal/review.md` § Chinese journal score digest |
 | Response letter / resolution | **`07_response/personal/response.md`** (moved 2026-10-17) |
 
 ## Mounted capability ids

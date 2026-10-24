@@ -14,8 +14,8 @@
 1. `review-isolation.md` -- when dual engines / simulate-reviewers used
 2. English peer review -- `review.md`
 3. Word annotate / TC boundary -- `word-edit.md`
-4. Chinese journal score sheet -- `chinese-journal-score-sheet.md`
-5. Thesis review -- `thesis-review.md`
+4. Chinese journal score -- `review.md` § Chinese journal score digest
+5. Thesis review -- `review.md` § Thesis review digest
 6. Cooperation -- `handoff.md`
 7. QC bodies -- domain ``qc/`` (invoked only by 00 at Gate time)
 

@@ -15,9 +15,9 @@ Projects: `{lab_root}\<stage>\<project>` (stage folders `drafting` `pre-submit` 
 
 ## New folders / new files only under `{DEL}` (2026-10-24 · t1098u files; t1107u/t1108u/t1109u folders)
 
-**Folders:** all new folders → `{DEL}` / `D:\0del` only. **No mkdir under `D:\0Grok\0doc`** unless 城城 explicitly agrees that turn. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only.
+**Folders:** all new folders → `{DEL}` only. **No mkdir under `{doc_root}`** unless 城城 explicitly agrees that turn. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only.
 
-**Files:** AI must **not create new files** outside `{DEL}` / `D:\0del`. Editing existing files is OK. Scratch / ACCEPT / digest / notes → `{DEL}\_by-function\` or `{DEL}\_by-project\`. See `{RULES}\My rule.md` §5.1 and `00_orchestrator/references/standing-delivery.md`.
+**Files:** AI must **not create new files** outside `{DEL}`. Editing existing files is OK. Scratch / ACCEPT / digest / notes → `{DEL}\_by-function\` or `{DEL}\_by-project\`. See `{RULES}\My rule.md` §5.1 and `00_orchestrator/references/standing-delivery.md`.
 
 Pause: STATUS.md in project; never 0del for keep-worthy (0del is periodically emptied).
 

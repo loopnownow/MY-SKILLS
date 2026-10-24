@@ -138,9 +138,9 @@ class RetiredIds(unittest.TestCase):
 class SessionPick(unittest.TestCase):
     def test_workflows_ask_session_mount_pick(self) -> None:
         for rel in (
-            "00_orchestrator/workflows/sci-manuscript.md",
-            "00_orchestrator/workflows/radiomics-study.md",
-            "00_orchestrator/workflows/README.md",
+            "01_skill-integration/workflows/sci-manuscript.md",
+            "01_skill-integration/workflows/radiomics-study.md",
+            "01_skill-integration/workflows/README.md",
         ):
             text = read(rel).lower()
             self.assertTrue(
@@ -288,7 +288,7 @@ class DiscoverySurface(unittest.TestCase):
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
         for rel in (
             "01_skill-integration/references/hybrid-mount-pointers.md",
-            "00_orchestrator/workflows/research-exploration-loop.md",
+            "01_skill-integration/workflows/research-exploration-loop.md",
         ):
             self.assertNotRegex(read(rel), r"52 fine", rel)
 
@@ -352,7 +352,7 @@ class FastRouting(unittest.TestCase):
 
 class DeAiAndFigures(unittest.TestCase):
     def test_sci_manuscript_paths(self) -> None:
-        sop = read("00_orchestrator/workflows/sci-manuscript.md")
+        sop = read("01_skill-integration/workflows/sci-manuscript.md")
         self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sop)
         self.assertIn("draw-flowchart", sop)
         self.assertIn("plot-figures", sop)
@@ -376,7 +376,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("Reviewer response enters 07 only", zero)
         self.assertNotIn("Do not mount ARS", zero)
         self.assertNotIn("academic-pipeline", zero)
-        self.assertIn("Do not mount MedSci", zero)
+        self.assertIn("Do not mount an external", zero)
         self.assertIn("orchestrate", zero)
         fast = read("00_orchestrator/references/fast-routing.md")
         self.assertIn("Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`", fast)
@@ -408,14 +408,14 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("defects:", state)
 
     def test_sops_wired_by_html(self) -> None:
-        rad = read("00_orchestrator/workflows/radiomics-study.md")
-        sci = read("00_orchestrator/workflows/sci-manuscript.md")
+        rad = read("01_skill-integration/workflows/radiomics-study.md")
+        sci = read("01_skill-integration/workflows/sci-manuscript.md")
         self.assertIn("sci-manuscript", rad)
         self.assertIn("G-04", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
         self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sci)
-        wf = read("00_orchestrator/workflows/README.md")
+        wf = read("01_skill-integration/workflows/README.md")
         self.assertIn("gates.md", wf)
 
 
@@ -444,8 +444,8 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("双标", text)
         self.assertNotIn("[ARS:", text)
         self.assertNotIn("[OpenClaw:", text)
-        self.assertIn("[MedSci:", text)
-        self.assertIn("[Scientific:", text)
+        self.assertIn("[Nature:simulate-reviewers]", text)
+        self.assertIn("[self-review]", text)
         self.assertIn("同一 DOI", text)
         zero = read("00_orchestrator/SKILL.md")
         self.assertIn("06_review/personal/review.md", zero)

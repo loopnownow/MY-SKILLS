@@ -52,7 +52,7 @@ Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 
 ## Mounted capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
 
-**This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
+**This-run pick:** wait for 01 session-mount pick. Registry mount menu (SSOT) = pick list.
 
 - `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/analyze-stats/`)
 - `calc-sample-size` -- sample size / power (A `04_analysis/base/calc-sample-size/`)
