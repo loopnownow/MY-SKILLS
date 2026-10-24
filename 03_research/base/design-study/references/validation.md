@@ -1,6 +1,6 @@
-# 验证
+# Validation
 
-> **分工 / Role split (D2, keep both):** 本文件 = **中文短清单**（泄漏检查 / 验证档位 / 按任务指标 / 输出模板）。英文验证阶梯与「什么算 external / prospective」见同目录 `validation-strategy.md`。两份并存，语言分工，**勿合并**。
+> **Role split (D2, keep both):** this file = short checklist (leakage / validation tiers / per-task metrics / output template). English validation ladder and “what counts as external / prospective” → sibling `validation-strategy.md`. Keep both; **do not merge**.
 
 Use this file whenever model credibility, performance, data leakage, metrics, or
 generalizability is being discussed.

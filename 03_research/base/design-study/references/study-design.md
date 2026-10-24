@@ -1,6 +1,6 @@
-# 设计
+# Study design
 
-> **分工 / Role split (D2, keep both):** 本文件 = **设计合同 / 可行性 / 高影响 archetype**（中文标题 + 英文正文清单）。英文 MVP↔stronger 模板集见同目录 `study-blueprints.md`。两份并存，语言与粒度分工，**勿合并**。
+> **Role split (D2, keep both):** this file = design contract / feasibility / high-impact archetypes (EN body lists). English MVP↔stronger templates → sibling refs. Keep both; **do not merge**. Archive note: `frontier-patterns-2023-2026.md` stubs — do not recreate.
 
 Use this file to turn the user's data and clinical interest into a feasible radiology
 AI study.
@@ -42,7 +42,7 @@ Method novelty cannot rescue weak labels or invalid validation.
 When the user asks for near-three-year frontiers or high-impact publication logic,
 use live evidence search + the dated snapshot `ai-radiogenomics-12-24-roadmap.md` in this
 folder. The former pointers `literature-evidence-2023-2026.md` /
-`frontier-patterns-2023-2026.md` are **not on disk** (归档勿建 — do not recreate stubs).
+`frontier-patterns-2023-2026.md` are **not on disk** (archived — do not recreate stubs).
 
 Use evidence patterns to choose an archetype, but never force a trendy direction
 onto unsupported data. State the gap between the user's data and the recent high-impact

@@ -8,7 +8,7 @@ description: >
 
 # Clinical Translation, Reader Studies & Prospective Validation
 
-**个人研究设计补充**（家园 `03_research/personal/clinical-translation/`）。这是 research/translational **DESIGN**（reader study, prospective deployment, regulatory, threshold-to-action），不是 02、不是 04。通用模板可日后挂 `design-study` / `write-protocol`。
+**Lab personal design supplement** (home `03_research/personal/clinical-translation/`). This is research/translational **DESIGN** (reader study, prospective deployment, regulatory, threshold-to-action) — not seat 02, not seat 04. Generic templates may later mount under `design-study` / `write-protocol`.
 
 Use this skill to turn "the model has good retrospective performance" into "the model helps in
 practice." This is the step top journals reward and reviewers demand before any clinical claim:
