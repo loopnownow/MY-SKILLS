@@ -104,6 +104,6 @@ Manuscript change checklist
 Missing information / risk flags
 - [specific unresolved items or "None"]
 
-中文核对
+中文核对 (Chinese check block)
 - [when the user writes in Chinese; otherwise omit unless useful]
 ```

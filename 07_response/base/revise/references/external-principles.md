@@ -1,29 +1,25 @@
 <!--
-本文件性质: 规则参考(非挂载)
-用途: 记录跨包调研中发现的、值得借鉴但不整包挂载的设计原则。
-来源: Nature(Yuan1z0825/nature-skills) nature-response SKILL.md
-提炼日期: 2026-09-13
+File role: rule reference (not a mount)
+Purpose: record design principles found in cross-package research worth borrowing without mounting the whole package.
+Source: Nature (Yuan1z0825/nature-skills) nature-response SKILL.md
+Extracted: 2026-09-13
 -->
 
-# 审稿回复环节的外部原则参考
+# External principle reference for the response step
 
-## 原则一：审稿人互相盲态隔离
+## Principle 1: mutual reviewer blind isolation
 
-回复信中严禁泄露"审稿人甲对此有异议"这类跨审稿人信息给审稿人乙。
-每位审稿人的回复应独立组织，不引用、不比较、不暗示其他审稿人的
-意见内容或编号。
+The response letter must never leak cross-reviewer information such as “reviewer A disagreed with this” to reviewer B.
+Each reviewer's reply is organized independently — no citing, comparing, or implying another reviewer's content or IDs.
 
-## 原则二：防止"审稿驱动的正文堆砌"（reviewer-driven accretion）
+## Principle 2: prevent reviewer-driven accretion
 
-面对审稿意见时，优先级顺序应为：
+When facing review comments, priority order:
 
-1. **替换**——用更准确的表述替换原文，而不是在旁边加一段解释
-2. **压缩**——如果必须新增内容，先看能否把已有的冗余内容删掉腾地方
-3. **移至补充材料**——审稿人要求的验证性分析/敏感性分析，优先放SI
-   而不是塞进正文
+1. **Replace** — swap in more accurate wording rather than adding an explanatory paragraph beside the old text
+2. **Compress** — if new content is required, first delete existing redundancy to make room
+3. **Move to supplement** — validation / sensitivity analyses requested by reviewers go to SI first,
+   not into the main text
 
-**最后才考虑**"直接在正文里加一段辩护性文字"——这是最容易导致
-正文越改越臃肿、逻辑越改越乱的做法，应作为最后手段而非默认选项。
-
-修回时如果发现某一轮回复信让正文字数明显膨胀，应该回头检查是不是
-在按"新增辩护段落"而非"替换/压缩/移SI"的顺序处理审稿意见。
+**Only last** consider “add a defensive paragraph to the body” — that is the path most likely to
+inflate the manuscript across revision rounds without improving the central claim.

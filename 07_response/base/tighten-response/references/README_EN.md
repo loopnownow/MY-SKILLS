@@ -1,6 +1,6 @@
 # `nature-response` Skill
 
-[中文说明](../README.md)
+[Chinese notes / README](../README.md)
 
 `nature-response` drafts, audits, and revises revision correspondence, including mutually isolated point-by-point reviewer responses, revision cover letters, red-marked manuscript excerpts, and editable LaTeX templates.
 
