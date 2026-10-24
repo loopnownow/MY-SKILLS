@@ -13,6 +13,10 @@ Projects: `{lab_root}\<stage>\<project>` (stage folders `drafting` `pre-submit` 
 | in-review | 已投/在审/改稿再投（含收到审稿意见——事件不是舞台） |
 | accepted | 已录用/校样 |
 
+## New files only under `{DEL}` (2026-10-24 · t1098u)
+
+AI must **not create new files** outside `{DEL}` / `D:\0del`. Editing existing files is OK. Scratch / ACCEPT / digest / notes → `{DEL}\_by-function\` or `{DEL}\_by-project\`. See `{RULES}\My rule.md` §5.1 and `00_orchestrator/references/standing-delivery.md`.
+
 Pause: STATUS.md in project; never 0del for keep-worthy (0del is periodically emptied).
 
 If the user only opens/`cd`s into a project and names no 01–06 verb, **ask which skill to fire** (`00_orchestrator` → Project open, no skill). Do not start work.

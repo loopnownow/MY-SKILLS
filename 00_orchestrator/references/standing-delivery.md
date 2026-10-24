@@ -21,6 +21,11 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 | Notes for an LLM | MD | per task |
 | User names a place this run | from the user | from the user |
 
+
+## New files outside `{DEL}` (2026-10-24 · t1098u)
+
+**Do not create new files** outside `{DEL}` / `D:\0del`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `D:\0Grok\0doc\mem\README.md`.
+
 - Temporary / non-deliverable → `{DEL}\<task>` only; never delivered as output.
 - Downloads **only** when the user names 「下载」/「Downloads」 this run.
 - Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」.
