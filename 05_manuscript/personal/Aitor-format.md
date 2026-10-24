@@ -32,7 +32,7 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
 - Ownership: see `00_orchestrator/references/ownership-contract.md`.
-- **Do not change Word format** on an existing `.docx`. If a sentence differs from the last agent wording, treat it as the user’s edit: ask before touching it; do not restore the old sentence. HTML / PDF / scripts are out of scope. See `06_review/personal/word-edit.md`.
+- **Do not change Word format** on an existing `.docx`. If a sentence differs from text 城城 already edited (tracked changes / known owner edits), treat it as the owner’s edit: **ask before overwriting**; do not restore the old sentence. Global stop → `{RULES}` `My rule.md` §5.1. HTML / PDF / scripts are out of scope. See `06_review/personal/word-edit.md`; `references/writing-rules-hard.md`.
 - **Do not overwrite existing front-matter:** if the manuscript already states corresponding author, funding, ethics (Date/NO), or affiliations, keep that text. Never replace it with lab defaults/templates unless the user explicitly asks. Missing items → Word comment / ask; do not fill placeholders with defaults.
 
 ---
@@ -47,6 +47,8 @@ Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1
 ## DOCX typography
 
 **Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified** (两端对齐). Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**. **Special paragraph format: none** (特殊格式：无). Same typography for manuscript, comments shell, and response letter.
+
+**Dual track (2026-10-24):** body / legends shell = Times New Roman; **in-figure text (axes, panel labels, flowchart boxes) = Arial**. Do not mix the two inside one surface.
 
 When **revising an existing `.docx`**: do **not** change Word format unless the owner asks this turn. Wording only via **Track Changes**, at **word- or sentence-level** (no large-block overwrite). See `06_review/personal/word-edit.md`.
 
@@ -234,7 +236,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 - Title above: `Table 1. ` **bold**; remainder not bold; flush left.  
 - Notes below: 12 pt, flush left, no indent (justified allowed). **No** `Source: *-results.html` and **no** file paths.  
 - Header cells: **no** `(n = 57)`.  
-- Cells: 11 pt, single spacing, header bold.
+- Cells: **12 pt**, single spacing, header bold. (2026-10-24 adjudicated; was 11 pt)
 
 ---
 
@@ -245,7 +247,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 - Embed the latest PNGs.  
 - Image first, legend below.  
-- **Figure 1 (study flowchart):** one paragraph. `Figure 1. ` bold; rest not bold. This is the only flowchart. Do not also draw an enrollment-only figure. Boxes and counts are read from **Materials and Methods** only: collection period and screened *n*; inclusion beside exclusion; patients included with both group counts; **Training Cohort** and **Test Cohort** on one row, each with both group counts; **Validation Cohort** on that same row only when Methods states an external cohort and its counts. Downsample or SMOTE, LASSO, Clinical / Radiomics / Nomogram, and ROC AUC, calibration, DCA, NRI, IDI, DAG, or mediation are drawn only when Methods names them. Downsample is not an exclusion criterion. Do not invent a missing count or a missing step. Canonical file is PDF, Times New Roman 12 pt, black (`bbox_inches=tight`, `pad_inches=0`). Do **not** add “the figure does not depict a validation set.”  
+- **Figure 1 (study flowchart):** one paragraph. `Figure 1. ` bold; rest not bold. This is the only flowchart. Do not also draw an enrollment-only figure. Boxes and counts are read from **Materials and Methods** only: collection period and screened *n*; inclusion beside exclusion; patients included with both group counts; **Training Cohort** and **Test Cohort** on one row, each with both group counts; **Validation Cohort** on that same row only when Methods states an external cohort and its counts. Downsample or SMOTE, LASSO, Clinical / Radiomics / Nomogram, and ROC AUC, calibration, DCA, NRI, IDI, DAG, or mediation are drawn only when Methods names them. Downsample is not an exclusion criterion. Do not invent a missing count or a missing step. Canonical file is **PDF** (preferred over PNG), **Arial** 12 pt, black (`bbox_inches=tight`, `pad_inches=0`). (2026-10-24: PDF + figure Arial dual-track.) Do **not** add “the figure does not depict a validation set.”  
 - **Figure 2 and later:**  
   - Line 1 — short title (`Figure 2. ` bold + short name), flush left, no indent.  
   - Next paragraph — what the panel shows, same as body. Annotate panels **(A)** / **(B)** or left/right sets separately.  

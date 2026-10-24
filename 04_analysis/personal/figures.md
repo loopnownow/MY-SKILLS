@@ -1,5 +1,10 @@
 # Figures (palettes + claim planning)
 
+## Standing defaults (2026-10-24)
+
+- **In-figure text = Arial** (dual track with body Times New Roman). See `plot-figures-digest.md`.
+- **Flowchart (Figure 1) = PDF preferred** — `draw-flowchart-digest.md` + `base/draw-flowchart/references/style.md`.
+
 ## Part A — Lab palettes
 
 # Lab figure palettes (0RAD console)

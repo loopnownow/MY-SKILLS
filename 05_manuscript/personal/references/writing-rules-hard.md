@@ -15,3 +15,11 @@
 - Format gold parameters → `../Aitor-format.md` + `{doc_root}\templates\Aitor-format-gold-response.docx`
 - Authority map → `writing-rules-map.md`
 - Vocab / QC bans → `../vocab/`, `../../qc/manuscript-local-qc.md`, `../../qc/claim-number-align.md`
+
+
+## Ask before overwrite (global; 2026-10-24)
+
+If Word/manuscript body **differs from text 城城 already edited** (tracked changes / known owner edits), **ask before overwriting**. Do not silently restore prior agent wording.
+
+- Authority: `{RULES}` `My rule.md` §5.1（城城已改先问）.
+- Also: `../Aitor-format.md`; `../../06_review/personal/word-edit.md`; revise skill must point here — do not bury only in revise.
