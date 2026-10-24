@@ -1,11 +1,9 @@
 """Docs must not advertise a registry state that does not exist.
 
-2026-10-20: registry holds MOUNTED + ARCHIVED only (0 PROPOSED), but README and
-ARCHITECTURE still said non-default fine ids were "mixed PROPOSED/MOUNTED".
+Live registry = MOUNTED mounts only (no PROPOSED / ARCHIVED sections).
 """
 from __future__ import annotations
 
-import re
 import unittest
 from pathlib import Path
 
@@ -47,12 +45,10 @@ class DocsMatchRegistry(unittest.TestCase):
                 missing.append(f"{m.get('id')}: {path}")
         self.assertEqual(missing, [], "MOUNTED paths missing:\n" + "\n".join(missing))
 
-    def test_archived_ids_survive_only_as_history(self) -> None:
+    def test_no_archived_section(self) -> None:
         reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
-        archived = {a["id"] for a in (reg.get("archived") or []) if isinstance(a, dict)}
-        mounted = {m["id"] for m in self.mounts}
-        overlap = archived & mounted
-        self.assertEqual(overlap, set(), f"id both MOUNTED and ARCHIVED: {sorted(overlap)}")
+        self.assertNotIn("archived", reg, "registry must not carry archived: bloat")
+        self.assertFalse(reg.get("archived"), "archived must be empty/absent")
 
 
 if __name__ == "__main__":

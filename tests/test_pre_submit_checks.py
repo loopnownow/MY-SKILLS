@@ -342,9 +342,11 @@ class WordTrackChangesOwnership(unittest.TestCase):
             text = read(rel)
             for old in retired:
                 self.assertNotIn(old, text, f"{rel} still says {old!r}")
-        reg = read("01_skill-integration/registry.yaml")
-        self.assertIn("word-tc-owned-by-aitee", reg)
-        self.assertIn("Lee no longer applies body Track Changes on decidable fixes.", reg)
+        # t1123: Track Changes ownership SSOT is ownership-contract, not registry meta
+        own = read("00_orchestrator/references/ownership-contract.md")
+        self.assertIn("Track Changes", own)
+        self.assertIn("Aitee", own)
+        self.assertIn("Lee", own)
         mmd = read("00_orchestrator/runtime-flow.mmd")
         self.assertIn("Lee \u00b7 \u9648\u8ff0\u4e00\u81f4", mmd)
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate \u00b7 05"))

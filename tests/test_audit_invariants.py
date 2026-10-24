@@ -66,7 +66,7 @@ def read(rel: str) -> str:
 def registry_mount_ids() -> list[str]:
     text = REG.read_text(encoding="utf-8")
     # mounts: ... until reference_only: (v4) or proposals: (v3)
-    m = re.search(r"^mounts:\n(.*?)^(?:reference_only:|archived:|proposals:)", text, re.M | re.S)
+    m = re.search(r"^mounts:\n(.*?)^(?:local_packs:|reference_only:|archived:|proposals:)", text, re.M | re.S)
     self_block = m.group(1) if m else text
     ids = re.findall(r"^\s+- id:\s*(\S+)\s*$", self_block, re.M)
     return ids
@@ -319,9 +319,13 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
         self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
         self.assertIn("不代替 citation-verify", mmd)
-        reg = read("01_skill-integration/registry.yaml")
-        self.assertIn("citation-verify-on-05-06", reg)
-        self.assertIn("status: resolved", reg)
+        # t1123: citation-verify ownership lives in ownership-contract, not registry meta
+        own = read("00_orchestrator/references/ownership-contract.md")
+        self.assertIn("citation-verify", own.lower())
+        self.assertTrue(
+            "Lit05" in own or "Lit06" in own or "05" in own,
+            "ownership-contract should cover 05/06 citation-verify",
+        )
 
     def test_gates_and_handoff_exist(self) -> None:
         gates = read("00_orchestrator/gates.md")
