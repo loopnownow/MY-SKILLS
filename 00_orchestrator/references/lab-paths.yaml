@@ -8,6 +8,7 @@ aliases:
   raw_root: "D:\\00db"  # organized raw DB (was 00ds); read-only unless named
   code_root: "D:\\0Grok\\0doc\\_code"
   doc_root: "D:\\0Grok\\0doc"
+  doc_skill_harvest: "D:\\0Grok\\0doc\\skill-harvest"  # harvest SSOT (moved from _corpus 2026-10-24)
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
