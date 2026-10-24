@@ -29,7 +29,7 @@ Three pillars. Load only what the task needs.
 | Grant Voice A/B files | Grants |
 | `clinical-translation/` | Reader study / deployment design |
 | A `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
-| `../workflows/question-to-reference.md` | R1-R5 spine |
+| `01_skill-integration/workflows/question-to-reference.md` | R1-R5 spine |
 
 ## Journal selection
 

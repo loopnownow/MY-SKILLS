@@ -61,14 +61,14 @@ See `personal/route.md` for the full pointer table.
 | Clinical translation | `personal/clinical-translation/` |
 | Ethics forms | Bai seats A `03_research/base/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
 | Find-journal pack | engine `03_research/base/find-journal/` |
-| Question-to-reference spine | `workflows/question-to-reference.md` |
+| Question-to-reference spine | `01_skill-integration/workflows/question-to-reference.md` |
 
 Do not rewrite mounted literature/systematic-review capability bodies inside these files.
 Where an A personal file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
 
 ## Mounted capability ids (bodies under `NN_slug/base/`)
 
-**This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
+**This-run pick:** wait for 01 session-mount pick. Registry mount menu (SSOT) = pick list.
 
 Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
 
@@ -81,7 +81,7 @@ Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `desig
 
 `R1 Question -> R2 Evidence & Mechanism -> R3 Design -> R4 Data need -> R5 Research Brief`
 
-Full rules: `workflows/question-to-reference.md`. 00 chooses mid-chain entry / rollback / STOP.
+Full rules: `01_skill-integration/workflows/question-to-reference.md`. 00 chooses mid-chain entry / rollback / STOP.
 
 ## Boundaries
 

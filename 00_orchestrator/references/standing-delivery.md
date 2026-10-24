@@ -24,11 +24,11 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 ## New folders (2026-10-24 · t1107u/t1108u/t1109u)
 
-**All new folders** assistants need → only under `{DEL}` / `D:\0del` (`_by-project` / `_by-function`). **Default: no mkdir under `D:\0Grok\0doc`**; the **only** exception is when 城城 **explicitly agrees that turn**. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only. Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `D:\0Grok\0doc\mem\README.md`.
+**All new folders** assistants need → only under `{DEL}` (`_by-project` / `_by-function`). **Default: no mkdir under `{doc_root}`**; the **only** exception is when 城城 **explicitly agrees that turn**. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only. Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `{doc_root}/mem/README.md`.
 
 ## New files outside `{DEL}` (2026-10-24 · t1098u)
 
-**Do not create new files** outside `{DEL}` / `D:\0del`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `D:\0Grok\0doc\mem\README.md`.
+**Do not create new files** outside `{DEL}`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `{doc_root}/mem/README.md`.
 
 - Temporary / non-deliverable → `{DEL}\<task>` only; never delivered as output.
 - Downloads **only** when the user names 「下载」/「Downloads」 this run.

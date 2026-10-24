@@ -50,7 +50,7 @@ Does the manuscript **report** numbers/comparisons/scope **truthfully** at displ
 ## Verdict artifact
 
 - `PAPER_CLAIM_AUDIT.json` (+ `.md`)
-- Schema: `00_orchestrator/qc/assurance-verdicts.md`
+- Schema: `06_review/qc/assurance-verdicts.md`
 - Full medical checklist stays in the capability file above — this gate only adds six-state emit + wiring.
 
 *Attribution: ARIS paper-claim-audit (wanshuiyin/Auto-claude-code-research-in-sleep) + lab medical adaptation already in base.*

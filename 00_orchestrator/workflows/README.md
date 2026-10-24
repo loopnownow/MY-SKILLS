@@ -1,26 +1,14 @@
-# Workflows (00)
+# Workflows (00) — pointers only
 
-SOPs that **schedule** 01–07. Not extra top-level skills.
-Loop: intent classify → skill chain → QC gate (`../gates.md`).
+Canonical SOP bodies live under `01_skill-integration/workflows/`.
+00 **calls** those SOPs; it does not host SOP bodies here.
 
-| SOP | When | File |
-|-----|------|------|
-| radiomics-study | 图像/ROI/特征 → `04_analysis` 出 HTML | `radiomics-study.md` |
-| sci-manuscript | 已有 HTML → Aitor 稿 → 预审/回信 | `sci-manuscript.md` |
-| research-exploration-loop | 研究还能做什么 / 缺口 / 选题探索（任意阶段接入） | `research-exploration-loop.md` |
-| review-isolation | 评阅隔离 / simulate→self/peer→00→A06 | `review-isolation.md` |
+| SOP | When | Canonical file |
+|-----|------|----------------|
+| radiomics-study | image/ROI/features → `04_analysis` HTML | `01_skill-integration/workflows/radiomics-study.md` |
+| sci-manuscript | HTML → house draft → pre-review / response | `01_skill-integration/workflows/sci-manuscript.md` |
+| research-exploration-loop | research gaps / topic exploration | `01_skill-integration/workflows/research-exploration-loop.md` |
+| review-isolation | review isolation / simulate→self/peer | `01_skill-integration/workflows/review-isolation.md` |
 
-On 「全线 / 自主 / 组学（整项）」: **ask which SOP** (node N1) unless directory detection already locked it. Do not infer against files.
-
-**Directory detection:** `settings.ini` → 0RAD; `*-results.html` → may enter sci-manuscript; `Manuscript_*_house.docx` → 05; reviewer letter → 06; imaging without HTML → radiomics-study. Results HTML and a reviewer letter together, with no named entry: ask which station.
-
-**Session mount pick:** every independent run needs a mount decision. If `session_picked_fine_ids` already covers this task, reuse the session lock. Otherwise run 01 ask-each-run. Registry `MOUNTED` is the pick menu; `PROPOSED` is not pickable. Load only the ids picked this run. Do not auto-load all mounted ids. A single-node personal-layer task with no mounted dependency does not ask.
-
-`radiomics-study` offers `sci-manuscript` when HTML exists (N3). `sci-manuscript` requires HTML.
-
-Project state template: `../templates/project-state.yaml` → copy to `<project>/ref/project-state.yaml` only when starting state tracking. Handoff: `../templates/handoff.yaml`.
-
-01 is skill-integration (registry / session-pick), not Excel. Excel/0RAD → 02. Figures → 04 (`draw-flowchart` / `plot-figures`). Literature → 03. 选刊 → `03_research`. 样本量 → `04_analysis` (`calc-sample-size`). Reviewer response → 07. Any path that writes or reviews a manuscript, including mid-entry, requires 03 citation-verify before Gate · 05 done and inside 06.
-
-`research-exploration-loop` is a **00 sub-component**, not a registry fine id. It only routes existing 03/04(/05/06) mounts, runs structural checks, and applies L1/L2 loop caps. See that file for `exploration_state` and freshness rules. **Content spine** for research exploration lives at `03_research/workflows/question-to-reference.md` (R1–R5).
-
+Content spine for research exploration (R1–R5): `01_skill-integration/workflows/question-to-reference.md`.
+Session mount pick and gates stay in `00_orchestrator` (`../gates.md`, `../SKILL.md`).

@@ -4,11 +4,11 @@
 
 Use when the user picks this SOP, or says 组学全线 / habitat 流程 / 从图像到模型（且选了本 SOP），or directory detection finds imaging/ROI without `*-results.html`.
 
-If `ref/project-state.yaml` is missing, copy `../templates/project-state.yaml` into the project `ref/` and fill only what the user stated. Do not invent ethics or n. Set `pipeline.sop: radiomics-study`.
+If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/project-state.yaml` into the project `ref/` and fill only what the user stated. Do not invent ethics or n. Set `pipeline.sop: radiomics-study`.
 
 ## Sequence
 
-0. **Session mount pick (`01`)** — every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which registry `MOUNTED` ids to attach. `PROPOSED` is not pickable. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
+0. **Session mount pick (`01`)** — every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which registry mounted ids to attach. `PROPOSED` is not pickable. Load only the picked ids. Do not auto-load all mounted ids. Personal layers are not a mount pick. Gate **G0**.
 1. **PHI (`N2`)** — before tables or clinical extraction. Unknown PHI → stop. Gate **G-PHI**.
 2. **Workspace (`02_data-processing`)** — folder names, `exc` first, ID align. `personal/workspace.md`. Table batch → mounted `clean-data` when picked this run. File check: analysis-ready table exists. Handoff `02 → 04`.
 3. **Methods / prep (`02_data-processing`)** — mounted `preprocess-imaging` for ROI/QC (if picked), then mounted `analyze-stats` / `preprocess-imaging` for IBSI/radiomics/habitat **preparation** (if picked; former radiomics-ml / radiomics-habitat absorb). Personal MATLAB: `{code_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`.
@@ -22,9 +22,9 @@ If `ref/project-state.yaml` is missing, copy `../templates/project-state.yaml` i
 - Put DCA/nomogram code in `02_data-processing`.
 - Re-select features on the test set.
 - Route literature through 01.
-- Auto-load every registry `MOUNTED` id.
+- Auto-load every registry mounted id.
 - Invent n or AUC when HTML is missing.
 
 ## Next
 
-Offer `sci-manuscript` if HTML exists (N3 WRITE). Copy `../templates/handoff.yaml` as `04 → 05` when they accept.
+Offer `sci-manuscript` if HTML exists (N3 WRITE). Copy `../../00_orchestrator/templates/handoff.yaml` as `04 → 05` when they accept.

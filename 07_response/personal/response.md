@@ -266,7 +266,7 @@ Corpus habit for **审稿回复** (not for inventing data):
 **Loop (lab):**
 
 ```text
-Mounted review source (this-run pick: B / MedSci / Scientific / AIPOCH / Nature)
+Mounted review source (this-run pick: session mounts from 01 registry menu)
   → findings (optional status draft)
   → A 06 personal: post-QC re-review integrate / eight-section
   → A 07 personal: response letter / resolution status (final authority)
@@ -320,7 +320,7 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Discover finding | Mounted pack (this-run) or A 06 | Raise/fill draft card | Cross-talk with other mounts; apply lab-rule conflicts silently |
 | Route siblings | `00_orchestrator` | Call 02/03/04/05 when handoff says so | Treat 06 as manuscript writer |
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
-| Session mounts | 01 pick | Attach B / MedSci / Scientific / AIPOCH / Nature for this run | Permanent A06 three-pack sub-dispatcher; fixed Reviewer A/B/C pipeline |
+| Session mounts | 01 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
 
 A06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` + generated `MOUNTED_SKILLS.md` — do not fork a second A06-only registry of full skill texts.
 
@@ -356,7 +356,7 @@ Only if this-run pick left a needed pack unloaded — go through **01 session-mo
 ## Out of scope
 
 - B06 as “Review Intelligence Core” or resolution home  
-- A06 as always-on MedSci+Scientific dispatcher  
+- A06 as always-on multi-source review dispatcher  
 - Fixed Reviewer A→B→C personas  
 - Specialist packs writing free-form Word comments without status cards when this protocol is in use  
 - Any backup becoming a standing fourth reviewer

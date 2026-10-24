@@ -54,6 +54,6 @@ Does the **scientific claim** follow from the reported result (scope, direction,
 
 - `RESULT_TO_CLAIM.json` (+ optional `CLAIMS_FROM_RESULTS.md`)
 - Per-claim: `id`, `claim_supported`, `confidence`, `integrity_status`, `missing_evidence`
-- Overall `verdict` uses six-state schema in `00_orchestrator/qc/assurance-verdicts.md`
+- Overall `verdict` uses six-state schema in `06_review/qc/assurance-verdicts.md`
 
 *Attribution: ARIS result-to-claim / evidence-precheck (wanshuiyin/Auto-claude-code-research-in-sleep).*

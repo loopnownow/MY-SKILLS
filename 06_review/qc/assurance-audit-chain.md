@@ -1,7 +1,7 @@
 # Assurance audit chain (5 layers · one-page map)
 
 **Owner:** `00_orchestrator` loads at Integrity · pre-06 / G-05 / G-06 / submit.
-**Contract:** `00_orchestrator/qc/assurance-verdicts.md` (effort vs assurance; 6-state; who may ACCEPT).
+**Contract:** `06_review/qc/assurance-verdicts.md` (effort vs assurance; 6-state; who may ACCEPT).
 **Source map:** ARIS AGENT_GUIDE “Assurance & Audit Chain” — lab paths + seats below.
 **Silent skip forbidden** at `assurance: submission` / `conference-ready`.
 
@@ -46,9 +46,9 @@
 
 ## ARIS P1 process standards (absorbed 2026-10-19)
 
-- Stage map W1→W3 + artifact contracts → seats: `00_orchestrator/qc/research-stage-artifacts.md`
+- Stage map W1→W3 + artifact contracts → seats: `03_research/qc/research-stage-artifacts.md`
 - Review→fix→re-review + resumable `REVIEW_STATE`: `06_review/qc/review-loop-state.md` (Lee)
-- Resubmit edit-whitelist + failure ledger: `00_orchestrator/qc/resubmit-edit-whitelist.md`
+- Resubmit edit-whitelist + failure ledger: `07_response/qc/resubmit-edit-whitelist.md`
 - Still **out of scope**: installing ARIS runtime / host MCP / `verify_paper_audits.sh` as-is
 
 *Attribution: ARIS (wanshuiyin/Auto-claude-code-research-in-sleep) assurance chain; lab A/B layout + seats.*

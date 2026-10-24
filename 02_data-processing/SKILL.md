@@ -51,7 +51,7 @@ Do not rewrite mounted data-processing capability bodies (now under `base/`) ins
 
 ## Mounted capability ids (bodies in A base/ — pilot)
 
-**This-run pick:** wait for 01 session-mount pick. Registry MOUNTED = menu.
+**This-run pick:** wait for 01 session-mount pick. Registry mount menu (SSOT) = pick list.
 
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (A `02_data-processing/base/clean-data/`); the former `batch-cohort` entry point is an archived alias to this body
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (A `02_data-processing/base/imaging-io/`)

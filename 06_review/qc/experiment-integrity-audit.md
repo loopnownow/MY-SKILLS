@@ -12,7 +12,7 @@ Is the evaluation honest? No fake GT, no phantom metrics, no self-normalized sco
 ## When
 
 - After primary analysis / `*-results.html` exists, **before** load-bearing claims in 05.
-- Mandatory emit at `assurance: submission` / `conference-ready` (see `00_orchestrator/qc/assurance-verdicts.md`).
+- Mandatory emit at `assurance: submission` / `conference-ready` (see `06_review/qc/assurance-verdicts.md`).
 
 ## Inputs (paths only)
 
@@ -52,7 +52,7 @@ Is the evaluation honest? No fake GT, no phantom metrics, no self-normalized sco
 ## Verdict artifact
 
 - `EXPERIMENT_AUDIT.json` (+ optional `.md`)
-- Fields per `00_orchestrator/qc/assurance-verdicts.md`
+- Fields per `06_review/qc/assurance-verdicts.md`
 - `reason_code` examples: `real_gt_ok` | `proxy_undeclared` | `phantom_metric` | `no_raw_evidence` | `no_eval`
 
 *Attribution: ARIS experiment-audit / experiment-integrity (wanshuiyin/Auto-claude-code-research-in-sleep). Host-agnostic checklist.*

@@ -15,8 +15,8 @@
 
 | 任务 | 文件 |
 |---|---|
-| 毕业论文 / 学位论文评阅 | `thesis-review.md` |
-| 中文杂志 1–5 分项 + A–F / 学术审稿单 | `chinese-journal-score-sheet.md` |
+| 毕业论文 / 学位论文评阅 | this file § Thesis review digest |
+| 中文杂志 1–5 分项 + A–F / 学术审稿单 | this file § Chinese journal score digest |
 
 早期中文审稿单可以很冲（「并无新意」「选择偏倚」「未交代」）。**英文稿不要学那种冲法。** 英文用礼貌、直接、可执行的祈使。
 
@@ -33,9 +33,9 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Word / 稿面批注**作者字段**永远是 **A**。禁止黄底。作者栏 ≠ 来源标签。
 - 来源只写在批注**正文前缀**（文首）：这条判断从哪一层来，不是标信封。
   - **格式（挂载项）：** `[源:包内skill-id]`。禁止只写源名（如光秃 `[Nature:]` / `[Scientific:]`）。B 用 v4 细 ID：`[B:peer-review]`。
-  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[Scientific:scientific-critical-thinking]` · `[MedSci:self-review]` · `[AIPOCH:peer-review]` · `[lit-search]`（个人/细 ID 任务）
-  - 挂载 + 个人都成立 → **双标**，例：`[Nature:simulate-reviewers] [A:personal]` / `[Scientific:scientific-critical-thinking] [A:personal]`
-- **强制：** 本轮挂了 MedSci / Scientific / AIPOCH / Nature（或非个人 B 包）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。**禁止默认回落 `[A:personal]`**（Rules：`My rule.md` §5.1 + 本文件 §0）。
+  - 例：`[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]`（个人/细 ID 任务）
+  - 挂载 + 个人都成立 → **双标**，例：`[Nature:simulate-reviewers] [A:personal]` / `[self-review] [A:personal]`
+- **强制：** 本轮挂了外部审稿源（Nature / peer-review / self-review 等，或非个人 B）时，凡发现/门控/清单条目来自该挂载，前缀**必须**含 **skill 级**标签（`[Nature:simulate-reviewers]` 这类），不能只写源。禁止因为走了个人八章信封就把全部写成 `[A:personal]`。**禁止默认回落 `[A:personal]`**（Rules：`My rule.md` §5.1 + 本文件 §0）。
 - 无挂载时不得出现空壳源前缀。纯实验室改句（语法、Aitor 标点）只标 `[A:personal]`。无从判定来源时才用 `[A:personal]`。
 - **挂载建议与实验室口径冲突时：** 不静默采用挂载改法。全部写进批注：冲突点 + **修改方案**（改前句 / 改后句，或「保持原句 + 换文献」）。**最终由用户决定**。用户点头后仍由 Aitee 落 Track Changes，Lee 只批注。
 - **可决定的问题：** Lee 写清批注（定位、缺陷、要改的词或句），交给 Aitee TC-fix。Lee 默认不改正文。
@@ -61,7 +61,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 | 大约年份 | 形态 | 英文 peer review 怎么用 |
 |---|---|---|
-| 2014–2018 | 中文杂志审稿单 | **不要**当英文信模板。走 `chinese-journal-score-sheet.md` |
+| 2014–2018 | 中文杂志审稿单 | **不要**当英文信模板。走本文件 § Chinese journal score digest |
 | 2019–2023 | `Dear Editor` + 行号优先（Lines n–m / Section, paragraph, line）出条 | 仅当邀请信/系统仍要抬头时用 |
 | 2024–2026 | 无抬头或一行邀请致谢；Opening → 按章节 Major/Minor | **默认信封** |
 

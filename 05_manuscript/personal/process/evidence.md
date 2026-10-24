@@ -9,7 +9,7 @@
 **Loop (lab):**
 
 ```text
-Mounted pack (this-run pick: B / MedSci / Scientific / AIPOCH / Nature)
+Mounted pack (this-run pick: session mounts from 01 registry menu)
   → Evidence Request card (gap discovery only)
   → 03_research (Victor) searches
   → Candidate evidence
@@ -31,7 +31,7 @@ Do **not** use this file for 选题 / 选刊 / systematic review / Embase+Cochra
 
 ## Card fields (required)
 
-Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[MedSci:…]` / `[Scientific:…]` / `[Nature:…]` / `[AIPOCH:…]` / `[B:…]`); dual-tag with `[A:personal]` when A 05 also judges.
+Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[B:…]`); dual-tag with `[A:personal]` when A 05 also judges.
 
 ```text
 Evidence Request
@@ -97,7 +97,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 ## Out of scope
 
 - Upgrading base into a personal writing orchestrator or Evidence QC home  
-- Hard-wiring MedSci + Scientific under A05 every run  
+- Hard-wiring external review packs under A05 every run  
 - New coarse ids or `ocms-*` writing mounts  
 - Letting any backup become default
 
