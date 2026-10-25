@@ -24,7 +24,7 @@ evidence.
   cost of errors.
 - **Reader studies are designed, not improvised.** MRMC with washout, randomised order,
   radiologist-alone vs radiologist+AI, reader experience reported, and the right statistic
-  (→ `02_data-processing` / `analyze-stats`).
+  (→ `02_data-processing` / `stats-analysis`).
 - **Thresholds map to actions.** Every operating point implies a clinical action and a cost of
   false positives/negatives; net-benefit / decision-curve quantifies it.
 - **Prospective beats retrospective; real-world beats curated.** Plan temporal/prospective/
@@ -64,14 +64,14 @@ evidence.
 5. **Plan prospective/real-world validation** (prospective-deployment.md) — temporal/prospective/
    RWE design, workflow position, monitoring for drift, failure handling.
 6. **Bound the claim** — state exactly what level of evidence supports what level of claim;
-   route statistics to `02_data-processing` (`analyze-stats` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
+   route statistics to `02_data-processing` (`stats-analysis` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
 
 ## Output contract
 
 1. **`Use scenario`** — pathway position, decision-maker, output type, error costs.
 2. **`Threshold-to-action map`** — operating point(s) → action; net-benefit/DCA framing.
 3. **`Reader-study design`** (if applicable) — readers, washout, randomisation, arms, outcomes,
-   statistic (MRMC → `analyze-stats`).
+   statistic (MRMC → `stats-analysis`).
 4. **`Regulatory/deployment readiness`** — intended use, locked/adaptive status, oversight,
    change-control/revalidation, monitoring, and exact items needing live verification.
 5. **`Prospective/real-world plan`** — design, workflow integration, monitoring, drift.
@@ -86,7 +86,7 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 
 ## Handoffs
 
-- MRMC / net-benefit / decision-curve statistics → `02_data-processing` (`analyze-stats` / `model-evaluation`).
+- MRMC / net-benefit / decision-curve statistics → `02_data-processing` (`stats-analysis` / `model-evaluation`).
 - Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
 - The validation cohort / temporal design → `03_research` (`design-study` / `write-protocol`).
 - Reader-study figures, net-benefit plots → `02_data-processing` (live `plot-figures`).

@@ -50,7 +50,7 @@ clusters and the questions that catch the most problems.
   specificity at a *pre-specified* threshold, PPV/NPV with prevalence; segmentation: DSC,
   HD95/surface metrics; detection: FROC/sensitivity per lesion at given FP rate).
 - **Uncertainty**: confidence intervals; method for CIs.
-- Statistical comparison method (e.g. DeLong for AUCs) — see `analyze-stats` / `model-evaluation`.
+- Statistical comparison method (e.g. DeLong for AUCs) — see `stats-analysis` / `model-evaluation`.
 - **Calibration** and **clinical utility** (decision-curve) for prediction models.
 - Robustness / subgroup / failure-mode analysis.
 

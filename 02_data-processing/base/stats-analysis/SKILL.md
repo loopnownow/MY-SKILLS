@@ -1,11 +1,11 @@
 ---
-name: "analyze-stats"
+name: "stats-analysis"
 domain: "02_data-processing"
 description: Test selection and assumption guidance.
-owner: "02_data-processing/base/analyze-stats/MODULE.md"
+owner: "02_data-processing/base/stats-analysis/MODULE.md"
 ---
 
-# analyze-stats
+# stats-analysis
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

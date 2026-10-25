@@ -29,7 +29,7 @@ not encouragement.
 - **Treatment-response / recurrence:** needs defined response criteria, baseline+follow-up
   imaging, and the outcome ascertained the same way across centers.
 - **Radiogenomics:** binding constraint is the **matched** imaging∩omics intersection, almost
-  always much smaller than either alone (→ `analyze-stats` / `design-study`).
+  always much smaller than either alone (→ `stats-analysis` / `design-study`).
 
 ## Showstoppers (any one forces "Feasibility study only" or "Not yet")
 

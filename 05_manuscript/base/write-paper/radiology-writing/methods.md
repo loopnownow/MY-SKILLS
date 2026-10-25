@@ -35,7 +35,7 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 ## 6. Statistical analysis
 - Primary endpoint and analysis; metrics (with the **CI method**); comparison tests (e.g.
   **DeLong**); **calibration** and **decision-curve** for prediction models; **multiplicity**
-  control; software + version; significance threshold. (→ `analyze-stats` / `model-evaluation`)
+  control; software + version; significance threshold. (→ `stats-analysis` / `model-evaluation`)
 
 ## Tense & style
 Past tense; specific not vague ("3-T MRI" not "high-field"); name versions; one method, one

@@ -1,12 +1,12 @@
 ---
-name: "analyze-stats"
+name: "stats-analysis"
 domain: "02_data-processing"
 trigger: ["选检验", "Mann-Whitney", "t-test"]
 inputs: ["outcome_type", "n_groups", "paired_flag", "normality"]
 outputs: ["named_test"]
 tools: ["decision_tree"]
 quality_control: "two independent groups + continuous non-normal -> Mann-Whitney U"
-owner: "02_data-processing/base/analyze-stats/MODULE.md"
+owner: "02_data-processing/base/stats-analysis/MODULE.md"
 ---
 
 trigger is documentation only; not independently discoverable.

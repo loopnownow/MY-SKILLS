@@ -1,3 +1,4 @@
+CHG-20261025-fine-id-stats-analysis (2026-10-25) — fine-id rename `analyze-stats`→`stats-analysis` (dir/base pack + digest + registry path); legacy alias `analyze-stats`→`stats-analysis`; coarse_aliases `stats-analysis` seat map unchanged.
 CHG-20261025-lab-paths-p0 (2026-10-25) — lab-paths QC P0: `{code_figures}`→`_code\02-data-processing\draw-flowchart`; retire `{code_06_review}`; `{doc_lab_ste}`/`{doc_grants}`/`{doc_fill_protocol}`→skill-harvest-sources durable parks (not lab-ref-ranges).
 CHG-20261025-stats-path-github (2026-10-25) — stats SSOT → `GitHub\stats-analysis`: `{code_stats}`/`{code_modules}`/`{code_model_validation}` leave dead `_code\04-analysis\stats-analysis`; `{code_modules_master}` equals `{code_modules}`; analysis digest/route prose follow.
 CHG-20261025-vocab-fine-id (2026-10-25) — `mount` 作废：registry `mounts:`→`fine_ids:`、`empty_mount`→`empty_fine_ids`、`session_mount`→`session_fine_id_pick`、状态 `MOUNTED`→`LIVE`；handoff `mounted_fine_ids`→`live_fine_ids`、`mount_provenance`→`fine_id_provenance`；`mount-review-polish-recipe.md`→`fine-id-review-polish-recipe.md`；`STATUS_TOKENS=LIVE|PROPOSED|ARCHIVED`；套件 174→174。
@@ -33,7 +34,7 @@ CHG-20261007-002 (2026-10-07) — 0doc 顶层档案改英文 kebab + 数字前�
 CHG-20261007-001 (2026-10-07) — 粗层 id 改英文 slug（中文留 label，`legacy_aliases.coarse_aliases` 映射旧中文）；0script 粗夹同步改名（data-processing/stats-analysis/figures/study-design/manuscript-body）；`modules` 移入 `stats-analysis/modules`；未用的 `archive`/`ethics_index` 移 `0del`；细 ID 与脚本文件名不变。
 CHG-20261006-003 (2026-10-06) — 05/06/03 技能指针指向 `D:\0Grok\0doc` 的 review/grant/ethics/manuscript 夹；伦理长文外置到 `fill-protocol\jinshan-form-pack.md`（0doc 语料只留指针）。
 CHG-20261006-002 (2026-10-06) — 0script 按 MY-SKILLS 粗/细 ID 重组（数据处理/统计分析/图表呈现/研究设计/正文写作 + `_templates`）；10 个仓内脚本复制进 0script 并从仓删除；`SCRIPT_ROLES.md` 增细 ID→路径表；`modules`/`sync`/`docx_revise`/`archive` 未动。
-CHG-20261006-001 (2026-10-06) — `D:\0Grok\0scripts` 改名 `D:\0Grok\0script`；活技能路径指针跟进，带日期的历史行保留旧名。
+CHG-20261006-001 (2026-10-06) — 历史：原脚本根末段由 `0scripts` 更名为无 s 的 `0script`（完整盘符路径已退役，勿当现行）；活技能路径指针跟进，带日期的历史行保留旧名。
 CHG-20261003-003 (2026-10-03) — 回顾性固定 N 不做过功效（Hoenig & Heisey 2001）：四选一 —— 事前功效、EPV 10–15 / Riley `pmsampsize`、80% 功效下 MDES、CI 半宽；不得由已得 p 值反算 observed power。
 CHG-20261003-002 (2026-10-03) — Lab-STE 指针 + 可复用规则入 05/06（盘上 SSOT `04_实验室参考\lab-ste\`）；中稿表面标注五槽 CM-01；未 vendor 词表/工具；不属 Gate；既有 Compared/attenuated/Methods-passive/set/Aitee 规则不变。
 CHG-20261003-001 (2026-10-03) — SCI 措辞：比较词优先用 Compared（保留 `relative CBF`/`relCBF` 指标名）；禁 `attenuated`（改 reduced/lower/decreased），`attenuation` 作影像名词保留。

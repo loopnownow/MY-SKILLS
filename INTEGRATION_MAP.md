@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-fine-id-stats-analysis (2026-10-25)
+
+- Canonical fine-id rename: `analyze-stats` → `stats-analysis`.
+- Pack path: `02_data-processing/base/stats-analysis/`; digest: `personal/analysis/stats-analysis-digest.md`.
+- `legacy_aliases.yaml`: `analyze-stats` → `stats-analysis`; former targets (`radiomics-ml`, `02-radiomics-habitat`) now resolve to `stats-analysis`.
+- Coarse alias key `stats-analysis` → `02_data-processing` unchanged (seat map).
+- `_code` pointer seat remains `stats-analysis`; `analyze-stats` folder stays retired alias.
+
 ## CHG-20261025-lab-paths-p0 (2026-10-25)
 
 - **lab-paths.yaml** version 5 → 6.
@@ -28,7 +36,7 @@ Harvest must not invent a second evolution log file.
 
 - **Stats SSOT:** `{code_stats}` / `{code_modules}` / `{code_model_validation}` → `D:\0Grok\0doc\GitHub\stats-analysis` (and `modules` / `model-validation`).
 - Former `_code\04-analysis\stats-analysis` tree is gone; `{code_modules_master}` equals `{code_modules}`.
-- Prose: `02_data-processing/personal/analysis/analyze-stats-digest.md`, `route.md`.
+- Prose: `02_data-processing/personal/analysis/stats-analysis-digest.md`, `route.md`.
 - MY-RULES `workspace-layout.md` already points at the GitHub tree (same change).
 
 ## CHG-20261025-vocab-fine-id — `mount` vocabulary retired, the registry key is `fine_ids`
@@ -108,8 +116,8 @@ Harvest must not invent a second evolution log file.
   pass's regex never matched, since it looked only for `` A `base/` ``. `[B:humanize]` →
   `[base:humanize]`; `Voice A/B` and comment author `A` untouched.
 - **Former ids:** `radiomics-ml` / `architecture-zoo` call sites now name the live ids
-  (`analyze-stats`, `design-study`). Alias/retirement notes stay in `legacy_aliases.yaml`,
-  `02_data-processing/base/analyze-stats/SKILL.md`, `03_research/base/design-study/MODULE.md`
+  (`stats-analysis`, `design-study`). Alias/retirement notes stay in `legacy_aliases.yaml`,
+  `02_data-processing/base/stats-analysis/SKILL.md`, `03_research/base/design-study/MODULE.md`
   and the `02` absorbed line.
 - **Kept on purpose:** `call/require 03 citation-verify — do not self-certify lit` stays
   verbatim in its 8 files; `tests/test_seat_packs.py` pins it as a safety rule.
@@ -143,7 +151,7 @@ Harvest must not invent a second evolution log file.
 
 ## CHG-20261025-merge-04-into-02 — 04 absorbed into 02, gate `G-04` → `G-STATS`
 
-- Absorbed `04_analysis` into `02_data-processing` (one top-level skill `02`; `04_analysis` retired). 6 base packs (`analyze-stats`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) → `02_data-processing/base/`; the rest of `04_analysis/personal/**` → `02_data-processing/personal/analysis/**`, except the visualization pack → `02_data-processing/personal/visualization/` (its `scripts/` would otherwise sit six path parts deep, over the five-part ceiling); 5 `04_analysis/qc/*.md` → `02_data-processing/qc/`.
+- Absorbed `04_analysis` into `02_data-processing` (one top-level skill `02`; `04_analysis` retired). 6 base packs (`stats-analysis`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) → `02_data-processing/base/`; the rest of `04_analysis/personal/**` → `02_data-processing/personal/analysis/**`, except the visualization pack → `02_data-processing/personal/visualization/` (its `scripts/` would otherwise sit six path parts deep, over the five-part ceiling); 5 `04_analysis/qc/*.md` → `02_data-processing/qc/`.
 - Gate `G-04` renamed **`G-STATS`** everywhere; no `G-04` alias kept. `02_data-processing/SKILL.md` now carries the layer model (`G-PHI` / `G-CODE` / `G-FACT` / `G-STATS`) plus the imaging hard rules that used to live in `04_analysis/SKILL.md`.
 - Registry: `path` / `a_domain` for the 6 moved packs → `02_data-processing`; fine id and coarse counts unchanged.
 - Seat token `04` collapsed into `02` across live docs (`02→04→05→06` reads `02→05→06`; `02 or 04` → `02`; `02/04/05` → `02/05`). `runtime-flow.mmd` node ids `Need04` / `P04` / `GF04` / `GA04` → `NeedStats` / `PStats` / `GFStats` / `GAStats`.
@@ -201,7 +209,7 @@ Harvest must not invent a second evolution log file.
 ## CHG-20261020-deepscan-fix — deep-scan P0/P1 absorb
 
 - Branch `fix/deepscan-p0-p1-20261020` (Asia/Shanghai 2026-10-20), registry `change_id` bumped.
-- **Ids**: 66 B-era call-site ids in 29 files → canonical fine ids (04-fig-flow→draw-flowchart ×13, 04-fig-plot→plot-figures ×13, 04-stats-models→meta-analysis ×12, 02-imaging-io→imaging-io ×5, 02-tables→clean-data ×4, 04-stats-power→calc-sample-size ×4, 02-imaging-qc→preprocess-imaging ×3, 02-radiomics-habitat→analyze-stats ×7, 02-lit fixes ×3). Three unmapped names (`04-stats-power`, `03-lit-fulltext`, `03-lit-cite`) added to `legacy_aliases.yaml`.
+- **Ids**: 66 B-era call-site ids in 29 files → canonical fine ids (04-fig-flow→draw-flowchart ×13, 04-fig-plot→plot-figures ×13, 04-stats-models→meta-analysis ×12, 02-imaging-io→imaging-io ×5, 02-tables→clean-data ×4, 04-stats-power→calc-sample-size ×4, 02-imaging-qc→preprocess-imaging ×3, 02-radiomics-habitat→stats-analysis ×7, 02-lit fixes ×3). Three unmapped names (`04-stats-power`, `03-lit-fulltext`, `03-lit-cite`) added to `legacy_aliases.yaml`.
 - **Dead pointers**: `ban-phrases.md` → `vocab/L2/preferred.md` §1c; `report-checks.md` self-row → "Part A of this file"; `guideline-router.md` → `write-venue/radiology-writing/journal-family-writing-style.md`; `mount-review-polish-recipe.md` (retired; renamed `fine-id-review-polish-recipe.md` on 2026-10-25) → `06_review/personal/review.md` §0; `ai_patterns.md` → `vocab/L1/patterns.md`; `retraction-watcher/MODULE.md` → `references/audit-reference.md`; `data-impute` → `clean-data` impute module.
 - **pack-cache**: bytes (624 files) moved to `D:\0del\_by-function\pack-cache-retired-20261020`; README / lab-paths / lifecycle-cache / NOTICE narratives unified (the three files had disagreed on whether the cache was emptied, deleted, or still present).
 - **State claims**: `PROPOSED/MOUNTED` mix removed from README + ARCHITECTURE (registry has 0 PROPOSED); 01 SKILL documents the A-local-pack exception (`base/vocab/`, `base/write-venue/`); `Aitor-format.md` owner → `05_manuscript/personal/`; raw lab paths → `{alias}` in 13 files.

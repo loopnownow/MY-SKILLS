@@ -74,7 +74,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 
 ## Handoffs
 
-- Statistic behind the plot → `analyze-stats` / `model-evaluation`
+- Statistic behind the plot → `stats-analysis` / `model-evaluation`
 - Checklist item (STROBE flow) → `draw-flowchart` and `check-reporting`
 - Captions / display-item plan → `write-paper` (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`)
 - Harsh read before submission → `self-review`

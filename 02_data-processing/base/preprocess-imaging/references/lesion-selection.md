@@ -21,13 +21,13 @@ State slice thickness and whether features are slice-thickness robust.
 - **Peritumoral ring** — fixed-distance dilation (state mm) capturing micro-environment/invasion;
   report how the ring is constructed and that it stays within anatomy.
 - **Habitats** — voxel clustering into sub-regions by multi-parametric signature; align with
-  spatial/regional omics (→ `analyze-stats` / `design-study`).
+  spatial/regional omics (→ `stats-analysis` / `design-study`).
 
 ## Multi-lesion handling (decide explicitly)
 
 - **Index lesion only** (define the rule: largest / most FDG-avid / target lesion).
 - **All lesions** with patient-level aggregation (mean / largest / worst) — define the rule.
-- **Per-lesion analysis** with clustering accounted for in statistics (→ `analyze-stats`).
+- **Per-lesion analysis** with clustering accounted for in statistics (→ `stats-analysis`).
 - Never let lesions from one patient cross train/test splits (patient-level partition).
 
 ## Justification checklist

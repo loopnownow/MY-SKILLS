@@ -33,8 +33,8 @@ A "yes" to several is normal. Stack them.
 | Radiomics model whose endpoint is sensitivity/specificity for a lesion | CLEAR + IBSI + STARD (+ TRIPOD+AI if a model score is reported) |
 | Deep-learning segmentation tool | CLAIM 2024 (segmentation metrics: DSC, HD95, surface metrics) |
 | Meta-analysis of CT radiomics for cancer diagnosis | PRISMA-DTA + QUADAS-2 + (RQS to grade primary studies) |
-| Prospective reader study with vs. without AI | STARD + MRMC design (see `analyze-stats`) + (CONSORT-AI if randomised) |
-| Radiogenomics: imaging features ↔ RNA-seq | CLEAR + IBSI for imaging; + multi-omics/leakage rules (`analyze-stats` / `design-study`); TRIPOD+AI if a predictive model is built |
+| Prospective reader study with vs. without AI | STARD + MRMC design (see `stats-analysis`) + (CONSORT-AI if randomised) |
+| Radiogenomics: imaging features ↔ RNA-seq | CLEAR + IBSI for imaging; + multi-omics/leakage rules (`stats-analysis` / `design-study`); TRIPOD+AI if a predictive model is built |
 | Any of the above, submitted to a Nature-portfolio journal | same stack **+ Reporting Summary/Editorial Policy Checklist** (`nature-reporting-summary.md`) **+** FUTURE-AI as the trustworthy/deployable-AI framing where clinical deployment is discussed |
 
 ## Step 3 — separate the three jobs

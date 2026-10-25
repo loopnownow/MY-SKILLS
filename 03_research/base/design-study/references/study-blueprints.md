@@ -42,23 +42,23 @@ guideline (→ `check-reporting`).
 - **Question:** do hand-crafted features predict the endpoint?
 - **MVP:** IBSI-compliant features, segmentation reproducibility (ICC), feature selection
   **inside** training only, model + calibration, internal validation.
-- **Stronger:** external validation, biological correlate (→ `analyze-stats` / `design-study`),
+- **Stronger:** external validation, biological correlate (→ `stats-analysis` / `design-study`),
   comparison vs deep features or clinical model.
-- **Guideline:** CLEAR (reporting) + METRICS/RQS (quality) + IBSI. (→ `analyze-stats`)
+- **Guideline:** CLEAR (reporting) + METRICS/RQS (quality) + IBSI. (→ `stats-analysis`)
 
 ## 6. Radiogenomics / imaging-multi-omics
 - **Question:** what biology underlies an imaging phenotype?
 - **MVP:** matched imaging∩omics cohort (state the intersection n), FDR-controlled association,
   bounded interpretation.
 - **Stronger:** independent validation cohort, multi-omics integration, single-cell/spatial
-  linkage via habitats. (→ `analyze-stats`)
+  linkage via habitats. (→ `stats-analysis`)
 - **Guideline:** CLEAR/IBSI for imaging side; document omics accessions.
 
 ## 7. Reader / clinical-utility study
 - **Question:** does AI change radiologist performance or workflow?
 - **MVP:** MRMC design, washout, with/without AI, reader experience reported.
 - **Stronger:** prospective, real-workflow, time and confidence outcomes, harm analysis.
-- **Guideline:** CLAIM + reader-study stats (MRMC → `analyze-stats`). (→ A personal)
+- **Guideline:** CLAIM + reader-study stats (MRMC → `stats-analysis`). (→ A personal)
 
 ## Blueprint output skeleton
 
