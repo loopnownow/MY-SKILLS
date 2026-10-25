@@ -29,44 +29,14 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 | mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
 | [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 
-## Workflow
+## Workflow and output contract
 
-1. **Inventory the data.** Disease, modality(ies), n (patients and lesions), number of centers
-   and scanners, label source and quality, presence of segmentation masks, clinical variables,
-   follow-up time and event counts, pathology/molecular labels, time span. Mark every unknown.
-2. **Feasibility triage** (mounted `design-study` → `references/feasibility-triage.md`). Decide the realistic task ceiling and flag
-   showstoppers (no reference standard, no external cohort, too few events, leakage-prone
-   structure). Output a verdict: `Feasible as designed` / `Feasible with changes` / `Feasibility
-   study only` / `Not yet — collect X first`.
-3. **Define the question** (mounted `design-study` → `references/endpoints-and-estimands.md`). Clinical question → target population →
-   primary endpoint/estimand → comparator → intended clinical-use scenario.
-4. **Pick the blueprint** (mounted `design-study` → `references/study-blueprints.md`). Choose the design template and give a
-   **minimum-viable** version (what's publishable now) and a **stronger** version (what would
-   reach a higher tier), with the extra cost of each.
-5. **For program-level AI/radiogenomics planning**, open mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md`
-   and place the project on the staged route from cohort lock to baselines, fusion, external
-   validation, and silent/reader/prospective evidence.
-6. **Design the validation** (mounted `design-study` → `references/validation-strategy.md`). Specify the split (patient-level),
-   internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
-   out and what "external" honestly means here.
-7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to
-   `02_data-processing` / Loopnow, `calc-sample-size`).
-8. **Return** the blueprint + feasibility verdict + validation plan + the prioritised list of
-   what to secure next.
+Single source: `03_research/base/design-study/MODULE.md` — inventory → feasibility triage → question → blueprint → validation → binding constraint → return, plus the seven-item output contract that goes with it. Do not restate either one here.
 
-## Output contract
+Lab deltas when running that flow in this seat:
 
-1. **`Feasibility verdict`** — one of the four verdicts above, with the one-line reason.
-2. **`Data read`** — the inventory, with the binding constraint surfaced and unknowns listed.
-3. **`Study blueprint`** — clinical question, population, primary endpoint/estimand, comparator,
-   clinical-use scenario; design type.
-4. **`Method options`** — minimum-viable vs stronger, with the trade-off and which reporting
-   guideline each will be judged against (→ `05_manuscript`, mounted `check-reporting`).
-5. **`Validation plan`** — split scheme, internal + external/temporal/geographic/multi-center
-   design, and the honest definition of "external" for this data.
-6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
-7. **`Next actions`** — what to collect, label, or confirm before/while running it, in priority
-   order. Questions only the author can answer go here.
+- Sample size / EPV / power numbers are never computed here → `02_data-processing` (`calc-sample-size`).
+- `Method options` are judged against `05_manuscript` mounted `check-reporting`.
 
 ## Own-proposal chapter skeleton (Voice B only)
 
@@ -84,8 +54,8 @@ Compact contract (details in that file):
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
 - Sample size, EPV, power, Riley minimum sample size → `02_data-processing` / Loopnow (`calc-sample-size`; lab notes `02_data-processing/personal/analysis/methods.md`).
-- Hand-crafted radiomics pipeline design → `02_data-processing` (mounted `radiomics-ml`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
-- Deep-learning architecture & training design → mounted `architecture-zoo` (`03_research`).
+- Hand-crafted radiomics pipeline design → `02_data-processing` (mounted `analyze-stats`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
+- Deep-learning architecture & training design → mounted `design-study` (`03_research`).
 - ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
 - Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
 - Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.
