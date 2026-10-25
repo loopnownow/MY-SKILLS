@@ -6,7 +6,7 @@ description: >
  Triggers: literature, journal select, grants, ethics, study design, translation,
  reader study, lit-search, find-journal, fill-protocol.
  Literature enters here only -- never via 01.
- Personal layer is the A03 top authority (route/handoff/triggers), not a supplement-only folder.
+ Personal layer is the 03 top authority (route/handoff/triggers), not a supplement-only folder.
  Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 02.
 ---
 
@@ -15,22 +15,22 @@ description: >
 ## Purpose
 
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
-**A03 is the personal top layer** (like A05/A06): route, handoff, and post-QC triggers.
+**03 is the personal top layer** (like 05/06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17).
 
 ## Layer model (2026-10-17)
 
-**Flow:** lit/design fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A03** top-layer re-loops
+**Flow:** lit/design fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **03** top-layer re-loops
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 (may trigger `verify-refs` + `retraction-watcher`; bodies under A `03_research/base/`).
 
 | Layer | Owns |
 |---|---|
-| A `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
-| 00 | QC gate; decides whether A03 re-triggers verify/retraction |
-| A03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in A `base/`) |
+| `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
+| 00 | QC gate; decides whether 03 re-triggers verify/retraction |
+| 03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in `base/`) |
 
 ## Three pillars
 
@@ -38,7 +38,7 @@ See `personal/route.md` for the full pointer table.
 
 | Pillar | Owns |
 |---|---|
-| Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (A `base/`) |
+| Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (`base/`) |
 | Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> A `03_research/base/fill-protocol/` (Bai) |
 | Journal selection | 选刊走 03 `find-journal` — Victor seats A `03_research/base/find-journal/` (list gates in base/; runtime pools in 0doc) |
 
@@ -47,7 +47,7 @@ See `personal/route.md` for the full pointer table.
 - Introduction evidence pack: on 05 cards -> `personal/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 01 or 05.
 - **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
-- **Post-QC (A03-triggered, bodies in A `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
+- **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
 
 ## Personal assets (top layer)
 
@@ -72,7 +72,7 @@ Where an A personal file only duplicates a long base procedure, prefer a short p
 
 Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
 
-**Post-QC A03-triggered:**
+**Post-QC 03-triggered:**
 
 - `verify-refs` -- literature verify / cite hygiene
 - `retraction-watcher` -- retraction check

@@ -1,7 +1,7 @@
 # 05_manuscript / qc
 
 **Owner:** `00_orchestrator` only loads these at Gate time.
-**Domains/specialists do not self-certify via this folder.** A05 first-pass and polish use `base/` and `personal/`; they do not self-certify lit or pre-submit via `qc/`.
+**Domains/specialists do not self-certify via this folder.** 05 first-pass and polish use `base/` and `personal/`; they do not self-certify lit or pre-submit via `qc/`.
 
 QC **standards** (pass/fail + fail→rollback station) are the table below. Reporting-checklist body: `check-reporting/` (fine id `check-reporting`; TRIPOD / CLAIM / CLEAR). Other capability bodies stay in `personal/` and `base/`.
 

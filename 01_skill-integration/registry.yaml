@@ -14,9 +14,9 @@ meta:
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
-a_domain_override_policy: 'Identity is a four-tuple plus an optional A pack: fine_id, coarse_id, a_domain,
+a_domain_override_policy: 'Identity is a four-tuple plus an optional personal pack: fine_id, coarse_id, a_domain,
   body path (NN_slug/base/...). Do not infer id from path or path from id. Each coarse_id declares a default
-  a_domain. A mount may set its own a_domain to override that default when routing requires it (documented
+  a_domain. A mounted pack may set its own a_domain to override that default when routing requires it (documented
   exceptions: find-journal and grant-builder sit under coarse manuscript-body but route to a_domain 03_research).
   fill-protocol stays a_domain 03_research. find-journal body is 03_research/base/find-journal/; companion
   styles in 05_manuscript/base/write-paper/. Do not force a mount a_domain to match its coarse default

@@ -31,7 +31,7 @@ Do **not** use this file for 选题 / 选刊 / systematic review / Embase+Cochra
 
 ### Card fields (required)
 
-Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[B:…]`); dual-tag with `[A:personal]` when A 05 also judges.
+Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[…]`); dual-tag with `[personal]` when 05 also judges.
 
 ```text
 Evidence Request
@@ -68,7 +68,7 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 | Judge | **A 05 personal (Aitee)** | Accept / Weaken / Delete (below) | Treat mount suggestion as silent apply; run a second lit-research route inside 05 |
 | Re-invoke 03 | `00_orchestrator` (G-LIT) | Call 03 after dual-plan comment | Skip dual plan; invent citations |
 
-A05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 01.
+05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 01.
 
 ### Three exits (A 05)
 
@@ -97,7 +97,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 ### Out of scope
 
 - Upgrading base into a personal writing orchestrator or Evidence QC home  
-- Hard-wiring external review packs under A05 every run  
+- Hard-wiring external review packs under 05 every run  
 - New coarse ids or `ocms-*` writing mounts  
 - Letting any backup become default
 

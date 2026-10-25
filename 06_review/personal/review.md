@@ -1,6 +1,6 @@
 # English peer review (style + habits)
 
-> **Post-QC re-review (2026-10-17):** A06 runs after base isolation + 00 QC. See `review-isolation.md`. Response letters -> `07_response`.
+> **Post-QC re-review (2026-10-17):** 06 runs after base isolation + 00 QC. See `review-isolation.md`. Response letters -> `07_response`.
 
 
 ## Part A — English peer-review envelope
@@ -32,11 +32,11 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 - Word / 稿面批注 **作者字段** is always **A**. No yellow highlight. 作者栏 ≠ 来源标签.
 - Source goes only in the comment **body prefix** (lead-in): which layer this judgment came from — not an envelope label.
-  - **Format (mounted items):** `[源:包内skill-id]`. Forbid source-only tags (bare `[Nature:]` / `[Scientific:]`). B uses v4 fine IDs: `[B:peer-review]`.
-  - Examples: `[A:personal]` · `[B:peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]` (personal / fine-ID tasks)
-  - Mount + personal both apply → **双标** (dual tag), e.g. `[Nature:simulate-reviewers] [A:personal]` / `[self-review] [A:personal]`
-- **Mandatory:** when this round mounts an external review source (Nature / peer-review / self-review, or non-personal B), every finding/gate/checklist item from that mount **must** carry a **skill-level** tag in the prefix (e.g. `[Nature:simulate-reviewers]`), not source-only. Forbid rewriting everything as `[A:personal]` just because the personal eight-chapter envelope was used. **Forbid defaulting to `[A:personal]`** (Rules: `My rule.md` §5.1 + this file §0).
-- With no mount, empty source prefixes must not appear. Pure lab sentence edits (grammar, Aitor punctuation) take `[A:personal]` only. Use `[A:personal]` only when the source cannot be determined.
+  - **Format (mounted items):** `[源:包内skill-id]`. Forbid source-only tags (bare `[Nature:]` / `[Scientific:]`). B uses v4 fine IDs: `[peer-review]`.
+  - Examples: `[personal]` · `[peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]` (personal / fine-ID tasks)
+  - Mount + personal both apply → **双标** (dual tag), e.g. `[Nature:simulate-reviewers] [personal]` / `[self-review] [personal]`
+- **Mandatory:** when this round mounts an external review source (Nature / peer-review / self-review, or non-personal B), every finding/gate/checklist item from that mount **must** carry a **skill-level** tag in the prefix (e.g. `[Nature:simulate-reviewers]`), not source-only. Forbid rewriting everything as `[personal]` just because the personal eight-chapter envelope was used. **Forbid defaulting to `[personal]`** (Rules: `My rule.md` §5.1 + this file §0).
+- With no mount, empty source prefixes must not appear. Pure lab sentence edits (grammar, Aitor punctuation) take `[personal]` only. Use `[personal]` only when the source cannot be determined.
 - **When a mount suggestion conflicts with lab doctrine:** do not silently adopt the mount fix. Put everything in the comment: conflict point + **fix plan** (before/after sentence, or “keep sentence + swap reference”). **最终由用户决定.** After the user agrees, Aitee still lands Track Changes; Lee comments only.
 - **Decidable issues:** Lee writes a clear comment (locus, defect, 词或句 to change) and hands Aitee a TC-fix. Lee does not edit the body by default.
 - Undecidable facts (missing n, ethics, analysis not done): mark `cannot_invent`, ask the user. Chinese comment plus English suggested wording and/or suggested literature (see ownership-contract). Victor supplies suggested literature. Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
@@ -52,7 +52,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - **Prefer:** Proof/manuscript line numbers, e.g. `Lines 76–79:` / `Line 216:`.
 - **When no reliable line numbers:** `Introduction, paragraph 2, line 3:`; or `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`.
 - **If line numbers are given, do not restate or quote the manuscript sentence.**
-- **Source tags** (e.g. `[B:self-review][A:personal]`) go only at the Word **comment** lead-in; author field **A**. Write the Chinese reason in the same comment after the source tag. `cannot_invent` / G-LIT dual-track also go in comments only (not the envelope body).
+- **Source tags** (e.g. `[self-review][personal]`) go only at the Word **comment** lead-in; author field **A**. Write the Chinese reason in the same comment after the source tag. `cannot_invent` / G-LIT dual-track also go in comments only (not the envelope body).
 - **Forbid** burying line numbers mid-sentence or at the end; forbid unlocalized vague attacks (Opening summary excepted — Opening may omit line numbers).
 - **When the locus is uncertain:** do not invent precise line numbers. In the Word **comment**, state why it is uncertain + suggested locator + suggested revision; comment **author field = A**. After the user confirms, change only that item in the review **envelope**. Do not Track-Change the manuscript body here (see ownership-contract).
 - If the user pastes a source sentence: align line numbers on Proof/plain first, then write into the matching chapter; do not spawn a new review docx.
@@ -393,11 +393,11 @@ Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please�
 | Major | `should_fix` |
 | Minor | `hint` |
 
-Strip leading source tags like `[A:personal]` before counting slots; tags stay at the comment start for delivery. Quoted paste-in rewrite text is exempt from sentence-length checks.
+Strip leading source tags like `[personal]` before counting slots; tags stay at the comment start for delivery. Quoted paste-in rewrite text is exempt from sentence-length checks.
 
 **Example:**
 
-> [A:personal] Methods 第 2 段第 1 句。未写连续入组。依据 ZH-TERM01 与结果页队列句。补写：连续纳入 2019 年 1 月至 2022 年 12 月的病例。must_fix。
+> [personal] Methods 第 2 段第 1 句。未写连续入组。依据 ZH-TERM01 与结果页队列句。补写：连续纳入 2019 年 1 月至 2022 年 12 月的病例。must_fix。
 
 **Bad:** 方法部分整体不够清晰，建议完善并提升规范性，同时注意语言润色。
 

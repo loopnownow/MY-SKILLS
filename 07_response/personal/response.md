@@ -181,7 +181,7 @@ When drafting a reply:
 
 - When landing a point, the edit unit is **词或句** (word or sentence); forbid whole-paragraph rewrite. Quoted text in the letter is that revised sentence. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Whether each point is truly resolved: use this file's status (Resolved / Partially resolved / Unresolved / New issue); do not only check “whether a sentence was added.”
-- Manuscript comments (稿面批注) carry source: `[A:personal]` / `[B:revise]` / `[B:…]`, etc.
+- Manuscript comments (稿面批注) carry source: `[personal]` / `[revise]` / `[…]`, etc.
 - Mount suggestion vs lab doctrine conflict: comment states conflict + fix plan (before/after); **用户决定** (user decides). After agreement, Aitee still applies Track Changes. Lee does not edit the body by default.
 - Decidable body edits: Lee comments for Aitee TC-fix. Past tense only for edits already landed.
 - Still undecidable (missing source/analysis, ethics Date/NO unset): the **matching response point** must say pending and name the pending source. Do not write that point as already done. `Suggested …` stays in Word 批注 (see ownership-contract), not as invent/disclaimer in the letter body. Do not pretend experiments were done.
@@ -208,7 +208,7 @@ Corpus habit for **审稿回复** / response letters (not for inventing data):
 
 **Bot map:** response upper layer (07) → **Lee** (`07_response`); re-review Lee (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript Track Changes → **Aitee** (`05`). Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-**Owner:** `07_response` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
+**Owner:** `07_response` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an 06 permanent three-engine dispatcher.
 
 **Loop (lab):**
 
@@ -238,7 +238,7 @@ Do **not** use this file to invent rescue experiments, missing AUCs, or unrun an
 
 ### Issue card (required)
 
-One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a mount raised it; dual-tag with `[A:personal]` when A 06 also judges.
+One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a mount raised it; dual-tag with `[personal]` when 06 also judges.
 
 ```text
 Review Issue
@@ -269,7 +269,7 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
 | Session mounts | 01 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
 
-A06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` — do not fork a second A06-only registry of full skill texts.
+06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` — do not fork a second 06-only registry of full skill texts.
 
 ### Resolution checklist (A 06)
 
@@ -303,7 +303,7 @@ Only if this-run pick left a needed pack unloaded — go through **01 session-mo
 ### Out of scope
 
 - B06 as “Review Intelligence Core” or resolution home  
-- A06 as always-on multi-source review dispatcher  
+- 06 as always-on multi-source review dispatcher  
 - Fixed Reviewer A→B→C personas  
 - Specialist packs writing free-form Word comments without status cards when this protocol is in use  
 - Any backup becoming a standing fourth reviewer

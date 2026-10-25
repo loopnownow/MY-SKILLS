@@ -19,14 +19,14 @@ description: >
 Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** data with traceable QC,
 then transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 
-**A02 is the personal top layer** (like A03/A05/A06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
+**02 is the personal top layer** (like 03/05/06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
 Capability **bodies** for clean/imaging/stats/figures mounts all live in **`02_data-processing/base/`** (pilot 2026-10-17; analysis packs merged 2026-10-25). Fine IDs are not renamed.
 
 Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
 ## Layer model (2026-10-17)
 
-**Flow:** fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **A02** top-layer re-loops
+**Flow:** fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **02** top-layer re-loops
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 (personal coding/extract/workspace protocols + analysis pipeline/figures personal; may re-trigger base mounts when 00 says needed).
@@ -34,8 +34,8 @@ Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiva
 | Layer | Owns |
 |---|---|
 | `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
-| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether A02 re-triggers base mounts |
-| A02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; analysis pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
+| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers base mounts |
+| 02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; analysis pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
 
 ## Personal assets (top layer)
 

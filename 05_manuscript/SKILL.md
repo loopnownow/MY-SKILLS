@@ -23,16 +23,16 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 ## Layer model (2026-10-17)
 
-**Flow:** writing fine-ID **first-pass** (A `05_manuscript/base/` bodies) -> **00 QC** -> **A05** personal upper layer.
+**Flow:** writing fine-ID **first-pass** (A `05_manuscript/base/` bodies) -> **00 QC** -> **05** personal upper layer.
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 
 | Layer | Owns |
 |---|---|
-| A `base/` | `write-paper` (IMRAD + journal templates / house style), `humanize`, vocab under `05_manuscript/base/` |
+| `base/` | `write-paper` (IMRAD + journal templates / house style), `humanize`, vocab under `05_manuscript/base/` |
 | A `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR) |
 | 00 | Final QC |
-| A05 | Personal Aitor-format / voice / process; final wording authority |
+| 05 | Personal Aitor-format / voice / process; final wording authority |
 
 ## Personal assets
 
@@ -109,7 +109,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Project `ref/` subfolders: follow `00_orchestrator/references/project-ref-layout.md` (keep manuscript-revision + settings.ini at root).
-- Word comments: author **A**, never yellow. Tag source (`[A:personal]`, `[B:humanize]`, …).
+- Word comments: author **A**, never yellow. Tag source (`[personal]`, `[B:humanize]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `personal/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.

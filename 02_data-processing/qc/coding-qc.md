@@ -4,7 +4,7 @@ Subtitle: also covers a light **Code QC Core** for research data-processing scri
 
 Source: 2026-09-07 Deep Code QC Report (`modules.zip` / `{code_modules}`) + 2026-09-22 Code QC Core absorption plan  
 Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/references/code-qc.md`)  
-**Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, B mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md` <!-- negative-example -->, mount Copilot `playbooks/quality/` / Council / CI.
+**Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md` <!-- negative-example -->, mount Copilot `playbooks/quality/` / Council / CI.
 
 ## When to trigger
 - Review / deep review / Deep QC / code QC for `modules` / lab stats library

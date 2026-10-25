@@ -259,3 +259,34 @@ class DeadOrchestratorQcStubs(unittest.TestCase):
             "Dead 00 orchestrator QC stubs still present "
             "(bodies already live under domain qc/):\n" + "\n".join(present),
         )
+
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+PHONE_RE = re.compile(r"\b(?:0\d{2,3}-\d{7,8}|1[3-9]\d{9})\b")
+PLACEHOLDER_DOMAINS = ("example.com", "example.org", "example.net")
+CONTACT_SUFFIXES = {".md", ".mmd", ".yaml", ".yml", ".py", ".txt", ".json", ".csv", ".tsv"}
+CONTACT_SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "fixtures"}
+
+
+class ContactData(unittest.TestCase):
+    """Institutional contact data stays in the local ethics record, not the repo."""
+
+    def test_no_email_or_phone_in_tree(self) -> None:
+        hits: list[str] = []
+        for path in sorted(ROOT.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in CONTACT_SUFFIXES:
+                continue
+            if set(path.relative_to(ROOT).parts) & CONTACT_SKIP_DIRS:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for match in EMAIL_RE.finditer(text):
+                if not match.group(0).lower().endswith(PLACEHOLDER_DOMAINS):
+                    hits.append(f"{rel}: email {match.group(0)}")
+            for match in PHONE_RE.finditer(text):
+                hits.append(f"{rel}: phone {match.group(0)}")
+        self.assertEqual(
+            hits, [],
+            "institutional contact data (keep it in the local ethics record):\n"
+            + "\n".join(hits[:30]),
+        )
+

@@ -1,6 +1,6 @@
 # 05_manuscript/base
 
-Capability bodies for A05 manuscript. No domain-level SKILL.md.
+Capability bodies for 05 manuscript. No domain-level SKILL.md.
 
 | Pack | Path | Role |
 |---|---|---|

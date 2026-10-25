@@ -310,7 +310,7 @@ class FastRouting(unittest.TestCase):
         self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", fast)
         self.assertIn("样本量 → `02_data-processing` (`calc-sample-size`)", fast)
         six = read("06_review/SKILL.md")
-        # A06 top layer: journal select out of scope (points to 03), not a fast-routing table
+        # 06 top layer: journal select out of scope (points to 03), not a fast-routing table
         self.assertIn("03_research", six)
         self.assertNotIn("05-write-venue", six)
         ethics = read("03_research/personal/fill-protocol/README.md")
@@ -611,7 +611,7 @@ class Routing(unittest.TestCase):
         gates = lab_rules_read("00_orchestrator", "gates.md")
         self.assertIn("after Lee pre-review or re-review only", gates)
         self.assertNotIn("after pre-review or reviewer response", gates)
-        self.assertIn("A07 / `07_response`", gates)
+        self.assertIn("07 / `07_response`", gates)
 class LabSte(unittest.TestCase):
     def test_pointer_and_no_vendor(self) -> None:
         lab = (BASE_VOCAB / "vocab" / "L3" / "lab-ste.md").read_text(encoding="utf-8")

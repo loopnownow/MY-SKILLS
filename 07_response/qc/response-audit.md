@@ -5,7 +5,7 @@
 
 → `07_response/base/revise/references/response-audit-gate.md`
 
-A07 first-pass must not self-certify via `qc/`. 00 may load this standard when auditing a drafted point-by-point response.
+07 first-pass must not self-certify via `qc/`. 00 may load this standard when auditing a drafted point-by-point response.
 
 ## Owner standing checks (2026-10-19)
 

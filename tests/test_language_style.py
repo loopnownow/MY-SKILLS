@@ -1,3 +1,4 @@
+
 """Language lint contract (vocabulary, sections, constructions).
 
 Merged from: `test_style_lint.py`.
@@ -341,3 +342,51 @@ class PersonalMarkdownControlCharTests(unittest.TestCase):
                         rel = path.relative_to(REPO_ROOT)
                         hits.append("%s offset %d U+%04X" % (rel.as_posix(), i, byte))
         self.assertEqual(hits, [], msg="\n".join(hits))
+
+
+SEAT_ID = re.compile(r"\bA0[1-9]\b")
+WORKSPACE_MARKERS = re.compile(
+    r"Work-[AB]\b|A `base/`|B `base/`|\[A:[a-z-]+\]|\[B:[a-z-]+\]|\bB mount\b|"
+    r"\bA-side\b|\bB-side\b|\bA file\b"
+)
+BARE_AB = re.compile(r"\bA/B\b")
+KEEP_FORMS = re.compile(r"Voice A/B|A/B/C|Reviewer A/B/C")
+EXEMPT_LINES = re.compile(
+    r"retired|Workspace-A|author \*\*A\*\*|funding only|可资助|不予|优先|scoring", re.I
+)
+AB_SUFFIXES = {".md", ".mmd", ".yaml", ".yml"}
+AB_SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "fixtures"}
+AB_SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md"}
+
+
+class RetiredWorkspaceVocabulary(unittest.TestCase):
+    """Classes 1-3 of the A/B purge stay dead; Voice A/B and author A are keepers."""
+
+    def test_no_retired_ab_workspace_vocabulary(self) -> None:
+        hits: list[str] = []
+        for path in sorted(ROOT.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in AB_SUFFIXES:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel.startswith("tests/") or rel in AB_SKIP_FILES:
+                continue
+            if set(path.relative_to(ROOT).parts) & AB_SKIP_DIRS:
+                continue
+            for line_no, line in enumerate(
+                path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1
+            ):
+                if EXEMPT_LINES.search(line):
+                    continue
+                probe = KEEP_FORMS.sub("", line)
+                found = (
+                    SEAT_ID.findall(probe)
+                    + WORKSPACE_MARKERS.findall(probe)
+                    + BARE_AB.findall(probe)
+                )
+                if found:
+                    hits.append(f"{rel}:{line_no}: {sorted(set(found))} :: {line.strip()[:70]}")
+        self.assertEqual(
+            hits, [],
+            "retired A/B workspace vocabulary (seat ids A0N, Work-A/B, A `base/`, "
+            "[A:...] tags, A/B headings):\n" + "\n".join(hits[:30]),
+        )

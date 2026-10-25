@@ -11,7 +11,7 @@ owner: "07_response/base/revise/MODULE.md"
 
 Extends [mode-3-response.md](mode-3-response.md). Default venue shape is **journal point-by-point**, not ICML/OpenReview character-budget paste.
 
-Personal opening banks and Voice A/B stay in **A personal** — do not invent a B voice.
+Personal opening banks and Voice A/B stay in `personal/` — do not invent a separate voice.
 
 ## Keep (hard)
 

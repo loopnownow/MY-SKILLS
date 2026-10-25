@@ -1,11 +1,11 @@
 # 03_research personal handoff
 
-## A/B layering (2026-10-17)
+## Layering (2026-10-17)
 
 - Base runs lit/design capability **first-pass**.
-- After **00 QC**, A03 may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`).
+- After **00 QC**, 03 may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`).
 - A keeps personal route/handoff/authority; do not bulk-move personal files this round.
-- Pointerize only where an A file duplicates a long base procedure.
+- Pointerize only where a personal file duplicates a long base procedure.
 
 ## Layout (2026-10-16)
 
@@ -30,4 +30,4 @@ Journal results / submitted lists live under **subproject folders** (`<project>/
 
 ## Mounts
 
-Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under A `03_research/base/`; A03 documents post-QC trigger only.
+Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under A `03_research/base/`; 03 documents post-QC trigger only.

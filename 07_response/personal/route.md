@@ -5,8 +5,8 @@
 ## Flow
 
 1. base first-pass mounts draft response (`revise`, optional `tighten-response`, including on-demand tone-polish)
-2. **00 QC** (gates.md A/B check **(e)**)
-3. **A07** loads `response.md` -- letter voice + resolution status (final authority)
+2. **00 QC** (gates.md check **(e)**)
+3. **07** loads `response.md` -- letter voice + resolution status (final authority)
 
 ## Load order
 
