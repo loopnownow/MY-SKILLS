@@ -1,186 +1,44 @@
-CHG-20261025-vocab-fine-id (2026-10-25)
-`mount` is retired as vocabulary. `registry.yaml` `mounts:` -> `fine_ids:`, `empty_mount` ->
-`empty_fine_ids`, `session_mount` -> `session_fine_id_pick`; row status `MOUNTED` -> `LIVE`, so
-`fine_id_count_canonical` now equals `len(fine_ids)`. `templates/handoff.yaml` `mounted_fine_ids` ->
-`live_fine_ids` and `mount_provenance` -> `fine_id_provenance`. Prose: "mounted pack" -> "live pack",
-"mount decision" -> "fine-id pick", "Mount vs lab" -> "Assistant vs lab"; `mount-review-polish-recipe.md`
--> `fine-id-review-polish-recipe.md` (git mv, every link follows). The generator writes
-`fine_ids/index.html`, so old `mounts/` site links break (accepted). Guards flipped to match:
-`STATUS_TOKENS` guards `LIVE|PROPOSED|ARCHIVED`, and the retired-vocabulary regex drops the obsolete
-`B mount` form. Two scripted passes (phrase table, then capitalised prose + snake_case identifiers);
-each diff line was reviewed, not blind-substituted. Kept verbatim as history: dated ledger entries,
-the `mount_status` frontmatter of two absorbed packs, and the retired `MOUNTED_SKILLS.md` filename.
-Suite 174 -> 174. No push, no merge.
-Earlier: CHG-20261025-qc-dead-pointer-cleanup.
+CHG-20261025-vocab-fine-id (2026-10-25) — `mount` 作废：registry `mounts:`→`fine_ids:`、`empty_mount`→`empty_fine_ids`、`session_mount`→`session_fine_id_pick`、状态 `MOUNTED`→`LIVE`；handoff `mounted_fine_ids`→`live_fine_ids`、`mount_provenance`→`fine_id_provenance`；`mount-review-polish-recipe.md`→`fine-id-review-polish-recipe.md`；`STATUS_TOKENS=LIVE|PROPOSED|ARCHIVED`；套件 174→174。
+CHG-20261025-qc-dead-pointer-cleanup (2026-10-25) — 死指针/测试加固：删 3 个无人引用脚本（跟踪树 481→478）、`simulate-reviewers` 的 nature-shared 标 `external: true`、5 条空断言改实、新增 `PackReferentialIntegrity`；套件 172→174。
+CHG-20261025-seat-coarse-merge-01 (2026-10-25) — 粗 id 即执行席位：`01_skill-integration/` 整体并入 `00_orchestrator/`（无 shim）；`coarse_id_count` 9→5；挂载丢 `coarse` 字段、桶固定 `a_domain`；删 `a_domain_override_policy`；新增 SeatBuckets 4 测试；套件 168→172。
+CHG-20261025-dedupe-ssot-pass (2026-10-25) — 去重：五席 `SKILL.md` 改指 `00_orchestrator/references/base-vs-personal-top-loops.md` + `gates.md`；`radiology-design.md` 只留席位增量；清 49 处 `A <seat path>`（31 文件）与 `[B:humanize]`→`[base:humanize]`；套件 168 OK。
+CHG-20261025-deep-qc-remediation (2026-10-25) — 六批深 QC 整改：复活跨文件段落守卫、disclaimer 收敛 AL-5、修 6 处断链、每 md 只一个 H1、33 个测试文件并为 12 个契约域 + `tests/support.py`、清 A/B 工作区词汇、扫除机构联系方式、283 文件归一 LF；套件 162→168。
+CHG-20261025-merge-04-into-02 (2026-10-25) — `04_analysis` 并入 `02_data-processing`（`04` 退休）：6 个 base 包下移、`personal/**`→`personal/analysis/**`、5 个 qc 页搬迁；门 `G-04`→`G-STATS`（不留别名）；Mermaid 节点 `Need04/P04/GF04/GA04`→`NeedStats/PStats/GFStats/GAStats`；新增 `tests/test_no_retired_seat_04.py`；套件 161 OK。
+CHG-20261025-merge-language-polish-coarse (2026-10-25) — 单成员粗 id `language-polish` 并入 `manuscript-body`，`humanize` 成其第 5 个细 ID；`coarse_id_count` 10→9（细 ID 仍 25）；`coarse_aliases` 双向解析。
+CHG-20261025-absorb-polish-language (2026-10-25) — `05_manuscript/base/polish-language/` 并入 `base/humanize/`（报告式 Intro/Discussion lint 成 `## Language lint` 节）；`polish-language` 转 legacy alias，`nature-polishing`/`polish-latex` 重定向；规范细 ID 25。
+CHG-20261025-absorb-tone-polisher (2026-10-25) — `07_response/base/response-tone-polisher/` 并入 `tighten-response`（立场 SSOT 为 `references/tone-and-stance.md`；tone 模式 `tone-polish`）；`response-tone-polisher` 转别名；`check-reporting` 未动；规范细 ID 26。
+CHG-20261025-absorb-write-venue (2026-10-25) — `05_manuscript/base/write-venue/` 并入 `write-paper`；`write-venue` 转 legacy alias；选刊仍归 `find-journal`；`check-reporting` 未动。
+CHG-20261025-inrepo-index (2026-10-25) — 只认仓内索引：删 registry 源菜单键、非 base 指针文件、根 ignore/attribute/pytest 文件；删 `02_data-processing/personal/workspace.md` 与个人 coding-qc stub，布局改指 `{RULES}/workspace-layout.md`。
+CHG-20261024-registry-thin (2026-10-24) — `01_skill-integration/registry.yaml` 瘦身至活挂载：删 `archived:`(33 行)、`open_decision_points`、pilot/merge/retire_b 长文、`load_priority`、`fine_id_expansion_ceiling`；重定向 5 条孤儿别名链（audit-citations/polish-latex/write-data-statement/analyze-survival/audit-dicom）。
+CHG-20261020-deepscan-fix (2026-10-20) — 深扫 P0/P1 吸收：66 处 B 期旧 id 归一（`04-fig-flow`→`draw-flowchart` 等）、8 处死指针修或重指、pack-cache 字节移 `{DEL}`、删 PROPOSED 声称、裸实验室路径→`{alias}`；新增守卫：裸 `.md` 引用、别名目标、禁裸实验室路径、文档 vs registry、台账新鲜度。
+CHG-20261019-scan-fix-p0-p2 (2026-10-19) — SCAN-REPORT P0/P1/P2：AGENTS 必读改活指针、`local-checks`→`manuscript-local-qc`、Aitor-format 禁用短语、双 guideline-router 交叉链、Integrity pre-06 mid-entry G-CIT、nature-reporting-summary stub、G-07 QUALITY 行、QC 归属头、NOTICE 覆盖 Archify+ARS+00–07。
+CHG-20261019-p1-absorb (2026-10-19) — P1 qc/能力吸收（PR #157）：refs-verified、venue minima/currency、data-code-availability、07 路由、appraisal-tool-route、verify-refs 字段审计、lit-pipeline-router；NOTICE Yuan1z+K-Dense。
+CHG-20261019-integrity-rereview (2026-10-19) — Integrity pre-06（I25）+ R&R lite（I45/P06r）接入 runtime-flow 与 gates（PR #156）；mid-entry `Need06` 仍须跑 G-CIT compose。
+CHG-20261018-batch3-5 (2026-10-18) — QC 批 3–5（`fix/qc-batch3-5`）：A1 归档→0del、缓存→0del、删 `.cursorignore` 的 pack-cache 死项、`review-isolation` 入 workflows README、B2 fill-protocol 原则+路径、D2 双语角色头、F46 归档（勿重建）、4 个回归测试。
+CHG-20261018-batch2 (2026-10-18) — QC 批 2 元数据与旧名（F15–F36）：owner 路径→`NN_slug/base/`、B 连字符路径→下划线 base、退休细 ID→§7 映射、清 `(was B)` 残留、registry 底盘 00–07、`archived.old_path` + `historical: true`。
+CHG-20261018-batch1 (2026-10-18) — QC 批 1 P0 死链（F1–F14，PR #151）：删 `style_lint` 的 pack-cache 回退、修 sci-manuscript 路径、presets C1 改仓内路径、fill-protocol owner、radiomics/venue-templates 活措辞、style-tells→`base/ban-terms.yaml`。
+CHG-20261008-002 (2026-10-08) — find-journal v1.18：相似文献检查移到第 2 轮（第 1 轮只按既有标准排序、不检索）；第 2 轮对每个候选查近 3–5 年相似文献，无则降层；必须引用真实文献（题名/年/DOI），检索失败 ≠ 无命中。
+CHG-20261008-001 (2026-10-08) — find-journal v1.17：候选刊逐个查近 3–5 年相似文献并在匹配理由中引用；无则降层并写「近年无相似文献 — 降层」；`docs/` 可视化 HTML 重生成；`history/` 按史证处理。
+CHG-20261007-010 (2026-10-07) — 批 D/E：身份四元组 + A 包例外（find-journal/fill-protocol）；`path_shared` 按组进生成菜单；手写 52 细 ID 定为 registry 上限；自动发现限 00–06 + skill-harvest；本机实测 41 MOUNTED、17 个 A 层 SKILL.md。
+CHG-20261007-009 (2026-10-07) — P2-1 + 批 C：0script 活目录用英文 slug；6 个 MOUNTED 细 ID 由 P1 降 P2（manage-refs/lit-sync/scientific-visualization/audit-figure-risk/response-tone-polisher/tighten-response）；规范 52 不变；`MOUNTED_SKILLS` 按 `load_priority` 分组。
+CHG-20261007-008 (2026-10-07) — 架构 SSOT 去重（批 B）：根 `ARCHITECTURE.md` 留层/挂载/实验室落点/上限/A-B，`ARCHITECTURE.md` 留意图表、Final QC/交接、归属措辞与短前言；删重复的 A/B、上限、Cache≠Mount、`load_priority`、长挂载步骤表；新增 ArchitectureSsot 的 meta-vs-root 职责检查。
+CHG-20261007-007 (2026-10-07) — 终清批（主人批准）：**不写回退，明确报错**。`paths.py` 删 `0preparing`/lab-pipeline 阶段回退；`console.py` 的 `resolve_modules_dir` 必须有 `ref/settings.ini` 的 `MODULES_DIR`（无 RAD_MODULES/默认 gold）；`__init__.py`/writeback 对非法值抛错；`ini_io` 删 `default_preparing_root`；`project.html` 与 shim 不再偷换 MODULES_DIR 而是报错；`sync_modules`/`batch_rerun`/`smoke_test`/`tidy_paths`/`compare_val_modes` 只用当前阶段根；旧痕迹 park 到 `0del\english_cleanup2_20261007`。
+CHG-20261007-006 (2026-10-07) — 英文命名后清理：活技能文本删退休 id/路径（pack-cache Nature 旧 id、lab-pipeline-workspace 归档指针、ARCHITECTURE rehome 注）；盘上 `0script` README/SCRIPT_ROLES 删归档与 former 注；`u_QC.py`→`u_qc.py`（含 import）；`console_api.js` 的 MODULES_DIR 回退改明确报错（主人批准）；`My rule.md` 增「不写回退」与 QC-trace 规则。
+CHG-20261007-005 (2026-10-07) — R2c 0script 改名：`make-figures`→`draw-flowchart`、`docx_revise`→`review-response/revise`、`clean-data/clinical-extraction`→`data-processing/clinical-data-extraction`、`sync/project_shim`→`project-shim`；`tidy_yt`→`tidy_yt_rdl`、`fill_cln_from_xue`→`fill_cln_from_supplement`、`setup_clin_only`→`setup_cln_only`；技能指针与 0doc 文档同步；modules 未动。
+CHG-20261007-004 (2026-10-07) — R2b 0doc 英文化：约 15 个中文子夹 + 约 50 个索引/辅助文件改英文 kebab（`revision-history`、`_index`、`_templates`、`02-flattened`、`source/text` + journal/grant/thesis-review、`lab-ste spec.html` 等）；`ethics`→`ethics` 仅限 06（不开放 PHI）；`07-ethics` 跳过。
+CHG-20261007-003 (2026-10-07) — R2a 英文细 ID：改名 12 个（`ma-scout`→`scout-meta-analysis`、`pydicom`→`audit-dicom`、`scikit-survival`→`analyze-survival`、`make-figures`→`draw-flowchart`、`fig-plot`→`plot-figures`、`nature-*` 系列 →`audit-citations`/`write-data-statement`/`check-grant-proposal`/`polish-latex`/`audit-figure-risk`/`simulate-reviewers`/`tighten-response`），均留 `legacy_aliases`；粗 `peer-review`→`manuscript-review`；A 包 `ethics-application-forms`→`fill-protocol`、`medical-journal-submit`→`find-journal`。
+CHG-20261007-002 (2026-10-07) — 0doc 顶层档案改英文 kebab + 数字前缀（`00-inbox`/`01-thesis`/`02-manuscripts`/`03-review-replies`/`04-lab-reference`/`05-grants`/`06-review-corpus`/`07-ethics`）；`04-lab-reference` 内 `研究设计`→`study-design`；README/MIGRATE 与技能指针更新；细 ID 轮次延后。
+CHG-20261007-001 (2026-10-07) — 粗层 id 改英文 slug（中文留 label，`legacy_aliases.coarse_aliases` 映射旧中文）；0script 粗夹同步改名（data-processing/stats-analysis/figures/study-design/manuscript-body）；`modules` 移入 `stats-analysis/modules`；未用的 `archive`/`ethics_index` 移 `0del`；细 ID 与脚本文件名不变。
+CHG-20261006-003 (2026-10-06) — 05/06/03 技能指针指向 `D:\0Grok\0doc` 的 review/grant/ethics/manuscript 夹；伦理长文外置到 `fill-protocol\jinshan-form-pack.md`（0doc 语料只留指针）。
+CHG-20261006-002 (2026-10-06) — 0script 按 MY-SKILLS 粗/细 ID 重组（数据处理/统计分析/图表呈现/研究设计/正文写作 + `_templates`）；10 个仓内脚本复制进 0script 并从仓删除；`SCRIPT_ROLES.md` 增细 ID→路径表；`modules`/`sync`/`docx_revise`/`archive` 未动。
+CHG-20261006-001 (2026-10-06) — `D:\0Grok\0scripts` 改名 `D:\0Grok\0script`；活技能路径指针跟进，带日期的历史行保留旧名。
+CHG-20261003-003 (2026-10-03) — 回顾性固定 N 不做过功效（Hoenig & Heisey 2001）：四选一 —— 事前功效、EPV 10–15 / Riley `pmsampsize`、80% 功效下 MDES、CI 半宽；不得由已得 p 值反算 observed power。
+CHG-20261003-002 (2026-10-03) — Lab-STE 指针 + 可复用规则入 05/06（盘上 SSOT `04_实验室参考\lab-ste\`）；中稿表面标注五槽 CM-01；未 vendor 词表/工具；不属 Gate；既有 Compared/attenuated/Methods-passive/set/Aitee 规则不变。
+CHG-20261003-001 (2026-10-03) — SCI 措辞：比较词优先用 Compared（保留 `relative CBF`/`relCBF` 指标名）；禁 `attenuated`（改 reduced/lower/decreased），`attenuation` 作影像名词保留。
 
-CHG-20261025-qc-dead-pointer-cleanup (2026-10-25)
-Dead-pointer and test-hardening pass. Deleted three scripts nothing cited (`plot-figures/scripts/plot_template.py`,
-`plot-figures/scripts/style_configurator.py`, `visualization/scripts/gen_repo_map.py`); bytes quarantined
-outside the repo, tracked tree 481 -> 478. Three "orphan" reference docs turned out to be cited from
-`0doc`, so they stay and are now registered in `03_research/personal/route.md`. `tighten-response/MODULE.md`
-gains `## Worked examples` over its three synthetic cases; `simulate-reviewers/manifest.yaml` marks the
-`nature-shared` sweep `external: true` instead of leaving a pointer that does not resolve. Five vacuous or
-half-guarded assertions became real ones (`test_lab_paths` splits into key-format + skip-guarded existence,
-`test_seat_packs` pins the 00-07 bound and the live-`0result` ban, `test_frontmatter` drops a commented
-ghost row), and `test_repo_hygiene` gains `PackReferentialIntegrity` so an uncited pack script or example
-fails instead of rotting. Docs: README test command carries `-B`; the INTEGRATION_MAP header no longer
-claims an empty roll. Suite 172 -> 174. No push, no merge.
-Earlier: CHG-20261025-seat-coarse-merge-01.
-
-CHG-20261025-seat-coarse-merge-01 (2026-10-25)
-Coarse ids are now the execution seats, and the 01 index seat is gone. registry.yaml,
-legacy_aliases.yaml, six references and all five workflow SOPs + README moved from
-`01_skill-integration/` into `00_orchestrator/` with git history — no shim, no second tree.
-`coarse_id_count` 9 -> 5 (02_data-processing, 03_research, 05_manuscript, 06_review,
-07_response); every mount dropped its `coarse` field, so the bucket is `a_domain` and a row
-cannot sit in a bucket its owner does not serve. `a_domain_override_policy` is deleted:
-find-journal and grant-builder are plain 03_research, and the "(override)" note wording is
-gone. `coarse_aliases` keeps all 9 retired bucket ids plus the legacy labels, each pointing
-at a seat. One duplicate pointer (`references/base-vs-personal-top-loops.md`) was retired
-instead of migrated; the same file already lived in 00. Guards flipped: SOP home is
-00_orchestrator/workflows, and a second SOP tree under 01 or 03 fails. New SeatBuckets
-contract (4 tests) pins the five seats, the absence of `coarse`, a_domain membership and
-owner-dir agreement. Suite 168 -> 172. No push, no merge.
-Earlier: CHG-20261025-dedupe-ssot-pass.
-
-
-CHG-20261025-dedupe-ssot-pass (2026-10-25)
-Duplication pass. The five seat `SKILL.md` layer models stopped pasting the QC-standards
-sentence and now carry one ~152-char pointer to
-`00_orchestrator/references/base-vs-personal-top-loops.md` plus `gates.md`;
-`03_research/personal/radiology-design.md` stopped restating the `design-study` workflow
-(8 steps) and output contract (7 items) that `base/design-study/MODULE.md` already owns,
-keeping only its two seat deltas. Finished the A/B purge the last pass missed: 49
-`A <seat path>` prefixes (31 files) and `[B:humanize]` → `[base:humanize]`. Former ids
-`radiomics-ml` / `architecture-zoo` now resolve at call sites to `analyze-stats` /
-`design-study`; the alias notes stay where they document the retirement. The citation-verify
-sentence stays verbatim in 8 files because `tests/test_seat_packs.py` pins it. Measured
-after: 4 cross-file paragraph groups ≥120 chars, none ≥200; `A <seat>` 0. Suite 168 OK.
-Earlier: CHG-20261025-deep-qc-remediation.
-
-
-CHG-20261025-deep-qc-remediation (2026-10-25)
-Six-batch remediation after the deep QC pass: revived the dead cross-file paragraph
-guard and deduped the disclaimer standard to AL-5; fixed six broken relative
-pointers, gave every markdown file one H1, escaped table pipes; merged the 33-file
-suite into 12 contract-domain modules with `tests/support.py` (162 assertions kept,
-none dropped); closed index/contract drift (qc READMEs, 03 route index,
-ownership-contract dedupe, registry `change_id` = newest ledger entry); purged
-retired A/B workspace vocabulary (seat ids, Work-A/B, `A base/`, `[A:...]` tags)
-while `Voice A/B` and comment author `A` stay; scrubbed institutional contact data
-and guarded it; added `.gitignore`/`.gitattributes` and normalized 283 files to LF
-with no trailing whitespace. New guards: single H1, qc README↔dir, route index,
-retired A/B vocabulary, contact data, LF/trailing whitespace. Suite 162 → 168.
-
-
-CHG-20261025-merge-04-into-02 (2026-10-25)
-Merged `04_analysis` into `02_data-processing`; one top-level analysis skill remains (`02`), `04` is retired. Six base packs (`analyze-stats`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) now live under `02_data-processing/base/`; `04_analysis/personal/**` became `02_data-processing/personal/analysis/**` with the visualization pack at `02_data-processing/personal/visualization/` (keeps `scripts/` inside the five-part path ceiling and keeps the script's repo-root hop unchanged); five `04_analysis/qc/*.md` moved to `02_data-processing/qc/`. Gate `G-04` renamed **`G-STATS`** (no alias kept). Mermaid node ids `Need04`/`P04`/`GF04`/`GA04` → `NeedStats`/`PStats`/`GFStats`/`GAStats`; seat tokens `04` collapse into `02`. `legacy_aliases.yaml` keeps the retired call-site keys. New guard test `tests/test_no_retired_seat_04.py`. Run: python -m unittest discover -s tests (161 OK).
-Earlier: CHG-20261025-merge-language-polish-coarse.
-
-CHG-20261025-merge-language-polish-coarse (2026-10-25)
-Merged the single-member coarse `language-polish` into `manuscript-body`; `humanize` is now its fifth fine id. Both groups already shared specialist Aitee and default a_domain 05_manuscript, so session-pick grouping and routing are otherwise unchanged. Coarse id count 10 → 9 (fine ids stay 25). `legacy_aliases.yaml` `coarse_aliases`: label `Language polish` and id `language-polish` both resolve to `manuscript-body`. Earlier: CHG-20261025-absorb-polish-language.
-
-CHG-20261025-absorb-polish-language (2026-10-25)
-Absorbed `05_manuscript/base/polish-language/` into `05_manuscript/base/humanize/` (humanize wins; the report-only Intro/Discussion lint is now the `## Language lint` section of humanize `MODULE.md`). Kept `references/stat-reporting.md` (house-style authority stays `write-paper/radiology-polishing/radiology-house-style.md`) and `references/style-guardrails.md`; the source `MODULE.md` and pointer `SKILL.md` went with the directory. Retired id `polish-language` is a legacy alias to `humanize`; `nature-polishing` and `polish-latex` retargeted. Canonical fine-id count is 25. Follow-ups in this change: three mangled em dashes restored in `vocab/L1/patterns.md`; the five unshipped detectors recorded in humanize `MODULE.md` as deliberately not vendored. Earlier: CHG-20261025-absorb-tone-polisher.
-
-CHG-20261025-absorb-tone-polisher (2026-10-25)
-Absorbed `07_response/base/response-tone-polisher/` into `tighten-response` (tighten-response wins; stance SSOT is `references/tone-and-stance.md`). Tone-only polish is on-demand mode `tone-polish`. Assets: `references/tone_patterns.md`, `references/polite_expressions.json`, `scripts/tone_polish_main.py`. Retired id `response-tone-polisher` is a legacy alias to `tighten-response`. Point-by-point structure stays `revise`. Journal selection stays in 03. `check-reporting` was not moved. Canonical fine-id count is 26.
-Earlier: CHG-20261025-absorb-write-venue.
-
-CHG-20261025-absorb-write-venue (2026-10-25)
-Absorbed `05_manuscript/base/write-venue/` into `write-paper` (write-paper wins). Venue house style and article shape are in-skill on `write-paper`. Retired id `write-venue` is a legacy alias to `write-paper`. 选刊 stays in `find-journal`. `check-reporting` was not moved.
-Earlier: CHG-20261025-inrepo-index.
-
-CHG-20261025-inrepo-index (2026-10-25)
-In-repo index only. Dropped the source-menu keys from registry.yaml, the non-base pointer file, and root ignore/attribute/pytest files. Seat docs and the visualization scripts no longer describe an external catalog, a pack cache, or a retired folder nickname. `02_data-processing/personal/workspace.md` and the personal coding-qc stub are deleted; folder layout points at `{RULES}/workspace-layout.md`. Tests that only pinned those concepts were rewritten or dropped. Run: python -m unittest discover -s tests.
-Earlier: CHG-20261024-registry-thin.
-
-CHG-20261024-registry-thin (2026-10-24)
-t1123: thin 01_skill-integration/registry.yaml to live mounts only — drop archived: (33 rows), open_decision_points, pilot/merge/retire_b meta essays, load_priority on mounts, fine_id_expansion_ceiling. Keep meta.change_id + fine_id_count_canonical + coarse_id_count, in-repo-index, session_*, empty_mount, catalog-policy, a_domain_override_policy, coarse_ids, 27 MOUNTED mounts, local_packs. Retarget 5 orphan alias chains (audit-citations/polish-latex/write-data-statement/analyze-survival/audit-dicom) to live successors in legacy_aliases.yaml. Tests follow deletes. Sync `{SKILLS}` whitelist after merge.
-Earlier: CHG-20261020-deepscan-fix.
-
-CHG-20261020-deepscan-fix (2026-10-20)
-Deep scan P0/P1 absorb: 66 B-era id cites → canonical (04-fig-flow→draw-flowchart, 04-fig-plot→plot-figures, 04-stats-models→meta-analysis, 02-tables→clean-data, 02-imaging-io→imaging-io, 02-imaging-qc→preprocess-imaging, 02-radiomics-habitat→analyze-stats, 04-stats-power→calc-sample-size, 03-lit-fulltext→lit-search, 03-lit-cite→verify-refs); 8 dead pointers fixed or re-pointed (vocab/L2/preferred.md §1c, report-checks Part A, journal-family-writing-style.md, 06 review §0, vocab/L1/patterns.md Tier 1, retraction-watcher references, manuscript-style-classical dropped); pack-cache bytes moved to {DEL} and 4 narratives unified; PROPOSED claims removed (README/ARCHITECTURE); 01 SKILL A-local-pack exception; Aitor-format owner; raw lab paths → {alias}; tests: PATH_UNIT_ALIAS_KEYS emptied + new guards (bare .md cites, alias targets, no raw lab paths, docs vs registry, ledger freshness) + runtime-tree safe (owner_fields / pre_submit). Sync `{SKILLS}` whitelist after merge.
-Earlier: CHG-20261019-scan-fix-p0-p2.
-
-CHG-20261019-scan-fix-p0-p2 (2026-10-19)
-SCAN-REPORT P0/P1/P2: AGENTS required-reads (live pointer); local-checks→manuscript-local-qc; Aitor-format ban-phrases; dual guideline-router cross-link; Integrity pre-06 mid-entry G-CIT; nature-reporting-summary stub; G-07 QUALITY row; QC ownership headers; references/ path cites + shrink ALLOW_MISSING; NOTICE Archify+ARS+00–07; mmd LayerBase; CHG map for Integrity/P0/P1 same-day merges. Sync `{SKILLS}` whitelist after merge.
-Earlier: see CHG-20261019-p1-absorb / integrity blocks in INTEGRATION_MAP.md and CHG-20261018-batch3-5 below.
-
-CHG-20261019-p1-absorb (2026-10-19)
-P1 qc/capability absorb (PR #157): refs-verified, venue minima/currency, data-code-availability, 07 routing, appraisal-tool-route, verify-refs field audit, lit-pipeline-router. NOTICE Yuan1z+K-Dense.
-Earlier: CHG-20261019-integrity / P0 absorb on map; CHG-20261018-batch3-5.
-
-CHG-20261019-integrity-rereview (2026-10-19)
-Integrity · pre-06 (I25) + R&R lite (I45/P06r) on runtime-flow + gates (PR #156). Mid-entry Need06 must still run G-CIT compose.
-Earlier: CHG-20261018-batch3-5.
-
-CHG-20261018-batch3-5 (2026-10-18)
-QC Batches 3–5 on fix/qc-batch3-5: A1 archive→0del history; caches→0del; .cursorignore pack-cache dead entry removed; review-isolation in workflows README; B2 fill-protocol MODULE principles+paths; D2 bilingual role split headers; F46 archived — do not recreate; dated snapshot notes; four regression tests. Do not sync .grok/skills.
-Earlier: see CHG-20261018-batch2 and prior blocks below.
-
-CHG-20261018-batch2 (2026-10-18)
-QC Batch 2 metadata + old names (F15–F36): owner paths → NN_slug/base/; hyphen B paths → underscore/base; retired fine-ids → §7 map; clear (was B) residue; registry chassis 00–07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1); README layout + 07; tests tighten. Not A1 archive move / not full B2 fill trim / not D2 merge.
-Earlier: see CHG-20261008-002 and prior blocks below.
-
-CHG-20261018-batch1 (2026-10-18)
-QC Batch 1 P0 dead links (F1–F14) via PR #151: style_lint pack-cache fallback removed; sci-manuscript path fixes; presets C1 in-repo paths; fill-protocol owners; radiomics/venue-templates live wording; style-tells → base ban-terms.yaml.
-Earlier: CHG-20261008-002.
-CHG-20261008-002 (2026-10-08)
-find-journal v1.18: similar-article check moves to round 2 of journal selection. Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link); never invent; a failed search is not a no-hit. Canonical text in SKILL.md; pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md.
-Earlier: CHG-20261008-001, CHG-20261007-010.
-CHG-20261008-001 (2026-10-08)
-find-journal v1.17: user rule 2026-10-08 similar-article check. For each candidate journal, search the last 3–5 years for articles similar to the manuscript title; cite found articles (title, year, DOI/link) in match rationale; none found → lower its tier and write 「no similar articles in recent years — demoted」; never invent articles; a failed search is not a no-hit. Canonical text in SKILL.md; one-line pointers in rules/policy.md, rules/recommendation-workflow.md, AGENTS.md. Regenerated docs/ visualization HTML (was stale after #126). repo_qc treats history/ as historical; history archive link repointed (broken since #124 roll).
-Earlier: CHG-20261007-010, CHG-20261007-009.
-CHG-20261007-010 (2026-10-07)
-Batch D/E: identity four-tuple + A pack exceptions (find-journal / fill-protocol); path_shared grouped in generated menus; handwritten 52-fine restated as registry ceiling; auto-discovery limited to 00–06 + skill-harvest (.cursorignore pack-cache/). Measured this PC: 41 MOUNTED, 17 A-layer SKILL.md, 60 pack-cache SKILL.md ads. Do not sync .grok/skills until user merges.
-Earlier: CHG-20261007-009, CHG-20261007-008.
-CHG-20261007-009 (2026-10-07)
-P2-1 + batch C: keep-vs-skip live 0script folders use English slugs; six MOUNTED fine ids drop P1→P2 (manage-refs, lit-sync, scientific-visualization, audit-figure-risk, response-tone-polisher, tighten-response). Canonical 52 unchanged. MOUNTED_SKILLS grouped by load_priority. Do not sync .grok/skills until user merges.
-Earlier: CHG-20261007-008, CHG-20261007-007.
-CHG-20261007-008 (2026-10-07)
-Architecture SSOT dedupe (batch B): root ARCHITECTURE.md keeps layers/mounts/lab homes/ceiling/A/B; ARCHITECTURE.md keeps intent tables, Final QC/handoff, ownership phrases, and a short agree-with-root preamble — removes duplicated A/B, ceiling, Cache≠Mount, load_priority, and long mount-step tables. ArchitectureSsot tests add meta-vs-root duty checks. Do not sync .grok/skills until user merges.
-Earlier: CHG-20261007-007, CHG-20261007-006.
-CHG-20261007-007 (2026-10-07)
-Final cleanup batch (user-approved): no fallback paths, clear errors instead. modules (disk, no git): paths.py drops the 0preparing/lab-pipeline stage fallback; console.py resolve_modules_dir needs MODULES_DIR in ref/settings.ini (no RAD_MODULES/gold default); __init__.py and writeback raise on invalid MODULES_DIR; ini_io drops default_preparing_root; project.html + project-shim console.html stop swapping a saved MODULES_DIR and show an error when it is empty. sync_modules/batch_rerun/smoke_test, tidy_paths and compare_val_modes use current stage roots only and raise on missing/duplicate projects. Retired traces parked in 0del\english_cleanup2_20261007 (migrate_legacy_to_0del.ps1, 0doc 03-rollback.ps1, stale __pycache__, console.override.json, empty lab-pipeline memory). Skills: lab-pipeline-workspace PYTHONPATH=0script\stats-analysis + MODULES_DIR rule; Aitor-format voice refs repointed to live docx. Do not sync .grok/skills.
-Earlier: CHG-20261007-006, CHG-20261007-005.
-CHG-20261007-006 (2026-10-07)
-Cleanup after English naming: live skill text drops retired ids/paths (pack-cache Nature ids, lab-pipeline-workspace archive pointers, ARCHITECTURE rehome note). Disk (no git): 0script README/SCRIPT_ROLES/sub-READMEs drop archive and former… notes; 0doc pointers to fill-protocol; modules u_QC.py→u_qc.py (+imports) and console_api.js MODULES_DIR fallback → clear error (user-approved); My rule.md adds no-fallback and QC-trace rules; .grok memory repointed. legacy_aliases and dated history kept. Do not sync .grok/skills.
-Earlier: CHG-20261007-005, CHG-20261007-004.
-CHG-20261007-005 (2026-10-07)
-R2c 0script: make-figures→draw-flowchart, docx_revise→review-response/revise, clean-data/clinical-extraction→data-processing/clinical-data-extraction, sync/project_shim→project-shim; tidy_yt→tidy_yt_rdl, fill_cln_from_xue→fill_cln_from_supplement, setup_clin_only→setup_cln_only (+ optional one-offs). Skill pointers + 0script/0doc docs + My rule.md updated. modules untouched. Do not sync .grok/skills.
-Earlier: CHG-20261007-004, CHG-20261007-003.
-CHG-20261007-004 (2026-10-07)
-R2b 0doc: English kebab rename for ~15 Chinese subfolders + ~50 index/helper files under D:\0Grok\0doc (revision-history, _index, _templates, 02-flattened, source/text + journal-review/grant-review/thesis-review/projects, lab-ste spec.html); ethics→ethics under 06 only (no PHI open); 07-ethics skipped. Skill pointers updated. 0script/My rule = R2c. Do not sync .grok/skills.
-Earlier: CHG-20261007-003, CHG-20261007-002.
-CHG-20261007-003 (2026-10-07)
-R2a English fine ids: rename 12 fine ids (ma-scout→scout-meta-analysis, pydicom→audit-dicom, scikit-survival→analyze-survival, make-figures→draw-flowchart, fig-plot→plot-figures, nature-academic-search→audit-citations, nature-data→write-data-statement, nature-proposal-writer→check-grant-proposal, nature-polishing→polish-latex, nature-figure→audit-figure-risk, nature-reviewer→simulate-reviewers, nature-response→tighten-response) with legacy_aliases; coarse peer-review→manuscript-review (label Manuscript review; fine peer-review unchanged); A packs ethics-application-forms→fill-protocol, medical-journal-submit→find-journal. 0script/0doc path keys deferred (R2b/R2c). Do not sync .grok/skills.
-Earlier: CHG-20261007-002, CHG-20261007-001.
-CHG-20261007-002 (2026-10-07)
-0doc top-level archives renamed to English kebab with numeric prefix (00-inbox, 01-thesis, 02-manuscripts, 03-review-replies, 04-lab-reference, 05-grants, 06-review-corpus, 07-ethics); inside 04-lab-reference, 研究设计 → study-design. README/MIGRATE and skill pointers updated. Fine-ID round deferred. 0doc top-level archives Englishized; fine-ID round deferred.
-Earlier: CHG-20261007-001, CHG-20261006-003.
-CHG-20261007-001 (2026-10-07)
-English coarse-layer ids (kebab): registry coarse id = English slug; Chinese kept as label; legacy_aliases.coarse_aliases maps old Chinese ids. 0script coarse folders renamed to match (data-processing/stats-analysis/figures/study-design/manuscript-body); modules moved under stats-analysis/modules; unused archive/ethics_index retired to 0del. Fine ids and script filenames unchanged. 0doc top-level archives deferred (phase 2).
-Earlier: CHG-20261006-003, CHG-20261006-002.
-CHG-20261006-003 (2026-10-06)
-Point 05/06/03 skills at D:\0Grok\0doc review, grant, ethics, and manuscript folders. The ethics long text now lives at D:\0Grok\0doc\04_实验室参考\研究设计\fill-protocol\jinshan-form-pack.md (pointer only). 0doc corpus keeps pointers only. Ethics long text externalized.
-Earlier: CHG-20261006-002, CHG-20261006-001.
-CHG-20261006-002 (2026-10-06)
-0script reorganized by MY-SKILLS coarse/fine id (数据处理/统计分析/图表呈现/研究设计/正文写作 + _templates); 10 MY-SKILLS scripts copied into 0script and removed from the repo; skill pointers repointed to D:\0Grok\0script\...; SCRIPT_ROLES.md gains a fine-ID → path table. modules/sync/docx_revise/archive unchanged. Global script library reorganized by skill; scripts externalized; skills keep pointers only.
-Earlier: CHG-20261006-001, CHG-20261003-003.
-CHG-20261006-001 (2026-10-06)
-Lab runnable-code folder renamed D:\0Grok\0scripts → D:\0Grok\0script; live skill path pointers follow. Dated history lines keep the old name. Global script library renamed 0script; historical entries keep old name.
-Earlier: CHG-20261003-003, CHG-20261003-002.
-CHG-20261003-003 (2026-10-03)
-Retrospective fixed N stays in 04 sample-size (calc-sample-size / Loopnow): no post-hoc / observed power from the obtained p (Hoenig & Heisey 2001). Four approaches: pre-study power, EPV 10–15 / Riley pmsampsize, MDES at 80% power, or CI half-width. Retrospective fixed N: do not compute observed power.
-Earlier: CHG-20261003-002, CHG-20261003-001.
-CHG-20261003-002 (2026-10-03)
-Lab-STE pointer + reusable rules into 05/06 (disk SSOT D:\0Grok\0doc\04_实验室参考\lab-ste\). Chinese manuscript-surface annotation five-slot CM-01. No lexicon/tools vendored; not Gate. Standing Compared/attenuated/Methods-passive/set/Aitee rules unchanged.
-Earlier: CHG-20261003-001, CHG-20260929-006.
-CHG-20261003-001 (2026-10-03)
-SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF / relCBF metric names). Ban attenuated (use reduced / lower / decreased); attenuation (imaging noun) stays. Prefer Compared as comparison word; ban attenuated.
-Earlier: CHG-20260929-006, CHG-20260929-005.
-
-Policy: VERSION.txt keeps recent Oct-2026 blocks (CHG-202610*). Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first), INTEGRATION_MAP.archive.md, and D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\ (monthly INTEGRATION_MAP-YYYYMMDD.md under MY-SKILLS_history/ / grok_history/).
+Policy: VERSION.txt 保留 2026-10 近期块（CHG-202610*）。2026-10-25 起每条一行：保留 change_id + 日期 + 一句摘要（数字/路径/ID 尽量留），长解释已压缩；压缩前 184 行长版备份在 `D:\0del\_by-function\0doc-qc-20261025\VERSION.txt.orig-20261025`。更早与未列 CHG 见 INTEGRATION_MAP.md（新→旧）、INTEGRATION_MAP.archive.md，以及 `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\`（MY-SKILLS_history/ 与 grok_history/ 下的月度 INTEGRATION_MAP-YYYYMMDD.md）。
 
 Note (2026-10-25): VERSION.txt and INTEGRATION_MAP.md are two layers of one ledger (one-line release summary here, structured detail there). tests/test_ledger_assurance.py requires the registry change_id in both, so overlap is intended; do not collapse either file.
+
+
+
