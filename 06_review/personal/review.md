@@ -5,7 +5,7 @@
 
 ## Part A — English peer-review envelope
 
-# Personal peer-review style (English peer review)
+## Personal peer-review style (English peer review)
 
 Source: 2014–2026 self-authored journal-review full-text corpus, 57 deduplicated files. Keep structure, tone, and high-frequency attack points only — do not ingest others' unpublished titles, data, ethics IDs, or patient identifiers.
 
@@ -26,7 +26,7 @@ Early Chinese review forms can be blunt («并无新意» / «选择偏倚» / �
 
 **Corpus harvest (2026-10-23):** checklist themes in `personal/references/corpus-review-habits.md` (methods / consistency / overclaim). Envelope rules in this file win on conflict.
 
-## 0. Comments and conflicts (lab hard rules)
+### 0. Comments and conflicts (lab hard rules)
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
@@ -46,7 +46,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 ---
 
 
-## 0.1 Opinion-item localization (hard rules)
+### 0.1 Opinion-item localization (hard rules)
 
 - Every Major / Minor **body**: `Lines n–m:` (or figure/table/section locus) + what is wrong + Please how to fix.
 - **Prefer:** Proof/manuscript line numbers, e.g. `Lines 76–79:` / `Line 216:`.
@@ -57,7 +57,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - **When the locus is uncertain:** do not invent precise line numbers. In the Word **comment**, state why it is uncertain + suggested locator + suggested revision; comment **author field = A**. After the user confirms, change only that item in the review **envelope**. Do not Track-Change the manuscript body here (see ownership-contract).
 - If the user pastes a source sentence: align line numbers on Proof/plain first, then write into the matching chapter; do not spawn a new review docx.
 
-## 1. Era layering (picks the envelope; does not import Chinese bluntness into English)
+### 1. Era layering (picks the envelope; does not import Chinese bluntness into English)
 
 | Approx. years | Form | How English peer review uses it |
 |---|---|---|
@@ -69,7 +69,7 @@ Do not put Accept / Reject / Major revision scores in the body; scores go in int
 
 ---
 
-## 2. Default envelope (2024–2026)
+### 2. Default envelope (2024–2026)
 
 Issue items by the owner's eight-chapter template. Inside each chapter: **Major Issues** first, then **Minor Issues**. Major = can change conclusions / reproducibility / ethics / data consistency; Minor = wording, format, legend completion.
 
@@ -115,7 +115,7 @@ Add a `Major Comments` line when needed. Do not write a 25-item questionnaire (u
 
 ---
 
-## 3. Opening (2–4 sentences)
+### 3. Opening (2–4 sentences)
 
 Name the design + clinical question → overall value or not → but methods still have a catch. Avoid empty praise (*interesting*).
 
@@ -140,27 +140,27 @@ Do not put Accept/Reject in the Opening.
 
 ---
 
-## 4. Chapter review focus (template) and high-frequency attack points
+### 4. Chapter review focus (template) and high-frequency attack points
 
 Scan by chapter when writing; write what applies, skip the rest. English = polite imperatives.
 
-### 4.1 Title
+#### 4.1 Title
 **Focus:** accurately reflects core content and study type (RCT / cohort / diagnostic / prediction model).
 - Major: title mismatches body; temporal split labeled as external validation.
 - Minor: fluff words; abbreviation not expanded.
 
-### 4.2 Abstract
+#### 4.2 Abstract
 **Focus:** complete structure; objective/methods/key numbers (OR/HR, 95% CI, *P*) and conclusion match the body.
 - Major: hides low specificity; missing 95% CI; numbers disagree with the body. (~10 hits)
 - Minor: word count; first-use expansion of abbreviations.
 
-### 4.3 Introduction
+#### 4.3 Introduction
 **Focus:** background leads to a gap; hypothesis and aim are clear.
 - Major: last paragraph lacks a clear hypothesis. (~5 hits) `Please clearly state the research hypothesis in the last paragraph of the Introduction.`
 - Minor: background too long; citation stacking (pre-review: do not delete real refs; note over-quota only).
 - Minor: opening paragraph has citable evidence but 0 refs; two consecutive sentences cite the same paper with no new claim. See §4.9. Aim paragraph still takes no citations.
 
-### 4.4 Methods
+#### 4.4 Methods
 **Focus:** design matches the question; controls sensible; sample-size rationale; inclusion/exclusion tight; tech/sequence/software versions reproducible; IRB/consent/registration.
 - Major (high frequency):
   - ROI / segmentation reproducibility (~23)
@@ -174,18 +174,18 @@ Scan by chapter when writing; write what applies, skip the rest. English = polit
 - Major: inclusion cutoff contradicts the enrolled group's median, Q1, or minimum; IQR outside the scale range. Comment only; do not change numbers.
 - Major: empty search string, or scan parameters still placeholders. See §4.9.
 
-### 4.5 Results
+#### 4.5 Results
 **Focus:** stats match distributions; body matches figures/tables; no selective reporting; no over-reading non-significant results.
 - Major: overfitting (near-perfect train, drop on test, ~13); no comparison to conventional/clinical models (DeLong, calibration, DCA, ~15); p disagrees with tables.
 - Major: *t*/*F*/*z* cannot meet the named voxel or cluster threshold; correlation *r* and *P* imply an *n* that disagrees with the analysis *n*; many ROI correlations without multiple-comparison control; relative metrics without a defined denominator. Flag contradictions only; do not invent numbers. See §4.9.
 - Minor: table notes omit Mean±SD / Median(IQR).
 
-### 4.6 Discussion
+#### 4.6 Discussion
 **Focus:** conclusions supported by data; no correlation-as-causation; compared with prior work; limitations stated objectively.
 - Major: limitations unclear (~24); causal wording vs retrospective design (~8).
 - Minor: loose structure; repeats Results.
 
-### 4.7 References
+#### 4.7 References
 **Focus:** representative; key literature from last 2–3 years; format; no duplicate entries.
 - Major: 同一 DOI / same title twice → Major: merge numbers or swap the reference; when swapping, **do not** copy numbers unique to the old paper (case counts, AUC, …) onto the new one.
 - Major: citation verify failed → comment with the **dual-track plan** (below); 00 QC decides whether to call `03_research`; do not invent PMIDs.
@@ -198,7 +198,7 @@ Scan by chapter when writing; write what applies, skip the rest. English = polit
 2. **Keep-the-prose plan:** hand off to 03 to find a replacement that supports the current sentence (real PMID/DOI).  
 Whether 03 is actually called → **00 decides at QC**; if unsure, ask the user one question. The replacement carries only that paper's real info; old-paper numbers do not migrate.
 
-### 4.8 Figures & Tables
+#### 4.8 Figures & Tables
 **Focus:** self-explanatory; consistent with body; resolution, scale bar, legends, stats symbols.
 - Major: figure count disagrees with body; Figure 1 has no inclusion box yet claims STROBE flow.
 - Minor: missing scale bar; Table 1 omits Mean±SD / Median(IQR).
@@ -215,7 +215,7 @@ Reusable short lines (placeholders; no unpublished numbers):
 - `Please discuss how the model would be used in practice.`
 - `The authors should more clearly justify the clinical utility given the modest discriminative performance.`
 
-### 4.9 Pre-submit consistency requests
+#### 4.9 Pre-submit consistency requests
 
 Chapter scans above point here. Full check ids: `05_manuscript/qc/manuscript-local-qc.md`. Run order and sister-paper rules: `06_review/qc/cross-manuscript-qc.md`. Statement consistency first, then data. On a conflict, annotate. Do not invent the number.
 
@@ -236,7 +236,7 @@ Reusable requests (no unpublished results in the sentence):
 
 ---
 
-## 5. Tone and quality self-check
+### 5. Tone and quality self-check
 
 - Polite, direct, actionable. Facts first, then why it matters, then what the author should change.
 - Do not invent experiments not done; do not invent AUCs; do not restate identifiable unpublished result tables in the opinion.
@@ -251,7 +251,7 @@ Pre-submit self-check (four axes):
 
 ---
 
-## 6. Forbidden
+### 6. Forbidden
 
 - Putting others' manuscript PDFs, supplements, CSVs, or unpublished titles into the skill or a public repo
 - Putting thesis-review or national-self-eval boilerplate into English peer review
@@ -262,9 +262,9 @@ Pre-submit self-check (four axes):
 
 ---
 
-## Part B — Comment habits
+### Part B — Comment habits
 
-# Review comment habits (Aitor / Jinshan)
+## Review comment habits (Aitor / Jinshan)
 
 Personal upper layer for **review** / pre-submission pre-review (find defects, emit comments and actionable requests).  
 Journal-facing English envelope stays in `review.md`.  
@@ -278,7 +278,7 @@ This file is the **consistency-first** habit layer.
 
 ---
 
-## 1. Overall portrait (reviewer side)
+### 1. Overall portrait (reviewer side)
 
 Review like a careful editor + statistician: numbers, abbreviations, reference hygiene, legend placement, and causal vs association wording.
 
@@ -289,7 +289,7 @@ Review like a careful editor + statistician: numbers, abbreviations, reference h
 
 ---
 
-## 2. Statement consistency (first pass)
+### 2. Statement consistency (first pass)
 
 Before arguing about a new analysis, check whether the manuscript **agrees with itself**:
 
@@ -306,7 +306,7 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 
 ---
 
-## 3. Data consistency (second pass)
+### 3. Data consistency (second pass)
 
 | Check | Fail examples | Comment action |
 |---|---|---|
@@ -329,7 +329,7 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 
 **Hard rule:** when Abstract / body / table / sister paper disagree, **comment only**. Never silently pick a value for the author. A back-calculated *n*, critical value, or table→*p* estimate in the comment is labeled an **estimate** (see §3.1).
 
-### 3.1 Table → *p* recipes
+#### 3.1 Table → *p* recipes
 
 Spot-check primary between-group rows (e.g. Table 1). Comment only; never rewrite cells or *P*.
 
@@ -351,7 +351,7 @@ Missing SD/*n* → `cannot_invent`. Do not hand-calc every multiplicity *p*.
 ---
 
 
-## 4. Data-integrity protocol (stop conditions)
+### 4. Data-integrity protocol (stop conditions)
 
 1. Number conflict across surfaces → annotate every locus; wait for author/HTML truth.
 2. Missing IRB / author / CI slots → comment (author **A**); do not fill; do not yellow-fill body.
@@ -360,11 +360,11 @@ Missing SD/*n* → `cannot_invent`. Do not hand-calc every multiplicity *p*.
 
 ---
 
-## 5. Where the long form lives
+### 5. Where the long form lives
 
 `06_review/qc/cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `05_manuscript/qc/manuscript-local-qc.md` is the check-id list. `02_data-processing/qc/report-checks.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
 
-## 5.1 Who revises the manuscript
+### 5.1 Who revises the manuscript
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
@@ -374,7 +374,7 @@ Undecidable issues: Chinese 批注 plus English suggested wording and/or suggest
 
 ---
 
-## 5.2 Chinese manuscript-comment five slots (稿面批注; Lab-STE CM-01)
+### 5.2 Chinese manuscript-comment five slots (稿面批注; Lab-STE CM-01)
 
 Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please…).  
 **Chinese Word face comments** (author field still **A**; source tag at text start) use five fixed slots, one problem per comment:
@@ -405,7 +405,7 @@ Full thresholds and regexes: `{doc_lab_ste}\` (`config.yaml` comment_schema; `La
 
 Internal-review corpus (the user's own comments; style source only): `{doc_review_corpus}\`. Do not vendor.
 
-## 6. What this file is not
+### 6. What this file is not
 
 - Not a license for one-character `?` comments as the default voice.
 - Not the English peer-review envelope (use `review.md`).

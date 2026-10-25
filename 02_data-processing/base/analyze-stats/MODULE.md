@@ -9,7 +9,7 @@ quality_control: "two independent groups + continuous non-normal -> Mann-Whitney
 owner: "02_data-processing/base/analyze-stats/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Statistical test selection
 

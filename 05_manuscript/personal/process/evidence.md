@@ -2,7 +2,7 @@
 
 ## Part A — Evidence Request
 
-# Evidence Request protocol (thin)
+## Evidence Request protocol (thin)
 
 **Owner:** `05_manuscript` personal. Final claim/citation QC lives here (Aitor-format / overclaim rules). **Not** a literature-research route and **not** a B05 upgrade.
 
@@ -21,7 +21,7 @@ Mount packs **propose**; they do **not** choose the final citation or keep an ov
 
 Related: consume verified I/D rows via `05_manuscript/personal/process/evidence.md` (Part B); quotas in `Aitor-format.md`; citation mechanics in `citation-and-language.md`.
 
-## When to raise a card
+### When to raise a card
 
 - A mounted writing/review skill flags a claim with missing, associative-only, wrong-population, or second-hand-only support
 - 05/06 literature verify fails on a factual sentence that still needs a source
@@ -29,7 +29,7 @@ Related: consume verified I/D rows via `05_manuscript/personal/process/evidence.
 
 Do **not** use this file for 选题 / 选刊 / systematic review / Embase+Cochrane default sweeps.
 
-## Card fields (required)
+### Card fields (required)
 
 Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[B:…]`); dual-tag with `[A:personal]` when A 05 also judges.
 
@@ -47,7 +47,7 @@ Status: open
 
 Optional: `PMID/DOI candidates` (only if already verified; never invent).
 
-### Introduction card types
+#### Introduction card types
 
 | Problem | Raise when | 03 returns |
 |---|---|---|
@@ -59,7 +59,7 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 03 returns rows in the Evidence Pack format (`05_manuscript/personal/process/evidence.md` (Part B)), not prose. A 05 decides with the three exits below. Draft elements 2–5 only after every card has an exit.
 
 
-## Roles
+### Roles
 
 | Step | Who | May | Must not |
 |---|---|---|---|
@@ -70,22 +70,22 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 
 A05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 01.
 
-## Three exits (A 05)
+### Three exits (A 05)
 
 After 03 returns candidates (or when none exist):
 
-### A. Accept
+#### A. Accept
 Candidate design / population / effect actually support the claim → keep claim strength; cite per `citation-and-language.md` (new `[n]` = max existing + 1, unused).
 
-### B. Weaken
+#### B. Weaken
 Evidence is associative or partial → lower the verb/hedge (e.g. *causes* → *has been associated with*); cite only what remains true.
 
-### C. Delete
+#### C. Delete
 Cannot support even a weakened form safely → remove the claim (word/sentence unit); do not pad with a vaguely related paper.
 
 Never keep a strong claim because a “nearby” paper looks topical.
 
-## Hand-off to G-LIT
+### Hand-off to G-LIT
 
 If verify still fails after one search pass, comment with **both**:
 
@@ -94,7 +94,7 @@ If verify still fails after one search pass, comment with **both**:
 
 No invented PMID/DOI. User decides which plan when both remain open.
 
-## Out of scope
+### Out of scope
 
 - Upgrading base into a personal writing orchestrator or Evidence QC home  
 - Hard-wiring external review packs under A05 every run  
@@ -104,9 +104,9 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 ---
 
-## Part B — Intro/Discussion evidence
+### Part B — Intro/Discussion evidence
 
-# Introduction / Discussion evidence
+## Introduction / Discussion evidence
 
 **Owner:** `05_manuscript` / `manuscript-core`. Purpose: consume verified evidence so this manuscript's Introduction and Discussion can be written. 05 does not run a literature-research route. Retrieval, guideline lookup, and full-text checks belong to `03_research`; 选题 / 选刊 also stay in `03_research` (选刊 is not a 05 task; `find-journal` routes to 03; journal formatting is `write-paper`; not 01).
 
@@ -114,11 +114,11 @@ Gap discovery from mounted packs → `05_manuscript/personal/process/evidence.md
 
 Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `05_manuscript/qc/manuscript-local-qc.md`.
 
-## When to load
+### When to load
 
 写引言 · 写讨论 · 补文献 · 核对引用 · 这篇前言/讨论文献不够
 
-## Introduction workflow (03 handoff)
+### Introduction workflow (03 handoff)
 
 1. **Endpoint frame (05).** Write the endpoint name once, exactly as Methods (Outcomes) will name it. Note whether it equals a guideline construct or is an operational surrogate of one.
 2. **Raise cards (05 → 03)** per `05_manuscript/personal/process/evidence.md` (Part A): `guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`. One card set per endpoint.
@@ -135,11 +135,11 @@ Claim | Source (PMID/DOI) | Class | Design · n · effect | Strength | Weakness 
 
 Class: `guideline`, `mri_accuracy` (or the modality's accuracy class), `radiomics_endpoint`, `habitat_or_nearest`, `background`.
 
-## Guideline rule
+### Guideline rule
 
 The Introduction uses the latest edition of the guideline that defines the endpoint or the decision. 03 confirms in the same session that no newer edition exists and records body, year, and where the definition sits (section, figure, or table). The gap is mined from what the guideline leaves open. If the study endpoint is an operational surrogate of the guideline construct, element 2 states the construct and element 6 names the study endpoint in one clause; algorithm details stay in Methods.
 
-## Verification levels
+### Verification levels
 
 - **L1** metadata resolves (title, authors, journal, DOI).
 - **L2** numbers checked against the abstract or the full text.
@@ -147,11 +147,11 @@ The Introduction uses the latest edition of the guideline that defines the endpo
 
 Numbers in the Introduction need L2 or higher. Record the level in the Word comment whenever it is below L3. A reference that fails verification, or that has no retraction check, is a G-LIT case (`05_manuscript/personal/process/evidence.md` (Part A)).
 
-## Claim coverage (replaces a sentence-count gate)
+### Claim coverage (replaces a sentence-count gate)
 
 Every literature claim is covered by a citation in its own sentence or by the same-source group it sits in. Reasoning sentences may stand uncited; word them as inference. The sentence-level uncited share is reported, not gated.
 
-## QC (before the section is done)
+### QC (before the section is done)
 
 - Elements 1–6 present; element 2 names guideline body, year, and the decision it supports
 - One or two appraisal sentences, tied to this study's design

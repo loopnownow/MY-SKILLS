@@ -6,7 +6,7 @@ outputs: ["flow_figure"]
 owner: "02_data-processing/base/draw-flowchart/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Study / patient flow figures
 

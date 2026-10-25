@@ -6,8 +6,6 @@ outputs: ["retraction_report"]
 owner: "03_research/base/retraction-watcher/MODULE.md"
 ---
 
-# retraction-watcher
-
 Pre-submission / evidence citation integrity check against retraction databases.
 Lit-related sibling of `lit-cite` / `lit-search`. Absorbed from AIPOCH on 2026-10-17 (MIT).
 

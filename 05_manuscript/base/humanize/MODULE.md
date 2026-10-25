@@ -6,7 +6,6 @@ outputs: ["pattern_scan", "rewritten_prose"]
 owner: "05_manuscript/base/humanize/MODULE.md"
 ---
 
-# humanize (generic de-AI)
 
 Generic AI-pattern removal for manuscripts and response letters, plus a report-only language lint.
 Does **not** replace A personal de-AI (`05_manuscript/personal/` forbidden lists still win).
@@ -191,7 +190,7 @@ ruled against importing them. The four gates above stay `ENFORCED · manual`, ch
 `references/ai_patterns.md`; Pattern 21 detection is a body grep for the disclosure strings plus a
 journal-profile location check, also by hand. The detector names are kept only so a verdict code in a
 report can be traced to its pattern. Only a new owner decision can reopen this; no agent may add them.
-Do not run the old `../self-review/scripts/...` paths — they do not resolve from this pack.
+Do not run the old `../self-review/scripts/...` paths — they do not resolve from this pack. <!-- negative-example -->
 
 ## Language lint (report-only)
 

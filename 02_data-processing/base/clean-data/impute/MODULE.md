@@ -9,7 +9,7 @@ quality_control: "group-stratified; observed cells unchanged; align_decimals"
 owner: "02_data-processing/base/clean-data/impute/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Group-stratified missing-value imputation
 

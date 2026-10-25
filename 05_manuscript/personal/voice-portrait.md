@@ -94,22 +94,22 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 
 ## L2 format / paragraph slice (merged 2026-10-16)
 
-# L2 format / paragraph habits (writing layer)
+## L2 format / paragraph habits (writing layer)
 
 **Authority:** full locks and portrait stay in `voice-portrait.md` and IMRAD/DOCX in `Aitor-format.md`.
 This file is the **L2 writing slice** only (how paragraphs and set wording are preferred).
 
-## Preferred paragraph habit
+### Preferred paragraph habit
 - One fact per sentence, inside **continuous paragraphs** (not one sentence per line/paragraph in IMRAD body).
 - Abstract headed labels, Methods/Results subheadings, Highlights, table/figure notes follow `Aitor-format.md`.
 
-## Preferred set wording
+### Preferred set wording
 - Body: **training / test**; Figure 1: Training Cohort / Test Cohort; external other-hospital only = **validation set**.
 - Never Development set; never call same-hospital random split external validation.
 
-## Figure legends
+### Figure legends
 - Legends **below** figures (`voice-portrait.md`).
 
-## Em-dash / typography that affect wording
+### Em-dash / typography that affect wording
 - Prediction-model full papers: no em-dash (see `Aitor-format.md`).
 

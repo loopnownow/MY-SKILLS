@@ -8,7 +8,7 @@ quality_control: "headers; missingness inventory; unique patient ID; patient-lev
 owner: "02_data-processing/base/clean-data/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Clinical tables (Excel / CSV)
 

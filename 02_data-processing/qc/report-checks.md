@@ -2,15 +2,15 @@
 
 ## Part A — Statistical reporting checklist
 
-# Statistical Reporting Checklist — Aitor Style
+## Statistical Reporting Checklist — Aitor Style
 
 Use this checklist when polishing Results and Methods sections.
 
 ---
 
-## Before submitting: verify each item
+### Before submitting: verify each item
 
-### General
+#### General
 - [ ] All P values reported as exact values when ≤ 0.05 (e.g., P = 0.002), and as comparison when > 0.05 (e.g., P = 0.12 or P > 0.05)
 - [ ] P is italicized: *P* (adjust per journal house style)
 - [ ] All CIs reported as 95% CI: X–X (en-dash, no spaces around dash)
@@ -20,7 +20,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Effect sizes reported (OR, HR, RR) with 95% CI when applicable
 - [ ] ICC values reported for inter/intra-observer agreement (threshold: ICC > 0.75 = good)
 
-### Continuous variables
+#### Continuous variables
 - [ ] Normality test reported (Shapiro-Wilk or Kolmogorov-Smirnov)
 - [ ] Normal → mean ± SD
 - [ ] Non-normal → median (IQR)
@@ -29,18 +29,18 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Two related normal groups → paired t-test
 - [ ] Two related non-normal groups → Wilcoxon signed-rank test (always spelled out fully)
 
-### Categorical variables
+#### Categorical variables
 - [ ] Reported as N (%)
 - [ ] Chi-square test for large samples (expected count ≥ 5 in each cell)
 - [ ] Fisher's exact test for small samples (expected count < 5)
 
-### Split wording (body vs Figure 1)
+#### Split wording (body vs Figure 1)
 - [ ] Manuscript **BODY** internal split is **training / test** (training set / test set)
 - [ ] Figure 1 is the study flowchart read from Materials and Methods (not an enrollment-only figure). Cohort row: **Training Cohort / Test Cohort**, plus **Validation Cohort** only when Methods states an external cohort. Training-set downsampling is not an eligibility exclusion.
 - [ ] **External validation** only for an other-hospital cohort; never a same-hospital random split
 - [ ] Never `Development set`; never `hold-out` as the test-set name
 
-### Diagnostic performance
+#### Diagnostic performance
 - [ ] Default: `AUC of X (95% CI: X–X)` reported for **both** training and test
 - [ ] ROC curve AUC with 95% CI (en-dash, `95% CI: X–X`)
 - [ ] AUC comparison via DeLong method (paired *P*, not the CI)
@@ -49,7 +49,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Calibration: Hosmer-Lemeshow P value reported (P > 0.05 = good calibration)
 - [ ] DCA performed and net benefit described qualitatively
 
-### Radiomics-specific
+#### Radiomics-specific
 - [ ] Default narrative: **training/test + LASSO + nomogram**
 - [ ] LASSO lambda selected by 10-fold CV on the **training** set (minimum criteria; not nested CV)
 - [ ] Number of features before and after selection both stated
@@ -57,12 +57,12 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Training **and** test AUC of X (95% CI: X–X) both reported
 - [ ] Feature stability: ICC or CV < 10% (if reported)
 
-### Survival analysis (when applicable)
+#### Survival analysis (when applicable)
 - [ ] HR (95% CI) reported, not just P value
 - [ ] Kaplan-Meier curves with log-rank P value
 - [ ] Cox multivariate: covariates listed, HRs all reported
 
-### Metabolomics-specific
+#### Metabolomics-specific
 - [ ] Multivariate model type stated (sPLS-DA, PLS-DA, OPLS-DA)
 - [ ] VIP threshold stated (typically VIP > 1.0)
 - [ ] Metabolite changes: direction (increase/decrease) + group comparison explicit
@@ -71,7 +71,7 @@ Use this checklist when polishing Results and Methods sections.
 
 ---
 
-## Common statistical errors to correct
+### Common statistical errors to correct
 
 | Error | Correction |
 |---|---|
@@ -87,7 +87,7 @@ Use this checklist when polishing Results and Methods sections.
 
 ---
 
-## Software citation templates
+### Software citation templates
 
 - R: *"R software (version X.X; R Foundation for Statistical Computing, Vienna, Austria)"*
 - Python: *"Python (version X.X; Python Software Foundation)"*
@@ -97,7 +97,7 @@ Use this checklist when polishing Results and Methods sections.
 - MedCalc: *"MedCalc Statistical Software (version X.X; MedCalc Software, Ostend, Belgium)"*
 
 
-### Stats consistency audit (reported numbers)
+#### Stats consistency audit (reported numbers)
 - [ ] Table 1 continuous means checked against N where GRIM applies — see `report-checks.md` (this file)
 - [ ] In-text NHST lines (t/F/chi-square/r) recomputed or flagged vs reported *P*
 - [ ] HR/OR/RR 95% CI directionally consistent with reported *P*
@@ -116,14 +116,14 @@ Use this checklist when polishing Results and Methods sections.
 
 ---
 
-## Part B — Stats consistency (reported results)
+### Part B — Stats consistency (reported results)
 
-# Stats consistency (reported results)
+## Stats consistency (reported results)
 
 Use when polishing or reviewing **already reported** numbers (Table 1, NHST lines, HR/OR with CI).  
 Raw measurement tables → `02_data-processing/personal/table-signals.md`.
 
-## Division of labor
+### Division of labor
 
 | Mechanism | Owns |
 |---|---|
@@ -134,66 +134,66 @@ Raw measurement tables → `02_data-processing/personal/table-signals.md`.
 | `05_manuscript/qc/manuscript-local-qc.md` | Writing actions for the same check ids |
 | `06_review/qc/cross-manuscript-qc.md` | Review: annotate conflicts; do not invent numbers |
 
-## Checks
+### Checks
 
-### GRIM / Table 1 mean vs N
+#### GRIM / Table 1 mean vs N
 - See skill-library extract / scrutiny: https://github.com/lorenz-walthert/scrutiny
 - Flag means that cannot arise from integer sum / N at the reported decimals
 - Integer-sum models only; not every continuous physical mean
 
-### NHST vs reported p
+#### NHST vs reported p
 - Upstream: https://github.com/hplisiecki/statcheck_python
 - Consistency error: statistic and p disagree
 - Decision error: significance call flips after recompute
 
-### Effect size 95% CI vs p
+#### Effect size 95% CI vs p
 - Log-scale SE ≈ (ln U − ln L) / (2×1.96); Z ≈ ln(effect)/SE
 - Signal if CI crosses null while p is called significant (or magnitude mismatch)
 - Rounding / one-sided / adjusted p can explain mild gaps
 
-### Optional batch p-curve
+#### Optional batch p-curve
 - Pile-up of significant p near 0.04–0.05 is a selective-reporting **risk signal** in a batch
 - Not a default gate for a single small study
 
-### Statistic vs threshold (`stat_vs_threshold`)
+#### Statistic vs threshold (`stat_vs_threshold`)
 - A printed *t*, *F*, or *z* must meet the voxel-wise or cluster-forming α named in Methods at the stated df
 - A statistic that only reaches a looser α contradicts the threshold sentence
 - Flag both loci. Do not replace either number. A critical-value note in a comment is an estimate
 
-### Correlation *n* (`correlation_implied_n`)
+#### Correlation *n* (`correlation_implied_n`)
 - Recompute the two-sided *P* from the reported *r* (or ρ) and the stated analysis *n*
 - *t* = *r* √((*n*−2) / (1−*r*²)), df = *n*−2. Disagreement beyond rounding means that *n* is not the analysis *n*
 - The enrollment *n* of one group is not automatically the correlation *n*
 - Flag. Do not invent a complete-case *n*
 
-### Multiplicity (`multiplicity_disclosure`)
+#### Multiplicity (`multiplicity_disclosure`)
 - Many ROI-wise or voxel-wise correlations need a named family and a named correction, or an explicit uncorrected / exploratory label
 - Silence is a fail. Do not run a correction the paper did not run
 
-### Relative units (`relative_denominator`)
+#### Relative units (`relative_denominator`)
 - "Relative", normalized, ratio, or scaled measures name the denominator (global mean, reference region, or the real divisor) and the units
 - An undefined denominator is not interpretable. Do not guess it from the variance
 
-### Circular analysis (`no_confirmatory_p_same_cohort`)
+#### Circular analysis (`no_confirmatory_p_same_cohort`)
 - Feature or ROI selection, threshold selection, and the group or performance test on the same participants, without nested CV or a bootstrap optimism correction, do not support a confirmatory *P*
 - Report the *P* as descriptive / apparent
 - Nested CV is not a lab default (`pipeline.md`). Do not write that it was run unless the user confirms it
 - Do not invent an adjusted *P*
 
-### Nested ROIs and score identity (`nested_roi_collinearity`, `score_transform_identity`)
+#### Nested ROIs and score identity (`nested_roi_collinearity`, `score_transform_identity`)
 - A parent region and its subregions in one model or one uncorrected family are dependent. Name that
 - A score that is a linear (or other) transform of a single metric is that metric under a new label. State the transform. It is not a second biomarker
 
-### Inclusion vs scale (`cutoff_vs_included_distribution`, `iqr_scale_sanity`)
+#### Inclusion vs scale (`cutoff_vs_included_distribution`, `iqr_scale_sanity`)
 - Median, Q1, and minimum of an included group must fall on the included side of the entry cutoff
 - IQR (Q3−Q1) must lie inside the instrument's possible range
 - Flag the contradiction. Do not rewrite the cutoff or the quartile
 
-### Sister-paper *P* (`sister_paper_p_reconciliation`)
+#### Sister-paper *P* (`sister_paper_p_reconciliation`)
 - The same biomarker and contrast with a conflicting *P* across related papers is a conflict to annotate
 - Do not average *P* values. Reconciliation text belongs to 05; the review comment belongs to 06
 
-## Into 06
+### Into 06
 
 Self-review / peer-review: cite this note; do not restate algorithms in 06.
 Runnable helpers stay with Loopnow/Build — not A repo scripts.

@@ -27,7 +27,7 @@ Figure digests (already wired from `figures.md`): `draw-flowchart-digest.md`, `p
 ## Personal load order
 
 1. Methods / which test -> `methods.md` (index: `module-notes.md`)
-2. Already-reported numbers / polish checks -> `../qc/report-checks.md`
+2. Already-reported numbers / polish checks -> `../../qc/report-checks.md`
 3. Pipeline implementation rules -> `pipeline.md`
 4. Console UI / results HTML -> `console-ui.md`
 5. Figures (palette + claim plan) -> `figures.md`

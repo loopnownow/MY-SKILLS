@@ -7,7 +7,7 @@
 
 ## Part A — Lab palettes
 
-# Lab figure palettes (lab console)
+## Lab figure palettes (lab console)
 
 **Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
 
@@ -27,7 +27,7 @@ One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical,
 
 Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swatches become custom; write-back goes to `ref/settings.ini`.
 
-## Publication extension palettes (10 sets; not console-bound)
+### Publication extension palettes (10 sets; not console-bound)
 
 Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not lab pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the five `lab-palettes` sets plus mounted `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
 
@@ -49,13 +49,13 @@ Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continu
 
 ---
 
-## Part B — Figure claim planning
+### Part B — Figure claim planning
 
-# Figure claim planning (radiomics / clinical prediction)
+## Figure claim planning (radiomics / clinical prediction)
 
 **Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `personal/figures.md` (palettes) and mounted `plot-figures` (chart templates). This section only covers “think first”.
 
-## 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
+### 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 
 Before choosing a chart, ask: **which Discussion sentence must this figure prove to the reader?** The claim picks the chart type, not the data type or aesthetics. Lab claim → chart map:
 
@@ -69,7 +69,7 @@ Before choosing a chart, ask: **which Discussion sentence must this figure prove
 
 If the claim is unclear, write the Discussion sentence first, then back into the chart — if the sentence will not write, the figure should not start.
 
-## 2. Figure–evidence checklist: build before drawing, not after reconciling
+### 2. Figure–evidence checklist: build before drawing, not after reconciling
 
 Before a submission, list planned figures (in `handoff.yaml` `outputs` or a `figure-manifest.md`). For each figure record three things:
 
@@ -80,23 +80,23 @@ Before a submission, list planned figures (in `handoff.yaml` `outputs` or a `fig
 
 This is not a new invention — it moves existing **G-FACT / G-STATS** (numbers must come from upstream `*-results.html`, never invented) from “05 checks after writing” to “02 registers before plotting”. Once the list exists, plotting and writing both check the same table, so figure and prose cannot each “look right” while disagreeing.
 
-## 3. Per-figure repair cap: three rounds; after round 3 mark “unresolved” honestly
+### 3. Per-figure repair cap: three rounds; after round 3 mark “unresolved” honestly
 
 Per figure: render → open the actual image (not “the code should be fine”) → fix → re-render → re-check. **At most three repair rounds**; the first render does not count. After round 3, keep the result and mark “unresolved” in `qc`/`defects` — do not stamp a broken figure “pass” just to deliver.
 
 This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and stop”. Reminder only: figure QC means “open the image”, not “script exited zero”.
 
-## 4. Style and palette are two independent switches — do not fuse them into one two-option question
+### 4. Style and palette are two independent switches — do not fuse them into one two-option question
 
 **Style** (console-internal vs journal submission; extra composite panels or not) and **palette** (five console `lab-palettes` vs the ten publication extensions) are unrelated and freely combinable. If both are unknown, one combined ask is fine; if either is already fixed for the project (e.g. submission style), ask only for the missing one — do not re-ask what is settled. Extra/reworked figures in the same task reuse both choices; do not re-ask per figure — same habit as the `00_orchestrator` Plan card “ask once, do not re-ask”.
 
 ---
 
-## Part C — Imaging montage workflow (de-identify → grid → layered delivery)
+### Part C — Imaging montage workflow (de-identify → grid → layered delivery)
 
 **Owner:** `02_data-processing` (personal). Generic rules (de-identify, WL/WW, annotations, legends) live in `02_data-processing/base/plot-figures/references/imaging-panels.md`. This section only records the owner's montage defaults and delivery format; it does not override base.
 
-### 1. Steps
+#### 1. Steps
 
 1. **De-identify first:** crop burned-in patient identifiers — name (including Chinese names), MRN, and other PHI. Handle `Page x of y`, `IM/SE`, rulers/tick marks, edge bars, and extra black borders per this run's brief. **Standing (owner 2026-10-21):** before stripping **non-patient** burned-in labels/text (device params, sequence names, non-PHI notes, …), **ask the owner** whether to keep them; do not strip without explicit consent. **Open every cropped result and visually confirm** no residual patient ID — “coordinates were calculated” is not enough.
 2. **Do not change WL/WW or contrast:** crop + resample (Lanczos) only; leave pixel values untouched.
@@ -106,14 +106,14 @@ This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and 
 6. **Labels:** A–F uppercase, **Arial Bold** (`arialbd.ttf`; PIL `ImageFont.truetype("arialbd.ttf", 48)` — not DejaVu defaults), white + thin black stroke (2 px), default **lower-left** of each cell; print size ~10–12 pt (~48 px tall at 300 dpi).
 7. **Size:** dual-column ~174 mm @ 300 dpi ≈ 2055 px wide (e.g. 6 px gutter → 677 px cells, 2055×1372; 0 gutter → 685 px cells, 2055×1370).
 
-### 2. Default delivery
+#### 2. Default delivery
 
 - **Owner-facing deliverables (default):** **PNG preview** (300 dpi) + **layered PSD zip** (`.psd.zip`, `testzip()` before handoff). **Do not hand the owner a bare `.psd`** (usually huge); unzip when layers are needed. Bare `.psd` may stay in `ref/tmp` or `{DEL}\_by-project\<project>\` for QC — not on the “hand to owner” list (「交给本人」).
 - **Layered PSD contents** (the file inside the zip): Background + one layer per panel (full-canvas size, transparent outside its cell) + Labels layer; size is **width first**; write 300 dpi (ResolutionInfo 1005); **must write a flattened composite** (image data) or most viewers show solid black.
 - **TIFF only when the owner explicitly asks:** flat, LZW, 300 dpi. No multi-page TIFF unless asked.
 - True layered TIFF is impractical without GIMP/Photoshop → deliver **PSD.zip**; owner unzips and “Save As TIFF (preserve layers)” in Photoshop.
 
-### 3. QC (run all before every delivery)
+#### 3. QC (run all before every delivery)
 
 - Re-open PSD with psd_tools: `size == (W, H)` and landscape.
 - Pixel-compare `composite()` vs PNG preview; diff must be 0 (once for stored composite, once rebuilt with `force=True`).
@@ -122,7 +122,7 @@ This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and 
 - zip `testzip()` returns None.
 - Actually open the preview (same as Part B §3: look at the image, not “script exited zero”).
 
-### 4. Known pitfalls
+#### 4. Known pitfalls
 
 - **pytoshop `size` is (width, height)**; numpy channel arrays are (H, W); swap them and you get a portrait PSD.
 - pytoshop does not write a composite by default → PSD opens black; set `psd.image_data`. Its RLE path errors on newer Python (`packbits` undefined) — use raw (large files → zip).

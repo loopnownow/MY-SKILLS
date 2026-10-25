@@ -9,7 +9,7 @@ quality_control: "patient-level split; no slice-level external validation"
 owner: "03_research/base/design-study/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
