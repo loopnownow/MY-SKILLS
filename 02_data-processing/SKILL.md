@@ -27,9 +27,8 @@ Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiva
 ## Layer model (2026-10-17)
 
 **Flow:** fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **02** top-layer re-loops
-
-**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
-(personal coding/extract/workspace protocols + analysis pipeline/figures personal; may re-trigger base mounts when 00 says needed).
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
+(personal coding/extract/workspace protocols + analysis pipeline/figures; may re-trigger base mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
@@ -79,7 +78,7 @@ Do not rewrite mounted data-processing capability bodies (now under `base/`) ins
 - `meta-analysis` -- implementation (`02_data-processing/base/meta-analysis/`); lab personal still wins
 - `draw-flowchart` -- STROBE / patient-flow (`02_data-processing/base/draw-flowchart/`)
 - `plot-figures` -- statistical plots / imaging panels (`02_data-processing/base/plot-figures/`)
-- Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (radiomics-ml absorb; no live radiomics-habitat path)
+- Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (former `radiomics-ml` absorbed into `analyze-stats`; no live radiomics-habitat path)
 
 Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
 

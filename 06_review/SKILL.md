@@ -23,9 +23,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in A `06_review/base/`) -> **00 QC** -> **06** post-QC re-review only.
-
-**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in `06_review/base/`) -> **00 QC** -> **06** post-QC re-review only.
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
 Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
 Resolution status for response letters -> **07**.
@@ -45,8 +44,8 @@ Resolution status for response letters -> **07**.
 
 ## Mounted capability ids
 
-- `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (A `06_review/base/`)
-- `revise` / `tighten-response` -- response path; **final authority 07**; bodies in A `07_response/base/` (tone-polish is on-demand inside tighten-response)
+- `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (`06_review/base/`)
+- `revise` / `tighten-response` -- response path; **final authority 07**; bodies in `07_response/base/` (tone-polish is on-demand inside tighten-response)
 
 ## Modes
 

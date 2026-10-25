@@ -17,14 +17,13 @@ description: >
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **03 is the personal top layer** (like 05/06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
-Capability **bodies** for lit/design mounts live in **A `03_research/base/`** (merged 2026-10-17).
+Capability **bodies** for lit/design mounts live in **`03_research/base/`** (merged 2026-10-17).
 
 ## Layer model (2026-10-17)
 
 **Flow:** lit/design fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **03** top-layer re-loops
-
-**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
-(may trigger `verify-refs` + `retraction-watcher`; bodies under A `03_research/base/`).
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
+(may trigger `verify-refs` + `retraction-watcher`; bodies under `03_research/base/`).
 
 | Layer | Owns |
 |---|---|
@@ -39,8 +38,8 @@ See `personal/route.md` for the full pointer table.
 | Pillar | Owns |
 |---|---|
 | Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (`base/`) |
-| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> A `03_research/base/fill-protocol/` (Bai) |
-| Journal selection | 选刊走 03 `find-journal` — Victor seats A `03_research/base/find-journal/` (list gates in base/; runtime pools in 0doc) |
+| Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> `03_research/base/fill-protocol/` (Bai) |
+| Journal selection | 选刊走 03 `find-journal` — Victor seats `03_research/base/find-journal/` (list gates in base/; runtime pools in 0doc) |
 
 ## Literature rule
 
@@ -59,7 +58,7 @@ See `personal/route.md` for the full pointer table.
 | Journal-selection SOP | `personal/journal-selection.md` |
 | Grants / ethics / intake / multicenter / radiology | under `personal/` |
 | Clinical translation | `personal/clinical-translation/` |
-| Ethics forms | Bai seats A `03_research/base/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
+| Ethics forms | Bai seats `03_research/base/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
 | Find-journal pack | engine `03_research/base/find-journal/` |
 | Question-to-reference spine | `01_skill-integration/workflows/question-to-reference.md` |
 
