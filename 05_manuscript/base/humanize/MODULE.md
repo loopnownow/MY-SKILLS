@@ -8,11 +8,13 @@ owner: "05_manuscript/base/humanize/MODULE.md"
 
 # humanize (generic de-AI)
 
-Generic AI-pattern removal for manuscripts and response letters.
+Generic AI-pattern removal for manuscripts and response letters, plus a report-only language lint.
 Does **not** replace A personal de-AI (`05_manuscript/personal/` forbidden lists still win).
-Not general copy-editing (`polish-language`).
+Not general copy-editing: venue house style is `write-paper`.
 
 Absorbed 2026-10-17 (MIT). See `LICENSE_NOTE.txt`.
+Absorbed 2026-10-25: the `polish-language` pack (its Introduction/Discussion lint is now
+"Language lint" below; that directory was removed).
 
 # Humanize Skill
 
@@ -187,4 +189,33 @@ Two detectors ship with this pack and are the only runnable commands in it:
 from; this repo does not carry them. The four gates above are therefore marked `ENFORCED · manual`
 and are checked by hand against `references/ai_patterns.md`. Do not run the old
 `../self-review/scripts/...` paths — they do not resolve from this pack.
+
+## Language lint (report-only)
+
+Absorbed from `polish-language` on 2026-10-25. Run it before Phase 1 and again after Phase 4.
+Output one table: check, result, sentences affected. The lint never changes numbers or citations.
+
+| Check | Rule |
+|---|---|
+| Sentence length | Target 10–30 words; list sentences outside it. Measurable bands are short ≤ 12 words / long ≥ 25 words / ceiling 70, identical to `scripts/check_sentence_variety.py`, so the lint table and Fix rule 7 cannot disagree |
+| Repeated openers | Same first two words in three or more sentences of a paragraph |
+| Triplets | More than one "X, Y, and Z" series in a paragraph |
+| Number-and-cite chain | Three consecutive sentences that each carry a number and a citation |
+| Connector chain | Consecutive sentences opened by However, Moreover, Therefore, In addition |
+| Uniform length | Three consecutive sentences within ±3 words of each other. The formal verdict is `SENTENCE_UNIFORM` from `scripts/check_sentence_variety.py`; it is silent below 15 sentences |
+| Reporting standards | TRIPOD, CLAIM, or CLEAR named in the Introduction |
+| Abbreviations | Defined at first use in the body |
+| Claim coverage | Literature claims with no citation in their sentence or same-source group (listed, not gated) |
+
+Fixes are proposals at sentence unit: merge, split, or restructure. Never rewrite a whole paragraph.
+
+The lint **reports** rhythm items; Phases 1-4 **measure and rewrite** them (Fix rule 7,
+Patterns 25-27). Do not score the same sentence twice in one round: the lint table feeds the
+report, the scripts plus the de-AI pass drive the fix.
+
+| File | Open when |
+|---|---|
+| `references/style-guardrails.md` | Overclaiming / causation / hedging sweep while polishing prose |
+| `references/stat-reporting.md` | Radiology/AMA number formatting. House-style authority is `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`; on conflict that file wins |
+| `05_manuscript/base/vocab/L1/ban-phrases.md` | de-AI ban lists (they are not restated here) |
 

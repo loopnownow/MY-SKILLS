@@ -8,8 +8,8 @@
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
   version: '4.0'
-  change_id: CHG-20261025-absorb-tone-polisher
-  fine_id_count_canonical: 26
+  change_id: CHG-20261025-absorb-polish-language
+  fine_id_count_canonical: 25
   coarse_id_count: 10
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
@@ -158,13 +158,6 @@ mounts:
   status: MOUNTED
   note: 'a_domain 03_research (override). Body: 03_research/base/find-journal/. Companion house style:
     05_manuscript/base/write-paper/ (not the engine).'
-- id: polish-language
-  label: Consistency hard-rule lint
-  coarse: language-polish
-  source: my-skills
-  path: 05_manuscript/base/polish-language/
-  a_domain: 05_manuscript
-  status: MOUNTED
 - id: humanize
   label: De-AI tone
   coarse: language-polish

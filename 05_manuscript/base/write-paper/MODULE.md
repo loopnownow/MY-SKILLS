@@ -20,7 +20,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 - Personal house format / title-page defaults
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
-- Language polish → [`polish-language`](../polish-language/MODULE.md)
+- Language polish → [`humanize`](../humanize/MODULE.md)
 - 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
 - TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../../qc/check-reporting/MODULE.md)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
@@ -59,7 +59,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 | `methods-skeleton` | [methods_template_export.md](references/methods_template_export.md) + [radiology-writing/methods.md](radiology-writing/methods.md) |
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
-| `polish` | **handoff** → `polish-language` |
+| `polish` | **handoff** → `humanize` |
 | `venue-shape` | this file + [journal-family-writing-style.md](radiology-writing/journal-family-writing-style.md) + [nature-family-shape.md](radiology-writing/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
 | `reporting` | **handoff** → `check-reporting` |
 
@@ -99,5 +99,5 @@ Venue: (unknown unless user named one)
 Missing inputs:
 - ...
 
-Next: polish-language (language) · venue-shape (in this pack) · self-review (self-audit)
+Next: humanize (language) · venue-shape (in this pack) · self-review (self-audit)
 ```

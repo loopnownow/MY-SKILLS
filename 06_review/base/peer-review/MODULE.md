@@ -21,7 +21,7 @@ Also covers former fine id `peer-review-pdf-scan` (PDF inject/attack scan, Phase
 
 - Self-audit / pre-submission of the user's own draft → `self-review`
 - Point-by-point response letter → `revise` (this MODULE does **not** own mode-3)
-- Sentence rewrite → `write-paper` / `polish-language`
+- Sentence rewrite → `write-paper` / `humanize`
 - Personal review voice stays in **A personal**
 
 ## When to use

@@ -12,6 +12,13 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-absorb-polish-language — language lint into humanize
+
+- Absorbed `05_manuscript/base/polish-language/` into `05_manuscript/base/humanize/` (humanize wins).
+- Kept: `references/stat-reporting.md` (house-style authority stays `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`), `references/style-guardrails.md`. The lint table moved into humanize `MODULE.md` as `## Language lint (report-only)`. Source `MODULE.md` + pointer `SKILL.md` removed with the directory.
+- Retired id: `legacy_aliases.yaml` `polish-language` → `humanize`; alias keys `nature-polishing` / `polish-latex` retargeted. Dropped the MOUNTED row. Canonical count 25.
+- Coarse `language-polish` keeps one fine id (`humanize`). Call sites that hand language work to `polish-language` now point at `humanize`.
+
 ## CHG-20261025-absorb-tone-polisher — tone polish into tighten-response
 
 - Absorbed `07_response/base/response-tone-polisher/` into `07_response/base/tighten-response/` (tighten-response wins on conflict; stance SSOT is `references/tone-and-stance.md`).

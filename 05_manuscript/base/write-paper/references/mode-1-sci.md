@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Personal house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → `polish-language`. Venue shape → this pack (`radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`). Reporting checklists → `check-reporting`.
+Polish → `humanize`. Venue shape → this pack (`radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`). Reporting checklists → `check-reporting`.
 
 ## 1.1 When to use
 
@@ -27,7 +27,7 @@ Polish → `polish-language`. Venue shape → this pack (`radiology-writing/jour
 | Ethics sentence | `radiology-ethics/approval-consent.md` (placeholders; no lab IRB default) |
 | Claim/citation gate | `radiology-citation/*` |
 | Outline | `mode-academic-pipeline.md` |
-| Language polish | **handoff** `polish-language` |
+| Language polish | **handoff** `humanize` |
 
 ## 1.3 Honesty
 

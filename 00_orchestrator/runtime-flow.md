@@ -21,7 +21,7 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 Post-QC A re-loops (as needed):
 
 - **A03** -- may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`)
-- **A05** -- `polish-language` -> `humanize` alongside Aitor-format/voice; vocab on first write
+- **A05** -- `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice; vocab on first write
 - **A06** -- post-QC **re-review only**
 - **A07** -- **final authority for response** (`revise`/`tighten-response` source my-skills (in-repo base); tone-polish is on-demand inside tighten-response)
 

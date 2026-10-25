@@ -128,4 +128,4 @@ Banned in manuscript **body** and figure legends (put in Word comment author **A
 | “A formal a priori sample-size calculation was not performed.” when an estimate exists | Use the post hoc / performed estimate wording |
 | “the band limits are not stated in the current draft” style gap-exposure | Move to a Word comment with suggested fix |
 
-Polish-language: no separate personal digest — these bans live here.
+Language polish: no separate personal digest — these bans live here.

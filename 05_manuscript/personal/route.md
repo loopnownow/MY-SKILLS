@@ -6,7 +6,7 @@
 
 - **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
 - **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
-- **A05 re-loop:** post-QC chain `polish-language` -> `humanize` alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
+- **A05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
 
 ## Vocabulary (body in base; personal pointer at `vocab/README.md`)
 
@@ -27,7 +27,7 @@
 
 When polish requested after 00 QC:
 
-1. Mount/run B `polish-language`
+1. Mount/run B `humanize` (lint table first, then the de-AI pass)
 2. Then B `humanize`
 3. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (A personal authority)
 
