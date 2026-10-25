@@ -10,8 +10,6 @@ owner: "05_manuscript/base/polish-language/MODULE.md"
 
 Academic English / house polish. Does **not** replace A personal de-AI. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`); personal list still wins.
 
-Backup: MedSci `skills/polish-language/`.
-
 ## Introduction / Discussion lint (report only; never change numbers or citations)
 
 Run before polishing and again after. Output one table: check, result, sentences affected.

@@ -15,8 +15,6 @@ aliases:
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
-  # mounts_cap / mounts_cap_cache: DELETED 2026-10-24 (RETIRED 2026-10-20).
-  # Former bytes parked at D:\00db\_lab\originals\_leftover-20261024\_by-function\mounts-cap-retired-20261020 (0del cleared 2026-10-24) — do not recreate; do not alias.
   # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/personal|base；live content under personal\.
   doc_lab_ste: "D:\\0Grok\\0doc\\_library\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
@@ -69,7 +67,6 @@ notes:
   - "2026-10-23: 0script retired; code SSOT is {code_root}; stats at {code_stats}; master copy (local git only) at {code_modules_master}."
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
   - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
-  - "Public git omits mounts-cap pack bytes; {mounts_cap} (aliases mounts_cap / mounts_cap_cache) was retired 2026-10-20 and its bytes moved to D:\\00db\\_lab\\originals\\_leftover-20261024\\_by-function\\mounts-cap-retired-20261020. Not under MY-SKILLS."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
-  - "mounts_cap aliases deleted 2026-10-24 (retired 2026-10-20); park folder D:\\00db\\_lab\\originals\\_leftover-20261024\\_by-function\\mounts-cap-retired-20261020 only. No {MOUNTS}/{mounts_cap} alias. raw_root=D:\\00db (was 00ds)."
+  - "raw_root=D:\\00db (was 00ds)."

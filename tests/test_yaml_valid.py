@@ -7,7 +7,6 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-MOUNTS_CAP_TRACKED = {"INDEX.yaml"}
 SKIP_PARTS = {".git", "__pycache__", "node_modules"}
 
 
@@ -17,10 +16,6 @@ def repo_yaml_files() -> list[Path]:
     for p in list(ROOT.rglob("*.yaml")) + list(ROOT.rglob("*.yml")):
         rel = p.relative_to(ROOT)
         if SKIP_PARTS & set(rel.parts):
-            continue
-        if rel.parts and rel.parts[0] == "mounts-cap" and (
-            len(rel.parts) > 2 or rel.name not in MOUNTS_CAP_TRACKED
-        ):
             continue
         files.append(p)
     return files

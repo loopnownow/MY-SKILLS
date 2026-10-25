@@ -317,8 +317,6 @@ class WordTrackChangesOwnership(unittest.TestCase):
         for rel in tracked:
             if not rel or rel in self.SCAN_SKIP:
                 continue
-            if rel.startswith("mounts-cap/"):
-                continue
             path = ROOT / rel
             # Wave2: git index still lists archived paths (.github/, old 01_*, etc.)
             if not path.is_file():

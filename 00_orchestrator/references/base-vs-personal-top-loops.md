@@ -12,6 +12,6 @@ Short pointer. Full flow: `../runtime-flow.md`. Gates: `../gates.md`.
 
 - Personal layers do not host long procedure bodies that live under `NN_slug/base/`.
 - Fine IDs for stats-analysis / figures / data-processing / study-design unchanged.
-- Registry `default_source` = `my-skills` (in-repo); personal layers document trigger/authority only.
+- Registry rows use `source: my-skills` (in-repo `NN_slug/base/`); personal layers document trigger/authority only.
 
 **QC standards:** live in each domain `NN_slug/qc/`; `00_orchestrator/gates.md` decides WHEN / PASS-FAIL. Specialists and base first-pass do not self-invoke `qc/`.

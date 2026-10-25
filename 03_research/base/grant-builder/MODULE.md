@@ -11,4 +11,4 @@ owner: "03_research/base/grant-builder/MODULE.md"
 
 No personal grant Voice lives here. A `03_research/personal/` Voice A / Voice B still wins.
 
-Backup: MedSci `skills/grant-builder/`. Scientific `research-grants/`.
+Companion notes may live beside this body. Scientific `research-grants/` is not vendored here.

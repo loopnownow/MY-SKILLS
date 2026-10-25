@@ -2,11 +2,11 @@
 
 This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
 
-**Architecture SSOT** for this repo: this file (layers, mounts, lab homes, fine-id ceiling, base/personal contract, Cache≠Mount, load_priority).
+**Architecture SSOT** for this repo: this file (layers, lab homes, fine-id ceiling, base/personal contract).
 
-**Routing SSOT:** `01_skill-integration/registry.yaml` 
+**Routing SSOT:** `01_skill-integration/registry.yaml`
 
-Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); default source my-skills (in-repo base); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; non-base packages stay ARCHIVED unless the owner revives one; OpenClaw is not a default mount source; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. Hybrid mount stays (never mix packages inside one fine id). Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-venue/`. sample size: `calc-sample-size`.
+Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/`; ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-venue/`. sample size: `calc-sample-size`.
 
 ---
 
@@ -16,14 +16,14 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 
 | Intent | Route |
 |---|---|
-| Skill mount / index / hybrid recipes | `01_skill-integration` |
-| Excel / 0RAD workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
+| Skill index / session pick | `01_skill-integration` |
+| Excel / batch workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
 | Literature research / evidence / study design / grants / translational design / ethics forms (Bai seats fill-protocol) | `03_research` |
 | Statistics / prediction / **figures** / sample size | `04_analysis` |
 | Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / re-review | `06_review` (Lee) |
 | Reviewer response / response letter | `07_response` (Aitee) |
-| Evolution governance | MY-RULES `skills.md` (skill-evolution; former skill-harvest archived) |
+| Evolution governance | MY-RULES `skills.md` (skill-evolution) |
 
 ### Lab-specific flows (Aitor)
 
@@ -39,14 +39,13 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | AUC / DeLong / DCA / stats plan / figures | `04_analysis` |
 | Radiomics / ROI / leakage audit / preprocess | `02_data-processing` |
 | Soft coding / dry-run | `02_data-processing` → `personal/coding.md` |
-| Batch / Excel / 0RAD folders | `02_data-processing` → `personal/workspace.md` |
+| Batch / Excel folders | `{RULES}/workspace-layout.md` |
 | VAL_MODE / pairwise compare / subgroup ROC | `04_analysis` → `personal/pipeline.md` |
 | Ethics application form fill | `03_research` → `base/fill-protocol/` |
 | Clinical extraction (exported text) | `02_data-processing` → `personal/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
-| Journal-grade ROC/calibration/DCA figures | `04_analysis` (mounted `plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
-| STROBE / patient-flow / Figure 1 | `04_analysis` (mounted `draw-flowchart`) |
-| New external skill | `01_skill-integration` |
+| Journal-grade ROC/calibration/DCA figures | `04_analysis` (`plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
+| STROBE / patient-flow / Figure 1 | `04_analysis` (`draw-flowchart`) |
 
 ---
 
@@ -83,8 +82,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ---
 
-## Mount resolution (pointer)
+## Session pick (pointer)
 
-Session pick and mount steps live in `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md` (this file has no Mounts section).
+Session pick steps live in `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md`.
 
-Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (default source my-skills (in-repo base); MedSci-only `humanize`; archived ids off menu) → empty path: notify, re-search, confirm → network discovery for **new** capability → evaluate → explicit user approval → mount. Never auto-mount a non-base source. Local cache: lab `{mounts_cap}/` (verified cache, not SSOT; see `.gitignore` / lab-paths).
+Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (in-repo `NN_slug/base/`) → empty path: notify, re-search, confirm.

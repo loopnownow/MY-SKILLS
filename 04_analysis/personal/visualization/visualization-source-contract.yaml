@@ -26,13 +26,12 @@ views:
       - Lit05
       - Lit06
       - mid-entry
-  external_mounts:
-    question: "Which external packages the registry indexes, and the status recorded there."
+  registry_index:
+    question: "Which in-repo fine ids the registry indexes, and the status recorded there."
     inputs:
       - 01_skill-integration/registry.yaml
     not_inputs:
-      - mounts-cap bytes (SSOT D:/00db/_lab/originals/_leftover-20261024/_by-function/mounts-cap-retired-20261020; do not crawl)
-      - a crawl of mounted skill files
+      - a crawl of skill files outside registry.yaml
   skill_pages:
     question: "Documentation pages from skill sources. Do not force prose into a diagram."
     inputs:
@@ -47,15 +46,11 @@ forbidden_fact_sources:
   - visual appearance
   - unvalidated JSON
 
-forbidden_default_atomic_mount_sources:
-  - OpenClaw
-  - openclaw-medical-skills
-
 rules:
   - MY-SKILLS is the only source of truth.
   - Rendering IR to HTML is local and read-only; no external renderer runs.
   - Top-level 07_response is allowed (response letters); do not add other top-level 07* skills.
-  - Mount diagrams come from registry and preset metadata.
+  - Registry diagrams come from registry.yaml.
   - Delta describes structural facts only.
-  - Generated HTML under docs is rebuildable and is not a fact source.
-  - Do not crawl mounts-cap (D:/00db/_lab/originals/_leftover-20261024/_by-function/mounts-cap-retired-20261020).
+  - Generated HTML is rebuildable and is not a fact source.
+  - Do not crawl outside this repo for skill bodies.

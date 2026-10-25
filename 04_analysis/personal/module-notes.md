@@ -11,7 +11,7 @@ description: "Lab imaging biostatistics index for 04_analysis. Detail lives in m
 | Other seats | `handoff.md` |
 | Methods handbook | `methods.md` |
 | Report checklist / consistency | `../qc/report-checks.md` |
-| 0RAD pipeline | `pipeline.md` |
+| lab pipeline | `pipeline.md` |
 | Console UI / results report | `console-ui.md` |
 | Figures | `figures.md` |
 | Thin digest: analyze-stats | `analyze-stats-digest.md` |

@@ -77,7 +77,6 @@ ARTIFACTS = {
     "figure-manifest.md",
     "journals-submitted.md",
     "house-format.md",
-    "0rad-workspace.md",
 }
 
 

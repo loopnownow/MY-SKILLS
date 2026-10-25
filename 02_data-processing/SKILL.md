@@ -36,7 +36,7 @@ Capability **bodies** for clean/imaging mounts live in **A `02_data-processing/b
 |---|---|
 | Route / which personal file | `personal/route.md` |
 | Handoff (raw->analysis-ready; Loopnow -> 04) | `personal/handoff.md` |
-| 0RAD workspace (folder names, `exc`, false-classification) | `personal/workspace.md` |
+| Lab workspace (folder names, `exc`, false-classification) | `{RULES}/workspace-layout.md` |
 | Clinical / HIS / pathology extraction | `personal/extract.md` |
 | Soft-coding / dry-run / complexity ladder | `personal/coding.md` |
 | Deep code QC standards (00 / G-CODE) | `qc/coding-qc.md` |

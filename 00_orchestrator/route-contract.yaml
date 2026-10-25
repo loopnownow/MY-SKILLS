@@ -13,8 +13,6 @@ routes:
     contains: ["写作", "05_manuscript"]
   - intent: reply-to-reviewers
     contains: ["回复审稿人", "07_response"]
-  - intent: new-skill
-    contains: ["新技能", "01_skill-integration"]
   - intent: skill-evolution
     contains: ["技能迭代", "skill-evolution"]
   - intent: journal-selection
@@ -42,8 +40,6 @@ routes:
     contains: ["clinical-translation", "03_research"]
   - intent: grilling
     contains: ["grill-me", "grilling"]
-  - intent: mount-discovery
-    contains: ["挂载", "01_skill-integration"]
   - intent: grant
     contains: ["选题", "03_research"]
   - intent: DCA

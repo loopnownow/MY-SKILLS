@@ -36,10 +36,10 @@ HIS login automation must not live in A. Hospital-system clients stay on the hos
 4. **Checkpoint resume**: after a query/extract interrupt, continue from the last position
 5. **Maximize extraction**: prefer complete extract; report omissions to the user for decision
 6. **Dedupe merge**: merge same-patient rows; record repeated content once
-7. **IHC**: pull from pathology **full text** (`marker (result)`). If structured `病理_ER`-style columns trip the workspace missingness cutoff (see `workspace.md`), do not write the whole column — parse from full text instead.
+7. **IHC**: pull from pathology **full text** (`marker (result)`). If structured `病理_ER`-style columns trip the workspace missingness cutoff (see `{RULES}/workspace-layout.md`), do not write the whole column — parse from full text instead.
 8. **Negative is not missing**: parenthetical `-` / `－` / `—` / `阴性` encode as `Negative`; never drop as empty.
 9. **Full marker-name match**: `ER` must not hit `HER2`; require a non-letter (or word boundary) before the marker name. For `P16`, mottled/patchy → `Mosaic` alone; do not fold into `Positive`.
-10. Category labels in English (`Positive`/`Negative`); rules in `workspace.md` — do not write a second set here.
+10. Category labels in English (`Positive`/`Negative`); rules in `{RULES}/workspace-layout.md` — do not write a second set here.
 
 ## Bundled scripts
 - `{code_clean_data}\clinical-data-extraction\extract_patient_data.py` — patient info + lab markers

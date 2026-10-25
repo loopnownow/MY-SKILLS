@@ -4,7 +4,7 @@
 Reads registry, preset metadata, and 00 runtime-flow. Writes the typed JSON IR and
 generated HTML under the output dir given by --out or env MY_SKILLS_VIZ_OUT
 (required; no default, exits non-zero if neither is set). Does not write into
-the MY-SKILLS repo (no in-repo docs/ tree). Does not read mounts-cap. Renders diagrams locally from the IR;
+the MY-SKILLS repo (no in-repo docs/ tree). Renders diagrams locally from the IR;
 no external renderer package is fetched, unpacked, or verified.
 
 Shape checks use fixed IR schema versions (architecture 1, workflow 2). This
@@ -35,7 +35,6 @@ import yaml
 HERE = Path(__file__).resolve().parent
 VIZ_DIR = HERE.parent  # 04_analysis/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
-CAP = Path(r"{doc_root}\03-research\mounts-cap").resolve()  # SSOT under 0doc; refuse-read guard
 REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
 RUNTIME_MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 RUNTIME_MD = ROOT / "00_orchestrator" / "runtime-flow.md"
@@ -156,9 +155,6 @@ def esc(value: object) -> str:
 
 
 def read_text(path: Path) -> str:
-    resolved = path.resolve()
-    if resolved == CAP or CAP in resolved.parents:
-        raise GateFailure("G-VIZ-01", f"refusing to read mounts-cap: {path}")
     return path.read_text(encoding="utf-8-sig")
 
 
@@ -180,7 +176,7 @@ def normalize(text: str) -> str:
 def skill_files() -> list[Path]:
     found: list[Path] = []
     for path in ROOT.rglob("SKILL.md"):
-        if any(part in {".git", "mounts-cap", "docs", "__pycache__"} for part in path.parts):
+        if any(part in {".git", "docs", "__pycache__"} for part in path.parts):
             continue
         top = path.relative_to(ROOT).parts[0]
         if top not in SKILL_TOPS:
@@ -245,13 +241,6 @@ def require_anchors(mmd: str, gates: str, architecture: str) -> None:
 
 
 def check_registry(reg: dict) -> None:
-    default = reg.get("default_source") or {}
-    if default.get("id") != "my-skills":
-        raise GateFailure("G-VIZ-01", "default atomic mount source is not my-skills")
-    if "openclaw" in str(default.get("id", "")).lower() or "openclaw" in str(default.get("source", "")).lower():
-        raise GateFailure("G-VIZ-01", "OpenClaw is listed as the default mount source")
-    if reg.get("ars_openclaw_policy") != "removed-from-catalog":
-        raise GateFailure("G-VIZ-01", "ars_openclaw_policy is not removed-from-catalog")
     mounts = reg.get("mounts") or []
     meta = reg.get("meta") or {}
     if len(mounts) != meta.get("fine_id_count_canonical"):
@@ -260,15 +249,11 @@ def check_registry(reg: dict) -> None:
             f"mount count {len(mounts)} != fine_id_count_canonical {meta.get('fine_id_count_canonical')}",
         )
     for mount in mounts:
-        blob = " ".join(
-            str(mount.get(key, ""))
-            for key in ("id", "source", "atomic_package", "path")
-        ).lower()
-        if "openclaw" in blob:
-            raise GateFailure("G-VIZ-01", f"OpenClaw appeared on mount {mount.get('id')}")
-    for proposal in reg.get("proposals") or []:
-        if "openclaw" in str(proposal.get("id", "")).lower():
-            raise GateFailure("G-VIZ-01", "OpenClaw appeared in registry proposals")
+        if mount.get("source") != "my-skills":
+            raise GateFailure("G-VIZ-01", f"fine id {mount.get('id')} is not an in-repo body")
+        path = str(mount.get("path") or "")
+        if not any(path.startswith(top + "/") for top in SKILL_TOPS):
+            raise GateFailure("G-VIZ-01", f"fine id {mount.get('id')} path is outside 00-07")
 
 
 def check_contract(contract: dict) -> None:
@@ -285,9 +270,6 @@ def check_contract(contract: dict) -> None:
     for phrase in required:
         if phrase not in phrases:
             raise GateFailure("G-VIZ-01", f"contract missing forbidden source {phrase!r}")
-    forbidden_mounts = contract.get("forbidden_default_atomic_mount_sources") or []
-    if "OpenClaw" not in forbidden_mounts:
-        raise GateFailure("G-VIZ-01", "contract does not forbid OpenClaw as a default atomic mount")
 
 
 def _box(row: int, col: int) -> dict:
@@ -730,7 +712,6 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
 
 
 def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: str, digest: str) -> str:
-    default = reg["default_source"]
     mounts = reg["mounts"]
     mounted = sum(1 for item in mounts if item.get("status") == "MOUNTED")
     proposed = sum(1 for item in mounts if item.get("status") == "PROPOSED")
@@ -764,11 +745,8 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
     )
     body = f"""
     <section class="card">
-      <h2>Default atomic mount source</h2>
-      <p><code>{esc(default.get('id'))}</code></p>
-      <p>{esc(default.get('source'))}</p>
-      <p>OpenClaw is not a default atomic mount source. Policy <code>{esc(reg.get('ars_openclaw_policy'))}</code>.</p>
-      <p class="muted">MOUNTED {mounted} · PROPOSED {proposed} · fine ids {len(mounts)}. Counts come from registry.yaml. This page does not read mounts-cap.</p>
+      <h2>In-repo index</h2>
+      <p class="muted">MOUNTED {mounted} · PROPOSED {proposed} · fine ids {len(mounts)}. Counts come from registry.yaml. Bodies live under NN_slug/base/.</p>
     </section>
     <h2>Coarse buckets</h2>
     <table><thead><tr><th>coarse</th><th>slug</th><th>a_domains</th><th>specialist</th><th>fine ids</th></tr></thead>
@@ -790,7 +768,7 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
         "delta": "../changes/latest-delta.html",
         "history": "../design-history/index.html",
     }
-    return shell("External mounts", body, version, digest, nav_for(**links))
+    return shell("Registry index", body, version, digest, nav_for(**links))
 
 
 def render_delta(delta: dict, after: dict, version: str, digest: str, before_label: str) -> str:
@@ -928,10 +906,9 @@ def build() -> dict:
         "<p><a href=\"architecture/status.html\">Open Architecture status</a></p></section>"
         "<section class=\"card\"><h2>Workflow</h2><p>How tasks run, including mid-entry, Lit05, Lit06, and the QC loop.</p>"
         "<p><a href=\"workflow/status.html\">Open Workflow status</a></p></section>"
-        "<section class=\"card\"><h2>Mounts</h2>"
-        f"<p>Default atomic mount source <code>{esc(reg['default_source']['id'])}</code>."
-        "OpenClaw is not a default atomic mount source.</p>"
-        "<p><a href=\"mounts/index.html\">Open mount index</a></p></section>"
+        "<section class=\"card\"><h2>Registry</h2>"
+        "<p>Fine ids are indexed in registry.yaml. Bodies live in-repo under NN_slug/base/.</p>"
+        "<p><a href=\"mounts/index.html\">Open registry index</a></p></section>"
         "<section class=\"card\"><h2>Skills</h2><p>Frontmatter pages for 00–07.</p>"
         "<p><a href=\"skills/index.html\">Open Skill index</a></p></section>"
         "</div>"

@@ -20,7 +20,7 @@ Read, convert, and organise volumetric series. QC / ROI / reader protocol lives 
 5. **Organise** one volume per series (or BIDS-like layout if the user wants it). Log unmatched files.
 6. **Hand off** masks/readers to `preprocess-imaging` (`02_data-processing/base/preprocess-imaging/`). Do not extract radiomics here.
 
-Backup sources (not vendored): Scientific `pydicom` / `bids` / `imaging-data-commons`; MedSci `preprocess-imaging`.
+Backup sources (not vendored): Scientific `pydicom` / `bids` / `imaging-data-commons`.
 
 ## Data availability
 

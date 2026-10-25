@@ -1,4 +1,4 @@
-# 0RAD modules deep code QC — reusable rules
+# Lab modules deep code QC — reusable rules
 
 Subtitle: also covers a light **Code QC Core** for research data-processing scripts (R / Python / MATLAB / shell; raw → analysis-ready), adapted from stable awesome-copilot-style principles for medical research.
 
@@ -7,7 +7,7 @@ Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/referen
 **Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, B mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md`, mount Copilot `playbooks/quality/` / Council / CI.
 
 ## When to trigger
-- Review / deep review / Deep QC / code QC for `modules` / 0RAD stats library
+- Review / deep review / Deep QC / code QC for `modules` / lab stats library
 - Before release; re-test after major pipeline/console/radiomics/clinical/impute changes
 - Same entry as soft-coding / dry-run / refactor (`personal/coding.md`): QC first, then change, or re-test after change
 - Research data-processing scripts (raw→analysis-ready) release-ready / deep review

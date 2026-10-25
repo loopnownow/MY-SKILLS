@@ -12,6 +12,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-inrepo-index — in-repo index only
+
+- Registry `change_id` is `CHG-20261025-inrepo-index`. Source-menu keys are gone. Live rows stay `source: my-skills` under `NN_slug/base/`.
+- Deleted root `.cursorignore`, `.gitattributes`, `.gitignore`, and `pytest.ini`.
+- Deleted the non-base pointer under `01_skill-integration/references/`.
+- README describes seats `00`–`07`. Visualization reads the in-repo registry only.
+- Deleted `02_data-processing/personal/workspace.md` and `02_data-processing/personal/coding-qc.md`. Folder layout cites `{RULES}/workspace-layout.md`. `02_data-processing/qc/coding-qc.md` stays.
+- Tests: assertions that required the deleted files or source-menu keys were rewritten or dropped. Command: `python -m unittest discover -s tests`.
+
 ## CHG-20261024-registry-thin — thin registry (live mounts only)
 
 - Drop `archived:` section + historical meta essays from `01_skill-integration/registry.yaml`.
@@ -24,7 +33,7 @@ Harvest must not invent a second evolution log file.
 - Branch `fix/deepscan-p0-p1-20261020` (Asia/Shanghai 2026-10-20), registry `change_id` bumped.
 - **Ids**: 66 B-era call-site ids in 29 files → canonical fine ids (04-fig-flow→draw-flowchart ×13, 04-fig-plot→plot-figures ×13, 04-stats-models→meta-analysis ×12, 02-imaging-io→imaging-io ×5, 02-tables→clean-data ×4, 04-stats-power→calc-sample-size ×4, 02-imaging-qc→preprocess-imaging ×3, 02-radiomics-habitat→analyze-stats ×7, 02-lit fixes ×3). Three unmapped names (`04-stats-power`, `03-lit-fulltext`, `03-lit-cite`) added to `legacy_aliases.yaml`.
 - **Dead pointers**: `ban-phrases.md` → `vocab/L2/preferred.md` §1c; `report-checks.md` self-row → "Part A of this file"; `guideline-router.md` → `write-venue/radiology-writing/journal-family-writing-style.md`; `mount-review-polish-recipe.md` → `06_review/personal/review.md` §0; `ai_patterns.md` → `vocab/L1/patterns.md`; `retraction-watcher/MODULE.md` → `references/audit-reference.md`; `data-impute` → `clean-data` impute module.
-- **mounts-cap**: bytes (624 files) moved to `D:\0del\_by-function\mounts-cap-retired-20261020`; README / lab-paths / lifecycle-cache / NOTICE narratives unified (the three files had disagreed on whether the cache was emptied, deleted, or still present).
+- **pack-cache**: bytes (624 files) moved to `D:\0del\_by-function\pack-cache-retired-20261020`; README / lab-paths / lifecycle-cache / NOTICE narratives unified (the three files had disagreed on whether the cache was emptied, deleted, or still present).
 - **State claims**: `PROPOSED/MOUNTED` mix removed from README + ARCHITECTURE (registry has 0 PROPOSED); 01 SKILL documents the A-local-pack exception (`base/vocab/`, `base/write-venue/`); `Aitor-format.md` owner → `05_manuscript/personal/`; raw lab paths → `{alias}` in 13 files.
 - **Tests**: `PATH_UNIT_ALIAS_KEYS` emptied (no B-era directory exists); new `test_bare_md_cites`, `test_alias_targets_exist`, `test_no_raw_lab_paths`, `test_docs_match_registry_state`, `test_ledger_freshness`; `test_owner_fields` / `test_pre_submit_checks` now run on the runtime tree (relative parts + rglob fallback).
 - Sync whitelist post-merge: changed skill bodies + `registry.yaml` + `legacy_aliases.yaml` + `VERSION.txt` + `INTEGRATION_MAP.md` → `{SKILLS}` per skills.md §1b.
@@ -63,7 +72,7 @@ Harvest must not invent a second evolution log file.
 
 - A1: `INTEGRATION_MAP.archive.md` moved to `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\`; live stub points at absolute 0del path.
 - Caches (`.pytest_cache` + `__pycache__`) moved to `D:\0del\my-skills-qc-20261018\caches\` (not deleted); pytest uses `-p no:cacheprovider`.
-- `.cursorignore` mounts-cap dead entry removed; keep `.gitignore` defense; `00/SKILL.md` wording synced.
+- `.cursorignore` pack-cache dead entry removed; keep `.gitignore` defense; `00/SKILL.md` wording synced.
 - F42: `review-isolation` row added to `01_skill-integration/workflows/README.md` (formerly under 00 workflows pointer).
 - B2: `fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
 - D2: design-experiment bilingual pair headers (validation / study-design).
@@ -84,7 +93,7 @@ Harvest must not invent a second evolution log file.
 ## CHG-20261018-batch1 — QC Batch 1 P0 dead links (F1–F14)
 
 - PR #151 (`fix/qc-batch1-p0-deadlinks`, merge `84a7f8e`, commit `098166a`).
-- style_lint mounts-cap fallback removed; sci-manuscript path fixes; presets C1 in-repo paths.
+- style_lint pack-cache fallback removed; sci-manuscript path fixes; presets C1 in-repo paths.
 - fill-protocol owners; radiomics/venue-templates live wording; style-tells → base ban-terms.yaml.
 - Do **not** sync `.grok/skills`.
 

@@ -9,8 +9,8 @@ rules: no CDN, semantic HTML, one accent, offline-openable, meta line
 stating what generated it and when.
 
 Data source: 01_skill-integration/registry.yaml (routing index —
-this script never hand-lists coarse/fine ids). Reads live `default_source`,
-`mounts`, `coarse_ids` when present, and `proposals`.
+this script never hand-lists coarse/fine ids). Reads `mounts`,
+`coarse_ids` when present, and `proposals`.
 
 Dependency: PyYAML (`pip install pyyaml`).
 
@@ -154,7 +154,6 @@ def render(reg: dict) -> str:
     meta = reg.get("meta") or {}
     coarse_ids = coarse_list(reg)
     mounts = reg.get("mounts") or []
-    default_source = (reg.get("default_source") or {}).get("id", "")
     proposals = reg.get("proposals") or []
 
     sections = []
@@ -233,7 +232,7 @@ def render(reg: dict) -> str:
 <header>
   <h1>MY-SKILLS — repo map</h1>
   <div class="meta">Generated {now} from registry.yaml v{version}
-    (generator stamp: {n_coarse} coarse · {n_fine} fine; default_source {esc(default_source)}) —
+    (generator stamp: {n_coarse} coarse · {n_fine} fine) —
     read-only routing index, not a recommendation artifact and not the byte source of truth.
     Package proposals: {proposal_line}. Regenerate with
     <code>04_analysis/personal/visualization/scripts/gen_repo_map.py</code> after editing registry.yaml.</div>
@@ -248,7 +247,7 @@ def render(reg: dict) -> str:
     aria-label="Filter skills">
   {''.join(sections)}
 </main>
-<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/); the former mounts-cap cache is retired. This page never hand-lists ids.</footer>
+<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/). This page never hand-lists ids.</footer>
 <script>{JS}</script>
 </body>
 </html>

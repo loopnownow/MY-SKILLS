@@ -12,7 +12,7 @@ Generic AI-pattern removal for manuscripts and response letters.
 Does **not** replace A personal de-AI (`05_manuscript/personal/` forbidden lists still win).
 Not general copy-editing (`polish-language`).
 
-Absorbed from MedSci `skills/humanize/` on 2026-10-17 (MIT).
+Absorbed 2026-10-17 (MIT). See `LICENSE_NOTE.txt`.
 
 # Humanize Skill
 

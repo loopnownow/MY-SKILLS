@@ -8,7 +8,7 @@ owner: "04_analysis/base/meta-analysis/MODULE.md"
 
 # Statistical / ML implementation notes
 
-Generic Bayesian notes and assumption-check script. Not 0RAD modelling. sklearn/pymc implementations are Scientific backups, not this pack.
+Generic Bayesian notes and assumption-check script. Not the lab radiomics pipeline. sklearn/pymc implementations are Scientific backups, not this pack.
 
 ## On-demand references
 

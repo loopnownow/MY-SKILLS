@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BOM = b"\xef\xbb\xbf"
 SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".tsv", ".py", ".mmd", ".sh", ".ini"}
-SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "mounts-cap"}
+SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 
 
 class NoBom(unittest.TestCase):

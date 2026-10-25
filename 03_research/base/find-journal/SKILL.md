@@ -191,7 +191,7 @@ Highlight **only** cells/rows where **投稿易投指数 ≥ 80** (yellow backgr
 
 ## Wording (mounts)
 
-When talking about default external packs for this lab, say **default-mounted B pack / this repo** (默认挂载 B 包/本仓) — do **not** say 「空挂」.
+When naming where journal-selection rules live, say **this repo** — do **not** say 「空挂」.
 
 ## What not to do
 
