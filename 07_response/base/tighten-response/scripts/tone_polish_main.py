@@ -2,13 +2,19 @@
 """
 Response Tone Polisher
 
-Polishes response letters to peer reviewers by transforming defensive or harsh 
+Absorbed into tighten-response on 2026-10-25 from AIPOCH response-tone-polisher
+(MIT, Copyright (c) 2026 AIpoch). See ../LICENSE_NOTE.txt.
+On conflict with references/tone-and-stance.md, tone-and-stance.md wins.
+Point-by-point structure stays the revise fine id. Optional mechanical pass
+for task mode tone-polish. Entry: scripts/tone_polish_main.py.
+
+Polishes response letters to peer reviewers by transforming defensive or harsh
 language into professional, courteous academic prose.
 
 Usage:
-    python main.py --interactive
-    python main.py --reviewer-comment "comment.txt" --draft-response "draft.txt"
-    python main.py --reviewer "The data is insufficient" --draft "We disagree"
+    python tone_polish_main.py --interactive
+    python tone_polish_main.py --reviewer-comment "comment.txt" --draft-response "draft.txt"
+    python tone_polish_main.py --reviewer "The data is insufficient" --draft "We disagree"
 
 Author: AI Assistant
 Version: 1.0.0

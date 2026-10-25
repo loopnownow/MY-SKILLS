@@ -1,3 +1,7 @@
+CHG-20261025-absorb-tone-polisher (2026-10-25)
+Absorbed `07_response/base/response-tone-polisher/` into `tighten-response` (tighten-response wins; stance SSOT is `references/tone-and-stance.md`). Tone-only polish is on-demand mode `tone-polish`. Assets: `references/tone_patterns.md`, `references/polite_expressions.json`, `scripts/tone_polish_main.py`. Retired id `response-tone-polisher` is a legacy alias to `tighten-response`. Point-by-point structure stays `revise`. Journal selection stays in 03. `check-reporting` was not moved. Canonical fine-id count is 26.
+Earlier: CHG-20261025-absorb-write-venue.
+
 CHG-20261025-absorb-write-venue (2026-10-25)
 Absorbed `05_manuscript/base/write-venue/` into `write-paper` (write-paper wins). Venue house style and article shape are in-skill on `write-paper`. Retired id `write-venue` is a legacy alias to `write-paper`. 选刊 stays in `find-journal`. `check-reporting` was not moved.
 Earlier: CHG-20261025-inrepo-index.

@@ -48,6 +48,7 @@
 - It does not use cross-reviewer phrases such as "another reviewer also noted" or "see our response to Reviewer 2" in a reviewer-facing response.
 - It does not rebuke reviewers with "we already stated this". It answers directly, clarifies the presentation, and identifies the revised location.
 - It does not turn the main text into a pre-emptive reviewer response or keep appending non-central robustness and recursive reconciliation prose to Results.
+- Tone-only softening of an existing draft is mode `tone-polish` in this pack. It does not rebuild point-by-point structure (`revise` owns that) and does not verify scientific accuracy.
 - Information that needs author confirmation is marked in Chinese rather than written as fact.
 - For pre-submission simulated review, use `nature-reviewer`.
 

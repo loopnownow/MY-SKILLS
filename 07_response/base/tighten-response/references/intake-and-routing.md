@@ -53,6 +53,7 @@ already established in the task without asking again.
 | `revision-package` | User asks for a complete revision package or pastes a decision email and wants the agent to begin | Decision email or reviewer/editor comments plus available author actions | Internal/editor master, reviewer-separated response files, cover letter when useful, change checklist, and placeholders |
 | `latex-template` | User asks for LaTeX templates or filled `.tex` files | Desired output type; manuscript metadata if filling templates | Template paths or filled `.tex` content |
 | `appeal-like` | User wants to challenge rejection or process rather than revise | Decision letter and disputed points | Route out of default workflow and explain separate appeal handling |
+| `tone-polish` | User wants only defensive, confrontational, or harsh phrasing softened. Scientific position and point-by-point structure stay | Existing draft; reviewer comment when available | Polished passage plus the phrases that changed. Do not rebuild the letter. Structure stays `revise`. Stance conflicts defer to `tone-and-stance.md`. Assets: `tone_patterns.md`, `polite_expressions.json`, `scripts/tone_polish_main.py` |
 
 If the mode is unclear, infer the safest useful mode. Prefer `triage-only` when drafting would
 require many unsupported facts.
@@ -165,7 +166,7 @@ and whether Fig. 5 is a main or supplementary figure.
 ## Routing shortcuts
 
 - Vague author note such as "we fixed it" -> `needs_author_input`.
-- Existing response with hostile language -> `audit` or `revise`.
+- Existing response with hostile language, tone only -> `tone-polish`. Broader rewrite for traceability or package shape -> `audit` or `revise`.
 - Reviewer asks for impossible new work -> normal revision mode with `PARTIAL` or `OUT_OF_SCOPE`, not appeal.
 - Rejection challenge -> `appeal-like`.
 - User asks only "what should we do?" -> `triage-only`.

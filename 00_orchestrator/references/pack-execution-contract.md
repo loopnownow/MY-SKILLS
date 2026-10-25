@@ -1,8 +1,10 @@
 # Shared pack execution contract
 
-Generic scaffold shared by the AIPOCH-absorbed packs (MIT, absorbed 2026-10-17):
-`retraction-watcher` and `response-tone-polisher`. It was duplicated verbatim in both
-MODULE files until 2026-10-20. Fill `{pack_id}` with the calling pack id.
+Generic scaffold shared by the AIPOCH-absorbed packs (MIT, absorbed 2026-10-17).
+`retraction-watcher` still uses it. The former `response-tone-polisher` pack used it
+until that fine id was absorbed into `tighten-response` (2026-10-25); tone-polish mode
+does not load this contract. It was duplicated verbatim in both MODULE files until
+2026-10-20. Fill `{pack_id}` with the calling pack id.
 
 ## Workflow
 

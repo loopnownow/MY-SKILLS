@@ -78,7 +78,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 - `04_analysis`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
 - `05_manuscript`: personal writing layer. Literature retrieval and journal selection → `03_research`; figures → `04_analysis`. de-AI at `05_manuscript/personal/`. Mid-entry does not waive citation-verify.
 - `06_review`: personal review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
-- `07_response`: personal response-letter layer (**Aitee**). Changed wording → `05_manuscript`.
+- `07_response`: personal response-letter layer (**Aitee**). Changed wording → `05_manuscript`. Tone-only polish is an on-demand mode of `tighten-response`. Point-by-point structure stays `revise`.
 
 ---
 

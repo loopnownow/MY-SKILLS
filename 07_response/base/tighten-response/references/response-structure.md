@@ -70,6 +70,7 @@ Task modes:
 - `revision-package`
 - `latex-template`
 - `appeal-like`
+- `tone-polish` (existing draft only; does not rebuild letter structure)
 
 Package readiness:
 

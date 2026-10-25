@@ -8,8 +8,8 @@
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
   version: '4.0'
-  change_id: CHG-20261025-absorb-write-venue
-  fine_id_count_canonical: 27
+  change_id: CHG-20261025-absorb-tone-polisher
+  fine_id_count_canonical: 26
   coarse_id_count: 10
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
@@ -254,13 +254,6 @@ mounts:
   coarse: review-response
   source: my-skills
   path: 07_response/base/revise/
-  a_domain: 07_response
-  status: MOUNTED
-- id: response-tone-polisher
-  label: Response-tone softening
-  coarse: review-response
-  source: my-skills
-  path: 07_response/base/response-tone-polisher/
   a_domain: 07_response
   status: MOUNTED
 - id: simulate-reviewers

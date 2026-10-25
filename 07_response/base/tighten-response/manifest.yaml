@@ -8,7 +8,7 @@ description: >
 # Design note: nature-response is a linear, parameterised workflow (intake ->
 # extract editor/reviewer items -> classify -> strategise -> draft -> map ->
 # QA -> package). Its variation — task mode (draft/audit/revise/triage/cover-letter/
-# revision-package/latex-template/appeal),
+# revision-package/latex-template/appeal/tone-polish),
 # decision type, user language — is identified at runtime, mainly by
 # references/intake-and-routing.md, not by loading different large content
 # bodies. There is therefore no content axis; the split is core (always loaded)
@@ -36,8 +36,12 @@ references:
       path: references/comment-taxonomy.md
     - condition: action labels, per-item work status, tracker fields, blocking state, and missing-input states
       path: references/action-mapping.md
-    - condition: recommended language, forbidden phrasing, disagreement tone, or a reviewer missed material already present in the manuscript
+    - condition: recommended language, forbidden phrasing, disagreement tone, or a reviewer missed material already present in the manuscript. Stance SSOT; the tone-polish catalog defers to this file on conflict
       path: references/tone-and-stance.md
+    - condition: tone-only polish of an existing draft (defensive, confrontational, dismissive, or harsh phrasing) without restructuring the letter — task mode tone-polish. Phrase catalog. On conflict, references/tone-and-stance.md wins. Point-by-point structure stays revise
+      path: references/tone_patterns.md
+    - condition: curated polite academic phrases for tone-polish (acknowledgments, respectful disagreement, limitations, change descriptions). On conflict, references/tone-and-stance.md wins
+      path: references/polite_expressions.json
     - condition: the user writes in Chinese or provides Chinese author notes
       path: references/chinese-author-alignment.md
     - condition: impossible experiments, factual errors, conflicting or repeated reviewer requests, reviewer-visibility isolation, citations, statistics, compliance, transfer, or appeal-like cases
@@ -52,3 +56,6 @@ quality_tools:
   use_when: after the first complete LaTeX revision package, after every manuscript edit, and immediately before delivery
   purpose: expand static LaTeX inputs, check response-letter quotes and declared rendered substitutions against the manuscript, pair reviewer comments with author responses, and compare clean and marked manuscript text after additions and deletions are normalized
   script_resolution: resolve relative to the loaded SKILL.md directory, never the user working directory
+  tone_polish_script: scripts/tone_polish_main.py
+  tone_polish_use_when: optional mechanical pass during task mode tone-polish; does not replace tone-and-stance.md or the qa checklist
+  tone_polish_resolution: resolve relative to the loaded SKILL.md directory, never the user working directory
