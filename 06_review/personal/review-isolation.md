@@ -25,7 +25,7 @@ B: simulate-reviewers (isolation)
 - A envelope: `review.md`
 - 00 checks: `00_orchestrator/gates.md` section top-layer QC checks
 - Body engines: `06_review/base/simulate-reviewers/`, `self-review/` (self-review), `peer-review/` (peer-review)
-- Optional base README: `06_review/base/REVIEW-ISOLATION.md`
+- Optional base README: `06_review/base/review-isolation.md`
 
 ## R&R re-review
 
