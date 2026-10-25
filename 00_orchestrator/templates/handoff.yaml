@@ -5,8 +5,8 @@
 from: ""            # 02_data-processing | 03_research | 02_data-processing | 05_manuscript | 06_review | 00_orchestrator
 to: ""
 objective: ""
-mounted_fine_ids: []  # fine ids picked this session (00 session mount pick); G0 checks against this, not memory
-mount_provenance: []    # per selected fine id: fine_id, source, resolved_commit, path, content_hash, checked_at. Do not invent hashes.
+live_fine_ids: []  # fine ids picked this session (00 session fine-id pick); G0 checks against this, not memory
+fine_id_provenance: []    # per selected fine id: fine_id, source, resolved_commit, path, content_hash, checked_at. Do not invent hashes.
 inputs: []          # paths inspected
 decisions: []
 assumptions: []

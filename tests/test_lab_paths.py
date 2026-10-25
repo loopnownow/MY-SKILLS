@@ -1,4 +1,4 @@
-"""Lab path aliases, mounts board and raw-path hygiene.
+"""Lab path aliases, fine-id board and raw-path hygiene.
 
 Merged from: `test_lab_paths_and_mounts.py`, `test_no_raw_lab_paths.py`.
 """

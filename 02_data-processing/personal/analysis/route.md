@@ -4,7 +4,7 @@
 
 1. **base first-pass** stats/figures fine-IDs (`analyze-stats`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, ...)
 2. **00 QC** (G-FACT / G-STATS)
-3. **02 re-loop** -- personal lab pipeline / report-checks / figures; may re-trigger base mounts when 00 says needed
+3. **02 re-loop** -- personal lab pipeline / report-checks / figures; may re-trigger base fine ids when 00 says needed
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 

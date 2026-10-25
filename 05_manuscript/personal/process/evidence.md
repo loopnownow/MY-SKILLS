@@ -9,7 +9,7 @@
 **Loop (lab):**
 
 ```text
-Mounted pack (this-run pick: session mounts from the 00 registry menu)
+Live pack (this-run pick: session fine ids from the 00 registry menu)
   → Evidence Request card (gap discovery only)
   → 03_research (Victor) searches
   → Candidate evidence
@@ -17,13 +17,13 @@ Mounted pack (this-run pick: session mounts from the 00 registry menu)
   → if still insufficient → G-LIT dual plan (00 may call 03 again)
 ```
 
-Mount packs **propose**; they do **not** choose the final citation or keep an over-strong verb. 03 **searches** only. A 05 **judges** whether a candidate supports the claim. 00 owns whether to invoke 03 again (G-LIT).
+Live packs **propose**; they do **not** choose the final citation or keep an over-strong verb. 03 **searches** only. A 05 **judges** whether a candidate supports the claim. 00 owns whether to invoke 03 again (G-LIT).
 
 Related: consume verified I/D rows via `05_manuscript/personal/process/evidence.md` (Part B); quotas in `Aitor-format.md`; citation mechanics in `citation-and-language.md`.
 
 ### When to raise a card
 
-- A mounted writing/review skill flags a claim with missing, associative-only, wrong-population, or second-hand-only support
+- A live writing/review skill flags a claim with missing, associative-only, wrong-population, or second-hand-only support
 - 05/06 literature verify fails on a factual sentence that still needs a source
 - User asks to 补文献 / 核对引用 for a specific sentence (not “search the topic”)
 
@@ -31,7 +31,7 @@ Do **not** use this file for 选题 / 选刊 / systematic review / Embase+Cochra
 
 ### Card fields (required)
 
-Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a mount raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[…]`); dual-tag with `[personal]` when 05 also judges.
+Copy into a Word comment (author **A**) and/or handoff note. Prefix the discoverer when a fine id raised it (`[Nature:…]` / `[self-review:…]` / `[peer-review:…]` / `[…]`); dual-tag with `[personal]` when 05 also judges.
 
 ```text
 Evidence Request
@@ -41,7 +41,7 @@ Problem: <missing | associative_only | wrong_population | second_hand | contradi
           | guideline_definition | missing_prior_result | related_work_appraisal | scarcity_check>
 Required: <what would count as adequate support>
 Section: <Intro | Discussion | other>
-Source: <mount id or A:personal>
+Source: <fine id or A:personal>
 Status: open
 ```
 
@@ -63,12 +63,12 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 
 | Step | Who | May | Must not |
 |---|---|---|---|
-| Discover gap | Mounted pack (this-run) or A 05/06 | Raise card | Pick final ref; rewrite whole paragraph; auto-mount another source |
+| Discover gap | Live pack (this-run) or A 05/06 | Raise card | Pick final ref; rewrite whole paragraph; auto-add another source |
 | Search | `03_research` (Victor) only | PubMed / DOI verify; return candidates | Change manuscript wording; invent PMID/DOI |
-| Judge | **A 05 personal (Aitee)** | Accept / Weaken / Delete (below) | Treat mount suggestion as silent apply; run a second lit-research route inside 05 |
+| Judge | **A 05 personal (Aitee)** | Accept / Weaken / Delete (below) | Treat fine-id suggestion as silent apply; run a second lit-research route inside 05 |
 | Re-invoke 03 | `00_orchestrator` (G-LIT) | Call 03 after dual-plan comment | Skip dual plan; invent citations |
 
-05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 00.
+05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session fine-id pick stays in 00.
 
 ### Three exits (A 05)
 
@@ -98,7 +98,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 - Upgrading base into a personal writing orchestrator or Evidence QC home
 - Hard-wiring external review packs under 05 every run
-- New coarse ids or `ocms-*` writing mounts
+- New coarse ids or `ocms-*` writing fine ids
 - Letting any backup become default
 
 
@@ -110,7 +110,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 **Owner:** `05_manuscript` / `manuscript-core`. Purpose: consume verified evidence so this manuscript's Introduction and Discussion can be written. 05 does not run a literature-research route. Retrieval, guideline lookup, and full-text checks belong to `03_research`; 选题 / 选刊 also stay in `03_research` (选刊 is not a 05 task; `find-journal` routes to 03; journal formatting is `write-paper`; not 01).
 
-Gap discovery from mounted packs → `05_manuscript/personal/process/evidence.md` (Part A) (A 05 judges; 03 searches).
+Gap discovery from live packs → `05_manuscript/personal/process/evidence.md` (Part A) (A 05 judges; 03 searches).
 
 Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800–1000 words, 10–15 refs, last paragraph no citations; Discussion 800–1000 words, 10–15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `05_manuscript/qc/manuscript-local-qc.md`.
 

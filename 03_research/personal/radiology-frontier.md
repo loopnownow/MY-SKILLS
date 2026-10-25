@@ -28,7 +28,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 - **Patterns are durable; specific papers are not.** This skill encodes **publication-pattern
   heuristics** (the kinds of studies that get into each journal and the methodological bar
   they meet). It does **not** ship a fixed citation list. Concrete recent papers must be
-  retrieved and verified **live** (→ mounted `lit-search`); never cite a PMID/DOI from memory.
+  retrieved and verified **live** (→ live `lit-search`); never cite a PMID/DOI from memory.
 - **Separate hot from suitable.** Name directions that are trendy but a poor fit for the data,
   and say why — steering away from a wrong direction is as valuable as suggesting a right one.
 - **Bound novelty claims.** "First/novel" is a liability without a literature check. Frame
@@ -48,27 +48,27 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 | File | Open when |
 |---|---|
-| mounted `find-cohort-gap` → `references/frontier-themes.md` | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
-| mounted `frontier-hypothesize` → `references/evidence-layer.md` | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
-| mounted `frontier-hypothesize` → `references/idea-to-question.md` | Converting a trend into a concrete, executable, submittable research question; novelty framing |
-| mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
+| live `find-cohort-gap` → `references/frontier-themes.md` | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
+| live `frontier-hypothesize` → `references/evidence-layer.md` | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
+| live `frontier-hypothesize` → `references/idea-to-question.md` | Converting a trend into a concrete, executable, submittable research question; novelty framing |
+| live `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
 | [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
 
 ## Workflow
 
 1. **Read the data** — disease, modality, n, centers, labels, follow-up, omics availability
    (reuse the inventory from `radiology-design` if present).
-2. **Scan themes** (mounted `find-cohort-gap` → `references/frontier-themes.md`) and **filter by fit** — for each candidate direction,
+2. **Scan themes** (live `find-cohort-gap` → `references/frontier-themes.md`) and **filter by fit** — for each candidate direction,
    state the data prerequisites and whether the user meets them. Reject poor fits explicitly.
-3. **For AI/radiogenomics strategy**, open mounted `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` and judge the
+3. **For AI/radiogenomics strategy**, open live `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` and judge the
    idea against generalisability, supervision cost, multimodal fusion, trustworthy inference,
    external validation, and clinical-value evidence.
-4. **Ground in evidence** (mounted `frontier-hypothesize` → `references/evidence-layer.md`) — for each surviving direction, state the
+4. **Ground in evidence** (live `frontier-hypothesize` → `references/evidence-layer.md`) — for each surviving direction, state the
    publication pattern (what kind of study, what validation, which venues) and the
    methodological bar it must clear. Flag every concrete claim that needs **live verification**.
-5. **Convert to questions** (mounted `frontier-hypothesize` → `references/idea-to-question.md`) — turn the best 2–4 directions into specific
+5. **Convert to questions** (live `frontier-hypothesize` → `references/idea-to-question.md`) — turn the best 2–4 directions into specific
    research questions with endpoint, comparator, and the minimum evidence to be competitive.
-6. **Trigger live search** — hand the chosen direction to mounted `lit-search` to retrieve and
+6. **Trigger live search** — hand the chosen direction to live `lit-search` to retrieve and
    verify current seed papers (PMID/DOI) and confirm the gap is still open.
 7. **Return** a ranked shortlist: direction → fit → evidence pattern → executable question →
    target-venue tier → what to verify now.
@@ -82,7 +82,7 @@ worth doing and likely to be accepted at a high-impact venue*.
    each mapped to a candidate venue tier (→ `03_research/personal/journal-selection.md`).
 4. **`Hot-but-unsuitable`** — trendy directions to avoid for this data, with the reason.
 5. **`Verify now`** — the explicit list of claims/papers to confirm via live search today
-   (handed to mounted `lit-search`); nothing here is presented as already-verified.
+   (handed to live `lit-search`); nothing here is presented as already-verified.
 
 
 ## Method upgrades into justification (立项) (Voice B only)
@@ -105,10 +105,10 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 ## Handoffs
 
 - Turn the chosen direction into a full design → `radiology-design`.
-- Retrieve & verify current seed literature / confirm the gap → mounted `lit-search`.
+- Retrieve & verify current seed literature / confirm the gap → live `lit-search`.
 - Which journal tier the question targets → `03_research/personal/journal-selection.md`.
-- Method-specific feasibility → mounted `analyze-stats` / mounted `design-study`.
-- Citation export of verified seeds → mounted `manage-refs` (check with `verify-refs`).
+- Method-specific feasibility → live `analyze-stats` / live `design-study`.
+- Citation export of verified seeds → live `manage-refs` (check with `verify-refs`).
 - The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
   `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
 - Reviewing **other people's** NSFC (Voice A) → `../personal/grant-review.md`.

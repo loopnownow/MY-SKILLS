@@ -28,6 +28,6 @@ Runtime selection pools live in **0doc**. Skill pack keeps list gates only.
 
 Journal results / submitted lists live under **subproject folders** (`<project>/ref/`). Do not store in MY-SKILLS.
 
-## Mounts
+## Fine ids
 
 Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under `03_research/base/`; 03 documents post-QC trigger only.

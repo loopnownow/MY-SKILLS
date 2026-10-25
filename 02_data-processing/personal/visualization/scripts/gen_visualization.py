@@ -241,19 +241,19 @@ def require_anchors(mmd: str, gates: str, architecture: str) -> None:
 
 
 def check_registry(reg: dict) -> None:
-    mounts = reg.get("mounts") or []
+    fine_ids = reg.get("fine_ids") or []
     meta = reg.get("meta") or {}
-    if len(mounts) != meta.get("fine_id_count_canonical"):
+    if len(fine_ids) != meta.get("fine_id_count_canonical"):
         raise GateFailure(
             "G-VIZ-01",
-            f"mount count {len(mounts)} != fine_id_count_canonical {meta.get('fine_id_count_canonical')}",
+            f"fine_id count {len(fine_ids)} != fine_id_count_canonical {meta.get('fine_id_count_canonical')}",
         )
-    for mount in mounts:
-        if mount.get("source") != "my-skills":
-            raise GateFailure("G-VIZ-01", f"fine id {mount.get('id')} is not an in-repo body")
-        path = str(mount.get("path") or "")
+    for fine_id in fine_ids:
+        if fine_id.get("source") != "my-skills":
+            raise GateFailure("G-VIZ-01", f"fine id {fine_id.get('id')} is not an in-repo body")
+        path = str(fine_id.get("path") or "")
         if not any(path.startswith(top + "/") for top in SKILL_TOPS):
-            raise GateFailure("G-VIZ-01", f"fine id {mount.get('id')} path is outside 00-07")
+            raise GateFailure("G-VIZ-01", f"fine id {fine_id.get('id')} path is outside 00-07")
 
 
 def check_contract(contract: dict) -> None:
@@ -262,7 +262,7 @@ def check_contract(contract: dict) -> None:
         "LLM inference",
         "generated HTML",
         "previous generated HTML",
-        "arbitrary mounted-file crawling",
+        "arbitrary external-file crawling",
         "filename alone",
         "visual appearance",
         "unvalidated JSON",
@@ -280,7 +280,7 @@ def architecture_ir() -> dict:
     components = [
         {"id": "c00", "type": "security", "label": "00 Control", "sublabel": "gate and QC", **_box(0, 0)},
         {"id": "c01", "type": "backend", "label": "00 Index", "sublabel": "registry / workflows", **_box(0, 1)},
-        {"id": "mounts", "type": "external", "label": "Mounts", "sublabel": "registry pointers", **_box(0, 2)},
+        {"id": "fine_ids", "type": "external", "label": "Fine ids", "sublabel": "registry pointers", **_box(0, 2)},
         {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready", **_box(1, 0)},
         {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "citation-verify", **_box(1, 1)},
         {"id": "c04", "type": "backend", "label": "02 Statistics", "sublabel": "stats and figures", **_box(1, 2)},
@@ -316,13 +316,13 @@ def architecture_ir() -> dict:
             },
             {
                 "kind": "region",
-                "label": "External mount index",
-                "wraps": ["mounts"],
+                "label": "External fine-id index",
+                "wraps": ["fine_ids"],
             },
         ],
         "connections": [
-            {"id": "need-mount", "from": "c00", "to": "c01", "label": "mount if needed"},
-            {"id": "index-mounts", "from": "c01", "to": "mounts", "label": "pointers"},
+            {"id": "need-fine_id", "from": "c00", "to": "c01", "label": "fine ids if needed"},
+            {"id": "index-fine_ids", "from": "c01", "to": "fine_ids", "label": "pointers"},
             {"id": "dispatch-02", "from": "c00", "to": "c02", "label": "dispatch"},
             {"id": "dispatch-03", "from": "c00", "to": "c03", "label": "dispatch"},
             {"id": "dispatch-04", "from": "c00", "to": "c04", "label": "dispatch"},
@@ -343,7 +343,7 @@ def architecture_ir() -> dict:
 def workflow_ir() -> dict:
     lanes = [
         {"id": "control", "label": "00 control"},
-        {"id": "mount", "label": "01 mount"},
+        {"id": "fine_id", "label": "fine ids"},
         {"id": "produce", "label": "Domain chain"},
         {"id": "literature", "label": "03 literature"},
         {"id": "qc", "label": "QC loop", "variant": "exception"},
@@ -366,9 +366,9 @@ def workflow_ir() -> dict:
         node("detect", "control", 1, "security", "00 Detect", "gate"),
         node("single", "control", 4, "backend", "One domain", "named entry"),
         node("done", "control", 5, "backend", "Done", "terminal PASS"),
-        node("mountcheck", "mount", 1, "security", "Fine ids", "coverage"),
-        node("s01", "mount", 3, "backend", "01 Mount", "session"),
-        node("dispatch", "mount", 2, "backend", "Dispatch", "after G0"),
+        node("fine_id_check", "fine_id", 1, "security", "Fine ids", "coverage"),
+        node("s01", "fine_id", 3, "backend", "Fine ids", "session"),
+        node("dispatch", "fine_id", 2, "backend", "Dispatch", "after G0"),
         node("p02", "produce", 2, "backend", "02 Data", "processing"),
         node("p04", "produce", 3, "backend", "02 Statistics", "figures"),
         node("p05", "produce", 4, "backend", "05 Writing", "manuscript"),
@@ -382,11 +382,11 @@ def workflow_ir() -> dict:
     ]
     edges = [
         {"id": "e-task-detect", "from": "task", "to": "detect", "label": "task enters", "role": "main"},
-        {"id": "e-detect-mount", "from": "detect", "to": "mountcheck", "label": "before specialist", "role": "main"},
-        {"id": "e-mount-gap", "from": "mountcheck", "to": "s01", "label": "fine ids missing", "role": "branch"},
+        {"id": "e-detect-fine_id", "from": "detect", "to": "fine_id_check", "label": "before specialist", "role": "main"},
+        {"id": "e-fine_id-gap", "from": "fine_id_check", "to": "s01", "label": "fine ids missing", "role": "branch"},
         {"id": "e-g0-pass", "from": "s01", "to": "dispatch", "label": "G0 PASS", "role": "main"},
         {"id": "e-g0-fail", "from": "s01", "to": "locate", "label": "G0 FAIL", "role": "error"},
-        {"id": "e-covered", "from": "mountcheck", "to": "dispatch", "label": "fine ids already covered", "role": "main"},
+        {"id": "e-covered", "from": "fine_id_check", "to": "dispatch", "label": "fine ids already covered", "role": "main"},
         {"id": "e-d02", "from": "dispatch", "to": "p02", "label": "entry 02", "role": "branch"},
         {"id": "e-d03", "from": "dispatch", "to": "p03", "label": "entry 03 independent literature", "role": "branch"},
         {"id": "e-d04", "from": "dispatch", "to": "p04", "label": "entry 02 or mid-entry", "role": "branch"},
@@ -414,7 +414,7 @@ def workflow_ir() -> dict:
         {"id": "e-fail-lit06", "from": "lit06", "to": "locate", "label": "Lit06 FAIL", "role": "error"},
         {"id": "e-fail-single", "from": "single", "to": "locate", "label": "target gate FAIL", "role": "error"},
         {"id": "e-locate-rework", "from": "locate", "to": "rework", "label": "local rework or rollback", "role": "error"},
-        {"id": "e-rework-mount", "from": "rework", "to": "mountcheck", "label": "reuse session lock or re-enter 01", "role": "return"},
+        {"id": "e-rework-fine_id", "from": "rework", "to": "fine_id_check", "label": "reuse session lock or re-enter 01", "role": "return"},
         {"id": "e-locate-escalate", "from": "locate", "to": "escalate", "label": "budget exhausted", "role": "error"},
     ]
     return {
@@ -422,14 +422,14 @@ def workflow_ir() -> dict:
         "diagram_type": "workflow",
         "meta": {
             "title": "MY-SKILLS Workflow",
-            "subtitle": "Task, gates, mounts, mid-entry, Lit05, Lit06, QC loop",
+            "subtitle": "Task, gates, fine ids, mid-entry, Lit05, Lit06, QC loop",
             "locale": "zh-CN",
             "output": "workflow/status.html",
         },
         "lanes": lanes,
         "phases": [
             {"id": "intake", "label": "Detect", "fromCol": 0, "toCol": 0},
-            {"id": "session", "label": "Mount", "fromCol": 1, "toCol": 2},
+            {"id": "session", "label": "Fine id", "fromCol": 1, "toCol": 2},
             {"id": "domains", "label": "02-06", "fromCol": 3, "toCol": 5},
         ],
         "groups": [
@@ -437,7 +437,7 @@ def workflow_ir() -> dict:
             {"id": "lit-gates", "label": "Lit05 Lit06", "lane": "literature", "fromCol": 4, "toCol": 5},
             {"id": "qc-loop", "label": "QC loop", "lane": "qc", "fromCol": 3, "toCol": 5, "variant": "dashed"},
         ],
-        "mainPath": ["task", "detect", "mountcheck", "dispatch", "p02", "p04", "p05", "lit05", "p06", "lit06", "done"],
+        "mainPath": ["task", "detect", "fine_id_check", "dispatch", "p02", "p04", "p05", "lit05", "p06", "lit06", "done"],
         "semanticChecks": {
             "allowedRoots": ["task"],
             "allowedTerminals": ["done", "escalate"],
@@ -642,14 +642,14 @@ NAV = (
     '<a href="{arch}">Architecture status</a>'
     '<a href="{wf}">Workflow status</a>'
     '<a href="{skills}">Skill index</a>'
-    '<a href="{mounts}">Mounts</a>'
+    '<a href="{fine_ids}">Fine ids</a>'
     '<a href="{delta}">Delta</a>'
     '<a href="{history}">Design history</a>'
 )
 
 
-def nav_for(home: str, arch: str, wf: str, skills: str, mounts: str, delta: str, history: str) -> str:
-    return NAV.format(home=home, arch=arch, wf=wf, skills=skills, mounts=mounts, delta=delta, history=history)
+def nav_for(home: str, arch: str, wf: str, skills: str, fine_ids: str, delta: str, history: str) -> str:
+    return NAV.format(home=home, arch=arch, wf=wf, skills=skills, fine_ids=fine_ids, delta=delta, history=history)
 
 
 def render_status(title: str, intro: str, rows: list[tuple[str, str]], extra: str, version: str, digest: str, links: dict) -> str:
@@ -674,7 +674,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
             "arch": "../architecture/status.html",
             "wf": "../workflow/status.html",
             "skills": "index.html",
-            "mounts": "../mounts/index.html",
+            "fine_ids": "../fine_ids/index.html",
             "delta": "../changes/latest-delta.html",
             "history": "../design-history/index.html",
         }
@@ -697,7 +697,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
         "arch": "../architecture/status.html",
         "wf": "../workflow/status.html",
         "skills": "index.html",
-        "mounts": "../mounts/index.html",
+        "fine_ids": "../fine_ids/index.html",
         "delta": "../changes/latest-delta.html",
         "history": "../design-history/index.html",
     }
@@ -711,21 +711,21 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
     return files
 
 
-def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: str, digest: str) -> str:
-    mounts = reg["mounts"]
-    mounted = sum(1 for item in mounts if item.get("status") == "MOUNTED")
-    proposed = sum(1 for item in mounts if item.get("status") == "PROPOSED")
+def render_fine_ids(reg: dict, sources: list[dict], presets: list[dict], version: str, digest: str) -> str:
+    fine_ids = reg["fine_ids"]
+    live = sum(1 for item in fine_ids if item.get("status") == "LIVE")
+    proposed = sum(1 for item in fine_ids if item.get("status") == "PROPOSED")
     coarse_rows = []
     for coarse in reg.get("coarse_ids") or []:
-        count = sum(1 for item in mounts if item.get("a_domain") == coarse.get("id"))
+        count = sum(1 for item in fine_ids if item.get("a_domain") == coarse.get("id"))
         domains = ", ".join(coarse.get("a_domains") or [])
         coarse_rows.append(
             f"<tr><td>{esc(coarse.get('id'))}</td><td><code>{esc(coarse.get('slug'))}</code></td>"
             f"<td>{esc(domains)}</td><td>{esc(coarse.get('specialist_hint'))}</td><td>{count}</td></tr>"
         )
-    mount_rows = []
-    for item in mounts:
-        mount_rows.append(
+    fine_id_rows = []
+    for item in fine_ids:
+        fine_id_rows.append(
             "<tr>"
             f"<td><code>{esc(item.get('id'))}</code></td>"
             f"<td>{esc(item.get('label'))}</td>"
@@ -745,14 +745,14 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
     body = f"""
     <section class="card">
       <h2>In-repo index</h2>
-      <p class="muted">MOUNTED {mounted} · PROPOSED {proposed} · fine ids {len(mounts)}. Counts come from registry.yaml. Bodies live under NN_slug/base/.</p>
+      <p class="muted">LIVE {live} · PROPOSED {proposed} · fine ids {len(fine_ids)}. Counts come from registry.yaml. Bodies live under NN_slug/base/.</p>
     </section>
     <h2>Seats (coarse id = a_domain)</h2>
     <table><thead><tr><th>seat</th><th>slug</th><th>a_domains</th><th>specialist</th><th>fine ids</th></tr></thead>
     <tbody>{''.join(coarse_rows)}</tbody></table>
     <h2>Fine ids</h2>
     <table><thead><tr><th>id</th><th>label</th><th>source</th><th>status</th><th>package</th><th>a_domain</th><th>priority</th><th>registry path</th></tr></thead>
-    <tbody>{''.join(mount_rows)}</tbody></table>
+    <tbody>{''.join(fine_id_rows)}</tbody></table>
     <h2>Source records / presets</h2>
     <p class="muted">Retired: no <code>sources/</code> yaml seat and no <code>references/presets/</code>. Registry is SSOT.</p>
     <h2>Proposals</h2>
@@ -763,7 +763,7 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
         "arch": "../architecture/status.html",
         "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
-        "mounts": "index.html",
+        "fine_ids": "index.html",
         "delta": "../changes/latest-delta.html",
         "history": "../design-history/index.html",
     }
@@ -811,7 +811,7 @@ def render_delta(delta: dict, after: dict, version: str, digest: str, before_lab
         "arch": "../architecture/status.html",
         "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
-        "mounts": "../mounts/index.html",
+        "fine_ids": "../fine_ids/index.html",
         "delta": "latest-delta.html",
         "history": "../design-history/index.html",
     }
@@ -864,7 +864,7 @@ def build() -> dict:
         "arch": "architecture/status.html",
         "wf": "workflow/status.html",
         "skills": "skills/index.html",
-        "mounts": "mounts/index.html",
+        "fine_ids": "fine_ids/index.html",
         "delta": "changes/latest-delta.html",
         "history": "design-history/index.html",
     }
@@ -873,7 +873,7 @@ def build() -> dict:
         "arch": "status.html",
         "wf": "../workflow/status.html",
         "skills": "../skills/index.html",
-        "mounts": "../mounts/index.html",
+        "fine_ids": "../fine_ids/index.html",
         "delta": "../changes/latest-delta.html",
         "history": "../design-history/index.html",
     }
@@ -882,7 +882,7 @@ def build() -> dict:
         "arch": "../architecture/status.html",
         "wf": "status.html",
         "skills": "../skills/index.html",
-        "mounts": "../mounts/index.html",
+        "fine_ids": "../fine_ids/index.html",
         "delta": "../changes/latest-delta.html",
         "history": "../design-history/index.html",
     }
@@ -907,7 +907,7 @@ def build() -> dict:
         "<p><a href=\"workflow/status.html\">Open Workflow status</a></p></section>"
         "<section class=\"card\"><h2>Registry</h2>"
         "<p>Fine ids are indexed in registry.yaml. Bodies live in-repo under NN_slug/base/.</p>"
-        "<p><a href=\"mounts/index.html\">Open registry index</a></p></section>"
+        "<p><a href=\"fine_ids/index.html\">Open registry index</a></p></section>"
         "<section class=\"card\"><h2>Skills</h2><p>Frontmatter pages for 00–07.</p>"
         "<p><a href=\"skills/index.html\">Open Skill index</a></p></section>"
         "</div>"
@@ -962,7 +962,7 @@ def build() -> dict:
             digest,
             wf_links,
         ),
-        "mounts/index.html": render_mounts(reg, sources, presets, version, digest),
+        "fine_ids/index.html": render_fine_ids(reg, sources, presets, version, digest),
         "changes/latest-delta.html": render_delta(
             delta, after, version, digest, "none (no baseline snapshot supplied)"
         ),
@@ -976,7 +976,7 @@ def build() -> dict:
                 arch="../architecture/status.html",
                 wf="../workflow/status.html",
                 skills="../skills/index.html",
-                mounts="../mounts/index.html",
+                fine_ids="../fine_ids/index.html",
                 delta="../changes/latest-delta.html",
                 history="index.html",
             ),

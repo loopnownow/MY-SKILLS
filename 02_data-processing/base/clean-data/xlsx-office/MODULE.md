@@ -9,7 +9,7 @@ owner: "02_data-processing/base/clean-data/xlsx-office/MODULE.md"
 
 Nested under **clean-data**. This is the Anthropic office/xlsx skill (financial models, 10-K sources,
 blue-input color conventions, OOXML pack/unpack, `scripts/recalc.py`). It is **not** the clean-data
-mount front.
+entry point.
 
 Clinical Excel/CSV (headers, missingness, ID integrity, cohort columns) → parent
 [`../MODULE.md`](../MODULE.md). Missing/outlier implementation → [`../impute/`](../impute/).

@@ -72,7 +72,7 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 
 1. Run the Introduction lint (`humanize`) and keep its table as evidence for FLU and CIT-1.
 2. Score each dimension and write the codes.
-3. The scorer is not the drafter: a different mount (`simulate-reviewers`, isolated) or the user. A drafter's score is labelled *provisional*.
+3. The scorer is not the drafter: a different fine id (`simulate-reviewers`, isolated) or the user. A drafter's score is labelled *provisional*.
 4. Record the date, manuscript, scorer, and the scores with codes.
 
 ### Record: Risk manuscript, first rewrite (2026-09-19, provisional, self-check)

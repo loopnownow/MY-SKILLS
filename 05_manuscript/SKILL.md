@@ -3,7 +3,7 @@ name: medical-scientific-writing
 description: >
  Personal SCI original-article prose layer (Aitor / Aitor-format / de-AI / pre-submit consistency).
  Triggers: 润色, 去AI, de-AI, 写论文, 引言, Discussion, Aitor-format, 投稿前一致性.
- Mounted writing skills supply generic capability; this layer is the personal upper
+ Live writing skills supply generic capability; this layer is the personal upper
  layer and final wording authority. Literature research → 03. Figures → 02.
  Reviewer response → 07. Do not use for 评阅 or 回复审稿人.
 ---
@@ -48,9 +48,9 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |
 
 
-## Mounted capability ids (bodies in `05_manuscript/base/`, except `check-reporting` under `qc/`)
+## Live capability ids (bodies in `05_manuscript/base/`, except `check-reporting` under `qc/`)
 
-**This-run pick:** do not load any mounted id until the 00 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+**This-run pick:** do not load any live id until the 00 session-fine-id pick is confirmed for this run. Registry `LIVE` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
 - `check-reporting` — TRIPOD / CLAIM / CLEAR (`qc/check-reporting/`)
@@ -60,11 +60,11 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 
 ## Figures
 
-**Figures → `02_data-processing`** (mounted `plot-figures` / `draw-flowchart`, + `02_data-processing/personal/analysis/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `02_data-processing`** (live `plot-figures` / `draw-flowchart`, + `02_data-processing/personal/analysis/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Mounted packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-journal` / `design-study` for question framing). 选刊 / where to submit → `03_research` (`personal/journal-selection.md`); not this skill.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Live packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-journal` / `design-study` for question framing). 选刊 / where to submit → `03_research` (`personal/journal-selection.md`); not this skill.
 
 **Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/personal/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `05_manuscript/qc/manuscript-local-qc.md`.
 
@@ -109,7 +109,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Project `ref/` subfolders: follow `00_orchestrator/references/project-ref-layout.md` (keep manuscript-revision + settings.ini at root).
 - Word comments: author **A**, never yellow. Tag source (`[personal]`, `[base:humanize]`, …).
-- Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
+- Fine id advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `personal/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
 

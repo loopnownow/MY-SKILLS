@@ -19,4 +19,4 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 
 ## Note
 
-Capability bodies for 02 mounts live in `02_data-processing/base/` (pilot 2026-10-17). 02 personal top layer stays route/handoff + true personal files above.
+Capability bodies for 02 fine ids live in `02_data-processing/base/` (pilot 2026-10-17). 02 personal top layer stays route/handoff + true personal files above.

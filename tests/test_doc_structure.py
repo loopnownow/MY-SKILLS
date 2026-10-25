@@ -97,7 +97,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("default_source:", text)
         self.assertIn("source: my-skills", text)
         self.assertIn("notify-then-research-confirm", text)
-        self.assertIn("session_mount: ask-each-run", text)
+        self.assertIn("session_fine_id_pick: ask-each-run", text)
         self.assertIn("session_pick_unit: fine_id", text)
         self.assertIn("write-paper", text)
         self.assertIn("humanize", text)
@@ -106,14 +106,14 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("05-de-ai", text)
         self.assertNotIn("Imbad0202/academic-research-skills", text)
         self.assertNotIn("role: default-candidate", text)
-        self.assertNotIn("mounts: []", text)
+        self.assertNotIn("fine_ids: []", text)
         self.assertNotIn("\narchived:\n", text)
         self.assertFalse((ROOT / "00_orchestrator" / "_history").exists())
-        self.assertFalse((ROOT / "00_orchestrator" / "mounts").exists())
+        self.assertFalse((ROOT / "00_orchestrator" / "fine_ids").exists())
         self.assertFalse((ROOT / "00_orchestrator" / "references" / "MIGRATION_v3_to_v4.md").exists())
 
-    def test_mounts_board(self):
-        """00 keeps registry/index/workflows — no mount-package board under mounts/."""
+    def test_fine_ids_board(self):
+        """00 keeps registry/index/workflows — no fine_id-package board under fine_ids/."""
         d = ROOT / "00_orchestrator"
         refs = d / "references"
         skill = (d / "SKILL.md").read_text(encoding="utf-8")
@@ -121,29 +121,29 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("my-skills", skill)
         self.assertIn("NN_slug/base", skill)
         self.assertIn("routing index", skill.lower())
-        self.assertNotIn("`mounts/`", skill)
+        self.assertNotIn("`fine_ids/`", skill)
         # 2026-10-25: the 01 index seat merged here; registry / aliases / workflows live under 00.
         self.assertTrue((d / "registry.yaml").is_file())
         self.assertTrue((d / "legacy_aliases.yaml").is_file())
         self.assertTrue((d / "workflows" / "README.md").is_file())
         self.assertFalse((ROOT / "01_skill-integration").exists())
-        self.assertFalse((d / "mounts").exists())
+        self.assertFalse((d / "fine_ids").exists())
         self.assertFalse((d / "sources").exists())
-        self.assertFalse((d / "mounts" / "MIGRATION_v3_to_v4.md").exists())
+        self.assertFalse((d / "fine_ids" / "MIGRATION_v3_to_v4.md").exists())
         # No separate capability-pack source yaml; bodies in-repo under NN_slug/base/.
         self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
         self.assertFalse((refs / "presets").exists())
         self.assertFalse((d / "MOUNTED_SKILLS.md").exists())
 
 
-    def test_b_mount_paths_unique(self):
+    def test_b_fine_id_paths_unique(self):
         import yaml
         reg = yaml.safe_load(
             (ROOT / "00_orchestrator" / "registry.yaml").read_text(encoding="utf-8")
         )
         a_paths = []
         b_paths = []
-        for m in reg.get("mounts") or []:
+        for m in reg.get("fine_ids") or []:
             if m.get("path_shared"):
                 continue
             path = m.get("path")
@@ -204,8 +204,8 @@ class ModuleHeaderTests(unittest.TestCase):
 class DocsMatchRegistry(unittest.TestCase):
     def setUp(self) -> None:
         reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
-        self.mounts = [m for m in (reg.get("mounts") or []) if isinstance(m, dict)]
-        self.proposed = [m for m in self.mounts if m.get("status") == "PROPOSED"]
+        self.fine_ids = [m for m in (reg.get("fine_ids") or []) if isinstance(m, dict)]
+        self.proposed = [m for m in self.fine_ids if m.get("status") == "PROPOSED"]
 
     def test_no_stale_proposed_claim(self) -> None:
         if self.proposed:
@@ -214,15 +214,15 @@ class DocsMatchRegistry(unittest.TestCase):
             text = (ROOT / name).read_text(encoding="utf-8")
             self.assertNotRegex(
                 text,
-                r"PROPOSED\s*/\s*MOUNTED",
-                f"{name} still claims non-default ids are mixed PROPOSED/MOUNTED "
+                r"PROPOSED\s*/\s*LIVE",
+                f"{name} still claims non-default ids are mixed PROPOSED/LIVE "
                 "while the registry has no PROPOSED row",
             )
 
-    def test_mounted_paths_are_canonical(self) -> None:
+    def test_live_paths_are_canonical(self) -> None:
         missing: list[str] = []
-        for m in self.mounts:
-            if m.get("status") != "MOUNTED":
+        for m in self.fine_ids:
+            if m.get("status") != "LIVE":
                 continue
             path = str(m.get("path") or "")
             if not path:
@@ -230,7 +230,7 @@ class DocsMatchRegistry(unittest.TestCase):
                 continue
             if not (ROOT / path).exists():
                 missing.append(f"{m.get('id')}: {path}")
-        self.assertEqual(missing, [], "MOUNTED paths missing:\n" + "\n".join(missing))
+        self.assertEqual(missing, [], "LIVE paths missing:\n" + "\n".join(missing))
 
     def test_no_archived_section(self) -> None:
         reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}

@@ -18,7 +18,7 @@ When the user asks to **use skills for a specific multi-node task**, before spec
 1. Show a **complete** flowchart from [`runtime-flow.mmd`](../runtime-flow.mmd) (read [`runtime-flow.md`](../runtime-flow.md)).
 2. Highlight the path this run will take (entry → nodes → gates → QC loop).
 3. Wait for **explicit approval**. Do not start 02–07 until they agree.
-4. After approval, proceed with the 00 session pick / G0 as on the map. (Mount packs retired 2026-10-20; no mounts-pack approval.)
+4. After approval, proceed with the 00 session pick / G0 as on the map. (One-off package adoption retired 2026-10-20; no adoption approval.)
 
 ## Plan card (before dispatch)
 

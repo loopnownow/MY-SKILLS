@@ -13,7 +13,7 @@ Do not promise “sure accept” / “easy accept” or decide on stale IF. Scop
 
 When the user asks for “patterns from high-tier journals in the last three years” or whether the paper fits Radiology / Lancet Digital Health / Nature Medicine / npj Precision Oncology, first read:
 
-- mounted `meta-analysis` (B `02_data-processing/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
+- live `meta-analysis` (B `02_data-processing/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
 - this file §「2023-2026 journal patterns」(merged below; former journal-patterns-2023-2026.md archived 2026-10-16)
 
 Those files give PubMed-verified seed evidence and journal patterns — not a full systematic review. Final submit advice still needs same-day verification of the journal site and recent similar papers.
@@ -136,7 +136,7 @@ When the user wants “recommend journals / JCR·JCI tiered selection / ease-of-
 - Indices and modules: `03_research/base/find-journal/rules/jesi-model.md` (JESI/JEI / JDI / JCI-C / **MJF=MFI** / PAI), `modules.md`, `query-sources.md`
 - Persistence: `03_research/base/find-journal/rules/persistence.md` — **absorb / query / delete** table; submission URLs and personal priors may be stored; annual IF/quartile/volume/APC etc. **QUERY ONLY** (do not write into `{find_journal_pools}/2026/submission-urls.csv`); **Unknown ≠ Low Risk**; no fixed-weight policy (dynamic weighting)
 
-This file still owns evidence-strength vs journal-preference, stretch/solid/safety narrative, and §「2023-2026 journal patterns」 below / mounted `meta-analysis` contrast. Tier-table output follows the personal pack (default **tier2→tier3→tier4, 10 journals each**; tier2≈primary/Target, tier3≈solid/Safety-upper, tier4≈Q3; **tier2 stretch-supplement** is off by default — ask before each use; three blacklist journals never recommended; submitted/选刊 whitelist (`whitelist-submitted.csv`) prioritised within tier; graylist (incl. Frontiers series) skipped when a better match exists (`graylist.csv`)). Within-tier sort: manuscript match → ease-of-submit index → annual volume (weak). Medicine titles demoted within tier; do not mark “suspicious” in the table; yellow highlight only for JESI≥80. External journal-recommenders are query/candidate pools only — not top-level decisions. Phase-2 user short table (per paper): full journal name | JCR quartile | IF | annual volume | submit URL / author instructions (full URL); no ISO/OA/confidence/APC/split-journal detail; details in `03_research/base/find-journal/`.
+This file still owns evidence-strength vs journal-preference, stretch/solid/safety narrative, and §「2023-2026 journal patterns」 below / live `meta-analysis` contrast. Tier-table output follows the personal pack (default **tier2→tier3→tier4, 10 journals each**; tier2≈primary/Target, tier3≈solid/Safety-upper, tier4≈Q3; **tier2 stretch-supplement** is off by default — ask before each use; three blacklist journals never recommended; submitted/选刊 whitelist (`whitelist-submitted.csv`) prioritised within tier; graylist (incl. Frontiers series) skipped when a better match exists (`graylist.csv`)). Within-tier sort: manuscript match → ease-of-submit index → annual volume (weak). Medicine titles demoted within tier; do not mark “suspicious” in the table; yellow highlight only for JESI≥80. External journal-recommenders are query/candidate pools only — not top-level decisions. Phase-2 user short table (per paper): full journal name | JCR quartile | IF | annual volume | submit URL / author instructions (full URL); no ISO/OA/confidence/APC/split-journal detail; details in `03_research/base/find-journal/`.
 
 Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
 
@@ -160,7 +160,7 @@ This file only owns the trade-off “evidence strength vs journal preference.”
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,
-41339572, and 38809149. Use mounted `meta-analysis` (B `02_data-processing/base/meta-analysis/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
+41339572, and 38809149. Use live `meta-analysis` (B `02_data-processing/base/meta-analysis/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
 table and DOI-level metadata.
 
 ## Submission-tier logic

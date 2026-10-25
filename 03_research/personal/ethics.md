@@ -75,7 +75,7 @@ Possible positions:
 - no public sharing: acceptable when justified by consent, law, or institutional policy
 - derived data sharing: feature tables, aggregate statistics, trained weights, or code
 
-Use mounted `clean-data` (`data.md`) and mounted `preprocess-imaging` (`notes/reproducibility.md`) together for availability wording.
+Use live `clean-data` (`data.md`) and live `preprocess-imaging` (`notes/reproducibility.md`) together for availability wording.
 
 ## Output format
 

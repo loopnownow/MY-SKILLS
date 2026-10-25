@@ -19,7 +19,7 @@ from tests.support import (
 HIST_LINE = re.compile(
     r"archived|historical|legacy|absorb|absorbed|formerly|old_path|"
     r"status_note|covers former|round\s*[123]|勿建|do not recreate|归档|archive|archived|was\s+B|retired|"
-    r"not on disk|do not recreate|do not mount|not a live",
+    r"not on disk|do not recreate|do not adopt|not a live",
     re.I,
 )
 ALLOW_FILES = {
@@ -206,7 +206,7 @@ class RouteContract(unittest.TestCase):
             for token in row["must_not_contain"]:
                 self.assertNotIn(token, section, row["intent"])
 class ProvenanceSchema(unittest.TestCase):
-    def test_schema_names_mount_provenance_fields(self) -> None:
+    def test_schema_names_fine_id_provenance_fields(self) -> None:
         fields = ["fine_id", "source", "resolved_commit", "path", "content_hash", "checked_at"]
         for rel in (
             "00_orchestrator/templates/project-state.yaml",
@@ -214,7 +214,7 @@ class ProvenanceSchema(unittest.TestCase):
             "00_orchestrator/gates.md",
         ):
             text = (ROOT / rel).read_text(encoding="utf-8")
-            self.assertIn("mount_provenance", text, rel)
+            self.assertIn("fine_id_provenance", text, rel)
             for field in fields:
                 self.assertIn(field, text, f"{rel} {field}")
 class GateAlignment(unittest.TestCase):

@@ -27,7 +27,7 @@
 
 When polish requested after 00 QC:
 
-1. Mount/run B `humanize` (lint table first, then the de-AI pass)
+1. Run B `humanize` (lint table first, then the de-AI pass)
 2. Then B `humanize`
 3. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (A personal authority)
 

@@ -346,7 +346,7 @@ class PersonalMarkdownControlCharTests(unittest.TestCase):
 
 SEAT_ID = re.compile(r"\bA0[1-9]\b")
 WORKSPACE_MARKERS = re.compile(
-    r"Work-[AB]\b|A `base/`|B `base/`|\[A:[a-z-]+\]|\[B:[a-z-]+\]|\bB mount\b|"
+    r"Work-[AB]\b|A `base/`|B `base/`|\[A:[a-z-]+\]|\[B:[a-z-]+\]|"
     r"\bA-side\b|\bB-side\b|\bA file\b"
 )
 BARE_AB = re.compile(r"\bA/B\b")

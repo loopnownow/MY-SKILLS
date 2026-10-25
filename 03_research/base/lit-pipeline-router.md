@@ -11,7 +11,7 @@ multi-source search  →  score / filter  →  card / deep-read  →  archive no
 
 | Stage | Lab home | Notes |
 |---|---|---|
-| Search | `lit-search/` (+ optional mounted academic-search) | Prefer ≥2 sources; OpenAlex/PubMed before Scholar scrape |
+| Search | `lit-search/` (+ optional live academic-search) | Prefer ≥2 sources; OpenAlex/PubMed before Scholar scrape |
 | Score / filter | personal intake / intro-evidence-pack | Topic × methods × venue quality — lab weights; not a fixed 6-dim product |
 | Card / deep-read | personal / project notes | One-paper card: claim, methods, n, limits — not full 01–16 dump |
 | Verify | `verify-refs/` + `personal/citation-verify.md` | DOI-first field audit + claim→ref |

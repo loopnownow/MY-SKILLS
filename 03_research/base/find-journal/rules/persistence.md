@@ -27,7 +27,7 @@ These metrics may appear in **HTML or Markdown delivery reports only**, queried 
 
 ## Absorb / Query / Delete (ChatGPT 2026-09 + Gemini)
 
-Stable methodology is rewritten into MY-SKILLS; changing journal numbers stay query-only; unsuitable prediction/fixed-scoring logic is deleted. Do **not** install `zero565656/journal-recommender` as a mounted skill.
+Stable methodology is rewritten into MY-SKILLS; changing journal numbers stay query-only; unsuitable prediction/fixed-scoring logic is deleted. Do **not** install `zero565656/journal-recommender` as a live skill.
 
 ### ABSORB（改写吸收 / rewrite into 04 decision path）
 

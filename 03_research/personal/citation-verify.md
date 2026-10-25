@@ -15,7 +15,7 @@ outputs:
 
 Required before a 05 deliverable is done (Gate · 05; semantic label **G-CIT-1**, draft evidence verification) and inside every 06 review (semantic label **G-CIT-2**, post-revision / inside 06). G-CIT-1 does not waive G-CIT-2. These names are labels, not new gate ids. 05 and 06 **call/require 03 citation-verify — do not self-certify lit**. A prior 05 pass does not waive the 06 pass. Mid-entry into 05 or 06 does not waive it.
 
-Mounted `verify-refs` may check metadata. Victor owns this pass. He does not apply manuscript Track Changes. Aitee keeps Accept / Weaken / Delete on the sentence after the table comes back and applies Track Changes. Lee keeps statement consistency, then data consistency. Literature accuracy is joint with Victor.
+Live `verify-refs` may check metadata. Victor owns this pass. He does not apply manuscript Track Changes. Aitee keeps Accept / Weaken / Delete on the sentence after the table comes back and applies Track Changes. Lee keeps statement consistency, then data consistency. Literature accuracy is joint with Victor.
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 

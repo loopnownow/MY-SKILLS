@@ -21,7 +21,7 @@ Owner: **Victor** · `03_research`. Bai owns 选刊 advancement after titles are
 - **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
 ## Every journal-recommendation (推荐杂志) run
 
-1. Mount blacklist first (`data/2026/blacklist.csv`): never list PLoS One / Scientific Reports / MEDICINE (LWW Baltimore).
+1. Blacklist first (`data/2026/blacklist.csv`): never list PLoS One / Scientific Reports / MEDICINE (LWW Baltimore).
 2. Read the manuscript. **Ask before each run** whether to include 层2补 (Challenge); **default OFF**.
    - Always: 层2 — Q1 and IF < 5 — `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv` (Target; **10** journals)
    - Always: 层3 — Q2 — `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv` (safer/steady; **10** journals)
@@ -59,7 +59,7 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 - Route formatting / house style (体例) to `write-paper` (选刊走 03 `find-journal`).
 - Invent word limits or APC; invent missing risk as “low.”
 - Persist annually updated IF / JCR·JCI/CAS / APC / review-time / volume values into CSV/DB-like files — **query capability only**.
-- Install external journal-recommender as a mounted skill; copy fixed Fit Score weights or abstract→CAS prediction.
+- Install external journal-recommender as a live skill; copy fixed Fit Score weights or abstract→CAS prediction.
 
 ## Data locations
 

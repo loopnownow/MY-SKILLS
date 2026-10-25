@@ -21,8 +21,8 @@
 flowchart TD
     Start([Task enter]) --> Detect[00 · Detect materials / intent / entry / exit]
 
-    %% Plan card / grilling / flowchart approval (multi-node, new capability, or mounts needed)
-    Detect --> MultiQ{Multi-node / new capability / mounts needed?}
+    %% Plan card / grilling / flowchart approval (multi-node, new capability, or fine ids needed)
+    Detect --> MultiQ{Multi-node / new capability / fine ids needed?}
     MultiQ -->|yes| GrillPlan[grilling · Plan card]
     GrillPlan --> FlowAppr[Flowchart approval · highlight this path on full map]
     %% Results page and reviewer letter both present and user did not name entry: ask first; do not auto-pick by nearest artifact.
@@ -40,7 +40,7 @@ flowchart TD
     Entry -->|Standalone lit task| Need03[Enter 03 · Victor]
     Entry -->|Deep code QC| NeedCode[Enter 02 code QC]
     Entry -->|Other clear single domain| NeedS[Enter target Skill]
-    Entry -->|Single-node personal · no mount dependency| Personal[e.g. polish one sentence · no mount ask]
+    Entry -->|Single-node personal · no fine id dependency| Personal[e.g. polish one sentence · no fine id ask]
 
     %% R&R: triage then return to node; re-run only forward affected chain
     R06 --> Decide{06 locate problem source}
@@ -51,12 +51,12 @@ flowchart TD
     Decide -->|Review integration| Need06
     Decide -->|Reply / response| Need07
 
-    %% Independent run needs one mount decision. Reuse lock if covered; else enter 00.
-    Need02 & Need03 & NeedStats & Need05 & Need06 & Need07 & NeedS & NeedCode --> MountQ{session_picked_fine_ids<br/>covers this task fine IDs?}
-    MountQ -->|yes · reuse session lock| GA0
-    MountQ -->|no| SMount[00 · Session Mount / Lifecycle]
+    %% Independent run needs one fine-id pick. Reuse lock if covered; else enter 00.
+    Need02 & Need03 & NeedStats & Need05 & Need06 & Need07 & NeedS & NeedCode --> FineIdQ{session_picked_fine_ids<br/>covers this task fine IDs?}
+    FineIdQ -->|yes · reuse session lock| GA0
+    FineIdQ -->|no| SFineId[00 · Session fine-id pick / Lifecycle]
     S01 --> GA0{{G0}}
-    GA0 -->|PASS| Ready[Mounts ready]
+    GA0 -->|PASS| Ready[Fine ids ready]
     GA0 -->|FAIL| Locate
     Personal --> Single
 
@@ -138,11 +138,11 @@ flowchart TD
     Impact -->|yes| Rollback[Roll back to earliest affected node]
     Local --> Budget{Same defect defects[].rounds ≤ 3?}
     Rollback --> Budget
-    Budget -->|yes| Resume[Re-enter failed node · reuse session mount lock]
-    Resume --> ReMount{Missing dependency, stale provenance, or new capability needed?}
-    ReMount -->|no| BackNode[Return to failed node]
+    Budget -->|yes| Resume[Re-enter failed node · reuse session fine-id lock]
+    Resume --> RePick{Missing dependency, stale provenance, or new capability needed?}
+    RePick -->|no| BackNode[Return to failed node]
     BackNode --> Dispatch
-    ReMount -->|yes| SMount
+    RePick -->|yes| SFineId
     Budget -->|no| Escalate[Stop auto-loop · unresolved<br/>stage does not advance]
     Escalate --> Wait([Wait for user decision])
     Wait -.->|Authorized continue · reset that defect rounds| Locate

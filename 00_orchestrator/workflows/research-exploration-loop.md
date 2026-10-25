@@ -21,7 +21,7 @@ Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id
 
 Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/02/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
 
-Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live mounts: `lit-search`, `design-study`, `verify-refs`, and 02 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
+Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live fine ids: `lit-search`, `design-study`, `verify-refs`, and 02 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
 
 ```text
 00_orchestrator
@@ -155,4 +155,4 @@ exploration_state:
 
 - Extend `project-state.yaml` with optional top-level `exploration_state` (see template). Do not fork a second state schema.
 - Record changes with `CHG-YYYYMMDD-NNN`.
-- External absorb still: license → file diff → extract action/rules only → no whole-pack mount; respect Cache ≠ Mount ≠ Active and `fine_id_count_canonical` in `registry.yaml`.
+- External absorb still: license → file diff → extract action/rules only → no whole-pack adoption; respect Cache ≠ Live ≠ Active and `fine_id_count_canonical` in `registry.yaml`.

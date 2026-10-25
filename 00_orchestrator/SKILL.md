@@ -15,9 +15,9 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **Sole official runtime map:** [`runtime-flow.mmd`](runtime-flow.mmd) (how to read the map [`runtime-flow.md`](runtime-flow.md)). Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md). Diagram nodes `Gate · NN` ↔ `G-NN`.
 
-**Seats (07_response owns response letters):** 03 Victor · 02 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
+**Seats (07_response owns response letters):** 03 Victor · 02 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not adopt an external `orchestrate` pack as a third SOP.
 
-**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
+**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Assistant vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
 **Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
@@ -27,11 +27,11 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 ## 0 Index & registry
 
-00 owns the routing index. The former `01_skill-integration` seat retired here on 2026-10-25: **coarse id = execution seat** (`02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`). A mount carries **no** coarse field — its bucket is its `a_domain`, so a bucket cannot drift from its seat. Bodies stay in-repo under `NN_slug/base/` (`source: my-skills`); this seat only indexes, routes, and gates.
+00 owns the routing index. The former `01_skill-integration` seat retired here on 2026-10-25: **coarse id = execution seat** (`02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`). A fine id carries **no** coarse field — its bucket is its `a_domain`, so a bucket cannot drift from its seat. Bodies stay in-repo under `NN_slug/base/` (`source: my-skills`); this seat only indexes, routes, and gates.
 
 | File | Role |
 |---|---|
-| [`registry.yaml`](registry.yaml) | fine-id SSOT: `coarse_ids` = the five seats, `mounts` (status `MOUNTED`), `local_packs` |
+| [`registry.yaml`](registry.yaml) | fine-id SSOT: `coarse_ids` = the five seats, `fine_ids` (status `LIVE`), `local_packs` |
 | [`legacy_aliases.yaml`](legacy_aliases.yaml) | alias → canonical id; retired fine ids, retired buckets, retired 01 seat |
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
 | [`references/session-pick.md`](references/session-pick.md) | this-run pick, resolution order, empty-path protocol |
@@ -40,7 +40,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 | [`references/capability-contract.example.yaml`](references/capability-contract.example.yaml) | example contract for a new pack (proposal side) |
 | [`workflows/`](workflows/README.md) | 5 composite SOPs + README |
 
-Registry edits are propose-only: a proposal here, the user confirms. Never auto-mount. Never change `registry.yaml` because one run wanted a path that is not indexed.
+Registry edits are propose-only: a proposal here, the user confirms. Never auto-add. Never change `registry.yaml` because one run wanted a path that is not indexed.
 
 ## 1. Intent classify
 
@@ -75,17 +75,17 @@ SSOT: [`references/fast-routing.md`](references/fast-routing.md) (must match `ro
 
 Ids: `02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`; `00_orchestrator` is this control plane (registry, flow order, QC), not a domain seat. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **Reviewer response enters 07 only** (`07_response`). No archive-as-standalone routes.
 
-### Session mount pick
+### Session fine-id pick
 
-Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
+Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `LIVE` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all live ids. Personal layers are not a fine-id pick. A single-node personal-layer task with no live dependency does not ask.
 
 **Auto-discovery:** only `00_orchestrator`–`07_response` (including nested packs).
 
-**Review / polish on a `.docx`:** follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
+**Review / polish on a `.docx`:** follow [`references/fine-id-review-polish-recipe.md`](references/fine-id-review-polish-recipe.md).
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → registry proposal in this seat (§0); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → registry proposal in this seat (§0); never auto-add. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 
@@ -122,7 +122,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 
 Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate). Harvest intake → that file, section «Harvest task flow»; collection SSOT `{doc_skill_harvest}\HARVEST-STANDARD.md` (extract ≠ promote).
 
-**Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-read the registry here only for a missing dependency, stale provenance, or a new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
+**Local recovery:** re-run **only the broken node**; reuse session fine-id lock. Re-read the registry here only for a missing dependency, stale provenance, or a new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
 **Close.** Write `pipeline.stage` from the template (`classify | 02 | 03 | 05 | 06 | qc | done`).
 
@@ -142,4 +142,4 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 
-Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Mount ids: [`registry.yaml`](registry.yaml) — **this-run pick first**. 00 does not write prose, invent numbers, click submission, or absorb harvest implementation.
+Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Fine ids: [`registry.yaml`](registry.yaml) — **this-run pick first**. 00 does not write prose, invent numbers, click submission, or absorb harvest implementation.

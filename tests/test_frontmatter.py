@@ -20,7 +20,7 @@ FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
     "generated HTML",
     "previous generated HTML",
-    "arbitrary mounted-file crawling",
+    "arbitrary external-file crawling",
     "filename alone",
     "visual appearance",
     "unvalidated JSON",

@@ -34,8 +34,8 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 |---|---|---|
 | Rules (R) | Cross-skill hard contracts | MY-RULES |
 | Skills (S) | 00–07 skill bodies / personal | MY-SKILLS |
-| Registry (Reg) | fine-ID / mount registry | `00_orchestrator/registry.yaml` etc. |
-| Capabilities (Cap) | Mountable capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
+| Registry (Reg) | fine-ID / fine-id registry | `00_orchestrator/registry.yaml` etc. |
+| Capabilities (Cap) | Live capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
 | Corpus | Corpus / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
 
 **Hard gates**
@@ -102,7 +102,7 @@ Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
 |---|---|---|
 | content | corpus draft, personal `corpus-*.md` addenda | 「进skills」 + budget |
 | merge | edit existing skill body / merge PR | checklist + user agree to merge |
-| registry/ID | registry, fine-ID, mount map | explicit approval; never silently change IDs |
+| registry/ID | registry, fine-ID, fine-id map | explicit approval; never silently change IDs |
 | Rules | MY-RULES | highest gate; propose-only; explicit approval |
 
 Cap changes = edit `base/` and/or registry; do **not** create a capabilities repo.

@@ -1,7 +1,7 @@
 # Index · selected this run · loaded this run
 
 - **Bodies:** in-repo `NN_slug/base/` (`source: my-skills`).
-- **Registry `MOUNTED`:** catalog-approved and session-selectable. Not the same as selected.
+- **Registry `LIVE`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run.
 - **Advertised:** `00`–`07` only.

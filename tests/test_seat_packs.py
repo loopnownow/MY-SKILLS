@@ -63,10 +63,10 @@ def iter_text_files():
         yield p
 def read(rel: str) -> str:
     return (ROOT / rel).read_text(encoding="utf-8")
-def registry_mount_ids() -> list[str]:
+def registry_fine_ids() -> list[str]:
     text = REG.read_text(encoding="utf-8")
-    # mounts: ... until reference_only: (v4) or proposals: (v3)
-    m = re.search(r"^mounts:\n(.*?)^(?:local_packs:|reference_only:|archived:|proposals:)", text, re.M | re.S)
+    # fine_ids: ... until reference_only: (v4) or proposals: (v3)
+    m = re.search(r"^fine_ids:\n(.*?)^(?:local_packs:|reference_only:|archived:|proposals:)", text, re.M | re.S)
     self_block = m.group(1) if m else text
     ids = re.findall(r"^\s+- id:\s*(\S+)\s*$", self_block, re.M)
     return ids
@@ -181,7 +181,7 @@ class RetiredIds(unittest.TestCase):
                     violations.append(f"{rel}:{i}:{m.group(1)}")
         self.assertEqual(violations, [], msg="\n".join(violations[:40]))
 class SessionPick(unittest.TestCase):
-    def test_workflows_ask_session_mount_pick(self) -> None:
+    def test_workflows_ask_session_fine_id_pick(self) -> None:
         for rel in (
             "00_orchestrator/workflows/sci-manuscript.md",
             "00_orchestrator/workflows/statistics.md",
@@ -189,18 +189,18 @@ class SessionPick(unittest.TestCase):
         ):
             text = read(rel).lower()
             self.assertTrue(
-                "session mount pick" in text or "session-mount pick" in text,
-                f"{rel} must ask session mount pick",
+                "session fine-id pick" in text or "session-fine-id pick" in text,
+                f"{rel} must ask session fine-id pick",
             )
             self.assertIn("do not auto-load", text, rel)
 class RegistryMenu(unittest.TestCase):
-    def test_registry_mounted_ids_are_unique(self) -> None:
+    def test_registry_live_ids_are_unique(self) -> None:
         """registry.yaml is SSOT; no generated MOUNTED_SKILLS.md mirror."""
         reg_doc = yaml.safe_load(REG.read_text(encoding="utf-8"))
-        mounts = reg_doc.get("mounts") or []
-        ids = [m["id"] for m in mounts]
+        fine_ids = reg_doc.get("fine_ids") or []
+        ids = [m["id"] for m in fine_ids]
         self.assertEqual(len(ids), len(set(ids)), msg=str(ids))
-        want_pick = [m["id"] for m in mounts if m.get("status") == "MOUNTED"]
+        want_pick = [m["id"] for m in fine_ids if m.get("status") == "LIVE"]
         self.assertGreaterEqual(len(want_pick), 10)
         self.assertFalse((ROOT / "00_orchestrator" / "MOUNTED_SKILLS.md").exists())
 class ArchitectureSsot(unittest.TestCase):
@@ -240,10 +240,10 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("Local recovery", text)
         self.assertIn("fill-protocol", text)
         self.assertIn("personal/extract.md", text)
-        # Full mount/ceiling/Cache section headings stay out of this intent file
+        # Full fine-id/ceiling/Cache section headings stay out of this intent file
         self.assertNotIn("## A/B no-reflow contract", text)
         self.assertNotIn("## Fine-id expansion ceiling", text)
-        self.assertNotIn("## Cache ≠ Mount ≠ Active", text)
+        self.assertNotIn("## Cache ≠ Live ≠ Active", text)
         self.assertNotIn("## load_priority", text)
 
     def test_readme_keeps_lab_homes(self) -> None:
@@ -257,7 +257,7 @@ class ArchitectureSsot(unittest.TestCase):
 class RoutingFourTuple(unittest.TestCase):
     def test_find_journal_and_fill_protocol_stay_on_03(self) -> None:
         reg = yaml.safe_load(REG.read_text(encoding="utf-8"))
-        by_id = {m["id"]: m for m in reg["mounts"]}
+        by_id = {m["id"]: m for m in reg["fine_ids"]}
         self.assertEqual(by_id["find-journal"]["a_domain"], "03_research")
         self.assertEqual(by_id["fill-protocol"]["a_domain"], "03_research")
         self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
@@ -349,9 +349,9 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("Never `--e2e`", zero)
         self.assertIn("Literature enters 03 only", zero)
         self.assertIn("Reviewer response enters 07 only", zero)
-        self.assertNotIn("Do not mount ARS", zero)
+        self.assertNotIn("Do not adopt ARS", zero)
         self.assertNotIn("academic-pipeline", zero)
-        self.assertIn("Do not mount an external", zero)
+        self.assertIn("Do not adopt an external", zero)
         self.assertIn("orchestrate", zero)
         fast = read("00_orchestrator/references/fast-routing.md")
         self.assertIn("Excel / 批处理 → `02_data-processing`", fast)
@@ -538,7 +538,7 @@ class DeAI(unittest.TestCase):
         self.assertIn("attenuation correction", banned)
         self.assertIn("comparison word", banned)
 
-    def test_de_ai_is_personal_not_a_mount(self) -> None:
+    def test_de_ai_is_personal_not_a_fine_id(self) -> None:
         five = lab_rules_read("05_manuscript", "SKILL.md")
         self.assertNotIn("05-de-ai", five)
         self.assertIn("write-paper", five)
@@ -585,15 +585,15 @@ class Routing(unittest.TestCase):
         self.assertNotIn("04-fig-flow", five)
         self.assertNotIn("bundles/figure-engine", five)
 
-    def test_session_mount_pick(self) -> None:
+    def test_session_fine_id_pick(self) -> None:
         one = lab_rules_read("00_orchestrator", "SKILL.md")
         zero = lab_rules_read("00_orchestrator", "SKILL.md")
         reg = lab_rules_read("00_orchestrator", "registry.yaml")
         pick = lab_rules_read("00_orchestrator", "references", "session-pick.md")
-        self.assertIn("Session mount pick", pick)
+        self.assertIn("Session fine-id pick", pick)
         self.assertIn("session-pick.md", one)
         self.assertIn("ask-each-run", reg)
-        self.assertIn("session mount pick", zero.lower())
+        self.assertIn("session fine-id pick", zero.lower())
         five = lab_rules_read("05_manuscript", "SKILL.md")
         self.assertIn("This-run pick", five)
 

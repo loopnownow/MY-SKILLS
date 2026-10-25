@@ -94,7 +94,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - **No financial-model color convention as the lab default** (blue RGB 0,0,255 inputs, yellow
   assumption cells, 10-K source comments). Those belong only to nested
   [`xlsx-office/`](xlsx-office/) when the user is actually building a financial workbook.
-- Do not treat nested `xlsx-office/` or imaging `data.md` as this mount's body.
+- Do not treat nested `xlsx-office/` or imaging `data.md` as this fine id's body.
 
 ## Nested packs
 

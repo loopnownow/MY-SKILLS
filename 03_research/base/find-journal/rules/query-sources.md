@@ -33,7 +33,7 @@ LetPub, community notes, and third-party scrapers may **supplement** acceptance/
 
 `zero565656/journal-recommender` (https://github.com/zero565656/journal-recommender) may be used as a **query / candidate-pool** helper (abstract match, metadata scrape).
 
-**Do not** install or mount it as a MY-SKILLS skill. It is a **data/capability provider**, not the top-level decision maker. Absorb rewritten Fit / Risk / Tier / Evidence methods into module 04; keep current metrics as 03 query-only (`persistence.md` absorb/query/delete table).
+**Do not** install or fine id it as a MY-SKILLS skill. It is a **data/capability provider**, not the top-level decision maker. Absorb rewritten Fit / Risk / Tier / Evidence methods into module 04; keep current metrics as 03 query-only (`persistence.md` absorb/query/delete table).
 
 ## Screening vs display vs persist
 

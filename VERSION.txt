@@ -1,3 +1,18 @@
+CHG-20261025-vocab-fine-id (2026-10-25)
+`mount` is retired as vocabulary. `registry.yaml` `mounts:` -> `fine_ids:`, `empty_mount` ->
+`empty_fine_ids`, `session_mount` -> `session_fine_id_pick`; row status `MOUNTED` -> `LIVE`, so
+`fine_id_count_canonical` now equals `len(fine_ids)`. `templates/handoff.yaml` `mounted_fine_ids` ->
+`live_fine_ids` and `mount_provenance` -> `fine_id_provenance`. Prose: "mounted pack" -> "live pack",
+"mount decision" -> "fine-id pick", "Mount vs lab" -> "Assistant vs lab"; `mount-review-polish-recipe.md`
+-> `fine-id-review-polish-recipe.md` (git mv, every link follows). The generator writes
+`fine_ids/index.html`, so old `mounts/` site links break (accepted). Guards flipped to match:
+`STATUS_TOKENS` guards `LIVE|PROPOSED|ARCHIVED`, and the retired-vocabulary regex drops the obsolete
+`B mount` form. Two scripted passes (phrase table, then capitalised prose + snake_case identifiers);
+each diff line was reviewed, not blind-substituted. Kept verbatim as history: dated ledger entries,
+the `mount_status` frontmatter of two absorbed packs, and the retired `MOUNTED_SKILLS.md` filename.
+Suite 174 -> 174. No push, no merge.
+Earlier: CHG-20261025-qc-dead-pointer-cleanup.
+
 CHG-20261025-qc-dead-pointer-cleanup (2026-10-25)
 Dead-pointer and test-hardening pass. Deleted three scripts nothing cited (`plot-figures/scripts/plot_template.py`,
 `plot-figures/scripts/style_configurator.py`, `visualization/scripts/gen_repo_map.py`); bytes quarantined

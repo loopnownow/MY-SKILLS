@@ -18,7 +18,7 @@ BOM = b"\xef\xbb\xbf"
 SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".tsv", ".py", ".mmd", ".sh", ".ini"}
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 SKIP_PARTS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
-STATUS_TOKENS = re.compile(r"\b(MOUNTED|PROPOSED|ARCHIVED)\b")
+STATUS_TOKENS = re.compile(r"\b(LIVE|PROPOSED|ARCHIVED)\b")
 STATUS_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
     "00_orchestrator/legacy_aliases.yaml",
@@ -28,7 +28,7 @@ STATUS_ALLOW_FILES = {
     "README.md",
 }
 STATUS_ALLOW_PREFIXES = (
-    "00_orchestrator/",  # the index seat: MOUNTED / PROPOSED vocabulary is its own
+    "00_orchestrator/",  # the index seat: LIVE / PROPOSED vocabulary is its own
     "tests/",
     "02_data-processing/personal/visualization/",
 )
@@ -127,7 +127,7 @@ class NoBom(unittest.TestCase):
                     offenders.append(path.relative_to(ROOT).as_posix())
         self.assertEqual(offenders, [], "BOM found:\n" + "\n".join(offenders[:20]))
 class RegistryStatusJargon(unittest.TestCase):
-    """MOUNTED/PROPOSED/ARCHIVED only in registry SSOT (+ gen / NOTICE)."""
+    """LIVE/PROPOSED/ARCHIVED only in registry SSOT (+ gen / NOTICE)."""
 
     def test_status_tokens_not_in_domain_agent_prose(self) -> None:
         violations: list[str] = []
