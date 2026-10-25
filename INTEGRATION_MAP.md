@@ -14,6 +14,13 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-stats-path-github (2026-10-25)
+
+- **Stats SSOT:** `{code_stats}` / `{code_modules}` / `{code_model_validation}` → `D:\0Grok\0doc\GitHub\stats-analysis` (and `modules` / `model-validation`).
+- Former `_code\04-analysis\stats-analysis` tree is gone; `{code_modules_master}` equals `{code_modules}`.
+- Prose: `02_data-processing/personal/analysis/analyze-stats-digest.md`, `route.md`.
+- MY-RULES `workspace-layout.md` already points at the GitHub tree (same change).
+
 ## CHG-20261025-vocab-fine-id — `mount` vocabulary retired, the registry key is `fine_ids`
 
 - **Keys:** `registry.yaml` `mounts:` → `fine_ids:`, `empty_mount` → `empty_fine_ids`,
