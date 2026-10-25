@@ -4,7 +4,7 @@
 
 ## A/B layering (2026-10-17)
 
-- **base first-pass:** `write-paper` / `check-reporting` must **load vocab** (`05_manuscript/base/vocab/`) before drafting.
+- **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
 - **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
 - **A05 re-loop:** post-QC chain `polish-language` -> `humanize` alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
 

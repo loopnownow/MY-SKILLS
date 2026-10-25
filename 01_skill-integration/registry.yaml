@@ -137,9 +137,10 @@ mounts:
   label: Reporting-guideline check
   coarse: manuscript-body
   source: my-skills
-  path: 05_manuscript/base/check-reporting/
+  path: 05_manuscript/qc/check-reporting/
   a_domain: 05_manuscript
   status: MOUNTED
+  note: 'QC body under 05_manuscript/qc/check-reporting/ (owner 2026-10-25). Fine id unchanged.'
 - id: grant-builder
   label: Grant proposal — methods
   coarse: manuscript-body
