@@ -27,7 +27,7 @@ references:
     - condition: identify task scope, apply the Major/Minor decision-type gate to package-level work, parse pasted decision emails, minimum inputs, editor IDs, readiness state, and clarifying-question need
       path: references/intake-and-routing.md
     - condition: source hierarchy, rule provenance, or policy-vs-advice boundaries
-      path: references/source-basis.md
+      path: references/07-source-basis.md
     - condition: the response package format, mutually blind reviewer separation, point-by-point letter anatomy, cover-letter anatomy, marked-manuscript rules, or LaTeX deliverable routing
       path: references/response-structure.md
     - condition: the user requests a LaTeX cover-letter template, LaTeX response-to-reviewers template, red-marked manuscript template, or filled .tex revision package
@@ -47,7 +47,7 @@ references:
     - condition: impossible experiments, factual errors, conflicting or repeated reviewer requests, reviewer-visibility isolation, citations, statistics, compliance, transfer, or appeal-like cases
       path: references/difficult-cases.md
     - condition: before finalizing an output or auditing a draft response
-      path: references/qa-checklist.md
+      path: references/07-qa-checklist.md
     - condition: the manuscript is being edited alongside the letter, the package has been through more than one editing round, or the package is about to be compiled and delivered — verbatim quote synchronization, red-marking baseline, deletion ripple, volatile page references, manuscript numeric self-consistency, terminology sweeps, and the clean/marked delivery gate
       path: references/package-consistency-audit.md
 

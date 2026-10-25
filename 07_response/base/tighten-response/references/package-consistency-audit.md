@@ -17,7 +17,7 @@ survive an editorial read: the manuscript and the response letter drifting apart
 misrepresents what changed, numbers that do not reconcile, and terminology that fragments across
 rounds.
 
-`qa-checklist.md` asks whether the response is complete, honest, and well-toned. This file asks
+`07-qa-checklist.md` asks whether the response is complete, honest, and well-toned. This file asks
 whether the shipped files actually agree with each other. Run both.
 
 The core rule: **a revision package is three coupled artifacts** — the marked manuscript, the clean
