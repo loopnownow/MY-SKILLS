@@ -3,14 +3,14 @@
 # Session: ask-each-run multi-select fine IDs under relevant coarse. Empty path → notify-then-confirm.
 # Canonical ID Rule: 01_skill-integration/references/id-rules.md. id is the only runtime identifier.
 # path labels / directory names must never be used to infer an id.
-# Retired fine ids live in legacy_aliases.yaml only (not listed here).
+# Retired fine ids and coarse ids live in legacy_aliases.yaml only (not listed here).
 # Live rows are status MOUNTED. Prefer merge into an existing fine id over opening a new one.
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
   version: '4.0'
-  change_id: CHG-20261025-absorb-polish-language
+  change_id: CHG-20261025-merge-language-polish-coarse
   fine_id_count_canonical: 25
-  coarse_id_count: 10
+  coarse_id_count: 9
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
@@ -43,12 +43,6 @@ coarse_ids:
 - id: manuscript-body
   label: Manuscript body writing
   slug: manuscript-body
-  a_domains:
-  - 05_manuscript
-  specialist_hint: Aitee
-- id: language-polish
-  label: Language polish
-  slug: language-polish
   a_domains:
   - 05_manuscript
   specialist_hint: Aitee
@@ -160,7 +154,7 @@ mounts:
     05_manuscript/base/write-paper/ (not the engine).'
 - id: humanize
   label: De-AI tone
-  coarse: language-polish
+  coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/base/humanize/
   a_domain: 05_manuscript

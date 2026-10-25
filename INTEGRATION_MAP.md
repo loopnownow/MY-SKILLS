@@ -12,6 +12,13 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-merge-language-polish-coarse — coarse merge
+
+- Coarse `language-polish` (single member: `humanize`) merged into `manuscript-body`; the `humanize` mount now carries `coarse: manuscript-body`.
+- `coarse_id_count` 10 → 9; fine ids unchanged at 25. No specialist or a_domain change (both groups were Aitee / `05_manuscript`).
+- `legacy_aliases.yaml` `coarse_aliases`: label `Language polish` retargeted, and id form `language-polish: manuscript-body` added.
+- No live document enumerated coarse groups by name, so no prose sync beyond this ledger.
+
 ## CHG-20261025-absorb-polish-language — language lint into humanize
 
 - Absorbed `05_manuscript/base/polish-language/` into `05_manuscript/base/humanize/` (humanize wins).
