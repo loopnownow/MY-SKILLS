@@ -34,4 +34,4 @@ Map the **message** to the chart; reviewers expect specific ones for specific cl
 
 ## Comparison plots
 When comparing models/readers, prefer **paired** visual encodings (same cases) and annotate
-the **difference + CI + test** (DeLong for AUC). Send the statistic to `analyze-stats` / `model-evaluation`.
+the **difference + CI + test** (DeLong for AUC). Send the statistic to `stats-analysis` / `model-evaluation`.

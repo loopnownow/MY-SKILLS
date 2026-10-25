@@ -10,7 +10,7 @@ owner: "02_data-processing/base/model-evaluation/MODULE.md"
 
 Umbrella fine id: **`model-evaluation`** (covers former `model-validation`).
 
-Not test selection (`analyze-stats`) and not model fitting (`meta-analysis`).
+Not test selection (`stats-analysis`) and not model fitting (`meta-analysis`).
 Lab pipeline / DeLong / Cox policy stays in `02_data-processing/personal/analysis/`.
 
 ## Workflow

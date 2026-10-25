@@ -160,7 +160,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("02_data-processing/base/draw-flowchart/", a_paths)
         self.assertIn("03_research/base/design-study/", a_paths)
         self.assertIn("02_data-processing/base/clean-data/", a_paths)
-        self.assertIn("02_data-processing/base/analyze-stats/", a_paths)
+        self.assertIn("02_data-processing/base/stats-analysis/", a_paths)
         self.assertIn("05_manuscript/base/write-paper/", a_paths)
         self.assertIn("06_review/base/self-review/", a_paths)
         self.assertIn("07_response/base/revise/", a_paths)

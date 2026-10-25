@@ -1,6 +1,6 @@
-# analyze-stats — thin standing digest (2026-10-24)
+# stats-analysis — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\by-fine-id\`. **Not** a new registry fine-id. Cap stays `base/analyze-stats`. Lab detail SSOT: `methods.md` + `pipeline.md`.
+Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\by-fine-id\`. **Not** a new registry fine-id. Cap stays `base/stats-analysis`. Lab detail SSOT: `methods.md` + `pipeline.md`.
 
 ## elements
 - **Table 1:** three-row header (group / variable / n); Significance column immediately after P; categorical → positive % only.
@@ -18,4 +18,4 @@ Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → arch
 - Nomogram axes must show original string labels (incl. merged multi-level), never 0/1/2/3 codes; FIGO stays Roman.
 - Do not change outcome / inclusion / cutoff / covariates / missingness “to make it run”.
 - After an exclusion list fires, re-check denominators (n must drop in lockstep).
-- Algorithm library path is `{code_stats}` (`GitHub\stats-analysis`) — **not** under `base/analyze-stats/`. Detail: `methods.md`, `pipeline.md`, `../../qc/report-checks.md`.
+- Algorithm library path is `{code_stats}` (`GitHub\stats-analysis`) — **not** under `base/stats-analysis/`. Detail: `methods.md`, `pipeline.md`, `../../qc/report-checks.md`.

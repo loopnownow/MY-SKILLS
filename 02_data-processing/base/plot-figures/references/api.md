@@ -134,7 +134,7 @@ def plot_dca(ax, thresholds, net_benefit_model, nb_all, nb_none=0):
 ```
 
 Compute the statistics (AUC CIs, DeLong, calibration slope, net benefit) with
-`analyze-stats` / `model-evaluation`; this file is about rendering them correctly.
+`stats-analysis` / `model-evaluation`; this file is about rendering them correctly.
 
 ---
 

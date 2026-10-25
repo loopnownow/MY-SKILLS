@@ -14,7 +14,7 @@ description: "Lab imaging biostatistics index for 02_data-processing. Detail liv
 | lab pipeline | `pipeline.md` |
 | Console UI / results report | `console-ui.md` |
 | Figures | `figures.md` |
-| Thin digest: analyze-stats | `analyze-stats-digest.md` |
+| Thin digest: stats-analysis | `stats-analysis-digest.md` |
 | Thin digest: model-evaluation | `model-evaluation-digest.md` |
 | Thin digest: calc-sample-size | `calc-sample-size-digest.md` |
 | Thin digest: draw-flowchart / plot-figures | `draw-flowchart-digest.md` / `plot-figures-digest.md` |

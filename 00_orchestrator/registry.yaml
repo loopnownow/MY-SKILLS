@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261025-lab-paths-p0
+  change_id: CHG-20261025-fine-id-stats-analysis
   fine_id_count_canonical: 25
   coarse_id_count: 5
 
@@ -142,10 +142,10 @@ fine_ids:
   path: 02_data-processing/base/preprocess-imaging/
   a_domain: 02_data-processing
   status: LIVE
-- id: analyze-stats
+- id: stats-analysis
   label: Test selection and weighted survey data
   source: my-skills
-  path: 02_data-processing/base/analyze-stats/
+  path: 02_data-processing/base/stats-analysis/
   a_domain: 02_data-processing
   status: LIVE
 - id: meta-analysis

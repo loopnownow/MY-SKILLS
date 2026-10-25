@@ -54,7 +54,7 @@ Compact contract (details in that file):
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
 - Sample size, EPV, power, Riley minimum sample size → `02_data-processing` / Loopnow (`calc-sample-size`; lab notes `02_data-processing/personal/analysis/methods.md`).
-- Hand-crafted radiomics pipeline design → `02_data-processing` (live `analyze-stats`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
+- Hand-crafted radiomics pipeline design → `02_data-processing` (live `stats-analysis`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
 - Deep-learning architecture & training design → live `design-study` (`03_research`).
 - ROI/mask annotation SOP → `02_data-processing` (live `preprocess-imaging`).
 - Which checklist the design must satisfy → `05_manuscript` (live `check-reporting`).

@@ -129,7 +129,7 @@ class NoRetiredSeat04(unittest.TestCase):
     def test_folder_is_gone(self) -> None:
         self.assertFalse((ROOT / "04_analysis").exists(), "04_analysis retired into 02_data-processing")
         self.assertTrue((ROOT / "02_data-processing" / "SKILL.md").is_file())
-        for pack in ("analyze-stats", "plot-figures", "draw-flowchart", "calc-sample-size"):
+        for pack in ("stats-analysis", "plot-figures", "draw-flowchart", "calc-sample-size"):
             self.assertTrue((ROOT / "02_data-processing" / "base" / pack).is_dir(), pack)
             self.assertTrue(
                 (ROOT / "02_data-processing" / "personal" / "analysis" / "route.md").is_file()
@@ -265,7 +265,7 @@ class CanonicalIdRule(unittest.TestCase):
         self.assertIn("must never be used to infer", header)
         rad = (ROOT / "00_orchestrator" / "workflows" / "statistics.md").read_text(encoding="utf-8")
         self.assertLess(rad.index("`clean-data`"), rad.index("`preprocess-imaging`"))
-        self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`analyze-stats`"))
+        self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`stats-analysis`"))
         self.assertNotIn("`radiomics-ml`", rad)
         for banned in ("02-tables", "02-imaging-qc", "02-radiomics-habitat"):
             self.assertNotIn(banned, rad)

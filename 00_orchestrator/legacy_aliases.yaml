@@ -6,9 +6,11 @@
 # 2026-10-25: seat 01_skill-integration retired into 00_orchestrator (registry + aliases + workflows).
 
 aliases:
+  # 2026-10-25: fine-id rename analyze-stats -> stats-analysis (canonical).
+  analyze-stats: stats-analysis
   02-tables: clean-data
   02-imaging-qc: preprocess-imaging
-  02-radiomics-habitat: analyze-stats
+  02-radiomics-habitat: stats-analysis
   04-fig-flow: draw-flowchart
   04-fig-plot: plot-figures
   02-imaging-io: imaging-io
@@ -36,7 +38,7 @@ aliases:
   scientific-visualization: plot-figures
   manage-refs: verify-refs
   peer-review-pdf-scan: peer-review
-  radiomics-ml: analyze-stats
+  radiomics-ml: stats-analysis
   architecture-zoo: design-study
   design-ai-benchmarking: design-study
   frontier-hypothesize: design-study

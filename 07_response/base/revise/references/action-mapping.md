@@ -11,7 +11,7 @@
 | Code | Use when | Response shape |
 |---|---|---|
 | `ACCEPT_TEXT` | wording/clarification fix | "We have revised … (p X, lines …)." |
-| `ACCEPT_ANALYSIS` | added/changed an analysis | state method + result + location (route to `analyze-stats` / `model-evaluation`) |
+| `ACCEPT_ANALYSIS` | added/changed an analysis | state method + result + location (route to `stats-analysis` / `model-evaluation`) |
 | `NEW_EXPERIMENT` | new data/validation requested | describe plan/result; if pending → AUTHOR_INPUT_NEEDED |
 | `ADD_RESULT` | report an existing-but-unshown result | add to Results/supplement + cite location |
 | `SOFTEN_CLAIM` | overclaim flagged | calibrate wording (`humanize`) + cite change |

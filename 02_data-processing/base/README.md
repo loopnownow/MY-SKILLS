@@ -7,7 +7,7 @@ Capability bodies for 02 (data processing + analysis). No domain-level SKILL.md.
 | `clean-data` | `clean-data/` | Clinical Excel/CSV cleaning / cohort tables |
 | `imaging-io` | `imaging-io/` | CT/MRI I/O DICOM/NIfTI |
 | `preprocess-imaging` | `preprocess-imaging/` | ROI / reader QC |
-| `analyze-stats` | `analyze-stats/` | Test selection / assumptions / reporting |
+| `stats-analysis` | `stats-analysis/` | Test selection / assumptions / reporting |
 | `calc-sample-size` | `calc-sample-size/` | Sample size / power |
 | `meta-analysis` | `meta-analysis/` | Bayesian notes / assumption script (not lab) |
 | `model-evaluation` | `model-evaluation/` | Calibration / DCA / external validation + leakage gates |

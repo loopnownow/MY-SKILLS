@@ -24,7 +24,7 @@ modelling; they determine the design, the metric, and the reporting guideline.
 ## Primary vs secondary
 
 - Declare **one** primary endpoint and primary analysis. Everything else is secondary or
-  exploratory and must be labelled so (multiplicity → `analyze-stats`).
+  exploratory and must be labelled so (multiplicity → `stats-analysis`).
 - The primary endpoint should match the clinical-use scenario, not the metric that looks best.
 
 ## Map endpoint → metric → what else is mandatory

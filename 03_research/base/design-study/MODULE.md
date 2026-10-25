@@ -110,9 +110,9 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 
 - Frontier framing / is this direction novel & publishable → `design-study`.
 - Sample size, EPV, power, Riley minimum sample size → `calc-sample-size`.
-- Hand-crafted radiomics pipeline design → `analyze-stats`.
+- Hand-crafted radiomics pipeline design → `stats-analysis`.
 - Deep-learning architecture & training design → A personal (not a fine id).
-- Imaging × omics mechanism design → `analyze-stats` / this pack.
+- Imaging × omics mechanism design → `stats-analysis` / this pack.
 - ROI/mask annotation SOP → `preprocess-imaging`.
 - Which checklist the design must satisfy → `check-reporting`.
 - Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).

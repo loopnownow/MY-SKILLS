@@ -32,7 +32,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 
 | Layer | Owns |
 |---|---|
-| `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
+| `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
 | 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers base fine ids |
 | 02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; analysis pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
 
@@ -72,13 +72,13 @@ Do not rewrite live data-processing capability bodies (now under `base/`) inside
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); the former `batch-cohort` entry point is an archived alias to this body
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (`02_data-processing/base/imaging-io/`)
 - `preprocess-imaging` -- ROI / reader QC (`02_data-processing/base/preprocess-imaging/`)
-- `analyze-stats` -- test selection / effect sizes (`02_data-processing/base/analyze-stats/`)
+- `stats-analysis` -- test selection / effect sizes (`02_data-processing/base/stats-analysis/`)
 - `calc-sample-size` -- sample size / power (`02_data-processing/base/calc-sample-size/`)
 - `model-evaluation` -- calibration / DCA / external validation + leakage gates (`02_data-processing/base/model-evaluation/`)
 - `meta-analysis` -- implementation (`02_data-processing/base/meta-analysis/`); lab personal still wins
 - `draw-flowchart` -- STROBE / patient-flow (`02_data-processing/base/draw-flowchart/`)
 - `plot-figures` -- statistical plots / imaging panels (`02_data-processing/base/plot-figures/`)
-- Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (former `radiomics-ml` absorbed into `analyze-stats`; no live radiomics-habitat path)
+- Radiomics / habitat **prep** -- via `stats-analysis` / `preprocess-imaging` (former `radiomics-ml` absorbed into `stats-analysis`; no live radiomics-habitat path)
 
 Until `plot-figures` / `draw-flowchart` is live, do not invent a second figure stack inside 05.
 
@@ -130,7 +130,7 @@ When writing batch scripts, follow `personal/coding.md` (CONFIG on top, dry-run)
 ## Boundaries
 
 - Data cleaning / Excel / imaging I/O -> this skill (`personal/extract.md`, `base/clean-data`, `base/imaging-io`)
-- Feature selection / model fitting / NHST / figures -> this skill (`base/analyze-stats`, `base/model-evaluation`, `personal/analysis/`)
+- Feature selection / model fitting / NHST / figures -> this skill (`base/stats-analysis`, `base/model-evaluation`, `personal/analysis/`)
 - Literature -> `03_research`
 - Manuscript prose -> `05_manuscript`
 - Review -> `06_review`; Response -> `07_response`
