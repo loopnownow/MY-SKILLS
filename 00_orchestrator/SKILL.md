@@ -11,7 +11,7 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-**sole official runtime map：** [`runtime-flow.mmd`](runtime-flow.mmd)（how to read the map [`runtime-flow.md`](runtime-flow.md)）。Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md)。Diagram nodes `Gate · NN` ↔ `G-NN`。
+**Sole official runtime map:** [`runtime-flow.mmd`](runtime-flow.mmd) (how to read the map [`runtime-flow.md`](runtime-flow.md)). Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md). Diagram nodes `Gate · NN` ↔ `G-NN`.
 
 **Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
 
@@ -66,7 +66,7 @@ Every independent run needs a mount decision. If `mounts.session_picked_fine_ids
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on 「full-pipeline」/full-pipeline / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → 01 skill-integration (registry proposal); never auto-mount. Writing/review SOP legs always require 03 citation-verify.
 
 ### Data-flow contract
 
@@ -115,7 +115,7 @@ Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolutio
 
 ## Research exploration
 
-Triggers 「这个研究还能做什么」 / what-else-can-this-study-do and peers → [`01_skill-integration/workflows/research-exploration-loop.md`](../01_skill-integration/workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
+Triggers 「这个研究还能做什么」 (what else can this study do) and peers → [`01_skill-integration/workflows/research-exploration-loop.md`](../01_skill-integration/workflows/research-exploration-loop.md). Not a fine id. 00 stays structural-only.
 
 ## Boundaries
 

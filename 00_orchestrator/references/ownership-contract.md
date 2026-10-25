@@ -16,8 +16,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
-| Cursor | external pack | in-repo frontend/backend (UI, API, tests, PR); hand off only when user says「交给cursor」 |
-| Cline | external pack | data prep and peers (xlsx, archive, batch, non-repo data); when user says「交给cline」 or general data/script handoff |
+| Cursor | external pack | in-repo frontend/backend (UI, API, tests, PR); hand off only when the user says 「交给cursor」 (hand off to Cursor) |
+| Cline | external pack | data prep and peers (xlsx, archive, batch, non-repo data); when the user says 「交给cline」 (hand off to Cline) or for a general data/script handoff |
 
 Per-paper channel seats all six (max).
 
@@ -25,7 +25,7 @@ Per-paper channel seats all six (max).
 
 - One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to Cursor or Cline.
 - Aitee and Lee generally do not call Cursor or Cline. Any seat using Cursor needs prior user approval.
-- External-pack watch: `00_orchestrator/references/handoff-monitor.md`（only for that task window）。
+- External-pack watch: `00_orchestrator/references/handoff-monitor.md` (only for that task window).
 
 ## Word Track Changes
 
@@ -33,7 +33,7 @@ All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise a
 
 Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
 
-Undecidable / missing-fact issues: Chinese 批注 reason, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature. Invent or disclaimer language stays in the comment. Never put it in the manuscript body.
+Undecidable / missing-fact issues: state the reason in a Chinese comment, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature. Invent or disclaimer language stays in the comment. Never put it in the manuscript body.
 
 Word comments / Track Changes author field is **A** (never `Grok`, never yellow).
 
@@ -55,6 +55,6 @@ When the owner asks to search, look up, locate, or inventory materials in the la
 
 Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `03-research\ethics` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
-**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says「交给cline」for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
+**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says 「交给cline」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 
 Procedure: `03_research/personal/0doc-db.md`.

@@ -1,5 +1,6 @@
 # Route contract for 00 fast routing. Unit tests check these strings
-# against 00_orchestrator/SKILL.md (and optional mirrors). Not an LLM router.
+# against 00_orchestrator/references/fast-routing.md. Not an LLM router.
+# Chinese contains / must_not_contain values are literal owner-utterance match keys.
 version: 2
 min_routes: 20
 routes:

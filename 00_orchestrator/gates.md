@@ -47,7 +47,7 @@ Record only. Do not auto-pick numbers. Blank stays blank or becomes one question
 
 | Id | When | Fail → comment |
 |---|---|---|
-| **Hook A** (`LAB-RI` / G-FACT pre-06) | Integrity / G-FACT pre-06; manuscript states a “normal range”, 「reference interval/reference range/normal value」, or unit for a lab/clinical indicator | `LAB-RI-MISMATCH` or `LAB-UNIT-MISMATCH`: quote claim, cite nearest KB `record_id`, note population/assay caveat. Do **not** insert KB numbers. |
+| **Hook A** (`LAB-RI` / G-FACT pre-06) | Integrity / G-FACT pre-06; manuscript states a “normal range”, “reference interval” / “reference range” / “normal value”, or a unit for a lab/clinical indicator | `LAB-RI-MISMATCH` or `LAB-UNIT-MISMATCH`: quote claim, cite nearest KB `record_id`, note population/assay caveat. Do **not** insert KB numbers. |
 
 Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\03-research\lab-ref-ranges\qc\gate-hooks.md`. Soft only — never auto-rewrite from the lab-ref KB.
 

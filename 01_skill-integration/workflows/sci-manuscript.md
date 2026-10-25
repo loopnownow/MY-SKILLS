@@ -2,7 +2,7 @@
 
 **Owner:** `00_orchestrator`. Prediction-model SCI from existing HTML, not from scratch stats.
 
-Use when the user picks this SOP, or write manuscript / write in my voice / full-pipeline paper (and this SOP was chosen)，or directory detection finds `*-results.html` and they lock N3 WRITE.
+Use when the user picks this SOP, or write manuscript / write in my voice / full-pipeline paper (and this SOP was chosen), or directory detection finds `*-results.html` and they lock N3 WRITE.
 
 Numbers **only** from that endpoint’s `*-results.html`. Format: `Aitor-format.md`. Missing HTML → do not start this SOP; send back to `statistics` / 04.
 
