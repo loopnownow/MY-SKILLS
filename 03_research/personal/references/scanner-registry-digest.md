@@ -1,6 +1,6 @@
 # scanner-registry-digest
 
-**Absorbed:** 2026-10-23 from `_library/scanner-registry/README.md` (method only).
+**Absorbed (historical):** 2026-10-23 from then-live `_library/scanner-registry/README.md` (method only). That folder is **retired** — do not open `_library\scanner-registry` as a live seat.
 **Data workbook:** live copy under `{doc_root}\templates\scanner-parameter-registry.xlsx` (refreshing query table — not vendored into GitHub).
 
 ## Live pointers (after move)
@@ -10,7 +10,7 @@
 | Durable original (README + xlsx) | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\scanner-registry\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\scanner-registry\` |
 | Live xlsx (query) | `{doc_root}\templates\scanner-parameter-registry.xlsx` |
-| Build scripts (stay in `_code`) | `{code_root}\_infra\lab-reference\scanner_registry_{extract,build,rows}.py` |
+| Build scripts (stay in `_code`) | `{code_root}\03-research\fill-protocol\lab-reference\scanner_registry_{extract,build,rows}.py` |
 | Word archives | `{DEL}\_by-project\0doc-word-sources\` |
 
 ## Coverage snapshot (as of README 2026-10-17)
