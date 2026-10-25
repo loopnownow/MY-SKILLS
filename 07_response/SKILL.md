@@ -3,7 +3,7 @@ name: medical-manuscript-response
 description: >
   Personal response-letter upper layer. Entry for response letter is 07.
   Final authority for point-by-point response and resolution status.
-  Mounted revise / tighten-response use source my-skills under A `07_response/base/`.
+  Mounted revise / tighten-response use source my-skills under `07_response/base/`.
   Tone-only polish is an on-demand mode of tighten-response. Point-by-point structure stays revise.
   Re-review stays in 06. Prose Track Changes to 05. Literature to 03.
 ---
@@ -23,9 +23,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in A `07_response/base/`) -> **00 QC** -> **07** personal final authority.
-
-**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in `07_response/base/`) -> **00 QC** -> **07** personal final authority.
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
 Mounted packs may draft; **A 07 personal** owns resolution status and letter voice (`personal/response.md`).
 
@@ -39,8 +38,8 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 
 ## Mounted capability ids (bodies in `base/`; source my-skills)
 
-- `revise` -- point-by-point structure (A `07_response/base/revise/`)
-- `tighten-response` -- tightening plus on-demand tone-polish (A `07_response/base/tighten-response/`). Legacy alias `response-tone-polisher` was absorbed here; structure stays `revise`.
+- `revise` -- point-by-point structure (`07_response/base/revise/`)
+- `tighten-response` -- tightening plus on-demand tone-polish (`07_response/base/tighten-response/`). Legacy alias `response-tone-polisher` was absorbed here; structure stays `revise`.
 
 07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 

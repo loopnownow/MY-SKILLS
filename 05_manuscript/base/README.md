@@ -8,4 +8,4 @@ Capability bodies for 05 manuscript. No domain-level SKILL.md.
 | `humanize` | `humanize/` | Generic AI-pattern removal + report-only Intro/Discussion lint (2 gates ship as scripts, 4 manual); personal de-AI stays A |
 | `vocab` | `vocab/` | L1/L2/L3 vocabulary layers |
 
-Personal Aitor-format / de-AI / vocab overrides stay in A `05_manuscript/personal/`.
+Personal Aitor-format / de-AI / vocab overrides stay in `05_manuscript/personal/`.

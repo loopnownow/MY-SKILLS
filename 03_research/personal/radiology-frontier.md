@@ -107,7 +107,7 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 - Turn the chosen direction into a full design → `radiology-design`.
 - Retrieve & verify current seed literature / confirm the gap → mounted `lit-search`.
 - Which journal tier the question targets → `03_research/personal/journal-selection.md`.
-- Method-specific feasibility → mounted `radiomics-ml` / mounted `architecture-zoo`.
+- Method-specific feasibility → mounted `analyze-stats` / mounted `design-study`.
 - Citation export of verified seeds → mounted `manage-refs` (check with `verify-refs`).
 - The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
   `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.

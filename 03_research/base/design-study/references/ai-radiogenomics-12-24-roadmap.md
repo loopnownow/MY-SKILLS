@@ -30,7 +30,7 @@ The strongest 12-24 month projects usually have:
 | 6-9 months | Establish strong baselines: clinical model, IBSI radiomics, CNN/ViT or nnU-Net model | Reproducible baseline, internal test, failure-case library | `analyze-stats`, `plot-figures` |
 | 9-12 months | Add multimodal fusion and trustworthiness modules | First method paper draft; calibration/UQ/XAI; pre-external-test model card | `analyze-stats` / `design-study`, A personal (DL), `write-paper` |
 | 12-18 months | External/multicenter/temporal validation; site heterogeneity analysis; optional federated/split-learning prototype | External validation paper, center-effect analysis, model card | `design-study`, `analyze-stats` / `model-evaluation`, `self-review` |
-| 18-24 months | Silent deployment, reader-assist, workflow/time/error endpoint, or prospective validation preparation | Prospective/reader study, CLAIM/TRIPOD/STARD package, regulatory-readiness notes | A personal, `check-reporting`, A `03_research` (journal-selection) / `lit-search` |
+| 18-24 months | Silent deployment, reader-assist, workflow/time/error endpoint, or prospective validation preparation | Prospective/reader study, CLAIM/TRIPOD/STARD package, regulatory-readiness notes | A personal, `check-reporting`, `03_research` (journal-selection) / `lit-search` |
 
 ## Topic templates with high fit
 

@@ -13,7 +13,7 @@ Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10
 
 User asks for journal recommendation (推荐杂志) / 选刊 / where to submit / JCR·JCI quartile / IF layers / APC·AIM (only after shortlist confirmed).
 
-Owner: **Victor** · A `03_research`. Bai owns 选刊 advancement after titles are chosen. Journal selection routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
+Owner: **Victor** · `03_research`. Bai owns 选刊 advancement after titles are chosen. Journal selection routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
 
 ## Data locations
 

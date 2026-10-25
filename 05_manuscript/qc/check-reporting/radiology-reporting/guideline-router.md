@@ -71,7 +71,7 @@ strengthen Methods, FUTURE-AI to frame deployability, and pre-empt reviewer crit
   **Editorial Policy Checklist** (→ `nature-reporting-summary.md`).
 - Plan the **Extended Data / Supplementary Information / Source Data** split
   (→ `plot-figures` (`nature-figure-spec.md`)).
-- Venue-specific pre-flight / 选刊 logistics → A `03_research` (journal-selection); house style → `05_manuscript/base/write-paper/`.
+- Venue-specific pre-flight / 选刊 logistics → `03_research` (journal-selection); house style → `05_manuscript/base/write-paper/`.
 
 ## Edge cases
 

@@ -30,4 +30,4 @@ Journal results / submitted lists live under **subproject folders** (`<project>/
 
 ## Mounts
 
-Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under A `03_research/base/`; 03 documents post-QC trigger only.
+Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under `03_research/base/`; 03 documents post-QC trigger only.

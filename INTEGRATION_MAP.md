@@ -12,6 +12,32 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-dedupe-ssot-pass — duplication pass after the deep-QC roll
+
+- **Layer model (02/03/05/06/07):** the pasted `**QC standards:** live in `qc/` …` sentence,
+  identical in all five `SKILL.md`, is now one 152-char pointer to
+  `00_orchestrator/references/base-vs-personal-top-loops.md` + `gates.md`, with each seat's
+  own `qc/README.md` named. Seat-specific residue kept (02 personal protocols, 03
+  `verify-refs` / `retraction-watcher`, 06/07 envelope lines).
+- **03 personal design:** `radiology-design.md` no longer restates the `design-study`
+  `## Workflow` (8 steps) and `## Output contract` (7 items) — both were verbatim in
+  `03_research/base/design-study/MODULE.md`, and the file's own header already named base as
+  the single source. Only the two seat deltas survive (sample size → `02`, `Method options`
+  → `05` `check-reporting`).
+- **A/B residue:** 49 `A <seat path>` prefixes removed across 31 files — the form the previous
+  pass's regex never matched, since it looked only for `` A `base/` ``. `[B:humanize]` →
+  `[base:humanize]`; `Voice A/B` and comment author `A` untouched.
+- **Former ids:** `radiomics-ml` / `architecture-zoo` call sites now name the live ids
+  (`analyze-stats`, `design-study`). Alias/retirement notes stay in `legacy_aliases.yaml`,
+  `02_data-processing/base/analyze-stats/SKILL.md`, `03_research/base/design-study/MODULE.md`
+  and the `02` absorbed line.
+- **Kept on purpose:** `call/require 03 citation-verify — do not self-certify lit` stays
+  verbatim in its 8 files; `tests/test_seat_packs.py` pins it as a safety rule.
+- **Measured after:** cross-file paragraph groups ≥120 chars = 4 (none ≥200, so the mirror
+  guard keeps headroom); `A <seat>` = 0; `[B:...]` = 0; `QC standards:` = 1 (the SSOT).
+  Suite 168 OK.
+
+
 ## CHG-20261025-deep-qc-remediation — six-batch remediation after deep QC
 
 - **Tests:** revived the dead cross-file paragraph-dedupe guard, deduped

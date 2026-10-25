@@ -8,7 +8,7 @@
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
   version: '4.0'
-  change_id: CHG-20261025-deep-qc-remediation
+  change_id: CHG-20261025-dedupe-ssot-pass
   fine_id_count_canonical: 25
   coarse_id_count: 9
 empty_mount: notify-then-research-confirm

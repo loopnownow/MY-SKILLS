@@ -23,14 +23,13 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 ## Layer model (2026-10-17)
 
-**Flow:** writing fine-ID **first-pass** (A `05_manuscript/base/` bodies) -> **00 QC** -> **05** personal upper layer.
-
-**QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
+**Flow:** writing fine-ID **first-pass** (`05_manuscript/base/` bodies) -> **00 QC** -> **05** personal upper layer.
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
 | Layer | Owns |
 |---|---|
 | `base/` | `write-paper` (IMRAD + journal templates / house style), `humanize`, vocab under `05_manuscript/base/` |
-| A `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR) |
+| `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR) |
 | 00 | Final QC |
 | 05 | Personal Aitor-format / voice / process; final wording authority |
 
@@ -42,8 +41,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Voice portrait | `personal/voice-portrait.md` |
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
-| L1 / L2 / L3 vocabulary | A `05_manuscript/base/vocab/` (A `personal/vocab/` = pointer) |
-| Lab-STE (CM-01 ZH comments) | A `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
+| L1 / L2 / L3 vocabulary | `05_manuscript/base/vocab/` (`personal/vocab/` = pointer) |
+| Lab-STE (CM-01 ZH comments) | `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |
@@ -79,7 +78,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Highly standardized · clinically oriented · quantitatively precise · objectively cautious
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
-- Forbidden fluff: A `05_manuscript/base/vocab/L1/ban-phrases.md`
+- Forbidden fluff: `05_manuscript/base/vocab/L1/ban-phrases.md`
 - Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`personal/Aitor-format.md`**. If that file and any other note disagree, `personal/Aitor-format.md` wins.
@@ -109,7 +108,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/personal/word-edit.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Project `ref/` subfolders: follow `00_orchestrator/references/project-ref-layout.md` (keep manuscript-revision + settings.ini at root).
-- Word comments: author **A**, never yellow. Tag source (`[personal]`, `[B:humanize]`, …).
+- Word comments: author **A**, never yellow. Tag source (`[personal]`, `[base:humanize]`, …).
 - Mount advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `personal/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
