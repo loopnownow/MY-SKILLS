@@ -18,7 +18,6 @@ from tests.support import (
 BT = re.compile(r"`([^`]+)`")
 TOPS = (
     "00_orchestrator/",
-    "01_skill-integration/",
     "02_data-processing/",
     "03_research/",
     "05_manuscript/",

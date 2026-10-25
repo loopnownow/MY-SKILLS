@@ -35,7 +35,7 @@ import yaml
 HERE = Path(__file__).resolve().parent
 VIZ_DIR = HERE.parent  # 02_data-processing/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
-REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
+REGISTRY = ROOT / "00_orchestrator" / "registry.yaml"
 RUNTIME_MMD = ROOT / "00_orchestrator" / "runtime-flow.mmd"
 RUNTIME_MD = ROOT / "00_orchestrator" / "runtime-flow.md"
 GATES = ROOT / "00_orchestrator" / "gates.md"
@@ -66,7 +66,7 @@ def out_fs_path(out: Path, rel: str) -> Path:
 
 SKILL_TOPS = (
     "00_orchestrator",
-    "01_skill-integration",
+    "00_orchestrator",
     "02_data-processing",
     "03_research",
     "02_data-processing",
@@ -279,7 +279,7 @@ def _box(row: int, col: int) -> dict:
 def architecture_ir() -> dict:
     components = [
         {"id": "c00", "type": "security", "label": "00 Control", "sublabel": "gate and QC", **_box(0, 0)},
-        {"id": "c01", "type": "backend", "label": "01 skill-integration", "sublabel": "registry / mount index", **_box(0, 1)},
+        {"id": "c01", "type": "backend", "label": "00 Index", "sublabel": "registry / workflows", **_box(0, 1)},
         {"id": "mounts", "type": "external", "label": "Mounts", "sublabel": "registry pointers", **_box(0, 2)},
         {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready", **_box(1, 0)},
         {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "citation-verify", **_box(1, 1)},
@@ -717,7 +717,7 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
     proposed = sum(1 for item in mounts if item.get("status") == "PROPOSED")
     coarse_rows = []
     for coarse in reg.get("coarse_ids") or []:
-        count = sum(1 for item in mounts if item.get("coarse") == coarse.get("id"))
+        count = sum(1 for item in mounts if item.get("a_domain") == coarse.get("id"))
         domains = ", ".join(coarse.get("a_domains") or [])
         coarse_rows.append(
             f"<tr><td>{esc(coarse.get('id'))}</td><td><code>{esc(coarse.get('slug'))}</code></td>"
@@ -729,7 +729,6 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
             "<tr>"
             f"<td><code>{esc(item.get('id'))}</code></td>"
             f"<td>{esc(item.get('label'))}</td>"
-            f"<td>{esc(item.get('coarse'))}</td>"
             f"<td>{esc(item.get('source'))}</td>"
             f"<td>{esc(item.get('status'))}</td>"
             f"<td>{esc(item.get('atomic_package', ''))}</td>"
@@ -748,11 +747,11 @@ def render_mounts(reg: dict, sources: list[dict], presets: list[dict], version: 
       <h2>In-repo index</h2>
       <p class="muted">MOUNTED {mounted} · PROPOSED {proposed} · fine ids {len(mounts)}. Counts come from registry.yaml. Bodies live under NN_slug/base/.</p>
     </section>
-    <h2>Coarse buckets</h2>
-    <table><thead><tr><th>coarse</th><th>slug</th><th>a_domains</th><th>specialist</th><th>fine ids</th></tr></thead>
+    <h2>Seats (coarse id = a_domain)</h2>
+    <table><thead><tr><th>seat</th><th>slug</th><th>a_domains</th><th>specialist</th><th>fine ids</th></tr></thead>
     <tbody>{''.join(coarse_rows)}</tbody></table>
     <h2>Fine ids</h2>
-    <table><thead><tr><th>id</th><th>label</th><th>coarse</th><th>source</th><th>status</th><th>package</th><th>a_domain</th><th>priority</th><th>registry path</th></tr></thead>
+    <table><thead><tr><th>id</th><th>label</th><th>source</th><th>status</th><th>package</th><th>a_domain</th><th>priority</th><th>registry path</th></tr></thead>
     <tbody>{''.join(mount_rows)}</tbody></table>
     <h2>Source records / presets</h2>
     <p class="muted">Retired: no <code>sources/</code> yaml seat and no <code>references/presets/</code>. Registry is SSOT.</p>

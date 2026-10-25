@@ -12,6 +12,33 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-seat-coarse-merge-01 — coarse id = execution seat; 01 folded into 00
+
+- **Seat ids as coarse ids:** `coarse_ids` is now exactly the five execution seats —
+  `02_data-processing`, `03_research`, `05_manuscript`, `06_review`, `07_response`;
+  `coarse_id_count` 9 → 5. The retired buckets (`lit-retrieval`, `topic-explore`,
+  `study-design`, `manuscript-body`, `data-processing`, `stats-analysis`, `figures`,
+  `manuscript-review`, `review-response`) survive only as `coarse_aliases` targets.
+- **Mounts lose `coarse`:** all 25 live rows drop the field (only one assertion in
+  `tests/test_registry_contract.py` read it). Bucket = `a_domain`, and
+  `SeatBuckets.test_mount_owner_dir_matches_a_domain` keeps path and owner aligned.
+- **No override policy:** `a_domain_override_policy` deleted. `find-journal` and
+  `grant-builder` are plain `03_research`; both notes lost their override wording.
+  `fill-protocol` stays `03_research`.
+- **01 retired in place:** `registry.yaml`, `legacy_aliases.yaml`, `references/id-rules.md`,
+  `references/session-pick.md`, `references/hard-rules.md`, `references/lifecycle-cache.md`,
+  `references/text-harvest-by-fine-id.md`, `references/capability-contract.example.yaml` and
+  `workflows/` (5 SOPs + README) moved into `00_orchestrator/` with `git mv`; the 01 `SKILL.md`
+  became §0 "Index & registry" of `00_orchestrator/SKILL.md`. The duplicate pointer
+  `01/references/base-vs-personal-top-loops.md` was retired, not migrated — the same file
+  already lived in `00_orchestrator/references/`. Archive copy of the whole 01 tree:
+  `D:\0del\_by-project\MY-SKILLS-01-merge-20261025\`.
+- **Guards:** `WORKFLOW_HOME` = `00_orchestrator/workflows`; the forbidden list is now
+  `01_skill-integration/workflows` + `03_research/workflows`. `test_doc_structure.test_mounts_board`
+  asserts registry / aliases / workflows under 00 plus the absence of the 01 folder;
+  `test_seat_packs` reads 00 for the seat rule and `skill-evolution.md` for the MY-RULES gate.
+- **Suite:** 168 → 172 (4 new `SeatBuckets` assertions).
+
 ## CHG-20261025-dedupe-ssot-pass — duplication pass after the deep-QC roll
 
 - **Layer model (02/03/05/06/07):** the pasted `**QC standards:** live in `qc/` …` sentence,

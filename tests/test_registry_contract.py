@@ -130,12 +130,8 @@ class AliasTargets(unittest.TestCase):
     def test_coarse_alias_values_are_registry_coarse(self) -> None:
         reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
         coarse = {
-            m.get("coarse") for m in (reg.get("mounts") or []) if isinstance(m, dict)
+            c["id"] for c in (reg.get("coarse_ids") or []) if isinstance(c, dict) and c.get("id")
         }
-        coarse.discard(None)
-        for c in reg.get("coarse_ids") or []:
-            if isinstance(c, dict) and c.get("id"):
-                coarse.add(c["id"])
         la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
         bad = [
             f"{k} -> {v}"
@@ -143,3 +139,43 @@ class AliasTargets(unittest.TestCase):
             if str(v) not in coarse
         ]
         self.assertEqual(bad, [], "coarse alias targets not in registry:\n" + "\n".join(bad))
+
+
+class SeatBuckets(unittest.TestCase):
+    """2026-10-25: coarse id = execution seat; a mount's bucket is its a_domain."""
+
+    def test_mounts_declare_no_coarse_field(self) -> None:
+        offenders = [m["id"] for m in REG["mounts"] if "coarse" in m]
+        self.assertEqual(
+            offenders,
+            [],
+            "mounts must not carry a coarse field (bucket comes from a_domain):\n"
+            + "\n".join(offenders),
+        )
+
+    def test_seat_rows_are_the_five_seats(self) -> None:
+        seats = [c["id"] for c in REG["coarse_ids"]]
+        self.assertEqual(
+            seats,
+            [
+                "02_data-processing",
+                "03_research",
+                "05_manuscript",
+                "06_review",
+                "07_response",
+            ],
+        )
+        self.assertEqual(REG["meta"]["coarse_id_count"], len(seats))
+
+    def test_every_a_domain_is_a_seat(self) -> None:
+        seats = {c["id"] for c in REG["coarse_ids"]}
+        bad = [
+            f"{m['id']} -> {m.get('a_domain')}"
+            for m in REG["mounts"]
+            if m.get("a_domain") not in seats
+        ]
+        self.assertEqual(bad, [], "a_domain outside the seats:\n" + "\n".join(bad))
+
+    def test_mount_owner_dir_matches_a_domain(self) -> None:
+        for mount in REG["mounts"]:
+            self.assertEqual(mount["path"].split("/")[0], mount["a_domain"], mount["id"])

@@ -18,11 +18,11 @@ When the user asks to **use skills for a specific multi-node task**, before spec
 1. Show a **complete** flowchart from [`runtime-flow.mmd`](../runtime-flow.mmd) (read [`runtime-flow.md`](../runtime-flow.md)).
 2. Highlight the path this run will take (entry → nodes → gates → QC loop).
 3. Wait for **explicit approval**. Do not start 02–07 until they agree.
-4. After approval, proceed with 01 session pick / G0 as on the map. (Mount packs retired 2026-10-20; no mounts-pack approval.)
+4. After approval, proceed with the 00 session pick / G0 as on the map. (Mount packs retired 2026-10-20; no mounts-pack approval.)
 
 ## Plan card (before dispatch)
 
-Default is **interactive**. Before the first specialist runs a multi-node job, or before 01 evaluates a new external capability, run **grilling** per MY-RULES `My rule.md` §2 (`grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first.
+Default is **interactive**. Before the first specialist runs a multi-node job, or before 00 evaluates a new external capability, run **grilling** per MY-RULES `My rule.md` §2 (`grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first.
 
 Then show the plan: candidate fine ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
 

@@ -18,7 +18,7 @@ from tests.support import (
 )
 
 CLIN = ROOT / "02_data-processing" / "personal"
-REG = ROOT / "01_skill-integration" / "registry.yaml"
+REG = ROOT / "00_orchestrator" / "registry.yaml"
 SKIP_PARTS = {".git", "__pycache__", "history"}
 SKIP_NAMES = {
     "INTEGRATION_MAP.md",
@@ -183,9 +183,9 @@ class RetiredIds(unittest.TestCase):
 class SessionPick(unittest.TestCase):
     def test_workflows_ask_session_mount_pick(self) -> None:
         for rel in (
-            "01_skill-integration/workflows/sci-manuscript.md",
-            "01_skill-integration/workflows/statistics.md",
-            "01_skill-integration/workflows/README.md",
+            "00_orchestrator/workflows/sci-manuscript.md",
+            "00_orchestrator/workflows/statistics.md",
+            "00_orchestrator/workflows/README.md",
         ):
             text = read(rel).lower()
             self.assertTrue(
@@ -202,7 +202,7 @@ class RegistryMenu(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), msg=str(ids))
         want_pick = [m["id"] for m in mounts if m.get("status") == "MOUNTED"]
         self.assertGreaterEqual(len(want_pick), 10)
-        self.assertFalse((ROOT / "01_skill-integration" / "MOUNTED_SKILLS.md").exists())
+        self.assertFalse((ROOT / "00_orchestrator" / "MOUNTED_SKILLS.md").exists())
 class ArchitectureSsot(unittest.TestCase):
     """Single root ARCHITECTURE.md = intent tables + QC/handoff + ownership + live routing keywords."""
 
@@ -226,7 +226,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("calc-sample-size", text)
         self.assertNotIn("05-write-venue", text)
         self.assertNotIn("04-stats-power", text)
-        self.assertIn("01_skill-integration/registry.yaml", text)
+        self.assertIn("00_orchestrator/registry.yaml", text)
         self.assertNotRegex(text, r"52 fine")
         self.assertNotRegex(low, r"≤\s*3")
         self.assertNotIn("role: default-candidate", text)
@@ -272,22 +272,21 @@ class RoutingFourTuple(unittest.TestCase):
             fp_note,
         )
         self.assertNotRegex(read("ARCHITECTURE.md"), r"(选刊|journal selection)\s*→\s*05")
-        self.assertNotRegex(read("01_skill-integration/SKILL.md"), r"(选刊|journal selection)\s*→\s*05")
+        self.assertNotRegex(read("00_orchestrator/SKILL.md"), r"(选刊|journal selection)\s*→\s*05")
 class DiscoverySurface(unittest.TestCase):
-    def test_auto_discovery_rule_is_in_00_and_01(self) -> None:
+    def test_auto_discovery_rule_is_in_00(self) -> None:
         zero = read("00_orchestrator/SKILL.md")
-        one = read("01_skill-integration/SKILL.md")
-        life = read("01_skill-integration/references/lifecycle-cache.md")
+        life = read("00_orchestrator/references/lifecycle-cache.md")
+        evo = read("00_orchestrator/references/skill-evolution.md")
         self.assertIn("session_picked_fine_ids", zero)
-        self.assertIn("session_picked_fine_ids", one)
         self.assertIn('only `00_orchestrator`–`07_response`', zero)
         self.assertNotIn("and `skill-harvest`", zero)
         self.assertTrue("`00`–`06` only" in life or "`00`–`07` only" in life)
         self.assertNotIn("and `skill-harvest` only", life)
-        self.assertIn("skills.md", one)
+        self.assertIn("skills.md", evo)
 
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
-        rel = "01_skill-integration/workflows/research-exploration-loop.md"
+        rel = "00_orchestrator/workflows/research-exploration-loop.md"
         self.assertNotRegex(read(rel), r"52 fine", rel)
 class ReadmeSsot(unittest.TestCase):
     """CHG-20260913-002: README.md drifted to stale '30-id' wording while
@@ -331,7 +330,7 @@ class FastRouting(unittest.TestCase):
         self.assertIn("选刊走 03 `find-journal`", three)
 class DeAiAndFigures(unittest.TestCase):
     def test_sci_manuscript_paths(self) -> None:
-        sop = read("01_skill-integration/workflows/sci-manuscript.md")
+        sop = read("00_orchestrator/workflows/sci-manuscript.md")
         self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sop)
         self.assertIn("draw-flowchart", sop)
         self.assertIn("plot-figures", sop)
@@ -388,14 +387,14 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("defects:", state)
 
     def test_sops_wired_by_html(self) -> None:
-        rad = read("01_skill-integration/workflows/statistics.md")
-        sci = read("01_skill-integration/workflows/sci-manuscript.md")
+        rad = read("00_orchestrator/workflows/statistics.md")
+        sci = read("00_orchestrator/workflows/sci-manuscript.md")
         self.assertIn("sci-manuscript", rad)
         self.assertIn("G-STATS", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
         self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sci)
-        wf = read("01_skill-integration/workflows/README.md")
+        wf = read("00_orchestrator/workflows/README.md")
         self.assertIn("gates.md", wf)
 class AttributionAndFetch(unittest.TestCase):
 
@@ -562,13 +561,13 @@ class ValMode(unittest.TestCase):
         self.assertIn("no new screening", text)
         self.assertIn("\u4e0d\u91cd\u7b5b", text)
 class Routing(unittest.TestCase):
-    def test_01_is_discovery_not_excel(self) -> None:
+    def test_index_seat_is_00_not_excel(self) -> None:
         readme = (SKILLS / "README.md").read_text(encoding="utf-8")
-        self.assertIn("01_skill-integration", readme)
-        self.assertIn("Registry / index / session-pick only", readme)
+        self.assertIn("00_orchestrator", readme)
+        self.assertIn("registry / index / session-pick", readme)
         self.assertNotIn("01_automation", readme)
         zero = lab_rules_read("00_orchestrator", "SKILL.md")
-        self.assertIn("01_skill-integration", zero)
+        self.assertIn("00_orchestrator", zero)
         fast = lab_rules_read("00_orchestrator", "references", "fast-routing.md")
         self.assertIn("Excel / \u6279\u5904\u7406", fast)
         self.assertRegex(
@@ -587,10 +586,10 @@ class Routing(unittest.TestCase):
         self.assertNotIn("bundles/figure-engine", five)
 
     def test_session_mount_pick(self) -> None:
-        one = lab_rules_read("01_skill-integration", "SKILL.md")
+        one = lab_rules_read("00_orchestrator", "SKILL.md")
         zero = lab_rules_read("00_orchestrator", "SKILL.md")
-        reg = lab_rules_read("01_skill-integration", "registry.yaml")
-        pick = lab_rules_read("01_skill-integration", "references", "session-pick.md")
+        reg = lab_rules_read("00_orchestrator", "registry.yaml")
+        pick = lab_rules_read("00_orchestrator", "references", "session-pick.md")
         self.assertIn("Session mount pick", pick)
         self.assertIn("session-pick.md", one)
         self.assertIn("ask-each-run", reg)
@@ -819,7 +818,7 @@ class CitationVerifyRequired(unittest.TestCase):
             "06_review/SKILL.md",
             "06_review/qc/cross-manuscript-qc.md",
             "00_orchestrator/SKILL.md",
-            "01_skill-integration/workflows/sci-manuscript.md",
+            "00_orchestrator/workflows/sci-manuscript.md",
         ):
             self.assertIn(self.PHRASE, pre_submit_checks_read(rel), rel)
 class WordTrackChangesOwnership(unittest.TestCase):
@@ -848,12 +847,12 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "03_research/personal/citation-verify.md",
         "00_orchestrator/SKILL.md",
         "00_orchestrator/gates.md",
-        "01_skill-integration/workflows/sci-manuscript.md",
+        "00_orchestrator/workflows/sci-manuscript.md",
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
         # ARCHITECTURE.md is live ownership SSOT (scanned below)
         "ARCHITECTURE.md",
-        "01_skill-integration/registry.yaml",
+        "00_orchestrator/registry.yaml",
     )
     SCAN_SKIP = {
         CONTRACT,

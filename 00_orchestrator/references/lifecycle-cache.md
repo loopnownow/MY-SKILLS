@@ -9,7 +9,7 @@
 
 ## Resolve (in-repo)
 
-01 owns path resolve. 00 gates provenance and owns base -> QC -> personal/top flow.
+00 owns path resolve (registry), gates provenance, and owns base -> QC -> personal/top flow.
 
 1. **Resolve** fine id -> in-repo path via `registry.yaml` (`source: my-skills`).
 2. **Load** from the registry path (`NN_slug/base/...`, or `05_manuscript/qc/check-reporting/` for `check-reporting`; git working tree = `{skills_runtime}`).
@@ -18,7 +18,7 @@
 
 **Stale policy:** pull/sync MY-SKILLS when bodies change.
 
-**G0 handoff:** if an in-repo body path is missing, fail back to 01.
+**G0 handoff:** if an in-repo body path is missing, fail back to 00 (empty-path protocol).
 
 ## Post-merge deploy sync
 

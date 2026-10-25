@@ -23,9 +23,9 @@ HIST_LINE = re.compile(
     re.I,
 )
 ALLOW_FILES = {
-    "01_skill-integration/registry.yaml",
-    "01_skill-integration/legacy_aliases.yaml",
-    "01_skill-integration/references/id-rules.md",
+    "00_orchestrator/registry.yaml",
+    "00_orchestrator/legacy_aliases.yaml",
+    "00_orchestrator/references/id-rules.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
     "02_data-processing/base/README.md",  # archived — do not recreate list
@@ -68,7 +68,7 @@ def _routing_lines(path: Path, text: str) -> list[tuple[int, str]]:
 no_retired_seat_04_ALLOW_FILES = {
     "INTEGRATION_MAP.md",
     "VERSION.txt",
-    "01_skill-integration/legacy_aliases.yaml",
+    "00_orchestrator/legacy_aliases.yaml",
 }
 SKIP_PREFIXES = ("tests/",)
 SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".py", ".mmd", ".json", ".ini", ".mermaid"}
@@ -89,9 +89,9 @@ def tracked_files() -> list[str]:
     return [line for line in out.splitlines() if line.strip()]
 B_PAT = re.compile(r"(?:\bB\s+0[0-7]-[a-z0-9-]+/?\b|\bforce_b\b|\bMY-SKILLS-base\b)")
 no_b_pack_residue_ALLOW_FILES = {
-    "01_skill-integration/registry.yaml",
-    "01_skill-integration/legacy_aliases.yaml",
-    "01_skill-integration/references/id-rules.md",
+    "00_orchestrator/registry.yaml",
+    "00_orchestrator/legacy_aliases.yaml",
+    "00_orchestrator/references/id-rules.md",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
 }
@@ -245,7 +245,7 @@ class GateAlignment(unittest.TestCase):
         self.assertIn("Do not auto-pick numbers", gates)
 class CanonicalIdRule(unittest.TestCase):
     def test_rule_text_and_radiomics_chain(self) -> None:
-        block = (ROOT / "01_skill-integration" / "references" / "id-rules.md").read_text(encoding="utf-8")
+        block = (ROOT / "00_orchestrator" / "references" / "id-rules.md").read_text(encoding="utf-8")
         for phrase in (
             "only runtime and session-pick identifier",
             "must not be used as a fine id",
@@ -260,14 +260,14 @@ class CanonicalIdRule(unittest.TestCase):
             "02-tables` → `clean-data",
         ):
             self.assertIn(phrase, block, phrase)
-        header = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8").split("meta:", 1)[0]
+        header = (ROOT / "00_orchestrator" / "registry.yaml").read_text(encoding="utf-8").split("meta:", 1)[0]
         self.assertIn("Canonical ID Rule", header)
         self.assertIn("must never be used to infer", header)
-        rad = (ROOT / "01_skill-integration" / "workflows" / "statistics.md").read_text(encoding="utf-8")
+        rad = (ROOT / "00_orchestrator" / "workflows" / "statistics.md").read_text(encoding="utf-8")
         self.assertLess(rad.index("`clean-data`"), rad.index("`preprocess-imaging`"))
         self.assertLess(rad.index("`preprocess-imaging`"), rad.index("`analyze-stats`"))
         self.assertNotIn("`radiomics-ml`", rad)
         for banned in ("02-tables", "02-imaging-qc", "02-radiomics-habitat"):
             self.assertNotIn(banned, rad)
-        aliases = yaml.safe_load((ROOT / "01_skill-integration" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]
+        aliases = yaml.safe_load((ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]
         self.assertEqual(aliases["02-tables"], "clean-data")

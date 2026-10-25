@@ -18,7 +18,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-ONE = ROOT / "01_skill-integration"
+ONE = ROOT / "00_orchestrator"
 GATES = ROOT / "00_orchestrator" / "gates.md"
 REGISTRY = ONE / "registry.yaml"
 ALIASES = ONE / "legacy_aliases.yaml"

@@ -8,7 +8,7 @@ audit ... keep dormant until the user asks"). Follows that file's hard
 rules: no CDN, semantic HTML, one accent, offline-openable, meta line
 stating what generated it and when.
 
-Data source: 01_skill-integration/registry.yaml (routing index —
+Data source: 00_orchestrator/registry.yaml (routing index —
 this script never hand-lists coarse/fine ids). Reads `mounts`,
 `coarse_ids` when present, and `proposals`.
 
@@ -33,7 +33,7 @@ import yaml
 HERE = Path(__file__).resolve().parent
 VIZ_DIR = HERE.parent  # 02_data-processing/personal/visualization
 ROOT = VIZ_DIR.parent.parent.parent  # MY-SKILLS repo root
-REGISTRY = ROOT / "01_skill-integration" / "registry.yaml"
+REGISTRY = ROOT / "00_orchestrator" / "registry.yaml"
 
 
 def resolve_viz_out(cli_out: Path | None = None) -> Path | None:
@@ -143,10 +143,10 @@ def coarse_list(reg: dict) -> list:
     seen = []
     known = set()
     for m in reg.get("mounts") or []:
-        cid = m.get("coarse")
+        cid = m.get("a_domain")
         if cid and cid not in known:
             known.add(cid)
-            seen.append({"id": cid, "a_domain": m.get("a_domain", "")})
+            seen.append({"id": cid, "a_domain": cid})
     return seen
 
 
@@ -159,7 +159,7 @@ def render(reg: dict) -> str:
     sections = []
     for coarse in coarse_ids:
         cid = coarse["id"]
-        rows = [m for m in mounts if m.get("coarse") == cid]
+        rows = [m for m in mounts if m.get("a_domain") == cid]
         if not rows:
             continue
         def card_html(m: dict) -> str:
@@ -247,7 +247,7 @@ def render(reg: dict) -> str:
     aria-label="Filter skills">
   {''.join(sections)}
 </main>
-<footer>Routing index: 01_skill-integration/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/). This page never hand-lists ids.</footer>
+<footer>Routing index: 00_orchestrator/registry.yaml. Framework + body SSOT is this GitHub repo (NN_slug/base/). This page never hand-lists ids.</footer>
 <script>{JS}</script>
 </body>
 </html>

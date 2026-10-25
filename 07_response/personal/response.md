@@ -213,7 +213,7 @@ Corpus habit for **审稿回复** / response letters (not for inventing data):
 **Loop (lab):**
 
 ```text
-Mounted review source (this-run pick: session mounts from 01 registry menu)
+Mounted review source (this-run pick: session mounts from the 00 registry menu)
   → findings (optional status draft)
   → A 06 personal: post-QC re-review integrate / eight-section
   → A 07 personal: response letter / resolution status (final authority)
@@ -267,9 +267,9 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Discover finding | Mounted pack (this-run) or A 06 | Raise/fill draft card | Cross-talk with other mounts; apply lab-rule conflicts silently |
 | Route siblings | `00_orchestrator` | Call 02/03/05 when handoff says so | Treat 06 as manuscript writer |
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
-| Session mounts | 01 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
+| Session mounts | 00 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
 
-06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` — do not fork a second 06-only registry of full skill texts.
+06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `00_orchestrator/registry.yaml` — do not fork a second 06-only registry of full skill texts.
 
 ### Resolution checklist (A 06)
 
@@ -298,7 +298,7 @@ Need data, ethics, or unrun analysis → question the user; optional reference-o
 Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 02. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
 #### C. Reschedule mount (rare)
-Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-base source.
+Only if this-run pick left a needed pack unloaded — go through the **00 session-mount pick** again; never auto-mount a non-base source.
 
 ### Out of scope
 

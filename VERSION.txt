@@ -1,3 +1,20 @@
+CHG-20261025-seat-coarse-merge-01 (2026-10-25)
+Coarse ids are now the execution seats, and the 01 index seat is gone. registry.yaml,
+legacy_aliases.yaml, six references and all five workflow SOPs + README moved from
+`01_skill-integration/` into `00_orchestrator/` with git history — no shim, no second tree.
+`coarse_id_count` 9 -> 5 (02_data-processing, 03_research, 05_manuscript, 06_review,
+07_response); every mount dropped its `coarse` field, so the bucket is `a_domain` and a row
+cannot sit in a bucket its owner does not serve. `a_domain_override_policy` is deleted:
+find-journal and grant-builder are plain 03_research, and the "(override)" note wording is
+gone. `coarse_aliases` keeps all 9 retired bucket ids plus the legacy labels, each pointing
+at a seat. One duplicate pointer (`references/base-vs-personal-top-loops.md`) was retired
+instead of migrated; the same file already lived in 00. Guards flipped: SOP home is
+00_orchestrator/workflows, and a second SOP tree under 01 or 03 fails. New SeatBuckets
+contract (4 tests) pins the five seats, the absence of `coarse`, a_domain membership and
+owner-dir agreement. Suite 168 -> 172. No push, no merge.
+Earlier: CHG-20261025-dedupe-ssot-pass.
+
+
 CHG-20261025-dedupe-ssot-pass (2026-10-25)
 Duplication pass. The five seat `SKILL.md` layer models stopped pasting the QC-standards
 sentence and now carry one ~152-char pointer to

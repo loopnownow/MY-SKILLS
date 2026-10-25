@@ -5,7 +5,7 @@ description: >
  journal/topic selection, grants, translational/reader-study design.
  Triggers: literature, journal select, grants, ethics, study design, translation,
  reader study, lit-search, find-journal, fill-protocol.
- Literature enters here only -- never via 01.
+ Literature enters here only -- never via another seat.
  Personal layer is the 03 top authority (route/handoff/triggers), not a supplement-only folder.
  Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 02.
 ---
@@ -44,7 +44,7 @@ See `personal/route.md` for the full pointer table.
 ## Literature rule
 
 - Introduction evidence pack: on 05 cards -> `personal/intro-evidence-pack.md`. Candidates only; 05 decides.
-- **Literature research -> 03 only.** Do not route literature through 01 or 05.
+- **Literature research -> 03 only.** Do not route literature through 05 or 06.
 - **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
 - **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
 
@@ -60,16 +60,16 @@ See `personal/route.md` for the full pointer table.
 | Clinical translation | `personal/clinical-translation/` |
 | Ethics forms | Bai seats `03_research/base/fill-protocol/`; Jinshan PHI in `personal/fill-protocol/` |
 | Find-journal pack | engine `03_research/base/find-journal/` |
-| Question-to-reference spine | `01_skill-integration/workflows/question-to-reference.md` |
+| Question-to-reference spine | `00_orchestrator/workflows/question-to-reference.md` |
 
 Do not rewrite mounted literature/systematic-review capability bodies inside these files.
 Where an A personal file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
 
 ## Mounted capability ids (bodies under `NN_slug/base/`)
 
-**This-run pick:** wait for 01 session-mount pick. Registry mount menu (SSOT) = pick list.
+**This-run pick:** wait for the 00 session-mount pick. Registry mount menu (SSOT) = pick list.
 
-Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
+Live fine ids in `00_orchestrator/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
 
 **Post-QC 03-triggered:**
 
@@ -80,7 +80,7 @@ Live fine ids in `01_skill-integration/registry.yaml` (e.g. `lit-search`, `desig
 
 `R1 Question -> R2 Evidence & Mechanism -> R3 Design -> R4 Data need -> R5 Research Brief`
 
-Full rules: `01_skill-integration/workflows/question-to-reference.md`. 00 chooses mid-chain entry / rollback / STOP.
+Full rules: `00_orchestrator/workflows/question-to-reference.md`. 00 chooses mid-chain entry / rollback / STOP.
 
 ## Boundaries
 

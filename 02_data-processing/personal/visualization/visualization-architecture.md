@@ -8,7 +8,7 @@ The renderer is the in-repo generator [`scripts/gen_visualization.py`](scripts/g
 
 `schema_version` is fixed by this specification: Architecture IR uses **1**; Workflow IR uses **2**. Both constants live in the generator and are asserted by `tests/test_frontmatter.py`.
 
-The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../01_skill-integration/registry.yaml). It reads only the in-repo files named above.
+The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../00_orchestrator/registry.yaml). It reads only the in-repo files named above.
 
 Generated files live under the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
 
@@ -21,16 +21,16 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 | Layer | Role |
 | --- | --- |
 | Fact source | `SKILL.md`, registry, runtime-flow, configuration, and the real repository structure |
-| Index | `01` discovers external packages, versions, and the mount index. It indexes. It does not rewrite external skill bodies |
+| Index | `00` discovers external packages, versions, and the mount index. It indexes. It does not rewrite external skill bodies |
 | Schedule | `00` decides entry, Gate, QC, visualization build, and failure fallback |
 | Display | Generated HTML and skill documentation are derived from the IR. They can be deleted and rebuilt. They do not become the fact source |
 
-## 2. Boundary: 00 / 01 / generator
+## 2. Boundary: 00 index / generator
 
 | Component | Owns | Does not own |
 | --- | --- | --- |
 | 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose; external package bodies |
-| 01 | skill-integration: registry / session-pick / mount index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
+| 00 | orchestrator index: registry / session-pick / mount index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
 | Generator (`scripts/gen_visualization.py`) | Render typed JSON IR to HTML pages | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
 | Human | Review Delta, architecture changes, and the final PR | Hand-editing generated HTML |
 

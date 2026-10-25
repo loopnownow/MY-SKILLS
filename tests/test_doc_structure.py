@@ -18,7 +18,6 @@ from tests.support import (
 
 SKILL_DIRS = (
     "00_orchestrator",
-    "01_skill-integration",
     "02_data-processing",
     "03_research",
     "05_manuscript",
@@ -47,8 +46,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "03_research" / "personal" / "fill-protocol" / "README.md").is_file())
         self.assertTrue((ROOT / "03_research" / "personal" / "clinical-translation").is_dir())
-        self.assertTrue((ROOT / "01_skill-integration" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "01_skill-integration" / "registry.yaml").is_file())
+        self.assertTrue((ROOT / "00_orchestrator" / "SKILL.md").is_file())
+        self.assertTrue((ROOT / "00_orchestrator" / "registry.yaml").is_file())
         for banned in ("markitdown", "tool-environment-setup", "imaging-omics-ml"):
             self.assertFalse(any(ROOT.rglob(banned)), banned)
 
@@ -94,7 +93,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertEqual(violations, [], msg=str(violations))
 
     def test_registry_is_in_repo_index(self):
-        text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "00_orchestrator" / "registry.yaml").read_text(encoding="utf-8")
         self.assertNotIn("default_source:", text)
         self.assertIn("source: my-skills", text)
         self.assertIn("notify-then-research-confirm", text)
@@ -109,35 +108,38 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
         self.assertNotIn("\narchived:\n", text)
-        self.assertFalse((ROOT / "01_skill-integration" / "_history").exists())
-        self.assertFalse((ROOT / "01_skill-integration" / "mounts").exists())
-        self.assertFalse((ROOT / "01_skill-integration" / "references" / "MIGRATION_v3_to_v4.md").exists())
+        self.assertFalse((ROOT / "00_orchestrator" / "_history").exists())
+        self.assertFalse((ROOT / "00_orchestrator" / "mounts").exists())
+        self.assertFalse((ROOT / "00_orchestrator" / "references" / "MIGRATION_v3_to_v4.md").exists())
 
     def test_mounts_board(self):
-        """01 keeps registry/index only — no mount-package board under mounts/."""
-        d = ROOT / "01_skill-integration"
+        """00 keeps registry/index/workflows — no mount-package board under mounts/."""
+        d = ROOT / "00_orchestrator"
         refs = d / "references"
         skill = (d / "SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("name: skill-index", skill)
+        self.assertIn("name: medical-research-orchestrator", skill)
         self.assertIn("my-skills", skill)
         self.assertIn("NN_slug/base", skill)
         self.assertIn("routing index", skill.lower())
         self.assertNotIn("`mounts/`", skill)
+        # 2026-10-25: the 01 index seat merged here; registry / aliases / workflows live under 00.
+        self.assertTrue((d / "registry.yaml").is_file())
+        self.assertTrue((d / "legacy_aliases.yaml").is_file())
+        self.assertTrue((d / "workflows" / "README.md").is_file())
+        self.assertFalse((ROOT / "01_skill-integration").exists())
         self.assertFalse((d / "mounts").exists())
         self.assertFalse((d / "sources").exists())
         self.assertFalse((d / "mounts" / "MIGRATION_v3_to_v4.md").exists())
         # No separate capability-pack source yaml; bodies in-repo under NN_slug/base/.
         self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
-        self.assertFalse((d / "sources").exists())
         self.assertFalse((refs / "presets").exists())
-        self.assertFalse((d / "scripts").exists())
         self.assertFalse((d / "MOUNTED_SKILLS.md").exists())
 
 
     def test_b_mount_paths_unique(self):
         import yaml
         reg = yaml.safe_load(
-            (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
+            (ROOT / "00_orchestrator" / "registry.yaml").read_text(encoding="utf-8")
         )
         a_paths = []
         b_paths = []
@@ -251,7 +253,6 @@ class FiveFixes(unittest.TestCase):
 
 QC_DIRS = (
     "00_orchestrator/qc",
-    "01_skill-integration/qc",
     "02_data-processing/qc",
     "03_research/qc",
     "05_manuscript/qc",

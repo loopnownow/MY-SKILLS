@@ -34,7 +34,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 |---|---|---|
 | Rules (R) | Cross-skill hard contracts | MY-RULES |
 | Skills (S) | 00–07 skill bodies / personal | MY-SKILLS |
-| Registry (Reg) | fine-ID / mount registry | `01_skill-integration/registry.yaml` etc. |
+| Registry (Reg) | fine-ID / mount registry | `00_orchestrator/registry.yaml` etc. |
 | Capabilities (Cap) | Mountable capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
 | Corpus | Corpus / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
 
@@ -127,5 +127,5 @@ Any “no” → do not promote; fall back to corpus-only or revise the candidat
 ### Pointers
 
 - Collection standard (SSOT): `{doc_skill_harvest}\HARVEST-STANDARD.md`
-- Fine-ID thin pointer: `01_skill-integration/references/text-harvest-by-fine-id.md`
+- Fine-ID thin pointer: `00_orchestrator/references/text-harvest-by-fine-id.md`
 - Rules gate: `MY-RULES/skills.md` §3 (propose-only; task-flow body lives in this file)

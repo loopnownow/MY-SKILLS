@@ -26,9 +26,9 @@ Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypo
 ```text
 00_orchestrator
 │
-├── 01_skill-integration/workflows/statistics.md
-├── 01_skill-integration/workflows/sci-manuscript.md
-└── 01_skill-integration/workflows/research-exploration-loop.md   ← this SOP
+├── 00_orchestrator/workflows/statistics.md
+├── 00_orchestrator/workflows/sci-manuscript.md
+└── 00_orchestrator/workflows/research-exploration-loop.md   ← this SOP
        │
        ├── detect-entry
        ├── detect-gap

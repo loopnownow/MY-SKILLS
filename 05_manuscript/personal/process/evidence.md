@@ -9,7 +9,7 @@
 **Loop (lab):**
 
 ```text
-Mounted pack (this-run pick: session mounts from 01 registry menu)
+Mounted pack (this-run pick: session mounts from the 00 registry menu)
   → Evidence Request card (gap discovery only)
   → 03_research (Victor) searches
   → Candidate evidence
@@ -68,7 +68,7 @@ Optional: `PMID/DOI candidates` (only if already verified; never invent).
 | Judge | **A 05 personal (Aitee)** | Accept / Weaken / Delete (below) | Treat mount suggestion as silent apply; run a second lit-research route inside 05 |
 | Re-invoke 03 | `00_orchestrator` (G-LIT) | Call 03 after dual-plan comment | Skip dual plan; invent citations |
 
-05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 01.
+05 stays the writing skill entry / personal upper layer. It is **not** a permanent three-pack writing sub-dispatcher. Session mount pick stays in 00.
 
 ### Three exits (A 05)
 

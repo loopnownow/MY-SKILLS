@@ -40,7 +40,7 @@ Persist ordered phases with status. Resume walks to the first **non-terminal** p
 
 ## Soft wiring (no new G-*)
 
-- Exploration loop topology: `01_skill-integration/workflows/research-exploration-loop.md` (if mounted).
+- Exploration loop topology: `00_orchestrator/workflows/research-exploration-loop.md` (if mounted).
 - Review loop state machine: `06_review/qc/review-loop-state.md`.
 - Resubmit text-only constraints: `resubmit-edit-whitelist.md`.
 

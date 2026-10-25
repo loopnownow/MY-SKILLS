@@ -57,7 +57,7 @@ counterexamples:
   - intent: retired-response-tone-polisher
     must_not_contain: ["07_response/base/response-tone-polisher/"]
   - intent: literature-into-01
-    must_not_contain: ["文献 → `01_skill-integration`", "literature → `01_skill-integration`"]
+    must_not_contain: ["文献 → `00_orchestrator`", "literature → `00_orchestrator`"]
   - intent: reply-into-05
     must_not_contain: ["回复审稿人 → `05_manuscript`", "Reply to reviewers → `05_manuscript`"]
   - intent: reply-into-06
