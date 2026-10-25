@@ -70,7 +70,7 @@ the specific venue — it is small, commonly single digits) and route the rest t
   dataframe/array used to draw each panel alongside the figure at generation time.
 
 Decide the main vs Extended Data split **before** finalising the figure count; hand off the
-plan to `05_manuscript/base/write-venue/` / `nature-family-shape.md` (display-item plan). Source Data +
+plan to `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md` (display-item plan). Source Data +
 Extended Data availability wording stays in A personal.
 
 ## Imaging panels, statistical charts, de-identification
@@ -97,8 +97,7 @@ Nature-specific.
 ## Handoffs
 - Figure content rules (chart choice, imaging panels, de-identification) → `plot-figures`
   main workflow (venue-independent).
-- Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-venue/` /
-  `../../../../05_manuscript/base/write-venue/radiology-writing/nature-family-shape.md`.
+- Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`.
 - Source Data / Extended Data availability wording, "condition of publication" language →
   A personal.
 - Reporting Summary cross-check for any figure that reports a statistic → `check-reporting`.

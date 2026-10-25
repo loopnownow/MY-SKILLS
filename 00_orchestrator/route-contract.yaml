@@ -50,6 +50,7 @@ routes:
 counterexamples:
   - intent: journal-selection-misroute-to-05
     must_not_contain: ["选刊 → `05_manuscript`", "journal selection → `05_manuscript`"]
+  # Retired path. Venue house style lives in 05_manuscript/base/write-paper/.
   - intent: old-venue-id
     must_not_contain: ["05_manuscript/base/write-venue/"]
   - intent: literature-into-01

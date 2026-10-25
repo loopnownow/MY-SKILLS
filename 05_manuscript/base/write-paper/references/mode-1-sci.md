@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Personal house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → `polish-language`. Venue shape → `05_manuscript/base/write-venue/`. Reporting checklists → `check-reporting`.
+Polish → `polish-language`. Venue shape → this pack (`radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`). Reporting checklists → `check-reporting`.
 
 ## 1.1 When to use
 
@@ -16,7 +16,7 @@ Polish → `polish-language`. Venue shape → `05_manuscript/base/write-venue/`.
 ## 1.2 Workflow
 
 1. Subtask: `draft-section` | `full-imrad` | `methods-skeleton` | `outline`
-2. If the user named a venue family, **handoff** `05_manuscript/base/write-venue/` for shape; do not load a personal format file
+2. If the user named a venue family, open venue-shape files in this pack (`radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`, `radiology-polishing/`); do not load a personal format file
 3. Open the table below
 4. Output the envelope in `MODULE.md`
 

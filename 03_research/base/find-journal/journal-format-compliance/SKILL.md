@@ -9,4 +9,4 @@ owner: "03_research/base/find-journal/journal-format-compliance/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
-Parent: [../SKILL.md](../SKILL.md) (find-journal). Companion house style: B `05_manuscript/base/write-venue/`.
+Parent: [../SKILL.md](../SKILL.md) (find-journal). Companion house style: `05_manuscript/base/write-paper/`.

@@ -12,6 +12,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-absorb-write-venue — venue shape into write-paper
+
+- Absorbed `05_manuscript/base/write-venue/` into `05_manuscript/base/write-paper/` (write-paper wins on conflict; no same-named file overlap).
+- Kept: `radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`, `radiology-polishing/radiology-house-style.md`, `radiology-polishing/venue-voice-and-house-style.md`, `references/journal-patterns-2023-2026.md`.
+- Venue-shape is in-skill on `write-paper`. 选刊 stays in 03 `find-journal`. `check-reporting` was not moved.
+- Retired id: `legacy_aliases.yaml` `write-venue` → `write-paper`. Dropped the `local_packs` row. Directory deleted.
+- Policy cites point at `05_manuscript/base/write-paper/`.
+
 ## CHG-20261025-inrepo-index — in-repo index only
 
 - Registry `change_id` is `CHG-20261025-inrepo-index`. Source-menu keys are gone. Live rows stay `source: my-skills` under `NN_slug/base/`.

@@ -29,7 +29,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 | Layer | Owns |
 |---|---|
-| A `base/` | `write-paper`, `polish-language`, `humanize`, vocab, write-venue under `05_manuscript/base/` |
+| A `base/` | `write-paper` (IMRAD + journal templates / house style), `polish-language`, `humanize`, vocab under `05_manuscript/base/` |
 | A `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR) |
 | 00 | Final QC |
 | A05 | Personal Aitor-format / voice / process; final wording authority |
@@ -53,13 +53,12 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
-- `write-paper` — manuscript/report draft. Not Aitor-format. `clinical-reports` is not this id.
+- `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
 - `check-reporting` — TRIPOD / CLAIM / CLEAR (`qc/check-reporting/`)
-- `write-venue` — journal templates / house style while writing (`05_manuscript/base/write-venue/`). Not journal selection / 选刊.
 - `polish-language` — generic academic English. Not de-AI.
 - `humanize` — generic de-AI / humanize (A `05_manuscript/base/humanize/`). Does **not** replace `personal/route.md` + A `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
-选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-venue/`. Personal de-AI stays in A (`personal/`).
+选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-paper/`. Personal de-AI stays in A (`personal/`).
 
 ## Figures
 

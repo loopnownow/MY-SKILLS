@@ -1,6 +1,6 @@
 # Venue compliance minima (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 (pre-submit). Capability: `03_research/base/find-journal/` + `05_manuscript/base/write-venue/`.
+**Owner:** `00_orchestrator` at Gate · 05 (pre-submit). Capability: `03_research/base/find-journal/` + `05_manuscript/base/write-paper/`.
 **Distill of:** K-Dense `venue-templates` Final Compliance Checklist (MIT). Pass/fail lines only; **no** bundled LaTeX/BST.
 
 ## Checklist
@@ -21,6 +21,6 @@
 **PASS:** VC-1–10 clean or Word-commented.
 **FAIL:** missing currency note or identity-leak risk → rollback **05** (and/or 03 find-journal re-check).
 
-Find-journal pointer: `03_research/base/find-journal/` (选刊); house style: `05_manuscript/base/write-venue/`.
+Find-journal pointer: `03_research/base/find-journal/` (选刊); house style: `05_manuscript/base/write-paper/`.
 
 *Attribution: distilled from K-Dense-AI/scientific-agent-skills `venue-templates` (MIT).*

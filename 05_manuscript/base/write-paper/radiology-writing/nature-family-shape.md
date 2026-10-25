@@ -21,7 +21,7 @@ rebuilding a structured abstract into an unstructured one is easy but not the re
 | Main-text word limit | Verify current limit | Typically tighter than _Radiology_ and **excludes** Methods (see below) — verify live per venue |
 | Methods placement | Inline, ordered section (see methods.md) | Frequently placed **after References**, online-only, not counted in the main word limit — still needs the same content (design, cohort, technique, model/statistics) and the same reporting-guideline coverage; check the specific venue's current instructions for placement |
 | Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `plot-figures`/`nature-figure-spec.md` and A personal |
-| Reference style | Author–year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — hand off to `write-paper` `radiology-citation/export-formats.md` |
+| Reference style | Author–year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — see `../radiology-citation/export-formats.md` |
 | Statistics disclosure | Reported in Methods/Results prose | Prose **plus** a separate **Reporting Summary** for life-sciences submissions (→ `check-reporting`) |
 
 ## Abstract (unstructured, one paragraph)
@@ -96,5 +96,5 @@ to stand alone from the main text.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
   → A personal.
 - Reporting Summary / Editorial Policy Checklist → `check-reporting`.
-- Numbered reference style, export format → `write-paper` radiology-citation.
+- Numbered reference style, export format → `../radiology-citation/export-formats.md`.
 - 选刊 / venue fit → A `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.
