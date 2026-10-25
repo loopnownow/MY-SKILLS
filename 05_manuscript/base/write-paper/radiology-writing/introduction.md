@@ -25,4 +25,4 @@ Aligned with A `05_manuscript` Introduction v3 (six elements, claim coverage, Fr
 
 ## Handoff
 
-Evidence: `meta-analysis` (`04_analysis/base/meta-analysis/`; lit-review tree archived 2026-10-17) (Introduction evidence pack). Language: `polish-language`. Reporting: `check-reporting`. Self-audit: `self-review`. Personal scoring / house quotas: A `05_manuscript/personal/` (not duplicated here).
+Evidence: `meta-analysis` (`04_analysis/base/meta-analysis/`; lit-review tree archived 2026-10-17) (Introduction evidence pack). Language: `humanize`. Reporting: `check-reporting`. Self-audit: `self-review`. Personal scoring / house quotas: A `05_manuscript/personal/` (not duplicated here).

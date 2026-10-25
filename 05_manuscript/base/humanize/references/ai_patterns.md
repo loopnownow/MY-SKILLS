@@ -420,8 +420,9 @@ An AI-use disclosure belongs wherever the target journal asks for it, and journa
 some require it in Methods or Acknowledgments, others want it only in the cover letter, title
 page or submission form. The pattern is a disclosure in the wrong place for the target, or one
 repeated in several places when the journal asks for one. Take the location from the journal
-profile's `Disclosure location`; `/self-review` `check_classical_style.py` (`INBODY_AI_DISCLOSURE`)
-reports a body disclosure only when the target does not accept it there.
+profile's `Disclosure location`; the upstream `check_classical_style.py` (`INBODY_AI_DISCLOSURE`)
+is not shipped here (`MODULE.md` › Detector status), so check the body for a disclosure by hand
+and compare its location with the target.
 
 | # | BAD | GOOD |
 |---|-----|------|
@@ -455,9 +456,8 @@ Latin (*in vivo*, *et al.*, *post hoc*), gene and species names (*BRCA1*, *E. co
 titles. A **bold run-in subheading** at line start is correct Nature/npj style
 (`vocab/L1/patterns.md` Tier 1) and is not counted.
 
-**Detection:** `python3 "${CLAUDE_SKILL_DIR}/../self-review/scripts/check_emphasis_density.py" --manuscript manuscript.md`
-→ `EMPHASIS_OVERUSE` (Minor). Counts non-allowlisted *italic* spans per 1,000 body words;
-bold is deliberately excluded so the gate does not fight the run-in-subheading rule. Fires
+**Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** count
+non-allowlisted *italic* spans per 1,000 body words → `EMPHASIS_OVERUSE` (Minor). Bold is deliberately excluded so the gate does not fight the run-in-subheading rule. Fires
 only when density and raw count both clear a floor, so one stray italic in a short note is
 never flagged. A whole-clause italic span carries an escalation note — it is the strongest tell.
 
@@ -489,8 +489,8 @@ prose, the negative-definition rate ran 0.00–0.45% of sentences (seven of eigh
 and the short-declarative share 0.94–10.47%. A manuscript at 2% and 24% is outside that
 range on both axes.
 
-**Detection:** `python3 "${CLAUDE_SKILL_DIR}/../self-review/scripts/check_aphorism_density.py" --manuscript manuscript.md`
-→ `APHORISM_DENSITY` (Minor). Fires only when BOTH rates clear thresholds set above the
+**Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** rate of
+negative-definition sentences and share of very short declaratives → `APHORISM_DENSITY` (Minor). Fires only when BOTH rates clear thresholds set above the
 observed published maxima, so ordinary emphatic prose does not trip it. Use `--calibrate`
 to regenerate thresholds on your own corpus; the shipped numbers come from argumentative
 Perspectives and another genre may sit elsewhere.
@@ -531,8 +531,9 @@ than" runs 1.4–3.8 per 1,000 body words and sentence-initial clefts are absent
 thresholds (antithesis 6.0 / 1,000, cleft 2.5 / 1,000, each behind a raw-count floor) sit
 above that range, so a lone functional "rather than" or one pseudo-cleft never trips it.
 
-**Detection:** `python3 "${CLAUDE_SKILL_DIR}/../self-review/scripts/check_rhetorical_density.py" --manuscript manuscript.md`
-→ `ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (both Minor, independent). Each fires only when the
+**Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** per-1,000-word
+rates of antithesis and cleft constructions →
+`ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (both Minor, independent). Each fires only when the
 per-1,000 rate AND the raw count both clear a floor, so functional use in ordinary prose does
 not trip it.
 
@@ -711,9 +712,9 @@ Run this checklist on the final manuscript before submission:
 - [ ] § (section sign): 0 occurrences (Pattern 19) — `grep -c "§"` = 0
 - [ ] (Methods §X) / (Results §Y) self-reference: 0 occurrences (Pattern 20)
 - [ ] AI disclosure placed where the target journal asks for it, once, naming the tool (Pattern 21)
-- [ ] Inline-emphasis over-use (Pattern 25) — `check_emphasis_density.py`; strip single-word and whole-clause italics, keep stat symbols / Latin / gene-species
-- [ ] Aphorism density (Pattern 26) — `check_aphorism_density.py`; a run of negative definitions plus very short declaratives; absorb most into neighbouring sentences, keep two or three
-- [ ] Antithesis / cleft density (Pattern 27) — `check_rhetorical_density.py`; "rather than" / "not X but Y" / "X, not Y" and sentence-initial "What … is …" / "It is … that …"; delete the negative half and rewrite positive, keep two or three
+- [ ] Inline-emphasis over-use (Pattern 25) — manual rate check (`check_emphasis_density.py` not shipped); strip single-word and whole-clause italics, keep stat symbols / Latin / gene-species
+- [ ] Aphorism density (Pattern 26) — manual rate check (`check_aphorism_density.py` not shipped); a run of negative definitions plus very short declaratives; absorb most into neighbouring sentences, keep two or three
+- [ ] Antithesis / cleft density (Pattern 27) — manual rate check (`check_rhetorical_density.py` not shipped); "rather than" / "not X but Y" / "X, not Y" and sentence-initial "What … is …" / "It is … that …"; delete the negative half and rewrite positive, keep two or three
 - [ ] Sentence-length variety (SKILL.md Fix rule 7) — `check_sentence_variety.py`; short (8-12 words) and long (25-35 words) sentences both present
 - [ ] Rewrite footprint reviewed — `check_rewrite_fidelity.py` when humanize rewrote a file; `EDIT_FOOTPRINT_HIGH` (over `--warn-pct`, default 70% of word tokens) means re-read the diff; it is advisory and never halts on its own
 

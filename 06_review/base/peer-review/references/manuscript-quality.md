@@ -8,7 +8,7 @@ Personal review voice stays in A.
 ## Job
 
 Write a submittable English review of **someone else's** manuscript. Do not rewrite the paper
-(sentence edits belong in `write-paper` / `polish-language`).
+(sentence edits belong in `write-paper` / `humanize`).
 
 ## Path
 

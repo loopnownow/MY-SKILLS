@@ -1,7 +1,7 @@
 # Generic academic paper pipeline (outline)
 
 Condensed planning modes for non-imaging or cross-disciplinary outlines. Imaging prediction
-full papers prefer `pipeline-stages.md`. Language polish → `polish-language`. Reviewer
+full papers prefer `pipeline-stages.md`. Language polish → `humanize`. Reviewer
 response → `revise`.
 
 ## Priority

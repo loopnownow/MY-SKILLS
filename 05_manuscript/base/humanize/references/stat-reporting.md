@@ -3,6 +3,11 @@
 Match _Radiology_'s conventions (this file's default); **never change the underlying values** —
 only formatting and completeness (flag if a required element, e.g. a CI, is absent).
 
+> **House-style authority is not this file.** The venue house style lives in
+> `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`, which already
+> carries the P-value leading-zero rule. This file is its extended Radiology/AMA quick reference
+> (CI, decimals, counts, test naming); on any conflict the write-paper file wins.
+
 > **These are AMA-style conventions, confirmed correct for _Radiology_ — they are not universal.**
 > Nature-portfolio journals do not follow AMA style and commonly report P-values **with** a
 > leading zero (`P = 0.03`, not `P = .03`); confirm the exact convention against the specific

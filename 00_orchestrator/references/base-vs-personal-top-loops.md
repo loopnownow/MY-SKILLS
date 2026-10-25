@@ -6,7 +6,7 @@ Short pointer. Full flow: `../runtime-flow.md`. Gates: `../gates.md`.
 |---|---|---|
 | Role | Fine-ID **first-pass** capability bodies under `NN_slug/base/` | Personal **top-layer** route/handoff/authority |
 | When | Before 00 QC | After 00 QC (re-loops) |
-| Examples | write-paper, peer-review, verify-refs, polish-language, humanize, revise | A03/A05/A06/A07 personal SKILL + route + handoff |
+| Examples | write-paper, peer-review, verify-refs, humanize, revise | A03/A05/A06/A07 personal SKILL + route + handoff |
 
 **Flow:** base fine-ID first-pass -> **00 QC** -> personal/top re-loops.
 

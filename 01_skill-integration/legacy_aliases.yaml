@@ -15,7 +15,7 @@ aliases:
   04-model-eval: model-evaluation
   nature-academic-search: verify-refs
   nature-proposal-writer: grant-builder
-  nature-polishing: polish-language
+  nature-polishing: humanize
   nature-reviewer: simulate-reviewers
   nature-response: tighten-response
   # 2026-10-25: tone-only polisher absorbed into tighten-response (directory removed).
@@ -50,12 +50,14 @@ aliases:
   scientific-critical-thinking: self-review
   model-validation: model-evaluation
   audit-citations: verify-refs
-  polish-latex: polish-language
+  polish-latex: humanize
   write-data-statement: check-reporting
   analyze-survival: meta-analysis
   audit-dicom: imaging-io
   # 2026-10-25: venue house style absorbed into write-paper (directory removed).
   write-venue: write-paper
+  # 2026-10-25: language-pack lint absorbed into humanize (directory removed).
+  polish-language: humanize
 
 # Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
 # R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
