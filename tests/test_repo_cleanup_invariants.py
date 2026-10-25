@@ -27,7 +27,7 @@ STATUS_ALLOW_FILES = {
 STATUS_ALLOW_PREFIXES = (
     "01_skill-integration/",
     "tests/",
-    "04_analysis/personal/visualization/",
+    "02_data-processing/personal/visualization/",
 )
 
 STATUS_ALLOW_LINE = re.compile(
@@ -41,7 +41,6 @@ STATUS_SCAN_GLOBS = (
     "00_orchestrator/**/*.yaml",
     "02_data-processing/**/*.md",
     "03_research/**/*.md",
-    "04_analysis/**/*.md",
     "05_manuscript/**/*.md",
     "06_review/**/*.md",
     "07_response/**/*.md",

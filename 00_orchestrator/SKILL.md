@@ -13,7 +13,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **Sole official runtime map:** [`runtime-flow.mmd`](runtime-flow.mmd) (how to read the map [`runtime-flow.md`](runtime-flow.md)). Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md). Diagram nodes `Gate · NN` ↔ `G-NN`.
 
-**Seats (07_response owns response letters):** 03 Victor · 02+04 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
+**Seats (07_response owns response letters):** 03 Victor · 02 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not mount an external `orchestrate` pack as a third SOP.
 
 **Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Mount vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
@@ -33,7 +33,7 @@ Look in the working project folder. Echo one lock line when the artifact is clea
 
 | Artifact found | Implies |
 |---|---|
-| `settings.ini` | lab project; 02 or 04, not a new scaffold |
+| `settings.ini` | lab project; 02, not a new scaffold |
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
 | `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
 | reviewer letter / reviewer comments | `06_review` (review) or `07_response` (response letter) |
@@ -54,7 +54,7 @@ SSOT: [`references/fast-routing.md`](references/fast-routing.md) (must match `ro
 
 ### Routing
 
-Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_analysis` · `05_manuscript` · `06_review` · `07_response`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **Reviewer response enters 07 only** (`07_response`). No archive-as-standalone routes.
+Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`. Scope = each skill's `SKILL.md`. **Literature enters 03 only.** **Reviewer response enters 07 only** (`07_response`). No archive-as-standalone routes.
 
 ### Session mount pick
 
@@ -72,8 +72,8 @@ SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detecti
 
 | Node | Writes (must exist before next) | Next reads |
 |---|---|---|
-| 02 | analysis-ready table / aligned IDs | 04 |
-| 04 | one `*-results.html` per endpoint | 05 (numbers **only** from HTML) |
+| 02 (data) | analysis-ready table / aligned IDs | 02 (stats) |
+| 02 (stats) | one `*-results.html` per endpoint | 05 (numbers **only** from HTML) |
 | 05 | `Manuscript_<endpoint>_house.docx` | 06 |
 | 06 | pre-review / re-review; inventable items = questions | user, then 05 for sentences |
 | 07 | response letter / resolution status | user, then 05 for sentences |
@@ -93,8 +93,8 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 |---|---|
 | G0 | every run |
 | G-PHI | before 02 tables / extraction |
-| G-04 | after `*-results.html` |
-| G-FACT | after 04 HTML; again after 05 house.docx; before 06 if numbers cited |
+| G-STATS | after `*-results.html` |
+| G-FACT | after 02 HTML; again after 05 house.docx; before 06 if numbers cited |
 | G-05 | after house.docx |
 | G-06 | after pre-review / re-review (not response; response → 07) |
 | G-07 | after the response letter (entry 07); qc standards in `07_response/qc/` |
@@ -105,11 +105,11 @@ Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolutio
 
 **Local recovery:** re-run **only the broken node**; reuse session mount lock. Re-enter 01 only for missing dependency, stale provenance, or new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 
-**Close.** Write `pipeline.stage` from the template (`classify | 02 | 03 | 04 | 05 | 06 | qc | done`).
+**Close.** Write `pipeline.stage` from the template (`classify | 02 | 03 | 05 | 06 | qc | done`).
 
 - end / requested file on disk + last gate passed → `done`. Do not open the next SOP.
 - pause → leave `stage` at the current station; next session does not re-init.
-- Stop after results / before pre-review → `04` or `05` (not `done`).
+- Stop after results / before pre-review → `02` or `05` (not `done`).
 
 `intent → chain node → file check → integrity gate → localized defect → responsible skill → re-run that node (max 3) → gate → output`
 
@@ -119,7 +119,7 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 ## Boundaries
 
-**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); visualization → `04_analysis/personal/visualization/`.
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2 (grilling); visualization → `02_data-processing/personal/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 

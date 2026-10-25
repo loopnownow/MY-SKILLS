@@ -38,4 +38,4 @@ No manuscript prose. Return a claim→ref table and a spot-check note.
 ## Not this file
 
 - New Introduction search → `intro-evidence-pack.md`
-- Number conflicts inside the cohort → `04_analysis/qc/report-checks.md` and `05_manuscript/qc/manuscript-local-qc.md` (annotate only; do not invent the number)
+- Number conflicts inside the cohort → `02_data-processing/qc/report-checks.md` and `05_manuscript/qc/manuscript-local-qc.md` (annotate only; do not invent the number)

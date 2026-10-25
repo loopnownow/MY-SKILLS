@@ -10,7 +10,7 @@
 |---|---|---|
 | DA-1 | Data Availability statement present (or venue-justified `NOT_APPLICABLE` commented) | 05 Aitee |
 | DA-2 | Each supporting dataset maps to repo/accession **or** justified restriction / controlled-access route | 05 / user |
-| DA-3 | Code Availability present when central analysis/code is claimed; repo or justified restriction | 05 / 04 |
+| DA-3 | Code Availability present when central analysis/code is claimed; repo or justified restriction | 05 / 02 |
 | DA-4 | No invented DOI / accession / repo name; "available upon request" alone is weak unless restriction justified | 05 |
 | DA-5 | Statement does not contradict Methods / supplements / ethics (annotate only; Bai owns forms) | 05 / Bai |
 

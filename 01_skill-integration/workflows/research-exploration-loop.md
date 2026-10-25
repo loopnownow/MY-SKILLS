@@ -2,7 +2,7 @@
 name: research-exploration-loop
 description: >
   00 sub-component (not a fine id): state-aware exploration under the orchestrator.
-  Detect completed / uncertain / missing work; dispatch existing 03/04 (and 05/06 when needed);
+  Detect completed / uncertain / missing work; dispatch existing 03/02 (and 05/06 when needed);
   forbid pointless re-runs of reusable completed work. Structural QC only in 00;
   content judgment stays with specialists / fine ids.
 triggers: ["what else can this study do", "how to interpret this result", "what literature is still missing", "research gap", "Topic exploration"]
@@ -19,9 +19,9 @@ Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id
 > **00 = State + Gate (structural) + Route + Resume + Loop counts**  
 > **00 never judges medical content** — only whether required fields exist, trace pointers are present, and reported confidence clears a threshold.
 
-Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/04/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
+Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/02/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
 
-Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live mounts: `lit-search`, `design-study`, `verify-refs`, and 04 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
+Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live mounts: `lit-search`, `design-study`, `verify-refs`, and 02 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
 
 ```text
 00_orchestrator
@@ -112,7 +112,7 @@ When the missing work is **research content** (question / evidence / design / da
 | Evidence Discovery | 03 | `lit-search` (P1) | What literature is still missing? |
 | Evidence Reasoning | 03 | `verify-refs` + Victor evidence cards; consistency via **G-FACT** / **G-LIT** | What do these studies claim (claim→source→population→endpoint→effect→conflict)? |
 | Gap / Hypothesis | 03 | `design-study` | What new question is worth asking? |
-| Methodological Feasibility | 04 | existing 04 stats / sample-size / design personal | Can this idea be studied with our methods? |
+| Methodological Feasibility | 02 | existing 02 stats / sample-size / design personal | Can this idea be studied with our methods? |
 
 Writing / review exploration handoffs use 05 / 06 only when the gap is wording or reviewer-facing — not for inventing methods.
 
@@ -124,7 +124,7 @@ Writing / review exploration handoffs use 05 / 06 only when the gap is wording o
 
 If `classification_confidence < 0.6` → do not dispatch; ask the user.
 
-Content checks (claim fidelity, population/endpoint/mechanism differences, hedges) → package context to 03/04 (or 05/06). 00 routes on their `pass|fail + confidence`. **Do not invent gate ids** `G-NOVEL` / `G-CONSIST`; use existing `G-FACT`, `G-LIT`, and specialist validators.
+Content checks (claim fidelity, population/endpoint/mechanism differences, hedges) → package context to 03/02 (or 05/06). 00 routes on their `pass|fail + confidence`. **Do not invent gate ids** `G-NOVEL` / `G-CONSIST`; use existing `G-FACT`, `G-LIT`, and specialist validators.
 
 ## 6. Loop control
 
@@ -147,7 +147,7 @@ exploration_state:
 
 ## 7. Stop or handoff
 
-- `resolved` — return to the calling Main Pipeline node (03→04→05→06 as appropriate).
+- `resolved` — return to the calling Main Pipeline node (03→02→05→06 as appropriate).
 - `stalled` — L2 cap or oscillation; partial report; human.
 - `handoff` — missing work outside this loop → normal coarse routing (02–07).
 

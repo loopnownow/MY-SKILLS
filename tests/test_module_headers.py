@@ -9,7 +9,6 @@ SKILL_DIRS = (
     "01_skill-integration",
     "02_data-processing",
     "03_research",
-    "04_analysis",
     "05_manuscript",
     "06_review",
     "07_response",
@@ -53,7 +52,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((ROOT / "05_manuscript" / "writing-generic").exists())
         self.assertFalse((ROOT / "05_manuscript" / "de-ai").exists())
         self.assertFalse((ROOT / "06_review" / "review-generic").exists())
-        self.assertFalse((ROOT / "04_analysis" / "radiology-stats").exists())
+        self.assertFalse((ROOT / "04_analysis").exists(), "04_analysis retired into 02_data-processing")
 
     def test_core_max_five_path_parts(self):
         """skill / category-or-pack / (scripts|references|personal) / optional-leaf / file — max five parts."""
@@ -144,10 +143,10 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertEqual(b_paths, [], msg=str(b_paths))
         self.assertEqual(len(a_paths), len(set(a_paths)), msg=str(a_paths))
         self.assertGreaterEqual(len(a_paths), 20)
-        self.assertIn("04_analysis/base/draw-flowchart/", a_paths)
+        self.assertIn("02_data-processing/base/draw-flowchart/", a_paths)
         self.assertIn("03_research/base/design-study/", a_paths)
         self.assertIn("02_data-processing/base/clean-data/", a_paths)
-        self.assertIn("04_analysis/base/analyze-stats/", a_paths)
+        self.assertIn("02_data-processing/base/analyze-stats/", a_paths)
         self.assertIn("05_manuscript/base/write-paper/", a_paths)
         self.assertIn("06_review/base/self-review/", a_paths)
         self.assertIn("07_response/base/revise/", a_paths)
@@ -156,7 +155,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("03-research/literature/", a_paths)
 
     def test_personal_radiology_stats_stays_in_a(self):
-        rs = ROOT / "04_analysis" / "personal"
+        rs = ROOT / "02_data-processing" / "personal" / "analysis"
         self.assertTrue((rs / "module-notes.md").is_file())  # MODULE.md → module-notes.md
         self.assertTrue((rs / "methods.md").is_file())  # diagnostic-accuracy merged into methods.md
         self.assertTrue((rs / "pipeline.md").is_file())

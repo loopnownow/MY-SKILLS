@@ -31,15 +31,15 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 | Content chain + stage cards | Session mount pick (01) |
 | Mechanism labels with source class | Manuscript prose (05) |
 | Data **requirements** list | Data extract / QC tables (02) |
-| Hand-off asks to 02/04 | Final sample-size / model verdict (04) |
-| | QC gate ids `G0` / `G-04` / … (00) |
+| Hand-off asks to 02 | Final sample-size / model verdict (02) |
+| | QC gate ids `G0` / `G-STATS` / … (00) |
 
 **Hard split with 00**
 
 - **03** = research content chain (R1–R5) and card quality.
 - **00** = which stage to enter, whether to reuse completed cards, when to roll back, when to STOP, L1/L2 budgets (`01_skill-integration/workflows/research-exploration-loop.md`).
 
-Stage ids are **R1–R5** (research). Do **not** call them G1–G5 — that collides with QC gates (`G0`, `G-PHI`, `G-04`, …).
+Stage ids are **R1–R5** (research). Do **not** call them G1–G5 — that collides with QC gates (`G0`, `G-PHI`, `G-STATS`, …).
 
 **One workflow file only.** Do not re-implement PubMed search, MA, design engines, stats, or ETL here. Dispatch live mounts / personal supplements.
 
@@ -54,7 +54,7 @@ Every stage **must** leave a card. The next stage consumes cards, not chat memor
 | **R1** | What am I studying? | Split question; PICO/PECO; hypothesis; search keywords | **Question Card** |
 | **R2** | What does existing work say? | Retrieve (via tools); screen; verify claims; mechanism map; conflicts / gaps | **Evidence & Mechanism Map** |
 | **R3** | How should we test it? | Design type; exposure/intervention; outcomes; confounders; bias; reporting guideline | **Study Design Card** |
-| **R4** | Can current data support it? | List variables / imaging / timepoints / follow-up / missing; ask 02/04 | **Data Requirement Card** |
+| **R4** | Can current data support it? | List variables / imaging / timepoints / follow-up / missing; ask 02 | **Data Requirement Card** |
 | **R5** | What can we conclude *for planning*? | Synthesize evidence + design + data conditions | **Research Brief** (reference conclusion) |
 
 Card stubs (keep short; fill only known fields; never invent PMID / *n* / ethics):
@@ -208,7 +208,7 @@ R3 design needs
   → hand off:
        03: What data are needed?
        02: Can we obtain/process them?
-       04: Can they support the analysis?
+       02: Can they support the analysis?
   → yes | partial | no
 ```
 
@@ -226,7 +226,7 @@ Answer only:
 4. Feasible study design  
 5. Data limitations / stopping conditions  
 
-Then **HANDOFF** (02/04/05 as appropriate). Never emit Introduction/Discussion prose here.
+Then **HANDOFF** (02/05 as appropriate). Never emit Introduction/Discussion prose here.
 
 ---
 
@@ -237,7 +237,7 @@ Then **HANDOFF** (02/04/05 as appropriate). Never emit Introduction/Discussion p
 | R1 | `frontier-hypothesize`; `personal/intake.md` | Invent endpoints |
 | R2 | `lit-search`; optional `verify-refs` / `meta-analysis` / `paper-lookup` if session-picked | Treat lit-search as the whole of 03 |
 | R3 | mounted design ids; `personal/radiology-design.md` | Write 05 prose |
-| R4 | emit Data Requirement Card → **02** / **04** | Run 02 ETL or 04 models inside 03 |
+| R4 | emit Data Requirement Card → **02** | Run 02 ETL / models inside 03 |
 | R5 | synthesize cards → Research Brief | Paper Conclusion section |
 
 No new fine ids for R1–R5.

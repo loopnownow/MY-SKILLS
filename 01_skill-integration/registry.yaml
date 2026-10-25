@@ -56,13 +56,13 @@ coarse_ids:
   label: Statistical analysis
   slug: stats-analysis
   a_domains:
-  - 04_analysis
+  - 02_data-processing
   specialist_hint: Loopnow
 - id: figures
   label: Figures
   slug: figures
   a_domains:
-  - 04_analysis
+  - 02_data-processing
   specialist_hint: Loopnow
 - id: manuscript-review
   label: Manuscript review
@@ -184,43 +184,43 @@ mounts:
   label: Test selection and weighted survey data
   coarse: stats-analysis
   source: my-skills
-  path: 04_analysis/base/analyze-stats/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/analyze-stats/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: meta-analysis
   label: Meta-analysis anti-manipulation
   coarse: stats-analysis
   source: my-skills
-  path: 04_analysis/base/meta-analysis/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/meta-analysis/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: model-evaluation
   label: Model-task correct metric selection
   coarse: stats-analysis
   source: my-skills
-  path: 04_analysis/base/model-evaluation/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/model-evaluation/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: calc-sample-size
   label: Sample-size calculation
   coarse: stats-analysis
   source: my-skills
-  path: 04_analysis/base/calc-sample-size/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/calc-sample-size/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: draw-flowchart
   label: Patient flow diagram
   coarse: figures
   source: my-skills
-  path: 04_analysis/base/draw-flowchart/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/draw-flowchart/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: plot-figures
   label: Stats plots and imaging panels
   coarse: figures
   source: my-skills
-  path: 04_analysis/base/plot-figures/
-  a_domain: 04_analysis
+  path: 02_data-processing/base/plot-figures/
+  a_domain: 02_data-processing
   status: MOUNTED
 - id: peer-review
   label: Reviewer-comment generation

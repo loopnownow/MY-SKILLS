@@ -149,7 +149,7 @@ These are normal words. Only flag them when the text is saturated with them — 
 
 | Word | What to do |
 |---|---|
-| significant / significantly | Decorative density: replace some with specifics. Do **not** cut statistical *significantly* when it is p-value language (`04_analysis/qc/report-checks.md`). |
+| significant / significantly | Decorative density: replace some with specifics. Do **not** cut statistical *significantly* when it is p-value language (`02_data-processing/qc/report-checks.md`). |
 | innovative / innovation | Describe what's actually new |
 | effective / effectively | Say how or cite a metric |
 | dynamic / dynamics | Name the actual forces or changes |

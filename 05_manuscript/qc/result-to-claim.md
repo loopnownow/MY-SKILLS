@@ -1,7 +1,7 @@
 # Result → claim gate (05 qc · Layer 2)
 
 **Owner:** `00_orchestrator` (composes **G-FACT** / Integrity · pre-06).
-**Seat:** Aitee (05) drafts claim language; **independent reviewer** judges support. Loopnow (04) if more experiments needed. Victor (03) if claim needs lit framing.
+**Seat:** Aitee (05) drafts claim language; **independent reviewer** judges support. Loopnow (02) if more experiments needed. Victor (03) if claim needs lit framing.
 **Distill of:** ARIS `result-to-claim` + `evidence-precheck.md`.
 **Link, don’t duplicate:** number alignment → `claim-number-align.md`; forensic arithmetic → `06_review/qc/forensic-consistency.md`.
 
@@ -46,7 +46,7 @@ Does the **scientific claim** follow from the reported result (scope, direction,
 
 | Verdict | Rollback |
 |---|---|
-| FAIL | 05 weaken/delete claim (Aitee) and/or 04 more evidence (Loopnow) |
+| FAIL | 05 weaken/delete claim (Aitee) and/or 02 more evidence (Loopnow) |
 | BLOCKED | Supply results files or drop claim |
 | ERROR | `verdict: REVIEW_UNAVAILABLE`; stop Type-B; escalate |
 

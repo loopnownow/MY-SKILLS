@@ -155,7 +155,7 @@ Load on every full-paper draft, polish, and house.docx pass, after `Aitor-format
 
 Target-journal AI-use disclosure: check the author instructions and match any required AI statement (or confirm the journal asks for none).
 
-Statistical definitions live in `04_analysis/qc/report-checks.md` and the checkbox list in `04_analysis/qc/report-checks.md`. Lee's annotation protocol lives in `06_review/qc/cross-manuscript-qc.md`.
+Statistical definitions live in `02_data-processing/qc/report-checks.md` and the checkbox list in `02_data-processing/qc/report-checks.md`. Lee's annotation protocol lives in `06_review/qc/cross-manuscript-qc.md`.
 
 Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`).
 
@@ -195,7 +195,7 @@ The same biomarker and contrast with a materially different *P* or effect in a s
 
 ### no_confirmatory_p_same_cohort
 
-Feature or ROI selection, threshold or cutoff selection, and the group or performance test on the same participants, without an outer nested cross-validation or a bootstrap optimism correction, do not support a confirmatory *P*. Write the result as apparent or descriptive. Do not write "confirmatory", "independently validated", or an unqualified "significantly different" for that test. Lab nested CV is not implemented (`04_analysis/personal/pipeline.md`). Do not write that nested CV was run unless the user confirms it.
+Feature or ROI selection, threshold or cutoff selection, and the group or performance test on the same participants, without an outer nested cross-validation or a bootstrap optimism correction, do not support a confirmatory *P*. Write the result as apparent or descriptive. Do not write "confirmatory", "independently validated", or an unqualified "significantly different" for that test. Lab nested CV is not implemented (`02_data-processing/personal/analysis/pipeline.md`). Do not write that nested CV was run unless the user confirms it.
 
 ### nested_roi_collinearity
 

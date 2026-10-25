@@ -37,7 +37,7 @@ SOFTWARE.
 
 ### Archify
 
-Archify-derived artifacts (compiler zip, `archify-version.yaml`) were removed on 2026-10-20; no Archify code remains in this repo. IR to HTML is rendered locally by `04_analysis/personal/visualization/scripts/gen_visualization.py`.
+Archify-derived artifacts (compiler zip, `archify-version.yaml`) were removed on 2026-10-20; no Archify code remains in this repo. IR to HTML is rendered locally by `02_data-processing/personal/visualization/scripts/gen_visualization.py`.
 
 ### Agentic Reviewer System (ARS) — topology inspiration only
 

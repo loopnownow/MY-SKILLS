@@ -315,10 +315,10 @@ Comments stay concrete (locator + ask). Avoid empty style lectures.
 | Table ↔ prose | Prose invents a cell the table does not have (or contradicts it) | Prefer table as file truth unless HTML says otherwise |
 | Extreme / perfect patterns | Identical counts across splits; AUC = 1.000 with no caveat | Stop and raise integrity concern before more polish |
 | Stats method label | `multivariate` used for multi-predictor regression | Request `multivariable` unless multiple outcomes are meant |
-| Display rules | *P* decimals / mean±SD format drift mid-paper | One house rule end-to-end (`Aitor-format` / 04) |
+| Display rules | *P* decimals / mean±SD format drift mid-paper | One house rule end-to-end (`Aitor-format` / 02) |
 | Statistic vs threshold | Printed *t*/*F*/*z* cannot meet the voxel or cluster *P* named in Methods | Flag both loci; do not replace either number |
 | Correlation *n* | *n* implied by *r* and *P* disagrees with the stated analysis *n* | Flag; do not invent *n* |
-| Table → *p* spot-check | Primary between-group rows report mean±SD (or counts) and *n*, but the printed *P* cannot be roughly recovered | Back-calculate an approximate *p* (two-sample *t* from mean/SD/*n*, or χ²/Fisher from counts). In the Word comment: cite the cells used, name the approximation, label the value an **estimate**. Green = same direction + same order of magnitude; yellow = within ~1 order of magnitude or rounding ambiguity; red = opposite direction or report *p*<0.05 while estimate ≫0.2 (or the reverse). **Comment only** — do not rewrite table cells or *P*. Missing SD/*n* → `cannot_invent`. Welch / continuity correction / survival / multivariable: annotate method mismatch; escalate formal recompute to **04**. Scope: primary result tables (spot-check Table 1); do not hand-calc every multiplicity *p*. |
+| Table → *p* spot-check | Primary between-group rows report mean±SD (or counts) and *n*, but the printed *P* cannot be roughly recovered | Back-calculate an approximate *p* (two-sample *t* from mean/SD/*n*, or χ²/Fisher from counts). In the Word comment: cite the cells used, name the approximation, label the value an **estimate**. Green = same direction + same order of magnitude; yellow = within ~1 order of magnitude or rounding ambiguity; red = opposite direction or report *p*<0.05 while estimate ≫0.2 (or the reverse). **Comment only** — do not rewrite table cells or *P*. Missing SD/*n* → `cannot_invent`. Welch / continuity correction / survival / multivariable: annotate method mismatch; escalate formal recompute to **02**. Scope: primary result tables (spot-check Table 1); do not hand-calc every multiplicity *p*. |
 | Multiplicity | Many ROI or voxel correlations with no correction and no exploratory label | Ask for the family and the method, or an uncorrected label |
 | Relative unit | A relative measure whose denominator is undefined | Ask for the denominator; do not interpret the variance |
 | Inclusion vs scale | Cutoff excludes values that the included group's median, Q1, or minimum still shows; IQR wider than the scale | Flag; do not rewrite the cutoff or the quartile |
@@ -344,7 +344,7 @@ Formula map (schematic):
 - mean±SD + *n* (two groups) → approximate two-sample *t* → *p*
 - contingency counts → χ² or Fisher → *p*
 - rates / proportions → binomial CI magnitude check
-- 3+ groups / Welch / continuity / survival / multivariable → magnitude-only note; escalate formal recompute to **04**
+- 3+ groups / Welch / continuity / survival / multivariable → magnitude-only note; escalate formal recompute to **02**
 
 Missing SD/*n* → `cannot_invent`. Do not hand-calc every multiplicity *p*.
 
@@ -362,7 +362,7 @@ Missing SD/*n* → `cannot_invent`. Do not hand-calc every multiplicity *p*.
 
 ## 5. Where the long form lives
 
-`06_review/qc/cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `05_manuscript/qc/manuscript-local-qc.md` is the check-id list. `04_analysis/qc/report-checks.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
+`06_review/qc/cross-manuscript-qc.md` is the run order (statement, then data, then sister papers). `05_manuscript/qc/manuscript-local-qc.md` is the check-id list. `02_data-processing/qc/report-checks.md` is the statistic definition. This file stays the habit: statement first, then data, annotate only.
 
 ## 5.1 Who revises the manuscript
 

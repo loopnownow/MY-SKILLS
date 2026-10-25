@@ -32,7 +32,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 | Coarse | Seat | On-map role |
 |---|---|---|
-| 02 + 04 | Loopnow | data / stats / figures |
+| 02 | Loopnow | data / stats / figures |
 | 03 | Victor | research / lit / journal selection / citation-verify |
 | 05 | Aitee | manuscript prose + Track Changes |
 | **06** | **Lee** | **review / pre-review / re-review only** |
@@ -40,7 +40,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 | 00 | Aitor | QC / gates / chain |
 | (off-loop) | **Bai** | ethics forms (`03_research/base/fill-protocol`) + portal submit |
 
-**Response → 07 / Aitee. Review → 06 / Lee.** Do not route response letters to 06. Gate ids (`G0`, `G-PHI`, `G-FACT`, `G-LIT`, `G-CODE`, `Gate · 04/05/06/07`) stay stable.
+**Response → 07 / Aitee. Review → 06 / Lee.** Do not route response letters to 06. Gate ids (`G0`, `G-PHI`, `G-FACT`, `G-LIT`, `G-CODE`, `Gate · STATS/05/06/07`) stay stable.
 
 
 ## How to read the map
@@ -50,7 +50,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 3. **01 / G0 = pre-execution dependency** — every independent run needs one mount decision. When `session_picked_fine_ids` already covers this task’s fine ids, reuse the session lock; do not re-ask. Otherwise enter 01. Single-node personal layer with no mount dependency does not ask (e.g. polish one sentence). Not a decorative master gate.
 4. **QC loop** — FAIL → locate → impact (local vs roll back to earliest affected node) → re-enter the failed node within budget → Gate again; never re-run the whole chain from Start. Local recovery reuses the session mount lock and returns to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is needed.
 5. **Budget exhausted** — Escalate → wait for the user; after authorization, reset **that defect’s** `defects[].rounds`.
-6. **Naming** — diagram `Gate · NN` ↔ `gates.md` `G-NN` (e.g. `Gate · 04` = `G-04`). `G0` / `G-PHI` / `G-FACT` / `G-LIT` / `G-CODE` share the same names.
+6. **Naming** — diagram `Gate · NN` ↔ `gates.md` `G-NN` (e.g. `Gate · STATS` = `G-STATS`). `G0` / `G-PHI` / `G-FACT` / `G-LIT` / `G-CODE` share the same names.
 
 ## Gate selection (source of truth `gates.md`)
 
@@ -59,14 +59,14 @@ Diagram `Gate · NN` = the set chosen from the table below (detail and failure c
 | Task / node | Applicable gates |
 | --- | --- |
 | 01 external Skill / Mount | G0. Enter only when this run needs a new mount decision |
-| 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 04. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop |
+| 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 02. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop |
 | 02 personal/coding.md / deep code review | G-CODE |
 | 03 literature research | Exit is G0 + G-LIT + evidence/citation artifacts. No separate 03 gate id and no 03-local G-FACT |
-| 04 stats / figures | G0 + G-FACT (fact chain after 04 HTML) + G-04. Numbers and figures come from HTML / settings; reporting-guideline checklists are not G-04. N3 WRITE = stop at HTML or enter writing |
+| 02 stats / figures | G0 + G-FACT (fact chain after 02 HTML) + G-STATS. Numbers and figures come from HTML / settings; reporting-guideline checklists are not G-STATS. N3 WRITE = stop at HTML or enter writing |
 | 05 manuscript writing | G0 + G-FACT (re-check after 05 house.docx) + G-LIT + G-05 (includes style-lint sub-check). Before Gate · 05 / done, 03 citation-verify must PASS (semantic label **G-CIT-1**, draft evidence verify; `03_research/personal/citation-verify.md`). N4 PREVIEW = enter 06 or stop |
 | 07 reply to reviewers | G0 + response resolution + G-LIT when cites appear; A07 final authority; revise/tighten-response stay source my-skills (in-repo base); tone-polish is on-demand inside tighten-response |
 | 06 review / R&R | G0 + G-LIT + G-05 + G-06; also run G-FACT when numbers are cited (`gates.md`: before 06 if numbers cited). Inside 06, citation-verify semantic label **G-CIT-2** (post-revision / inside 06) is mandatory; G-CIT-1 does not waive G-CIT-2. Lee owns statement then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md` |
-| Full 02→04→05→06 | Each node exit per the table above; G-FACT only after 04 HTML, after 05 house.docx, and when 06 cites numbers |
+| Full 02→05→06 | Each node exit per the table above; G-FACT only after 02 HTML, after 05 house.docx, and when 06 cites numbers |
 
 Personal layers (writing voice / review frame) = `05_manuscript/personal`, `06_review/personal`. Sentence authority and verdicts sit in the personal layer; capability bodies live under `NN_slug/base/`.
 

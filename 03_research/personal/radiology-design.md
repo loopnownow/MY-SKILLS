@@ -1,6 +1,6 @@
 ---
 name: "radiology-design"
-description: "Imaging study design and feasibility blueprint (研究设计 / 可行性 / 立项 / 开题): patient-level split, blocking risks. Sample-size numbers → 04_analysis."
+description: "Imaging study design and feasibility blueprint (研究设计 / 可行性 / 立项 / 开题): patient-level split, blocking risks. Sample-size numbers → 02_data-processing."
 domain: "03_research"
 trigger: ["研究设计", "可行性", "imaging feasibility", "样本量", "立项", "开题", "自拟标书"]
 inputs: ["clinical_question", "modality", "cohort_sketch"]
@@ -10,7 +10,7 @@ quality_control: "patient-level split; no slice-level external validation"
 owner: "03_research/personal/radiology-design.md"
 ---
 
-The 样本量 trigger only frames the question here. Numbers go to `04_analysis` / Loopnow (`calc-sample-size`).
+The 样本量 trigger only frames the question here. Numbers go to `02_data-processing` / Loopnow (`calc-sample-size`).
 
 # Imaging Study Design & Feasibility
 
@@ -50,7 +50,7 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
    internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
    out and what "external" honestly means here.
 7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to
-   `04_analysis` / Loopnow, `calc-sample-size`).
+   `02_data-processing` / Loopnow, `calc-sample-size`).
 8. **Return** the blueprint + feasibility verdict + validation plan + the prioritised list of
    what to secure next.
 
@@ -83,8 +83,8 @@ Compact contract (details in that file):
 ## Handoffs
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
-- Sample size, EPV, power, Riley minimum sample size → `04_analysis` / Loopnow (`calc-sample-size`; lab notes `04_analysis/personal/methods.md`).
-- Hand-crafted radiomics pipeline design → `04_analysis` (mounted `radiomics-ml`; lab rules `04_analysis/personal/pipeline.md`).
+- Sample size, EPV, power, Riley minimum sample size → `02_data-processing` / Loopnow (`calc-sample-size`; lab notes `02_data-processing/personal/analysis/methods.md`).
+- Hand-crafted radiomics pipeline design → `02_data-processing` (mounted `radiomics-ml`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
 - Deep-learning architecture & training design → mounted `architecture-zoo` (`03_research`).
 - ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
 - Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).

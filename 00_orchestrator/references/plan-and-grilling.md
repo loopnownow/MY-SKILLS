@@ -38,7 +38,7 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 |---|---|---|
 | N1 SOP | "full-pipeline" / multi-stage with no lock | `statistics` / `sci-manuscript` / `research-exploration-loop` / no SOP (single skill) |
 | N2 PHI | before 02 tables or clinical extraction | PHI present → de-identify / stop; none → proceed |
-| N3 WRITE | `*-results.html` exists after 04 | stop at HTML / enter `sci-manuscript` |
+| N3 WRITE | `*-results.html` exists after 02 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
 
 Never `--e2e`. Session pick reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node personal-layer task with no extra dependency does not ask.

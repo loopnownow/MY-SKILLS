@@ -19,7 +19,7 @@ Later-polish live files are `Manuscript_<outcome>_polished.docx` in the outcome 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.  
 Letters / short communications: apply only if the user asks.
 
-Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md` (+ optional `personal/vocab/L1/sci-overrides.md`; and `SKILL.md`); stats checklist stays in `04_analysis/qc/report-checks.md`.
+Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md` (+ optional `personal/vocab/L1/sci-overrides.md`; and `SKILL.md`); stats checklist stays in `02_data-processing/qc/report-checks.md`.
 
 ---
 

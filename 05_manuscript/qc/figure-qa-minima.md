@@ -10,8 +10,8 @@
 | FQ-1 | Every panel maps to a one-sentence core claim (or marked supplementary) | 05 |
 | FQ-2 | Final width/height within target venue limits; text readable at print size | 05 |
 | FQ-3 | Panel labels present and consistent; color not red/green-only; grayscale still interpretable | 05 |
-| FQ-4 | Quantitative panels meet `figure-stats-legend.md` minima | 05 / 04 |
-| FQ-5 | Source data or script path traceable for quantitative panels | 04 / 05 |
+| FQ-4 | Quantitative panels meet `figure-stats-legend.md` minima | 05 / 02 |
+| FQ-5 | Source data or script path traceable for quantitative panels | 02 / 05 |
 | FQ-6 | Microscopy/blot: calibrated scale bar (not magnification alone) when applicable | 05 |
 
 ## Image-integrity minima

@@ -45,10 +45,10 @@ Record: `guideline_chosen:` (TRIPOD[+AI] | STARD[+AI] | STROBE | PRISMA | other+
 | id | Check | Fail → |
 |---|---|---|
 | RG-1 | Chosen guideline named in Methods or cover note | 05 Aitee (name) / user (pick) |
-| RG-2 | Primary outcome / reference standard / analysis set stated | 05 / 04 as responsible |
-| RG-3 | Flow of participants or samples described (or figure cited) | 05 / 04 Figure 1 |
-| RG-4 | Discrimination and/or accuracy metric matches study type (e.g. AUC for prediction) | 04 Loopnow / 05 prose |
-| RG-5 | Missing-data / exclusions handled or declared | 02/04/05 per source |
+| RG-2 | Primary outcome / reference standard / analysis set stated | 05 / 02 as responsible |
+| RG-3 | Flow of participants or samples described (or figure cited) | 05 / 02 Figure 1 |
+| RG-4 | Discrimination and/or accuracy metric matches study type (e.g. AUC for prediction) | 02 Loopnow / 05 prose |
+| RG-5 | Missing-data / exclusions handled or declared | 02/05 per source |
 
 **PASS:** RG-1 done + applicable RG-2–5 clean or Word-commented with owner.
 **FAIL:** missing guideline choice or silent skip of applicable subset → rollback station **05** (or escalate if ambiguous).

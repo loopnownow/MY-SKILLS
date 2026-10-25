@@ -218,7 +218,7 @@ Mounted review source (this-run pick: session mounts from 01 registry menu)
   → A 06 personal: post-QC re-review integrate / eight-section
   → A 07 personal: response letter / resolution status (final authority)
   → conflicts stay in comments; user decides
-  → wording → 05; stats/figures → 04; evidence gap → Evidence Request → 03
+  → wording → 05; stats/figures → 02; evidence gap → Evidence Request → 03
   → 00 G-06 / G-LIT
 ```
 
@@ -265,7 +265,7 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Step | Who | May | Must not |
 |---|---|---|---|
 | Discover finding | Mounted pack (this-run) or A 06 | Raise/fill draft card | Cross-talk with other mounts; apply lab-rule conflicts silently |
-| Route siblings | `00_orchestrator` | Call 02/03/04/05 when handoff says so | Treat 06 as manuscript writer |
+| Route siblings | `00_orchestrator` | Call 02/03/05 when handoff says so | Treat 06 as manuscript writer |
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
 | Session mounts | 01 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
 
@@ -295,7 +295,7 @@ Then set one status:
 Need data, ethics, or unrun analysis → question the user; optional reference-only sentence; no silent edit.
 
 ### B. Call sibling
-Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 04. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
+Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 02. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
 ### C. Reschedule mount (rare)
 Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-base source.

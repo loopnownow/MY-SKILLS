@@ -109,7 +109,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 2. Header QC + ID uniqueness + missingness inventory. Write a short QC note.
 3. Confirm split column semantics (training/test; validation only if external).
 4. If fill/outliers are requested → `impute/`. If OOXML pack/recalc/financial model → `xlsx-office/`.
-5. Hand modelling to `04_analysis`. Do not fit LASSO here.
+5. Hand modelling to `02_data-processing`. Do not fit LASSO here.
 
 ## Handoffs
 

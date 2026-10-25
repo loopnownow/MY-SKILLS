@@ -1,7 +1,7 @@
 # Experiment integrity audit (06 qc · Layer 1)
 
 **Owner:** `00_orchestrator` at Integrity · pre-06 / G-FACT compose.
-**Seat:** Lee (06) collects paths; **independent reviewer** judges. Loopnow (04) repairs eval/stats code. Executor must **not** self-acquit.
+**Seat:** Lee (06) collects paths; **independent reviewer** judges. Loopnow (02) repairs eval/stats code. Executor must **not** self-acquit.
 **Distill of:** ARIS `experiment-audit` + `experiment-integrity.md`. Clinical/imaging analogue for radiomics/prediction studies.
 **Do not duplicate:** numeric arithmetic layers → `forensic-consistency.md`; stats P0 taxonomy → `stats-failure-modes.md`.
 
@@ -45,7 +45,7 @@ Is the evaluation honest? No fake GT, no phantom metrics, no self-normalized sco
 
 | Verdict | Rollback |
 |---|---|
-| FAIL / BLOCKED | 04 Loopnow (eval/results) and/or 05 Aitee (claim language); HARD with G-FACT before 06 |
+| FAIL / BLOCKED | 02 Loopnow (eval/results) and/or 05 Aitee (claim language); HARD with G-FACT before 06 |
 | WARN | Comment + integrity tag on affected claims; continue only if assurance ≤ polished |
 | ERROR | Re-run once; else escalate user |
 

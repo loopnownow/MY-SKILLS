@@ -5,7 +5,7 @@
 | Post-QC re-review / peer envelope | `06_review` |
 | Manuscript Track Changes / prose | `05_manuscript` (Aitee) |
 | Literature substitute / citation-verify | `03_research` (Victor) |
-| Numbers / figures | `04_analysis` |
+| Numbers / figures | `02_data-processing` |
 | Tables / imaging prep | `02_data-processing` |
 | Exit QC / Gates | `00_orchestrator` |
 

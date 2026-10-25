@@ -86,13 +86,13 @@ to stand alone from the main text.
    limit live if not already confirmed for this venue).
 3. **`Claim–evidence map`** — unchanged from the main workflow.
 4. **`Display-item plan`** — which results go to main figures/tables vs Extended Data/Supplementary
-   Information (→ `../../../../04_analysis/base/plot-figures/references/nature-figure-spec.md`, A personal).
+   Information (→ `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`, A personal).
 5. **`Reporting check`** — checklist items **plus** whether a Reporting Summary is required for this
    venue (→ `check-reporting`).
 
 ## Handoffs
 - Figure sizing, panel-letter case, Extended Data figure limits → `plot-figures` /
-  `../../../../04_analysis/base/plot-figures/references/nature-figure-spec.md`.
+  `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
   → A personal.
 - Reporting Summary / Editorial Policy Checklist → `check-reporting`.

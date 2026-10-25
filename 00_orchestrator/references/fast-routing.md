@@ -12,8 +12,8 @@ Chinese trigger aliases are kept so owner utterances still match; English is the
 - MRI / DICOM / NIfTI / preprocess / 预处理 / radiomics prep / impute → `02_data-processing`
 - Topic / 选题 / study design / 研究设计 / **literature** / **文献** → `03_research`
 - 选刊 → `03_research` (journal selection)
-- 样本量 → `04_analysis` (`calc-sample-size`) (sample size)
-- Stats / 统计 / AUC / DeLong / DCA / **figures** / **出图** → `04_analysis`
+- 样本量 → `02_data-processing` (`calc-sample-size`) (sample size)
+- Stats / 统计 / AUC / DeLong / DCA / **figures** / **出图** → `02_data-processing`
 - Writing / 写作 / polish / 润色 / Introduction / Discussion / de-AI → `05_manuscript`
 - 预审 / 审稿 → `06_review` (pre-review / review)
 - **回复审稿人** → `07_response` (reply to reviewers)

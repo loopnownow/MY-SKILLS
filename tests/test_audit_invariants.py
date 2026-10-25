@@ -246,7 +246,7 @@ class FastRouting(unittest.TestCase):
         fast = read("00_orchestrator/references/fast-routing.md")
         self.assertIn("选刊 → `03_research`", fast)
         self.assertNotIn("选刊 → `05_manuscript` (`05-write-venue`)", fast)
-        self.assertIn("样本量 → `04_analysis` (`calc-sample-size`)", fast)
+        self.assertIn("样本量 → `02_data-processing` (`calc-sample-size`)", fast)
         six = read("06_review/SKILL.md")
         # A06 top layer: journal select out of scope (points to 03), not a fast-routing table
         self.assertIn("03_research", six)
@@ -277,9 +277,9 @@ class DeAiAndFigures(unittest.TestCase):
         self.assertIn("plot-figures", sop)
         self.assertNotIn("04-fig-flow", sop)
         self.assertNotIn("de-ai/forbidden-phrases.md", sop)
-        four = read("04_analysis/SKILL.md")
-        self.assertIn("draw-flowchart", four)
-        self.assertNotIn("04-figure-engine", four)
+        stats_skill = read("02_data-processing/SKILL.md")
+        self.assertIn("draw-flowchart", stats_skill)
+        self.assertNotIn("04-figure-engine", stats_skill)
 
 
 
@@ -320,7 +320,7 @@ class OrchestratorLoop(unittest.TestCase):
 
     def test_gates_and_handoff_exist(self) -> None:
         gates = read("00_orchestrator/gates.md")
-        for token in ("G0", "G-PHI", "G-04", "G-05", "G-06", "Development set", "VAL_MODE", "DeLong"):
+        for token in ("G0", "G-PHI", "G-STATS", "G-05", "G-06", "Development set", "VAL_MODE", "DeLong"):
             self.assertIn(token, gates)
         hand = read("00_orchestrator/templates/handoff.yaml")
         self.assertIn("qc_gate:", hand)
@@ -334,7 +334,7 @@ class OrchestratorLoop(unittest.TestCase):
         rad = read("01_skill-integration/workflows/statistics.md")
         sci = read("01_skill-integration/workflows/sci-manuscript.md")
         self.assertIn("sci-manuscript", rad)
-        self.assertIn("G-04", rad)
+        self.assertIn("G-STATS", rad)
         self.assertIn("G-05", sci)
         self.assertIn("G-06", sci)
         self.assertIn("05_manuscript/base/vocab/L1/ban-phrases.md", sci)
@@ -452,7 +452,7 @@ class GateMetadata(unittest.TestCase):
             "| G0 | HARD |",
             "| G-PHI | HARD |",
             "| G-FACT | HARD |",
-            "| G-04 | QUALITY |",
+            "| G-STATS | QUALITY |",
             "| G-05 | QUALITY |",
             "| G-06 | QUALITY |",
             "| G-LIT | QUALITY |",

@@ -13,7 +13,6 @@ TOPS = (
     "01_skill-integration/",
     "02_data-processing/",
     "03_research/",
-    "04_analysis/",
     "05_manuscript/",
     "06_review/",
     "07_response/",

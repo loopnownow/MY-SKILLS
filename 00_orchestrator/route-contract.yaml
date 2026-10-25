@@ -9,7 +9,7 @@ routes:
   - intent: excel-clean
     contains: ["Excel", "02_data-processing"]
   - intent: sample-size
-    contains: ["样本量", "04_analysis"]
+    contains: ["样本量", "02_data-processing"]
   - intent: write-paper
     contains: ["写作", "05_manuscript"]
   - intent: reply-to-reviewers
@@ -19,9 +19,9 @@ routes:
   - intent: journal-selection
     contains: ["选刊", "03_research"]
   - intent: figures
-    contains: ["出图", "04_analysis"]
+    contains: ["出图", "02_data-processing"]
   - intent: stats
-    contains: ["统计", "04_analysis"]
+    contains: ["统计", "02_data-processing"]
   - intent: polish
     contains: ["润色", "05_manuscript"]
   - intent: de-ai
@@ -44,7 +44,7 @@ routes:
   - intent: grant
     contains: ["选题", "03_research"]
   - intent: DCA
-    contains: ["DCA", "04_analysis"]
+    contains: ["DCA", "02_data-processing"]
 
 # Counter-examples: these must NOT appear as positive routes in the Fast routing section.
 counterexamples:

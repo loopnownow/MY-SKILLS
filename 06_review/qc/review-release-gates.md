@@ -37,6 +37,6 @@ Do **not** release when:
 4. Isolation was not achieved but the packet claims three-blind consensus.
 
 **PASS:** RL-* clean + forensic central errors disclosed if any.
-**FAIL:** any release-rule hit → hold packet; local rework at 06 (or 04/05 if fact-lineage).
+**FAIL:** any release-rule hit → hold packet; local rework at 06 (or 02/05 if fact-lineage).
 
 *Attribution: distilled from Yuan1z0825/nature-skills `nature-reviewer` (Apache-2.0).*

@@ -24,7 +24,7 @@ Search for concepts, not only exact titles. Combine:
 
 When the user asks for "近三年", "前沿", "高水平期刊", "发表规律", "选题依据",
 or journal-fit evidence, load search/evidence files in this domain
-(`04_analysis/base/meta-analysis/` (former `lit-review` tree, archived 2026-10-17) and sibling frontier files).
+(`02_data-processing/base/meta-analysis/` (former `lit-review` tree, archived 2026-10-17) and sibling frontier files).
 选刊 / where to submit → A `03_research` (journal-selection). Do not use `05_manuscript/base/write-paper/`
 as a 选刊 SOP (house style there applies after a venue is known).
 

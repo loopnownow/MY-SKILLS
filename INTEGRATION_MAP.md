@@ -12,6 +12,16 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-merge-04-into-02 — 04 absorbed into 02, gate `G-04` → `G-STATS`
+
+- Absorbed `04_analysis` into `02_data-processing` (one top-level skill `02`; `04_analysis` retired). 6 base packs (`analyze-stats`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) → `02_data-processing/base/`; the rest of `04_analysis/personal/**` → `02_data-processing/personal/analysis/**`, except the visualization pack → `02_data-processing/personal/visualization/` (its `scripts/` would otherwise sit six path parts deep, over the five-part ceiling); 5 `04_analysis/qc/*.md` → `02_data-processing/qc/`.
+- Gate `G-04` renamed **`G-STATS`** everywhere; no `G-04` alias kept. `02_data-processing/SKILL.md` now carries the layer model (`G-PHI` / `G-CODE` / `G-FACT` / `G-STATS`) plus the imaging hard rules that used to live in `04_analysis/SKILL.md`.
+- Registry: `path` / `a_domain` for the 6 moved packs → `02_data-processing`; fine id and coarse counts unchanged.
+- Seat token `04` collapsed into `02` across live docs (`02→04→05→06` reads `02→05→06`; `02 or 04` → `02`; `02/04/05` → `02/05`). `runtime-flow.mmd` node ids `Need04` / `P04` / `GF04` / `GA04` → `NeedStats` / `PStats` / `GFStats` / `GAStats`.
+- `legacy_aliases.yaml` keeps the historical call-site keys (`04-fig-flow`, `04-fig-plot`, `04-stats-models`, `04-stats-power`, `04-model-eval`); they are retired ids, not live seats.
+- Tests: gate strings → `G-STATS`; `SKILL_DIRS` / `TOPS` lists drop `04_analysis`; new regression guard fails if `04_analysis` reappears in tracked files.
+- Sync whitelist post-merge: changed skill bodies + `registry.yaml` + `VERSION.txt` + `INTEGRATION_MAP.md` → `{SKILLS}` per skills.md §1b.
+
 ## CHG-20261025-merge-language-polish-coarse — coarse merge
 
 - Coarse `language-polish` (single member: `humanize`) merged into `manuscript-body`; the `humanize` mount now carries `coarse: manuscript-body`.
@@ -73,7 +83,7 @@ Harvest must not invent a second evolution log file.
 
 - Branch `chore/scan-fix-p0-p2-20261019`: apply SCAN-REPORT P0/P1/P2 (Asia/Shanghai 2026-10-19).
 - P0: rewrite live `~/.grok/AGENTS.md` required reads → My rule / network-security / skills (+ optional workspace-layout); replace all bare qc/local-checks cites cites → `05_manuscript/qc/manuscript-local-qc.md`; Aitor-format ban-phrases → `05_manuscript/base/vocab/L1/ban-phrases.md` (+ sci-overrides).
-- P1: cross-link qc `reporting-guideline-route` ↔ base `guideline-router` (Gate SSOT vs writing audit; CLAIM/CLEAR footnotes); align Integrity·pre-06 mid-entry G-CIT wording with gates.md; add `nature-reporting-summary.md` stub; add **G-07** QUALITY row; fix manuscript-local-qc / cross-manuscript-qc ownership/move headers; retarget paper-claim-audit / external-principles cites to `references/…` and shrink `ALLOW_MISSING`; NOTICE Archify → `04_analysis/personal/visualization/`.
+- P1: cross-link qc `reporting-guideline-route` ↔ base `guideline-router` (Gate SSOT vs writing audit; CLAIM/CLEAR footnotes); align Integrity·pre-06 mid-entry G-CIT wording with gates.md; add `nature-reporting-summary.md` stub; add **G-07** QUALITY row; fix manuscript-local-qc / cross-manuscript-qc ownership/move headers; retarget paper-claim-audit / external-principles cites to `references/…` and shrink `ALLOW_MISSING`; NOTICE Archify → `02_data-processing/personal/visualization/`.
 - P2: mmd `LayerBasease`→`LayerBase`; NOTICE pack 00–07 + ARS topology-inspiration line; bare-relative cite regression in `test_inline_paths_exist.py`.
 - Also documents prior same-day merges already on main: Integrity pre-06 + R&R (PR #156), P0 nature-stats/reviewer/figure + K-Dense router, P1 ref-verify/response/venue/data-avail/lit-appraisal (PR #157).
 - Sync whitelist post-merge: changed skill bodies + `INTEGRATION_MAP.md` + `VERSION.txt` → `{SKILLS}` per skills.md §1b.
@@ -141,7 +151,7 @@ Harvest must not invent a second evolution log file.
 
 - User rule 2026-10-08: for each candidate journal, search the last 3–5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in match rationale. None found → lower the tier and write 「no similar articles in recent years — demoted」. Never invent articles. A failed search is not a no-hit.
 - Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.
-- Regenerated `docs/` visualization HTML via `04_analysis/personal/visualization/scripts/gen_visualization.py` (outputs were stale on main after #126).
+- Regenerated `docs/` visualization HTML via `02_data-processing/personal/visualization/scripts/gen_visualization.py` (outputs were stale on main after #126).
 - `skill-harvest/scripts/repo_qc.py` (archived under `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`): historical map files under the 0del `_medical-research-meta_history` tree count as historical (legacy-active-refs, stale-ids), like this stub and archive. The Oct-7 monthly file is at `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\INTEGRATION_MAP-20261007.md` (in-repo `history/` link removed).
 
 ## CHG-20261008-002 — find-journal similar-article check is round 2

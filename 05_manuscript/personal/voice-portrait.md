@@ -49,7 +49,7 @@ Do **not** add a Discussion page-length quota (no “cut to 1.5 pages”). Lengt
 - Split names: **training set** / **test set** / **validation set** only (never `development set`; never rewrite set→group).
 - One fact per sentence, inside a continuous paragraph. Do not merge adjacent Results sentences into long stacks. Do not lay the body out as one sentence per line.
 - Introduction opening paragraph cites the verified source when one exists. An opening with zero citations is unfinished when the evidence pack has a source.
-- *P* italic; space before comparator (`P < 0.05`); report exact *P* when above the extreme threshold the lab uses (see stats rules in 04 / Aitor-format).
+- *P* italic; space before comparator (`P < 0.05`); report exact *P* when above the extreme threshold the lab uses (see stats rules in 02 / Aitor-format).
 - Number–unit spacing consistent; English punctuation only; abbreviations: expand at first use, then one form only.
 - Spelling system (US/UK) follows the target journal; **one system per manuscript**.
 - `multivariable` (multiple predictors), not `multivariate`, unless multiple outcomes are truly meant.

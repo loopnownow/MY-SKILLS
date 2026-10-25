@@ -4,7 +4,7 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 
 | Need | Seat / skill |
 |---|---|
-| Methods / which test / pipeline / reported numbers | `04_analysis` (`personal/pipeline.md`, `04_analysis/qc/report-checks.md`) |
+| Methods / which test / pipeline / reported numbers | same skill, analysis half: `personal/analysis/pipeline.md`, `qc/report-checks.md` |
 | Literature / Evidence Pack | `03_research` |
 | Manuscript prose / Track Changes | `05_manuscript` |
 | Review annotate | `06_review` |
@@ -14,7 +14,7 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 ## Boundary
 
 - **Receives:** raw clinical / imaging / picture / fMRI exports; user scripts under `{code_data_processing}` / `{code_root}`.
-- **Gives:** analysis-ready tables, QC logs, extraction outputs, leakage/split notes -- then **handoff to 04**.
+- **Gives:** analysis-ready tables, QC logs, extraction outputs, leakage/split notes -- then **handoff to the 02 analysis half** (`personal/analysis/handoff.md`).
 - **Does not:** feature selection, model fitting, Table 1 / NHST ownership, IMRAD prose.
 
 ## A/B note

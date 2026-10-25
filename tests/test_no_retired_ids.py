@@ -31,7 +31,6 @@ ALLOW_FILES = {
     "INTEGRATION_MAP.md",
     "02_data-processing/base/README.md",  # archived — do not recreate list
     "03_research/base/README.md",  # archived — do not recreate list
-    "04_analysis/base/README.md",  # path-unit table may echo alias keys
 }
 
 # Path-unit directory names that coincide with alias keys (not retired fine ids).

@@ -38,7 +38,7 @@
 | Seat | Role in chain |
 |---|---|
 | Aitor (00) | Loads standards; HARD recoveries; does not invent numbers |
-| Loopnow (04) | Eval/results repairs (L1); evidence gaps (L2/L3) |
+| Loopnow (02) | Eval/results repairs (L1); evidence gaps (L2/L3) |
 | Victor (03) | Citation verify L4; G-CIT |
 | Aitee (05) | Claim/prose TC; never self-certify lit or integrity |
 | Lee (06) | Path collection / cold-read / kill-argument; marks, does not self-revise ms by default |

@@ -1,4 +1,4 @@
-"""Pre-submit consistency checks are YAML-parseable and wired into 04/05/06.
+"""Pre-submit consistency checks are YAML-parseable and wired into 02/05/06.
 
 Failure classes come from the SSD scoring-report lessons (stats/text, sister
 papers, circular analysis, process language, inclusion scale, citation hygiene,
@@ -7,7 +7,7 @@ paragraph lock). The test locks the check ids, not any manuscript's numbers.
 Wave2 path map (2026-10-17 reorg) + domain qc/ (2026-10-18):
 - 05_manuscript/personal/pre-submit-consistency.md -> 00 refs -> 05_manuscript/qc/manuscript-local-qc.md (Part B)
 - 06_review/personal/cross-manuscript-qc.md -> 00 refs -> 06_review/qc/cross-manuscript-qc.md
-- stats-consistency/stats-checklist -> 04_analysis/qc/report-checks.md
+- stats-consistency/stats-checklist -> 02_data-processing/qc/report-checks.md
 - forbidden-phrases -> 05_manuscript/base/vocab/L1/ban-phrases.md
 - introduction-scorecard -> manuscript-local-qc.md Part A
 - personal-review-style -> 06_review/personal/review.md
@@ -135,17 +135,17 @@ class PreSubmitWiring(unittest.TestCase):
     def test_parent_skills_load_the_checklists(self) -> None:
         five = read("05_manuscript/SKILL.md")
         six = read("06_review/SKILL.md")
-        four = read("04_analysis/SKILL.md")
+        stats_skill = read("02_data-processing/SKILL.md")
         gates = read("00_orchestrator/gates.md")
         self.assertIn("manuscript-local-qc.md", five)
         self.assertIn("cross-manuscript-qc.md", six)
-        self.assertIn("05_manuscript/qc/manuscript-local-qc.md", four)
+        self.assertIn("05_manuscript/qc/manuscript-local-qc.md", stats_skill)
         self.assertIn("manuscript-local-qc.md", gates)
         self.assertIn("cross-manuscript-qc.md", gates)
 
     def test_extended_personal_files_hold_the_rules(self) -> None:
         # Wave2: stats-consistency + stats-checklist merged into report-checks.md
-        stats = read("04_analysis/qc/report-checks.md")
+        stats = read("02_data-processing/qc/report-checks.md")
         checklist = stats  # single current file holds both id tables
         for token in (
             "stat_vs_threshold",

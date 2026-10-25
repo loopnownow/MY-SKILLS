@@ -7,7 +7,7 @@
 
 ## When
 
-Prior venue packet exists; user wants **microedits only** for a new venue / R&R text pass with structure frozen. If framework/experiment change is needed → leave this mode; use normal 04/05/06 path.
+Prior venue packet exists; user wants **microedits only** for a new venue / R&R text pass with structure frozen. If framework/experiment change is needed → leave this mode; use normal 02/05/06 path.
 
 ## Edit-whitelist (binding)
 
@@ -31,7 +31,7 @@ rationale: "Resubmit: text-only microedits; structure frozen."
 ```
 
 **PASS:** every diff ⊆ whitelist; `rejected_by_edit_whitelist` listed when blockers hit.
-**FAIL:** out-of-whitelist edit applied, or new numerical claim without 04 evidence → rollback **05** (and/or 04).
+**FAIL:** out-of-whitelist edit applied, or new numerical claim without 02 evidence → rollback **05** (and/or 02).
 
 ## Failure / verdict ledger
 
