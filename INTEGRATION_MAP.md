@@ -2,6 +2,8 @@
 
 Monthly full log is archived. The live roll below is newest-first; entries dated before 2026-10-07 live in the archived roll.
 
+> **Two ledgers, by design (2026-10-25):** `VERSION.txt` keeps the one-line release summary for Oct-2026; this map keeps the structured detail. `tests/test_ledger_assurance.py` requires the registry `change_id` in both files, so the overlap is intended — do not collapse either one.
+
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
 

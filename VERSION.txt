@@ -182,3 +182,5 @@ SCI prose: prefer Compared over Relative as a comparison word (keep relative CBF
 Earlier: CHG-20260929-006, CHG-20260929-005.
 
 Policy: VERSION.txt keeps recent Oct-2026 blocks (CHG-202610*). Older and unlisted CHG ids live in INTEGRATION_MAP.md (newest first), INTEGRATION_MAP.archive.md, and D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\ (monthly INTEGRATION_MAP-YYYYMMDD.md under MY-SKILLS_history/ / grok_history/).
+
+Note (2026-10-25): VERSION.txt and INTEGRATION_MAP.md are two layers of one ledger (one-line release summary here, structured detail there). tests/test_ledger_assurance.py requires the registry change_id in both, so overlap is intended; do not collapse either file.
