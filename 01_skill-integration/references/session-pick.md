@@ -2,7 +2,7 @@
 
 ## In-repo bodies
 
-Capability bodies live under `NN_slug/base/` (`source: my-skills`).
+Capability bodies live under `NN_slug/base/` (`source: my-skills`), except `check-reporting` at `05_manuscript/qc/check-reporting/`.
 
 Agents propose `MOUNTED` fine ids from `registry.yaml`. Still ask each run; the user may change picks. Attribution is per skill path.
 
@@ -17,9 +17,9 @@ Registry status `MOUNTED` = catalog-approved and session-selectable. It is not a
 Every independent run needs a selection. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node personal-layer task with no in-repo dependency does not ask (example: polish one sentence). **A top layers are not capability mounts.**
 
 1. Classify the task. Propose **relevant coarse bucket(s)** then **MOUNTED candidate fine ids**.
-2. Show each candidate as one line: **fine ID · coarse ID · in-repo path · role**. Bodies are in-repo under `NN_slug/base/`.
+2. Show each candidate as one line: **fine ID · coarse ID · registry path · role**. Paths are `NN_slug/base/...` except `check-reporting` at `05_manuscript/qc/check-reporting/`.
 3. **Ask the user to multi-select fine ids**. Also offer: select all candidates / personal layer only. Empty picked path -> tell the user; do not silent-fallback.
-4. Load **only** the picked fine ids from `NN_slug/base/` paths in the registry. Unpicked stay unloaded.
+4. Load **only** the picked fine ids from their registry paths (`NN_slug/base/...`, or `05_manuscript/qc/check-reporting/` for `check-reporting`). Unpicked stay unloaded.
 5. If a picked path is empty -> empty-path protocol. Do not silently substitute another path.
 6. Do not change `registry.yaml` just because this run wanted a path that is not in the index.
 
@@ -39,7 +39,7 @@ Never invent a local copy.
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (coarse buckets + fine `mounts:`).
-2. Resolve each fine id against `source: my-skills` (paths under `NN_slug/base/`). Retired ids (`legacy_aliases.yaml` only) are not on the menu.
+2. Resolve each fine id against `source: my-skills` (registry path; `NN_slug/base/` except `05_manuscript/qc/check-reporting/`). Retired ids (`legacy_aliases.yaml` only) are not on the menu.
 3. If that path is empty or missing -> empty-path protocol.
 4. Evaluate capability, boundaries, dependencies, and overlap.
 5. After approval the registry status becomes `MOUNTED`. Update `registry.yaml` only (no generated mirror).

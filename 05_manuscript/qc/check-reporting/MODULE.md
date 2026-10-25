@@ -3,7 +3,7 @@ name: "check-reporting"
 domain: "05_manuscript"
 trigger: ["TRIPOD", "CLAIM", "CLEAR", "报告规范"]
 outputs: ["reporting_checklist"]
-owner: "05_manuscript/base/check-reporting/MODULE.md"
+owner: "05_manuscript/qc/check-reporting/MODULE.md"
 ---
 
 # Reporting guidelines in the manuscript

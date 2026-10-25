@@ -23,7 +23,7 @@ Discussion). This pack is **generic IMRAD only**.
 - Language polish → [`polish-language`](../polish-language/MODULE.md)
 - Venue house style / article shape → [`05_manuscript/base/write-venue/`](../write-venue/MODULE.md)
 - 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`
-- TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../check-reporting/MODULE.md)
+- TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../../qc/check-reporting/MODULE.md)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
 
 ## When to use

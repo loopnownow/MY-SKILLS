@@ -2,7 +2,7 @@
 name: "check-reporting"
 domain: "05_manuscript"
 description: TRIPOD / CLAIM / CLEAR reporting.
-owner: "05_manuscript/base/check-reporting/MODULE.md"
+owner: "05_manuscript/qc/check-reporting/MODULE.md"
 ---
 
 # check-reporting
