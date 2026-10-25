@@ -10,7 +10,7 @@ quality_control: "do not invent PMID/DOI"
 owner: "03_research/personal/radiology-frontier.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Frontier Directions & Evidence Layer
 

@@ -10,7 +10,7 @@ description: "Lab imaging biostatistics index for 02_data-processing. Detail liv
 | Load order | `route.md` |
 | Other seats | `handoff.md` |
 | Methods handbook | `methods.md` |
-| Report checklist / consistency | `../qc/report-checks.md` |
+| Report checklist / consistency | `../../qc/report-checks.md` |
 | lab pipeline | `pipeline.md` |
 | Console UI / results report | `console-ui.md` |
 | Figures | `figures.md` |

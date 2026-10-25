@@ -17,6 +17,6 @@ Loopnow owns **02 execution** (clean, extract, imaging QC, soft-coding scripts, 
 - **Gives:** analysis-ready tables, QC logs, extraction outputs, leakage/split notes -- then **handoff to the 02 analysis half** (`personal/analysis/handoff.md`).
 - **Does not:** feature selection, model fitting, Table 1 / NHST ownership, IMRAD prose.
 
-## A/B note
+## Note
 
-Capability bodies for 02 mounts live in A `02_data-processing/base/` (pilot 2026-10-17). A02 personal top layer stays route/handoff + true personal files above.
+Capability bodies for 02 mounts live in A `02_data-processing/base/` (pilot 2026-10-17). 02 personal top layer stays route/handoff + true personal files above.

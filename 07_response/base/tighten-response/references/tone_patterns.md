@@ -104,8 +104,8 @@ Academic writing uses measured, precise language.
 
 **Template:**
 ```
-We thank the reviewer for this valuable suggestion. We have revised the 
-[section] to [describe change]. Specifically, we have [specific action] 
+We thank the reviewer for this valuable suggestion. We have revised the
+[section] to [describe change]. Specifically, we have [specific action]
 (Page X, Lines Y-Z).
 ```
 
@@ -119,9 +119,9 @@ We thank the reviewer for this valuable suggestion. We have revised the
 
 **Template:**
 ```
-We appreciate the reviewer's suggestion regarding [topic]. We have adopted 
-part of this recommendation by [action taken]. However, we have maintained 
-our original approach to [aspect] because [brief rationale]. We have added 
+We appreciate the reviewer's suggestion regarding [topic]. We have adopted
+part of this recommendation by [action taken]. However, we have maintained
+our original approach to [aspect] because [brief rationale]. We have added
 a discussion of this rationale to the manuscript (Page X).
 ```
 
@@ -135,10 +135,10 @@ a discussion of this rationale to the manuscript (Page X).
 
 **Template:**
 ```
-We thank the reviewer for this suggestion. Upon careful consideration, we 
-respectfully maintain our original [approach/formulation/interpretation] 
-because [clear rationale supported by evidence]. We hope this explanation 
-adequately addresses the reviewer's concern. To enhance clarity, we have 
+We thank the reviewer for this suggestion. Upon careful consideration, we
+respectfully maintain our original [approach/formulation/interpretation]
+because [clear rationale supported by evidence]. We hope this explanation
+adequately addresses the reviewer's concern. To enhance clarity, we have
 added additional discussion of this point (Page X, Lines Y-Z).
 ```
 

@@ -11,7 +11,7 @@ owner: "06_review/base/peer-review/MODULE.md"
 
 Checklist (AI + public-data/imaging): [references/ai-public-data-imaging-checklist.md](references/ai-public-data-imaging-checklist.md).
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Other-paper peer review
 

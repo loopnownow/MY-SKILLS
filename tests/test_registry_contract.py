@@ -1,28 +1,39 @@
-"""Directory names are fine ids (owner decision 2026-10-20).
+"""Registry, mirrors and alias-target contract.
 
-Renaming the 17 packs made `base/<dir>` equal to the canonical fine id. These
-tests keep it that way: a mount's basename must be its id (or an alias target),
-every base directory must be registered, and a shared path must be declared as
-an alias rather than kept as a silent second id.
+Merged from: `test_registry_mirrors.py`, `test_registry_paths.py`, `test_alias_targets_exist.py`.
 """
 from __future__ import annotations
 
+from pathlib import Path
 import re
 import unittest
-from pathlib import Path
-
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
-ONE = ROOT / "01_skill-integration"
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
+def registry() -> dict:
+    return yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
 REG = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
 ALIASES = ((yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}).get("aliases") or {})
-
-
 def _base_name(path: str) -> str:
     return path.replace("\\", "/").rstrip("/").split("/")[-1]
 
-
+class RegistryMirrors(unittest.TestCase):
+    def test_live_rows_are_in_repo_my_skills(self) -> None:
+        """Live rows use in-repo my-skills; no second source id and no source-menu key."""
+        reg = registry()
+        bad = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
+        self.assertEqual(bad, [])
+        self.assertNotIn("archived", reg)
+        self.assertNotIn("default_source", reg)
+        self.assertFalse((ONE / "sources" / "b-my-skills-base.yaml").exists())
+        live_a = [m for m in reg["mounts"] if m.get("source") == "my-skills"]
+        self.assertGreaterEqual(len(live_a), 20)
+        self.assertEqual(len(live_a), len(reg["mounts"]))
 class RegistryPaths(unittest.TestCase):
     def test_mount_count_matches_meta(self) -> None:
         self.assertEqual(len(REG["mounts"]), REG["meta"]["fine_id_count_canonical"])
@@ -98,7 +109,37 @@ class RegistryPaths(unittest.TestCase):
         for pack in REG.get("local_packs") or []:
             self.assertEqual(_base_name(pack["path"]), pack["id"], pack["id"])
             self.assertTrue((ROOT / pack["path"]).is_dir(), pack["id"])
+class AliasTargets(unittest.TestCase):
+    def test_alias_values_are_known_ids(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        ids = {
+            m["id"]
+            for m in (reg.get("mounts") or [])
+            if isinstance(m, dict) and m.get("id")
+        }
+        self.assertGreaterEqual(len(ids), 20, "registry mounts not parsed")
 
+        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
+        bad = [
+            f"{k} -> {v}"
+            for k, v in (la.get("aliases") or {}).items()
+            if str(v) not in ids
+        ]
+        self.assertEqual(bad, [], "alias targets that are not live mount ids:\n" + "\n".join(bad))
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_coarse_alias_values_are_registry_coarse(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        coarse = {
+            m.get("coarse") for m in (reg.get("mounts") or []) if isinstance(m, dict)
+        }
+        coarse.discard(None)
+        for c in reg.get("coarse_ids") or []:
+            if isinstance(c, dict) and c.get("id"):
+                coarse.add(c["id"])
+        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
+        bad = [
+            f"{k} -> {v}"
+            for k, v in (la.get("coarse_aliases") or {}).items()
+            if str(v) not in coarse
+        ]
+        self.assertEqual(bad, [], "coarse alias targets not in registry:\n" + "\n".join(bad))

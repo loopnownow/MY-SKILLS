@@ -8,7 +8,7 @@ quality_control: "numbers only from supplied results; no invented n/AUC/ethics I
 owner: "05_manuscript/base/write-paper/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # IMRAD draft and venue shape
 

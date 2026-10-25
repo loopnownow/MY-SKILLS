@@ -1,6 +1,6 @@
 # 06_review/base
 
-Capability bodies for A06 review. No domain-level SKILL.md.
+Capability bodies for 06 review. No domain-level SKILL.md.
 
 | Pack | Path | Role |
 |---|---|---|

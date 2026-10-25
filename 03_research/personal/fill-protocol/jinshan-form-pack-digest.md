@@ -30,7 +30,7 @@ Hard rule: change text only — do not alter table structure/layout; dedupe `(1)
 
 | # | Item | Note |
 |---|---|---|
-| 0 | 登记表 | email only `jsyyllwyh2018@163.com` — never print |
+| 0 | 登记表 | email only — value in the local ethics contact library (outside the repo); never print |
 | 1 | 初审申请表 | PI hand-sign; date = submit day |
 | 2–3 | Protocol / ICF or 免知情 | version+date; multi-site = lead-site protocol + local sign page |
 | 4–6 | CV / declaration / roster | interventional must include a physician; multicenter attach site + PI |
@@ -51,7 +51,7 @@ Email subject: `申请类型＋申请人姓名`. Paper: two copies, double-sided
 
 **2 Protocol spine (keep hospital section order):** cover → signature page → background+refs → purpose → overview (design/n/flow) → inclusion/exclusion → endpoints → process → AE → data → recruitment/consent → stats/sample size → confidentiality → schedule. Intervention adds randomization/controls/blinding limits/intervention detail/safety review. Digital health/AI: version lock, de-id, logs, human review.
 
-**3 ICF:** protocol name/version/investigator; background purpose process; risks benefits costs compensation; alternatives and rights; contacts = investigator + ethics office; **do not delete signature page**. Sample phone/email follow template (`021-57039818` / ethics email).
+**3 ICF:** protocol name/version/investigator; background purpose process; risks benefits costs compensation; alternatives and rights; contacts = investigator + ethics office; **do not delete signature page**. Sample phone/email follow template (ethics office phone / email: take from the local ethics contact record, outside the repo; never commit it).
 
 **4 CV:** unknown →「待补充」, never invent. **5 Declaration:** usually only swap department + title. **6 Roster:** if only PI known, one row + note pending fill.
 

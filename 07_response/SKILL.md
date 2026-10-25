@@ -23,7 +23,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in A `07_response/base/`) -> **00 QC** -> **A07** personal final authority.
+Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in A `07_response/base/`) -> **00 QC** -> **07** personal final authority.
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 
@@ -37,12 +37,12 @@ Mounted packs may draft; **A 07 personal** owns resolution status and letter voi
 | Route | `personal/route.md` |
 | Handoff | `personal/handoff.md` |
 
-## Mounted capability ids (bodies in A `base/`; source my-skills)
+## Mounted capability ids (bodies in `base/`; source my-skills)
 
 - `revise` -- point-by-point structure (A `07_response/base/revise/`)
 - `tighten-response` -- tightening plus on-demand tone-polish (A `07_response/base/tighten-response/`). Legacy alias `response-tone-polisher` was absorbed here; structure stays `revise`.
 
-A07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
+07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 
 **Exit gate: G-07** (defined in `00_orchestrator/gates.md`; class QUALITY). Every response point is either resolved with a traced manuscript change or recorded as unresolved; the letter must not claim a fix that the manuscript does not contain. 00 runs the gate; a FAIL loops back here for local rework.
 

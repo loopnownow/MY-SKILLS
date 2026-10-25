@@ -810,11 +810,11 @@ Verify applicable fields against the publisher record. Online-first volume/pages
 
 Validation ensures citation quality:
 
-✓ **Accuracy**: DOIs resolve, metadata correct  
-✓ **Completeness**: All required fields present  
-✓ **Consistency**: Proper formatting throughout  
-✓ **No duplicates**: Each paper cited once  
-✓ **Valid syntax**: BibTeX compiles without errors  
+✓ **Accuracy**: DOIs resolve, metadata correct
+✓ **Completeness**: All required fields present
+✓ **Consistency**: Proper formatting throughout
+✓ **No duplicates**: Each paper cited once
+✓ **Valid syntax**: BibTeX compiles without errors
 
 **Always validate** before final submission!
 

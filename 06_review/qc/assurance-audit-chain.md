@@ -51,4 +51,4 @@
 - Resubmit edit-whitelist + failure ledger: `07_response/qc/resubmit-edit-whitelist.md`
 - Still **out of scope**: installing ARIS runtime / host MCP / `verify_paper_audits.sh` as-is
 
-*Attribution: ARIS (wanshuiyin/Auto-claude-code-research-in-sleep) assurance chain; lab A/B layout + seats.*
+*Attribution: ARIS (wanshuiyin/Auto-claude-code-research-in-sleep) assurance chain; lab layout + seats.*

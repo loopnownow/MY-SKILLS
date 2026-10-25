@@ -9,7 +9,7 @@ quality_control: "CI and n match supplied results; colorblind-safe"
 owner: "02_data-processing/base/plot-figures/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Statistical and imaging-panel figures
 

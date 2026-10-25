@@ -39,11 +39,11 @@ class Citation:
     authors: List[str] = None
     journal: Optional[str] = None
     year: Optional[str] = None
-    
+
     def __post_init__(self):
         if self.authors is None:
             self.authors = []
-    
+
     def get_identifier(self) -> str:
         """Return best available identifier for matching."""
         if self.doi:
@@ -73,11 +73,11 @@ class RetractionRecord:
 
 class CitationParser:
     """Parse citations from various formats."""
-    
+
     DOI_PATTERN = re.compile(r'10\.\d{4,}\/[^\s\]]+', re.IGNORECASE)
     PMID_PATTERN = re.compile(r'PMID:\s*(\d+)', re.IGNORECASE)
     YEAR_PATTERN = re.compile(r'\b(19|20)\d{2}\b')
-    
+
     @classmethod
     def extract_doi(cls, text: str) -> Optional[str]:
         """Extract DOI from text."""
@@ -88,7 +88,7 @@ class CitationParser:
             doi = re.sub(r'[.,;\]]+$', '', doi)
             return doi.lower()
         return None
-    
+
     @classmethod
     def extract_pmid(cls, text: str) -> Optional[str]:
         """Extract PMID from text."""
@@ -96,7 +96,7 @@ class CitationParser:
         if match:
             return match.group(1)
         return None
-    
+
     @classmethod
     def extract_year(cls, text: str) -> Optional[str]:
         """Extract publication year from text."""
@@ -104,7 +104,7 @@ class CitationParser:
         if match:
             return match.group(0)
         return None
-    
+
     @classmethod
     def extract_title(cls, text: str) -> Optional[str]:
         """Try to extract article title from citation."""
@@ -113,20 +113,20 @@ class CitationParser:
         quote_match = re.search(r'"([^"]{20,200})"', text)
         if quote_match:
             return quote_match.group(1)
-        
+
         # Pattern 2: Title after year, before journal (APA-like)
         # Example: Author (2020). Title here. Journal...
         apa_match = re.search(r'\(?(?:19|20)\d{2}\)?[.\s]+([A-Z][^.]{20,200}?)[.\s]+[A-Z][a-z]+', text)
         if apa_match:
             return apa_match.group(1).strip()
-        
+
         # Pattern 3: Title after first period (numbered reference style)
         numbered_match = re.search(r'^\d+[.\]]\s+[^.]+\.\s+([A-Z][^.]{20,200})[.\s]', text)
         if numbered_match:
             return numbered_match.group(1).strip()
-        
+
         return None
-    
+
     @classmethod
     def extract_authors(cls, text: str) -> List[str]:
         """Extract author names from citation."""
@@ -138,14 +138,14 @@ class CitationParser:
                 name = re.sub(r'[,\s]+$', '', auth).strip()
                 if name:
                     authors.append(name)
-        
+
         # Pattern 2: Author et al.
         et_al_match = re.search(r'([A-Z][a-z]+)\s+et\s+al', text, re.IGNORECASE)
         if et_al_match and not authors:
             authors.append(et_al_match.group(1))
-        
+
         return authors
-    
+
     @classmethod
     def parse_citation(cls, text: str, index: int = 0) -> Citation:
         """Parse a single citation from text."""
@@ -153,103 +153,103 @@ class CitationParser:
             index=index,
             raw_text=text.strip()
         )
-        
+
         citation.doi = cls.extract_doi(text)
         citation.pmid = cls.extract_pmid(text)
         citation.year = cls.extract_year(text)
         citation.title = cls.extract_title(text)
         citation.authors = cls.extract_authors(text)
-        
+
         return citation
-    
+
     @classmethod
     def parse_text(cls, text: str) -> List[Citation]:
         """Parse all citations from text."""
         citations = []
-        
+
         # Try to split into individual references
         # Pattern 1: Numbered references [1], [2], etc.
         numbered_pattern = re.compile(r'(?:^|\n)\s*\[?(\d+)\]?[.\s]+(.+?)(?=\n\s*\[?\d+\]?[.\s]+|\Z)', re.DOTALL)
         numbered_matches = list(numbered_pattern.finditer(text))
-        
+
         if numbered_matches:
             for match in numbered_matches:
                 idx = int(match.group(1))
                 content = match.group(2).replace('\n', ' ').strip()
                 citations.append(cls.parse_citation(content, idx))
             return citations
-        
+
         # Pattern 2: References separated by blank lines
         blocks = re.split(r'\n\s*\n', text)
         for i, block in enumerate(blocks, 1):
             block = block.strip()
             if len(block) > 30:  # Minimum length for a citation
                 citations.append(cls.parse_citation(block, i))
-        
+
         return citations
-    
+
     @classmethod
     def parse_bibtex(cls, text: str) -> List[Citation]:
         """Parse BibTeX entries."""
         citations = []
-        
+
         # Find all BibTeX entries
         entry_pattern = re.compile(r'@\w+\{([^,]+),\s*([^}]+)\}', re.DOTALL)
         doi_pattern = re.compile(r'doi\s*=\s*\{([^}]+)\}', re.IGNORECASE)
         title_pattern = re.compile(r'title\s*=\s*\{([^}]+)\}', re.IGNORECASE)
         year_pattern = re.compile(r'year\s*=\s*\{(\d{4})\}', re.IGNORECASE)
         author_pattern = re.compile(r'author\s*=\s*\{([^}]+)\}', re.IGNORECASE)
-        
+
         for i, match in enumerate(entry_pattern.finditer(text), 1):
             entry = match.group(0)
-            
+
             citation = Citation(index=i, raw_text=entry)
-            
+
             doi_match = doi_pattern.search(entry)
             if doi_match:
                 citation.doi = doi_match.group(1).strip()
-            
+
             title_match = title_pattern.search(entry)
             if title_match:
                 citation.title = title_match.group(1).strip()
-            
+
             year_match = year_pattern.search(entry)
             if year_match:
                 citation.year = year_match.group(1)
-            
+
             author_match = author_pattern.search(entry)
             if author_match:
                 citation.authors = [a.strip() for a in author_match.group(1).split(' and ')]
-            
+
             citations.append(citation)
-        
+
         return citations
 
 
 class RetractionChecker:
     """Check citations against retraction databases."""
-    
+
     def __init__(self, rate_limit_delay: float = 0.5):
         self.rate_limit_delay = rate_limit_delay
         self.last_request_time = 0
         self.cache: Dict[str, Optional[RetractionRecord]] = {}
-    
+
     def _rate_limit(self):
         """Apply rate limiting between requests."""
         elapsed = time.time() - self.last_request_time
         if elapsed < self.rate_limit_delay:
             time.sleep(self.rate_limit_delay - elapsed)
         self.last_request_time = time.time()
-    
+
     def _make_request(self, url: str, headers: Dict[str, str] = None) -> Optional[Dict]:
         """Make HTTP request with error handling."""
         self._rate_limit()
-        
+
         if headers is None:
             headers = {
                 'User-Agent': 'RetractionWatcher/1.0 (academic integrity tool)'
             }
-        
+
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=10) as response:
@@ -263,29 +263,29 @@ class RetractionChecker:
         except (URLError, json.JSONDecodeError, TimeoutError) as e:
             print(f"  Warning: Request failed for {url}: {e}", file=sys.stderr)
             return None
-    
+
     def check_crossref(self, doi: str) -> Optional[RetractionRecord]:
         """Check DOI against Crossref for retractions."""
         if not doi:
             return None
-        
+
         cache_key = f"crossref:{doi}"
         if cache_key in self.cache:
             return self.cache[cache_key]
-        
+
         url = f"https://api.crossref.org/works/{urllib.parse.quote(doi)}"
         data = self._make_request(url)
-        
+
         if not data or 'message' not in data:
             self.cache[cache_key] = None
             return None
-        
+
         work = data['message']
-        
+
         # Check for retraction metadata
         update_type = work.get('update-type', '').lower()
         update_policy = work.get('update-policy', '').lower()
-        
+
         # Check if this is a retraction notice
         if 'retraction' in update_type or 'retraction' in update_policy:
             record = RetractionRecord(
@@ -299,7 +299,7 @@ class RetractionChecker:
             )
             self.cache[cache_key] = record
             return record
-        
+
         # Check for update-to field (may link to retraction)
         if 'update-to' in work:
             for update in work['update-to']:
@@ -314,38 +314,38 @@ class RetractionChecker:
                     )
                     self.cache[cache_key] = record
                     return record
-        
+
         self.cache[cache_key] = None
         return None
-    
+
     def check_pubmed(self, pmid: str) -> Optional[RetractionRecord]:
         """Check PMID against PubMed for retractions."""
         if not pmid:
             return None
-        
+
         cache_key = f"pubmed:{pmid}"
         if cache_key in self.cache:
             return self.cache[cache_key]
-        
+
         # Use E-utilities to fetch publication types
         url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id={pmid}&retmode=json"
         data = self._make_request(url)
-        
+
         if not data or 'result' not in data:
             self.cache[cache_key] = None
             return None
-        
+
         result = data['result'].get(pmid, {})
-        
+
         # Check publication types
         pubtypes = result.get('pubtype', [])
-        
+
         retraction_types = [
             'Retracted Publication',
             'Retraction of Publication',
             'Expression of Concern'
         ]
-        
+
         for rtype in retraction_types:
             if rtype in pubtypes:
                 status = 'retracted' if 'Retract' in rtype else 'expression_of_concern'
@@ -359,26 +359,26 @@ class RetractionChecker:
                 )
                 self.cache[cache_key] = record
                 return record
-        
+
         self.cache[cache_key] = None
         return None
-    
+
     def check_open_retractions(self, doi: str) -> Optional[RetractionRecord]:
         """Check Open Retractions database."""
         if not doi:
             return None
-        
+
         cache_key = f"openret:{doi}"
         if cache_key in self.cache:
             return self.cache[cache_key]
-        
+
         url = f"https://openretractions.com/api/doi/{urllib.parse.quote(doi)}/data.json"
         data = self._make_request(url)
-        
+
         if not data or not data.get('retracted'):
             self.cache[cache_key] = None
             return None
-        
+
         record = RetractionRecord(
             identifier=doi,
             identifier_type='doi',
@@ -390,37 +390,37 @@ class RetractionChecker:
         )
         self.cache[cache_key] = record
         return record
-    
+
     def check_citation(self, citation: Citation) -> Optional[RetractionRecord]:
         """Check a citation against all available databases."""
         # Priority: Open Retractions (fastest), then Crossref, then PubMed
-        
+
         if citation.doi:
             # Try Open Retractions first
             result = self.check_open_retractions(citation.doi)
             if result:
                 return result
-            
+
             # Try Crossref
             result = self.check_crossref(citation.doi)
             if result:
                 return result
-        
+
         if citation.pmid:
             result = self.check_pubmed(citation.pmid)
             if result:
                 return result
-        
+
         return None
 
 
 class ReportGenerator:
     """Generate reports from retraction check results."""
-    
+
     def __init__(self, citations: List[Citation], results: Dict[int, Optional[RetractionRecord]]):
         self.citations = citations
         self.results = results
-    
+
     def get_stats(self) -> Dict[str, int]:
         """Get statistics about the check."""
         stats = {
@@ -432,7 +432,7 @@ class ReportGenerator:
             'clear': 0,
             'unknown': 0
         }
-        
+
         for citation in self.citations:
             result = self.results.get(citation.index)
             if result:
@@ -440,35 +440,35 @@ class ReportGenerator:
                 stats[result.status] = stats.get(result.status, 0) + 1
             else:
                 stats['clear'] += 1
-        
+
         return stats
-    
+
     def generate_summary(self) -> str:
         """Generate a brief summary report."""
         stats = self.get_stats()
-        
+
         lines = [
             "🔍 RETRACTION WATCH REPORT - SUMMARY",
             "=" * 50,
             f"References Found: {stats['total']}",
             f"✅ Clear: {stats['clear']}",
         ]
-        
+
         if stats['retracted']:
             lines.append(f"🔴 RETRACTED: {stats['retracted']} ⚠️ URGENT ACTION REQUIRED")
         if stats['expression_of_concern']:
             lines.append(f"🟡 Expression of Concern: {stats['expression_of_concern']}")
         if stats['corrected']:
             lines.append(f"🟠 Corrected: {stats['corrected']}")
-        
+
         total_issues = stats['retracted'] + stats['expression_of_concern'] + stats['corrected']
         if total_issues == 0:
             lines.append("\n✅ No retraction issues found in your references!")
         else:
             lines.append(f"\n⚠️ {total_issues} citation(s) require attention")
-        
+
         return '\n'.join(lines)
-    
+
     def generate_detailed(self) -> str:
         """Generate a detailed report."""
         lines = [
@@ -476,18 +476,18 @@ class ReportGenerator:
             "=" * 50,
             ""
         ]
-        
+
         stats = self.get_stats()
         lines.append(f"Total References: {stats['total']}")
         lines.append(f"Check Date: {time.strftime('%Y-%m-%d %H:%M')}")
         lines.append("")
-        
+
         # Group by status
         retracted = []
         concerned = []
         corrected = []
         clear = []
-        
+
         for citation in self.citations:
             result = self.results.get(citation.index)
             if result:
@@ -499,7 +499,7 @@ class ReportGenerator:
                     corrected.append((citation, result))
             else:
                 clear.append(citation)
-        
+
         # Report retracted papers (most important)
         if retracted:
             lines.append("🔴 RETRACTED PAPERS (URGENT)")
@@ -517,7 +517,7 @@ class ReportGenerator:
                     lines.append(f"    More Info: {record.url}")
                 lines.append(f"    ⚠️  RECOMMENDATION: Remove this citation immediately")
             lines.append("")
-        
+
         # Report expressions of concern
         if concerned:
             lines.append("🟡 EXPRESSIONS OF CONCERN")
@@ -529,7 +529,7 @@ class ReportGenerator:
                     lines.append(f"    Title: {record.title}")
                 lines.append(f"    ⚠️  RECOMMENDATION: Verify current status before citing")
             lines.append("")
-        
+
         # Report corrected papers
         if corrected:
             lines.append("🟠 CORRECTED PAPERS")
@@ -539,7 +539,7 @@ class ReportGenerator:
                 lines.append(f"    Status: Correction/Erratum published")
                 lines.append(f"    ℹ️  RECOMMENDATION: Review if correction affects your claims")
             lines.append("")
-        
+
         # Summary
         lines.append("📊 SUMMARY")
         lines.append("-" * 40)
@@ -550,9 +550,9 @@ class ReportGenerator:
             lines.append(f"Expression of Concern: {len(concerned)}")
         if corrected:
             lines.append(f"Corrected: {len(corrected)}")
-        
+
         return '\n'.join(lines)
-    
+
     def generate_json(self) -> str:
         """Generate JSON report."""
         data = {
@@ -563,7 +563,7 @@ class ReportGenerator:
             },
             'citations': []
         }
-        
+
         for citation in self.citations:
             result = self.results.get(citation.index)
             entry = {
@@ -578,7 +578,7 @@ class ReportGenerator:
                 'retraction_details': asdict(result) if result else None
             }
             data['citations'].append(entry)
-        
+
         return json.dumps(data, indent=2)
 
 
@@ -587,7 +587,7 @@ def read_file(filepath: str) -> str:
     path = Path(filepath)
     if not path.exists():
         raise FileNotFoundError(f"File not found: {filepath}")
-    
+
     # Handle PDF
     if path.suffix.lower() == '.pdf':
         try:
@@ -600,7 +600,7 @@ def read_file(filepath: str) -> str:
                 return text
         except ImportError:
             raise ImportError("PyPDF2 required for PDF processing. Install with: pip install PyPDF2")
-    
+
     # Handle text files
     with open(path, 'r', encoding='utf-8', errors='ignore') as f:
         return f.read()
@@ -615,7 +615,7 @@ def extract_references_section(text: str) -> str:
         r'(?:^|\n)\s*literature cited\s*(?:\n|$)',
         r'(?:^|\n)\s*works cited\s*(?:\n|$)',
     ]
-    
+
     for pattern in ref_headers:
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
@@ -633,7 +633,7 @@ def extract_references_section(text: str) -> str:
                 if end_match:
                     return remaining[:end_match.start()]
             return remaining
-    
+
     return text
 
 
@@ -645,15 +645,15 @@ def main():
     parser.add_argument('--text', '-t', help='Direct text input')
     parser.add_argument('--url', '-u', help='URL to fetch document from')
     parser.add_argument('--output', '-o', help='Output file path')
-    parser.add_argument('--format', '-f', 
+    parser.add_argument('--format', '-f',
                        choices=['summary', 'detailed', 'json'],
                        default='detailed',
                        help='Report format')
     parser.add_argument('--full-doc', action='store_true',
                        help='Scan full document (not just references section)')
-    
+
     args = parser.parse_args()
-    
+
     # Get input text
     if args.input:
         text = read_file(args.input)
@@ -670,54 +670,54 @@ def main():
     else:
         # Read from stdin
         text = sys.stdin.read()
-    
+
     if not text or not text.strip():
         print("Error: No input provided", file=sys.stderr)
         sys.exit(1)
-    
+
     # Extract references section (unless full-doc flag)
     if not args.full_doc:
         text = extract_references_section(text)
-    
+
     # Parse citations
     print("Parsing citations...", file=sys.stderr)
-    
+
     # Detect format and parse
     if '.bib' in (args.input or ''):
         citations = CitationParser.parse_bibtex(text)
     else:
         citations = CitationParser.parse_text(text)
-    
+
     if not citations:
         print("No citations found in input. Try using --full-doc flag.", file=sys.stderr)
         sys.exit(1)
-    
+
     print(f"Found {len(citations)} citations", file=sys.stderr)
-    
+
     # Check each citation
     print("Checking against retraction databases...", file=sys.stderr)
     checker = RetractionChecker(rate_limit_delay=0.3)
     results = {}
-    
+
     for citation in citations:
         print(f"  Checking [{citation.index}] {citation.get_identifier()[:50]}...", file=sys.stderr)
         result = checker.check_citation(citation)
         if result:
             results[citation.index] = result
             print(f"    ⚠️  {result.status.upper()}", file=sys.stderr)
-    
+
     print(f"\nCheck complete. Found {len(results)} issue(s)", file=sys.stderr)
-    
+
     # Generate report
     generator = ReportGenerator(citations, results)
-    
+
     if args.format == 'summary':
         report = generator.generate_summary()
     elif args.format == 'json':
         report = generator.generate_json()
     else:
         report = generator.generate_detailed()
-    
+
     # Output
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:

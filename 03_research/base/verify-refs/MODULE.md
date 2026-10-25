@@ -6,14 +6,11 @@ outputs: ["skill_output"]
 owner: "03_research/base/verify-refs/MODULE.md"
 ---
 
-# verify-refs
-
 Citation authenticity check + BibTeX format/write.
 Absorbed from Scientific `skills/citation-management/` on 2026-10-17 (MIT).
 Also covers former manage-refs after round 2 absorb.
 
 > **Source**: [https://github.com/K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
-
 
 # Citation Management
 

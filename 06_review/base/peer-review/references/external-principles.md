@@ -5,9 +5,9 @@ Purpose: record design principles found in cross-package research that are worth
 Source: Nature (Yuan1z0825/nature-skills) nature-reviewer SKILL.md
 Extracted: 2026-09-13
 
-# External principle reference for the review step
+## External principle reference for the review step
 
-## Principle: multi-reviewer blind isolation (from Nature nature-reviewer)
+### Principle: multi-reviewer blind isolation (from Nature nature-reviewer)
 
 When the same manuscript needs multiple independent review viewpoints simulated or produced (e.g. practicing different angles, or synthesizing multi-round opinions into a meta-review), obey:
 

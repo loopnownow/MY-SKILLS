@@ -7,20 +7,20 @@ T-PAT	patient	patients	en	study subjects; healthy controls get a separate concep
 T-FEA	feature		en	imaging or clinical features; do not mix with variable
 T-SLI	slice		en	imaging slice/plane
 T-REA	reader	rater|observer	en	reader; one word for the whole paper
-T-IMG	image		en	
-T-SCN	scan		en	
+T-IMG	image		en
+T-SCN	scan		en
 T-SEQ	sequence		en	imaging sequence; not nucleic-acid sequence
-T-COH	cohort		en	
-T-DAT	dataset	data set	en	
+T-COH	cohort		en
+T-DAT	dataset	data set	en
 T-ROI	region of interest	ROI	en	first use full name + abbreviation, then ROI
 T-VAR	variable		en	statistical variable
-T-PAR	parameter		en	
+T-PAR	parameter		en
 T-TRN	training cohort	training set|derivation cohort	en	pick one spelling per project
 T-TST	test cohort	test set|testing set	en	pick one spelling per project
 T-VAL	validation cohort	validation set	en	pick one spelling per project
 T-RND	randomize	randomise	en	US spelling locked
 T-MEA	mean		en	common descriptive stats, locked by default; named metrics like AUC/HR/OR go in the project table
 T-MED	median		en	common descriptive stats, locked by default; named metrics like AUC/HR/OR go in the project table
-Z-PAT	患者	病人	zh	
-Z-REA	阅片者	读片者|阅片医师|观察者	zh	
+Z-PAT	患者	病人	zh
+Z-REA	阅片者	读片者|阅片医师|观察者	zh
 Z-SLI	层面	切片|层	zh	imaging slice/plane; pathology slides get a separate concept

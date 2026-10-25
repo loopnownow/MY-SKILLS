@@ -2,7 +2,7 @@
 
 ## Part A — corpus phrase bank
 
-# Corpus Phrase Bank (rebuilt from source manuscripts)
+## Corpus Phrase Bank (rebuilt from source manuscripts)
 
 **Status:** purpose / methods / results openers refreshed 2026-08-28 from
 **389 unique drafts** (414 candidates → 409 extracted → 20 exact duplicates
@@ -26,7 +26,7 @@ still wins for hard formatting/QC rules (CI dashes, banned voice, etc.).
 
 ---
 
-## 1. Objective-sentence openers — keep THREE families
+### 1. Objective-sentence openers — keep THREE families
 
 Do **not** collapse purpose sentences to one default. Three families are all
 in active use (harvest 2026-08-28, 324 English unique drafts):
@@ -47,7 +47,7 @@ Templates (generic slots only):
 
 Purpose sentences often sit mid-abstract, not in the file's first 30 lines.
 
-## 1b. Methods / radiomics narrative (2026-08-28)
+### 1b. Methods / radiomics narrative (2026-08-28)
 
 | Pattern | Hits | Papers |
 |---|---:|---:|
@@ -72,7 +72,7 @@ labels **Training Cohort / Test Cohort**, plus **Validation Cohort** only when
 Methods states an external cohort (`Aitor-format.md`). Only an other-hospital
 cohort is a validation set. Never `Development set`.
 
-## 1c. Results default + lab-unused stock (2026-08-28)
+### 1c. Results default + lab-unused stock (2026-08-28)
 
 | Pattern | Hits | Papers |
 |---|---:|---:|
@@ -98,7 +98,7 @@ Direct side-by-side AUCs are more common than `outperformed`.
 
 ---
 
-## 2. Discussion openers (¶1 — summary of key finding)
+### 2. Discussion openers (¶1 — summary of key finding)
 
 - *"In this study, we hypothesize[d] that…"* — 31 occurrences of the
   "In this study, we…" opener overall.
@@ -113,7 +113,7 @@ Direct side-by-side AUCs are more common than `outperformed`.
 
 ---
 
-## 2b. Gap-statement / novelty-claim opener (Introduction or Discussion ¶2)
+### 2b. Gap-statement / novelty-claim opener (Introduction or Discussion ¶2)
 
 Added 2026-08-29 from a 50-draft spot-check subset (smaller than this
 section's existing 96-draft baseline — provisional, not yet confirmed
@@ -128,7 +128,7 @@ against the full 389-draft harvest):
 
 ---
 
-## 3. Literature-comparison transitions (Discussion ¶2)
+### 3. Literature-comparison transitions (Discussion ¶2)
 
 - *"This finding is consistent with a previous study by [Author] et al."* —
   "consistent with" appears 14 times.
@@ -147,7 +147,7 @@ against the full 389-draft harvest):
 
 ---
 
-## 4. Limitations paragraph (own paragraph, First…Second…)
+### 4. Limitations paragraph (own paragraph, First…Second…)
 
 Opening-sentence variants, all attested:
 - *"This study has several limitations that need to be considered."* (6)
@@ -163,7 +163,7 @@ Body pattern (verbatim):
 
 ---
 
-## 5. Future-work closing (end of Limitations)
+### 5. Future-work closing (end of Limitations)
 
 Verified counts:
 
@@ -187,7 +187,7 @@ Verbatim examples:
 
 ---
 
-## 6. Conclusion sentences
+### 6. Conclusion sentences
 
 - *"In conclusion,…"* — 49 occurrences; the standard opener.
 - *"In summary,…"* — 6 occurrences; acceptable alternate, much less common.
@@ -201,7 +201,7 @@ Verbatim examples:
 
 ---
 
-## 7. Ethics statement
+### 7. Ethics statement
 
 All variants seen route through Jinshan Hospital, Fudan University, with the
 IRB/Ethics Committee number in parentheses. Do not standardize away from
@@ -219,7 +219,7 @@ different manuscripts in this corpus:
 
 ---
 
-## 8. Words that ARE banned (policy reversal, 2026-08-29)
+### 8. Words that ARE banned (policy reversal, 2026-08-29)
 
 As of 2026-08-29 these four words are **Forbidden**. See `vocab/L1/ban-phrases.md`. Counts below describe the old corpus; they do not license the words.
 
@@ -232,7 +232,7 @@ As of 2026-08-29 these four words are **Forbidden**. See `vocab/L1/ban-phrases.m
 
 ---
 
-## Provenance / method
+### Provenance / method
 
 §1–§1c: 2026-08-28 harvest on 389 unique drafts (324 English); phrase
 counts only — unpublished full texts and title dumps stay off GitHub.
@@ -250,9 +250,9 @@ Re-run against a larger corpus if these files grow. Do not commit `corpus-raw/`.
 
 ---
 
-## Part B — sentence templates
+### Part B — sentence templates
 
-# Sentence Templates — Aitor Style
+## Sentence Templates — Aitor Style
 
 Purpose / methods / results templates refreshed 2026-08-28 from 389 unique drafts (324 English). Do not collapse the three purpose-sentence families below. Do not vendor unpublished full texts, title dumps, or patient identifiers.
 
@@ -260,9 +260,9 @@ Purpose / methods / results templates refreshed 2026-08-28 from 389 unique draft
 
 **Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `vocab/L1/ban-phrases.md`.
 
-## Abstract Templates
+### Abstract Templates
 
-### Objective sentence — keep THREE families (do not collapse to one)
+#### Objective sentence — keep THREE families (do not collapse to one)
 
 Harvest 2026-08-28, 324 English unique drafts, full-text grep:
 
@@ -279,21 +279,21 @@ Harvest 2026-08-28, 324 English unique drafts, full-text grep:
 - **"To [investigate/explore/evaluate/determine/assess/compare/develop] whether [technique] could [outcome] in [population]."**
 - "The purpose of this study was to [develop/evaluate/compare] [model] for [task]." — minority; not a fourth default family.
 
-### Methods sentence
+#### Methods sentence
 - "A total of N patients with [condition] who underwent [imaging] were retrospectively enrolled."
 - "Patients were randomly divided into a training set (n = N) and a test set (n = N)."
 - "Radiomics features were reduced using LASSO, and a radiomics nomogram was constructed."
 - "A total of N [subjects] were divided into [N] subgroups: [Group A] (n = N), [Group B] (n = N), [Group C] (n = N), and [Group D] (n = N)."
 - Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort. Other-hospital only = validation set.
 
-### Results sentence
+#### Results sentence
 Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
 - "The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
 - "The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) and the test set (AUC X [95% CI, X–X])."
 - Direct side-by-side AUCs are more common than `outperformed` (12 hits / 7 papers).
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
-### Conclusion sentence
+#### Conclusion sentence
 Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `vocab/L1/ban-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
 - "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
@@ -301,25 +301,25 @@ Do **not** use `demonstrated good performance` or `suggesting its potential` (0 
 
 ---
 
-## Introduction Templates
+### Introduction Templates
 
-### Opening sentences
+#### Opening sentences
 - "[Condition X] refers to [definition], [epidemiological context] [1]."
 - "[Condition X] is the [Nth] most common [tumor/disease] in [population], with an incidence of approximately X per 100,000 [2,3]."
 - "[Condition X] is a [clinical challenge] because [reason], affecting approximately N patients annually worldwide [1]."
 
-### Gap identification
+#### Gap identification
 - "However, the pathogenesis of [X] remains unclear."
 - "Currently, [standard approach] remains the gold standard; however, it is limited by [limitation]."
 - "The accurate [preoperative/non-invasive] [prediction/diagnosis] of [X] remains challenging."
 - "Although [approach A] has been widely used, [limitation], which may lead to [adverse outcome]."
 
-### Proposed approach
+#### Proposed approach
 - "Recently, radiomics — a method for high-throughput extraction of quantitative features from medical images — has been applied to [task] and shown promising results [X–X]."
 - "[Technique] has been proposed as a [non-invasive/functional] method for assessing [biomarker], enabling [clinical benefit] without [limitation of current approach]."
 - "Intravoxel incoherent motion (IVIM) imaging can simultaneously reflect the [diffusion and perfusion] properties of tissue, providing additional [physiological] information beyond conventional DWI."
 
-### Closing aim
+#### Closing aim
 Keep the same three purpose-sentence families as the abstract (do not collapse to one).
 - "This study aimed to [objective] using [method] in [population]."
 - "Therefore, the aim of this study was to [develop/evaluate/compare] [a radiomics nomogram/a combined model] for [task] in [population]."
@@ -328,34 +328,34 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 
 ---
 
-## Methods Templates
+### Methods Templates
 
-### Ethics statement
+#### Ethics statement
 - "This [retrospective/prospective] study was approved by the Institutional Review Board of Jinshan Hospital of Fudan University (No. XXX), and the requirement for informed consent was waived due to the retrospective nature of the study."
 - "Written informed consent was obtained from all patients prior to enrollment."
 - "All experimental procedures were approved by the Animal Ethics Committee of [institution] (No. XXX) and conducted in accordance with institutional guidelines."
 
-### Patient selection
+#### Patient selection
 - "Inclusion criteria were as follows: (1) [criterion 1]; (2) [criterion 2]; (3) [criterion 3]."
 - "Patients were excluded if: (1) [criterion 1]; (2) [criterion 2]."
 - "Patients were randomly divided into a training set (n = N) and a test set (n = N) at a ratio of X:X."  BODY: training/test. Figure 1: Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort. Other-hospital only = validation set.
 
-### Imaging protocol
+#### Imaging protocol
 - "All MRI examinations were performed on a X.X-T MRI scanner ([Manufacturer, Model]) using a [body/pelvic/head] coil."
 - "DWI was performed with b values of 0 and 1,000 s/mm², and the corresponding ADC maps were automatically generated by the scanner's built-in software."
 - "4D flow MRI was acquired with the following parameters: voxel size X×X×X mm³, temporal resolution X ms, VENC X cm/s."
 
-### ROI delineation
+#### ROI delineation
 - "Regions of interest (ROIs) were manually delineated on [sequence] images by two radiologists with X and X years of experience in [subspecialty] imaging, blinded to [clinical information]."
 - "Inter-observer and intra-observer reproducibility were assessed using the intraclass correlation coefficient (ICC); ICC > 0.75 was considered good agreement."
 
-### Radiomics pipeline
+#### Radiomics pipeline
 - "Radiomics features were extracted using pyradiomics (version X.X, https://pyradiomics.readthedocs.io) following the Image Biomarker Standardisation Initiative (IBSI) guidelines."
 - "A total of N features were initially extracted, comprising first-order statistical features, shape-based features, and texture features (GLCM, GLRLM, GLSZM, and NGTDM)."
 - "The least absolute shrinkage and selection operator (LASSO) regression with 10-fold cross-validation was used to select the most informative features and reduce dimensionality."
 - "A radiomics score (rad-score) was calculated for each patient as a linear combination of selected features weighted by their respective LASSO coefficients."
 
-### Statistical analysis
+#### Statistical analysis
 - "Continuous variables are presented as mean ± standard deviation (SD) or median (interquartile range [IQR]) according to the results of the Shapiro-Wilk normality test."
 - "Categorical variables are expressed as frequencies and percentages."
 - "Comparisons between groups were performed using the independent-samples t-test or Mann-Whitney U test for continuous variables, and the chi-square test or Fisher's exact test for categorical variables."
@@ -365,52 +365,52 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 
 ---
 
-## Results Templates
+### Results Templates
 
-### Baseline characteristics
+#### Baseline characteristics
 - "The clinical characteristics of the study population are summarized in Table 1. There were no significant differences in age, sex, or [variable] between the training and test sets (all P > 0.05)."
 
-### Feature selection
+#### Feature selection
 - "After LASSO feature selection, N features with non-zero coefficients were retained and used to construct the radiomics signature (Figure X)."
 
-### Model performance
+#### Model performance
 Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI: X–X) for **both** training and test.
 - "The AUC of the radiomics nomogram was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set, with sensitivity of X% and specificity of X% in the training set."
 - "The combination model was compared with the clinical model alone in the training set (AUC: X vs. X; P < 0.001 by DeLong test) and in the test set (AUC: X vs. X)."
 - "The Hosmer-Lemeshow test indicated good calibration of the nomogram (P = X)."
 - "Decision curve analysis showed that the radiomics nomogram provided greater net benefit than either the clinical model or the treat-all/treat-none strategies across a wide range of threshold probabilities (Figure X)."
 
-### Negative findings
+#### Negative findings
 - "No significant difference was observed in [variable] between [group A] and [group B] (P = X)."
 - "Significant [X] were observed in [Group A] and [Group B] rats, but not in [Group C] rats."
 
 ---
 
-## Discussion Templates
+### Discussion Templates
 
-### Opening summary
+#### Opening summary
 - "In this study, we demonstrated that [technique/model] could accurately [predict/differentiate/identify] [outcome] in [population], with AUC values of X–X across independent cohorts."
 - "The main finding of this study was that [key result], suggesting that [clinical implication]."
 
-### Literature comparison
+#### Literature comparison
 - "This result is consistent with the findings of [Author et al.] [X], who reported [similar finding] in [similar population]."
 - "In contrast, [Author et al.] [X] found [different result], which may be attributed to differences in [patient population/imaging protocol/feature selection method]."
 
-### Mechanistic interpretation
+#### Mechanistic interpretation
 - "The elevated [metabolite/parameter] in [group] may reflect [underlying pathophysiology], which is consistent with the known role of [pathway] in [condition]."
 - "The higher ADC values observed in [group] might be related to [biological mechanism], suggesting [interpretation]."
 - "Enrichment analysis indicated that abnormal metabolism of [pathway] in [condition] might be affected by [factor]."
 
-### Clinical implications
+#### Clinical implications
 - "The proposed nomogram could be used to guide individualized treatment decisions, potentially reducing unnecessary [procedures] in low-risk patients while ensuring appropriate management for high-risk cases."
 - "Decision curve analysis showed that the radiomics nomogram provided a greater net benefit than the clinical model alone, supporting its potential clinical utility in [context]."
 - "This non-invasive imaging-based approach could serve as a preoperative tool for [task], thereby optimizing clinical workflows and reducing the burden of [invasive procedure]."
 
-### Limitations paragraph
+#### Limitations paragraph
 - "This study has several limitations. First, the retrospective design may have introduced selection bias. Second, all patients were recruited from a single center, which may limit the generalizability of our findings. Third, the sample size was relatively small, and external validation in larger, multicenter cohorts is needed. Fourth, the manual delineation of ROIs is time-consuming and subject to interobserver variability; automated segmentation methods may improve reproducibility in future studies. **Future research should focus on larger, multicenter, prospective studies to validate and further refine the proposed model.**"
 - Closing-sentence default is **"Future research should…" / "Future studies should…"** (18/96 and 9/96 respectively — corpus-dominant), not "…are warranted…" (a minority form, 14/96 total across *any* use of "warrant," not specific to this slot).
 
-### Conclusion sentence
+#### Conclusion sentence
 Do **not** close with `demonstrated good performance` or `suggesting its potential`.
 - "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set and could assist [clinical application] in [population]."
 - "In summary, both [A] and [B] play roles in [condition], with [specific mechanistic conclusion], providing new insights into the pathogenesis of [disease]."

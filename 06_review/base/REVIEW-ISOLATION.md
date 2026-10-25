@@ -6,6 +6,6 @@ Capability engines live here. Orchestration / post-QC re-review authority lives 
 
 1. `simulate-reviewers/` -- keep personas isolated
 2. In parallel: `self-review/` || `peer-review/`
-3. Hand isolated finding artifacts to **00 QC**, then A06 re-review
+3. Hand isolated finding artifacts to **00 QC**, then 06 re-review
 
-Do not merge finding sets inside base before A06. See A `06_review/personal/review-isolation.md`.
+Do not merge finding sets inside base before 06. See A `06_review/personal/review-isolation.md`.

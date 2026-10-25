@@ -15,7 +15,7 @@ Venue shape is in this pack (MODULE mode `venue-shape`): `radiology-writing/jour
 
 | Introduction | [radiology-writing/introduction.md](radiology-writing/introduction.md) |
 
-## Vocab load (A/B 2026-10-17)
+## Vocab load (2026-10-17)
 
 **First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before drafting. A `05_manuscript/personal/vocab/` is a pointer only. See A gates.md check (b).
 

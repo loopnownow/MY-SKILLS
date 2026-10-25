@@ -7,19 +7,19 @@ Merged 2026-10-16 from personal topic files. Use with `module-notes.md` as thin 
 
 ## General statistics index
 
-# Statistics
+## Statistics
 
 Use this file when the user asks about statistical analysis plans, sample size,
 feature selection, modeling, metrics, survival analysis, calibration, decision curve
 analysis, confidence intervals, or statistical reporting for radiomics and medical
 imaging AI studies.
 
-## Core goal
+### Core goal
 
 The stats module turns “AUC looks high” into designs, analyses, and reports that can be audited. Prefer checking
 data unit, event counts, validation scheme, where feature selection ran, metric completeness, and claim strength.
 
-## First questions
+### First questions
 
 - Is the task diagnosis, subtyping, staging, prognosis, recurrence, treatment response, segmentation, or detection?
 - Is the analysis unit patient, lesion, slice, scan, time point, or patch?
@@ -30,7 +30,7 @@ data unit, event counts, validation scheme, where feature selection ran, metric 
 - What are the primary metrics and the prespecified primary endpoint?
 - Are calibration, DCA, CIs, sensitivity analyses, and subgroups present?
 
-## Study type to analysis route
+### Study type to analysis route
 
 | Task | Core model families | Main metrics | Must check |
 |---|---|---|---|
@@ -41,7 +41,7 @@ data unit, event counts, validation scheme, where feature selection ran, metric 
 | Segmentation | U-Net variants, nnU-Net, SAM-style models | Dice, IoU, Hausdorff, surface Dice | test-set independence and small lesions |
 | Detection | detection networks, CAD pipelines | FROC, sensitivity per lesion, false positives per scan | lesion-level vs patient-level reporting |
 
-## Sample size and events
+### Sample size and events
 
 - Start from number of patients, not number of images or slices.
 - For binary prediction, report class counts and event fraction.
@@ -50,7 +50,7 @@ data unit, event counts, validation scheme, where feature selection ran, metric 
 - Avoid many predictors with few events; if events are limited, prefer simpler models, fewer features, penalization, or prespecified features.
 - Do not claim adequate power without a study-specific calculation or rationale.
 
-## Leakage-sensitive pipeline
+### Leakage-sensitive pipeline
 
 Every preprocessing or selection step must be fit inside training data only:
 
@@ -64,7 +64,7 @@ Every preprocessing or selection step must be fit inside training data only:
 8. Lock the final model before touching the test set.
 9. Use external validation only once for final assessment.
 
-## Feature selection
+### Feature selection
 
 Common options:
 
@@ -84,9 +84,9 @@ Warnings:
 - Do not select features based on test-set performance.
 - Repeat selection inside every resampling fold when reporting cross-validation performance.
 
-## Metrics and reporting
+### Metrics and reporting
 
-### Classification
+#### Classification
 
 Minimum:
 
@@ -104,7 +104,7 @@ Optional:
 - net reclassification improvement only when justified
 - subgroup analysis by center, scanner, stage, sex, age, treatment
 
-### Survival
+#### Survival
 
 Minimum:
 
@@ -118,14 +118,14 @@ Minimum:
 Do not dichotomize risk score by an optimized full-cohort cut-off. If a cut-off is used,
 derive it in training data and apply unchanged to validation data.
 
-### Segmentation and detection
+#### Segmentation and detection
 
 - Report patient-level and lesion-level metrics separately when both are relevant.
 - Include confidence intervals or bootstrap uncertainty.
 - Report failure cases and small-lesion performance if clinically important.
 - Do not use validation data for model selection and then call it an independent test set.
 
-## Output format
+### Output format
 
 ```text
 Stats framing
@@ -151,7 +151,7 @@ Needs author confirmation
 - [numbers and analysis facts]
 ```
 
-## Red lines
+### Red lines
 
 - Do not equate image/slice count with independent sample size.
 - Do not allow feature selection, scaling, imputation, or threshold tuning on test data.
@@ -162,11 +162,11 @@ Needs author confirmation
 
 ---
 
-## Diagnostic accuracy
+### Diagnostic accuracy
 
-# Diagnostic accuracy — estimates, CIs, paired comparison
+## Diagnostic accuracy — estimates, CIs, paired comparison
 
-## The 2×2 and its metrics
+### The 2×2 and its metrics
 From TP, FP, FN, TN against a reference standard:
 - **Sensitivity** = TP/(TP+FN); **Specificity** = TN/(TN+FP).
 - **PPV/NPV** depend on **prevalence** — report the prevalence; if the sample is enriched
@@ -175,7 +175,7 @@ From TP, FP, FN, TN against a reference standard:
 - **Likelihood ratios**: LR+ = sens/(1−spec); LR− = (1−sens)/spec. Prevalence-independent;
   reviewers like them.
 
-## Confidence intervals (do not use plain Wald for proportions)
+### Confidence intervals (do not use plain Wald for proportions)
 - Proportions (sens, spec, PPV, NPV): **Wilson** (good default) or **Clopper-Pearson**
   (exact, conservative). Avoid Wald near 0/1.
 - Likelihood ratios: log-based CI (or bootstrap).
@@ -199,7 +199,7 @@ def diag_metrics(tp, fp, fn, tn, method="wilson"):
                 lr_pos=lr_pos, lr_neg=lr_neg)
 ```
 
-## Comparing two tests on the SAME patients (paired)
+### Comparing two tests on the SAME patients (paired)
 - **Sensitivity/specificity** (binary calls): **McNemar's test** on the discordant pairs
   (within the diseased subset for sensitivity, non-diseased for specificity).
 - Do **not** use a chi-square for independent groups when the same cases were read twice.
@@ -210,17 +210,17 @@ from statsmodels.stats.contingency_tables import mcnemar
 print(mcnemar(table, exact=True))   # exact for small discordant counts
 ```
 
-## Clustered data (multiple lesions per patient)
+### Clustered data (multiple lesions per patient)
 Lesions within a patient are correlated. Use cluster-robust / GEE / mixed-effects, or
 analyse at the patient level. Reporting per-lesion accuracy as if independent **inflates
 significance** — a common reviewer catch.
 
-## Reporting sentence
+### Reporting sentence
 *"At the pre-specified threshold, sensitivity was 0.87 (95% CI: 0.81, 0.92; 130/149) and
 specificity 0.79 (95% CI: 0.72, 0.85; 158/200); disease prevalence was 0.27. The model and
 radiologists differed in sensitivity (P = .02, McNemar)."*
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 Threshold chosen on the test set; PPV/NPV quoted from an enriched sample as if clinical;
 independence assumed for clustered lesions; missing CIs; "accuracy" headline hiding poor
 sensitivity at clinical prevalence.
@@ -228,9 +228,9 @@ sensitivity at clinical prevalence.
 
 ---
 
-## Model evaluation
+### Model evaluation
 
-# Model evaluation — ROC/AUC, DeLong p, calibration, decision-curve
+## Model evaluation — ROC/AUC, DeLong p, calibration, decision-curve
 
 A clinical prediction model needs **three** things reported: **discrimination**,
 **calibration**, and **clinical utility**. AUC alone is not enough (TRIPOD+AI, PROBAST).
@@ -239,7 +239,7 @@ Lab pipeline **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 `python -m modules.pipeline`, not habitat-tree `LassoCV`. Details:
 `02_data-processing/personal/analysis/pipeline.md`.
 
-## Discrimination — ROC/AUC
+### Discrimination — ROC/AUC
 
 - **AUC 95% CI = 1000 bootstrap** (`_boot_auc_ci`). **Not** DeLong intervals. Do not quote
   a DeLong analytic CI as what the lab ran.
@@ -247,7 +247,7 @@ Lab pipeline **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
   split** on `VAL_MODE` `refit` / `apply_formula`; **training** Youden only under
   `lock_threshold`. Never pick the cut that maximises test-set accuracy.
 
-## Comparing AUCs (DeLong is a p, not a CI)
+### Comparing AUCs (DeLong is a p, not a CI)
 
 - **Paired** (same cases, lab default): DeLong test, Sun & Xu (2014) midranks. Added
   2026-08-28. Columns `DeLong vs {model}` in `ROC_METRICS`. Use this p for Combined vs
@@ -261,7 +261,7 @@ Lab pipeline **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 Do not vendor `{code_root}` Python. Do not `pip install delong` / call R `pROC` as if that
 were the lab runner.
 
-## Calibration (frequently missing → reviewer flag)
+### Calibration (frequently missing → reviewer flag)
 
 - **Calibration plot**: predicted probability (x) vs observed frequency (y), with a loess/
   binned curve; ideal = diagonal. Lab: `modules.stats.curves_calibration.plot_calibration`.
@@ -280,13 +280,13 @@ frac_pos, mean_pred = calibration_curve(y_true, y_prob, n_bins=8, strategy="quan
 brier = np.mean((y_prob - y_true)**2)
 ```
 
-## Clinical utility — decision-curve analysis (DCA)
+### Clinical utility — decision-curve analysis (DCA)
 
 - Plots **net benefit** vs threshold probability against "treat all"/"treat none".
 - Answers "is using this model better than default strategies across plausible thresholds?"
 - Lab DCA is produced by `modules.pipeline`. Python `dcurves` / R `rmda` are not the lab runner.
 
-## Threshold selection — say where it came from
+### Threshold selection — say where it came from
 
 Pre-specify (clinical target sensitivity), or derive on training. **Never** pick the
 threshold that maximises test-set accuracy.
@@ -295,14 +295,14 @@ Lab pipeline implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_t
 (features never re-selected). Youden is **per split** unless locked. Definitions:
 `02_data-processing/personal/analysis/pipeline.md`.
 
-## Reporting sentence
+### Reporting sentence
 
 *"The Combined model discriminated well (AUC 0.88; 95% CI: 0.84, 0.92; 1000 bootstrap) and
 was well calibrated (slope 0.96, intercept 0.02; Brier 0.11). Decision-curve analysis showed
 positive net benefit across threshold probabilities of 0.10–0.40. Versus the clinical model,
 DeLong P = .004."*
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 
 AUC-only; DeLong quoted as the AUC CI; threshold tuned on test set; no calibration;
 optimistic (no external/independent test); nested CV claimed when the lab used train-only
@@ -311,14 +311,14 @@ LASSO; class imbalance ignored (report PR-AUC/sensitivity at clinical prevalence
 
 ---
 
-## Survival & prognostic
+### Survival & prognostic
 
-# Survival & prognostic modelling
+## Survival & prognostic modelling
 
 Use when the endpoint is **time-to-event** (OS, PFS, recurrence). Common in radiogenomics
 (imaging/omics signature → prognosis).
 
-## Lab pipeline (v4.3.0) — what actually runs
+### Lab pipeline (v4.3.0) — what actually runs
 
 - **Always:** Kaplan–Meier curves + **log-rank** for group comparison. Report median
   survival with 95% CI and numbers-at-risk under the x-axis (a _Radiology_ figure
@@ -341,7 +341,7 @@ from statsmodels.duration.hazard_regression import PHReg
 # Export HR, 95% CI, P, N, Events, Schoenfeld PH_p. Univariable only.
 ```
 
-## Journal-grade extras (not lab defaults)
+### Journal-grade extras (not lab defaults)
 
 - **C-index** (Harrell's) and **time-dependent AUC** at a horizon; **calibration** at fixed
   time points (e.g. 1/3/5-yr).
@@ -349,7 +349,7 @@ from statsmodels.duration.hazard_regression import PHReg
   (Aalen-Johansen) and **Fine-Gray**, not naive KM.
 - Multivariate Cox. Not implemented in the lab pipeline.
 
-## Assumptions & pitfalls
+### Assumptions & pitfalls
 
 - **Proportional hazards** — lab Cox reports Schoenfeld `PH_p`. If violated, do not silently
   quote the HR; say PH failed. Journal-grade remedies (time-varying coefficients,
@@ -363,7 +363,7 @@ from statsmodels.duration.hazard_regression import PHReg
 - **Immortal-time / lead-time bias** — define time-zero and exposure carefully.
 - **Independent validation** of a prognostic signature is expected.
 
-## Reporting sentence
+### Reporting sentence
 
 *"High versus low Combined score (train-median cut) was associated with overall survival
 (HR 2.1; 95% CI: 1.4, 3.2; P = .001; N = 180; events = 62; Schoenfeld PH_p = .34). Per 1 SD,
@@ -371,7 +371,7 @@ HR was 1.6 (95% CI: 1.2, 2.1). Log-rank P = .002. Multivariate Cox was not run."
 
 Fill only from pipeline output; if `DO_COX` was False, report KM + log-rank only.
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 
 Optimal cut-point on the same cohort; PH not tested; competing risks ignored; HR reported
 without CI; Cox claimed as default when `DO_COX` is False; lifelines/`CoxPH` named as the lab
@@ -381,11 +381,11 @@ external validation.
 
 ---
 
-## Agreement & MRMC
+### Agreement & MRMC
 
-# Agreement & multi-reader multi-case (MRMC)
+## Agreement & multi-reader multi-case (MRMC)
 
-## Pick the agreement statistic by data type
+### Pick the agreement statistic by data type
 | Data | Statistic |
 |---|---|
 | 2 readers, nominal categories | **Cohen's kappa** |
@@ -398,7 +398,7 @@ external validation.
   prevalence/marginal distributions (report observed agreement too).
 - For continuous measurements, **kappa is wrong** — use ICC and Bland-Altman.
 
-## ICC — you must specify the model
+### ICC — you must specify the model
 Report the full specification (McGraw & Wong / Koo & Li form), e.g. *"ICC(A,1), two-way
 mixed-effects, absolute agreement, single rater."* Choices:
 - **Model**: one-way random / two-way random (raters are a sample) / two-way mixed (these
@@ -417,12 +417,12 @@ icc = pg.intraclass_corr(data=long_df, targets="case", raters="reader", ratings=
 # pingouin ICC2 / ICC3-style rows must be matched to that McGraw & Wong label — do not pick ICC(C,k).
 ```
 
-## Bland-Altman (continuous, two methods/readers)
+### Bland-Altman (continuous, two methods/readers)
 Plot mean vs difference; report **bias** (mean difference) and **95% limits of agreement**
 (bias ± 1.96·SD). Check for proportional bias (trend vs magnitude). Hand the plot to
 mounted `plot-figures`.
 
-## MRMC — the right framework for reader studies
+### MRMC — the right framework for reader studies
 When **multiple readers** each read **multiple cases** (e.g. AI-vs-no-AI, or comparing
 modalities), both readers and cases are random effects. Averaging readers and running a
 plain DeLong **underestimates variance** and overstates significance.
@@ -443,7 +443,7 @@ library(RJafroc)
 result <- StSignificanceTesting(dataset, FOM = "Wilcoxon", method = "OR")
 ```
 
-## Reporting sentences
+### Reporting sentences
 *"Radiomic features with ICC(A,1) < 0.75 were excluded. Inter-reader agreement was
 substantial (ICC(A,1) = 0.82; 95% CI: 0.75, 0.87; two-way mixed, absolute agreement, single
 rater)."*
@@ -451,7 +451,7 @@ rater)."*
 from 0.81 to 0.87 with AI assistance (difference 0.06; 95% CI: 0.02, 0.10; P = .005;
 Obuchowski-Rockette)."*
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 ICC model unspecified (lab rule is ICC(A,1) ≥ 0.75); kappa used for continuous data; readers averaged then DeLong'd;
 fixed-reader conclusion generalised to all radiologists; no pre-study power for the reader
 study.
@@ -459,15 +459,15 @@ study.
 
 ---
 
-## Sample size & power
+### Sample size & power
 
-# Sample size & power for imaging studies
+## Sample size & power for imaging studies
 
 Pre-specify and **justify** sample size (CLAIM, TRIPOD+AI, STARD all ask). Below are the
 common cases. A retrospective cohort whose N is already fixed still uses one of the four
 approaches in the next section. It does not get an observed-power number.
 
-## Retrospective study with a fixed N
+### Retrospective study with a fixed N
 
 Do not compute post-hoc power, or observed power, from the p value already obtained.
 That number restates the p value. BMJ/JAMA-style statistical review rejects it. In a
@@ -493,13 +493,13 @@ A **10–20%** drop-out allowance is only a planned exclusion (some enrolled cas
 not enter the analysis). It is not a new gate, and it is not added after the fact to a
 retrospective cohort whose N is already the analysis N.
 
-## Reviewer response
+### Reviewer response
 
 If asked for post-hoc power, refuse it. Offer the CI width, or the MDES at 80% power
 against a clinical difference. Small N goes in Limitations as a possible type II error,
 not as a calculated observed power.
 
-## Diagnostic accuracy (sensitivity/specificity)
+### Diagnostic accuracy (sensitivity/specificity)
 Sensitivity is estimated only in **diseased** patients, specificity in **non-diseased** — so
 prevalence drives how many *total* patients you need. The half-width formula is approach 4.
 Powering a hypothesis (sensitivity ≥ a target) is approach 1, or approach 3 when N is
@@ -517,13 +517,13 @@ def n_for_sensitivity(se=0.90, half_width=0.05, prevalence=0.15, z=1.96):
 # e.g. Se 0.90, ±0.05, prev 0.15 -> diseased and total n
 ```
 
-## AUC
+### AUC
 Power to detect an AUC vs 0.5, or a difference between two AUCs (Hanley-McNeil / Obuchowski).
 Inputs: expected AUCs, correlation (paired), allocation, prevalence. R `pROC::power.roc.test`,
 `MCPmod`, or Obuchowski formulas. That is approach 1. With N already fixed, report the
 MDES on the AUC difference (approach 3). Do not report observed power.
 
-## Prediction models — EPV and Riley
+### Prediction models — EPV and Riley
 Approach 2. Rule of thumb: **events-per-variable (EPV) 10–15** (development) — still crude.
 - Use **Riley et al. minimum sample size** for prediction models when the journal expects
   it: targets small optimism, precise overall risk, and a calibration-slope ~1. R
@@ -536,26 +536,26 @@ library(pmsampsize)
 pmsampsize(type="b", cstatistic=0.80, prevalence=0.2, parameters=20)
 ```
 
-## MRMC reader studies
+### MRMC reader studies
 Power depends on **#readers × #cases**, the AUC difference, and variance components
 (between-reader, within-reader). Use **OR/DBM** power tools: R `RJafroc::SsPowerGivenJK` or
 FDA **iMRMC**. Pilot variance estimates make this far more reliable. Same split as above:
 pre-study power (approach 1) or, if the reader×case grid is already fixed, the MDES
 (approach 3). Not observed power.
 
-## High-dimensional radiomics/omics
+### High-dimensional radiomics/omics
 No single n powers thousands of features. Pre-specify the **primary** comparison and power
 that (approach 1 or 3); size a prediction model with approach 2. Treat the feature scan as
 FDR-controlled discovery; plan an **independent validation** cohort rather than relying on
 one small cohort.
 
-## Methods wording
+### Methods wording
 Name which of the four approaches was used, the inputs that are real (literature or pilot
 effect, alpha, target power, event count, or the CI half-width / MDES), and whether the
 enrolled N met that target. Numbers come from that calculation or from the enrolled
 cohort. Do not invent them.
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 No sample-size justification; EPV below 10; post-hoc / observed power from the obtained p;
 a two-group formula on a prediction model; an MDES written up as observed power; a 10–20%
 drop-out tacked on after N is fixed; reader study with too few readers; test / validation
@@ -564,15 +564,15 @@ set with too few events for calibration.
 
 ---
 
-## High-dimensional / omics
+### High-dimensional / omics
 
-# High-dimensional statistics — radiomics & multi-omics
+## High-dimensional statistics — radiomics & multi-omics
 
 The defining problem: **features ≫ samples**. Matched imaging+omics cohorts are small
 (often n < 100), while features run to thousands (radiomics) or tens of thousands (genes).
 This breaks naive analysis in three ways: multiplicity, overfitting/optimism, and leakage.
 
-## Lab pipeline (v4.3.0) — what actually runs
+### Lab pipeline (v4.3.0) — what actually runs
 
 - Radiomics reproducibility filter: keep features with **ICC(A,1) ≥ 0.75**.
 - **LASSO:** StratifiedKFold **AUC path on TRAIN only**. Coefficients lock; test set is not
@@ -589,7 +589,7 @@ This breaks naive analysis in three ways: multiplicity, overfitting/optimism, an
 
 Do not vendor `{code_root}` Python. Full lock: `02_data-processing/personal/analysis/pipeline.md`.
 
-## 1. Multiple testing
+### 1. Multiple testing
 
 - **Family-wise error (FWER)**: Bonferroni (strict), **Holm** (uniformly better than
   Bonferroni). Use when any false positive is costly / few tests.
@@ -605,7 +605,7 @@ from statsmodels.stats.multitest import multipletests
 rej, q, _, _ = multipletests(pvals, alpha=0.05, method="fdr_bh")
 ```
 
-## 2. Overfitting & optimism
+### 2. Overfitting & optimism
 
 - With p ≫ n, in-sample performance is meaningless. The lab honest-validation path is a
   **patient-level train/test split** plus train-only LASSO (StratifiedKFold AUC path) and
@@ -617,7 +617,7 @@ rej, q, _, _ = multipletests(pvals, alpha=0.05, method="fdr_bh")
 - **Dimensionality control**: pre-filter by ICC(A,1) ≥ 0.75, then LASSO on TRAIN.
 - Watch **events-per-variable** — see sample-size.md (Riley).
 
-## 3. Leakage (the silent killer)
+### 3. Leakage (the silent killer)
 
 Everything data-dependent must be fit on the **training set only**, then applied to
 validation/test:
@@ -627,7 +627,7 @@ validation/test:
 - **Patient-level** splits; never let the same patient (or augmented copies) span folds.
 - Temporal/site leakage: prefer temporal or external validation for the headline claim.
 
-## 4. Batch / scanner effects (radiomics & sequencing)
+### 4. Batch / scanner effects (radiomics & sequencing)
 
 - Radiomic features and gene-expression both carry strong **batch/scanner** signal.
 - **ComBat** (and `neuroCombat`/`ComBatHarmonization`; for RNA-seq, `sva::ComBat_seq`)
@@ -636,13 +636,13 @@ validation/test:
 - Always test whether your "signal" is actually scanner/site: stratify, adjust, or show the
   effect survives harmonisation.
 
-## 5. Correlation, not causation; and stability
+### 5. Correlation, not causation; and stability
 
 - Report **effect sizes + CIs**, not just stars.
 - Show **feature stability** when it was actually computed. Do not invent bootstrap
   selection frequencies. A feature picked in 5% of bootstraps is not a biomarker.
 
-## Reporting sentence
+### Reporting sentence
 
 *"Of 1218 IBSI-compliant features (ICC(A,1) ≥ 0.75), LASSO with a StratifiedKFold AUC path
 on the training set retained k coefficients for the RadScore. The Combined (primary) model
@@ -651,7 +651,7 @@ Nested CV was not used."*
 
 Do not write a 10×10 nested-CV sentence as if it were the lab run.
 
-## Reviewer hot-spots
+### Reviewer hot-spots
 
 Selection/harmonisation on all data; nested CV claimed when the lab used train-only LASSO;
 habitat-tree `LassoCV` quoted as the paper model; thousands of tests with no correction;

@@ -1,10 +1,10 @@
 # 02_data-processing personal route -- top layer
 
-## A/B flow (2026-10-17)
+## Top-layer flow (2026-10-17)
 
 1. **base first-pass** data-processing fine-IDs (`clean-data`, `imaging-io`, `preprocess-imaging`, ...)
 2. **00 QC**
-3. **A02 re-loop** -- personal workspace/extract/coding protocols; may re-trigger base mounts when 00 says needed
+3. **02 re-loop** -- personal workspace/extract/coding protocols; may re-trigger base mounts when 00 says needed
 
 **Stats / figures half of 02** (merged 2026-10-25): `analysis/route.md`.
 

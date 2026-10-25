@@ -3,7 +3,7 @@
 **Absorbed:** 2026-10-23 thin index from `_library/lab-ste/` (SPEC + config + CHANGELOG).
 **Full narrative/examples:** durable/park only — do not re-vendor `Lab-STE-SPEC.md` / `spec.html` / `tools/`.
 **Version on absorb:** 0.2.1
-**Everyday rules:** `lab-ste.md` (same folder). **Lexicons:** `lexicons/*.tsv` + `term-lock-default.tsv` (vendored — small). **Approved EN:** `../../L2/approved-en.tsv` (hash-matched to former disk SSOT).
+**Everyday rules:** `lab-ste.md` (same folder). **Lexicons:** `lexicons/*.tsv` + `term-lock-default.tsv` (vendored — small). **Approved EN:** `../L2/approved-en.tsv` (hash-matched to former disk SSOT).
 
 ## Live pointers (after move)
 
@@ -24,10 +24,10 @@
 
 ## Conflict order (SPEC §8)
 
-1. Term lock / numerics / stats / citations  
-2. Factual accuracy (no meaning/negation flip)  
-3. STE readability  
-4. de-AI frequency  
+1. Term lock / numerics / stats / citations
+2. Factual accuracy (no meaning/negation flip)
+3. STE readability
+4. de-AI frequency
 
 ## Profiles (`config.yaml`)
 

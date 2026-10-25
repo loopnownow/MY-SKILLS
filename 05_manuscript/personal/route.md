@@ -2,11 +2,11 @@
 
 **Canonical entry:** `../SKILL.md`.
 
-## A/B layering (2026-10-17)
+## Layering (2026-10-17)
 
 - **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
 - **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
-- **A05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
+- **05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies remain in B; A owns order and personal authority.
 
 ## Vocabulary (body in base; personal pointer at `vocab/README.md`)
 
@@ -23,7 +23,7 @@
 - `process/citation-and-language.md`
 - `process/polisher-sections.md`
 
-## Post-QC polish chain (A05)
+## Post-QC polish chain (05)
 
 When polish requested after 00 QC:
 

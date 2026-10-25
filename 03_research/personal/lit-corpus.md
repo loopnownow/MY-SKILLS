@@ -58,7 +58,7 @@ doi,pmid,year,citation_nlm,result_conclusion,themes,layer,kind,edition,verified_
 | `edition` | Guideline/standard edition or year label; empty for research |
 | `verified_at` | ISO date when DOI verify passed; required for `base` |
 | `source_project` | Project id that triggered ingest (optional for personal backfill) |
-| `group_authors` | For personal: which of Aitor/Qiang/Shi appear, e.g. `Aitor|Shi` (Aitor row = owner's published name forms) |
+| `group_authors` | For personal: which of Aitor/Qiang/Shi appear, e.g. `Aitor\|Shi` (Aitor row = owner's published name forms) |
 | `notes` | Short only |
 
 Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\<doi-or-slug>.md` with the same NLM line + `result_conclusion` — only when the CSV cell is too tight; CSV remains SSOT.

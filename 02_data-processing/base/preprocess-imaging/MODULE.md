@@ -9,7 +9,7 @@ quality_control: "geometry match before features; ICC/Dice on training subset on
 owner: "02_data-processing/base/preprocess-imaging/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Imaging ROI / reader / mask QC
 

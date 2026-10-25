@@ -8,14 +8,14 @@ Source: former `ying-li-polisher` skill (merged P1).
 
 ---
 
-# Aitor Academic Manuscript Polisher
+## Aitor Academic Manuscript Polisher
 
 Polish medical manuscripts to match Aitor's established SCI writing style:
 **highly standardized · clinically oriented · quantitatively precise · objectively cautious**.
 
 ---
 
-## STEP 0 — Identify what is being polished
+### STEP 0 — Identify what is being polished
 
 Determine the manuscript section(s) submitted:
 - **Abstract** → apply §1
@@ -30,7 +30,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 ---
 
-## §1 — Abstract Polishing Rules
+### §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
 1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See `references/corpus/corpus-phrase-bank.md` §1 (389 unique drafts, 2026-08-28).
@@ -51,7 +51,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 ---
 
-## §2 — Introduction Polishing Rules
+### §2 — Introduction Polishing Rules
 
 **Structure.** Six elements (`Aitor-format.md`, Introduction). Paragraphs follow the funnel: burden and guideline definition; limits of current practice; related studies with group appraisal; missing piece and method link; aim (last paragraph, no citations).
 
@@ -74,36 +74,36 @@ If the user provides raw text without labeling the section, infer from content s
 - Active or mixed voice is acceptable.
 
 
-## §3 — Materials and Methods Polishing Rules
+### §3 — Materials and Methods Polishing Rules
 
 This is the most technically precise section. Follow all sub-rules below.
 
 **Section order for full papers is not this 3.1–3.5 list.** Use `Aitor-format.md` (Ethics → design/N → patients → eligibility → criteria → endpoints → labs → imaging → processing → model → stats). The subsections below are wording templates only.
 
-### 3.1 Patient / Subject Selection
+#### 3.1 Patient / Subject Selection
 - Report enrollment window, institution, IRB approval number, retrospective vs. prospective label.
 - Template: *"This [retrospective/prospective] study was approved by the Institutional Review Board of Jinshan Hospital of Fudan University (No. XXX)."*
 - Inclusion/exclusion criteria: full papers use inline `follows: (1) x; (2) y; and (3) z` (`Aitor-format.md`). Numbered lists only for non-full-paper fragments.
 - - Outcomes: clinical names only (positive/negative, present/absent). Never `Positive = 1, Negative = 0` or other raw 0/1 coding dumps (`Aitor-format.md`).
 Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `(A, n = 89; B, n = 187)`
 
-### 3.2 Imaging Protocol
+#### 3.2 Imaging Protocol
 - Scanner model, field strength, institution.
 - Sequence parameters in parentheses: *"DWI (b = 0 and 1,000 s/mm²)"*, *"T2WI (TR/TE = X/X ms, slice thickness X mm)"*
 - Abbreviations: T2WI, DWI, ADC, DCE, IVIM, 4D flow — full name once, then abbreviation only.
 
-### 3.3 ROI / Segmentation
+#### 3.3 ROI / Segmentation
 - Reader qualifications (years of experience), blinding status.
 - Inter-/intra-observer agreement: ICC values required.
 - Software named explicitly: *"ITK-SNAP (version X.X)"*, *"3D Slicer"*, *"pyradiomics (version X.X)"*
 
-### 3.4 Radiomics / AI Pipeline
+#### 3.4 Radiomics / AI Pipeline
 - Feature extraction: IBSI compliance stated if applicable.
 - Dimensionality reduction: *"LASSO regression with 10-fold cross-validation was used to select the most predictive features."*
 - Feature categories listed: first-order, shape, GLCM, GLRLM, GLSZM, etc.
 - Final feature count stated.
 
-### 3.5 Statistical Analysis (always final subsection)
+#### 3.5 Statistical Analysis (always final subsection)
 - Normality test stated (Shapiro-Wilk or Kolmogorov-Smirnov).
 - Appropriate test selection: t-test (normal) vs. Wilcoxon signed-rank (non-normal) — spelled out fully, never abbreviated as "Wilcoxon."
 - DeLong test for AUC comparison.
@@ -114,7 +114,7 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
 
 ---
 
-## §4 — Results Polishing Rules
+### §4 — Results Polishing Rules
 
 **Core principle:** Tables lead, prose annotates.
 
@@ -140,7 +140,7 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
 
 ---
 
-## §5 — Discussion and Conclusion Polishing Rules
+### §5 — Discussion and Conclusion Polishing Rules
 
 Do **not** compress Discussion by page count. Structure and word band win over “cut to N pages”.
 
@@ -148,7 +148,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 
 **Discussion structure** (4–6 paragraphs):
 
-**¶1 — Summary** 
+**¶1 — Summary**
 - Restate the main finding in 1–2 sentences. Active voice.
 - Template: *"In this study, we found that / demonstrated that / showed that…"* Finding openers may use *"The first finding concerns…"* (verb only; do not weld the next sentence onto it).
 
@@ -184,7 +184,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 
 ---
 
-## §6 — Title and Keywords Rules
+### §6 — Title and Keywords Rules
 
 **Title format:**
 - Structured as: *"[Technique/modality] [± radiomics/nomogram] [for/in predicting/diagnosing/differentiating] [outcome] [in/among] [population]"*
@@ -201,9 +201,9 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 
 ---
 
-## §7 — Universal Language Rules (apply everywhere)
+### §7 — Universal Language Rules (apply everywhere)
 
-### Terminology conventions
+#### Terminology conventions
 
 | Domain | Convention |
 |---|---|
@@ -216,7 +216,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 | P values | Italic P, space before operator: *P* < 0.05 (or per journal style) |
 | Confidence intervals | 95% CI: X–X (en-dash, no spaces) |
 
-### Hedging vocabulary (use in Discussion only, not in Results)
+#### Hedging vocabulary (use in Discussion only, not in Results)
 
 | Strength | Terms |
 |---|---|
@@ -225,7 +225,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 | Speculative | may, might, could, possibly, potentially |
 | Future work | **should** (dominant: "Future research/studies should…", 27/96 combined), warrants, is needed, should be validated |
 
-### Forbidden expressions
+#### Forbidden expressions
 - *"groundbreaking"*, *"state-of-the-art"* (unless directly cited)
 - *"proved"* (use *"demonstrated"*)
 - *"superior"* (use *"outperformed"* or *"showed higher AUC than"*)
@@ -240,12 +240,12 @@ The editorial rule is "keep if it's doing real work, cut if it's decorative,"
 not "delete on sight." See `references/corpus/corpus-phrase-bank.md` §8 for
 verified in-context examples before deciding to cut one.
 
-### Sentence structure targets
+#### Sentence structure targets
 - **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
 - **Introduction/Discussion:** 10–30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/manuscript-local-qc.md`).
 - No sentence > 55 words anywhere.
 
-### Clinical translation phrases (use in Discussion ¶4)
+#### Clinical translation phrases (use in Discussion ¶4)
 - *"could assist individualized decision-making"*
 - *"may optimize clinical workflow"*
 - *"reduce unnecessary [procedures/interventions]"*
@@ -254,7 +254,7 @@ verified in-context examples before deciding to cut one.
 
 ---
 
-## §8 — Polishing Workflow
+### §8 — Polishing Workflow
 
 For each piece of submitted text:
 
@@ -282,7 +282,7 @@ For each piece of submitted text:
 
 ---
 
-## §9 — Reference Conventions
+### §9 — Reference Conventions
 
 Search and claim-to-DOI for I/D: `evidence.md`. Counts and settled paragraphs: `Aitor-format.md` (do not copy here).
 
@@ -294,7 +294,7 @@ Search and claim-to-DOI for I/D: `evidence.md`. Counts and settled paragraphs: `
 
 ---
 
-## Quick Reference Card
+### Quick Reference Card
 
 ```
 Abstract   : Objective → Methods (n=N) → Results (AUC, 95%CI) → Conclusion (hedged)
@@ -308,6 +308,6 @@ Conclusion : 1-2 sentences, echo objective, affirm clinical value
 For extended examples and sentence-level templates, see `references/sentence-templates.md`.
 For statistical reporting checklists, see `references/stats-checklist.md`.
 
-## Corpus patterns (2026-10-23)
+### Corpus patterns (2026-10-23)
 
 See `../references/corpus-patterns.md` for the tagged revision taxonomy when routing polish edits.

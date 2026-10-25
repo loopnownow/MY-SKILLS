@@ -12,9 +12,9 @@
 %% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
 %% QC standards (pass/fail only) live under 05_manuscript/qc/ and 06_review/qc/; 00 loads at gates — not capability bodies.
 %% Capability bodies live under NN_slug/base/. Personal layers keep route/handoff/authority only.
-%% A03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
-%% A05 post-QC: humanize (report-only lint, then de-AI pass) alongside Aitor-format/voice.
-%% A06 post-QC: re-review only. A07 owns response (final authority).
+%% 03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
+%% 05 post-QC: humanize (report-only lint, then de-AI pass) alongside Aitor-format/voice.
+%% 06 post-QC: re-review only. 07 owns response (final authority).
 %% 02/03 exits are artifact or evidence checks, not a fact-lineage node.
 %% Rework budget is per same defect (defects[].rounds ≤ 3), not global qc.rounds.
 
@@ -63,7 +63,7 @@ flowchart TD
     %% Main production pattern: base fine-ID first-pass -> 00 QC -> personal/top re-loop
     Ready --> LayerBase[base · fine-ID first-pass loops]
     LayerBase --> LayerQC{{00 QC gate}}
-    LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>A03/A05/A06/A07 as needed]
+    LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>03/05/06/07 as needed]
     LayerTop --> Dispatch{Target node}
     LayerQC -->|FAIL| Locate
     Dispatch -->|02| P02[02 data processing · Loopnow]

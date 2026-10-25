@@ -13,18 +13,18 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 
 ---
 
-# Lab-STE — pointer + reusable rules
+## Lab-STE — pointer + reusable rules
 
-**Skill SSOT (method):** this file + `lab-ste-spec-digest.md` + `lexicons/` + `term-lock-default.tsv`.  
-**Approved EN lexicon:** `../L2/approved-en.tsv` (+ lemmas; hash-matched at absorb).  
-**Live library (0doc):** `{doc_lab_ste}`  
-**Full SPEC / config / tools / HTML (parked 2026-10-23):**  
-`{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`  
-Durable: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste\`  
-**Spec version at absorb:** 0.2.1.  
+**Skill SSOT (method):** this file + `lab-ste-spec-digest.md` + `lexicons/` + `term-lock-default.tsv`.
+**Approved EN lexicon:** `../L2/approved-en.tsv` (+ lemmas; hash-matched at absorb).
+**Live library (0doc):** `{doc_lab_ste}`
+**Full SPEC / config / tools / HTML (parked 2026-10-23):**
+`{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`
+Durable: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste\`
+**Spec version at absorb:** 0.2.1.
 **Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese manuscript comments (稿面批注), or tuning controllable-language checks.
 
-## What lives where (after absorb)
+### What lives where (after absorb)
 
 | Asset | Location |
 |---|---|
@@ -38,7 +38,7 @@ Durable: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-metho
 
 Project term-lock tables stay with each study folder. Per-project specialty nouns never enter L2.
 
-## Standing overrides (05 / 06 win)
+### Standing overrides (05 / 06 win)
 
 These already live in MY-SKILLS and **must not** be flipped by Lab-STE defaults:
 
@@ -51,9 +51,9 @@ These already live in MY-SKILLS and **must not** be flipped by Lab-STE defaults:
 - Do not overwrite corresponding-author / funding / ethics defaults on an existing `.docx` (`06_review/personal/word-edit.md`).
 - Hard ban table and process/placeholder bans stay in `vocab/L1/ban-phrases.md` (source of truth for English ban words).
 
-## Reusable rules (new relative to prior personal files)
+### Reusable rules (new relative to prior personal files)
 
-### Conflict order
+#### Conflict order
 
 When Lab-STE readability or de-AI checks collide with locked content:
 
@@ -64,7 +64,7 @@ When Lab-STE readability or de-AI checks collide with locked content:
 
 Registered terms may repeat; unregistered nouns should not be swapped for unlisted near-synonyms just to "sound varied."
 
-### Vocabulary layers (pointer)
+#### Vocabulary layers (pointer)
 
 | Layer | On disk | What goes there |
 |---|---|---|
@@ -74,7 +74,7 @@ Registered terms may repeat; unregistered nouns should not be swapped for unlist
 
 Specialty English never enters the approved lexicon. Admission test: would any field use this as an operation/review word? If no → lock table, not approved lexicon.
 
-### English Methods habits (profile `manuscript-methods-en`)
+#### English Methods habits (profile `manuscript-methods-en`)
 
 Use with the standing Methods-passive override above.
 
@@ -87,7 +87,7 @@ Use with the standing Methods-passive override above.
 
 Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` (see `lab-ste-spec-digest.md`) — do not hard-code a second copy here.
 
-### Chinese habits (批注 / LLM reply)
+#### Chinese habits (批注 / LLM reply)
 
 - One fact per sentence; avoid long comma chains.
 - Prefer verbs: `提取特征` not `进行特征提取` (and similar `进行/开展/实施/做出 + verbal noun`).
@@ -95,11 +95,11 @@ Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` 
 - Cut empty four-character / stock phrases in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv` (this folder).
 - Bare `该/其/此/这` need a unique antecedent; otherwise repeat the noun.
 
-### Chinese manuscript-comment (稿面批注) five slots → 06
+#### Chinese manuscript-comment (稿面批注) five slots → 06
 
 Face comments (Word author **A**) use the five-slot habit in `06_review/personal/review.md` (CM-01). Journal English envelope stays `Lines n–m: + defect + Please…` in `06_review/personal/review.md`. Lab-STE does not change the Word author field.
 
-### Profiles (when to open the full SPEC)
+#### Profiles (when to open the full SPEC)
 
 | Profile | Use |
 |---|---|
@@ -108,7 +108,7 @@ Face comments (Word author **A**) use the five-slot habit in `06_review/personal
 | `llm-reply-zh` | Chinese LLM replies — format / stock phrases first (on disk; optional) |
 | `manuscript-id-en` | I/D readability + de-AI; no approved-lexicon coverage force |
 
-## Related personal files
+### Related personal files
 
 - de-AI load order: `route.md` → `vocab/L1/ban-phrases.md` / `vocab/L1/patterns.md` / `vocab/L1/sci-overrides.md`
 - Voice / set / short sentence: `voice-portrait.md`

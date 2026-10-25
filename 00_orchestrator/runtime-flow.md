@@ -16,14 +16,14 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 |---|---|---|
 | **base** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
 | **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and personal/top re-loop |
-| **personal / top** | MY-SKILLS | Personal top-layer route/handoff/authority (A03-A07). Capability bodies for 02–07 live under `NN_slug/base/` |
+| **personal / top** | MY-SKILLS | Personal top-layer route/handoff/authority (03-07). Capability bodies for 02–07 live under `NN_slug/base/` |
 
 Post-QC A re-loops (as needed):
 
-- **A03** -- may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`)
-- **A05** -- `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice; vocab on first write
-- **A06** -- post-QC **re-review only**
-- **A07** -- **final authority for response** (`revise`/`tighten-response` source my-skills (in-repo base); tone-polish is on-demand inside tighten-response)
+- **03** -- may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`)
+- **05** -- `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice; vocab on first write
+- **06** -- post-QC **re-review only**
+- **07** -- **final authority for response** (`revise`/`tighten-response` source my-skills (in-repo base); tone-polish is on-demand inside tighten-response)
 
 Do not change fine IDs for stats-analysis / figures / data-processing / study-design.
 
@@ -64,7 +64,7 @@ Diagram `Gate · NN` = the set chosen from the table below (detail and failure c
 | 03 literature research | Exit is G0 + G-LIT + evidence/citation artifacts. No separate 03 gate id and no 03-local G-FACT |
 | 02 stats / figures | G0 + G-FACT (fact chain after 02 HTML) + G-STATS. Numbers and figures come from HTML / settings; reporting-guideline checklists are not G-STATS. N3 WRITE = stop at HTML or enter writing |
 | 05 manuscript writing | G0 + G-FACT (re-check after 05 house.docx) + G-LIT + G-05 (includes style-lint sub-check). Before Gate · 05 / done, 03 citation-verify must PASS (semantic label **G-CIT-1**, draft evidence verify; `03_research/personal/citation-verify.md`). N4 PREVIEW = enter 06 or stop |
-| 07 reply to reviewers | G0 + response resolution + G-LIT when cites appear; A07 final authority; revise/tighten-response stay source my-skills (in-repo base); tone-polish is on-demand inside tighten-response |
+| 07 reply to reviewers | G0 + response resolution + G-LIT when cites appear; 07 final authority; revise/tighten-response stay source my-skills (in-repo base); tone-polish is on-demand inside tighten-response |
 | 06 review / R&R | G0 + G-LIT + G-05 + G-06; also run G-FACT when numbers are cited (`gates.md`: before 06 if numbers cited). Inside 06, citation-verify semantic label **G-CIT-2** (post-revision / inside 06) is mandatory; G-CIT-1 does not waive G-CIT-2. Lee owns statement then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md` |
 | Full 02→05→06 | Each node exit per the table above; G-FACT only after 02 HTML, after 05 house.docx, and when 06 cites numbers |
 
@@ -72,7 +72,7 @@ Personal layers (writing voice / review frame) = `05_manuscript/personal`, `06_r
 
 ## Dispatch conflict (summary)
 
-User-specified → controlling Skill → required upstream → required external packs → personal layer → helpers → QC.  
+User-specified → controlling Skill → required upstream → required external packs → personal layer → helpers → QC.
 Conflict: A personal layer beats an external pack; one source per fine ID. **QC rollback beats normal dispatch order.**
 
 - G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID. Do not add a 02-only or 03-only gate id. Citation-verify is a branch on `runtime-flow.mmd` (Lit05 / semantic label G-CIT-1 before Gate · 05; Lit06 / semantic label G-CIT-2 inside 06). G-CIT-1 does not waive G-CIT-2. These labels are not new gate ids.

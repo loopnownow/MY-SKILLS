@@ -13,6 +13,6 @@
 
 02 owns numbers, figures, and analysis scripts; it does not write IMRAD prose.
 
-## A/B note
+## Note
 
-Capability bodies for 02 mounts live in A `02_data-processing/base/` (merged 2026-10-17). A02 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.
+Capability bodies for 02 mounts live in A `02_data-processing/base/` (merged 2026-10-17). 02 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.

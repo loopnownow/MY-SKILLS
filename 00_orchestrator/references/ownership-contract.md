@@ -4,14 +4,12 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 
 **Boundary:** After the 2026-10-18 consolidation, this file plus domain `qc/` own standing manuscript/review policy. Standing bans live in `05_manuscript/qc/manuscript-local-qc.md`; review-side consistency in `06_review/qc/cross-manuscript-qc.md`. Rules `My rule.md` keeps only the minimal invariants and a pointer. Do not paste Rules text here.
 
-Ownership: see `00_orchestrator/references/ownership-contract.md` (this file).
-
 ## Roles
 
 | Role | Seat | Owns |
 |---|---|---|
 | Aitor | `00_orchestrator` | QC, intent classify, skill chain, gates, local recovery |
-| Loopnow | `02_data-processing` + `02_data-processing` | data processing, stats, figures |
+| Loopnow | `02_data-processing` | data processing, stats, figures |
 | Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |

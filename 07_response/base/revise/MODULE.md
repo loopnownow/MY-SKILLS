@@ -6,7 +6,7 @@ outputs: ["response_letter", "revision_checklist"]
 owner: "07_response/base/revise/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Reviewer response (point-by-point)
 

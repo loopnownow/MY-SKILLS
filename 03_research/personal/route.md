@@ -2,11 +2,11 @@
 
 Three pillars. Load only what the task needs.
 
-## A/B flow (2026-10-17)
+## Top-layer flow (2026-10-17)
 
 1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
 2. **00 QC**
-3. **A03 re-loop** -- personal protocols; may **trigger** `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`) when check (c) says needed
+3. **03 re-loop** -- personal protocols; may **trigger** `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`) when check (c) says needed
 
 ## Evidence & literature
 
@@ -16,8 +16,8 @@ Three pillars. Load only what the task needs.
 | `intro-evidence-pack.md` | 05 Introduction cards -> Evidence Pack |
 | `journal-selection.md` | Topic / fit SOP |
 | mounted `lit-search` (B) | Generic retrieval (first-pass) |
-| mounted `verify-refs` (B) | **Post-QC A03-triggered** verify |
-| mounted `retraction-watcher` (B) | **Post-QC A03-triggered** retraction check |
+| mounted `verify-refs` (B) | **Post-QC 03-triggered** verify |
+| mounted `retraction-watcher` (B) | **Post-QC 03-triggered** retraction check |
 | `lit-corpus.md` | Lab citation corpus (NLM store / Vancouver cite; personal=group SCI; base=DOI-verified 5y or current guideline) |
 
 ## Design & exploration
@@ -26,7 +26,8 @@ Three pillars. Load only what the task needs.
 |---|---|
 | `radiology-design.md` / `radiology-frontier.md` | Imaging design / novelty |
 | `ethics.md` / `intake.md` / `multicenter.md` | Protocol ethics / triage / multicentre |
-| Grant Voice A/B files | Grants |
+| `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Grants (Voice A/B inside each file) |
+| `handoff.md` | Layering + personal-file authority; read before moving personal files |
 | `clinical-translation/` | Reader study / deployment design |
 | A `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
 | `01_skill-integration/workflows/question-to-reference.md` | R1-R5 spine |

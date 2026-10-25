@@ -24,14 +24,14 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 - `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\in-review\<project>`).
 - Each point maps to one reply row and names its location; after revision re-check page, number, sample size, and citation.
 
-# Personal response-letter style (from historical letters)
+## Personal response-letter style (from historical letters)
 
 Source: de-duplicated corpus of 42 external-review responses (Qiang lab, Aitor/Ju lab, and other groups). Skeleton and thank-you distributions only — no full-letter dumps, no unpublished results. Goal: drafted replies should read like the user wrote them.
 **This file is the letter skeleton and voice source of truth** (old `mode-3-response.md` was never split out). Opener defaults to A; B is almost never used. Triage and adjudication: see this file Part B / resolution protocol.
 
 Disk corpus (external reviews and revise replies): `{doc_review_replies}\`. Index: `{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`.
 
-## 1. Opening letter templates (default A; B almost unused)
+### 1. Opening letter templates (default A; B almost unused)
 
 Use the noun that fits the reviewer's tone/content (comments = observations/critique; suggestions = concrete change requests; inquiries = why/how questions).
 
@@ -59,7 +59,7 @@ Thank you for your comments. Our responses follow.
 
 **Default to A.** Measured across 42 responses: A ≈ 21; B (chance to revise / insightful comments) ≈ 0–2, almost unused; C ≈ 1. Do **not** switch to B just because of Major Revision / multiple rounds / R2 — multi-round revise still stays on A unless the user asks.
 
-## 2. Per-point thank-you openers — by comment type
+### 2. Per-point thank-you openers — by comment type
 
 Do not write "Thank you for the suggestion" on every point. Pick by what the reviewer is **actually doing**:
 
@@ -75,7 +75,7 @@ Do not write "Thank you for the suggestion" on every point. Pick by what the rev
 
 Within one letter, alternate these openers by reality; do not use one template throughout — uniform "Thank you for the suggestion" reads as AI.
 
-## 3. Body sentence skeleton
+### 3. Body sentence skeleton
 
 ```
 Response: [thank-you]. We [revised/added/clarified/corrected] it in the [Section/Table/Figure].
@@ -83,7 +83,7 @@ Response: [thank-you]. We [revised/added/clarified/corrected] it in the [Section
 Table 2 / Figure 3 legend].
 ```
 
-### 3.1 Verbatim quote is mandatory
+#### 3.1 Verbatim quote is mandatory
 
 Whenever a sentence was revised or a paragraph added, **quote the new wording in the letter**. Do not stop at "we revised the sentence for clarity." Reviewers and editors must see the new sentence in the letter without hunting the body.
 
@@ -91,19 +91,19 @@ Whenever a sentence was revised or a paragraph added, **quote the new wording in
 - Whole sentence rewrite: `We revised it to "……"`
 - New paragraph: `We added it in the text. "……"`
 
-### 3.2 Location citation is mandatory
+#### 3.2 Location citation is mandatory
 
 Every change is followed by a locus label. Format need not be uniform, but it must be concrete and findable.
 
 Never write only "revised accordingly" without a locus — same traceability bar as §3.2; a hard metric across this user's letters (old `response-audit-gate.md` was never split out).
 
-### 3.3 When you give a number, give the full set
+#### 3.3 When you give a number, give the full set
 
 If asked for a value, put the exact result in the letter body — do not only promise "already added to the manuscript":
 
 Technical detail (LASSO λ, ICC cutoffs, formulas, exact *P*) should be complete; avoid "see revised text."
 
-## 4. How to admit a real error (when the reviewer caught one)
+### 4. How to admit a real error (when the reviewer caught one)
 
 Fixed four steps — no padding, no blame-shift, no over-apology:
 
@@ -118,7 +118,7 @@ Example (historical style): keep short; correct; cite locus.
 
 Do **not** write "We sincerely apologize for this unfortunate mistake and any inconvenience it may have caused..." — that over-apology never appears in the user's historical letters.
 
-## 5. Soft refusal / scholarly disagreement
+### 5. Soft refusal / scholarly disagreement
 
 Never hard-push back; never unconditional surrender. Three beats:
 
@@ -134,7 +134,7 @@ Example (data unavailable) / Example (methods dispute but hold the line): keep m
 
 **Never invent unrun experiments / analyses / external validation** — factuality lock; this user's letters never broke it.
 
-## 6. Closings — two real templates
+### 6. Closings — two real templates
 
 **Closing A (Qiang lab style; most frequent; often word-identical across papers):**
 
@@ -152,7 +152,7 @@ PCOS, and similar series.
 
 Which default depends on whether this task continues a known series (same manuscript batch, same sign-off). When unsure, ask the user once whether to add the standard closing — do not silently apply A.
 
-## 7. Micro-habits (keep; do not “correct” into textbook English)
+### 7. Micro-habits (keep; do not “correct” into textbook English)
 
 These non-standard / semi-formal patterns recur in the user's letters. **Keep them as the user writes them** — replacing with “more standard” English makes the letter stop sounding like them:
 
@@ -166,7 +166,7 @@ These non-standard / semi-formal patterns recur in the user's letters. **Keep th
 - Comments and replies often use dash lists (`- ` for the comment, `- **Response:**` for the
   reply) or unnumbered plain paragraphs — both are authentic; follow the manuscript series.
 
-## 8. How to use
+### 8. How to use
 
 When drafting a reply:
 
@@ -177,11 +177,11 @@ When drafting a reply:
 5. Closing → §6; ask when unsure.
 6. Pass §7 once — restore a few user micro-habits; drop over-servile apology tone.
 
-## 9. Edit unit and comment source (aligned with 00/05)
+### 9. Edit unit and comment source (aligned with 00/05)
 
 - When landing a point, the edit unit is **词或句** (word or sentence); forbid whole-paragraph rewrite. Quoted text in the letter is that revised sentence. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Whether each point is truly resolved: use this file's status (Resolved / Partially resolved / Unresolved / New issue); do not only check “whether a sentence was added.”
-- Manuscript comments (稿面批注) carry source: `[A:personal]` / `[B:revise]` / `[B:…]`, etc.
+- Manuscript comments (稿面批注) carry source: `[personal]` / `[revise]` / `[…]`, etc.
 - Mount suggestion vs lab doctrine conflict: comment states conflict + fix plan (before/after); **用户决定** (user decides). After agreement, Aitee still applies Track Changes. Lee does not edit the body by default.
 - Decidable body edits: Lee comments for Aitee TC-fix. Past tense only for edits already landed.
 - Still undecidable (missing source/analysis, ethics Date/NO unset): the **matching response point** must say pending and name the pending source. Do not write that point as already done. `Suggested …` stays in Word 批注 (see ownership-contract), not as invent/disclaimer in the letter body. Do not pretend experiments were done.
@@ -189,7 +189,7 @@ When drafting a reply:
 
 ---
 
-## Uncertainty and disagreement (回复审稿人画像)
+### Uncertainty and disagreement (回复审稿人画像)
 
 Corpus habit for **审稿回复** / response letters (not for inventing data):
 
@@ -202,13 +202,13 @@ Corpus habit for **审稿回复** / response letters (not for inventing data):
 
 ---
 
-## Part B — Resolution protocol
+### Part B — Resolution protocol
 
-# Review Resolution protocol (thin)
+## Review Resolution protocol (thin)
 
 **Bot map:** response upper layer (07) → **Lee** (`07_response`); re-review Lee (`06_review`); literature substitute search if needed → **Victor** (`03`); manuscript Track Changes → **Aitee** (`05`). Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-**Owner:** `07_response` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an A06 permanent three-engine dispatcher.
+**Owner:** `07_response` personal. Final judgment on whether a review issue is truly fixed lives here (eight-section review / response voice). **Not** a B06 upgrade and **not** an 06 permanent three-engine dispatcher.
 
 **Loop (lab):**
 
@@ -228,17 +228,17 @@ Related: English peer-review envelope `06_review/personal/review.md`; response l
 
 Disk corpus (external reviewer comments and revise replies; pointer only): `{doc_review_replies}\` (`{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`).
 
-## When to use
+### When to use
 
-- `response` mode: after author revisions, verify each reviewer point was actually addressed  
-- `pre-review` / re-audit: reopen prior Major/Minor items and set status  
-- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06  
+- `response` mode: after author revisions, verify each reviewer point was actually addressed
+- `pre-review` / re-audit: reopen prior Major/Minor items and set status
+- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06
 
 Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. Ownership: see `00_orchestrator/references/ownership-contract.md`. Ask the user on undecidable items; do not edit the manuscript until the user picks, and then Aitee applies Track Changes.
 
-## Issue card (required)
+### Issue card (required)
 
-One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a mount raised it; dual-tag with `[A:personal]` when A 06 also judges.
+One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a mount raised it; dual-tag with `[personal]` when 06 also judges.
 
 ```text
 Review Issue
@@ -260,7 +260,7 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 
 `status` is set only by **A 06 personal** after the checks. Mount drafts are suggestions.
 
-## Roles
+### Roles
 
 | Step | Who | May | Must not |
 |---|---|---|---|
@@ -269,16 +269,16 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 | Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
 | Session mounts | 01 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
 
-A06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` — do not fork a second A06-only registry of full skill texts.
+06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `01_skill-integration/registry.yaml` — do not fork a second 06-only registry of full skill texts.
 
-## Resolution checklist (A 06)
+### Resolution checklist (A 06)
 
 For each issue, do not stop at “author added a sentence.” Prefer:
 
-1. Was the **method** actually changed (or a justified refusal documented)?  
-2. Do **Results / Tables / Figures** match the claimed fix (e.g. adjusted *P*, new CI)?  
-3. Does the **conclusion / abstract** still depend on the pre-fix claim?  
-4. Did the fix create a **new_issue**?  
+1. Was the **method** actually changed (or a justified refusal documented)?
+2. Do **Results / Tables / Figures** match the claimed fix (e.g. adjusted *P*, new CI)?
+3. Does the **conclusion / abstract** still depend on the pre-fix claim?
+4. Did the fix create a **new_issue**?
 
 Then set one status:
 
@@ -289,26 +289,26 @@ Then set one status:
 | `unresolved` | Claimed fix missing or cosmetic only |
 | `new_issue` | Revision introduced a new defect |
 
-## Three exits when not resolved
+### Three exits when not resolved
 
-### A. Ask user / keep open
+#### A. Ask user / keep open
 Need data, ethics, or unrun analysis → question the user; optional reference-only sentence; no silent edit.
 
-### B. Call sibling
+#### B. Call sibling
 Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 02. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
-### C. Reschedule mount (rare)
+#### C. Reschedule mount (rare)
 Only if this-run pick left a needed pack unloaded — go through **01 session-mount pick** again; never auto-mount a non-base source.
 
-## Out of scope
+### Out of scope
 
-- B06 as “Review Intelligence Core” or resolution home  
-- A06 as always-on multi-source review dispatcher  
-- Fixed Reviewer A→B→C personas  
-- Specialist packs writing free-form Word comments without status cards when this protocol is in use  
+- B06 as “Review Intelligence Core” or resolution home
+- 06 as always-on multi-source review dispatcher
+- Fixed Reviewer A→B→C personas
+- Specialist packs writing free-form Word comments without status cards when this protocol is in use
 - Any backup becoming a standing fourth reviewer
 
-## Corpus reply skeletons (2026-10-23)
+### Corpus reply skeletons (2026-10-23)
 
 Frequency evidence + per-point skeleton: `personal/references/corpus-reply-skeletons.md`.
 Standing letter opener remains authoritative here: **Thank you for your comments** | **suggestions** | **inquiry**.

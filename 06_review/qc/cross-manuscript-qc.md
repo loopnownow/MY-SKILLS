@@ -20,7 +20,7 @@ user_summary_language: zh
 runs_checks_from: 05_manuscript/qc/manuscript-local-qc.md
 ---
 
-# Cross-manuscript and pre-submit QC (Lee)
+## Cross-manuscript and pre-submit QC (Lee)
 
 Load on every pre-review and peer-review, after `06_review/personal/review.md`. Journal-facing envelope stays English (`06_review/personal/review.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
 
@@ -32,7 +32,7 @@ Run **statement consistency first** (the manuscript agrees with itself), then **
 
 **Data conflict:** annotate every locus. Do not invent *n*, *P*, *t*, cutoff, quartile, overlap count, or a corrected statistic. Do not pick which of two printed numbers is right. A back-calculation in the comment is labeled an estimate and does not enter the manuscript.
 
-## Order
+### Order
 
 1. Statement consistency (`06_review/personal/review.md` §2).
 2. Data consistency inside this manuscript (§3 there, plus the classes below).
@@ -42,23 +42,23 @@ Run **statement consistency first** (the manuscript agrees with itself), then **
 6. Citation hygiene.
 7. Integrity stop. Do not quiet-fix.
 
-## Sister papers
+### Sister papers
 
 Treat papers as related when they share a hospital, a scanner, or an ethics approval, or when the user names them as a set.
 
-### overlap_statement_and_citation
+#### overlap_statement_and_citation
 
 Each related paper needs an explicit overlap sentence (none, partial, or not yet quantified) and a citation of the other paper. Absence is a Major comment: split publication is unexplained. Ask for the sentence. Do not invent who was shared.
 
-### shared_table_sample_overlap
+#### shared_table_sample_overlap
 
 The same table (same cells) in two manuscripts is a Major until overlap is stated. Ask the authors to say whether the samples are the same participants. Do not assume independence.
 
-### sister_paper_p_reconciliation
+#### sister_paper_p_reconciliation
 
 The same biomarker and contrast with a conflicting *P* or effect across sister papers is a Major. Ask for a reconciliation note (different *n*, covariates, threshold, or subset) or an admission that the conflict is unresolved. Do not average the *P* values. Do not replace one paper's *P* with the other's.
 
-## Inside one manuscript
+### Inside one manuscript
 
 Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 
@@ -88,6 +88,6 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 | split_names_are_sets | Minor. Training, test, and validation stay **set**. |
 | approach_not_framework | Minor. Vague "framework" becomes "approach". |
 
-## Comment shape
+### Comment shape
 
 English envelope line: locator, defect, Please-request (`06_review/personal/review.md` §4.9). Chinese reason in the Word comment after the source tag. `cannot_invent` when the fix needs a number the files do not contain.

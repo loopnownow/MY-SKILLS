@@ -1,7 +1,7 @@
 # 02_data-processing / qc
 
 **Owner:** `00_orchestrator` only loads these at Gate time.
-**Domains/specialists do not self-certify via this folder.** First-pass and A02 re-loops use `base/` and `personal/`; they do not invoke `qc/` themselves.
+**Domains/specialists do not self-certify via this folder.** First-pass and 02 re-loops use `base/` and `personal/`; they do not invoke `qc/` themselves.
 First-pass stats/figures stay in `base/` and `personal/analysis/` (pipeline, methods, figures).
 
 | File | Gate(s) |

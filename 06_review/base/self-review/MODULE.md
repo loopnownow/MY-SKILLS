@@ -6,7 +6,7 @@ outputs: ["blocking_major_minor", "paper_claim_audit"]
 owner: "06_review/base/self-review/MODULE.md"
 ---
 
-# trigger is documentation only; not independently discoverable.
+trigger is documentation only; not independently discoverable.
 
 # Self-audit / pre-submission
 

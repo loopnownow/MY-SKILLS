@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-"""
-test_style_lint.py -- regression suite for 00_orchestrator/scripts/style_lint.py
 
-DISCIPLINE (borrowed from SlopMonster's regression suite):
-    every rule gets a nearby MUST-HIT case and a MUST-STAY-CLEAN case that would
-    fail if the rule became too broad. Touch a regex -> run this file.
+"""Language lint contract (vocabulary, sections, constructions).
 
-Run:
-    python3 -m unittest tests.test_style_lint
+Merged from: `test_style_lint.py`.
 """
+from __future__ import annotations
+
+from pathlib import Path
 import ast
 import contextlib
 import importlib.util
@@ -17,55 +14,37 @@ import json
 import re
 import tempfile
 import unittest
-from pathlib import Path
-
 import yaml
 
-# =============================================================================
-# CONFIG -- paths and shared fixtures (edit here, nowhere else)
-# =============================================================================
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "00_orchestrator" / "scripts" / "style_lint.py"
 BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml"
-
-# Modules the linter is allowed to import. Anything else (socket, urllib, http,
-# requests, subprocess, ...) would break the "manuscript text never leaves the
-# machine" rule and must fail the build. Widening this list needs a reviewer's eye.
 ALLOWED_IMPORTS = {"argparse", "copy", "json", "re", "sys", "pathlib"}
-
-# A neutral sentence (>10 words) that triggers no rule; pads fixtures past MIN_SCANNED_WORDS.
 FILLER = "We studied a cohort of patients with cirrhosis and recorded outcomes over two years."
-
-# The three words the owner ruled to be AI vocabulary (regression guard for that decision).
 DECIDED_AI_WORDS = ("robust", "landscape", "leverage")
-
-
 def _load_module():
     spec = importlib.util.spec_from_file_location("style_lint_under_test", SCRIPT_PATH)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
-
-
 sl = _load_module()
-
-
 def doc(section, body):
     """Build a one-section markdown document; FILLER is appended so the text is long enough."""
     return "## %s\n\n%s %s\n" % (section, body, FILLER)
-
-
 def failed(result, group):
     return result["groups"][group]["failed"]
-
-
 def terms(result, group):
     return [h["term"] for h in result["groups"][group]["hits"]]
+def _ban_terms():
+    data = yaml.safe_load(BAN_TERMS_PATH.read_text(encoding="utf-8-sig"))
+    return data
 
-
-# =============================================================================
-# Vocabulary
-# =============================================================================
 class VocabularyTests(unittest.TestCase):
     def test_decided_words_are_flagged(self):
         # robust / landscape / leverage: must-hit in every inflection we list
@@ -129,12 +108,7 @@ class VocabularyTests(unittest.TestCase):
         text = doc("Discussion", "A high-leverage point was excluded.")
         self.assertTrue(failed(sl.lint(text), "vocabulary"))                       # default: flagged
         r = sl.lint(text, {"ALLOW_PHRASES": ["high-leverage point"]})
-        self.assertFalse(failed(r, "vocabulary"))                                  # opt-in exemption
-
-
-# =============================================================================
-# Section scoping (Methods passive-voice / terminology convention)
-# =============================================================================
+        self.assertFalse(failed(r, "vocabulary"))
 class SectionScopeTests(unittest.TestCase):
     def test_methods_and_results_are_skipped(self):
         text = ("## Methods\n\nWe used a robust regression and leveraged prior data.\n\n"
@@ -167,11 +141,6 @@ class SectionScopeTests(unittest.TestCase):
         text = ("## Discussion\n\n```\nrobust leverage landscape\n```\n\n"
                 "| robust | leverage |\n\nUse `robust` here. %s\n" % FILLER)
         self.assertFalse(failed(sl.lint(text), "vocabulary"))
-
-
-# =============================================================================
-# Constructions
-# =============================================================================
 class ConstructionTests(unittest.TestCase):
     def test_not_just_x_but_y(self):
         self.assertTrue(failed(sl.lint(doc("Discussion", "It's not just a tool, it's a method.")),
@@ -206,11 +175,6 @@ class ConstructionTests(unittest.TestCase):
     def test_self_answering_question(self):
         self.assertTrue(failed(sl.lint(doc("Discussion", "The result? Faster reads.")), "constructions"))
         self.assertFalse(failed(sl.lint(doc("Discussion", "The result was significant.")), "constructions"))
-
-
-# =============================================================================
-# Dash cadence
-# =============================================================================
 class DashTests(unittest.TestCase):
     def test_two_em_dashes_in_one_sentence(self):
         self.assertTrue(failed(sl.lint(doc("Discussion", "The model \u2014 trained early \u2014 failed.")),
@@ -227,11 +191,6 @@ class DashTests(unittest.TestCase):
     def test_en_dash_ranges_are_fine(self):
         r = sl.lint(doc("Discussion", "Lesions of 5\u201310 mm and 20\u201330 mm were seen."))
         self.assertFalse(failed(r, "dash_cadence"))
-
-
-# =============================================================================
-# Rule-of-three rhythm
-# =============================================================================
 class TricolonTests(unittest.TestCase):
     FOUR = ("The model was faster, smarter, and better. The design was simple, clear, and useful. "
             "The tool is quick, cheap, and reliable. The method is stable, precise, and accurate.")
@@ -248,11 +207,6 @@ class TricolonTests(unittest.TestCase):
     def test_acronym_lists_stay_clean(self):
         body = " ".join("We adjusted for age, sex, and BMI." for _ in range(6))
         self.assertFalse(failed(sl.lint(doc("Discussion", body)), "tricolon"))
-
-
-# =============================================================================
-# Fail-closed guards, scoring, CLI
-# =============================================================================
 class GuardAndCliTests(unittest.TestCase):
     def run_main(self, argv):
         out, err = io.StringIO(), io.StringIO()
@@ -316,11 +270,6 @@ class GuardAndCliTests(unittest.TestCase):
         r = sl.lint("## Discussion\n\nLine one is fine here and long enough.\n\nA robust model.\n")
         hit = r["groups"]["vocabulary"]["hits"][0]
         self.assertEqual((hit["section"], hit["line"]), ("discussion", 5))
-
-
-# =============================================================================
-# Policy tests: the rules that must never regress
-# =============================================================================
 class PolicyTests(unittest.TestCase):
     def test_script_is_offline_stdlib_only(self):
         tree = ast.parse(SCRIPT_PATH.read_text(encoding="utf-8"))
@@ -343,16 +292,6 @@ class PolicyTests(unittest.TestCase):
         self.assertIn("ban-terms.yaml", src)
         self.assertIn('"VOCAB_ALWAYS":[]', src.replace(" ", ""))
         self.assertNotIn('r"labell?ed"', src)
-
-
-# =============================================================================
-# ban-terms.yaml is the unique machine source
-# =============================================================================
-def _ban_terms():
-    data = yaml.safe_load(BAN_TERMS_PATH.read_text(encoding="utf-8-sig"))
-    return data
-
-
 class BanTermsAlwaysTests(unittest.TestCase):
     def test_yaml_always_matches_linter_config(self):
         data = _ban_terms()
@@ -384,8 +323,6 @@ class BanTermsAlwaysTests(unittest.TestCase):
         code, _, _ = GuardAndCliTests().run_main(["--text", text])
         self.assertEqual(code, 1)
         self.assertFalse(sl.lint(text)["passed"])
-
-
 class PersonalMarkdownControlCharTests(unittest.TestCase):
     """C0 controls are forbidden in 05/06 personal markdown (tab/LF/CR allowed)."""
 
@@ -407,5 +344,49 @@ class PersonalMarkdownControlCharTests(unittest.TestCase):
         self.assertEqual(hits, [], msg="\n".join(hits))
 
 
-if __name__ == "__main__":
-    unittest.main()
+SEAT_ID = re.compile(r"\bA0[1-9]\b")
+WORKSPACE_MARKERS = re.compile(
+    r"Work-[AB]\b|A `base/`|B `base/`|\[A:[a-z-]+\]|\[B:[a-z-]+\]|\bB mount\b|"
+    r"\bA-side\b|\bB-side\b|\bA file\b"
+)
+BARE_AB = re.compile(r"\bA/B\b")
+KEEP_FORMS = re.compile(r"Voice A/B|A/B/C|Reviewer A/B/C")
+EXEMPT_LINES = re.compile(
+    r"retired|Workspace-A|author \*\*A\*\*|funding only|可资助|不予|优先|scoring", re.I
+)
+AB_SUFFIXES = {".md", ".mmd", ".yaml", ".yml"}
+AB_SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "fixtures"}
+AB_SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md"}
+
+
+class RetiredWorkspaceVocabulary(unittest.TestCase):
+    """Classes 1-3 of the A/B purge stay dead; Voice A/B and author A are keepers."""
+
+    def test_no_retired_ab_workspace_vocabulary(self) -> None:
+        hits: list[str] = []
+        for path in sorted(ROOT.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in AB_SUFFIXES:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel.startswith("tests/") or rel in AB_SKIP_FILES:
+                continue
+            if set(path.relative_to(ROOT).parts) & AB_SKIP_DIRS:
+                continue
+            for line_no, line in enumerate(
+                path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1
+            ):
+                if EXEMPT_LINES.search(line):
+                    continue
+                probe = KEEP_FORMS.sub("", line)
+                found = (
+                    SEAT_ID.findall(probe)
+                    + WORKSPACE_MARKERS.findall(probe)
+                    + BARE_AB.findall(probe)
+                )
+                if found:
+                    hits.append(f"{rel}:{line_no}: {sorted(set(found))} :: {line.strip()[:70]}")
+        self.assertEqual(
+            hits, [],
+            "retired A/B workspace vocabulary (seat ids A0N, Work-A/B, A `base/`, "
+            "[A:...] tags, A/B headings):\n" + "\n".join(hits[:30]),
+        )

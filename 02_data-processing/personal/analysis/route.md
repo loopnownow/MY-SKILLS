@@ -1,10 +1,10 @@
 # 02_data-processing personal route -- top layer
 
-## A/B flow (2026-10-17)
+## Top-layer flow (2026-10-17)
 
 1. **base first-pass** stats/figures fine-IDs (`analyze-stats`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, ...)
 2. **00 QC** (G-FACT / G-STATS)
-3. **A02 re-loop** -- personal lab pipeline / report-checks / figures; may re-trigger base mounts when 00 says needed
+3. **02 re-loop** -- personal lab pipeline / report-checks / figures; may re-trigger base mounts when 00 says needed
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 
@@ -27,7 +27,7 @@ Figure digests (already wired from `figures.md`): `draw-flowchart-digest.md`, `p
 ## Personal load order
 
 1. Methods / which test -> `methods.md` (index: `module-notes.md`)
-2. Already-reported numbers / polish checks -> `../qc/report-checks.md`
+2. Already-reported numbers / polish checks -> `../../qc/report-checks.md`
 3. Pipeline implementation rules -> `pipeline.md`
 4. Console UI / results HTML -> `console-ui.md`
 5. Figures (palette + claim plan) -> `figures.md`

@@ -6,7 +6,7 @@ Approved design specification. User approved execution on 2026-10-03. Revision 1
 
 The renderer is the in-repo generator [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It renders the typed IR to HTML locally. No external renderer package is fetched, unpacked, verified, or executed, and no pin record is kept: the former `archify-version.yaml` was deleted on 2026-10-20 together with its G-VIZ-01 field checks.
 
-`schema_version` is fixed by this specification: Architecture IR uses **1**; Workflow IR uses **2**. Both constants live in the generator and are asserted by `tests/test_visualization_contract.py`.
+`schema_version` is fixed by this specification: Architecture IR uses **1**; Workflow IR uses **2**. Both constants live in the generator and are asserted by `tests/test_frontmatter.py`.
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../01_skill-integration/registry.yaml). It reads only the in-repo files named above.
 

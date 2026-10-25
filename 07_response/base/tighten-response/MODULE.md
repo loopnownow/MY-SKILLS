@@ -6,7 +6,6 @@ outputs: ["skill_output"]
 owner: "07_response/base/tighten-response/MODULE.md"
 ---
 
-# tighten-response
 
 Reviewer-blind response drafting + anti-accretion tightening.
 Absorbed from Nature `skills/nature-response/` on 2026-10-17 (Apache-2.0).

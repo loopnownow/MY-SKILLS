@@ -17,7 +17,7 @@ Missing material → **Word 批注 only**. Never invent filler in body prose. Ne
 | AL-2 | Gaps flagged as Word comments with owner, not invented sentences | 05 |
 | AL-3 | No negation-list padding for unrun analyses | 05 — delete / comment |
 | AL-4 | No leaked prompt/instruction text in manuscript | 05 |
-| AL-5 | Body has no process-negation / disclaimer / CYA / incompleteness hedges (e.g. 「某某未做」「我们未做」「未进行…»; *not performed* / *we did not* / *was not done* / *not examined*). Empirical negative findings that are study results are OK. If the process point must be recorded: **Word 批注 only**, and the comment **must** include suggested revised body wording (建议修改后内容). Bare flags fail. | 05 — strip from 正文; comment with rewrite |
+| AL-5 | Body has no process-negation / disclaimer / CYA / incompleteness hedges (e.g. 「某某未做」「我们未做」「未进行…」; *not performed* / *we did not* / *was not done* / *not examined*). Empirical negative findings that are study results are OK. If the process point must be recorded: **Word 批注 only**, and the comment **must** include suggested revised body wording (建议修改后内容). Bare flags fail. | 05 — strip from 正文; comment with rewrite |
 
 **PASS:** AL-1…5 clean.
 **FAIL:** body leak, negation-list, or disclaimer/未做-class in body (or a bare disclaimer comment without suggested rewrite) → rollback **05** (comment-only fix; do not auto-fill).

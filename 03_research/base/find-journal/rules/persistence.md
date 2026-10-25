@@ -17,11 +17,11 @@
 
 ## DO NOT SAVE into CSV / DB-like persist files
 
-- JIF / 5-year JIF / JIF percentile  
-- JCR or JCI quartile  
-- Annual publication volume / Total articles  
-- CiteScore / SJR / SNIP (and similar yearly bibliometrics)  
-- APC, indexing status, review-time values, self-citation rates, author-experience values  
+- JIF / 5-year JIF / JIF percentile
+- JCR or JCI quartile
+- Annual publication volume / Total articles
+- CiteScore / SJR / SNIP (and similar yearly bibliometrics)
+- APC, indexing status, review-time values, self-citation rates, author-experience values
 
 These metrics may appear in **HTML or Markdown delivery reports only**, queried or joined at **run time** from the yearly screening cache or live sources. They must **not** be merged into `data/2026/submission-urls.csv` or baked into skill text as durable delivery data. Retain **query capability** only (`query-sources.md` / module 03 path).
 
@@ -71,7 +71,7 @@ Every reported metric should carry:
 value | source | retrieval_date | confidence
 ```
 
-Example: `acceptance_rate: value 18%, source journal_official, date 2026-09, confidence high`.  
+Example: `acceptance_rate: value 18%, source journal_official, date 2026-09, confidence high`.
 Unknown values stay unknown — **do not invent**. Missing risk evidence is **not** “low risk.”
 
 ## `submission-urls.csv` schema (URL fields only)
@@ -84,6 +84,6 @@ If IF / quartile / volume columns are ever added, remove them.
 
 ## Delivery
 
-- User-facing Phase-1/Phase-2: prefer **HTML** (tables may *display* JIF/quartile/volume as runtime fields).  
-- After confirming portals: write **submission URLs only** back to `data/2026/submission-urls.csv`.  
+- User-facing Phase-1/Phase-2: prefer **HTML** (tables may *display* JIF/quartile/volume as runtime fields).
+- After confirming portals: write **submission URLs only** back to `data/2026/submission-urls.csv`.
 - Personal outcomes: append lines to `submission-prior.jsonl` — never store yearly IF on those lines.

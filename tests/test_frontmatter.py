@@ -1,13 +1,20 @@
-"""Visualization architecture v1.0: contract, IR shape, mount policy; 07_response allowed."""
+"""YAML/frontmatter parses and cited contract files exist.
+
+Merged from: `test_visualization_contract.py`, `test_yaml_valid.py`.
+"""
 from __future__ import annotations
 
+from pathlib import Path
 import importlib.util
 import unittest
-from pathlib import Path
-
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
 SCRIPT = ROOT / "02_data-processing" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
 FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
@@ -18,14 +25,21 @@ FORBIDDEN_FACT_SOURCES = (
     "visual appearance",
     "unvalidated JSON",
 )
-
-
 def load_generator():
     spec = importlib.util.spec_from_file_location("gen_visualization", SCRIPT)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
-
+SKIP_PARTS = {".git", "__pycache__", "node_modules"}
+def repo_yaml_files() -> list[Path]:
+    """Enumerate YAML on disk. Do not trust git ls-files after reorg ghosts."""
+    files = []
+    for p in list(ROOT.rglob("*.yaml")) + list(ROOT.rglob("*.yml")):
+        rel = p.relative_to(ROOT)
+        if SKIP_PARTS & set(rel.parts):
+            continue
+        files.append(p)
+    return files
 
 class VisualizationContract(unittest.TestCase):
     def test_contract_files_exist(self) -> None:
@@ -47,6 +61,14 @@ class VisualizationContract(unittest.TestCase):
         text = (ROOT / "02_data-processing" / "personal" / "visualization" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
         for phrase in FORBIDDEN_FACT_SOURCES:
             self.assertIn(phrase, text)
-
-if __name__ == "__main__":
-    unittest.main()
+class YamlValid(unittest.TestCase):
+    def test_all_repo_yaml_parses(self) -> None:
+        files = repo_yaml_files()
+        self.assertGreaterEqual(len(files), 10, msg=str([str(p.relative_to(ROOT)) for p in files]))
+        bad = []
+        for p in files:
+            try:
+                yaml.safe_load(p.read_text(encoding="utf-8"))
+            except yaml.YAMLError as exc:
+                bad.append(f"{p.relative_to(ROOT)}: {exc}")
+        self.assertEqual(bad, [], msg="\n".join(bad))

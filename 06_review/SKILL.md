@@ -23,12 +23,12 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in A `06_review/base/`) -> **00 QC** -> **A06** post-QC re-review only.
+Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in A `06_review/base/`) -> **00 QC** -> **06** post-QC re-review only.
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
 
 Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
-Resolution status for response letters -> **A07**.
+Resolution status for response letters -> **07**.
 
 ## Personal assets
 
@@ -46,7 +46,7 @@ Resolution status for response letters -> **A07**.
 ## Mounted capability ids
 
 - `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (A `06_review/base/`)
-- `revise` / `tighten-response` -- response path; **final authority A07**; bodies in A `07_response/base/` (tone-polish is on-demand inside tighten-response)
+- `revise` / `tighten-response` -- response path; **final authority 07**; bodies in A `07_response/base/` (tone-polish is on-demand inside tighten-response)
 
 ## Modes
 
@@ -65,7 +65,7 @@ Resolution status for response letters -> **A07**.
 
 ## Comments / Track Changes
 
-See `personal/review.md` section 0. Response / re-audit resolution status -> `07_response/personal/response.md` (A07 judges).
+See `personal/review.md` section 0. Response / re-audit resolution status -> `07_response/personal/response.md` (07 judges).
 
 ## Not this skill
 

@@ -12,6 +12,29 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-deep-qc-remediation — six-batch remediation after deep QC
+
+- **Tests:** revived the dead cross-file paragraph-dedupe guard, deduped
+  `06_review` / `07_response` `disclaimer-comment-only.md` to AL-5, and merged the
+  33-file suite into 12 contract-domain modules with `tests/support.py`
+  (162 assertions kept, none dropped). New guards: single-H1, qc README↔dir,
+  03 route index, retired A/B vocabulary, institutional contact data, LF/trailing
+  whitespace. Suite 162 → 168.
+- **Docs:** six broken relative pointers fixed; every markdown file now has one H1
+  (frontmatter residue dropped, 30 section H1s demoted); table pipes escaped;
+  qc READMEs and the 03 route index completed; `ownership-contract.md` self-reference
+  and duplicate seat removed; `05_manuscript/SKILL.md` duplicate `humanize` bullet merged.
+- **Vocabulary:** retired A/B workspace vocabulary purged (seat ids `A0N`,
+  `Work-A`/`Work-B`, `` A `base/` ``, `[A:...]`/`[B:...]` tags, A/B headings) while
+  `Voice A/B` and comment author `A` stay.
+- **Privacy:** institutional email/phone removed from `fill-protocol/` digests
+  (values live in the local ethics record); guard added.
+- **Hygiene:** `.gitignore` + `.gitattributes` (`eol=lf`); 283 files normalized to LF,
+  1856 trailing-whitespace lines removed; ledger `change_id` equals the newest entry.
+- **Batches:** B1 guard+AL-5 · B2 pointers/H1/tables · B3 test restructure ·
+  B4 index/contract · B5 A/B + privacy · B6 hygiene.
+
+
 ## CHG-20261025-merge-04-into-02 — 04 absorbed into 02, gate `G-04` → `G-STATS`
 
 - Absorbed `04_analysis` into `02_data-processing` (one top-level skill `02`; `04_analysis` retired). 6 base packs (`analyze-stats`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) → `02_data-processing/base/`; the rest of `04_analysis/personal/**` → `02_data-processing/personal/analysis/**`, except the visualization pack → `02_data-processing/personal/visualization/` (its `scripts/` would otherwise sit six path parts deep, over the five-part ceiling); 5 `04_analysis/qc/*.md` → `02_data-processing/qc/`.

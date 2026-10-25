@@ -1,9 +1,21 @@
-import unittest
-from pathlib import Path
 
+"""Document layout: pack dirs, headers, registry state, one H1.
+
+Merged from: `test_module_headers.py`, `test_docs_match_registry_state.py`, `test_qc_five_fixes.py`.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+import re
+import unittest
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
 SKILL_DIRS = (
     "00_orchestrator",
     "01_skill-integration",
@@ -13,7 +25,7 @@ SKILL_DIRS = (
     "06_review",
     "07_response",
 )
-
+DOCS = ("README.md", "ARCHITECTURE.md")
 
 class ModuleHeaderTests(unittest.TestCase):
     def test_layout_core_and_archive(self):
@@ -187,7 +199,136 @@ class ModuleHeaderTests(unittest.TestCase):
             self.assertNotIn("05_automation", text, p.as_posix())
             self.assertNotIn("01_automation", text, p.as_posix())
             self.assertNotIn("02_imaging", text, p.as_posix())
+class DocsMatchRegistry(unittest.TestCase):
+    def setUp(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        self.mounts = [m for m in (reg.get("mounts") or []) if isinstance(m, dict)]
+        self.proposed = [m for m in self.mounts if m.get("status") == "PROPOSED"]
+
+    def test_no_stale_proposed_claim(self) -> None:
+        if self.proposed:
+            self.skipTest("registry currently has PROPOSED rows")
+        for name in DOCS:
+            text = (ROOT / name).read_text(encoding="utf-8")
+            self.assertNotRegex(
+                text,
+                r"PROPOSED\s*/\s*MOUNTED",
+                f"{name} still claims non-default ids are mixed PROPOSED/MOUNTED "
+                "while the registry has no PROPOSED row",
+            )
+
+    def test_mounted_paths_are_canonical(self) -> None:
+        missing: list[str] = []
+        for m in self.mounts:
+            if m.get("status") != "MOUNTED":
+                continue
+            path = str(m.get("path") or "")
+            if not path:
+                missing.append(f"{m.get('id')}: no path")
+                continue
+            if not (ROOT / path).exists():
+                missing.append(f"{m.get('id')}: {path}")
+        self.assertEqual(missing, [], "MOUNTED paths missing:\n" + "\n".join(missing))
+
+    def test_no_archived_section(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        self.assertNotIn("archived", reg, "registry must not carry archived: bloat")
+        self.assertFalse(reg.get("archived"), "archived must be empty/absent")
+class FiveFixes(unittest.TestCase):
+    def test_reseived_study_folder_alias_parses_as_accepted(self) -> None:
+        state = yaml.safe_load(
+            (ROOT / "00_orchestrator" / "templates" / "project-state.yaml").read_text(encoding="utf-8")
+        )
+        aliases = state["study_folder_stage_aliases"]
+        self.assertEqual(aliases["preparing"], "drafting")
+        self.assertEqual(aliases["polishing"], "pre-submit")
+        self.assertEqual(aliases["submitting"], "in-review")
+        self.assertEqual(aliases["reseived"], "accepted")
+        self.assertEqual(aliases.get("received"), "accepted")
+        self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
+        self.assertNotIn("preparing", (state.get("pipeline") or {}).get("stage", ""))
 
 
-if __name__ == "__main__":
-    unittest.main()
+QC_DIRS = (
+    "00_orchestrator/qc",
+    "01_skill-integration/qc",
+    "02_data-processing/qc",
+    "03_research/qc",
+    "05_manuscript/qc",
+    "06_review/qc",
+    "07_response/qc",
+)
+ROUTE = ROOT / "03_research" / "personal" / "route.md"
+PERSONAL = ROOT / "03_research" / "personal"
+FENCE_LINE = re.compile(r"^\s*(```|~~~)")
+H1_LINE = re.compile(r"^# [^#]")
+
+
+def h1_lines(path: Path) -> list[tuple[int, str]]:
+    """Level-1 headings, ignoring frontmatter, fenced code and indented lines."""
+    lines = path.read_text(encoding="utf-8-sig", errors="ignore").splitlines()
+    start, in_fence = 0, False
+    if lines and lines[0].strip() == "---":
+        for idx in range(1, len(lines)):
+            if lines[idx].strip() == "---":
+                start = idx + 1
+                break
+    found: list[tuple[int, str]] = []
+    for idx in range(start, len(lines)):
+        line = lines[idx]
+        if FENCE_LINE.match(line):
+            in_fence = not in_fence
+            continue
+        if not in_fence and H1_LINE.match(line):
+            found.append((idx + 1, line.strip()))
+    return found
+
+
+class SingleHeading(unittest.TestCase):
+    def test_every_markdown_file_has_exactly_one_h1(self) -> None:
+        problems: list[str] = []
+        for path in sorted(ROOT.rglob("*.md")):
+            if set(path.parts) & {".git", "__pycache__", ".pytest_cache", "fixtures"}:
+                continue
+            found = h1_lines(path)
+            if len(found) != 1:
+                rel = path.relative_to(ROOT).as_posix()
+                detail = "; ".join(f"L{no}:{text[:50]}" for no, text in found) or "no H1"
+                problems.append(f"{rel}: H1={len(found)} :: {detail}")
+        self.assertEqual(
+            problems, [],
+            "one H1 per file (demote sections, drop frontmatter residue):\n"
+            + "\n".join(problems[:30]),
+        )
+
+
+class IndexCompleteness(unittest.TestCase):
+    def test_qc_readme_lists_every_standard(self) -> None:
+        problems: list[str] = []
+        for rel in QC_DIRS:
+            folder = ROOT / rel
+            if not folder.is_dir():
+                continue
+            readme = folder / "README.md"
+            if not readme.is_file():
+                problems.append(f"{rel}: no README.md")
+                continue
+            text = readme.read_text(encoding="utf-8")
+            for path in sorted(folder.glob("*.md")):
+                if path.name != "README.md" and path.name not in text:
+                    problems.append(f"{rel}: {path.name} missing from README.md")
+            for name in re.findall(r"`([a-z0-9._-]+\.md)`", text):
+                if name != "README.md" and not (folder / name).is_file():
+                    problems.append(f"{rel}: README.md points at absent {name}")
+        self.assertEqual(problems, [], "qc README ↔ folder drift:\n" + "\n".join(problems[:30]))
+
+    def test_route_lists_every_personal_page(self) -> None:
+        text = ROUTE.read_text(encoding="utf-8")
+        missing = [
+            path.name for path in sorted(PERSONAL.glob("*.md"))
+            if path.name not in {"route.md"} and path.name not in text
+        ]
+        self.assertEqual(
+            missing, [],
+            "03_research/personal pages absent from route.md: " + ", ".join(missing),
+        )

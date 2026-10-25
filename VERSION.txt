@@ -1,3 +1,17 @@
+CHG-20261025-deep-qc-remediation (2026-10-25)
+Six-batch remediation after the deep QC pass: revived the dead cross-file paragraph
+guard and deduped the disclaimer standard to AL-5; fixed six broken relative
+pointers, gave every markdown file one H1, escaped table pipes; merged the 33-file
+suite into 12 contract-domain modules with `tests/support.py` (162 assertions kept,
+none dropped); closed index/contract drift (qc READMEs, 03 route index,
+ownership-contract dedupe, registry `change_id` = newest ledger entry); purged
+retired A/B workspace vocabulary (seat ids, Work-A/B, `A base/`, `[A:...]` tags)
+while `Voice A/B` and comment author `A` stay; scrubbed institutional contact data
+and guarded it; added `.gitignore`/`.gitattributes` and normalized 283 files to LF
+with no trailing whitespace. New guards: single H1, qc README↔dir, route index,
+retired A/B vocabulary, contact data, LF/trailing whitespace. Suite 162 → 168.
+
+
 CHG-20261025-merge-04-into-02 (2026-10-25)
 Merged `04_analysis` into `02_data-processing`; one top-level analysis skill remains (`02`), `04` is retired. Six base packs (`analyze-stats`, `meta-analysis`, `model-evaluation`, `calc-sample-size`, `draw-flowchart`, `plot-figures`) now live under `02_data-processing/base/`; `04_analysis/personal/**` became `02_data-processing/personal/analysis/**` with the visualization pack at `02_data-processing/personal/visualization/` (keeps `scripts/` inside the five-part path ceiling and keeps the script's repo-root hop unchanged); five `04_analysis/qc/*.md` moved to `02_data-processing/qc/`. Gate `G-04` renamed **`G-STATS`** (no alias kept). Mermaid node ids `Need04`/`P04`/`GF04`/`GA04` → `NeedStats`/`PStats`/`GFStats`/`GAStats`; seat tokens `04` collapse into `02`. `legacy_aliases.yaml` keeps the retired call-site keys. New guard test `tests/test_no_retired_seat_04.py`. Run: python -m unittest discover -s tests (161 OK).
 Earlier: CHG-20261025-merge-language-polish-coarse.
