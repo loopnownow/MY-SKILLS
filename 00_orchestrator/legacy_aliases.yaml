@@ -1,8 +1,9 @@
 # Shared alias table. Runtime may resolve alias -> canonical.
-# Docs: 01_skill-integration/SKILL.md + references/id-rules.md
+# Docs: 00_orchestrator/SKILL.md + 00_orchestrator/references/id-rules.md
 # Workflows and other call sites use canonical ids only.
-# Confirmed against registry.yaml mounts on 2026-10-24 (t1123 thin registry).
-# Retired / absorbed fine ids map here; they are not listed in registry.yaml.
+# Confirmed against registry.yaml mounts on 2026-10-25 (coarse id = execution seat).
+# Retired / absorbed fine ids and retired coarse buckets map here; they are not listed in registry.yaml.
+# 2026-10-25: seat 01_skill-integration retired into 00_orchestrator (registry + aliases + workflows).
 
 aliases:
   02-tables: clean-data
@@ -59,20 +60,31 @@ aliases:
   # 2026-10-25: language-pack lint absorbed into humanize (directory removed).
   polish-language: humanize
 
-# Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
-# R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)
+# Coarse ids are the execution seats (2026-10-25). Every retired bucket name, label or id
+# maps to the seat that now carries it; the 01 seat itself retired into 00_orchestrator.
 coarse_aliases:
-  Literature retrieval: lit-retrieval
-  Topic exploration: topic-explore
-  Study design: study-design
-  Manuscript body writing: manuscript-body
-  Language polish: manuscript-body
-  Data processing: data-processing
-  Statistical analysis: stats-analysis
-  Figures: figures
-  Manuscript review: manuscript-review
-  Reviewer response: review-response
-  peer-review: manuscript-review
-  # 2026-10-25: coarse language-polish merged into manuscript-body (single-member
-  # group; humanize was the only fine id it carried).
-  language-polish: manuscript-body
+  # Retired bucket ids (identity semantics: coarse = seat).
+  lit-retrieval: 03_research
+  topic-explore: 03_research
+  study-design: 03_research
+  manuscript-body: 05_manuscript
+  data-processing: 02_data-processing
+  stats-analysis: 02_data-processing
+  figures: 02_data-processing
+  manuscript-review: 06_review
+  review-response: 07_response
+  # Legacy labels / Chinese-legacy stage names seen in notes and older call sites.
+  Literature retrieval: 03_research
+  Topic exploration: 03_research
+  Study design: 03_research
+  Manuscript body writing: 05_manuscript
+  Language polish: 05_manuscript
+  Data processing: 02_data-processing
+  Statistical analysis: 02_data-processing
+  Figures: 02_data-processing
+  Manuscript review: 06_review
+  Reviewer response: 07_response
+  # R2a: peer-review coarse -> review seat (fine peer-review unchanged).
+  peer-review: 06_review
+  # 2026-10-25: coarse language-polish had a single fine id (humanize) -> manuscript seat.
+  language-polish: 05_manuscript

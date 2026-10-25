@@ -50,7 +50,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 
 ## Mounted capability ids (bodies in `05_manuscript/base/`, except `check-reporting` under `qc/`)
 
-**This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
+**This-run pick:** do not load any mounted id until the 00 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
 - `check-reporting` — TRIPOD / CLAIM / CLEAR (`qc/check-reporting/`)

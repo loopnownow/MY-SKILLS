@@ -30,7 +30,7 @@ Three pillars. Load only what the task needs.
 | `handoff.md` | Layering + personal-file authority; read before moving personal files |
 | `clinical-translation/` | Reader study / deployment design |
 | `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
-| `01_skill-integration/workflows/question-to-reference.md` | R1-R5 spine |
+| `00_orchestrator/workflows/question-to-reference.md` | R1-R5 spine |
 
 ## Journal selection
 

@@ -1,7 +1,7 @@
 # Code optimization and refactor
 
 Personal layer: `02_data-processing/personal/coding.md` (moved from `code-refactoring/SKILL.md`; complexity ladder merged below).
-Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill or register a 01 coarse id.
+Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill or register a coarse id outside the five seats.
 
 ## When it applies
 - Soft-coding (CONFIG on top)
@@ -67,7 +67,7 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 
 ## Complexity ladder (absorbed from complexity-ladder.md)
 
-Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a 01 mount / coarse id.
+Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a registry mount / coarse id.
 
 ## When writing (stop at first yes)
 

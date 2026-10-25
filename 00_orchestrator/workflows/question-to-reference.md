@@ -28,7 +28,7 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 
 | Owns | Does not own |
 |---|---|
-| Content chain + stage cards | Session mount pick (01) |
+| Content chain + stage cards | Session mount pick (00) |
 | Mechanism labels with source class | Manuscript prose (05) |
 | Data **requirements** list | Data extract / QC tables (02) |
 | Hand-off asks to 02 | Final sample-size / model verdict (02) |
@@ -37,7 +37,7 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 **Hard split with 00**
 
 - **03** = research content chain (R1–R5) and card quality.
-- **00** = which stage to enter, whether to reuse completed cards, when to roll back, when to STOP, L1/L2 budgets (`01_skill-integration/workflows/research-exploration-loop.md`).
+- **00** = which stage to enter, whether to reuse completed cards, when to roll back, when to STOP, L1/L2 budgets (`00_orchestrator/workflows/research-exploration-loop.md`).
 
 Stage ids are **R1–R5** (research). Do **not** call them G1–G5 — that collides with QC gates (`G0`, `G-PHI`, `G-STATS`, …).
 
@@ -263,7 +263,7 @@ No new fine ids for R1–R5.
 | SOP | Role |
 |---|---|
 | This file | 03 content spine + cards |
-| `01_skill-integration/workflows/research-exploration-loop.md` | Entry node, reuse, L1/L2, structural QC |
+| `00_orchestrator/workflows/research-exploration-loop.md` | Entry node, reuse, L1/L2, structural QC |
 | `personal/intro-evidence-pack.md` | 05-driven Intro cards — later, narrower than this spine |
 | `personal/journal-selection.md` | journal selection — not this chain |
 

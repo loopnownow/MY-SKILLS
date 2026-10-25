@@ -9,7 +9,7 @@ views:
     question: "What the system is made of and where the boundaries are."
     inputs:
       - ARCHITECTURE.md
-      - 01_skill-integration/registry.yaml
+      - 00_orchestrator/registry.yaml
       - top-level directories 00_orchestrator through 07_response
     ir_fields: [components, boundaries, connections]
     primary_component_band: "about 6-12 stable system components"
@@ -29,7 +29,7 @@ views:
   registry_index:
     question: "Which in-repo fine ids the registry indexes, and the status recorded there."
     inputs:
-      - 01_skill-integration/registry.yaml
+      - 00_orchestrator/registry.yaml
     not_inputs:
       - a crawl of skill files outside registry.yaml
   skill_pages:

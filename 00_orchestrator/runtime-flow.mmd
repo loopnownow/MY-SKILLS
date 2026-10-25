@@ -1,6 +1,6 @@
 %% MY-SKILLS · sole official runtime map (00)
 %% When updating flow/QC/entry, edit only this file. Sub-flows = branches here; no second master map.
-%% Gate detail SSOT: gates.md; external-pack lifecycle: 01
+%% Gate detail SSOT: gates.md; external-pack lifecycle: 00
 %% Diagram node naming: Gate · NN ↔ gates.md G-NN; the merged 02 stats gate is `Gate · STATS` = `G-STATS`. G0 / G-PHI / G-FACT / G-LIT / G-CODE same names.
 %% Mid-entry still allowed (existing stats→05, existing manuscript→06; do not re-run from 02).
 %% Any manuscript writing or review must pass 03 citation-verify before done / Gate·05 / Gate·06.
@@ -51,10 +51,10 @@ flowchart TD
     Decide -->|Review integration| Need06
     Decide -->|Reply / response| Need07
 
-    %% Independent run needs one mount decision. Reuse lock if covered; else enter 01.
+    %% Independent run needs one mount decision. Reuse lock if covered; else enter 00.
     Need02 & Need03 & NeedStats & Need05 & Need06 & Need07 & NeedS & NeedCode --> MountQ{session_picked_fine_ids<br/>covers this task fine IDs?}
     MountQ -->|yes · reuse session lock| GA0
-    MountQ -->|no| S01[01 · Session Mount / Lifecycle]
+    MountQ -->|no| SMount[00 · Session Mount / Lifecycle]
     S01 --> GA0{{G0}}
     GA0 -->|PASS| Ready[Mounts ready]
     GA0 -->|FAIL| Locate
@@ -129,7 +129,7 @@ flowchart TD
     %% Later stations in the same approved run report one line; N2, results-page G-FACT, N4, G-06 still stop.
     Exit02 & GAStats & GA05 & GA06 & GA07 & Exit03 & GAS & GCODE -->|PASS · at destination| Out([Final output<br/>stage: done])
 
-    %% QC loop: return to failed node and reuse session lock. Re-enter 01 only on missing dependency / stale provenance / new capability.
+    %% QC loop: return to failed node and reuse session lock. Re-enter 00 only on missing dependency / stale provenance / new capability.
     Exit02 & N2 & GFStats & GAStats & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[Locate minimal responsible node]
     I25 & I45 -->|FAIL · HARD integrity| Locate
     Lit05 & Lit06 -->|FAIL| Locate
@@ -139,10 +139,10 @@ flowchart TD
     Local --> Budget{Same defect defects[].rounds ≤ 3?}
     Rollback --> Budget
     Budget -->|yes| Resume[Re-enter failed node · reuse session mount lock]
-    Resume --> Re01{Missing dependency, stale provenance, or new capability needed?}
-    Re01 -->|no| BackNode[Return to failed node]
+    Resume --> ReMount{Missing dependency, stale provenance, or new capability needed?}
+    ReMount -->|no| BackNode[Return to failed node]
     BackNode --> Dispatch
-    Re01 -->|yes| S01
+    ReMount -->|yes| SMount
     Budget -->|no| Escalate[Stop auto-loop · unresolved<br/>stage does not advance]
     Escalate --> Wait([Wait for user decision])
     Wait -.->|Authorized continue · reset that defect rounds| Locate

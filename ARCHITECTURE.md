@@ -4,9 +4,9 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 
 **Architecture SSOT** for this repo: this file (layers, lab homes, fine-id ceiling, base/personal contract).
 
-**Routing SSOT:** `01_skill-integration/registry.yaml`
+**Routing SSOT:** `00_orchestrator/registry.yaml`
 
-Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
+Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `00_orchestrator/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
 
 ---
 
@@ -16,7 +16,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 
 | Intent | Route |
 |---|---|
-| Skill index / session pick | `01_skill-integration` |
+| Skill index / session pick | `00_orchestrator` |
 | Excel / batch workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
 | Literature research / evidence / study design / grants / translational design / ethics forms (Bai seats fill-protocol) | `03_research` |
 | Statistics / prediction / **figures** / sample size | `02_data-processing` |
@@ -84,6 +84,6 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ## Session pick (pointer)
 
-Session pick steps live in `01_skill-integration/SKILL.md` (thin) + `references/session-pick.md` / `references/lifecycle-cache.md`.
+Session pick steps live in `00_orchestrator/SKILL.md` (§0 registry) + `references/session-pick.md` / `references/lifecycle-cache.md`.
 
 Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (in-repo `NN_slug/base/`) → empty path: notify, re-search, confirm.

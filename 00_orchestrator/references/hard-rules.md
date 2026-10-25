@@ -11,7 +11,7 @@ These are **session-pick** bans, not skill deletions:
 
 ## Hard rules
 
-- Never perform literature research, statistics, manuscript writing, or peer review (01 is index only).
+- Never perform literature research, statistics, manuscript writing, or peer review (00 is index only).
 - Never rewrite MY-SKILLS because an external text exists.
 - Never replace a personal / top layer because an external text is more general.
 - `PROPOSED` is not `MOUNTED`.

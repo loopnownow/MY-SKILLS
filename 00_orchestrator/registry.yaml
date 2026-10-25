@@ -1,120 +1,90 @@
-# MY-SKILLS routing index v4.0
+# MY-SKILLS routing index v5.0
 # SSOT for session-pick / path resolve. Bodies live under NN_slug/base/ (source my-skills).
-# Session: ask-each-run multi-select fine IDs under relevant coarse. Empty path → notify-then-confirm.
-# Canonical ID Rule: 01_skill-integration/references/id-rules.md. id is the only runtime identifier.
+# Coarse id = execution seat (02-07). A mount carries no coarse field; its bucket is a_domain.
+# Session: ask-each-run multi-select fine IDs under the relevant seat. Empty pick -> notify-then-confirm.
+# Canonical ID Rule: 00_orchestrator/references/id-rules.md. id is the only runtime identifier.
 # path labels / directory names must never be used to infer an id.
-# Retired fine ids and coarse ids live in legacy_aliases.yaml only (not listed here).
+# Retired fine ids, retired coarse buckets and the retired 01 seat live in legacy_aliases.yaml only.
 # Live rows are status MOUNTED. Prefer merge into an existing fine id over opening a new one.
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
+
 meta:
-  version: '4.0'
-  change_id: CHG-20261025-dedupe-ssot-pass
+  version: '5.0'
+  change_id: CHG-20261025-seat-coarse-merge-01
   fine_id_count_canonical: 25
-  coarse_id_count: 9
+  coarse_id_count: 5
+
 empty_mount: notify-then-research-confirm
 session_mount: ask-each-run
 session_pick_unit: fine_id
-a_domain_override_policy: 'Identity is a four-tuple plus an optional personal pack: fine_id, coarse_id, a_domain,
-  body path (NN_slug/base/...). Do not infer id from path or path from id. Each coarse_id declares a default
-  a_domain. A mounted pack may set its own a_domain to override that default when routing requires it (documented
-  exceptions: find-journal and grant-builder sit under coarse manuscript-body but route to a_domain 03_research).
-  fill-protocol stays a_domain 03_research. find-journal body is 03_research/base/find-journal/; companion
-  styles in 05_manuscript/base/write-paper/. Do not force a mount a_domain to match its coarse default
-  without checking this policy.'
+coarse_rule: coarse id = execution seat = mount a_domain. A mount declares no coarse field; a_domain must
+  be one of coarse_ids, so a bucket can never drift from its seat.
+
 coarse_ids:
-- id: lit-retrieval
-  label: Literature retrieval
-  slug: lit-retrieval
-  a_domains:
-  - 03_research
-  specialist_hint: Victor
-- id: topic-explore
-  label: Topic exploration
-  slug: topic-explore
-  a_domains:
-  - 03_research
-  specialist_hint: Victor
-- id: study-design
-  label: Study design
-  slug: study-design
-  a_domains:
-  - 03_research
-  specialist_hint: Victor
-- id: manuscript-body
-  label: Manuscript body writing
-  slug: manuscript-body
-  a_domains:
-  - 05_manuscript
-  specialist_hint: Aitee
-- id: data-processing
-  label: Data processing
+- id: 02_data-processing
+  label: Data processing, statistics and figures
   slug: data-processing
   a_domains:
   - 02_data-processing
   specialist_hint: Loopnow
-- id: stats-analysis
-  label: Statistical analysis
-  slug: stats-analysis
+- id: 03_research
+  label: Literature, topic and study design
+  slug: research
   a_domains:
-  - 02_data-processing
-  specialist_hint: Loopnow
-- id: figures
-  label: Figures
-  slug: figures
+  - 03_research
+  specialist_hint: Victor
+- id: 05_manuscript
+  label: Manuscript body writing
+  slug: manuscript
   a_domains:
-  - 02_data-processing
-  specialist_hint: Loopnow
-- id: manuscript-review
+  - 05_manuscript
+  specialist_hint: Aitee
+- id: 06_review
   label: Manuscript review
-  slug: manuscript-review
+  slug: review
   a_domains:
   - 06_review
   specialist_hint: Lee
-- id: review-response
+- id: 07_response
   label: Reviewer response
-  slug: review-response
+  slug: response
   a_domains:
   - 07_response
   specialist_hint: Aitee
+
 mounts:
 - id: verify-refs
   label: Citation authenticity verify
-  coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/verify-refs/
   a_domain: 03_research
   status: MOUNTED
 - id: retraction-watcher
   label: Retraction watch
-  coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/retraction-watcher/
   a_domain: 03_research
   status: MOUNTED
 - id: lit-search
   label: Lit search and public datasets
-  coarse: lit-retrieval
   source: my-skills
   path: 03_research/base/lit-search/
   a_domain: 03_research
   status: MOUNTED
 - id: design-study
   label: Study-design review
-  coarse: study-design
   source: my-skills
   path: 03_research/base/design-study/
   a_domain: 03_research
   status: MOUNTED
 - id: write-protocol
   label: IRB protocol drafting
-  coarse: study-design
   source: my-skills
   path: 03_research/base/write-protocol/
   a_domain: 03_research
   status: MOUNTED
 - id: fill-protocol
   label: IRB form fill
-  coarse: study-design
   source: my-skills
   path: 03_research/base/fill-protocol/
   a_domain: 03_research
@@ -122,141 +92,123 @@ mounts:
   note: 'a_domain 03_research. Body: 03_research/base/fill-protocol/ (Bai seat).'
 - id: write-paper
   label: IMRAD body drafting
-  coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/base/write-paper/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: check-reporting
   label: Reporting-guideline check
-  coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/qc/check-reporting/
   a_domain: 05_manuscript
   status: MOUNTED
-  note: 'QC body under 05_manuscript/qc/check-reporting/ (owner 2026-10-25). Fine id unchanged.'
+  note: QC body under 05_manuscript/qc/check-reporting/ (owner 2026-10-25). Fine id unchanged.
 - id: grant-builder
   label: Grant proposal — methods
-  coarse: manuscript-body
   source: my-skills
   path: 03_research/base/grant-builder/
   a_domain: 03_research
   status: MOUNTED
-  note: 'a_domain 03_research (override). Body: 03_research/base/grant-builder/.'
+  note: 'Coarse bucket = seat 03_research (no override). Body: 03_research/base/grant-builder/.'
 - id: find-journal
   label: Journal recommendation
-  coarse: manuscript-body
   source: my-skills
   path: 03_research/base/find-journal/
   a_domain: 03_research
   status: MOUNTED
-  note: 'a_domain 03_research (override). Body: 03_research/base/find-journal/. Companion house style:
-    05_manuscript/base/write-paper/ (not the engine).'
+  note: 'Coarse bucket = seat 03_research (no override). Body: 03_research/base/find-journal/. Companion
+    house style: 05_manuscript/base/write-paper/ (not the engine).'
 - id: humanize
   label: De-AI tone
-  coarse: manuscript-body
   source: my-skills
   path: 05_manuscript/base/humanize/
   a_domain: 05_manuscript
   status: MOUNTED
 - id: clean-data
   label: Three-stage confirm cleaning
-  coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/clean-data/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: imaging-io
   label: CT/MRI DICOM and NIfTI I/O
-  coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/imaging-io/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: preprocess-imaging
   label: ROI and reader QC
-  coarse: data-processing
   source: my-skills
   path: 02_data-processing/base/preprocess-imaging/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: analyze-stats
   label: Test selection and weighted survey data
-  coarse: stats-analysis
   source: my-skills
   path: 02_data-processing/base/analyze-stats/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: meta-analysis
   label: Meta-analysis anti-manipulation
-  coarse: stats-analysis
   source: my-skills
   path: 02_data-processing/base/meta-analysis/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: model-evaluation
   label: Model-task correct metric selection
-  coarse: stats-analysis
   source: my-skills
   path: 02_data-processing/base/model-evaluation/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: calc-sample-size
   label: Sample-size calculation
-  coarse: stats-analysis
   source: my-skills
   path: 02_data-processing/base/calc-sample-size/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: draw-flowchart
   label: Patient flow diagram
-  coarse: figures
   source: my-skills
   path: 02_data-processing/base/draw-flowchart/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: plot-figures
   label: Stats plots and imaging panels
-  coarse: figures
   source: my-skills
   path: 02_data-processing/base/plot-figures/
   a_domain: 02_data-processing
   status: MOUNTED
 - id: peer-review
   label: Reviewer-comment generation
-  coarse: manuscript-review
   source: my-skills
   path: 06_review/base/peer-review/
   a_domain: 06_review
   status: MOUNTED
 - id: self-review
   label: Numeric self-audit
-  coarse: manuscript-review
   source: my-skills
   path: 06_review/base/self-review/
   a_domain: 06_review
   status: MOUNTED
 - id: revise
   label: R&R triage and numeric lineage
-  coarse: review-response
   source: my-skills
   path: 07_response/base/revise/
   a_domain: 07_response
   status: MOUNTED
 - id: simulate-reviewers
   label: Multi-reviewer isolation principle
-  coarse: manuscript-review
   source: my-skills
   path: 06_review/base/simulate-reviewers/
   a_domain: 06_review
   status: MOUNTED
 - id: tighten-response
   label: Isolation and body-tighten principle
-  coarse: review-response
   source: my-skills
   path: 07_response/base/tighten-response/
   a_domain: 07_response
   status: MOUNTED
+
 local_packs:
 - id: vocab
   path: 05_manuscript/base/vocab/

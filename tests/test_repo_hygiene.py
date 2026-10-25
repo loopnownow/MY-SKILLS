@@ -20,15 +20,15 @@ SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 SKIP_PARTS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
 STATUS_TOKENS = re.compile(r"\b(MOUNTED|PROPOSED|ARCHIVED)\b")
 STATUS_ALLOW_FILES = {
-    "01_skill-integration/registry.yaml",
-    "01_skill-integration/legacy_aliases.yaml",
+    "00_orchestrator/registry.yaml",
+    "00_orchestrator/legacy_aliases.yaml",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
     "ARCHITECTURE.md",
     "README.md",
 }
 STATUS_ALLOW_PREFIXES = (
-    "01_skill-integration/",
+    "00_orchestrator/",  # the index seat: MOUNTED / PROPOSED vocabulary is its own
     "tests/",
     "02_data-processing/personal/visualization/",
 )
@@ -53,14 +53,14 @@ PACK_LABEL = re.compile(
 )
 PACK_EXTRA_LITERALS = ("B包", "A包", "B-pack", "A-pack")
 PACK_ALLOW_FILES = {
-    "01_skill-integration/registry.yaml",
+    "00_orchestrator/registry.yaml",
     "VERSION.txt",
     "INTEGRATION_MAP.md",
     "ARCHITECTURE.md",
     "README.md",
 }
 PACK_ALLOW_PREFIXES = (
-    "01_skill-integration/",
+    "00_orchestrator/",  # registry + evolution notes name historical packs on purpose
     "tests/",
 )
 PACK_ALLOW_LINE = re.compile(
@@ -86,9 +86,9 @@ WORKFLOW_SOP_NAMES = (
     "review-isolation.md",
     "question-to-reference.md",
 )
-WORKFLOW_HOME = ROOT / "01_skill-integration" / "workflows"
+WORKFLOW_HOME = ROOT / "00_orchestrator" / "workflows"
 WORKFLOW_FORBIDDEN_DIRS = (
-    ROOT / "00_orchestrator" / "workflows",
+    ROOT / "01_skill-integration" / "workflows",
     ROOT / "03_research" / "workflows",
 )
 QC00 = ROOT / "00_orchestrator" / "qc"
@@ -204,9 +204,9 @@ class Forbidden06StandaloneSheets(unittest.TestCase):
             "Forbidden standalone 06_review sheets still present:\n" + "\n".join(hits),
         )
 class WorkflowLocation(unittest.TestCase):
-    """SOPs live under 01_skill-integration/workflows/; 00/03 workflow dirs absent."""
+    """SOPs live under 00_orchestrator/workflows/; no second SOP tree anywhere else."""
 
-    def test_sops_home_under_01(self) -> None:
+    def test_sops_home_under_00(self) -> None:
         missing = [
             name
             for name in WORKFLOW_SOP_NAMES
@@ -215,11 +215,11 @@ class WorkflowLocation(unittest.TestCase):
         self.assertEqual(
             missing,
             [],
-            "Workflow SOPs missing under 01_skill-integration/workflows/:\n"
+            "Workflow SOPs missing under 00_orchestrator/workflows/:\n"
             + "\n".join(missing),
         )
 
-    def test_00_and_03_workflow_dirs_absent(self) -> None:
+    def test_no_secondary_workflow_dirs(self) -> None:
         present = [
             folder.relative_to(ROOT).as_posix()
             for folder in WORKFLOW_FORBIDDEN_DIRS
@@ -228,8 +228,8 @@ class WorkflowLocation(unittest.TestCase):
         self.assertEqual(
             present,
             [],
-            "00_orchestrator/workflows and 03_research/workflows must NOT exist "
-            "(call 01_skill-integration/workflows/ directly):\n" + "\n".join(present),
+            "01_skill-integration/workflows (retired seat) and 03_research/workflows "
+            "must NOT exist (call 00_orchestrator/workflows/ directly):\n" + "\n".join(present),
         )
 class Qc00PointersOnly(unittest.TestCase):
     """00_orchestrator/qc must NOT exist; bodies live in 02-07/qc only."""

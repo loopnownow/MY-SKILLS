@@ -16,7 +16,7 @@ Optional add-on (does not replace the three buckets): `## candidates` — eviden
 
 ## Rules
 
-1. Resolve fine-ID via `01_skill-integration` / skill tree (`NN_slug/base/<fine-id>/`).
+1. Resolve fine-ID via `00_orchestrator` / skill tree (`NN_slug/base/<fine-id>/`).
 2. One text → possibly many fine-IDs; **split** — do not paste the whole text into every lane.
 3. Draft under `skill-harvest/` (prefer `<fine-id>-harvest.md` with the three bucket `##` headings). Absorb into skills only when the owner says 「进skills」 (promote into live skills) (**extract ≠ promote**).
 4. Drop sentences that fit no bucket for any fine-ID (or park as owner triage notes).
