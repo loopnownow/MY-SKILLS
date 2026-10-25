@@ -40,7 +40,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 
 **Hard gates**
 
-- **Extract ≠ promote**: extraction writes only corpus / candidates; only **「进skills」 / promote-to-skills** may change runtime.
+- **Extract ≠ promote**: extraction writes only corpus / candidates; only **「进skills」 (promote into live skills)** may change runtime.
 - Corpus update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `skills.md` §1b).
 - **No scoring system**; candidates record minimal fields only.
 

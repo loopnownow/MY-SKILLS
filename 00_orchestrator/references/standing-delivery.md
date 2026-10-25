@@ -31,8 +31,8 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 **Do not create new files** outside `{DEL}`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}/My rule.md` §5.1; `{RULES}/workspace-layout.md`; mem `{doc_root}/mem/README.md`.
 
 - Temporary / non-deliverable → `{DEL}\<task>` only; never delivered as output.
-- Downloads **only** when the user names 「下载」/「Downloads」 this run.
-- Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」/put-in-0doc.
+- Downloads **only** when the user names 「下载」 (Downloads) this run.
+- Write a project `0doc` (or `{doc_root}`) only when the user says 「放 0doc」 (place under 0doc).
 - Never delete. Files removed from a project move into `{DEL}` with the relative path kept.
 - No Work-A / Work-B workspace classes or WORK_* path aliases (retired 2026-10-24).
 - Subprojects do **not** use a live `0result\` folder as the standard deliverable seat.

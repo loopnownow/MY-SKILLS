@@ -15,7 +15,7 @@ aliases:
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
-  # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/personal|base；live content under personal\.
+  # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/personal|base; live content under personal\.
   doc_lab_ste: "D:\\0Grok\\0doc\\_library\\lab-ste"
   doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
   # Curated xlsx may move; from 2026-10-23 lives under mem\ (not the topic corpus tree)
@@ -30,7 +30,7 @@ aliases:
   # Live flattened SSOT: _corpus\\corpus\\flattened.jsonl.
   doc_review_replies: "D:\\0Grok\\0doc\\_corpus"
   doc_grants: "D:\\0Grok\\0doc\\_library\\grants"
-  # 学位论文 Word 原件 2026-10-22 已迁 D:\\00db\\_lab\\doc-word 归档区；0doc 内只剩 md 视图。
+  # Thesis Word originals moved 2026-10-22 to the D:\\00db\\_lab\\doc-word archive; 0doc keeps only the md view.
   doc_thesis: "D:\\00db\\_lab\\doc-word\\05-manuscript\\thesis"
   doc_word_archive: "D:\\00db\\_lab\\doc-word"
   doc_ethics: "D:\\0Grok\\0doc\\_library\\ethics"

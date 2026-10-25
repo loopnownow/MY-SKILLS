@@ -56,12 +56,7 @@ class RuleLanding(unittest.TestCase):
     def test_ownership_dispatch(self) -> None:
         oc = t("00_orchestrator/references/ownership-contract.md")
         self.assertIn("## Dispatch", oc)
-        self.assertIn("one executor", oc.lower() + " " + oc)  # English phrase may be Chinese
-        # Chinese one-executor sentence from plan
-        self.assertTrue(
-            ("one executor" in oc.lower()) or ("一个任务只交一个执行方" in oc),
-            "ownership-contract missing one-executor rule",
-        )
+        self.assertIn("one executor", oc.lower())
 
 
 if __name__ == "__main__":
