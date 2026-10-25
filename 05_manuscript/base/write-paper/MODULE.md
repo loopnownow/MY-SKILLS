@@ -1,19 +1,19 @@
 ---
 name: "write-paper"
 domain: "05_manuscript"
-trigger: ["SCI写作", "写引言", "写讨论", "IMRAD", "起草全文"]
+trigger: ["SCI写作", "写引言", "写讨论", "IMRAD", "起草全文", "期刊体例", "Nature family", "house style", "venue template"]
 inputs: ["results_tables", "draft"]
-outputs: ["imrad_draft"]
+outputs: ["imrad_draft", "venue_shape"]
 quality_control: "numbers only from supplied results; no invented n/AUC/ethics IDs"
 owner: "05_manuscript/base/write-paper/MODULE.md"
 ---
 
 # trigger is documentation only; not independently discoverable.
 
-# Generic IMRAD manuscript draft
+# IMRAD draft and venue shape
 
 Draft and revise **scientific prose** (Title / Abstract / Introduction / Methods / Results /
-Discussion). This pack is **generic IMRAD only**.
+Discussion), plus venue house style and article shape once a journal family is known.
 
 **Not in this pack (stay in A personal, or other fine ids):**
 
@@ -21,14 +21,14 @@ Discussion). This pack is **generic IMRAD only**.
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
 - Language polish → [`polish-language`](../polish-language/MODULE.md)
-- Venue house style / article shape → [`05_manuscript/base/write-venue/`](../write-venue/MODULE.md)
-- 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`
+- 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
 - TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../../qc/check-reporting/MODULE.md)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
 
 ## When to use
 
 - Draft or rewrite IMRAD sections from supplied facts
+- Shape a draft to a named venue family (article shape / house voice — not 选刊)
 - Keep observational language (`associated with`) unless the design supports causation
 - Export a Methods skeleton from `methods_template_export.md`
 
@@ -60,7 +60,7 @@ Discussion). This pack is **generic IMRAD only**.
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
 | `polish` | **handoff** → `polish-language` |
-| `venue-shape` | **handoff** → `05_manuscript/base/write-venue/` |
+| `venue-shape` | this file + [journal-family-writing-style.md](radiology-writing/journal-family-writing-style.md) + [nature-family-shape.md](radiology-writing/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
 | `reporting` | **handoff** → `check-reporting` |
 
 ## IMRAD map
@@ -75,11 +75,23 @@ Discussion). This pack is **generic IMRAD only**.
 | Citation gate | [radiology-citation/claim-verification-gate.md](radiology-citation/claim-verification-gate.md) |
 | Figures | patient-flow → `draw-flowchart`; plots → `plot-figures` |
 
+## Venue shape (in-skill)
+
+Use after the target journal family is known (Radiology-family vs Nature-family article shape, house voice, word and figure budgets). This is not journal selection / 选刊. Journal lists (blacklist / graylist / whitelist) stay in `03_research/base/find-journal/`.
+
+| File | Open when |
+|---|---|
+| `radiology-writing/journal-family-writing-style.md` | Journal-family wording and counts for a named family (JCO, NEJM AI, ...); verify against the live guide |
+| `radiology-writing/nature-family-shape.md` | Nature-portfolio shape (unstructured abstract, Extended Data, Methods placement) |
+| `radiology-polishing/radiology-house-style.md` | Radiology-family voice, spelling, abbreviations, and Nature-family deltas |
+| `radiology-polishing/venue-voice-and-house-style.md` | Venue voice and tone once the target venue is known |
+| `references/journal-patterns-2023-2026.md` | Dated venue-family writing patterns (not a submit-here list) |
+
 ## Envelope
 
 ```text
 Skill: write-paper
-Subtask: draft-section | full-imrad | methods-skeleton | outline
+Subtask: draft-section | full-imrad | methods-skeleton | outline | venue-shape
 Venue: (unknown unless user named one)
 
 [Draft]
@@ -87,5 +99,5 @@ Venue: (unknown unless user named one)
 Missing inputs:
 - ...
 
-Next: polish-language (language) · 05_manuscript/base/write-venue/ (shape) · self-review (self-audit)
+Next: polish-language (language) · venue-shape (in this pack) · self-review (self-audit)
 ```

@@ -138,7 +138,7 @@ When the user wants “recommend journals / JCR·JCI tiered selection / ease-of-
 
 This file still owns evidence-strength vs journal-preference, stretch/solid/safety narrative, and §「2023-2026 journal patterns」 below / mounted `meta-analysis` contrast. Tier-table output follows the personal pack (default **tier2→tier3→tier4, 10 journals each**; tier2≈primary/Target, tier3≈solid/Safety-upper, tier4≈Q3; **tier2 stretch-supplement** is off by default — ask before each use; three blacklist journals never recommended; submitted/选刊 whitelist (`whitelist-submitted.csv`) prioritised within tier; graylist (incl. Frontiers series) skipped when a better match exists (`graylist.csv`)). Within-tier sort: manuscript match → ease-of-submit index → annual volume (weak). Medicine titles demoted within tier; do not mark “suspicious” in the table; yellow highlight only for JESI≥80. External journal-recommenders are query/candidate pools only — not top-level decisions. Phase-2 user short table (per paper): full journal name | JCR quartile | IF | annual volume | submit URL / author instructions (full URL); no ISO/OA/confidence/APC/split-journal detail; details in `03_research/base/find-journal/`.
 
-Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-venue/`.
+Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
 
 ---
 
@@ -152,11 +152,11 @@ grounded in recent high-impact publication patterns.
 
 ## Evidence boundary
 
-This file only owns the trade-off “evidence strength vs journal preference.” Journal-family pattern tables and disclaimers live in `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` (SSOT) — do not duplicate here.
+This file only owns the trade-off “evidence strength vs journal preference.” Journal-family pattern tables and disclaimers live in `05_manuscript/base/write-paper/references/journal-patterns-2023-2026.md` (SSOT) — do not duplicate here.
 
 ## Journal pattern table
 
-| Journal-family signal table (2023–2026 seeds) | See `05_manuscript/base/write-venue/references/journal-patterns-2023-2026.md` (SSOT; not copied here) |
+| Journal-family signal table (2023–2026 seeds) | See `05_manuscript/base/write-paper/references/journal-patterns-2023-2026.md` (SSOT; not copied here) |
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,

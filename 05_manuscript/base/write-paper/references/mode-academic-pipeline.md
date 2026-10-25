@@ -32,5 +32,5 @@ Default when unsure: **`plan`**.
 4 DRAFT    section drafts (do not invent data/citations)
 5 CITE     format + DOI check
 6 REVIEW   self-audit → `self-review`
-7 FORMAT   venue handoff → `05_manuscript/base/write-venue/`
+7 FORMAT   venue shape in this pack (`radiology-writing/`, `radiology-polishing/`)
 ```

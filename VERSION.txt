@@ -1,3 +1,7 @@
+CHG-20261025-absorb-write-venue (2026-10-25)
+Absorbed `05_manuscript/base/write-venue/` into `write-paper` (write-paper wins). Venue house style and article shape are in-skill on `write-paper`. Retired id `write-venue` is a legacy alias to `write-paper`. 选刊 stays in `find-journal`. `check-reporting` was not moved.
+Earlier: CHG-20261025-inrepo-index.
+
 CHG-20261025-inrepo-index (2026-10-25)
 In-repo index only. Dropped the source-menu keys from registry.yaml, the non-base pointer file, and root ignore/attribute/pytest files. Seat docs and the visualization scripts no longer describe an external catalog, a pack cache, or a retired folder nickname. `02_data-processing/personal/workspace.md` and the personal coding-qc stub are deleted; folder layout points at `{RULES}/workspace-layout.md`. Tests that only pinned those concepts were rewritten or dropped. Run: python -m unittest discover -s tests.
 Earlier: CHG-20261024-registry-thin.

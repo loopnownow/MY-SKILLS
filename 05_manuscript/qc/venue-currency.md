@@ -17,7 +17,7 @@ Never invent a style-file name by bumping a year in an old filename.
 Never present a generic scaffold as an official venue template.
 
 **PASS:** currency note present for the locked venue.
-**FAIL:** stale or unsourced template claim → rollback **03 find-journal / 05 write-venue**.
+**FAIL:** stale or unsourced template claim → rollback **03 find-journal / 05 write-paper**.
 
 Pairs with `venue-compliance-minima.md` VC-2.
 

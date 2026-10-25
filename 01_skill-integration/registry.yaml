@@ -8,7 +8,7 @@
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 meta:
   version: '4.0'
-  change_id: CHG-20261025-inrepo-index
+  change_id: CHG-20261025-absorb-write-venue
   fine_id_count_canonical: 27
   coarse_id_count: 10
 empty_mount: notify-then-research-confirm
@@ -19,7 +19,7 @@ a_domain_override_policy: 'Identity is a four-tuple plus an optional A pack: fin
   a_domain. A mount may set its own a_domain to override that default when routing requires it (documented
   exceptions: find-journal and grant-builder sit under coarse manuscript-body but route to a_domain 03_research).
   fill-protocol stays a_domain 03_research. find-journal body is 03_research/base/find-journal/; companion
-  styles in 05_manuscript/base/write-venue/. Do not force a mount a_domain to match its coarse default
+  styles in 05_manuscript/base/write-paper/. Do not force a mount a_domain to match its coarse default
   without checking this policy.'
 coarse_ids:
 - id: lit-retrieval
@@ -157,7 +157,7 @@ mounts:
   a_domain: 03_research
   status: MOUNTED
   note: 'a_domain 03_research (override). Body: 03_research/base/find-journal/. Companion house style:
-    05_manuscript/base/write-venue/ (not the engine).'
+    05_manuscript/base/write-paper/ (not the engine).'
 - id: polish-language
   label: Consistency hard-rule lint
   coarse: language-polish
@@ -281,6 +281,3 @@ local_packs:
 - id: vocab
   path: 05_manuscript/base/vocab/
   note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
-- id: write-venue
-  path: 05_manuscript/base/write-venue/
-  note: venue templates and house style; A-local, never mounted

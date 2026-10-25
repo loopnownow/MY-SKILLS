@@ -52,6 +52,8 @@ aliases:
   write-data-statement: check-reporting
   analyze-survival: meta-analysis
   audit-dicom: imaging-io
+  # 2026-10-25: venue house style absorbed into write-paper (directory removed).
+  write-venue: write-paper
 
 # Coarse stage ids: Chinese legacy -> English canonical (Phase A 2026-10-07)
 # R2a: peer-review coarse -> manuscript-review (fine peer-review unchanged)

@@ -64,14 +64,14 @@ strengthen Methods, FUTURE-AI to frame deployability, and pre-empt reviewer crit
 - Reference the guideline in Methods ("We report this study following the [guideline]
   checklist").
 - For trials, register prospectively and report the registry ID.
-- Where each item belongs in the manuscript: `05_manuscript/base/write-venue/radiology-writing/journal-family-writing-style.md`.
+- Where each item belongs in the manuscript: `05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`.
 
 **Nature-portfolio-family** (in addition to the primary reporting-guideline checklist above):
 - Complete the **Reporting Summary** (published with the article) and, if requested, the
   **Editorial Policy Checklist** (→ `nature-reporting-summary.md`).
 - Plan the **Extended Data / Supplementary Information / Source Data** split
   (→ `plot-figures` (`nature-figure-spec.md`)).
-- Venue-specific pre-flight / 选刊 logistics → A `03_research` (journal-selection); house style → `05_manuscript/base/write-venue/`.
+- Venue-specific pre-flight / 选刊 logistics → A `03_research` (journal-selection); house style → `05_manuscript/base/write-paper/`.
 
 ## Edge cases
 

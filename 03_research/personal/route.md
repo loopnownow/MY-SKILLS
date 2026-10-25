@@ -39,7 +39,7 @@ Three pillars. Load only what the task needs.
 | Runtime pools | `{find_journal_pools}` (`_library\find-journal\data\2026`) |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
-Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → A `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-venue/` styles).
+Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → A `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
 
 ## 0doc document DB (Bai)
 

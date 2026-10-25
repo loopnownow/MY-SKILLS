@@ -6,7 +6,7 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 
 **Routing SSOT:** `01_skill-integration/registry.yaml`
 
-Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-venue/`. sample size: `calc-sample-size`.
+Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `01_skill-integration/registry.yaml` (not `mounts: []`; do not restate totals here); no live figure engine; `session_mount: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
 
 ---
 
@@ -34,7 +34,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Pre-submit find issues / dealbreaker | `06_review` |
 | Reply to reviewers | `07_response` only as entry (Aitee) |
 | Topic / literature / journal selection | `03_research` |
-| Journal selection | `03_research` (`personal/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-venue/` |
+| Journal selection | `03_research` (`personal/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/` |
 | sample size | `04_analysis` (`calc-sample-size`) |
 | AUC / DeLong / DCA / stats plan / figures | `04_analysis` |
 | Radiomics / ROI / leakage audit / preprocess | `02_data-processing` |

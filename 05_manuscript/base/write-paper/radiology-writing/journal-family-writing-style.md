@@ -1,6 +1,6 @@
 # Journal-family writing style
 
-Use this reference after the target venue or venue family is known, especially when the user supplies author guides or classic papers and asks for the manuscript to have the journal's "taste." This file controls writing voice and article shape; use `../../../04_analysis/base/plot-figures/references/journal-family-visual-style.md` for visual design.
+Use this reference after the target venue or venue family is known, especially when the user supplies author guides or classic papers and asks for the manuscript to have the journal's "taste." This file controls writing voice and article shape; use `../../../../04_analysis/base/plot-figures/references/journal-family-visual-style.md` for visual design.
 
 ## First rule
 
@@ -210,4 +210,4 @@ Route the design to its required guideline: STARD for diagnostic accuracy, STROB
 
 ## Pending exact profiles
 
-For ASCO/JCO-family targets and NEJM AI/Catalyst-specific targets, do not enforce exact word counts, figure counts, or reference style from memory. Ask for the browser-printed guide or A `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `05_manuscript/base/write-venue/` house style to verify current instructions. You may still draft a clinically consequential, generalist-readable version, but label formatting limits as `VERIFY FROM GUIDE`.
+For ASCO/JCO-family targets and NEJM AI/Catalyst-specific targets, do not enforce exact word counts, figure counts, or reference style from memory. Ask for the browser-printed guide or A `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `05_manuscript/base/write-paper/` house style to verify current instructions. You may still draft a clinically consequential, generalist-readable version, but label formatting limits as `VERIFY FROM GUIDE`.

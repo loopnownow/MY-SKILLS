@@ -17,8 +17,8 @@ metadata:
 
 - Lives in **B** `03_research/base/find-journal/` (capability). The former A-side `find-journal/` stub was removed 2026-10-17; do not recreate it.
 - Called from A `03_research/personal/journal-selection.md` via A Victor pointer.
-- Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-venue/`.
-- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-venue` only for formatting to the chosen family.
+- Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
+- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-paper` only for formatting to the chosen family.
 
 
 ## Layout (Logic / Dataset)

@@ -55,7 +55,7 @@ Retired fine ids live only in `legacy_aliases.yaml` — never session-pick them.
 
 - Coarse ids = welded stage buckets. Count: `registry.yaml` `coarse_id_count`.
 - Fine ids = session-pick points. Count: `fine_id_count_canonical`.
-- `fine_id` = capability interface; `path` = physical unit. They are aligned: every session-pick directory is named after its canonical fine id (2026-10-20), enforced by `tests/test_registry_paths.py`. Writing bodies use `base/<fine_id>/`. `check-reporting` is `05_manuscript/qc/check-reporting/`. Local packs with no fine id of their own (`base/vocab/`, `base/write-venue/`) are listed at the bottom of `registry.yaml`.
+- `fine_id` = capability interface; `path` = physical unit. They are aligned: every session-pick directory is named after its canonical fine id (2026-10-20), enforced by `tests/test_registry_paths.py`. Writing bodies use `base/<fine_id>/`. `check-reporting` is `05_manuscript/qc/check-reporting/`. Venue house style is in `write-paper`. The only local pack with no fine id of its own (`base/vocab/`) is listed at the bottom of `registry.yaml`.
 - `path_shared: true` = one path backs several fine ids — do not split that folder. No live row sets it today; `batch-cohort` was archived into `clean-data` on 2026-10-20.
 - Domains stay `00_orchestrator`–`07_response`. Personal layers stay beside `base/`.
 - Skill evolution: MY-RULES `skills.md`. journal selection stays Victor / `03_research/base/find-journal/`.
