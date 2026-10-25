@@ -1,5 +1,0 @@
-# Discussion
-
-AI assistance improved nodule detection in two prior series [@smith2020; @lee2021]. Reading time
-also fell with assistance [12]. Agreement between readers was high in an earlier cohort
-[@park2019, p. 9]. These results motivated the present study.

@@ -26,7 +26,6 @@ This release adds a mandatory forensic consistency audit to the reviewer workflo
   - `passed`
 - New synthesis field: `Forensic consistency findings`.
 - New QA section: `Forensic consistency checks`.
-- New regression test: `test_forensic_consistency_audit_is_required_after_freezing`.
 
 ### Changed
 
