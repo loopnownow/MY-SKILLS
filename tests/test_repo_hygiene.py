@@ -1,20 +1,24 @@
-"""Repo cleanup invariants (2026-10-24): detect forbidden structure / jargon.
+"""Repo hygiene: BOM, empty stubs, retired folders, cleanup.
 
-Fail-now on leftover debt so Batch2 cleanup is forced. Historical NOTICE /
-attribution lines are allowlisted where noted.
+Merged from: `test_no_bom.py`, `test_repo_cleanup_invariants.py`.
 """
 from __future__ import annotations
 
+from pathlib import Path
 import re
 import unittest
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
 
+BOM = b"\xef\xbb\xbf"
+SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".tsv", ".py", ".mmd", ".sh", ".ini"}
+SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 SKIP_PARTS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
-
 STATUS_TOKENS = re.compile(r"\b(MOUNTED|PROPOSED|ARCHIVED)\b")
-
 STATUS_ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
     "01_skill-integration/legacy_aliases.yaml",
@@ -23,19 +27,16 @@ STATUS_ALLOW_FILES = {
     "ARCHITECTURE.md",
     "README.md",
 }
-
 STATUS_ALLOW_PREFIXES = (
     "01_skill-integration/",
     "tests/",
     "02_data-processing/personal/visualization/",
 )
-
 STATUS_ALLOW_LINE = re.compile(
     r"NOTICE|attribution|historical|legacy|formerly|archived\s+20|"
     r"status_note|do not|not pickable|pytest|assert",
     re.I,
 )
-
 STATUS_SCAN_GLOBS = (
     "00_orchestrator/**/*.md",
     "00_orchestrator/**/*.yaml",
@@ -45,15 +46,12 @@ STATUS_SCAN_GLOBS = (
     "06_review/**/*.md",
     "07_response/**/*.md",
 )
-
 PACK_LABEL = re.compile(
     r"(?:\bAIPOCH\b|\bARIS\b|"
     r"`scientific`|\bScientific\s+(?:pack|catalog|P\d)|"
     r"/\s*Scientific\s*/)"
 )
-# Chinese pack shorthand labels (kept out of the regex for source encoding safety).
 PACK_EXTRA_LITERALS = ("B包", "A包", "B-pack", "A-pack")
-
 PACK_ALLOW_FILES = {
     "01_skill-integration/registry.yaml",
     "VERSION.txt",
@@ -61,12 +59,10 @@ PACK_ALLOW_FILES = {
     "ARCHITECTURE.md",
     "README.md",
 }
-
 PACK_ALLOW_PREFIXES = (
     "01_skill-integration/",
     "tests/",
 )
-
 PACK_ALLOW_LINE = re.compile(
     r"NOTICE|attribution|Distill of|distilled from|Source:|source_package|"
     r"Backup sources|formerly|archived|historical|legacy|MIT|"
@@ -79,12 +75,10 @@ PACK_ALLOW_LINE = re.compile(
     r"does not install|out of scope",
     re.I,
 )
-
 FORBIDDEN_06_NAMES = (
     "chinese-journal-score-sheet.md",
     "thesis-review.md",
 )
-
 WORKFLOW_SOP_NAMES = (
     "statistics.md",
     "sci-manuscript.md",
@@ -97,20 +91,15 @@ WORKFLOW_FORBIDDEN_DIRS = (
     ROOT / "00_orchestrator" / "workflows",
     ROOT / "03_research" / "workflows",
 )
-
 QC00 = ROOT / "00_orchestrator" / "qc"
 QC_STUB = re.compile(
     r"(?i)(body moved to|moved to|pointer(?:\s+only)?|see\s+`?\.\./|stub\b)",
 )
-
 PROJECT_REF_TEMPLATE = ROOT / "00_orchestrator" / "references" / "project-ref-template"
-
 DEAD_STUBS = (
     ROOT / "00_orchestrator" / "references" / "cross-manuscript-qc.md",
     ROOT / "00_orchestrator" / "references" / "manuscript-local-qc.md",
 )
-
-
 def _iter_files(globs: tuple[str, ...]):
     seen: set[Path] = set()
     for pat in globs:
@@ -125,7 +114,18 @@ def _iter_files(globs: tuple[str, ...]):
             seen.add(rp)
             yield p
 
-
+class NoBom(unittest.TestCase):
+    def test_no_bom_in_text_files(self) -> None:
+        offenders = []
+        for path in ROOT.rglob("*"):
+            if not path.is_file() or path.suffix not in SUFFIXES:
+                continue
+            if set(path.parts) & SKIP_DIRS:
+                continue
+            with path.open("rb") as handle:
+                if handle.read(3) == BOM:
+                    offenders.append(path.relative_to(ROOT).as_posix())
+        self.assertEqual(offenders, [], "BOM found:\n" + "\n".join(offenders[:20]))
 class RegistryStatusJargon(unittest.TestCase):
     """MOUNTED/PROPOSED/ARCHIVED only in registry SSOT (+ gen / NOTICE)."""
 
@@ -152,8 +152,6 @@ class RegistryStatusJargon(unittest.TestCase):
             "Registry status jargon outside SSOT allowlist:\n"
             + "\n".join(violations[:50]),
         )
-
-
 class NoLivePackMenuLabels(unittest.TestCase):
     """Scientific/AIPOCH/ARIS/A-pack/B-pack are not active labels in skill bodies."""
 
@@ -191,8 +189,6 @@ class NoLivePackMenuLabels(unittest.TestCase):
             "Live pack menu labels outside historical/NOTICE allowlist:\n"
             + "\n".join(violations[:50]),
         )
-
-
 class Forbidden06StandaloneSheets(unittest.TestCase):
     def test_no_chinese_journal_or_thesis_review_sheets(self) -> None:
         hits: list[str] = []
@@ -207,8 +203,6 @@ class Forbidden06StandaloneSheets(unittest.TestCase):
             [],
             "Forbidden standalone 06_review sheets still present:\n" + "\n".join(hits),
         )
-
-
 class WorkflowLocation(unittest.TestCase):
     """SOPs live under 01_skill-integration/workflows/; 00/03 workflow dirs absent."""
 
@@ -237,8 +231,6 @@ class WorkflowLocation(unittest.TestCase):
             "00_orchestrator/workflows and 03_research/workflows must NOT exist "
             "(call 01_skill-integration/workflows/ directly):\n" + "\n".join(present),
         )
-
-
 class Qc00PointersOnly(unittest.TestCase):
     """00_orchestrator/qc must NOT exist; bodies live in 02-07/qc only."""
 
@@ -248,16 +240,12 @@ class Qc00PointersOnly(unittest.TestCase):
             "00_orchestrator/qc/ must NOT exist "
             "(seat standards under 02-07/qc/; 00 calls them via gates.md)",
         )
-
-
 class ProjectRefTemplateGone(unittest.TestCase):
     def test_project_ref_template_absent(self) -> None:
         self.assertFalse(
             PROJECT_REF_TEMPLATE.exists(),
             "00_orchestrator/references/project-ref-template/ must not exist",
         )
-
-
 class DeadOrchestratorQcStubs(unittest.TestCase):
     """Orphan moved-to stubs under 00 references must be deleted (fail-now)."""
 
@@ -271,7 +259,3 @@ class DeadOrchestratorQcStubs(unittest.TestCase):
             "Dead 00 orchestrator QC stubs still present "
             "(bodies already live under domain qc/):\n" + "\n".join(present),
         )
-
-
-if __name__ == "__main__":
-    unittest.main()

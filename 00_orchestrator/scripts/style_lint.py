@@ -13,7 +13,7 @@ WHAT THIS IS NOT (deliberately left out of the absorption)
       (every manuscript sentence has n=, P, AUC; number tracing belongs to G-FACT)
     * the "put a person back in" rewrite pass (conflicts with the ying-li style profile)
 
-HARD RULES (each one is enforced by a test in test_style_lint.py)
+HARD RULES (each one is enforced by a test in tests/test_language_style.py)
     1. Fully offline: stdlib only, no network, no subprocess, no model calls.
     2. Never rewrites the manuscript: it reports hits, the user decides.
     3. Fail closed: empty / unscannable / non-English input exits 2, never "passes".

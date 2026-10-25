@@ -1,9 +1,19 @@
-import unittest
-from pathlib import Path
+"""Document layout: pack dirs, headers, registry state, one H1.
 
+Merged from: `test_module_headers.py`, `test_docs_match_registry_state.py`, `test_qc_five_fixes.py`.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+import unittest
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
 SKILL_DIRS = (
     "00_orchestrator",
     "01_skill-integration",
@@ -13,7 +23,7 @@ SKILL_DIRS = (
     "06_review",
     "07_response",
 )
-
+DOCS = ("README.md", "ARCHITECTURE.md")
 
 class ModuleHeaderTests(unittest.TestCase):
     def test_layout_core_and_archive(self):
@@ -187,7 +197,51 @@ class ModuleHeaderTests(unittest.TestCase):
             self.assertNotIn("05_automation", text, p.as_posix())
             self.assertNotIn("01_automation", text, p.as_posix())
             self.assertNotIn("02_imaging", text, p.as_posix())
+class DocsMatchRegistry(unittest.TestCase):
+    def setUp(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        self.mounts = [m for m in (reg.get("mounts") or []) if isinstance(m, dict)]
+        self.proposed = [m for m in self.mounts if m.get("status") == "PROPOSED"]
 
+    def test_no_stale_proposed_claim(self) -> None:
+        if self.proposed:
+            self.skipTest("registry currently has PROPOSED rows")
+        for name in DOCS:
+            text = (ROOT / name).read_text(encoding="utf-8")
+            self.assertNotRegex(
+                text,
+                r"PROPOSED\s*/\s*MOUNTED",
+                f"{name} still claims non-default ids are mixed PROPOSED/MOUNTED "
+                "while the registry has no PROPOSED row",
+            )
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_mounted_paths_are_canonical(self) -> None:
+        missing: list[str] = []
+        for m in self.mounts:
+            if m.get("status") != "MOUNTED":
+                continue
+            path = str(m.get("path") or "")
+            if not path:
+                missing.append(f"{m.get('id')}: no path")
+                continue
+            if not (ROOT / path).exists():
+                missing.append(f"{m.get('id')}: {path}")
+        self.assertEqual(missing, [], "MOUNTED paths missing:\n" + "\n".join(missing))
+
+    def test_no_archived_section(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
+        self.assertNotIn("archived", reg, "registry must not carry archived: bloat")
+        self.assertFalse(reg.get("archived"), "archived must be empty/absent")
+class FiveFixes(unittest.TestCase):
+    def test_reseived_study_folder_alias_parses_as_accepted(self) -> None:
+        state = yaml.safe_load(
+            (ROOT / "00_orchestrator" / "templates" / "project-state.yaml").read_text(encoding="utf-8")
+        )
+        aliases = state["study_folder_stage_aliases"]
+        self.assertEqual(aliases["preparing"], "drafting")
+        self.assertEqual(aliases["polishing"], "pre-submit")
+        self.assertEqual(aliases["submitting"], "in-review")
+        self.assertEqual(aliases["reseived"], "accepted")
+        self.assertEqual(aliases.get("received"), "accepted")
+        self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
+        self.assertNotIn("preparing", (state.get("pipeline") or {}).get("stage", ""))

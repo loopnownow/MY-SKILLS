@@ -1,24 +1,23 @@
-"""The change ledger must cover the registry's current change_id.
+"""Ledger freshness and assurance vocabulary.
 
-Guards against landing content changes without a VERSION / INTEGRATION_MAP row
-(the 2026-10-20 renames first shipped with `change_id: CHG-20261007-001`).
+Merged from: `test_ledger_freshness.py`.
 """
 from __future__ import annotations
 
+from pathlib import Path
 import re
 import unittest
-from pathlib import Path
-
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1]
-ONE = ROOT / "01_skill-integration"
+from tests.support import (
+    GATES,
+    ONE,
+    ROOT,
+)
+
 CHG_RE = re.compile(r"CHG-(\d{8})")
-
-
 def _registry() -> dict:
     return yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
-
 
 class LedgerFreshness(unittest.TestCase):
     def test_registry_change_id_reaches_both_ledgers(self) -> None:
@@ -45,7 +44,3 @@ class LedgerFreshness(unittest.TestCase):
             reg_date,
             "VERSION.txt is older than the registry change_id",
         )
-
-
-if __name__ == "__main__":
-    unittest.main()
