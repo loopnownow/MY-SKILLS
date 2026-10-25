@@ -46,7 +46,7 @@ Resolution status for response letters -> **A07**.
 ## Mounted capability ids
 
 - `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (A `06_review/base/`)
-- `revise` / `tighten-response` / `response-tone-polisher` -- response path; **final authority A07**; bodies in A `07_response/base/`
+- `revise` / `tighten-response` -- response path; **final authority A07**; bodies in A `07_response/base/` (tone-polish is on-demand inside tighten-response)
 
 ## Modes
 

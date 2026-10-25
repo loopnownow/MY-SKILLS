@@ -53,6 +53,9 @@ counterexamples:
   # Retired path. Venue house style lives in 05_manuscript/base/write-paper/.
   - intent: old-venue-id
     must_not_contain: ["05_manuscript/base/write-venue/"]
+  # Retired path. Tone polish lives in 07_response/base/tighten-response/ (mode tone-polish).
+  - intent: retired-response-tone-polisher
+    must_not_contain: ["07_response/base/response-tone-polisher/"]
   - intent: literature-into-01
     must_not_contain: ["文献 → `01_skill-integration`", "literature → `01_skill-integration`"]
   - intent: reply-into-05

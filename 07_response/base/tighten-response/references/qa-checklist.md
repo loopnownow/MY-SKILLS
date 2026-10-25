@@ -87,6 +87,7 @@ Use this checklist before finalizing a response package or when auditing an exis
 - A missed existing passage is treated as a clarity or visibility problem, not as a reviewer failure.
 - No response says "we already stated this", "this was already explained", "as clearly described", or an equivalent rebuke.
 - When existing material answers the concern, the response gives a direct answer, a supported clarification, and the final manuscript location or a visible placeholder.
+- A tone-only pass (`tone-polish`) keeps the scientific position and the existing point structure. Phrase catalog: `tone_patterns.md` / `polite_expressions.json`. Stance conflicts defer to `tone-and-stance.md`. The pass does not prove the science is right.
 
 ## Actionability
 

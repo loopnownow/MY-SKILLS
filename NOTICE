@@ -46,7 +46,7 @@ Several `05_manuscript/qc/` and `06_review/qc/` checklists and `00_orchestrator/
 ### Upstream packs absorbed in-repo
 
 Upstream bytes that were absorbed into this repo keep their upstream licenses:
-AIPOCH `response-tone-polisher` → `07_response/base/response-tone-polisher/`,
+AIPOCH tone assets (former `response-tone-polisher`, absorbed 2026-10-25) → `07_response/base/tighten-response/` (`references/tone_patterns.md`, `references/polite_expressions.json`, `scripts/tone_polish_main.py`),
 AIPOCH `retraction-watcher` → `03_research/base/retraction-watcher/`.
 Live registry rows use in-repo `my-skills`.
 Do not re-license upstream pack text when syncing.

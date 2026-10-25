@@ -1,4 +1,14 @@
 {
+  "_meta": {
+    "source": "AIPOCH response-tone-polisher",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2026 AIpoch",
+    "upstream": "https://github.com/aipoch/medical-research-skills",
+    "upstream_path": "scientific-skills/Academic Writing/response-tone-polisher/",
+    "absorbed_into": "07_response/base/tighten-response/",
+    "absorbed_on": "2026-10-25",
+    "precedence": "On conflict, references/tone-and-stance.md wins. Point-by-point structure stays the revise fine id. Ignore this _meta key when reading phrase lists."
+  },
   "defensive_patterns": {
     "direct_refusal": {
       "patterns": [

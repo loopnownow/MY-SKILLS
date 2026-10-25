@@ -1,7 +1,7 @@
 ---
 name: "tighten-response"
 domain: "07_response"
-trigger: ["tighten-response", "回复精简", "anti-accretion", "nature-response"]
+trigger: ["tighten-response", "回复精简", "anti-accretion", "nature-response", "语气软化", "tone polish", "礼貌回复", "response tone"]
 outputs: ["skill_output"]
 owner: "07_response/base/tighten-response/MODULE.md"
 ---
@@ -32,7 +32,7 @@ Read [manifest.yaml](manifest.yaml). Then read every file listed under `always_l
 
 Unlike nature-writing or nature-figure, nature-response has no fragment axis. Its variation is identified at runtime, not by loading different content bodies:
 
-- **task mode** — `draft` / `audit` / `revise` / `triage-only` / `cover-letter` / `revision-package` / `latex-template` / `appeal-like`.
+- **task mode** — `draft` / `audit` / `revise` / `triage-only` / `cover-letter` / `revision-package` / `latex-template` / `appeal-like` / `tone-polish`.
 - **decision type** — minor revision, major revision, revise-and-resubmit, transfer after review, or unclear.
 - **user language** — if the user writes Chinese, also produce the 中文核对 (Chinese check) block.
 
@@ -47,6 +47,8 @@ Use `references/intake-and-routing.md` to fix the task mode, minimum inputs, and
 For a local edit or bounded audit, return the revised passage or findings and relevant missing
 facts. Do not expand it into a master tracker, cover letter, or complete revision package unless
 requested. Apply the package workflow below only to the parts needed for the requested output.
+
+`tone-polish` is tone-only. Use it when the draft is already structured and the job is to soften defensive, confrontational, dismissive, or harsh phrasing while keeping the author's scientific position. Do not rebuild point-by-point structure (that stays `revise`) and do not expand a local polish into a full package. Decision type may stay unknown. Load `references/tone_patterns.md` and `references/polite_expressions.json`. Optional mechanical pass: `scripts/tone_polish_main.py` (polish level `light` / `moderate` / `heavy`; response type `accept` / `partial` / `decline`). If a catalog phrase conflicts with `references/tone-and-stance.md`, follow tone-and-stance. The pass does not check scientific accuracy and can over-soften; the author confirms the position is still clear and that specific changes are still named. Best for English. Legacy fine id `response-tone-polisher` was absorbed here (AIPOCH MIT; see `LICENSE_NOTE.txt`).
 
 ### 3. Run the workflow
 
@@ -63,6 +65,6 @@ Never invent experiments, citations, line numbers, figure panels, supplementary 
 
 ### 4. Reach for references only when needed
 
-The files under `references/` and `templates/` are deep resources, not defaults. Open them on demand per the `references.on_demand` table in the manifest — for example `references/comment-taxonomy.md` to classify comments, `references/action-mapping.md` for tracker fields, `references/tone-and-stance.md` for disagreement wording, `references/difficult-cases.md` for impossible experiments / conflicting reviewers / appeal-like cases, `references/chinese-author-alignment.md` for Chinese author notes, `references/latex-templates.md` for `.tex` cover/response/redline outputs, `06_review/qc/forensic-consistency.md` (Layers 1 and 3) / `05_manuscript/qc/manuscript-local-qc.md` (upstream `nature-shared/core/main-text-discipline.md`, not vendored here) for reviewer-driven manuscript additions and evidence relocation, `references/package-consistency-audit.md` whenever the manuscript is edited alongside the letter or the package is about to be compiled and delivered, and `references/qa-checklist.md` before finalizing.
+The files under `references/` and `templates/` are deep resources, not defaults. Open them on demand per the `references.on_demand` table in the manifest — for example `references/comment-taxonomy.md` to classify comments, `references/action-mapping.md` for tracker fields, `references/tone-and-stance.md` for disagreement wording, `references/tone_patterns.md` plus `references/polite_expressions.json` for tone-only polish of an existing draft, `references/difficult-cases.md` for impossible experiments / conflicting reviewers / appeal-like cases, `references/chinese-author-alignment.md` for Chinese author notes, `references/latex-templates.md` for `.tex` cover/response/redline outputs, `06_review/qc/forensic-consistency.md` (Layers 1 and 3) / `05_manuscript/qc/manuscript-local-qc.md` (upstream `nature-shared/core/main-text-discipline.md`, not vendored here) for reviewer-driven manuscript additions and evidence relocation, `references/package-consistency-audit.md` whenever the manuscript is edited alongside the letter or the package is about to be compiled and delivered, and `references/qa-checklist.md` before finalizing.
 
 `qa-checklist.md` and `package-consistency-audit.md` are complementary and both apply to a final package: the first asks whether the response is complete, honest, and well-toned; the second asks whether the marked manuscript, the clean manuscript, and the letter actually agree with each other after editing. For a LaTeX package, run `scripts/check_package_consistency.py` after the first complete draft, after every manuscript edit, and immediately before delivery. Any manuscript edit invalidates the letter's verbatim quotes and page references, so re-run the audit rather than treating it as a one-time final check.

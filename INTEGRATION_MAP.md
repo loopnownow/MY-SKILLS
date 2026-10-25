@@ -12,6 +12,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261025-absorb-tone-polisher — tone polish into tighten-response
+
+- Absorbed `07_response/base/response-tone-polisher/` into `07_response/base/tighten-response/` (tighten-response wins on conflict; stance SSOT is `references/tone-and-stance.md`).
+- Kept: `references/tone_patterns.md`, `references/polite_expressions.json`, `scripts/tone_polish_main.py` (renamed from `scripts/main.py`).
+- On-demand mode `tone-polish`. Point-by-point structure stays `revise`. 选刊 stays in 03 `find-journal`. `check-reporting` was not moved.
+- Retired id: `legacy_aliases.yaml` `response-tone-polisher` → `tighten-response` (cross-pack AIPOCH key retargeted). Dropped the MOUNTED row. Directory deleted. Canonical count 26.
+- Fast routing forbids the retired path `07_response/base/response-tone-polisher/`.
+- MIT attribution stays in `07_response/base/tighten-response/LICENSE_NOTE.txt`.
+
 ## CHG-20261025-absorb-write-venue — venue shape into write-paper
 
 - Absorbed `05_manuscript/base/write-venue/` into `05_manuscript/base/write-paper/` (write-paper wins on conflict; no same-named file overlap).

@@ -18,6 +18,8 @@ aliases:
   nature-polishing: polish-language
   nature-reviewer: simulate-reviewers
   nature-response: tighten-response
+  # 2026-10-25: tone-only polisher absorbed into tighten-response (directory removed).
+  response-tone-polisher: tighten-response
   nature-figure: plot-figures
   nature-data: check-reporting
   scikit-survival: meta-analysis
@@ -28,7 +30,7 @@ aliases:
   05-humanize: humanize
   skills/humanize: humanize
   cross-pack/aipoch/retraction-watcher: retraction-watcher
-  cross-pack/aipoch/response-tone-polisher: response-tone-polisher
+  cross-pack/aipoch/response-tone-polisher: tighten-response
   audit-figure-risk: plot-figures
   scientific-visualization: plot-figures
   manage-refs: verify-refs

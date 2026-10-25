@@ -122,3 +122,7 @@ Prefer calibrated verbs:
 - Limited or associative evidence: `are consistent with`, `may reflect`, `raise the possibility`
 
 If the reviewer challenges causality and the evidence is associative, soften causal verbs before drafting the response.
+
+## Tone-polish catalog
+
+Task mode `tone-polish` loads [tone_patterns.md](tone_patterns.md) and [polite_expressions.json](polite_expressions.json), with optional `scripts/tone_polish_main.py`. Those files are a phrase catalog for an already structured draft. This file remains the stance SSOT: if a catalog sentence conflicts with a rule above, keep the rule here. Point-by-point structure stays `revise`.
