@@ -1,7 +1,7 @@
 # Paper claim audit gate (05 qc · Layer 3)
 
 **Owner:** `00_orchestrator` at G-05 / G-FACT / Integrity · pre-06.
-**Seat:** Independent cold-reader (prefer Lee session or fresh thread). Aitee (05) repairs prose; Loopnow (04) if evidence wrong.
+**Seat:** Independent cold-reader (prefer Lee session or fresh thread). Aitee (05) repairs prose; Loopnow (02) if evidence wrong.
 **Capability body:** `06_review/base/self-review/references/paper-claim-audit.md` (medical/Word workflow).
 **Also compose:** `claim-number-align.md` (CN-1…4). Do **not** re-copy forensic layers — link `06_review/qc/forensic-consistency.md`.
 
@@ -43,7 +43,7 @@ Does the manuscript **report** numbers/comparisons/scope **truthfully** at displ
 
 ## Fail → rollback
 
-- FAIL/BLOCKED → G-FACT HARD; 04/05 local rework; do not enter 06 as clean.
+- FAIL/BLOCKED → G-FACT HARD; 02/05 local rework; do not enter 06 as clean.
 - WARN → comment + fix before submit if assurance ≥ conference-ready.
 - ERROR → re-run; never invent PASS.
 

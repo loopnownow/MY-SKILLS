@@ -3,12 +3,12 @@ name: clinical-translation
 description: >
   Clinical translation, reader studies, and prospective/real-world validation plans.
   Use for 转化, reader study, 读者研究, 临床转化, 前瞻性验证, PACS/RIS.
-  Retrospective AUC is not clinical readiness. Stats → 04_analysis. Figures → 04_analysis.
+  Retrospective AUC is not clinical readiness. Stats → 02_data-processing. Figures → 02_data-processing.
 ---
 
 # Clinical Translation, Reader Studies & Prospective Validation
 
-**Lab personal design supplement** (home `03_research/personal/clinical-translation/`). This is research/translational **DESIGN** (reader study, prospective deployment, regulatory, threshold-to-action) — not seat 02, not seat 04. Generic templates may later mount under `design-study` / `write-protocol`.
+**Lab personal design supplement** (home `03_research/personal/clinical-translation/`). This is research/translational **DESIGN** (reader study, prospective deployment, regulatory, threshold-to-action) — not seat 02, not seat 02. Generic templates may later mount under `design-study` / `write-protocol`.
 
 Use this skill to turn "the model has good retrospective performance" into "the model helps in
 practice." This is the step top journals reward and reviewers demand before any clinical claim:
@@ -24,7 +24,7 @@ evidence.
   cost of errors.
 - **Reader studies are designed, not improvised.** MRMC with washout, randomised order,
   radiologist-alone vs radiologist+AI, reader experience reported, and the right statistic
-  (→ `04_analysis` / `analyze-stats`).
+  (→ `02_data-processing` / `analyze-stats`).
 - **Thresholds map to actions.** Every operating point implies a clinical action and a cost of
   false positives/negatives; net-benefit / decision-curve quantifies it.
 - **Prospective beats retrospective; real-world beats curated.** Plan temporal/prospective/
@@ -64,7 +64,7 @@ evidence.
 5. **Plan prospective/real-world validation** (prospective-deployment.md) — temporal/prospective/
    RWE design, workflow position, monitoring for drift, failure handling.
 6. **Bound the claim** — state exactly what level of evidence supports what level of claim;
-   route statistics to `04_analysis` (`analyze-stats` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
+   route statistics to `02_data-processing` (`analyze-stats` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
 
 ## Output contract
 
@@ -86,8 +86,8 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 
 ## Handoffs
 
-- MRMC / net-benefit / decision-curve statistics → `04_analysis` (`analyze-stats` / `model-evaluation`).
+- MRMC / net-benefit / decision-curve statistics → `02_data-processing` (`analyze-stats` / `model-evaluation`).
 - Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
 - The validation cohort / temporal design → `03_research` (`design-study` / `write-protocol`).
-- Reader-study figures, net-benefit plots → `04_analysis` (mounted `plot-figures`).
+- Reader-study figures, net-benefit plots → `02_data-processing` (mounted `plot-figures`).
 - Plans research and evaluation only; no individual-patient clinical or diagnostic advice.

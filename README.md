@@ -6,9 +6,8 @@ Live medical and imaging research skill library for Grok Bot seats `00`–`07`.
 |------|--------|------|
 | 00 orchestrator | `00_orchestrator` | Intent, skill chain, QC closed loop |
 | 01 skill-integration | `01_skill-integration` | Registry / index / session-pick only |
-| 02 data-processing | `02_data-processing` | Raw → analysis-ready; Excel and batch workspace; imaging prep; extraction; coding principles |
+| 02 data-processing | `02_data-processing` | Raw → analysis-ready; Excel and batch workspace; imaging prep; extraction; coding principles; statistics, prediction, figures (`draw-flowchart` / `plot-figures`) |
 | 03 research | `03_research` | Study design, literature, journal selection, grants, ethics forms |
-| 04 analysis | `04_analysis` | Statistics, prediction, figures (`draw-flowchart` / `plot-figures`) |
 | 05 manuscript | `05_manuscript` | Scientific writing and de-AI |
 | 06 review | `06_review` | Peer review (Lee) |
 | 07 response | `07_response` | Reviewer response (Aitee) |

@@ -1,7 +1,7 @@
 # Review loop state (review → fix → re-review · standards only)
 
 **Owner:** `00_orchestrator` at **G-06** / internal QC loops / Integrity · pre-06 when a multi-round review loop runs.
-**Seat:** Lee (06) owns marks & loop ledger; Aitee (05) Track Changes; Loopnow (04) data/stats repairs; Victor (03) cites. Lee does **not** draft response letters (→ **07**).
+**Seat:** Lee (06) owns marks & loop ledger; Aitee (05) Track Changes; Loopnow (02) data/stats repairs; Victor (03) cites. Lee does **not** draft response letters (→ **07**).
 **Distill of:** ARIS `auto-review-loop` state + `resumable-runs` (host-agnostic). **No** Codex/MCP/runtime install.
 **Compose:** `assurance-audit-chain.md` · `rr-re-review.md` · `review-release-gates.md` · `06_review/qc/assurance-verdicts.md`.
 

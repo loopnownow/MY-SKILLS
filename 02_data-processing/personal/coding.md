@@ -8,7 +8,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 - Large trim / remove dead parts
 - Checkpoint resume / parallel / CUDA
 - dry-run
-- **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 04)
+- **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 02)
 - Write-time code ladder / post-write complexity check (stable method absorption, not an external mount)
 - Research data-processing scripts (R/Python/MATLAB/shell; raw→analysis-ready) release-ready QC
 
@@ -20,7 +20,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 | Deep code QC (five axes / severity / Critical + Code QC Core) | `../qc/coding-qc.md` |
 | Write-time ladder + intensity / guardrails | “Complexity ladder” below |
 
-Medical / Statistical Integrity: **only reference** `04_analysis/qc/report-checks.md` and `04_analysis/personal/pipeline.md`; do not copy gold standards into this skill.
+Medical / Statistical Integrity: **only reference** `02_data-processing/qc/report-checks.md` and `02_data-processing/personal/analysis/pipeline.md`; do not copy gold standards into this skill.
 
 ## Core principles
 
@@ -56,7 +56,7 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - Triggers, severity, Preflight→Verdict, Data Safety / Reproducibility: `../qc/coding-qc.md`
 - Scrap → `0del`, submodule dry-run, no silent success: `../qc/coding-qc.md`
 - Critical/Required/Optional are primary labels; P0–P3 are report aliases
-- Boundary: ≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution); ≠ `preprocess-imaging`; ≠ 04 model/figure QC; ≠ Copilot playbooks/`quality/`
+- Boundary: ≠ archived `skill-harvest/qc` / MY-RULES skills.md (skill-evolution); ≠ `preprocess-imaging`; ≠ 02 model/figure QC; ≠ Copilot playbooks/`quality/`
 - Do not vendor the whole `{code_modules}` tree
 - 00 routing: `gates.md` **G-CODE**
 
@@ -107,7 +107,7 @@ Do **not** delete or weaken for shortness:
 
 - train/test (/ external) isolation; seeds; artifacts / reproducibility dumps
 - dry-run / `--execute`; CONFIG-on-top; checkpoint
-- Stats & data QC (point to `04_analysis/personal/pipeline.md` / `report-checks.md`; do not rewrite gold standards here)
+- Stats & data QC (point to `02_data-processing/personal/analysis/pipeline.md` / `report-checks.md`; do not rewrite gold standards here)
 - Registration / habitat hard QC; Pictologics constraints
 
 **Minimal necessary complexity ≠ fewest lines.** Correctness, reproducibility, auditability first.

@@ -15,7 +15,7 @@ STATE = ROOT / "00_orchestrator" / "templates" / "project-state.yaml"
 HANDOFF = ROOT / "00_orchestrator" / "templates" / "handoff.yaml"
 
 # Canonical gate ids from gates.md table (exclude invented G-HARD / G-QUALITY).
-GATE_IDS = ("G0", "G-PHI", "G-FACT", "G-LIT", "G-CODE", "G-04", "G-05", "G-06", "G-07")
+GATE_IDS = ("G0", "G-PHI", "G-FACT", "G-LIT", "G-CODE", "G-STATS", "G-05", "G-06", "G-07")
 
 
 def gate_ids_from_gates_md(text: str) -> set[str]:
@@ -59,8 +59,9 @@ class GateMmdMap(unittest.TestCase):
 
     def test_mmd_gate_dot_maps_to_g_nn(self) -> None:
         mmd = MMD.read_text(encoding="utf-8")
-        for n in ("04", "05", "06", "07"):
+        for n in ("05", "06", "07"):
             self.assertIn(f"Gate · {n}", mmd)
+        self.assertIn("Gate · STATS", mmd)
         self.assertIn("Gate · NN ↔ gates.md G-NN", mmd)
         md = (ROOT / "00_orchestrator" / "runtime-flow.md").read_text(encoding="utf-8")
         self.assertIn("Gate · NN` ↔ `gates.md` `G-NN`", md)
@@ -84,9 +85,9 @@ class GateMmdMap(unittest.TestCase):
         state = STATE.read_text(encoding="utf-8")
         hand = HANDOFF.read_text(encoding="utf-8")
         for text, label in ((state, "project-state"), (hand, "handoff")):
-            for gid in ("G-FACT", "G-LIT", "G-CODE", "G0", "G-PHI", "G-04", "G-05", "G-06"):
+            for gid in ("G-FACT", "G-LIT", "G-CODE", "G0", "G-PHI", "G-STATS", "G-05", "G-06"):
                 self.assertIn(gid, text, f"{label} missing {gid}")
-        self.assertIn("stage: \"\"          # classify | 02 | 03 | 04 | 05 | 06 | qc | done", state)
+        self.assertIn("stage: \"\"          # classify | 02 | 03 | 05 | 06 | qc | done", state)
         self.assertIn("citation_verify:", state)
         self.assertIn("g_cit_1:", state)
         self.assertIn("g_cit_2:", state)

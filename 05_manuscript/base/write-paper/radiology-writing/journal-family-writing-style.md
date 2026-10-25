@@ -1,6 +1,6 @@
 # Journal-family writing style
 
-Use this reference after the target venue or venue family is known, especially when the user supplies author guides or classic papers and asks for the manuscript to have the journal's "taste." This file controls writing voice and article shape; use `../../../../04_analysis/base/plot-figures/references/journal-family-visual-style.md` for visual design.
+Use this reference after the target venue or venue family is known, especially when the user supplies author guides or classic papers and asks for the manuscript to have the journal's "taste." This file controls writing voice and article shape; use `../../../../02_data-processing/base/plot-figures/references/journal-family-visual-style.md` for visual design.
 
 ## First rule
 

@@ -8,7 +8,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "04_analysis" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
+SCRIPT = ROOT / "02_data-processing" / "personal" / "visualization" / "scripts" / "gen_visualization.py"
 FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
     "generated HTML",
@@ -30,9 +30,9 @@ def load_generator():
 class VisualizationContract(unittest.TestCase):
     def test_contract_files_exist(self) -> None:
         for rel in (
-            "04_analysis/personal/visualization/visualization-architecture.md",
-            "04_analysis/personal/visualization/visualization-source-contract.yaml",
-            "04_analysis/personal/visualization/scripts/gen_visualization.py",
+            "02_data-processing/personal/visualization/visualization-architecture.md",
+            "02_data-processing/personal/visualization/visualization-source-contract.yaml",
+            "02_data-processing/personal/visualization/scripts/gen_visualization.py",
             # ".github/workflows/visualization.yml",  # archived with .github/ 2026-10-17 to 0del
         ):
             self.assertTrue((ROOT / rel).is_file(), rel)
@@ -44,7 +44,7 @@ class VisualizationContract(unittest.TestCase):
         self.assertEqual(built["files"]["build-manifest.json"].count('"schema_version"'), 1)
 
     def test_forbidden_fact_sources_are_listed(self) -> None:
-        text = (ROOT / "04_analysis" / "personal" / "visualization" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
+        text = (ROOT / "02_data-processing" / "personal" / "visualization" / "visualization-source-contract.yaml").read_text(encoding="utf-8")
         for phrase in FORBIDDEN_FACT_SOURCES:
             self.assertIn(phrase, text)
 

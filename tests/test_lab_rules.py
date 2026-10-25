@@ -67,7 +67,7 @@ class Aitor(unittest.TestCase):
 
 class ValMode(unittest.TestCase):
     def test_test_set_does_not_reselect_features(self) -> None:
-        text = read("04_analysis", "personal", "pipeline.md")
+        text = read("02_data-processing", "personal", "analysis", "pipeline.md")
         self.assertIn("VAL_MODE", text)
         self.assertRegex(text, r"[Rr]e-select features on the test set")
         self.assertIn("no new screening", text)
@@ -89,11 +89,11 @@ class Routing(unittest.TestCase):
             r"Excel / \u6279\u5904\u7406 \u2192 `02_data-processing`",
         )
 
-    def test_figures_route_to_04(self) -> None:
+    def test_figures_route_to_02(self) -> None:
         fast = read("00_orchestrator", "references", "fast-routing.md")
         self.assertIn("\u51fa\u56fe", fast)
         five = read("05_manuscript", "SKILL.md")
-        self.assertIn("04_analysis", five)
+        self.assertIn("02_data-processing", five)
         self.assertIn("plot-figures", five)
         self.assertIn("draw-flowchart", five)
         self.assertNotIn("04-fig-flow", five)

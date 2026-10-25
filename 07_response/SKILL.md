@@ -51,4 +51,4 @@ A07 is final authority for Resolved / Partially resolved / Unresolved / New issu
 - Pre-review / peer-review / re-review -> `06_review`
 - Manuscript prose / polish -> `05_manuscript`
 - Literature -> `03_research`
-- Stats / figures -> `04_analysis`
+- Stats / figures -> `02_data-processing`

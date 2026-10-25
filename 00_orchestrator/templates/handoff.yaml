@@ -2,7 +2,7 @@
 # Study-folder aliases: preparing->drafting, polishing->pre-submit, submitting->in-review, reseived/received->accepted (project-state.yaml study_folder_stage_aliases). Do not rewrite already-written folders; do not create DER.
 # at each skill crossing. Leave unknown fields empty. Never invent n, AUC, PMID, or ethics.
 
-from: ""            # 02_data-processing | 03_research | 04_analysis | 05_manuscript | 06_review | 00_orchestrator
+from: ""            # 02_data-processing | 03_research | 02_data-processing | 05_manuscript | 06_review | 00_orchestrator
 to: ""
 objective: ""
 mounted_fine_ids: []  # fine ids picked this session (01 session mount pick); G0 checks against this, not memory
@@ -14,7 +14,7 @@ outputs: []         # paths written this node
 exclusions: []
 unresolved: []
 downstream: []      # required next actions
-qc_gate: ""         # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-04 | G-05 | G-06
+qc_gate: ""         # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-STATS | G-05 | G-06
 qc_result: ""       # pass | fail
 # Optional when crossing 05/06: mirror manuscript.citation_verify from project-state.
 citation_verify:

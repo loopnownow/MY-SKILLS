@@ -86,7 +86,7 @@ Observational contrast may still use *associated with*. Do **not** blanket-ban f
 
 ## Adverbs (new writing and polish)
 
-Reduce adverb use. Short rule, not a lexicon: cut decorative *-ly* softeners and intensifiers. Do **not** ban statistical *significantly* when it is p-value language (already governed in `04_analysis/qc/report-checks.md` / Results reporting).
+Reduce adverb use. Short rule, not a lexicon: cut decorative *-ly* softeners and intensifiers. Do **not** ban statistical *significantly* when it is p-value language (already governed in `02_data-processing/qc/report-checks.md` / Results reporting).
 
 ## Lab-unused stock (0 hits in 389 unique drafts, 2026-08-28)
 

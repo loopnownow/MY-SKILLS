@@ -4,7 +4,7 @@ description: >
   Personal review upper layer (post-QC re-review). Entry for review / pre-review / peer-review / re-review.
   Response letter goes to 07_response (not here).
   Statement consistency before data consistency. Cross-manuscript overlap is commented, not invented.
-  May internally call 04/05/02/03/07. Does not write manuscript body.
+  May internally call 02/03/05/07. Does not write manuscript body.
 ---
 
 # Manuscript Review -- personal upper layer (re-review)
@@ -58,7 +58,7 @@ Resolution status for response letters -> **A07**.
 
 - Response letter -> `07_response`
 - Wording -> `05_manuscript`
-- Stats -> `04_analysis`
+- Stats -> `02_data-processing`
 - Imaging -> `02_data-processing`
 - Literature -> `03_research`
 - Exit -> `00_orchestrator`
@@ -72,4 +72,4 @@ See `personal/review.md` section 0. Response / re-audit resolution status -> `07
 - Response letter -> `07_response`
 - Manuscript prose / polish -> `05_manuscript`
 - Literature / journal select -> `03_research`
-- Stats / figures -> `04_analysis`
+- Stats / figures -> `02_data-processing`

@@ -11,9 +11,9 @@ Abstract claims, Results text, tables, figures, and Conclusions must use the **s
 
 | id | Check | Fail → |
 |---|---|---|
-| CN-1 | n / split / AUC·CI·P in prose match HTML (or named upstream) | 04 (stats) or 05 (prose drift) |
-| CN-2 | Table numbers match the same endpoint HTML | 05 / 04 |
-| CN-3 | Figure values / captions do not contradict tables or Results | 05 / 04 |
+| CN-1 | n / split / AUC·CI·P in prose match HTML (or named upstream) | 02 (stats) or 05 (prose drift) |
+| CN-2 | Table numbers match the same endpoint HTML | 05 / 02 |
+| CN-3 | Figure values / captions do not contradict tables or Results | 05 / 02 |
 | CN-4 | Conclusions do not over-claim beyond Results | 05 Aitee |
 
 Points to **G-FACT** composition in `00_orchestrator/gates.md`. Integrity · pre-06 reuses this when numbers are cited.

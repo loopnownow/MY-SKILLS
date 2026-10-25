@@ -4,7 +4,7 @@ Canonical SOP bodies for lab composites. **00 calls these files directly**; ther
 
 | SOP | When | File |
 |-----|------|------|
-| statistics | image/ROI/features -> 04 HTML | `statistics.md` |
+| statistics | image/ROI/features -> 02 HTML | `statistics.md` |
 | sci-manuscript | HTML -> house draft -> pre-review / response | `sci-manuscript.md` |
 | research-exploration-loop | research gaps / topic exploration | `research-exploration-loop.md` |
 | review-isolation | review isolation / simulate->self/peer | `review-isolation.md` |

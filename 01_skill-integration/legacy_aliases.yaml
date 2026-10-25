@@ -66,10 +66,13 @@ coarse_aliases:
   Topic exploration: topic-explore
   Study design: study-design
   Manuscript body writing: manuscript-body
-  Language polish: language-polish
+  Language polish: manuscript-body
   Data processing: data-processing
   Statistical analysis: stats-analysis
   Figures: figures
   Manuscript review: manuscript-review
   Reviewer response: review-response
   peer-review: manuscript-review
+  # 2026-10-25: coarse language-polish merged into manuscript-body (single-member
+  # group; humanize was the only fine id it carried).
+  language-polish: manuscript-body

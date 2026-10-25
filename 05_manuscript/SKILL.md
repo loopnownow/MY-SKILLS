@@ -4,7 +4,7 @@ description: >
  Personal SCI original-article prose layer (Aitor / Aitor-format / de-AI / pre-submit consistency).
  Triggers: 润色, 去AI, de-AI, 写论文, 引言, Discussion, Aitor-format, 投稿前一致性.
  Mounted writing skills supply generic capability; this layer is the personal upper
- layer and final wording authority. Literature research → 03. Figures → 04.
+ layer and final wording authority. Literature research → 03. Figures → 02.
  Reviewer response → 07. Do not use for 评阅 or 回复审稿人.
 ---
 
@@ -62,7 +62,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 ## Figures
 
-**Figures → `04_analysis`** (mounted `plot-figures` / `draw-flowchart`, + `04_analysis/personal/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `02_data-processing`** (mounted `plot-figures` / `draw-flowchart`, + `02_data-processing/personal/analysis/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 
@@ -89,7 +89,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 
 - Pre-submission / 模拟审稿 / 评阅 → `06_review` (response -> `07_response`)
 - Response letter / 回复审稿人 → `07_response`
-- Statistics / figures → `04_analysis`
+- Statistics / figures → `02_data-processing`
 - Literature landscape / 选刊 / where to submit → `03_research` (`personal/journal-selection.md`)
 
 
@@ -98,7 +98,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 05 personal may request siblings via `00_orchestrator/templates/handoff.yaml`. Do not silently edit other skills' files.
 
 - Literature / 选刊 / evidence → `03_research`
-- Numbers / figures → `04_analysis`
+- Numbers / figures → `02_data-processing`
 - Tables / imaging prep → `02_data-processing`
 - Pre-review / response entry → `06_review` (response -> `07_response`)
 - Cross-skill or exit QC → `00_orchestrator` decides whether to invoke

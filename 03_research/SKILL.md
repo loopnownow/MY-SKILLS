@@ -7,7 +7,7 @@ description: >
  reader study, lit-search, find-journal, fill-protocol.
  Literature enters here only -- never via 01.
  Personal layer is the A03 top authority (route/handoff/triggers), not a supplement-only folder.
- Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 04.
+ Manuscript prose -> 05. Review -> 06. Response -> 07. Stats -> 02.
 ---
 
 # Research Design & Evidence -- personal top layer
@@ -87,6 +87,6 @@ Full rules: `01_skill-integration/workflows/question-to-reference.md`. 00 choose
 
 - Manuscript prose -> `05_manuscript`
 - Review -> `06_review`; Response -> `07_response`
-- Statistics / figures -> `04_analysis`
+- Statistics / figures -> `02_data-processing`
 - Data prep -> `02_data-processing`
 - Project journal lists -> `<project>/ref/` only

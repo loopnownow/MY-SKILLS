@@ -6,14 +6,14 @@
 
 Lightweight **signals** on raw numeric tables. Human review decides; nothing here proves misconduct.
 
-Raw measurement table QC signals: leading-digit distribution, terminal-digit preference, between-group SD smoothness heuristic, optional near-duplicate rows. Use when auditing assay/clinical numeric tables before analysis. Not for code structure QC (`personal/coding.md` / `../qc/coding-qc.md`), imaging ROI QC, skill-harvest evolution, or reported NHST/Table1 math (`04_analysis/qc/report-checks.md`).
+Raw measurement table QC signals: leading-digit distribution, terminal-digit preference, between-group SD smoothness heuristic, optional near-duplicate rows. Use when auditing assay/clinical numeric tables before analysis. Not for code structure QC (`personal/coding.md` / `../qc/coding-qc.md`), imaging ROI QC, skill-harvest evolution, or reported NHST/Table1 math (`02_data-processing/qc/report-checks.md`).
 
 ## Boundaries
 
 - Not `personal/coding.md` / `qc/coding-qc.md` (deep code QC)
 - Not archived `skill-harvest/qc/` / MY-RULES skills.md (skill-evolution)
 - Not `preprocess-imaging`
-- Reported stats consistency → `04_analysis/qc/report-checks.md`
+- Reported stats consistency → `02_data-processing/qc/report-checks.md`
 - No vendored checker scripts in this pack; Loopnow/Build may implement runners later
 
 ## Upstream (links only)

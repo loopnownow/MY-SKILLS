@@ -22,11 +22,11 @@ Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/referen
 | Data Safety (Security extended) | PHI/PII; secrets/tokens in code/logs/outputs; do not overwrite raw without explicit ask and versioning; output pollution; **keep** local console CORS and whether paths are project-scoped |
 | Performance | High-dim correlation matrices, repeated full-table scans, needless full precompute; do not optimize without a clear perf problem |
 | Testability / Verification | Unit / smoke / synthetic regression; for research scripts prefer sanity (n, dims, NA, ranges, output counts) and edge cases — **do not require** production-grade coverage |
-| Medical / Statistical Integrity | **Only point to** `04_analysis/personal/pipeline.md` and `04_analysis/qc/report-checks.md`; do not rewrite methods in this skill |
+| Medical / Statistical Integrity | **Only point to** `02_data-processing/personal/analysis/pipeline.md` and `02_data-processing/qc/report-checks.md`; do not rewrite methods in this skill |
 | Reproducibility (Core add) | Inputs, params, env, seeds, paths, outputs enough to reproduce; pin when possible; confirm train/test separation on split |
-| Boundary (P2 add-on) | 02 must not own statistical modeling / manuscript writing / review QC (→ 04 / 05 / 06) |
+| Boundary (P2 add-on) | 02 must not own statistical modeling / manuscript writing / review QC (→ 02 / 05 / 06) |
 
-Medical axis must cross-check (pointers; body in `04_analysis/personal/pipeline.md` / `report-checks.md`):
+Medical axis must cross-check (pointers; body in `02_data-processing/personal/analysis/pipeline.md` / `report-checks.md`):
 - AUC 95% CI = 1000 bootstrap; paired DeLong is a **p**, not a CI
 - LASSO / pre-filter / impute / scale / NZV / corr filter: fit **inside folds**; forbid full-training-set pre-filter then CV
 - VAL_MODE ∈ {refit, apply_formula, lock_threshold}; do not re-select features
@@ -91,9 +91,9 @@ Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, 
 
 ## Explicit do-nots
 - Do not vendor whole-tree `.py` / patient tables / project Excel into GitHub
-- Do not turn the Medical axis into a second copy of 04 gold standards
+- Do not turn the Medical axis into a second copy of 02 gold standards
 - Do not conflate archived skill-harvest `repo_qc.py` with this flow
-- ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 04 model/figure QC; ≠ mount Copilot playbooks/`quality/` / Council / CI
+- ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 02 model/figure QC; ≠ mount Copilot playbooks/`quality/` / Council / CI
 - Do not add `02_data-processing/code-qc.md`, `coding-principles.md`, or `code-qc/` / `quality/` / `testing/` directories
 
 ## Post-write complexity check (stable ladder consensus)

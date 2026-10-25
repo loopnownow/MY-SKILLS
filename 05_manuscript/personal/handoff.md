@@ -5,7 +5,7 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Need | Seat / skill |
 |---|---|
 | Literature / Evidence Pack / 选刊 | `03_research` |
-| Numbers / figures | `04_analysis` |
+| Numbers / figures | `02_data-processing` |
 | Tables / imaging prep | `02_data-processing` |
 | Pre-review / re-review | `06_review` |
 | Response letter | `07_response` |

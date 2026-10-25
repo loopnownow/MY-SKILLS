@@ -28,7 +28,7 @@ call/require 03 citation-verify — do not self-certify lit (`03_research/person
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
-Run **statement consistency first** (the manuscript agrees with itself), then **data consistency**. Check ids and writing actions are the list in `05_manuscript/qc/manuscript-local-qc.md`. Statistical definitions are in `04_analysis/qc/report-checks.md`.
+Run **statement consistency first** (the manuscript agrees with itself), then **data consistency**. Check ids and writing actions are the list in `05_manuscript/qc/manuscript-local-qc.md`. Statistical definitions are in `02_data-processing/qc/report-checks.md`.
 
 **Data conflict:** annotate every locus. Do not invent *n*, *P*, *t*, cutoff, quartile, overlap count, or a corrected statistic. Do not pick which of two printed numbers is right. A back-calculation in the comment is labeled an estimate and does not enter the manuscript.
 
