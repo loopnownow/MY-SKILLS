@@ -85,7 +85,8 @@ Rewrite flagged passages with each pattern's fix from `ai_patterns.md`, under th
  keep it; if nothing disappears, it was decoration — cut it. Judge by the manuscript's overall
  rate, not instance by instance, and keep two or three for emphasis. Rewrite clefts ("What … is
  …", "It is … that …") in plain subject-verb order ("What matters is X" → "X matters").
- `scripts/check_rhetorical_density.py` (in `/self-review`) measures this in Phase 4.
+ the antithesis/cleft rate is checked by hand in Phase 4 (detector not shipped — see
+**Detector status**).
 
 **Output:** Present the rewritten text with changes highlighted using diff format or tracked changes.
 
@@ -144,7 +145,7 @@ All 27 are defined in `references/ai_patterns.md`. Two carry rules to apply exac
 
 | # | Pattern | What to look for | Fix |
 |---|---------|------------------|-----|
-| 13 | Em dash overuse | More than 2 em dashes per 1000 words (the `/self-review` classical-style gate fails a manuscript above 25 prose em-dashes) | Use parentheses or restructure. **After converting `— X —` appositives to `(X)`, run the paren-span safety scan** (`python3 "../self-review/scripts/check_paren_spans.py"`): a bulk conversion can pair two *unrelated* dashes across a sentence boundary and wrap a whole sentence (or an ordinal "Sixth, …" limitation) inside one parenthesis — paren-balanced but broken, so a balance check misses it. Operate per-sentence; never match across `. ` |
+| 13 | Em dash overuse | More than 2 em dashes per 1000 words (the upstream classical-style gate fails a manuscript above 25 prose em-dashes) | Use parentheses or restructure. **After converting `— X —` appositives to `(X)`, run the paren-span safety scan by hand** (detector not shipped — see **Detector status**): a bulk conversion can pair two *unrelated* dashes across a sentence boundary and wrap a whole sentence (or an ordinal "Sixth, …" limitation) inside one parenthesis — paren-balanced but broken, so a balance check misses it. Operate per-sentence; never match across `. ` |
 | 21 | AI Disclosure boilerplate (body) | "## Artificial Intelligence Disclosure", "Generative AI was not used to create..." in manuscript body | Put it where the target journal asks (the journal profile's `Disclosure location`): Methods or Acknowledgments for some journals, cover letter, title page or submission form only for others. Do not delete a disclosure the journal requires in the body |
 
 Patterns 22-24 apply only to response-to-reviewers letters and editor cover letters, not
@@ -158,15 +159,32 @@ authoring guidance, see the revise skill's `references/r2r_voice.md`.
 | Gate | Severity | Trigger | Action on fail |
 |---|---|---|---|
 | AI-pattern density target | ADVISORY | density > 2.0 patterns / 1000 words after sweep | warn; surface remaining flagged passages for manual review |
-| Pattern 13 — paren-span corruption after em-dash conversion | ENFORCED | after a `— X —` → `(X)` sweep | run `python3 "../self-review/scripts/check_paren_spans.py" --strict`; `PAREN_SPAN_ORDINAL` / `PAREN_SPAN_SENTENCE` means a conversion wrapped a sentence/ordinal inside parens — fix before finalizing |
+| Pattern 13 — paren-span corruption after em-dash conversion | ENFORCED · manual | after a `— X —` → `(X)` sweep | per-sentence scan by hand (detector not shipped — see **Detector status**); `PAREN_SPAN_ORDINAL` / `PAREN_SPAN_SENTENCE` means a conversion wrapped a sentence/ordinal inside parens — fix before finalizing |
 | Pattern 19 — `§` symbol | ENFORCED (senior MA reviewer prep) | `grep -c "§" manuscript.md` > 0 | auto-strip; verify post-rewrite count == 0 |
 | Pattern 20 — `(see Methods §X)` self-reference | ENFORCED | match found | rewrite to direct section name reference |
 | Pattern 21 — AI disclosure in the wrong place | ENFORCED | an AI-use disclosure in the body of a journal that wants it elsewhere, or repeated in several places | move it to where the target journal asks (journal profile); never reword a required disclosure to hide the tool |
-| Pattern 26 — aphorism density | ENFORCED | negative-definition rate AND short-declarative share both over threshold | run `python3 "../self-review/scripts/check_aphorism_density.py" --manuscript manuscript.md`; `APHORISM_DENSITY` (Minor) means the prose is a run of epigrams with the explanatory sentences compressed out — absorb most of them into the neighbouring sentence and write the explanation back, keeping two or three for emphasis; do NOT simply delete them, which shortens the prose further |
-| Pattern 27 — antithesis / cleft density | ENFORCED | "rather than" / "not X but Y" / "X, not Y" or "What … is …" / "It is … that …" over a per-1000 threshold AND raw-count floor | run `python3 "../self-review/scripts/check_rhetorical_density.py" --manuscript manuscript.md`; `ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (both Minor) — apply Fix rule 8 (the M2 test). A lone functional "rather than" or "instead of" never fires |
-| Pattern 25 — inline-emphasis over-use | ENFORCED | italic-emphasis density over threshold after allowlist | run `python3 "../self-review/scripts/check_emphasis_density.py" --manuscript manuscript.md`; `EMPHASIS_OVERUSE` (Minor) means strip inline italics (keep only stat symbols / Latin / gene-species); whole-clause italics are the strongest tell |
+| Pattern 26 — aphorism density | ENFORCED · manual | negative-definition rate AND short-declarative share both over threshold | rate check by hand (detector not shipped — see **Detector status**); `APHORISM_DENSITY` (Minor) means the prose is a run of epigrams with the explanatory sentences compressed out — absorb most of them into the neighbouring sentence and write the explanation back, keeping two or three for emphasis; do NOT simply delete them, which shortens the prose further |
+| Pattern 27 — antithesis / cleft density | ENFORCED · manual | "rather than" / "not X but Y" / "X, not Y" or "What … is …" / "It is … that …" over a per-1000 threshold AND raw-count floor | rate check by hand (detector not shipped — see **Detector status**); `ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (both Minor) — apply Fix rule 8 (the M2 test). A lone functional "rather than" or "instead of" never fires |
+| Pattern 25 — inline-emphasis over-use | ENFORCED · manual | italic-emphasis density over threshold after allowlist | rate check by hand (detector not shipped — see **Detector status**); `EMPHASIS_OVERUSE` (Minor) means strip inline italics (keep only stat symbols / Latin / gene-species); whole-clause italics are the strongest tell |
 | Patterns 22-24 — R2R editing-mechanism / draft line-number / tooling leak | TRIAGE (response letters); `§` = 0 hard | detection greps in ai_patterns.md R2R section surface candidates | review each hit (analysis narration, quoted additions, revised-manuscript page/line are NOT tells); rewrite confirmed tells to substantive prose |
 | Citation preservation invariant | ENFORCED | a citation item (each key of a multi-key or locator Pandoc citation, or a numeric marker) removed or changed, or moved out of the sentence of the word it was attached to while that word kept its place | `scripts/check_rewrite_fidelity.py --before <pre> --after <post> --strict` → `CITATION_DROP` / `CITATION_MOVED` (Major); revert that single rewrite and flag for the user |
 | Numerical preservation invariant | ENFORCED | a numeric token's count changed (sign, inequality sign and %-direction are part of the token; writing a sign out in words also fires), or values traded places while the words around them stayed | same script → `NUMBER_DRIFT` / `NUMBER_REASSIGNED` (Major); revert and flag. Known limits: a negation, a number written in words, a unit, or a direction word next to a non-percentage is not checked — read the diff for these |
 | Rewrite footprint | ADVISORY | fraction of word tokens changed exceeds `--warn-pct` (default 70) | `EDIT_FOOTPRINT_HIGH` (Minor) — never blocks; read the diff (Phase 4) |
 | Fix rule 7 — sentence-length uniformity | ADVISORY | prose has no short (≤12 words) or no long (≥25 words) sentences | `scripts/check_sentence_variety.py --manuscript <file>` → `SENTENCE_UNIFORM` (Minor); break up or combine sentences until both bands exist. Silent below 15 sentences |
+
+## Detector status
+
+Two detectors ship with this pack and are the only runnable commands in it:
+
+| Script | Covers |
+|---|---|
+| `scripts/check_rewrite_fidelity.py` | citation + numerical preservation, rewrite footprint |
+| `scripts/check_sentence_variety.py` | Fix rule 7 sentence-length bands |
+
+**Not shipped:** `check_paren_spans.py` (Pattern 13), `check_emphasis_density.py` (25),
+`check_aphorism_density.py` (26), `check_rhetorical_density.py` (27), `check_classical_style.py`
+(Pattern 21 body disclosure). They live in the upstream `self-review` pack this text was absorbed
+from; this repo does not carry them. The four gates above are therefore marked `ENFORCED · manual`
+and are checked by hand against `references/ai_patterns.md`. Do not run the old
+`../self-review/scripts/...` paths — they do not resolve from this pack.
+
