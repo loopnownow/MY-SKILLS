@@ -24,7 +24,7 @@ Run capability steps in `doi-crossref-field-audit.md`. Gate uses these severity 
 | **Warning** | Volume-year ≠ DOI year; Early-Access metadata drift; missing issue; pages off ≤4; middle-initial drift | May PASS with Word comment / `Check suggested` |
 | **Info** | Title case; journal abbrev vs full; `&` vs `and` | Advisory only |
 
-Per-item confidence: `Verified` | `Check suggested` | `Needs fix` | `Unverifiable`.  
+Per-item confidence: `Verified` | `Check suggested` | `Needs fix` | `Unverifiable`.
 DOI-first: resolve Crossref `works/<DOI>` before title+author fallback. Non-Crossref (CNKI, old IEEE 404, theses) → fallback sources; do not invent DOI/PMID.
 
 **PASS:** RV-1–4 clean or commented.

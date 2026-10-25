@@ -1,6 +1,6 @@
 # Writing voice portrait (Aitor / Jinshan)
 
-Personal upper layer for **writing**. Corpus: multi-paper Track Changes + comments (SCI medical).  
+Personal upper layer for **writing**. Corpus: multi-paper Track Changes + comments (SCI medical).
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.
 
 **Locks (2026-09-24 / 2026-10-01):** keep **set** (`training` / `test` / `validation set`); **short sentences** (one fact per sentence) **inside continuous paragraphs**; figure legends **below** figures; Discussion **not** compressed by page quota.

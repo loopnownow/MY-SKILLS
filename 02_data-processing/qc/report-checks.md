@@ -120,7 +120,7 @@ Use this checklist when polishing Results and Methods sections.
 
 ## Stats consistency (reported results)
 
-Use when polishing or reviewing **already reported** numbers (Table 1, NHST lines, HR/OR with CI).  
+Use when polishing or reviewing **already reported** numbers (Table 1, NHST lines, HR/OR with CI).
 Raw measurement tables → `02_data-processing/personal/table-signals.md`.
 
 ### Division of labor

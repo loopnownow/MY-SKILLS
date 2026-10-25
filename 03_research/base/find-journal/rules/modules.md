@@ -57,9 +57,9 @@ JEI  = f(JDI, Capacity, Reviewability)
 
 **Dynamic weighting by user constraints** (no fixed weights baked in as policy):
 
-- Speed-focused → raise review speed, acceptance difficulty, capacity  
-- Q1-required → raise JCR/JIF/JCI/CAS importance  
-- OA/APC limits → hard constraints, not soft score pads  
+- Speed-focused → raise review speed, acceptance difficulty, capacity
+- Q1-required → raise JCR/JIF/JCI/CAS importance
+- OA/APC limits → hard constraints, not soft score pads
 
 Emit confidence when approximating. Do **not** copy external Fit Score fixed weights (e.g. Scope 30% / Impact 20% / …) into this pack.
 

@@ -195,7 +195,7 @@ Scan by chapter when writing; write what applies, skip the rest. English = polit
 
 **Citation-verify failure (dual track; write into the comment; user decides):**
 1. **Change-the-prose plan** (word/sentence): before / after.
-2. **Keep-the-prose plan:** hand off to 03 to find a replacement that supports the current sentence (real PMID/DOI).  
+2. **Keep-the-prose plan:** hand off to 03 to find a replacement that supports the current sentence (real PMID/DOI).
 Whether 03 is actually called → **00 decides at QC**; if unsure, ask the user one question. The replacement carries only that paper's real info; old-paper numbers do not migrate.
 
 #### 4.8 Figures & Tables
@@ -266,8 +266,8 @@ Pre-submit self-check (four axes):
 
 ## Review comment habits (Aitor / Jinshan)
 
-Personal upper layer for **review** / pre-submission pre-review (find defects, emit comments and actionable requests).  
-Journal-facing English envelope stays in `review.md`.  
+Personal upper layer for **review** / pre-submission pre-review (find defects, emit comments and actionable requests).
+Journal-facing English envelope stays in `review.md`.
 This file is the **consistency-first** habit layer.
 
 **Locks (2026-09-24):** do **not** teach minimal `?` / bare “核实” as the house style. Lead with **statement consistency**, then **data consistency**, then integrity stops.
@@ -376,7 +376,7 @@ Undecidable issues: Chinese 批注 plus English suggested wording and/or suggest
 
 ### 5.2 Chinese manuscript-comment five slots (稿面批注; Lab-STE CM-01)
 
-Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please…).  
+Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please…).
 **Chinese Word face comments** (author field still **A**; source tag at text start) use five fixed slots, one problem per comment:
 
 1. **位置** — line range, or `节 第n段第m句`, or Figure/Table id. Prefer precise patterns; coarse location-only wording (e.g. methods section alone) is should_fix.

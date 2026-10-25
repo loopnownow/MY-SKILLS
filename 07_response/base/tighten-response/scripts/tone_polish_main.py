@@ -66,11 +66,11 @@ class PolishResult:
 class TonePolisher:
     """
     Main class for polishing response letter tone.
-    
-    Transforms defensive or harsh language into professional, 
+
+    Transforms defensive or harsh language into professional,
     courteous academic prose while preserving scientific positions.
     """
-    
+
     # Defensive/harsh patterns and their polished alternatives
     TONE_PATTERNS = {
         # Direct refusals
@@ -99,7 +99,7 @@ class TonePolisher:
             "issue_type": "confrontational",
             "severity": 0.7
         },
-        
+
         # Defensive statements
         r"\b[Tt]he reviewer is (?:wrong|incorrect|mistaken)\b": {
             "replacement": "We respectfully note that",
@@ -121,7 +121,7 @@ class TonePolisher:
             "issue_type": "defensive",
             "severity": 0.7
         },
-        
+
         # Blame shifting
         r"\b[Tt]he reviewer (?:misunderstood|misinterpreted|did not understand)\b": {
             "replacement": "We apologize for the lack of clarity; we have revised",
@@ -133,7 +133,7 @@ class TonePolisher:
             "issue_type": "blame_shifting",
             "severity": 0.85
         },
-        
+
         # Dismissive language
         r"\b[Tt]his is (?:unnecessary|not needed|redundant)\b": {
             "replacement": "While we appreciate this suggestion, we believe the current presentation adequately addresses this point",
@@ -150,7 +150,7 @@ class TonePolisher:
             "issue_type": "dismissive",
             "severity": 0.65
         },
-        
+
         # Overly casual/direct
         r"\b[Ii]t's not our (?:fault|problem)\b": {
             "replacement": "This reflects an inherent limitation that we have now addressed",
@@ -162,7 +162,7 @@ class TonePolisher:
             "issue_type": "unprofessional",
             "severity": 0.85
         },
-        
+
         # Emotional/overly apologetic
         r"\b[Uu]nfortunately,? we (?:cannot|can't|are unable to)\b": {
             "replacement": "We are unable to",
@@ -175,7 +175,7 @@ class TonePolisher:
             "severity": 0.5
         },
     }
-    
+
     # Polite academic expression library
     POLITE_EXPRESSIONS = {
         "acknowledgments": [
@@ -217,21 +217,21 @@ class TonePolisher:
             "We have clarified this point by",
         ]
     }
-    
+
     def __init__(self, polish_level: PolishLevel = PolishLevel.MODERATE):
         self.polish_level = polish_level
         self.context_noun = "approach"  # Default noun for replacements
-        
+
     def analyze_tone(self, text: str) -> Tuple[float, List[ToneIssue]]:
         """
         Analyze the tone of a draft response.
-        
+
         Returns:
             Tuple of (defensiveness_score, list_of_issues)
         """
         issues = []
         total_severity = 0
-        
+
         for pattern, info in self.TONE_PATTERNS.items():
             matches = list(re.finditer(pattern, text, re.IGNORECASE))
             for match in matches:
@@ -243,16 +243,16 @@ class TonePolisher:
                 )
                 issues.append(issue)
                 total_severity += info["severity"]
-        
+
         # Calculate overall defensiveness score (0-1)
         word_count = len(text.split())
         if word_count > 0:
             defensiveness_score = min(1.0, total_severity / (word_count / 20 + 1))
         else:
             defensiveness_score = 0.0
-            
+
         return defensiveness_score, issues
-    
+
     def polish(
         self,
         reviewer_comment: str,
@@ -262,40 +262,40 @@ class TonePolisher:
     ) -> PolishResult:
         """
         Polish a draft response to make it more professional and courteous.
-        
+
         Args:
             reviewer_comment: The original reviewer comment
             draft_response: The author's draft response
             response_type: Type of response (accept/partial/decline)
             polish_level: Level of polishing to apply
-            
+
         Returns:
             PolishResult containing polished response and metadata
         """
         if polish_level:
             self.polish_level = polish_level
-            
+
         # Auto-detect response type if not provided
         if not response_type:
             response_type = self._detect_response_type(draft_response)
-        
+
         # Analyze original tone
         original_tone_score, issues = self.analyze_tone(draft_response)
-        
+
         # Generate polished response
         polished = self._generate_polished_response(
             reviewer_comment, draft_response, response_type, issues
         )
-        
+
         # Calculate politeness score
         politeness_score = self._calculate_politeness(polished)
-        
+
         # Generate improvements list
         improvements = self._generate_improvements_list(issues, polished)
-        
+
         # Generate additional suggestions
         suggestions = self._generate_suggestions(reviewer_comment, polished)
-        
+
         return PolishResult(
             polished_response=polished,
             original_tone_score=original_tone_score,
@@ -303,7 +303,7 @@ class TonePolisher:
             improvements=improvements,
             suggestions=suggestions
         )
-    
+
     def _detect_response_type(self, draft_response: str) -> ResponseType:
         """Auto-detect the type of response based on content."""
         decline_indicators = [
@@ -315,17 +315,17 @@ class TonePolisher:
             r"\bhave revised\b", r"\bhave changed\b", r"\bhave updated\b",
             r"\bthank you\b", r"\bagree\b", r"\bmodified\b"
         ]
-        
+
         decline_count = sum(1 for p in decline_indicators if re.search(p, draft_response, re.I))
         accept_count = sum(1 for p in accept_indicators if re.search(p, draft_response, re.I))
-        
+
         if decline_count > accept_count:
             return ResponseType.DECLINE
         elif accept_count > 0:
             return ResponseType.ACCEPT
         else:
             return ResponseType.PARTIAL
-    
+
     def _generate_polished_response(
         self,
         reviewer_comment: str,
@@ -334,10 +334,10 @@ class TonePolisher:
         issues: List[ToneIssue]
     ) -> str:
         """Generate the polished response text."""
-        
+
         # Start with acknowledgment
         result_parts = []
-        
+
         # Add appropriate opening based on response type
         if response_type == ResponseType.ACCEPT:
             opener = self._select_expression("acknowledgments")
@@ -351,10 +351,10 @@ class TonePolisher:
             opener = self._select_expression("acknowledgments")
             result_parts.append(opener)
             result_parts.append(self._transform_to_decline(draft_response))
-        
+
         # Apply pattern-based replacements
         polished = " ".join(result_parts)
-        
+
         # Apply specific pattern replacements
         for pattern, info in self.TONE_PATTERNS.items():
             replacement = info["replacement"]
@@ -363,40 +363,40 @@ class TonePolisher:
             if "{verb}" in replacement:
                 # Extract verb from context - simplified
                 replacement = replacement.format(verb="make this change")
-            
+
             polished = re.sub(pattern, replacement, polished, flags=re.IGNORECASE)
-        
+
         # Clean up and format
         polished = self._clean_text(polished)
-        
+
         return polished
-    
+
     def _select_expression(self, category: str) -> str:
         """Select a polite expression from the library."""
         import random
         expressions = self.POLITE_EXPRESSIONS.get(category, ["Thank you for this comment."])
         return random.choice(expressions)
-    
+
     def _transform_to_acceptance(self, draft: str) -> str:
         """Transform draft into acceptance language."""
         # Remove defensive prefixes
         cleaned = re.sub(r"^\s*(?:[Bb]ut|[Hh]owever)\s*,?\s*", "", draft)
-        
+
         # Add change language if not present
         if not re.search(r"\b(?:have revised|have changed|have updated|have modified)\b", cleaned, re.I):
             return f"We have revised the manuscript as suggested. {cleaned}"
         return cleaned
-    
+
     def _transform_to_partial(self, draft: str) -> str:
         """Transform draft into partial acceptance language."""
         # Start with partial acceptance framing
         return draft
-    
+
     def _transform_to_decline(self, draft: str) -> str:
         """Transform draft into respectful decline language."""
         # Replace harsh refusals with polite alternatives
         return draft
-    
+
     def _clean_text(self, text: str) -> str:
         """Clean up and format the text."""
         # Fix spacing
@@ -411,7 +411,7 @@ class TonePolisher:
         if text and not text.endswith((".", "!", "?")):
             text += "."
         return text
-    
+
     def _calculate_politeness(self, text: str) -> float:
         """Calculate a politeness score for the text."""
         polite_indicators = [
@@ -419,18 +419,18 @@ class TonePolisher:
             r"\brespectfully\b", r"\bcarefully considered\b",
             r"\bvaluable\b", r"\binsightful\b", r"\bconstructive\b"
         ]
-        
+
         rude_indicators = [
             r"\bwrong\b", r"\bincorrect\b", r"\bdisagree\b(?!\s+with)",
             r"\bnot\s+(?:correct|true|accurate)\b", r"\byou\s+(?:are|have)\s+(?:wrong|mistaken)"
         ]
-        
+
         polite_count = sum(1 for p in polite_indicators if re.search(p, text, re.I))
         rude_count = sum(1 for p in rude_indicators if re.search(p, text, re.I))
-        
+
         score = 0.5 + (polite_count * 0.1) - (rude_count * 0.2)
         return max(0.0, min(1.0, score))
-    
+
     def _generate_improvements_list(
         self,
         issues: List[ToneIssue],
@@ -447,24 +447,24 @@ class TonePolisher:
                 "severity": issue.severity
             })
         return improvements
-    
+
     def _generate_suggestions(self, reviewer_comment: str, polished: str) -> List[str]:
         """Generate additional suggestions for improvement."""
         suggestions = []
-        
+
         # Check for missing location references
         if not re.search(r"\b(?:[Pp]age|[Ll]ine|[Ff]igure|[Tt]able)\b", polished):
             suggestions.append("Consider adding page/line references to help reviewers locate changes.")
-        
+
         # Check for rationale in decline situations
         if "respectfully" in polished.lower() and "because" not in polished.lower():
             suggestions.append("When declining suggestions, provide a brief rationale.")
-        
+
         # Check length
         word_count = len(polished.split())
         if word_count < 20:
             suggestions.append("The response is quite brief; consider adding more detail about the changes made.")
-        
+
         return suggestions
 
 
@@ -477,21 +477,21 @@ def interactive_mode():
     print("This tool helps polish your responses to peer reviewers.")
     print("It transforms defensive or harsh language into professional, courteous prose.")
     print()
-    
+
     # Get polish level
     print("Select polish level:")
     print("  1. Light (minimal changes)")
     print("  2. Moderate (recommended)")
     print("  3. Heavy (aggressive polishing)")
     level_choice = input("Choice (1-3): ").strip() or "2"
-    
+
     level_map = {
         "1": PolishLevel.LIGHT,
         "2": PolishLevel.MODERATE,
         "3": PolishLevel.HEAVY
     }
     polish_level = level_map.get(level_choice, PolishLevel.MODERATE)
-    
+
     # Get reviewer comment
     print("\n" + "-" * 70)
     print("Paste the REVIEWER COMMENT below (type 'END' on new line when done):")
@@ -503,7 +503,7 @@ def interactive_mode():
             break
         lines.append(line)
     reviewer_comment = "\n".join(lines)
-    
+
     # Get draft response
     print("\n" + "-" * 70)
     print("Paste your DRAFT RESPONSE below (type 'END' on new line when done):")
@@ -515,36 +515,36 @@ def interactive_mode():
             break
         lines.append(line)
     draft_response = "\n".join(lines)
-    
+
     # Process
     print("\n" + "=" * 70)
     print("Polishing your response...")
     print("=" * 70)
-    
+
     polisher = TonePolisher(polish_level=polish_level)
     result = polisher.polish(reviewer_comment, draft_response)
-    
+
     # Display results
     print("\n📊 TONE ANALYSIS:")
     print(f"   Original defensiveness score: {result.original_tone_score:.2f}/1.0")
     print(f"   Politeness score: {result.politeness_score:.2f}/1.0")
-    
+
     if result.improvements:
         print(f"\n🔧 IMPROVEMENTS MADE ({len(result.improvements)}):")
         for i, imp in enumerate(result.improvements[:5], 1):
             print(f"   {i}. [{imp['issue_type'].replace('_', ' ').title()}]")
             print(f"      Original: \"{imp['original_phrase'][:50]}...\" " if len(imp['original_phrase']) > 50 else f"      Original: \"{imp['original_phrase']}\"")
-    
+
     if result.suggestions:
         print(f"\n💡 SUGGESTIONS:")
         for i, sug in enumerate(result.suggestions, 1):
             print(f"   {i}. {sug}")
-    
+
     print("\n" + "=" * 70)
     print("✨ POLISHED RESPONSE:")
     print("=" * 70)
     print(result.polished_response)
-    
+
     # Save option
     save = input("\n\nSave to file? (filename or 'n'): ").strip()
     if save and save.lower() != 'n':
@@ -597,42 +597,42 @@ def main():
         action="store_true",
         help="Output as JSON"
     )
-    
+
     args = parser.parse_args()
-    
+
     if args.interactive or (not args.reviewer_comment and not args.draft_response):
         interactive_mode()
         return
-    
+
     # Read inputs
     reviewer_comment = args.reviewer_comment
     draft_response = args.draft_response
-    
+
     # Check if inputs are files
     if reviewer_comment and os.path.isfile(reviewer_comment):
         with open(reviewer_comment, 'r') as f:
             reviewer_comment = f.read()
-    
+
     if draft_response and os.path.isfile(draft_response):
         with open(draft_response, 'r') as f:
             draft_response = f.read()
-    
+
     if not reviewer_comment or not draft_response:
         print("Error: Both --reviewer-comment and --draft-response are required.")
         sys.exit(1)
-    
+
     # Map response type
     response_type = None
     if args.response_type:
         response_type = ResponseType(args.response_type)
-    
+
     # Map polish level
     polish_level = PolishLevel(args.polish_level)
-    
+
     # Process
     polisher = TonePolisher(polish_level=polish_level)
     result = polisher.polish(reviewer_comment, draft_response, response_type, polish_level)
-    
+
     # Output
     if args.json:
         output = {
@@ -645,7 +645,7 @@ def main():
         output_text = json.dumps(output, indent=2)
     else:
         output_text = result.polished_response
-    
+
     if args.output:
         with open(args.output, 'w') as f:
             f.write(output_text)

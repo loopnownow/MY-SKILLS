@@ -9,9 +9,9 @@ After salutation, open with exactly one of:
 
 **Thank you for your comments** | **Thank you for your suggestions** | **Thank you for your inquiry**
 
-- comments = observations / critique  
-- suggestions = concrete change requests  
-- inquiry = questions / clarifications  
+- comments = observations / critique
+- suggestions = concrete change requests
+- inquiry = questions / clarifications
 
 Do not invent a fourth opener noun bank.
 

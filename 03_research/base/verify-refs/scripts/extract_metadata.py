@@ -26,11 +26,11 @@ from _common import (  # noqa: E402
 
 class MetadataExtractor:
     """Extract metadata from various sources and generate BibTeX."""
-    
+
     def __init__(self, email: Optional[str] = None):
         """
         Initialize extractor.
-        
+
         Args:
             email: Email for Entrez API (recommended for PubMed)
         """
@@ -40,28 +40,28 @@ class MetadataExtractor:
         })
         self.email = email or os.getenv('NCBI_EMAIL', '')
         self._last_arxiv_request = None
-    
+
     def identify_type(self, identifier: str) -> Tuple[str, str]:
         """
         Identify the type of identifier.
-        
+
         Args:
             identifier: DOI, PMID, arXiv ID, or URL
-            
+
         Returns:
             Tuple of (type, cleaned_identifier)
         """
         identifier = identifier.strip()
-        
+
         # Check if URL
         if identifier.startswith('http://') or identifier.startswith('https://'):
             return self._parse_url(identifier)
-        
+
         # Check for DOI
         identifier = re.sub(r'^doi:\s*', '', identifier, flags=re.IGNORECASE)
         if identifier.startswith('10.'):
             return ('doi', identifier)
-        
+
         # Check for arXiv ID
         if re.match(r'^\d{4}\.\d{4,5}(v\d+)?$', identifier):
             return ('arxiv', identifier)
@@ -69,26 +69,26 @@ class MetadataExtractor:
             return ('arxiv', identifier.replace('arXiv:', ''))
         if re.fullmatch(r'[a-z-]+(?:\.[A-Z]{2})?/\d{7}(?:v\d+)?', identifier):
             return ('arxiv', identifier)
-        
+
         # Check for PMID (8-digit number typically)
         if identifier.isdigit() and int(identifier) > 0:
             return ('pmid', identifier)
-        
+
         # Check for PMCID
         if identifier.upper().startswith('PMC') and identifier[3:].isdigit():
             return ('pmcid', identifier.upper())
-        
+
         return ('unknown', identifier)
-    
+
     def _parse_url(self, url: str) -> Tuple[str, str]:
         """Parse URL to extract identifier type and value."""
         parsed = urlparse(url)
-        
+
         # DOI URLs
         if parsed.hostname in ('doi.org', 'dx.doi.org'):
             doi = unquote(parsed.path.lstrip('/'))
             return ('doi', doi)
-        
+
         # PubMed URLs
         if parsed.hostname == 'pubmed.ncbi.nlm.nih.gov' or (
             parsed.hostname == 'www.ncbi.nlm.nih.gov' and parsed.path.startswith('/pubmed/')
@@ -96,7 +96,7 @@ class MetadataExtractor:
             pmid = re.search(r'/(\d+)', parsed.path)
             if pmid:
                 return ('pmid', pmid.group(1))
-        
+
         # arXiv URLs
         if parsed.hostname in ('arxiv.org', 'www.arxiv.org', 'export.arxiv.org'):
             arxiv_path = re.sub(r'^/(?:abs|pdf)/', '', parsed.path)
@@ -109,21 +109,21 @@ class MetadataExtractor:
             pmcid = re.search(r'/articles/(PMC\d+)', parsed.path, re.IGNORECASE)
             if pmcid:
                 return ('pmcid', pmcid.group(1).upper())
-        
+
         # Nature, Science, Cell, etc. - try to extract DOI from URL
         doi_match = re.search(r'10\.\d{4,}/[^\s]+', unquote(parsed.path))
         if doi_match:
             return ('doi', doi_match.group())
-        
+
         return ('url', url)
-    
+
     def extract_from_doi(self, doi: str) -> Optional[Dict]:
         """
         Extract metadata from DOI using CrossRef API.
-        
+
         Args:
             doi: Digital Object Identifier
-            
+
         Returns:
             Metadata dictionary or None
         """
@@ -164,18 +164,18 @@ class MetadataExtractor:
             else:
                 print(f'Error: CrossRef API returned status {response.status_code} for DOI: {doi}', file=sys.stderr)
                 return None
-                
+
         except Exception as e:
             print(f'Error extracting metadata from DOI {doi}: {e}', file=sys.stderr)
             return None
-    
+
     def extract_from_pmid(self, pmid: str) -> Optional[Dict]:
         """
         Extract metadata from PMID using PubMed E-utilities.
-        
+
         Args:
             pmid: PubMed ID
-            
+
         Returns:
             Metadata dictionary or None
         """
@@ -186,30 +186,30 @@ class MetadataExtractor:
             'retmode': 'xml',
             'tool': 'citation-management',
         }
-        
+
         if self.email:
             params['email'] = self.email
-        
+
         api_key = os.getenv('NCBI_API_KEY')
         if api_key:
             params['api_key'] = api_key
-        
+
         try:
             response = self.session.get(url, params=params, timeout=15)
-            
+
             if response.status_code == 200:
                 root = ET.fromstring(response.content)
                 article = root.find('.//PubmedArticle')
-                
+
                 if article is None:
                     print(f'Error: No article found for PMID: {pmid}', file=sys.stderr)
                     return None
-                
+
                 # Extract metadata from XML
                 medline_citation = article.find('.//MedlineCitation')
                 article_elem = medline_citation.find('.//Article')
                 journal = article_elem.find('.//Journal')
-                
+
                 # Get DOI if available
                 doi = None
                 article_ids = article.findall('.//ArticleId')
@@ -217,7 +217,7 @@ class MetadataExtractor:
                     if article_id.get('IdType') == 'doi':
                         doi = article_id.text
                         break
-                
+
                 metadata = {
                     'type': 'pmid',
                     'entry_type': 'article',
@@ -231,16 +231,16 @@ class MetadataExtractor:
                     'pages': article_elem.findtext('.//Pagination/MedlinePgn', ''),
                     'doi': doi
                 }
-                
+
                 return metadata
             else:
                 print(f'Error: PubMed API returned status {response.status_code} for PMID: {pmid}', file=sys.stderr)
                 return None
-                
+
         except Exception as e:
             print(f'Error extracting metadata from PMID {pmid} ({type(e).__name__}); request details omitted', file=sys.stderr)
             return None
-    
+
     @staticmethod
     def _pubmed_title(element) -> str:
         """Read a PubMed ArticleTitle as a citation title.
@@ -258,10 +258,10 @@ class MetadataExtractor:
     def extract_from_arxiv(self, arxiv_id: str) -> Optional[Dict]:
         """
         Extract metadata from arXiv ID using arXiv API.
-        
+
         Args:
             arxiv_id: arXiv identifier
-            
+
         Returns:
             Metadata dictionary or None
         """
@@ -270,7 +270,7 @@ class MetadataExtractor:
             'id_list': arxiv_id,
             'max_results': 1
         }
-        
+
         try:
             # arXiv requests must be at least three seconds apart, including
             # callers using this class directly rather than the batch CLI.
@@ -278,12 +278,12 @@ class MetadataExtractor:
                 time.sleep(max(0, 3.0 - (time.monotonic() - self._last_arxiv_request)))
             self._last_arxiv_request = time.monotonic()
             response = self.session.get(url, params=params, timeout=15)
-            
+
             if response.status_code == 200:
                 # Parse Atom XML
                 root = ET.fromstring(response.content)
                 ns = {'atom': 'http://www.w3.org/2005/Atom', 'arxiv': 'http://arxiv.org/schemas/atom'}
-                
+
                 entry = root.find('atom:entry', ns)
                 if entry is None:
                     print(f'Error: No entry found for arXiv ID: {arxiv_id}', file=sys.stderr)
@@ -292,26 +292,26 @@ class MetadataExtractor:
                 if '/api/errors' in entry.findtext('atom:id', '', ns):
                     print(f'Error: arXiv returned an error entry for {arxiv_id}', file=sys.stderr)
                     return None
-                
+
                 # Extract DOI if published
                 doi_elem = entry.find('arxiv:doi', ns)
                 doi = doi_elem.text if doi_elem is not None else None
-                
+
                 # Extract journal reference if published
                 journal_ref_elem = entry.find('arxiv:journal_ref', ns)
                 journal_ref = journal_ref_elem.text if journal_ref_elem is not None else None
-                
+
                 # Get publication date
                 published = entry.findtext('atom:published', '', ns)
                 year = published[:4] if published else ''
-                
+
                 # Get authors
                 authors = []
                 for author in entry.findall('atom:author', ns):
                     name = author.findtext('atom:name', '', ns)
                     if name:
                         authors.append(name)
-                
+
                 # Only call it an @article when there is a journal to name.
                 # A DOI alone is not enough -- arXiv mints DataCite DOIs for
                 # unpublished preprints -- and an @article without a `journal`
@@ -336,19 +336,19 @@ class MetadataExtractor:
             else:
                 print(f'Error: arXiv API returned status {response.status_code} for ID: {arxiv_id}', file=sys.stderr)
                 return None
-                
+
         except Exception as e:
             print(f'Error extracting metadata from arXiv {arxiv_id}: {e}', file=sys.stderr)
             return None
-    
+
     def metadata_to_bibtex(self, metadata: Dict, citation_key: Optional[str] = None) -> str:
         """
         Convert metadata dictionary to BibTeX format.
-        
+
         Args:
             metadata: Metadata dictionary
             citation_key: Optional custom citation key
-            
+
         Returns:
             BibTeX string
         """
@@ -414,7 +414,7 @@ class MetadataExtractor:
             return ''
         head = re.split(r'[,;]|\s\d', journal_ref.strip(), maxsplit=1)[0]
         return head.strip(' .')
-    
+
     def _crossref_type_to_bibtex(self, crossref_type: str) -> str:
         """Map CrossRef type to BibTeX entry type."""
         type_map = {
@@ -427,12 +427,12 @@ class MetadataExtractor:
             'report': 'techreport'
         }
         return type_map.get(crossref_type, 'misc')
-    
+
     def _format_authors_crossref(self, authors: List[Dict]) -> str:
         """Format author list from CrossRef data."""
         if not authors:
             return ''
-        
+
         formatted = []
         for author in authors:
             given = author.get('given', '')
@@ -442,9 +442,9 @@ class MetadataExtractor:
                     formatted.append(f'{family}, {given}')
                 else:
                     formatted.append(family)
-        
+
         return ' and '.join(formatted)
-    
+
     def _format_authors_pubmed(self, authors: List) -> str:
         """Format author list from PubMed XML."""
         formatted = []
@@ -456,9 +456,9 @@ class MetadataExtractor:
                     formatted.append(f'{last_name}, {fore_name}')
                 else:
                     formatted.append(last_name)
-        
+
         return ' and '.join(formatted)
-    
+
     def _extract_year_crossref(self, message: Dict) -> str:
         """Extract year from CrossRef message."""
         # Try published-print first, then published-online
@@ -469,11 +469,11 @@ class MetadataExtractor:
             date_parts = message.get('published', {}).get('date-parts', [[]])
         if not date_parts or not date_parts[0]:
             date_parts = message.get('issued', {}).get('date-parts', [[]])
-        
+
         if date_parts and date_parts[0]:
             return str(date_parts[0][0])
         return ''
-    
+
     def _extract_year_pubmed(self, article: ET.Element) -> str:
         """Extract year from PubMed XML."""
         year = article.findtext('.//Journal/JournalIssue/PubDate/Year', '')
@@ -484,7 +484,7 @@ class MetadataExtractor:
                 if year_match:
                     year = year_match.group()
         return year
-    
+
     def _generate_citation_key(self, metadata: Dict) -> str:
         """Generate a citation key from metadata.
 
@@ -568,19 +568,19 @@ class MetadataExtractor:
     def extract(self, identifier: str) -> Optional[str]:
         """
         Extract metadata and return BibTeX.
-        
+
         Args:
             identifier: DOI, PMID, arXiv ID, or URL
-            
+
         Returns:
             BibTeX string or None
         """
         id_type, clean_id = self.identify_type(identifier)
-        
+
         print(f'Identified as {id_type}: {clean_id}', file=sys.stderr)
-        
+
         metadata = None
-        
+
         if id_type == 'doi':
             metadata = self.extract_from_doi(clean_id)
         elif id_type == 'pmid':
@@ -594,7 +594,7 @@ class MetadataExtractor:
         else:
             print(f'Error: Unknown identifier type: {identifier}', file=sys.stderr)
             return None
-        
+
         if metadata:
             return self.metadata_to_bibtex(metadata)
         else:
@@ -660,7 +660,7 @@ def main():
         description='Extract citation metadata from DOI, PMID, arXiv ID, or URL',
         epilog='Example: python extract_metadata.py --doi 10.1038/s41586-021-03819-2'
     )
-    
+
     parser.add_argument('--doi', action='append', help='Digital Object Identifier (repeatable)')
     parser.add_argument('--pmid', action='append', help='PubMed ID (repeatable)')
     parser.add_argument('--pmcid', action='append', help='PubMed Central ID (repeatable)')
@@ -670,9 +670,9 @@ def main():
     parser.add_argument('-o', '--output', help='Output file for BibTeX (default: stdout)')
     parser.add_argument('--format', choices=['bibtex', 'json'], default='bibtex', help='Output format')
     parser.add_argument('--email', help='Email for NCBI E-utilities (recommended)')
-    
+
     args = parser.parse_args()
-    
+
     # Collect identifiers
     identifiers = []
     if args.doi:
@@ -685,18 +685,18 @@ def main():
         identifiers.extend(args.arxiv)
     if args.url:
         identifiers.extend(args.url)
-    
+
     if args.input:
         try:
             identifiers.extend(read_identifiers(args.input))
         except Exception as e:
             print(f'Error reading input file: {e}', file=sys.stderr)
             sys.exit(1)
-    
+
     if not identifiers:
         parser.print_help()
         sys.exit(1)
-    
+
     # Extract metadata
     extractor = MetadataExtractor(email=args.email)
     records = []
@@ -725,7 +725,7 @@ def main():
             'count': len(records),
             'entries': records
         }, indent=2)
-    
+
     # Write output
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
@@ -733,7 +733,7 @@ def main():
         print(f"\nSuccessfully wrote {len(records)} entries to {args.output}", file=sys.stderr)
     else:
         print(output)
-    
+
     print(f'\nExtracted {len(bibtex_entries)}/{len(identifiers)} entries', file=sys.stderr)
     if len(records) < len(identifiers):
         print('Error: partial extraction; review failed identifiers before using output', file=sys.stderr)

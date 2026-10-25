@@ -32,17 +32,17 @@ except ImportError:
 
 class GoogleScholarSearcher:
     """Search Google Scholar using scholarly library."""
-    
+
     def __init__(self, use_proxy: bool = False):
         """
         Initialize searcher.
-        
+
         Args:
             use_proxy: Use an optional scholarly proxy provider (does not authorize bypassing blocks)
         """
         if not SCHOLARLY_AVAILABLE:
             raise ImportError('scholarly library required. Install with: uv pip install scholarly')
-        
+
         # Setup proxy if requested
         if use_proxy:
             try:
@@ -52,40 +52,40 @@ class GoogleScholarSearcher:
                 print('Using free proxy', file=sys.stderr)
             except Exception as e:
                 print(f'Warning: Could not setup proxy: {e}', file=sys.stderr)
-    
+
     def search(self, query: str, max_results: int = 50,
                year_start: Optional[int] = None, year_end: Optional[int] = None,
                sort_by: str = 'relevance') -> List[Dict]:
         """
         Search Google Scholar.
-        
+
         Args:
             query: Search query
             max_results: Maximum number of results
             year_start: Start year filter
             year_end: End year filter
             sort_by: Sort order ('relevance' or 'citations')
-            
+
         Returns:
             List of result dictionaries
         """
         if not SCHOLARLY_AVAILABLE:
             print('Error: scholarly library not installed', file=sys.stderr)
             return []
-        
+
         print(f'Searching Google Scholar: {query}', file=sys.stderr)
         print(f'Max results: {max_results}', file=sys.stderr)
-        
+
         results = []
-        
+
         try:
             # Perform search
             search_query = scholarly.search_pubs(query, year_low=year_start, year_high=year_end)
-            
+
             for i, result in enumerate(islice(search_query, max_results)):
-                
+
                 print(f'Retrieved {i+1}/{max_results}', file=sys.stderr)
-                
+
                 # Extract metadata
                 metadata = {
                     'title': result.get('bib', {}).get('title', ''),
@@ -97,7 +97,7 @@ class GoogleScholarSearcher:
                     'url': result.get('pub_url', ''),
                     'eprint_url': result.get('eprint_url', ''),
                 }
-                
+
                 # Filter by year
                 if year_start or year_end:
                     try:
@@ -108,22 +108,22 @@ class GoogleScholarSearcher:
                             continue
                     except ValueError:
                         pass
-                
+
                 results.append(metadata)
-                
+
                 # Rate limiting to avoid blocking
                 time.sleep(random.uniform(2, 5))
-            
+
         except Exception as e:
             print(f'Error during search: {e}', file=sys.stderr)
             return []  # A blocked or failed iterator is not a complete search.
-        
+
         # Sort if requested
         if sort_by == 'citations' and results:
             results.sort(key=lambda x: x.get('citations', 0), reverse=True)
-        
+
         return results
-    
+
     def metadata_to_bibtex(self, metadata: Dict) -> str:
         """Convert metadata to BibTeX format.
 
@@ -165,67 +165,67 @@ def main():
         description='Search Google Scholar (requires scholarly library)',
         epilog='Example: python search_google_scholar.py "machine learning" --limit 50'
     )
-    
+
     parser.add_argument(
         'query',
         help='Search query'
     )
-    
+
     parser.add_argument(
         '--limit',
         type=int,
         default=50,
         help='Maximum number of results (default: 50)'
     )
-    
+
     parser.add_argument(
         '--year-start',
         type=int,
         help='Start year for filtering'
     )
-    
+
     parser.add_argument(
         '--year-end',
         type=int,
         help='End year for filtering'
     )
-    
+
     parser.add_argument(
         '--sort-by',
         choices=['relevance', 'citations'],
         default='relevance',
         help='Order within retrieved results; citations is a local sort (default: relevance)'
     )
-    
+
     parser.add_argument(
         '--use-proxy',
         action='store_true',
         help='Use scholarly free-proxy support; respect upstream access restrictions'
     )
-    
+
     parser.add_argument(
         '-o', '--output',
         help='Output file (default: stdout)'
     )
-    
+
     parser.add_argument(
         '--format',
         choices=['json', 'bibtex'],
         default='json',
         help='Output format (default: json)'
     )
-    
+
     args = parser.parse_args()
     if args.limit < 1:
         parser.error('--limit must be positive')
-    
+
     if not SCHOLARLY_AVAILABLE:
         print('\nError: scholarly library not installed', file=sys.stderr)
         print('Install with: uv pip install scholarly', file=sys.stderr)
         print('\nAlternatively, use PubMed search for biomedical literature:', file=sys.stderr)
         print('  python search_pubmed.py "your query"', file=sys.stderr)
         sys.exit(1)
-    
+
     # Search
     searcher = GoogleScholarSearcher(use_proxy=args.use_proxy)
     results = searcher.search(
@@ -235,11 +235,11 @@ def main():
         year_end=args.year_end,
         sort_by=args.sort_by
     )
-    
+
     if not results:
         print('No results found', file=sys.stderr)
         sys.exit(1)
-    
+
     # Format output
     if args.format == 'json':
         output = json.dumps({
@@ -250,7 +250,7 @@ def main():
     else:  # bibtex
         bibtex_entries = [searcher.metadata_to_bibtex(r) for r in results]
         output = '\n\n'.join(bibtex_entries) + '\n'
-    
+
     # Write output
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
@@ -258,7 +258,7 @@ def main():
         print(f'Wrote {len(results)} results to {args.output}', file=sys.stderr)
     else:
         print(output)
-    
+
     print(f'\nRetrieved {len(results)} results', file=sys.stderr)
 
 

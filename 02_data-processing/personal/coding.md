@@ -1,6 +1,6 @@
 # Code optimization and refactor
 
-Personal layer: `02_data-processing/personal/coding.md` (moved from `code-refactoring/SKILL.md`; complexity ladder merged below).  
+Personal layer: `02_data-processing/personal/coding.md` (moved from `code-refactoring/SKILL.md`; complexity ladder merged below).
 Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill or register a 01 coarse id.
 
 ## When it applies

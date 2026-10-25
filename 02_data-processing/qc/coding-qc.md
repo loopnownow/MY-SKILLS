@@ -2,8 +2,8 @@
 
 Subtitle: also covers a light **Code QC Core** for research data-processing scripts (R / Python / MATLAB / shell; raw → analysis-ready), adapted from stable awesome-copilot-style principles for medical research.
 
-Source: 2026-09-07 Deep Code QC Report (`modules.zip` / `{code_modules}`) + 2026-09-22 Code QC Core absorption plan  
-Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/references/code-qc.md`)  
+Source: 2026-09-07 Deep Code QC Report (`modules.zip` / `{code_modules}`) + 2026-09-22 Code QC Core absorption plan
+Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/references/code-qc.md`)
 **Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md` <!-- negative-example -->, mount Copilot `playbooks/quality/` / Council / CI.
 
 ## When to trigger
@@ -41,7 +41,7 @@ Medical axis must cross-check (pointers; body in `02_data-processing/personal/an
 | **Required** | P1 FIX | Stats implementation boundary, selection bias, silent except, no tests, missing lock, material reliability/verification gap → fix then re-test |
 | **Optional** | P2 WARN / P3 NOTE | Style/naming/small opts; maintainability, clear perf, Boundary; P3 = optional note |
 
-Output: HTML or tabular report (ID / level[+P alias] / axis / issue / evidence path / impact / suggestion). Lead the conclusion with whether it can be a formal modeling build.  
+Output: HTML or tabular report (ID / level[+P alias] / axis / issue / evidence path / impact / suggestion). Lead the conclusion with whether it can be a formal modeling build.
 Verdict: `PASS` / `PASS_WITH_WARNINGS` / `FAIL`.
 
 ## Minimal flow (Preflight → Verdict)
@@ -79,7 +79,7 @@ Before structural change, check the project’s existing conventions (layout, na
 compileall syntax, no obvious os.system/exec/pickle, list-form subprocess, patient-level split checks, VAL_MODE design intent — keep a separate “Passed” block so the report is not only findings.
 
 ## Relation to coding.md principles
-Keep: CONFIG-on-top, dry-run, checkpoint, modularity, brevity, comments.  
+Keep: CONFIG-on-top, dry-run, checkpoint, modularity, brevity, comments.
 Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, Preflight→Verdict, P0–P3 aliases); refactor advice still “separate refactor from behavior change”.
 
 ### Submodule dry-run and no silent success

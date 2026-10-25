@@ -65,19 +65,19 @@ Per claim:
 
 ### 4. Medical failure modes (check explicitly)
 
-1. **Number inflation** — paper exceeds evidence beyond display-precision rounding  
-2. **Cherry-pick** — best cutoff / model / subgroup presented as primary without disclosure  
-3. **Split / cohort mismatch** — train/val/test or cohort definition differs from Methods  
-4. **N staircase mismatch** — inclusion → exclusion → final N does not add up  
-5. **Arithmetic error** — AUC delta, OR/HR, % with wrong denominator  
-6. **Caption vs content** — caption disagrees with table/figure  
-7. **Scope overclaim** — e.g. 证明 (prove) / 独立预测因子 (independent predictor) / “validates” in single-center retrospective without support  
+1. **Number inflation** — paper exceeds evidence beyond display-precision rounding
+2. **Cherry-pick** — best cutoff / model / subgroup presented as primary without disclosure
+3. **Split / cohort mismatch** — train/val/test or cohort definition differs from Methods
+4. **N staircase mismatch** — inclusion → exclusion → final N does not add up
+5. **Arithmetic error** — AUC delta, OR/HR, % with wrong denominator
+6. **Caption vs content** — caption disagrees with table/figure
+7. **Scope overclaim** — e.g. 证明 (prove) / 独立预测因子 (independent predictor) / “validates” in single-center retrospective without support
 
 Also check:
 
-- **p vs 95% CI contradiction** (significant p with CI crossing null, or reverse)  
-- **Multiple-testing threshold** consistent across abstract / body / tables (`MULTIPLE_TEST`)  
-- **Same number** consistent across abstract / body / tables / response letter  
+- **p vs 95% CI contradiction** (significant p with CI crossing null, or reverse)
+- **Multiple-testing threshold** consistent across abstract / body / tables (`MULTIPLE_TEST`)
+- **Same number** consistent across abstract / body / tables / response letter
 
 ### 5. Verdict (advisory, not blocking)
 
@@ -94,27 +94,27 @@ Also check:
 Write `PAPER_CLAIM_AUDIT.md` (and optional `.json` if useful) with:
 
 - Date (Asia/Shanghai), manuscript path, `MANUSCRIPT_VIEW`, auditor session type (fresh / interim)
-- Overall verdict + counts by status  
-- Issues with location / paper / evidence / fix  
-- Full claim table  
+- Overall verdict + counts by status
+- Issues with location / paper / evidence / fix
+- Full claim table
 
 ### When to run
 
-- Before submission / after major manuscript number changes  
-- After revision letter that changes numbers → re-run (handoff from `07_response/base/revise`)  
-- Not on a wall-clock timer; re-fire only when paper or evidence changed  
+- Before submission / after major manuscript number changes
+- After revision letter that changes numbers → re-run (handoff from `07_response/base/revise`)
+- Not on a wall-clock timer; re-fire only when paper or evidence changed
 
 ## Cut from upstream (not in this pack)
 
-- render-html pipeline as required step  
-- file-hash / submission JSON validators / assurance-contract schemas  
-- Codex-specific MCP reviewer wiring  
-- wandb / metrics.json as default evidence  
-- Blocking submission gates inside this skill  
+- render-html pipeline as required step
+- file-hash / submission JSON validators / assurance-contract schemas
+- Codex-specific MCP reviewer wiring
+- wandb / metrics.json as default evidence
+- Blocking submission gates inside this skill
 
 ## Key rules
 
-- Display-precision rounding only.  
-- Fresh session preferred; same-family = interim label.  
-- Evidence = primary medical tables/outputs, not ML pipeline dumps.  
+- Display-precision rounding only.
+- Fresh session preferred; same-family = interim label.
+- Evidence = primary medical tables/outputs, not ML pipeline dumps.
 - Verdict advisory; FAIL/WARN need human check.

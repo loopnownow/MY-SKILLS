@@ -72,7 +72,7 @@ Personal layers (writing voice / review frame) = `05_manuscript/personal`, `06_r
 
 ## Dispatch conflict (summary)
 
-User-specified → controlling Skill → required upstream → required external packs → personal layer → helpers → QC.  
+User-specified → controlling Skill → required upstream → required external packs → personal layer → helpers → QC.
 Conflict: A personal layer beats an external pack; one source per fine ID. **QC rollback beats normal dispatch order.**
 
 - G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID. Do not add a 02-only or 03-only gate id. Citation-verify is a branch on `runtime-flow.mmd` (Lit05 / semantic label G-CIT-1 before Gate · 05; Lit06 / semantic label G-CIT-2 inside 06). G-CIT-1 does not waive G-CIT-2. These labels are not new gate ids.

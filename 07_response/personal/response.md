@@ -230,9 +230,9 @@ Disk corpus (external reviewer comments and revise replies; pointer only): `{doc
 
 ### When to use
 
-- `response` mode: after author revisions, verify each reviewer point was actually addressed  
-- `pre-review` / re-audit: reopen prior Major/Minor items and set status  
-- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06  
+- `response` mode: after author revisions, verify each reviewer point was actually addressed
+- `pre-review` / re-audit: reopen prior Major/Minor items and set status
+- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06
 
 Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. Ownership: see `00_orchestrator/references/ownership-contract.md`. Ask the user on undecidable items; do not edit the manuscript until the user picks, and then Aitee applies Track Changes.
 
@@ -275,10 +275,10 @@ next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | 
 
 For each issue, do not stop at “author added a sentence.” Prefer:
 
-1. Was the **method** actually changed (or a justified refusal documented)?  
-2. Do **Results / Tables / Figures** match the claimed fix (e.g. adjusted *P*, new CI)?  
-3. Does the **conclusion / abstract** still depend on the pre-fix claim?  
-4. Did the fix create a **new_issue**?  
+1. Was the **method** actually changed (or a justified refusal documented)?
+2. Do **Results / Tables / Figures** match the claimed fix (e.g. adjusted *P*, new CI)?
+3. Does the **conclusion / abstract** still depend on the pre-fix claim?
+4. Did the fix create a **new_issue**?
 
 Then set one status:
 
@@ -302,10 +302,10 @@ Only if this-run pick left a needed pack unloaded — go through **01 session-mo
 
 ### Out of scope
 
-- B06 as “Review Intelligence Core” or resolution home  
-- 06 as always-on multi-source review dispatcher  
-- Fixed Reviewer A→B→C personas  
-- Specialist packs writing free-form Word comments without status cards when this protocol is in use  
+- B06 as “Review Intelligence Core” or resolution home
+- 06 as always-on multi-source review dispatcher
+- Fixed Reviewer A→B→C personas
+- Specialist packs writing free-form Word comments without status cards when this protocol is in use
 - Any backup becoming a standing fourth reviewer
 
 ### Corpus reply skeletons (2026-10-23)

@@ -1,7 +1,7 @@
 # Console UI and results-report rules (lab)
 
-**Owner:** `02_data-processing`. Source: session harvest 2026-10-07 (P-04–P-08).  
-Implementation: `{code_modules}\console\` and results HTML writers.  
+**Owner:** `02_data-processing`. Source: session harvest 2026-10-07 (P-04–P-08).
+Implementation: `{code_modules}\console\` and results HTML writers.
 Word / 0doc policy is not in this file; see `{RULES}`.
 
 ## 1 Interactive HTML acceptance (P-04)

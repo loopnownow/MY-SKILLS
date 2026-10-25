@@ -290,3 +290,37 @@ class ContactData(unittest.TestCase):
             + "\n".join(hits[:30]),
         )
 
+
+
+TEXT_SUFFIXES = {".md", ".mmd", ".yaml", ".yml", ".py", ".txt", ".json", ".csv", ".tsv"}
+HYGIENE_SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "fixtures"}
+
+
+class FileHygiene(unittest.TestCase):
+    """Text files are LF-only, free of trailing whitespace, and no bytecode is tracked."""
+
+    def test_lf_only_and_no_trailing_whitespace(self) -> None:
+        crlf: list[str] = []
+        trailing: list[str] = []
+        bytecode: list[str] = []
+        for path in sorted(ROOT.rglob("*")):
+            rel = path.relative_to(ROOT).as_posix()
+            if set(path.relative_to(ROOT).parts) & HYGIENE_SKIP_DIRS:
+                continue
+            if path.suffix == ".pyc" or "__pycache__" in rel:
+                bytecode.append(rel)
+                continue
+            if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+                continue
+            raw = path.read_bytes()
+            if b"\r\n" in raw:
+                crlf.append(rel)
+            dirty = sum(
+                1 for line in raw.decode("utf-8", errors="ignore").split("\n")
+                if line != line.rstrip()
+            )
+            if dirty:
+                trailing.append(f"{rel} ({dirty} lines)")
+        self.assertEqual(crlf, [], "CRLF line endings:\n" + "\n".join(crlf[:20]))
+        self.assertEqual(trailing, [], "trailing whitespace:\n" + "\n".join(trailing[:20]))
+        self.assertEqual(bytecode, [], "tracked bytecode:\n" + "\n".join(bytecode[:20]))

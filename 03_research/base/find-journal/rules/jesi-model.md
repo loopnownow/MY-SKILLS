@@ -28,9 +28,9 @@ JESI = 0.50 × (100 − JDI) + 0.20 × JCI-C + 0.30 × MJF
 
 “How hard is the journal itself?” Prefer, in order:
 
-1. Acceptance rate  
-2. Desk-reject rate / Review rate (`Review Rate ≈ 1 − Desk Rejection Rate`)  
-3. Submission/publication ratio when available  
+1. Acceptance rate
+2. Desk-reject rate / Review rate (`Review Rate ≈ 1 − Desk Rejection Rate`)
+3. Submission/publication ratio when available
 4. JIF percentile / JCI / quartile (weaker proxies only)
 
 Higher JDI ⇒ harder. In the composite, ease contribution is `(100 − JDI)`.
@@ -112,7 +112,7 @@ First phase stays on transparent JESI 1.0; do not jump to ML until dozens–hund
 
 ## Explicitly deleted from external tools
 
-- Abstract → CAS 1/2/3/4 prediction  
-- Fixed Fit Score weight tables copied as policy  
-- Fixed LetPub-only pipelines  
-- Fixed monolithic external output templates as the pack’s only format  
+- Abstract → CAS 1/2/3/4 prediction
+- Fixed Fit Score weight tables copied as policy
+- Fixed LetPub-only pipelines
+- Fixed monolithic external output templates as the pack’s only format

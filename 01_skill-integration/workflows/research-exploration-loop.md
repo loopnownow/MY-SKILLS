@@ -16,7 +16,7 @@ type: 00-sub-component
 
 Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id_count_canonical` in `registry.yaml`). **Not** a new coarse id.
 
-> **00 = State + Gate (structural) + Route + Resume + Loop counts**  
+> **00 = State + Gate (structural) + Route + Resume + Loop counts**
 > **00 never judges medical content** — only whether required fields exist, trace pointers are present, and reported confidence clears a threshold.
 
 Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/02/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
@@ -99,7 +99,7 @@ exploration_state:
 
 Rule: `completed + trace_ok + reusable` → **do not** re-run without cause.
 
-Unlock re-call of upstream skills only on:  
+Unlock re-call of upstream skills only on:
 `QC failure` | `evidence outdated (guideline only)` | `new question` | `contradiction` | `new result` | `reviewer request` | `novelty failure` (reported by 03, not a new gate id).
 
 ## 4. Dispatch existing skills (no new pipeline nodes)

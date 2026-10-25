@@ -148,7 +148,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 
 **Discussion structure** (4–6 paragraphs):
 
-**¶1 — Summary** 
+**¶1 — Summary**
 - Restate the main finding in 1–2 sentences. Active voice.
 - Template: *"In this study, we found that / demonstrated that / showed that…"* Finding openers may use *"The first finding concerns…"* (verb only; do not weld the next sentence onto it).
 

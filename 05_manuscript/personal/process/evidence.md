@@ -89,16 +89,16 @@ Never keep a strong claim because a “nearby” paper looks topical.
 
 If verify still fails after one search pass, comment with **both**:
 
-1. Revise/weaken/delete the sentence now  
-2. Keep the sentence and ask whether 00 should call `03_research` (Victor) again for substitute refs  
+1. Revise/weaken/delete the sentence now
+2. Keep the sentence and ask whether 00 should call `03_research` (Victor) again for substitute refs
 
 No invented PMID/DOI. User decides which plan when both remain open.
 
 ### Out of scope
 
-- Upgrading base into a personal writing orchestrator or Evidence QC home  
-- Hard-wiring external review packs under 05 every run  
-- New coarse ids or `ocms-*` writing mounts  
+- Upgrading base into a personal writing orchestrator or Evidence QC home
+- Hard-wiring external review packs under 05 every run
+- New coarse ids or `ocms-*` writing mounts
 - Letting any backup become default
 
 

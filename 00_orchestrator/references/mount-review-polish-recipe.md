@@ -1,7 +1,7 @@
 # Mount → review / polish recipe (lab)
 
-**Owner:** `00_orchestrator` (session mount pick). Word delivery rules SSOT:  
-Standing policy: `00_orchestrator/references/ownership-contract.md` + `06_review/personal/review.md` §0.  
+**Owner:** `00_orchestrator` (session mount pick). Word delivery rules SSOT:
+Standing policy: `00_orchestrator/references/ownership-contract.md` + `06_review/personal/review.md` §0.
 Review voice / prefixes: `06_review/personal/review.md` §0.
 
 ## Trigger patterns (user)

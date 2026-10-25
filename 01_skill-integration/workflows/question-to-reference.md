@@ -220,11 +220,11 @@ R3 design needs
 
 Answer only:
 
-1. Current evidence  
-2. Evidence gap  
-3. Proposed research question  
-4. Feasible study design  
-5. Data limitations / stopping conditions  
+1. Current evidence
+2. Evidence gap
+3. Proposed research question
+4. Feasible study design
+5. Data limitations / stopping conditions
 
 Then **HANDOFF** (02/05 as appropriate). Never emit Introduction/Discussion prose here.
 

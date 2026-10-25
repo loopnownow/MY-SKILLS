@@ -409,7 +409,7 @@ time.sleep(random.uniform(2, 5))  # Client pacing, not a guaranteed safe quota
    # Too specific initially
    intitle:"deep learning" intitle:review
    # Publication and years: use Advanced Search controls
-   
+
    # Better approach
    deep learning review
    # Review results
@@ -433,7 +433,7 @@ time.sleep(random.uniform(2, 5))  # Client pacing, not a guaranteed safe quota
    # Good combination
    author:Church intitle:"synthetic biology"
    # Apply 2015-2024 using the year controls
-   
+
    # Find reviews by specific author on topic in recent years
    ```
 
@@ -483,7 +483,7 @@ time.sleep(random.uniform(2, 5))  # Client pacing, not a guaranteed safe quota
    # Save search results for later analysis
    python scripts/search_google_scholar.py "your topic" \
      --output topic_papers.json
-   
+
    # Can re-process later without re-searching
    python scripts/extract_metadata.py \
      --input topic_papers.json \
@@ -707,11 +707,11 @@ done < queries.txt
 
 Google Scholar is the most comprehensive academic search engine, providing:
 
-✓ **Broad coverage**: All disciplines, 100M+ documents  
-✓ **Free access**: No account or subscription required  
-✓ **Citation tracking**: "Cited by" for impact analysis  
-✓ **Multiple formats**: Articles, books, theses, patents  
-✓ **Full-text search**: Not just abstracts  
+✓ **Broad coverage**: All disciplines, 100M+ documents
+✓ **Free access**: No account or subscription required
+✓ **Citation tracking**: "Cited by" for impact analysis
+✓ **Multiple formats**: Articles, books, theses, patents
+✓ **Full-text search**: Not just abstracts
 
 Key strategies:
 - Use advanced operators for precision

@@ -24,10 +24,10 @@
 
 ## Conflict order (SPEC §8)
 
-1. Term lock / numerics / stats / citations  
-2. Factual accuracy (no meaning/negation flip)  
-3. STE readability  
-4. de-AI frequency  
+1. Term lock / numerics / stats / citations
+2. Factual accuracy (no meaning/negation flip)
+3. STE readability
+4. de-AI frequency
 
 ## Profiles (`config.yaml`)
 
