@@ -158,14 +158,14 @@ Risk / unsupported claims
 
 | File | Open when |
 |---|---|
-| [references/source-basis.md](references/source-basis.md) | You need source provenance, local rule summaries, or source-vs-implementation boundaries |
+| [references/06-source-basis.md](references/06-source-basis.md) | You need source provenance, local rule summaries, or source-vs-implementation boundaries |
 | [references/reviewer-workflow.md](references/reviewer-workflow.md) | You need the invocation order, fact-base extraction flow, or synthesis rules |
 | [references/review-axes.md](references/review-axes.md) | You need the evaluation axes or reviewer weighting logic |
 | [references/technical-concern-taxonomy.md](references/technical-concern-taxonomy.md) | You need the internal 12-axis coverage check, concern ledger, or claim/evidence-pointer rules |
 | [references/domain-specific-review-gates.md](references/domain-specific-review-gates.md) | The manuscript has clear chemistry, engineering, materials, atmospheric, climate-ecology, hydrology, or remote-sensing evidence chains |
 | [references/report-structure.md](references/report-structure.md) | You need the default output contract or section anatomy |
 | [references/role-boundaries.md](references/role-boundaries.md) | You need constraints on reviewer differences and editor-versus-reviewer boundaries |
-| [references/qa-checklist.md](references/qa-checklist.md) | You are finalizing an output and need groundedness / non-invention checks |
+| [references/06-qa-checklist.md](references/06-qa-checklist.md) | You are finalizing an output and need groundedness / non-invention checks |
 | [references/forensic-consistency-audit.md](references/forensic-consistency-audit.md) | You need the mandatory post-review audit of arithmetic, metric bounds, aggregation level, prose-table consistency, provenance, dispersion anomalies, or reproducibility gates |
 | `nature-shared/core/consistency-sweep.md` (upstream nature-skills; not vendored in-repo) | You are checking the manuscript against itself: headline counts that do not reconcile with the Methods, one metric at two precisions, a superlative contradicted by the paper's own table, overlapping error bars presented as an advantage, or internal summaries that disagree |
 | [references/editorial criteria and processes.md](<references/editorial criteria and processes.md>) | You need the primary local Nature source text |
@@ -176,7 +176,7 @@ Use sources in this order:
 
 1. `references/editorial criteria and processes.md`
 2. manuscript facts supplied by the user
-3. conservative local implementation rules documented in `references/source-basis.md`
+3. conservative local implementation rules documented in `references/06-source-basis.md`
 4. domain-specific supporting gates in `references/domain-specific-review-gates.md`
 
 If a user asks for policy-level certainty beyond this local source, state the limit instead of improvising broader journal policy.
