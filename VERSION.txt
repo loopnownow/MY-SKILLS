@@ -1,3 +1,17 @@
+CHG-20261025-qc-dead-pointer-cleanup (2026-10-25)
+Dead-pointer and test-hardening pass. Deleted three scripts nothing cited (`plot-figures/scripts/plot_template.py`,
+`plot-figures/scripts/style_configurator.py`, `visualization/scripts/gen_repo_map.py`); bytes quarantined
+outside the repo, tracked tree 481 -> 478. Three "orphan" reference docs turned out to be cited from
+`0doc`, so they stay and are now registered in `03_research/personal/route.md`. `tighten-response/MODULE.md`
+gains `## Worked examples` over its three synthetic cases; `simulate-reviewers/manifest.yaml` marks the
+`nature-shared` sweep `external: true` instead of leaving a pointer that does not resolve. Five vacuous or
+half-guarded assertions became real ones (`test_lab_paths` splits into key-format + skip-guarded existence,
+`test_seat_packs` pins the 00-07 bound and the live-`0result` ban, `test_frontmatter` drops a commented
+ghost row), and `test_repo_hygiene` gains `PackReferentialIntegrity` so an uncited pack script or example
+fails instead of rotting. Docs: README test command carries `-B`; the INTEGRATION_MAP header no longer
+claims an empty roll. Suite 172 -> 174. No push, no merge.
+Earlier: CHG-20261025-seat-coarse-merge-01.
+
 CHG-20261025-seat-coarse-merge-01 (2026-10-25)
 Coarse ids are now the execution seats, and the 01 index seat is gone. registry.yaml,
 legacy_aliases.yaml, six references and all five workflow SOPs + README moved from

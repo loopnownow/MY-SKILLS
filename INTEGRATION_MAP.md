@@ -1,6 +1,6 @@
 # Integration map (live stub)
 
-Monthly full log is archived. Current roll starts empty after 2026-10-07.
+Monthly full log is archived. The live roll below is newest-first; entries dated before 2026-10-07 live in the archived roll.
 
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
@@ -11,6 +11,24 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+
+## CHG-20261025-qc-dead-pointer-cleanup — dead pointers, orphan scripts, vacuous assertions
+
+- **Deletions:** `plot-figures/scripts/plot_template.py`, `plot-figures/scripts/style_configurator.py`
+  and `visualization/scripts/gen_repo_map.py` were cited nowhere (no pack doc, no test); bytes
+  quarantined outside the repo. Tracked tree 481 → 478.
+- **Three docs kept:** `03_research/personal/references/grant-fulltext-skeleton.md`,
+  `lab-ref-method-digest.md` and `0doc-response-structure-pointer.md` are cited from `0doc`
+  (its `_library` INDEX + README, the root CURRENT pointer, and the skill-harvest plan), so they
+  stay and are now registered in `03_research/personal/route.md`.
+- **Pointer fix:** `simulate-reviewers/manifest.yaml` marks the `../nature-shared/core/` sweep
+  `external: true` instead of leaving a path that does not resolve in-repo.
+- **Tests:** new `PackReferentialIntegrity` (2) fails on an uncited pack `scripts/*.py` or
+  `examples/*`; `test_lab_paths` split into key-format + skip-guarded existence; `test_seat_packs`
+  pins the 00–07 layer bound and the live-`0result` ban; `test_frontmatter` drops a commented
+  workflow row; `tighten-response/MODULE.md` registers its three worked examples.
+- **Drift:** README test command carries `-B`; this file's header no longer claims an empty roll.
+- Suite 172 → 174. No push, no merge.
 
 ## CHG-20261025-seat-coarse-merge-01 — coarse id = execution seat; 01 folded into 00
 

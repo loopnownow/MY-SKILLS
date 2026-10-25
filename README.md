@@ -17,6 +17,6 @@ Paths under `00`–`07` are at most five parts from the repo root, except `NN_sl
 
 License: MIT (`LICENSE`). Third-party notices: `NOTICE`. Release notes: `VERSION.txt`.
 
-Tests: `python -m unittest discover -s tests`.
+Tests: `python -B -m unittest discover -s tests` (`-B` keeps `__pycache__` out of the tree).
 
 Maintained by Aitor for [loopnownow](https://github.com/loopnownow).

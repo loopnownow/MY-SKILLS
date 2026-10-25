@@ -70,11 +70,11 @@ class LabPaths(unittest.TestCase):
         if missing:
             self.skipTest(f"lab paths absent ({', '.join(missing)}); skip off non-lab host")
         for key in keys:
-            if key not in aliases:
-                continue
-            p = Path(aliases[key])
-            if p.exists():
-                self.assertTrue(p.exists(), f"{key} missing: {p}")
+            self.assertIn(key, aliases, f"lab-paths.yaml missing alias {key}")
+            val = str(aliases[key])
+            p = Path(val)
+            self.assertTrue(p.is_absolute(), f"{key} must be an absolute path, got {val!r}")
+            self.assertTrue(p.exists(), f"{key} missing: {p}")
 class LicenseNotice(unittest.TestCase):
     def test_license_and_notice_exist(self) -> None:
         self.assertTrue((ROOT / "LICENSE").is_file())

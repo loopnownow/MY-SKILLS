@@ -281,7 +281,7 @@ class DiscoverySurface(unittest.TestCase):
         self.assertIn("session_picked_fine_ids", zero)
         self.assertIn('only `00_orchestrator`–`07_response`', zero)
         self.assertNotIn("and `skill-harvest`", zero)
-        self.assertTrue("`00`–`06` only" in life or "`00`–`07` only" in life)
+        self.assertIn("`00`–`07` only", life)
         self.assertNotIn("and `skill-harvest` only", life)
         self.assertIn("skills.md", evo)
 
@@ -646,11 +646,7 @@ class RuleLanding(unittest.TestCase):
         for needle in ("subproject root", "derivatives", "Asia/Shanghai"):
             self.assertIn(needle, sd, f"standing-delivery missing {needle}")
         # 0result retired as standard deliverable folder (2026-10-24)
-        self.assertIn("no", sd.lower())
-        self.assertTrue(
-            ("do **not** create `0result" in sd) or ("do not create `0result" in sd) or ("no** live `0result" in sd) or ("no live `0result" in sd.lower()) or ("**no** `0result" in sd),
-            "standing-delivery should scrub/forbid live 0result as deliverable seat",
-        )
+        self.assertIn("do **not** use a live `0result", sd)
 
     def test_manuscript_local_qc_bans(self) -> None:
         ml = t("05_manuscript/qc/manuscript-local-qc.md")

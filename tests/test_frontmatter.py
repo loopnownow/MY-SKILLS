@@ -47,7 +47,6 @@ class VisualizationContract(unittest.TestCase):
             "02_data-processing/personal/visualization/visualization-architecture.md",
             "02_data-processing/personal/visualization/visualization-source-contract.yaml",
             "02_data-processing/personal/visualization/scripts/gen_visualization.py",
-            # ".github/workflows/visualization.yml",  # archived with .github/ 2026-10-17 to 0del
         ):
             self.assertTrue((ROOT / rel).is_file(), rel)
 

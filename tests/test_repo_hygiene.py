@@ -324,3 +324,53 @@ class FileHygiene(unittest.TestCase):
         self.assertEqual(crlf, [], "CRLF line endings:\n" + "\n".join(crlf[:20]))
         self.assertEqual(trailing, [], "trailing whitespace:\n" + "\n".join(trailing[:20]))
         self.assertEqual(bytecode, [], "tracked bytecode:\n" + "\n".join(bytecode[:20]))
+
+
+PACK_GLOBS = "0[0-7]_*"
+DOC_SUFFIXES = {".md", ".yaml", ".yml"}
+
+
+def _packs() -> list[Path]:
+    return sorted(p for p in ROOT.glob(PACK_GLOBS) if p.is_dir())
+
+
+class PackReferentialIntegrity(unittest.TestCase):
+    """Every shipped pack script and worked example is cited inside its own pack."""
+
+    def test_pack_scripts_are_cited(self) -> None:
+        orphans: list[str] = []
+        for pack in _packs():
+            docs = [
+                doc
+                for doc in pack.rglob("*")
+                if doc.is_file() and doc.suffix.lower() in DOC_SUFFIXES
+            ]
+            for script in sorted(pack.glob("**/scripts/*.py")):
+                if not any(
+                    script.name in d.read_text(encoding="utf-8", errors="ignore")
+                    for d in docs
+                ):
+                    orphans.append(script.relative_to(ROOT).as_posix())
+        self.assertEqual(
+            orphans,
+            [],
+            "pack scripts no pack doc cites:\n" + "\n".join(orphans),
+        )
+
+    def test_pack_examples_are_cited(self) -> None:
+        orphans: list[str] = []
+        for pack in _packs():
+            docs = [d for d in pack.rglob("*.md") if d.is_file()]
+            for ex in sorted(pack.glob("**/examples/*")):
+                if not ex.is_file():
+                    continue
+                if not any(
+                    ex.name in d.read_text(encoding="utf-8", errors="ignore")
+                    for d in docs
+                ):
+                    orphans.append(ex.relative_to(ROOT).as_posix())
+        self.assertEqual(
+            orphans,
+            [],
+            "pack examples no pack doc cites:\n" + "\n".join(orphans),
+        )
