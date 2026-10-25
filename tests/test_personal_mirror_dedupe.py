@@ -30,7 +30,7 @@ def _paragraphs(path: Path) -> set[str]:
     def test_no_cross_file_long_paragraph(self) -> None:
         seen: dict[str, str] = {}
         hits: list[str] = []
-        skip = {".git", "__pycache__", ".pytest_cache", "mounts-cap", "fixtures"}
+        skip = {".git", "__pycache__", ".pytest_cache", "fixtures"}
         for path in ROOT.rglob("*.md"):
             if set(path.parts) & skip:
                 continue

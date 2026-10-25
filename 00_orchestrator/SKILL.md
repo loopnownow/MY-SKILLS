@@ -29,11 +29,11 @@ Pick the smallest skill set. One bounded task → that domain skill, not 00.
 
 ### Directory detection (before asking)
 
-Look in the working / 0RAD project folder. Echo one lock line when the artifact is clear.
+Look in the working project folder. Echo one lock line when the artifact is clear.
 
 | Artifact found | Implies |
 |---|---|
-| `settings.ini` | 0RAD project; 02 or 04, not a new scaffold |
+| `settings.ini` | lab project; 02 or 04, not a new scaffold |
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
 | `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
 | reviewer letter / reviewer comments | `06_review` (review) or `07_response` (response letter) |
@@ -60,9 +60,9 @@ Ids: `01_skill-integration` · `02_data-processing` · `03_research` · `04_anal
 
 Every independent run needs a mount decision. If `mounts.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter 01 and ask which `MOUNTED` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all mounted ids. Personal layers are not a mount pick. A single-node personal-layer task with no mounted dependency does not ask.
 
-**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested A packs). `{mounts_cap}` is RETIRED (2026-10-20) — never load skill bodies from it. `.gitignore` excludes accidental in-repo `mounts-cap/` copies (SSOT cache outside repo).
+**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested packs).
 
-**Mount → review/polish recipe:** when the user says mount + review/polish on a `.docx`, follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
+**Review / polish on a `.docx`:** follow [`references/mount-review-polish-recipe.md`](references/mount-review-polish-recipe.md).
 
 ### Composite workflows
 

@@ -1,7 +1,7 @@
 MY-SKILLS
 ==========
 
-Lab skill pack (00–07). Primary license: MIT (see LICENSE). Former `skill-harvest` is archived outside this repo (see `README.md`).
+Lab skill pack (00–07). Primary license: MIT (see LICENSE). Former `skill-harvest` lives outside this repo; standing policy is MY-RULES `skills.md`.
 
 Third-party / adapted notices
 -----------------------------
@@ -43,14 +43,12 @@ Archify-derived artifacts (compiler zip, `archify-version.yaml`) were removed on
 
 Several `05_manuscript/qc/` and `06_review/qc/` checklists and `00_orchestrator/runtime-flow` note "Inspired by ARS… (no ARS copy)". Topology/checklist *structure* inspiration only; no ARS source text is copied into this pack.
 
-### Mounted upstream packs
+### Upstream packs absorbed in-repo
 
 Upstream bytes that were absorbed into this repo keep their upstream licenses:
 AIPOCH `response-tone-polisher` → `07_response/base/response-tone-polisher/`,
 AIPOCH `retraction-watcher` → `03_research/base/retraction-watcher/`.
-The former local `mounts-cap/` cache was retired 2026-10-20 (bytes moved to `D:\0del`).
-Registry sources: `scientific-agent-skills` and `nature-skills` appear only on archived rows
-(non-base = default deny); live default = in-repo `my-skills`.
+Live registry rows use in-repo `my-skills`.
 Do not re-license upstream pack text when syncing.
 
 ### Journal data

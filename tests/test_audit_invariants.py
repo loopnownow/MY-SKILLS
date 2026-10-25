@@ -12,7 +12,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 CLIN = ROOT / "02_data-processing" / "personal"
 REG = ROOT / "01_skill-integration" / "registry.yaml"
-SKIP_PARTS = {".git", "__pycache__", "history", "mounts-cap"}
+SKIP_PARTS = {".git", "__pycache__", "history"}
 SKIP_NAMES = {
     "INTEGRATION_MAP.md",
     "INTEGRATION_MAP.archive.md",
@@ -140,14 +140,12 @@ class ArchitectureSsot(unittest.TestCase):
         low = text.lower()
         self.assertGreater(len(text), 500)
         self.assertRegex(text, r"(five parts|≤\s*5|at most five)")
-        self.assertIn("default source", low)
         self.assertIn("my-skills", low)
         self.assertIn("in-repo", low)
         self.assertNotIn("my-skills-base", low)
         self.assertNotIn("MY-SKILLS-base", text)
         self.assertIn("ethics", low)
         self.assertIn("03_research", text)
-        self.assertIn("ARCHIVED", text)
         self.assertIn("ask-each-run", text)
         self.assertIn("draw-flowchart", text)
         self.assertIn("plot-figures", text)
@@ -158,7 +156,6 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("04-stats-power", text)
         self.assertIn("01_skill-integration/registry.yaml", text)
         self.assertNotRegex(text, r"52 fine")
-        self.assertIn("stay archived", low)
         self.assertNotRegex(low, r"≤\s*3")
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("Default candidate: `Imbad0202", text)
@@ -209,18 +206,12 @@ class RoutingFourTuple(unittest.TestCase):
 
 
 class DiscoverySurface(unittest.TestCase):
-    def test_cursorignore_excludes_mounts_cap(self) -> None:
-        text = read(".cursorignore")
-        self.assertTrue("mounts-cap" in text or "{mounts_cap}" in text)
-
     def test_auto_discovery_rule_is_in_00_and_01(self) -> None:
         zero = read("00_orchestrator/SKILL.md")
         one = read("01_skill-integration/SKILL.md")
         life = read("01_skill-integration/references/lifecycle-cache.md")
-        self.assertTrue("mounts-cap" in zero or "mounts_cap" in zero)
         self.assertIn("session_picked_fine_ids", zero)
         self.assertIn("session_picked_fine_ids", one)
-        # advertised skills = 00–07 (skill-harvest archived → MY-RULES skills.md / skill-evolution)
         self.assertIn('only `00_orchestrator`–`07_response`', zero)
         self.assertNotIn("and `skill-harvest`", zero)
         self.assertTrue("`00`–`06` only" in life or "`00`–`07` only" in life)
@@ -228,11 +219,8 @@ class DiscoverySurface(unittest.TestCase):
         self.assertIn("skills.md", one)
 
     def test_live_docs_do_not_handwrite_52_fine(self) -> None:
-        for rel in (
-            "01_skill-integration/references/hybrid-mount-pointers.md",
-            "01_skill-integration/workflows/research-exploration-loop.md",
-        ):
-            self.assertNotRegex(read(rel), r"52 fine", rel)
+        rel = "01_skill-integration/workflows/research-exploration-loop.md"
+        self.assertNotRegex(read(rel), r"52 fine", rel)
 
 
 
@@ -307,7 +295,7 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("Do not mount an external", zero)
         self.assertIn("orchestrate", zero)
         fast = read("00_orchestrator/references/fast-routing.md")
-        self.assertIn("Excel / 批处理 / 0RAD 文件夹 → `02_data-processing`", fast)
+        self.assertIn("Excel / 批处理 → `02_data-processing`", fast)
         self.assertIn("citation-verify", zero)
         self.assertIn("do not self-certify lit", zero)
         mmd = read("00_orchestrator/runtime-flow.mmd")
@@ -369,7 +357,6 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("作者栏 ≠ 来源标签", text)
         self.assertIn("双标", text)
         self.assertNotIn("[ARS:", text)
-        self.assertNotIn("[OpenClaw:", text)
         self.assertIn("[Nature:simulate-reviewers]", text)
         self.assertIn("[self-review]", text)
         self.assertIn("同一 DOI", text)
@@ -433,7 +420,7 @@ class ReviewInteract(unittest.TestCase):
 class LocalLinkHygiene(unittest.TestCase):
     def test_no_broken_relative_markdown_links(self) -> None:
         errors = []
-        skip_parts = {".git", "mounts-cap", "__pycache__", "history"}
+        skip_parts = {".git", "__pycache__", "history"}
         for p in ROOT.rglob("*.md"):
             if skip_parts & set(p.parts):
                 continue

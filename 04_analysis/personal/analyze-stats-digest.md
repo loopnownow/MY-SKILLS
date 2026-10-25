@@ -6,7 +6,7 @@ Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → arch
 - **Table 1:** three-row header (group / variable / n); Significance column immediately after P; categorical → positive % only.
 - **Multivariable tables:** show all entered features, not only significant rows.
 - **DeLong:** paired model-comparison **p** columns live in `ROC summary — train & test`; drop meaningless `Thr source` (2026-08-28). AUC **CI** stays 1000-bootstrap — DeLong is not the CI.
-- **Type inference (all 0RAD sub-projects):** all-numeric column → continuous by default; English/roman/ordinal tokens stay categorical; override via `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` (2026-08-19).
+- **Type inference (all lab sub-projects):** all-numeric column → continuous by default; English/roman/ordinal tokens stay categorical; override via `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` (2026-08-19).
 
 ## process
 - Always report train | validation side-by-side; never merged-only results.

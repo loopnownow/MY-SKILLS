@@ -33,8 +33,8 @@ class LabPaths(unittest.TestCase):
     def test_local_disk_aliases_exist_when_on_lab_machine(self) -> None:
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
-        # Local disk aliases (drive-letter paths). Skip whole check if any D:/L: root missing.
-        # mounts_cap aliases deleted 2026-10-24; raw_root required.
+        # Local disk aliases (drive-letter paths). Skip whole check if any D: root is missing.
+        # raw_root is required on the alias map.
         keys = (
             "lab_root",
             "del_root",

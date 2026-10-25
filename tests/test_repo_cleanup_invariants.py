@@ -48,7 +48,7 @@ STATUS_SCAN_GLOBS = (
 )
 
 PACK_LABEL = re.compile(
-    r"(?:\bMedSci\b|\bAIPOCH\b|\bARIS\b|"
+    r"(?:\bAIPOCH\b|\bARIS\b|"
     r"`scientific`|\bScientific\s+(?:pack|catalog|P\d)|"
     r"/\s*Scientific\s*/)"
 )
@@ -156,7 +156,7 @@ class RegistryStatusJargon(unittest.TestCase):
 
 
 class NoLivePackMenuLabels(unittest.TestCase):
-    """MedSci/Scientific/AIPOCH/ARIS/A-pack/B-pack not active labels in skill bodies."""
+    """Scientific/AIPOCH/ARIS/A-pack/B-pack are not active labels in skill bodies."""
 
     def test_no_active_pack_menu_labels(self) -> None:
         violations: list[str] = []

@@ -23,13 +23,13 @@ class ModuleHeaderTests(unittest.TestCase):
         root_dirs = {p.name for p in ROOT.iterdir() if p.is_dir()}
         for expected in SKILL_DIRS:
             self.assertIn(expected, root_dirs)
-        self.assertNotIn("skill-harvest", root_dirs)  # archived 2026-10-17 → D:\\0del\\...
+        self.assertNotIn("skill-harvest", root_dirs)
         self.assertNotIn("01_automation", root_dirs)
         self.assertNotIn("02_imaging", root_dirs)
-        self.assertNotIn("mounts-cap", root_dirs)  # cache moved to 0doc 04-lab-reference/mounts-cap
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "extract.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding.md").is_file())
-        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())  # stub
+        self.assertFalse((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing" / "personal" / "workspace.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "qc" / "coding-qc.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
         # A stub removed 2026-10-17; body lives in B
@@ -82,12 +82,10 @@ class ModuleHeaderTests(unittest.TestCase):
                     violations.append((len(rel.parts), str(rel)))
         self.assertEqual(violations, [], msg=str(violations))
 
-    def test_registry_default_is_b(self):
+    def test_registry_is_in_repo_index(self):
         text = (ROOT / "01_skill-integration" / "registry.yaml").read_text(encoding="utf-8")
-        self.assertIn("default_source:", text)
-        self.assertIn("id: my-skills", text)
-        self.assertIn("source: in-repo", text)
-        self.assertIn("default-mount", text)
+        self.assertNotIn("default_source:", text)
+        self.assertIn("source: my-skills", text)
         self.assertIn("notify-then-research-confirm", text)
         self.assertIn("session_mount: ask-each-run", text)
         self.assertIn("session_pick_unit: fine_id", text)
@@ -97,13 +95,9 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("04-explainability", text)
         self.assertNotIn("05-de-ai", text)
         self.assertNotIn("Imbad0202/academic-research-skills", text)
-        self.assertNotIn("FreedomIntelligence/OpenClaw-Medical-Skills", text)
-        self.assertIn("ars_openclaw_policy: removed-from-catalog", text)
-        self.assertNotIn("openclaw_policy: never-mount-as-atomic-source", text)
         self.assertNotIn("role: default-candidate", text)
         self.assertNotIn("mounts: []", text)
-        self.assertNotIn("\narchived:\n", text)  # t1123: no archived bloat
-        self.assertTrue("default deny" in text.lower() or "UNIQUE" in text)
+        self.assertNotIn("\narchived:\n", text)
         self.assertFalse((ROOT / "01_skill-integration" / "_history").exists())
         self.assertFalse((ROOT / "01_skill-integration" / "mounts").exists())
         self.assertFalse((ROOT / "01_skill-integration" / "references" / "MIGRATION_v3_to_v4.md").exists())
@@ -116,23 +110,11 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("name: skill-index", skill)
         self.assertIn("my-skills", skill)
         self.assertIn("NN_slug/base", skill)
-        self.assertIn("references/hybrid-mount-pointers.md", skill)
+        self.assertIn("routing index", skill.lower())
         self.assertNotIn("`mounts/`", skill)
         self.assertFalse((d / "mounts").exists())
-        hybrid = (refs / "hybrid-mount-pointers.md").read_text(encoding="utf-8")
-        self.assertIn("default deny", hybrid.lower())
-        self.assertIn("registry/index only", hybrid.lower())
-        # dead source yamls stay archived / absent
-        self.assertFalse((d / "sources" / "ars.proposed.yaml").exists())
-        self.assertFalse((d / "sources" / "openclaw-medical-skills.proposed.yaml").exists())
-        self.assertFalse((d / "sources" / "medsci.proposed.yaml").exists())
-        self.assertFalse((d / "sources" / "nature-skills.proposed.yaml").exists())
-        self.assertFalse((d / "sources" / "scientific-agent-skills.proposed.yaml").exists())
-        self.assertFalse((d / "sources" / "aipoch-medical-research-skills.proposed.yaml").exists())
+        self.assertFalse((d / "sources").exists())
         self.assertFalse((d / "mounts" / "MIGRATION_v3_to_v4.md").exists())
-        reg_text = (d / "registry.yaml").read_text(encoding="utf-8")
-        self.assertIn("references/hybrid-mount-pointers.md", reg_text)
-        self.assertIn("removed-from-catalog", reg_text)
         # No separate capability-pack source yaml; bodies in-repo under NN_slug/base/.
         self.assertFalse((d / "sources" / "b-my-skills-base.yaml").exists())
         self.assertFalse((d / "sources").exists())
@@ -190,7 +172,7 @@ class ModuleHeaderTests(unittest.TestCase):
         for p in ROOT.rglob("*.md"):
             if "__pycache__" in p.parts or ".git" in p.parts:
                 continue
-            if "mounts-cap" in p.parts or "history" in p.parts:
+            if "history" in p.parts:
                 # Third-party pack bytes / monthly INTEGRATION_MAP archives.
                 # Historical CHG text may mention retired path fragments.
                 continue

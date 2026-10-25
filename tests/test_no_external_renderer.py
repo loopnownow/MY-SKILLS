@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HIST = re.compile(r"deleted|removed|former|archived|retired|no external renderer", re.I)
 ALLOW_FILES = {"INTEGRATION_MAP.md"}  # monthly integration archive
-SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "mounts-cap"}
+SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 
 
 class NoExternalRendererReference(unittest.TestCase):

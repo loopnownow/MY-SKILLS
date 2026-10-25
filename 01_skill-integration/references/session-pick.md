@@ -1,19 +1,12 @@
-# Default mount · Session pick · Empty-mount · Resolution
+# Session pick · Empty path · Resolution
 
-## Default mount
+## In-repo bodies
 
-**Default unique runtime source = `my-skills`**
-(in-repo capability bodies under A `NN_slug/base/`).
+Capability bodies live under `NN_slug/base/` (`source: my-skills`).
 
-First-pass fine-ID recipe names (plain text only; no preset YAML files):
-`review-hybrid-default`, `evidence-deep-L2`, `manuscript-final-W2`, `external-review-R1`.
-Agents propose MOUNTED fine ids from `registry.yaml`; these names are optional pre-check hints, not files to load.
-Still ask each run; user may change picks. Attribution is per skill path, not a whole upstream pack.
+Agents propose `MOUNTED` fine ids from `registry.yaml`. Still ask each run; the user may change picks. Attribution is per skill path.
 
-Non-base sources: **default deny** (`references/hybrid-mount-pointers.md`).
-OpenClaw / ARS: `ars_openclaw_policy: removed-from-catalog` -- never remount; not in session pick.
-
-**Mapping is not a mount.** Status stays `PROPOSED` until the user confirms (revive is owner-gated).
+**A listed id is not loaded until this run selects it.** Status `PROPOSED` is not pickable.
 
 ## Session mount pick
 
@@ -21,33 +14,32 @@ Registry status `MOUNTED` = catalog-approved and session-selectable. It is not a
 `PROPOSED` is not pickable.
 `session_picked_fine_ids` = selected this run. Active = actually loaded.
 
-Every independent run needs a mount decision. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node personal-layer / A top-layer task with no mounted dependency does not ask (example: polish one sentence). **A top layers are not capability mounts.**
+Every independent run needs a selection. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node personal-layer task with no in-repo dependency does not ask (example: polish one sentence). **A top layers are not capability mounts.**
 
 1. Classify the task. Propose **relevant coarse bucket(s)** then **MOUNTED candidate fine ids**.
-2. Show each candidate as one line: **fine ID · coarse ID · in-repo path · role**. Default source is always `my-skills`.
-3. **Ask the user to multi-select fine ids**. For manuscript polish, **pre-check `manuscript-final-W2`**. For review/response, **pre-check `review-hybrid-default`**. Then allow edits. Also offer: use default recipe / select all candidates / personal layer only. Do **not** offer a non-base package menu. Empty picked path -> tell the user; do not silent-fallback.
-4. Load **only** the picked fine ids from A `NN_slug/base/` paths in the registry. Unpicked stay unloaded. Never bulk-download non-base trees.
-5. If a picked path is empty -> empty-mount protocol. Do not silently substitute another source.
-6. Do not change `registry.yaml` just because this run wanted a non-base path.
+2. Show each candidate as one line: **fine ID · coarse ID · in-repo path · role**. Bodies are in-repo under `NN_slug/base/`.
+3. **Ask the user to multi-select fine ids**. Also offer: select all candidates / personal layer only. Empty picked path -> tell the user; do not silent-fallback.
+4. Load **only** the picked fine ids from `NN_slug/base/` paths in the registry. Unpicked stay unloaded.
+5. If a picked path is empty -> empty-path protocol. Do not silently substitute another path.
+6. Do not change `registry.yaml` just because this run wanted a path that is not in the index.
 
-Silence is not approval. Never auto-mount a non-base source. Personal layers and A top layers are not mount picks.
-Say **default mount = in-repo NN_slug/base/**, not empty mount.
+Silence is not approval. Personal layers and A top layers are not session picks.
+Say **bodies are in-repo under NN_slug/base/**.
 
-## Empty-mount protocol
+## Empty-path protocol
 
-If a listed mount is empty (path missing, zero files, id points nowhere):
+If a listed path is empty (path missing, zero files, id points nowhere):
 
 1. **Notify the user first.** Do not silently skip, substitute, or fall back.
-2. Re-search (in-repo `NN_slug/base/` first, then ask for a local path).
-3. **Confirm with the user** before changing `registry.yaml` or switching source.
+2. Re-search in-repo `NN_slug/base/` first, then ask for a local path.
+3. **Confirm with the user** before changing `registry.yaml`.
 
-Never silently fall back to a non-base pack or invent a local copy.
+Never invent a local copy.
 
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (coarse buckets + fine `mounts:`).
-2. Resolve each fine id against `source: my-skills` (default unique; paths under `NN_slug/base/`). Retired ids (legacy_aliases.yaml only) are not in the default menu.
-3. If that path is empty or missing -> empty-mount protocol.
-4. Non-base revive requires explicit owner approval (default deny).
-5. Evaluate capability, boundaries, dependencies, and overlap.
-6. After approval the registry status becomes `MOUNTED`. Update `registry.yaml` only (no generated mirror).
+2. Resolve each fine id against `source: my-skills` (paths under `NN_slug/base/`). Retired ids (`legacy_aliases.yaml` only) are not on the menu.
+3. If that path is empty or missing -> empty-path protocol.
+4. Evaluate capability, boundaries, dependencies, and overlap.
+5. After approval the registry status becomes `MOUNTED`. Update `registry.yaml` only (no generated mirror).

@@ -83,10 +83,10 @@ class Routing(unittest.TestCase):
         zero = read("00_orchestrator", "SKILL.md")
         self.assertIn("01_skill-integration", zero)
         fast = read("00_orchestrator", "references", "fast-routing.md")
-        self.assertIn("Excel / \u6279\u5904\u7406 / 0RAD", fast)
+        self.assertIn("Excel / \u6279\u5904\u7406", fast)
         self.assertRegex(
             fast,
-            r"Excel / \u6279\u5904\u7406 / 0RAD \u6587\u4ef6\u5939 \u2192 `02_data-processing`",
+            r"Excel / \u6279\u5904\u7406 \u2192 `02_data-processing`",
         )
 
     def test_figures_route_to_04(self) -> None:

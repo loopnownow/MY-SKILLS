@@ -11,4 +11,4 @@ owner: "03_research/base/write-protocol/MODULE.md"
 
 Generic protocol text. Not experimental-design blueprints (`design-study`) and not grant Voice A/B.
 
-Backup: MedSci `write-protocol` / `fill-protocol`.
+Pairs with in-repo `fill-protocol`.

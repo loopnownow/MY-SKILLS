@@ -9,15 +9,10 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 ---
 
 <!--
-Migration stub (MedSci skeleton; omitted from the original 30-id list)
+Format-layer stub (pairs with write-protocol)
 fine_id: IRB form fill (format layer; write-protocol owns content)
-source: MedSci (skeleton; previously omitted)
-source file: 5/medsci_fill-protocol.md
-license hint: MIT (source repo)
 extracted: 2026-09-13
 maintain: blank-source / as-absorbed stub only; not rewritten to Aitor-format.
-          Re-extract and diff if upstream updates; license hint is "verify".
-          Confirm source-repo LICENSE before production use.
 -->
 
 ---
@@ -36,7 +31,7 @@ model: inherit
 # Fill-Protocol Skill
 
 > **Provenance / on-disk status (Batch1 F9; Batch4 B2 trim):**
-> Source: MedSci fill-protocol (MIT notice in HTML comment above); extracted 2026-09-13 into A.
+> In-repo body under `03_research/base/fill-protocol/` (extracted 2026-09-13).
 > This MODULE keeps **principles + paths only**. The following assets are **not present**
 > in `03_research/base/fill-protocol/` — do not pretend they exist; do not invent paths:
 > - `setup.sh`

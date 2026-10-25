@@ -1,6 +1,6 @@
-# 0RAD clinical + radiomics pipeline rules
+# Lab clinical + radiomics pipeline rules
 
-**Owner:** `04_analysis`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `02_data-processing/personal/workspace.md`). Coding conventions → mounted `radiomics-ml` + `02_data-processing/personal/coding.md`.
+**Owner:** `04_analysis`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `{RULES}/workspace-layout.md`). Coding conventions → `radiomics-ml` + `02_data-processing/personal/coding.md`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 
@@ -67,7 +67,7 @@ Pairwise is the same pagination case as multiple outcomes:
 - `record_id` and every column to its left stay out of models.
 - Outcomes listed in `OUTCOME_COLS` are never used as predictors of each other.
 - Clinical column roles, skip first: `SKIP_CLIN_FEATURES` (ID / outcome / marker — no Table 1, no nomogram) outranks `FORCE_REMOVE_FEATURES` (Table 1 yes, nomogram no). Overlap stays in skip. Implicit locked skip is `CLIN_ID_COL`, `LABEL_COL`, `Patient_ID`, `Group`, `OUTCOME_COLS`. Do not hardcode `Name`.
-- Clinical Table 1 types apply to every 0RAD project / subproject: a raw column that is all numbers (including integer 0–6 such as `Reproductive_History`) is **continuous** by default. English labels and roman/ordinal tokens stay categorical. `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` override. `ORDINAL_MAX_LEVELS` no longer reclassifies raw integer columns as counts.
+- Clinical Table 1 types apply to every lab project / subproject: a raw column that is all numbers (including integer 0–6 such as `Reproductive_History`) is **continuous** by default. English labels and roman/ordinal tokens stay categorical. `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` override. `ORDINAL_MAX_LEVELS` no longer reclassifies raw integer columns as counts.
 - User-facing endpoints are `OUTCOME_COLS` only (single endpoint = one-item list). `GROUP_SOURCE_COL` is a runtime slot written by `set_outcome`, not a console key. Output dirs are `{outcome}` or `{outcome}/{pos_display}_vs_{neg_display}` when pairwise; `SUBPROJECT_BY_OUTCOME` still remaps the parent. `OUT_DIR_BASE` is retired.
 - Sub-outcome grouping comes from that outcome column: running `response_6m` uses `response_6m` levels (then collapsed to 0/1 via `OUTCOME_BINARIZE`). Even if the sheet already has `Group`, do not use it or another outcome column as this sub-outcome's grouping. Fall back to `Group` / `GROUP_COL_KEYWORD` only when the current outcome column is missing.
 - `SUBGROUP_COL`: when different from the outcome column, **evaluate only — do not retrain**. Train the primary model on the full cohort by outcome (nomogram / RadScore / Clinical); then apply the locked formula to each level of this column (ROC, calibration, DCA). `GROUP_KEEP` / pairwise lists only decide which strata to evaluate — they do not filter training rows and do not trigger pairwise retrain. Empty or equal to the current outcome = no stratified evaluation.

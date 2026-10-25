@@ -17,14 +17,14 @@ Transform analysis-ready data into valid statistical results, predictive-model r
 **A04 is the personal top layer** (like A03/A05/A06): route, handoff, and post-QC authority for lab numbers/figures.
 Capability **bodies** for stats/figures mounts live in **A `04_analysis/base/`** (merged 2026-10-17). Fine IDs are not renamed.
 
-Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
+Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
 ## Layer model (2026-10-17)
 
 **Flow:** stats/figures fine-ID **first-pass** (A `base/` bodies) -> **00 QC** -> **A04** top-layer re-loops
 
 **QC standards:** live in `qc/` and are invoked only by `00_orchestrator` at Gate time (not by the specialist during first-pass). See `qc/README.md`.
-(0RAD pipeline / figures personal; report-checks live in `qc/` for 00; may re-trigger mounts when 00 says needed).
+(lab pipeline / figures personal; report-checks live in `qc/` for 00; may re-trigger mounts when 00 says needed).
 
 | Layer | Owns |
 |---|---|
@@ -32,7 +32,7 @@ Live 0RAD modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiv
 | 00 | QC gate (G-FACT / G-04); decides whether A04 re-triggers mounts |
 | A04 | Personal route/handoff/authority; pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
 
-Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabilities pack.
+Do **not** copy `personal/` (lab radiology-stats + lab rules) into the capabilities pack.
 
 ## Personal assets (top layer)
 
@@ -40,7 +40,7 @@ Do **not** copy `personal/` (lab radiology-stats + 0RAD rules) into the capabili
 |---|---|
 | Route | `personal/route.md` |
 | Handoff | `personal/handoff.md` |
-| Lab 0RAD pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/pipeline.md` |
+| Lab pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/pipeline.md` |
 | Console UI / results HTML / figure switches | `personal/console-ui.md` |
 | Radiology-grade stats index | `personal/module-notes.md` + `personal/methods.md` |
 | Lab figure palettes / claim planning | `personal/figures.md` |
@@ -57,7 +57,7 @@ Lab numbers: `python -m modules.pipeline` -> `*-results.html`.
 - `analyze-stats` -- test selection / effect sizes (A `04_analysis/base/analyze-stats/`)
 - `calc-sample-size` -- sample size / power (A `04_analysis/base/calc-sample-size/`)
 - `model-evaluation` -- calibration / DCA / external validation + leakage gates (A `04_analysis/base/model-evaluation/`)
-- `meta-analysis` -- implementation (A `04_analysis/base/meta-analysis/`); 0RAD personal still wins
+- `meta-analysis` -- implementation (A `04_analysis/base/meta-analysis/`); lab personal still wins
 - `draw-flowchart` -- STROBE / patient-flow (A `04_analysis/base/draw-flowchart/`)
 - `plot-figures` -- statistical plots / imaging panels (A `04_analysis/base/plot-figures/`)
 
@@ -74,7 +74,7 @@ Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figur
 - LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
 - Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
 - Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
-- 0RAD test-set scoring: `VAL_MODE` in {`refit`, `apply_formula`, `lock_threshold`} -- **never re-select features**. Details: `personal/pipeline.md`.
+- lab test-set scoring: `VAL_MODE` in {`refit`, `apply_formula`, `lock_threshold`} -- **never re-select features**. Details: `personal/pipeline.md`.
 
 ## Precedence
 

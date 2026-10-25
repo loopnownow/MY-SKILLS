@@ -6,7 +6,7 @@ Whenever this lab **creates or edits** `.html`, follow [`html-visual-design.md`]
 
 ## Visualization compiler
 
-Visualization is rendered locally from the repository's own IR. It is not a skill and not a top-level `07` layer, and no external renderer runs. MY-SKILLS sources stay authoritative. Contract lives under **`04_analysis/personal/visualization/`**: `visualization-architecture.md`, `visualization-source-contract.yaml`. Rebuild: `python3 04_analysis/personal/visualization/scripts/gen_visualization.py` (offline; nothing is downloaded or unpacked). Generated HTML under the dir given by `--out` / env `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) is disposable and is not a fact source. It is **not** committed under MY-SKILLS (`docs/` removed). Mount diagrams use registry and preset metadata. The former `{mounts_cap}/` cache is retired (2026-10-20); do not crawl it.
+Visualization is rendered locally from the repository's own IR. It is not a skill and not a top-level `07` layer, and no external renderer runs. MY-SKILLS sources stay authoritative. Contract lives under **`04_analysis/personal/visualization/`**: `visualization-architecture.md`, `visualization-source-contract.yaml`. Rebuild: `python3 04_analysis/personal/visualization/scripts/gen_visualization.py` (offline; nothing is downloaded or unpacked). Generated HTML under the dir given by `--out` / env `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) is disposable and is not a fact source. It is **not** committed under MY-SKILLS (`docs/` removed). Diagrams use the in-repo registry. Do not crawl outside this repo for skill bodies.
 
 ## Deliverable drop points (lab)
 
@@ -24,11 +24,11 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 ## New folders (2026-10-24 · t1107u/t1108u/t1109u)
 
-**All new folders** assistants need → only under `{DEL}` (`_by-project` / `_by-function`). **Default: no mkdir under `{doc_root}`**; the **only** exception is when 城城 **explicitly agrees that turn**. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only. Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `{doc_root}/mem/README.md`.
+**All new folders** assistants need → only under `{DEL}` (`_by-project` / `_by-function`). **Default: no mkdir under `{doc_root}`**; the **only** exception is when 城城 **explicitly agrees that turn**. Scratch → `{DEL}`. ACCEPT notes → `{DEL}` only. Authority: `{RULES}/My rule.md` §5.1; `{RULES}/workspace-layout.md`; mem `{doc_root}/mem/README.md`.
 
 ## New files outside `{DEL}` (2026-10-24 · t1098u)
 
-**Do not create new files** outside `{DEL}`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}\My rule.md` §5.1; `workspace-layout.md`; mem `{doc_root}/mem/README.md`.
+**Do not create new files** outside `{DEL}`. Editing existing files is OK. New drafts / ACCEPT / digests / notes / intermediates → `{DEL}\_by-function\…` or `{DEL}\_by-project\…`. Final drop points in the table above still apply when the user names a deliverable this turn (prefer overwrite-in-place of an existing final). Authority: `{RULES}/My rule.md` §5.1; `{RULES}/workspace-layout.md`; mem `{doc_root}/mem/README.md`.
 
 - Temporary / non-deliverable → `{DEL}\<task>` only; never delivered as output.
 - Downloads **only** when the user names 「下载」/「Downloads」 this run.

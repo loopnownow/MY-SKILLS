@@ -2,9 +2,9 @@
 
 **Machine source of truth (edit only this diagram):** [`runtime-flow.mmd`](runtime-flow.mmd)
 
-Sub-flows (writing chain, review chain, 0RAD, R&R triage) are **branches** on that diagram — do not maintain a second master map. When updating entry / QC / rollback rules, revise only the `.mmd`.
+Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** on that diagram — do not maintain a second master map. When updating entry / QC / rollback rules, revise only the `.mmd`.
 
-00 = control layer (entry, dispatch, Gate, rollback). Domain work lives in 02–07; external pack versions and cache live in **01**; skill-evolution policy is in `references/skill-evolution.md` (skill-harvest archived) — observe and propose only; do not execute flows there.
+00 = control layer (entry, dispatch, Gate, rollback). Domain work lives in 02–07; the routing index lives in **01**; skill-evolution policy is in `references/skill-evolution.md` — observe and propose only; do not execute flows there.
 
 
 

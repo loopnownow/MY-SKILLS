@@ -74,7 +74,7 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
 - **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
 ## Wording
-- Say **默认挂载 B 包/本仓**, never 「空挂」.
+- Say **本仓**, never 「空挂」.
 
 ## Data locations
 

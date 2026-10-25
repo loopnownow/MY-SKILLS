@@ -41,13 +41,17 @@ class RuleLanding(unittest.TestCase):
         for needle in ("Please", "past tense", "ACCEPT-"):
             self.assertIn(needle, rp, f"response.md missing {needle}")
 
-    def test_workspace_subproject_no_ab(self) -> None:
-        ws = t("02_data-processing/personal/workspace.md")
-        self.assertIn("Subproject layout", ws)
-        self.assertNotIn("## A-class", ws)
-        self.assertNotIn("## B-class", ws)
-        self.assertNotIn("`{WORK_A}", ws)
-        self.assertNotIn("`{WORK_B}", ws)
+    def test_workspace_layout_points_at_rules(self) -> None:
+        self.assertFalse((ROOT / "02_data-processing/personal/workspace.md").is_file())
+        skill = t("02_data-processing/SKILL.md")
+        self.assertIn("{RULES}/workspace-layout.md", skill)
+        self.assertNotIn("personal/workspace.md", skill)
+        sd = t("00_orchestrator/references/standing-delivery.md")
+        self.assertIn("{RULES}/workspace-layout.md", sd)
+        self.assertNotIn("`{WORK_A}", sd)
+        self.assertNotIn("`{WORK_B}", sd)
+        self.assertNotIn("## A-class", sd)
+        self.assertNotIn("## B-class", sd)
 
     def test_ownership_dispatch(self) -> None:
         oc = t("00_orchestrator/references/ownership-contract.md")

@@ -235,7 +235,7 @@ sensitivity at clinical prevalence.
 A clinical prediction model needs **three** things reported: **discrimination**,
 **calibration**, and **clinical utility**. AUC alone is not enough (TRIPOD+AI, PROBAST).
 
-Lab 0RAD **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
+Lab pipeline **v4.3.0** (2026-08-28): Combined = named primary. Numbers from
 `python -m modules.pipeline`, not habitat-tree `LassoCV`. Details:
 `04_analysis/personal/pipeline.md`.
 
@@ -291,7 +291,7 @@ brier = np.mean((y_prob - y_true)**2)
 Pre-specify (clinical target sensitivity), or derive on training. **Never** pick the
 threshold that maximises test-set accuracy.
 
-Lab 0RAD implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_threshold`
+Lab pipeline implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_threshold`
 (features never re-selected). Youden is **per split** unless locked. Definitions:
 `04_analysis/personal/pipeline.md`.
 
@@ -318,7 +318,7 @@ LASSO; class imbalance ignored (report PR-AUC/sensitivity at clinical prevalence
 Use when the endpoint is **time-to-event** (OS, PFS, recurrence). Common in radiogenomics
 (imaging/omics signature → prognosis).
 
-## Lab 0RAD (v4.3.0) — what actually runs
+## Lab pipeline (v4.3.0) — what actually runs
 
 - **Always:** Kaplan–Meier curves + **log-rank** for group comparison. Report median
   survival with 95% CI and numbers-at-risk under the x-axis (a _Radiology_ figure
@@ -407,7 +407,7 @@ mixed-effects, absolute agreement, single rater."* Choices:
 - **Unit**: single rater vs mean of k raters.
 Using "consistency" when you need "absolute agreement" silently hides systematic bias.
 
-Lab 0RAD radiomics filter: keep features with **ICC(A,1) ≥ 0.75**. Do not write an
+Lab pipeline radiomics filter: keep features with **ICC(A,1) ≥ 0.75**. Do not write an
 unspecified "ICC > 0.75" as the lab rule.
 
 ```python
@@ -572,7 +572,7 @@ The defining problem: **features ≫ samples**. Matched imaging+omics cohorts ar
 (often n < 100), while features run to thousands (radiomics) or tens of thousands (genes).
 This breaks naive analysis in three ways: multiplicity, overfitting/optimism, and leakage.
 
-## Lab 0RAD (v4.3.0) — what actually runs
+## Lab pipeline (v4.3.0) — what actually runs
 
 - Radiomics reproducibility filter: keep features with **ICC(A,1) ≥ 0.75**.
 - **LASSO:** StratifiedKFold **AUC path on TRAIN only**. Coefficients lock; test set is not

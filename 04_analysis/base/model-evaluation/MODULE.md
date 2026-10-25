@@ -11,7 +11,7 @@ owner: "04_analysis/base/model-evaluation/MODULE.md"
 Umbrella fine id: **`model-evaluation`** (covers former `model-validation`).
 
 Not test selection (`analyze-stats`) and not model fitting (`meta-analysis`).
-Lab 0RAD / DeLong / Cox policy stays in A `04_analysis/personal/`.
+Lab pipeline / DeLong / Cox policy stays in A `04_analysis/personal/`.
 
 ## Workflow
 

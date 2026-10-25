@@ -8,7 +8,7 @@
 
 ## Personal load order
 
-1. Workspace / folders / `exc` / false-classification -> `workspace.md`
+1. Workspace / folders / `exc` / false-classification -> `{RULES}/workspace-layout.md`
 2. Clinical / HIS / pathology **extraction** -> `extract.md`
 3. Soft-coding / dry-run / refactor / complexity ladder -> `coding.md`
 4. Deep code QC (Critical/Required/Optional) -> `../qc/coding-qc.md`

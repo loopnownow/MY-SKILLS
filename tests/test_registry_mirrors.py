@@ -15,16 +15,17 @@ def registry() -> dict:
 
 
 class RegistryMirrors(unittest.TestCase):
-    def test_default_source_in_repo_my_skills(self) -> None:
-        """Live mounts use in-repo my-skills; no my-skills-base source id."""
+    def test_live_rows_are_in_repo_my_skills(self) -> None:
+        """Live rows use in-repo my-skills; no second source id and no source-menu key."""
         reg = registry()
         bad = [m["id"] for m in reg["mounts"] if m.get("source") == "my-skills-base"]
         self.assertEqual(bad, [])
-        self.assertNotIn("archived", reg)  # t1123: live mounts only
+        self.assertNotIn("archived", reg)
+        self.assertNotIn("default_source", reg)
         self.assertFalse((ONE / "sources" / "b-my-skills-base.yaml").exists())
         live_a = [m for m in reg["mounts"] if m.get("source") == "my-skills"]
         self.assertGreaterEqual(len(live_a), 20)
-        self.assertEqual(reg["default_source"]["id"], "my-skills")
+        self.assertEqual(len(live_a), len(reg["mounts"]))
 
 
 if __name__ == "__main__":
