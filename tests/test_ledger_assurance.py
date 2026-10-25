@@ -16,6 +16,8 @@ from tests.support import (
 )
 
 CHG_RE = re.compile(r"CHG-(\d{8})")
+CHG_FULL = re.compile(r"CHG-\d{8}-[a-z0-9-]+")
+VERSION_HEAD = re.compile(r"^(CHG-\d{8}-[a-z0-9-]+)", re.M)
 def _registry() -> dict:
     return yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
 
@@ -32,6 +34,21 @@ class LedgerFreshness(unittest.TestCase):
                 text,
                 f"{name} has no entry for registry change_id {change_id}",
             )
+
+        newest = CHG_FULL.findall((ROOT / "INTEGRATION_MAP.md").read_text(encoding="utf-8"))
+        self.assertTrue(newest, "INTEGRATION_MAP.md has no CHG-YYYYMMDD-slug entry")
+        self.assertEqual(
+            change_id,
+            newest[0],
+            "registry change_id must equal the newest INTEGRATION_MAP entry",
+        )
+        head = VERSION_HEAD.search((ROOT / "VERSION.txt").read_text(encoding="utf-8"))
+        self.assertIsNotNone(head, "VERSION.txt has no top CHG entry")
+        self.assertEqual(
+            change_id,
+            head.group(1),
+            "registry change_id must equal the top VERSION.txt entry",
+        )
 
     def test_version_top_is_not_older_than_registry(self) -> None:
         meta = _registry().get("meta") or {}

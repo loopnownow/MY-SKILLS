@@ -49,14 +49,13 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |
 
 
-## Mounted capability ids (bodies in A `base/`, except `check-reporting` under `qc/`; not present until mounted)
+## Mounted capability ids (bodies in `05_manuscript/base/`, except `check-reporting` under `qc/`)
 
 **This-run pick:** do not load any mounted id until 01 session-mount pick is confirmed for this run. Registry `MOUNTED` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
 - `check-reporting` — TRIPOD / CLAIM / CLEAR (`qc/check-reporting/`)
-- `humanize` — generic academic English: report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`).
-- `humanize` — generic de-AI / humanize (A `05_manuscript/base/humanize/`). Does **not** replace `personal/route.md` + A `05_manuscript/base/vocab/L1/ban-phrases.md`.
+- `humanize` — generic academic English / de-AI (`05_manuscript/base/humanize/`): report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `personal/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-paper/`. Personal de-AI stays in A (`personal/`).
 

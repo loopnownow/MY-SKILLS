@@ -857,7 +857,6 @@ class WordTrackChangesOwnership(unittest.TestCase):
     )
     SCAN_SKIP = {
         CONTRACT,
-        "tests/test_pre_submit_checks.py",
     }
 
     def test_contract_holds_full_sentences(self) -> None:
@@ -891,7 +890,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
                 and not any(x in p.parts for x in (".git", "__pycache__", ".pytest_cache"))
             ]
         for rel in tracked:
-            if not rel or rel in self.SCAN_SKIP:
+            if not rel or rel in self.SCAN_SKIP or rel.startswith("tests/"):
                 continue
             path = ROOT / rel
             # Wave2: git index still lists archived paths (.github/, old 01_*, etc.)

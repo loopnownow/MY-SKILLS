@@ -26,7 +26,8 @@ Three pillars. Load only what the task needs.
 |---|---|
 | `radiology-design.md` / `radiology-frontier.md` | Imaging design / novelty |
 | `ethics.md` / `intake.md` / `multicenter.md` | Protocol ethics / triage / multicentre |
-| Grant Voice A/B files | Grants |
+| `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Grants (Voice A/B inside each file) |
+| `handoff.md` | Layering + personal-file authority; read before moving personal files |
 | `clinical-translation/` | Reader study / deployment design |
 | A `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
 | `01_skill-integration/workflows/question-to-reference.md` | R1-R5 spine |

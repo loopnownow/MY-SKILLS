@@ -1,6 +1,6 @@
 # Research stage map (W1→W3 · standards only)
 
-**Owner:** domain seat (canonical under `03_research/qc/research-stage-artifacts.md`); 00 calls only. at long research / exploration loops.
+**Owner:** domain seat (canonical under `03_research/qc/research-stage-artifacts.md`); 00 calls only, at long research / exploration loops.
 **Distill of:** ARIS `research-pipeline` + `acceptance-gate` / `resumable-runs` (wanshuiyin/Auto-claude-code-research-in-sleep). Host-agnostic rewrite — **do not** install ARIS runtime, Codex MCP, or `verify_paper_audits.sh`.
 **Compose:** `assurance-verdicts.md` (effort vs assurance; who may ACCEPT) · `06_review/qc/assurance-audit-chain.md` · seats in `../../00_orchestrator/references/ownership-contract.md`.
 
