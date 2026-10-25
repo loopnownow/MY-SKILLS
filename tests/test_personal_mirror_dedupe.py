@@ -27,6 +27,7 @@ def _paragraphs(path: Path) -> set[str]:
     return out
 
 
+class PersonalMirrorDedupe(unittest.TestCase):
     def test_no_cross_file_long_paragraph(self) -> None:
         seen: dict[str, str] = {}
         hits: list[str] = []
@@ -46,8 +47,6 @@ def _paragraphs(path: Path) -> set[str]:
                 seen.setdefault(norm, rel)
         self.assertEqual(hits, [], "shared long paragraphs:\n" + "\n".join(hits[:10]))
 
-
-class PersonalMirrorDedupe(unittest.TestCase):
     def test_mirror_pairs_share_no_long_paragraph(self) -> None:
         problems = []
         for base_rel, personal_rel in MIRRORS:
