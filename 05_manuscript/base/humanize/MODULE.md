@@ -183,12 +183,15 @@ Two detectors ship with this pack and are the only runnable commands in it:
 | `scripts/check_rewrite_fidelity.py` | citation + numerical preservation, rewrite footprint |
 | `scripts/check_sentence_variety.py` | Fix rule 7 sentence-length bands |
 
-**Not shipped:** `check_paren_spans.py` (Pattern 13), `check_emphasis_density.py` (25),
-`check_aphorism_density.py` (26), `check_rhetorical_density.py` (27), `check_classical_style.py`
-(Pattern 21 body disclosure). They live in the upstream `self-review` pack this text was absorbed
-from; this repo does not carry them. The four gates above are therefore marked `ENFORCED · manual`
-and are checked by hand against `references/ai_patterns.md`. Do not run the old
-`../self-review/scripts/...` paths — they do not resolve from this pack.
+**Deliberately not shipped** (owner decision, 2026-10-25 — do not vendor them): `check_paren_spans.py`
+(Pattern 13), `check_emphasis_density.py` (25), `check_aphorism_density.py` (26),
+`check_rhetorical_density.py` (27), `check_classical_style.py` (Pattern 21 body disclosure). They exist in
+the upstream `self-review` pack this text was absorbed from, which this repo does not carry, and the owner
+ruled against importing them. The four gates above stay `ENFORCED · manual`, checked by hand against
+`references/ai_patterns.md`; Pattern 21 detection is a body grep for the disclosure strings plus a
+journal-profile location check, also by hand. The detector names are kept only so a verdict code in a
+report can be traced to its pattern. Only a new owner decision can reopen this; no agent may add them.
+Do not run the old `../self-review/scripts/...` paths — they do not resolve from this pack.
 
 ## Language lint (report-only)
 
