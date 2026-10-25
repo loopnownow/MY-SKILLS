@@ -1,4 +1,4 @@
-"""QC Batch5: owner: fields under base/** must point at in-repo paths."""
+"""QC Batch5: owner: fields under base/** and qc/** must point at in-repo paths."""
 from __future__ import annotations
 
 import re
@@ -20,7 +20,7 @@ class OwnerFields(unittest.TestCase):
             if not path.is_file() or path.name not in ("SKILL.md", "MODULE.md"):
                 continue
             rel_parts = path.relative_to(ROOT).parts
-            if "base" not in rel_parts:
+            if "base" not in rel_parts and "qc" not in rel_parts:
                 continue
             if any(p.startswith(".") for p in rel_parts):
                 continue

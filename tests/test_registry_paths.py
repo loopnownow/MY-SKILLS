@@ -70,11 +70,14 @@ class RegistryPaths(unittest.TestCase):
     def test_pack_frontmatter_name_matches_dir(self) -> None:
         pattern = re.compile(r"^---\s*\n(.*?)\n---\s*$", re.S | re.M)
         problems = []
+        homes = []
         for domain in sorted(p for p in ROOT.glob("0[0-7]_*") if p.is_dir()):
-            base = domain / "base"
-            if not base.is_dir():
-                continue
-            for pack in sorted(p for p in base.iterdir() if p.is_dir()):
+            for folder_name in ("base", "qc"):
+                folder = domain / folder_name
+                if folder.is_dir():
+                    homes.append(folder)
+        for home in homes:
+            for pack in sorted(p for p in home.iterdir() if p.is_dir()):
                 for name in ("MODULE.md", "SKILL.md"):
                     doc = pack / name
                     if not doc.is_file():
