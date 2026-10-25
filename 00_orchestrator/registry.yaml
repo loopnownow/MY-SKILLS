@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261025-stats-path-github
+  change_id: CHG-20261025-lab-paths-p0
   fine_id_count_canonical: 25
   coarse_id_count: 5
 

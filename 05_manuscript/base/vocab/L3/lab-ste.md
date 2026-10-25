@@ -17,10 +17,8 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 
 **Skill SSOT (method):** this file + `lab-ste-spec-digest.md` + `lexicons/` + `term-lock-default.tsv`.
 **Approved EN lexicon:** `../L2/approved-en.tsv` (+ lemmas; hash-matched at absorb).
-**Live library (0doc):** `{doc_lab_ste}`
-**Full SPEC / config / tools / HTML (parked 2026-10-23):**
-`{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`
-Durable: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste\`
+**Live method SSOT:** this folder (`lab-ste.md` + `lab-ste-spec-digest.md` + lexicons).
+**Full SPEC / config / tools / HTML park** (`_library\lab-ste` retired 2026-10-23): `{doc_lab_ste}` (= durable skill-harvest-sources `library-methods-20261023\lab-ste`). Older park copy may also exist under `{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`.
 **Spec version at absorb:** 0.2.1.
 **Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese manuscript comments (稿面批注), or tuning controllable-language checks.
 
