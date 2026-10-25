@@ -28,7 +28,7 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 
 | Owns | Does not own |
 |---|---|
-| Content chain + stage cards | Session mount pick (00) |
+| Content chain + stage cards | Session fine-id pick (00) |
 | Mechanism labels with source class | Manuscript prose (05) |
 | Data **requirements** list | Data extract / QC tables (02) |
 | Hand-off asks to 02 | Final sample-size / model verdict (02) |
@@ -41,7 +41,7 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 
 Stage ids are **R1–R5** (research). Do **not** call them G1–G5 — that collides with QC gates (`G0`, `G-PHI`, `G-STATS`, …).
 
-**One workflow file only.** Do not re-implement PubMed search, MA, design engines, stats, or ETL here. Dispatch live mounts / personal supplements.
+**One workflow file only.** Do not re-implement PubMed search, MA, design engines, stats, or ETL here. Dispatch live fine ids / personal supplements.
 
 ---
 
@@ -173,9 +173,9 @@ Reuse rule: completed card with intact sources → do not re-run that stage with
 
 ```text
 R2
-├─ literature retrieval     → mount lit-search (and session-picked helpers)
+├─ literature retrieval     → fine id lit-search (and session-picked helpers)
 ├─ evidence screening
-├─ claim verification       → verify-refs when mounted / needed
+├─ claim verification       → verify-refs when live / needed
 ├─ mechanism synthesis
 ├─ contradictory evidence
 └─ evidence gap
@@ -197,7 +197,7 @@ Mechanism claim
 ### R3 — Study Design Card
 
 - Design type, exposure/intervention, outcomes, confounders, bias, reporting guideline.
-- Use mounted design capability + `personal/radiology-design.md` when imaging-specific.
+- Use live design capability + `personal/radiology-design.md` when imaging-specific.
 - **RETURN R1/R2** if bias or endpoint definition is unresolvable with current evidence.
 
 ### R4 — Data Requirement Card + feasibility gate
@@ -236,7 +236,7 @@ Then **HANDOFF** (02/05 as appropriate). Never emit Introduction/Discussion pros
 |---|---|---|
 | R1 | `frontier-hypothesize`; `personal/intake.md` | Invent endpoints |
 | R2 | `lit-search`; optional `verify-refs` / `meta-analysis` / `paper-lookup` if session-picked | Treat lit-search as the whole of 03 |
-| R3 | mounted design ids; `personal/radiology-design.md` | Write 05 prose |
+| R3 | live design ids; `personal/radiology-design.md` | Write 05 prose |
 | R4 | emit Data Requirement Card → **02** | Run 02 ETL / models inside 03 |
 | R5 | synthesize cards → Research Brief | Paper Conclusion section |
 

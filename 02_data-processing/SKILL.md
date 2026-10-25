@@ -5,7 +5,7 @@ description: >
  then valid statistics, prediction, survival, diagnostic accuracy, and publication figures.
  Triggers: Excel/CSV clean, DICOM/NIfTI, radiomics prep, extraction, coding, leakage checks,
  stats, AUC, DeLong, DCA, KM, calc-sample-size, plot-figures, draw-flowchart.
- Capability bodies for 02 mounts live in 02_data-processing/base/ (pilot).
+ Capability bodies for 02 fine ids live in 02_data-processing/base/ (pilot).
  Literature -> 03. Writing -> 05. Review -> 06. Response -> 07.
 ---
 
@@ -20,7 +20,7 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 then transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 
 **02 is the personal top layer** (like 03/05/06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
-Capability **bodies** for clean/imaging/stats/figures mounts all live in **`02_data-processing/base/`** (pilot 2026-10-17; analysis packs merged 2026-10-25). Fine IDs are not renamed.
+Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02_data-processing/base/`** (pilot 2026-10-17; analysis packs merged 2026-10-25). Fine IDs are not renamed.
 
 Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
@@ -28,12 +28,12 @@ Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multiva
 
 **Flow:** fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **02** top-layer re-loops
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-(personal coding/extract/workspace protocols + analysis pipeline/figures; may re-trigger base mounts when 00 says needed).
+(personal coding/extract/workspace protocols + analysis pipeline/figures; may re-trigger base fine ids when 00 says needed).
 
 | Layer | Owns |
 |---|---|
 | `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, `analyze-stats`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
-| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers base mounts |
+| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers base fine ids |
 | 02 | Personal route/handoff/authority; workspace/extract/coding/table-signals; analysis pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `personal/visualization/` |
 
 ## Personal assets (top layer)
@@ -62,12 +62,12 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 | Clinical / HIS extraction scripts | `{code_clean_data}\clinical-data-extraction\` |
 | Soft-coding / dry-run / CONFIG on top | `{code_root}\_infra\_templates\soft_code_template.py` (see `personal/coding.md`) |
 
-Personal scripts are not replaced by a mounted pack.
-Do not rewrite mounted data-processing capability bodies (now under `base/`) inside these personal files.
+Personal scripts are not replaced by a live pack.
+Do not rewrite live data-processing capability bodies (now under `base/`) inside these personal files.
 
-## Mounted capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
+## Live capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
 
-**This-run pick:** wait for 01 session-mount pick. Registry mount menu (SSOT) = pick list.
+**This-run pick:** wait for 01 session-fine-id pick. Registry fine-id menu (SSOT) = pick list.
 
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); the former `batch-cohort` entry point is an archived alias to this body
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (`02_data-processing/base/imaging-io/`)
@@ -80,7 +80,7 @@ Do not rewrite mounted data-processing capability bodies (now under `base/`) ins
 - `plot-figures` -- statistical plots / imaging panels (`02_data-processing/base/plot-figures/`)
 - Radiomics / habitat **prep** -- via `analyze-stats` / `preprocess-imaging` (former `radiomics-ml` absorbed into `analyze-stats`; no live radiomics-habitat path)
 
-Until `plot-figures` / `draw-flowchart` is mounted, do not invent a second figure stack inside 05.
+Until `plot-figures` / `draw-flowchart` is live, do not invent a second figure stack inside 05.
 
 Archived ids stay off the menu (registry `archived:`).
 
@@ -103,7 +103,7 @@ Three axes. Do not mix them into one ranked list.
 
 **Rule authority:** A personal > 02 generic > external capability
 
-**Tool choice:** personal already implemented -> use personal; else mounted; else 02 generic
+**Tool choice:** personal already implemented -> use personal; else live; else 02 generic
 
 **Fact authority:** executed results HTML / project `settings.ini` > any skill text
 
@@ -121,7 +121,7 @@ raw files -> integrity/IDs -> preprocessing -> QC -> derived features -> analysi
 2. Define outcome, predictors, estimand, population, time origin.
 3. Match model to design/outcome; fit on training only.
 4. Report effect + 95% CI + P when appropriate.
-5. Generate figures here (mounted `plot-figures` / `draw-flowchart`, + `personal/analysis/figures.md`). Caption prose -> `05_manuscript`. Figure 1 labels follow `05_manuscript/personal/Aitor-format.md` over the mounted fig-flow Validation Cohort default.
+5. Generate figures here (live `plot-figures` / `draw-flowchart`, + `personal/analysis/figures.md`). Caption prose -> `05_manuscript`. Figure 1 labels follow `05_manuscript/personal/Aitor-format.md` over the live fig-flow Validation Cohort default.
 
 ## Coding conventions
 

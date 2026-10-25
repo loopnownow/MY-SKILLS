@@ -22,11 +22,11 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 
 | File | Open when |
 |---|---|
-| mounted `design-study` → `references/feasibility-triage.md` | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
-| mounted `design-study` → `references/study-blueprints.md` | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
-| mounted `design-study` → `references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
-| mounted `design-study` → `references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
-| mounted `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
+| live `design-study` → `references/feasibility-triage.md` | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
+| live `design-study` → `references/study-blueprints.md` | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
+| live `design-study` → `references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
+| live `design-study` → `references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
+| live `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
 | [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 
 ## Workflow and output contract
@@ -36,7 +36,7 @@ Single source: `03_research/base/design-study/MODULE.md` — inventory → feasi
 Lab deltas when running that flow in this seat:
 
 - Sample size / EPV / power numbers are never computed here → `02_data-processing` (`calc-sample-size`).
-- `Method options` are judged against `05_manuscript` mounted `check-reporting`.
+- `Method options` are judged against `05_manuscript` live `check-reporting`.
 
 ## Own-proposal chapter skeleton (Voice B only)
 
@@ -54,10 +54,10 @@ Compact contract (details in that file):
 
 - Frontier framing / is this direction novel & publishable → `radiology-frontier`.
 - Sample size, EPV, power, Riley minimum sample size → `02_data-processing` / Loopnow (`calc-sample-size`; lab notes `02_data-processing/personal/analysis/methods.md`).
-- Hand-crafted radiomics pipeline design → `02_data-processing` (mounted `analyze-stats`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
-- Deep-learning architecture & training design → mounted `design-study` (`03_research`).
-- ROI/mask annotation SOP → `02_data-processing` (mounted `preprocess-imaging`).
-- Which checklist the design must satisfy → `05_manuscript` (mounted `check-reporting`).
+- Hand-crafted radiomics pipeline design → `02_data-processing` (live `analyze-stats`; lab rules `02_data-processing/personal/analysis/pipeline.md`).
+- Deep-learning architecture & training design → live `design-study` (`03_research`).
+- ROI/mask annotation SOP → `02_data-processing` (live `preprocess-imaging`).
+- Which checklist the design must satisfy → `05_manuscript` (live `check-reporting`).
 - Ethics/consent/data-sharing feasibility → `03_research/personal/ethics.md`.
 - Clinical-use scenario, reader study, prospective plan → `03_research/personal/clinical-translation/README.md`.
 - Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md` (sentence bank). Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.

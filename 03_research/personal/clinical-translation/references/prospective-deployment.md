@@ -10,7 +10,7 @@ monitoring — and bound the claim to the evidence actually obtained.
 3. **Reader study** — radiologist impact under controlled conditions.
 4. **Prospective validation** — applied to a future cohort under the intended workflow.
 5. **Real-world evidence (RWE)** — performance in routine practice, unselected population.
-6. **Prospective randomised (trial)** — highest; CONSORT-AI / SPIRIT-AI (→ `05_manuscript`, mounted `check-reporting`).
+6. **Prospective randomised (trial)** — highest; CONSORT-AI / SPIRIT-AI (→ `05_manuscript`, live `check-reporting`).
 
 Mark which level the study reaches; the claim cannot exceed it.
 
@@ -36,7 +36,7 @@ Mark which level the study reaches; the claim cannot exceed it.
 - This section is the deployment-lifecycle half of the **FUTURE-AI** framework (Fairness,
   Universality, Traceability, Usability, Robustness, Explainability). How deployment
   monitoring and pre-deployment Robustness/Explainability evidence are reported together
-  → `05_manuscript` (mounted `check-reporting`). Monitoring here operationalises
+  → `05_manuscript` (live `check-reporting`). Monitoring here operationalises
   Universality/Robustness in production; it does not substitute for the pre-deployment
   interpretability and uncertainty evidence.
 

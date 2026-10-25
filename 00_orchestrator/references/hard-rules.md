@@ -14,13 +14,13 @@ These are **session-pick** bans, not skill deletions:
 - Never perform literature research, statistics, manuscript writing, or peer review (00 is index only).
 - Never rewrite MY-SKILLS because an external text exists.
 - Never replace a personal / top layer because an external text is more general.
-- `PROPOSED` is not `MOUNTED`.
+- `PROPOSED` is not `LIVE`.
 - Personal de-AI (`05_manuscript/personal/`) is not a base row. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The personal forbidden list still wins.
 - Top layers are not capability rows (00 owns base→QC→personal).
 
 ## Fine-id expansion
 
-Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves. Live count is `fine_id_count_canonical` in `registry.yaml` (must equal `len(mounts)`). Do not restate the number in prose.
+Prefer merge into an existing fine id / sub-capability / same source-path. Do not open a new fine id unless architecture review approves. Live count is `fine_id_count_canonical` in `registry.yaml` (must equal `len(fine ids)`). Do not restate the number in prose.
 
 
 ## load_priority

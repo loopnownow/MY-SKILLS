@@ -15,4 +15,4 @@
 
 ## Note
 
-Capability bodies for 02 mounts live in `02_data-processing/base/` (merged 2026-10-17). 02 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.
+Capability bodies for 02 fine ids live in `02_data-processing/base/` (merged 2026-10-17). 02 personal top layer stays route/handoff + true personal lab files. Fine IDs unchanged.

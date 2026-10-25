@@ -21,7 +21,7 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 | Layer | Role |
 | --- | --- |
 | Fact source | `SKILL.md`, registry, runtime-flow, configuration, and the real repository structure |
-| Index | `00` discovers external packages, versions, and the mount index. It indexes. It does not rewrite external skill bodies |
+| Index | `00` discovers external packages, versions, and the fine-id index. It indexes. It does not rewrite external skill bodies |
 | Schedule | `00` decides entry, Gate, QC, visualization build, and failure fallback |
 | Display | Generated HTML and skill documentation are derived from the IR. They can be deleted and rebuilt. They do not become the fact source |
 
@@ -30,7 +30,7 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 | Component | Owns | Does not own |
 | --- | --- | --- |
 | 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose; external package bodies |
-| 00 | orchestrator index: registry / session-pick / mount index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
+| 00 | orchestrator index: registry / session-pick / fine-id index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
 | Generator (`scripts/gen_visualization.py`) | Render typed JSON IR to HTML pages | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
 | Human | Review Delta, architecture changes, and the final PR | Hand-editing generated HTML |
 
@@ -46,7 +46,7 @@ Reverse dependency is forbidden. Generated HTML, previous generated HTML, screen
 | --- | --- | --- |
 | Architecture | 01 registry, 00 architecture metadata, repository structure | What the system is made of, and where the boundaries are |
 | Workflow | 00 runtime-flow, Gate, routing rules | How a task runs, including branches, exceptions, and loops |
-| External mounts | 01 mount registry / version metadata | Which external packages are mounted, and which version is recorded |
+| External fine ids | 01 fine-id registry / version metadata | Which external packages are live, and which version is recorded |
 | Skill detail | `SKILL.md` and its supporting files | Documentation pages. Prose is not forced into a diagram |
 
 These are not fact sources:
@@ -54,7 +54,7 @@ These are not fact sources:
 - LLM inference
 - generated HTML
 - previous generated HTML
-- arbitrary mounted-file crawling
+- arbitrary external-file crawling
 - filename alone
 - visual appearance
 - unvalidated JSON
@@ -69,11 +69,11 @@ Show stable system components, about 6–12 primary components. Use a boundary o
 
 Primary chain: 00 Control / QC → 01 skill-integration / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
 
-Skill evolution stays MY-RULES `skills.md` (skill-evolution; governance; propose only). External mounts stay one index node fed by the registry, not one node per fine id.
+Skill evolution stays MY-RULES `skills.md` (skill-evolution; governance; propose only). External fine ids stay one index node fed by the registry, not one node per fine id.
 
 ### 5.2 Workflow
 
-Task → 00 Detect / Gate → 01 Mount / Dispatch → 02 data processing + statistics → 05 Writing → 06 Review → QC / Loop.
+Task → 00 Detect / Gate → 00 Fine id pick / Dispatch → 02 data processing + statistics → 05 Writing → 06 Review → QC / Loop.
 
 03 literature can be an independent entry, and it can be called during design, interpretation, or discussion. The main line does not mean every task must pass every layer. Mid-entry stays: existing statistics may enter 05, an existing manuscript may enter 06. Writing and review still pass 03 citation-verify (`Lit05` before Gate · 05, `Lit06` inside 06).
 
@@ -120,7 +120,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 | Page | Content |
 | --- | --- |
-| Homepage | Architecture, workflow, system status, external mounts, build metadata |
+| Homepage | Architecture, workflow, system status, external fine ids, build metadata |
 | Skill index | Indexed by 00–07, status, source, and entry |
 | Skill detail | Generated from `SKILL.md` frontmatter, with a path back to the source file |
 | Design history | Decisions and this specification. Not the homepage |
@@ -139,7 +139,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 ├── skills/
 │   ├── index.html
 │   └── <skill-id>.html
-├── mounts/
+├── fine ids/
 │   └── index.html
 ├── changes/
 │   └── latest-delta.html
@@ -154,20 +154,20 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 1. The visualization build does not rewrite MY-SKILLS skill prose.
 2. Fixes to a diagram go back to source, registry, or IR. Generated HTML is not hand-edited.
-3. Mount contents do not redefine architecture. External packages enter through the 01 registry first.
+3. External pack contents do not redefine architecture. External packages enter through the 01 registry first.
 4. HTML is not a fact source. Deleting generated HTML and IR leaves the sources able to rebuild them (pass `--out DIR`; no default dir).
 5. Delta is evidence. A human decides merge.
 6. A layout failure does not justify deleting a semantic edge.
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/personal/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external mount upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/personal/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 
 No pull request is opened by the branch that introduced this file. GitHub Pages was not enabled.
 
-What is generated: IR JSON, homepage, status pages, skill pages from frontmatter, mounts page, Delta page, design-history index, `build-manifest.json` under lab OUT.
+What is generated: IR JSON, homepage, status pages, skill pages from frontmatter, fine ids page, Delta page, design-history index, `build-manifest.json` under lab OUT.
 
 What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 

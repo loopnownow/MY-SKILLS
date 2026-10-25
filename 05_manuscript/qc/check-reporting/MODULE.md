@@ -10,7 +10,7 @@ owner: "05_manuscript/qc/check-reporting/MODULE.md"
 
 CLAIM / TRIPOD+AI / CLEAR / RQS wording. Not 选刊 (`03_research` journal-selection / `lit-search`), and not venue house-style or IMRAD prose (`05_manuscript/base/write-paper/`).
 
-After major number edits, fidelity check vs primary tables → `06_review/base/self-review/references/paper-claim-audit.md` (no new mount id).
+After major number edits, fidelity check vs primary tables → `06_review/base/self-review/references/paper-claim-audit.md` (no new fine id).
 
 ## On-demand references
 

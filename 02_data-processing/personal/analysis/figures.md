@@ -11,7 +11,7 @@
 
 **Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
 
-Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in mounted `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
+Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in live `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
 
 One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**. Auxiliary colors: remaining ROC curves, KM strata, unnamed models.
 
@@ -29,7 +29,7 @@ Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swa
 
 ### Publication extension palettes (10 sets; not console-bound)
 
-Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not lab pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the five `lab-palettes` sets plus mounted `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
+Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not lab pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the five `lab-palettes` sets plus live `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
 
 | id | Label | Type | Use | Values / source |
 |----|-------|------|-----|-----------------|
@@ -53,7 +53,7 @@ Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continu
 
 ## Figure claim planning (radiomics / clinical prediction)
 
-**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `personal/figures.md` (palettes) and mounted `plot-figures` (chart templates). This section only covers “think first”.
+**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `personal/figures.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
 
 ### 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 

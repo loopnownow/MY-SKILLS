@@ -1,8 +1,8 @@
 # External principles for figure production
 
-File role: rule reference (not a mount).
+File role: rule reference (not a fine id).
 Purpose: record design principles found in cross-package research that are worth borrowing
-without mounting the whole package. Stack these as gate rules on top of the fig-plot
+without adopting the whole package. Stack these as gate rules on top of the fig-plot
 (make-figures) flow; do not call any external package.
 Source: Scientific (K-Dense) scientific-visualization SKILL.md
 Extracted: 2026-09-13

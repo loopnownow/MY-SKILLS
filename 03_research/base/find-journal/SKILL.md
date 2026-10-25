@@ -29,7 +29,7 @@ metadata:
 - **`references/`:** retired mix; pointer README only.
 - **Per-project 选刊/已投:** `<project>/ref/` (e.g. `journals-submitted.md`) — not in MY-SKILLS.
 
-## Mounted lists (always on)
+## Live lists (always on)
 
 Load in this order on every Phase-1 run:
 
@@ -46,7 +46,7 @@ Load `data/2026/blacklist.csv` first. Never list these titles.
 - Scientific Reports / SCI REP-UK
 - MEDICINE (LWW Baltimore mega-journal; not NEJM; not Nature Medicine)
 
-Name-only mount list: `data/2026/blacklist-names.csv` (subset of `data/2026/blacklist.csv`).
+Name-only fine id list: `data/2026/blacklist-names.csv` (subset of `data/2026/blacklist.csv`).
 
 ## Every journal-recommendation (推荐杂志) request
 
@@ -86,7 +86,7 @@ Do this check in round 2 only.
 
 **Dynamic weights:** numeric JESI defaults in `jesi-model.md` are **initial only** and must be overridable when the user prioritizes speed, Q1, APC/OA, etc. Do not copy fixed external Fit Score weights into this pack.
 
-Optional front door: external candidate pool (query mounts) → Difficulty + Fit + Risk → **this pack decides** → Challenge / Target / Safety (see `recommendation-workflow.md`). External recommenders are data providers, not decision makers.
+Optional front door: external candidate pool (query fine ids) → Difficulty + Fit + Risk → **this pack decides** → Challenge / Target / Safety (see `recommendation-workflow.md`). External recommenders are data providers, not decision makers.
 
 Phase 1 columns for every layer table
 
@@ -172,13 +172,13 @@ Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not 
 
 ## Graylist (not recommended)
 
-Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.mount.md`).
+Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.fine-id.md`).
 
 **Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
 
 ## BMC / Medicine pattern whitelist (secondary priority)
 
-Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** mounted blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
+Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** live blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
 
 User rule 2026-09-10: whitelist hits are **priority recommend** inside each layer (after 稿件匹配度). Do **not** label 「可疑」 and do **not** use a red HTML mark. This **replaces** the former v1.14 「刊名含 Medicine 层内降权」 rule.
 
@@ -189,17 +189,17 @@ Whitelist is a boost, not auto-fill: still require reasonable scope match; still
 
 Highlight **only** cells/rows where **投稿易投指数 ≥ 80** (yellow background). No other mandatory color marks in the checkbox table.
 
-## Wording (mounts)
+## Wording (fine ids)
 
 When naming where journal-selection rules live, say **this repo** — do **not** say 「空挂」.
 
 ## What not to do
 
-- Do not recommend the three mounted blacklist titles.
+- Do not recommend the three live blacklist titles.
 - Do not collapse the default layers into a single top-N list; keep 层2 / 层3 / 层4 tables separate (10 each).
 - Do not query AIM / author instructions / APC before the user confirms 备选杂志.
 - Do not merge yearly IF / quartile / volume / APC into `data/2026/submission-urls.csv` or skill text as durable lists.
-- Do not install `zero565656/journal-recommender` (or similar) as a mounted skill; do not copy its fixed Fit Score weights or abstract→CAS prediction.
+- Do not install `zero565656/journal-recommender` (or similar) as a live skill; do not copy its fixed Fit Score weights or abstract→CAS prediction.
 - Do not treat Unknown risk as Low Risk.
 
 ## Advice provenance

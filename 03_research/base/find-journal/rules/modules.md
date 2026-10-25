@@ -13,14 +13,14 @@ These are **modules inside** `find-journal`, not separate top-level skills yet. 
 | **PAI** | Personal Acceptance Index / Prior | From `submission-prior.jsonl` |
 | **JCI-C** | Journal Capacity Index | Capacity slots; **not** Clarivate JCI |
 
-External `journal-recommender` (and similar tools) are **data/capability providers via query mounts**, **not** the top-level decision maker. Do not install them as a seventh system or mounted skill.
+External `journal-recommender` (and similar tools) are **data/capability providers via query fine ids**, **not** the top-level decision maker. Do not install them as a seventh system or live skill.
 
 ## Cross-system placement (01 / 03 / 04)
 
 | Layer | Role |
 |---|---|
-| **01** skill-integration | Registry / session-pick / mount index; journal-skill query interface |
-| **03** External mounts / query | PubMed, OpenAlex, Crossref, Europe PMC, JCR/JIF/JCI, CAS, indexing, APC/OA, review data, candidate retrieval — **current evidence only** |
+| **01** skill-integration | Registry / session-pick / fine-id index; journal-skill query interface |
+| **03** External fine ids / query | PubMed, OpenAlex, Crossref, Europe PMC, JCR/JIF/JCI, CAS, indexing, APC/OA, review data, candidate retrieval — **current evidence only** |
 | **04** Statistics / decision | JDI, JEI/JESI, MJF, Risk, PAI, dynamic weighting, Submission Tier |
 | **05** Writing | Adapt manuscript to chosen target (after selection) |
 | **06** Review | Validate fit and strategy |
@@ -32,7 +32,7 @@ sci-metrics-retriever → manuscript-fit-analyzer → jesi-calculator → submis
 (metrics / 03)           (fit / MJF)               (JEI·JESI / 04)    (PAI correction)
 ```
 
-Optional front door: **external candidate pool** (query mount) → then Difficulty + Fit + Risk → **MY-SKILLS decision** → Challenge / Target / Safety / Not recommended. Mapping to Jinshan layers: `recommendation-workflow.md`.
+Optional front door: **external candidate pool** (query fine id) → then Difficulty + Fit + Risk → **MY-SKILLS decision** → Challenge / Target / Safety / Not recommended. Mapping to Jinshan layers: `recommendation-workflow.md`.
 
 ## 1. sci-metrics-retriever
 

@@ -182,7 +182,7 @@ When drafting a reply:
 - When landing a point, the edit unit is **词或句** (word or sentence); forbid whole-paragraph rewrite. Quoted text in the letter is that revised sentence. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Whether each point is truly resolved: use this file's status (Resolved / Partially resolved / Unresolved / New issue); do not only check “whether a sentence was added.”
 - Manuscript comments (稿面批注) carry source: `[personal]` / `[revise]` / `[…]`, etc.
-- Mount suggestion vs lab doctrine conflict: comment states conflict + fix plan (before/after); **用户决定** (user decides). After agreement, Aitee still applies Track Changes. Lee does not edit the body by default.
+- Fine-id suggestion vs lab doctrine conflict: comment states conflict + fix plan (before/after); **用户决定** (user decides). After agreement, Aitee still applies Track Changes. Lee does not edit the body by default.
 - Decidable body edits: Lee comments for Aitee TC-fix. Past tense only for edits already landed.
 - Still undecidable (missing source/analysis, ethics Date/NO unset): the **matching response point** must say pending and name the pending source. Do not write that point as already done. `Suggested …` stays in Word 批注 (see ownership-contract), not as invent/disclaimer in the letter body. Do not pretend experiments were done.
 - **Process-negation / 未做-class (owner 2026-10-23):** Sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **批注** only (author **A**), and every comment **must** include **建议修改后内容**; bare flags forbidden. Empirical negative findings (*no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
@@ -213,7 +213,7 @@ Corpus habit for **审稿回复** / response letters (not for inventing data):
 **Loop (lab):**
 
 ```text
-Mounted review source (this-run pick: session mounts from the 00 registry menu)
+Live review source (this-run pick: session fine ids from the 00 registry menu)
   → findings (optional status draft)
   → A 06 personal: post-QC re-review integrate / eight-section
   → A 07 personal: response letter / resolution status (final authority)
@@ -232,13 +232,13 @@ Disk corpus (external reviewer comments and revise replies; pointer only): `{doc
 
 - `response` mode: after author revisions, verify each reviewer point was actually addressed
 - `pre-review` / re-audit: reopen prior Major/Minor items and set status
-- Mounted `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06
+- Live `peer-review` / `self-review` / `revise` (or backup source) returns findings that need consolidation under A 06
 
 Do **not** use this file to invent rescue experiments, missing AUCs, or unrun analyses. Ownership: see `00_orchestrator/references/ownership-contract.md`. Ask the user on undecidable items; do not edit the manuscript until the user picks, and then Aitee applies Track Changes.
 
 ### Issue card (required)
 
-One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a mount raised it; dual-tag with `[personal]` when 06 also judges.
+One card per atomic reviewer/pre-review point. Word comment author field stays **A**. Prefix the discoverer when a fine id raised it; dual-tag with `[personal]` when 06 also judges.
 
 ```text
 Review Issue
@@ -247,7 +247,7 @@ issue_id: <R-001>
 severity: <blocking | major | minor>
 original_problem: <short>
 domain: <stats | design | imaging | writing | refs | other>
-source: <mount id or A:personal>
+source: <fine id or A:personal>
 claimed_fix: <what the author/revision says was done>
 checks:
   - methods_text: <yes|no|na>
@@ -255,19 +255,19 @@ checks:
   - tables_figures: <yes|no|na>
   - conclusions_aligned: <yes|no|na>
 status: <resolved | partially_resolved | unresolved | new_issue>
-next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | reschedule_mount>
+next: <close | weaken_claim | ask_user | call_04 | call_05 | evidence_request | reschedule_fine_id>
 ```
 
-`status` is set only by **A 06 personal** after the checks. Mount drafts are suggestions.
+`status` is set only by **A 06 personal** after the checks. Live drafts are suggestions.
 
 ### Roles
 
 | Step | Who | May | Must not |
 |---|---|---|---|
-| Discover finding | Mounted pack (this-run) or A 06 | Raise/fill draft card | Cross-talk with other mounts; apply lab-rule conflicts silently |
+| Discover finding | Live pack (this-run) or A 06 | Raise/fill draft card | Cross-talk with other fine ids; apply lab-rule conflicts silently |
 | Route siblings | `00_orchestrator` | Call 02/03/05 when handoff says so | Treat 06 as manuscript writer |
-| Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-mount backup sources |
-| Session mounts | 00 pick | Attach this-run registry mounts for review sources | Fixed Reviewer A/B/C pipeline via 06 mounts |
+| Judge resolution | **A 06 personal** | Set status; draft response / re-review text | Put “personal review intelligence” into B; auto-add backup sources |
+| Session fine ids | 00 pick | Attach this-run registry fine ids for review sources | Fixed Reviewer A/B/C pipeline via 06 fine ids |
 
 06 stays the review/response **entry** and personal upper layer. Capability labels / fine ids stay on `00_orchestrator/registry.yaml` — do not fork a second 06-only registry of full skill texts.
 
@@ -297,8 +297,8 @@ Need data, ethics, or unrun analysis → question the user; optional reference-o
 #### B. Call sibling
 Wording → 05 (word/sentence). Even a decidable wording fix stays a comment for Aitee to TC-fix. Lee does not edit the body by default. Numbers/figures → 02. Prep/imaging verify → 02. Literature fact → Evidence Request → 03 (not a second lit route inside 06). Victor supplies suggested literature for comments when needed.
 
-#### C. Reschedule mount (rare)
-Only if this-run pick left a needed pack unloaded — go through the **00 session-mount pick** again; never auto-mount a non-base source.
+#### C. Reschedule fine id (rare)
+Only if this-run pick left a needed pack unloaded — go through the **00 session-fine-id pick** again; never auto-add a non-base source.
 
 ### Out of scope
 

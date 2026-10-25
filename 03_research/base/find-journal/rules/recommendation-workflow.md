@@ -1,10 +1,10 @@
 # Recommendation workflow
 
-## Mounted blacklist
+## Live blacklist
 
 PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 
-## Mounted lists (order)
+## Live lists (order)
 
 1. **Blacklist** — never recommend (`blacklist.csv`).
 2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers family** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
@@ -16,7 +16,7 @@ PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 External tools supply **candidates and current evidence**; MY-SKILLS owns the decision.
 
 ```text
-[Optional] External journal-recommender / query mounts
+[Optional] External journal-recommender / query fine ids
         → Candidate journal pool + current metadata
         → Journal Difficulty (JDI) + Manuscript Fit (MJF) + Risk
         → MY-SKILLS decision (modules.md / jesi-model.md)
@@ -25,7 +25,7 @@ External tools supply **candidates and current evidence**; MY-SKILLS owns the de
 
 | Step | Owner | Pack mapping |
 |---|---|---|
-| Candidate pool + live metrics | 03 query mounts (`query-sources.md`) | Layer CSVs = yearly screening pool; live APIs for rates/APC/AIM |
+| Candidate pool + live metrics | 03 query fine ids (`query-sources.md`) | Layer CSVs = yearly screening pool; live APIs for rates/APC/AIM |
 | Difficulty + Capacity | 04 `jesi-calculator` / JDI · JCI-C · JEI | `jesi-model.md` |
 | Fit | 04 `manuscript-fit-analyzer` / **MJF (=MFI)** | Scope, methods, recent papers |
 | Risk | 04 Risk Assessment | **Unknown ≠ Low Risk** |

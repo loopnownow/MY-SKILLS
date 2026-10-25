@@ -26,7 +26,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in `06_review/base/`) -> **00 QC** -> **06** post-QC re-review only.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Mounted packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
+Live packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
 Resolution status for response letters -> **07**.
 
 ## Personal assets
@@ -42,7 +42,7 @@ Resolution status for response letters -> **07**.
 | Chinese journal score sheet | `personal/review.md` § Chinese journal score digest |
 | Response letter / resolution | **`07_response/personal/response.md`** (moved 2026-10-17) |
 
-## Mounted capability ids
+## Live capability ids
 
 - `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (`06_review/base/`)
 - `revise` / `tighten-response` -- response path; **final authority 07**; bodies in `07_response/base/` (tone-polish is on-demand inside tighten-response)

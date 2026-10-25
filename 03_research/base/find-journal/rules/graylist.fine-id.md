@@ -1,4 +1,4 @@
-# Graylist (mounted)
+# Graylist (live)
 
 Journals the lab does **not recommend** for new submissions when better options exist, but that are not hard-banned.
 

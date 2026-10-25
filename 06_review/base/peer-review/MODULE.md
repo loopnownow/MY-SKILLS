@@ -69,7 +69,7 @@ Path: peer-review-others
 Internal note: dealbreakers — [list or none]
 ```
 
-Principles extracted from cross-package research (not a mount; rule reference only): [external-principles.md](references/external-principles.md)
+Principles extracted from cross-package research (not a fine id; rule reference only): [external-principles.md](references/external-principles.md)
 
 ## On-demand references
 

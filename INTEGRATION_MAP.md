@@ -1,6 +1,6 @@
 # Integration map (live stub)
 
-Monthly full log is archived. Current roll starts empty after 2026-10-07.
+Monthly full log is archived. The live roll below is newest-first; entries dated before 2026-10-07 live in the archived roll.
 
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
@@ -11,6 +11,40 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+
+## CHG-20261025-vocab-fine-id — `mount` vocabulary retired, the registry key is `fine_ids`
+
+- **Keys:** `registry.yaml` `mounts:` → `fine_ids:`, `empty_mount` → `empty_fine_ids`,
+  `session_mount` → `session_fine_id_pick`; `templates/handoff.yaml` `mounted_fine_ids` →
+  `live_fine_ids`, `mount_provenance` → `fine_id_provenance`.
+- **Status:** row status `MOUNTED` → `LIVE`; `fine_id_count_canonical` still equals `len(fine_ids)`.
+- **Prose:** "mounted pack" → "live pack", "mount decision" → "fine-id pick", "Mount vs lab" →
+  "Assistant vs lab"; `mount-review-polish-recipe.md` (retired) → `fine-id-review-polish-recipe.md`
+  (git mv, links follow).
+- **Site:** the generator writes `fine_ids/index.html`; old `mounts/` URLs are gone (accepted cost).
+- **Guards:** `STATUS_TOKENS` guards `LIVE|PROPOSED|ARCHIVED`; the retired-vocabulary regex drops the
+  obsolete `B mount` form; test names follow the new vocabulary.
+- **Kept as history:** dated ledger entries, `mount_status` frontmatter in two absorbed packs, and the
+  retired `MOUNTED_SKILLS.md` filename.
+- Suite stays 174. No push, no merge.
+
+## CHG-20261025-qc-dead-pointer-cleanup — dead pointers, orphan scripts, vacuous assertions
+
+- **Deletions:** `plot-figures/scripts/plot_template.py`, `plot-figures/scripts/style_configurator.py`
+  and `visualization/scripts/gen_repo_map.py` were cited nowhere (no pack doc, no test); bytes
+  quarantined outside the repo. Tracked tree 481 → 478.
+- **Three docs kept:** `03_research/personal/references/grant-fulltext-skeleton.md`,
+  `lab-ref-method-digest.md` and `0doc-response-structure-pointer.md` are cited from `0doc`
+  (its `_library` INDEX + README, the root CURRENT pointer, and the skill-harvest plan), so they
+  stay and are now registered in `03_research/personal/route.md`.
+- **Pointer fix:** `simulate-reviewers/manifest.yaml` marks the `../nature-shared/core/` sweep
+  `external: true` instead of leaving a path that does not resolve in-repo.
+- **Tests:** new `PackReferentialIntegrity` (2) fails on an uncited pack `scripts/*.py` or
+  `examples/*`; `test_lab_paths` split into key-format + skip-guarded existence; `test_seat_packs`
+  pins the 00–07 layer bound and the live-`0result` ban; `test_frontmatter` drops a commented
+  workflow row; `tighten-response/MODULE.md` registers its three worked examples.
+- **Drift:** README test command carries `-B`; this file's header no longer claims an empty roll.
+- Suite 172 → 174. No push, no merge.
 
 ## CHG-20261025-seat-coarse-merge-01 — coarse id = execution seat; 01 folded into 00
 
@@ -149,7 +183,7 @@ Harvest must not invent a second evolution log file.
 
 - Branch `fix/deepscan-p0-p1-20261020` (Asia/Shanghai 2026-10-20), registry `change_id` bumped.
 - **Ids**: 66 B-era call-site ids in 29 files → canonical fine ids (04-fig-flow→draw-flowchart ×13, 04-fig-plot→plot-figures ×13, 04-stats-models→meta-analysis ×12, 02-imaging-io→imaging-io ×5, 02-tables→clean-data ×4, 04-stats-power→calc-sample-size ×4, 02-imaging-qc→preprocess-imaging ×3, 02-radiomics-habitat→analyze-stats ×7, 02-lit fixes ×3). Three unmapped names (`04-stats-power`, `03-lit-fulltext`, `03-lit-cite`) added to `legacy_aliases.yaml`.
-- **Dead pointers**: `ban-phrases.md` → `vocab/L2/preferred.md` §1c; `report-checks.md` self-row → "Part A of this file"; `guideline-router.md` → `write-venue/radiology-writing/journal-family-writing-style.md`; `mount-review-polish-recipe.md` → `06_review/personal/review.md` §0; `ai_patterns.md` → `vocab/L1/patterns.md`; `retraction-watcher/MODULE.md` → `references/audit-reference.md`; `data-impute` → `clean-data` impute module.
+- **Dead pointers**: `ban-phrases.md` → `vocab/L2/preferred.md` §1c; `report-checks.md` self-row → "Part A of this file"; `guideline-router.md` → `write-venue/radiology-writing/journal-family-writing-style.md`; `mount-review-polish-recipe.md` (retired; renamed `fine-id-review-polish-recipe.md` on 2026-10-25) → `06_review/personal/review.md` §0; `ai_patterns.md` → `vocab/L1/patterns.md`; `retraction-watcher/MODULE.md` → `references/audit-reference.md`; `data-impute` → `clean-data` impute module.
 - **pack-cache**: bytes (624 files) moved to `D:\0del\_by-function\pack-cache-retired-20261020`; README / lab-paths / lifecycle-cache / NOTICE narratives unified (the three files had disagreed on whether the cache was emptied, deleted, or still present).
 - **State claims**: `PROPOSED/MOUNTED` mix removed from README + ARCHITECTURE (registry has 0 PROPOSED); 01 SKILL documents the A-local-pack exception (`base/vocab/`, `base/write-venue/`); `Aitor-format.md` owner → `05_manuscript/personal/`; raw lab paths → `{alias}` in 13 files.
 - **Tests**: `PATH_UNIT_ALIAS_KEYS` emptied (no B-era directory exists); new `test_bare_md_cites`, `test_alias_targets_exist`, `test_no_raw_lab_paths`, `test_docs_match_registry_state`, `test_ledger_freshness`; `test_owner_fields` / `test_pre_submit_checks` now run on the runtime tree (relative parts + rglob fallback).

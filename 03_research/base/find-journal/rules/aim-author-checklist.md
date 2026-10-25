@@ -4,7 +4,7 @@ Use this file only in phase 2, after the user has confirmed the shortlist (å¤‡é€
 
 Phase 1 forbids live lookups of AIM, author instructions, and APC.
 
-Blacklist remains mounted in both phases: PLoS One, Scientific Reports, MEDICINE (LWW Baltimore).
+Blacklist remains live in both phases: PLoS One, Scientific Reports, MEDICINE (LWW Baltimore).
 
 ## Live lookups (confirmed titles only)
 

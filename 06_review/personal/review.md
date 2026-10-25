@@ -32,12 +32,12 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 - Word / 稿面批注 **作者字段** is always **A**. No yellow highlight. 作者栏 ≠ 来源标签.
 - Source goes only in the comment **body prefix** (lead-in): which layer this judgment came from — not an envelope label.
-  - **Format (mounted items):** `[源:包内skill-id]`. Forbid source-only tags (bare `[Nature:]` / `[Scientific:]`). B uses v4 fine IDs: `[peer-review]`.
+  - **Format (live items):** `[源:包内skill-id]`. Forbid source-only tags (bare `[Nature:]` / `[Scientific:]`). B uses v4 fine IDs: `[peer-review]`.
   - Examples: `[personal]` · `[peer-review]` · `[Nature:simulate-reviewers]` · `[self-review]` · `[peer-review]` · `[lit-search]` (personal / fine-ID tasks)
-  - Mount + personal both apply → **双标** (dual tag), e.g. `[Nature:simulate-reviewers] [personal]` / `[self-review] [personal]`
-- **Mandatory:** when this round mounts an external review source (Nature / peer-review / self-review, or non-personal B), every finding/gate/checklist item from that mount **must** carry a **skill-level** tag in the prefix (e.g. `[Nature:simulate-reviewers]`), not source-only. Forbid rewriting everything as `[personal]` just because the personal eight-chapter envelope was used. **Forbid defaulting to `[personal]`** (Rules: `My rule.md` §5.1 + this file §0).
-- With no mount, empty source prefixes must not appear. Pure lab sentence edits (grammar, Aitor punctuation) take `[personal]` only. Use `[personal]` only when the source cannot be determined.
-- **When a mount suggestion conflicts with lab doctrine:** do not silently adopt the mount fix. Put everything in the comment: conflict point + **fix plan** (before/after sentence, or “keep sentence + swap reference”). **最终由用户决定.** After the user agrees, Aitee still lands Track Changes; Lee comments only.
+  - Fine id + personal both apply → **双标** (dual tag), e.g. `[Nature:simulate-reviewers] [personal]` / `[self-review] [personal]`
+- **Mandatory:** when this round fine ids an external review source (Nature / peer-review / self-review, or non-personal B), every finding/gate/checklist item from that fine id **must** carry a **skill-level** tag in the prefix (e.g. `[Nature:simulate-reviewers]`), not source-only. Forbid rewriting everything as `[personal]` just because the personal eight-chapter envelope was used. **Forbid defaulting to `[personal]`** (Rules: `My rule.md` §5.1 + this file §0).
+- With no fine id, empty source prefixes must not appear. Pure lab sentence edits (grammar, Aitor punctuation) take `[personal]` only. Use `[personal]` only when the source cannot be determined.
+- **When a fine-id suggestion conflicts with lab doctrine:** do not silently adopt the fine id fix. Put everything in the comment: conflict point + **fix plan** (before/after sentence, or “keep sentence + swap reference”). **最终由用户决定.** After the user agrees, Aitee still lands Track Changes; Lee comments only.
 - **Decidable issues:** Lee writes a clear comment (locus, defect, 词或句 to change) and hands Aitee a TC-fix. Lee does not edit the body by default.
 - Undecidable facts (missing n, ethics, analysis not done): mark `cannot_invent`, ask the user. Chinese comment plus English suggested wording and/or suggested literature (see ownership-contract). Victor supplies suggested literature. Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
 - **Process-negation / not-done class (owner 2026-10-23):** Process-negation sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **comments** only (author **A**), and every comment must include **建议修改后内容** (suggested revised content); bare flags are forbidden. True negative study results (e.g. *no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
@@ -257,7 +257,7 @@ Pre-submit self-check (four axes):
 - Putting thesis-review or national-self-eval boilerplate into English peer review
 - Pasting whole Chinese-journal A–F score blocks into the English letter
 - Empty praise (*interesting*); emoji; padded compliments
-- Silently adopting mount fixes that conflict with the lab (must go into comments; user decides)
+- Silently adopting fine id fixes that conflict with the lab (must go into comments; user decides)
 
 
 ---
@@ -285,7 +285,7 @@ Review like a careful editor + statistician: numbers, abbreviations, reference h
 - Prefer **actionable** comments: what is wrong, where, and what to do.
 - Prefer finite choices at decision points; still stop for real ambiguity.
 - Uncertain facts: mark `cannot_invent` / ask — never pick a number silently.
-- Mount vs lab conflict: write both options in the comment; **user decides** (`review.md` §0).
+- Assistant vs lab conflict: write both options in the comment; **user decides** (`review.md` §0).
 
 ---
 

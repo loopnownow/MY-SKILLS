@@ -1,6 +1,6 @@
 <!--
-File role: rule reference (not a mount)
-Purpose: record design principles found in cross-package research worth borrowing without mounting the whole package.
+File role: rule reference (not a fine id)
+Purpose: record design principles found in cross-package research worth borrowing without adopting the whole package.
 Source: Nature (Yuan1z0825/nature-skills) nature-response SKILL.md
 Extracted: 2026-09-13
 -->

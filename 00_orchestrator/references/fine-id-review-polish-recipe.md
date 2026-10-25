@@ -1,6 +1,6 @@
-# Mount → review / polish recipe (lab)
+# Fine id → review / polish recipe (lab)
 
-**Owner:** `00_orchestrator` (session mount pick). Word delivery rules SSOT:
+**Owner:** `00_orchestrator` (session fine-id pick). Word delivery rules SSOT:
 Standing policy: `00_orchestrator/references/ownership-contract.md` + `06_review/personal/review.md` §0.
 Review voice / prefixes: `06_review/personal/review.md` §0.
 
@@ -9,7 +9,7 @@ Review voice / prefixes: `06_review/personal/review.md` §0.
 Typical one-liner (Chinese):
 
 ```text
-Use my skills, mount <pack>, review/polish <path>.docx
+Use my skills, fine id <pack>, review/polish <path>.docx
 ```
 
 Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via `00_orchestrator/registry.yaml`. Do not invent ids. Historical pack nicknames are not live menus.
@@ -17,8 +17,8 @@ Pack aliases seen in lab traffic: resolve user synonyms to registry fine ids via
 ## Default chain
 
 1. **00** — intent: review and/or polish on a `.docx`.
-2. **00** — session mount pick: attach **only** the named pack fine ids; record `session_picked_fine_ids`. Do not auto-load all `MOUNTED`.
-3. **06** — review / pre-review annotations (Lee). Comment author field **A**. Source tags per `06_review/personal/review.md` §0 — **no default-only `[personal]` when a mount supplied the finding**.
+2. **00** — session fine-id pick: attach **only** the named pack fine ids; record `session_picked_fine_ids`. Do not auto-load all `LIVE`.
+3. **06** — review / pre-review annotations (Lee). Comment author field **A**. Source tags per `06_review/personal/review.md` §0 — **no default-only `[personal]` when a fine id supplied the finding**.
 4. **05** — polish / Track Changes (Aitee) after user agrees on undecidable items.
 5. Deliver: Track Changes on the original docx + comments; intermediate QC → project `ref\`.
 

@@ -16,7 +16,7 @@ will accept.
 2. Open:
    - [dealbreakers.md](dealbreakers.md)
    - [review-report-format.md](review-report-format.md)
-   - Reporting checklists → `check-reporting` (not a retired writing-generic mount)
+   - Reporting checklists → `check-reporting` (not a retired writing-generic fine id)
 3. Each comment: fact → why it is a problem → what the authors should do (point to Abstract /
    Methods / Table X). Do not invent unrun experiments or AUC.
 4. Deliver the letter below. Keep Accept/Minor/Major/Reject in an **internal note**.

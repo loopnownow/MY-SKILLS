@@ -13,7 +13,7 @@ init / resume → Phase A Review → Phase B Parse → (stop?) → Phase C Fix �
 
 | Phase | Lab action | Seat |
 |---|---|---|
-| A Review | Independent / dual-isolated review artifacts | Lee (+ mounted engines) |
+| A Review | Independent / dual-isolated review artifacts | Lee (+ live engines) |
 | B Parse | Score / verdict / MUST-FIX list; no silent drop | Lee |
 | C Fix | Implement only agreed fixes | Aitee (prose) / Loopnow (stats) / Victor (cites) |
 | D Results | Re-read HTML / claims after fix | Loopnow / Aitee |
@@ -52,7 +52,7 @@ Host-specific reviewer backend / MCP thread ids are **optional** and must not lo
 ## Fail → rollback
 
 - FAIL / open MUST-FIX → responsible repair seat (table above); Lee re-marks; do not invent numbers.
-- BLOCKED → fix paths / mounts; re-enter G-06.
+- BLOCKED → fix paths / fine ids; re-enter G-06.
 - Cap internal re-review loops at **2**, then escalate to user (same spirit as `rr-re-review.md`).
 
 ## Link, don’t duplicate

@@ -8,7 +8,7 @@ description: >
 
 # Clinical Translation, Reader Studies & Prospective Validation
 
-**Lab personal design supplement** (home `03_research/personal/clinical-translation/`). This is research/translational **DESIGN** (reader study, prospective deployment, regulatory, threshold-to-action) — not seat 02, not seat 02. Generic templates may later mount under `design-study` / `write-protocol`.
+**Lab personal design supplement** (home `03_research/personal/clinical-translation/`). This is research/translational **DESIGN** (reader study, prospective deployment, regulatory, threshold-to-action) — not seat 02, not seat 02. Generic templates may later fine id under `design-study` / `write-protocol`.
 
 Use this skill to turn "the model has good retrospective performance" into "the model helps in
 practice." This is the step top journals reward and reviewers demand before any clinical claim:
@@ -89,5 +89,5 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 - MRMC / net-benefit / decision-curve statistics → `02_data-processing` (`analyze-stats` / `model-evaluation`).
 - Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
 - The validation cohort / temporal design → `03_research` (`design-study` / `write-protocol`).
-- Reader-study figures, net-benefit plots → `02_data-processing` (mounted `plot-figures`).
+- Reader-study figures, net-benefit plots → `02_data-processing` (live `plot-figures`).
 - Plans research and evaluation only; no individual-patient clinical or diagnostic advice.

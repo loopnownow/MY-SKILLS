@@ -9,7 +9,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 - Checkpoint resume / parallel / CUDA
 - dry-run
 - **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 02)
-- Write-time code ladder / post-write complexity check (stable method absorption, not an external mount)
+- Write-time code ladder / post-write complexity check (stable method absorption, not an external fine id)
 - Research data-processing scripts (R/Python/MATLAB/shell; raw→analysis-ready) release-ready QC
 
 ## Capability map
@@ -67,7 +67,7 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 
 ## Complexity ladder (absorbed from complexity-ladder.md)
 
-Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a registry mount / coarse id.
+Absorbed stable consensus (Ponytail-style lazy ladder). **Not** a registry fine id / coarse id.
 
 ## When writing (stop at first yes)
 

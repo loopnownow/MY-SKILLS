@@ -45,10 +45,10 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 ## How to read the map
 
-1. **Detect locks entry and exit** — if HTML already exists you may stop at 05; do not force 06. If stats already exist you may mid-enter 05; if a manuscript already exists you may mid-enter 06; do not re-run from 02. When a results page and a reviewer letter are both present and no entry was named, ask which station to enter. Multi-node / new capability / mounts needed → grilling + Plan card + flowchart approval first. `结束` (end), or this run’s file is on disk and the last gate PASS → `pipeline.stage: done`. Pause, or stop after the results page / before pre-review: leave `stage` at the current station. **Same defect** `defects[].rounds` still failing on round 3 → `unresolved`; stage does not advance (not global `qc.rounds`). Inside one already-approved run, later station passes report one line; PHI, results-page numbers, pre-review entry, and the review gate still stop. **Any writing or review (including mid-entry)** must pass 03 `citation-verify` before Gate · 05 done and inside 06 (claim→ref table + spot-check strong claims against full text). A 05 verify does not waive 06. Aitee and Lee must not self-certify literature. Lee still does statement consistency first, then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md`.
+1. **Detect locks entry and exit** — if HTML already exists you may stop at 05; do not force 06. If stats already exist you may mid-enter 05; if a manuscript already exists you may mid-enter 06; do not re-run from 02. When a results page and a reviewer letter are both present and no entry was named, ask which station to enter. Multi-node / new capability / fine ids needed → grilling + Plan card + flowchart approval first. `结束` (end), or this run’s file is on disk and the last gate PASS → `pipeline.stage: done`. Pause, or stop after the results page / before pre-review: leave `stage` at the current station. **Same defect** `defects[].rounds` still failing on round 3 → `unresolved`; stage does not advance (not global `qc.rounds`). Inside one already-approved run, later station passes report one line; PHI, results-page numbers, pre-review entry, and the review gate still stop. **Any writing or review (including mid-entry)** must pass 03 `citation-verify` before Gate · 05 done and inside 06 (claim→ref table + spot-check strong claims against full text). A 05 verify does not waive 06. Aitee and Lee must not self-certify literature. Lee still does statement consistency first, then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 2. **Advance only on PASS** — every node has an exit Gate; if not at the destination, enter the downstream node.
-3. **00 / G0 = pre-execution dependency** — every independent run needs one mount decision. When `session_picked_fine_ids` already covers this task’s fine ids, reuse the session lock; do not re-ask. Otherwise enter the 00 registry pick. Single-node personal layer with no mount dependency does not ask (e.g. polish one sentence). Not a decorative master gate.
-4. **QC loop** — FAIL → locate → impact (local vs roll back to earliest affected node) → re-enter the failed node within budget → Gate again; never re-run the whole chain from Start. Local recovery reuses the session mount lock and returns to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is needed.
+3. **00 / G0 = pre-execution dependency** — every independent run needs one fine-id pick. When `session_picked_fine_ids` already covers this task’s fine ids, reuse the session lock; do not re-ask. Otherwise enter the 00 registry pick. Single-node personal layer with no fine id dependency does not ask (e.g. polish one sentence). Not a decorative master gate.
+4. **QC loop** — FAIL → locate → impact (local vs roll back to earliest affected node) → re-enter the failed node within budget → Gate again; never re-run the whole chain from Start. Local recovery reuses the session fine-id lock and returns to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is needed.
 5. **Budget exhausted** — Escalate → wait for the user; after authorization, reset **that defect’s** `defects[].rounds`.
 6. **Naming** — diagram `Gate · NN` ↔ `gates.md` `G-NN` (e.g. `Gate · STATS` = `G-STATS`). `G0` / `G-PHI` / `G-FACT` / `G-LIT` / `G-CODE` share the same names.
 
@@ -58,7 +58,7 @@ Diagram `Gate · NN` = the set chosen from the table below (detail and failure c
 
 | Task / node | Applicable gates |
 | --- | --- |
-| 00 external Skill / Mount | G0. Enter only when this run needs a new mount decision |
+| 00 external Skill / Fine id | G0. Enter only when this run needs a new fine-id pick |
 | 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 02. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop |
 | 02 personal/coding.md / deep code review | G-CODE |
 | 03 literature research | Exit is G0 + G-LIT + evidence/citation artifacts. No separate 03 gate id and no 03-local G-FACT |
@@ -83,7 +83,7 @@ Conflict: A personal layer beats an external pack; one source per fine ID. **QC 
 
 | Node | Where | Reuses (existing gates/checks) | On FAIL |
 |---|---|---|---|
-| **Integrity · pre-06** (`I25`) | After Gate · 05 / N4→06, and mid-entry Need06 (Mount→Ready→…→Dispatch→I25→P06) | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** (Must run citation-verify even on mid-entry Need06 when Gate · 05 was skipped) + **05 reporting-guideline subset** + short AI-failure / manuscript-local-qc spot checklist (`05_manuscript/qc/manuscript-local-qc.md`) | HARD-style block before Lee 06 (same recovery as G-FACT / G-CIT) |
+| **Integrity · pre-06** (`I25`) | After Gate · 05 / N4→06, and mid-entry Need06 (Fine id→Ready→…→Dispatch→I25→P06) | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** (Must run citation-verify even on mid-entry Need06 when Gate · 05 was skipped) + **05 reporting-guideline subset** + short AI-failure / manuscript-local-qc spot checklist (`05_manuscript/qc/manuscript-local-qc.md`) | HARD-style block before Lee 06 (same recovery as G-FACT / G-CIT) |
 | **Integrity · post-re-review lite** (`I45`) | After `P06r` 06 re-review | G-FACT spot + AI-fail lite (not full first-pass) | Locate / local rework |
 
 Do **not** invent a new `G-*` id for these stations. They are compositions documented in `gates.md`.
@@ -118,8 +118,8 @@ Seats unchanged: **Lee = 06 review/re-review**; **Aitee = 05 + 07**. Do **not** 
 
 Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 05 / Integrity · pre-06) and `06_review/qc/` (Gate · 06 / `P06r` re-review). 00 loads them at gate time; specialists do not self-certify via `qc/`. See `gates.md` Manuscript local QC + Integrity compositions. P0 absorb also loads `05_manuscript/qc/figure-stats-legend.md`, `figure-qa-minima.md`, `reporting-guidelines-router.json` and `06_review/qc/stats-failure-modes.md`, `forensic-consistency.md`, `technical-concern-coverage.md`, `review-release-gates.md` (see `gates.md`).
 
-## Before skills / mounts (standing)
+## Before skills / fine ids (standing)
 
-When the user requests skills or external mounts for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before the 00 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no mounted dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
+When the user requests skills or external fine ids for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before the 00 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no live dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
 
 Personal layers also include `07_response/personal` (response final authority). Flow: base fine-ID first-pass -> 00 QC -> personal/top re-loop.

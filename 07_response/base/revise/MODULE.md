@@ -22,7 +22,7 @@ review is `peer-review`. Personal letter voice stays in **A personal**.
 | [action-mapping.md](references/action-mapping.md) | Map each comment to a manuscript action |
 | [response-audit-gate.md](references/response-audit-gate.md) | Provenance / commitment / coverage gates + locatable ledger |
 | [response.md](references/response.md) | Common imaging-AI comment routes |
-| [external-principles.md](references/external-principles.md) | Cross-pack principles (non-mount): reviewer isolation + anti-bloat |
+| [external-principles.md](references/external-principles.md) | Cross-pack principles (non-fine id): reviewer isolation + anti-bloat |
 
 ## Hard rules
 

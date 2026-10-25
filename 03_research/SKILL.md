@@ -17,7 +17,7 @@ description: >
 Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 **03 is the personal top layer** (like 05/06): route, handoff, and post-QC triggers.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
-Capability **bodies** for lit/design mounts live in **`03_research/base/`** (merged 2026-10-17).
+Capability **bodies** for lit/design fine ids live in **`03_research/base/`** (merged 2026-10-17).
 
 ## Layer model (2026-10-17)
 
@@ -27,7 +27,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 
 | Layer | Owns |
 |---|---|
-| `base/` | lit-search, design-study mounts, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
+| `base/` | lit-search, design-study fine ids, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
 | 00 | QC gate; decides whether 03 re-triggers verify/retraction |
 | 03 | Personal route/handoff/authority; citation-verify personal protocol; grants/ethics/intake/translation personal files; post-QC trigger of verify-refs / retraction-watcher (bodies in `base/`) |
 
@@ -46,7 +46,7 @@ See `personal/route.md` for the full pointer table.
 - Introduction evidence pack: on 05 cards -> `personal/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 05 or 06.
 - **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
-- **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run mounted `verify-refs` and `retraction-watcher`.
+- **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run live `verify-refs` and `retraction-watcher`.
 
 ## Personal assets (top layer)
 
@@ -62,12 +62,12 @@ See `personal/route.md` for the full pointer table.
 | Find-journal pack | engine `03_research/base/find-journal/` |
 | Question-to-reference spine | `00_orchestrator/workflows/question-to-reference.md` |
 
-Do not rewrite mounted literature/systematic-review capability bodies inside these files.
+Do not rewrite live literature/systematic-review capability bodies inside these files.
 Where an A personal file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
 
-## Mounted capability ids (bodies under `NN_slug/base/`)
+## Live capability ids (bodies under `NN_slug/base/`)
 
-**This-run pick:** wait for the 00 session-mount pick. Registry mount menu (SSOT) = pick list.
+**This-run pick:** wait for the 00 session-fine-id pick. Registry fine-id menu (SSOT) = pick list.
 
 Live fine ids in `00_orchestrator/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
 

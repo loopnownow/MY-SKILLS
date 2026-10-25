@@ -4,7 +4,7 @@ Subtitle: also covers a light **Code QC Core** for research data-processing scri
 
 Source: 2026-09-07 Deep Code QC Report (`modules.zip` / `{code_modules}`) + 2026-09-22 Code QC Core absorption plan
 Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/references/code-qc.md`)
-**Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, mount menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md` <!-- negative-example -->, mount Copilot `playbooks/quality/` / Council / CI.
+**Do not** put this into: MY-RULES skills.md (skill-evolution) / archived skill-harvest/qc (repo governance), `preprocess-imaging` (imaging QC), a new top-level skill, fine-id menus, parallel `02_data-processing/code-qc.md` / `coding-principles.md` <!-- negative-example -->, fine id Copilot `playbooks/quality/` / Council / CI.
 
 ## When to trigger
 - Review / deep review / Deep QC / code QC for `modules` / lab stats library
@@ -93,7 +93,7 @@ Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, 
 - Do not vendor whole-tree `.py` / patient tables / project Excel into GitHub
 - Do not turn the Medical axis into a second copy of 02 gold standards
 - Do not conflate archived skill-harvest `repo_qc.py` with this flow
-- ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 02 model/figure QC; ≠ mount Copilot playbooks/`quality/` / Council / CI
+- ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 02 model/figure QC; ≠ fine id Copilot playbooks/`quality/` / Council / CI
 - Do not add `02_data-processing/code-qc.md`, `coding-principles.md`, or `code-qc/` / `quality/` / `testing/` directories <!-- negative-example -->
 
 ## Post-write complexity check (stable ladder consensus)
