@@ -1,3 +1,18 @@
+CHG-20261025-dedupe-ssot-pass (2026-10-25)
+Duplication pass. The five seat `SKILL.md` layer models stopped pasting the QC-standards
+sentence and now carry one ~152-char pointer to
+`00_orchestrator/references/base-vs-personal-top-loops.md` plus `gates.md`;
+`03_research/personal/radiology-design.md` stopped restating the `design-study` workflow
+(8 steps) and output contract (7 items) that `base/design-study/MODULE.md` already owns,
+keeping only its two seat deltas. Finished the A/B purge the last pass missed: 49
+`A <seat path>` prefixes (31 files) and `[B:humanize]` → `[base:humanize]`. Former ids
+`radiomics-ml` / `architecture-zoo` now resolve at call sites to `analyze-stats` /
+`design-study`; the alias notes stay where they document the retirement. The citation-verify
+sentence stays verbatim in 8 files because `tests/test_seat_packs.py` pins it. Measured
+after: 4 cross-file paragraph groups ≥120 chars, none ≥200; `A <seat>` 0. Suite 168 OK.
+Earlier: CHG-20261025-deep-qc-remediation.
+
+
 CHG-20261025-deep-qc-remediation (2026-10-25)
 Six-batch remediation after the deep QC pass: revived the dead cross-file paragraph
 guard and deduped the disclaimer standard to AL-5; fixed six broken relative
