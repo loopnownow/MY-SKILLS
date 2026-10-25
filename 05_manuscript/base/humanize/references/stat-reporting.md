@@ -53,7 +53,7 @@ only — keep the leading zero if the venue is Nature-family); percentage withou
 "(x of y)"; mean without SD → add dispersion.
 
 ## Before polishing a non-_Radiology_ manuscript
-Confirm the target venue first (house style → `05_manuscript/base/write-paper/`; 选刊 → A `03_research` / `lit-search`). This file's leading-zero and reference
+Confirm the target venue first (house style → `05_manuscript/base/write-paper/`; 选刊 → `03_research` / `lit-search`). This file's leading-zero and reference
 rules are _Radiology_/AMA-specific; applying them to a Nature-family manuscript is itself a
 polishing error. When in doubt, flag the formatting choice to the author rather than silently
 picking one.

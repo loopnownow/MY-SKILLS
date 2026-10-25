@@ -41,4 +41,4 @@ FIX ORDER (highest leverage first)
 ## Optional: target-journal calibration
 
 If a target tier is given, add one line per major comment: *"At [tier], this is
-[blocking / expected-revision / acceptable]"* — and route 选刊 / venue choice to A `03_research` (journal-selection) / `lit-search`.
+[blocking / expected-revision / acceptable]"* — and route 选刊 / venue choice to `03_research` (journal-selection) / `lit-search`.

@@ -29,18 +29,18 @@ Three pillars. Load only what the task needs.
 | `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Grants (Voice A/B inside each file) |
 | `handoff.md` | Layering + personal-file authority; read before moving personal files |
 | `clinical-translation/` | Reader study / deployment design |
-| A `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
+| `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |
 | `01_skill-integration/workflows/question-to-reference.md` | R1-R5 spine |
 
 ## Journal selection
 
 | Location | What |
 |---|---|
-| A `03_research/base/find-journal/` | Victor seats engine (no A stub) |
+| `03_research/base/find-journal/` | Victor seats engine (no A stub) |
 | Runtime pools | `{find_journal_pools}` (`_library\find-journal\data\2026`) |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
-Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → A `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
+Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
 
 ## 0doc document DB (Bai)
 

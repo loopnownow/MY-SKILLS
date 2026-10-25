@@ -16,4 +16,4 @@ Lab vocabulary capability body. Load layers in order before drafting:
 
 See [README.md](README.md) for the live file list. Thin entry: [SKILL.md](SKILL.md).
 
-A `05_manuscript/personal/vocab/` holds pointer + personal overrides — do not duplicate personal lists here.
+`05_manuscript/personal/vocab/` holds pointer + personal overrides — do not duplicate personal lists here.

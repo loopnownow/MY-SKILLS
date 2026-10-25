@@ -21,7 +21,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
 - Language polish → [`humanize`](../humanize/MODULE.md)
-- 选刊 / where to submit → A `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
+- 选刊 / where to submit → `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
 - TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../../qc/check-reporting/MODULE.md)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
 
