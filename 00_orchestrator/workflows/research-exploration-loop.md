@@ -21,7 +21,7 @@ Belongs under `00_orchestrator`. **Not** a registry fine id (ceiling is `fine_id
 
 Content (claim fidelity, population/endpoint differences, hedge wording) is delegated to 03/02/05/06. 00 only consumes `pass|fail + confidence` and continues routing.
 
-Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live fine ids: `lit-search`, `design-study`, `verify-refs`, and 02 stats fine ids. (Archived: `frontier-hypothesize`, `find-cohort-gap`.)
+Do **not** invent fine ids such as `pubmed-search` / `literature-review` / `hypothesis-generation`. Use live fine ids: `lit-search`, `design-study`, `verify-refs`, and 02 stats fine ids.
 
 ```text
 00_orchestrator
@@ -116,7 +116,7 @@ When the missing work is **research content** (question / evidence / design / da
 
 Writing / review exploration handoffs use 05 / 06 only when the gap is wording or reviewer-facing — not for inventing methods.
 
-**No new external source in this CHG.** Absorbing third-party scoring (e.g. idea-generation) requires license + grilling and must land inside existing `frontier-hypothesize` / scripts — **not** a new fine id.
+**No new external source in this CHG.** Absorbing third-party scoring (e.g. idea-generation) requires license + grilling and must land inside existing `design-study` / scripts — **not** a new fine id.
 
 ## 5. QC — structural in 00, content in specialists
 

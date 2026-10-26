@@ -14,6 +14,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261026-archived-delete-on-qc (2026-10-26)
+
+- **Rules:** MY-RULES `skills.md` §6 — at QC, delete archived shells/refs; do not keep `archived` / page-not-on-disk labels in live prose. Retired ids remain only in `legacy_aliases.yaml`.
+- **P1 fix:** `question-to-reference.md` R1 calls `design-study` + `03_research/personal/intake.md` (was live `frontier-hypothesize`).
+- **Cleanup:** `research-exploration-loop.md` drops archived parenthetical; third-party absorb lands in `design-study`.
+- **Deleted archived pointers:** `radiology-frontier.md` / `method-upgrade-into-grant.md` — removed `find-cohort-gap` / `frontier-hypothesize` archived→missing-page rows; workflow uses live `design-study` / `lit-search` / in-file criteria.
+- **Copy:** `design-study/MODULE.md` + `03_research/base/README.md` no longer list archived packs as covers; redirects → `legacy_aliases.yaml`.
+- Suite: run pytest after edit.
+
 ## CHG-20261025-fine-id-stats-analysis (2026-10-25)
 
 - Canonical fine-id rename: `analyze-stats` → `stats-analysis`.

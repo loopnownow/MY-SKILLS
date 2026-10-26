@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
-Also covers (fine ids archived 2026-10-17 round 2; trees pruned to {DEL}\b-prune-findjournal-fill-20261017\ on 2026-10-17): `architecture-zoo`, `design-ai-benchmarking`, `frontier-hypothesize`, `find-cohort-gap`/`frontier-ideate`, `intake-project`.
+Former pack names that resolved into this seat are redirects only — see `00_orchestrator/legacy_aliases.yaml` (do not reopen those trees; QC deletes archived shells rather than leaving archived labels in live prose).
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe
 clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —

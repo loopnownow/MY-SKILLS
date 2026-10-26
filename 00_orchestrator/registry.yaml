@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261025-fine-id-stats-analysis
+  change_id: CHG-20261026-archived-delete-on-qc
   fine_id_count_canonical: 25
   coarse_id_count: 5
 
