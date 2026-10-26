@@ -1,6 +1,6 @@
 # Corpus reply skeletons (harvest 2026-10-23)
 
-> Curated from `skill-harvest/07-reply-skeletons.md` (1,070 reply-units).
+> Curated from `{doc_root}\skill-harvest\07-reply-skeletons.md` (1,070 reply-units).
 > Honor standing opener in `../response.md` (owner 2026-10-21). This file adds frequency evidence + per-point skeleton only.
 
 ## Standing letter opener (authoritative in response.md)

@@ -33,7 +33,7 @@ This release adds a mandatory forensic consistency audit to the reviewer workflo
 - `manifest.yaml` version updated from `1.4.0` to `1.5.0`.
 - `manifest.yaml` now routes to the forensic audit reference when arithmetic, aggregation, provenance, leakage, or reproduction checks are required.
 - `references/reviewer-workflow.md` now defines the audit as a separate editorial pass and keeps audit findings separate from reviewer consensus.
-- `references/qa-checklist.md` now blocks release when a confirmed central arithmetic, bounds, aggregation, provenance, or reproduction contradiction is omitted.
+- `references/06-qa-checklist.md` now blocks release when a confirmed central arithmetic, bounds, aggregation, provenance, or reproduction contradiction is omitted.
 - `README.md` and `README_EN.md` now document the new audit capability.
 - Audit findings are never fed back into reviewer contexts, and frozen reviewer reports are never edited after comparison.
 

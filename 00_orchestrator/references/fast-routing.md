@@ -2,7 +2,7 @@
 
 Chinese trigger aliases are kept so owner utterances still match; English is the primary label.
 
-- grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求盘问 → MY-RULES `My rule.md` §2 (grilling; not a 00 grilling skill)
+- grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求盘问 → MY-RULES `My rule.md` §2.1 (grilling; not a 00 grilling skill)
 - Excel / 批处理 → `02_data-processing` (batch processing; tables). Project folder layout → `{RULES}/workspace-layout.md`
 - Soft coding / 软编码 / dry-run / coding principles → `02_data-processing` (`personal/coding.md`)
 - Ethics application form / 伦理申请表 → Bai seats `03_research/base/fill-protocol` (path stays under 03; do not hand form-fill to Victor)

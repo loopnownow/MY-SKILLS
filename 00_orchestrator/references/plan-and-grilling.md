@@ -2,13 +2,13 @@
 
 Load from `00_orchestrator/SKILL.md` when the run is multi-node, a new capability, or high risk.
 
-**Grilling policy SSOT:** MY-RULES `My rule.md` §2 (grilling). Do not duplicate full grill text here. 00 only owns Plan card, flowchart approval, Q0–Q3, and N1–N4.
+**Grilling policy SSOT:** MY-RULES `My rule.md` §2.1 (grilling). Do not duplicate full grill text here. 00 only owns Plan card, flowchart approval, Q0–Q3, and N1–N4.
 
 ## Question policy
 
 - **Q0** — single-node task: do not grill.
 - **Q1** — one critical unknown: one question.
-- **Q2** — multi-node, a new capability, or high risk: grilling is allowed (follow MY-RULES `My rule.md` §2).
+- **Q2** — multi-node, a new capability, or high risk: grilling is allowed (follow MY-RULES `My rule.md` §2.1).
 - **Q3** — if a file or the web can answer, look it up; do not ask.
 
 ## Flow chart approval (skills)
@@ -22,7 +22,7 @@ When the user asks to **use skills for a specific multi-node task**, before spec
 
 ## Plan card (before dispatch)
 
-Default is **interactive**. Before the first specialist runs a multi-node job, or before 00 evaluates a new external capability, run **grilling** per MY-RULES `My rule.md` §2 (`grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first.
+Default is **interactive**. Before the first specialist runs a multi-node job, or before 00 evaluates a new external capability, run **grilling** per MY-RULES `My rule.md` §2.1 (`grill-me` mode): one batched clarify round, numbered questions with recommended defaults, find facts yourself first.
 
 Then show the plan: candidate fine ids · SOP · node order · risk gates. Wait for a nod. Do not invent `--e2e`.
 

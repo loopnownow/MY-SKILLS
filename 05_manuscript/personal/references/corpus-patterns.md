@@ -1,6 +1,6 @@
 # Corpus revision patterns (harvest 2026-10-23)
 
-> Curated from `skill-harvest/05-patterns-summary.md` + `05-manuscript/personal/patterns` INDEX (7,255 tagged units).
+> Curated from `{doc_root}\skill-harvest\05-patterns-summary.md` + `05-manuscript/personal/patterns` INDEX (7,255 tagged units).
 > For `write-paper` polish / revise routing. Prefer this taxonomy when labeling an edit; do not invent parallel tag names.
 
 ## Tag → when to use (counts = corpus hits)
