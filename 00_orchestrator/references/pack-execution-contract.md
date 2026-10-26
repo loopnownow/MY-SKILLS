@@ -43,7 +43,7 @@ Do not continue the workflow when the request is out of scope, missing a critica
 
 ## References
 
-- `retraction-watcher` pack `references/audit-reference.md` (repo path `03_research/base/retraction-watcher/references/audit-reference.md`) - supported scope, audit commands, and fallback boundaries
+- `retraction-watcher` pack `03_research/base/retraction-watcher/references/audit-reference.md` (repo path `03_research/base/retraction-watcher/references/audit-reference.md`) - supported scope, audit commands, and fallback boundaries
 
 ## Response Template
 

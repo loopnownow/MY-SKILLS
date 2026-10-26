@@ -22,10 +22,10 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 
 | File | Open when |
 |---|---|
-| live `design-study` → `references/feasibility-triage.md` | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
-| live `design-study` → `references/study-blueprints.md` | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
-| live `design-study` → `references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
-| live `design-study` → `references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
+| live `design-study` → `03_research/base/design-study/references/feasibility-triage.md` | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
+| live `design-study` → `03_research/base/design-study/references/study-blueprints.md` | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
+| live `design-study` → `03_research/base/design-study/references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
+| live `design-study` → `03_research/base/design-study/references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
 | live `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
 | [references/grant-own-skeleton.md](../personal/grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 

@@ -275,4 +275,4 @@ Internal splits are the **training set**, the **test set**, and, when external, 
 
 #### approach_not_framework
 
-Vague methodological "framework" is "approach" (`vocab/L1/ban-phrases.md`). A named software library may keep its own name.
+Vague methodological "framework" is "approach" (`05_manuscript/base/vocab/L1/ban-phrases.md`). A named software library may keep its own name.

@@ -126,5 +126,5 @@ One `Results{subproject}.html` per subproject. Numbers in the manuscript come on
 - `DO_NOMOGRAM` — nomogram / combined model control (UI shows one switch). `DO_COMBINED_MODEL` remains ini-compat only; do not expose a second UI control.
 - `DO_QC_REPORT` — left pane Data preview / QC.
 
-UI density, choice persistence, no-Chinese results HTML, external-validation same schema, and switch-gated optional figures: see `personal/console-ui-and-report-rules.md`.
+UI density, choice persistence, no-Chinese results HTML, external-validation same schema, and switch-gated optional figures: see `02_data-processing/personal/analysis/console-ui.md`.
 

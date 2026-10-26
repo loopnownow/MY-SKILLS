@@ -40,14 +40,14 @@ Project term-lock tables stay with each study folder. Per-project specialty noun
 
 These already live in MY-SKILLS and **must not** be flipped by Lab-STE defaults:
 
-- Methods voice stays **conventional passive** (Aitor / `route.md` / `vocab/L1/sci-overrides.md`). Lab-STE's `EN-V01` default is active; when writing SCI Methods here, treat the on-disk profile as `methods_voice: conventional_passive`.
-- Prose comparisons: **Compared** not Relative; metric names like `relCBF` / relative CBF stay (`vocab/L1/ban-phrases.md`).
+- Methods voice stays **conventional passive** (Aitor / `route.md` / `05_manuscript/base/vocab/L1/sci-overrides.md`). Lab-STE's `EN-V01` default is active; when writing SCI Methods here, treat the on-disk profile as `methods_voice: conventional_passive`.
+- Prose comparisons: **Compared** not Relative; metric names like `relCBF` / relative CBF stay (`05_manuscript/base/vocab/L1/ban-phrases.md`).
 - **attenuated** banned; imaging noun **attenuation** stays.
 - Split names use **set** (`training` / `test` / `validation set`), never rewrite set→group (`voice-portrait.md`).
 - Short sentences, inside continuous paragraphs (`voice-portrait.md`).
 - Track Changes: Aitee owns; Lee marks/comments only.
 - Do not overwrite corresponding-author / funding / ethics defaults on an existing `.docx` (`06_review/personal/word-edit.md`).
-- Hard ban table and process/placeholder bans stay in `vocab/L1/ban-phrases.md` (source of truth for English ban words).
+- Hard ban table and process/placeholder bans stay in `05_manuscript/base/vocab/L1/ban-phrases.md` (source of truth for English ban words).
 
 ### Reusable rules (new relative to prior personal files)
 
@@ -108,6 +108,6 @@ Face comments (Word author **A**) use the five-slot habit in `06_review/personal
 
 ### Related personal files
 
-- de-AI load order: `route.md` → `vocab/L1/ban-phrases.md` / `vocab/L1/patterns.md` / `vocab/L1/sci-overrides.md`
+- de-AI load order: `route.md` → `05_manuscript/base/vocab/L1/ban-phrases.md` / `05_manuscript/base/vocab/L1/patterns.md` / `05_manuscript/base/vocab/L1/sci-overrides.md`
 - Voice / set / short sentence: `voice-portrait.md`
 - Comment delivery / author A: `06_review/personal/word-edit.md`, `06_review/personal/review.md` §0

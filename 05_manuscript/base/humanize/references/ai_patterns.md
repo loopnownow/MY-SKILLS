@@ -454,7 +454,7 @@ prose, including response letters.
 **Legitimate italics — never strip these:** statistical symbols (*P*, *t*, *n*, *F*, *r*),
 Latin (*in vivo*, *et al.*, *post hoc*), gene and species names (*BRCA1*, *E. coli*), journal
 titles. A **bold run-in subheading** at line start is correct Nature/npj style
-(`vocab/L1/patterns.md` Tier 1) and is not counted.
+(`05_manuscript/base/vocab/L1/patterns.md` Tier 1) and is not counted.
 
 **Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** count
 non-allowlisted *italic* spans per 1,000 body words → `EMPHASIS_OVERUSE` (Minor). Bold is deliberately excluded so the gate does not fight the run-in-subheading rule. Fires
@@ -554,7 +554,7 @@ These three patterns are specific to response-to-reviewers (R2R) letters and edi
 letters. They rarely appear in manuscript bodies but dominate machine-drafted rebuttals,
 where the model narrates the editing process instead of the science. Apply them whenever the
 text under review is a response letter or cover letter. See the revise skill's
-`references/r2r_voice.md` for full before/after skeletons. Examples below are synthetic
+`07_response/base/revise/references/response.md` for full before/after skeletons. Examples below are synthetic
 (a fictional deep-learning lung-nodule CT study).
 
 **Related (triage, not a fixed-string pattern):** *defensive over-elaboration* — pre-emptive
@@ -563,7 +563,7 @@ confirm this is unchanged and not softened"), manufactured paragraphs answering 
 reviewer, or a separate cover letter on an R2+ round when its content belongs in the
 response-letter head — is a succinctness / round-discipline issue, not a regex pattern, and is
 most common on R2+ rounds. The normative guidance lives in the revise skill (Step 5 +
-Response-Letter Voice), its `references/r2r_voice.md`, and the `rebuttal-letter-style` rule;
+Response-Letter Voice), its `07_response/base/revise/references/response.md`, and the `rebuttal-letter-style` rule;
 humanize only cross-references it (no hard fail, no detection regex added here).
 
 ### Pattern 22: Editing-Mechanism / Change-Log Narration

@@ -6,6 +6,7 @@ Merged from: `test_inline_paths_exist.py`, `test_owner_fields.py`, `test_no_exte
 from __future__ import annotations
 
 from pathlib import Path
+import posixpath
 import re
 import unittest
 
@@ -231,3 +232,84 @@ class BareMdCites(unittest.TestCase):
             "bare .md cites that resolve nowhere (add the file, fix the cite, or "
             "list it in EXTERNAL/ARTIFACTS):\n" + "\n".join(missing[:40]),
         )
+
+# Bare relative tokens (`references/x.md`, `personal/y.md`) are resolved against the
+# citing file's directory first. When that fails they must carry an explicit seat or
+# module prefix, name an alias/0doc root, or sit on a line that marks the target as
+# history. Guards the 2026-10-26 pointer sweep from regressing.
+BARE_SKIP_PREFIXES = (
+    "ref/",
+    "_library/",
+    "_code/",
+    "_corpus/",
+    "_meta/",
+    "MY-SKILLS/",
+    "~/",
+    "templates/",
+    "scripts/",
+    "archive/",
+    "01_skill-integration/",
+    "04_analysis/",
+    "03-research/",
+)
+BARE_ALIAS_ROOTS = ("{doc_root}", "{RULES}", "{SKILLS}", "{DEL}", "{RAW}", "{code_")
+BARE_HISTORY = re.compile(
+    r"former|prior path|moved from|now in park|lived at|not vendored|not on disk|no longer|"
+    r"deleted|removed|archived|historical|absorbed|pruned|retired|distill of|used to live|"
+    r"renamed|park\b|仓内无此|历史|已吸收|已归档",
+    re.I,
+)
+
+
+def _bare_tokens(line: str) -> list[str]:
+    tokens: list[str] = []
+    for match in TICK_RE.finditer(line):
+        raw = match.group(1).strip()
+        if raw.startswith(("http", "D:", "C:", "L:", "{", "<", "#", "mailto:", "file:", "~")):
+            continue
+        token = raw.split()[0].rstrip(".,);:\"'").replace("\\", "/").split("#")[0]
+        if not token.endswith(".md") or "/" not in token:
+            continue
+        if any(ch in token for ch in "<>*"):
+            continue
+        if token.startswith(TOPS) or token.startswith("./"):
+            continue
+        tokens.append(token)
+    return tokens
+
+
+class BareRelativeResolves(unittest.TestCase):
+    def test_bare_relative_pointers_resolve_from_citing_file(self) -> None:
+        files = {
+            path.relative_to(ROOT).as_posix()
+            for path in ROOT.rglob("*")
+            if path.is_file() and not (SKIP_DIRS & set(path.parts))
+        }
+        problems: list[str] = []
+        for path in _iter_md():
+            rel = path.relative_to(ROOT).as_posix()
+            if rel.startswith("tests/"):
+                continue
+            base = rel.rsplit("/", 1)[0] if "/" in rel else ""
+            for line_no, line in enumerate(
+                path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1
+            ):
+                for token in _bare_tokens(line):
+                    if posixpath.normpath(posixpath.join(base, token)) in files:
+                        continue
+                    if token.startswith(BARE_SKIP_PREFIXES):
+                        continue
+                    if BARE_HISTORY.search(line) or any(root in line for root in BARE_ALIAS_ROOTS):
+                        continue
+                    suffix = [name for name in files if name.endswith("/" + token)]
+                    if len(suffix) == 1:
+                        problems.append(f"{rel}:{line_no}: `{token}` -> write `{suffix[0]}`")
+                    else:
+                        problems.append(f"{rel}:{line_no}: `{token}` -> no unique target ({len(suffix)})")
+        self.assertEqual(
+            problems,
+            [],
+            "bare relative pointers must resolve from the citing file, carry a seat "
+            "prefix, or be marked as history:\n" + "\n".join(problems[:40]),
+        )
+

@@ -204,7 +204,7 @@ When naming where journal-selection rules live, say **this repo** — do **not**
 
 ## Advice provenance
 
-Merged **Gemini + ChatGPT** private advice (2026-09). Absorb/query/delete table: `rules/persistence.md`. Extracts: `skill-library/extracts/03_research/jesi-gemini-2026-09.md`, `jesi-chatgpt-2026-09.md`.
+Merged **Gemini + ChatGPT** private advice (2026-09). Absorb/query/delete table: `rules/persistence.md`. Extracts (absorbed 2026-09; that folder is no longer in the library): `jesi-gemini-2026-09.md`, `jesi-chatgpt-2026-09.md`.
 
 ## Annual refresh
 

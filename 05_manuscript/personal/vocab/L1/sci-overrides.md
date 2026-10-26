@@ -11,7 +11,7 @@ Stop-slop was written for general prose. For Aitor imaging SCI:
 3. **Never** change numbers, P, CI, HR/OR, units, citations, or ethics IDs.
 4. Prefer structural burstiness (sentence length mix) over informal register.
 5. Em-dash: prediction-model full papers forbid em-dash (use Aitor-format.md); other sections minimize AI-style em-dash stacks.
-6. Forbidden academic fluff is owned in manuscript-core hard rules + `vocab/L1/ban-phrases.md`.
+6. Forbidden academic fluff is owned in manuscript-core hard rules + `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 **Below this line is the original general-prose stop-slop ruleset, kept for reference.**
 **Where it conflicts with the override above, the override wins — do not apply Core Rule 3

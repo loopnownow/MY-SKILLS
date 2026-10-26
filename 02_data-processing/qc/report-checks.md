@@ -129,7 +129,7 @@ Raw measurement tables → `02_data-processing/personal/table-signals.md`.
 |---|---|
 | G-FACT (00) | Pipeline number drift across 02→05→06 |
 | This note | Academic reporting consistency signals |
-| `personal/table-signals.md` (02) | Raw measurement tables |
+| `02_data-processing/personal/table-signals.md` (02) | Raw measurement tables |
 | Part A of this file | Lab reporting style (body/figures) |
 | `05_manuscript/qc/manuscript-local-qc.md` | Writing actions for the same check ids |
 | `06_review/qc/cross-manuscript-qc.md` | Review: annotate conflicts; do not invent numbers |

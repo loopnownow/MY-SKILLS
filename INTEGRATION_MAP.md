@@ -17,7 +17,7 @@ Harvest must not invent a second evolution log file.
 ## CHG-20261025-fine-id-stats-analysis (2026-10-25)
 
 - Canonical fine-id rename: `analyze-stats` → `stats-analysis`.
-- Pack path: `02_data-processing/base/stats-analysis/`; digest: `personal/analysis/stats-analysis-digest.md`.
+- Pack path: `02_data-processing/base/stats-analysis/`; digest: `02_data-processing/personal/analysis/stats-analysis-digest.md`.
 - `legacy_aliases.yaml`: `analyze-stats` → `stats-analysis`; former targets (`radiomics-ml`, `02-radiomics-habitat`) now resolve to `stats-analysis`.
 - Coarse alias key `stats-analysis` → `02_data-processing` unchanged (seat map).
 - `_code` pointer seat remains `stats-analysis`; `analyze-stats` folder stays retired alias.
@@ -69,7 +69,7 @@ Harvest must not invent a second evolution log file.
 - **Tests:** new `PackReferentialIntegrity` (2) fails on an uncited pack `scripts/*.py` or
   `examples/*`; `test_lab_paths` split into key-format + skip-guarded existence; `test_seat_packs`
   pins the 00–07 layer bound and the live-`0result` ban; `test_frontmatter` drops a commented
-  workflow row; `tighten-response/MODULE.md` registers its three worked examples.
+  workflow row; `07_response/base/tighten-response/MODULE.md` registers its three worked examples.
 - **Drift:** README test command carries `-B`; this file's header no longer claims an empty roll.
 - Suite 172 → 174. No push, no merge.
 
@@ -87,8 +87,8 @@ Harvest must not invent a second evolution log file.
   `grant-builder` are plain `03_research`; both notes lost their override wording.
   `fill-protocol` stays `03_research`.
 - **01 retired in place:** `registry.yaml`, `legacy_aliases.yaml`, `references/id-rules.md`,
-  `references/session-pick.md`, `references/hard-rules.md`, `references/lifecycle-cache.md`,
-  `references/text-harvest-by-fine-id.md`, `references/capability-contract.example.yaml` and
+  `00_orchestrator/references/session-pick.md`, `00_orchestrator/references/hard-rules.md`, `00_orchestrator/references/lifecycle-cache.md`,
+  `00_orchestrator/references/text-harvest-by-fine-id.md`, `references/capability-contract.example.yaml` and
   `workflows/` (5 SOPs + README) moved into `00_orchestrator/` with `git mv`; the 01 `SKILL.md`
   became §0 "Index & registry" of `00_orchestrator/SKILL.md`. The duplicate pointer
   `01/references/base-vs-personal-top-loops.md` was retired, not migrated — the same file
@@ -105,7 +105,7 @@ Harvest must not invent a second evolution log file.
 - **Layer model (02/03/05/06/07):** the pasted `**QC standards:** live in `qc/` …` sentence,
   identical in all five `SKILL.md`, is now one 152-char pointer to
   `00_orchestrator/references/base-vs-personal-top-loops.md` + `gates.md`, with each seat's
-  own `qc/README.md` named. Seat-specific residue kept (02 personal protocols, 03
+  own `<seat>/qc/README.md` named. Seat-specific residue kept (02 personal protocols, 03
   `verify-refs` / `retraction-watcher`, 06/07 envelope lines).
 - **03 personal design:** `radiology-design.md` no longer restates the `design-study`
   `## Workflow` (8 steps) and `## Output contract` (7 items) — both were verbatim in
@@ -185,7 +185,7 @@ Harvest must not invent a second evolution log file.
 ## CHG-20261025-absorb-write-venue — venue shape into write-paper
 
 - Absorbed `05_manuscript/base/write-venue/` into `05_manuscript/base/write-paper/` (write-paper wins on conflict; no same-named file overlap).
-- Kept: `radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`, `radiology-polishing/radiology-house-style.md`, `radiology-polishing/venue-voice-and-house-style.md`, `references/journal-patterns-2023-2026.md`.
+- Kept: `05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`, `05_manuscript/base/write-paper/radiology-polishing/venue-voice-and-house-style.md`, `05_manuscript/base/write-paper/references/journal-patterns-2023-2026.md`.
 - Venue-shape is in-skill on `write-paper`. 选刊 stays in 03 `find-journal`. `check-reporting` was not moved.
 - Retired id: `legacy_aliases.yaml` `write-venue` → `write-paper`. Dropped the `local_packs` row. Directory deleted.
 - Policy cites point at `05_manuscript/base/write-paper/`.
@@ -252,7 +252,7 @@ Harvest must not invent a second evolution log file.
 - Caches (`.pytest_cache` + `__pycache__`) moved to `D:\0del\my-skills-qc-20261018\caches\` (not deleted); pytest uses `-p no:cacheprovider`.
 - `.cursorignore` pack-cache dead entry removed; keep `.gitignore` defense; `00/SKILL.md` wording synced.
 - F42: `review-isolation` row added to `01_skill-integration/workflows/README.md` (formerly under 00 workflows pointer).
-- B2: `fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
+- B2: `03_research/base/fill-protocol/MODULE.md` trimmed to principles + paths (missing assets noted).
 - D2: design-experiment bilingual pair headers (validation / study-design).
 - F46: Absent labels → archived — do not recreate.
 - Dated refs: snapshot notes on ai-radiogenomics-12-24-roadmap + journal-patterns-2023-2026.
@@ -287,7 +287,7 @@ Harvest must not invent a second evolution log file.
 ## CHG-20261008-001 — find-journal similar-article check
 
 - User rule 2026-10-08: for each candidate journal, search the last 3–5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in match rationale. None found → lower the tier and write 「no similar articles in recent years — demoted」. Never invent articles. A failed search is not a no-hit.
-- Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.
+- Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `03_research/base/find-journal/rules/policy.md`, `03_research/base/find-journal/rules/recommendation-workflow.md`, `AGENTS.md`.
 - Regenerated `docs/` visualization HTML via `02_data-processing/personal/visualization/scripts/gen_visualization.py` (outputs were stale on main after #126).
 - `skill-harvest/scripts/repo_qc.py` (archived under `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`): historical map files under the 0del `_medical-research-meta_history` tree count as historical (legacy-active-refs, stale-ids), like this stub and archive. The Oct-7 monthly file is at `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\INTEGRATION_MAP-20261007.md` (in-repo `history/` link removed).
 
@@ -295,4 +295,4 @@ Harvest must not invent a second evolution log file.
 
 - User rule update 2026-10-08: the similar-article search is round 2 of journal selection, not a step before ranking.
 - Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link). Never invent articles. A failed search is not a no-hit.
-- Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.17 → v1.18). Pointers: `rules/policy.md`, `rules/recommendation-workflow.md`, `AGENTS.md`.
+- Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.17 → v1.18). Pointers: `03_research/base/find-journal/rules/policy.md`, `03_research/base/find-journal/rules/recommendation-workflow.md`, `AGENTS.md`.

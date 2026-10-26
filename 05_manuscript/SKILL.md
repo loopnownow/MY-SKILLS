@@ -64,7 +64,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 
 ## Literature
 
-Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Live packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-journal` / `design-study` for question framing). 选刊 / where to submit → `03_research` (`personal/journal-selection.md`); not this skill.
+Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`personal/process/evidence.md`) and applies Aitor quotas. Live packs may only raise an Evidence Request card (`personal/process/evidence.md`); they do not choose the final citation. A 05 personal owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). 选题 stays in 03 (`find-journal` / `design-study` for question framing). 选刊 / where to submit → `03_research` (`03_research/personal/journal-selection.md`); not this skill.
 
 **Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/personal/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `05_manuscript/qc/manuscript-local-qc.md`.
 
@@ -88,7 +88,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Pre-submission / 模拟审稿 / 评阅 → `06_review` (response -> `07_response`)
 - Response letter / 回复审稿人 → `07_response`
 - Statistics / figures → `02_data-processing`
-- Literature landscape / 选刊 / where to submit → `03_research` (`personal/journal-selection.md`)
+- Literature landscape / 选刊 / where to submit → `03_research` (`03_research/personal/journal-selection.md`)
 
 
 ## Internal calls (not entry points)

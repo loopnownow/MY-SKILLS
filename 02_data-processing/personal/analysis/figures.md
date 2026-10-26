@@ -3,7 +3,7 @@
 ## Standing defaults (2026-10-24)
 
 - **In-figure text = Arial** (dual track with body Times New Roman). See `plot-figures-digest.md`.
-- **Flowchart (Figure 1) = PDF preferred** — `draw-flowchart-digest.md` + `base/draw-flowchart/references/style.md`.
+- **Flowchart (Figure 1) = PDF preferred** — `draw-flowchart-digest.md` + `02_data-processing/base/draw-flowchart/references/style.md`.
 
 ## Part A — Lab palettes
 
@@ -53,7 +53,7 @@ Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continu
 
 ## Figure claim planning (radiomics / clinical prediction)
 
-**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `personal/figures.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
+**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `{doc_root}\templates\lab-palettes.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
 
 ### 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 
@@ -63,7 +63,7 @@ Before choosing a chart, ask: **which Discussion sentence must this figure prove
 |---|---|---|
 | “Combined outperforms Clinical” | paired ROC overlay + DeLong p in the legend | two separate AUC bar charts (drops pairing) |
 | “Predicted probabilities are well calibrated” | calibration curve (predicted vs observed) | a lone Brier score with no figure |
-| “High vs low risk differ in survival” | KM + log-rank, risk table under the plot | Cox forest (lab does not run multivariate Cox; see `personal/pipeline.md`) |
+| “High vs low risk differ in survival” | KM + log-rank, risk table under the plot | Cox forest (lab does not run multivariate Cox; see `02_data-processing/personal/analysis/pipeline.md`) |
 | “Feature selection is stable” | LASSO path (TRAIN-only StratifiedKFold AUC path) | feature-importance bars (hides selection instability) |
 | “Radiomics is reproducible” | ICC distribution / forest with ICC≥0.75 threshold line | prose-only “ICC was good” |
 

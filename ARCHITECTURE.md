@@ -30,19 +30,19 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Intent | Route |
 |--------|--------|
 | Polish in my voice / SCI writing | `05_manuscript` |
-| Write Introduction / Discussion (prose) | `03_research` retrieves; `05_manuscript` writes (`personal/process/evidence.md`) |
+| Write Introduction / Discussion (prose) | `03_research` retrieves; `05_manuscript` writes (`05_manuscript/personal/process/evidence.md`) |
 | Pre-submit find issues / dealbreaker | `06_review` |
 | Reply to reviewers | `07_response` only as entry (Aitee) |
 | Topic / literature / journal selection | `03_research` |
-| Journal selection | `03_research` (`personal/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/` |
+| Journal selection | `03_research` (`03_research/personal/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/` |
 | sample size | `02_data-processing` (`calc-sample-size`) |
 | AUC / DeLong / DCA / stats plan / figures | `02_data-processing` |
 | Radiomics / ROI / leakage audit / preprocess | `02_data-processing` |
-| Soft coding / dry-run | `02_data-processing` → `personal/coding.md` |
+| Soft coding / dry-run | `02_data-processing` → `02_data-processing/personal/coding.md` |
 | Batch / Excel folders | `{RULES}/workspace-layout.md` |
-| VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `personal/pipeline.md` |
+| VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `02_data-processing/personal/analysis/pipeline.md` |
 | Ethics application form fill | `03_research` → `base/fill-protocol/` |
-| Clinical extraction (exported text) | `02_data-processing` → `personal/extract.md` |
+| Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/personal/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
 | Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
 | STROBE / patient-flow / Figure 1 | `02_data-processing` (`draw-flowchart`) |
@@ -84,6 +84,6 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ## Session pick (pointer)
 
-Session pick steps live in `00_orchestrator/SKILL.md` (§0 registry) + `references/session-pick.md` / `references/lifecycle-cache.md`.
+Session pick steps live in `00_orchestrator/SKILL.md` (§0 registry) + `00_orchestrator/references/session-pick.md` / `00_orchestrator/references/lifecycle-cache.md`.
 
 Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (in-repo `NN_slug/base/`) → empty path: notify, re-search, confirm.

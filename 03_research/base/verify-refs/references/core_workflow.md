@@ -31,7 +31,7 @@ python scripts/search_google_scholar.py "machine learning protein folding" \
   --output ml_proteins.json
 ```
 
-**Advanced Search Strategies** (see `references/google_scholar_search.md`):
+**Advanced Search Strategies** (see `03_research/base/verify-refs/references/google_scholar_search.md`):
 - Use quotation marks for exact phrases: `"deep learning"`
 - Search by author: `author:LeCun`
 - Search in title: `intitle:"neural networks"`
@@ -66,7 +66,7 @@ python scripts/search_pubmed.py \
   --output alzheimers_trials.json
 ```
 
-**Advanced PubMed Queries** (see `references/pubmed_search.md`):
+**Advanced PubMed Queries** (see `03_research/base/verify-refs/references/pubmed_search.md`):
 - Use MeSH terms: `"Diabetes Mellitus"[MeSH]`
 - Field tags: `"cancer"[Title]`, `"Smith J"[Author]`
 - Boolean operators: `AND`, `OR`, `NOT`
@@ -121,7 +121,7 @@ python scripts/extract_metadata.py --url "https://www.nature.com/articles/s41586
 python scripts/extract_metadata.py --input identifiers.txt --output citations.bib
 ```
 
-**Metadata Sources** (see `references/metadata_extraction.md`):
+**Metadata Sources** (see `03_research/base/verify-refs/references/metadata_extraction.md`):
 
 1. **CrossRef API**: Primary source for DOIs
    - Comprehensive metadata for journal articles
@@ -273,7 +273,7 @@ If metadata genuinely cannot be found after web search (very old paper, obscure 
 
 #### Understanding BibTeX Entry Types
 
-See `references/bibtex_formatting.md` for complete guide.
+See `03_research/base/verify-refs/references/bibtex_formatting.md` for complete guide.
 
 **Common Entry Types**:
 - `@article`: Journal articles (most common)
@@ -383,7 +383,7 @@ python scripts/validate_citations.py references.bib \
   --verbose
 ```
 
-**Validation Checks** (see `references/citation_validation.md`):
+**Validation Checks** (see `03_research/base/verify-refs/references/citation_validation.md`):
 
 1. **DOI Verification**:
    - With `--check-dois`, check registration through Crossref, then DataCite and resolver fallback

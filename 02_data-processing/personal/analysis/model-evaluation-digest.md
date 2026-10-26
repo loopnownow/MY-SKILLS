@@ -17,4 +17,4 @@ Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{do
 - **No VIF on `Combined model covariates`.** VIF belongs to development-set Multivariate only (2026-08-04 · 019fca80).
 - Do not emit Edge list; DAG keeps mediation-relevant edges highlighted; group nodes use real class names.
 - Merge duplicate correlation panels; delete threshold-source columns that carry no meaning.
-- Do not invent CIs; lab AUC 95% CI = 1000 bootstrap (`_boot_auc_ci`), never DeLong analytic CI. Detail: `methods.md`, `pipeline.md`, `base/model-evaluation/MODULE.md`.
+- Do not invent CIs; lab AUC 95% CI = 1000 bootstrap (`_boot_auc_ci`), never DeLong analytic CI. Detail: `methods.md`, `pipeline.md`, `02_data-processing/base/model-evaluation/MODULE.md`.

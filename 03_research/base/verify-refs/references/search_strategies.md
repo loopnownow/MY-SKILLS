@@ -70,4 +70,4 @@ manual alternatives:
 - **ESummary**: Get summary information
 - **ELink**: Find related articles
 
-See `references/pubmed_search.md` for complete API documentation.
+See `03_research/base/verify-refs/references/pubmed_search.md` for complete API documentation.
