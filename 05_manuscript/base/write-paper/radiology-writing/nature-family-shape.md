@@ -97,4 +97,4 @@ to stand alone from the main text.
   → A personal.
 - Reporting Summary / Editorial Policy Checklist → `check-reporting`.
 - Numbered reference style, export format → `../radiology-citation/export-formats.md`.
-- 选刊 / venue fit → `03_research` (`personal/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.
+- 选刊 / venue fit → `03_research` (`03_research/personal/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.

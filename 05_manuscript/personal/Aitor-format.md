@@ -19,7 +19,7 @@ Later-polish live files are `Manuscript_<outcome>_polished.docx` in the outcome 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.
 Letters / short communications: apply only if the user asks.
 
-Voice and de-AI lists stay in `personal/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md` (+ optional `personal/vocab/L1/sci-overrides.md`; and `SKILL.md`); stats checklist stays in `02_data-processing/qc/report-checks.md`.
+Voice and de-AI lists stay in `05_manuscript/personal/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md` (+ optional `05_manuscript/personal/vocab/L1/sci-overrides.md`; and `SKILL.md`); stats checklist stays in `02_data-processing/qc/report-checks.md`.
 
 ---
 
@@ -143,7 +143,7 @@ Methods still opens with Ethics even if ethics is on the title page.
 Six elements, in funnel order. Each element is one to three sentences except element 4.
 
 1. **Disease / burden.** This opening paragraph cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/manuscript-local-qc.md`, `intro_opening_has_citations`).
-2. **Guideline definition.** Name the latest edition of the guideline that defines the endpoint or the clinical decision (issuing body and year, verified by 03 in the same session; see `personal/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
+2. **Guideline definition.** Name the latest edition of the guideline that defines the endpoint or the clinical decision (issuing body and year, verified by 03 in the same session; see `05_manuscript/personal/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
 3. **Limits of current practice.** Mine the gap from the guideline itself: what it leaves open (low level of evidence, information available only after surgery, "insufficient data", not recommended outside trials) and what the routine tests it relies on cannot resolve.
 4. **Related studies.** Main results of the two or three most relevant studies (n, design, effect). Then one or two sentences that appraise them as a group: the strength this study keeps and the weakness this study targets. No study-by-study list.
 5. **Missing piece and method link.** One open question stated as an unknown, then one sentence on why this study's method may address it. Inference is allowed and must be hedged (*may*, *could*). Never *solves*, *overcomes*, *resolves*.
@@ -163,7 +163,7 @@ Structure bans (Introduction first; Discussion deferred until explicitly extende
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
-Evidence handling: `personal/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`.
+Evidence handling: `05_manuscript/personal/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`.
 
 
 ---
@@ -261,7 +261,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 **Process negation / not-done class (owner 2026-10-23):** Process-negation sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Put them only in Word **批注** (author **A**), and every comment must include **建议修改后内容**; bare flags forbidden. Empirical negative findings of the study itself (e.g. *no significant difference*、*was not associated with*）not banned by this rule。QC：`05_manuscript/qc/anti-leak-placeholders.md` AL-5；`07_response/qc/disclaimer-comment-only.md`。
 
-SCI full papers have **no disclaimer**. Ban (owner 2026-10-21 / 2026-10-23: process-negation / disclaimer/CYA/未做-class → Word 批注 only, with 建议修改后内容 — never body; see `qc/anti-leak-placeholders.md` AL-5):
+SCI full papers have **no disclaimer**. Ban (owner 2026-10-21 / 2026-10-23: process-negation / disclaimer/CYA/未做-class → Word 批注 only, with 建议修改后内容 — never body; see `05_manuscript/qc/anti-leak-placeholders.md` AL-5):
 
 - *for research use only* / *not medical advice* / *the authors disclaim*
 - *not a ready clinical tool*

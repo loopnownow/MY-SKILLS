@@ -1,6 +1,6 @@
 # AI-isms checklist (tiered)
 
-**Owner:** `manuscript-core` de-AI pack. Extra flags after `vocab/L1/ban-phrases.md`.
+**Owner:** `manuscript-core` de-AI pack. Extra flags after `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 When de-AI flags conflict with manuscript house style: Methods stay **passive**; full-paper abstracts keep **headed** Objective/Methods/Results/Conclusion; no first-person injection, fragments, or comma splices to “sound human”; do not strip calibrated Discussion hedges required by the lab format guide.
 
@@ -27,10 +27,10 @@ When de-AI flags conflict with manuscript house style: Methods stay **passive**;
 Words are organized into three tiers based on how reliably they signal AI-generated text. This tiered approach — adapted from [brandonwise/humanizer](https://github.com/brandonwise/humanizer)'s vocabulary research — reduces false positives on words that are fine in isolation but suspicious in clusters.
 
 - **Adverbs (new writing and polish):** cut decorative *-ly* softeners/intensifiers. Do **not** ban statistical *significantly* when it is p-value language.
-- **Commentary voice:** body must not tell the reader how not to read the paper (*they should not be summarized as*; *is not reported as*; *should not be read as*; *given this extent*; *should not be described as*; rhetorical *rather than* / *but not by*). Observational contrast may still use *associated with*. Do not blanket-ban factual *rather than* / *but not by* (e.g. *but not by sex*). Detail: `vocab/L1/ban-phrases.md`.
-- **Process language in final prose:** ban pipeline tokens (`TRAIN_RATIO`, `VAL_MODE`), "as stated by the source", 待补, internal QC labels such as 标签未与方案核对, empty retrieval strings, and placeholder scan parameters. The same disclaimer stays once. Detail: `vocab/L1/ban-phrases.md` and `05_manuscript/qc/manuscript-local-qc.md`.
-- **Attenuated:** always replace with *reduced*, *lower*, or *decreased*. Do not flag the imaging noun *attenuation* (attenuation correction, beam attenuation). Detail: `vocab/L1/ban-phrases.md`.
-- **Comparison wording:** prefer *Compared with* / *Compared to* over *Relative* / *relative to* when *relative* is a comparison word. Do not rewrite metric names (*relative CBF*, *relCBF*). Detail: `vocab/L1/ban-phrases.md`.
+- **Commentary voice:** body must not tell the reader how not to read the paper (*they should not be summarized as*; *is not reported as*; *should not be read as*; *given this extent*; *should not be described as*; rhetorical *rather than* / *but not by*). Observational contrast may still use *associated with*. Do not blanket-ban factual *rather than* / *but not by* (e.g. *but not by sex*). Detail: `05_manuscript/base/vocab/L1/ban-phrases.md`.
+- **Process language in final prose:** ban pipeline tokens (`TRAIN_RATIO`, `VAL_MODE`), "as stated by the source", 待补, internal QC labels such as 标签未与方案核对, empty retrieval strings, and placeholder scan parameters. The same disclaimer stays once. Detail: `05_manuscript/base/vocab/L1/ban-phrases.md` and `05_manuscript/qc/manuscript-local-qc.md`.
+- **Attenuated:** always replace with *reduced*, *lower*, or *decreased*. Do not flag the imaging noun *attenuation* (attenuation correction, beam attenuation). Detail: `05_manuscript/base/vocab/L1/ban-phrases.md`.
+- **Comparison wording:** prefer *Compared with* / *Compared to* over *Relative* / *relative to* when *relative* is a comparison word. Do not rewrite metric names (*relative CBF*, *relCBF*). Detail: `05_manuscript/base/vocab/L1/ban-phrases.md`.
 - **Tier 1 — Always flag.** These words appear 5–20x more often in AI text than human text. Replace on sight.
 - **Tier 2 — Flag in clusters.** Individually fine, but two or more in the same paragraph is a strong AI signal. Flag when they appear together.
 - **Tier 3 — Flag by density.** Common words that AI simply overuses. Only flag when they make up a noticeable fraction of the text (roughly 3%+ of total words).
@@ -281,7 +281,7 @@ These slot-fill constructions signal that a sentence was generated, not written.
 ### Confidence calibration phrases
 - "It's worth noting that," "Interestingly," "Surprisingly," "Importantly," "Significantly," "Notably," "Certainly," "Undoubtedly," "Without a doubt" — AI uses these to signal how the reader should feel about a fact instead of letting the fact speak for itself.
 - "Here's what's interesting," "Here's the interesting part," "Here are the parts I found interesting" — reader-steering cue that pre-interprets importance. Works when followed by genuinely surprising data; fails when it introduces a restatement of something obvious (which is the AI default).
-- **Superseded 2026-08-29:** `vocab/L1/ban-phrases.md` now hard-bans *notably*,
+- **Superseded 2026-08-29:** `05_manuscript/base/vocab/L1/ban-phrases.md` now hard-bans *notably*,
   *interestingly*, *importantly*, and *novel* outright (density no longer
   matters — zero is the target, not "one per 2,000 words"). This checklist
   entry is kept for the general reasoning (why these phrases read as AI

@@ -1,6 +1,6 @@
 # AGENTS — find-journal
 
-Authority order: `SKILL.md` → `rules/policy.md` → `rules/recommendation-workflow.md` → this file.
+Authority order: `SKILL.md` → `03_research/base/find-journal/rules/policy.md` → `03_research/base/find-journal/rules/recommendation-workflow.md` → this file.
 If this file conflicts with `SKILL.md` / `policy.md`, **follow SKILL/policy** (zip processed pack).
 
 Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10/10 + 层4 default + general journals allowed).
@@ -37,7 +37,7 @@ Owner: **Victor** · `03_research`. Bai owns 选刊 advancement after titles are
    - **Ask before each run** whether to include 层2补 (Challenge); **default OFF** (层2 + 层3 + 层4 by default).
    - Per-layer default count: **10**. Specialty preferred; **综合/全科刊** allowed when fit is reasonable.
 6. No AIM / author instructions / APC in phase 1. Then ask user to circle 备选杂志.
-7. Phase 2 only after confirmation — see `rules/aim-author-checklist.md`.
+7. Phase 2 only after confirmation — see `03_research/base/find-journal/rules/aim-author-checklist.md`.
    - **User HTML 短表 (per paper):** 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知.
    - Same last column for portal + author instructions; show **full URLs** (not bare 「投稿须知」).
    - Short table **omits** ISO, OA, 置信, 分刊详情, **APC**.
@@ -46,7 +46,7 @@ Owner: **Victor** · `03_research`. Bai owns 选刊 advancement after titles are
 9. Delivery: HTML for user; write submission URLs only back to `data/2026/submission-urls.csv`; optional prior lines → `{find_journal_submission}\submission-prior.jsonl`.
 10. Risk: **Unknown ≠ Low Risk.**
 
-Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `rules/query-sources.md`. Persistence absorb/query/delete: `rules/persistence.md`.
+Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/2026/`. Raw Clarivate workbook is rebuild input only. Query sources: `03_research/base/find-journal/rules/query-sources.md`. Persistence absorb/query/delete: `03_research/base/find-journal/rules/persistence.md`.
 
 ## Data locations
 
@@ -82,5 +82,5 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 - **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
 ## Journal format compliance (nested)
 
-Not a registry fine id. After 备选杂志 are chosen, invoke `journal-format-compliance/SKILL.md` by path/keyword (format for [journal] / 按作者须知改格式). Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` § Journal format compliance.
+Not a registry fine id. After 备选杂志 are chosen, invoke `03_research/base/find-journal/journal-format-compliance/SKILL.md` by path/keyword (format for [journal] / 按作者须知改格式). Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` § Journal format compliance.
 

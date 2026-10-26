@@ -7,7 +7,7 @@ owner: "07_response/base/revise/MODULE.md"
 
 # revise
 
-**Hard rule (修改稿件 / 回复):** process 否定句 / 未做类 → Word 批注 only + 建议修改后内容; never 回复信或修订稿正文. See MODULE Hard rules / `qc/disclaimer-comment-only.md`.
+**Hard rule (修改稿件 / 回复):** process 否定句 / 未做类 → Word 批注 only + 建议修改后内容; never 回复信或修订稿正文. See MODULE Hard rules / `07_response/qc/disclaimer-comment-only.md`.
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

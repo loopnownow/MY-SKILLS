@@ -33,7 +33,7 @@ If the user provides raw text without labeling the section, infer from content s
 ### §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See `references/corpus/corpus-phrase-bank.md` §1 (389 unique drafts, 2026-08-28).
+1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See the corpus phrase bank §1 (389 unique drafts, 2026-08-28; file not on disk).
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
 4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist"*, *"demonstrated potential"* — never absolute claims.
@@ -69,7 +69,7 @@ If the user provides raw text without labeling the section, infer from content s
 - Hedged language for unknowns: *remains unclear*, *remains controversial*, *has not been established*. Never *elucidate / elucidating / elucidated*.
 - Sentences 10–30 words. Prefer one main proposition per sentence; if a sentence runs past 20 words, check that it holds one.
 - No hyperbole (*groundbreaking*, *novel*, *first ever*) without evidence. Scarcity is worded as what the search found.
-- No enumeration of studies, no parallel frames, no more than one triplet per paragraph (`vocab/L1/sci-overrides.md`, structure-level tells).
+- No enumeration of studies, no parallel frames, no more than one triplet per paragraph (`05_manuscript/personal/vocab/L1/sci-overrides.md`, structure-level tells).
 - Do not name reporting guidelines (TRIPOD and others) in the Introduction.
 - Active or mixed voice is acceptable.
 
@@ -175,12 +175,12 @@ Do **not** compress Discussion by page count. Structure and word band win over �
   3. Relatively small sample size
   4. Need for external multicenter validation
   5. (If applicable) manual ROI segmentation variability
-- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the corpus-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See `references/corpus/corpus-phrase-bank.md` §5.
+- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the corpus-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See the corpus phrase bank §5 (file not on disk).
 
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
 - Mirror the abstract objective + affirm clinical value.
-- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `vocab/L1/ban-phrases.md`).
+- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `05_manuscript/base/vocab/L1/ban-phrases.md`).
 
 ---
 
@@ -237,7 +237,7 @@ in the edited, submission-ready corpus used purposefully and sparingly — e.g.
 flagging one genuinely unexpected result or the single most clinically
 load-bearing sentence in a paragraph — never as filler repeated throughout.
 The editorial rule is "keep if it's doing real work, cut if it's decorative,"
-not "delete on sight." See `references/corpus/corpus-phrase-bank.md` §8 for
+not "delete on sight." See the corpus phrase bank §8 (file not on disk) for
 verified in-context examples before deciding to cut one.
 
 #### Sentence structure targets
@@ -305,8 +305,8 @@ Discussion : Summary → Literature → Mechanism (hedged) → Clinical → Limi
 Conclusion : 1-2 sentences, echo objective, affirm clinical value
 ```
 
-For extended examples and sentence-level templates, see `references/sentence-templates.md`.
-For statistical reporting checklists, see `references/stats-checklist.md`.
+For extended examples and sentence-level templates, see `05_manuscript/base/write-paper/references/section-templates.md`.
+For statistical reporting checklists, see `05_manuscript/base/humanize/references/stat-reporting.md`.
 
 ### Corpus patterns (2026-10-23)
 

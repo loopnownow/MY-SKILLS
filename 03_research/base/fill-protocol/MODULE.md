@@ -37,7 +37,7 @@ model: inherit
 > - `setup.sh`
 > - `scripts/doc_to_docx.py`, `scripts/inspect_template.py`, `scripts/fill_form.py`
 > - `examples/`
-> - `references/best_practices.md`
+> - `03_research/base/verify-refs/references/best_practices.md`
 > Personal/Jinshan: `03_research/personal/fill-protocol/`. Registry path: `03_research/base/fill-protocol/`.
 
 You are helping a researcher populate an institutional Word form (IRB protocol,

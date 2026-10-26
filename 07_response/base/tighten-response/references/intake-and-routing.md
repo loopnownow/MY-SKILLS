@@ -37,7 +37,7 @@ expanding to a full package, or claiming submission readiness.
 - `revise-and-resubmit` and `transfer after review` remain distinct decision types; do not force
   either into Major or Minor Revision. Follow the explicit editor instructions for those routes.
 
-Once resolved, apply the Major/Minor strategy in `static/core/workflow.md` when package-level
+Once resolved, apply the Major/Minor strategy in `07_response/base/tighten-response/static/core/workflow.md` when package-level
 strategy is requested and record the decision type in that strategy summary. Reuse a decision
 already established in the task without asking again.
 

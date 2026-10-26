@@ -6,7 +6,7 @@ This release adds a mandatory forensic consistency audit to the reviewer workflo
 
 ### Added
 
-- New reference: `references/forensic-consistency-audit.md`.
+- New reference: `06_review/base/simulate-reviewers/references/forensic-consistency-audit.md`.
 - New post-review audit stage that runs only after every reviewer report is frozen and before synthesis.
 - Audit coverage for arithmetic identities, totals, percentages, deltas, ranges, precision consistency, and subgroup reconciliation.
 - Audit coverage for metric bounds and identities under the stated aggregation level.
@@ -32,8 +32,8 @@ This release adds a mandatory forensic consistency audit to the reviewer workflo
 - `SKILL.md` workflow now inserts the forensic audit between report freezing and synthesis.
 - `manifest.yaml` version updated from `1.4.0` to `1.5.0`.
 - `manifest.yaml` now routes to the forensic audit reference when arithmetic, aggregation, provenance, leakage, or reproduction checks are required.
-- `references/reviewer-workflow.md` now defines the audit as a separate editorial pass and keeps audit findings separate from reviewer consensus.
-- `references/06-qa-checklist.md` now blocks release when a confirmed central arithmetic, bounds, aggregation, provenance, or reproduction contradiction is omitted.
+- `06_review/base/simulate-reviewers/references/reviewer-workflow.md` now defines the audit as a separate editorial pass and keeps audit findings separate from reviewer consensus.
+- `06_review/base/simulate-reviewers/references/06-qa-checklist.md` now blocks release when a confirmed central arithmetic, bounds, aggregation, provenance, or reproduction contradiction is omitted.
 - `README.md` and `README_EN.md` now document the new audit capability.
 - Audit findings are never fed back into reviewer contexts, and frozen reviewer reports are never edited after comparison.
 

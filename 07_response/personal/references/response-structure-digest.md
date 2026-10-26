@@ -43,10 +43,10 @@ Already covered in `../response.md` Hard rules — **do not fork:** no invent fo
 
 | Existing | Overlap | Absorb action |
 |---|---|---|
-| `base/tighten-response/references/response-structure.md` | Package order, tracker, per-reviewer files, cover letter | **Skip** — different layer (package), keep as-is |
-| `base/revise/references/response.md` | Imaging-AI posture + short template | **Skip** — add optional pointer only |
-| `personal/response.md` | Opener nouns, thanks bank, quote+location habits, closings | **SSOT** — pointer only from here |
-| `personal/references/corpus-reply-skeletons.md` | Frequency stems + per-point skeleton | Complementary; do not add a fourth opener noun |
+| `07_response/base/tighten-response/references/response-structure.md` | Package order, tracker, per-reviewer files, cover letter | **Skip** — different layer (package), keep as-is |
+| `07_response/base/revise/references/response.md` | Imaging-AI posture + short template | **Skip** — add optional pointer only |
+| `07_response/personal/response.md` | Opener nouns, thanks bank, quote+location habits, closings | **SSOT** — pointer only from here |
+| `07_response/personal/references/corpus-reply-skeletons.md` | Frequency stems + per-point skeleton | Complementary; do not add a fourth opener noun |
 
 ## Pointers
 

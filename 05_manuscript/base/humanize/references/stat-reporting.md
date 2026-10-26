@@ -13,7 +13,7 @@ only formatting and completeness (flag if a required element, e.g. a CI, is abse
 > leading zero (`P = 0.03`, not `P = .03`); confirm the exact convention against the specific
 > target journal's current style guide before polishing a Nature-family manuscript — do not
 > silently apply the _Radiology_ rule below to a Nature submission. Reference style also differs
-> (Nature-family: numbered, in citation order → `write-paper` `radiology-citation/export-formats.md`; not the
+> (Nature-family: numbered, in citation order → `write-paper` `05_manuscript/base/write-paper/radiology-citation/export-formats.md`; not the
 > author–year/AMA-numbered style assumed elsewhere in this file).
 
 ## P-values (_Radiology_ / AMA style — confirm before reusing for a non-AMA venue)

@@ -221,7 +221,7 @@ different manuscripts in this corpus:
 
 ### 8. Words that ARE banned (policy reversal, 2026-08-29)
 
-As of 2026-08-29 these four words are **Forbidden**. See `vocab/L1/ban-phrases.md`. Counts below describe the old corpus; they do not license the words.
+As of 2026-08-29 these four words are **Forbidden**. See `05_manuscript/base/vocab/L1/ban-phrases.md`. Counts below describe the old corpus; they do not license the words.
 
 | Word | Count |
 |---|---|
@@ -258,7 +258,7 @@ Purpose / methods / results templates refreshed 2026-08-28 from 389 unique draft
 
 **Split wording (body vs Figure 1):** manuscript BODY internal split is **training / test**. Figure 1 labels **Training Cohort / Test Cohort**, plus **Validation Cohort** only when Methods states an external cohort (`Aitor-format.md`). Only an other-hospital cohort is **validation set**. Never `Development set`. Never call a same-hospital random split external validation.
 
-**Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `vocab/L1/ban-phrases.md`.
+**Do not use (0 hits in 389 unique drafts):** `suggesting its potential`; `demonstrated good performance`. See `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 ### Abstract Templates
 
@@ -294,7 +294,7 @@ Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
 #### Conclusion sentence
-Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `vocab/L1/ban-phrases.md`).
+Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `05_manuscript/base/vocab/L1/ban-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
 - "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
 - "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."

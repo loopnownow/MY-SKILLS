@@ -48,26 +48,28 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 | File | Open when |
 |---|---|
-| live `find-cohort-gap` → `references/frontier-themes.md` | Surveying current themes (foundation models, SSL, VLM, multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated, generative, radiogenomics) and their data prerequisites |
-| live `frontier-hypothesize` → `references/evidence-layer.md` | Explaining the publication-pattern evidence: what each high-impact journal rewards, the methodological bar, and how to verify with live search |
-| live `frontier-hypothesize` → `references/idea-to-question.md` | Converting a trend into a concrete, executable, submittable research question; novelty framing |
-| live `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` | The user asks for radiology AI/radiogenomics directions over the next 12-24 months, or needs to choose among foundation models, SSL, VLM, multimodal fusion, federated learning, UQ/XAI, and radiogenomics |
+| live `design-study` | Feasibility / study-design conversion for a candidate frontier direction |
+| live `lit-search` | Retrieve and verify seed papers (PMID/DOI); confirm the gap is still open |
+| `03_research/personal/radiology-design.md` | Inventory already exists, or hand off to full design after a direction is chosen |
 | [references/method-upgrade-into-grant.md](../personal/method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
 
 ## Workflow
 
 1. **Read the data** — disease, modality, n, centers, labels, follow-up, omics availability
    (reuse the inventory from `radiology-design` if present).
-2. **Scan themes** (live `find-cohort-gap` → `references/frontier-themes.md`) and **filter by fit** — for each candidate direction,
-   state the data prerequisites and whether the user meets them. Reject poor fits explicitly.
-3. **For AI/radiogenomics strategy**, open live `find-cohort-gap` → `references/ai-radiogenomics-frontier-map.md` and judge the
-   idea against generalisability, supervision cost, multimodal fusion, trustworthy inference,
-   external validation, and clinical-value evidence.
-4. **Ground in evidence** (live `frontier-hypothesize` → `references/evidence-layer.md`) — for each surviving direction, state the
-   publication pattern (what kind of study, what validation, which venues) and the
-   methodological bar it must clear. Flag every concrete claim that needs **live verification**.
-5. **Convert to questions** (live `frontier-hypothesize` → `references/idea-to-question.md`) — turn the best 2–4 directions into specific
-   research questions with endpoint, comparator, and the minimum evidence to be competitive.
+2. **Scan themes and filter by fit** — candidate directions include foundation models, SSL, VLM,
+   multimodal fusion, longitudinal, weak/semi-supervision, domain adaptation, federated,
+   generative, radiogenomics. For each, state data prerequisites and whether the user meets
+   them. Reject poor fits explicitly.
+3. **For AI/radiogenomics strategy**, judge each idea against generalisability, supervision cost,
+   multimodal fusion, trustworthy inference, external validation, and clinical-value evidence
+   (keep the criteria in this step; no separate theme-map file).
+4. **Ground in evidence** — for each surviving direction, state the publication pattern (study
+   kind, validation, venues) and the methodological bar. Flag every concrete claim that needs
+   **live verification**.
+5. **Convert to questions** — with live `design-study` (and `radiology-design` when imaging-
+   specific), turn the best 2–4 directions into specific research questions with endpoint,
+   comparator, and the minimum evidence to be competitive.
 6. **Trigger live search** — hand the chosen direction to live `lit-search` to retrieve and
    verify current seed papers (PMID/DOI) and confirm the gap is still open.
 7. **Return** a ranked shortlist: direction → fit → evidence pattern → executable question →

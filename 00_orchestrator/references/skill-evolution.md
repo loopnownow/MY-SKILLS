@@ -19,7 +19,7 @@ Applies to skills 00–07. Never edit live skill bodies directly; post-merge dep
 
 - Budget: at most 1 core behaviour change, at most 3 new rules, no duplicates, no unapproved boundary expansion.
 - Each proposal answers: what recurrence it prevents; how effectiveness will be known.
-- Outcome: keep / revise / rollback / merge·simplify / archive / delete (delete needs explicit approval).
+- Outcome: keep / revise / rollback / merge·simplify / delete (delete needs explicit approval). **Do not leave `archived` labels in live prose** — Rules `skills.md` §6: at QC, delete archived shells/refs (or move bytes to `{DEL}`); retired names stay only as `legacy_aliases.yaml` redirects.
 - Rollback restores a recorded git point; do not stack a second evolution on a regression.
 
 ---

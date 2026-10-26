@@ -53,6 +53,6 @@ Statement form fits early/youth: `使用在体和离体[技术]阐明[表型]干
 
 ## Division of labor vs other frontier files
 
-- live `find-cohort-gap` → `references/frontier-themes.md`, and live `frontier-hypothesize` → `references/idea-to-question.md`: whether the direction is new, whether data can support it, what journals require for validation.
+- `03_research/personal/radiology-frontier.md` + live `design-study` / `lit-search`: whether the direction is new, whether data can support it, what journals require for validation.
 - **This file:** once the path is MRS → hyperpolarized 13C / flux → multimodal+ML, **which paragraph of the justification gets which sentence**.
 - Do not put Voice A critique (「创新性有限」) or English journal “Please clarify” into the justification.

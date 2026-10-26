@@ -151,7 +151,7 @@ All 27 are defined in `references/ai_patterns.md`. Two carry rules to apply exac
 
 Patterns 22-24 apply only to response-to-reviewers letters and editor cover letters, not
 manuscript bodies. They are defined once in `ai_patterns.md` (Response-Letter Patterns); for
-authoring guidance, see the revise skill's `references/r2r_voice.md`.
+authoring guidance, see the revise skill's `07_response/base/revise/references/response.md`.
 
 ---
 

@@ -24,7 +24,7 @@ Early Chinese review forms can be blunt («并无新意» / «选择偏倚» / �
 
 ---
 
-**Corpus harvest (2026-10-23):** checklist themes in `personal/references/corpus-review-habits.md` (methods / consistency / overclaim). Envelope rules in this file win on conflict.
+**Corpus harvest (2026-10-23):** checklist themes in `06_review/personal/references/corpus-review-habits.md` (methods / consistency / overclaim). Envelope rules in this file win on conflict.
 
 ### 0. Comments and conflicts (lab hard rules)
 

@@ -310,5 +310,5 @@ Only if this-run pick left a needed pack unloaded — go through the **00 sessio
 
 ### Corpus reply skeletons (2026-10-23)
 
-Frequency evidence + per-point skeleton: `personal/references/corpus-reply-skeletons.md`.
+Frequency evidence + per-point skeleton: `07_response/personal/references/corpus-reply-skeletons.md`.
 Standing letter opener remains authoritative here: **Thank you for your comments** | **suggestions** | **inquiry**.

@@ -9,7 +9,7 @@ Home: `02_data-processing/qc/coding-qc.md` (moved from `code-refactoring/referen
 ## When to trigger
 - Review / deep review / Deep QC / code QC for `modules` / lab stats library
 - Before release; re-test after major pipeline/console/radiomics/clinical/impute changes
-- Same entry as soft-coding / dry-run / refactor (`personal/coding.md`): QC first, then change, or re-test after change
+- Same entry as soft-coding / dry-run / refactor (`02_data-processing/personal/coding.md`): QC first, then change, or re-test after change
 - Research data-processing scripts (raw→analysis-ready) release-ready / deep review
 
 00 only routes: see `00_orchestrator/gates.md` **G-CODE**; detail lives only in this file.

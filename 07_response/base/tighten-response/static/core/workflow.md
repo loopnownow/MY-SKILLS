@@ -13,9 +13,9 @@ drafting a complete response package. Local wording edits, audits of existing re
 comment-level triage, and tone-only polish (`tone-polish`) can proceed with decision type
 marked unknown; they do not select a Major/Minor package strategy or establish submission
 readiness. `tone-polish` softens defensive phrasing in the supplied draft and does not
-rebuild point-by-point structure (`revise` owns that). Load `references/tone_patterns.md`
+rebuild point-by-point structure (`revise` owns that). Load `07_response/base/tighten-response/references/tone_patterns.md`
 and `references/polite_expressions.json`. If a suggested phrase conflicts with
-`references/tone-and-stance.md`, keep the stance file.
+`07_response/base/tighten-response/references/tone-and-stance.md`, keep the stance file.
 
 1. Use an explicit label in the editor decision letter or revision invitation when supplied.
 2. Normalize informal author wording such as `major review` and `minor review` to `Major Revision`

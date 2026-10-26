@@ -1,16 +1,16 @@
 # Table signals (raw numeric tables)
 
-> Relocated from `table-qc/` → `personal/table-signals.md` (2026-10-16).
+> Relocated from `table-qc/` → `02_data-processing/personal/table-signals.md` (2026-10-16).
 
 ## Purpose
 
 Lightweight **signals** on raw numeric tables. Human review decides; nothing here proves misconduct.
 
-Raw measurement table QC signals: leading-digit distribution, terminal-digit preference, between-group SD smoothness heuristic, optional near-duplicate rows. Use when auditing assay/clinical numeric tables before analysis. Not for code structure QC (`personal/coding.md` / `../qc/coding-qc.md`), imaging ROI QC, skill-harvest evolution, or reported NHST/Table1 math (`02_data-processing/qc/report-checks.md`).
+Raw measurement table QC signals: leading-digit distribution, terminal-digit preference, between-group SD smoothness heuristic, optional near-duplicate rows. Use when auditing assay/clinical numeric tables before analysis. Not for code structure QC (`02_data-processing/personal/coding.md` / `../qc/coding-qc.md`), imaging ROI QC, skill-harvest evolution, or reported NHST/Table1 math (`02_data-processing/qc/report-checks.md`).
 
 ## Boundaries
 
-- Not `personal/coding.md` / `qc/coding-qc.md` (deep code QC)
+- Not `02_data-processing/personal/coding.md` / `02_data-processing/qc/coding-qc.md` (deep code QC)
 - Not archived `skill-harvest/qc/` / MY-RULES skills.md (skill-evolution)
 - Not `preprocess-imaging`
 - Reported stats consistency → `02_data-processing/qc/report-checks.md`

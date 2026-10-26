@@ -16,4 +16,4 @@ Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → arch
 - Do not bold the enrolled-n box; do not restack inclusion criteria as a second figure.
 - Development/Validation (or Training/Test) must connect with edges to children.
 - Re-run script after data change; do not hand-edit the PDF/PNG as SSOT.
-- Detail SSOT: `base/draw-flowchart/references/style.md` + `05_manuscript/personal/Aitor-format.md` Figures.
+- Detail SSOT: `02_data-processing/base/draw-flowchart/references/style.md` + `05_manuscript/personal/Aitor-format.md` Figures.

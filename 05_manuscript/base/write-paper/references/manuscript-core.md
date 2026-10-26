@@ -2,7 +2,7 @@
 
 Companion to [MODULE.md](../MODULE.md). Generic scientific IMRAD — not a personal house format.
 
-Language polish → `humanize`. Venue / house style → this pack (`radiology-writing/journal-family-writing-style.md`, `radiology-polishing/`).
+Language polish → `humanize`. Venue / house style → this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `radiology-polishing/`).
 Reporting checklists → `check-reporting`. Self-audit → `self-review`.
 
 ## Section jobs

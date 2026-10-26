@@ -11,7 +11,7 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 ---
 
-**Corpus harvest (2026-10-23):** additive notes in `personal/references/corpus-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
+**Corpus harvest (2026-10-23):** additive notes in `05_manuscript/personal/references/corpus-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
 
 ## 1. Overall portrait
 
@@ -38,7 +38,7 @@ This portrait does **not** replace `Aitor-format.md`. On conflict, locks above +
 | Refs placement | After Conclusion, before Tables (full paper) |
 | Aim openers | `This study aimed to…` / `The aim of this study was to…` |
 | Voice | Methods: prefer passive where lab default applies; Discussion: calibrated hedges; Results: no hedges |
-| Banned hype | `novel`, `notably`, `interestingly`, `importantly` + `vocab/L1/ban-phrases.md` |
+| Banned hype | `novel`, `notably`, `interestingly`, `importantly` + `05_manuscript/base/vocab/L1/ban-phrases.md` |
 
 Do **not** add a Discussion page-length quota (no “cut to 1.5 pages”). Length follows `Aitor-format.md` word bands and content need.
 
