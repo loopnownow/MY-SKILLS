@@ -32,5 +32,6 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Handoff
 
+- Condensed review items (**精简**) → Word comments (**批注**) on the manuscript locus (原文); see `review.md` §0.2.
 - Localization rules: `review.md` section 0.1.
 - Source tags and Chinese reasons: `review.md` section 0.1 (comment lead-in; this file does not copy the rule body).

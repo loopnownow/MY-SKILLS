@@ -13,7 +13,7 @@
 
 1. `review-isolation.md` -- when dual engines / simulate-reviewers used
 2. English peer review -- `review.md` (AI disclosure default **off**; exact sentence only in `review.md` §3 when 城城 asks)
-3. Word annotate / TC boundary -- `word-edit.md`
+3. Word annotate / TC boundary -- `word-edit.md` (condensed findings → comments on 原文; `review.md` §0.2)
 4. Chinese journal score -- `review.md` § Chinese journal score digest
 5. Thesis review -- `review.md` § Thesis review digest
 6. Cooperation -- `handoff.md`

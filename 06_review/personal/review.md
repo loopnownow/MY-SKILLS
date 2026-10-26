@@ -57,6 +57,18 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - **When the locus is uncertain:** do not invent precise line numbers. In the Word **comment**, state why it is uncertain + suggested locator + suggested revision; comment **author field = A**. After the user confirms, change only that item in the review **envelope**. Do not Track-Change the manuscript body here (see ownership-contract).
 - If the user pastes a source sentence: align line numbers on Proof/plain first, then write into the matching chapter; do not spawn a new review docx.
 
+### 0.2 Standing — condensed findings → Word comments on 原文 (2026-10-27 owner)
+
+For future **peer-review / pre-review / 06 re-review** on a manuscript `.docx`:
+
+1. Collect review findings (envelope / simulate-reviewers / self-review / peer-review / owner-pasted comments).
+2. **Condense** each item (**精简**): keep locator + defect + actionable ask / suggested fix; strip fluff.
+3. Land them as **Word comments (批注)** anchored on the **matching span of the manuscript 原文** — not a separate review-only dump as the sole deliverable.
+4. Comment author field **A**. Source-tag lead-in and localization stay as in §0 / §0.1 (cross-ref only; do not restate those rules here).
+5. Lee comments-only; Aitee still owns body Track Changes (`word-edit.md`). Do not silently rewrite the body when only annotating.
+
+---
+
 ### 1. Era layering (picks the envelope; does not import Chinese bluntness into English)
 
 | Approx. years | Form | How English peer review uses it |
