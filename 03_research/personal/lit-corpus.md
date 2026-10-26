@@ -86,9 +86,13 @@ Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\
 - Research rows older than 5 years → `_archived/` or drop from active `index.csv` (owner choice that year).
 - Guidelines: drop superseded editions.
 
+## Prefer-cite (standing)
+
+When drafting Introduction / Related Work / Discussion needs **group evidence**, **prefer citing `layer=personal`** (owner-group published SCI in `{doc_root}\_library\lit-corpus\index.csv`) **before** external `layer=base`. Still verify claim↔source; do not invent results; do not dump the CSV into skills.
+
 ## Cite-time use
 
-1. Filter `index.csv` by `themes` / `layer` / `year`.
+1. Filter `index.csv` by `themes` / `layer` / `year`. For group evidence, apply **Prefer-cite** (`personal` before `base`).
 2. Read `result_conclusion` to decide if the claim fits.
 3. Emit **Vancouver** in the manuscript; keep NLM in the corpus unchanged.
 4. Literature search still → Victor; path inventory in 0doc → Bai.
@@ -98,6 +102,13 @@ Optional per-DOI note file (still no PDF): `personal\<doi-or-slug>.md` or `base\
 - Live project `ref/citation/` working sets (per-project; may cite corpus rows by DOI)
 - `05-manuscript` submission Word archive
 - Web search scratch lists that never passed DOI verify
+
+## ORCID / personal publication pointer
+
+- ORCID iD (public): `0000-0001-5062-0230` — works via `https://pub.orcid.org/v3.0/0000-0001-5062-0230/works`
+- Data SSOT: `{doc_root}\_library\lit-corpus\index.csv` (`layer=personal`). Skills hold **procedure only** — never mirror the paper list here.
+- ORCID backfill (2026-10-27 Asia/Shanghai): 48 ORCID work-groups → **42** already/newly in `index.csv`; disposition ledger `D:\0del\_by-function\orcid-works-20261027\personal-works.csv` (+ README). CN journals excluded; SSRN/Research Square preprints noted, not ingested as SCI.
+- Prefer-cite: see section above (`layer=personal` before `base`).
 
 ## Pointers
 
