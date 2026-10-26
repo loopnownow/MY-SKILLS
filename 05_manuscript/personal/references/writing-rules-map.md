@@ -9,7 +9,7 @@
 | **Revision pattern taxonomy** | Skill `05_manuscript/personal/references/corpus-patterns.md`; harvest `{doc_root}\skill-harvest\05-patterns-summary.md` | Regenerable via `_code/_infra/review-response/md-corpus/s19_patterns.py`. Bulk INDEX/units were under 0doc personal (now roles park) — **do not hand-edit generated cards** |
 | **Revision unit cards** (before→after) | Regenerable: `s19_patterns.py`. Parked bulk (purge risk): `{DEL}\_by-project\0doc-05-07-roles-20261023\05-manuscript\personal\units\` | Prefer taxonomy digest + regenerate; do not vendor 7k cards into GitHub |
 | **Source fulltext / papers** | Live library: `{doc_root}\_library\fulltext\`, `{doc_root}\_library\papers\`. Roles park mirror (purge risk): `…/0doc-05-07-roles-20261023/05-manuscript/personal/{fulltext,papers}/` | Read before revising claims |
-| **Thesis quotes** | Harvest `…/skill-harvest/05-voice-from-quotes.md`; skill `references/corpus-voice.md`. Parked cards (purge risk): roles park `…/quotes/`, `INDEX-thesis.md` | |
+| **Thesis quotes** | Harvest `{doc_root}\skill-harvest\05-voice-from-quotes.md`; skill `references/corpus-voice.md`. Parked cards (purge risk): roles park `…/quotes/`, `INDEX-thesis.md` | |
 | **Figure palettes** | `{doc_root}\templates\lab-palettes.md` | |
 | **Claim ↔ number align** | Skill `05_manuscript/qc/claim-number-align.md` | CN-1…4 |
 | **Manuscript local QC bans** | Skill `05_manuscript/qc/manuscript-local-qc.md` | Fabrication / causal overclaim / unverified cite |

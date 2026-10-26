@@ -128,4 +128,4 @@ Any “no” → do not promote; fall back to corpus-only or revise the candidat
 
 - Collection standard (SSOT): `{doc_skill_harvest}\HARVEST-STANDARD.md`
 - Fine-ID thin pointer: `00_orchestrator/references/text-harvest-by-fine-id.md`
-- Rules gate: `MY-RULES/skills.md` §3 (propose-only; task-flow body lives in this file)
+- Rules gate: `{RULES}\skills.md` §3 (propose-only; task-flow body lives in this file)
