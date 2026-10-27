@@ -148,7 +148,7 @@ class AliasMapIsTight(unittest.TestCase):
 
     PATH_PREFIXES = ("code_", "doc_", "find_journal_", "jcr", "lab_", "raw_", "del_", "rules_", "skills_")
     # Retired names may still appear in dated history lines (VERSION.txt / INTEGRATION_MAP.md).
-    HISTORY_ONLY = {"code_06_review", "doc_xml"}
+    HISTORY_ONLY = {"code_06_review", "doc_xml", "code_md_bank"}
 
     def test_no_dead_alias(self) -> None:
         aliases = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))["aliases"]
