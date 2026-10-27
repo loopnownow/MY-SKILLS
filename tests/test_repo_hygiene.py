@@ -30,7 +30,7 @@ STATUS_ALLOW_FILES = {
 STATUS_ALLOW_PREFIXES = (
     "00_orchestrator/",  # the index seat: LIVE / PROPOSED vocabulary is its own
     "tests/",
-    "02_data-processing/personal/visualization/",
+    "02_data-processing/advanced/visualization/",
 )
 STATUS_ALLOW_LINE = re.compile(
     r"NOTICE|attribution|historical|legacy|formerly|archived\s+20|"

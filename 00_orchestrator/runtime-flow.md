@@ -8,15 +8,15 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 
 
 
-## Base / personal layering
+## Base / advanced layering
 
-**Main loop:** base fine-ID **first-pass** capability loops -> **00 QC gate** -> personal/top **re-loops**.
+**Main loop:** base fine-ID **first-pass** capability loops -> **00 QC gate** -> advanced/top **re-loops**.
 
 | Layer | Repo | Owns |
 |---|---|---|
 | **base** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
-| **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and personal/top re-loop |
-| **personal / top** | MY-SKILLS | Personal top-layer route/handoff/authority (03-07). Capability bodies for 02–07 live under `NN_slug/base/` |
+| **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and advanced/top re-loop |
+| **advanced / top** | MY-SKILLS | Advanced top-layer route/handoff/authority (03-07). Capability bodies for 02–07 live under `NN_slug/base/` |
 
 Post-QC A re-loops (as needed):
 
@@ -47,7 +47,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 1. **Detect locks entry and exit** — if HTML already exists you may stop at 05; do not force 06. If stats already exist you may mid-enter 05; if a manuscript already exists you may mid-enter 06; do not re-run from 02. When a results page and a reviewer letter are both present and no entry was named, ask which station to enter. Multi-node / new capability / fine ids needed → grilling + Plan card + flowchart approval first. `结束` (end), or this run’s file is on disk and the last gate PASS → `pipeline.stage: done`. Pause, or stop after the results page / before pre-review: leave `stage` at the current station. **Same defect** `defects[].rounds` still failing on round 3 → `unresolved`; stage does not advance (not global `qc.rounds`). Inside one already-approved run, later station passes report one line; PHI, results-page numbers, pre-review entry, and the review gate still stop. **Any writing or review (including mid-entry)** must pass 03 `citation-verify` before Gate · 05 done and inside 06 (claim→ref table + spot-check strong claims against full text). A 05 verify does not waive 06. Aitee and Lee must not self-certify literature. Lee still does statement consistency first, then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 2. **Advance only on PASS** — every node has an exit Gate; if not at the destination, enter the downstream node.
-3. **00 / G0 = pre-execution dependency** — every independent run needs one fine-id pick. When `session_picked_fine_ids` already covers this task’s fine ids, reuse the session lock; do not re-ask. Otherwise enter the 00 registry pick. Single-node personal layer with no fine id dependency does not ask (e.g. polish one sentence). Not a decorative master gate.
+3. **00 / G0 = pre-execution dependency** — every independent run needs one fine-id pick. When `session_picked_fine_ids` already covers this task’s fine ids, reuse the session lock; do not re-ask. Otherwise enter the 00 registry pick. Single-node advanced layer with no fine id dependency does not ask (e.g. polish one sentence). Not a decorative master gate.
 4. **QC loop** — FAIL → locate → impact (local vs roll back to earliest affected node) → re-enter the failed node within budget → Gate again; never re-run the whole chain from Start. Local recovery reuses the session fine-id lock and returns to the failed node. Re-enter 01 only when a dependency is missing, provenance is stale, or a new capability is needed.
 5. **Budget exhausted** — Escalate → wait for the user; after authorization, reset **that defect’s** `defects[].rounds`.
 6. **Naming** — diagram `Gate · NN` ↔ `gates.md` `G-NN` (e.g. `Gate · STATS` = `G-STATS`). `G0` / `G-PHI` / `G-FACT` / `G-LIT` / `G-CODE` share the same names.
@@ -60,20 +60,20 @@ Diagram `Gate · NN` = the set chosen from the table below (detail and failure c
 | --- | --- |
 | 00 external Skill / Fine id | G0. Enter only when this run needs a new fine-id pick |
 | 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 02. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop |
-| 02 personal/coding.md / deep code review | G-CODE |
+| 02 advanced/coding.md / deep code review | G-CODE |
 | 03 literature research | Exit is G0 + G-LIT + evidence/citation artifacts. No separate 03 gate id and no 03-local G-FACT |
 | 02 stats / figures | G0 + G-FACT (fact chain after 02 HTML) + G-STATS. Numbers and figures come from HTML / settings; reporting-guideline checklists are not G-STATS. N3 WRITE = stop at HTML or enter writing |
-| 05 manuscript writing | G0 + G-FACT (re-check after 05 house.docx) + G-LIT + G-05 (includes style-lint sub-check). Before Gate · 05 / done, 03 citation-verify must PASS (semantic label **G-CIT-1**, draft evidence verify; `03_research/personal/citation-verify.md`). N4 PREVIEW = enter 06 or stop |
+| 05 manuscript writing | G0 + G-FACT (re-check after 05 house.docx) + G-LIT + G-05 (includes style-lint sub-check). Before Gate · 05 / done, 03 citation-verify must PASS (semantic label **G-CIT-1**, draft evidence verify; `03_research/advanced/citation-verify.md`). N4 PREVIEW = enter 06 or stop |
 | 07 reply to reviewers | G0 + response resolution + G-LIT when cites appear; 07 final authority; revise/tighten-response stay source my-skills (in-repo base); tone-polish is on-demand inside tighten-response |
 | 06 review / R&R | G0 + G-LIT + G-05 + G-06; also run G-FACT when numbers are cited (`gates.md`: before 06 if numbers cited). Inside 06, citation-verify semantic label **G-CIT-2** (post-revision / inside 06) is mandatory; G-CIT-1 does not waive G-CIT-2. Lee owns statement then data consistency; literature accuracy is joint with Victor. Ownership: see `00_orchestrator/references/ownership-contract.md` |
 | Full 02→05→06 | Each node exit per the table above; G-FACT only after 02 HTML, after 05 house.docx, and when 06 cites numbers |
 
-Personal layers (writing voice / review frame) = `05_manuscript/personal`, `06_review/personal`. Sentence authority and verdicts sit in the personal layer; capability bodies live under `NN_slug/base/`.
+Advanced layers (writing voice / review frame) = `05_manuscript/advanced`, `06_review/advanced`. Sentence authority and verdicts sit in the advanced layer; capability bodies live under `NN_slug/base/`.
 
 ## Dispatch conflict (summary)
 
-User-specified → controlling Skill → required upstream → required external packs → personal layer → helpers → QC.
-Conflict: the personal layer beats an external pack; one source per fine ID. **QC rollback beats normal dispatch order.**
+User-specified → controlling Skill → required upstream → required external packs → advanced layer → helpers → QC.
+Conflict: the advanced layer beats an external pack; one source per fine ID. **QC rollback beats normal dispatch order.**
 
 - G-05 includes the `style-lint` sub-check (see gates.md). No new gate ID. Do not add a 02-only or 03-only gate id. Citation-verify is a branch on `runtime-flow.mmd` (Lit05 / semantic label G-CIT-1 before Gate · 05; Lit06 / semantic label G-CIT-2 inside 06). G-CIT-1 does not waive G-CIT-2. These labels are not new gate ids.
 
@@ -120,6 +120,6 @@ Pass/fail checklists live under domain `qc/` only: `05_manuscript/qc/` (Gate · 
 
 ## Before skills / fine ids (standing)
 
-When the user requests skills or external fine ids for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before the 00 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node personal-layer task with no live dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
+When the user requests skills or external fine ids for a concrete task: show this official map in full, highlight the run path, and **wait for approval** before the 00 pick or specialist execution. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse that lock after approval instead of asking again. A single-node advanced-layer task with no live dependency does not ask (example: polish one sentence). Do not invent a second master diagram — only highlight branches on `runtime-flow.mmd`.
 
-Personal layers also include `07_response/personal` (response final authority). Flow: base fine-ID first-pass -> 00 QC -> personal/top re-loop.
+Advanced layers also include `07_response/advanced` (response final authority). Flow: base fine-ID first-pass -> 00 QC -> advanced/top re-loop.

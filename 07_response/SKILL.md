@@ -1,16 +1,16 @@
 ---
 name: medical-manuscript-response
 description: >
-  Personal response-letter upper layer. Entry for response letter is 07.
+  Advanced response-letter upper layer. Entry for response letter is 07.
   Final authority for point-by-point response and resolution status.
   Live revise / tighten-response use source my-skills under `07_response/base/`.
   Tone-only polish is an on-demand mode of tighten-response. Point-by-point structure stays revise.
   Re-review stays in 06. Prose Track Changes to 05. Literature to 03.
 ---
 
-# Manuscript Response -- personal upper layer
+# Manuscript Response -- advanced upper layer
 
-**Route:** `personal/route.md`. **Handoff:** `personal/handoff.md`.
+**Route:** `advanced/route.md`. **Handoff:** `advanced/handoff.md`.
 
 ## Purpose
 
@@ -23,18 +23,18 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ## Layer model
 
-Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in `07_response/base/`) -> **00 QC** -> **07** personal final authority.
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
+Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in `07_response/base/`) -> **00 QC** -> **07** advanced final authority.
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Live packs may draft; **A 07 personal** owns resolution status and letter voice (`personal/response.md`).
+Live packs may draft; **A 07 advanced** owns resolution status and letter voice (`advanced/response.md`).
 
-## Personal assets
+## Advanced assets
 
 | Task | Path |
 |---|---|
-| Response letter voice + resolution protocol | `personal/response.md` |
-| Route | `personal/route.md` |
-| Handoff | `personal/handoff.md` |
+| Response letter voice + resolution protocol | `advanced/response.md` |
+| Route | `advanced/route.md` |
+| Handoff | `advanced/handoff.md` |
 
 ## Live capability ids (bodies in `base/`; source my-skills)
 

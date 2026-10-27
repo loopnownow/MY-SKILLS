@@ -5,18 +5,18 @@
 These are **session-pick** bans, not skill deletions:
 
 1. Do **not** offer a second runtime package menu. Bodies are in-repo `my-skills` (`NN_slug/base/`).
-2. Do **not** let multiple authoring engines **directly edit** the same manuscript sentences in one pass — one primary authoring authority (05 personal); others are verifier / QC / venue only.
+2. Do **not** let multiple authoring engines **directly edit** the same manuscript sentences in one pass — one primary authoring authority (05 advanced); others are verifier / QC / venue only.
 3. Reviewer engines output **findings only**; they must not edit the manuscript bypassing 06.
-4. Venue polishing must not overwrite base write-paper / personal author voice.
+4. Venue polishing must not overwrite base write-paper / advanced author voice.
 
 ## Hard rules
 
 - Never perform literature research, statistics, manuscript writing, or peer review (00 is index only).
 - Never rewrite MY-SKILLS because an external text exists.
-- Never replace a personal / top layer because an external text is more general.
+- Never replace a advanced / top layer because an external text is more general.
 - `PROPOSED` is not `LIVE`.
-- Personal de-AI (`05_manuscript/personal/`) is not a base row. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The personal forbidden list still wins.
-- Top layers are not capability rows (00 owns base→QC→personal).
+- Advanced de-AI (`05_manuscript/advanced/`) is not a base row. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The advanced forbidden list still wins.
+- Top layers are not capability rows (00 owns base→QC→advanced).
 
 ## Fine-id expansion
 

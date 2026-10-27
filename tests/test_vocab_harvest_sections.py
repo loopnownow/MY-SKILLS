@@ -2,7 +2,7 @@
 
 Config
 ------
-SCRIPT : `05_manuscript/personal/vocab/scripts/harvest_sections.py`
+SCRIPT : `05_manuscript/advanced/vocab/scripts/harvest_sections.py`
 BANK   : synthetic JSONL fixtures written into a temporary directory
 
 Run
@@ -18,7 +18,7 @@ import unittest
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = REPO_ROOT / "05_manuscript" / "personal" / "vocab" / "scripts" / "harvest_sections.py"
+SCRIPT = REPO_ROOT / "05_manuscript" / "advanced" / "vocab" / "scripts" / "harvest_sections.py"
 
 
 def _load_module():

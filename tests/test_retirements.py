@@ -43,7 +43,7 @@ def _scan_paths() -> list[Path]:
     out: list[Path] = []
     for pat in (
         "*_*/SKILL.md",
-        "*_*/personal/route.md",
+        "*_*/advanced/route.md",
         "*_*/base/**/MODULE.md",
         "00_orchestrator/gates.md",
         "00_orchestrator/runtime-flow.mmd",
@@ -132,7 +132,7 @@ class NoRetiredSeat04(unittest.TestCase):
         for pack in ("stats-analysis", "plot-figures", "draw-flowchart", "calc-sample-size"):
             self.assertTrue((ROOT / "02_data-processing" / "base" / pack).is_dir(), pack)
             self.assertTrue(
-                (ROOT / "02_data-processing" / "personal" / "analysis" / "route.md").is_file()
+                (ROOT / "02_data-processing" / "advanced" / "analysis" / "route.md").is_file()
             )
 
     def test_no_stale_references(self) -> None:

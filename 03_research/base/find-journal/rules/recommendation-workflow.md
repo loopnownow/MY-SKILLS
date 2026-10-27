@@ -29,7 +29,7 @@ External tools supply **candidates and current evidence**; MY-SKILLS owns the de
 | Difficulty + Capacity | 04 `jesi-calculator` / JDI · JCI-C · JEI | `jesi-model.md` |
 | Fit | 04 `manuscript-fit-analyzer` / **MJF (=MFI)** | Scope, methods, recent papers |
 | Risk | 04 Risk Assessment | **Unknown ≠ Low Risk** |
-| Personal prior | 04 `submission-prior-logger` / **PAI** | `submission-prior.jsonl` |
+| Advanced prior | 04 `submission-prior-logger` / **PAI** | `submission-prior.jsonl` |
 | Final tier + layer tables | 04 decision + this workflow | Challenge / Target / Safety → layers below |
 
 Do **not** let an external Fit Score or fixed-weight template pick the final list.

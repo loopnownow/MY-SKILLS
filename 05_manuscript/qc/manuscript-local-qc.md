@@ -1,6 +1,6 @@
 # Manuscript local QC (standards checklist; gate authority = 00)
 
-**Prior path:** former `personal/qc/local-checks.md` under 05_manuscript (moved 2026-10-18 into domain `qc/`).
+**Prior path:** former `advanced/qc/local-checks.md` under 05_manuscript (moved 2026-10-18 into domain `qc/`).
 **Gate / scoring authority:** `00_orchestrator` (Gate · 05 / Integrity · pre-06). This file is a **standards checklist** invoked by 00; seats execute but do **not** self-certify. 05 keeps only pointers in `route.md` / `handoff.md`.
 **Owner (file seat):** `05_manuscript` (checklist body); gate pass/fail = 00.
 
@@ -40,7 +40,7 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 | FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | Merge into one comparative sentence, or drop the weakest |
 | FLU-3 | 2 | More than 10% of sentences outside 10–30 words | 1 per 10%, max 3 | Split or merge |
 | FLU-4 | 2 | IMRAD body laid out as one sentence per line or one sentence per paragraph | 2 | Keep short sentences inside a continuous paragraph (`voice-portrait.md` paragraph lock) |
-| CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | Cite, weaken, or delete (`05_manuscript/personal/process/evidence.md`) |
+| CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | Cite, weaken, or delete (`05_manuscript/advanced/process/evidence.md`) |
 | CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | Budget before drafting; complete the entry |
 | CIT-3 | 3 | Numbers verified below L2, or a guideline definition or appraisal verified below L3 | 1 | Read the full text, or weaken to "reported" |
 | CIT-4 | 3 | No retraction and correction check on the reference list | 1 | Run it |
@@ -79,7 +79,7 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 
 Logic 6 (LOG-1, LOG-2, LOG-3) · Fluency 7 (FLU-1, FLU-2) · Citation use 7 (CIT-2, CIT-3, CIT-4) · Prior results 7 (RES-1, RES-2) · Gap 7 (GAP-1, GAP-2, GAP-3) · Method link 6 (MET-1, MET-3) · Aim 8 (AIM-1) · total 48/70.
 
-The 25% sentence-level uncited gate used at that time is replaced by claim coverage (`05_manuscript/personal/process/evidence.md`). Re-scored with GLD-1 (the rewrite cited the 2016 consensus, not the latest guideline): Gap 5, total 46/70.
+The 25% sentence-level uncited gate used at that time is replaced by claim coverage (`05_manuscript/advanced/process/evidence.md`). Re-scored with GLD-1 (the rewrite cited the 2016 consensus, not the latest guideline): Gap 5, total 46/70.
 
 
 ---
@@ -157,7 +157,7 @@ Target-journal AI-use disclosure: check the author instructions and match any re
 
 Statistical definitions live in `02_data-processing/qc/report-checks.md` and the checkbox list in `02_data-processing/qc/report-checks.md`. Lee's annotation protocol lives in `06_review/qc/cross-manuscript-qc.md`.
 
-Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`).
+Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`).
 
 **Number conflict:** Word comment, author **A**. Do not choose a replacement *n*, *P*, *t*, cutoff, quartile, or overlap count. A back-calculated critical value, implied *n*, or adjusted *P* may appear in a comment only if it is labeled an estimate. It does not enter the manuscript.
 
@@ -195,7 +195,7 @@ The same biomarker and contrast with a materially different *P* or effect in a s
 
 #### no_confirmatory_p_same_cohort
 
-Feature or ROI selection, threshold or cutoff selection, and the group or performance test on the same participants, without an outer nested cross-validation or a bootstrap optimism correction, do not support a confirmatory *P*. Write the result as apparent or descriptive. Do not write "confirmatory", "independently validated", or an unqualified "significantly different" for that test. Lab nested CV is not implemented (`02_data-processing/personal/analysis/pipeline.md`). Do not write that nested CV was run unless the user confirms it.
+Feature or ROI selection, threshold or cutoff selection, and the group or performance test on the same participants, without an outer nested cross-validation or a bootstrap optimism correction, do not support a confirmatory *P*. Write the result as apparent or descriptive. Do not write "confirmatory", "independently validated", or an unqualified "significantly different" for that test. Lab nested CV is not implemented (`02_data-processing/advanced/analysis/pipeline.md`). Do not write that nested CV was run unless the user confirms it.
 
 #### nested_roi_collinearity
 
@@ -227,7 +227,7 @@ Agent must not add new negative gap lists either (`was not tested / measured / e
 
 #### layout_priority
 
-Layout order: the user's instruction this run, then the target journal guide, then `05_manuscript/personal/Aitor-format.md` defaults. Paragraphs stay as paragraphs; new paragraphs only on topic change. Abstract labels, Methods/Results subheads, Highlights, and figure/table notes keep their format.
+Layout order: the user's instruction this run, then the target journal guide, then `05_manuscript/advanced/Aitor-format.md` defaults. Paragraphs stay as paragraphs; new paragraphs only on topic change. Abstract labels, Methods/Results subheads, Highlights, and figure/table notes keep their format.
 
 #### repeated_disclaimer
 
@@ -251,7 +251,7 @@ Do not cite the same paper in consecutive sentences unless the second sentence a
 
 #### claim_matches_source
 
-The sentence's claim (population, modality, direction of effect) is a claim the cited work makes. A mismatch is weaken or replace via `05_manuscript/personal/process/evidence.md`, not a decorative citation.
+The sentence's claim (population, modality, direction of effect) is a claim the cited work makes. A mismatch is weaken or replace via `05_manuscript/advanced/process/evidence.md`, not a decorative citation.
 
 #### no_unverified_cross_copy
 

@@ -9,7 +9,7 @@ owner: "02_data-processing/base/imaging-io/MODULE.md"
 # CT/MRI I/O (DICOM / NIfTI)
 
 Read, convert, and organise volumetric series. QC / ROI / reader protocol lives in
-`preprocess-imaging` (`02_data-processing/base/preprocess-imaging/`). Personal MATLAB preprocess stays in A.
+`preprocess-imaging` (`02_data-processing/base/preprocess-imaging/`). Advanced MATLAB preprocess stays in A.
 
 ## Workflow
 

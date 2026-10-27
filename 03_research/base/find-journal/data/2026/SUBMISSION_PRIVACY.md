@@ -1,4 +1,4 @@
-# Personal submission priors (not in public git)
+# Advanced submission priors (not in public git)
 
 Moved 2026-10-07 to `{find_journal_submission}\`.
 

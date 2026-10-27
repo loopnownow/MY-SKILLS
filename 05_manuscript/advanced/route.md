@@ -1,0 +1,52 @@
+# 05 route -- vocabulary + post-QC polish chain
+
+**Canonical entry:** `../SKILL.md`.
+
+## Layering (2026-10-17)
+
+- **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
+- **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
+- **05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies remain in B; A owns order and advanced authority.
+
+## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
+
+1. **L1 words:** B `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
+2. **L1 patterns:** B `05_manuscript/base/vocab/L1/patterns.md`
+3. **L1 SCI overrides:** B `05_manuscript/base/vocab/L1/sci-overrides.md`
+4. **L2 preferred:** B `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`; advanced usage with counts: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`
+5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
+6. **L3 specialty + Lab-STE:** B `05_manuscript/base/vocab/L3/lab-ste.md`
+
+## Process (05-owned)
+
+- `process/evidence.md` -- evidence request + I/D consumption
+- `process/citation-and-language.md`
+- `process/polisher-sections.md`
+
+## Post-QC polish chain (05)
+
+When polish requested after 00 QC:
+
+1. Run B `humanize` (lint table first, then the de-AI pass)
+2. Then B `humanize`
+3. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (advanced authority)
+
+## Cooperation
+
+- See `handoff.md` (02/03/06/07/00).
+- Manuscript local QC / scoring checklists live in ``qc/`` (invoked only by 00 at Gate time). Disclaimer/CYA/未做-class → `qc/anti-leak-placeholders.md` AL-5 (body forbidden; 批注 + 建议修改后内容).
+
+## Root keep
+
+`Aitor-format.md` / `voice-portrait.md` / `route.md` / `handoff.md` / `vocab/README.md` (pointer) / `process/`
+
+## Bank references (2026-10-23)
+
+- `references/bank-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
+- `references/bank-patterns.md` — revision-pattern taxonomy (7255-unit summary)
+
+## 0doc writing-rules absorb (2026-10-23)
+
+- Hard constraints: `references/writing-rules-hard.md` (Track Changes; no invented docx/pdf layout; do not alter outcome/cutoff/covariate/missingness semantics).
+- Authority map (retargeted after seat move): `references/writing-rules-map.md`.
+- Optional base pointer: `../base/write-paper/references/0doc-writing-rules-pointer.md`.

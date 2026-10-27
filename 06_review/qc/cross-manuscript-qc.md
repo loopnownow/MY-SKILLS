@@ -1,6 +1,6 @@
 # Cross-manuscript QC (standards checklist; gate authority = 00)
 
-**Prior path:** lived under `06_review` personal/qc naming before domain `qc/` (2026-10-18). Related checklist: `05_manuscript/qc/manuscript-local-qc.md`.
+**Prior path:** lived under `06_review` advanced/qc naming before domain `qc/` (2026-10-18). Related checklist: `05_manuscript/qc/manuscript-local-qc.md`.
 **Gate / scoring authority:** `00_orchestrator` (Gate · 06). Standards checklist invoked by 00; Lee executes comments but does not self-certify.
 **Owner (file seat):** `06_review` (checklist body); gate pass/fail = 00.
 
@@ -22,9 +22,9 @@ runs_checks_from: 05_manuscript/qc/manuscript-local-qc.md
 
 ## Cross-manuscript and pre-submit QC (Lee)
 
-Load on every pre-review and peer-review, after `06_review/personal/review.md`. Journal-facing envelope stays English (`06_review/personal/review.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
+Load on every pre-review and peer-review, after `06_review/advanced/review.md`. Journal-facing envelope stays English (`06_review/advanced/review.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
 
-call/require 03 citation-verify — do not self-certify lit (`03_research/personal/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
+call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
@@ -34,7 +34,7 @@ Run **statement consistency first** (the manuscript agrees with itself), then **
 
 ### Order
 
-1. Statement consistency (`06_review/personal/review.md` §2).
+1. Statement consistency (`06_review/advanced/review.md` §2).
 2. Data consistency inside this manuscript (§3 there, plus the classes below).
 3. Sister-paper cohort risk (this file).
 4. Circular analysis and score identity.
@@ -80,7 +80,7 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 | cutoff_vs_included_distribution | Major when an included group's median, Q1, or minimum falls on the excluded side of the entry cutoff. |
 | iqr_scale_sanity | Major when IQR exceeds the instrument range or contradicts the cutoff. |
 | consecutive_same_cite | Minor. Cite once unless the next sentence adds a distinct claim. |
-| claim_matches_source | Major when the sentence asserts something the cited work does not claim. Dual plan per `06_review/personal/review.md` §4.7. |
+| claim_matches_source | Major when the sentence asserts something the cited work does not claim. Dual plan per `06_review/advanced/review.md` §4.7. |
 | no_unverified_cross_copy | Major. An author list or DOI copied from a sister manuscript is unverified. |
 | year_volume_from_source | Major if a year or volume was changed without a source check. Ask to verify. Do not supply the "correct" year from memory. |
 | paragraph_lock | Minor. Short sentences may stay; one sentence per line or per paragraph in the body may not. |
@@ -90,4 +90,4 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 
 ### Comment shape
 
-English envelope line: locator, defect, Please-request (`06_review/personal/review.md` §4.9). Chinese reason in the Word comment after the source tag. `cannot_invent` when the fix needs a number the files do not contain.
+English envelope line: locator, defect, Please-request (`06_review/advanced/review.md` §4.9). Chinese reason in the Word comment after the source tag. `cannot_invent` when the fix needs a number the files do not contain.

@@ -2,7 +2,7 @@
 
 **Owner:** `00_orchestrator` at G-LIT / G-CIT / Integrity · pre-06.
 **Seat:** Victor (03) runs verify; Aitee (05) wording; Lee (06) may require G-CIT-2 inside review.
-**Compose existing:** `refs-verified.md` (RV-*), `03_research/personal/citation-verify.md` (G-CIT-1/2). Do not replace them — this gate adds three-axis + six-state emit.
+**Compose existing:** `refs-verified.md` (RV-*), `03_research/advanced/citation-verify.md` (G-CIT-1/2). Do not replace them — this gate adds three-axis + six-state emit.
 **Distill of:** ARIS `citation-audit`.
 
 ## Purpose

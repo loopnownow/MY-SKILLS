@@ -8,10 +8,10 @@
 %% Ownership: see 00_orchestrator/references/ownership-contract.md
 %% Seats: 02 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=ethics forms+portal submit (off 00 main loop)
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
-%% Layering: base fine-ID first-pass loops -> 00 QC gate -> personal/top re-loops.
+%% Layering: base fine-ID first-pass loops -> 00 QC gate -> advanced/top re-loops.
 %% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
 %% QC standards (pass/fail only) live under 05_manuscript/qc/ and 06_review/qc/; 00 loads at gates — not capability bodies.
-%% Capability bodies live under NN_slug/base/. Personal layers keep route/handoff/authority only.
+%% Capability bodies live under NN_slug/base/. Advanced layers keep route/handoff/authority only.
 %% 03 post-QC may trigger verify-refs + retraction-watcher (bodies under 03_research/base/).
 %% 05 post-QC: humanize (report-only lint, then de-AI pass) alongside Aitor-format/voice.
 %% 06 post-QC: re-review only. 07 owns response (final authority).
@@ -27,7 +27,7 @@ flowchart TD
     GrillPlan --> FlowAppr[Flowchart approval · highlight this path on full map]
     %% Results page and reviewer letter both present and user did not name entry: ask first; do not auto-pick by nearest artifact.
     FlowAppr -->|explicit approve| Conflict{Results page + reviewer letter both present<br/>and entry not named?}
-    MultiQ -->|no · single-node personal| Conflict
+    MultiQ -->|no · single-node advanced| Conflict
     Conflict -->|yes| AskEntry[Ask which station to enter]
     AskEntry --> Entry{Run entry}
     Conflict -->|no| Entry
@@ -40,7 +40,7 @@ flowchart TD
     Entry -->|Standalone lit task| Need03[Enter 03 · Victor]
     Entry -->|Deep code QC| NeedCode[Enter 02 code QC]
     Entry -->|Other clear single domain| NeedS[Enter target Skill]
-    Entry -->|Single-node personal · no fine id dependency| Personal[e.g. polish one sentence · no fine id ask]
+    Entry -->|Single-node advanced · no fine id dependency| Advanced[e.g. polish one sentence · no fine id ask]
 
     %% R&R: triage then return to node; re-run only forward affected chain
     R06 --> Decide{06 locate problem source}
@@ -58,12 +58,12 @@ flowchart TD
     S01 --> GA0{{G0}}
     GA0 -->|PASS| Ready[Fine ids ready]
     GA0 -->|FAIL| Locate
-    Personal --> Single
+    Advanced --> Single
 
-    %% Main production pattern: base fine-ID first-pass -> 00 QC -> personal/top re-loop
+    %% Main production pattern: base fine-ID first-pass -> 00 QC -> advanced/top re-loop
     Ready --> LayerBase[base · fine-ID first-pass loops]
     LayerBase --> LayerQC{{00 QC gate}}
-    LayerQC -->|PASS| LayerTop[personal/top re-loops<br/>03/05/06/07 as needed]
+    LayerQC -->|PASS| LayerTop[advanced/top re-loops<br/>03/05/06/07 as needed]
     LayerTop --> Dispatch{Target node}
     LayerQC -->|FAIL| Locate
     Dispatch -->|02| P02[02 data processing · Loopnow]

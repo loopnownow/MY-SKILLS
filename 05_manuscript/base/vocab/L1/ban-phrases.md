@@ -10,7 +10,7 @@
 3. **Keep list** — Sequence/gene/anatomy terms, reporting-guideline language (STROBE/TRIPOD/CLAIM), and calibrated Discussion hedges (*may* / *might* / *could* / *suggest*) stay; see **Keep (discipline-specific)** below.
 
 
-**Machine source = `ban-terms.yaml`; edit the yaml first, then regenerate/sync tables and linters.** This file is for humans. Machine enforcement of hard-ban terms follows `05_manuscript/base/vocab/L1/ban-terms.yaml` (personal/vocab is pointer-only) as authority（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
+**Machine source = `ban-terms.yaml`; edit the yaml first, then regenerate/sync tables and linters.** This file is for humans. Machine enforcement of hard-ban terms follows `05_manuscript/base/vocab/L1/ban-terms.yaml` (advanced/vocab is pointer-only) as authority（`00_orchestrator/scripts/style_lint.py` 运行时读取）。
 
 ## Hard ban (unless literally quoted from a source)
 
@@ -128,4 +128,4 @@ Banned in manuscript **body** and figure legends (put in Word comment author **A
 | “A formal a priori sample-size calculation was not performed.” when an estimate exists | Use the post hoc / performed estimate wording |
 | “the band limits are not stated in the current draft” style gap-exposure | Move to a Word comment with suggested fix |
 
-Language polish: no separate personal digest — these bans live here.
+Language polish: no separate advanced digest — these bans live here.

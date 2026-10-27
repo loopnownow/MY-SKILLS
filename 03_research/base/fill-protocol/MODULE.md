@@ -20,7 +20,7 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 > - `scripts/doc_to_docx.py`, `scripts/inspect_template.py`, `scripts/fill_form.py`
 > - `examples/`
 > - `03_research/base/verify-refs/references/best_practices.md`
-> Personal/Jinshan: `03_research/personal/fill-protocol/`. Registry path: `03_research/base/fill-protocol/`.
+> Advanced/Jinshan: `03_research/advanced/fill-protocol/`. Registry path: `03_research/base/fill-protocol/`.
 
 You are helping a researcher populate an institutional Word form (IRB protocol,
 ethics application, grant proposal, etc.) without breaking the original document
@@ -48,7 +48,7 @@ institutional template.
 |---|---|
 | Capability body (this file) | `03_research/base/fill-protocol/MODULE.md` |
 | Thin skill pointer | `03_research/base/fill-protocol/SKILL.md` |
-| Personal / Jinshan / PHI packs | `03_research/personal/fill-protocol/` |
+| Advanced / Jinshan / PHI packs | `03_research/advanced/fill-protocol/` |
 | Registry fine id | `fill-protocol` (live under `03_research/base/fill-protocol/`) |
 
 **Companion fine ids (content / upstream):** `write-protocol`, `check-reporting`,

@@ -67,7 +67,7 @@ clusters and the questions that catch the most problems.
 
 ## Open science
 - **Code, model, and data availability** statements — specific routes, not "on request"
-  alone (cross-ref `05_manuscript/personal/`).
+  alone (cross-ref `05_manuscript/advanced/`).
 
 ## CLAIM audit output (per item)
 `Item | Requirement | PRESENT/PARTIAL/MISSING/NA | Location | Fix`

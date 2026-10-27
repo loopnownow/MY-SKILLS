@@ -17,9 +17,9 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **Seats (07_response owns response letters):** 03 Victor · 02 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not adopt an external `orchestrate` pack as a third SOP.
 
-**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/personal/review.md` §0. Assistant vs lab conflict stays in the comment with an edit plan; **the user decides**.
+**Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/advanced/review.md` §0. Assistant vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
-**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/personal/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/personal/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
+**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/advanced/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/advanced/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
 **Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
 **Project `ref/` layout:** [`references/project-ref-layout.md`](references/project-ref-layout.md).
@@ -77,7 +77,7 @@ Ids: `02_data-processing` · `03_research` · `05_manuscript` · `06_review` · 
 
 ### Session fine-id pick
 
-Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `LIVE` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all live ids. Personal layers are not a fine-id pick. A single-node personal-layer task with no live dependency does not ask.
+Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `LIVE` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all live ids. Advanced layers are not a fine-id pick. A single-node advanced-layer task with no live dependency does not ask.
 
 **Auto-discovery:** only `00_orchestrator`–`07_response` (including nested packs).
 
@@ -138,7 +138,7 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 ## Boundaries
 
-**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/personal/visualization/`.
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/advanced/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 

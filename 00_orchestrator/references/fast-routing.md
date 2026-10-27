@@ -4,10 +4,10 @@ Chinese trigger aliases are kept so owner utterances still match; English is the
 
 - grill-me / grill-with-docs / 盘问 / 烤透需求 / 需求盘问 → MY-RULES `My rule.md` §2.1 (grilling; not a 00 grilling skill)
 - Excel / 批处理 → `02_data-processing` (batch processing; tables). Project folder layout → `{RULES}/workspace-layout.md`
-- Soft coding / 软编码 / dry-run / coding principles → `02_data-processing` (`02_data-processing/personal/coding.md`)
+- Soft coding / 软编码 / dry-run / coding principles → `02_data-processing` (`02_data-processing/advanced/coding.md`)
 - Ethics application form / 伦理申请表 → Bai seats `03_research/base/fill-protocol` (path stays under 03; do not hand form-fill to Victor)
-- **0doc library** lookup / search / inventory / locate approval letters or historical drafts → Bai (`03_research/personal/0doc-db.md`; Aitor routes only)
-- Lab extraction / HIS / 提取检验 → `02_data-processing` (`02_data-processing/personal/extract.md`)
+- **0doc library** lookup / search / inventory / locate approval letters or historical drafts → Bai (`03_research/advanced/0doc-db.md`; Aitor routes only)
+- Lab extraction / HIS / 提取检验 → `02_data-processing` (`02_data-processing/advanced/extract.md`)
 - Translational / 转化 / reader study / prospective deploy / evidence-to-action → `03_research` (`clinical-translation`)
 - MRI / DICOM / NIfTI / preprocess / 预处理 / radiomics prep / impute → `02_data-processing`
 - Topic / 选题 / study design / 研究设计 / **literature** / **文献** → `03_research`

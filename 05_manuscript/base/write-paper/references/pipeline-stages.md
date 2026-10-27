@@ -1,6 +1,6 @@
 # Pipeline stages (prediction papers, P0–P6)
 
-Generic dual-set IMRAD constraints for prediction / radiomics papers. Personal house format
+Generic dual-set IMRAD constraints for prediction / radiomics papers. Advanced house format
 (word-count quotas, DOCX typography, title-page defaults) is **not** in this pack.
 
 ## P0 — Plan only
@@ -59,5 +59,5 @@ implication, explicit limitations. No disclaimer stack.
 
 ## P6 — Export
 
-Typography and house DOCX live in `05_manuscript/personal/Aitor-format.md`. Venue article shape lives in this pack (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`). Figures: STROBE flow →
+Typography and house DOCX live in `05_manuscript/advanced/Aitor-format.md`. Venue article shape lives in this pack (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`). Figures: STROBE flow →
 `draw-flowchart`; plots → `plot-figures`. A validation set appears only when an external cohort exists.

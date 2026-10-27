@@ -1,6 +1,6 @@
 """Seat packs, routing, review interaction and pack dedupe.
 
-Merged from: `test_audit_invariants.py`, `test_lab_rules.py`, `test_rule_landing.py`, `test_pre_submit_checks.py`, `test_personal_mirror_dedupe.py`.
+Merged from: `test_audit_invariants.py`, `test_lab_rules.py`, `test_rule_landing.py`, `test_pre_submit_checks.py`, `test_advanced_mirror_dedupe.py`.
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from tests.support import (
     ROOT,
 )
 
-CLIN = ROOT / "02_data-processing" / "personal"
+CLIN = ROOT / "02_data-processing" / "advanced"
 REG = ROOT / "00_orchestrator" / "registry.yaml"
 SKIP_PARTS = {".git", "__pycache__", "history"}
 SKIP_NAMES = {
@@ -141,7 +141,7 @@ def embedded_frontmatter(path: Path, *, name: str | None = None) -> tuple[dict, 
         raise AssertionError(f"{path.name} frontmatter did not parse to a mapping")
     return data, text
 MIRRORS = (
-    ("03_research/base/design-study/MODULE.md", "03_research/personal/radiology-design.md"),
+    ("03_research/base/design-study/MODULE.md", "03_research/advanced/radiology-design.md"),
 )
 MIN_CHARS = 200
 def _paragraphs(path: Path) -> set[str]:
@@ -240,7 +240,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("## Final QC", text)
         self.assertIn("Local recovery", text)
         self.assertIn("fill-protocol", text)
-        self.assertIn("personal/extract.md", text)
+        self.assertIn("advanced/extract.md", text)
         # Full fine-id/ceiling/Cache section headings stay out of this intent file
         self.assertNotIn("## A/B no-reflow contract", text)
         self.assertNotIn("## Fine-id expansion ceiling", text)
@@ -313,7 +313,7 @@ class FastRouting(unittest.TestCase):
         # 06 top layer: journal select out of scope (points to 03), not a fast-routing table
         self.assertIn("03_research", six)
         self.assertNotIn("05-write-venue", six)
-        ethics = read("03_research/personal/fill-protocol/README.md")
+        ethics = read("03_research/advanced/fill-protocol/README.md")
         # Jinshan PHI pack; capability body is B fill-protocol; journal select not here
         self.assertIn("fill-protocol", ethics)
         self.assertNotIn("05-write-venue", ethics)
@@ -400,14 +400,14 @@ class OrchestratorLoop(unittest.TestCase):
 class AttributionAndFetch(unittest.TestCase):
 
     def test_skill_level_prefix_rules(self) -> None:
-        style = read("06_review/personal/review.md")
+        style = read("06_review/advanced/review.md")
         self.assertIn("[Nature:simulate-reviewers]", style)
         self.assertIn("包内skill-id", style.replace(" ", ""))
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
 
     def test_author_vs_prefix(self) -> None:
-        text = read("06_review/personal/review.md")
+        text = read("06_review/advanced/review.md")
         self.assertIn("作者字段", text)
         self.assertIn("作者栏 ≠ 来源标签", text)
         self.assertIn("双标", text)
@@ -416,14 +416,14 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertIn("[self-review]", text)
         self.assertIn("同一 DOI", text)
         zero = read("00_orchestrator/SKILL.md")
-        self.assertIn("06_review/personal/review.md", zero)
+        self.assertIn("06_review/advanced/review.md", zero)
         gates = read("00_orchestrator/gates.md")
         self.assertIn("skill-level prefix", gates)
         five = read("05_manuscript/SKILL.md")
         self.assertIn("New citation numbers", five)
 class ReviewInteract(unittest.TestCase):
-    def test_personal_review_eight_sections(self) -> None:
-        text = read("06_review/personal/review.md")
+    def test_advanced_review_eight_sections(self) -> None:
+        text = read("06_review/advanced/review.md")
         for h in (
             "1. Title",
             "2. Abstract",
@@ -454,17 +454,17 @@ class ReviewInteract(unittest.TestCase):
         six = read("06_review/SKILL.md")
         self.assertIn("re-review", six.lower())
         self.assertIn("07_response", six)
-        resp = read("07_response/personal/response.md")
+        resp = read("07_response/advanced/response.md")
         self.assertTrue(len(resp) > 50)
 
     def test_evidence_request_protocol(self) -> None:
-        text = read("05_manuscript/personal/process/evidence.md")
+        text = read("05_manuscript/advanced/process/evidence.md")
         self.assertIn("Evidence Request", text)
         self.assertIn("Accept", text)
         self.assertIn("Weaken", text)
         self.assertIn("Delete", text)
         self.assertIn("03_research", text)
-        self.assertNotIn("B05 = Personal Writing", text)
+        self.assertNotIn("B05 = Advanced Writing", text)
         skill = read("05_manuscript/SKILL.md")
         self.assertIn("process/evidence.md", skill)
         gates = read("00_orchestrator/gates.md")
@@ -528,7 +528,7 @@ class DeAI(unittest.TestCase):
     def test_compared_and_attenuated_wording(self) -> None:
         banned = (BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         patterns = (BASE_VOCAB / "vocab" / "L1" / "patterns.md").read_text(encoding="utf-8")
-        lang = lab_rules_read("05_manuscript", "personal", "process", "citation-and-language.md")
+        lang = lab_rules_read("05_manuscript", "advanced", "process", "citation-and-language.md")
         for text in (banned, patterns, lang):
             self.assertIn("attenuated", text)
             self.assertIn("Compared", text)
@@ -539,7 +539,7 @@ class DeAI(unittest.TestCase):
         self.assertIn("attenuation correction", banned)
         self.assertIn("comparison word", banned)
 
-    def test_de_ai_is_personal_not_a_fine_id(self) -> None:
+    def test_de_ai_is_advanced_not_a_fine_id(self) -> None:
         five = lab_rules_read("05_manuscript", "SKILL.md")
         self.assertNotIn("05-de-ai", five)
         self.assertIn("write-paper", five)
@@ -548,15 +548,15 @@ class DeAI(unittest.TestCase):
         self.assertTrue((BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").is_file())
 class Aitor(unittest.TestCase):
     def test_methods_have_no_citations(self) -> None:
-        text = lab_rules_read("05_manuscript", "personal", "Aitor-format.md")
+        text = lab_rules_read("05_manuscript", "advanced", "Aitor-format.md")
         self.assertIn("Methods: no citations", text)
 
     def test_table1_is_training_vs_test(self) -> None:
-        text = lab_rules_read("05_manuscript", "personal", "Aitor-format.md")
+        text = lab_rules_read("05_manuscript", "advanced", "Aitor-format.md")
         self.assertRegex(text, r"Table 1\s*=\s*training vs test")
 class ValMode(unittest.TestCase):
     def test_test_set_does_not_reselect_features(self) -> None:
-        text = lab_rules_read("02_data-processing", "personal", "analysis", "pipeline.md")
+        text = lab_rules_read("02_data-processing", "advanced", "analysis", "pipeline.md")
         self.assertIn("VAL_MODE", text)
         self.assertRegex(text, r"[Rr]e-select features on the test set")
         self.assertIn("no new screening", text)
@@ -655,15 +655,15 @@ class RuleLanding(unittest.TestCase):
             self.assertIn(needle, ml, f"manuscript-local-qc missing {needle}")
 
     def test_response_hard_rules(self) -> None:
-        rp = t("07_response/personal/response.md")
+        rp = t("07_response/advanced/response.md")
         for needle in ("Please", "past tense", "ACCEPT-"):
             self.assertIn(needle, rp, f"response.md missing {needle}")
 
     def test_workspace_layout_points_at_rules(self) -> None:
-        self.assertFalse((ROOT / "02_data-processing/personal/workspace.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing/advanced/workspace.md").is_file())
         skill = t("02_data-processing/SKILL.md")
         self.assertIn("{RULES}/workspace-layout.md", skill)
-        self.assertNotIn("personal/workspace.md", skill)
+        self.assertNotIn("advanced/workspace.md", skill)
         sd = t("00_orchestrator/references/standing-delivery.md")
         self.assertIn("{RULES}/workspace-layout.md", sd)
         self.assertNotIn("`{WORK_A}", sd)
@@ -719,7 +719,7 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("manuscript-local-qc.md", gates)
         self.assertIn("cross-manuscript-qc.md", gates)
 
-    def test_extended_personal_files_hold_the_rules(self) -> None:
+    def test_extended_advanced_files_hold_the_rules(self) -> None:
         # Wave2: stats-consistency + stats-checklist merged into report-checks.md
         stats = pre_submit_checks_read("02_data-processing/qc/report-checks.md")
         checklist = stats  # single current file holds both id tables
@@ -739,13 +739,13 @@ class PreSubmitWiring(unittest.TestCase):
             self.assertIn(token, checklist, token)
         self.assertIn("do not invent", stats.lower())
 
-        voice = pre_submit_checks_read("05_manuscript/personal/voice-portrait.md")
+        voice = pre_submit_checks_read("05_manuscript/advanced/voice-portrait.md")
         self.assertIn("Paragraph lock", voice)
         self.assertIn("manuscript-local-qc.md", voice)
         self.assertIn("training set", voice)
         self.assertIn("opening paragraph", voice.lower())
 
-        cites = pre_submit_checks_read("05_manuscript/personal/process/citation-and-language.md")
+        cites = pre_submit_checks_read("05_manuscript/advanced/process/citation-and-language.md")
         for token in (
             "consecutive_same_cite",
             "claim_matches_source",
@@ -766,7 +766,7 @@ class PreSubmitWiring(unittest.TestCase):
         ):
             self.assertIn(token, banned, token)
 
-        aitor = pre_submit_checks_read("05_manuscript/personal/Aitor-format.md")
+        aitor = pre_submit_checks_read("05_manuscript/advanced/Aitor-format.md")
         self.assertIn("Methods: no citations", aitor)
         self.assertIn("intro_opening_has_citations", aitor)
         self.assertIn("training set", aitor)
@@ -776,8 +776,8 @@ class PreSubmitWiring(unittest.TestCase):
         for code in ("FLU-4", "CIT-5", "CIT-6", "CIT-7"):
             self.assertIn(code, score, code)
 
-        # Wave2: personal-review-style.md -> review.md
-        style = pre_submit_checks_read("06_review/personal/review.md")
+        # Wave2: advanced-review-style.md -> review.md
+        style = pre_submit_checks_read("06_review/advanced/review.md")
         self.assertIn("### 4.9 Pre-submit consistency requests", style)
         self.assertIn("cross-manuscript-qc.md", style)
         self.assertIn("Do not invent the number", style)
@@ -794,7 +794,7 @@ class CitationVerifyRequired(unittest.TestCase):
     PHRASE = "call/require 03 citation-verify \u2014 do not self-certify lit"
 
     def test_checklist_frontmatter_parses(self) -> None:
-        path = ROOT / "03_research" / "personal" / "citation-verify.md"
+        path = ROOT / "03_research" / "advanced" / "citation-verify.md"
         data, body = embedded_frontmatter(path)
         # citation-verify opens with frontmatter; embedded helper still works
         self.assertEqual(data["owner"], "03_research")
@@ -810,7 +810,7 @@ class CitationVerifyRequired(unittest.TestCase):
         for rel in (
             "03_research/SKILL.md",
             "05_manuscript/SKILL.md",
-            "05_manuscript/personal/process/citation-and-language.md",
+            "05_manuscript/advanced/process/citation-and-language.md",
             "05_manuscript/qc/manuscript-local-qc.md",
             "06_review/SKILL.md",
             "06_review/qc/cross-manuscript-qc.md",
@@ -833,15 +833,15 @@ class WordTrackChangesOwnership(unittest.TestCase):
     )
     FILES = (
         "06_review/SKILL.md",
-        "06_review/personal/review.md",
-        "06_review/personal/word-edit.md",
-        "07_response/personal/response.md",
+        "06_review/advanced/review.md",
+        "06_review/advanced/word-edit.md",
+        "07_response/advanced/response.md",
         "07_response/SKILL.md",
         "06_review/qc/cross-manuscript-qc.md",
         "05_manuscript/SKILL.md",
-        "05_manuscript/personal/Aitor-format.md",
+        "05_manuscript/advanced/Aitor-format.md",
         "03_research/SKILL.md",
-        "03_research/personal/citation-verify.md",
+        "03_research/advanced/citation-verify.md",
         "00_orchestrator/SKILL.md",
         "00_orchestrator/gates.md",
         "00_orchestrator/workflows/sci-manuscript.md",
@@ -920,7 +920,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         self.assertIn("Lee · statement", mmd)
         self.assertLess(mmd.index("Lit05"), mmd.index("Gate \u00b7 05"))
         self.assertLess(mmd.index("Lit06"), mmd.index("Gate \u00b7 06"))
-class PersonalMirrorDedupe(unittest.TestCase):
+class AdvancedMirrorDedupe(unittest.TestCase):
     def test_no_cross_file_long_paragraph(self) -> None:
         seen: dict[str, str] = {}
         hits: list[str] = []
@@ -942,16 +942,16 @@ class PersonalMirrorDedupe(unittest.TestCase):
 
     def test_mirror_pairs_share_no_long_paragraph(self) -> None:
         problems = []
-        for base_rel, personal_rel in MIRRORS:
-            shared = _paragraphs(ROOT / base_rel) & _paragraphs(ROOT / personal_rel)
+        for base_rel, advanced_rel in MIRRORS:
+            shared = _paragraphs(ROOT / base_rel) & _paragraphs(ROOT / advanced_rel)
             for text in sorted(shared):
-                problems.append(f"{personal_rel} duplicates {base_rel}: {text[:90]}")
+                problems.append(f"{advanced_rel} duplicates {base_rel}: {text[:90]}")
         self.assertEqual(problems, [], "verbatim mirror:\n" + "\n".join(problems[:10]))
 
 
-PERSONAL_VOCAB = ROOT / "05_manuscript" / "personal" / "vocab"
-HARVEST_SCRIPT = PERSONAL_VOCAB / "scripts" / "harvest_write_phrases.py"
-PERSONAL_L2 = PERSONAL_VOCAB / "L2" / "preferred-personal.md"
+ADVANCED_VOCAB = ROOT / "05_manuscript" / "advanced" / "vocab"
+HARVEST_SCRIPT = ADVANCED_VOCAB / "scripts" / "harvest_write_phrases.py"
+ADVANCED_L2 = ADVANCED_VOCAB / "L2" / "preferred-advanced.md"
 
 
 def _load_harvest():
@@ -963,33 +963,33 @@ def _load_harvest():
     return module
 
 
-class PersonalL2PhraseTable(unittest.TestCase):
+class AdvancedL2PhraseTable(unittest.TestCase):
     """The owner's L2 table and its counter stay wired to the live vocab layers."""
 
     def test_table_exists_with_tiers_and_columns(self) -> None:
-        text = PERSONAL_L2.read_text(encoding="utf-8")
+        text = ADVANCED_L2.read_text(encoding="utf-8")
         for needle in ("| A |", "| B |", "| C |", "| **Locked** |"):
             self.assertIn(needle, text)
         # Column headers are English; the Chinese form is kept as an accepted legacy shape.
         self.assertTrue(
             "| 表达 | 次数 | 篇数 |" in text or "| Phrase | Count | Docs |" in text,
-            "personal L2 table must expose Phrase / Count / Docs columns",
+            "advanced L2 table must expose Phrase / Count / Docs columns",
         )
         # Banned words are never restated here; the yaml is the only authority.
         self.assertIn("05_manuscript/base/vocab/L1/ban-terms.yaml", text)
 
-    def test_base_readmes_point_at_the_personal_table(self) -> None:
+    def test_base_readmes_point_at_the_advanced_table(self) -> None:
         for rel in (
             "05_manuscript/base/vocab/README.md",
             "05_manuscript/base/vocab/MODULE.md",
-            "05_manuscript/personal/route.md",
-            "05_manuscript/personal/voice-portrait.md",
+            "05_manuscript/advanced/route.md",
+            "05_manuscript/advanced/voice-portrait.md",
         ):
-            self.assertIn("preferred-personal.md", (ROOT / rel).read_text(encoding="utf-8"), rel)
+            self.assertIn("preferred-advanced.md", (ROOT / rel).read_text(encoding="utf-8"), rel)
 
     def test_counter_is_cited_and_offline(self) -> None:
-        cited = PERSONAL_L2.read_text(encoding="utf-8") + (
-            PERSONAL_VOCAB / "README.md").read_text(encoding="utf-8")
+        cited = ADVANCED_L2.read_text(encoding="utf-8") + (
+            ADVANCED_VOCAB / "README.md").read_text(encoding="utf-8")
         self.assertIn(HARVEST_SCRIPT.name, cited)
         source = HARVEST_SCRIPT.read_text(encoding="utf-8")
         imports = {
@@ -1034,7 +1034,7 @@ class PersonalL2PhraseTable(unittest.TestCase):
 
     def test_locked_rows_are_never_dropped_by_frequency(self) -> None:
         """`could assist [task]` is a mandated replacement, so a 0 count keeps it."""
-        text = PERSONAL_L2.read_text(encoding="utf-8")
+        text = ADVANCED_L2.read_text(encoding="utf-8")
         self.assertIn("could assist [task]", text)
         self.assertIn("格式锁", text, "the Locked tier must be documented in the table")
         self.assertIn("Frequency never overrides a lock", text)

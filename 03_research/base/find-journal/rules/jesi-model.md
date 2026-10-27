@@ -99,12 +99,12 @@ When some rate inputs are missing (**v1.11 display policy**): **still compute** 
 
 Display Chinese labels: **稿件匹配度** (MJF/MFI), **投稿易投指数** (JESI). Always show 接收率 / 初筛拒稿率 / 送审率 columns (blank/`—` if unknown). Phase-1 tables do **not** show 分层/策略 / 置信度 / ISO / JIF分区 / JCI分区. Never write approximated JIF/quartile/volume/rates into durable CSV/DB files — show them only in HTML/Markdown at generation time (see `persistence.md`). Do not estimate missing risk as “low.”
 
-## Personal prior / PAI (later)
+## Advanced prior / PAI (later)
 
 With enough real outcomes, correct generic JESI with **PAI** (`submission-prior.jsonl` / `submission-prior-logger`):
 
 ```text
-Journal Difficulty + Capacity + Manuscript Fit + Personal Prior → Predicted P(Accept)
+Journal Difficulty + Capacity + Manuscript Fit + Advanced Prior → Predicted P(Accept)
 Submission Utility ≈ JEI + MJF + PAI + Practicality + Strategic Value − Risk
 ```
 

@@ -3,7 +3,7 @@
 Companion to [MODULE.md](../MODULE.md). **Other-paper only.**
 
 Self-audit → `self-review`. Point-by-point response → `revise`.
-Personal review voice stays in A.
+Advanced review voice stays in A.
 
 ## Job
 

@@ -15,7 +15,7 @@ Keep these at **`ref/` root** (skills and convention hard-require them):
 | Path | Role |
 |---|---|
 | `ref/settings.ini` | RAD / pipeline config only. Do not overwrite casually; do not store secrets. |
-| `ref/manuscript-revision.md` | Append-only main change ledger (owner asks + code/results/Word). After a 05/06 Word pass, append here (`06_review/personal/word-edit.md`). **Do not re-polish logged sections** unless upstream numbers changed, the owner named them, or an unresolved comment was authorized. |
+| `ref/manuscript-revision.md` | Append-only main change ledger (owner asks + code/results/Word). After a 05/06 Word pass, append here (`06_review/advanced/word-edit.md`). **Do not re-polish logged sections** unless upstream numbers changed, the owner named them, or an unresolved comment was authorized. |
 
 Optional at root when already in use: `ref/project-state.yaml` (from `00_orchestrator/templates/project-state.yaml`). Prefer keeping it at root until a future contract says otherwise.
 
@@ -57,13 +57,13 @@ Cross-links:
 
 - Citation L4 / three-axis + six-state → `05_manuscript/qc/citation-audit-gate.md`
 - Assurance six-state → `06_review/qc/assurance-verdicts.md`
-- Word append rule → `06_review/personal/word-edit.md` + `05_manuscript/SKILL.md`
+- Word append rule → `06_review/advanced/word-edit.md` + `05_manuscript/SKILL.md`
 - Deliverable drop points → `00_orchestrator/references/standing-delivery.md`
 
 ## What this contract does **not** do
 
 - Does not mass-require empty folders on greenfield projects until first artifact write (create subfolders copy-on-need).
-- Does not move ethics locked trees or write `personal/`.
+- Does not move ethics locked trees or write `advanced/`.
 - Does not install ARIS runtime.
 
 ## Pre-edit originals (`-org`) (2026-10-19)

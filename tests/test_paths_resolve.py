@@ -233,7 +233,7 @@ class BareMdCites(unittest.TestCase):
             "list it in EXTERNAL/ARTIFACTS):\n" + "\n".join(missing[:40]),
         )
 
-# Bare relative tokens (`references/x.md`, `personal/y.md`) are resolved against the
+# Bare relative tokens (`references/x.md`, `advanced/y.md`) are resolved against the
 # citing file's directory first. When that fails they must carry an explicit seat or
 # module prefix, name an alias/0doc root, or sit on a line that marks the target as
 # history. Guards the 2026-10-26 pointer sweep from regressing.

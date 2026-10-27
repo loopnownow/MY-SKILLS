@@ -36,16 +36,16 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("skill-harvest", root_dirs)
         self.assertNotIn("01_automation", root_dirs)
         self.assertNotIn("02_imaging", root_dirs)
-        self.assertTrue((ROOT / "02_data-processing" / "personal" / "extract.md").is_file())
-        self.assertTrue((ROOT / "02_data-processing" / "personal" / "coding.md").is_file())
-        self.assertFalse((ROOT / "02_data-processing" / "personal" / "coding-qc.md").is_file())
-        self.assertFalse((ROOT / "02_data-processing" / "personal" / "workspace.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "advanced" / "extract.md").is_file())
+        self.assertTrue((ROOT / "02_data-processing" / "advanced" / "coding.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing" / "advanced" / "coding-qc.md").is_file())
+        self.assertFalse((ROOT / "02_data-processing" / "advanced" / "workspace.md").is_file())
         self.assertTrue((ROOT / "02_data-processing" / "qc" / "coding-qc.md").is_file())
         self.assertFalse((ROOT / "02_data-processing" / "fill-protocol" / "SKILL.md").is_file())
         # A stub removed 2026-10-17; body lives in B
         self.assertFalse((ROOT / "03_research" / "fill-protocol" / "SKILL.md").is_file())
-        self.assertTrue((ROOT / "03_research" / "personal" / "fill-protocol" / "README.md").is_file())
-        self.assertTrue((ROOT / "03_research" / "personal" / "clinical-translation").is_dir())
+        self.assertTrue((ROOT / "03_research" / "advanced" / "fill-protocol" / "README.md").is_file())
+        self.assertTrue((ROOT / "03_research" / "advanced" / "clinical-translation").is_dir())
         self.assertTrue((ROOT / "00_orchestrator" / "SKILL.md").is_file())
         self.assertTrue((ROOT / "00_orchestrator" / "registry.yaml").is_file())
         for banned in ("markitdown", "tool-environment-setup", "imaging-omics-ml"):
@@ -66,7 +66,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((ROOT / "04_analysis").exists(), "04_analysis retired into 02_data-processing")
 
     def test_core_max_five_path_parts(self):
-        """skill / category-or-pack / (scripts|references|personal) / optional-leaf / file — max five parts."""
+        """skill / category-or-pack / (scripts|references|advanced) / optional-leaf / file — max five parts."""
         violations = []
         for skill in SKILL_DIRS:
             base = ROOT / skill
@@ -168,8 +168,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertNotIn("02-data-processing/tables/", a_paths)
         self.assertNotIn("03-research/literature/", a_paths)
 
-    def test_personal_radiology_stats_stays_in_a(self):
-        rs = ROOT / "02_data-processing" / "personal" / "analysis"
+    def test_advanced_radiology_stats_stays_in_a(self):
+        rs = ROOT / "02_data-processing" / "advanced" / "analysis"
         self.assertTrue((rs / "module-notes.md").is_file())  # MODULE.md → module-notes.md
         self.assertTrue((rs / "methods.md").is_file())  # diagnostic-accuracy merged into methods.md
         self.assertTrue((rs / "pipeline.md").is_file())
@@ -259,8 +259,8 @@ QC_DIRS = (
     "06_review/qc",
     "07_response/qc",
 )
-ROUTE = ROOT / "03_research" / "personal" / "route.md"
-PERSONAL = ROOT / "03_research" / "personal"
+ROUTE = ROOT / "03_research" / "advanced" / "route.md"
+ADVANCED = ROOT / "03_research" / "advanced"
 FENCE_LINE = re.compile(r"^\s*(```|~~~)")
 H1_LINE = re.compile(r"^# [^#]")
 
@@ -323,13 +323,13 @@ class IndexCompleteness(unittest.TestCase):
                     problems.append(f"{rel}: README.md points at absent {name}")
         self.assertEqual(problems, [], "qc README ↔ folder drift:\n" + "\n".join(problems[:30]))
 
-    def test_route_lists_every_personal_page(self) -> None:
+    def test_route_lists_every_advanced_page(self) -> None:
         text = ROUTE.read_text(encoding="utf-8")
         missing = [
-            path.name for path in sorted(PERSONAL.glob("*.md"))
+            path.name for path in sorted(ADVANCED.glob("*.md"))
             if path.name not in {"route.md"} and path.name not in text
         ]
         self.assertEqual(
             missing, [],
-            "03_research/personal pages absent from route.md: " + ", ".join(missing),
+            "03_research/advanced pages absent from route.md: " + ", ".join(missing),
         )

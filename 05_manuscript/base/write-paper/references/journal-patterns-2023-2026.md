@@ -4,7 +4,7 @@
 
 Venue-family **writing** patterns (what a known family tends to reward). This is not a 选刊 SOP.
 
-选刊 / “where to submit” → `03_research` (`03_research/personal/journal-selection.md` + `base/find-journal/`) and B `lit-search`.
+选刊 / “where to submit” → `03_research` (`03_research/advanced/journal-selection.md` + `base/find-journal/`) and B `lit-search`.
 Use this file after a venue family is known, to shape the manuscript — not to pick the journal.
 
 ## Evidence boundary
@@ -35,7 +35,7 @@ table and DOI-level metadata.
 
 ## Not 选刊
 
-Ranking journals / “where to submit” is **not** this pack. Use `03_research` (`03_research/personal/journal-selection.md` + `base/find-journal/`)
+Ranking journals / “where to submit” is **not** this pack. Use `03_research` (`03_research/advanced/journal-selection.md` + `base/find-journal/`)
 and B `lit-search`. The table above is venue-family **writing** context after a family is known.
 
 Do not promise acceptance. Do not rank by impact factor from this file.

@@ -26,11 +26,11 @@ The strongest 12-24 month projects usually have:
 | Time window | Goal | Expected outputs | Skills to route |
 |---|---|---|---|
 | 0-3 months | Define clinical problem, endpoint, reference standard, inclusion/exclusion, data dictionary, governance | Protocol, data-flow diagram, label SOP, draft SAP | `design-study`, `write-paper` radiology-ethics, `check-reporting` |
-| 3-6 months | Build frozen research cohort, de-identification, split plan, imaging QC, segmentation/ROI pipeline | Cohort lock, QC report, baseline radiomics pipeline | `03_research/personal/` (data), `preprocess-imaging`, `stats-analysis` |
+| 3-6 months | Build frozen research cohort, de-identification, split plan, imaging QC, segmentation/ROI pipeline | Cohort lock, QC report, baseline radiomics pipeline | `03_research/advanced/` (data), `preprocess-imaging`, `stats-analysis` |
 | 6-9 months | Establish strong baselines: clinical model, IBSI radiomics, CNN/ViT or nnU-Net model | Reproducible baseline, internal test, failure-case library | `stats-analysis`, `plot-figures` |
-| 9-12 months | Add multimodal fusion and trustworthiness modules | First method paper draft; calibration/UQ/XAI; pre-external-test model card | `stats-analysis` / `design-study`, `03_research/personal/` (DL), `write-paper` |
+| 9-12 months | Add multimodal fusion and trustworthiness modules | First method paper draft; calibration/UQ/XAI; pre-external-test model card | `stats-analysis` / `design-study`, `03_research/advanced/` (DL), `write-paper` |
 | 12-18 months | External/multicenter/temporal validation; site heterogeneity analysis; optional federated/split-learning prototype | External validation paper, center-effect analysis, model card | `design-study`, `stats-analysis` / `model-evaluation`, `self-review` |
-| 18-24 months | Silent deployment, reader-assist, workflow/time/error endpoint, or prospective validation preparation | Prospective/reader study, CLAIM/TRIPOD/STARD package, regulatory-readiness notes | `03_research/personal/`, `check-reporting`, `03_research` (journal-selection) / `lit-search` |
+| 18-24 months | Silent deployment, reader-assist, workflow/time/error endpoint, or prospective validation preparation | Prospective/reader study, CLAIM/TRIPOD/STARD package, regulatory-readiness notes | `03_research/advanced/`, `check-reporting`, `03_research` (journal-selection) / `lit-search` |
 
 ## Topic templates with high fit
 

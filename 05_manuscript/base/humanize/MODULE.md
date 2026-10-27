@@ -8,7 +8,7 @@ owner: "05_manuscript/base/humanize/MODULE.md"
 
 
 Generic AI-pattern removal for manuscripts and response letters, plus a report-only language lint.
-Does **not** replace the personal de-AI lists (`05_manuscript/personal/` still wins).
+Does **not** replace the advanced de-AI lists (`05_manuscript/advanced/` still wins).
 Not general copy-editing: venue house style is `write-paper`.
 
 Absorbed 2026-10-17 (MIT). See `LICENSE_NOTE.txt`.

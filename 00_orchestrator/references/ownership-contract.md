@@ -48,7 +48,7 @@ Semantic labels: **G-CIT-1** is draft evidence verification before Gate · 05. *
 
 05 and 06 call/require 03 citation-verify — do not self-certify lit.
 
-Checklist: `03_research/personal/citation-verify.md`.
+Checklist: `03_research/advanced/citation-verify.md`.
 
 ## 0doc database lookup
 
@@ -60,4 +60,4 @@ Bai returns: exact paths, short Chinese summary, and approval numbers / filename
 
 **Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says 「交给cline」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 
-Procedure: `03_research/personal/0doc-db.md`.
+Procedure: `03_research/advanced/0doc-db.md`.

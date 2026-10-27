@@ -20,6 +20,6 @@ Capability bodies for 02 (data processing + analysis). No domain-level SKILL.md.
 In-pack `scripts/` is reserved for code that is meaningful only as skill prose (a flowchart
 drawer, a citation validator). Anything that touches patient tables belongs in `stats-analysis`.
 
-Lab pipeline policy stays in `personal/analysis/`.
+Lab pipeline policy stays in `advanced/analysis/`.
 
 Retired directory names — never recreate: `pictures`, `fmri`, `radiomics-habitat`. They resolve through `00_orchestrator/legacy_aliases.yaml`.
