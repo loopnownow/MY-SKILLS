@@ -171,6 +171,7 @@ def en_phrases(text: str):
         tokens = [t.lower() for t in EN_TOKEN.findall(sentence)]
         if len(tokens) < EN_NGRAM[0]:
             continue
+        seen: set[tuple[str, ...]] = set()
         for size in range(EN_NGRAM[0], min(EN_NGRAM[1], EN_EDGE, len(tokens)) + 1):
             windows = [tuple(tokens[:size])]
             # In a short sentence the head and tail windows overlap; emitting both
@@ -179,10 +180,13 @@ def en_phrases(text: str):
             if len(tokens) - size > size:
                 windows.append(tuple(tokens[-size:]))
             for gram in windows:
+                if gram in seen:
+                    continue
                 if gram[0] in EDGE_BAN or gram[-1] in EDGE_BAN:
                     continue
                 if all(t in EDGE_BAN for t in gram):
                     continue
+                seen.add(gram)
                 yield " ".join(gram)
 
 
@@ -191,6 +195,7 @@ def zh_phrases(text: str):
         sentence = re.sub(r"\s+", "", sentence).strip(ZH_EDGE_PUNCT)
         if len(sentence) < ZH_NGRAM[0] or not CJK.search(sentence):
             continue
+        seen: set[str] = set()
         for size in range(ZH_NGRAM[0], ZH_NGRAM[1] + 1):
             if len(sentence) < size:
                 break
@@ -200,8 +205,10 @@ def zh_phrases(text: str):
                 spans.append(sentence[-size:])
             for gram in spans:
                 gram = gram.strip(ZH_EDGE_PUNCT)
-                if len(gram) >= ZH_NGRAM[0] and CJK.search(gram):
-                    yield gram
+                if len(gram) < ZH_NGRAM[0] or not CJK.search(gram) or gram in seen:
+                    continue
+                seen.add(gram)
+                yield gram
 
 
 # =============================================================================

@@ -4,6 +4,7 @@ Merged from: `test_audit_invariants.py`, `test_lab_rules.py`, `test_rule_landing
 """
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 import re
 import subprocess
@@ -953,6 +954,15 @@ HARVEST_SCRIPT = PERSONAL_VOCAB / "scripts" / "harvest_write_phrases.py"
 PERSONAL_L2 = PERSONAL_VOCAB / "L2" / "preferred-personal.md"
 
 
+def _load_harvest():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("harvest_under_test", HARVEST_SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 class PersonalL2PhraseTable(unittest.TestCase):
     """The owner's L2 table and its counter stay wired to the live vocab layers."""
 
@@ -988,3 +998,12 @@ class PersonalL2PhraseTable(unittest.TestCase):
             "counter must stay stdlib only: %s" % sorted(imports),
         )
         self.assertNotIn("write_text(", source.split("def main")[0])
+
+    def test_one_span_is_counted_once_per_sentence(self) -> None:
+        """An overlapping head/tail window must not double the count."""
+        harvest = _load_harvest()
+        # 7 CJK chars: the 8-char window trims to the same string as the 7-char one.
+        zh = Counter(harvest.zh_phrases("建议补充校准曲线。"))
+        self.assertEqual(zh["建议补充校准曲线"], 1, dict(zh))
+        en = Counter(harvest.en_phrases("Thank you for the suggestion."))
+        self.assertEqual(en["thank you for the suggestion"], 1, dict(en))
