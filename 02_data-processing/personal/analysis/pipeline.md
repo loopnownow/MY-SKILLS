@@ -1,6 +1,6 @@
 # Lab clinical + radiomics pipeline rules
 
-**Owner:** `02_data-processing`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `{RULES}/workspace-layout.md`). Coding conventions → `stats-analysis` + `02_data-processing/personal/coding.md`.
+**Owner:** `02_data-processing`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — layout in `{RULES}/workspace-layout.md`). Coding conventions → `stats-analysis` + `02_data-processing/personal/coding.md`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 

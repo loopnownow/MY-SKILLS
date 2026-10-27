@@ -1,4 +1,4 @@
-<!-- Engine: 03_research/base/find-journal/; A personal is Victor pointer only. -->
+<!-- Engine: 03_research/base/find-journal/; this personal file is a Victor pointer only. -->
 # Journal selection (选刊)
 
 Use this file when a manuscript, abstract, or near-complete study is available and
@@ -14,7 +14,7 @@ Do not promise “sure accept” / “easy accept” or decide on stale IF. Scop
 When the user asks for “patterns from high-tier journals in the last three years” or whether the paper fits Radiology / Lancet Digital Health / Nature Medicine / npj Precision Oncology, first read:
 
 - live `meta-analysis` (B `02_data-processing/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
-- this file §「2023-2026 journal patterns」(merged below; former journal-patterns-2023-2026.md archived 2026-10-16)
+- this file §「2023-2026 journal patterns」(merged below; stands in for the retired standalone file)
 
 Those files give PubMed-verified seed evidence and journal patterns — not a full systematic review. Final submit advice still needs same-day verification of the journal site and recent similar papers.
 
@@ -144,7 +144,7 @@ Journal selection (选刊) routes through 03 `find-journal`; formatting through 
 
 ## 2023-2026 journal patterns (merged from journal-patterns-2023-2026.md, 2026-10-16)
 
-> Former standalone file archived to `{DEL}\03_research_reorg_20261016\`. Keep this section with the 选刊 SOP.
+> Keep this section with the 选刊 SOP.
 
 Use this section when the user asks where to submit a radiomics,
 medical imaging AI, radiogenomics, or imaging deep learning manuscript and wants advice

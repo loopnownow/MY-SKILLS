@@ -11,8 +11,8 @@ Live packs in this repo (capability bodies):
 - retraction-watcher
 - verify-refs
 
-勿新建这些目录名（退休名仅经 legacy_aliases 解析；QC 时删除 archived 空壳，不在 live 正文保留 archived 标签）: lit-fulltext, lit-review, lit-cite,
-frontier-ideate, frontier-hypothesize.
+勿新建这些目录名（退休名仅经 `00_orchestrator/legacy_aliases.yaml` 解析；live 正文不留归档标签）:
+lit-fulltext, lit-review, lit-cite, frontier-ideate, frontier-hypothesize.
 
 Thin routers (capability, not full products):
 

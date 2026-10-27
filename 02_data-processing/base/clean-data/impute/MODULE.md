@@ -13,22 +13,29 @@ trigger is documentation only; not independently discoverable.
 
 # Group-stratified missing-value imputation
 
-Reusable CLI + library for **group-stratified imputation + decimal alignment + backup/QC**.
-Nested under `clean-data`. Not an analysis-domain pack.
+**Prose only — the code lives in `stats-analysis`.** This pack says when to impute, which
+method, and what to check; `{code_stats}` runs it.
 
+```text
+{code_model_validation}\impute_excel.py   # CLI: backup, per-sheet run, impute_qc
+{code_modules}\utils\u_impute.py          # z_impute core + decimal alignment
+{code_modules}\utils\u_outlier_detection.py
+```
+
+`stats-analysis` is the script half of seat 02 (`MY-SKILLS` is prose only); do not copy these
+files back into the skill tree, and do not edit the copy in a project.
+
+Nested under `clean-data`. Not an analysis-domain pack.
 Header / ID / cohort QC before fill → parent [`../MODULE.md`](../MODULE.md).
 Spreadsheet XML packing → [`../xlsx-office/`](../xlsx-office/). Do not treat this nested pack as modelling.
-
-Lab pipeline copies of the imputer stay in **A personal**. Prefer this pack's `scripts/` unless
-the user points at a project-local module.
 
 ## When to use
 
 | Trigger | Action |
 |------|------|
-| Excel/CSV + impute / fill missing / fill by group | Run CLI or `z_impute` |
-| Block missingness (whole feature block NA) | Prefer `median` or `mice` |
-| missForest too slow | `mice` / `median` or faster knobs |
+| Excel/CSV + impute / fill missing / fill by group | Run the CLI or call `z_impute` |
+| Block missingness (whole feature block NA) | Prefer `median` or `iterative` |
+| missForest too slow | `iterative` / `median` or faster knobs |
 | Imputed values should look like original decimals | keep `align_decimals=True` |
 
 ## Required references
@@ -38,18 +45,6 @@ the user points at a project-local module.
 | [references/methods.md](references/methods.md) | Method choice, speed, missForest knobs |
 | [references/checklist.md](references/checklist.md) | Before/after checks, Methods wording |
 
-## Tools in this pack
-
-```text
-impute/
-  MODULE.md
-  scripts/u_impute.py      # z_impute core
-  scripts/impute_excel.py  # Excel CLI
-  scripts/u_outlier_detection.py
-  scripts/export_u_impute.py
-  references/
-```
-
 ## STEP 0 — inspect (before imputing)
 
 1. Read table: `shape`, sheets, group column levels and n
@@ -58,25 +53,28 @@ impute/
 
 Missing group column → **ask** or (discouraged) a dummy group. Do not silently fill with the grand mean.
 
-## STEP 1 — method (default mice)
+## STEP 1 — method (default iterative)
 
 | Scene | method |
 |------|--------|
-| Default / many continuous features | **`mice`** |
+| Default / many continuous features | **`iterative`** (alias `mice`) |
 | Fast / block missing / interpretable | **`median`** |
 | Paper specified missForest | `missForest` (accelerated defaults) |
 | Symmetric approx. normal univariate | `mean` |
+
+`mice` is a legacy alias for `iterative` — it is **single** chained imputation, not multiple
+imputation with Rubin pooling. Say so if the Methods section claims MICE.
 
 ## STEP 2 — run
 
 ### A. CLI
 
 ```bash
-python scripts/impute_excel.py \
+python "{code_model_validation}\impute_excel.py" \
   --input PATH/data.xlsx \
   --sheet cln \
   --group Group \
-  --method mice
+  --method iterative
 ```
 
 | Flag | Default | Meaning |
@@ -89,16 +87,21 @@ python scripts/impute_excel.py \
 | `--mf-trees` | 30 | missForest only |
 | `--include-categorical` | off | encode categoricals |
 
+The CLI passes `allow_outcome_stratify=True`, so an explicitly named `--group` is honored even
+when the column is called `Group` / `outcome`. Calling `z_impute` directly does not — pass the
+flag yourself.
+
 ### B. Python
 
 ```python
-from u_impute import z_impute
+from modules.utils.u_impute import z_impute
 
 out = z_impute(
     df,
     group_col="Group",
-    method="mice",          # median | mean | mice | missForest
+    method="iterative",      # median | mean | iterative (alias mice) | missForest
     align_decimals=True,
+    allow_outcome_stratify=True,   # explicit stratum, not an outcome to strip
     verbose=True,
 )
 ```
@@ -125,5 +128,5 @@ impute_qc present
 ## Relation to modelling
 
 Impute after merging clinical+features and **before** LASSO. After a train/test split, fit the
-imputer on train and transform test (current CLI imputes the whole table by group; post-split
-use needs a custom call). Modelling → `meta-analysis` / `stats-analysis`.
+imputer on train and transform test (the CLI imputes the whole table by group; post-split use
+needs a custom call). Modelling → `meta-analysis` / `stats-analysis`.

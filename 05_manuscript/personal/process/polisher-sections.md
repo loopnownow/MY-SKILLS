@@ -33,7 +33,7 @@ If the user provides raw text without labeling the section, infer from content s
 ### §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See the phrase bank §1 (389 unique drafts, 2026-08-28; file not on disk).
+1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See the phrase bank §1 (389 unique drafts, 2026-08-28); the bulk file is a `{DEL}` park, not a repo path.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
 4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist"*, *"demonstrated potential"* — never absolute claims.
@@ -175,7 +175,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
   3. Relatively small sample size
   4. Need for external multicenter validation
   5. (If applicable) manual ROI segmentation variability
-- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See the phrase bank §5 (file not on disk).
+- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See the phrase bank §5.
 
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
@@ -237,7 +237,7 @@ in the edited, submission-ready bank used purposefully and sparingly — e.g.
 flagging one genuinely unexpected result or the single most clinically
 load-bearing sentence in a paragraph — never as filler repeated throughout.
 The editorial rule is "keep if it's doing real work, cut if it's decorative,"
-not "delete on sight." See the phrase bank §8 (file not on disk) for
+not "delete on sight." See the phrase bank §8 for
 verified in-context examples before deciding to cut one.
 
 #### Sentence structure targets

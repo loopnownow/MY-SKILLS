@@ -167,7 +167,7 @@ Risk / unsupported claims
 | [references/role-boundaries.md](references/role-boundaries.md) | You need constraints on reviewer differences and editor-versus-reviewer boundaries |
 | [references/06-qa-checklist.md](references/06-qa-checklist.md) | You are finalizing an output and need groundedness / non-invention checks |
 | [references/forensic-consistency-audit.md](references/forensic-consistency-audit.md) | You need the mandatory post-review audit of arithmetic, metric bounds, aggregation level, prose-table consistency, provenance, dispersion anomalies, or reproducibility gates |
-| `nature-shared/core/consistency-sweep.md` (upstream nature-skills; not vendored in-repo) | You are checking the manuscript against itself: headline counts that do not reconcile with the Methods, one metric at two precisions, a superlative contradicted by the paper's own table, overlapping error bars presented as an advantage, or internal summaries that disagree |
+| the upstream nature-skills consistency sweep (not vendored) (upstream nature-skills; not vendored in-repo) | You are checking the manuscript against itself: headline counts that do not reconcile with the Methods, one metric at two precisions, a superlative contradicted by the paper's own table, overlapping error bars presented as an advantage, or internal summaries that disagree |
 | [references/editorial criteria and processes.md](<references/editorial criteria and processes.md>) | You need the primary local Nature source text |
 
 ## Source hierarchy

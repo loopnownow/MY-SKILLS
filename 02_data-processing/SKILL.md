@@ -67,9 +67,9 @@ Do not rewrite live data-processing capability bodies (now under `base/`) inside
 
 ## Live capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
 
-**This-run pick:** wait for 01 session-fine-id pick. Registry fine-id menu (SSOT) = pick list.
+**This-run pick:** wait for the 00 session fine-id pick (`00_orchestrator/references/session-pick.md`). Registry fine-id menu (SSOT) = pick list.
 
-- `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); the former `batch-cohort` entry point is an archived alias to this body
+- `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); `batch-cohort` resolves here as a retired alias
 - `imaging-io` -- CT/MRI I/O DICOM/NIfTI (`02_data-processing/base/imaging-io/`)
 - `preprocess-imaging` -- ROI / reader QC (`02_data-processing/base/preprocess-imaging/`)
 - `stats-analysis` -- test selection / effect sizes (`02_data-processing/base/stats-analysis/`)
@@ -80,9 +80,9 @@ Do not rewrite live data-processing capability bodies (now under `base/`) inside
 - `plot-figures` -- statistical plots / imaging panels (`02_data-processing/base/plot-figures/`)
 - Radiomics / habitat **prep** -- via `stats-analysis` / `preprocess-imaging` (former `radiomics-ml` absorbed into `stats-analysis`; no live radiomics-habitat path)
 
-Until `plot-figures` / `draw-flowchart` is live, do not invent a second figure stack inside 05.
+Neither `plot-figures` nor `draw-flowchart` may be duplicated as a second figure stack inside 05.
 
-Archived ids stay off the menu (registry `archived:`).
+Retired ids stay off the menu; they resolve only through `00_orchestrator/legacy_aliases.yaml`.
 
 ## Imaging hard rules (non-negotiable)
 
@@ -101,7 +101,7 @@ Archived ids stay off the menu (registry `archived:`).
 
 Three axes. Do not mix them into one ranked list.
 
-**Rule authority:** A personal > 02 generic > external capability
+**Rule authority:** 02 personal > 02 generic > external capability
 
 **Tool choice:** personal already implemented -> use personal; else live; else 02 generic
 

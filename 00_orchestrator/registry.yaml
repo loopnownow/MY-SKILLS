@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261026-archived-delete-on-qc
+  change_id: CHG-20261027-deep-qc-three-repos
   fine_id_count_canonical: 25
   coarse_id_count: 5
 
@@ -212,4 +212,4 @@ fine_ids:
 local_packs:
 - id: vocab
   path: 05_manuscript/base/vocab/
-  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
+  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in 05_manuscript/personal/vocab/

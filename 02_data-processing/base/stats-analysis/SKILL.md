@@ -9,4 +9,4 @@ owner: "02_data-processing/base/stats-analysis/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
-Also routes former fine id `radiomics-ml` (tree pruned to {DEL}\b-prune-findjournal-fill-20261017\ on 2026-10-17; archived round 2).
+Retired ids `radiomics-ml` and `02-radiomics-habitat` resolve to this pack via `00_orchestrator/legacy_aliases.yaml`; do not recreate either tree.

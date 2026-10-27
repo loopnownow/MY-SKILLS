@@ -11,7 +11,7 @@ trigger is documentation only; not independently discoverable.
 # Reviewer response (point-by-point)
 
 Draft a submittable point-by-point letter. Self-audit is `self-review`. Other-paper
-review is `peer-review`. Personal letter voice stays in **A personal**.
+review is `peer-review`. Personal letter voice stays in `07_response/personal/`.
 
 ## When to open
 

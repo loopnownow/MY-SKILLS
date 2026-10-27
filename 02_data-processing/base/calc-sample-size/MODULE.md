@@ -8,4 +8,4 @@ owner: "02_data-processing/base/calc-sample-size/MODULE.md"
 
 # Sample size / power
 
-Generic effect-size and power notes. Lab pipeline / stats policy stays in A personal.
+Generic effect-size and power notes. Lab pipeline / stats policy stays in `02_data-processing/personal/analysis/`.

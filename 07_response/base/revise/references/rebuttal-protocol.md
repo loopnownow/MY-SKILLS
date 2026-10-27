@@ -3,7 +3,7 @@ name: rebuttal-protocol
 description: >
   Journal-first point-by-point rebuttal protocol: atomize concerns, provenance /
   commitment / coverage gates, analysis triad, revision checklist. Tone defers
-  to A personal. No auto new experiments.
+  to `07_response/personal/`. No auto new experiments.
 owner: "07_response/base/revise/MODULE.md"
 ---
 
@@ -11,7 +11,7 @@ owner: "07_response/base/revise/MODULE.md"
 
 Extends [mode-3-response.md](mode-3-response.md). Default venue shape is **journal point-by-point**, not ICML/OpenReview character-budget paste.
 
-Personal opening banks and Voice A/B stay in `personal/` — do not invent a separate voice.
+Personal opening banks and the personal letter voice stay in `personal/` — do not invent a separate voice.
 
 ## Keep (hard)
 
@@ -83,4 +83,4 @@ Only **user-confirmed** results enter the letter as done work.
 
 - Evidence > rhetoric. Concede narrowly when the reviewer is right.
 - Do not stop at “draft only” when commitment is already `already_done` / `approved` — finish letter + checklist.
-- Tone / phrasing banks → A personal.
+- Tone / phrasing banks → `07_response/personal/`.

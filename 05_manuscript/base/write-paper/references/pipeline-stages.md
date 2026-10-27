@@ -59,5 +59,5 @@ implication, explicit limitations. No disclaimer stack.
 
 ## P6 — Export
 
-Typography and house DOCX live in A personal. Venue article shape lives in this pack (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`). Figures: STROBE flow →
+Typography and house DOCX live in `05_manuscript/personal/Aitor-format.md`. Venue article shape lives in this pack (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`). Figures: STROBE flow →
 `draw-flowchart`; plots → `plot-figures`. A validation set appears only when an external cohort exists.

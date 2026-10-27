@@ -349,6 +349,12 @@ WORKSPACE_MARKERS = re.compile(
     r"Work-[AB]\b|A `base/`|B `base/`|\[A:[a-z-]+\]|\[B:[a-z-]+\]|"
     r"\bA-side\b|\bB-side\b|\bA file\b"
 )
+# Layering language left over from the retired A/B workspaces. "A/B" on its own is
+# legitimate for reviewer sets, panel letters and grant score bands; these are not.
+RETIRED_LAYER_FORMS = re.compile(
+    r"\bA personal\b|\bB personal\b|\bA machines?\b|\bB machines?\b|"
+    r"\bVoice A/B\b|\bA personal/vocab\b"
+)
 BARE_AB = re.compile(r"\bA/B\b")
 KEEP_FORMS = re.compile(r"Voice A/B|A/B/C|Reviewer A/B/C")
 EXEMPT_LINES = re.compile(
@@ -382,11 +388,12 @@ class RetiredWorkspaceVocabulary(unittest.TestCase):
                     SEAT_ID.findall(probe)
                     + WORKSPACE_MARKERS.findall(probe)
                     + BARE_AB.findall(probe)
+                    + RETIRED_LAYER_FORMS.findall(probe)
                 )
                 if found:
                     hits.append(f"{rel}:{line_no}: {sorted(set(found))} :: {line.strip()[:70]}")
         self.assertEqual(
             hits, [],
             "retired A/B workspace vocabulary (seat ids A0N, Work-A/B, A `base/`, "
-            "[A:...] tags, A/B headings):\n" + "\n".join(hits[:30]),
+            "[A:...] tags, `A personal`, A/B headings):\n" + "\n".join(hits[:30]),
         )

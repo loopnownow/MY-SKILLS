@@ -5,12 +5,12 @@
 - [ ] Confirm input path and sheet name (`cln` / `rad` / single table)
 - [ ] Confirm group column (default `Group`) and levels (e.g. HC / SSD)
 - [ ] Preview missingness: column count, total missing cells, block missing?
-- [ ] Choose method (default `mice`; block missing may use `median`)
+- [ ] Choose method (default `iterative`, alias `mice`; block missing may use `median`)
 - [ ] Plan backup path (default `<stem>_pre_impute.xlsx`)
 
 ## During run
 
-- [ ] Run CLI or in-project `z_impute` / `scripts/impute_*.py`
+- [ ] Run `{code_model_validation}\impute_excel.py`, or call `z_impute` from `{code_modules}\utils\u_impute.py`
 - [ ] Log shows per-group n, filled cell count, method params
 
 ## After run

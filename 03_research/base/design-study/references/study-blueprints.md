@@ -12,7 +12,7 @@ guideline (→ `check-reporting`).
 - **MVP:** prospective or consecutive retrospective cohort, credible reference standard,
   sensitivity/specificity/AUC with CIs, real prevalence reported.
 - **Stronger:** multi-reader comparison (radiologist vs AI vs radiologist+AI), external cohort,
-  reader study (→ A personal).
+  reader study (→ `03_research/personal/clinical-translation/`).
 - **Guideline:** STARD 2015 (+ CLAIM if AI); QUADAS-2 if part of a review.
 
 ## 2. Prediction / prognosis model
@@ -58,7 +58,7 @@ guideline (→ `check-reporting`).
 - **Question:** does AI change radiologist performance or workflow?
 - **MVP:** MRMC design, washout, with/without AI, reader experience reported.
 - **Stronger:** prospective, real-workflow, time and confidence outcomes, harm analysis.
-- **Guideline:** CLAIM + reader-study stats (MRMC → `stats-analysis`). (→ A personal)
+- **Guideline:** CLAIM + reader-study stats (MRMC → `stats-analysis`). (→ `03_research/personal/clinical-translation/`)
 
 ## Blueprint output skeleton
 

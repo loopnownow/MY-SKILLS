@@ -9,6 +9,6 @@ owner: "03_research/base/write-protocol/MODULE.md"
 
 # Study protocol write / fill
 
-Generic protocol text. Not experimental-design blueprints (`design-study`) and not grant Voice A/B.
+Generic protocol text. Not experimental-design blueprints (`design-study`) and not the personal grant voice.
 
 Pairs with in-repo `fill-protocol`.

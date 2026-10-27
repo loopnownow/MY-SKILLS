@@ -1,6 +1,6 @@
 # Skill evolution (propose only)
 
-Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `skills.md` §1b).
+Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
 
 **Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `0doc` trees.
 
@@ -19,7 +19,7 @@ Applies to skills 00–07. Never edit live skill bodies directly; post-merge dep
 
 - Budget: at most 1 core behaviour change, at most 3 new rules, no duplicates, no unapproved boundary expansion.
 - Each proposal answers: what recurrence it prevents; how effectiveness will be known.
-- Outcome: keep / revise / rollback / merge·simplify / delete (delete needs explicit approval). **Do not leave `archived` labels in live prose** — Rules `skills.md` §6: at QC, delete archived shells/refs (or move bytes to `{DEL}`); retired names stay only as `legacy_aliases.yaml` redirects.
+- Outcome: keep / revise / rollback / merge·simplify / delete (delete needs explicit approval). **Do not leave `archived` labels in live prose** — Rules `{RULES}\skills.md` §6: at QC, delete archived shells/refs (or move bytes to `{DEL}`); retired names stay only as `legacy_aliases.yaml` redirects.
 - Rollback restores a recorded git point; do not stack a second evolution on a regression.
 
 ---
@@ -41,7 +41,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 **Hard gates**
 
 - **Extract ≠ promote**: extraction writes only bank / candidates; only **「进skills」 (promote into live skills)** may change runtime.
-- Bank update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `skills.md` §1b).
+- Bank update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `{RULES}\skills.md` §1b).
 - **No scoring system**; candidates record minimal fields only.
 
 ### Steps

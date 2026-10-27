@@ -14,6 +14,20 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-deep-qc-three-repos (2026-10-27)
+
+Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES/SKILLS/scripts split.
+
+- **Removed duplicates:** `02_data-processing/base/clean-data/impute/scripts/` dropped `u_impute.py`, `u_outlier_detection.py`, `impute_excel.py`, `export_u_impute.py`. The first two were byte-divergent copies of `stats-analysis/modules/utils/*`; the CLI now lives at `stats-analysis/model-validation/impute_excel.py`. `impute/MODULE.md` became prose + `{code_*}` pointers, and `mice` is documented as the legacy alias of `iterative` (single chained imputation, not Rubin pooling).
+- **Removed orphans:** `05_manuscript/base/write-paper/references/manuscript-core.md` (restated the MODULE IMRAD map) and `05_manuscript/personal/references/write-paper-format-digest.md` (subset of `Aitor-format.md`).
+- **Ledger:** `VERSION.txt` BOM stripped (was failing `test_no_bom_in_text_files`); registry `change_id` caught up to this entry.
+- **Stale vocabulary:** the retired A/B workspace wording (`A personal`, `A machines`, `A/B` bucket sense) is gone from live prose — 30 files now name `NN_slug/personal/`. `Voice A/B` in grants became review voice vs own-proposal voice.
+- **Stale pointers:** `01 session-fine-id pick` → 00 session pick; `u_QC.py` → `{code_modules}\utils\u_qc.py`; `sync_modules` dropped; `nature-shared/core/*` marked upstream-not-vendored in prose and `external:` in the manifest.
+- **Stale tombstones:** "Until plot-figures is live", "registry `archived:`", per-page archived-alias notes → retired-alias wording per MY-RULES `skills.md` §6.
+- **Repaired edits:** `05_manuscript/base/write-paper/MODULE.md` had a spliced `.uestions,` fragment and two rules numbered 8; `03_research/base/fill-protocol/MODULE.md` had a duplicated frontmatter block (its second `description` was unquoted and did not parse).
+- **Contract:** `02_data-processing/base/README.md` gains a `Runs from` column; `{code_stats}` is named as the 02 seat's script half.
+- Suite: 175 tests, 1 skipped (baseline before this entry: 175 ran / 1 failed on the VERSION.txt BOM).
+
 ## CHG-20261026-archived-delete-on-qc (2026-10-26)
 
 - **Rules:** MY-RULES `skills.md` §6 — at QC, delete archived shells/refs; do not keep `archived` / page-not-on-disk labels in live prose. Retired ids remain only in `legacy_aliases.yaml`.
