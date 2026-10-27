@@ -993,8 +993,7 @@ class PersonalL2PhraseTable(unittest.TestCase):
             if line.startswith("import ") or line.startswith("from ")
         }
         self.assertLessEqual(
-            imports, {"__future__", "argparse", "bisect", "collections", "csv", "json",
-                      "pathlib", "re", "sys"},
+            imports, {"__future__", "argparse", "collections", "json", "pathlib", "re", "sys"},
             "counter must stay stdlib only: %s" % sorted(imports),
         )
         self.assertNotIn("write_text(", source.split("def main")[0])
@@ -1007,3 +1006,30 @@ class PersonalL2PhraseTable(unittest.TestCase):
         self.assertEqual(zh["建议补充校准曲线"], 1, dict(zh))
         en = Counter(harvest.en_phrases("Thank you for the suggestion."))
         self.assertEqual(en["thank you for the suggestion"], 1, dict(en))
+
+    def test_doc_frequency_counts_papers_not_paragraphs(self) -> None:
+        """One paper repeating a phrase ten times still counts as one paper.
+
+        The phrase has to sit at a sentence edge: only edge windows are collected,
+        which is what keeps mid-sentence fragments out of the table.
+        """
+        harvest = _load_harvest()
+        sentence = ("This study has several limitations and the retrospective design "
+                    "may have introduced selection bias in our cohort.")
+        docs = [("Discussion", "doc1", sentence)] * 10 + [("Discussion", "doc2", sentence)]
+        occurrences, presence, _sections, distinct = harvest.harvest(docs, "both")
+        phrase = "this study"
+        self.assertEqual(presence[phrase], 2, "篇数 must be 2 papers, not 11 paragraphs")
+        self.assertGreater(occurrences[phrase], presence[phrase], "次数 must stay occurrences")
+        self.assertEqual(distinct["Discussion"], 2)
+        self.assertNotIn("the retrospective design", occurrences,
+                         "mid-sentence spans must not be collected")
+        self.assertIn("this study has several limitations", occurrences,
+                      "sentence-head openers must survive the tail filter")
+
+    def test_locked_rows_are_never_dropped_by_frequency(self) -> None:
+        """`could assist [task]` is a mandated replacement, so a 0 count keeps it."""
+        text = PERSONAL_L2.read_text(encoding="utf-8")
+        self.assertIn("could assist [task]", text)
+        self.assertIn("格式锁", text, "the Locked tier must be documented in the table")
+        self.assertIn("Frequency never overrides a lock", text)

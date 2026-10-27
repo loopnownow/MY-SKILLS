@@ -20,26 +20,59 @@ may contradict `05_manuscript/personal/Aitor-format.md` or `05_manuscript/person
 | A | ≥3 papers **and** ≥5 occurrences, and still usable in the next manuscript | recommend and reuse |
 | B | below the A line, or semantically identical to a base L2 row | record, do not push |
 | C | single-paper noun, one-off number, someone else's sentence | discard |
+| **Locked** | listed in `05_manuscript/base/vocab/L1/ban-terms.yaml`, or fixed by `05_manuscript/personal/Aitor-format.md` | keep, tag `格式锁` / `禁词替代`; **frequency never decides** |
 
 A row without a filled `次数` / `篇数` is an unverified habit claim. Keep it out of
 Tier A until the harvest fills the columns.
 
+**Frequency never overrides a lock.** Two cases where a low or zero count must not
+be read as evidence against the row:
+
+- `could assist [task]` is the mandated replacement for the banned
+  `suggesting its potential` (`05_manuscript/base/vocab/L1/ban-phrases.md`). Zero
+  hits means the corpus predates the ban, not that the row is wrong.
+- `95% CI: X–X`, `n = N`, `training set` / `test set` and the Table 1 shape are
+  `Aitor-format.md` hard format, not habits. Statistics cannot retire them.
+
+Conversely, a high count never unlocks a banned word: `novel` may be frequent in
+old drafts, and `ban-terms.yaml` still governs.
+
 ## How the numbers get filled
 
+Counts come from the **paragraph layer** (`paras.jsonl`), not from the review or
+reply lanes: those hold other people's manuscripts and the owner's letters, and
+their wording does not belong in this table.
+
 ```text
-python3 {skills_git}\05_manuscript\personal\vocab\scripts\harvest_write_phrases.py --bank "{doc_review_bank}\bank"
-python3 ... --bank "{doc_review_bank}\bank" --execute --out <temp>.md
+python3 {skills_git}\05_manuscript\personal\vocab\scripts\harvest_write_phrases.py --bank "{doc_review_bank}\bank\paras.jsonl"
+python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --section Discussion --limit 40
+python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --execute --out <temp>.md
 ```
 
 The script is read-only on the bank, offline, and prints a table in this file's
 column order. It never edits this file. Paste the rows, then apply the tiers.
 
-What it counts: sentence-head and sentence-tail windows (2–6 words in English,
-2–8 characters in Chinese), because one sentence's sliding windows all carry the
-same count and would bury the table in fragments. Overlapping head/tail windows
-in a short sentence are emitted once, and a shorter span is dropped when a longer
-one with an identical count contains it. Use `--bans` to flag rows that
-`05_manuscript/base/vocab/L1/ban-terms.yaml` already forbids.
+What it counts:
+
+- **Paragraphs only.** `in_table` and `in_textbox` rows are skipped, and a
+  paragraph must clear 60 characters (20 for Chinese) to count.
+- **Section-aware.** `section_idx` maps to Abstract / Introduction / Methods /
+  Results / Discussion, and the `主要章节` column reports where a phrase lives. A
+  phrase that only appears in Discussion is not an Abstract template.
+- **Sentence-edge windows** (2–6 words English, 2–10 characters Chinese), because
+  a sentence's sliding windows all carry the same count and would bury the table
+  in fragments. Overlapping head/tail windows in a short sentence are emitted
+  once; a shorter span is dropped when a longer one with an identical count
+  contains it.
+- **次数 and 篇数 are separate series.** 次数 counts occurrences, 篇数 counts
+  distinct manuscripts. Never compare them as one number.
+- `--bans` flags rows that `05_manuscript/base/vocab/L1/ban-terms.yaml` already
+  forbids; it flags, it does not delete.
+
+Known limits (recorded, not hidden): Chinese is cut by character, so a window can
+start mid-compound (`比较这些指标`). A leading-function-character filter removes
+the worst of it, but the Chinese rows still need a human pass. Use
+`--lang en` when only the English habits are wanted.
 
 ## Abstract
 
