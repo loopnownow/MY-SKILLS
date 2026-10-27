@@ -42,7 +42,7 @@
 | interestingly | delete; state the fact |
 | importantly | delete, or restructure so the load-bearing sentence carries its own weight |
 
-**Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Corpus counts do not lift the ban.
+**Policy reversal, 2026-08-29:** *novel*, *notably*, *interestingly*, *importantly* are **banned**. Bank counts do not lift the ban.
 
 **Disentangled (2026-10-14):** AI-ism. Ban *disentangle / disentangled / disentangling*. Prefer *separated*, *distinguished*, *isolated*, or plain *teased apart*.
 
@@ -97,7 +97,7 @@ These used to appear as recommended conclusion templates. Harvest of 389 unique 
 | suggesting its potential | name the task (`could assist [task]`) or drop the clause |
 | demonstrated good performance | report `AUC of X (95% CI: X–X)` in training **and** test |
 
-See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `corpus-phrase-bank.md` were merged into it on 2026-10-16).
+See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `phrase-bank.md` were merged into it on 2026-10-16).
 
 ## Also cut (stop-slop / detector overlap)
 

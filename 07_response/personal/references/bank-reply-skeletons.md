@@ -1,4 +1,4 @@
-# Corpus reply skeletons (harvest 2026-10-23)
+# Bank reply skeletons (harvest 2026-10-23)
 
 > Curated from `{doc_root}\skill-harvest\07-reply-skeletons.md` (1,070 reply-units).
 > Honor standing opener in `../response.md` (owner 2026-10-21). This file adds frequency evidence + per-point skeleton only.
@@ -15,7 +15,7 @@ After salutation, open with exactly one of:
 
 Do not invent a fourth opener noun bank.
 
-## Per-point skeleton (corpus-backed)
+## Per-point skeleton (bank-backed)
 
 ```text
 Thank you for your [comments|suggestions|inquiry].

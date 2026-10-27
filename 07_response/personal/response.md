@@ -26,10 +26,10 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 
 ## Personal response-letter style (from historical letters)
 
-Source: de-duplicated corpus of 42 external-review responses (Qiang lab, Aitor/Ju lab, and other groups). Skeleton and thank-you distributions only — no full-letter dumps, no unpublished results. Goal: drafted replies should read like the user wrote them.
+Source: de-duplicated bank of 42 external-review responses (Qiang lab, Aitor/Ju lab, and other groups). Skeleton and thank-you distributions only — no full-letter dumps, no unpublished results. Goal: drafted replies should read like the user wrote them.
 **This file is the letter skeleton and voice source of truth** (old `mode-3-response.md` was never split out). Opener defaults to A; B is almost never used. Triage and adjudication: see this file Part B / resolution protocol.
 
-Disk corpus (external reviews and revise replies): `{doc_review_replies}\`. Index: `{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`.
+Disk bank (external reviews and revise replies): `{doc_review_replies}\`. Index: `{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`.
 
 ### 1. Opening letter templates (default A; B almost unused)
 
@@ -191,7 +191,7 @@ When drafting a reply:
 
 ### Uncertainty and disagreement (回复审稿人画像)
 
-Corpus habit for **审稿回复** / response letters (not for inventing data):
+Bank habit for **审稿回复** / response letters (not for inventing data):
 
 - Keep replies short and concrete. Confirm, clarify, or refuse with evidence — no long defense essays.
 - If the reviewer is wrong on a fact, politely correct **with the source** (HTML row, table, guideline). Do not rewrite the paper into an incorrect request.
@@ -226,7 +226,7 @@ Specialist packs **propose** findings. They do **not** free-collaborate with eac
 
 Related: English peer-review envelope `06_review/personal/review.md`; response letter voice this file; claim gaps while writing `05_manuscript/personal/process/evidence.md`.
 
-Disk corpus (external reviewer comments and revise replies; pointer only): `{doc_review_replies}\` (`{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`).
+Disk bank (external reviewer comments and revise replies; pointer only): `{doc_review_replies}\` (`{doc_review_replies}\_index\00-master-index.md`, `{doc_review_replies}\02-flattened\`).
 
 ### When to use
 
@@ -308,7 +308,7 @@ Only if this-run pick left a needed pack unloaded — go through the **00 sessio
 - Specialist packs writing free-form Word comments without status cards when this protocol is in use
 - Any backup becoming a standing fourth reviewer
 
-### Corpus reply skeletons (2026-10-23)
+### Bank reply skeletons (2026-10-23)
 
-Frequency evidence + per-point skeleton: `07_response/personal/references/corpus-reply-skeletons.md`.
+Frequency evidence + per-point skeleton: `07_response/personal/references/bank-reply-skeletons.md`.
 Standing letter opener remains authoritative here: **Thank you for your comments** | **suggestions** | **inquiry**.

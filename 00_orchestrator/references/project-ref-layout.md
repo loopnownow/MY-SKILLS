@@ -24,7 +24,7 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 | Subfolder | Put here | Do not put here |
 |---|---|---|
 | `ref/review/` | Per-round `changelog.md` / `CHANGELOG_*.md`; review handoff YAML; Lee round notes | Main Word change ledger (that stays `manuscript-revision.md`) |
-| `ref/citation/` | `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | Full PDF corpora |
+| `ref/citation/` | `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | Full PDF banks |
 | `ref/gates/` | `GATE*_report.md`, number-lock, input/output hash reports | Live `settings.ini` |
 | `ref/code/` | Script/path notes, patch pointers (no secrets, no tokens) | Raw credentials |
 | `ref/results/` | Table/figure lock notes and content hashes | Large binary datasets (stay in derivatives); finals at **subproject root** (do **not** create `0result\`) |

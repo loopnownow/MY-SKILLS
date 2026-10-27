@@ -1,7 +1,7 @@
 # grant-index-digest
 
 **Absorbed:** 2026-10-23 from `_library/grants/_index` + `_library/INDEX.md` + papers/fulltext seats.
-**Bodies:** NOT absorbed (hospital/person-specific narrative stays in park / `_corpus` only).
+**Bodies:** NOT absorbed (hospital/person-specific narrative stays in park / `_bank` only).
 
 ## Live pointers (after move)
 
@@ -49,5 +49,5 @@
 
 - Do **not** paste full grant/application bodies into GitHub / skills.
 - Ethics / PHI: out of FTS/GitHub (NOT_APPLICABLE for these nine unless PHI found — then park only).
-- Prefer `grant-own-skeleton.md` + this index for structure; open park/`_corpus` only when needing verbatim paragraphs.
+- Prefer `grant-own-skeleton.md` + this index for structure; open park/`_bank` only when needing verbatim paragraphs.
 - Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in park); `{raw_root}\…` paths in that log are **void**.

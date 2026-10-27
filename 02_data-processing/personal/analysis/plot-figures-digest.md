@@ -1,6 +1,6 @@
 # plot-figures — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` (figures lane). Cap stays `base/plot-figures`. No new fine-id.
+Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` (figures lane). Cap stays `base/plot-figures`. No new fine-id.
 
 ## elements
 - **In-figure text default = Arial** (axes, ticks, panel A–F labels, legends inside the image). Body/manuscript shell stays Times New Roman (dual track; see `Aitor-format.md`).

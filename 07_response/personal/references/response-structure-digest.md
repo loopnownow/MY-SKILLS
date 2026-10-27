@@ -46,12 +46,12 @@ Already covered in `../response.md` Hard rules — **do not fork:** no invent fo
 | `07_response/base/tighten-response/references/response-structure.md` | Package order, tracker, per-reviewer files, cover letter | **Skip** — different layer (package), keep as-is |
 | `07_response/base/revise/references/response.md` | Imaging-AI posture + short template | **Skip** — add optional pointer only |
 | `07_response/personal/response.md` | Opener nouns, thanks bank, quote+location habits, closings | **SSOT** — pointer only from here |
-| `07_response/personal/references/corpus-reply-skeletons.md` | Frequency stems + per-point skeleton | Complementary; do not add a fourth opener noun |
+| `07_response/personal/references/bank-reply-skeletons.md` | Frequency stems + per-point skeleton | Complementary; do not add a fourth opener noun |
 
 ## Pointers
 
 - Letter voice SSOT: `../response.md`
 - Template type stubs (no PII dump): `response-letter-template-digest.md`
-- Corpus stems: `corpus-reply-skeletons.md`
-- Regenerable reply units: `_code/_infra/review-response/md-corpus/s18_reply_units.py`; harvest `{doc_root}\skill-harvest\07-reply-skeletons.md`
+- Bank stems: `bank-reply-skeletons.md`
+- Regenerable reply units: `_code/_infra/review-response/md-bank/s18_reply_units.py`; harvest `{doc_root}\skill-harvest\07-reply-skeletons.md`
 - Bulk cards / flattened (purge risk): `{DEL}\_by-project\0doc-05-07-roles-20261023\07-response\personal\`

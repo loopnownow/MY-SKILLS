@@ -8,10 +8,10 @@ wording.
   performance with its CI.
 - **Unverified novelty**: "first to," "unprecedented" → remove unless verifiable;
   replace with the concrete contribution. **"Novel" itself is not banned** — it's
-  corpus-verified (59 occurrences in the deduplicated manuscript corpus) as a normal,
+  bank-verified (59 occurrences in the deduplicated manuscript bank) as a normal,
   sparingly-used word when the novelty claim is actually verifiable (e.g. describing a
   genuinely new procedure). Flag "novel" only when the claim behind it is *unverified*, not on sight.
-  Personal corpus phrase banks stay in A; this pack does not ship one.
+  Personal phrase banks stay in A; this pack does not ship one.
 - **Scope creep**: single-center retrospective result → "clinically ready," "should be
   adopted." Bound to the evidence and call for validation.
 - **Reader/▢ comparison without statistic**: "outperformed radiologists" → give the

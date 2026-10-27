@@ -1,6 +1,6 @@
 # calc-sample-size — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_root}\skill-harvest\by-fine-id\`. Cap stays `base/calc-sample-size`. Lab detail SSOT: `methods.md` § Sample size & power; generic formulas in `base/calc-sample-size/references/effect_sizes_and_power.md`.
+Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_root}\skill-harvest\by-fine-id\`. Cap stays `base/calc-sample-size`. Lab detail SSOT: `methods.md` § Sample size & power; generic formulas in `base/calc-sample-size/references/effect_sizes_and_power.md`.
 
 ## elements
 - **Inputs for prediction models:** development n, event rate / outcome proportion, candidate variable count.

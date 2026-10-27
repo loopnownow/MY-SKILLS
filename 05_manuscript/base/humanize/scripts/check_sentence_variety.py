@@ -6,7 +6,7 @@ ones (25-35 words). Avoid uniform length." Until now nothing checked whether the
 it, and a de-AI pass tends to flatten rhythm rather than restore it — the model shortens the
 long sentences and pads the short ones toward a comfortable middle, which is itself a tell.
 
-The threshold is not borrowed from any corpus. It is the skill's own specification: a text that
+The threshold is not borrowed from any bank. It is the skill's own specification: a text that
 prescribes a mix of short and long sentences and then contains none of one kind has failed its
 own rule. So this gate fires only on that unambiguous case — an absent band — and reports the
 distribution for everything else rather than inventing a cutoff.
@@ -23,9 +23,9 @@ is auditable rather than asserted. Rule 7's own top is 35, but firing there is u
 the six manuscripts in this repository with enough sentences to measure, 97 sentences exceed 35
 words (~24%, 16-22 per manuscript). Those are the project's own exemplars, so a gate that
 condemns them is measuring the wrong thing -- 25-35 is a target band, not a ceiling. Doubling
-rule 7's top gives 70, at which the same corpus yields 4 sentences in 6 manuscripts (~1%, at
+rule 7's top gives 70, at which the same bank yields 4 sentences in 6 manuscripts (~1%, at
 most one per file). So the number is still derived from the skill's own specification (35 x 2),
-and the corpus was used only to confirm it does not condemn good prose.
+and the bank was used only to confirm it does not condemn good prose.
 
 Verdicts:
   SENTENCE_UNIFORM (Minor)  the prose contains no short sentences (<= --short-max words) or no

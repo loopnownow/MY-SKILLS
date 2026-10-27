@@ -16,7 +16,7 @@ Stop-slop was written for general prose. For Aitor imaging SCI:
 **Below this line is the original general-prose stop-slop ruleset, kept for reference.**
 **Where it conflicts with the override above, the override wins — do not apply Core Rule 3
 (active voice) to Methods, and do not apply Core Rule 7 (skip softening) to Discussion hedges.
-Items 1/5/8 below and most of the archive corpus (`archive/blog/phrases.md` / `structures.md` / `examples.md`
+Items 1/5/8 below and most of the archive bank (`archive/blog/phrases.md` / `structures.md` / `examples.md`
 — 仓内无此路径，历史标记，勿当活指针) target informal/blog
 prose (e.g. "Plot twist:", "circle back") that does not occur in medical SCI writing — treat
 them as background reference, not active rules, unless polishing non-manuscript text.**

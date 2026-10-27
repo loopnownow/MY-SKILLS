@@ -9,7 +9,7 @@ response-to-reviewers (R2R) letter patterns.
 Sources (grounding differs by pattern — treat accordingly):
 - Patterns 1-18: matsuikentaro1/humanizer_academic (English 18 patterns) + Wikipedia,
   "Signs of AI writing". Inherited lists — the thresholds they carry (em-dash per 1000 words,
-  overall density) are conventional, not measured on a medical-manuscript corpus.
+  overall density) are conventional, not measured on a medical-manuscript bank.
 - Patterns 19-21, 22-24: observed in this user's own circulation and rebuttal rounds
   (senior-MA-reviewer comments; machine-drafted response letters).
 - Pattern 25: observed in a co-author's track-changed edits of AI-drafted prose.
@@ -492,7 +492,7 @@ range on both axes.
 **Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** rate of
 negative-definition sentences and share of very short declaratives → `APHORISM_DENSITY` (Minor). Fires only when BOTH rates clear thresholds set above the
 observed published maxima, so ordinary emphatic prose does not trip it. Use `--calibrate`
-to regenerate thresholds on your own corpus; the shipped numbers come from argumentative
+to regenerate thresholds on your own bank; the shipped numbers come from argumentative
 Perspectives and another genre may sit elsewhere.
 
 **Fix strategy:** Do not delete the epigrams — two or three are what a reader remembers.

@@ -18,7 +18,7 @@ Three pillars. Load only what the task needs.
 | live `lit-search` (B) | Generic retrieval (first-pass) |
 | live `verify-refs` (B) | **Post-QC 03-triggered** verify |
 | live `retraction-watcher` (B) | **Post-QC 03-triggered** retraction check |
-| `lit-corpus.md` | Lab citation corpus (NLM store / Vancouver cite; personal=group SCI; base=DOI-verified 5y or current guideline) |
+| `lit-bank.md` | Lab citation bank (NLM store / Vancouver cite; personal=group SCI; base=DOI-verified 5y or current guideline) |
 | `references/grant-fulltext-skeleton.md` | Grant full-text section outlines by scheme (absorbed from `_library/fulltext/`; pairs with `grant-own-skeleton.md`) |
 | `references/lab-ref-method-digest.md` | Lab reference-range methodology digest; number-plausibility checks in manuscripts and reviews (not clinical decisions, not an LIS RI replacement) |
 

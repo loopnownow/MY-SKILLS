@@ -1,11 +1,11 @@
 # AI + public-data / imaging peer-review checklist
 
-Short gate list for manuscripts that train or evaluate AI (especially imaging) on public corpora. Use beside `MODULE.md` / dealbreakers; cite items with `[peer-review]` when they drive a Major/Minor.
+Short gate list for manuscripts that train or evaluate AI (especially imaging) on public banks. Use beside `MODULE.md` / dealbreakers; cite items with `[peer-review]` when they drive a Major/Minor.
 
 ## Framing
 
-- [ ] **Dual-path / multimodal wording** — If pathways use different corpora or units (e.g. patient-level clinical vs image-level morphology) and are never joint-evaluated on the same subjects, reject “dual pathway assessment / unified framework” framing; prefer parallel secondary analyses / methodological stress-testing.
-- [ ] **External validation language** — Reserve “external validation/evaluation” for true transport of the development model to an independent cohort. Within-corpus holdouts after decontamination are **not** external validation.
+- [ ] **Dual-path / multimodal wording** — If pathways use different banks or units (e.g. patient-level clinical vs image-level morphology) and are never joint-evaluated on the same subjects, reject “dual pathway assessment / unified framework” framing; prefer parallel secondary analyses / methodological stress-testing.
+- [ ] **External validation language** — Reserve “external validation/evaluation” for true transport of the development model to an independent cohort. Within-bank holdouts after decontamination are **not** external validation.
 - [ ] **No joint nomogram on heterologous data** — Do not imply individualized multimodal prediction / joint nomogram when pathways share no patients.
 
 ## Labels & circularity

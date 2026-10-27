@@ -72,6 +72,6 @@ We acknowledge that [residual] and have stated it in the Discussion.
 
 ## Skip (already SSOT elsewhere)
 
-- Standing opener noun bank → `../response.md` + `corpus-reply-skeletons.md`
+- Standing opener noun bank → `../response.md` + `bank-reply-skeletons.md`
 - Full closing with lab contact → `../response.md` (contact via mem; do not paste personal email into skills)
-- Prefer "pointing this out" / suggestion / comment over nonstandard "reminding" (`corpus-reply-skeletons.md`)
+- Prefer "pointing this out" / suggestion / comment over nonstandard "reminding" (`bank-reply-skeletons.md`)

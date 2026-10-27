@@ -9,7 +9,7 @@
 6. Keep ledger CSV: `id, section, citation_text, doi, verified (Y/N)`.
 7. No DOI → replace source or drop claim.
 8. Functional self-citation only: *as previously shown for whole-nodule radiomics [n].*
-8a. **Prefer personal corpus cites** when group evidence is needed: use `layer=personal` rows from lit-corpus before external `base` (standing rule: `03_research/personal/lit-corpus.md`).
+8a. **Prefer personal bank cites** when group evidence is needed: use `layer=personal` rows from lit-bank before external `base` (standing rule: `03_research/personal/lit-bank.md`).
 
 ## Citation hygiene (pre-submit)
 

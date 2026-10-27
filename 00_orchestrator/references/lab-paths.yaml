@@ -10,7 +10,7 @@ aliases:
   raw_root: "D:\\00db"  # organized raw DB (was 00ds); read-only unless named
   code_root: "D:\\0Grok\\0doc\\_code"
   doc_root: "D:\\0Grok\\0doc"
-  doc_skill_harvest: "D:\\0Grok\\0doc\\skill-harvest"  # harvest SSOT (moved from _corpus 2026-10-24)
+  doc_skill_harvest: "D:\\0Grok\\0doc\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
@@ -18,17 +18,17 @@ aliases:
   # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/personal|base; live content under personal\.
   doc_lab_ste: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
   doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
-  # Curated xlsx may move; from 2026-10-23 lives under mem\ (not the topic corpus tree)
+  # Curated xlsx may move; from 2026-10-23 lives under mem\ (not the topic bank tree)
   jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\0Grok\\0doc\\_library\\jcr2026\\submission"
   find_journal_pools: "D:\\0Grok\\0doc\\_library\\find-journal\\data\\2026"
   # was 06-review/personal (retired human seat 2026-10-23 → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\06-review).
-  # Live review-text SSOT: _corpus\\corpus\\review-text.jsonl (+ REVIEW-TEXT.tsv).
-  doc_review_corpus: "D:\\0Grok\\0doc\\_corpus"
+  # Live review-text SSOT: _bank\\bank\\review-text.jsonl (+ REVIEW-TEXT.tsv).
+  doc_review_bank: "D:\\0Grok\\0doc\\_bank"
   # was 07-response/personal (retired human seat → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\07-response;
   # Word reply originals also under D:\\00db\\_lab\\doc-word\\07-response).
-  # Live flattened SSOT: _corpus\\corpus\\flattened.jsonl.
-  doc_review_replies: "D:\\0Grok\\0doc\\_corpus"
+  # Live flattened SSOT: _bank\\bank\\flattened.jsonl.
+  doc_review_replies: "D:\\0Grok\\0doc\\_bank"
   doc_grants: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
   # Thesis Word originals moved 2026-10-22 to the D:\\00db\\_lab\\doc-word archive; 0doc keeps only the md view.
   doc_thesis: "D:\\00db\\_lab\\doc-word\\05-manuscript\\thesis"
@@ -50,24 +50,24 @@ aliases:
   code_figures: "D:\\0Grok\\0doc\\_code\\02-data-processing\\draw-flowchart"
   code_write_paper: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
   code_revise: "D:\\0Grok\\0doc\\_code\\07-response\\revise"
-  code_md_corpus: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response\\md-corpus"
+  code_md_bank: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response\\md-bank"
   code_lab_reference: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol\\lab-reference"
   code_sync: "D:\\0Grok\\0doc\\_code\\02-data-processing\\_shared\\sync"
   code_docx_extract: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
   code_tighten_response: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response"
 
-  # 2026-10-23 infra rehome: md-corpus/lab-reference/sync left _infra
+  # 2026-10-23 infra rehome: md-bank/lab-reference/sync left _infra
   code_code_manifest: "D:\\0Grok\\0doc\\_code\\CODE-MANIFEST.tsv"
-  code_corpus_qc: "D:\\0Grok\\0doc\\test"
+  code_bank_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
-  - "2026-10-24: harvest SSOT moved {_corpus\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
+  - "2026-10-24: harvest SSOT moved {_bank\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_runtime}/{rules_git} = MY-RULES clone; Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}. 2026-10-25: stats SSOT is GitHub\\stats-analysis ({code_stats}/{code_modules}); {code_modules_master} equals {code_modules}; former _code\\04-analysis\\stats-analysis retired."
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
-  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_corpus/_code; {doc_review_corpus}/{doc_review_replies} → {_corpus}; _code 02–07 use fine-ID folders (no base\\)."
+  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02–07 use fine-ID folders (no base\\)."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
   - "raw_root=D:\\00db (was 00ds)."

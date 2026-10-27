@@ -8,11 +8,11 @@ Disk SSOT: `{doc_root}\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
 
 | Bucket | Store |
 |---|---|
-| **corpus elements** (corpus elements) | schemas, field lists, enums, short reusable patterns, hard constraints for that fine-ID |
+| **bank elements** (bank elements) | schemas, field lists, enums, short reusable patterns, hard constraints for that fine-ID |
 | **process** (process) | ordered steps, checklists, gates, path pointers (not whole script trees) |
 | **cautions** (cautions) | bans, gotchas, PHI/ethics walls, mix-up traps |
 
-Optional add-on (does not replace the three buckets): `## candidates` — evidence type / ownership (R·S·Reg·Cap·Corpus) / strength / disposition / summary. See standard §8.
+Optional add-on (does not replace the three buckets): `## candidates` — evidence type / ownership (R·S·Reg·Cap·Bank) / strength / disposition / summary. See standard §8.
 
 ## Rules
 
@@ -21,7 +21,7 @@ Optional add-on (does not replace the three buckets): `## candidates` — eviden
 3. Draft under `skill-harvest/` (prefer `<fine-id>-harvest.md` with the three bucket `##` headings). Absorb into skills only when the owner says 「进skills」 (promote into live skills) (**extract ≠ promote**).
 4. Drop sentences that fit no bucket for any fine-ID (or park as owner triage notes).
 5. Never harvest ethics/PHI, full grant/manuscript bodies, or `_code` `.py` trees into skills.
-6. Success cases default into corpus; AI hypotheses never auto-change runtime. Dispatch and regression four questions → 00 `skill-evolution.md`.
+6. Success cases default into bank; AI hypotheses never auto-change runtime. Dispatch and regression four questions → 00 `skill-evolution.md`.
 
 ## Related
 
