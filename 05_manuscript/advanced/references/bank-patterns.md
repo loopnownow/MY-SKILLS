@@ -1,6 +1,6 @@
 # Bank revision patterns (harvest 2026-10-23)
 
-> Curated from `{doc_root}\skill-harvest\05-patterns-summary.md` + `05-manuscript/advanced/patterns` INDEX (7,255 tagged units).
+> Curated from `pattern-cards.md` (in-repo since 2026-10-27) + `05-manuscript/advanced/patterns` INDEX (7,255 tagged units).
 > For `write-paper` polish / revise routing. Prefer this taxonomy when labeling an edit; do not invent parallel tag names.
 
 ## Tag → when to use (counts = bank hits)
@@ -33,4 +33,4 @@
 ## Pointers
 
 - Process slices: `../process/polisher-sections.md`, `../process/citation-and-language.md`
-- Harvest draft: `{doc_root}\skill-harvest\05-patterns-summary.md`
+- Raw tag bank (blurbs + hit counts): `pattern-cards.md`
