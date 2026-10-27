@@ -117,3 +117,131 @@ class NoRawLabPaths(unittest.TestCase):
             "raw lab drive paths in live bodies (use {doc_root} / {DEL} / {raw_root} / "
             "{code_modules} / {skills_git} / {lab_root}):\n" + "\n".join(bad[:40]),
         )
+
+
+ALIAS_TOKEN = re.compile(r"\{([a-z][a-z0-9_]+)\}")
+
+
+def _alias_tokens() -> dict[str, set[str]]:
+    """alias -> files that cite it as `{alias}`."""
+    uses: dict[str, set[str]] = {}
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".md", ".yaml", ".yml", ".mmd", ".py"}:
+            continue
+        if SKIP_DIRS & set(path.parts):
+            continue
+        if path.name == "lab-paths.yaml":
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for token in ALIAS_TOKEN.findall(text):
+            uses.setdefault(token, set()).add(rel)
+    return uses
+
+
+class AliasMapIsTight(unittest.TestCase):
+    """Every alias is cited somewhere, and every path-shaped {token} is defined.
+
+    A dead alias is a path nobody uses; a dangling one is a path that resolves to
+    nothing at read time. Both were found in the 2026-10-27 deep QC.
+    """
+
+    PATH_PREFIXES = ("code_", "doc_", "find_journal_", "jcr", "lab_", "raw_", "del_", "rules_", "skills_")
+    # Retired names may still appear in dated history lines (VERSION.txt / INTEGRATION_MAP.md).
+    HISTORY_ONLY = {"code_06_review", "doc_xml"}
+
+    def test_no_dead_alias(self) -> None:
+        aliases = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))["aliases"]
+        uses = _alias_tokens()
+        dead = sorted(name for name in aliases if name not in uses)
+        self.assertEqual(
+            dead,
+            [],
+            "aliases declared but never cited (delete them or cite them):\n"
+            + "\n".join(f"  {name}: {aliases[name]}" for name in dead),
+        )
+
+    def test_no_dangling_alias(self) -> None:
+        aliases = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))["aliases"]
+        uses = _alias_tokens()
+        dangling = sorted(
+            token
+            for token in uses
+            if token.startswith(self.PATH_PREFIXES)
+            and token not in aliases
+            and token not in self.HISTORY_ONLY
+        )
+        self.assertEqual(
+            dangling,
+            [],
+            "path-shaped {tokens} with no entry in lab-paths.yaml "
+            "(cite an existing alias, or add the alias):\n"
+            + "\n".join(f"  {{{t}}}: {sorted(uses[t])[:3]}" for t in dangling),
+        )
+
+
+LAB_MODULES_VERSION = re.compile(r"v?(\d+\.\d+\.\d+)")
+# Skill prose that states the live lab-module version. The SSOT is
+# stats-analysis modules/__init__.py; these files may only repeat that number.
+VERSION_PROSE = (
+    "02_data-processing/SKILL.md",
+    "02_data-processing/personal/analysis/pipeline.md",
+    "02_data-processing/personal/analysis/methods.md",
+)
+
+
+class LabModulesVersionProse(unittest.TestCase):
+    """Skill prose must state the version the library actually declares.
+
+    2026-10-27: the prose said 4.3.0 while `modules/__init__.py` said 4.3.1 and
+    `pyproject.toml` said 0.1.0. Rather than hard-code the offending numbers (which
+    would need editing at every release), this reads the version out of the
+    stats-analysis tree when it is present and compares.
+    """
+
+    STATS_INIT = ROOT.parent / "stats-analysis" / "modules" / "__init__.py"
+
+    def _library_version(self) -> str | None:
+        if not self.STATS_INIT.is_file():
+            return None
+        match = re.search(
+            r'__version__\s*=\s*"([0-9]+\.[0-9]+\.[0-9]+)"',
+            self.STATS_INIT.read_text(encoding="utf-8"),
+        )
+        return match.group(1) if match else None
+
+    def test_prose_states_one_version(self) -> None:
+        seen: dict[str, list[str]] = {}
+        for rel in VERSION_PROSE:
+            text = (ROOT / rel).read_text(encoding="utf-8")
+            for line_no, line in enumerate(text.splitlines(), 1):
+                for match in LAB_MODULES_VERSION.finditer(line):
+                    if "Lab pipeline" in line or "lab modules" in line.lower() or "modules v" in line:
+                        seen.setdefault(match.group(1), []).append(f"{rel}:{line_no}")
+        self.assertLessEqual(
+            len(seen),
+            1,
+            "skill prose states more than one lab-module version:\n"
+            + "\n".join(f"  {v}: {sites}" for v, sites in seen.items()),
+        )
+
+    def test_prose_matches_library_when_repo_is_present(self) -> None:
+        expected = self._library_version()
+        if expected is None:
+            self.skipTest("stats-analysis checkout not beside MY-SKILLS")
+        for rel in VERSION_PROSE:
+            for line_no, line in enumerate(
+                (ROOT / rel).read_text(encoding="utf-8").splitlines(), 1
+            ):
+                for match in LAB_MODULES_VERSION.finditer(line):
+                    if not (
+                        "Lab pipeline" in line
+                        or "lab modules" in line.lower()
+                        or "modules v" in line
+                    ):
+                        continue
+                    self.assertEqual(
+                        match.group(1),
+                        expected,
+                        f"{rel}:{line_no} says {match.group(1)} but the library is {expected}",
+                    )

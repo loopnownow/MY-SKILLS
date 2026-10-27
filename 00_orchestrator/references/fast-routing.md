@@ -17,4 +17,4 @@ Chinese trigger aliases are kept so owner utterances still match; English is the
 - Writing / 写作 / polish / 润色 / Introduction / Discussion / de-AI → `05_manuscript`
 - 预审 / 审稿 → `06_review` (pre-review / review)
 - **回复审稿人** → `07_response` (reply to reviewers)
-- Skill evolution / 技能迭代 / chat tidy / benefit review → `00_orchestrator/references/skill-evolution.md` (propose-only; one-line policy in Rules `skills.md`)
+- Skill evolution / 技能迭代 / chat tidy / benefit review → `00_orchestrator/references/skill-evolution.md` (propose-only; one-line policy in Rules `{RULES}\skills.md`)

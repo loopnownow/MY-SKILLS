@@ -63,7 +63,7 @@ See `personal/route.md` for the full pointer table.
 | Question-to-reference spine | `00_orchestrator/workflows/question-to-reference.md` |
 
 Do not rewrite live literature/systematic-review capability bodies inside these files.
-Where an A personal file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
+Where a `personal/` file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
 
 ## Live capability ids (bodies under `NN_slug/base/`)
 

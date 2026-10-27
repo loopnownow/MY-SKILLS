@@ -40,9 +40,8 @@ Method novelty cannot rescue weak labels or invalid validation.
 ## Literature-driven design
 
 When the user asks for near-three-year frontiers or high-impact publication logic,
-use live evidence search + the dated snapshot `ai-radiogenomics-12-24-roadmap.md` in this
-folder. The former pointers `literature-evidence-2023-2026.md` /
-`frontier-patterns-2023-2026.md` are **not on disk** (archived — do not recreate stubs).
+use live evidence search (`lit-search`) plus the dated snapshot `ai-radiogenomics-12-24-roadmap.md`
+in this folder.
 
 Use evidence patterns to choose an archetype, but never force a trendy direction
 onto unsupported data. State the gap between the user's data and the recent high-impact

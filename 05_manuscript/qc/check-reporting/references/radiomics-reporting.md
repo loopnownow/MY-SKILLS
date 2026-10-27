@@ -47,7 +47,7 @@ Clinical model and RadScore alone are comparators, not substitutes for primary c
 
 ## QC (Supplementary)
 
-From pipeline summary (e.g. `u_QC.py` on `lung_xlm_summary.csv`):
+From the pipeline summary sheet (the QC writer is `{code_modules}\utils\u_qc.py`):
 
 - Full pipeline success n / rate
 - Habitat mode (global)

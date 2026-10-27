@@ -1,6 +1,6 @@
 # Introduction (generic contract)
 
-A personal layer (house format, quotas, forbidden lists) overrides this file. This file states what a defensible Introduction contains, whichever house style applies.
+The `05_manuscript/personal/` layer (house format, quotas, forbidden lists) overrides this file. This file states what a defensible Introduction contains, whichever house style applies.
 
 Aligned with `05_manuscript` Introduction v3 (six elements, claim coverage, Frontiers/graylist are 选刊-side only).
 
@@ -25,4 +25,4 @@ Aligned with `05_manuscript` Introduction v3 (six elements, claim coverage, Fron
 
 ## Handoff
 
-Evidence: `meta-analysis` (`02_data-processing/base/meta-analysis/`; lit-review tree archived 2026-10-17) (Introduction evidence pack). Language: `humanize`. Reporting: `check-reporting`. Self-audit: `self-review`. Personal scoring / house quotas: `05_manuscript/personal/` (not duplicated here).
+Evidence: `meta-analysis` (`02_data-processing/base/meta-analysis/`) and `lit-search` (Introduction evidence pack). Language: `humanize`. Reporting: `check-reporting`. Self-audit: `self-review`. Personal scoring / house quotas: `05_manuscript/personal/` (not duplicated here).

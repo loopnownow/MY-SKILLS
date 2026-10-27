@@ -131,7 +131,7 @@ pdftotext -f 8 -l 8 main.pdf - | grep -c "phrase the letter places on page 8"
 ## 6. Manuscript self-consistency and terminology drift
 
 A revision round is when manuscript-internal drift is both introduced and catchable. Run the full
-sweep from `06_review/qc/forensic-consistency.md` (upstream `nature-shared/core/consistency-sweep.md` is not vendored here): headline counts that do not reconcile with the
+sweep from `06_review/qc/forensic-consistency.md` (upstream the upstream nature-skills consistency sweep (not vendored) is not vendored here): headline counts that do not reconcile with the
 Methods, one metric reported at two precisions, superlatives contradicted by the paper's own tables,
 over- and under-claiming, terminology and unit variants accumulated across rounds, and tense
 parallelism inside the conclusion items.

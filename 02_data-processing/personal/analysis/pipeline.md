@@ -1,6 +1,6 @@
 # Lab clinical + radiomics pipeline rules
 
-**Owner:** `02_data-processing`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — see `sync_modules` in `{RULES}/workspace-layout.md`). Coding conventions → `stats-analysis` + `02_data-processing/personal/coding.md`.
+**Owner:** `02_data-processing`. Implementation lives in gold `{code_modules}` (projects point at it; do not keep a per-project `modules` copy — layout in `{RULES}/workspace-layout.md`). Coding conventions → `stats-analysis` + `02_data-processing/personal/coding.md`.
 
 Do **not** re-select features on the test set. Train-only LASSO / clinical selection. Patient-level split.
 
@@ -18,7 +18,9 @@ Calibration plots for `lock_threshold` / `refit` use the layer's predicted proba
 
 General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `02_data-processing/personal/analysis/methods.md`. These three modes are how the lab implements it.
 
-## Live lab modules (v4.3.0; rules aligned 2026-09-12)
+## Live lab modules (v4.3.1; rules aligned 2026-09-12)
+
+Version SSOT is `{code_modules}\__init__.py` `__version__`. Do not restate a different number here.
 
 Do **not** vendor `{code_root}` Python into this skill. Implementation stays in `modules/`.
 Paper numbers come from `python -m modules.pipeline` → `Results{subproject}.html` (e.g. `Resultsperfusion.html`). Manuscript numbers come only from that page. Old `{endpoint}-results.html` and `results.html` are still recognized for reading; newly written files use the new name. Habitat-tree `LassoCV` is a coding helper, **not** the paper primary.

@@ -1,6 +1,6 @@
 # Point-by-point response
 
-Generic letter machinery. Personal opening banks and Voice A/B stay in `personal/` (standing letter opener: Thank you for your comments|suggestions|inquiry — noun fits reviewer tone; see `07_response/personal/response.md` §1).
+Generic letter machinery. Personal opening banks and the personal letter voice stay in `personal/` (standing letter opener: Thank you for your comments|suggestions|inquiry — noun fits reviewer tone; see `07_response/personal/response.md` §1).
 
 Full protocol (atomize, three gates, journal default, checklist): [rebuttal-protocol.md](rebuttal-protocol.md).
 

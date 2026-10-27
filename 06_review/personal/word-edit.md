@@ -7,6 +7,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Manuscript body revisions are landed by **Aitee (05)**. Lee (06) defaults to comments only and does not revise the body. Decidable issues become TC-fix comments for Aitee. Undecidable / missing facts: Chinese reason, then one English line starting with `Suggested ...` (or equivalent Suggested wording), and/or suggested literature (Victor supplies literature). Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
 - The revision modes below are how **Aitee lands edits**, not Lee's default for rewriting the paper.
 - Every change to a `.docx` uses **Track Changes**.
+- **Prove it before delivering.** `python {SKILLS}\06_review\base\track-changes\scripts\office\validate.py <edited.docx> --original <pre-edit.docx> --author A` must exit `0`. Exit `1` means a span was overwritten without a revision; redo it. Mechanics → `06_review/base/track-changes/` (fine id `track-changes`).
 
 ## Revision grain (owner 2026-10-19)
 

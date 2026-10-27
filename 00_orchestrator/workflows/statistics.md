@@ -18,7 +18,7 @@ If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/pr
 
 ## Do not
 
-- Restore archived DICOM batch / DL packs.
+- Rebuild DICOM batch / DL packs that are not in this repo.
 - Put DCA/nomogram code in `02_data-processing`.
 - Re-select features on the test set.
 - Route literature through 00 to 03 (never through 05/06).

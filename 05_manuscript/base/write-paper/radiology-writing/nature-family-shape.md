@@ -20,7 +20,7 @@ rebuilding a structured abstract into an unstructured one is easy but not the re
 | Title | Concrete, modality + finding | Often shorter and more declarative/punchy; still no "novel"/"first" without a live literature check (→ `design-study` / `lit-search`) |
 | Main-text word limit | Verify current limit | Typically tighter than _Radiology_ and **excludes** Methods (see below) — verify live per venue |
 | Methods placement | Inline, ordered section (see methods.md) | Frequently placed **after References**, online-only, not counted in the main word limit — still needs the same content (design, cohort, technique, model/statistics) and the same reporting-guideline coverage; check the specific venue's current instructions for placement |
-| Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `plot-figures`/`nature-figure-spec.md` and A personal |
+| Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `plot-figures`/`nature-figure-spec.md` and `05_manuscript/personal/` |
 | Reference style | Author–year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — see `../radiology-citation/export-formats.md` |
 | Statistics disclosure | Reported in Methods/Results prose | Prose **plus** a separate **Reporting Summary** for life-sciences submissions (→ `check-reporting`) |
 
@@ -65,8 +65,8 @@ author instructions).
 - **Discussion** keeps the same discipline as `discussion.md` (key finding first, no new results,
   honest limitations, bounded conclusion) — Nature-family venues do **not** relax the limitations
   requirement; if anything, external/prospective evidence and fairness/subgroup performance are
-  scrutinised harder (→ A personal for AI-specific
-  claims, A personal for clinical-utility claims).
+  scrutinised harder (→ `05_manuscript/personal/` for AI-specific
+  claims and for clinical-utility claims).
 - Avoid the _Radiology_-specific labels ("Summary statement", "Key Results") anywhere in the prose
   itself — an editor will read past them, but they signal the wrong house style at a glance.
 
@@ -86,7 +86,7 @@ to stand alone from the main text.
    limit live if not already confirmed for this venue).
 3. **`Claim–evidence map`** — unchanged from the main workflow.
 4. **`Display-item plan`** — which results go to main figures/tables vs Extended Data/Supplementary
-   Information (→ `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`, A personal).
+   Information (→ `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`, `05_manuscript/personal/`).
 5. **`Reporting check`** — checklist items **plus** whether a Reporting Summary is required for this
    venue (→ `check-reporting`).
 
@@ -94,7 +94,7 @@ to stand alone from the main text.
 - Figure sizing, panel-letter case, Extended Data figure limits → `plot-figures` /
   `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
-  → A personal.
+  → `05_manuscript/personal/`.
 - Reporting Summary / Editorial Policy Checklist → `check-reporting`.
 - Numbered reference style, export format → `../radiology-citation/export-formats.md`.
 - 选刊 / venue fit → `03_research` (`03_research/personal/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.

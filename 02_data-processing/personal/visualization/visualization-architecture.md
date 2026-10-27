@@ -10,7 +10,7 @@ The renderer is the in-repo generator [`scripts/gen_visualization.py`](scripts/g
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../00_orchestrator/registry.yaml). It reads only the in-repo files named above.
 
-Generated files live under the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay. See `(archived `.github/workflows/visualization.yml` under `D:/0del`)`.
+Generated files live under the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay. The retired `.github/workflows/visualization.yml` is a `{DEL}` park, not a repo path.
 
 Delta output lists added, removed, and changed identifiers and labels. It does not assign merge risk.
 
@@ -69,7 +69,7 @@ Show stable system components, about 6–12 primary components. Use a boundary o
 
 Primary chain: 00 Control / QC → 01 skill-integration / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
 
-Skill evolution stays MY-RULES `skills.md` (skill-evolution; governance; propose only). External fine ids stay one index node fed by the registry, not one node per fine id.
+Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance; propose only). External fine ids stay one index node fed by the registry, not one node per fine id.
 
 ### 5.2 Workflow
 

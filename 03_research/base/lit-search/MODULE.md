@@ -9,5 +9,19 @@ owner: "03_research/base/lit-search/MODULE.md"
 # Literature search
 
 Generic search / source hierarchy / public datasets for radiology AI.
+Personal search logs and the lit bank stay in `03_research/personal/`.
 
-A copy of this pack may still sit under the former `literature/` tree on A machines (archived 2026-10-17). Personal search logs stay in A.
+## Open these files
+
+| File | Open when |
+|---|---|
+| [references/literature.md](references/literature.md) | Searching, screening or organizing literature; concept combinations, source hierarchy, 2023–2026 evidence layer |
+| [references/public-datasets.md](references/public-datasets.md) | Public datasets (TCIA, TCGA, GEO, CPTAC, IDC), external-validation cohorts, public-data mechanism work |
+| [references/sources.md](references/sources.md) | The user asks why a rule exists, or advice turns on a current reporting guideline |
+
+## Handoffs
+
+- Read full text / verify a DOI → `verify-refs`
+- Retraction status of a cited paper → `retraction-watcher`
+- 选刊 → `find-journal` (not this pack)
+- Personal lit bank and intake → `03_research/personal/lit-bank.md`, `03_research/personal/intake.md`

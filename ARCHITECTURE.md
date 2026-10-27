@@ -23,7 +23,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Scientific writing / personal style / de-AI | `05_manuscript` |
 | Peer review / re-review | `06_review` (Lee) |
 | Reviewer response / response letter | `07_response` (Aitee) |
-| Evolution governance | MY-RULES `skills.md` (skill-evolution) |
+| Evolution governance | MY-RULES `{RULES}\skills.md` (skill-evolution) |
 
 ### Lab-specific flows (Aitor)
 

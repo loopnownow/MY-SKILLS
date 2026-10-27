@@ -14,6 +14,42 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-multiple-imputation-rubin (2026-10-27)
+
+Multiple imputation replaces the "MICE" claim that the code never implemented.
+
+- **Problem:** the `impute` pack documented `mice` / "multiple imputation", but `z_impute` runs one `IterativeImputer` pass and returns one table. No between-imputation variance exists, so no Rubin pooling is possible and any CI built on that table is too narrow.
+- **Measured (40 replications, n=150, 30% MCAR in two predictors, beta1 true = 0.30):** single imputation bias +0.057 (+18.2%, p=0.002), RMSE 0.121; multiple imputation (m=20) bias +0.002 (+0.6%, p=0.85), RMSE 0.063; mean FMI 0.33. Single imputation is biased in this setting, not merely over-confident.
+- **Code (stats-analysis):** `modules/utils/u_mi.py` — `z_impute_mi` draws with `sample_posterior=True`, asserts observed cells never move; `rubin_pool` implements Rubin's rules with Barnard–Rubin df, FMI and RIV. CLI `model-validation/mi_impute.py draw|pool`.
+- **Pack:** `02_data-processing/base/clean-data/impute/MODULE.md` now opens STEP 1 with single-vs-multiple as the first decision, states the simulation numbers, and separates `mice` (alias of single chained imputation) from MI. Checklist gains one Methods sentence per case plus four new forbidden items; `02_data-processing/qc/report-checks.md` gains the matching error rows.
+- **Documented limit:** Rubin's rules do not cover a pipelined metric (LASSO then AUC). The pack says to repeat the whole pipeline per imputation and report mean + range, and forbids a "pooled AUC CI".
+
+## CHG-20261027-xlsx-office-split-and-version (2026-10-27)
+
+Deleted the `xlsx-office` nested pack and moved its two parts where they belong. Fine ids 25 → 26.
+
+- **Removed:** `02_data-processing/base/clean-data/xlsx-office/` (2,995 lines of scripts + a finance-model prose body). It was Anthropic's office/xlsx skill with corporate-finance color conventions (blue inputs, yellow assumptions, 10-K source comments) that never applied to clinical tables, plus a pptx validator for a format the lab never opens.
+- **New fine id `track-changes`** (`06_review/base/track-changes/`): `unpack.py` / `validate.py` / `pack.py` and the Word validators. Word-format mechanics that the redlining contract needs to travel with; the pptx validator and the LibreOffice-recalc path were dropped from it. Attribution kept in `LICENSE.txt`.
+- **Moved to stats-analysis:** `model-validation/recalc_xlsx.py` + `modules/utils/soffice_env.py` — the one part that belongs to the script half, because the lab's analysis writers never emit Excel formulas.
+- **Fixed in the ported code:** `RedliningValidator` returned `True` whenever the document had no revisions under the requested author — which is exactly what a silent overwrite looks like, so the gate never fired for `--author A`. It now falls through to the text comparison. Regression test: `tests/test_office_track_changes.py`.
+- **Version unified:** skill prose said modules `v4.3.0`, `modules/__init__.py` said `4.3.1`, `pyproject.toml` said `0.1.0`. Now `4.3.1` everywhere, guarded by `test_version_consistency.py` (stats-analysis) and `LabModulesVersionProse` (this repo).
+- Registry `change_id` is unchanged for this entry: it rides with the deep-QC entry above.
+
+## CHG-20261027-deep-qc-three-repos (2026-10-27)
+
+Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES/SKILLS/scripts split.
+
+- **Removed duplicates:** `02_data-processing/base/clean-data/impute/scripts/` dropped `u_impute.py`, `u_outlier_detection.py`, `impute_excel.py`, `export_u_impute.py`. The first two were byte-divergent copies of `stats-analysis/modules/utils/*`; the CLI now lives at `stats-analysis/model-validation/impute_excel.py`. `impute/MODULE.md` became prose + `{code_*}` pointers, and `mice` is documented as the legacy alias of `iterative` (single chained imputation, not Rubin pooling).
+- **Removed orphans:** `05_manuscript/base/write-paper/references/manuscript-core.md` (restated the MODULE IMRAD map) and `05_manuscript/personal/references/write-paper-format-digest.md` (subset of `Aitor-format.md`).
+- **Ledger:** `VERSION.txt` BOM stripped (was failing `test_no_bom_in_text_files`); registry `change_id` caught up to this entry.
+- **Stale vocabulary:** the retired A/B workspace wording (`A personal`, `A machines`, `A/B` bucket sense) is gone from live prose — 30 files now name `NN_slug/personal/`. `Voice A/B` in grants became review voice vs own-proposal voice.
+- **Stale pointers:** `01 session-fine-id pick` → 00 session pick; `u_QC.py` → `{code_modules}\utils\u_qc.py`; `sync_modules` dropped; `nature-shared/core/*` marked upstream-not-vendored in prose and `external:` in the manifest.
+- **Stale tombstones:** "Until plot-figures is live", "registry `archived:`", per-page archived-alias notes → retired-alias wording per MY-RULES `skills.md` §6.
+- **Repaired edits:** `05_manuscript/base/write-paper/MODULE.md` had a spliced `.uestions,` fragment and two rules numbered 8; `03_research/base/fill-protocol/MODULE.md` had a duplicated frontmatter block (its second `description` was unquoted and did not parse).
+- **Contract:** `02_data-processing/base/README.md` gains a `Runs from` column; `{code_stats}` is named as the 02 seat's script half.
+- **Alias map tightened:** `lab-paths.yaml` 41 → 30 aliases; removed ten dead entries and `doc_jcr2026`/`code_docx_extract` duplicates of a sibling. Two `_code/_infra` cites retargeted to `{code_md_bank}`. New guards: `test_no_dead_alias`, `test_no_dangling_alias`.
+- Suite: 177 tests, 1 skipped (baseline before this entry: 175 ran / 1 failed on the VERSION.txt BOM).
+
 ## CHG-20261026-archived-delete-on-qc (2026-10-26)
 
 - **Rules:** MY-RULES `skills.md` §6 — at QC, delete archived shells/refs; do not keep `archived` / page-not-on-disk labels in live prose. Retired ids remain only in `legacy_aliases.yaml`.

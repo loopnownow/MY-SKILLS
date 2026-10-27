@@ -17,12 +17,12 @@ trigger is documentation only; not independently discoverable.
 
 Write an English review of **someone else's** manuscript. This pack is **other-paper only**.
 
-Also covers former fine id `peer-review-pdf-scan` (PDF inject/attack scan, Phase1.5) — same folder; fine id archived 2026-10-17 round 2.
+Retired id `peer-review-pdf-scan` (PDF inject/attack scan, Phase 1.5) resolves here.
 
 - Self-audit / pre-submission of the user's own draft → `self-review`
 - Point-by-point response letter → `revise` (this MODULE does **not** own mode-3)
 - Sentence rewrite → `write-paper` / `humanize`
-- Personal review voice stays in **A personal**
+- Personal review voice stays in `06_review/personal/`
 
 ## When to use
 

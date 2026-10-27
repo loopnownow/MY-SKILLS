@@ -42,7 +42,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
 | L1 / L2 / L3 vocabulary | `05_manuscript/base/vocab/` (`personal/vocab/` = pointer) |
-| Lab-STE (CM-01 ZH comments) | `05_manuscript/base/vocab/L3/lab-ste.md` (A personal/vocab = overrides only) |
+| Lab-STE (CM-01 ZH comments) | `05_manuscript/base/vocab/L3/lab-ste.md` (`05_manuscript/personal/vocab/` = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |

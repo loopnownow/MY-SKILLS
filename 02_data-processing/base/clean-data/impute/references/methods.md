@@ -6,7 +6,8 @@
 |--------|--------------|-----------|------|
 | `median` | ~0.2 s | Within-group median | Block missing (whole modality gone), need speed, interpretability |
 | `mean` | ~0.2 s | Within-group mean | Near-symmetric continuous variables |
-| `mice` | ~seconds | IterativeImputer + BayesianRidge | **Default**; joint modeling of continuous features |
+| `iterative` | ~seconds | IterativeImputer + BayesianRidge | **Default**; joint modeling of continuous features |
+| `mice` | = `iterative` | Legacy alias — **single** chained imputation, not MICE / Rubin pooling | Name only if the Methods section really says MICE |
 | `missForest` | tens of seconds–minutes | IterativeImputer + RandomForest | Strong nonlinearity/interactions; when the paper method name requires it |
 
 ## missForest speed knobs
@@ -28,12 +29,13 @@ Ultra-fast (quality second):
 ## Grouping rules
 
 - **Must** stratify by outcome/cohort (`Group` / SSD·HC / case·control); do not fill missingness from the opposite group’s distribution.
+- **An explicitly named `group_col` always stratifies.** The outcome guard only fires when no column is named: `z_impute(df)` skips a `Group` column whose name looks outcome-like, because that column is usually `y`. Name your cohort column explicitly, or pass `outcome_cols=["<outcome>"]` when `Group` is a cohort label.
 - Within a group, if a column has < 2 non-missing or < 2 unique values → skip that column×group (or later median fallback).
 - Whole column missing inside a group → cannot learn within-group; keep NaN or switch to a global strategy (this skill defaults to no cross-group fill).
 
 ## Block missing (e.g. DTI-only / IVIM-only)
 
-Prefer `median` or `mice`. missForest gains little on “whole modality missing” and is slow.
+Prefer `median` or `iterative`. missForest gains little on “whole modality missing” and is slow.
 
 ## Categorical variables
 

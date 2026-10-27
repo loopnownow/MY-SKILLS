@@ -17,7 +17,7 @@ Choose an appropriate test and check the assumptions that justify it. This pack 
 teach sample-size/power (→ `calc-sample-size`), Bayesian/model implementation (→ `meta-analysis`),
 or the `assumption_checks.py` script (that file lives in `meta-analysis`).
 
-Lab stats policy stays in A personal.
+Lab stats policy stays in `02_data-processing/personal/analysis/`.
 
 ## When to use
 

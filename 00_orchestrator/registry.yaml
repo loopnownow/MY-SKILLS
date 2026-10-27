@@ -10,8 +10,8 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261026-archived-delete-on-qc
-  fine_id_count_canonical: 25
+  change_id: CHG-20261027-multiple-imputation-rubin
+  fine_id_count_canonical: 26
   coarse_id_count: 5
 
 empty_fine_ids: notify-then-research-confirm
@@ -184,6 +184,13 @@ fine_ids:
   path: 06_review/base/peer-review/
   a_domain: 06_review
   status: LIVE
+- id: track-changes
+  label: Word Track Changes verify and repack
+  source: my-skills
+  path: 06_review/base/track-changes/
+  a_domain: 06_review
+  status: LIVE
+  note: 'Mechanical: unpack/validate/pack a .docx and prove every change is tracked by author A. Word-format mechanics, no patient data.'
 - id: self-review
   label: Numeric self-audit
   source: my-skills
@@ -212,4 +219,4 @@ fine_ids:
 local_packs:
 - id: vocab
   path: 05_manuscript/base/vocab/
-  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in A personal/vocab
+  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in 05_manuscript/personal/vocab/

@@ -1,31 +1,13 @@
 ---
 name: "fill-protocol"
 domain: "03_research"
-trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol"]
+description: "Fill institutional Word form templates (.doc/.docx) for IRB protocols, ethics applications and grant proposals, preserving original styles, table layouts, fonts and page geometry. Pairs with write-protocol, which drafts the content this pack renders into the template."
+trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol", "fill template", "fill IRB form", "ethics template", "grant template"]
 inputs: ["protocol_template"]
 outputs: ["filled_protocol"]
+tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 quality_control: "placeholders only; no patient data; never invent ethics numbers"
 owner: "03_research/base/fill-protocol/MODULE.md"
----
-
-<!--
-Format-layer stub (pairs with write-protocol)
-fine_id: IRB form fill (format layer; write-protocol owns content)
-extracted: 2026-09-13
-maintain: blank-source / as-absorbed stub only; not rewritten to Aitor-format.
--->
-
----
-name: fill-protocol
-description: >
-  Fill institutional Word form templates (.doc/.docx) for IRB protocols, ethics
-  applications, grant proposals, and other structured research documents while
-  preserving the original styles, table layouts, fonts, and page geometry. Pairs
-  with write-protocol — write-protocol drafts the scientific content, fill-protocol
-  renders it into the institutional template.
-triggers: fill protocol, fill template, fill IRB form, IRB template, ethics template, grant template
-tools: Read, Write, Edit, Bash, Grep, Glob
-model: inherit
 ---
 
 # Fill-Protocol Skill
