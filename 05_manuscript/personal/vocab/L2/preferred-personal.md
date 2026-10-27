@@ -22,7 +22,7 @@ may contradict `05_manuscript/personal/Aitor-format.md` or `05_manuscript/person
 | C | single-paper noun, one-off number, someone else's sentence | discard |
 | **Locked** | listed in `05_manuscript/base/vocab/L1/ban-terms.yaml`, or fixed by `05_manuscript/personal/Aitor-format.md` | keep, tag `格式锁` / `禁词替代`; **frequency never decides** |
 
-A row without a filled `次数` / `篇数` is an unverified habit claim. Keep it out of
+A row without a filled `Count` / `Docs` is an unverified habit claim. Keep it out of
 Tier A until the harvest fills the columns.
 
 **Frequency never overrides a lock.** Two cases where a low or zero count must not
@@ -44,8 +44,8 @@ reply lanes: those hold other people's manuscripts and the owner's letters, and
 their wording does not belong in this table.
 
 ```text
-python3 {skills_git}\05_manuscript\personal\vocab\scripts\harvest_write_phrases.py --bank "{doc_review_bank}\bank\paras.jsonl"
-python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --section Discussion --limit 40
+python3 {skills_git}\05_manuscript\personal\vocab\scripts\harvest_write_phrases.py --bank "{doc_review_bank}\bank\paras.jsonl" --limit 80
+python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --execute --out <temp>.md
 python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --execute --out <temp>.md
 ```
 
@@ -80,97 +80,105 @@ the worst of it, but the Chinese rows still need a human pass. Use
 
 Three families are all in use. Do not collapse to one.
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| This study aimed to … |  |  | Abstract Objective / Intro closing | family 1 (base L2 §1) |
-| The aim of this study was to … |  |  | Abstract Objective | family 2 |
-| To investigate / explore / evaluate … |  |  | Abstract Objective | family 3, bare infinitive |
+| This study aimed to … | 9 | 9 | Abstract Objective / Intro closing | family 1 (base L2 §1) |
+| The aim of this study was to … | 11 | 7 | Abstract Objective | family 2 |
+| To investigate / explore / evaluate … | 267 | 70 | Abstract Objective | family 3, bare infinitive |
 
 ### Methods and results
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| A total of N patients … were retrospectively enrolled |  |  | Abstract Methods | base L2 §1b |
-| The AUC was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set |  |  | Abstract Results | report both sides |
+| The AUC was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set | 0 | 0 | Abstract Results | report both sides; lock: 格式锁; frequency does not decide |
 
 ### Conclusion
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| could assist [task] |  |  | Abstract Conclusion | replaces the 0-hit `suggesting its potential` |
-| may provide / may optimize [workflow] |  |  | Abstract Conclusion | calibrated, no absolute claim |
+| could assist [task] | 0 | 0 | Abstract Conclusion | replaces the 0-hit `suggesting its potential`; lock: 禁词替代; frequency does not decide |
+| may provide / may optimize [workflow] | 2 | 2 | Abstract Conclusion | **B** — calibrated, no absolute claim |
 
 ## Introduction
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| However, to our knowledge, few studies have … |  |  | ¶ gap statement | base L2 §2b |
-| The accurate preoperative prediction of X remains challenging |  |  | ¶2 limit of current practice | |
-| This study aimed to … using [method] in [population] |  |  | ¶ aim, no citations | |
+| This study aimed to … using [method] in [population] | 2 | 2 | ¶ aim, no citations | **B** — |
 
 ## Methods
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| Patients were randomly divided into a training set (n = N) and a test set (n = N) |  |  | Study population | body split is training / test |
-| Regions of interest were manually delineated … blinded to clinical information |  |  | ROI | |
-| Features were extracted using pyradiomics (version X.X) |  |  | Radiomics | name the version |
+| Patients were randomly divided into a training set (n = N) and a test set (n = N) | 0 | 0 | Study population | body split is training / test; lock: 格式锁; frequency does not decide |
 
 ## Results
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| No significant difference was observed in X between A and B (P = X) |  |  | Baseline / subgroup | unhedged |
-| The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) |  |  | Model performance | |
+| The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) | 0 | 0 | Model performance | lock: 格式锁; frequency does not decide |
 
 ## Discussion
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| In this study, we … |  |  | ¶1 opener | workhorse (base L2 §2) |
-| This finding is consistent with a previous study by [Author] et al. |  |  | ¶2 literature | |
-| In contrast, [Author] et al. reported X, which may be attributed to … |  |  | ¶2 disagreement | prefer `attributed to` over `explained by` |
-| may reflect / might be related to [mechanism] |  |  | ¶3 mechanism | one hedge, never stacked |
+| In this study, we … | 22 | 17 | ¶1 opener | workhorse (base L2 §2) |
+| This finding is consistent with a previous study by [Author] et al. | 1 | 1 | ¶2 literature | **B** — |
+| may reflect / might be related to [mechanism] | 15 | 12 | ¶3 mechanism | one hedge, never stacked |
 
 ## Limitations and closer
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| This study has several limitations. First, … Second, … |  |  | own paragraph | First… Second…, no CYA essay |
-| Future research should … |  |  | last sentence of Limitations | dominant closer (base L2 §5) |
-| Future studies should … |  |  | same slot | interchangeable variant |
+| This study has several limitations. First, … Second, … | 2 | 2 | own paragraph | **B** — First… Second…, no CYA essay |
+| Future research should … | 13 | 8 | last sentence of Limitations | dominant closer (base L2 §5) |
+| Future studies should … | 3 | 3 | same slot | **B** — interchangeable variant |
 
 ## Conclusion
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| In conclusion, … |  |  | Conclusion section | standard opener |
-| In summary, … |  |  | Conclusion section | minority alternate |
+| In conclusion, … | 26 | 25 | Conclusion section | standard opener |
+| In summary, … | 2 | 2 | Conclusion section | **B** — minority alternate |
 
 ## Connectors and hedge ladder
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| Therefore / Thus |  |  | after a concrete observation | one per paragraph, only where logic turns |
-| This finding is consistent with … |  |  | Discussion ¶2 | agreement |
-| in contrast |  |  | Discussion ¶2 | disagreement; more common than `in line with` |
-| may / might / could + suggest |  |  | Discussion only | Results stay unhedged |
+| Therefore / Thus | 180 | 54 | after a concrete observation | one per paragraph, only where logic turns |
+| This finding is consistent with … | 1 | 1 | Discussion ¶2 | **B** — agreement |
+| in contrast | 17 | 8 | Discussion ¶2 | disagreement; more common than `in line with` |
+| may / might / could + suggest | 1 | 1 | Discussion only | **B** — Results stay unhedged |
 
 ## Review replies (07 lane)
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| Thank you for the suggestion / comments / inquiry |  |  | per-point opener | noun follows the reviewer's tone |
-| We have revised the manuscript accordingly |  |  | action sentence | past tense, change already made |
-| We clarify that … |  |  | action sentence | for questions, not changes |
+| Thank you for the suggestion / comments / inquiry | 612 | 30 | per-point opener | noun follows the reviewer's tone; **07 layer, not for 05 tables** |
+| We clarify that … | 1 | 1 | action sentence | **B** — for questions, not changes; **07 layer, not for 05 tables** |
 
-## Chinese manuscript comments (稿面批注)
+## Chinese manuscript comments (marginal notes)
 
-| 表达 | 次数 | 篇数 | 常用位置 | 备注 |
+| Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| 建议补充…… |  |  | 建议句 | verb first, no `进行 + 名词` |
-| 请在讨论里说明…… |  |  | 定位 + 要求 | |
-| 样本量偏小，建议…… |  |  | 限制类 | quantify when the number exists |
+
+(every row scored 0; see "Unverified / to rewrite")
+
+
+## Unverified / to rewrite (0 hits)
+
+These rows scored 0 and carry no lock. `Count / Docs` stay blank: rewrite the wording or delete the row; do not treat it as habit evidence. Locked rows (format or ban replacement) never appear here.
+
+- `A total of N patients … were retrospectively enrolled` — 0 hits; longest literal span "were retrospectively enrolled" occurs 2 times
+- `However, to our knowledge, few studies have …` — 0 hits; longest literal span "however, to our knowledge, few studies have" occurs 0 times
+- `The accurate preoperative prediction of X remains challenging` — 0 hits; longest literal span "accurate preoperative prediction" occurs 0 times
+- `Regions of interest were manually delineated … blinded to clinical information` — 0 hits; longest literal span "regions of interest were manually delineated" occurs 0 times
+- `Features were extracted using pyradiomics (version X.X)` — 0 hits; longest literal span "features were extracted using pyradiomics (version" occurs 0 times
+- `No significant difference was observed in X between A and B (P = X)` — 0 hits; longest literal span "no significant difference was observed" occurs 2 times
+- `In contrast, [Author] et al. reported X, which may be attributed to …` — 0 hits; longest literal span "may be attributed" occurs 1 times
+- `We have revised the manuscript accordingly` — 0 hits; longest literal span "we have revised the manuscript accordingly" occurs 0 times
+- `建议补充……` (lit. "suggest adding …") — 0 hits; longest literal span "建议补充" occurs 0 times
+- `请在讨论里说明……` (lit. "please explain in the Discussion …") — 0 hits; longest literal span "请在讨论里说明" occurs 0 times
+- `样本量偏小，建议……` (lit. "sample size is small; suggest …") — 0 hits; longest literal span "样本量偏小，建议" occurs 0 times
 
 ## Not used (pointers only)
 
@@ -185,6 +193,4 @@ often the bank counts them.
 - Owner habits already on file: `05_manuscript/personal/voice-portrait.md`,
   `05_manuscript/personal/process/polisher-sections.md`,
   `05_manuscript/personal/references/bank-voice.md`.
-- Counts: `harvest_write_phrases.py` over `{doc_review_bank}` (review text +
-  flattened replies). Rows without counts are habit claims, not bank evidence.
 - Bank bulk bodies stay on disk and are never vendored here.

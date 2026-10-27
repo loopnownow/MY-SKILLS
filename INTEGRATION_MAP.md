@@ -14,6 +14,33 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-vocab-paras-sections (2026-10-27)
+
+Paragraph-layer harvest: the personal L2 table now carries measured counts, and the bank's
+missing section index is rebuilt instead of trusted.
+
+- **Filled:** `05_manuscript/personal/vocab/L2/preferred-personal.md` — every curated row now
+  carries `Count` / `Docs` (column headers switched to English; legacy Chinese header accepted
+  by the guard). 34 rows: 10 A, 9 B, 4 locked, 11 unlocked zero-hit. Zero-hit rows moved into
+  "Unverified / to rewrite"; locked rows (format or ban replacement) stay in their tables with
+  `lock: 格式锁` / `lock: 禁词替代` and are never demoted by frequency.
+- **New:** `05_manuscript/personal/vocab/scripts/harvest_sections.py` — the paragraph layer
+  ships `section_idx = 0` on every row, so `harvest_write_phrases.py --section` returns
+  nothing. This companion rebuilds IMRAD sections from heading paragraphs (numbering stripped,
+  heading detection ahead of the length floor), drops the References section, counts
+  sentence-head / sentence-tail windows per section, uses 3–8 character Chinese windows with
+  dominance collapse, and reports `docs per section` / `paragraphs per section`.
+- **Measured (05 manuscripts, 75 docs, 4,435 prose paragraphs):** Methods 73, Results 73,
+  Discussion 71, Introduction 71, front 65, Abstract 63, Conclusion 48 docs.
+- **Guard:** `tests/test_vocab_harvest_sections.py` (13) pins heading detection, per-document
+  section inheritance, the table/textbox/reference/short-paragraph filters, the 3-character
+  Chinese floor, dominance collapse, per-document `Docs` counting, and the ban flag.
+- **Contract update:** `tests/test_seat_packs.PersonalL2PhraseTable` now accepts the English
+  column header and requires the `Locked` tier row, which the 84b3c25 policy introduced.
+- **Boundary:** counts are evidence, not verdicts; tier assignment and any wording rewrite stay
+  with the owner.
+
+
 ## CHG-20261027-personal-l2-phrase-bank (2026-10-27)
 
 Personal L2 phrase table, plus the three live contradictions it exposed.

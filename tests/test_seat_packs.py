@@ -968,8 +968,13 @@ class PersonalL2PhraseTable(unittest.TestCase):
 
     def test_table_exists_with_tiers_and_columns(self) -> None:
         text = PERSONAL_L2.read_text(encoding="utf-8")
-        for needle in ("| A |", "| B |", "| C |", "| 表达 | 次数 | 篇数 |"):
+        for needle in ("| A |", "| B |", "| C |", "| **Locked** |"):
             self.assertIn(needle, text)
+        # Column headers are English; the Chinese form is kept as an accepted legacy shape.
+        self.assertTrue(
+            "| 表达 | 次数 | 篇数 |" in text or "| Phrase | Count | Docs |" in text,
+            "personal L2 table must expose Phrase / Count / Docs columns",
+        )
         # Banned words are never restated here; the yaml is the only authority.
         self.assertIn("05_manuscript/base/vocab/L1/ban-terms.yaml", text)
 
