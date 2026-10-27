@@ -105,7 +105,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Table 1 continuous means checked against N where GRIM applies — see `report-checks.md` (this file)
 - [ ] In-text NHST lines (t/F/chi-square/r) recomputed or flagged vs reported *P*
 - [ ] HR/OR/RR 95% CI directionally consistent with reported *P*
-- [ ] Raw assay tables (if in scope) pointed to `02_data-processing/personal/table-signals.md`, not handled only here
+- [ ] Raw assay tables (if in scope) pointed to `02_data-processing/advanced/table-signals.md`, not handled only here
 - [ ] **stat_vs_threshold** — printed *t*/*F*/*z* meets the stated voxel-wise or cluster-forming threshold
 - [ ] **correlation_implied_n** — *n* implied by *r* and *P* matches the stated analysis *n*
 - [ ] **multiplicity_disclosure** — ROI or voxel correlation family names a correction or an exploratory label
@@ -125,7 +125,7 @@ Use this checklist when polishing Results and Methods sections.
 ## Stats consistency (reported results)
 
 Use when polishing or reviewing **already reported** numbers (Table 1, NHST lines, HR/OR with CI).
-Raw measurement tables → `02_data-processing/personal/table-signals.md`.
+Raw measurement tables → `02_data-processing/advanced/table-signals.md`.
 
 ### Division of labor
 
@@ -133,7 +133,7 @@ Raw measurement tables → `02_data-processing/personal/table-signals.md`.
 |---|---|
 | G-FACT (00) | Pipeline number drift across 02→05→06 |
 | This note | Academic reporting consistency signals |
-| `02_data-processing/personal/table-signals.md` (02) | Raw measurement tables |
+| `02_data-processing/advanced/table-signals.md` (02) | Raw measurement tables |
 | Part A of this file | Lab reporting style (body/figures) |
 | `05_manuscript/qc/manuscript-local-qc.md` | Writing actions for the same check ids |
 | `06_review/qc/cross-manuscript-qc.md` | Review: annotate conflicts; do not invent numbers |

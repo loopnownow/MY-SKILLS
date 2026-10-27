@@ -15,9 +15,9 @@ trigger is documentation only; not independently discoverable.
 Draft and revise **scientific prose** (Title / Abstract / Introduction / Methods / Results /
 Discussion), plus venue house style and article shape once a journal family is known.
 
-**Not in this pack (stay in `05_manuscript/personal/`, or other fine ids):**
+**Not in this pack (stay in `05_manuscript/advanced/`, or other fine ids):**
 
-- Personal house format / title-page defaults
+- Advanced house format / title-page defaults
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
 - Language polish → [`humanize`](../humanize/MODULE.md)
@@ -40,7 +40,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 2. Introduction: problem → guideline definition → gap → approach (`radiology-writing/introduction.md`)
 3. Observational designs: *associated with*, not causal verbs
 4. Consistent terms; expand abbreviations at first use
-5. Introduction and Discussion sentences run 10–30 words, one main proposition each; no run of short sentences (a personal layer may override)
+5. Introduction and Discussion sentences run 10–30 words, one main proposition each; no run of short sentences (a advanced layer may override)
 6. Do not invent results, citations, ethics numbers, or unrun experiments
 7. Missing facts → comments / open questions, never fabricated body text
 8. **Negation / incompleteness (owner 2026-10-23):** Process-negation sentences that flag work not done or CYA hedges (e.g. 「某某未做」「我们未做」「未进行…」; *we did not* / *not performed* / *was not done* / *not examined*) **must not appear in 正文** (manuscript, revised manuscript, or response letter). Put them **only** in Word 批注 (author **A**), and every such 批注 **must** include **建议修改后内容**. Bare flags fail. Does **not** ban empirical negative findings that are study results (e.g. *no significant difference*, *X was not associated with Y*). Canonical: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.

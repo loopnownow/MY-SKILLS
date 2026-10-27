@@ -57,7 +57,7 @@ EXEMPT_LINE = (
 )
 EXEMPT_PAIRS = (
     # Quoted manuscript sentence showing correct English usage.
-    ("05_manuscript/personal/Aitor-format.md", "were not applicable"),
+    ("05_manuscript/advanced/Aitor-format.md", "were not applicable"),
 )
 
 class GateTableParity(unittest.TestCase):

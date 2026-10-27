@@ -323,15 +323,15 @@ class BanTermsAlwaysTests(unittest.TestCase):
         code, _, _ = GuardAndCliTests().run_main(["--text", text])
         self.assertEqual(code, 1)
         self.assertFalse(sl.lint(text)["passed"])
-class PersonalMarkdownControlCharTests(unittest.TestCase):
-    """C0 controls are forbidden in 05/06 personal markdown (tab/LF/CR allowed)."""
+class AdvancedMarkdownControlCharTests(unittest.TestCase):
+    """C0 controls are forbidden in 05/06 advanced markdown (tab/LF/CR allowed)."""
 
     ALLOWED = {0x09, 0x0A, 0x0D}
 
-    def test_no_c0_controls_in_personal_markdown(self):
+    def test_no_c0_controls_in_advanced_markdown(self):
         roots = (
-            REPO_ROOT / "05_manuscript" / "personal",
-            REPO_ROOT / "06_review" / "personal",
+            REPO_ROOT / "05_manuscript" / "advanced",
+            REPO_ROOT / "06_review" / "advanced",
         )
         hits = []
         for root in roots:
@@ -352,8 +352,8 @@ WORKSPACE_MARKERS = re.compile(
 # Layering language left over from the retired A/B workspaces. "A/B" on its own is
 # legitimate for reviewer sets, panel letters and grant score bands; these are not.
 RETIRED_LAYER_FORMS = re.compile(
-    r"\bA personal\b|\bB personal\b|\bA machines?\b|\bB machines?\b|"
-    r"\bVoice A/B\b|\bA personal/vocab\b"
+    r"\bA advanced\b|\bB advanced\b|\bA machines?\b|\bB machines?\b|"
+    r"\bVoice A/B\b|\bA advanced/vocab\b"
 )
 BARE_AB = re.compile(r"\bA/B\b")
 KEEP_FORMS = re.compile(r"Voice A/B|A/B/C|Reviewer A/B/C")
@@ -395,5 +395,5 @@ class RetiredWorkspaceVocabulary(unittest.TestCase):
         self.assertEqual(
             hits, [],
             "retired A/B workspace vocabulary (seat ids A0N, Work-A/B, A `base/`, "
-            "[A:...] tags, `A personal`, A/B headings):\n" + "\n".join(hits[:30]),
+            "[A:...] tags, `A advanced`, A/B headings):\n" + "\n".join(hits[:30]),
         )

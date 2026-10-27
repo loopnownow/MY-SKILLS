@@ -6,7 +6,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 ## Standard
 
 - References: **Vancouver + DOI** (or journal house style after venue lock) — **do not** adopt **APA** as primary.
-- Prose/layout spot-check against `05_manuscript/personal/Aitor-format.md` only.
+- Prose/layout spot-check against `05_manuscript/advanced/Aitor-format.md` only.
 
 ## Must-check
 

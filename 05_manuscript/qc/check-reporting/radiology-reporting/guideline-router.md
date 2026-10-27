@@ -50,7 +50,7 @@ A "yes" to several is normal. Stack them.
   reporting checklist — use it to frame Discussion claims about clinical readiness and to check
   that explainability/robustness/fairness were addressed somewhere in the study, not only in the
   reporting checklist items that happen to touch them (CLAIM/TRIPOD+AI's fairness item is
-  narrower). Cross-ref `05_manuscript/personal/` (interpretability is not a fine id) and
+  narrower). Cross-ref `05_manuscript/advanced/` (interpretability is not a fine id) and
   the same layer for monitoring/drift.
 
 Authors often confuse "we scored well on RQS" with "we are unbiased (PROBAST)". They are

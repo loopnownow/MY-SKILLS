@@ -1,7 +1,7 @@
 # Methods section template
 
 Fill-in skeleton for a reproducible Methods section. Do not invent ethics IDs, scanner
-models, or software versions. Personal title-page defaults are not in this pack.
+models, or software versions. Advanced title-page defaults are not in this pack.
 
 Suggested order (adapt if the venue mandates another):
 

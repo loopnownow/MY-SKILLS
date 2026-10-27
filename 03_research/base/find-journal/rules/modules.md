@@ -10,7 +10,7 @@ These are **modules inside** `find-journal`, not separate top-level skills yet. 
 | **JEI** | Journal Ease Index | Same family as **JESI**; `JEI = f(JDI, Capacity, Reviewability)` — not merely `100 − JIF` |
 | **JESI** | Journal Ease-of-Submission Index | Composite used in Phase-1 tables; see `jesi-model.md` |
 | **MJF** | Manuscript–Journal Fit | **= MFI** (Manuscript Fit Index); prefer MJF in new prose, accept MFI |
-| **PAI** | Personal Acceptance Index / Prior | From `submission-prior.jsonl` |
+| **PAI** | Advanced Acceptance Index / Prior | From `submission-prior.jsonl` |
 | **JCI-C** | Journal Capacity Index | Capacity slots; **not** Clarivate JCI |
 
 External `journal-recommender` (and similar tools) are **data/capability providers via query fine ids**, **not** the top-level decision maker. Do not install them as a seventh system or live skill.
@@ -65,7 +65,7 @@ Emit confidence when approximating. Do **not** copy external Fit Score fixed wei
 
 ## 4. submission-prior-logger
 
-Append `[manuscript_type, target_journal, outcome, date, notes]` to `{find_journal_submission}\submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and personal `P(Accept)`. No IF/quartile fields on log lines.
+Append `[manuscript_type, target_journal, outcome, date, notes]` to `{find_journal_submission}\submission-prior.jsonl`. Later: logistic/Bayesian correction → **PAI** and advanced `P(Accept)`. No IF/quartile fields on log lines.
 
 ## Risk module (04)
 

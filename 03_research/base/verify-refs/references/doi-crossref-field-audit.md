@@ -1,6 +1,6 @@
 # DOI-first Crossref field audit (capability · short)
 
-**Owner:** Victor / `03_research/base/verify-refs`. Extends Vancouver + DOI spotcheck; does **not** replace `03_research/personal/citation-verify.md` (claim→ref).
+**Owner:** Victor / `03_research/base/verify-refs`. Extends Vancouver + DOI spotcheck; does **not** replace `03_research/advanced/citation-verify.md` (claim→ref).
 **Distill of:** Yuan1z `nature-ref-verifier` workflow (Apache-2.0). Short original steps; no Zotero sync scripts.
 
 ## When
@@ -30,7 +30,7 @@ Any Critical or unresolved `Needs fix` without Word comment → FAIL `05_manuscr
 
 ## Cross-links
 
-- G-CIT / claim→ref: `03_research/personal/citation-verify.md`
+- G-CIT / claim→ref: `03_research/advanced/citation-verify.md`
 - Style: `05_manuscript/qc/style-spotcheck.md`
 - Broader metadata tools: this pack's `MODULE.md` / scripts (optional)
 

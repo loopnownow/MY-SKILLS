@@ -3,7 +3,7 @@
 This file is the **other-paper** path only. Pre-submission of the user's own draft lives in
 `self-review`. Response letters live in `revise` (mode-3).
 
-Personal review-style banks stay in A.
+Advanced review-style banks stay in A.
 
 ## When to use
 

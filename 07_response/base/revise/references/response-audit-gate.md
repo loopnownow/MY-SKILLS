@@ -80,7 +80,7 @@ After number-changing revisions: hand off to `06_review/base/self-review/referen
 - State the action first, then the evidence/location.
 - If disagreeing, acknowledge the concern, define the scope, and cite data/guidance.
 - Do not make reviewer-facing promises that the manuscript does not fulfill.
-- Personal phrasing → `07_response/personal/` (not this pack).
+- Advanced phrasing → `07_response/advanced/` (not this pack).
 
 ## Conflict handling
 

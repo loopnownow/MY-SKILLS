@@ -17,5 +17,5 @@ Venue shape is in this pack (MODULE mode `venue-shape`): `radiology-writing/jour
 
 ## Vocab load (2026-10-17)
 
-**First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before drafting. On top of it, `05_manuscript/personal/vocab/` supplies the personal L1 overrides and the L2 personal phrase table (`05_manuscript/personal/vocab/L2/preferred-personal.md`); base stays canonical. See A gates.md check (b).
+**First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before drafting. On top of it, `05_manuscript/advanced/vocab/` supplies the advanced L1 overrides and the L2 advanced phrase table (`05_manuscript/advanced/vocab/L2/preferred-advanced.md`); base stays canonical. See A gates.md check (b).
 

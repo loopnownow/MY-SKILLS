@@ -33,7 +33,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 | Layer | Meaning | Physical home |
 |---|---|---|
 | Rules (R) | Cross-skill hard contracts | MY-RULES |
-| Skills (S) | 00–07 skill bodies / personal | MY-SKILLS |
+| Skills (S) | 00–07 skill bodies / advanced | MY-SKILLS |
 | Registry (Reg) | fine-ID / fine-id registry | `00_orchestrator/registry.yaml` etc. |
 | Capabilities (Cap) | Live capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
 | Bank | Bank / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
@@ -100,7 +100,7 @@ Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
 
 | Risk tier | Examples | Gate |
 |---|---|---|
-| content | bank draft, personal `bank-*.md` addenda | 「进skills」 + budget |
+| content | bank draft, advanced `bank-*.md` addenda | 「进skills」 + budget |
 | merge | edit existing skill body / merge PR | checklist + user agree to merge |
 | registry/ID | registry, fine-ID, fine-id map | explicit approval; never silently change IDs |
 | Rules | MY-RULES | highest gate; propose-only; explicit approval |

@@ -16,7 +16,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 | SR-6 | **Table → *p***: for primary contrast rows with mean±SD+*n* or counts + reported *P*, rough back-calc agrees in direction/OM; else comment (estimate labeled) | 06 annotate; 02 if central and unresolved |
 
 
-**Cross-link:** table→*p* habit + recipes — `06_review/personal/review.md` §3 / §3.1; Layer 1 arithmetic — `06_review/qc/forensic-consistency.md`.
+**Cross-link:** table→*p* habit + recipes — `06_review/advanced/review.md` §3 / §3.1; Layer 1 arithmetic — `06_review/qc/forensic-consistency.md`.
 
 ## Failure-mode escalation
 

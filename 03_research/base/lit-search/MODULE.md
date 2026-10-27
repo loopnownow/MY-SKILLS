@@ -9,7 +9,7 @@ owner: "03_research/base/lit-search/MODULE.md"
 # Literature search
 
 Generic search / source hierarchy / public datasets for radiology AI.
-Personal search logs and the lit bank stay in `03_research/personal/`.
+Advanced search logs and the lit bank stay in `03_research/advanced/`.
 
 ## Open these files
 
@@ -24,4 +24,4 @@ Personal search logs and the lit bank stay in `03_research/personal/`.
 - Read full text / verify a DOI → `verify-refs`
 - Retraction status of a cited paper → `retraction-watcher`
 - 选刊 → `find-journal` (not this pack)
-- Personal lit bank and intake → `03_research/personal/lit-bank.md`, `03_research/personal/intake.md`
+- Advanced lit bank and intake → `03_research/advanced/lit-bank.md`, `03_research/advanced/intake.md`

@@ -13,4 +13,4 @@ Fill during **06 re-review** (`P06r`). Verification only — Round-1 findings st
 
 - Lee (06) owns re-review rows; Aitee (05) owns body claims; Aitee (07) owns response claims (response is **not** routed into 06).
 - Cap re-review loops at **2**, then escalate / `unresolved` like `defects[].rounds`.
-- Pointers: `runtime-flow.md` (Review ↔ revise), `06_review/personal/handoff.md`.
+- Pointers: `runtime-flow.md` (Review ↔ revise), `06_review/advanced/handoff.md`.

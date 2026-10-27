@@ -1,6 +1,6 @@
 # Point-by-point response
 
-Generic letter machinery. Personal opening banks and the personal letter voice stay in `personal/` (standing letter opener: Thank you for your comments|suggestions|inquiry — noun fits reviewer tone; see `07_response/personal/response.md` §1).
+Generic letter machinery. Advanced opening banks and the advanced letter voice stay in `advanced/` (standing letter opener: Thank you for your comments|suggestions|inquiry — noun fits reviewer tone; see `07_response/advanced/response.md` §1).
 
 Full protocol (atomize, three gates, journal default, checklist): [rebuttal-protocol.md](rebuttal-protocol.md).
 
@@ -16,7 +16,7 @@ Full protocol (atomize, three gates, journal default, checklist): [rebuttal-prot
 3. Map action: manuscript location + English reply; **do not invent unrun experiments**
 4. Audit: every claimed change is locatable; run provenance / commitment / coverage ([response-audit-gate.md](response-audit-gate.md))
 5. Action table: [action-mapping.md](action-mapping.md)
-6. Tone: courteous, specific, one-to-one. Personal phrasing banks stay in A.
+6. Tone: courteous, specific, one-to-one. Advanced phrasing banks stay in A.
 7. After number changes: hand off to `06_review/base/self-review/references/paper-claim-audit.md`
 
 ## Letter skeleton

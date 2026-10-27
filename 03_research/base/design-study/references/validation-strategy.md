@@ -17,7 +17,7 @@ honestly. Discrimination on the training distribution proves almost nothing.
 6. **Fully external validation** — independent cohort, different institution(s), collected and
    labelled independently. The strongest single step short of prospective.
 7. **Prospective validation** — applied to a future cohort under the intended workflow
-   (→ `03_research/personal/clinical-translation/`). The closest to clinical truth.
+   (→ `03_research/advanced/clinical-translation/`). The closest to clinical truth.
 
 ## What honestly counts as "external"
 

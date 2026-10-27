@@ -1,6 +1,6 @@
 # Reporting guideline route (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06. Capability bodies other than `05_manuscript/qc/check-reporting/` stay in `05_manuscript/personal/` and `base/`.
+**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06. Capability bodies other than `05_manuscript/qc/check-reporting/` stay in `05_manuscript/advanced/` and `base/`.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 **Router metadata:** `05_manuscript/qc/reporting-guidelines-router.json` (K-Dense peer-review catalog, MIT — ids / study_types / official URLs only; **no checklist item text**).
 

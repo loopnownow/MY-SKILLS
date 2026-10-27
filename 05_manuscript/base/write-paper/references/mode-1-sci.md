@@ -1,7 +1,7 @@
 # SCI IMRAD workflow
 
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
-Personal house format, de-AI lists, and lab author defaults are **not** in this pack.
+Advanced house format, de-AI lists, and lab author defaults are **not** in this pack.
 
 Polish → `humanize`. Venue shape → this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`). Reporting checklists → `check-reporting`.
 
@@ -16,7 +16,7 @@ Polish → `humanize`. Venue shape → this pack (`05_manuscript/base/write-pape
 ## 1.2 Workflow
 
 1. Subtask: `draft-section` | `full-imrad` | `methods-skeleton` | `outline`
-2. If the user named a venue family, open venue-shape files in this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`); do not load a personal format file
+2. If the user named a venue family, open venue-shape files in this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`); do not load a advanced format file
 3. Open the table below
 4. Output the envelope in `MODULE.md`
 

@@ -1,7 +1,7 @@
 # G-LIT verify gate checklist (00 only)
 
 **Owner:** `00_orchestrator` at Gate time.
-**Execution body:** `03_research/personal/citation-verify.md` (Victor). Do not move that file into `qc/`.
+**Execution body:** `03_research/advanced/citation-verify.md` (Victor). Do not move that file into `qc/`.
 Specialists and 05/06 must not self-certify lit via this folder.
 
 What 00 checks for **G-LIT** (also required before G-05 done and inside G-06):

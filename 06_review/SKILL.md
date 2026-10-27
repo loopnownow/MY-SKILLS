@@ -1,15 +1,15 @@
 ---
 name: medical-manuscript-review
 description: >
-  Personal review upper layer (post-QC re-review). Entry for review / pre-review / peer-review / re-review.
+  Advanced review upper layer (post-QC re-review). Entry for review / pre-review / peer-review / re-review.
   Response letter goes to 07_response (not here).
   Statement consistency before data consistency. Cross-manuscript overlap is commented, not invented.
   May internally call 02/03/05/07. Does not write manuscript body.
 ---
 
-# Manuscript Review -- personal upper layer (re-review)
+# Manuscript Review -- advanced upper layer (re-review)
 
-**Route:** `personal/route.md`. **Handoff:** `personal/handoff.md`.
+**Route:** `advanced/route.md`. **Handoff:** `advanced/handoff.md`.
 
 ## Purpose
 
@@ -24,24 +24,24 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 ## Layer model
 
 Flow: fine-ID first-pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; bodies in `06_review/base/`) -> **00 QC** -> **06** post-QC re-review only.
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
+Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Live packs may raise findings; **A 06 personal** owns English peer-review envelope (`personal/review.md`).
+Live packs may raise findings; **A 06 advanced** owns English peer-review envelope (`advanced/review.md`).
 Resolution status for response letters -> **07**.
 
-## Personal assets
+## Advanced assets
 
 | Task | Path |
 |---|---|
-| English peer-review voice | `personal/review.md` |
-| Review comment habits | `personal/review.md` |
+| English peer-review voice | `advanced/review.md` |
+| Review comment habits | `advanced/review.md` |
 | Cross-manuscript QC | `qc/cross-manuscript-qc.md` (invoked only by 00) |
-| Word comment delivery | `personal/word-edit.md` |
+| Word comment delivery | `advanced/word-edit.md` |
 | Track Changes verify (unpack / validate / pack) | `base/track-changes/` (fine id `track-changes`) |
-| Dual-review isolation workflow | `personal/review-isolation.md` |
-| Thesis review | `personal/review.md` § Thesis review digest |
-| Chinese journal score sheet | `personal/review.md` § Chinese journal score digest |
-| Response letter / resolution | **`07_response/personal/response.md`** (moved 2026-10-17) |
+| Dual-review isolation workflow | `advanced/review-isolation.md` |
+| Thesis review | `advanced/review.md` § Thesis review digest |
+| Chinese journal score sheet | `advanced/review.md` § Chinese journal score digest |
+| Response letter / resolution | **`07_response/advanced/response.md`** (moved 2026-10-17) |
 
 ## Live capability ids
 
@@ -65,7 +65,7 @@ Resolution status for response letters -> **07**.
 
 ## Comments / Track Changes
 
-See `personal/review.md` section 0. Response / re-audit resolution status -> `07_response/personal/response.md` (07 judges).
+See `advanced/review.md` section 0. Response / re-audit resolution status -> `07_response/advanced/response.md` (07 judges).
 
 ## Not this skill
 

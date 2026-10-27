@@ -112,7 +112,7 @@ When the missing work is **research content** (question / evidence / design / da
 | Evidence Discovery | 03 | `lit-search` (P1) | What literature is still missing? |
 | Evidence Reasoning | 03 | `verify-refs` + Victor evidence cards; consistency via **G-FACT** / **G-LIT** | What do these studies claim (claim→source→population→endpoint→effect→conflict)? |
 | Gap / Hypothesis | 03 | `design-study` | What new question is worth asking? |
-| Methodological Feasibility | 02 | existing 02 stats / sample-size / design personal | Can this idea be studied with our methods? |
+| Methodological Feasibility | 02 | existing 02 stats / sample-size / design advanced | Can this idea be studied with our methods? |
 
 Writing / review exploration handoffs use 05 / 06 only when the gap is wording or reviewer-facing — not for inventing methods.
 

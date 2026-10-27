@@ -18,7 +18,7 @@ Do not invent silhouette/WCSS decimals without pipeline logs. Protocol threshold
 Results (or Methods + Results) must include:
 
 1. Number of features retained.
-2. **No LASSO-feature table** (personal house format stays in A; do not invent a feature table to fill a quota).
+2. **No LASSO-feature table** (advanced house format stays in A; do not invent a feature table to fill a quota).
 3. **Full RadScore formula** with numeric coefficients in Results prose.
 4. Statement that the test set used **identical** coefficients without reselection.
 5. Feature source filter (e.g. FBS_16 for CT) and IBSI compliance mention. If no IBSI test was run, write that it is not reported.

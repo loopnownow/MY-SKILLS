@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261027-vocab-paras-sections
+  change_id: CHG-20261027-personal-to-advanced
   fine_id_count_canonical: 26
   coarse_id_count: 5
 
@@ -219,4 +219,4 @@ fine_ids:
 local_packs:
 - id: vocab
   path: 05_manuscript/base/vocab/
-  note: lab vocabulary layers (L1/L2/L3); personal overrides stay in 05_manuscript/personal/vocab/
+  note: lab vocabulary layers (L1/L2/L3); advanced overrides stay in 05_manuscript/advanced/vocab/

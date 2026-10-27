@@ -2,7 +2,7 @@
 
 This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
 
-**Architecture SSOT** for this repo: this file (layers, lab homes, fine-id ceiling, base/personal contract).
+**Architecture SSOT** for this repo: this file (layers, lab homes, fine-id ceiling, base/advanced contract).
 
 **Routing SSOT:** `00_orchestrator/registry.yaml`
 
@@ -20,7 +20,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Excel / batch workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` |
 | Literature research / evidence / study design / grants / translational design / ethics forms (Bai seats fill-protocol) | `03_research` |
 | Statistics / prediction / **figures** / sample size | `02_data-processing` |
-| Scientific writing / personal style / de-AI | `05_manuscript` |
+| Scientific writing / advanced style / de-AI | `05_manuscript` |
 | Peer review / re-review | `06_review` (Lee) |
 | Reviewer response / response letter | `07_response` (Aitee) |
 | Evolution governance | MY-RULES `{RULES}\skills.md` (skill-evolution) |
@@ -30,19 +30,19 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Intent | Route |
 |--------|--------|
 | Polish in my voice / SCI writing | `05_manuscript` |
-| Write Introduction / Discussion (prose) | `03_research` retrieves; `05_manuscript` writes (`05_manuscript/personal/process/evidence.md`) |
+| Write Introduction / Discussion (prose) | `03_research` retrieves; `05_manuscript` writes (`05_manuscript/advanced/process/evidence.md`) |
 | Pre-submit find issues / dealbreaker | `06_review` |
 | Reply to reviewers | `07_response` only as entry (Aitee) |
 | Topic / literature / journal selection | `03_research` |
-| Journal selection | `03_research` (`03_research/personal/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/` |
+| Journal selection | `03_research` (`03_research/advanced/journal-selection.md`). Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/` |
 | sample size | `02_data-processing` (`calc-sample-size`) |
 | AUC / DeLong / DCA / stats plan / figures | `02_data-processing` |
 | Radiomics / ROI / leakage audit / preprocess | `02_data-processing` |
-| Soft coding / dry-run | `02_data-processing` → `02_data-processing/personal/coding.md` |
+| Soft coding / dry-run | `02_data-processing` → `02_data-processing/advanced/coding.md` |
 | Batch / Excel folders | `{RULES}/workspace-layout.md` |
-| VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `02_data-processing/personal/analysis/pipeline.md` |
+| VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `02_data-processing/advanced/analysis/pipeline.md` |
 | Ethics application form fill | `03_research` → `base/fill-protocol/` |
-| Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/personal/extract.md` |
+| Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/advanced/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
 | Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
 | STROBE / patient-flow / Figure 1 | `02_data-processing` (`draw-flowchart`) |
@@ -76,9 +76,9 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 - `02_data-processing`: raw → analysis-ready. Statistics/model fitting is not its role. Ethics forms are not here.
 - `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol`, **seat Bai**), translational design, **journal selection**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role. Victor does not fill ethics forms.
 - `02_data-processing`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
-- `05_manuscript`: personal writing layer. Literature retrieval and journal selection → `03_research`; figures → `02_data-processing`. de-AI at `05_manuscript/personal/`. Mid-entry does not waive citation-verify.
-- `06_review`: personal review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
-- `07_response`: personal response-letter layer (**Aitee**). Changed wording → `05_manuscript`. Tone-only polish is an on-demand mode of `tighten-response`. Point-by-point structure stays `revise`.
+- `05_manuscript`: advanced writing layer. Literature retrieval and journal selection → `03_research`; figures → `02_data-processing`. de-AI at `05_manuscript/advanced/`. Mid-entry does not waive citation-verify.
+- `06_review`: advanced review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
+- `07_response`: advanced response-letter layer (**Aitee**). Changed wording → `05_manuscript`. Tone-only polish is an on-demand mode of `tighten-response`. Point-by-point structure stays `revise`.
 
 ---
 

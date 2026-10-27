@@ -14,11 +14,11 @@ trigger is documentation only; not independently discoverable.
 # Word Track Changes: unpack, edit, verify, pack
 
 Mechanical tooling for the rule in MY-RULES `My rule.md` §5.1 and
-`06_review/personal/word-edit.md`: **every `.docx` edit lands under Track Changes with author
+`06_review/advanced/word-edit.md`: **every `.docx` edit lands under Track Changes with author
 `A`; word/sentence grain; never a silent overwrite.** This pack proves that rule was followed.
 
 Not a Word editor. Text decisions belong to `05_manuscript` (`Aitor-format.md`, `humanize`), to
-`06_review/personal/review.md` for findings, and to `07_response/base/revise/` for letters. This
+`06_review/advanced/review.md` for findings, and to `07_response/base/revise/` for letters. This
 pack only inspects and repacks the file.
 
 **Scripts live here on purpose.** They are the exception to the "code goes to stats-analysis" rule:
@@ -73,7 +73,7 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
 
 ## Rules
 
-1. Author field is always **`A`**; source tags are a separate axis (`06_review/personal/review.md`
+1. Author field is always **`A`**; source tags are a separate axis (`06_review/advanced/review.md`
    §0). `--author` defaults to `A` for this reason.
 2. Word or sentence grain. Never rewrap a whole paragraph in one `w:ins`.
 3. If the owner already edited that span, ask before touching it again — do not revert their text
@@ -84,7 +84,7 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
 
 ## Handoffs
 
-- What to change and how to phrase it → `05_manuscript/personal/word-edit.md`,
-  `06_review/personal/review.md`
+- What to change and how to phrase it → `05_manuscript/advanced/word-edit.md`,
+  `06_review/advanced/review.md`
 - Response letters → `07_response/base/revise/`
-- Formatting contract → `05_manuscript/personal/Aitor-format.md`
+- Formatting contract → `05_manuscript/advanced/Aitor-format.md`

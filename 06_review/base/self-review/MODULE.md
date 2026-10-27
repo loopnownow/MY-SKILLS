@@ -14,7 +14,7 @@ Find holes in **the user's own** manuscript before submission. Other-paper revie
 `peer-review`. Point-by-point **response** is `revise` — this pack does not
 own 回复审稿人 (response to reviewers).
 
-Personal review voice stays in A.
+Advanced review voice stays in A.
 
 ## When to open
 

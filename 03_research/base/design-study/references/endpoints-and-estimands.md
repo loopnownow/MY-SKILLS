@@ -43,7 +43,7 @@ modelling; they determine the design, the metric, and the reporting guideline.
   prioritises specificity. State which, and choose the threshold on the **training/derivation**
   data, never the test set.
 - Tie the threshold to the **consequence**: what action follows a positive/negative, and what a
-  false positive/negative costs the patient. (→ `model-evaluation` for net benefit; `03_research/personal/clinical-translation/` for translation.)
+  false positive/negative costs the patient. (→ `model-evaluation` for net benefit; `03_research/advanced/clinical-translation/` for translation.)
 
 ## Common framing errors to fix
 

@@ -1,6 +1,6 @@
 """Office tooling: the tracked-changes validator must not pass a silent overwrite.
 
-The lab rule (MY-RULES `My rule.md` 5.1, `06_review/personal/word-edit.md`) is that
+The lab rule (MY-RULES `My rule.md` 5.1, `06_review/advanced/word-edit.md`) is that
 every `.docx` edit lands under Track Changes. The upstream Anthropic validator used to
 return True as soon as it found no revisions under the requested author, which is
 exactly the case a silent overwrite produces — so the guard never fired for the

@@ -15,8 +15,8 @@ metadata:
 
 ## Owner / routing
 
-- Lives in `03_research/base/find-journal/` (capability). The former personal `find-journal/` stub was removed 2026-10-17; do not recreate it.
-- Called from `03_research/personal/journal-selection.md` via A Victor pointer.
+- Lives in `03_research/base/find-journal/` (capability). The former advanced `find-journal/` stub was removed 2026-10-17; do not recreate it.
+- Called from `03_research/advanced/journal-selection.md` via A Victor pointer.
 - Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
 - Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-paper` only for formatting to the chosen family.
 
@@ -139,7 +139,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 - **Phase-2 短表** (per paper): 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs; no ISO/OA/置信/APC/分刊详情.
 - Write **submission URLs only** back to `data/2026/submission-urls.csv` (schema: 期刊全称, ISO缩写, ISSN, eISSN, 投稿网址, 来源备注, updated).
 - Annually updated metrics (JCR quartile, IF, annual volume, APC, review time, …) must **not** be persisted as durable delivery data — **query capability only**.
-- Personal outcomes → append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields).
+- Advanced outcomes → append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields).
 
 ## Files
 
@@ -162,7 +162,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊 whitelist (seed: submission-urls)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
 17. `data/2026/submission-urls.csv` — URL fields only
-18. `{find_journal_submission}\submission-prior.jsonl` — personal prior log (schema only until outcomes exist)
+18. `{find_journal_submission}\submission-prior.jsonl` — advanced prior log (schema only until outcomes exist)
 
 ## Submitted / 选刊 whitelist (stronger priority)
 

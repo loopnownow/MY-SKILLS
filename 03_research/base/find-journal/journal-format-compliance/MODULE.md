@@ -7,7 +7,7 @@ owner: "03_research/base/find-journal/journal-format-compliance/MODULE.md"
 
 Bring an existing manuscript (usually a .docx) into compliance with a specific journal's author guidelines, deliver a plan before touching the file, and produce a submission-ready .docx with the changes visible as Word tracked changes.
 
-This skill assumes the `docx` skill is available for the actual file editing (unzip → edit `word/document.xml` → rezip → validate). Use the lab Word Track Changes workflow (`06_review/personal/word-edit.md` + existing docx tooling). This skill covers journal-rule finding, planning, and knowing when to stop and ask.
+This skill assumes the `docx` skill is available for the actual file editing (unzip → edit `word/document.xml` → rezip → validate). Use the lab Word Track Changes workflow (`06_review/advanced/word-edit.md` + existing docx tooling). This skill covers journal-rule finding, planning, and knowing when to stop and ask.
 
 ## Workflow
 
@@ -29,7 +29,7 @@ Produce a short table: requirement → what the journal wants → what the manus
 
 **Critical rule:** if anything you find is a *factual/content* inconsistency rather than a pure formatting gap — mismatched corresponding-author names, a funding recipient not on the author list, contradictory dates, author-order disputes, etc. — do NOT resolve it yourself, and do NOT silently pick the version that looks more plausible. List it separately as an open question and ask the user directly. Proceed to editing only for the items that are unambiguous formatting fixes; hold everything touching facts about people, money, or attribution until the user answers. Getting one of these wrong in a real submission is a much worse failure than asking one extra question.
 
-Also respect lab rule: if corresponding author, funding, ethics, or affiliations already exist in the manuscript, do not overwrite them with defaults/templates (`Aitor-format.md` / `06_review/personal/word-edit.md`).
+Also respect lab rule: if corresponding author, funding, ethics, or affiliations already exist in the manuscript, do not overwrite them with defaults/templates (`Aitor-format.md` / `06_review/advanced/word-edit.md`).
 
 Present the plan and, if there are open questions, stop and wait for the user's answers before editing the file.
 

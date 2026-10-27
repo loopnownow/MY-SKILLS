@@ -5,7 +5,7 @@
 | What | Where |
 |---|---|
 | Submission / portal URLs | `data/2026/submission-urls.csv` (URL fields only) |
-| Personal prior outcomes | `{find_journal_submission}\submission-prior.jsonl` (schema: manuscript_type, target_journal, outcome, date, notes) |
+| Advanced prior outcomes | `{find_journal_submission}\submission-prior.jsonl` (schema: manuscript_type, target_journal, outcome, date, notes) |
 | Policy / workflow / framework formulas | `policy.md`, `recommendation-workflow.md`, `jesi-model.md`, `modules.md` |
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
@@ -36,7 +36,7 @@ Stable methodology is rewritten into MY-SKILLS; changing journal numbers stay qu
 | Scope Fit / Article Type Fit / Audience Fit | Rewrite + absorb | Fit / MJF (=MFI) |
 | Method Fit | Add/enhance | Fit / MJF |
 | Recent-paper similarity | Add/enhance | Fit / MJF (+ query for papers) |
-| Challenge / Target / Safety | Rewrite + absorb | Submission Tier (driven by ease × fit × personal × practicality — not IF/CAS alone) |
+| Challenge / Target / Safety | Rewrite + absorb | Submission Tier (driven by ease × fit × advanced × practicality — not IF/CAS alone) |
 | Risk Check | Rewrite + absorb | Journal Risk Assessment; **Unknown ≠ Low Risk** |
 | Evidence / Confidence | Absorb | Every metric: `value` + `source` + `retrieval_date` + `confidence` |
 
@@ -86,4 +86,4 @@ If IF / quartile / volume columns are ever added, remove them.
 
 - User-facing Phase-1/Phase-2: prefer **HTML** (tables may *display* JIF/quartile/volume as runtime fields).
 - After confirming portals: write **submission URLs only** back to `data/2026/submission-urls.csv`.
-- Personal outcomes: append lines to `submission-prior.jsonl` — never store yearly IF on those lines.
+- Advanced outcomes: append lines to `submission-prior.jsonl` — never store yearly IF on those lines.

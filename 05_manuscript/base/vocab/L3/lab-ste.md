@@ -46,10 +46,10 @@ These already live in MY-SKILLS and **must not** be flipped by Lab-STE defaults:
 - Split names use **set** (`training` / `test` / `validation set`), never rewrite set→group (`voice-portrait.md`).
 - Short sentences, inside continuous paragraphs (`voice-portrait.md`).
 - Track Changes: Aitee owns; Lee marks/comments only.
-- Do not overwrite corresponding-author / funding / ethics defaults on an existing `.docx` (`06_review/personal/word-edit.md`).
+- Do not overwrite corresponding-author / funding / ethics defaults on an existing `.docx` (`06_review/advanced/word-edit.md`).
 - Hard ban table and process/placeholder bans stay in `05_manuscript/base/vocab/L1/ban-phrases.md` (source of truth for English ban words).
 
-### Reusable rules (new relative to prior personal files)
+### Reusable rules (new relative to prior advanced files)
 
 #### Conflict order
 
@@ -95,7 +95,7 @@ Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` 
 
 #### Chinese manuscript-comment (稿面批注) five slots → 06
 
-Face comments (Word author **A**) use the five-slot habit in `06_review/personal/review.md` (CM-01). Journal English envelope stays `Lines n–m: + defect + Please…` in `06_review/personal/review.md`. Lab-STE does not change the Word author field.
+Face comments (Word author **A**) use the five-slot habit in `06_review/advanced/review.md` (CM-01). Journal English envelope stays `Lines n–m: + defect + Please…` in `06_review/advanced/review.md`. Lab-STE does not change the Word author field.
 
 #### Profiles (when to open the full SPEC)
 
@@ -106,8 +106,8 @@ Face comments (Word author **A**) use the five-slot habit in `06_review/personal
 | `llm-reply-zh` | Chinese LLM replies — format / stock phrases first (on disk; optional) |
 | `manuscript-id-en` | I/D readability + de-AI; no approved-lexicon coverage force |
 
-### Related personal files
+### Related advanced files
 
 - de-AI load order: `route.md` → `05_manuscript/base/vocab/L1/ban-phrases.md` / `05_manuscript/base/vocab/L1/patterns.md` / `05_manuscript/base/vocab/L1/sci-overrides.md`
 - Voice / set / short sentence: `voice-portrait.md`
-- Comment delivery / author A: `06_review/personal/word-edit.md`, `06_review/personal/review.md` §0
+- Comment delivery / author A: `06_review/advanced/word-edit.md`, `06_review/advanced/review.md` §0

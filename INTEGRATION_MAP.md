@@ -14,6 +14,34 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-personal-to-advanced (2026-10-27)
+
+The `personal` layer folder is now `advanced`. Path shape is unchanged: `NN_slug/advanced/…`
+sits beside `NN_slug/base/` and `NN_slug/qc/`. No fine id, coarse id or gate changed.
+
+- **Renamed (git mv, history kept):** `02_data-processing`, `03_research`, `05_manuscript`,
+  `06_review`, `07_response` — `personal/` -> `advanced/` (86 files).
+- **Renamed files:** `00_orchestrator/references/base-vs-personal-top-loops.md` ->
+  `base-vs-advanced-top-loops.md`; `05_manuscript/advanced/vocab/L2/preferred-personal.md` ->
+  `preferred-advanced.md`.
+- **Synced in place:** 182 files / 764 hits — path pointers (`NN_slug/advanced/…`), skill
+  frontmatter `owner:` values, prose that named the layer ("advanced layer", "base vs advanced
+  top re-loops"), the `[personal]` -> `[advanced]` Word-comment source tag, and
+  `00_orchestrator/runtime-flow.mmd`.
+- **Tests:** six guards carried hardcoded `personal` paths
+  (`test_doc_structure`, `test_frontmatter`, `test_gates_contract`, `test_lab_paths`,
+  `test_language_style`, `test_seat_packs`) plus the class/method names
+  (`AdvancedMarkdownControlCharTests`, `AdvancedL2PhraseTable`, `AdvancedMirrorDedupe`,
+  `test_no_c0_controls_in_advanced_markdown`). Suite stays 201, all green.
+- **Kept as history (not rewritten):** rows below this entry keep `personal/` because they
+  record what the tree looked like on those dates (`VERSION.txt`, this map).
+- **Kept as ordinary English (not the layer name):** `personality` / `personalizing` in
+  `05_manuscript/base/vocab/L1/patterns.md` and `07_response/base/tighten-response/references/
+  tone-and-stance.md`; journal names in `03_research/base/find-journal/data/2026/
+  whitelist-bmc-medicine.csv`; `personal submission priors` in `NOTICE` (private data, not a layer).
+- **Other repos:** MY-RULES 13 pointers (`My rule.md`, `project-ref-layout.md`, `README.md`,
+  `skills.md`, `workspace-layout.md`) and stats-analysis `README.md` (one row) follow the same rename.
+
 ## CHG-20261027-vocab-paras-sections (2026-10-27)
 
 Paragraph-layer harvest: the personal L2 table now carries measured counts, and the bank's

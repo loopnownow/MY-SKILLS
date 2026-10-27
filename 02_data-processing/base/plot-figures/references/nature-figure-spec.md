@@ -71,7 +71,7 @@ the specific venue — it is small, commonly single digits) and route the rest t
 
 Decide the main vs Extended Data split **before** finalising the figure count; hand off the
 plan to `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md` (display-item plan). Source Data +
-Extended Data availability wording stays in `05_manuscript/personal/`.
+Extended Data availability wording stays in `05_manuscript/advanced/`.
 
 ## Imaging panels, statistical charts, de-identification
 
@@ -99,5 +99,5 @@ Nature-specific.
   main workflow (venue-independent).
 - Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`.
 - Source Data / Extended Data availability wording, "condition of publication" language →
-  `05_manuscript/personal/`.
+  `05_manuscript/advanced/`.
 - Reporting Summary cross-check for any figure that reports a statistic → `check-reporting`.

@@ -111,12 +111,12 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - Frontier framing / is this direction novel & publishable → `design-study`.
 - Sample size, EPV, power, Riley minimum sample size → `calc-sample-size`.
 - Hand-crafted radiomics pipeline design → `stats-analysis`.
-- Deep-learning architecture & training design → `03_research/personal/` (not a fine id).
+- Deep-learning architecture & training design → `03_research/advanced/` (not a fine id).
 - Imaging × omics mechanism design → `stats-analysis` / this pack.
 - ROI/mask annotation SOP → `preprocess-imaging`.
 - Which checklist the design must satisfy → `check-reporting`.
 - Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
-- Clinical-use scenario, reader study, prospective plan → `03_research/personal/clinical-translation/`.
-- Own funding proposal → `grant-builder` (generic slot) / personal grant voice (`03_research/personal/grant-writing.md` / `grant-review.md`). Do not copy grant skeletons into this pack.
+- Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/`.
+- Own funding proposal → `grant-builder` (generic slot) / advanced grant voice (`03_research/advanced/grant-writing.md` / `grant-review.md`). Do not copy grant skeletons into this pack.
 - English journal peer review → `peer-review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.

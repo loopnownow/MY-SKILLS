@@ -185,8 +185,8 @@ LAB_MODULES_VERSION = re.compile(r"v?(\d+\.\d+\.\d+)")
 # stats-analysis modules/__init__.py; these files may only repeat that number.
 VERSION_PROSE = (
     "02_data-processing/SKILL.md",
-    "02_data-processing/personal/analysis/pipeline.md",
-    "02_data-processing/personal/analysis/methods.md",
+    "02_data-processing/advanced/analysis/pipeline.md",
+    "02_data-processing/advanced/analysis/methods.md",
 )
 
 
