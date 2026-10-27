@@ -14,6 +14,16 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-multiple-imputation-rubin (2026-10-27)
+
+Multiple imputation replaces the "MICE" claim that the code never implemented.
+
+- **Problem:** the `impute` pack documented `mice` / "multiple imputation", but `z_impute` runs one `IterativeImputer` pass and returns one table. No between-imputation variance exists, so no Rubin pooling is possible and any CI built on that table is too narrow.
+- **Measured (40 replications, n=150, 30% MCAR in two predictors, beta1 true = 0.30):** single imputation bias +0.057 (+18.2%, p=0.002), RMSE 0.121; multiple imputation (m=20) bias +0.002 (+0.6%, p=0.85), RMSE 0.063; mean FMI 0.33. Single imputation is biased in this setting, not merely over-confident.
+- **Code (stats-analysis):** `modules/utils/u_mi.py` — `z_impute_mi` draws with `sample_posterior=True`, asserts observed cells never move; `rubin_pool` implements Rubin's rules with Barnard–Rubin df, FMI and RIV. CLI `model-validation/mi_impute.py draw|pool`.
+- **Pack:** `02_data-processing/base/clean-data/impute/MODULE.md` now opens STEP 1 with single-vs-multiple as the first decision, states the simulation numbers, and separates `mice` (alias of single chained imputation) from MI. Checklist gains one Methods sentence per case plus four new forbidden items; `02_data-processing/qc/report-checks.md` gains the matching error rows.
+- **Documented limit:** Rubin's rules do not cover a pipelined metric (LASSO then AUC). The pack says to repeat the whole pipeline per imputation and report mean + range, and forbids a "pooled AUC CI".
+
 ## CHG-20261027-xlsx-office-split-and-version (2026-10-27)
 
 Deleted the `xlsx-office` nested pack and moved its two parts where they belong. Fine ids 25 → 26.

@@ -84,6 +84,10 @@ Use this checklist when polishing Results and Methods sections.
 | SD vs SEM confusion in figure legends | Clarify: "error bars represent SD" or "error bars represent SEM" |
 | "Significant difference" without test | Name the test and report statistic |
 | p value without effect size | Add Cohen's d / AUC / OR depending on context |
+| "Missing values were imputed" + a CI, with no imputation count | Say single or multiple; for multiple give m and "combined using Rubin's rules" |
+| "MICE" / "multiple imputation" but the numbers came from one completed table | Rewrite: that is single chained imputation; do not claim MI |
+| "Pooled AUC (95% CI)" from Rubin's rules | Rubin does not cover a pipelined metric; report the mean across imputations with its range |
+| Imputation described without saying it was fit on training data only | Fit on train, transform test; any other order leaks |
 
 ---
 
