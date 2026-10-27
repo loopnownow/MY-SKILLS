@@ -1,6 +1,6 @@
 # Bank voice notes (harvest 2026-10-23)
 
-> Curated from `{doc_root}\skill-harvest\05-voice-from-quotes.md` (312 quote cards → top patterns).
+> Curated from `voice-cards.md` (40-card sample of 312; in-repo since 2026-10-27).
 > **Additive** reference for `write-paper` / `voice-portrait`. Does **not** replace `voice-portrait.md` or `Aitor-format.md`.
 > Standing: process 否定句 / CYA hedges → Word 批注 only (AL-5). Do **not** copy disclaimer hedges into manuscript body from this file.
 
@@ -19,11 +19,11 @@
 
 - Protocol cookbooks from Abstract Methods snippets (antibody dilutions, TBST recipes) — not voice.
 - Overclaim / clinical-importance inflation from weak cohorts.
-- Raw quote dumps (keep cards in 0doc / regenerable trees; skills get habits only).
+- Raw quote dumps (cards now in `voice-cards.md`; skills get habits only — do not grow the sample).
 
 ## Pointers
 
 - Live portrait: `../voice-portrait.md`
 - Advanced L2 table (owner's recurring wording + counts): `../vocab/L2/preferred-advanced.md`
 - Format locks: `../Aitor-format.md`
-- Harvest draft (full scored list): `{doc_root}\skill-harvest\05-voice-from-quotes.md`
+- Raw sample (40 scored cards): `voice-cards.md`
