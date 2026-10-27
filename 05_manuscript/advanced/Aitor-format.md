@@ -69,9 +69,9 @@ Bold is a content mark, not a restyle pass:
 
 There is **no 16 pt title** and **no 14 pt section title**. Do not restyle table cells on revision.
 
-- *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. No em-dash as punctuation.
+- *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. **Hard ban** em-dash (— / spaced `--`); replace with **parentheses**. **Hard ban** `≈` (write `about` / exact). En-dash ranges stay. Colon and semicolon are **discourage** (不推荐) in running prose — keep label colons (`Objective:` `95% CI:`).
 - **English punctuation only.**
-- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons or stacked *and*. Related short sentences still belong in the **same paragraph** (as paragraphs); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
+- English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons (不推荐) or stacked *and*; prefer a period. Related short sentences still belong in the **same paragraph** (as paragraphs); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
 - Software: `Analyses were performed in Python 3.13.` (version after Python; no parentheses unless the user adds a build, e.g. 3.13.9).
 - Split names (full paper), three words only:
   - **training set** — internal fitting (never `development set` / `Dev`)
@@ -232,7 +232,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 ## Tables
 
-- Three-line (top / header / bottom); **no verticals**; **thin** single lines (`sz` ≈ 4), **not bold**.
+- Three-line (top / header / bottom); **no verticals**; **thin** single lines (`sz` about 4), **not bold**.
 - Title above: `Table 1. ` **bold**; remainder not bold; flush left.
 - Notes below: 12 pt, flush left, no indent (justified allowed). **No** `Source: *-results.html` and **no** file paths.
 - Header cells: **no** `(n = 57)`.

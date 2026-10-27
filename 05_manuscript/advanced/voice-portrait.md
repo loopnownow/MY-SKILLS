@@ -111,6 +111,7 @@ This file is the **L2 writing slice** only (how paragraphs and set wording are p
 ### Figure legends
 - Legends **below** figures (`voice-portrait.md`).
 
-### Em-dash / typography that affect wording
-- Prediction-model full papers: no em-dash (see `Aitor-format.md`).
+### Punctuation that affect wording
+- **Hard ban:** em-dash (— / spaced `--`) — replace with **parentheses**; `≈` — write `about` / exact. En-dash ranges stay. See `Aitor-format.md` and `base/vocab/L1/ban-phrases.md`.
+- **Discourage (不推荐):** colon and semicolon in running prose (label colons such as `Objective:` / `95% CI:` stay).
 

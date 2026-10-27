@@ -180,13 +180,14 @@ class DashTests(unittest.TestCase):
         self.assertTrue(failed(sl.lint(doc("Discussion", "The model \u2014 trained early \u2014 failed.")),
                                "dash_cadence"))
 
-    def test_single_em_dash_is_fine(self):
-        self.assertFalse(failed(sl.lint(doc("Discussion", "The model \u2014 trained early failed.")),
-                                "dash_cadence"))
+    def test_single_em_dash_fails(self):
+        self.assertTrue(failed(sl.lint(doc("Discussion", "The model \u2014 trained early failed.")),
+                               "dash_cadence"))
 
-    def test_dashes_in_separate_sentences_are_fine(self):
-        self.assertFalse(failed(sl.lint(doc("Discussion", "One \u2014 aside. Two \u2014 aside.")),
-                                "dash_cadence"))
+    def test_dashes_in_separate_sentences_still_fail(self):
+        # zero tolerance: any sentence with an em-dash fails the group
+        self.assertTrue(failed(sl.lint(doc("Discussion", "One \u2014 aside. Two \u2014 aside.")),
+                               "dash_cadence"))
 
     def test_en_dash_ranges_are_fine(self):
         r = sl.lint(doc("Discussion", "Lesions of 5\u201310 mm and 20\u201330 mm were seen."))

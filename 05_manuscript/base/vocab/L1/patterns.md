@@ -9,7 +9,7 @@ When de-AI flags conflict with manuscript house style: Methods stay **passive**;
 ## What to remove or fix
 
 ### Formatting
-- **Em dashes (— and --)**: Replace with commas, periods, parentheses, or rewrite as two sentences. Target: zero. Hard max: one per 1,000 words. This applies to headings and section titles too, not just body prose. Catch both the Unicode em dash (—) and the double-hyphen substitute (--).
+- **Em dashes (— and --): hard ban.** Replace with **parentheses**, or a period / two sentences. Target: zero. En-dash ranges stay. Also ban ≈ (write bout / exact number). Colon and semicolon are **discourage** (不推荐), not hard-ban — see an-phrases.md.
 - **Bold overuse**: Strip bold from most phrases. One bolded phrase per major section at most, or none. If something's important enough to bold, restructure the sentence to lead with it instead.
 - **Emoji in headers**: Remove entirely. No `## 🚀 What This Means`. Exception: social posts may use one or two emoji sparingly — at the end of a line, never mid-sentence.
 - **Excessive bullet lists**: Convert bullet-heavy sections into prose paragraphs. Bullets only for genuinely list-like content (feature comparisons, step-by-step instructions, API parameters).
