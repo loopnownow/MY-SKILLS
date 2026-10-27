@@ -41,7 +41,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 | Voice portrait | `personal/voice-portrait.md` |
 | Route | `personal/route.md` |
 | Handoff (other skills) | `personal/handoff.md` |
-| L1 / L2 / L3 vocabulary | `05_manuscript/base/vocab/` (`personal/vocab/` = pointer) |
+| L1 / L2 / L3 vocabulary | `05_manuscript/base/vocab/` (`personal/vocab/` = personal L1 overrides + L2 personal table) |
 | Lab-STE (CM-01 ZH comments) | `05_manuscript/base/vocab/L3/lab-ste.md` (`05_manuscript/personal/vocab/` = overrides only) |
 | Process (evidence / citation / polish) | `personal/process/` |
 | Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |

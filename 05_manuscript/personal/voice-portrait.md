@@ -12,6 +12,7 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 ---
 
 **Bank harvest (2026-10-23):** additive notes in `05_manuscript/personal/references/bank-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
+**Personal L2 (2026-10-27):** the owner's recurring wording with bank counts lives in `05_manuscript/personal/vocab/L2/preferred-personal.md`. Base L2 stays canonical.
 
 ## 1. Overall portrait
 

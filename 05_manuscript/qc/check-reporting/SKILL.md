@@ -11,5 +11,5 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
 ## Vocab load (2026-10-17)
 
-**First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before drafting. `05_manuscript/personal/vocab/` is a pointer only. See A gates.md check (b).
+**First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before a checklist pass. The personal L1 overrides and the L2 personal phrase table live in `05_manuscript/personal/vocab/`; base stays canonical. See A gates.md check (b).
 

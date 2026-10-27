@@ -946,3 +946,45 @@ class PersonalMirrorDedupe(unittest.TestCase):
             for text in sorted(shared):
                 problems.append(f"{personal_rel} duplicates {base_rel}: {text[:90]}")
         self.assertEqual(problems, [], "verbatim mirror:\n" + "\n".join(problems[:10]))
+
+
+PERSONAL_VOCAB = ROOT / "05_manuscript" / "personal" / "vocab"
+HARVEST_SCRIPT = PERSONAL_VOCAB / "scripts" / "harvest_write_phrases.py"
+PERSONAL_L2 = PERSONAL_VOCAB / "L2" / "preferred-personal.md"
+
+
+class PersonalL2PhraseTable(unittest.TestCase):
+    """The owner's L2 table and its counter stay wired to the live vocab layers."""
+
+    def test_table_exists_with_tiers_and_columns(self) -> None:
+        text = PERSONAL_L2.read_text(encoding="utf-8")
+        for needle in ("| A |", "| B |", "| C |", "| 表达 | 次数 | 篇数 |"):
+            self.assertIn(needle, text)
+        # Banned words are never restated here; the yaml is the only authority.
+        self.assertIn("05_manuscript/base/vocab/L1/ban-terms.yaml", text)
+
+    def test_base_readmes_point_at_the_personal_table(self) -> None:
+        for rel in (
+            "05_manuscript/base/vocab/README.md",
+            "05_manuscript/base/vocab/MODULE.md",
+            "05_manuscript/personal/route.md",
+            "05_manuscript/personal/voice-portrait.md",
+        ):
+            self.assertIn("preferred-personal.md", (ROOT / rel).read_text(encoding="utf-8"), rel)
+
+    def test_counter_is_cited_and_offline(self) -> None:
+        cited = PERSONAL_L2.read_text(encoding="utf-8") + (
+            PERSONAL_VOCAB / "README.md").read_text(encoding="utf-8")
+        self.assertIn(HARVEST_SCRIPT.name, cited)
+        source = HARVEST_SCRIPT.read_text(encoding="utf-8")
+        imports = {
+            line.split()[1].split(".")[0]
+            for line in source.splitlines()
+            if line.startswith("import ") or line.startswith("from ")
+        }
+        self.assertLessEqual(
+            imports, {"__future__", "argparse", "bisect", "collections", "csv", "json",
+                      "pathlib", "re", "sys"},
+            "counter must stay stdlib only: %s" % sorted(imports),
+        )
+        self.assertNotIn("write_text(", source.split("def main")[0])

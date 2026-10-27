@@ -14,6 +14,37 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-personal-l2-phrase-bank (2026-10-27)
+
+Personal L2 phrase table, plus the three live contradictions it exposed.
+
+- **New:** `05_manuscript/personal/vocab/L2/preferred-personal.md` — the owner's
+  recurring wording with `次数` / `篇数` columns and A/B/C tiers (A = ≥3 papers and
+  ≥5 occurrences; B = record only; C = discard). Base L2 stays canonical; banned
+  words are never restated in L2 (single authority: `L1/ban-terms.yaml`).
+- **New:** `05_manuscript/personal/vocab/scripts/harvest_write_phrases.py` —
+  offline stdlib counter over `{doc_review_bank}`; 2–6-gram + sentence-edge
+  discovery, CJK n-grams gated on CJK presence, chain collapse so `这个` / `这个结`
+  / `这个结果` and `thank you` / `thank you for` keep only the longest form.
+  Dry-run by default; `--execute --out` writes the table. No YAML dependency.
+- **Fixed (P0 conflict):** `05_manuscript/personal/process/polisher-sections.md`
+  said novel / notably / interestingly / importantly were "NOT forbidden —
+  bank-verified". `05_manuscript/base/vocab/L1/ban-phrases.md` had reversed that
+  on 2026-08-29. The polisher now states the ban and calls the old counts history.
+- **Fixed:** the same file still recommended `demonstrated potential`, which the
+  lab-unused stock table bans (0 hits in 389 drafts); replaced with `could assist
+  [task]`. Its three "phrase bank §N (file not on disk)" pointers now resolve to
+  the base L2 sections and the personal table.
+- **Wording:** five "personal/vocab is a pointer only" statements (gates (b),
+  `write-paper`, `check-reporting`, `05_manuscript/SKILL.md`, both vocab README/MODULE)
+  now describe the personal layer as L1 overrides + the L2 personal table.
+- **Guard:** `tests/test_seat_packs.PersonalL2PhraseTable` (3) pins the tiers,
+  the columns, the base-to-personal pointers, and the script's stdlib-only rule.
+- **Boundary:** this change ships the table skeleton and the counter. Real counts
+  arrive after the owner runs the script on the local bank; promoting rows into
+  Tier A is a later change.
+- Suite 182 → 185 (4 skip). No push, no merge.
+
 ## CHG-20261027-multiple-imputation-rubin (2026-10-27)
 
 Multiple imputation replaces the "MICE" claim that the code never implemented.
