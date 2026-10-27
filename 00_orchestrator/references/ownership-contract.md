@@ -10,7 +10,7 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 |---|---|---|
 | Aitor | `00_orchestrator` | QC, intent classify, skill chain, gates, local recovery |
 | Loopnow | `02_data-processing` | data processing, stats, figures |
-| Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-corpus** (NLM ledger) |
+| Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-bank** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |

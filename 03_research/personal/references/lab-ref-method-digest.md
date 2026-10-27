@@ -12,7 +12,7 @@
 | Data SSOT (stays live) | `{doc_root}\_library\lab-ref-ranges\` (`README` + `schema.yaml` + xlsx + `qc\gate-hooks.md`) |
 | Related method | `scanner-registry-digest.md`（抽取结构先例）; Lab-STE = 语言 only |
 
-## Corpus facts (snapshot 2026-10-19; not estimates)
+## Bank facts (snapshot 2026-10-19; not estimates)
 
 - 75 docx: indicators appear as narrative + embedded Word tables — **no** cohort-level xlsx/csv in bodies.
 - Indicator-family hits (any alias): special 39 · coag 29 · liver 28 · pathology 27 · renal 19 · tumor 17 · heme 14 · clinical 9.
@@ -35,7 +35,7 @@
 | Indicator inventory (aliases, units as written) | Yes | follow scanner-registry extract pattern |
 | Cohort descriptive stats **with citation** | Yes | `source_type=cohort_table` — **not** `ri` |
 | Author cutoff (e.g. AFP > X) | Sometimes | `study_cutoff` — not institutional RI |
-| Population RI (healthy vs disease) | **No** from local corpus alone | need SOP / guideline / lit |
+| Population RI (healthy vs disease) | **No** from local bank alone | need SOP / guideline / lit |
 | Method-specific RI | Rare in body | prefer hospital SOP / IFU |
 | "Normal" IQR / extrema | Only with raw or complete report | **forbid** reverse-engineering from mean±SD |
 

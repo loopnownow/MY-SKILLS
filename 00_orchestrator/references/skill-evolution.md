@@ -36,12 +36,12 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 | Skills (S) | 00–07 skill bodies / personal | MY-SKILLS |
 | Registry (Reg) | fine-ID / fine-id registry | `00_orchestrator/registry.yaml` etc. |
 | Capabilities (Cap) | Live capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
-| Corpus | Corpus / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
+| Bank | Bank / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
 
 **Hard gates**
 
-- **Extract ≠ promote**: extraction writes only corpus / candidates; only **「进skills」 (promote into live skills)** may change runtime.
-- Corpus update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `skills.md` §1b).
+- **Extract ≠ promote**: extraction writes only bank / candidates; only **「进skills」 (promote into live skills)** may change runtime.
+- Bank update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `skills.md` §1b).
 - **No scoring system**; candidates record minimal fields only.
 
 ### Steps
@@ -54,10 +54,10 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
       │  user correction | failure rework | success case | AI hypothesis
       ▼
 3 Ownership
-      │  R / S / Reg / Cap / Corpus
+      │  R / S / Reg / Cap / Bank
       ▼
 4 Candidate record
-      │  Minimal fields; land in corpus; do not change live
+      │  Minimal fields; land in bank; do not change live
       ▼
 5 Human gate
       │  城城 says 「进skills」 (or equivalent explicit approval)
@@ -77,21 +77,21 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 |---|---|---|
 | User correction | Candidate → await 「进skills」 | No |
 | Failure rework | Candidate → await 「进skills」 | No |
-| Success case | **Default into Corpus** (may later candidate for promote) | No |
+| Success case | **Default into Bank** (may later candidate for promote) | No |
 | AI hypothesis | Record candidate / note only; **never** auto-change runtime | No |
 
-Intake format pointer: collection standard `HARVEST-STANDARD.md` (fine-ID: **corpus elements / process / cautions**; candidate fields attached, do not replace the three buckets).
+Intake format pointer: collection standard `HARVEST-STANDARD.md` (fine-ID: **bank elements / process / cautions**; candidate fields attached, do not replace the three buckets).
 
 ### 3–4 Ownership and minimal candidate fields
 
-Candidate records (corpus side) at least include:
+Candidate records (bank side) at least include:
 
 | Field | Notes |
 |---|---|
 | Evidence type | user correction / failure rework / success case / AI hypothesis |
-| Ownership | R / S / Reg / Cap / Corpus |
+| Ownership | R / S / Reg / Cap / Bank |
 | Strength | low / mid / high (qualitative; not a score) |
-| Disposition | corpus-only / awaiting approval / promoted / rejected / rolled back |
+| Disposition | bank-only / awaiting approval / promoted / rejected / rolled back |
 | Summary | one sentence; may attach fine-ID / path pointer |
 
 Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
@@ -100,7 +100,7 @@ Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
 
 | Risk tier | Examples | Gate |
 |---|---|---|
-| content | corpus draft, personal `corpus-*.md` addenda | 「进skills」 + budget |
+| content | bank draft, personal `bank-*.md` addenda | 「进skills」 + budget |
 | merge | edit existing skill body / merge PR | checklist + user agree to merge |
 | registry/ID | registry, fine-ID, fine-id map | explicit approval; never silently change IDs |
 | Rules | MY-RULES | highest gate; propose-only; explicit approval |
@@ -116,7 +116,7 @@ Before merge, answer in writing (PR description is fine):
 3. **SSOT**: does it duplicate or steal another layer’s authority? Is the authority home unique?
 4. **Budget and boundary**: ≤1 core behaviour change, ≤3 new rules, no unapproved boundary expansion?
 
-Any “no” → do not promote; fall back to corpus-only or revise the candidate.
+Any “no” → do not promote; fall back to bank-only or revise the candidate.
 
 ### 8 Promote / rollback
 

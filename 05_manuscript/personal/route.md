@@ -40,10 +40,10 @@ When polish requested after 00 QC:
 
 `Aitor-format.md` / `voice-portrait.md` / `route.md` / `handoff.md` / `vocab/README.md` (pointer) / `process/`
 
-## Corpus references (2026-10-23)
+## Bank references (2026-10-23)
 
-- `references/corpus-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
-- `references/corpus-patterns.md` — revision-pattern taxonomy (7255-unit summary)
+- `references/bank-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
+- `references/bank-patterns.md` — revision-pattern taxonomy (7255-unit summary)
 
 ## 0doc writing-rules absorb (2026-10-23)
 

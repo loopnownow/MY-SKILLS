@@ -24,6 +24,6 @@
 - Draft response letters here (use `07_response`)
 - Do not run first-pass base engines inside 06 after QC (re-review only)
 
-## Corpus references (2026-10-23)
+## Bank references (2026-10-23)
 
-- `references/corpus-review-habits.md` — harvest checklist (pointer from `review.md`)
+- `references/bank-review-habits.md` — harvest checklist (pointer from `review.md`)

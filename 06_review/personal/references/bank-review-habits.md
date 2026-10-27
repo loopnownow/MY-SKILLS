@@ -1,4 +1,4 @@
-# Corpus review habits (harvest 2026-10-23)
+# Bank review habits (harvest 2026-10-23)
 
 > Curated from `{doc_root}\skill-harvest\06-review-habits-candidates.md` (116 review-text files; ethics PDFs excluded).
 > Additive checklist for `peer-review` / `self-review` / `simulate-reviewers`. Does not replace `review.md` envelope.

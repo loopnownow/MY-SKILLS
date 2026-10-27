@@ -41,7 +41,7 @@ At `assurance: submission`, keep a master ledger (e.g. `RESUBMIT_REPORT.md` / `.
 |---|---|
 | Whitelist violation | Revert diff; re-run microedit under whitelist |
 | Critical kill-argument still open under text-only | User: relax constraints, change venue, or escalate to full rewrite |
-| Missing review corpus / prior packet | BLOCKED → supply corpus or exit resubmit mode |
+| Missing review bank / prior packet | BLOCKED → supply bank or exit resubmit mode |
 | Currency / template stale | `venue-currency.md` → 03 find-journal / 05 write-paper |
 
 ## Soft pointers

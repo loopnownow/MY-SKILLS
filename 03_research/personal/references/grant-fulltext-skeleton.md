@@ -20,7 +20,7 @@ Common spine (official ZH titles kept):
 10. 科室 / 医院意见栏
 
 ### 国自然青年 · 报告正文（NSFC Youth style）
-Official-ish major blocks seen in corpus (ZH titles are SSOT):
+Official-ish major blocks seen in bank (ZH titles are SSOT):
 - （一）立项依据与研究内容
   - 1．项目的立项依据（意义、国内外现状、发展趋势；附主要参考文献）
   - 2．项目的研究内容、研究目标，以及拟解决的关键科学问题
@@ -214,4 +214,4 @@ Fixed spine from forms (ZH titles kept):
 - 五、完成指标
 
 ## NOT absorbed
-Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `_corpus/.../library-ftp-20261023/fulltext/` and the {raw_root}\_lab park.
+Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `_bank/.../library-ftp-20261023/fulltext/` and the {raw_root}\_lab park.

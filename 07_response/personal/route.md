@@ -21,6 +21,6 @@
 - Lit substitute -> `03_research`
 - Exit QC -> `00_orchestrator`
 
-## Corpus references (2026-10-23)
+## Bank references (2026-10-23)
 
-- `references/corpus-reply-skeletons.md` — opener counts + reply skeleton (honor `response.md` opener)
+- `references/bank-reply-skeletons.md` — opener counts + reply skeleton (honor `response.md` opener)

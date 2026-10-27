@@ -1,6 +1,6 @@
 # Writing voice portrait (Aitor / Jinshan)
 
-Personal upper layer for **writing**. Corpus: multi-paper Track Changes + comments (SCI medical).
+Personal upper layer for **writing**. Bank: multi-paper Track Changes + comments (SCI medical).
 Executable format remains `Aitor-format.md`. This file keeps the **overall portrait** and habits that must not be watered down.
 
 **Locks (2026-09-24 / 2026-10-01):** keep **set** (`training` / `test` / `validation set`); **short sentences** (one fact per sentence) **inside continuous paragraphs**; figure legends **below** figures; Discussion **not** compressed by page quota.
@@ -11,7 +11,7 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 ---
 
-**Corpus harvest (2026-10-23):** additive notes in `05_manuscript/personal/references/corpus-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
+**Bank harvest (2026-10-23):** additive notes in `05_manuscript/personal/references/bank-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
 
 ## 1. Overall portrait
 
@@ -64,7 +64,7 @@ Do **not** add a Discussion page-length quota (no “cut to 1.5 pages”). Lengt
 
 ---
 
-## 5. Precision habits (from revision corpus; reinforce Methods/Results)
+## 5. Precision habits (from revision bank; reinforce Methods/Results)
 
 Use these when the HTML / source tables support them; never invent.
 

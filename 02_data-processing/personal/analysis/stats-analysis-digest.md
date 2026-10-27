@@ -1,6 +1,6 @@
 # stats-analysis — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\by-fine-id\`. **Not** a new registry fine-id. Cap stays `base/stats-analysis`. Lab detail SSOT: `methods.md` + `pipeline.md`.
+Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\by-fine-id\`. **Not** a new registry fine-id. Cap stays `base/stats-analysis`. Lab detail SSOT: `methods.md` + `pipeline.md`.
 
 ## elements
 - **Table 1:** three-row header (group / variable / n); Significance column immediately after P; categorical → positive % only.

@@ -1,6 +1,6 @@
 # draw-flowchart — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\`. **Not** a new registry fine-id. Cap stays in-repo `base/draw-flowchart`.
+Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archived under `{doc_root}\skill-harvest\`. **Not** a new registry fine-id. Cap stays in-repo `base/draw-flowchart`.
 
 ## elements
 - Figure 1 = enrollment / selection flow only (screen → include/exclude → enrolled → Training | Validation).

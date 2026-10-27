@@ -1,8 +1,8 @@
 # L2 preferred phrases + patterns
 
-## Part A — corpus phrase bank
+## Part A — phrase bank
 
-## Corpus Phrase Bank (rebuilt from source manuscripts)
+## Phrase Bank (rebuilt from source manuscripts)
 
 **Status:** purpose / methods / results openers refreshed 2026-08-28 from
 **389 unique drafts** (414 candidates → 409 extracted → 20 exact duplicates
@@ -15,13 +15,13 @@ these are provisional and sit below even the 96-draft baseline in sample
 size; re-confirm against the full 389-draft harvest before treating them as
 settled.
 
-Do **not** vendor unpublished full texts, title dumps, `corpus-raw/`, or
+Do **not** vendor unpublished full texts, title dumps, `bank-raw/`, or
 patient identifiers into this file. Templates are generic slots only.
 
 Use this file alongside `polisher-sections.md`. The sentence templates now live in this
 same file (merged 2026-10-16), so there is no separate template file to load.
 Where a pattern here disagrees with either of those files, **this file wins**
-for anything the corpus can settle (it's verbatim evidence); `Aitor-format.md`
+for anything the bank can settle (it's verbatim evidence); `Aitor-format.md`
 still wins for hard formatting/QC rules (CI dashes, banned voice, etc.).
 
 ---
@@ -142,7 +142,7 @@ against the full 389-draft harvest):
   - *"[Author] et al. demonstrated that a deep neural network could achieve dermatologist-level accuracy in distinguishing…"*
 - *"which may be attributed to…"* is used (3 occurrences) for explaining a
   discrepancy with prior literature; *"may be explained by"* does not appear
-  in this corpus — prefer *"attributed to"* over *"explained by"* for this
+  in this bank — prefer *"attributed to"* over *"explained by"* for this
   slot.
 
 ---
@@ -154,7 +154,7 @@ Opening-sentence variants, all attested:
 - *"This study had some limitations."* (5)
 - *"This study had several limitations."* (2)
 - lower-case "this study has/had…" variants also occur — case is inconsistent
-  in the raw corpus; **capitalize** per house style regardless.
+  in the raw bank; **capitalize** per house style regardless.
 
 Body pattern (verbatim):
 - *"This study had several limitations. First, selection bias was inevitable because of the retrospective nature of this study."*
@@ -176,7 +176,7 @@ Verified counts:
 **Dominant closing pattern: "Future research should…"** (with "Future
 studies should…" as a close second/interchangeable variant). "…are
 warranted…" / "warrants further study" is a minority form and should **not**
-be treated as the default — this matches and reconfirms the prior corpus
+be treated as the default — this matches and reconfirms the prior bank
 finding.
 
 Verbatim examples:
@@ -191,7 +191,7 @@ Verbatim examples:
 
 - *"In conclusion,…"* — 49 occurrences; the standard opener.
 - *"In summary,…"* — 6 occurrences; acceptable alternate, much less common.
-- *"Taken together,…"* — 0 occurrences; **not** attested in this corpus,
+- *"Taken together,…"* — 0 occurrences; **not** attested in this bank,
   don't introduce it as a template default.
 
 Verbatim examples:
@@ -207,7 +207,7 @@ All variants seen route through Jinshan Hospital, Fudan University, with the
 IRB/Ethics Committee number in parentheses. Do not standardize away from
 whichever the source manuscript already uses — both "Institutional Review
 Board" and "Ethics Committee" appear as the reviewing body name across
-different manuscripts in this corpus:
+different manuscripts in this bank:
 
 - *"approved by the Ethics Committee of Jinshan Hospital, Fudan University (No. …)"* (9)
 - *"approved by the Institutional Review Board (No. …)"* (7)
@@ -221,7 +221,7 @@ different manuscripts in this corpus:
 
 ### 8. Words that ARE banned (policy reversal, 2026-08-29)
 
-As of 2026-08-29 these four words are **Forbidden**. See `05_manuscript/base/vocab/L1/ban-phrases.md`. Counts below describe the old corpus; they do not license the words.
+As of 2026-08-29 these four words are **Forbidden**. See `05_manuscript/base/vocab/L1/ban-phrases.md`. Counts below describe the old bank; they do not license the words.
 
 | Word | Count |
 |---|---|
@@ -245,7 +245,7 @@ md5sum *.txt | awk '{print $1}' -> keep first of each unique hash (96 of 100 kep
 grep -ohE '<pattern>' | sort | uniq -c | sort -rn
 ```
 
-Re-run against a larger corpus if these files grow. Do not commit `corpus-raw/`.
+Re-run against a larger bank if these files grow. Do not commit `bank-raw/`.
 
 
 ---
@@ -408,7 +408,7 @@ Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI
 
 #### Limitations paragraph
 - "This study has several limitations. First, the retrospective design may have introduced selection bias. Second, all patients were recruited from a single center, which may limit the generalizability of our findings. Third, the sample size was relatively small, and external validation in larger, multicenter cohorts is needed. Fourth, the manual delineation of ROIs is time-consuming and subject to interobserver variability; automated segmentation methods may improve reproducibility in future studies. **Future research should focus on larger, multicenter, prospective studies to validate and further refine the proposed model.**"
-- Closing-sentence default is **"Future research should…" / "Future studies should…"** (18/96 and 9/96 respectively — corpus-dominant), not "…are warranted…" (a minority form, 14/96 total across *any* use of "warrant," not specific to this slot).
+- Closing-sentence default is **"Future research should…" / "Future studies should…"** (18/96 and 9/96 respectively — bank-dominant), not "…are warranted…" (a minority form, 14/96 total across *any* use of "warrant," not specific to this slot).
 
 #### Conclusion sentence
 Do **not** close with `demonstrated good performance` or `suggesting its potential`.

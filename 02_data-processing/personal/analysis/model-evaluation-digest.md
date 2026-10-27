@@ -1,6 +1,6 @@
 # model-evaluation — thin standing digest (2026-10-24)
 
-Corpus proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_root}\skill-harvest\by-fine-id\`. Cap stays `base/model-evaluation` (covers former `model-validation`). Lab detail SSOT: `methods.md` (Model evaluation) + `pipeline.md`.
+Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_root}\skill-harvest\by-fine-id\`. Cap stays `base/model-evaluation` (covers former `model-validation`). Lab detail SSOT: `methods.md` (Model evaluation) + `pipeline.md`.
 
 ## elements
 - **Metric family:** AUC (+ paired DeLong **p**), calibration (curve / slope), NRI/IDI, DCA when decision-support is claimed.

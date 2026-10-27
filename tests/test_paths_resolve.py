@@ -241,7 +241,7 @@ BARE_SKIP_PREFIXES = (
     "ref/",
     "_library/",
     "_code/",
-    "_corpus/",
+    "_bank/",
     "_meta/",
     "MY-SKILLS/",
     "~/",

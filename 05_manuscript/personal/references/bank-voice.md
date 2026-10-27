@@ -1,4 +1,4 @@
-# Corpus voice notes (harvest 2026-10-23)
+# Bank voice notes (harvest 2026-10-23)
 
 > Curated from `{doc_root}\skill-harvest\05-voice-from-quotes.md` (312 quote cards → top patterns).
 > **Additive** reference for `write-paper` / `voice-portrait`. Does **not** replace `voice-portrait.md` or `Aitor-format.md`.
