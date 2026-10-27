@@ -26,7 +26,8 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - **Stale tombstones:** "Until plot-figures is live", "registry `archived:`", per-page archived-alias notes → retired-alias wording per MY-RULES `skills.md` §6.
 - **Repaired edits:** `05_manuscript/base/write-paper/MODULE.md` had a spliced `.uestions,` fragment and two rules numbered 8; `03_research/base/fill-protocol/MODULE.md` had a duplicated frontmatter block (its second `description` was unquoted and did not parse).
 - **Contract:** `02_data-processing/base/README.md` gains a `Runs from` column; `{code_stats}` is named as the 02 seat's script half.
-- Suite: 175 tests, 1 skipped (baseline before this entry: 175 ran / 1 failed on the VERSION.txt BOM).
+- **Alias map tightened:** `lab-paths.yaml` 41 → 30 aliases; removed ten dead entries and `doc_jcr2026`/`code_docx_extract` duplicates of a sibling. Two `_code/_infra` cites retargeted to `{code_md_bank}`. New guards: `test_no_dead_alias`, `test_no_dangling_alias`.
+- Suite: 177 tests, 1 skipped (baseline before this entry: 175 ran / 1 failed on the VERSION.txt BOM).
 
 ## CHG-20261026-archived-delete-on-qc (2026-10-26)
 
