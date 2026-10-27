@@ -53,5 +53,5 @@ Already covered in `../response.md` Hard rules — **do not fork:** no invent fo
 - Letter voice SSOT: `../response.md`
 - Template type stubs (no PII dump): `response-letter-template-digest.md`
 - Bank stems: `bank-reply-skeletons.md`
-- Regenerable reply units: `{code_md_bank}\s18_reply_units.py`; harvest `{doc_root}\skill-harvest\07-reply-skeletons.md`
+- Reply units: ~~`{code_md_bank}\s18_reply_units.py`~~ — **2026-10-27 md-bank retired**（脚本在 `{DEL}\_by-function\0doc-deep-clean-20261027\removed`，只读）；harvest `{doc_root}\skill-harvest\07-reply-skeletons.md`
 - Bulk cards / flattened (purge risk): `{DEL}\_by-project\0doc-05-07-roles-20261023\07-response\advanced\`
