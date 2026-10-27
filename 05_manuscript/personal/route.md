@@ -13,7 +13,7 @@
 1. **L1 words:** B `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
 2. **L1 patterns:** B `05_manuscript/base/vocab/L1/patterns.md`
 3. **L1 SCI overrides:** B `05_manuscript/base/vocab/L1/sci-overrides.md`
-4. **L2 preferred:** B `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`
+4. **L2 preferred:** B `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`; personal usage with counts: `05_manuscript/personal/vocab/L2/preferred-personal.md`
 5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
 6. **L3 specialty + Lab-STE:** B `05_manuscript/base/vocab/L3/lab-ste.md`
 

@@ -4,6 +4,7 @@ Merged from: `test_audit_invariants.py`, `test_lab_rules.py`, `test_rule_landing
 """
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 import re
 import subprocess
@@ -946,3 +947,94 @@ class PersonalMirrorDedupe(unittest.TestCase):
             for text in sorted(shared):
                 problems.append(f"{personal_rel} duplicates {base_rel}: {text[:90]}")
         self.assertEqual(problems, [], "verbatim mirror:\n" + "\n".join(problems[:10]))
+
+
+PERSONAL_VOCAB = ROOT / "05_manuscript" / "personal" / "vocab"
+HARVEST_SCRIPT = PERSONAL_VOCAB / "scripts" / "harvest_write_phrases.py"
+PERSONAL_L2 = PERSONAL_VOCAB / "L2" / "preferred-personal.md"
+
+
+def _load_harvest():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("harvest_under_test", HARVEST_SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+class PersonalL2PhraseTable(unittest.TestCase):
+    """The owner's L2 table and its counter stay wired to the live vocab layers."""
+
+    def test_table_exists_with_tiers_and_columns(self) -> None:
+        text = PERSONAL_L2.read_text(encoding="utf-8")
+        for needle in ("| A |", "| B |", "| C |", "| **Locked** |"):
+            self.assertIn(needle, text)
+        # Column headers are English; the Chinese form is kept as an accepted legacy shape.
+        self.assertTrue(
+            "| 表达 | 次数 | 篇数 |" in text or "| Phrase | Count | Docs |" in text,
+            "personal L2 table must expose Phrase / Count / Docs columns",
+        )
+        # Banned words are never restated here; the yaml is the only authority.
+        self.assertIn("05_manuscript/base/vocab/L1/ban-terms.yaml", text)
+
+    def test_base_readmes_point_at_the_personal_table(self) -> None:
+        for rel in (
+            "05_manuscript/base/vocab/README.md",
+            "05_manuscript/base/vocab/MODULE.md",
+            "05_manuscript/personal/route.md",
+            "05_manuscript/personal/voice-portrait.md",
+        ):
+            self.assertIn("preferred-personal.md", (ROOT / rel).read_text(encoding="utf-8"), rel)
+
+    def test_counter_is_cited_and_offline(self) -> None:
+        cited = PERSONAL_L2.read_text(encoding="utf-8") + (
+            PERSONAL_VOCAB / "README.md").read_text(encoding="utf-8")
+        self.assertIn(HARVEST_SCRIPT.name, cited)
+        source = HARVEST_SCRIPT.read_text(encoding="utf-8")
+        imports = {
+            line.split()[1].split(".")[0]
+            for line in source.splitlines()
+            if line.startswith("import ") or line.startswith("from ")
+        }
+        self.assertLessEqual(
+            imports, {"__future__", "argparse", "collections", "json", "pathlib", "re", "sys"},
+            "counter must stay stdlib only: %s" % sorted(imports),
+        )
+        self.assertNotIn("write_text(", source.split("def main")[0])
+
+    def test_one_span_is_counted_once_per_sentence(self) -> None:
+        """An overlapping head/tail window must not double the count."""
+        harvest = _load_harvest()
+        # 7 CJK chars: the 8-char window trims to the same string as the 7-char one.
+        zh = Counter(harvest.zh_phrases("建议补充校准曲线。"))
+        self.assertEqual(zh["建议补充校准曲线"], 1, dict(zh))
+        en = Counter(harvest.en_phrases("Thank you for the suggestion."))
+        self.assertEqual(en["thank you for the suggestion"], 1, dict(en))
+
+    def test_doc_frequency_counts_papers_not_paragraphs(self) -> None:
+        """One paper repeating a phrase ten times still counts as one paper.
+
+        The phrase has to sit at a sentence edge: only edge windows are collected,
+        which is what keeps mid-sentence fragments out of the table.
+        """
+        harvest = _load_harvest()
+        sentence = ("This study has several limitations and the retrospective design "
+                    "may have introduced selection bias in our cohort.")
+        docs = [("Discussion", "doc1", sentence)] * 10 + [("Discussion", "doc2", sentence)]
+        occurrences, presence, _sections, distinct = harvest.harvest(docs, "both")
+        phrase = "this study"
+        self.assertEqual(presence[phrase], 2, "篇数 must be 2 papers, not 11 paragraphs")
+        self.assertGreater(occurrences[phrase], presence[phrase], "次数 must stay occurrences")
+        self.assertEqual(distinct["Discussion"], 2)
+        self.assertNotIn("the retrospective design", occurrences,
+                         "mid-sentence spans must not be collected")
+        self.assertIn("this study has several limitations", occurrences,
+                      "sentence-head openers must survive the tail filter")
+
+    def test_locked_rows_are_never_dropped_by_frequency(self) -> None:
+        """`could assist [task]` is a mandated replacement, so a 0 count keeps it."""
+        text = PERSONAL_L2.read_text(encoding="utf-8")
+        self.assertIn("could assist [task]", text)
+        self.assertIn("格式锁", text, "the Locked tier must be documented in the table")
+        self.assertIn("Frequency never overrides a lock", text)

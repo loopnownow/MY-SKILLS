@@ -10,4 +10,4 @@ owner: "05_manuscript/base/vocab/MODULE.md"
 Capability body: [MODULE.md](MODULE.md). Layer inventory: [README.md](README.md).
 
 Do not treat this as a new fine ID — completes the pack contract for existing `vocab/`.
-Personal overrides stay in `05_manuscript/personal/vocab/`.
+Personal overrides and the L2 personal phrase table stay in `05_manuscript/personal/vocab/`.

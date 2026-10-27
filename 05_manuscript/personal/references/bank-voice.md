@@ -24,5 +24,6 @@
 ## Pointers
 
 - Live portrait: `../voice-portrait.md`
+- Personal L2 table (owner's recurring wording + counts): `../vocab/L2/preferred-personal.md`
 - Format locks: `../Aitor-format.md`
 - Harvest draft (full scored list): `{doc_root}\skill-harvest\05-voice-from-quotes.md`

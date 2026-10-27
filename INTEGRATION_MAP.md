@@ -14,6 +14,64 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-vocab-paras-sections (2026-10-27)
+
+Paragraph-layer harvest: the personal L2 table now carries measured counts, and the bank's
+missing section index is rebuilt instead of trusted.
+
+- **Filled:** `05_manuscript/personal/vocab/L2/preferred-personal.md` — every curated row now
+  carries `Count` / `Docs` (column headers switched to English; legacy Chinese header accepted
+  by the guard). 34 rows: 10 A, 9 B, 4 locked, 11 unlocked zero-hit. Zero-hit rows moved into
+  "Unverified / to rewrite"; locked rows (format or ban replacement) stay in their tables with
+  `lock: 格式锁` / `lock: 禁词替代` and are never demoted by frequency.
+- **New:** `05_manuscript/personal/vocab/scripts/harvest_sections.py` — the paragraph layer
+  ships `section_idx = 0` on every row, so `harvest_write_phrases.py --section` returns
+  nothing. This companion rebuilds IMRAD sections from heading paragraphs (numbering stripped,
+  heading detection ahead of the length floor), drops the References section, counts
+  sentence-head / sentence-tail windows per section, uses 3–8 character Chinese windows with
+  dominance collapse, and reports `docs per section` / `paragraphs per section`.
+- **Measured (05 manuscripts, 75 docs, 4,435 prose paragraphs):** Methods 73, Results 73,
+  Discussion 71, Introduction 71, front 65, Abstract 63, Conclusion 48 docs.
+- **Guard:** `tests/test_vocab_harvest_sections.py` (13) pins heading detection, per-document
+  section inheritance, the table/textbox/reference/short-paragraph filters, the 3-character
+  Chinese floor, dominance collapse, per-document `Docs` counting, and the ban flag.
+- **Contract update:** `tests/test_seat_packs.PersonalL2PhraseTable` now accepts the English
+  column header and requires the `Locked` tier row, which the 84b3c25 policy introduced.
+- **Boundary:** counts are evidence, not verdicts; tier assignment and any wording rewrite stay
+  with the owner.
+
+
+## CHG-20261027-personal-l2-phrase-bank (2026-10-27)
+
+Personal L2 phrase table, plus the three live contradictions it exposed.
+
+- **New:** `05_manuscript/personal/vocab/L2/preferred-personal.md` — the owner's
+  recurring wording with `次数` / `篇数` columns and A/B/C tiers (A = ≥3 papers and
+  ≥5 occurrences; B = record only; C = discard). Base L2 stays canonical; banned
+  words are never restated in L2 (single authority: `L1/ban-terms.yaml`).
+- **New:** `05_manuscript/personal/vocab/scripts/harvest_write_phrases.py` —
+  offline stdlib counter over `{doc_review_bank}`; 2–6-gram + sentence-edge
+  discovery, CJK n-grams gated on CJK presence, chain collapse so `这个` / `这个结`
+  / `这个结果` and `thank you` / `thank you for` keep only the longest form.
+  Dry-run by default; `--execute --out` writes the table. No YAML dependency.
+- **Fixed (P0 conflict):** `05_manuscript/personal/process/polisher-sections.md`
+  said novel / notably / interestingly / importantly were "NOT forbidden —
+  bank-verified". `05_manuscript/base/vocab/L1/ban-phrases.md` had reversed that
+  on 2026-08-29. The polisher now states the ban and calls the old counts history.
+- **Fixed:** the same file still recommended `demonstrated potential`, which the
+  lab-unused stock table bans (0 hits in 389 drafts); replaced with `could assist
+  [task]`. Its three "phrase bank §N (file not on disk)" pointers now resolve to
+  the base L2 sections and the personal table.
+- **Wording:** five "personal/vocab is a pointer only" statements (gates (b),
+  `write-paper`, `check-reporting`, `05_manuscript/SKILL.md`, both vocab README/MODULE)
+  now describe the personal layer as L1 overrides + the L2 personal table.
+- **Guard:** `tests/test_seat_packs.PersonalL2PhraseTable` (3) pins the tiers,
+  the columns, the base-to-personal pointers, and the script's stdlib-only rule.
+- **Boundary:** this change ships the table skeleton and the counter. Real counts
+  arrive after the owner runs the script on the local bank; promoting rows into
+  Tier A is a later change.
+- Suite 182 → 185 (4 skip). No push, no merge.
+
 ## CHG-20261027-multiple-imputation-rubin (2026-10-27)
 
 Multiple imputation replaces the "MICE" claim that the code never implemented.

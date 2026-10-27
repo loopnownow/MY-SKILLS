@@ -33,10 +33,10 @@ If the user provides raw text without labeling the section, infer from content s
 ### §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. See the phrase bank §1 (389 unique drafts, 2026-08-28); the bulk file is a `{DEL}` park, not a repo path.
+1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. Counts by family: `05_manuscript/base/vocab/L2/preferred.md` §1; the owner's own usage: `05_manuscript/personal/vocab/L2/preferred-personal.md`.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
-4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist"*, *"demonstrated potential"* — never absolute claims.
+4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist [task]"* — never absolute claims, and never `demonstrated potential` (lab-unused stock; `05_manuscript/base/vocab/L1/ban-phrases.md`).
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
@@ -175,7 +175,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
   3. Relatively small sample size
   4. Need for external multicenter validation
   5. (If applicable) manual ROI segmentation variability
-- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. See the phrase bank §5.
+- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. Counts: `05_manuscript/base/vocab/L2/preferred.md` §5.
 
 **¶6 / Conclusion (separate section)**
 - 1–2 sentences maximum.
@@ -231,14 +231,12 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 - *"superior"* (use *"outperformed"* or *"showed higher AUC than"*)
 - *"will"* for predictions (use *"may"* or *"could"*)
 
-**NOT forbidden — bank-verified, do not re-add:** *"novel"* (59 occurrences),
-*"notably"* (21), *"interestingly"* (13), *"importantly"* (9). These appear
-in the edited, submission-ready bank used purposefully and sparingly — e.g.
-flagging one genuinely unexpected result or the single most clinically
-load-bearing sentence in a paragraph — never as filler repeated throughout.
-The editorial rule is "keep if it's doing real work, cut if it's decorative,"
-not "delete on sight." See the phrase bank §8 for
-verified in-context examples before deciding to cut one.
+**Banned — the 2026-08-29 reversal stands:** *"novel"*, *"notably"*, *"interestingly"*,
+*"importantly"*. The bank does hold old occurrences (59 / 21 / 13 / 9), and that
+count is history, not a licence: the ban was decided after those manuscripts were
+written. Authority: `05_manuscript/base/vocab/L1/ban-terms.yaml`, human table in
+`05_manuscript/base/vocab/L1/ban-phrases.md`. `00_orchestrator/scripts/style_lint.py`
+enforces it. Delete the word and state the fact instead.
 
 #### Sentence structure targets
 - **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
