@@ -191,21 +191,30 @@ VERSION_PROSE = (
 
 
 class LabModulesVersionProse(unittest.TestCase):
-    """Skill prose must not drift from the library's declared version.
+    """Skill prose must state the version the library actually declares.
 
-    2026-10-27: the prose said 4.3.0 while modules/__init__.py said 4.3.1, and
-    pyproject.toml said 0.1.0. The number is checked in stats-analysis by
-    test_version_consistency.py; here we only require that whatever version the
-    prose states agrees with itself and looks like a release triple.
+    2026-10-27: the prose said 4.3.0 while `modules/__init__.py` said 4.3.1 and
+    `pyproject.toml` said 0.1.0. Rather than hard-code the offending numbers (which
+    would need editing at every release), this reads the version out of the
+    stats-analysis tree when it is present and compares.
     """
 
-    def test_version_statements_agree(self) -> None:
+    STATS_INIT = ROOT.parent / "stats-analysis" / "modules" / "__init__.py"
+
+    def _library_version(self) -> str | None:
+        if not self.STATS_INIT.is_file():
+            return None
+        match = re.search(
+            r'__version__\s*=\s*"([0-9]+\.[0-9]+\.[0-9]+)"',
+            self.STATS_INIT.read_text(encoding="utf-8"),
+        )
+        return match.group(1) if match else None
+
+    def test_prose_states_one_version(self) -> None:
         seen: dict[str, list[str]] = {}
         for rel in VERSION_PROSE:
             text = (ROOT / rel).read_text(encoding="utf-8")
             for line_no, line in enumerate(text.splitlines(), 1):
-                if "4.3.0" in line or "0.1.0" in line:
-                    self.fail(f"{rel}:{line_no}: stale module version -> {line.strip()[:90]}")
                 for match in LAB_MODULES_VERSION.finditer(line):
                     if "Lab pipeline" in line or "lab modules" in line.lower() or "modules v" in line:
                         seen.setdefault(match.group(1), []).append(f"{rel}:{line_no}")
@@ -215,3 +224,24 @@ class LabModulesVersionProse(unittest.TestCase):
             "skill prose states more than one lab-module version:\n"
             + "\n".join(f"  {v}: {sites}" for v, sites in seen.items()),
         )
+
+    def test_prose_matches_library_when_repo_is_present(self) -> None:
+        expected = self._library_version()
+        if expected is None:
+            self.skipTest("stats-analysis checkout not beside MY-SKILLS")
+        for rel in VERSION_PROSE:
+            for line_no, line in enumerate(
+                (ROOT / rel).read_text(encoding="utf-8").splitlines(), 1
+            ):
+                for match in LAB_MODULES_VERSION.finditer(line):
+                    if not (
+                        "Lab pipeline" in line
+                        or "lab modules" in line.lower()
+                        or "modules v" in line
+                    ):
+                        continue
+                    self.assertEqual(
+                        match.group(1),
+                        expected,
+                        f"{rel}:{line_no} says {match.group(1)} but the library is {expected}",
+                    )
