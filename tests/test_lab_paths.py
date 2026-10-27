@@ -117,3 +117,64 @@ class NoRawLabPaths(unittest.TestCase):
             "raw lab drive paths in live bodies (use {doc_root} / {DEL} / {raw_root} / "
             "{code_modules} / {skills_git} / {lab_root}):\n" + "\n".join(bad[:40]),
         )
+
+
+ALIAS_TOKEN = re.compile(r"\{([a-z][a-z0-9_]+)\}")
+
+
+def _alias_tokens() -> dict[str, set[str]]:
+    """alias -> files that cite it as `{alias}`."""
+    uses: dict[str, set[str]] = {}
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".md", ".yaml", ".yml", ".mmd", ".py"}:
+            continue
+        if SKIP_DIRS & set(path.parts):
+            continue
+        if path.name == "lab-paths.yaml":
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for token in ALIAS_TOKEN.findall(text):
+            uses.setdefault(token, set()).add(rel)
+    return uses
+
+
+class AliasMapIsTight(unittest.TestCase):
+    """Every alias is cited somewhere, and every path-shaped {token} is defined.
+
+    A dead alias is a path nobody uses; a dangling one is a path that resolves to
+    nothing at read time. Both were found in the 2026-10-27 deep QC.
+    """
+
+    PATH_PREFIXES = ("code_", "doc_", "find_journal_", "jcr", "lab_", "raw_", "del_", "rules_", "skills_")
+    # Retired names may still appear in dated history lines (VERSION.txt / INTEGRATION_MAP.md).
+    HISTORY_ONLY = {"code_06_review", "doc_xml"}
+
+    def test_no_dead_alias(self) -> None:
+        aliases = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))["aliases"]
+        uses = _alias_tokens()
+        dead = sorted(name for name in aliases if name not in uses)
+        self.assertEqual(
+            dead,
+            [],
+            "aliases declared but never cited (delete them or cite them):\n"
+            + "\n".join(f"  {name}: {aliases[name]}" for name in dead),
+        )
+
+    def test_no_dangling_alias(self) -> None:
+        aliases = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))["aliases"]
+        uses = _alias_tokens()
+        dangling = sorted(
+            token
+            for token in uses
+            if token.startswith(self.PATH_PREFIXES)
+            and token not in aliases
+            and token not in self.HISTORY_ONLY
+        )
+        self.assertEqual(
+            dangling,
+            [],
+            "path-shaped {tokens} with no entry in lab-paths.yaml "
+            "(cite an existing alias, or add the alias):\n"
+            + "\n".join(f"  {{{t}}}: {sorted(uses[t])[:3]}" for t in dangling),
+        )

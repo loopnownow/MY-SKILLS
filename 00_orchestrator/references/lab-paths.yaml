@@ -14,11 +14,9 @@ aliases:
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
   rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
-  rules_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
   # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/personal|base; live content under personal\.
   doc_lab_ste: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
-  doc_jcr2026: "D:\\0Grok\\0doc\\_library\\jcr2026"
-  # Curated xlsx may move; from 2026-10-23 lives under mem\ (not the topic bank tree)
+  # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
   jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\0Grok\\0doc\\_library\\jcr2026\\submission"
   find_journal_pools: "D:\\0Grok\\0doc\\_library\\find-journal\\data\\2026"
@@ -30,12 +28,10 @@ aliases:
   # Live flattened SSOT: _bank\\bank\\flattened.jsonl.
   doc_review_replies: "D:\\0Grok\\0doc\\_bank"
   doc_grants: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
-  # Thesis Word originals moved 2026-10-22 to the D:\\00db\\_lab\\doc-word archive; 0doc keeps only the md view.
-  doc_thesis: "D:\\00db\\_lab\\doc-word\\05-manuscript\\thesis"
+  # Thesis Word originals live under D:\\00db\\_lab\\doc-word (archive); no dedicated alias.
   doc_word_archive: "D:\\00db\\_lab\\doc-word"
   doc_ethics: "D:\\0Grok\\0doc\\_library\\ethics"
   doc_fill_protocol: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-methods-20261023\\study-design\\fill-protocol"  # method park; live Jinshan notes in 03_research/personal/fill-protocol; scripts={code_fill_protocol}; PHI blanks under {doc_ethics}
-  doc_migrate: "D:\\00db\\_lab\\_ledgers\\0doc-tidy-20261022-r2\\MIGRATE_FROM_SKILLS.md"
   # stats engine SSOT (2026-10-25): GitHub\stats-analysis (former 0doc\_code\04-analysis\stats-analysis retired)
   code_stats: "D:\\0Grok\\0doc\\GitHub\\stats-analysis"
   code_modules: "D:\\0Grok\\0doc\\GitHub\\stats-analysis\\modules"
@@ -45,25 +41,16 @@ aliases:
   # no base\ under _code 02–07 (fine-ID folders are direct children)
   code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing"
   code_clean_data: "D:\\0Grok\\0doc\\_code\\02-data-processing\\clean-data"
-  code_preprocess_imaging: "D:\\0Grok\\0doc\\_code\\02-data-processing\\preprocess-imaging"
   code_fill_protocol: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol"
   code_figures: "D:\\0Grok\\0doc\\_code\\02-data-processing\\draw-flowchart"
   code_write_paper: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
-  code_revise: "D:\\0Grok\\0doc\\_code\\07-response\\revise"
   code_md_bank: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response\\md-bank"
-  code_lab_reference: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol\\lab-reference"
-  code_sync: "D:\\0Grok\\0doc\\_code\\02-data-processing\\_shared\\sync"
-  code_docx_extract: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
-  code_tighten_response: "D:\\0Grok\\0doc\\_code\\07-response\\tighten-response"
-
-  # 2026-10-23 infra rehome: md-bank/lab-reference/sync left _infra
-  code_code_manifest: "D:\\0Grok\\0doc\\_code\\CODE-MANIFEST.tsv"
   code_bank_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
   - "2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
   - "2026-10-24: harvest SSOT moved {_bank\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
-  - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_runtime}/{rules_git} = MY-RULES clone; Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
+  - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_git} = MY-RULES clone (rules_runtime dropped: same tree); Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}. 2026-10-25: stats SSOT is GitHub\\stats-analysis ({code_stats}/{code_modules}); {code_modules_master} equals {code_modules}; former _code\\04-analysis\\stats-analysis retired."
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
