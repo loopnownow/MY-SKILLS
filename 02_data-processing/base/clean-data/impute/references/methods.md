@@ -29,7 +29,7 @@ Ultra-fast (quality second):
 ## Grouping rules
 
 - **Must** stratify by outcome/cohort (`Group` / SSD·HC / case·control); do not fill missingness from the opposite group’s distribution.
-- `z_impute` pools an outcome-like `group_col` unless you pass `allow_outcome_stratify=True`. The `{code_model_validation}\impute_excel.py` CLI already does; a direct call must set it too.
+- **An explicitly named `group_col` always stratifies.** The outcome guard only fires when no column is named: `z_impute(df)` skips a `Group` column whose name looks outcome-like, because that column is usually `y`. Name your cohort column explicitly, or pass `outcome_cols=["<outcome>"]` when `Group` is a cohort label.
 - Within a group, if a column has < 2 non-missing or < 2 unique values → skip that column×group (or later median fallback).
 - Whole column missing inside a group → cannot learn within-group; keep NaN or switch to a global strategy (this skill defaults to no cross-group fill).
 

@@ -124,9 +124,20 @@ python "{code_model_validation}\impute_excel.py" \
 | `--mf-trees` | 30 | missForest only |
 | `--include-categorical` | off | encode categoricals |
 
-The CLI passes `allow_outcome_stratify=True`, so an explicitly named `--group` is honored even
-when the column is called `Group` / `outcome`. Calling `z_impute` directly does not — pass the
-flag yourself.
+**An explicitly named group column always stratifies**, including one called `Group` or `outcome`.
+The CLI passes `--group` through as an explicit name, so it always stratifies.
+
+The outcome guard only applies when you name **no** column: `z_impute(df)` looks for a `Group`
+column and skips it if the name looks outcome-like, because that column is usually `y` and
+stratifying on the outcome writes it into the predictors. If your `Group` is a cohort label and the
+outcome lives elsewhere, either name the column explicitly or pass `outcome_cols=["<outcome>"]`:
+
+| Call | Behaviour |
+|---|---|
+| `z_impute(df, group_col="Group")` | stratifies — explicit wins, whatever the name |
+| `z_impute(df)` | one pool if `Group` looks outcome-like, else stratifies |
+| `z_impute(df, group_col=None)` | one pool, explicitly |
+| `z_impute(df, outcome_cols=["Outcome"])` | `Group` is a cohort, not the outcome → stratifies |
 
 ### B. Python
 
@@ -138,7 +149,7 @@ out = z_impute(
     group_col="Group",
     method="iterative",      # median | mean | iterative (alias mice) | missForest
     align_decimals=True,
-    allow_outcome_stratify=True,   # explicit stratum, not an outcome to strip
+    # An explicit group_col always stratifies. To fill as one pool, pass group_col=None.
     verbose=True,
 )
 ```
