@@ -17,7 +17,7 @@ Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Cre
 
 ## Layout note (2026-10-23)
 
-On disk under `_library\lit-bank\` the old `personal\` / `base\` **directory wrappers were flattened**. `layer=personal|base` remains a **CSV column**, not a folder. Method docs: skill `personal/references/lit-bank-method-digest.md` (absorbed 2026-10-23; originals parked under `D:\00db\_lab\originals\0doc-library-methods-20261023\lit-bank-method\`).
+On disk under `_library\lit-bank\` the old `personal\` / `base\` **directory wrappers were flattened**. `layer=personal|base` remains a **CSV column**, not a folder. Method docs: skill `personal/references/lit-bank-method-digest.md` (absorbed 2026-10-23; originals in **archive leftover** `{raw_root}\_lab\originals\0doc-library-methods-20261023\lit-corpus-method\` — folder still named lit-corpus-method; `{DEL}` methods park / lit-bank-method path **absent**; live bank name remains **lit-bank**).
 
 ## Layers
 
@@ -107,7 +107,7 @@ When drafting Introduction / Related Work / Discussion needs **group evidence**,
 
 - ORCID iD (public): `0000-0001-5062-0230` — works via `https://pub.orcid.org/v3.0/0000-0001-5062-0230/works`
 - Data SSOT: `{doc_root}\_library\lit-bank\index.csv` (`layer=personal`). Skills hold **procedure only** — never mirror the paper list here.
-- ORCID backfill (2026-10-27 Asia/Shanghai): 48 ORCID work-groups → **42** already/newly in `index.csv`; disposition ledger `D:\0del\_by-function\orcid-works-20261027\personal-works.csv` (+ README). CN journals excluded; SSRN/Research Square preprints noted, not ingested as SCI.
+- ORCID backfill (2026-10-27 Asia/Shanghai): 48 ORCID work-groups → **42** already/newly in `index.csv`; disposition ledger `{DEL}\_by-function\orcid-works-20261027\personal-works.csv` (+ README). CN journals excluded; SSRN/Research Square preprints noted, not ingested as SCI.
 - Prefer-cite: see section above (`layer=personal` before `base`).
 
 ## Pointers
