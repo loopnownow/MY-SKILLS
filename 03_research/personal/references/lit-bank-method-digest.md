@@ -9,10 +9,10 @@
 | Role | Path |
 |---|---|
 | Durable original | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lit-bank-method\` |
-| Park | `{DEL}\_by-project\0doc-library-methods-20261023\lit-bank-method\` |
+| Park (archive leftover; `{DEL}\_by-project\0doc-library-methods-20261023\lit-bank-method\` **absent**) | `{raw_root}\_lab\originals\0doc-library-methods-20261023\lit-corpus-method\` (folder still named lit-corpus-method; live bank name remains **lit-bank**) |
 | Data SSOT (stays live) | `{doc_root}\_library\lit-bank\` (`index.csv`, `themes.md`, layer READMEs) |
 | CSV header template | `03_research/personal/references/lit-bank-index.template.csv` |
-| One-shot scripts (not in skills) | `{DEL}\_by-project\lit-bank\*.py` |
+| One-shot scripts (not in skills; archive leftover) | `{raw_root}\_lab\originals\_leftover-20261024\_by-project\lit-corpus\*.py` (working park `{DEL}\_by-project\lit-bank\` **absent**; leftover folder still named lit-corpus) |
 
 ## Invariant rules
 
@@ -36,7 +36,7 @@
 7  check_index / validate_index / make_report
 ```
 
-Batch artifacts (`ann-NN.tsv`, `batch-NN.txt`, `base-todo.csv`) live under `{DEL}\_by-project\lit-bank\` — never inside `_library\lit-bank\`.
+Batch artifacts (`ann-NN.tsv`, `batch-NN.txt`, `base-todo.csv`) live under the **archive leftover** `{raw_root}\_lab\originals\_leftover-20261024\_by-project\lit-corpus\` (working park `{DEL}\_by-project\lit-bank\` **absent**; leftover still named lit-corpus) — never inside `_library\lit-bank\`.
 
 ## Script groups (26 one-shots — path pointers only)
 
