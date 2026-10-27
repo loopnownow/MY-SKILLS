@@ -34,6 +34,13 @@ python3 ... --bank "{doc_review_bank}\bank" --execute --out <temp>.md
 The script is read-only on the bank, offline, and prints a table in this file's
 column order. It never edits this file. Paste the rows, then apply the tiers.
 
+What it counts: sentence-head and sentence-tail windows (2–6 words in English,
+2–8 characters in Chinese), because one sentence's sliding windows all carry the
+same count and would bury the table in fragments. Overlapping head/tail windows
+in a short sentence are emitted once, and a shorter span is dropped when a longer
+one with an identical count contains it. Use `--bans` to flag rows that
+`05_manuscript/base/vocab/L1/ban-terms.yaml` already forbids.
+
 ## Abstract
 
 ### Purpose sentence

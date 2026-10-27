@@ -22,7 +22,6 @@ import csv
 import json
 import re
 import sys
-from bisect import bisect_left
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -48,14 +47,6 @@ MIN_DOC_CHARS = 20
 # English n-gram width, and width of the sentence-head / sentence-tail windows.
 EN_NGRAM = (2, 6)
 EN_EDGE = 5
-# Content-word list: pronouns / auxiliaries stay in so `we aimed to` survives.
-FUNCTION_WORDS = frozenset("""
-a an the and or but nor so yet for of to in on at by with from into onto over under
-as than that this these those there here it its is are was were be been being am
-we our us they their them he she his her i you your not no if then thus hence
-which who whom whose what when where while whereas although because since until
-do does did done have has had can could may might must shall should will would
-""".split())
 # A phrase must begin and end on a content word. Modals stay allowed at the
 # tail because the lab's closer is "Future research should"; articles,
 # prepositions, conjunctions and copulas do not.
@@ -70,15 +61,16 @@ although because since until do does did done have has had
 ZH_SPLIT = re.compile(r"[。！？；!?;\n]+")
 ZH_NGRAM = (2, 8)
 # Punctuation that must not sit at a Chinese phrase edge.
-ZH_EDGE_PUNCT = "，、,：:（）()《》“”\"'…—　 " + "…"
+ZH_EDGE_PUNCT = "，、,：:（）()《》“”\"'…—　"
 
 # Sentence split for English prose.
 EN_SPLIT = re.compile(r"(?<=[.!?])[\s\u3000]+")
 EN_TOKEN = re.compile(r"[A-Za-z][A-Za-z'\-]*")
 # A sentence must contain a CJK character to be treated as Chinese.
 CJK = re.compile(r"[\u4e00-\u9fff]")
-# First line of every table this script writes; such a file is never re-read as bank prose.
-OUTPUT_MARKER = "# Bank phrase harvest"
+# Heading of every table this script writes; such a file is never re-read as bank prose.
+TABLE_TITLE = "Bank phrase harvest"
+OUTPUT_MARKER = "# " + TABLE_TITLE
 # BOM-safe decode.
 ENCODING = "utf-8-sig"
 
@@ -169,22 +161,28 @@ def collect_docs(bank: Path, skip: Path | None = None) -> list[tuple[str, str, s
 # =============================================================================
 
 def en_phrases(text: str):
+    """Sentence-head and sentence-tail windows only.
+
+    Mid-sentence windows of one long sentence all carry the same counts, so they
+    would bury the table in fragments. The recurring *wording* sits at the head
+    (`This study has several limitations`) or the tail (`... in the test set`).
+    """
     for sentence in EN_SPLIT.split(text):
         tokens = [t.lower() for t in EN_TOKEN.findall(sentence)]
         if len(tokens) < EN_NGRAM[0]:
             continue
-        windows = []
-        for size in range(EN_NGRAM[0], EN_NGRAM[1] + 1):
-            for start in range(0, len(tokens) - size + 1):
-                windows.append(tuple(tokens[start:start + size]))
-        head = {tuple(tokens[:size]) for size in range(EN_NGRAM[0], EN_EDGE + 1)
-                if len(tokens) >= size}
-        tail = {tuple(tokens[-size:]) for size in range(EN_NGRAM[0], EN_EDGE + 1)
-                if len(tokens) >= size}
-        for gram in windows:
-            if gram[0] in EDGE_BAN or gram[-1] in EDGE_BAN:
-                continue
-            if gram in head or gram in tail or len(gram) >= 3:
+        for size in range(EN_NGRAM[0], min(EN_NGRAM[1], EN_EDGE, len(tokens)) + 1):
+            windows = [tuple(tokens[:size])]
+            # In a short sentence the head and tail windows overlap; emitting both
+            # counts the same text twice and manufactures suffixes such as
+            # "you for the suggestion". Keep the head alone when they touch.
+            if len(tokens) - size > size:
+                windows.append(tuple(tokens[-size:]))
+            for gram in windows:
+                if gram[0] in EDGE_BAN or gram[-1] in EDGE_BAN:
+                    continue
+                if all(t in EDGE_BAN for t in gram):
+                    continue
                 yield " ".join(gram)
 
 
@@ -196,7 +194,11 @@ def zh_phrases(text: str):
         for size in range(ZH_NGRAM[0], ZH_NGRAM[1] + 1):
             if len(sentence) < size:
                 break
-            for gram in (sentence[:size], sentence[-size:]):
+            spans = [sentence[:size]]
+            # Same overlap rule as the English side.
+            if len(sentence) - size > size:
+                spans.append(sentence[-size:])
+            for gram in spans:
                 gram = gram.strip(ZH_EDGE_PUNCT)
                 if len(gram) >= ZH_NGRAM[0] and CJK.search(gram):
                     yield gram
@@ -244,48 +246,28 @@ def load_bans(path: Path | None) -> list[str]:
     return probes
 
 
-def _reverse_key(phrase: str) -> str:
-    """Order a phrase by its tail, so a suffix search becomes a prefix search."""
-    return " ".join(reversed(phrase.split())) if " " in phrase else phrase[::-1]
-
-
 def _collapse_chain(kept: dict[str, tuple[int, int]]) -> dict[str, tuple[int, int]]:
-    """Drop a phrase when a strictly longer one always carries the same counts.
+    """Keep only the longest phrase inside a group of identical counts.
 
-    Removes the `这个` / `这个结` / `这个结果` ladder and the
-    `thank you` / `thank you for` ladder, keeping the longest form only.
+    Sentence-head and sentence-tail windows of one sentence all carry the same
+    count and document frequency, so `这个` / `这个结` / `这个结果`,
+    `thank you` / `thank you for`, and `study has several limitations` /
+    `several limitations` would otherwise all sit in the table. A phrase is
+    dropped when a longer phrase with the same (count, doc_freq) contains it.
     """
-    phrases = sorted(kept)
-    head_values = sorted(kept.values())
-    tails = sorted((_reverse_key(p), p) for p in phrases)
-    tail_keys = [t[0] for t in tails]
-    tail_phrase = dict(tails)
-
-    def same_counts(candidate: str, phrase: str) -> bool:
-        return (len(candidate) > len(phrase) and candidate in kept
-                and kept[candidate] == kept[phrase])
-
-    def has_longer_sharing_prefix(key: str, phrase: str) -> bool:
-        index = bisect_left(tail_keys, key)
-        while index < len(tail_keys) and tail_keys[index].startswith(key):
-            other = tail_phrase[tail_keys[index]]
-            if tail_keys[index] != key and same_counts(other, phrase):
-                return True
-            index += 1
-        return False
-
-    dropped = set()
-    for phrase in phrases:
-        count, docs = kept[phrase]
-        index = bisect_left(phrases, phrase)
-        while index < len(phrases) and phrases[index].startswith(phrase):
-            if same_counts(phrases[index], phrase):
-                dropped.add(phrase)
-                break
-            index += 1
-        else:
-            if has_longer_sharing_prefix(_reverse_key(phrase), phrase):
-                dropped.add(phrase)
+    ordered = sorted(kept, key=len, reverse=True)
+    dropped: set[str] = set()
+    for phrase in ordered:
+        if phrase in dropped:
+            continue
+        counts = kept[phrase]
+        for other in ordered:
+            if other is phrase or other in dropped or len(other) <= len(phrase):
+                continue
+            if kept[other] != counts or phrase not in other:
+                continue
+            dropped.add(phrase)
+            break
     return {p: v for p, v in kept.items() if p not in dropped}
 
 
@@ -342,7 +324,7 @@ def main(argv=None) -> int:
     total, doc_freq, lanes = harvest(docs, args.lang)
     rows = rank(total, doc_freq, lanes, args.min_docs, args.min_count, args.limit,
                 load_bans(args.bans))
-    table = as_markdown("Bank phrase harvest", rows, docs, args)
+    table = as_markdown(TABLE_TITLE, rows, docs, args)
 
     print("docs=%d phrases=%d kept=%d" % (len(docs), len(total), len(rows)))
     if not args.execute:
