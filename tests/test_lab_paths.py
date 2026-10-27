@@ -178,3 +178,40 @@ class AliasMapIsTight(unittest.TestCase):
             "(cite an existing alias, or add the alias):\n"
             + "\n".join(f"  {{{t}}}: {sorted(uses[t])[:3]}" for t in dangling),
         )
+
+
+LAB_MODULES_VERSION = re.compile(r"v?(\d+\.\d+\.\d+)")
+# Skill prose that states the live lab-module version. The SSOT is
+# stats-analysis modules/__init__.py; these files may only repeat that number.
+VERSION_PROSE = (
+    "02_data-processing/SKILL.md",
+    "02_data-processing/personal/analysis/pipeline.md",
+    "02_data-processing/personal/analysis/methods.md",
+)
+
+
+class LabModulesVersionProse(unittest.TestCase):
+    """Skill prose must not drift from the library's declared version.
+
+    2026-10-27: the prose said 4.3.0 while modules/__init__.py said 4.3.1, and
+    pyproject.toml said 0.1.0. The number is checked in stats-analysis by
+    test_version_consistency.py; here we only require that whatever version the
+    prose states agrees with itself and looks like a release triple.
+    """
+
+    def test_version_statements_agree(self) -> None:
+        seen: dict[str, list[str]] = {}
+        for rel in VERSION_PROSE:
+            text = (ROOT / rel).read_text(encoding="utf-8")
+            for line_no, line in enumerate(text.splitlines(), 1):
+                if "4.3.0" in line or "0.1.0" in line:
+                    self.fail(f"{rel}:{line_no}: stale module version -> {line.strip()[:90]}")
+                for match in LAB_MODULES_VERSION.finditer(line):
+                    if "Lab pipeline" in line or "lab modules" in line.lower() or "modules v" in line:
+                        seen.setdefault(match.group(1), []).append(f"{rel}:{line_no}")
+        self.assertLessEqual(
+            len(seen),
+            1,
+            "skill prose states more than one lab-module version:\n"
+            + "\n".join(f"  {v}: {sites}" for v, sites in seen.items()),
+        )

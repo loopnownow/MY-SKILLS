@@ -1,13 +1,14 @@
-"""Pack a directory into a DOCX, PPTX, or XLSX file.
+"""Pack an unpacked directory back into a .docx.
 
-Validates with auto-repair, condenses XML formatting, and creates the Office file.
+Validates with auto-repair, condenses XML formatting, and writes the file.
 
 Usage:
     python pack.py <input_directory> <output_file> [--original <file>] [--validate true|false]
 
-Examples:
+Example:
     python pack.py unpacked/ output.docx --original input.docx
-    python pack.py unpacked/ output.pptx --validate false
+
+PPTX/XLSX packing was removed 2026-10-27 — the lab only round-trips Word.
 """
 
 import argparse
@@ -19,7 +20,7 @@ from pathlib import Path
 
 import defusedxml.minidom
 
-from validators import DOCXSchemaValidator, PPTXSchemaValidator, RedliningValidator
+from validators import DOCXSchemaValidator, RedliningValidator
 
 def pack(
     input_directory: str,
@@ -35,8 +36,8 @@ def pack(
     if not input_dir.is_dir():
         return None, f"Error: {input_dir} is not a directory"
 
-    if suffix not in {".docx", ".pptx", ".xlsx"}:
-        return None, f"Error: {output_file} must be a .docx, .pptx, or .xlsx file"
+    if suffix != ".docx":
+        return None, f"Error: {output_file} must be a .docx file"
 
     if validate and original_file:
         original_path = Path(original_file)
@@ -75,20 +76,17 @@ def _run_validation(
     output_lines = []
     validators = []
 
-    if suffix == ".docx":
-        author = "Claude"
-        if infer_author_func:
-            try:
-                author = infer_author_func(unpacked_dir, original_file)
-            except ValueError as e:
-                print(f"Warning: {e} Using default author 'Claude'.", file=sys.stderr)
+    author = "A"  # lab author field; see MY-RULES My rule.md 5.1
+    if infer_author_func:
+        try:
+            author = infer_author_func(unpacked_dir, original_file)
+        except ValueError as e:
+            print(f"Warning: {e} Using default author 'A'.", file=sys.stderr)
 
-        validators = [
-            DOCXSchemaValidator(unpacked_dir, original_file),
-            RedliningValidator(unpacked_dir, original_file, author=author),
-        ]
-    elif suffix == ".pptx":
-        validators = [PPTXSchemaValidator(unpacked_dir, original_file)]
+    validators = [
+        DOCXSchemaValidator(unpacked_dir, original_file),
+        RedliningValidator(unpacked_dir, original_file, author=author),
+    ]
 
     if not validators:
         return True, None
@@ -130,10 +128,10 @@ def _condense_xml(xml_file: Path) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Pack a directory into a DOCX, PPTX, or XLSX file"
+        description="Pack a directory into a .docx file"
     )
     parser.add_argument("input_directory", help="Unpacked Office document directory")
-    parser.add_argument("output_file", help="Output Office file (.docx/.pptx/.xlsx)")
+    parser.add_argument("output_file", help="Output .docx file")
     parser.add_argument(
         "--original",
         help="Original file for validation comparison",

@@ -27,7 +27,7 @@ files back into the skill tree, and do not edit the copy in a project.
 
 Nested under `clean-data`. Not an analysis-domain pack.
 Header / ID / cohort QC before fill → parent [`../MODULE.md`](../MODULE.md).
-Spreadsheet XML packing → [`../xlsx-office/`](../xlsx-office/). Do not treat this nested pack as modelling.
+Formula recalc on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py`. Do not treat this nested pack as modelling.
 
 ## When to use
 

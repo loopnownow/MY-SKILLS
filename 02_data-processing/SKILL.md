@@ -22,7 +22,7 @@ then transform analysis-ready data into valid statistical results, predictive-mo
 **02 is the personal top layer** (like 03/05/06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
 Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02_data-processing/base/`** (pilot 2026-10-17; analysis packs merged 2026-10-25). Fine IDs are not renamed.
 
-Live lab modules **v4.3.0** (2026-08-28) are the lab default. Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
+Live lab modules **v4.3.1** are the lab default (`{code_modules}`; version SSOT is `modules/__init__.py`). Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
 ## Layer model (2026-10-17)
 
@@ -49,7 +49,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-personal
 | Raw table digit / smoothness QC | `personal/table-signals.md` |
 | Analysis route | `personal/analysis/route.md` |
 | Analysis handoff | `personal/analysis/handoff.md` |
-| Lab pipeline (`VAL_MODE`, live modules v4.3.0) | `personal/analysis/pipeline.md` |
+| Lab pipeline (`VAL_MODE`, live modules v4.3.1) | `personal/analysis/pipeline.md` |
 | Console UI / results HTML / figure switches | `personal/analysis/console-ui.md` |
 | Radiology-grade stats index | `personal/analysis/module-notes.md` + `personal/analysis/methods.md` |
 | Lab figure palettes / claim planning | `personal/analysis/figures.md` |

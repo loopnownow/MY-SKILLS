@@ -13,8 +13,9 @@ trigger is documentation only; not independently discoverable.
 # Clinical tables (Excel / CSV)
 
 **clean-data** front: research **clinical Excel/CSV** — headers, missingness, ID integrity, and
-cohort columns. Nested `impute/` implements fill/outlier. Nested `xlsx-office/` is spreadsheet
-XML packing (Anthropic office/xlsx skill). This file is **not** that financial-model skill.
+cohort columns. Nested `impute/` points at the fill/outlier code in `{code_model_validation}`.
+Writing the workbook itself (formulas, styling, formatting) is ordinary `openpyxl` work — do it in
+the analysis script, not here.
 
 Imaging data-availability statements live in `imaging-io` [`data.md`](../imaging-io/references/data.md),
 not here.
@@ -28,8 +29,7 @@ not here.
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
 | Patient-level leakage check on the table | Radiomics extraction (`stats-analysis`) |
-| | Financial-model color scale as a lab default → [`xlsx-office/`](xlsx-office/) |
-| | OOXML pack/unpack / LibreOffice recalc → [`xlsx-office/`](xlsx-office/) |
+| | Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py` |
 | | Reporting checklists CLAIM/TRIPOD/CLEAR → `check-reporting` |
 
 ## Required columns
@@ -92,29 +92,28 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
   table files.
 - **No financial-model color convention as the lab default** (blue RGB 0,0,255 inputs, yellow
-  assumption cells, 10-K source comments). Those belong only to nested
-  [`xlsx-office/`](xlsx-office/) when the user is actually building a financial workbook.
-- Do not treat nested `xlsx-office/` or imaging `data.md` as this fine id's body.
+  assumption cells, 10-K source comments). This is a clinical-table pack; those conventions came
+  from a corporate-finance template and were removed on 2026-10-27.
+- Do not treat imaging `data.md` as this fine id's body.
 
 ## Nested packs
 
 | Path | Role |
 |---|---|
-| [`impute/`](impute/) | Group-stratified missing/outlier **implementation** |
-| [`xlsx-office/`](xlsx-office/) | Spreadsheet XML packing, LibreOffice recalc, Anthropic xlsx skill (LICENSE.txt there) |
+| [`impute/`](impute/) | Group-stratified missing/outlier contract; code in `{code_model_validation}` |
 
 ## Workflow
 
 1. Identify the file (xlsx/csv), sheet, and the three required columns.
 2. Header QC + ID uniqueness + missingness inventory. Write a short QC note.
 3. Confirm split column semantics (training/test; validation only if external).
-4. If fill/outliers are requested → `impute/`. If OOXML pack/recalc/financial model → `xlsx-office/`.
+4. If fill/outliers are requested → `impute/`. If a hand-built workbook has formulas, recalculate and scan it with `{code_model_validation}\recalc_xlsx.py`.
 5. Hand modelling to `02_data-processing`. Do not fit LASSO here.
 
 ## Handoffs
 
 - Missing/outlier implementation → `clean-data` `impute/`
-- Spreadsheet XML packing / recalc / financial xlsx → `clean-data` `xlsx-office/`
+- Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py`
 - Imaging I/O + availability statements → `imaging-io` (including `data.md`)
 - Radiomics / leakage audit on feature matrices → `stats-analysis`
 - Modelling / calibration / DCA → `meta-analysis` / `model-evaluation`

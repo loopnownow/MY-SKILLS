@@ -49,9 +49,13 @@ class RedliningValidator:
             ]
 
             if not author_del_elements and not author_ins_elements:
+                # No tracked changes under this author. That is only a pass when the
+                # text carries no untracked edits either — otherwise a silent
+                # overwrite would slip through, which is the whole failure mode this
+                # validator exists to catch. Fall through to the text comparison
+                # instead of returning True here.
                 if self.verbose:
-                    print(f"PASSED - No tracked changes by {self.author} found.")
-                return True
+                    print(f"No tracked changes by {self.author} found; checking for untracked edits.")
 
         except Exception:
             pass

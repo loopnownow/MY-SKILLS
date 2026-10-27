@@ -12,4 +12,4 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 Runnable half: `{code_model_validation}\impute_excel.py` + `{code_modules}\utils\u_impute.py`
 (`stats-analysis`). This pack is prose only.
 
-Parent clinical tables: [../MODULE.md](../MODULE.md). Sibling spreadsheet packing: [../xlsx-office/](../xlsx-office/).
+Parent clinical tables: [../MODULE.md](../MODULE.md).

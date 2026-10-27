@@ -1,12 +1,16 @@
 """
-Command line tool to validate Office document XML files against XSD schemas and tracked changes.
+Validate a .docx for tracked changes.
 
 Usage:
-    python validate.py <path> [--original <original_file>] [--auto-repair] [--author NAME]
+    python validate.py <path> --original <original.docx> [--author A] [--auto-repair]
 
-The first argument can be either:
-- An unpacked directory containing the Office document XML files
-- A packed Office file (.docx/.pptx/.xlsx) which will be unpacked to a temp directory
+`<path>` is either an unpacked directory or a packed .docx. With `--original` the
+redlining check runs: every text difference between the two must be wrapped in a
+`w:ins` / `w:del` revision, so a silent overwrite fails. Without `--original` only
+the structural checks run (well-formed XML, namespaces, unique IDs, relationship
+targets, whitespace preservation, comment markers).
+
+PPTX/XLSX support was removed 2026-10-27 — the lab only redlines Word.
 
 Auto-repair fixes:
 - paraId/durableId values that exceed OOXML limits
@@ -19,20 +23,20 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from validators import DOCXSchemaValidator, PPTXSchemaValidator, RedliningValidator
+from validators import DOCXSchemaValidator, RedliningValidator
 
 
 def main():
     parser = argparse.ArgumentParser(description="Validate Office document XML files")
     parser.add_argument(
         "path",
-        help="Path to unpacked directory or packed Office file (.docx/.pptx/.xlsx)",
+        help="Path to unpacked directory or packed .docx",
     )
     parser.add_argument(
         "--original",
         required=False,
         default=None,
-        help="Path to original file (.docx/.pptx/.xlsx). If omitted, all XSD errors are reported and redlining validation is skipped.",
+        help="Pre-edit original .docx. Without it the redlining check is skipped.",
     )
     parser.add_argument(
         "-v",
@@ -47,8 +51,8 @@ def main():
     )
     parser.add_argument(
         "--author",
-        default="Claude",
-        help="Author name for redlining validation (default: Claude)",
+        default="A",
+        help="Author name whose revisions are expected (default: A, the lab author field)",
     )
     args = parser.parse_args()
 
@@ -59,16 +63,16 @@ def main():
     if args.original:
         original_file = Path(args.original)
         assert original_file.is_file(), f"Error: {original_file} is not a file"
-        assert original_file.suffix.lower() in [".docx", ".pptx", ".xlsx"], (
-            f"Error: {original_file} must be a .docx, .pptx, or .xlsx file"
+        assert original_file.suffix.lower() == ".docx", (
+            f"Error: {original_file} must be a .docx file"
         )
 
     file_extension = (original_file or path).suffix.lower()
-    assert file_extension in [".docx", ".pptx", ".xlsx"], (
-        f"Error: Cannot determine file type from {path}. Use --original or provide a .docx/.pptx/.xlsx file."
+    assert file_extension == ".docx", (
+        f"Error: only .docx is supported; got {file_extension or 'no extension'} from {path}"
     )
 
-    if path.is_file() and path.suffix.lower() in [".docx", ".pptx", ".xlsx"]:
+    if path.is_file() and path.suffix.lower() == ".docx":
         temp_dir = tempfile.mkdtemp()
         with zipfile.ZipFile(path, "r") as zf:
             zf.extractall(temp_dir)
@@ -86,10 +90,6 @@ def main():
                 validators.append(
                     RedliningValidator(unpacked_dir, original_file, verbose=args.verbose, author=args.author)
                 )
-        case ".pptx":
-            validators = [
-                PPTXSchemaValidator(unpacked_dir, original_file, verbose=args.verbose),
-            ]
         case _:
             print(f"Error: Validation not supported for file type {file_extension}")
             sys.exit(1)

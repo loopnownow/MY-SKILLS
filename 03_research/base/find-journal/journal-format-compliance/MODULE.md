@@ -36,12 +36,12 @@ Present the plan and, if there are open questions, stop and wait for the user's 
 ### 4. Apply changes as tracked changes
 
 Once confirmed:
-- Use the `docx` skill's tracked-changes approach: unzip, locate the exact paragraph/run in `word/document.xml`, wrap changed text in `<w:ins>`/`<w:del>` (with `<w:delText>` inside deletions), rezip.
-- Deleting a whole paragraph requires marking its paragraph mark as deleted too (see the docx skill's notes on this) so it doesn't leave a stray empty line.
+- Use the `track-changes` fine id (`06_review/base/track-changes/`): unzip, locate the exact paragraph/run in `word/document.xml`, wrap changed text in `<w:ins>`/`<w:del>` (with `<w:delText>` inside deletions), rezip.
+- Deleting a whole paragraph requires marking its paragraph mark as deleted too (see `06_review/base/track-changes/MODULE.md`) so it doesn't leave a stray empty line.
 - Inserting a new paragraph requires marking the *preceding* paragraph's mark as inserted, since that's the break being introduced.
-- Pick a consistent tracked-changes author name (ask the user if they have a preference; otherwise something like "A" plus today's date is fine) and reuse it for every edit in the pass.
-- After editing, run `scripts/office/validate.py out.docx --original original.docx --author "<name>"` from the docx skill to confirm every changed run is actually wrapped in a revision tag.
-- Render to PDF/JPEG and visually check the tracked-changes markup looks right before delivering — especially for paragraph insertions/deletions, which are the easiest place to get the XML subtly wrong. Also render an "all changes accepted" preview (the docx skill's `accept_changes.py`) and check it too — the tracked-changes view can look fine while the accepted result still has a defect (see the nested-revision caution below, which specifically breaks silently in the tracked view and only shows up once accepted).
+- Author field is **`A`** for every edit in the pass (`06_review/base/track-changes/`).
+- After editing, run `python {SKILLS}\06_review\base\track-changes\scripts\office\validate.py out.docx --original original.docx --author A`; it must exit `0`, which confirms every changed run is wrapped in a revision tag.
+- Render to PDF/JPEG and visually check the tracked-changes markup looks right before delivering — especially for paragraph insertions/deletions, which are the easiest place to get the XML subtly wrong. Also render an "all changes accepted" preview and check it too — the tracked-changes view can look fine while the accepted result still has a defect (see the nested-revision caution below, which specifically breaks silently in the tracked view and only shows up once accepted).
 
 **Converting a structured abstract to unstructured (or vice versa).** A common cross-publisher edit (e.g. BMC's headed Background/Methods/Results/Conclusions abstract vs. Springer "Discover"-series' single unstructured paragraph) is a paragraph-merge, not a text swap: pick one surviving paragraph, replace its content with the new combined text, then for every other paragraph being folded in, delete all of its runs *and* mark its paragraph mark as deleted (this merges the now-empty paragraph into the next one on accept, so it collapses away rather than leaving a stray blank line). Do this for each paragraph in sequence so they all fold forward into the final surviving one.
 

@@ -37,6 +37,7 @@ Resolution status for response letters -> **07**.
 | Review comment habits | `personal/review.md` |
 | Cross-manuscript QC | `qc/cross-manuscript-qc.md` (invoked only by 00) |
 | Word comment delivery | `personal/word-edit.md` |
+| Track Changes verify (unpack / validate / pack) | `base/track-changes/` (fine id `track-changes`) |
 | Dual-review isolation workflow | `personal/review-isolation.md` |
 | Thesis review | `personal/review.md` § Thesis review digest |
 | Chinese journal score sheet | `personal/review.md` § Chinese journal score digest |

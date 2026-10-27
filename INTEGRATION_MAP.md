@@ -14,6 +14,17 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261027-xlsx-office-split-and-version (2026-10-27)
+
+Deleted the `xlsx-office` nested pack and moved its two parts where they belong. Fine ids 25 → 26.
+
+- **Removed:** `02_data-processing/base/clean-data/xlsx-office/` (2,995 lines of scripts + a finance-model prose body). It was Anthropic's office/xlsx skill with corporate-finance color conventions (blue inputs, yellow assumptions, 10-K source comments) that never applied to clinical tables, plus a pptx validator for a format the lab never opens.
+- **New fine id `track-changes`** (`06_review/base/track-changes/`): `unpack.py` / `validate.py` / `pack.py` and the Word validators. Word-format mechanics that the redlining contract needs to travel with; the pptx validator and the LibreOffice-recalc path were dropped from it. Attribution kept in `LICENSE.txt`.
+- **Moved to stats-analysis:** `model-validation/recalc_xlsx.py` + `modules/utils/soffice_env.py` — the one part that belongs to the script half, because the lab's analysis writers never emit Excel formulas.
+- **Fixed in the ported code:** `RedliningValidator` returned `True` whenever the document had no revisions under the requested author — which is exactly what a silent overwrite looks like, so the gate never fired for `--author A`. It now falls through to the text comparison. Regression test: `tests/test_office_track_changes.py`.
+- **Version unified:** skill prose said modules `v4.3.0`, `modules/__init__.py` said `4.3.1`, `pyproject.toml` said `0.1.0`. Now `4.3.1` everywhere, guarded by `test_version_consistency.py` (stats-analysis) and `LabModulesVersionProse` (this repo).
+- Registry `change_id` is unchanged for this entry: it rides with the deep-QC entry above.
+
 ## CHG-20261027-deep-qc-three-repos (2026-10-27)
 
 Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES/SKILLS/scripts split.
