@@ -11,7 +11,7 @@ The machine-readable lists live in ONE place: `05_manuscript/base/vocab/L1/ban-t
 1. **vocabulary** -- ALWAYS-flag words, plus LIMITED words (fine once, damning when repeated)
 2. **constructions** -- "not just X, but Y", "more than just", "that's where X comes in",
    stacked hedges ("may potentially"), self-answering questions ("The result?")
-3. **dash cadence** -- more than one em-dash in a single sentence (en-dash ranges are fine)
+3. **dash cadence** -- any em-dash fails (prefer parentheses; en-dash ranges are fine). Colon/semicolon: discourage in running prose (see ban-phrases.md)
 4. **rule-of-three rhythm** -- more than 3 lowercase triples ("faster, smarter, and better");
    parenthetical covariate lists and acronym lists are ignored
 

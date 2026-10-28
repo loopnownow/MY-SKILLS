@@ -82,7 +82,7 @@ CONFIG = {
     # Limited vocabulary is "fine once, damning when repeated".
     "TIER2_MAX_PER_TERM": 1,      # the same word may appear this many times
     "TIER2_MAX_TOTAL": 3,         # all limited words together may appear this many times
-    "EMDASH_MAX_PER_SENTENCE": 1,  # more than this many em-dashes in one sentence fails
+    "EMDASH_MAX_PER_SENTENCE": 0,  # any em-dash fails; prefer parentheses (owner 2026-10-28)
     "TRICOLON_MAX_ALLOWED": 3,    # rule-of-three lists tolerated in the scanned text
 
     # ---- 3. Input guards (fail closed) ----------------------------------------

@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261027-personal-to-advanced
+  change_id: CHG-20261028-punct-ban-discourage
   fine_id_count_canonical: 26
   coarse_id_count: 5
 

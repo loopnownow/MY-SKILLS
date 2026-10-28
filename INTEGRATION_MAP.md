@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261028-punct-ban-discourage (2026-10-28)
+
+Owner punctuation standing (t1251–t1253):
+
+- **Hard ban:** em-dash (— / spaced `--`) — replace with **parentheses**; approximately-equal `≈` — write `about` / exact. En-dash ranges stay.
+- **Discourage (不推荐):** colon and semicolon in running prose; keep label colons (`Objective:` / `95% CI:` / Highlights).
+- Files: `ban-phrases.md`, `patterns.md`, `Aitor-format.md`, `voice-portrait.md`, `sci-overrides.md`; `style_lint.py` `EMDASH_MAX_PER_SENTENCE` 1→0; DashTests updated.
+
 ## CHG-20261027-personal-to-advanced (2026-10-27)
 
 The `personal` layer folder is now `advanced`. Path shape is unchanged: `NN_slug/advanced/…`
