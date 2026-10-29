@@ -13,7 +13,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 | Artifact | Format | Where |
 |---|---|---|
 | **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `{lab_root}\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
-| **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`refer/`/`code-gates/`/`tmp/` + root tables/figures/pipeline/hashes/MANIFEST, writing refs, `submission-*`, base tables per `project-ref-layout.md` (retired shells: `analysis/`/`materials/`/`results/`/`exec/`/`code/`/`gates/`/`writing-refs/`/`raw-pre/`)); else `{DEL}` |
+| **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`refer/` (lit + writing refs)/`code-gates/`/`tmp/` + tables/figures/pipeline; **locks under `ref/pipeline/`**; `submission-*`, base tables; `false_classification*` at subproject root per `project-ref-layout.md` (retired shells: `analysis/`/`materials/`/`results/`/`exec/`/`code/`/`gates/`/`writing-refs/`/`raw-pre/`)); else `{DEL}` |
 | Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`in-review\…`); else `{DEL}` unless user names Downloads |
 | Manuscript / Track Changes (final) | DOCX | Subproject **root** if any; else `{DEL}` unless user names Downloads |
 | Data table / filled form (final) | XLSX | Subproject **root** (do **not** create `0result\`); else same as manuscript |
@@ -45,4 +45,4 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 ## Project `ref/` subfolders
 
-QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md) (map: `review/` `citation/` `refer/` `code-gates/` `tmp/` + root stats/writing/`submission-*`; Cleanup is two-tier; retired `analysis/`/`materials/`). Keep `settings.ini` and `manuscript-revision.md` at ref root.
+QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md) (map: `review/` `citation/` `refer/` (lit+writing refs) `code-gates/` `tmp/` + tables/figures/pipeline; **hashes/MANIFEST/pipeline_run.log under `ref/pipeline/`**; Cleanup two-tier; retired `analysis/`/`materials/`). Keep `settings.ini` and `manuscript-revision.md` at ref root; `false_classification*` at subproject root.

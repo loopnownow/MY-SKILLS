@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1316u: retire standard shells `analysis/` and `materials/`, lift their children to `ref/` root; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` remains audit ledger only; t1309s6268: former `results/` briefly lived as `analysis/`, now at root; t1307u: unaccepted submission packs at `ref/` root or `submission-*`; earlier merges of writing-refs+raw-pre and code+gates unchanged in spirit).
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; **t1321u/t1322u**: lock artifacts `hashes.tsv`/`MANIFEST.md`/`pipeline_run.log` live under **`ref/pipeline/`** (not ref root); writing refs (pptx/doc/docx) may live under **`ref/refer/`** beside lit lists; analysis `false_classification*` stays at **subproject root** (ASL-class temps), not under ref; t1316u: retire shells `analysis/`/`materials/`, lift tables/figures to `ref/`; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` audit ledger only; t1309s6268: former `results/` briefly `analysis/`; t1307u: unaccepted packs at `ref/` root or `submission-*`; earlier writing-refs+raw-pre / code+gates merges unchanged in spirit).
 
 ## Root invariants (do not relocate)
 
@@ -21,7 +21,7 @@ Keep these at **`ref/` root** (skills and convention hard-require them):
 
 Optional at root when already in use: `ref/project-state.yaml` (from `00_orchestrator/templates/project-state.yaml`).
 
-Also at root (lifted from former `analysis/` / earlier `results/`): `tables/` `figures/` `pipeline/` `hashes.tsv` `MANIFEST.md` `pipeline_run.log` (and similar). Writing refs, unaccepted submission packs (`submission-*`), and data base tables (former `materials/` children) also live at root (or a clearly named root folder such as `data/` / `submission-<id>/`); prefer a flat root; keep a subfolder or add a prefix only on name collision.
+Also under `ref/` (lifted from former `analysis/` / earlier `results/`): `tables/` `figures/` `pipeline/`. **Lock artifacts** `hashes.tsv` `MANIFEST.md` `pipeline_run.log` **must** live under **`ref/pipeline/`** (not ref root). **Writing refs** (pptx/doc/docx used as reference — grant apps, report slides, manuscript tables) may live under **`ref/refer/`** beside lit/NLM lists (do not recreate `writing-refs/` or `materials/`). Unaccepted submission packs (`submission-*`) and data base tables may sit at `ref/` root or under `data/` / `submission-<id>/`; prefer flat; keep a subfolder or prefix only on collision.
 
 ## Subfolder map
 
@@ -31,7 +31,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 |---|---|---|
 | `ref/review/` | Per-round `changelog.md` / `CHANGELOG_*.md`; review handoff YAML; Lee round notes | Main Word change ledger (that stays `manuscript-revision.md`) |
 | `ref/citation/` | **Audit ledger only:** `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | NLM+abstract lists and literature bodies (see `refer/`); writing-reference drafts |
-| `ref/refer/` | Project-start and topic literature: papers/parts, **NLM citations + abstract lists**, lit inventories (formerly「参考文献」 / `materials/citation` / `materials/refer`) | Audit ledger (`CITATION_AUDIT` etc. stay in `citation/`) |
+| `ref/refer/` | Project-start and topic literature: papers/parts, **NLM citations + abstract lists**, lit inventories (formerly「参考文献」 / `materials/citation` / `materials/refer`); **also** writing refs (pptx/doc/docx) | Audit ledger (`CITATION_AUDIT` etc. stay in `citation/`); do not put lock artifacts here |
 | `ref/code-gates/` | Script/path notes, patch pointers (no secrets); `GATE*_report.md`, number-lock, input/output hash reports | Live `settings.ini`; raw credentials. **Former side-by-side `code/` and `gates/` are no longer separate folders** |
 | `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/close-out | Current finals (stay at project root); closed-round changelogs (`review/`); citation / code-gates ledgers; secrets |
 
@@ -40,7 +40,8 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 ### Three zones / analysis temp area
 
 - **Analysis temp results** (`ASL/`, `DKI/`, `DTI_IVIM/`, ...) sit **beside the subproject root**, **not under `ref/`**.
-- Stats products + locked specs/hashes for manuscript/gates live at **`ref/` root** (`tables/` `figures/` `pipeline/` `hashes.tsv` `MANIFEST.md`, ...); **do not** merge with `ASL/`-class trees.
+- Stats **tables/figures** live under `ref/tables/` `ref/figures/`; **lock artifacts** `hashes.tsv` `MANIFEST.md` `pipeline_run.log` live under **`ref/pipeline/`**; **do not** merge with `ASL/`-class trees.
+- **Analysis misclassification / temp tables** (e.g. `false_classification*`) stay at the **subproject root** with ASL-class temps; **not under `ref/`**.
 - **Final manuscript / console finals** stay at the subproject root.
 - **Accepted** final manuscript stays at the subproject root; **unaccepted** submission packs go under `ref/` root or `submission-*` (see Submission packs below). When the owner says so, intermediate xlsx may also stay at the subproject root; do not move them on your own.
 
@@ -63,14 +64,14 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 **Default clear → 0del** (ask first):
 
 - `ref/tmp/` (whole tree or named files)
-- Obsolete writing refs / expired pre-clean tables now at `ref/` root
+- Obsolete writing refs / expired pre-clean tables now under `ref/refer/` or formerly at `ref/` root
 - **Unaccepted** submission packs (`submission-*`, etc.; ask first)
 - Empty shells left after merge: `analysis/`, `materials/`, and earlier `exec/` / `code/` / `gates/` / `writing-refs/` / `raw-pre/` / `results/`
 
 **Default keep:**
 
-- Current locks and final tables/figures at `ref/` root (`tables/` `figures/` `pipeline/` `hashes*` `MANIFEST*`, ...) plus still-used writing refs / base tables / `submission-*`
-- Live `ref/citation/` (audit ledger) and `ref/refer/` (literature)
+- Current final tables/figures (`ref/tables/` `ref/figures/`) and **lock artifacts under `ref/pipeline/`** (`hashes*` `MANIFEST*` `pipeline_run.log`) plus still-used `ref/refer/` writing refs/lit, base tables, `submission-*`
+- Live `ref/citation/` (audit ledger) and `ref/refer/` (literature + writing refs)
 - `ref/code-gates/`
 - Root `settings.ini` / `manuscript-revision.md` / `README.md` / `qc.html` (and live `project-state.yaml`)
 - `ref/review/` rounds not closed or not named for discard; `-org` pre-edit originals (see below)
@@ -82,12 +83,12 @@ Create subfolders on first need (copy-on-need); after cleanup you may leave an e
 
 Once a project adopts this layout, keep a short **`ref/README.md`** at `ref/` root with at least one line each for:
 
-- `refer/`: literature + NLM cite lists and abstracts (formerly「参考文献」 / materials/citation); distinct from the `citation/` audit ledger.
+- `refer/`: literature + NLM cite lists and abstracts (formerly「参考文献」 / materials/citation); **also** writing refs pptx/doc/docx; distinct from the `citation/` audit ledger.
 - `citation/`: `CITATION_AUDIT*` / skip notes / journal citation logs only.
 - `code-gates/`: script notes + gate/hash reports (former `code/`+`gates/`).
-- Root `tables/` `figures/` `pipeline/` / hashes / MANIFEST: stats products + locks (former `analysis/`/`results/`); `qc.html` stays at `ref/` root.
-- Root writing refs, `submission-*`, data base tables: former `materials/` children (D-1: ask before moving base tables later).
-- Note: "analysis temp results live at subproject root `<Modality>/`, not under ref".
+- Root `tables/` `figures/` `pipeline/`: stats tables/figures + pipeline folder; **hashes / MANIFEST / pipeline_run.log under `ref/pipeline/`** (former `analysis/`/`results/` locks); `qc.html` stays at `ref/` root.
+- Writing refs (may live under `refer/`), `submission-*`, data base tables: former `materials/` children (D-1: ask before moving base tables later).
+- Note: "analysis temp results and `false_classification*` live at subproject root (`<Modality>/` or root), not under ref".
 
 ## Skip / idempotent rules (read ledgers before re-run)
 
