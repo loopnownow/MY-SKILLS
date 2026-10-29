@@ -15,4 +15,4 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 - **Must include** diagnostic criteria and international guidelines.
 - If related to the owner's prior publications, cite **at most 5** of those.
 - Chain order: after `design-study`, before `verify-refs`.
-- Project-start deliverables land under `ref/materials/citation/` (not the `ref/citation/` audit ledger).
+- Project-start deliverables land under `ref/refer/` (not the `ref/citation/` audit ledger).
