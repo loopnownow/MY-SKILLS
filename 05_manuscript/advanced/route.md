@@ -6,16 +6,16 @@
 
 - **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
 - **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
-- **05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies remain in B; A owns order and advanced authority.
+- **05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies stay in `base/`; this layer owns order and advanced authority.
 
 ## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
 
-1. **L1 words:** B `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
-2. **L1 patterns:** B `05_manuscript/base/vocab/L1/patterns.md`
-3. **L1 SCI overrides:** B `05_manuscript/base/vocab/L1/sci-overrides.md`
-4. **L2 preferred:** B `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`; advanced usage with counts: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`
+1. **L1 words:** `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
+2. **L1 patterns:** `05_manuscript/base/vocab/L1/patterns.md`
+3. **L1 SCI overrides:** `05_manuscript/base/vocab/L1/sci-overrides.md`
+4. **L2 preferred:** `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`; advanced usage with counts: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`
 5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
-6. **L3 specialty + Lab-STE:** B `05_manuscript/base/vocab/L3/lab-ste.md`
+6. **L3 specialty + Lab-STE:** `05_manuscript/base/vocab/L3/lab-ste.md`
 
 ## Process (05-owned)
 
@@ -27,9 +27,8 @@
 
 When polish requested after 00 QC:
 
-1. Run B `humanize` (lint table first, then the de-AI pass)
-2. Then B `humanize`
-3. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (advanced authority)
+1. Run `humanize` (report-only lint table first, then the de-AI pass)
+2. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (advanced authority)
 
 ## Cooperation
 

@@ -13,7 +13,7 @@ These are **session-pick** bans, not skill deletions:
 
 - Never perform literature research, statistics, manuscript writing, or peer review (00 is index only).
 - Never rewrite MY-SKILLS because an external text exists.
-- Never replace a advanced / top layer because an external text is more general.
+- Never replace an advanced / top layer because an external text is more general.
 - `PROPOSED` is not `LIVE`.
 - Advanced de-AI (`05_manuscript/advanced/`) is not a base row. Generic de-AI is `humanize` (`05_manuscript/base/humanize/`). The advanced forbidden list still wins.
 - Top layers are not capability rows (00 owns base→QC→advanced).

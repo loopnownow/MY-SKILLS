@@ -54,9 +54,9 @@ Checklist: `03_research/advanced/citation-verify.md`.
 
 **Owner:** Bai. **Router:** Aitor (does not self-search for general lookup/search/inventory asks).
 
-When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (any of `00-inbox` … `03-research\ethics`, including indexes under `_index` / `02-flattened` / `revision-history`), Aitor hands the ask to **Bai**.
+When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (live tops `_library`, `_bank`, `_code`, `templates`, `mem`, `test`, `skill-harvest`; ethics under `{doc_ethics}`; tree map in `03_research/advanced/0doc-db.md`), Aitor hands the ask to **Bai**.
 
-Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `03-research\ethics` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
+Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `{doc_ethics}` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
 **Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says 「交给cline」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 

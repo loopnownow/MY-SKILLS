@@ -79,14 +79,17 @@ PATTERNS = (
 )
 DUP_FORM = re.compile(r"02\s*[/+→]\s*02|02\s+02")
 def tracked_files() -> list[str]:
-    out = subprocess.run(
-        ["git", "-C", str(ROOT), "ls-files"],
-        check=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    ).stdout
-    return [line for line in out.splitlines() if line.strip()]
+    """git ls-files; falls back to a filesystem walk when .git is absent (zip export)."""
+    try:
+        out = subprocess.run(["git", "-C", str(ROOT), "ls-files"], check=True,
+                             capture_output=True, text=True, encoding="utf-8").stdout
+        files = [line for line in out.splitlines() if line.strip()]
+        if files:
+            return files
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    return sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*")
+                  if p.is_file() and ".git" not in p.parts and "__pycache__" not in p.parts)
 B_PAT = re.compile(r"(?:\bB\s+0[0-7]-[a-z0-9-]+/?\b|\bforce_b\b|\bMY-SKILLS-base\b)")
 no_b_pack_residue_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",

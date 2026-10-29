@@ -5,7 +5,6 @@ Merged from: `test_inline_paths_exist.py`, `test_owner_fields.py`, `test_no_exte
 """
 from __future__ import annotations
 
-from pathlib import Path
 import posixpath
 import re
 import unittest
@@ -16,7 +15,8 @@ from tests.support import (
     ROOT,
 )
 
-BT = re.compile(r"`([^`]+)`")
+BT = re.compile(r"`([^`\n]+)`")
+FENCE = re.compile(r"^```.*?^```", re.S | re.M)
 TOPS = (
     "00_orchestrator/",
     "02_data-processing/",
@@ -58,7 +58,7 @@ class InlinePathsExist(unittest.TestCase):
             if rel in SKIP_FILE_PREFIXES or rel.startswith(SKIP_FILE_PREFIXES):
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
-            for m in BT.finditer(text):
+            for m in BT.finditer(FENCE.sub("", text)):
                 tok = m.group(1).strip()
                 if "/" not in tok and "\\" not in tok:
                     continue

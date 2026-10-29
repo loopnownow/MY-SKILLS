@@ -25,7 +25,7 @@
 
 - Not a new `G-*` gate for paper pipelines.
 - Not an absorb of autonovel / professor multi-agent scoring products.
-- Not ethics locked-file editing (`03-research\ethics`).
+- Not ethics locked-file editing (`{doc_ethics}`).
 
 **PASS:** GP-1–5 acknowledged for proposal tasks.
 **NOT_APPLICABLE:** ordinary manuscript / review runs.

@@ -27,7 +27,7 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 | live `design-study` → `03_research/base/design-study/references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
 | live `design-study` → `03_research/base/design-study/references/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
 | live `design-study` → `ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
-| [references/grant-own-skeleton.md](../advanced/grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
+| [grant-own-skeleton.md](grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 
 ## Workflow and output contract
 

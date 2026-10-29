@@ -1,6 +1,6 @@
 # MY-SKILLS Visualization Architecture v1.1
 
-Approved design specification. User approved execution on 2026-10-03. Revision 1.1 (2026-10-20) removed the external renderer: the IR is rendered to HTML by the in-repo generator only. This file is a source document. It is not the documentation homepage. The generated homepage is under lab `{doc_root}/03-research/my-skills-viz/index.html` (default `D:/0Grok/0doc/_library/my-skills-viz/index.html`); not in-repo. Design-history pages only point here.
+Approved design specification. User approved execution on 2026-10-03. Revision 1.1 (2026-10-20) removed the external renderer: the IR is rendered to HTML by the in-repo generator only. This file is a source document. It is not the documentation homepage. The generated homepage is written under the lab output dir given by `--out` / `MY_SKILLS_VIZ_OUT` (no default); not in-repo. Design-history pages only point here.
 
 ## Implementation record
 
@@ -128,7 +128,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 ## 11. Suggested lab OUT layout (`my-skills-viz`, retired 2026-10-20)
 
 ```text
-{doc_root}/03-research/my-skills-viz/
+<OUT>/
 ├── index.html
 ├── architecture/
 │   ├── status.html

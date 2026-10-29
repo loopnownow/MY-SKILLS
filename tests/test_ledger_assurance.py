@@ -4,7 +4,6 @@ Merged from: `test_ledger_freshness.py`.
 """
 from __future__ import annotations
 
-from pathlib import Path
 import re
 import unittest
 import yaml

@@ -5,7 +5,7 @@
 - Base runs lit/design capability **first-pass**.
 - After **00 QC**, 03 may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`).
 - A keeps advanced route/handoff/authority; do not bulk-move advanced files this round.
-- Pointerize only where a advanced file duplicates a long base procedure.
+- Pointerize only where an advanced file duplicates a long base procedure.
 
 ## Layout (2026-10-16)
 

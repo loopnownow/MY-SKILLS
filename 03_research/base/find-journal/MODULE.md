@@ -10,7 +10,7 @@ owner: 03_research/base/find-journal/MODULE.md
 
 Capability body: [SKILL.md](SKILL.md). Rules under `rules/`; list gates under `data/2026/`; post-choice format under `journal-format-compliance/`.
 
-Victor seat routing and advanced submission priors live in A (`MY-SKILLS/03_research/find-journal/` pointer + `{find_journal_submission}`). Do not vendor PHI / 投过 priors here.
+Victor seat routing lives in this pack; advanced submission priors live in `{find_journal_submission}`. Do not vendor PHI / 投过 priors here.
 
 Companion house-style templates: `05_manuscript/base/write-paper/` (not the 选刊 engine).
 

@@ -15,9 +15,9 @@ The master tracker is an editor-facing or author-internal verification document.
 - Keep response action, per-item work status, and package readiness separate: what should be done is not evidence that it has been done.
 - Do not invent experiments, analyses, citations, line numbers, figure panels, supplementary materials, editor instructions, reviewer identities, or manuscript changes.
 - Prefer concise, evidence-linked replies over long defensive explanations.
-- Avoid em dashes, en dashes, and colons as routine prose punctuation in response letters,
-  cover letters, internal summaries, and author notes. Prefer sentence boundaries, commas,
-  semicolons, parentheses, or a short heading followed by a new line. Preserve punctuation in
+- Avoid em dashes, and avoid colons and semicolons as routine clause connectors (en dashes stay
+  in numeric ranges such as `95% CI: X–X`) in response letters, cover letters, internal
+  summaries, and author notes. Prefer sentence boundaries, commas, parentheses, or a short heading followed by a new line. Preserve punctuation in
   source-faithful reviewer quotations, titles, formulas, identifiers, URLs, times, and required
   machine-readable syntax.
 - When disagreeing, acknowledge the concern first, then give a scientific or scope-based reason.

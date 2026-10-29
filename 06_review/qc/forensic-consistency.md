@@ -36,7 +36,7 @@ Never upgrade suspicion to confirmed without proof from supplied material.
 |---|---|---|
 | **Hook C** (`LAB-PHYSIO-SOFT`) | Forensic arithmetic / bounds pass on reported lab values | `LAB-PHYSIO-SOFT`: flag impossible/extreme value (e.g. negative concentration, Ki-67 >100%). Audit hint only — do not accuse fraud. |
 
-Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\03-research\lab-ref-ranges\qc\gate-hooks.md`. Soft ceilings from the lab-ref 06_qc_rules index; never auto-edit cells.
+Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\_library\lab-ref-ranges\qc\gate-hooks.md`. Soft ceilings from the lab-ref 06_qc_rules index; never auto-edit cells.
 
 **PASS:** layers 1–3 clean on cited numbers; 4–6 clean or commented.
 **FAIL:** `confirmed_internal_error` on a central claim → block next node until 02/05 clears.

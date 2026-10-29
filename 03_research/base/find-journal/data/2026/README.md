@@ -14,7 +14,7 @@ Annual **list gates** for `find-journal`. Large runtime selection pools live in 
 
 Path: `{find_journal_pools}`
 
-(alias: `{doc_root}\03-research\find-journal\data\2026`)
+(alias: `{find_journal_pools}`)
 
 - `full-pool.csv`, `category-index.csv`
 - `layer1-q1-if-gt10.csv`, `layer2-q1-if-lt5.csv`, `layer2-q1-if-lt10.csv`, `layer2b-q1-if-5to10.csv`

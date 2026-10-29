@@ -12,7 +12,7 @@
 - Mark unsupported claims, technical defects, evidence-chain breaks, and barriers for non-specialist readers.
 - Separate comments into `Major Concerns` and `Minor Comments`, marking Major issues that block the central case as `Blocking Yes`.
 - Keep severe criticism direct, professional, and evidence-grounded; keep minor comments specific and actionable without inventing issues to fill a quota.
-- Avoid dash punctuation and colons throughout the prose when a sentence boundary, comma, semicolon, parentheses, or a short label on a new line is clearer; retain necessary source punctuation and hyphens in stable IDs and compound terms.
+- Avoid em dashes, and avoid colons and semicolons as routine clause connectors (en dashes stay in numeric ranges), when a sentence boundary, comma, parentheses, or a short label on a new line is clearer; retain necessary source punctuation and hyphens in stable IDs and compound terms.
 - Use an internal 12-axis technical checklist and bind each substantive concern to a claim pointer and verifiable evidence location.
 - Cross-check terminology, units, numeric precision, Methods counts, and table support within the manuscript, separating language issues from substantive contradictions that weaken credibility.
 - After all reviewer reports are frozen, run a separate forensic consistency audit of arithmetic identities, metric bounds, aggregation levels, prose-table contradictions, duplicate rows, dispersion anomalies, provenance, and reproduction gates. Audit findings are not fed back to reviewers and frozen reports are not edited.

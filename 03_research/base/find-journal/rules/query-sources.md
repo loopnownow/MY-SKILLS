@@ -39,7 +39,7 @@ LetPub, community notes, and third-party scrapers may **supplement** acceptance/
 
 | Kind | Role | Persist in pack? |
 |---|---|---|
-| Layer CSVs (0doc `{doc_root}\03-research\find-journal\data\2026`) | Yearly screening cache from JCR rebuild | Yes (rebuild yearly; discard raw) |
+| Layer CSVs (0doc `{find_journal_pools}`) | Yearly screening cache from JCR rebuild | Yes (rebuild yearly; discard raw) |
 | JIF / JCR·JCI quartile / annual volume / APC / review time | Runtime display or Phase-2 lookup | **No** durable values — query only |
 | Submission URLs | Durable portal links | Yes → `data/2026/submission-urls.csv` |
 | Query-source list (this file) | Framework / workflow | Yes (capability list, not metric tables) |

@@ -41,7 +41,7 @@ response. If the user wants rebuttal writing, route to `nature-response`.
  instead of inventing one.
 - Keep the critique intellectually sharp but professionally phrased; severity comes from impact
  on the manuscript's case, not from hostile wording.
-- Avoid em dashes, en dashes, and colons as routine prose punctuation throughout reviewer reports and synthesis. Prefer a new sentence, comma, semicolon, parentheses, or a short heading followed by a new line. Retain ordinary hyphens in standard compound terms and stable IDs such as `R1-M1`. Preserve punctuation in source-faithful titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax when changing it would be inaccurate.
+- Avoid em dashes, and avoid colons and semicolons as routine clause connectors in running prose (en dashes stay in numeric ranges such as `95% CI: X–X`; rule home `05_manuscript/base/vocab/L1/ban-phrases.md`) throughout reviewer reports and synthesis. Prefer a new sentence, comma, parentheses, or a short heading followed by a new line. Retain ordinary hyphens in standard compound terms and stable IDs such as `R1-M1`. Preserve punctuation in source-faithful titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax when changing it would be inaccurate.
 - Distinguish clearly between what is supported, what is weak, and what is not assessable from the provided material.
 - When the manuscript has a clear technical domain, use claim-dependent domain gates as supporting checks, but keep the output inside the same 3-reviewer `nature-reviewer` structure.
 - Do not claim the editor's final decision or certainty about fit to `Nature`.
