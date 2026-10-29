@@ -11,7 +11,8 @@ Clinical translation / reader studies → `clinical-translation/` (under `advanc
 
 | Mode | Use when | Default next module |
 |---|---|---|
-| `guideline-first` | Project start: endpoint/grouping needs a named guideline definition before search/design/stats/writing | 项目启动前置 → `route.md` (guideline-first); then study card |
+| `project-start-lit` | New project or unsettled endpoint / grouping: run full pre-analysis literature pipeline before stats / writing / deep analysis | `design-study` → `lit-search` → `verify-refs` (see `route.md` 项目启动前置); NLM + abstracts → `ref/materials/citation/` |
+| `guideline-first` | Endpoint / grouping needs a named guideline definition; usually the first step inside `project-start-lit` / `design-study` | Prefer `project-start-lit` for full chain; else 项目启动前置 → `route.md` then study card |
 | `frontier` | User wants new research directions, hotspots, or innovation points | Frontier |
 | `literature` | User wants recent papers, evidence maps, or search terms | Literature |
 | `evidence` | User wants 2023-2026 high-impact literature patterns, representative PMID/DOI seed papers, or journal publication patterns behind topic selection | Evidence |
@@ -120,4 +121,5 @@ Ask before final wording when missing facts would otherwise fabricate:
 - "这个模型怎么做读者研究和临床转化" -> Translation + validation + statistics
 - "文章写好了，帮我选刊" -> Journal selection (选刊) + literature + checklists + validation
 - "结合近三年类似文章发表情况判断能不能投 Nature Medicine" -> Evidence + journal selection + literature + pre-submission
+- "新课题启动，先做文献和指南" -> `project-start-lit` (`design-study` → `lit-search` → `verify-refs`; NLM+abstracts → `ref/materials/citation/`)
 - "审稿人说没有外部验证怎么回复" -> Response + validation
