@@ -1,0 +1,4 @@
+license: see upstream SKILL / scripts headers
+upstream: https://github.com/Aperivue/medsci-skills/tree/main/skills/fulltext-retrieval
+absorbed: 2026-10-30
+note: OA-only retrieval; never bypass paywalls.

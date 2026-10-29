@@ -260,7 +260,7 @@ class RoutingFourTuple(unittest.TestCase):
         by_id = {m["id"]: m for m in reg["fine_ids"]}
         self.assertEqual(by_id["find-journal"]["a_domain"], "03_research")
         self.assertEqual(by_id["fill-protocol"]["a_domain"], "03_research")
-        self.assertEqual(by_id["grant-builder"]["a_domain"], "03_research")
+        self.assertEqual(by_id["lit-fulltext"]["a_domain"], "03_research")
         fj_note = by_id["find-journal"]["note"]
         fp_note = by_id["fill-protocol"]["note"]
         self.assertTrue(

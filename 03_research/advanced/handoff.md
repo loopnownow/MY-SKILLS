@@ -3,7 +3,7 @@
 ## Layering (2026-10-17)
 
 - Base runs lit/design capability **first-pass**.
-- After **00 QC**, 03 may trigger `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`).
+- After **00 QC**, 03 may trigger `verify-refs` (integrity stage) (bodies under `NN_slug/base/`).
 - A keeps advanced route/handoff/authority; do not bulk-move advanced files this round.
 - Pointerize only where an advanced file duplicates a long base procedure.
 
@@ -30,4 +30,4 @@ Journal results / submitted lists live under **subproject folders** (`<project>/
 
 ## Fine ids
 
-Do not rename fine IDs. `verify-refs` / `retraction-watcher` use source my-skills under `03_research/base/`; 03 documents post-QC trigger only.
+Do not rename fine IDs. `verify-refs` / `lit-fulltext` use source my-skills under `03_research/base/`; 03 documents post-QC trigger only.

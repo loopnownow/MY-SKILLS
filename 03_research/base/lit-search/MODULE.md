@@ -22,6 +22,7 @@ Advanced search logs and the lit bank stay in `03_research/advanced/`.
 ## Handoffs
 
 - Read full text / verify a DOI → `verify-refs`
-- Retraction status of a cited paper → `retraction-watcher`
+- Retraction status of a cited paper → `verify-refs` (integrity stage)
+- Full text / OA PDF batch → `lit-fulltext`
 - 选刊 → `find-journal` (not this pack)
 - Advanced lit bank and intake → `03_research/advanced/lit-bank.md`, `03_research/advanced/intake.md`

@@ -3,16 +3,14 @@
 Live packs in this repo (capability bodies):
 
 - design-study
-- grant-builder
-- write-protocol
 - fill-protocol
 - find-journal
 - lit-search
-- retraction-watcher
 - verify-refs
+- lit-fulltext
 
 勿新建这些目录名（退休名仅经 `00_orchestrator/legacy_aliases.yaml` 解析；live 正文不留归档标签）:
-lit-fulltext, lit-review, lit-cite, frontier-ideate, frontier-hypothesize.
+lit-review, lit-cite, frontier-ideate, frontier-hypothesize.
 
 Thin routers (capability, not full products):
 

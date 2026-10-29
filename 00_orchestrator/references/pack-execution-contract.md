@@ -1,7 +1,7 @@
 # Shared pack execution contract
 
 Generic scaffold shared by the AIPOCH-absorbed packs (MIT, absorbed 2026-10-17).
-`retraction-watcher` still uses it. The former `response-tone-polisher` pack used it
+`verify-refs` retraction stage still uses it. The former `response-tone-polisher` pack used it
 until that fine id was absorbed into `tighten-response` (2026-10-25); tone-polish mode
 does not load this contract. It was duplicated verbatim in both MODULE files until
 2026-10-20. Fill `{pack_id}` with the calling pack id.
@@ -43,7 +43,7 @@ Do not continue the workflow when the request is out of scope, missing a critica
 
 ## References
 
-- `retraction-watcher` pack `03_research/base/retraction-watcher/references/audit-reference.md` (repo path `03_research/base/retraction-watcher/references/audit-reference.md`) - supported scope, audit commands, and fallback boundaries
+- `verify-refs` pack `03_research/base/verify-refs/references/retraction-audit.md` (repo path `03_research/base/verify-refs/references/retraction-audit.md`) - supported scope, audit commands, and fallback boundaries
 
 ## Response Template
 

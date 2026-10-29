@@ -3,3 +3,10 @@ upstream: https://github.com/K-Dense-AI/scientific-agent-skills (skills/citation
 copyright: Copyright (c) K-Dense-AI / scientific-agent-skills contributors
 absorbed: 2026-10-17
 note: Retain MIT notice with substantial portions.
+
+# Retraction stage (absorbed 2026-10-30)
+upstream: https://github.com/aipoch/medical-research-skills
+  (scientific-skills/Evidence Insight/retraction stage)
+copyright: Copyright (c) 2026 AIpoch
+absorbed_into: verify-refs
+note: Retain MIT notice with substantial portions.

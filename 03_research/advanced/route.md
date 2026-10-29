@@ -9,6 +9,7 @@ Three pillars. Load only what the task needs.
 Standing pipeline. Run this **before** analysis or deep project work when the project is new or the endpoint / grouping definition is unsettled. Fixed chain (do not skip or reorder):
 
 1. **`design-study`**
+   - Light start: keywords; materials prefer `ref/refer/`, else ask owner.
    - Settle clinical question, feasibility, and validation spine.
    - Name the **guideline** that defines the endpoint or clinical decision (issuing body + year; verify in-session).
    - Paraphrase the definition that will drive inclusion, grouping, or outcome coding.
@@ -18,8 +19,14 @@ Standing pipeline. Run this **before** analysis or deep project work when the pr
    - **Must include** diagnostic criteria and international guidelines.
    - If the topic overlaps the owner's prior publications, cite **at most 5** of those.
 3. **`verify-refs`**
-   - Full text is **not** required.
    - Deliver **NLM citation format + abstract list**.
+   - Integrity stage includes retraction / correction scan.
+4. **`lit-fulltext`** (gate every run on this chain)
+   - If `ref/refer/` already has non-duplicate fulltext (pdf|html|md) >= 5
+     covering highly relevant last-5y papers plus latest diagnostic criteria
+     and latest international guideline: skip download, ledger only.
+   - Else fill gaps; land under `ref/refer/`; dedupe DOI/PMID/hash; OA only.
+5. Return to **`design-study`** when full text forces a design change.
 
 **Deliverable path:** store the NLM + abstract list under **`ref/refer/`** (literature + NLM cite lists + abstracts; formerly「参考文献」 / `materials/citation`). Do **not** put this list in `ref/citation/` — that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two.
 
@@ -30,7 +37,7 @@ Only after this chain may route continue to statistics / writing / deeper analys
 
 1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
 2. **00 QC**
-3. **03 re-loop** -- advanced protocols; may **trigger** `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`) when check (c) says needed
+3. **03 re-loop** -- advanced protocols; may **trigger** `verify-refs` (integrity stage includes retraction scan) (bodies under `NN_slug/base/`) when check (c) says needed
 
 ## Evidence & literature
 
@@ -41,7 +48,7 @@ Only after this chain may route continue to statistics / writing / deeper analys
 | `journal-selection.md` | Topic / fit SOP |
 | live `lit-search` | Generic retrieval (first-pass) |
 | live `verify-refs` | **Post-QC 03-triggered** verify |
-| live `retraction-watcher` | **Post-QC 03-triggered** retraction check |
+| live `lit-fulltext` | OA full-text gate after verify-refs (project-start) |
 | `lit-bank.md` | Lab citation bank (NLM store / Vancouver cite; advanced=group SCI; base=DOI-verified 5y or current guideline) |
 | `references/grant-fulltext-skeleton.md` | Grant full-text section outlines by scheme (absorbed from `_library/fulltext/`; pairs with `grant-own-skeleton.md`) |
 | `references/lab-ref-method-digest.md` | Lab reference-range methodology digest; number-plausibility checks in manuscripts and reviews (not clinical decisions, not an LIS RI replacement) |
