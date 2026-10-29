@@ -21,7 +21,7 @@ Standing pipeline. Run this **before** analysis or deep project work when the pr
    - Full text is **not** required.
    - Deliver **NLM citation format + abstract list**.
 
-**Deliverable path:** store the NLM + abstract list under **`ref/materials/citation/`** (optional materials subfolder; formerly「参考文献」, renamed to `citation`). Do **not** put this list in `ref/citation/` - that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two.
+**Deliverable path:** store the NLM + abstract list under **`ref/refer/`** (literature + NLM cite lists + abstracts; formerly「参考文献」 / `materials/citation`). Do **not** put this list in `ref/citation/` — that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two.
 
 Intake task mode: `project-start-lit` (chains the three fine ids). Mode `guideline-first` remains as the endpoint-definition step inside `design-study` for this chain (see `intake.md`).
 
