@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results").
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results"; t1307u: unaccepted submission packs under `materials/`, accepted manuscript stays at subproject root).
 
 ## Root invariants (do not relocate)
 
@@ -29,7 +29,7 @@ Keep as few `ref/` subfolders as practical. Current map (create on need; **do no
 | `ref/citation/` | `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | Full PDF banks; writing-reference drafts and pre-clean tables (see `materials/`) |
 | `ref/code-gates/` | Script/path notes, patch pointers (no secrets); `GATE*_report.md`, number-lock, input/output hash reports | Live `settings.ini`; raw credentials. **Former side-by-side `code/` and `gates/` are no longer separate folders** |
 | `ref/results/` | Table/figure lock notes and content hashes (for manuscript/gates) | Large binary datasets (stay in derivatives); analysis temp trees (see Three zones below); finals at **subproject root** (do **not** create `0result\`) |
-| `ref/materials/` | Writing-reference drafts/PDFs (thesis parts, Ding*, QIANG* refs editions) **and** this subproject's pre-clean / import tables (xls/xlsx/csv). Distinguish by filename or optional loose subdirs; subdirs not required. Keep human-readable names on move; de-id suffixes `_noName` / `_deid` are OK | **Current** manuscript (stay at subproject root); citation PDF corpus (`citation/` holds audit/logs only); large organized raw (stay in `{RAW}`=`D:\00db`) |
+| `ref/materials/` | Writing-reference drafts/PDFs (thesis parts, Ding*, QIANG* refs editions) **and** this subproject's pre-clean / import tables (xls/xlsx/csv); **unaccepted** submission packs (cover letter / title page / highlights / declarations / figure files as a set). Distinguish by filename or optional loose subdirs; for a full pack prefer `materials/submission-<id>/` (or `materials/submission-packs/` when many); subdirs not required. Keep human-readable names on move; de-id suffixes `_noName` / `_deid` are OK | **Accepted** final manuscript (stay at subproject root); citation PDF corpus (`citation/` holds audit/logs only); large organized raw (stay in `{RAW}`=`D:\00db`) |
 | `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/close-out | Current finals (stay at project root); closed-round changelogs (`review/`); citation / code-gates ledgers; secrets |
 
 **Retired (do not create anew):** standalone `ref/exec/`, `ref/code/`, `ref/gates/`, `ref/writing-refs/`, `ref/raw-pre/`. If old trees still exist, move into `code-gates/` or `materials/` or follow Cleanup when the owner names them; this turn does **not** auto-migrate live files.
@@ -39,6 +39,14 @@ Keep as few `ref/` subfolders as practical. Current map (create on need; **do no
 - **Analysis temp results** (`ASL/`, `DKI/`, `DTI_IVIM/`, ...) sit **beside the subproject root**, **not under `ref/`**.
 - `ref/results/` = locked specs/hashes for manuscript/gates; **do not** merge with `ASL/`-class trees.
 - **Final manuscript / console finals** stay at the subproject root.
+- **Accepted** final manuscript stays at the subproject root; **unaccepted** submission packs go under `ref/materials/` (see Submission packs below). When the owner says so, intermediate xlsx may also stay at the subproject root; do not move them on your own.
+
+### Submission packs (unaccepted vs accepted)
+
+- **Definition**: the journal-ready piece set for one submission (cover letter, title page, highlights, declarations, supplements, figure files, graphical abstract, etc.).
+- **Unaccepted** (rejected / historical rounds): live under `ref/materials/`; for a full pack (~5+ files) use `materials/submission-<id>/` (id from original folder or journal short name); single loose files may sit at `materials/` root.
+- **Accepted**: final manuscript (and still-active revision files) **stay at the subproject root**; do not park them in `materials/` for tidy.
+- **Cleanup**: unaccepted packs under `materials/` may later move to `{DEL}\_by-project\<project>\` after asking; never silent-delete.
 
 ### Cleanup (tidy later; two tiers, not "everything except results")
 
@@ -48,6 +56,7 @@ Keep as few `ref/` subfolders as practical. Current map (create on need; **do no
 
 - `ref/tmp/` (whole tree or named files)
 - Superseded `materials/` (old writing refs / obsolete raw-pre tables)
+- Unaccepted submission packs under `materials/` (`submission-*`, etc.; ask, then move)
 - Leftover empty shells of pre-merge standalone `exec/` / `code/` / `gates/` / `writing-refs/` / `raw-pre/` (after merge into `code-gates/` / `materials/`)
 
 **Default keep:**
