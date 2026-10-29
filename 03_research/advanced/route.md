@@ -4,16 +4,28 @@ Three pillars. Load only what the task needs.
 
 ## Top-layer flow (2026-10-17)
 
-## 项目启动前置（guideline-first）
+## 项目启动前置（project-start-lit）
 
-Use this **before** literature search, study design, statistics, or writing when the project is new or the endpoint/grouping definition is unsettled.
+Standing pipeline. Run this **before** analysis or deep project work when the project is new or the endpoint / grouping definition is unsettled. Fixed chain (do not skip or reorder):
 
-1. Name the **guideline** that defines the endpoint or clinical decision (issuing body + year; verify in-session).
-2. Paraphrase the definition that will drive inclusion, grouping, or outcome coding.
-3. Record the adopted definition on the study card / project notes (and in `ref/settings.ini` comments when a RAD pipeline is used).
-4. Only then route to `literature` / `study-design` / `statistics` / `writing` modes.
+1. **`design-study`**
+   - Settle clinical question, feasibility, and validation spine.
+   - Name the **guideline** that defines the endpoint or clinical decision (issuing body + year; verify in-session).
+   - Paraphrase the definition that will drive inclusion, grouping, or outcome coding.
+   - Record the adopted definition on the study card / project notes (and in `ref/settings.ini` comments when a RAD pipeline is used).
+2. **`lit-search`**
+   - About **30** related papers from the last **5 years**.
+   - **Must include** diagnostic criteria and international guidelines.
+   - If the topic overlaps the owner's prior publications, cite **at most 5** of those.
+3. **`verify-refs`**
+   - Full text is **not** required.
+   - Deliver **NLM citation format + abstract list**.
 
-Intake task mode: `guideline-first` (see `intake.md`).
+**Deliverable path:** store the NLM + abstract list under **`ref/materials/citation/`** (optional materials subfolder; formerly「参考文献」, renamed to `citation`). Do **not** put this list in `ref/citation/` - that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two.
+
+Intake task mode: `project-start-lit` (chains the three fine ids). Mode `guideline-first` remains as the endpoint-definition step inside `design-study` for this chain (see `intake.md`).
+
+Only after this chain may route continue to statistics / writing / deeper analysis modes.
 
 
 1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
