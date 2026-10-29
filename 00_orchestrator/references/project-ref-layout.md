@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results"; t1307u: unaccepted submission packs under `materials/`, accepted manuscript stays at subproject root; t1309s6268: retire `ref/results/`, put stats products + lock hashes under ``ref/analysis/`).
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results"; t1307u: unaccepted submission packs under `materials/`, accepted manuscript stays at subproject root; t1309s6268: retire `ref/results/`, put stats products + lock hashes under `ref/analysis/`).
 
 ## Root invariants (do not relocate)
 
