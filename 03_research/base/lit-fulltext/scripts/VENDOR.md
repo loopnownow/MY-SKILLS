@@ -1,5 +1,5 @@
 # Script vendor note
 
-Copy `fetch_oa.py` and `pdf_to_md.py` from upstream
-https://github.com/Aperivue/medsci-skills/tree/main/skills/fulltext-retrieval
-into this folder before the first live run.
+Required: place upstream fetch_oa.py here (OA only).
+Optional: pdf_to_md.py (AGPL; not required by default).
+See MODULE.md and pack LICENSE_NOTE.txt for upstream path.
