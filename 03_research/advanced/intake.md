@@ -11,6 +11,7 @@ Clinical translation / reader studies → `clinical-translation/` (under `advanc
 
 | Mode | Use when | Default next module |
 |---|---|---|
+| `guideline-first` | Project start: endpoint/grouping needs a named guideline definition before search/design/stats/writing | 项目启动前置 → `route.md` (guideline-first); then study card |
 | `frontier` | User wants new research directions, hotspots, or innovation points | Frontier |
 | `literature` | User wants recent papers, evidence maps, or search terms | Literature |
 | `evidence` | User wants 2023-2026 high-impact literature patterns, representative PMID/DOI seed papers, or journal publication patterns behind topic selection | Evidence |

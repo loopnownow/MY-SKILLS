@@ -4,6 +4,18 @@ Three pillars. Load only what the task needs.
 
 ## Top-layer flow (2026-10-17)
 
+## 项目启动前置（guideline-first）
+
+Use this **before** literature search, study design, statistics, or writing when the project is new or the endpoint/grouping definition is unsettled.
+
+1. Name the **guideline** that defines the endpoint or clinical decision (issuing body + year; verify in-session).
+2. Paraphrase the definition that will drive inclusion, grouping, or outcome coding.
+3. Record the adopted definition on the study card / project notes (and in `ref/settings.ini` comments when a RAD pipeline is used).
+4. Only then route to `literature` / `study-design` / `statistics` / `writing` modes.
+
+Intake task mode: `guideline-first` (see `intake.md`).
+
+
 1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
 2. **00 QC**
 3. **03 re-loop** -- advanced protocols; may **trigger** `verify-refs` + `retraction-watcher` (bodies under `NN_slug/base/`) when check (c) says needed

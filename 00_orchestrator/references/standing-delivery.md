@@ -13,7 +13,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 | Artifact | Format | Where |
 |---|---|---|
 | **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `{lab_root}\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
-| **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`code-gates/`/`results/`/`materials/`/`tmp/` per `project-ref-layout.md` (`materials/` = former writing-refs + raw-pre; no standalone `exec/`/`code/`/`gates/`/`writing-refs/`/`raw-pre/`)); else `{DEL}` |
+| **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`code-gates/`/`analysis/`/`materials/`/`tmp/` per `project-ref-layout.md` (`materials/` = former writing-refs + raw-pre; no standalone `exec/`/`code/`/`gates/`/`writing-refs/`/`raw-pre/`)); else `{DEL}` |
 | Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`in-review\…`); else `{DEL}` unless user names Downloads |
 | Manuscript / Track Changes (final) | DOCX | Subproject **root** if any; else `{DEL}` unless user names Downloads |
 | Data table / filled form (final) | XLSX | Subproject **root** (do **not** create `0result\`); else same as manuscript |
@@ -45,4 +45,4 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 ## Project `ref/` subfolders
 
-QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md) (map: `review/` `citation/` `code-gates/` `results/` `materials/` `tmp/`; Cleanup is two-tier, not clear-all-but-results). Keep `settings.ini` and `manuscript-revision.md` at ref root.
+QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md) (map: `review/` `citation/` `code-gates/` `analysis/` `materials/` `tmp/`; Cleanup is two-tier, not clear-all-but-results). Keep `settings.ini` and `manuscript-revision.md` at ref root.
