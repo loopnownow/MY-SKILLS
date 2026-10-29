@@ -8,7 +8,6 @@ from collections import Counter
 from pathlib import Path
 import re
 import subprocess
-import sys
 import unittest
 import yaml
 

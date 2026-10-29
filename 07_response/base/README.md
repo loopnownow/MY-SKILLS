@@ -11,6 +11,6 @@ Former fine id `response-tone-polisher` was absorbed into `tighten-response` on 
 
 Routing table (decision-type × task-mode): [`routing.md`](routing.md). Does not move ownership off Aitee.
 
-**Flow:** base first-pass -> 00 QC -> **07** (`MY-SKILLS/07_response`) advanced final authority.
+**Flow:** base first-pass -> 00 QC -> **07** (`07_response`) advanced final authority.
 
 Review / re-review bodies stay under `06_review/base/`.

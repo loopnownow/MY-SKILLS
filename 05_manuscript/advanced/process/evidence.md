@@ -96,7 +96,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 ### Out of scope
 
-- Upgrading base into a advanced writing orchestrator or Evidence QC home
+- Upgrading base into an advanced writing orchestrator or Evidence QC home
 - Hard-wiring external review packs under 05 every run
 - New coarse ids or `ocms-*` writing fine ids
 - Letting any backup become default

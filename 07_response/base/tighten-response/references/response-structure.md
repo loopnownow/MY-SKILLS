@@ -6,12 +6,11 @@
 - [Response strategy summary](#response-strategy-summary)
 - [Internal/editor comment-response tracker](#internaleditor-comment-response-tracker)
 - [Reviewer-specific point-by-point letter anatomy](#reviewer-specific-point-by-point-letter-anatomy)
-- [Comment 1](#comment-1)
 - [Revision cover letter anatomy](#revision-cover-letter-anatomy)
 - [Marked manuscript changes](#marked-manuscript-changes)
 - [LaTeX deliverables](#latex-deliverables)
 - [Manuscript change checklist](#manuscript-change-checklist)
-- [Missing information / risk flags](#missing-information-risk-flags)
+- [Missing information / risk flags](#missing-information--risk-flags)
 
 
 Use this file when drafting or auditing the output shape of a reviewer response package, revision cover letter, marked manuscript changes, or combined revision correspondence package.

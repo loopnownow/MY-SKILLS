@@ -285,7 +285,7 @@ AI uses "from X to Y" where X and Y are not on a meaningful continuum.
 
 AI uses em dashes far more frequently than human academic writers.
 
-**Threshold:** More than 2 em dashes per 1000 words.
+**Threshold:** Any em dash fails (owner hard ban 2026-10-28; the upstream per-1000-word tolerance is superseded).
 
 | # | BAD | GOOD |
 |---|-----|------|

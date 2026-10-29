@@ -15,9 +15,9 @@ Three pillars. Load only what the task needs.
 | `citation-verify.md` | Claim-ref table; required before 05 done and inside 06 |
 | `intro-evidence-pack.md` | 05 Introduction cards -> Evidence Pack |
 | `journal-selection.md` | Topic / fit SOP |
-| live `lit-search` (B) | Generic retrieval (first-pass) |
-| live `verify-refs` (B) | **Post-QC 03-triggered** verify |
-| live `retraction-watcher` (B) | **Post-QC 03-triggered** retraction check |
+| live `lit-search` | Generic retrieval (first-pass) |
+| live `verify-refs` | **Post-QC 03-triggered** verify |
+| live `retraction-watcher` | **Post-QC 03-triggered** retraction check |
 | `lit-bank.md` | Lab citation bank (NLM store / Vancouver cite; advanced=group SCI; base=DOI-verified 5y or current guideline) |
 | `references/grant-fulltext-skeleton.md` | Grant full-text section outlines by scheme (absorbed from `_library/fulltext/`; pairs with `grant-own-skeleton.md`) |
 | `references/lab-ref-method-digest.md` | Lab reference-range methodology digest; number-plausibility checks in manuscripts and reviews (not clinical decisions, not an LIS RI replacement) |
@@ -42,7 +42,7 @@ Three pillars. Load only what the task needs.
 | Runtime pools | `{find_journal_pools}` (`_library\find-journal\data\2026`) |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
-Call order: `journal-selection.md` → B `03_research/base/find-journal/SKILL.md`. Format after choice → `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
+Call order: `journal-selection.md` → `03_research/base/find-journal/SKILL.md`. Format after choice → `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
 
 ## 0doc document DB (Bai)
 

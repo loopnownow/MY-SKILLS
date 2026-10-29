@@ -49,7 +49,7 @@ Record only. Do not auto-pick numbers. Blank stays blank or becomes one question
 |---|---|---|
 | **Hook A** (`LAB-RI` / G-FACT pre-06) | Integrity / G-FACT pre-06; manuscript states a “normal range”, “reference interval” / “reference range” / “normal value”, or a unit for a lab/clinical indicator | `LAB-RI-MISMATCH` or `LAB-UNIT-MISMATCH`: quote claim, cite nearest KB `record_id`, note population/assay caveat. Do **not** insert KB numbers. |
 
-Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\03-research\lab-ref-ranges\qc\gate-hooks.md`. Soft only — never auto-rewrite from the lab-ref KB.
+Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\_library\lab-ref-ranges\qc\gate-hooks.md`. Soft only — never auto-rewrite from the lab-ref KB.
 
 G-FACT is fact-lineage completeness after 02 HTML and again after 05 house.docx, and before 06 only if numbers are cited. 02 exit is not a G-FACT. 03 exit is not a G-FACT. There is no G-02 and no G-03. Visualization gates `G-VIZ-01` / `G-VIZ-02` are domain-held by `02_data-processing/advanced/visualization/`; 00 does not route them.
 

@@ -14,6 +14,10 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261029-deep-qc-pointers-flow-tests (2026-10-29)
+
+Deep QC: dead pointer word-edit; retired {doc_root}\03-research cited in find-journal, lab-ref-ranges, ethics, viz; 3 broken anchors; 05 route duplicate humanize step; punctuation wording aligned to ban-phrases.md; A/B residue; tests: fence-safe path regex, mmd comment-proof parity, git-less fallback, test_qc_guards.py; stats-analysis BOM removed.
+
 ## CHG-20261028-punct-ban-discourage (2026-10-28)
 
 Owner punctuation standing (t1251–t1253):

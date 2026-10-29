@@ -84,7 +84,7 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
 
 ## Handoffs
 
-- What to change and how to phrase it → `05_manuscript/advanced/word-edit.md`,
+- What to change and how to phrase it → `06_review/advanced/word-edit.md`,
   `06_review/advanced/review.md`
 - Response letters → `07_response/base/revise/`
 - Formatting contract → `05_manuscript/advanced/Aitor-format.md`

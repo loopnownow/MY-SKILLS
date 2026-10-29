@@ -4,7 +4,6 @@ Merged from: `test_registry_mirrors.py`, `test_registry_paths.py`, `test_alias_t
 """
 from __future__ import annotations
 
-from pathlib import Path
 import re
 import unittest
 import yaml

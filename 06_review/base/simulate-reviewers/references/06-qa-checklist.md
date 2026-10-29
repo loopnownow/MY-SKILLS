@@ -72,7 +72,7 @@
 
 ## Style checks
 
-- Reviewer reports and synthesis avoid em dashes, en dashes, and colons as routine prose punctuation when a sentence boundary, comma, semicolon, parentheses, or a short label followed by a new line would be clearer.
+- Reviewer reports and synthesis avoid em dashes, and avoid colons and semicolons as routine clause connectors (en dashes stay in numeric ranges), when a sentence boundary, comma, parentheses, or a short label followed by a new line would be clearer.
 - Necessary hyphens in compound terms and stable IDs such as `R1-M1` remain intact.
 - Source-faithful titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax are not altered merely to remove punctuation.
 

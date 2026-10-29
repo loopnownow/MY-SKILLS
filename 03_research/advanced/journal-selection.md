@@ -13,7 +13,7 @@ Do not promise “sure accept” / “easy accept” or decide on stale IF. Scop
 
 When the user asks for “patterns from high-tier journals in the last three years” or whether the paper fits Radiology / Lancet Digital Health / Nature Medicine / npj Precision Oncology, first read:
 
-- live `meta-analysis` (B `02_data-processing/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
+- live `meta-analysis` (`02_data-processing/base/meta-analysis/`) — former `literature-evidence-2023-2026.md` retired 2026-09-22
 - this file §「2023-2026 journal patterns」(merged below; stands in for the retired standalone file)
 
 Those files give PubMed-verified seed evidence and journal patterns — not a full systematic review. Final submit advice still needs same-day verification of the journal site and recent similar papers.
@@ -160,7 +160,7 @@ This file only owns the trade-off “evidence strength vs journal preference.”
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,
-41339572, and 38809149. Use live `meta-analysis` (B `02_data-processing/base/meta-analysis/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
+41339572, and 38809149. Use live `meta-analysis` (`02_data-processing/base/meta-analysis/`) for the full seed; `literature-evidence-2023-2026.md` was retired 2026-09-22
 table and DOI-level metadata.
 
 ## Submission-tier logic

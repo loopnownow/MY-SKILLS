@@ -8,7 +8,7 @@ Aligned with **SKILL.md metadata.version 1.18** (Gemini + ChatGPT 2026-09; 10/10
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## When to use
 
 User asks for journal recommendation (推荐杂志) / 选刊 / where to submit / JCR·JCI quartile / IF layers / APC·AIM (only after shortlist confirmed).
@@ -18,15 +18,15 @@ Owner: **Victor** · `03_research`. Bai owns 选刊 advancement after titles are
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## Every journal-recommendation (推荐杂志) run
 
 1. Blacklist first (`data/2026/blacklist.csv`): never list PLoS One / Scientific Reports / MEDICINE (LWW Baltimore).
 2. Read the manuscript. **Ask before each run** whether to include 层2补 (Challenge); **default OFF**.
-   - Always: 层2 — Q1 and IF < 5 — `{doc_root}\03-research\find-journal\data\2026\layer2-q1-if-lt5.csv` (Target; **10** journals)
-   - Always: 层3 — Q2 — `{doc_root}\03-research\find-journal\data\2026\layer3-q2.csv` (safer/steady; **10** journals)
-   - Always: 层4 — Q3 — `{doc_root}\03-research\find-journal\data\2026\layer4-q3.csv` (**default on**; **10** journals)
-   - Only if user opts in: 层2补 — Q1 and 5 ≤ IF ≤ 10 — `{doc_root}\03-research\find-journal\data\2026\layer2b-q1-if-5to10.csv` (Challenge)
+   - Always: 层2 — Q1 and IF < 5 — `{find_journal_pools}\layer2-q1-if-lt5.csv` (Target; **10** journals)
+   - Always: 层3 — Q2 — `{find_journal_pools}\layer3-q2.csv` (safer/steady; **10** journals)
+   - Always: 层4 — Q3 — `{find_journal_pools}\layer4-q3.csv` (**default on**; **10** journals)
+   - Only if user opts in: 层2补 — Q1 and 5 ≤ IF ≤ 10 — `{find_journal_pools}\layer2b-q1-if-5to10.csv` (Challenge)
 3. Do **not** use layer1 (IF>10) unless the user asks. Comprehensive/general medical journals OK when match is reasonable.
 4. Rank inside a layer by: **稿件匹配度** (MJF/MFI, highest) → **BMC/Medicine whitelist first** → **投稿易投指数** (JESI/JEI) → capacity signal (年发文量 / log volume as weak tie-breaker). Load `data/2026/whitelist-bmc-medicine.csv`. Use **dynamic weights** when user constraints differ (speed / Q1 / APC); no fixed weights as policy. Do not use curated 易投指数 in ranking/JDI.
    - Similar-article check (2026-10-08), round 2: round 1 ranks first and does not search. In round 2, no similar article in the last 3–5 years → lower it inside its layer; write 「近年未见类似文章，已降级」. Full rule: `SKILL.md` § Similar-article check.
@@ -51,7 +51,7 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## Do not
 
 - Recommend the three blacklist titles.
@@ -64,7 +64,7 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## Display hard rules (v1.16)
 - BMC/Medicine **whitelist priority** (`data/2026/whitelist-bmc-medicine.csv`); **no** 「可疑」/红标；LWW MEDICINE still blacklisted (never on whitelist).
 - Phase-1 HTML：only **投稿易投指数 ≥80** yellow highlight.
@@ -72,14 +72,14 @@ Curated table: `{jcr2026_xlsx}` (0doc; not in git). Layer CSVs stay under `data/
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## Wording
 - Say **本仓**, never 「空挂」.
 
 ## Data locations
 
 - List gates: `data/2026/` (blacklist/graylist/whitelist).
-- **Runtime selection pools live in 0doc:** `{doc_root}\03-research\find-journal\data\2026`.
+- **Runtime selection pools live in 0doc:** `{find_journal_pools}`.
 ## Journal format compliance (nested)
 
 Not a registry fine id. After 备选杂志 are chosen, invoke `03_research/base/find-journal/journal-format-compliance/SKILL.md` by path/keyword (format for [journal] / 按作者须知改格式). Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` § Journal format compliance.

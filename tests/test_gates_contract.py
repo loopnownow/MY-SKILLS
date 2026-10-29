@@ -4,7 +4,6 @@ Merged from: `test_gate_table_parity.py`, `test_gate_mmd_map.py`, `test_verdict_
 """
 from __future__ import annotations
 
-from pathlib import Path
 import re
 import unittest
 
@@ -37,8 +36,9 @@ def gate_ids_from_gates_md(text: str) -> set[str]:
     return found
 def tokens_from_mmd(text: str) -> set[str]:
     """Normalize mmd gate labels to G-* / G0 ids."""
+    text = "\n".join(l for l in text.splitlines() if not l.lstrip().startswith("%%"))
     tokens: set[str] = set()
-    for m in re.finditer(r"Gate\s*·\s*(\d+)", text):
+    for m in re.finditer(r"Gate\s*·\s*(\d+|[A-Z]+)", text):
         tokens.add(f"G-{m.group(1)}")
     for m in re.finditer(r"\{\{(G0|G-[A-Z0-9]+)", text):
         tokens.add(m.group(1))

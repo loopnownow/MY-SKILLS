@@ -9,7 +9,7 @@
 5. [Location references are volatile](#5-location-references-are-volatile)
 6. [Manuscript self-consistency and terminology drift](#6-manuscript-self-consistency-and-terminology-drift)
 7. [Etiquette failures that survive editing](#7-etiquette-failures-that-survive-editing)
-8. [Delivery gate](#8-delivery-gate)
+8. [Delivery gate](#8-compile-and-delivery-gate)
 
 Use this file when a revision package is being finalized, re-edited after an earlier draft, or
 audited before submission. It covers the failures that are **mechanically verifiable** and that

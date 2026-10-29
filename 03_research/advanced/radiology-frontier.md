@@ -51,7 +51,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 | live `design-study` | Feasibility / study-design conversion for a candidate frontier direction |
 | live `lit-search` | Retrieve and verify seed papers (PMID/DOI); confirm the gap is still open |
 | `03_research/advanced/radiology-design.md` | Inventory already exists, or hand off to full design after a direction is chosen |
-| [references/method-upgrade-into-grant.md](../advanced/method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
+| [method-upgrade-into-grant.md](method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
 
 ## Workflow
 
