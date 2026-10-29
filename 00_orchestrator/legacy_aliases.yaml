@@ -6,6 +6,8 @@
 # 2026-10-25: seat 01_skill-integration retired into 00_orchestrator (registry + aliases + workflows).
 
 aliases:
+  # 2026-10-30: grant-builder retired; use 03_research/advanced/ grant Voice A/B files.
+  # 2026-10-30: 03-lit-fulltext zombie alias removed; live id is lit-fulltext.
   # 2026-10-25: fine-id rename analyze-stats -> stats-analysis (canonical).
   analyze-stats: stats-analysis
   02-tables: clean-data
@@ -17,7 +19,6 @@ aliases:
   04-stats-models: meta-analysis
   04-model-eval: model-evaluation
   nature-academic-search: verify-refs
-  nature-proposal-writer: grant-builder
   nature-polishing: humanize
   nature-reviewer: simulate-reviewers
   nature-response: tighten-response
@@ -32,7 +33,7 @@ aliases:
   pydicom: imaging-io
   05-humanize: humanize
   skills/humanize: humanize
-  cross-pack/aipoch/retraction-watcher: retraction-watcher
+  cross-pack/aipoch/retraction-watcher: verify-refs
   cross-pack/aipoch/response-tone-polisher: tighten-response
   audit-figure-risk: plot-figures
   scientific-visualization: plot-figures
@@ -47,9 +48,7 @@ aliases:
   scout-meta-analysis: meta-analysis
   batch-cohort: clean-data
   04-stats-power: calc-sample-size
-  03-lit-fulltext: lit-search
   03-lit-cite: verify-refs
-  check-grant-proposal: grant-builder
   scientific-critical-thinking: self-review
   model-validation: model-evaluation
   audit-citations: verify-refs

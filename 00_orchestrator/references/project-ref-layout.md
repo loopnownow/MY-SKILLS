@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; **t1321u/t1322u**: lock artifacts `hashes.tsv`/`MANIFEST.md`/`pipeline_run.log` live under **`ref/pipeline/`** (not ref root); writing refs (pptx/doc/docx) may live under **`ref/refer/`** beside lit lists; analysis `false_classification*` stays at **subproject root** (ASL-class temps), not under ref; t1316u: retire shells `analysis/`/`materials/`, lift tables/figures to `ref/`; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` audit ledger only; t1309s6268: former `results/` briefly `analysis/`; t1307u: unaccepted packs at `ref/` root or `submission-*`; earlier writing-refs+raw-pre / code+gates merges unchanged in spirit).
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; **t1321u/t1322u**: lock artifacts `hashes.tsv`/`ref/MANIFEST.md` (project artifact; not in this repo)/`pipeline_run.log` live under **`ref/pipeline/`** (not ref root); writing refs (pptx/doc/docx) may live under **`ref/refer/`** beside lit lists; analysis `false_classification*` stays at **subproject root** (ASL-class temps), not under ref; t1316u: retire shells `analysis/`/`materials/`, lift tables/figures to `ref/`; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` audit ledger only; t1309s6268: former `results/` briefly `analysis/`; t1307u: unaccepted packs at `ref/` root or `submission-*`; earlier writing-refs+raw-pre / code+gates merges unchanged in spirit).
 
 ## Root invariants (do not relocate)
 
@@ -21,7 +21,7 @@ Keep these at **`ref/` root** (skills and convention hard-require them):
 
 Optional at root when already in use: `ref/project-state.yaml` (from `00_orchestrator/templates/project-state.yaml`).
 
-Also under `ref/` (lifted from former `analysis/` / earlier `results/`): `tables/` `figures/` `pipeline/`. **Lock artifacts** `hashes.tsv` `MANIFEST.md` `pipeline_run.log` **must** live under **`ref/pipeline/`** (not ref root). **Writing refs** (pptx/doc/docx used as reference — grant apps, report slides, manuscript tables) may live under **`ref/refer/`** beside lit/NLM lists (do not recreate `writing-refs/` or `materials/`). Unaccepted submission packs (`submission-*`) and data base tables may sit at `ref/` root or under `data/` / `submission-<id>/`; prefer flat; keep a subfolder or prefix only on collision.
+Also under `ref/` (lifted from former `analysis/` / earlier `results/`): `tables/` `figures/` `pipeline/`. **Lock artifacts** `hashes.tsv` `ref/MANIFEST.md` (project artifact; not in this repo) `pipeline_run.log` **must** live under **`ref/pipeline/`** (not ref root). **Writing refs** (pptx/doc/docx used as reference — grant apps, report slides, manuscript tables) may live under **`ref/refer/`** beside lit/NLM lists (do not recreate `writing-refs/` or `materials/`). Unaccepted submission packs (`submission-*`) and data base tables may sit at `ref/` root or under `data/` / `submission-<id>/`; prefer flat; keep a subfolder or prefix only on collision.
 
 ## Subfolder map
 
@@ -40,7 +40,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 ### Three zones / analysis temp area
 
 - **Analysis temp results** (`ASL/`, `DKI/`, `DTI_IVIM/`, ...) sit **beside the subproject root**, **not under `ref/`**.
-- Stats **tables/figures** live under `ref/tables/` `ref/figures/`; **lock artifacts** `hashes.tsv` `MANIFEST.md` `pipeline_run.log` live under **`ref/pipeline/`**; **do not** merge with `ASL/`-class trees.
+- Stats **tables/figures** live under `ref/tables/` `ref/figures/`; **lock artifacts** `hashes.tsv` `ref/MANIFEST.md` (project artifact; not in this repo) `pipeline_run.log` live under **`ref/pipeline/`**; **do not** merge with `ASL/`-class trees.
 - **Analysis misclassification / temp tables** (e.g. `false_classification*`) stay at the **subproject root** with ASL-class temps; **not under `ref/`**.
 - **Final manuscript / console finals** stay at the subproject root.
 - **Accepted** final manuscript stays at the subproject root; **unaccepted** submission packs go under `ref/` root or `submission-*` (see Submission packs below). When the owner says so, intermediate xlsx may also stay at the subproject root; do not move them on your own.
@@ -50,7 +50,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 - **Definition:** the set of files prepared for one journal submission (cover letter, title page, highlights, declarations, supplements, figure files, graphical abstract, ...).
 - **Unaccepted** (rejected / historical rounds): live under `ref/` root; for a full pack (~5+ files) use `submission-<id>/` (id = former folder or short journal name); loose singles may sit directly at `ref/` root.
 - **Accepted:** final manuscript (and still-active revision files) **stay at the subproject root**; do not move them into a `ref/` submission folder for tidy alone.
-- **Cleanup:** unaccepted packs under `ref/` may move to `D:\0del\_by-project\<project>\` after asking; never silent-delete.
+- **Cleanup:** unaccepted packs under `ref/` may move to `{DEL}\_by-project\<project>\` after asking; never silent-delete.
 
 ### Data base tables (D-1)
 
@@ -59,7 +59,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 
 ### Cleanup (afterward; two tiers)
 
-**Never** silent-delete. Ask 城城 before moving; prefer `D:\0del\_by-project\<project>\` (cross-project → `_by-function`); keep relative names when useful.
+**Never** silent-delete. Ask 城城 before moving; prefer `{DEL}\_by-project\<project>\` (cross-project → `_by-function`); keep relative names when useful.
 
 **Default clear → 0del** (ask first):
 
@@ -120,4 +120,4 @@ Cross-links:
 ## Pre-edit originals (`-org`) (2026-10-19)
 
 - Files named `*-org` / `*org*` (e.g. `comments-org.docx`, `SARC_CT_MRI_manuscript-org.docx`) are **pre-edit originals**. Keep them in-project (usually `ref/review/`).
-- On owner close-out/cleanup: **do not discard** `-org` originals. Only move true intermediates from `ref/tmp/` to `D:\0del\_by-project\<project>\`. If an `-org` sat in `tmp/`, promote it to `ref/review/` (or leave at root) before cleanup.
+- On owner close-out/cleanup: **do not discard** `-org` originals. Only move true intermediates from `ref/tmp/` to `{DEL}\_by-project\<project>\`. If an `-org` sat in `tmp/`, promote it to `ref/review/` (or leave at root) before cleanup.

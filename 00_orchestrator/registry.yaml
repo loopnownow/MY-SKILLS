@@ -11,7 +11,7 @@
 meta:
   version: '5.0'
   change_id: CHG-20261029-deep-qc-pointers-flow-tests
-  fine_id_count_canonical: 26
+  fine_id_count_canonical: 24
   coarse_id_count: 5
 
 empty_fine_ids: notify-then-research-confirm
@@ -59,28 +59,23 @@ fine_ids:
   path: 03_research/base/verify-refs/
   a_domain: 03_research
   status: LIVE
-- id: retraction-watcher
-  label: Retraction watch
-  source: my-skills
-  path: 03_research/base/retraction-watcher/
-  a_domain: 03_research
-  status: LIVE
 - id: lit-search
   label: Lit search and public datasets
   source: my-skills
   path: 03_research/base/lit-search/
   a_domain: 03_research
   status: LIVE
+- id: lit-fulltext
+  label: OA full-text retrieval
+  source: my-skills
+  path: 03_research/base/lit-fulltext/
+  a_domain: 03_research
+  status: LIVE
+  note: 'Not mounted. Absorbed Aperivue fulltext-retrieval 2026-10-30. Project-start gate after verify-refs.'
 - id: design-study
   label: Study-design review
   source: my-skills
   path: 03_research/base/design-study/
-  a_domain: 03_research
-  status: LIVE
-- id: write-protocol
-  label: IRB protocol drafting
-  source: my-skills
-  path: 03_research/base/write-protocol/
   a_domain: 03_research
   status: LIVE
 - id: fill-protocol
@@ -103,13 +98,6 @@ fine_ids:
   a_domain: 05_manuscript
   status: LIVE
   note: QC body under 05_manuscript/qc/check-reporting/ (owner 2026-10-25). Fine id unchanged.
-- id: grant-builder
-  label: Grant proposal — methods
-  source: my-skills
-  path: 03_research/base/grant-builder/
-  a_domain: 03_research
-  status: LIVE
-  note: 'Coarse bucket = seat 03_research (no override). Body: 03_research/base/grant-builder/.'
 - id: find-journal
   label: Journal recommendation
   source: my-skills

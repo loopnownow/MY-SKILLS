@@ -1,13 +1,13 @@
 ---
 name: "fill-protocol"
-label_cn: "IRB方案填表(格式，与write-protocol配对)"
+label_cn: "IRB方案填表(格式，含起草+填表)"
 mount_status: "new_mount"
 source_package: "in-repo"
-description: "IRB protocol form fill (format; pairs with write-protocol)"
+description: "IRB protocol form fill (format; draft then fill)"
 owner: "03_research/base/fill-protocol/MODULE.md"
 ---
 
-# IRB protocol form fill (format; pairs with write-protocol)
+# IRB protocol form fill (format; draft then fill)
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 

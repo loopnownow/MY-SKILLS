@@ -1,7 +1,7 @@
 ---
 name: "verify-refs"
 domain: "03_research"
-trigger: ["verify-refs", "引用核验", "citation validation", "bibtex"]
+trigger: ["verify-refs", "引用核验", "citation validation", "bibtex", "retraction", "撤稿"]
 outputs: ["skill_output"]
 owner: "03_research/base/verify-refs/MODULE.md"
 ---
@@ -19,6 +19,21 @@ Also covers former manage-refs after round 2 absorb.
 Manage citations systematically throughout the research and writing process. This skill provides tools and strategies for searching academic databases (Google Scholar, PubMed), extracting accurate metadata from multiple sources (CrossRef, PubMed, arXiv), validating citation information, and generating properly formatted BibTeX entries.
 
 Critical for maintaining citation accuracy, avoiding reference errors, and ensuring reproducible research. Integrates seamlessly with the literature-review skill for comprehensive research workflows.
+
+
+## Integrity stage: metadata validation + retraction scan
+
+When confirming literature for submission or evidence packs, run citation
+metadata validation and a retraction / correction / expression-of-concern scan
+in the same pass. Scan entry point:
+
+`ash
+python scripts/retraction_scan.py --help
+`
+
+Details: [references/retraction-audit.md](references/retraction-audit.md).
+Absorbed from AIPOCH Evidence Insight (MIT, absorbed 2026-10-17); the retraction
+stage now lives here.
 
 ## When to Use This Skill
 

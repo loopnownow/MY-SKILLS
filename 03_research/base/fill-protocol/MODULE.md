@@ -1,7 +1,7 @@
 ---
 name: "fill-protocol"
 domain: "03_research"
-description: "Fill institutional Word form templates (.doc/.docx) for IRB protocols, ethics applications and grant proposals, preserving original styles, table layouts, fonts and page geometry. Pairs with write-protocol, which drafts the content this pack renders into the template."
+description: "Fill institutional Word form templates (.doc/.docx) for IRB protocols, ethics applications and grant proposals, preserving original styles, table layouts, fonts and page geometry. Draft protocol content then fill the template. Absorbed former write-protocol draft step (2026-10-30)."
 trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol", "fill template", "fill IRB form", "ethics template", "grant template"]
 inputs: ["protocol_template"]
 outputs: ["filled_protocol"]
@@ -11,6 +11,12 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 ---
 
 # Fill-Protocol Skill
+
+## Draft first, then fill
+
+One chain: draft the protocol body (generic study-protocol text; not experimental design blueprints -- those stay in design-study), then lay that content into the institutional Word template with the principles below. The former write-protocol pack was a stub and is absorbed here (directory removed 2026-10-30).
+
+
 
 > **Provenance / on-disk status (Batch1 F9; Batch4 B2 trim):**
 > In-repo body under `03_research/base/fill-protocol/` (extracted 2026-09-13).
@@ -24,8 +30,8 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 
 You are helping a researcher populate an institutional Word form (IRB protocol,
 ethics application, grant proposal, etc.) without breaking the original document
-formatting. This skill is the formatting counterpart to `write-protocol`: where
-`write-protocol` drafts content, `fill-protocol` lays that content into the
+formatting. This skill is the template-fill step after drafting: where
+this pack drafts content then lays it into the
 institutional template.
 
 ## Core Principles (Do Not Violate)
@@ -51,7 +57,7 @@ institutional template.
 | Advanced / Jinshan / PHI packs | `03_research/advanced/fill-protocol/` |
 | Registry fine id | `fill-protocol` (live under `03_research/base/fill-protocol/`) |
 
-**Companion fine ids (content / upstream):** `write-protocol`, `check-reporting`,
+**Companion fine ids:** `check-reporting`,
 `calc-sample-size`. Do not vendor missing scripts into this pack; if automation is
 needed later, add real files under `scripts/` and update this MODULE in the same PR.
 

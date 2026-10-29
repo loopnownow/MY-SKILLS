@@ -23,13 +23,13 @@ Capability **bodies** for lit/design fine ids live in **`03_research/base/`** (m
 
 **Flow:** lit/design fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **03** top-layer re-loops
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-(may trigger `verify-refs` + `retraction-watcher`; bodies under `03_research/base/`).
+(may trigger `verify-refs` (integrity stage); bodies under `03_research/base/`).
 
 | Layer | Owns |
 |---|---|
-| `base/` | lit-search, design-study fine ids, verify-refs, retraction-watcher, other 03 capability bodies under `03_research/base/` |
+| `base/` | lit-search, design-study fine ids, verify-refs, lit-fulltext, other 03 capability bodies under `03_research/base/` |
 | 00 | QC gate; decides whether 03 re-triggers verify/retraction |
-| 03 | Advanced route/handoff/authority; citation-verify advanced protocol; grants/ethics/intake/translation advanced files; post-QC trigger of verify-refs / retraction-watcher (bodies in `base/`) |
+| 03 | Advanced route/handoff/authority; citation-verify advanced protocol; grants/ethics/intake/translation advanced files; post-QC trigger of verify-refs / lit-fulltext (bodies in `base/`) |
 
 ## Three pillars
 
@@ -46,7 +46,7 @@ See `advanced/route.md` for the full pointer table.
 - Introduction evidence pack: on 05 cards -> `advanced/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 05 or 06.
 - **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `advanced/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
-- **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run live `verify-refs` and `retraction-watcher`.
+- **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run live `verify-refs` (integrity stage) and `lit-fulltext` when on the project-start chain.
 
 ## Advanced assets (top layer)
 
@@ -69,12 +69,12 @@ Where a `advanced/` file only duplicates a long base procedure, prefer a short p
 
 **This-run pick:** wait for the 00 session-fine-id pick. Registry fine-id menu (SSOT) = pick list.
 
-Live fine ids in `00_orchestrator/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `retraction-watcher`).
+Live fine ids in `00_orchestrator/registry.yaml` (e.g. `lit-search`, `design-study`, `verify-refs`, `lit-fulltext`).
 
 **Post-QC 03-triggered:**
 
 - `verify-refs` -- literature verify / cite hygiene
-- `retraction-watcher` -- retraction check
+- `lit-fulltext` -- OA full-text gate after verify-refs
 
 ## Default research spine
 

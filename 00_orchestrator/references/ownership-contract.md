@@ -14,15 +14,14 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
-| Cursor | external pack | in-repo frontend/backend (UI, API, tests, PR); hand off only when the user says 「交给cursor」 (hand off to Cursor) |
-| Cline | external pack | data prep and peers (xlsx, archive, batch, non-repo data); when the user says 「交给cline」 (hand off to Cline) or for a general data/script handoff |
+| Cursor | external pack | coding / tidying / extraction / form-fill / in-repo frontend-backend (UI, API, tests, PR) and former Cline data/script peers; bot handoff only via 「交给cursor」 (Cursor IDE; Cline may run as IDE plugin for the owner, bots do not call Cline) |
 
 Per-paper channel seats all six (max).
 
 ## Dispatch
 
-- One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to Cursor or Cline.
-- Aitee and Lee generally do not call Cursor or Cline. Any seat using Cursor needs prior user approval.
+- One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to Cursor.
+- Aitee and Lee generally do not call Cursor. Any seat using Cursor needs prior user approval.
 - External-pack watch: `00_orchestrator/references/handoff-monitor.md` (only for that task window).
 
 ## Word Track Changes
@@ -58,6 +57,6 @@ When the owner asks to search, look up, locate, or inventory materials in the la
 
 Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `{doc_ethics}` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
-**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cline when the owner explicitly says 「交给cline」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
+**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cursor when the owner says 「交给cursor」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 
 Procedure: `03_research/advanced/0doc-db.md`.
