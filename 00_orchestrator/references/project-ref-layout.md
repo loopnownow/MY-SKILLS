@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results"; t1307u: unaccepted submission packs under `materials/`, accepted manuscript stays at subproject root).
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; t1303s6243: merge `writing-refs/` + `raw-pre/` into `materials/`; keep `review/` and `citation/` separate; t1300u: drop `exec/`, merge `code`+`gates` into `code-gates/`; two-tier Cleanup, not "clear everything except results"; t1307u: unaccepted submission packs under `materials/`, accepted manuscript stays at subproject root; t1309s6268: retire `ref/results/`, put stats products + lock hashes under ``ref/analysis/`).
 
 ## Root invariants (do not relocate)
 
@@ -21,23 +21,23 @@ Optional at root when already in use: `ref/project-state.yaml` (from `00_orchest
 
 ## Subfolder map
 
-Keep as few `ref/` subfolders as practical. Current map (create on need; **do not pre-create empty folders**):
+Keep as few `ref/` subfolders as practical. Lean six-folder map: `review/` `citation/` `code-gates/` **`analysis/`** `materials/` `tmp/` (create on need; **do not pre-create empty folders**):
 
 | Subfolder | Put here | Do not put here |
 |---|---|---|
 | `ref/review/` | Per-round `changelog.md` / `CHANGELOG_*.md`; review handoff YAML; Lee round notes | Main Word change ledger (that stays `manuscript-revision.md`) |
 | `ref/citation/` | `CITATION_AUDIT.json` (or `.jsonl`); citation README / skip notes; journal/citation logs (`ref_journal_log.txt`, `CITATION*`) | Full PDF banks; writing-reference drafts and pre-clean tables (see `materials/`) |
 | `ref/code-gates/` | Script/path notes, patch pointers (no secrets); `GATE*_report.md`, number-lock, input/output hash reports | Live `settings.ini`; raw credentials. **Former side-by-side `code/` and `gates/` are no longer separate folders** |
-| `ref/results/` | Table/figure lock notes and content hashes (for manuscript/gates) | Large binary datasets (stay in derivatives); analysis temp trees (see Three zones below); finals at **subproject root** (do **not** create `0result\`) |
+| `ref/analysis/` | Stats products + locks: `hashes.tsv`, `MANIFEST.md`, `tables/`, `figures/`, `pipeline/`, `pipeline_run.log` (for manuscript/gates) | Large binary datasets (stay in derivatives); analysis temp trees (see Three zones below); finals at **subproject root** (do **not** create `0result\`); keep `qc.html` at **`ref/` root** (not under this folder) |
 | `ref/materials/` | Writing-reference drafts/PDFs (thesis parts, Ding*, QIANG* refs editions) **and** this subproject's pre-clean / import tables (xls/xlsx/csv); **unaccepted** submission packs (cover letter / title page / highlights / declarations / figure files as a set). Distinguish by filename or optional loose subdirs; for a full pack prefer `materials/submission-<id>/` (or `materials/submission-packs/` when many); subdirs not required. Keep human-readable names on move; de-id suffixes `_noName` / `_deid` are OK | **Accepted** final manuscript (stay at subproject root); citation PDF corpus (`citation/` holds audit/logs only); large organized raw (stay in `{RAW}`=`D:\00db`) |
 | `ref/tmp/` | Project-local **intermediate** Word/PDF/scratch (Claude diffs, superseded TC, `-copy`, merge scratch) held until the owner says clean/close-out | Current finals (stay at project root); closed-round changelogs (`review/`); citation / code-gates ledgers; secrets |
 
-**Retired (do not create anew):** standalone `ref/exec/`, `ref/code/`, `ref/gates/`, `ref/writing-refs/`, `ref/raw-pre/`. If old trees still exist, move into `code-gates/` or `materials/` or follow Cleanup when the owner names them; this turn does **not** auto-migrate live files.
+**Retired (do not create anew):** standalone `ref/exec/`, `ref/code/`, `ref/gates/`, `ref/writing-refs/`, `ref/raw-pre/`, `ref/results/`. If old trees still exist: merge former `results/` into `analysis/`; otherwise move into `code-gates/` or `materials/` or follow Cleanup when the owner names them.
 
 ### Three zones / analysis temp area
 
 - **Analysis temp results** (`ASL/`, `DKI/`, `DTI_IVIM/`, ...) sit **beside the subproject root**, **not under `ref/`**.
-- `ref/results/` = locked specs/hashes for manuscript/gates; **do not** merge with `ASL/`-class trees.
+- `ref/analysis/` = stats products + locked specs/hashes for manuscript/gates; **do not** merge with `ASL/`-class trees.
 - **Final manuscript / console finals** stay at the subproject root.
 - **Accepted** final manuscript stays at the subproject root; **unaccepted** submission packs go under `ref/materials/` (see Submission packs below). When the owner says so, intermediate xlsx may also stay at the subproject root; do not move them on your own.
 
@@ -48,9 +48,9 @@ Keep as few `ref/` subfolders as practical. Current map (create on need; **do no
 - **Accepted**: final manuscript (and still-active revision files) **stay at the subproject root**; do not park them in `materials/` for tidy.
 - **Cleanup**: unaccepted packs under `materials/` may later move to `{DEL}\_by-project\<project>\` after asking; never silent-delete.
 
-### Cleanup (tidy later; two tiers, not "everything except results")
+### Cleanup (tidy later; two tiers, not "everything except analysis")
 
-**Do not** silent-delete. On tidy, **ask 城城 first, then move**; prefer `{DEL}\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful. **Do not** treat "everything under `ref/` except `results/`" as fair game for 0del.
+**Do not** silent-delete. On tidy, **ask 城城 first, then move**; prefer `{DEL}\_by-project\<project>\` (or `_by-function` when cross-project), keeping relative names when useful. **Do not** treat "everything under `ref/` except `analysis/`" as fair game for 0del.
 
 **Default clearable → 0del** (ask, then move):
 
@@ -61,7 +61,7 @@ Keep as few `ref/` subfolders as practical. Current map (create on need; **do no
 
 **Default keep:**
 
-- `ref/results/`
+- `ref/analysis/` (current locks and final tables/figures; same KEEP role as former `results/`)
 - Live `ref/citation/`
 - `ref/code-gates/`
 - Current in-use `materials/`
@@ -77,6 +77,7 @@ Once a project adopts this layout, keep a short **`ref/README.md`** at `ref/` ro
 
 - `materials/`: writing-reference drafts/PDFs + this subproject's pre-clean/import tables (former `writing-refs/` + `raw-pre/`); distinguish by filename or optional subdir; large raw stays in `{RAW}`.
 - `code-gates/`: script notes + gate/hash reports (former `code/`+`gates/`).
+- `analysis/`: stats products + lock hashes (former `results/`; `qc.html` stays at `ref/` root).
 - And note: "analysis temp results live at subproject root `<Modality>/`, not under ref".
 
 ## Skip / idempotent rules (read ledgers before re-run)

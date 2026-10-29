@@ -28,6 +28,8 @@ How the boxes look. Rules and spec: `patient-flow.md`. Gold standard: 2023 BJR P
 
 ## Export
 
+- No overlapping boxes or edges; validate layout before export.
+
 - **PDF preferred** (primary deliverable; 2026-10-24). PNG 300 dpi / SVG only as secondary if the caller asks.
 - Font in boxes: **Arial** 12 pt (figure dual-track; body remains Times New Roman).
 - Width on the page: 16 cm.
