@@ -87,10 +87,10 @@ WORKFLOW_SOP_NAMES = (
     "question-to-reference.md",
 )
 WORKFLOW_HOME = ROOT / "00_orchestrator" / "workflows"
-WORKFLOW_FORBIDDEN_DIRS = (
-    ROOT / "01_skill-integration" / "workflows",
-    ROOT / "03_research" / "workflows",
-)
+# Only 00_orchestrator/workflows is the formal SOP tree. Whitelist extras by role if needed.
+WORKFLOW_DIR_WHITELIST = {
+    WORKFLOW_HOME.resolve(),
+}
 QC00 = ROOT / "00_orchestrator" / "qc"
 PROJECT_REF_TEMPLATE = ROOT / "00_orchestrator" / "references" / "project-ref-template"
 DEAD_STUBS = (
@@ -217,17 +217,23 @@ class WorkflowLocation(unittest.TestCase):
         )
 
     def test_no_secondary_workflow_dirs(self) -> None:
-        present = [
-            folder.relative_to(ROOT).as_posix()
-            for folder in WORKFLOW_FORBIDDEN_DIRS
-            if folder.exists()
-        ]
+        present = []
+        for folder in ROOT.rglob("workflows"):
+            if not folder.is_dir():
+                continue
+            if any(part in SKIP_PARTS for part in folder.parts):
+                continue
+            if folder.resolve() in WORKFLOW_DIR_WHITELIST:
+                continue
+            present.append(folder.relative_to(ROOT).as_posix())
         self.assertEqual(
             present,
             [],
-            "01_skill-integration/workflows (retired seat) and 03_research/workflows "
-            "must NOT exist (call 00_orchestrator/workflows/ directly):\n" + "\n".join(present),
+            "Only 00_orchestrator/workflows is the formal SOP tree; "
+            "other workflows/ dirs must be whitelisted by role or removed:\n"
+            + "\n".join(present),
         )
+
 class Qc00PointersOnly(unittest.TestCase):
     """00_orchestrator/qc must NOT exist; bodies live in 02-07/qc only."""
 

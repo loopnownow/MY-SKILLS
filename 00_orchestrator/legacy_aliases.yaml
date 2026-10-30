@@ -1,7 +1,7 @@
 # Shared alias table. Runtime may resolve alias -> canonical.
 # Docs: 00_orchestrator/SKILL.md + 00_orchestrator/references/id-rules.md
 # Workflows and other call sites use canonical ids only.
-# Confirmed against registry.yaml fine_ids on 2026-10-25 (coarse id = execution seat).
+# Confirmed against registry.yaml fine_ids on 2026-10-30 (coarse id = execution seat).
 # Retired / absorbed fine ids and retired coarse buckets map here; they are not listed in registry.yaml.
 # 2026-10-25: seat 01_skill-integration retired into 00_orchestrator (registry + aliases + workflows).
 

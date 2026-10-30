@@ -79,15 +79,22 @@ class VisualizationContract(unittest.TestCase):
         arch = mod.architecture_ir()
         wf = mod.workflow_ir()
         mod.validate_ir(arch, wf)
-        wf["nodes"] = [n for n in wf["nodes"] if n["id"] != "p07"]
-        wf["edges"] = [e for e in wf["edges"] if e["from"] != "p07" and e["to"] != "p07"]
-        # drop semantic edges that require p07 so must_show is the failure mode
+        drop = {"p07", "lit07"}
+        wf["nodes"] = [n for n in wf["nodes"] if n["id"] not in drop]
+        wf["edges"] = [
+            e for e in wf["edges"] if e["from"] not in drop and e["to"] not in drop
+        ]
+        # drop semantic edges that require p07/lit07 so must_show is the failure mode
         checks = wf["semanticChecks"]
         checks["requiredEdges"] = [
-            e for e in checks["requiredEdges"] if e.get("to") != "p07" and e.get("from") != "p07"
+            e
+            for e in checks["requiredEdges"]
+            if e.get("to") not in drop and e.get("from") not in drop
         ]
         checks["requiredPaths"] = [
-            p for p in checks["requiredPaths"] if p.get("from") != "p07" and p.get("to") != "p07"
+            p
+            for p in checks["requiredPaths"]
+            if p.get("from") not in drop and p.get("to") not in drop
         ]
         with self.assertRaises(mod.GateFailure) as ctx:
             mod.validate_ir(arch, wf)
@@ -204,6 +211,140 @@ class VisualizationContract(unittest.TestCase):
             "allowedRoots" in str(ctx.exception) or "orphan" in str(ctx.exception),
             str(ctx.exception),
         )
+
+    def test_extra_terminal_fails_validate(self) -> None:
+        mod = load_generator()
+        arch = mod.architecture_ir()
+        wf = mod.workflow_ir()
+        mod.validate_ir(arch, wf)
+        # Node with inbound edge but no outbound = extra terminal.
+        wf["nodes"].append(
+            {
+                "id": "dead_end",
+                "lane": "qc",
+                "col": 0,
+                "type": "backend",
+                "label": "Dead end",
+                "sublabel": "bad terminal",
+                "width": 176,
+                "height": 64,
+            }
+        )
+        wf["edges"].append(
+            {
+                "id": "e-rework-dead",
+                "from": "rework",
+                "to": "dead_end",
+                "label": "leak",
+                "role": "branch",
+            }
+        )
+        with self.assertRaises(mod.GateFailure) as ctx:
+            mod.validate_ir(arch, wf)
+        self.assertTrue(
+            "allowedTerminals" in str(ctx.exception) or "dead_end" in str(ctx.exception),
+            str(ctx.exception),
+        )
+
+    def test_allowed_root_must_remain_root(self) -> None:
+        """Reverse check: allowedRoots member that gains an inbound edge must fail."""
+        mod = load_generator()
+        arch = mod.architecture_ir()
+        wf = mod.workflow_ir()
+        mod.validate_ir(arch, wf)
+        wf["edges"].append(
+            {
+                "id": "e-escalate-task",
+                "from": "escalate",
+                "to": "task",
+                "label": "bad inbound to root",
+                "role": "branch",
+            }
+        )
+        with self.assertRaises(mod.GateFailure) as ctx:
+            mod.validate_ir(arch, wf)
+        self.assertTrue(
+            "allowedRoots" in str(ctx.exception) or "mismatch" in str(ctx.exception).lower(),
+            str(ctx.exception),
+        )
+
+    def test_allowed_terminal_must_remain_terminal(self) -> None:
+        """Reverse check: allowedTerminals member that gains an outbound edge must fail."""
+        mod = load_generator()
+        arch = mod.architecture_ir()
+        wf = mod.workflow_ir()
+        mod.validate_ir(arch, wf)
+        wf["edges"].append(
+            {
+                "id": "e-done-locate",
+                "from": "done",
+                "to": "locate",
+                "label": "bad outbound from terminal",
+                "role": "branch",
+            }
+        )
+        with self.assertRaises(mod.GateFailure) as ctx:
+            mod.validate_ir(arch, wf)
+        self.assertTrue(
+            "allowedTerminals" in str(ctx.exception) or "mismatch" in str(ctx.exception).lower(),
+            str(ctx.exception),
+        )
+
+    def test_p07_done_bypass_while_keeping_ga07_fails(self) -> None:
+        """Negative: p07→done alongside ga07 must fail (G-07 bypass)."""
+        mod = load_generator()
+        arch = mod.architecture_ir()
+        wf = mod.workflow_ir()
+        mod.validate_ir(arch, wf)
+        wf["edges"].append(
+            {
+                "id": "e-07-done-bypass",
+                "from": "p07",
+                "to": "done",
+                "label": "bypass G-07",
+                "role": "branch",
+            }
+        )
+        with self.assertRaises(mod.GateFailure) as ctx:
+            mod.validate_ir(arch, wf)
+        self.assertTrue(
+            "bypass" in str(ctx.exception).lower() or "ga07" in str(ctx.exception).lower(),
+            str(ctx.exception),
+        )
+
+    def test_out_rejects_path_inside_repo(self) -> None:
+        mod = load_generator()
+        with self.assertRaises(mod.GateFailure) as ctx:
+            mod.resolve_viz_out(ROOT)
+        self.assertIn("inside", str(ctx.exception).lower())
+        with self.assertRaises(mod.GateFailure):
+            mod.resolve_viz_out(ROOT / "docs")
+        with self.assertRaises(mod.GateFailure):
+            mod.require_path_outside_repo(ROOT / ".", what="--delta-out")
+
+    def test_out_accepts_external_path(self) -> None:
+        import tempfile
+        mod = load_generator()
+        with tempfile.TemporaryDirectory() as td:
+            out = mod.resolve_viz_out(Path(td))
+            self.assertTrue(out.is_absolute())
+            target = mod.out_fs_path(out, "workflow/status.html")
+            self.assertTrue(str(target).startswith(str(out)))
+
+    def test_out_rejects_symlink_escape_into_repo(self) -> None:
+        import os
+        import tempfile
+        mod = load_generator()
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            link = td_path / "escape"
+            try:
+                link.symlink_to(ROOT)
+            except OSError:
+                self.skipTest("symlink not permitted")
+            with self.assertRaises(mod.GateFailure) as ctx:
+                mod.out_fs_path(td_path, "escape/architecture.json")
+            self.assertIn("inside", str(ctx.exception).lower())
 
 class YamlValid(unittest.TestCase):
     def test_all_repo_yaml_parses(self) -> None:

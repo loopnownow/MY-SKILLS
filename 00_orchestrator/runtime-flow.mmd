@@ -111,7 +111,10 @@ flowchart TD
         RRBud -->|no · over budget| Escalate
     end
 
-    P07 --> GA07{{Gate · 07 · response / Aitee}}
+    %% 07 conditional G-LIT: no new cites → GA07; cites appear → Lit07 (G-LIT) → GA07. No new Gate id.
+    P07 -->|no new cites| GA07{{Gate · 07 · response / Aitee}}
+    P07 -->|cites appear| Lit07{{Lit07 · G-LIT when cites}}
+    Lit07 -->|PASS| GA07
     GA07 -->|PASS| Out
 
     P03 --> Exit03{{03 exit · G0 + G-LIT + evidence/citation artifacts}}
@@ -124,6 +127,7 @@ flowchart TD
     %% At destination with last gate PASS, or user says end → stage: done; do not open next station.
     %% Before 05 delivery done / Gate·05: Lit05 must PASS (claim→ref table + strong-claim spot-check).
     %% 06 review: Lit06 is mandatory; Lee still does statement then data consistency. Prior 05 verify does not waive 06.
+    %% 07 response: Lit07 / G-LIT only when the letter or revised ms cites literature; otherwise P07 → GA07 directly.
     %% Manuscript Track Changes are landed by Aitee.Ownership: see 00_orchestrator/references/ownership-contract.md
     %% Pause, or stop after results page / before pre-review: leave stage at current station; do not write done.
     %% Later stations in the same approved run report one line; N2, results-page G-FACT, N4, G-06 still stop.
@@ -132,7 +136,7 @@ flowchart TD
     %% QC loop: return to failed node and reuse session lock. Re-enter 00 only on missing dependency / stale provenance / new capability.
     Exit02 & N2 & GFStats & GAStats & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[Locate minimal responsible node]
     I25 & I45 -->|FAIL · HARD integrity| Locate
-    Lit05 & Lit06 -->|FAIL| Locate
+    Lit05 & Lit06 & Lit07 -->|FAIL| Locate
     Locate --> Impact{Does upstream error<br/>invalidate downstream results?}
     Impact -->|no| Local[Local rework · target node only]
     Impact -->|yes| Rollback[Roll back to earliest affected node]
