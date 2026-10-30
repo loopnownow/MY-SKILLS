@@ -12,6 +12,8 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 
 # Fill-Protocol Skill
 
+Contract only for fill-protocol (ethics form intake): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+
 ## Draft first, then fill
 
 One chain: draft the protocol body (generic study-protocol text; not experimental design blueprints -- those stay in design-study), then lay that content into the institutional Word template with the principles below. The former write-protocol pack was a stub and is absorbed here (directory removed 2026-10-30).

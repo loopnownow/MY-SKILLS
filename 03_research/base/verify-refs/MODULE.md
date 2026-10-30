@@ -14,6 +14,8 @@ Also covers former manage-refs after round 2 absorb.
 
 # Citation Management
 
+Contract only for verify-refs (DOI-first integrity): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+
 ## Overview
 
 Manage citations systematically throughout the research and writing process. This skill provides tools and strategies for searching academic databases (Google Scholar, PubMed), extracting accurate metadata from multiple sources (CrossRef, PubMed, arXiv), validating citation information, and generating properly formatted BibTeX entries.

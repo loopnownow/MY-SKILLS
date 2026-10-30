@@ -2,7 +2,9 @@
 
 Three pillars. Load only what the task needs.
 
-## Top-layer flow (2026-10-17)
+## Top-layer flow (2026-10-30 rebind)
+
+base thin first pass (`03_research/base/`: contracts plus pack data) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `03_research/advanced/`** -> re-gate at 00.
 
 ## 项目启动前置（project-start-lit）
 
