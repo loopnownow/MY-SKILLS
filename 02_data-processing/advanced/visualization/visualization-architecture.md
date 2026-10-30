@@ -73,15 +73,15 @@ Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance;
 
 ### 5.2 Workflow
 
-Task → 00 Detect / Gate → 00 Fine id pick / Dispatch → 02 data processing + statistics → 05 Writing → 06 Review → QC / Loop.
+Task → 00 Detect / Gate → 00 Fine id pick / Dispatch → 02 data processing + statistics → 05 Writing → 06 Review → optional 07 Response → G-07 → QC / Loop.
 
-03 literature can be an independent entry, and it can be called during design, interpretation, or discussion. The main line does not mean every task must pass every layer. Mid-entry stays: existing statistics may enter 05, an existing manuscript may enter 06. Writing and review still pass 03 citation-verify (`Lit05` before Gate · 05, `Lit06` inside 06).
+03 literature can be an independent entry, and it can be called during design, interpretation, or discussion. The main line does not mean every task must pass every layer. Not every Review must enter 07 Response; the 06→07 edge is conditional. Mid-entry stays: existing statistics may enter 05, an existing manuscript may enter 06. Writing and review still pass 03 citation-verify (`Lit05` before Gate · 05, `Lit06` inside 06).
 
 The machine graph is [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd).
 
 ## 6. IR schema policy
 
-This project keeps its own small typed IR mapping of MY-SKILLS facts; it does not vendor an external schema. The shape is defined by [`visualization-source-contract.yaml`](visualization-source-contract.yaml) and enforced by `validate_ir()` in the generator.
+This project keeps its own small typed IR mapping of MY-SKILLS facts; it does not vendor an external schema. Workflow IR is a hand-maintained structured map of [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd) (with prose anchors in [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md)), not an auto-parsed Mermaid AST. Key node/edge/Gate/branch anchors are checked by `require_runtime_ir_mapping()`; remaining semantic drift needs human review. The shape is defined by [`visualization-source-contract.yaml`](visualization-source-contract.yaml) and enforced by `validate_ir()` in the generator.
 
 Architecture documents use `components`, `boundaries`, and `connections` with `schema_version` 1. Workflow documents use `lanes`, `phases`, `groups`, `mainPath`, `nodes`, and `edges` with `schema_version` 2. Changing either version is a specification change: update this file, the contract, and the shape test together.
 
@@ -161,7 +161,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. A fine-id registry change does not alter the architecture diagram unless the 00 seat map changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. A fine-id registry change does not alter the architecture diagram unless the 00 seat map changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a new top-level skill outside the current seat set (00, 02, 03, 05, 06, 07). Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 
@@ -171,6 +171,6 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 
 What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 
-Local check/rebuild: `python 02_data-processing/advanced/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/_library/my-skills-viz`. A failed shape check returns before replacing last-good lab files. **No in-repo `.github` CI** (retired workflow archived under `{DEL}` / `D:/0del`).
+Local check/rebuild: `python 02_data-processing/advanced/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT must be explicitly supplied via `--out` or `MY_SKILLS_VIZ_OUT`; there is no default output directory. A failed shape check returns before replacing last-good lab files. **No in-repo `.github` CI** (retired workflow archived under `{DEL}` / `D:/0del`).
 
 **Size note:** scripts/gen_visualization.py is ~55 KB (single generator). Prefer edits in place; split only if edit friction rises.
