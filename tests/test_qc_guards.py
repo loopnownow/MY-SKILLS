@@ -56,6 +56,11 @@ class MarkdownAnchors(unittest.TestCase):
             t = FENCE.sub("", p.read_text(encoding="utf-8", errors="ignore"))
             for m in self.LINK.finditer(t):
                 tgt = (p.parent / m.group(1)).resolve() if m.group(1) else p
+                if m.group(1) and not tgt.is_file():
+                    bad.append(
+                        f"missing target: {p.relative_to(ROOT)} -> {m.group(1)}"
+                    )
+                    continue
                 if tgt.is_file() and tgt.suffix == ".md" and slug(m.group(2)) not in heads_of(tgt):
                     bad.append(f"{p.relative_to(ROOT)} -> {m.group(1)}#{m.group(2)}")
         self.assertEqual(bad, [])

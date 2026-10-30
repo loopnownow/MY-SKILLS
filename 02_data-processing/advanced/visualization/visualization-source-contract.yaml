@@ -25,6 +25,7 @@ views:
       - layers 00 through 07 (07 = response)
       - Lit05
       - Lit06
+      - Lit07
       - mid-entry
       - G-07
   registry_index:

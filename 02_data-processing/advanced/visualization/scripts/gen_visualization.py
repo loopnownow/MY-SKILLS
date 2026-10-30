@@ -16,7 +16,7 @@ auto-parsed Mermaid AST. require_runtime_ir_mapping() checks key node/edge/Gate/
 branch anchors against that map; semantic drift still needs human review.
 
 Usage:
-    python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py
+    python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR
     python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --check
     python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py \
         --delta-against /path/to/base/viz --delta-out /tmp/delta.html
@@ -51,22 +51,14 @@ CONTRACT = VIZ_DIR / "visualization-source-contract.yaml"
 
 
 def resolve_viz_out(cli_out: Path | None = None) -> Path | None:
-    """Lab output root for generated HTML/IR (not inside the MY-SKILLS repo).
-
-    Order: --out, MY_SKILLS_VIZ_OUT. No default: without either,
-    return None so --check can stay in-memory / skip disk compare.
-    """
-    if cli_out is not None:
-        return cli_out.expanduser().resolve()
-    env = os.environ.get("MY_SKILLS_VIZ_OUT", "").strip()
-    if env:
-        return Path(env).expanduser().resolve()
-    return None
+    """Lab output root; enforced outside-repo (see require_path_outside_repo)."""
+    return _resolve_viz_out(cli_out)
 
 
 def out_fs_path(out: Path, rel: str) -> Path:
-    """Map a portable relative key onto the lab OUT root."""
-    return out / rel
+    """Map portable relative key onto lab OUT; refuse repo escapes."""
+    return _out_fs_path(out, rel)
+
 
 
 SKILL_TOPS = (
@@ -111,6 +103,7 @@ MMD_ANCHORS = (
 RUNTIME_IR_NODE_MAP = (
     ("Lit05", "lit05"),
     ("Lit06", "lit06"),
+    ("Lit07", "lit07"),
     ("P07", "p07"),
     ("GA07", "ga07"),
 )
@@ -118,6 +111,8 @@ RUNTIME_IR_LABEL_NEEDLES = (
     "mid-entry",
     "G-07",
     "Gate · 07",
+    "no new cites",
+    "cites appear",
 )
 # runtime-flow.md must participate in G-VIZ-01 (not a dead read).
 MD_ANCHORS = (
@@ -174,6 +169,59 @@ class GateFailure(Exception):
     def __init__(self, gate: str, message: str) -> None:
         self.gate = gate
         super().__init__(f"{gate}: {message}")
+
+
+def require_path_outside_repo(path: Path, *, what: str) -> Path:
+    """Resolve path and refuse if it lands inside (or is) the MY-SKILLS repo.
+
+    Rejects symlink escapes: the realpath after resolve() must stay outside ROOT.
+    """
+    resolved = path.expanduser().resolve()
+    repo = ROOT.resolve()
+    try:
+        resolved.relative_to(repo)
+    except ValueError:
+        return resolved
+    raise GateFailure(
+        "G-VIZ-01",
+        f"{what} resolves inside the MY-SKILLS repo ({resolved}); "
+        "use a path outside the repo",
+    )
+
+
+def _resolve_viz_out(cli_out: Path | None = None) -> Path | None:
+    """Lab output root for generated HTML/IR (not inside the MY-SKILLS repo).
+
+    Order: --out, MY_SKILLS_VIZ_OUT. No default: without either,
+    return None so --check can stay in-memory / skip disk compare.
+    --out / MY_SKILLS_VIZ_OUT must resolve outside the repo.
+    """
+    if cli_out is not None:
+        return require_path_outside_repo(cli_out, what="--out")
+    env = os.environ.get("MY_SKILLS_VIZ_OUT", "").strip()
+    if env:
+        return require_path_outside_repo(Path(env), what="MY_SKILLS_VIZ_OUT")
+    return None
+
+
+def _out_fs_path(out: Path, rel: str) -> Path:
+    """Map a portable relative key onto the lab OUT root; refuse repo escapes."""
+    target = out / rel
+    parent = target.parent
+    if parent.exists():
+        require_path_outside_repo(parent, what=f"write target parent for {rel}")
+        candidate = parent.resolve() / target.name
+    else:
+        cur = target
+        parts: list[str] = []
+        while not cur.exists() and cur != cur.parent:
+            parts.append(cur.name)
+            cur = cur.parent
+        if cur.exists():
+            candidate = cur.resolve().joinpath(*reversed(parts))
+        else:
+            candidate = target.expanduser().resolve()
+    return require_path_outside_repo(candidate, what=f"write target for {rel}")
 
 
 def esc(value: object) -> str:
@@ -298,9 +346,15 @@ def require_runtime_ir_mapping(mmd: str, wf: dict) -> None:
                 "G-VIZ-02",
                 f"Workflow IR missing runtime branch/Gate label {needle!r}",
             )
-    # Branch: optional 06→07 and G-07 PASS must exist as edges.
+    # Branch: optional 06→07; 07 completion via G-07; conditional G-LIT (Lit07).
     pairs = {(e["from"], e["to"]) for e in wf["edges"]}
-    for frm, to in (("p06", "p07"), ("p07", "ga07"), ("ga07", "done")):
+    for frm, to in (
+        ("p06", "p07"),
+        ("p07", "ga07"),
+        ("p07", "lit07"),
+        ("lit07", "ga07"),
+        ("ga07", "done"),
+    ):
         if (frm, to) not in pairs:
             raise GateFailure("G-VIZ-02", f"runtime mapping missing edge {frm} -> {to}")
 
@@ -439,6 +493,7 @@ def workflow_ir() -> dict:
         node("p03", "literature", 2, "backend", "03 Literature", "evidence"),
         node("lit05", "literature", 4, "security", "Lit05", "G-CIT-1 before Gate 05"),
         node("lit06", "literature", 5, "security", "Lit06", "G-CIT-2 inside 06"),
+        node("lit07", "literature", 3, "security", "Lit07", "G-LIT when cites"),
         node("ga07", "literature", 6, "security", "Gate · 07", "G-07 response"),
         node("locate", "qc", 1, "security", "Locate", "failed node"),
         node("rework", "qc", 3, "security", "Rework", "local or rollback"),
@@ -465,7 +520,9 @@ def workflow_ir() -> dict:
         {"id": "e-06-lit", "from": "p06", "to": "lit06", "label": "required inside 06", "role": "main"},
         {"id": "e-lit-done", "from": "lit06", "to": "done", "label": "Gate 06 PASS at terminal", "role": "main"},
         {"id": "e-06-07", "from": "p06", "to": "p07", "label": "optional response (06 to 07 conditional; not every review)", "role": "branch", "variant": "dashed"},
-        {"id": "e-07-ga07", "from": "p07", "to": "ga07", "label": "response ready", "role": "main"},
+        {"id": "e-07-ga07", "from": "p07", "to": "ga07", "label": "no new cites", "role": "branch", "variant": "dashed"},
+        {"id": "e-07-lit07", "from": "p07", "to": "lit07", "label": "cites appear", "role": "branch"},
+        {"id": "e-lit07-ga07", "from": "lit07", "to": "ga07", "label": "G-LIT PASS", "role": "branch"},
         {"id": "e-ga07-done", "from": "ga07", "to": "done", "label": "G-07 PASS", "role": "branch"},
         {"id": "e-03-05", "from": "p03", "to": "p05", "label": "evidence does not replace Lit05", "role": "branch", "variant": "dashed"},
         {"id": "e-03-06", "from": "p03", "to": "p06", "label": "evidence does not replace Lit06", "role": "branch", "variant": "dashed"},
@@ -481,6 +538,7 @@ def workflow_ir() -> dict:
         {"id": "e-fail-06", "from": "p06", "to": "locate", "label": "Gate 06 FAIL", "role": "error"},
         {"id": "e-fail-07", "from": "ga07", "to": "locate", "label": "G-07 FAIL", "role": "error"},
         {"id": "e-fail-lit06", "from": "lit06", "to": "locate", "label": "Lit06 FAIL", "role": "error"},
+        {"id": "e-fail-lit07", "from": "lit07", "to": "locate", "label": "Lit07 / G-LIT FAIL", "role": "error"},
         {"id": "e-fail-single", "from": "single", "to": "locate", "label": "target gate FAIL", "role": "error"},
         {"id": "e-locate-rework", "from": "locate", "to": "rework", "label": "local rework or rollback", "role": "error"},
         {"id": "e-rework-fine_id", "from": "rework", "to": "fine_id_check", "label": "reuse session lock or re-enter 00 session-pick", "role": "return"},
@@ -491,7 +549,7 @@ def workflow_ir() -> dict:
         "diagram_type": "workflow",
         "meta": {
             "title": "MY-SKILLS Workflow",
-            "subtitle": "Task, gates, fine ids, mid-entry, Lit05, Lit06, optional 07 Response, QC loop",
+            "subtitle": "Task, gates, fine ids, mid-entry, Lit05, Lit06, Lit07 (G-LIT when cites), optional 07 Response, QC loop",
             "locale": "zh-CN",
             "output": "workflow/status.html",
         },
@@ -503,7 +561,7 @@ def workflow_ir() -> dict:
         ],
         "groups": [
             {"id": "forward", "label": "PASS forward", "lane": "produce", "fromCol": 2, "toCol": 6},
-            {"id": "lit-gates", "label": "Lit05 Lit06", "lane": "literature", "fromCol": 4, "toCol": 5},
+            {"id": "lit-gates", "label": "Lit05 Lit06 Lit07", "lane": "literature", "fromCol": 3, "toCol": 5},
             {"id": "qc-loop", "label": "QC loop", "lane": "qc", "fromCol": 3, "toCol": 6, "variant": "dashed"},
         ],
         "mainPath": ["task", "detect", "fine_id_check", "dispatch", "p02", "p02_stats", "p05", "lit05", "p06", "lit06", "done"],
@@ -520,6 +578,8 @@ def workflow_ir() -> dict:
                 {"from": "dispatch", "to": "p07"},
                 {"from": "p06", "to": "p07"},
                 {"from": "p07", "to": "ga07"},
+                {"from": "p07", "to": "lit07"},
+                {"from": "lit07", "to": "ga07"},
                 {"from": "ga07", "to": "done"},
             ],
             "requiredPaths": [
@@ -717,17 +777,21 @@ def validate_ir(arch: dict, wf: dict) -> None:
 
     actual_roots = {nid for nid in node_ids if indeg[nid] == 0}
     actual_terminals = {nid for nid in node_ids if outdeg[nid] == 0}
-    extra_roots = actual_roots - allowed_roots
-    if extra_roots:
+    if actual_roots != allowed_roots:
         raise GateFailure(
             "G-VIZ-02",
-            "indegree-0 nodes not in allowedRoots: " + ", ".join(sorted(extra_roots)),
+            "allowedRoots mismatch: actual="
+            + ", ".join(sorted(actual_roots))
+            + " allowed="
+            + ", ".join(sorted(allowed_roots)),
         )
-    extra_terms = actual_terminals - allowed_terminals
-    if extra_terms:
+    if actual_terminals != allowed_terminals:
         raise GateFailure(
             "G-VIZ-02",
-            "outdegree-0 nodes not in allowedTerminals: " + ", ".join(sorted(extra_terms)),
+            "allowedTerminals mismatch: actual="
+            + ", ".join(sorted(actual_terminals))
+            + " allowed="
+            + ", ".join(sorted(allowed_terminals)),
         )
 
     # Non-isolated nodes must be reachable from an allowed entry root.
@@ -762,6 +826,34 @@ def validate_ir(arch: dict, wf: dict) -> None:
                 "G-VIZ-02",
                 f"required path not reachable {rel['from']} -> {rel['to']}",
             )
+
+    # P07 completion paths (main/branch only) must not bypass G-07.
+    # Error/return edges are excluded so the QC loop cannot false-positive.
+    if {"p07", "ga07", "done"} <= node_ids:
+        adj_no_ga07: dict[str, list[str]] = {
+            nid: [] for nid in node_ids if nid != "ga07"
+        }
+        for edge in wf["edges"]:
+            if edge.get("role") not in {"main", "branch"}:
+                continue
+            if edge["from"] == "ga07" or edge["to"] == "ga07":
+                continue
+            if edge["from"] in adj_no_ga07:
+                adj_no_ga07[edge["from"]].append(edge["to"])
+        seen_b = {"p07"}
+        stack_b = ["p07"]
+        while stack_b:
+            cur_b = stack_b.pop()
+            if cur_b == "done":
+                raise GateFailure(
+                    "G-VIZ-02",
+                    "p07 can reach done without ga07 (G-07 bypass)",
+                )
+            for nxt_b in adj_no_ga07.get(cur_b, []):
+                if nxt_b not in seen_b:
+                    seen_b.add(nxt_b)
+                    stack_b.append(nxt_b)
+
     _enforce_must_show(wf)
     json.loads(dump_json(arch))
     json.loads(dump_json(wf))
@@ -1213,6 +1305,7 @@ def build() -> dict:
 
 
 def publish(files: dict[str, str], out: Path) -> None:
+    out = require_path_outside_repo(out, what="--out")
     staging = Path(tempfile.mkdtemp(prefix="viz-stage-"))
     try:
         for rel, body in files.items():
@@ -1225,9 +1318,13 @@ def publish(files: dict[str, str], out: Path) -> None:
         for rel, body in files.items():
             target = out_fs_path(out, rel)
             target.parent.mkdir(parents=True, exist_ok=True)
+            # Re-check after mkdir in case a symlink appeared under OUT.
+            target = out_fs_path(out, rel)
             temporary = target.with_suffix(target.suffix + ".tmp")
+            require_path_outside_repo(temporary, what=f"write tmp for {rel}")
             temporary.write_text(body, encoding="utf-8")
             temporary.replace(target)
+            require_path_outside_repo(target, what=f"written file {rel}")
         expected_names = {
             Path(rel).name for rel in files if rel.startswith("skills/") and rel.endswith(".html")
         }
@@ -1303,7 +1400,9 @@ def emit_delta(built: dict, baseline: Path, dest: Path | None) -> int:
     if dest is None:
         print(page)
         return 0
+    dest = require_path_outside_repo(dest, what="--delta-out")
     dest.parent.mkdir(parents=True, exist_ok=True)
+    dest = require_path_outside_repo(dest, what="--delta-out")
     dest.write_text(page, encoding="utf-8")
     print(f"Wrote delta {dest}")
     return 0
@@ -1324,8 +1423,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.check and args.delta_against:
         print("use only one of --check and --delta-against", file=sys.stderr)
         return 2
-    out = resolve_viz_out(args.out)
     try:
+        out = resolve_viz_out(args.out)
         built = build()
         if args.delta_against:
             return emit_delta(built, args.delta_against, args.delta_out)
