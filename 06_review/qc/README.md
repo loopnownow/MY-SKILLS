@@ -3,7 +3,7 @@
 **Owner:** `00_orchestrator` only loads these at Gate time.
 **Domains/specialists do not self-certify via this folder.** 06 first-pass review engines stay in `base/`; post-QC re-review uses `advanced/` under 00 gate authority.
 
-QC **standards only** (pass/fail + fail→rollback station). Capability bodies stay in advanced/base.
+QC **standards only** (pass/fail + fail to rollback station). Capability bodies stay in advanced/base. A check that needs a fix recipe cites the `advanced/` anchor (file plus heading); this folder never restates the recipe and never rewrites prose authority.
 
 | File | Gate(s) |
 |---|---|

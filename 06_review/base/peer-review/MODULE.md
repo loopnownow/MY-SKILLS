@@ -16,6 +16,7 @@ trigger is documentation only; not independently discoverable.
 # Other-paper peer review
 
 Write an English review of **someone else's** manuscript. This pack is **other-paper only**.
+Contract only: the English envelope, opener templates, and comment habits are `06_review/advanced/review.md`; scores are `06_review/qc/`.
 
 Retired id `peer-review-pdf-scan` (PDF inject/attack scan, Phase 1.5) resolves here.
 

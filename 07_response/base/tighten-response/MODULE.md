@@ -11,6 +11,8 @@ Reviewer-blind response drafting + anti-accretion tightening.
 Absorbed from Nature `skills/nature-response/` on 2026-10-17 (Apache-2.0).
 Sibling of `revise`; principles also in `07_response/base/revise/references/external-principles.md`.
 
+Contract only: this pack routes. Letter voice, opener templates, and resolution status are `07_response/advanced/response.md`; scores are `07_response/qc/`.
+
 > **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 
 

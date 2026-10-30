@@ -21,12 +21,12 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 **Response enters through `07_response` only** (not 06).
 
-## Layer model
+## Layer model (2026-10-30 rebind)
 
-Flow: fine-ID first-pass (`revise` / `tighten-response`; bodies in `07_response/base/`) -> **00 QC** -> **07** advanced final authority.
+Flow: base thin-contract first pass (`revise` / `tighten-response`; contracts in `07_response/base/`) -> **00 QC** (score, cite the `advanced/` anchor) -> **07 advanced** revise loop and final authority -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Live packs may draft; **A 07 advanced** owns resolution status and letter voice (`advanced/response.md`).
+Base packs draft; **07 advanced owns the recipe**: letter voice, opener templates, resolution status (`advanced/response.md`).
 
 ## Advanced assets
 
