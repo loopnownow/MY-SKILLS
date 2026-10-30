@@ -18,7 +18,7 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 
 ## Package and wording hard rules
 
-- Deliver as `.docx`. Requirements read `Please …`, never `Please fix:`.
+- Deliver as `.docx` named `Response_<project-slug>_V<n>.docx` (version matches the manuscript revision; Rules SSOT → `{RULES}/project-ref-layout.md`). Requirements read `Please …`, never `Please fix:`.
 - Quote the reviewer comment in full; use past tense for changes already made.
 - Do not open a resolved item with `We agree that…`. Do not write `we will…` for a change already claimed.
 - `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\in-review\<project>`).

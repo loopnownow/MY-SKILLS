@@ -18,3 +18,8 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 
 ## Track Changes
 - Aitee owns TC on manuscript body; Lee marks decidable fixes; 05 applies after user pick on undecidable issues (`00_orchestrator/references/ownership-contract.md`).
+
+## Filename stems (standing)
+
+Manuscript / Comments / Response / Supplementary share `<Stem>_<project-slug>_V<n>` (e.g. `Manuscript_lxf_PP_V1.docx`). Version aligns across the set. Rules SSOT → `{RULES}/project-ref-layout.md`; detail → `Aitor-format.md` Filename.
+
