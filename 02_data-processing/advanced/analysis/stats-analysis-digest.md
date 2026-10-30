@@ -10,7 +10,7 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archiv
 
 ## process
 - Always report train | validation side-by-side; never merged-only results.
-- Default pairwise group comparisons; external validation → split inside external; `VAL_MODE` / `EXTERNAL_VAL_MODE` default = `lock_threshold` (independent); `refit` is explicit opt-in model-update only.
+- Default pairwise group comparisons; external validation → split inside external; `VAL_MODE` / `EXTERNAL_VAL_MODE` default = `lock_threshold` (independent; missing train lock -> unlocked raw AUC, no eval-y GLM); `apply_formula` = recalibration/threshold adaptation (not independent external); `refit` is explicit opt-in model-update only.
 - Nomogram vars: hand-picked first; else Multivariate P<0.05 features.
 - Skip re-running QC when results already exist.
 

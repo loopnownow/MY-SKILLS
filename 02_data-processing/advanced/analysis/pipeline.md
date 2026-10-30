@@ -11,7 +11,7 @@ Features stay locked. Three options, no new screening:
 | Mode | What is locked | Test-set threshold | When |
 |------|----------------|--------------------|------|
 | `lock_threshold` (**default**) | Feature list + coefficients + **training** Youden | Apply the training cut and training calibration | Independent test / external performance (prospective-style lock) |
-| `apply_formula` | Feature list + coefficients | Recalculate Youden on the evaluation layer | Transport the linear predictor; allow a new cut |
+| `apply_formula` | Feature list + coefficients | Evaluation-layer logistic recalibration + Youden | Recalibration / threshold adaptation — **not** unbiased independent external validation; do not report as standalone external performance |
 | `refit` (explicit opt-in only) | Feature list | Refit coefficients on the evaluation layer using that layer's outcomes; Youden on that layer | Model update / refit analysis — **not** independent validation; never report as independent test or external AUC |
 
 Calibration plots for `lock_threshold` / `refit` use the layer's predicted probabilities directly (`plot_calibration(..., recalibrate=False)`). Do not refit a display-only logistic on those layers; `apply_formula` may still recalibrate for display. HL uses the same quantile bins as the curve.
@@ -95,7 +95,7 @@ Preprocess is fit on the training set. Validation layers reuse that imputation a
 
 Radiomics preprocess (ICC, correlation filter, prefix strip) sits above LASSO and is shared by both radiomics paths. There is no master switch. Clinical preprocess (force continuous, force count, skip columns) sits above clinical selection. There is no master switch.
 
-Validation modes keep the clinical meanings: default `lock_threshold` locks coefficients and the training Youden (independent metrics); `apply_formula` locks coefficients and recalculates Youden on that layer; `refit` locks the feature list and re-estimates coefficients on the evaluation layer (model update — not independent validation).
+Validation modes keep the clinical meanings: default `lock_threshold` locks coefficients and the training Youden (independent metrics; missing train ROC_LOCK must not refit on eval y — unlocked raw AUC only); `apply_formula` locks coefficients then may recalibrate and recalculate Youden on that layer (recalibration / threshold adaptation, not independent external validation); `refit` locks the feature list and re-estimates coefficients on the evaluation layer (model update — not independent validation).
 
 ## Missingness and HTML
 

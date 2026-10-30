@@ -292,7 +292,7 @@ Pre-specify (clinical target sensitivity), or derive on training. **Never** pick
 threshold that maximises test-set accuracy.
 
 Lab pipeline implements this as `VAL_MODE` = `lock_threshold` (default) | `apply_formula` | `refit` (opt-in model update; not independent validation)
-(features never re-selected). Default `lock_threshold` is for independent test/external performance; do not report `refit` metrics as independent validation. Illegal modes raise ValueError. Youden is **per split** unless locked. Definitions:
+(features never re-selected). Default `lock_threshold` is for independent test/external performance; missing train ROC_LOCK must FAIL threshold metrics (never GLM-refit on eval y; raw continuous AUC may be reported as unlocked). `apply_formula` is recalibration / threshold adaptation on the evaluation layer — do not report it as unbiased independent external validation. Do not report `refit` metrics as independent validation. Illegal modes raise ValueError. Youden is **per split** unless locked. Definitions:
 `02_data-processing/advanced/analysis/pipeline.md`.
 
 ### Reporting sentence
