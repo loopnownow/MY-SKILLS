@@ -36,7 +36,7 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 
 ## 3. Canonical data flow
 
-MY-SKILLS source → 01 registry / runtime metadata → 00 visualization gate → typed JSON IR → IR shape validation → local HTML render → HTML QC → lab `my-skills-viz` OUT.
+MY-SKILLS source → 00 registry / runtime metadata → 00 visualization gate → typed JSON IR → IR shape validation → local HTML render → HTML QC → lab `my-skills-viz` OUT.
 
 Reverse dependency is forbidden. Generated HTML, previous generated HTML, screenshots, and an LLM guess about the repository are not the next round's architecture facts.
 
@@ -44,9 +44,9 @@ Reverse dependency is forbidden. Generated HTML, previous generated HTML, screen
 
 | View | Authoritative input | Question it answers |
 | --- | --- | --- |
-| Architecture | 01 registry, 00 architecture metadata, repository structure | What the system is made of, and where the boundaries are |
+| Architecture | 00 registry, 00 architecture metadata, repository structure | What the system is made of, and where the boundaries are |
 | Workflow | 00 runtime-flow, Gate, routing rules | How a task runs, including branches, exceptions, and loops |
-| External fine ids | 01 fine-id registry / version metadata | Which external packages are live, and which version is recorded |
+| External fine ids | 00 fine-id registry / version metadata | Which external packages are live, and which version is recorded |
 | Skill detail | `SKILL.md` and its supporting files | Documentation pages. Prose is not forced into a diagram |
 
 These are not fact sources:
@@ -67,7 +67,7 @@ Machine-readable copy: [`visualization-source-contract.yaml`](visualization-sour
 
 Show stable system components, about 6-12 primary components. Use a boundary only for a real ownership, trust, process, or deployment boundary. Do not turn every fine skill into a node.
 
-Primary chain: 00 Control / QC → 01 skill-integration / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
+Primary chain: 00 Control / QC / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
 
 Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance; propose only). External fine ids stay one index node fed by the registry, not one node per fine id.
 
@@ -154,14 +154,14 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 1. The visualization build does not rewrite MY-SKILLS skill prose.
 2. Fixes to a diagram go back to source, registry, or IR. Generated HTML is not hand-edited.
-3. External pack contents do not redefine architecture. External packages enter through the 01 registry first.
+3. External pack contents do not redefine architecture. External packages enter through the 00 registry first.
 4. HTML is not a fact source. Deleting generated HTML and IR leaves the sources able to rebuild them (pass `--out DIR`; no default dir).
 5. Delta is evidence. A human decides merge.
 6. A layout failure does not justify deleting a semantic edge.
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 00 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 

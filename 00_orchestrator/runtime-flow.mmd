@@ -55,7 +55,7 @@ flowchart TD
     Need02 & Need03 & NeedStats & Need05 & Need06 & Need07 & NeedS & NeedCode --> FineIdQ{session_picked_fine_ids<br/>covers this task fine IDs?}
     FineIdQ -->|yes · reuse session lock| GA0
     FineIdQ -->|no| SFineId[00 · Session fine-id pick / Lifecycle]
-    S01 --> GA0{{G0}}
+    SFineId --> GA0{{G0}}
     GA0 -->|PASS| Ready[Fine ids ready]
     GA0 -->|FAIL| Locate
     Advanced --> Single

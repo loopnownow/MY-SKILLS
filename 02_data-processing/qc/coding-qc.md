@@ -90,7 +90,7 @@ Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, 
 - After Deep QC / modules QC, unused caches and one-shot intermediates: class A under `{del_root}\<project>\`; others under `{del_root}` (or project `0del`). Do not leave them in `modules/` or the project root. Do not vendor the whole tree into this skill.
 
 ## Explicit do-nots
-- Do not vendor whole-tree `.py` / patient tables / project Excel into GitHub
+- Do not vendor whole-tree heavy `.py` / patient tables / project Excel into GitHub (thin seat `scripts/` helpers are allowed)
 - Do not turn the Medical axis into a second copy of 02 gold standards
 - Do not conflate archived skill-harvest `repo_qc.py` with this flow
 - ≠ archived skill-harvest/qc; ≠ imaging-qc; ≠ 02 model/figure QC; ≠ fine id Copilot playbooks/`quality/` / Council / CI

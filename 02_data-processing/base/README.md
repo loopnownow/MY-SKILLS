@@ -2,8 +2,7 @@
 
 Thin contracts for 02 (data processing + analysis). No domain-level SKILL.md. The recipe and the revision authority live in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files); each pack keeps its prose data (`references/`, `scripts/`) beside it.
 
-**Prose only.** Runnable code for this seat lives in `stats-analysis` (`{code_stats}`):
-`modules/` is the library, `model-validation/` is the CLI half. Never vendor `.py` here.
+**Prose SSOT.** Heavy / reusable analysis for this seat lives in `stats-analysis` (`{code_stats}`): `modules/` is the library, `model-validation/` is the CLI half. In-pack `scripts/` may hold **thin helpers** that are meaningful only beside the skill (flowchart drawer, assumption check). Do not vendor patient-table or modeling engines here.
 
 | Pack | Path | Role | Runs from |
 |---|---|---|---|

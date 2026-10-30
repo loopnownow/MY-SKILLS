@@ -10,6 +10,6 @@ owner: "02_data-processing/base/clean-data/impute/MODULE.md"
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
 Runnable half: `{code_model_validation}\impute_excel.py` + `{code_modules}\utils\u_impute.py`
-(`stats-analysis`). This pack is prose only.
+(`stats-analysis`). This pack is prose SSOT (no heavy analysis scripts in-tree).
 
 Parent clinical tables: [../MODULE.md](../MODULE.md).

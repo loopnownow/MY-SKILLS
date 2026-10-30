@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261030-layer-rebind
+  change_id: CHG-20261030-helper-code-stale-purge
   fine_id_count_canonical: 24
   coarse_id_count: 5
 

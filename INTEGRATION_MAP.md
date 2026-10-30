@@ -2,7 +2,7 @@
 
 Monthly full log is archived. The live roll below is newest-first; entries dated before 2026-10-07 live in the archived roll.
 
-> **Two ledgers, by design (2026-10-25):** `VERSION.txt` keeps the one-line release summary for Oct-2026; this map keeps the structured detail. `tests/test_ledger_assurance.py` requires the registry `change_id` in both files, so the overlap is intended — do not collapse either one.
+> **Two ledgers, by design (2026-10-25):** `VERSION.txt` keeps the one-line release summary for Oct-2026; this map keeps the structured detail. `tests/test_registry_contract.py` (LedgerFreshness) requires the registry `change_id` in both files, so the overlap is intended — do not collapse either one.
 
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
@@ -13,6 +13,16 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+
+## CHG-20261030-helper-code-stale-purge (2026-10-30)
+
+Owner t1414u / t1415u: **skills may hold thin helper scripts**; heavy analysis stays in stats-analysis / `{code_root}`. Stale purge + Deep-QC P1 guards.
+
+- **Contract:** README three-repo table and seat READMEs no longer say prose-only / ban all runnable code. Allowed: `**/scripts/` and `00_orchestrator/scripts/` thin helpers. Heavy analysis still external.
+- **Flow:** `runtime-flow.mmd` connects `SFineId --> GA0` (was dead-end `SFineId` + orphan `S01`).
+- **Viz:** `visualization-architecture.md` primary chain and registry references use current seats 00/02/03/05/06/07 (retired `01_skill-integration` / `04_analysis` not current).
+- **Stale:** report-checks CI dash wording → ASCII hyphen; impute / coding-qc / 0doc-db vendor lines softened for thin helpers.
+- **Tests:** Mermaid referenced-node + FineId→G0 + viz seat ban; merge `test_state_template` → `test_gates_contract`, `test_ledger_assurance` → `test_registry_contract`; drop duplicate 01/04 folder asserts from `test_doc_structure`. Keep DashTests / style_lint / seat packs.
 
 ## CHG-20261030-layer-rebind (2026-10-30)
 

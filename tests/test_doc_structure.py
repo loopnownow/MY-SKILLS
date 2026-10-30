@@ -63,7 +63,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertFalse((ROOT / "05_manuscript" / "writing-generic").exists())
         self.assertFalse((ROOT / "05_manuscript" / "de-ai").exists())
         self.assertFalse((ROOT / "06_review" / "review-generic").exists())
-        self.assertFalse((ROOT / "04_analysis").exists(), "04_analysis retired into 02_data-processing")
+        # 04_analysis folder-gone: guarded in test_retirements.NoRetiredSeat04
 
     def test_core_max_five_path_parts(self):
         """skill / category-or-pack / (scripts|references|advanced) / optional-leaf / file — max five parts."""
@@ -126,7 +126,7 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertTrue((d / "registry.yaml").is_file())
         self.assertTrue((d / "legacy_aliases.yaml").is_file())
         self.assertTrue((d / "workflows" / "README.md").is_file())
-        self.assertFalse((ROOT / "01_skill-integration").exists())
+        # 01_skill-integration folder-gone: guarded in retirements / repo_hygiene
         self.assertFalse((d / "fine_ids").exists())
         self.assertFalse((d / "sources").exists())
         self.assertFalse((d / "fine_ids" / "MIGRATION_v3_to_v4.md").exists())

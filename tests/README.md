@@ -13,16 +13,14 @@ python -B -m unittest tests.test_gates_contract -v  # one domain
 | File | Covers |
 |---|---|
 | `test_registry_contract.py` | registry mirrors, fine id paths, alias targets, ledger freshness |
-| `test_gates_contract.py` | gate table ↔ mmd map parity, gate metadata, verdict vocabulary |
+| `test_gates_contract.py` | gate table / mmd parity, Mermaid node integrity, viz seat ban, state templates, verdict vocabulary |
 | `test_lab_paths.py` | lab path aliases, fine-id board, raw-lab-path hygiene |
 | `test_paths_resolve.py` | documented paths and owners resolve; bare relative pointers resolve from the citing file (else seat-prefixed); no external renderer |
 | `test_retirements.py` | retired ids, seats, packs, absorbed 03 packs and absorption residue stay dead |
 | `test_doc_structure.py` | pack layout, headers, registry-state match, one H1 per file |
 | `test_frontmatter.py` | YAML / frontmatter parses, cited contract files exist |
-| `test_ledger_assurance.py` | registry `change_id` reaches both ledgers; assurance terms |
 | `test_language_style.py` | language lint contract (vocabulary, sections, constructions) |
 | `test_seat_packs.py` | seat packs, routing, review interaction, pack dedupe |
-| `test_state_template.py` | project-state and handoff templates cover hard gates + citation |
 | `test_repo_hygiene.py` | BOM, empty stubs, retired folders, mount vocabulary, pack side docs, test index match, cleanup invariants |
 | `test_qc_guards.py` | retired lab tree, anchors, flow steps, punctuation wording |
 | `test_office_track_changes.py` | track-changes validator rejects a silent overwrite |
