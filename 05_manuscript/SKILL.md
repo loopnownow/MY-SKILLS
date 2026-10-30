@@ -21,17 +21,17 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 **Every SCI full paper uses `advanced/Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
 
-## Layer model (2026-10-17)
+## Layer model (2026-10-30 rebind)
 
-**Flow:** writing fine-ID **first-pass** (`05_manuscript/base/` bodies) -> **00 QC** -> **05** advanced upper layer.
+**Flow:** base thin-contract first pass (`05_manuscript/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the advanced anchor) -> post-QC revise **via `05_manuscript/advanced/`** -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
 | Layer | Owns |
 |---|---|
-| `base/` | `write-paper` (IMRAD + journal templates / house style), `humanize`, vocab under `05_manuscript/base/` |
-| `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR) |
+| `base/` | Thin contract: `write-paper` scope + bans, `humanize` invariants + phase names, vocab data under `05_manuscript/base/vocab/` |
+| `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR); scorecards and deduction codes that cite advanced anchors |
 | 00 | Final QC |
-| 05 | Advanced Aitor-format / voice / process; final wording authority |
+| `advanced/` | Every recipe: Aitor-format beats/bands/typography, voice, de-AI procedure, evidence and citation protocol; final wording authority |
 
 ## Advanced assets
 

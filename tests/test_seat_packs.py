@@ -105,6 +105,14 @@ REQUIRED_IDS = (
     "split_names_are_sets",
     "approach_not_framework",
 )
+# 05-only writing-craft checks (Introduction / Discussion shape); not part of the
+# cross-manuscript set that 06 re-runs, so they are asserted on the 05 file only.
+WRITING_ONLY_IDS = (
+    "intro_funnel_five_para",
+    "intro_discussion_loop",
+    "discussion_inverted_funnel",
+    "no_causal_overclaim_observational",
+)
 REQUIRED_CLASSES = (
     "stats_text",
     "cross_manuscript",
@@ -684,10 +692,11 @@ class PreSubmitFrontmatter(unittest.TestCase):
         self.assertIsInstance(checks, list)
         ids = [item["id"] for item in checks]
         classes = [item["class"] for item in checks]
-        self.assertCountEqual(ids, REQUIRED_IDS)
+        expected = tuple(REQUIRED_IDS) + WRITING_ONLY_IDS
+        self.assertCountEqual(ids, expected)
         self.assertEqual(len(ids), len(set(ids)))
         self.assertCountEqual(set(classes), REQUIRED_CLASSES)
-        for cid in REQUIRED_IDS:
+        for cid in expected:
             self.assertIn(f"### {cid}", body)
 
     def test_review_frontmatter_parse_and_load_order(self) -> None:

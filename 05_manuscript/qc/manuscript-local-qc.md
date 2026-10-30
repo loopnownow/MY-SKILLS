@@ -17,7 +17,7 @@
 
 **Owner (checklist body):** `05_manuscript`. Use as a self-check after drafting and as an independent score before submission. A drafter's own score is provisional; **final Gate / scoring authority = `00_orchestrator`** (seats do not self-certify).
 
-**Funnel contract (owner 2026-10-30 t1402u/t1404u):** five paragraphs / eight beats in `05_manuscript/base/write-paper/radiology-writing/introduction.md` and house `05_manuscript/advanced/Aitor-format.md` Introduction. Para 1 = burden + clinical significance; para 2 = guideline (diagnostic or examination criteria) + current standards/methods; para 3 = this-study methods + related studies; para 4 = gap and method link; para 5 = aim/hypothesis (**no citations**). Score Logic against that map; do not invent a sixth body paragraph for the aim.
+**Funnel contract (owner 2026-10-30 t1402u/t1404u):** five paragraphs / eight beats, authority `05_manuscript/advanced/Aitor-format.md` § Introduction. Para 1 = burden + clinical significance; para 2 = guideline (diagnostic or examination criteria) + current standards/methods; para 3 = this-study methods + related studies; para 4 = gap and method link; para 5 = aim/hypothesis (**no citations**). Score Logic against that map; do not invent a sixth body paragraph for the aim. The beats themselves are not restated here.
 
 Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the deductions below, floor at 0, then apply the caps. Write the deduction codes next to each score.
 
@@ -33,37 +33,39 @@ Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the de
 
 ### Deduction codes
 
-| Code | Dim | Trigger | Deduct | Fix at writing time |
+| Code | Dim | Trigger | Deduct | Fix anchor (advanced owns the recipe) |
 |---|---|---|---|---|
-| LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | Fix the frame first: beat 3 (para 2) states the construct, beat 8 (para 5) names the endpoint, one clause states the relation; algorithm details stay in Methods |
-| LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | Claim-source fit outranks numbering; renumber by script; no reporting standards in the Introduction |
-| LOG-3 | 1 | A paragraph reports studies one after another with no group appraisal | 1.5 | One or two sentences: the strength this study keeps, the weakness it targets |
-| LOG-4 | 1 | Paragraph order or beat placement breaks the five-paragraph funnel (e.g. aim before gap; related studies before guideline; this-study method missing from para 3) | 2 | Reorder to para 1-5 map; see Funnel contract above |
-| LOG-5 | 1 | An Introduction aim or hypothesis is never answered in Discussion (no matching finding, limitation, or explicit deferral) | 2 | Close the loop in Discussion key findings / per-finding blocks, or weaken the Intro claim |
-| LOG-6 | 1 | Clinical significance (beat 2) is missing from para 1, or current standards/methods (beat 4) are missing from para 2 | 1 | Restore the missing beat inside the correct paragraph |
-| FLU-1 | 2 | Three or more sentences in a paragraph open with the same words or the same frame | 2 | Change the subject and the structure; put the number inside a comparison |
-| FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | Merge into one comparative sentence, or drop the weakest |
-| FLU-3 | 2 | More than 10% of sentences outside 10-30 words | 1 per 10%, max 3 | Split or merge |
-| FLU-4 | 2 | IMRAD body laid out as one sentence per line or one sentence per paragraph | 2 | Keep short sentences inside a continuous paragraph (`voice-portrait.md` paragraph lock) |
-| CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | Cite, weaken, or delete (`05_manuscript/advanced/process/evidence.md`) |
-| CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | Budget before drafting; complete the entry |
-| CIT-3 | 3 | Numbers verified below L2, or a guideline definition or appraisal verified below L3 | 1 | Read the full text, or weaken to "reported" |
-| CIT-4 | 3 | No retraction and correction check on the reference list | 1 | Run it |
-| CIT-5 | 3 | Introduction opening paragraph has no citation although a verified source for that claim exists | 2 | Cite the evidence-pack source; para 5 / beat 8 stays uncited |
-| CIT-6 | 3 | Consecutive sentences cite the same paper without a new claim that paper supports | 1 | Cite once, or add the distinct claim |
-| CIT-7 | 3 | DOI, author list, year, or volume copied from another manuscript, or a year/volume change without a source check | 2 | Verify against the work before keeping the entry |
-| RES-1 | 4 | Only favourable results are reported | 1.5 | Include one weaker or limited result if one exists |
-| RES-2 | 4 | Fewer than two of the three result classes covered, or the search log lacks a second source | 1.5 | Raise `missing_prior_result`; log the search |
-| GLD-1 | 5 | Beat 3 (guideline definition, para 2) is missing, cites a superseded edition, or the gap is not traceable to the guideline | 2 | Raise `guideline_definition`; mine the open issue |
-| GAP-1 | 5 | A scarcity claim with no logged search | 1 | Raise `scarcity_check` |
-| GAP-2 | 5 | A field-wide statement drawn from one study | 1 | Write "in the studies we identified", or find a second |
-| GAP-3 | 5 | The gap does not say what existing evidence already shows | 1 | State the settled part, then the unknown |
-| MET-1 | 6 | No map from gap to method to expected benefit to measured output | 2 | Keep the map in the comment; one hedged sentence in the text |
-| MET-2 | 6 | The method is said to solve the gap (*solves*, *overcomes*, *resolves*) | 2 | *may address part of* |
-| MET-3 | 6 | The link rests on an assertion with no support and no hedge | 2 | Add a supporting source, or word it as inference |
-| AIM-1 | 7 | The endpoint origin is not stated in one clause when it differs from the guideline construct | 2 | See LOG-1 |
-| AIM-2 | 7 | The hypothesis has no set or no comparator | 2 | Name the test set and the comparator |
-| AIM-3 | 7 | The endpoint name differs between Abstract, Methods, and Introduction | 1 | One name |
+| LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beats 3 and 8) |
+| LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | `05_manuscript/advanced/Aitor-format.md` § Citation (claim-source fit, renumber by script) |
+| LOG-3 | 1 | A paragraph reports studies one after another with no group appraisal | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 6) |
+| LOG-4 | 1 | Paragraph order or beat placement breaks the five-paragraph funnel (e.g. aim before gap; related studies before guideline; this-study method missing from para 3) | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (paragraph map) |
+| LOG-5 | 1 | An Introduction aim or hypothesis is never answered in Discussion (no matching finding, limitation, or explicit deferral) | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (aim answered) |
+| LOG-6 | 1 | Clinical significance (beat 2) is missing from para 1, or current standards/methods (beat 4) are missing from para 2 | 1 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beats 2 and 4) |
+| FLU-1 | 2 | Three or more sentences in a paragraph open with the same words or the same frame | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (structure bans) |
+| FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | `05_manuscript/advanced/Aitor-format.md` § Introduction (structure bans) |
+| FLU-3 | 2 | More than 10% of sentences outside 10-30 words | 1 per 10%, max 3 | `05_manuscript/advanced/Aitor-format.md` § Introduction (sentence length) |
+| FLU-4 | 2 | IMRAD body laid out as one sentence per line or one sentence per paragraph | 2 | `05_manuscript/advanced/voice-portrait.md` § 3 (paragraph lock) |
+| CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | `05_manuscript/advanced/process/evidence.md` § Claim coverage |
+| CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | `05_manuscript/advanced/Aitor-format.md` § Citation (quota) |
+| CIT-3 | 3 | Numbers verified below L2, or a guideline definition or appraisal verified below L3 | 1 | `05_manuscript/advanced/process/evidence.md` § Verification levels |
+| CIT-4 | 3 | No retraction and correction check on the reference list | 1 | `05_manuscript/advanced/process/citation-and-language.md` § Citation hygiene |
+| CIT-5 | 3 | Introduction opening paragraph has no citation although a verified source for that claim exists | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 1) |
+| CIT-6 | 3 | Consecutive sentences cite the same paper without a new claim that paper supports | 1 | `05_manuscript/advanced/Aitor-format.md` § Introduction (structure bans) |
+| CIT-7 | 3 | DOI, author list, year, or volume copied from another manuscript, or a year/volume change without a source check | 2 | `05_manuscript/advanced/process/citation-and-language.md` § Citation hygiene |
+| RES-1 | 4 | Only favourable results are reported | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 6) |
+| RES-2 | 4 | Fewer than two of the three result classes covered, or the search log lacks a second source | 1.5 | `05_manuscript/advanced/process/evidence.md` § When to raise a card |
+| GLD-1 | 5 | Beat 3 (guideline definition, para 2) is missing, cites a superseded edition, or the gap is not traceable to the guideline | 2 | `05_manuscript/advanced/process/evidence.md` § Guideline rule with `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 3) |
+| GAP-1 | 5 | A scarcity claim with no logged search | 1 | `05_manuscript/advanced/process/evidence.md` § Claim coverage (scarcity check) |
+| GAP-2 | 5 | A field-wide statement drawn from one study | 1 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 7) |
+| GAP-3 | 5 | The gap does not say what existing evidence already shows | 1 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 7) |
+| MET-1 | 6 | No map from gap to method to expected benefit to measured output | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 7) |
+| MET-2 | 6 | The method is said to solve the gap (*solves*, *overcomes*, *resolves*) | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 7) |
+| MET-3 | 6 | The link rests on an assertion with no support and no hedge | 2 | `05_manuscript/advanced/process/evidence.md` § When to raise a card |
+| AIM-1 | 7 | The endpoint origin is not stated in one clause when it differs from the guideline construct | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 8) |
+| AIM-2 | 7 | The hypothesis has no set or no comparator | 2 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beat 8) |
+| AIM-3 | 7 | The endpoint name differs between Abstract, Methods, and Introduction | 1 | `05_manuscript/advanced/Aitor-format.md` § Abstract and § Introduction (beat 8) |
+
+Fix cells are anchors only. The recipe (what to write, how many sentences, which band) lives at the anchor; if an anchor is missing, the fix is to add it there, never to write it into this file.
 
 ### Caps
 
@@ -108,17 +110,17 @@ Five content beats + loop + craft, 0-10 each, total 70. Start at 10, deduct, flo
 
 ### Discussion deduction codes
 
-| Code | Dim | Trigger | Deduct | Fix at writing time |
+| Code | Dim | Trigger | Deduct | Fix anchor (advanced owns the recipe) |
 |---|---|---|---|---|
-| D-KEY-1 | 1 | First Discussion paragraph has citations or result numbers | 2 | Move numbers to Results; drop cites from para 1 |
-| D-KEY-2 | 1 | Key findings omit a load-bearing Intro aim with no deferral | 2 | Add finding sentence or explicit limitation / deferral (see LOG-5) |
-| D-LIT-1 | 2 | No comparison to prior work for a load-bearing finding | 1.5 | Add one contrast block with reason for agreement/disagreement |
-| D-LIT-2 | 2 | Discussion reuses Introduction references as the only "new" lit without appraisal | 1 | Prefer non-overlapping refs per Aitor-format quota; appraise |
-| D-MECH-1 | 3 | Observational association worded as *causes* / *proves* / *demonstrates that X leads to* | 2 | *associated with* / *may reflect*; see `result-to-claim.md` |
-| D-CLIN-1 | 4 | Missing clinical use-case, or disclaimer stack in body | 1.5 | One use-case sentence; disclaimers to Word comment + rewrite (AL-5) |
-| D-LIM-1 | 5 | Limitations not its own paragraph, or ends with tool-readiness CYA | 1.5 | Own paragraph; facts only |
-| D-LOOP-1 | 6 | Intro hypothesis unanswered in Discussion | 2 | Same as LOG-5; fix Discussion or weaken Intro |
-| D-CRAFT-1 | 7 | Conclusion carries AUC / CI / *n*, or does not echo the objective | 1 | Echo aim; strip metrics |
+| D-KEY-1 | 1 | First Discussion paragraph has citations or result numbers | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 1) |
+| D-KEY-2 | 1 | Key findings omit a load-bearing Intro aim with no deferral | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 1, aim answered) |
+| D-LIT-1 | 2 | No comparison to prior work for a load-bearing finding | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 2) |
+| D-LIT-2 | 2 | Discussion reuses Introduction references as the only "new" lit without appraisal | 1 | `05_manuscript/advanced/Aitor-format.md` § Citation (10-15 new refs) |
+| D-MECH-1 | 3 | Observational association worded as *causes* / *proves* / *demonstrates that X leads to* | 2 | `05_manuscript/advanced/voice-portrait.md` § 2 (voice) and `05_manuscript/advanced/process/citation-and-language.md` § Language |
+| D-CLIN-1 | 4 | Missing clinical use-case, or disclaimer stack in body | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 3); AL-5 comment rule |
+| D-LIM-1 | 5 | Limitations not its own paragraph, or ends with tool-readiness CYA | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 4) |
+| D-LOOP-1 | 6 | Intro hypothesis unanswered in Discussion | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (aim answered) |
+| D-CRAFT-1 | 7 | Conclusion carries AUC / CI / *n*, or does not echo the objective | 1 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 5) |
 
 ### Discussion procedure
 
@@ -322,6 +324,22 @@ One fact per sentence is allowed. Related sentences stay in the same paragraph. 
 #### intro_opening_has_citations
 
 The Introduction opening paragraph cites when a verified source exists for that claim. Zero citations there is a fail. Element 6 (aim / hypothesis) stays uncited. Discussion first paragraph stays uncited.
+
+#### intro_funnel_five_para
+
+Five body paragraphs and eight beats in the order set by `05_manuscript/advanced/Aitor-format.md` § Introduction. A missing beat, a moved beat (aim before gap, related studies before the guideline, this-study method absent from para 3), or a sixth paragraph invented for the aim is a fail. Score with LOG-4.
+
+#### intro_discussion_loop
+
+Every Introduction aim and hypothesis has a matching Discussion response: a finding, a limitation, or an explicit deferral. Anchor: `05_manuscript/advanced/Aitor-format.md` § Discussion (aim answered). Score with LOG-5 or D-LOOP-1.
+
+#### discussion_inverted_funnel
+
+The Discussion follows `05_manuscript/advanced/Aitor-format.md` § Discussion (items 1-5): key findings without citations or result numbers, per-finding contrast, hedged mechanism, one clinical use-case, Limitations as its own paragraph, and a Conclusion that echoes the objective without AUC, CI, or *n*. Score with the D-* codes.
+
+#### no_causal_overclaim_observational
+
+An observational design reports association, not causation (authority: `05_manuscript/advanced/voice-portrait.md` § 2 and `05_manuscript/advanced/process/citation-and-language.md` § Language). *causes*, *proves*, *demonstrates that X leads to* is a fail. Comment only; do not restate the design claim.
 
 #### split_names_are_sets
 
