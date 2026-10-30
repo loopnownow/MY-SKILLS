@@ -14,7 +14,7 @@ Formerly `house-format.md`.
 `{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·
 `{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
-Later-polish live files are `Manuscript_<outcome>_polished.docx` in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
+Later-polish live files follow `Manuscript_<project-slug>_V<n>.docx` (Rules SSOT) in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.
 Letters / short communications: apply only if the user asks.
@@ -23,11 +23,15 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 
 ---
 
+## Filename (standing)
+
+`<Stem>_<project-slug>_V<n>` with Stem = `Manuscript` | `Comments` | `Response` | `Supplementary` (Supplementary only when supplements exist). Version matches the manuscript revision. Prefer `.docx`. Rules SSOT → `{RULES}/project-ref-layout.md`.
+
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
-- Canonical file: `Manuscript_<outcome>_house.docx` (unpolished) or `Manuscript_<outcome>_polished.docx` after archive. **Overwrite in place.**
+- Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<n>.docx` (e.g. `Manuscript_lxf_PP_V1.docx`). Same family: `Comments_` / `Response_` / `Supplementary_` with matching `V<n>`. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
