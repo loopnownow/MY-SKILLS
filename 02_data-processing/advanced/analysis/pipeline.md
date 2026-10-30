@@ -10,9 +10,9 @@ Features stay locked. Three options, no new screening:
 
 | Mode | What is locked | Test-set threshold | When |
 |------|----------------|--------------------|------|
-| `refit` (default) | Feature list | Refit coefficients on the evaluation layer; Youden on that layer | Default lab run |
+| `lock_threshold` (**default**) | Feature list + coefficients + **training** Youden | Apply the training cut and training calibration | Independent test / external performance (prospective-style lock) |
 | `apply_formula` | Feature list + coefficients | Recalculate Youden on the evaluation layer | Transport the linear predictor; allow a new cut |
-| `lock_threshold` | Feature list + coefficients + **training** Youden | Apply the training cut and training calibration | Prospective-style lock |
+| `refit` (explicit opt-in only) | Feature list | Refit coefficients on the evaluation layer using that layer's outcomes; Youden on that layer | Model update / refit analysis — **not** independent validation; never report as independent test or external AUC |
 
 Calibration plots for `lock_threshold` / `refit` use the layer's predicted probabilities directly (`plot_calibration(..., recalibrate=False)`). Do not refit a display-only logistic on those layers; `apply_formula` may still recalibrate for display. HL uses the same quantile bins as the curve.
 
@@ -73,7 +73,7 @@ Pairwise is the same pagination case as multiple outcomes:
 - User-facing endpoints are `OUTCOME_COLS` only (single endpoint = one-item list). `GROUP_SOURCE_COL` is a runtime slot written by `set_outcome`, not a console key. Output dirs are `{outcome}` or `{outcome}/{pos_display}_vs_{neg_display}` when pairwise; `SUBPROJECT_BY_OUTCOME` still remaps the parent. `OUT_DIR_BASE` is retired.
 - Sub-outcome grouping comes from that outcome column: running `response_6m` uses `response_6m` levels (then collapsed to 0/1 via `OUTCOME_BINARIZE`). Even if the sheet already has `Group`, do not use it or another outcome column as this sub-outcome's grouping. Fall back to `Group` / `GROUP_COL_KEYWORD` only when the current outcome column is missing.
 - `SUBGROUP_COL`: when different from the outcome column, **evaluate only — do not retrain**. Train the primary model on the full cohort by outcome (nomogram / RadScore / Clinical); then apply the locked formula to each level of this column (ROC, calibration, DCA). `GROUP_KEEP` / pairwise lists only decide which strata to evaluate — they do not filter training rows and do not trigger pairwise retrain. Empty or equal to the current outcome = no stratified evaluation.
-- Public page has three independent dropdowns (do not follow each other): `VAL_MODE` internal validation, `SUBGROUP_VAL_MODE` subgroup validation, `EXTERNAL_VAL_MODE` external validation. Options are always `refit` (refit) / `apply_formula` (apply formula) / `lock_threshold` (lock threshold). None re-select features (不重筛). Subgroup blank = `apply_formula`. External blank = `refit`. Neither follows internal `VAL_MODE`. If the console copy says blank follows internal validation, these two sentences win.
+- Public page has three independent dropdowns (do not follow each other): `VAL_MODE` internal validation, `SUBGROUP_VAL_MODE` subgroup validation, `EXTERNAL_VAL_MODE` external validation. Options order: `lock_threshold` (default; independent) / `apply_formula` / `refit` (opt-in model update only). None re-select features (不重筛). Subgroup blank = `apply_formula`. External blank = `lock_threshold` (independent external). Neither follows internal `VAL_MODE`. Illegal VAL_MODE raises ValueError (no silent fallback). If the console copy says blank follows internal validation, these two sentences win.
 - External validation evaluates the whole cohort (no further subgroup split). Requires `EXTERNAL_FILE` + dual sheets; multiple rows concatenate horizontally, a single row does not. List key `EXTERNAL_TESTS` (start page may hold several).
 - `FORCE_INTER_FEATURES`: key kept for compatibility, **no longer participates in selection**. Missing key inherits public/ini; one outcome's override does not write into others. With multi-outcome console, edit only on each outcome page (public page does not draw it).
 - `FORCE_MODEL_FEATURES`: when non-empty, is the sole clinical selection source (Selected / Clinical score / Combined clinical cols / single-clinical ROC). When empty, use candidate-pool multivariate p < `ROC_MV_P_THRESHOLD`. Candidate pool: univariate Logistic p < `TABLE1_P_THRESHOLD`, drop complete separation, drop univariate VIF ≥ `VIF_THRESHOLD_HIGH`. Table 1 between-group p does not decide pool entry. Skip cols and force-remove cols cannot be selected. Missing key inherits public; per-outcome overrides do not affect each other. Console “nomogram variables” = this manual list.
@@ -95,7 +95,7 @@ Preprocess is fit on the training set. Validation layers reuse that imputation a
 
 Radiomics preprocess (ICC, correlation filter, prefix strip) sits above LASSO and is shared by both radiomics paths. There is no master switch. Clinical preprocess (force continuous, force count, skip columns) sits above clinical selection. There is no master switch.
 
-Validation modes keep the clinical meanings: `refit` locks the feature list and re-estimates coefficients; `apply_formula` locks coefficients and recalculates Youden on that layer; `lock_threshold` locks coefficients and the training Youden.
+Validation modes keep the clinical meanings: default `lock_threshold` locks coefficients and the training Youden (independent metrics); `apply_formula` locks coefficients and recalculates Youden on that layer; `refit` locks the feature list and re-estimates coefficients on the evaluation layer (model update — not independent validation).
 
 ## Missingness and HTML
 
