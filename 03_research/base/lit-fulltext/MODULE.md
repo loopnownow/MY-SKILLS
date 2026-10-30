@@ -53,13 +53,13 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 
 | Script | Role |
 |---|---|
-| `scripts/fetch_oa.py` | **Required.** OA resolvers only (Unpaywall / PMC / OpenAlex / Crossref / arXiv). Paywalled -> `manual_needed.txt`. |
+| `scripts/fetch.py` | **Required.** OA resolvers only (Unpaywall / PMC / EuropePMC / OpenAlex / Crossref / arXiv; optional DOAJ / medRxiv / bioRxiv). Paywalled -> `manual_needed.txt`. |
 | `scripts/pdf_to_md.py` | **Optional** (upstream AGPL dependency). Default: do not require; convert only when the same papers will be re-read often. |
 
 Contact email for Unpaywall ToS: read from **Vault** (owner contact / corresponding). Never hard-code an address in this pack.
 
 ```bash
-python scripts/fetch_oa.py worklist.tsv --output ref/refer/ --email "$(vault-contact-email)"
+python scripts/fetch.py worklist.tsv --output ref/refer/ --email "$(vault-contact-email)"
 # optional:
 python scripts/pdf_to_md.py ref/refer/ -v
 ```

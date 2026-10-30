@@ -25,6 +25,7 @@ WHITELIST = {
     "03_research/base/fill-protocol/MODULE.md",
     "03_research/base/lit-fulltext/LICENSE_NOTE.txt",
     "03_research/base/lit-fulltext/MODULE.md",
+    "03_research/base/lit-fulltext/scripts/fetch.py",
     "NOTICE",
 }
 
@@ -86,6 +87,9 @@ class AbsorbContract(unittest.TestCase):
         row = next(m for m in reg["fine_ids"] if m["id"] == "lit-fulltext")
         self.assertEqual(row["path"].rstrip("/"), "03_research/base/lit-fulltext")
         self.assertTrue((ROOT / "03_research/base/lit-fulltext/MODULE.md").is_file())
+        self.assertTrue((ROOT / "03_research/base/lit-fulltext/scripts/fetch.py").is_file())
+        self.assertGreater((ROOT / "03_research/base/lit-fulltext/scripts/fetch.py").stat().st_size, 0)
+        self.assertNotIn("fetch_oa.py", (ROOT / "03_research/base/lit-fulltext/MODULE.md").read_text(encoding="utf-8"))
         self.assertNotIn("03-lit-fulltext", _aliases())
 
 
