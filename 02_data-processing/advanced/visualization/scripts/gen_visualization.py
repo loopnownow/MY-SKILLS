@@ -10,6 +10,11 @@ no external renderer package is fetched, unpacked, or verified.
 Shape checks use fixed IR schema versions (architecture 1, workflow 2). This
 script is a mapping checker, not a copy of any external schema.
 
+workflow_ir() is a hand-maintained typed IR: a structured map of
+00_orchestrator/runtime-flow.mmd (and prose anchors in runtime-flow.md), not an
+auto-parsed Mermaid AST. require_runtime_ir_mapping() checks key node/edge/Gate/
+branch anchors against that map; semantic drift still needs human review.
+
 Usage:
     python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py
     python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --check
@@ -94,11 +99,34 @@ MMD_ANCHORS = (
     "02 exit",
     "Gate · 05",
     "Gate · 06",
+    "Gate · 07",
     "Standalone lit",
     "Stats/figures exist",
     "existing manuscript",
     "session_picked_fine_ids",
     "citation-verify",
+)
+# Key runtime-flow.mmd tokens that must map into Workflow IR ids / labels.
+# IR remains hand-authored; this is structural consistency, not a Mermaid parser.
+RUNTIME_IR_NODE_MAP = (
+    ("Lit05", "lit05"),
+    ("Lit06", "lit06"),
+    ("P07", "p07"),
+    ("GA07", "ga07"),
+)
+RUNTIME_IR_LABEL_NEEDLES = (
+    "mid-entry",
+    "G-07",
+    "Gate · 07",
+)
+# runtime-flow.md must participate in G-VIZ-01 (not a dead read).
+MD_ANCHORS = (
+    "mid-enter",
+    "Gate ·",
+    "07",
+    "response",
+    "Lit05",
+    "Lit06",
 )
 REBUILD = "python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py"
 
@@ -221,13 +249,19 @@ def fingerprint(paths: list[Path]) -> str:
     return digest.hexdigest()
 
 
-def require_anchors(mmd: str, gates: str, architecture: str) -> None:
+def require_anchors(mmd: str, gates: str, architecture: str, runtime_md: str = "") -> None:
     missing = [token for token in MMD_ANCHORS if token not in mmd]
     if missing:
         raise GateFailure("G-VIZ-01", "runtime-flow.mmd missing " + ", ".join(missing))
-    for token in ("G0", "G-LIT", "G-05", "G-06"):
+    for token in ("G0", "G-LIT", "G-05", "G-06", "G-07"):
         if token not in gates:
             raise GateFailure("G-VIZ-01", f"gates.md missing {token}")
+    md_missing = [token for token in MD_ANCHORS if token not in runtime_md]
+    if md_missing:
+        raise GateFailure(
+            "G-VIZ-01",
+            "runtime-flow.md missing " + ", ".join(md_missing),
+        )
     for folder in SKILL_TOPS:
         if folder not in architecture:
             raise GateFailure("G-VIZ-01", f"ARCHITECTURE.md missing {folder}")
@@ -236,6 +270,39 @@ def require_anchors(mmd: str, gates: str, architecture: str) -> None:
     for entry in ROOT.iterdir():
         if entry.is_dir() and entry.name.startswith("07") and entry.name != "07_response":
             raise GateFailure("G-VIZ-01", f"unexpected top-level 07 skill: {entry.name}")
+
+
+def require_runtime_ir_mapping(mmd: str, wf: dict) -> None:
+    """Check key runtime-flow.mmd anchors appear as Workflow IR nodes/labels.
+
+    workflow_ir() is the structured map of runtime-flow; this is not a full
+    Mermaid parse. Unmapped semantic drift still needs human confirmation.
+    """
+    node_ids = {n["id"] for n in wf["nodes"]}
+    for mmd_token, ir_id in RUNTIME_IR_NODE_MAP:
+        if mmd_token not in mmd:
+            raise GateFailure("G-VIZ-01", f"runtime-flow.mmd missing map token {mmd_token}")
+        if ir_id not in node_ids:
+            raise GateFailure(
+                "G-VIZ-02",
+                f"Workflow IR missing node {ir_id} mapped from runtime {mmd_token}",
+            )
+    label_blob = " | ".join(
+        f"{n.get('id', '')} {n.get('label', '')} {n.get('sublabel', '')}" for n in wf["nodes"]
+    )
+    edge_blob = " | ".join(str(e.get("label", "")) for e in wf["edges"])
+    blob = f"{label_blob} || {edge_blob}"
+    for needle in RUNTIME_IR_LABEL_NEEDLES:
+        if needle not in blob:
+            raise GateFailure(
+                "G-VIZ-02",
+                f"Workflow IR missing runtime branch/Gate label {needle!r}",
+            )
+    # Branch: optional 06→07 and G-07 PASS must exist as edges.
+    pairs = {(e["from"], e["to"]) for e in wf["edges"]}
+    for frm, to in (("p06", "p07"), ("p07", "ga07"), ("ga07", "done")):
+        if (frm, to) not in pairs:
+            raise GateFailure("G-VIZ-02", f"runtime mapping missing edge {frm} -> {to}")
 
 
 def check_registry(reg: dict) -> None:
@@ -372,6 +439,7 @@ def workflow_ir() -> dict:
         node("p03", "literature", 2, "backend", "03 Literature", "evidence"),
         node("lit05", "literature", 4, "security", "Lit05", "G-CIT-1 before Gate 05"),
         node("lit06", "literature", 5, "security", "Lit06", "G-CIT-2 inside 06"),
+        node("ga07", "literature", 6, "security", "Gate · 07", "G-07 response"),
         node("locate", "qc", 1, "security", "Locate", "failed node"),
         node("rework", "qc", 3, "security", "Rework", "local or rollback"),
         node("escalate", "qc", 5, "security", "Unresolved", "budget spent"),
@@ -397,7 +465,8 @@ def workflow_ir() -> dict:
         {"id": "e-06-lit", "from": "p06", "to": "lit06", "label": "required inside 06", "role": "main"},
         {"id": "e-lit-done", "from": "lit06", "to": "done", "label": "Gate 06 PASS at terminal", "role": "main"},
         {"id": "e-06-07", "from": "p06", "to": "p07", "label": "optional response (06 to 07 conditional; not every review)", "role": "branch", "variant": "dashed"},
-        {"id": "e-07-done", "from": "p07", "to": "done", "label": "response complete", "role": "branch"},
+        {"id": "e-07-ga07", "from": "p07", "to": "ga07", "label": "response ready", "role": "main"},
+        {"id": "e-ga07-done", "from": "ga07", "to": "done", "label": "G-07 PASS", "role": "branch"},
         {"id": "e-03-05", "from": "p03", "to": "p05", "label": "evidence does not replace Lit05", "role": "branch", "variant": "dashed"},
         {"id": "e-03-06", "from": "p03", "to": "p06", "label": "evidence does not replace Lit06", "role": "branch", "variant": "dashed"},
         {"id": "e-02-done", "from": "p02", "to": "done", "label": "terminal PASS", "role": "branch"},
@@ -410,7 +479,7 @@ def workflow_ir() -> dict:
         {"id": "e-fail-stats", "from": "p02_stats", "to": "locate", "label": "Gate 02 FAIL", "role": "error"},
         {"id": "e-fail-lit05", "from": "lit05", "to": "locate", "label": "Lit05 FAIL", "role": "error"},
         {"id": "e-fail-06", "from": "p06", "to": "locate", "label": "Gate 06 FAIL", "role": "error"},
-        {"id": "e-fail-07", "from": "p07", "to": "locate", "label": "Gate 07 FAIL", "role": "error"},
+        {"id": "e-fail-07", "from": "ga07", "to": "locate", "label": "G-07 FAIL", "role": "error"},
         {"id": "e-fail-lit06", "from": "lit06", "to": "locate", "label": "Lit06 FAIL", "role": "error"},
         {"id": "e-fail-single", "from": "single", "to": "locate", "label": "target gate FAIL", "role": "error"},
         {"id": "e-locate-rework", "from": "locate", "to": "rework", "label": "local rework or rollback", "role": "error"},
@@ -450,12 +519,16 @@ def workflow_ir() -> dict:
                 {"from": "dispatch", "to": "p06"},
                 {"from": "dispatch", "to": "p07"},
                 {"from": "p06", "to": "p07"},
+                {"from": "p07", "to": "ga07"},
+                {"from": "ga07", "to": "done"},
             ],
             "requiredPaths": [
                 {"from": "task", "to": "done"},
                 {"from": "task", "to": "p03"},
                 {"from": "p05", "to": "lit05"},
                 {"from": "p06", "to": "lit06"},
+                {"from": "p07", "to": "ga07"},
+                {"from": "p07", "to": "done"},
             ],
         },
         "nodes": nodes,
@@ -542,6 +615,9 @@ def validate_ir(arch: dict, wf: dict) -> None:
         for item in boundary["wraps"]:
             if item not in known:
                 raise GateFailure("G-VIZ-02", f"boundary wraps unknown id {item}")
+    conn_ids = [c["id"] for c in arch["connections"]]
+    if len(conn_ids) != len(set(conn_ids)):
+        raise GateFailure("G-VIZ-02", "duplicate architecture connection id")
     for conn in arch["connections"]:
         _check_id(conn["id"], "connection")
         if conn["from"] not in known or conn["to"] not in known:
@@ -553,8 +629,10 @@ def validate_ir(arch: dict, wf: dict) -> None:
         raise GateFailure("G-VIZ-02", "duplicate workflow lane")
     seen_slot = set()
     node_ids = set()
+    node_id_list = []
     for node in wf["nodes"]:
         _check_id(node["id"], "node")
+        node_id_list.append(node["id"])
         if node["lane"] not in lanes:
             raise GateFailure("G-VIZ-02", f"node {node['id']} lane missing")
         if not isinstance(node["col"], int) or not 0 <= node["col"] <= 6:
@@ -566,14 +644,20 @@ def validate_ir(arch: dict, wf: dict) -> None:
             raise GateFailure("G-VIZ-02", f"duplicate lane/col {slot}")
         seen_slot.add(slot)
         node_ids.add(node["id"])
+    if len(node_id_list) != len(node_ids):
+        raise GateFailure("G-VIZ-02", "duplicate workflow node id")
+    edge_id_list = []
     for edge in wf["edges"]:
         _check_id(edge["id"], "edge")
+        edge_id_list.append(edge["id"])
         if edge["from"] not in node_ids or edge["to"] not in node_ids:
             raise GateFailure("G-VIZ-02", f"edge {edge['id']} endpoint missing")
         if edge.get("role") not in EDGE_ROLES:
             raise GateFailure("G-VIZ-02", f"edge {edge['id']} role missing")
         if "variant" in edge and edge["variant"] not in VARIANTS:
             raise GateFailure("G-VIZ-02", f"bad edge variant {edge['id']}")
+    if len(edge_id_list) != len(set(edge_id_list)):
+        raise GateFailure("G-VIZ-02", "duplicate workflow edge id")
     if len(wf["mainPath"]) < 2 or any(item not in node_ids for item in wf["mainPath"]):
         raise GateFailure("G-VIZ-02", "mainPath is not a list of node ids")
     edge_pairs = {(e["from"], e["to"]) for e in wf["edges"]}
@@ -587,6 +671,8 @@ def validate_ir(arch: dict, wf: dict) -> None:
         if group["lane"] not in lanes:
             raise GateFailure("G-VIZ-02", f"group lane missing {group['id']}")
     checks = wf["semanticChecks"]
+    allowed_roots = set(checks["allowedRoots"])
+    allowed_terminals = set(checks["allowedTerminals"])
     for key in ("allowedRoots", "allowedTerminals"):
         if any(item not in node_ids for item in checks[key]):
             raise GateFailure("G-VIZ-02", f"semanticChecks.{key} references an unknown node")
@@ -596,8 +682,12 @@ def validate_ir(arch: dict, wf: dict) -> None:
         if (rel["from"], rel["to"]) not in edge_pairs:
             raise GateFailure("G-VIZ-02", f"required edge missing {rel['from']} -> {rel['to']}")
     adj: dict[str, list[str]] = {nid: [] for nid in node_ids}
+    indeg = {nid: 0 for nid in node_ids}
+    outdeg = {nid: 0 for nid in node_ids}
     for edge in wf["edges"]:
         adj[edge["from"]].append(edge["to"])
+        outdeg[edge["from"]] += 1
+        indeg[edge["to"]] += 1
 
     def _reachable(src: str, dst: str) -> bool:
         seen = {src}
@@ -612,6 +702,58 @@ def validate_ir(arch: dict, wf: dict) -> None:
                     stack.append(nxt)
         return False
 
+    def _reachable_any(src: str, targets: set[str]) -> bool:
+        seen = {src}
+        stack = [src]
+        while stack:
+            cur = stack.pop()
+            if cur in targets:
+                return True
+            for nxt in adj.get(cur, []):
+                if nxt not in seen:
+                    seen.add(nxt)
+                    stack.append(nxt)
+        return False
+
+    actual_roots = {nid for nid in node_ids if indeg[nid] == 0}
+    actual_terminals = {nid for nid in node_ids if outdeg[nid] == 0}
+    extra_roots = actual_roots - allowed_roots
+    if extra_roots:
+        raise GateFailure(
+            "G-VIZ-02",
+            "indegree-0 nodes not in allowedRoots: " + ", ".join(sorted(extra_roots)),
+        )
+    extra_terms = actual_terminals - allowed_terminals
+    if extra_terms:
+        raise GateFailure(
+            "G-VIZ-02",
+            "outdegree-0 nodes not in allowedTerminals: " + ", ".join(sorted(extra_terms)),
+        )
+
+    # Non-isolated nodes must be reachable from an allowed entry root.
+    from_roots: set[str] = set()
+    stack = list(allowed_roots & node_ids)
+    from_roots.update(stack)
+    while stack:
+        cur = stack.pop()
+        for nxt in adj.get(cur, []):
+            if nxt not in from_roots:
+                from_roots.add(nxt)
+                stack.append(nxt)
+    for nid in node_ids:
+        if indeg[nid] + outdeg[nid] == 0:
+            continue
+        if nid not in from_roots and nid not in allowed_roots:
+            raise GateFailure(
+                "G-VIZ-02",
+                f"non-isolated node {nid} not reachable from allowedRoots",
+            )
+        if nid in from_roots and not _reachable_any(nid, allowed_terminals):
+            raise GateFailure(
+                "G-VIZ-02",
+                f"node {nid} cannot reach an allowedTerminal",
+            )
+
     for rel in checks["requiredPaths"]:
         if rel["from"] not in node_ids or rel["to"] not in node_ids:
             raise GateFailure("G-VIZ-02", "semanticChecks relation references an unknown node")
@@ -625,18 +767,34 @@ def validate_ir(arch: dict, wf: dict) -> None:
     json.loads(dump_json(wf))
 
 
+def _unique_map(items: list, key: str, value_fn, kind: str) -> dict:
+    out: dict = {}
+    for item in items:
+        item_id = item[key]
+        if item_id in out:
+            raise GateFailure("G-VIZ-02", f"duplicate {kind} id {item_id}")
+        out[item_id] = value_fn(item)
+    return out
+
+
 def facts_from_ir(arch: dict, wf: dict) -> dict:
     return {
-        "components": {c["id"]: c["label"] for c in arch["components"]},
-        "connections": {
-            c["id"]: {"from": c["from"], "to": c["to"], "label": c.get("label", "")}
-            for c in arch["connections"]
-        },
-        "nodes": {n["id"]: n["label"] for n in wf["nodes"]},
-        "edges": {
-            e["id"]: {"from": e["from"], "to": e["to"], "label": e.get("label", "")}
-            for e in wf["edges"]
-        },
+        "components": _unique_map(
+            arch["components"], "id", lambda c: c["label"], "architecture component"
+        ),
+        "connections": _unique_map(
+            arch["connections"],
+            "id",
+            lambda c: {"from": c["from"], "to": c["to"], "label": c.get("label", "")},
+            "architecture connection",
+        ),
+        "nodes": _unique_map(wf["nodes"], "id", lambda n: n["label"], "workflow node"),
+        "edges": _unique_map(
+            wf["edges"],
+            "id",
+            lambda e: {"from": e["from"], "to": e["to"], "label": e.get("label", "")},
+            "workflow edge",
+        ),
     }
 
 
@@ -892,8 +1050,8 @@ def build() -> dict:
     mmd = read_text(RUNTIME_MMD)
     gates = read_text(GATES)
     architecture = read_text(ARCH_MD)
-    read_text(RUNTIME_MD)
-    require_anchors(mmd, gates, architecture)
+    runtime_md = read_text(RUNTIME_MD)
+    require_anchors(mmd, gates, architecture, runtime_md)
     skills = []
     seen_names = set()
     for path in skill_files():
@@ -918,6 +1076,7 @@ def build() -> dict:
     arch["schema_version"] = 1
     wf["schema_version"] = 2
     validate_ir(arch, wf)
+    require_runtime_ir_mapping(mmd, wf)
     digest = fingerprint(source_paths())
     version = "local-ir"
     home_links = {
@@ -958,7 +1117,7 @@ def build() -> dict:
         "<p>This page is generated from in-repo IR with no external renderer. Fields below come from the same IR."
         " IR file: <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>."
         f" schema_version {wf['schema_version']}. Fields: lanes / phases / groups / mainPath / nodes / edges."
-        " 03, 07 Response, Lit05, Lit06, and mid-entry appear on nodes and edges.</p>"
+        " 03, 07 Response, Gate · 07 / G-07, Lit05, Lit06, and mid-entry appear on nodes and edges.</p>"
     )
     home_body = (
         "<div class=\"grid\">"
@@ -1016,7 +1175,7 @@ def build() -> dict:
         ),
         "workflow/status.html": render_status(
             "Workflow IR status",
-            "Structural mapping of runtime-flow.mmd, including mid-entry, Lit05, Lit06, and optional 07 Response.",
+            "Structural mapping of runtime-flow.mmd, including mid-entry, Lit05, Lit06, optional 07 Response, and G-07.",
             node_rows,
             wf_extra,
             version,

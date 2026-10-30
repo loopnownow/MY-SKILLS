@@ -26,6 +26,7 @@ views:
       - Lit05
       - Lit06
       - mid-entry
+      - G-07
   registry_index:
     question: "Which in-repo fine ids the registry indexes, and the status recorded there."
     inputs:
@@ -48,6 +49,7 @@ forbidden_fact_sources:
 
 rules:
   - MY-SKILLS is the only source of truth.
+  - Workflow IR is a hand-maintained structured map of runtime-flow.mmd (+ runtime-flow.md anchors), not an auto-parsed Mermaid AST.
   - Rendering IR to HTML is local and read-only; no external renderer runs.
   - Top-level 07_response is allowed (response letters); do not add other top-level 07* skills.
   - Registry diagrams come from registry.yaml.
