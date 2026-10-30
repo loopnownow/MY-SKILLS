@@ -1,4 +1,4 @@
-﻿---
+---
 name: "lit-fulltext"
 domain: "03_research"
 trigger: ["lit-fulltext", "全文", "fulltext", "PDF download", "open access PDF"]
@@ -47,7 +47,7 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 
 - OA PDFs landed in `ref/refer/`
 - `ref/refer/retrieval_report.json` — per-DOI report including `source_identity` and `file_sha256`
-- `ref/refer/manual_needed.txt` — paywalled / not-OA items (no bypass; library portal / ILL by owner)
+- `ref/refer/manual_needed.txt` — paywalled / not-OA items (one line per item with DOI and/or PMID and Title when known)
 
 ## Scripts
 
@@ -69,10 +69,24 @@ python scripts/fetch.py worklist.tsv --output ref/refer/ --email "$(vault-contac
 - Do not attach Zotero "Find Available PDF" or lit-sync flows in this pack.
 - Do not blind-download the full ~30 abstract/NLM cite list; gate first, then gap-fill.
 - No PDF→md in this pack.
+- **No Sci-Hub** and no other shadow / pirate full-text sites. Do not script, link, or automate them.
+- Library account credentials stay in **Vault only**. Never write username/password into this pack, `fetch.py`, env examples, or chat-bound skill text.
+
+## Paywalled after OA fail (owner handoff)
+
+When `fetch.py` cannot land OA:
+
+1. Keep the item in `ref/refer/manual_needed.txt` (DOI|PMID|Title).
+2. Stop automated download for that item.
+3. Owner fetches manually via the institutional library portal or its OpenURL resolver:
+   - Portal home: `https://fdjslib.yuntsg.com/official/neindex.html`
+   - SSO login (browser): `https://user.tsgyun.com/user/login?insid=1235` — use Vault login; slider captcha is human-only.
+4. Optional ILL / document delivery through the same library channels if OpenURL fails.
+5. Bots may open the portal for the owner and remind Vault, but must not automate Sci-Hub or embed library secrets in skills.
 
 ## Handoffs
 
 - Need citations / NLM + abstracts only -> `verify-refs`
 - Need search expansion -> `lit-search`
 - Design change after reading full text -> `design-study`
-- Paywalled after OA fail -> owner library portal (Vault login) / ILL; not Sci-Hub
+- Paywalled after OA fail -> owner library portal / OpenURL (Vault) / ILL; **not** Sci-Hub

@@ -1,4 +1,4 @@
-﻿---
+---
 name: "lit-fulltext"
 description: "OA full-text retrieval for DOI|PMID tables from lit-search/verify-refs; gate then gap-fill into ref/refer/."
 ---
@@ -10,3 +10,4 @@ Capability body: [MODULE.md](MODULE.md).
 - Required script: `scripts/fetch.py` (OA only; paywalled -> `manual_needed.txt`; report with `source_identity` / sha256).
 - Output root: always `ref/refer/`.
 - Contact email: Vault only. No Zotero / lit-sync. No PDF→md in this pack.
+- OA fail: list in `manual_needed.txt` → owner library portal / OpenURL (Vault login); never Sci-Hub; never put library credentials in this pack.
