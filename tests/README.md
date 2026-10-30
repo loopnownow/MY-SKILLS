@@ -15,6 +15,7 @@ python -B -m unittest tests.test_gates_contract -v  # one domain
 | `test_registry_contract.py` | registry mirrors, fine id paths, alias targets, ledger freshness |
 | `test_gates_contract.py` | gate table / mmd parity, Mermaid node integrity, viz seat ban, state templates, verdict vocabulary |
 | `test_lab_paths.py` | lab path aliases, fine-id board, raw-lab-path hygiene |
+| `test_cross_repo_contract.py` | E3 cross-repo: Rules->Skills cites, {code_stats} layout, retired ids not LIVE, version markers |
 | `test_paths_resolve.py` | documented paths and owners resolve; bare relative pointers resolve from the citing file (else seat-prefixed); no external renderer |
 | `test_retirements.py` | retired ids, seats, packs, absorbed 03 packs and absorption residue stay dead |
 | `test_doc_structure.py` | pack layout, headers, registry-state match, one H1 per file |
