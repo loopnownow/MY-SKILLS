@@ -66,14 +66,12 @@ def out_fs_path(out: Path, rel: str) -> Path:
 
 SKILL_TOPS = (
     "00_orchestrator",
-    "00_orchestrator",
     "02_data-processing",
     "03_research",
-    "02_data-processing",
     "05_manuscript",
     "06_review",
     "07_response",
-    )
+)
 ID_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]*$")
 TS_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z")
 COMPONENT_TYPES = {
@@ -280,14 +278,13 @@ def architecture_ir() -> dict:
     components = [
         {"id": "c00", "type": "security", "label": "00 Control", "sublabel": "gate and QC", **_box(0, 0)},
         {"id": "c01", "type": "backend", "label": "00 Index", "sublabel": "registry / workflows", **_box(0, 1)},
-        {"id": "fine_ids", "type": "external", "label": "Fine ids", "sublabel": "registry pointers", **_box(0, 2)},
-        {"id": "c02", "type": "backend", "label": "02 Data", "sublabel": "analysis-ready", **_box(1, 0)},
+        {"id": "fine_ids", "type": "backend", "label": "Fine ids", "sublabel": "in-repo registry", **_box(0, 2)},
+        {"id": "c02", "type": "backend", "label": "02 Data / Stats", "sublabel": "processing and figures", **_box(1, 0)},
         {"id": "c03", "type": "backend", "label": "03 Literature", "sublabel": "citation-verify", **_box(1, 1)},
-        {"id": "c04", "type": "backend", "label": "02 Statistics", "sublabel": "stats and figures", **_box(1, 2)},
-        {"id": "c05", "type": "backend", "label": "05 Writing", "sublabel": "manuscript", **_box(2, 0)},
-        {"id": "c06", "type": "backend", "label": "06 Review", "sublabel": "review", **_box(2, 1)},
-        {"id": "c07", "type": "backend", "label": "07 Response", "sublabel": "response letter", **_box(2, 2)},
-        {"id": "rules", "type": "backend", "label": "MY-RULES", "sublabel": "skill-evolution", **_box(3, 0)},
+        {"id": "c05", "type": "backend", "label": "05 Writing", "sublabel": "manuscript", **_box(1, 2)},
+        {"id": "c06", "type": "backend", "label": "06 Review", "sublabel": "review", **_box(2, 0)},
+        {"id": "c07", "type": "backend", "label": "07 Response", "sublabel": "response letter", **_box(2, 1)},
+        {"id": "rules", "type": "backend", "label": "MY-RULES", "sublabel": "skill-evolution", **_box(2, 2)},
     ]
     return {
         "schema_version": 1,
@@ -312,11 +309,11 @@ def architecture_ir() -> dict:
             {
                 "kind": "region",
                 "label": "A ownership",
-                "wraps": ["c00", "c01", "c02", "c03", "c04", "c05", "c06", "c07", "rules"],
+                "wraps": ["c00", "c01", "c02", "c03", "c05", "c06", "c07", "rules"],
             },
             {
                 "kind": "region",
-                "label": "External fine-id index",
+                "label": "Fine-id registry (in-repo)",
                 "wraps": ["fine_ids"],
             },
         ],
@@ -325,11 +322,9 @@ def architecture_ir() -> dict:
             {"id": "index-fine_ids", "from": "c01", "to": "fine_ids", "label": "pointers"},
             {"id": "dispatch-02", "from": "c00", "to": "c02", "label": "dispatch"},
             {"id": "dispatch-03", "from": "c00", "to": "c03", "label": "dispatch"},
-            {"id": "dispatch-04", "from": "c00", "to": "c04", "label": "dispatch"},
             {"id": "dispatch-05", "from": "c00", "to": "c05", "label": "dispatch"},
             {"id": "dispatch-06", "from": "c00", "to": "c06", "label": "dispatch"},
-            {"id": "handoff-04", "from": "c02", "to": "c04", "label": "handoff"},
-            {"id": "results-05", "from": "c04", "to": "c05", "label": "results"},
+            {"id": "results-05", "from": "c02", "to": "c05", "label": "results"},
             {"id": "lit05", "from": "c03", "to": "c05", "label": "Lit05"},
             {"id": "lit06", "from": "c03", "to": "c06", "label": "Lit06", "labelDy": 24},
             {"id": "manuscript-06", "from": "c05", "to": "c06", "label": "manuscript"},
@@ -367,7 +362,7 @@ def workflow_ir() -> dict:
         node("single", "control", 4, "backend", "One domain", "named entry"),
         node("done", "control", 5, "backend", "Done", "terminal PASS"),
         node("fine_id_check", "fine_id", 1, "security", "Fine ids", "coverage"),
-        node("s01", "fine_id", 3, "backend", "Fine ids", "session"),
+        node("s_pick", "fine_id", 3, "backend", "Fine ids", "session-pick"),
         node("dispatch", "fine_id", 2, "backend", "Dispatch", "after G0"),
         node("p02", "produce", 2, "backend", "02 Data", "processing"),
         node("p04", "produce", 3, "backend", "02 Statistics", "figures"),
@@ -383,9 +378,9 @@ def workflow_ir() -> dict:
     edges = [
         {"id": "e-task-detect", "from": "task", "to": "detect", "label": "task enters", "role": "main"},
         {"id": "e-detect-fine_id", "from": "detect", "to": "fine_id_check", "label": "before specialist", "role": "main"},
-        {"id": "e-fine_id-gap", "from": "fine_id_check", "to": "s01", "label": "fine ids missing", "role": "branch"},
-        {"id": "e-g0-pass", "from": "s01", "to": "dispatch", "label": "G0 PASS", "role": "main"},
-        {"id": "e-g0-fail", "from": "s01", "to": "locate", "label": "G0 FAIL", "role": "error"},
+        {"id": "e-fine_id-gap", "from": "fine_id_check", "to": "s_pick", "label": "fine ids missing", "role": "branch"},
+        {"id": "e-g0-pass", "from": "s_pick", "to": "dispatch", "label": "G0 PASS", "role": "main"},
+        {"id": "e-g0-fail", "from": "s_pick", "to": "locate", "label": "G0 FAIL", "role": "error"},
         {"id": "e-covered", "from": "fine_id_check", "to": "dispatch", "label": "fine ids already covered", "role": "main"},
         {"id": "e-d02", "from": "dispatch", "to": "p02", "label": "entry 02", "role": "branch"},
         {"id": "e-d03", "from": "dispatch", "to": "p03", "label": "entry 03 independent literature", "role": "branch"},
@@ -414,7 +409,7 @@ def workflow_ir() -> dict:
         {"id": "e-fail-lit06", "from": "lit06", "to": "locate", "label": "Lit06 FAIL", "role": "error"},
         {"id": "e-fail-single", "from": "single", "to": "locate", "label": "target gate FAIL", "role": "error"},
         {"id": "e-locate-rework", "from": "locate", "to": "rework", "label": "local rework or rollback", "role": "error"},
-        {"id": "e-rework-fine_id", "from": "rework", "to": "fine_id_check", "label": "reuse session lock or re-enter 01", "role": "return"},
+        {"id": "e-rework-fine_id", "from": "rework", "to": "fine_id_check", "label": "reuse session lock or re-enter 00 session-pick", "role": "return"},
         {"id": "e-locate-escalate", "from": "locate", "to": "escalate", "label": "budget exhausted", "role": "error"},
     ]
     return {

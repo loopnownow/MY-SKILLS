@@ -41,4 +41,4 @@ After a pick, echo `Locking: …` then invoke the specialist. `back` / `pause` a
 | N3 WRITE | `*-results.html` exists after 02 | stop at HTML / enter `sci-manuscript` |
 | N4 PREVIEW | house.docx exists | enter 06 / stop |
 
-Never `--e2e`. Session pick reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter 01. A single-node advanced-layer task with no extra dependency does not ask.
+Never `--e2e`. Session pick reuses the session lock when `session_picked_fine_ids` already covers this task, then passes G0. Otherwise enter `00` session-pick. A single-node advanced-layer task with no extra dependency does not ask.

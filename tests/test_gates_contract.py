@@ -276,3 +276,100 @@ class StateTemplate(unittest.TestCase):
         state = self.STATE.read_text(encoding="utf-8")
         for key in self.STATE_KEYS:
             self.assertIn(key, state, f"project-state missing {key!r}")
+
+class StaleSeat01ProseBan(unittest.TestCase):
+    """Current-flow prose must not say enter/Re-enter 01; use 00 session-pick / FineId."""
+
+    PAT = re.compile(r"(?i)\b(?:re-)?enter 01\b")
+    SKIP = {"VERSION.txt", "INTEGRATION_MAP.md", "legacy_aliases.yaml"}
+
+    def test_no_enter_01_as_current_flow(self) -> None:
+        bad = []
+        for path in ROOT.rglob("*"):
+            if not path.is_file() or path.suffix not in {".md", ".py", ".yaml", ".yml"}:
+                continue
+            rel = path.relative_to(ROOT)
+            if path.name in self.SKIP or ".git" in path.parts or (rel.parts and rel.parts[0] == "tests"):
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for i, line in enumerate(text.splitlines(), 1):
+                if not self.PAT.search(line):
+                    continue
+                if re.search(r"former|retired|historical|absorbed|was |legacy", line, re.I):
+                    continue
+                bad.append(f"{path.relative_to(ROOT)}:{i}: {line.strip()[:120]}")
+        self.assertEqual(bad, [], "stale enter/Re-enter 01 as current:\n" + "\n".join(bad[:40]))
+
+
+class AdvancedNamingAndFigureEngine(unittest.TestCase):
+    def test_base_vs_advanced_uses_advanced_not_personal(self) -> None:
+        text = (
+            ROOT / "00_orchestrator" / "references" / "base-vs-advanced-top-loops.md"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("Personal revision authority", text)
+        self.assertIn("Advanced revision authority", text)
+
+    def test_architecture_figures_via_live_fine_ids(self) -> None:
+        text = (ROOT / "ARCHITECTURE.md").read_text(encoding="utf-8")
+        self.assertNotIn("no live figure engine", text)
+        self.assertIn("draw-flowchart", text)
+        self.assertIn("plot-figures", text)
+        self.assertIn("figure-engine", text)  # named as absent skill
+
+
+class VizGeneratorSeatHygiene(unittest.TestCase):
+    GEN = (
+        ROOT
+        / "02_data-processing"
+        / "advanced"
+        / "visualization"
+        / "scripts"
+        / "gen_visualization.py"
+    )
+
+    def test_skill_tops_unique_current_seats(self) -> None:
+        text = self.GEN.read_text(encoding="utf-8")
+        m = re.search(r"SKILL_TOPS\s*=\s*\((.*?)\)", text, re.S)
+        self.assertIsNotNone(m)
+        tops = re.findall(r'"([^"]+)"', m.group(1))
+        self.assertEqual(tops, sorted(set(tops), key=tops.index))
+        self.assertEqual(
+            tops,
+            [
+                "00_orchestrator",
+                "02_data-processing",
+                "03_research",
+                "05_manuscript",
+                "06_review",
+                "07_response",
+            ],
+        )
+        self.assertNotIn("01_skill-integration", tops)
+        self.assertNotIn("04_analysis", tops)
+
+    def test_no_duplicate_seat02_component_and_no_external_fineid_model(self) -> None:
+        text = self.GEN.read_text(encoding="utf-8")
+        self.assertNotIn('"id": "c04"', text)
+        self.assertNotIn("External fine-id index", text)
+        self.assertIn("Fine-id registry (in-repo)", text)
+        self.assertNotIn("re-enter 01", text)
+        self.assertIn("s_pick", text)
+        self.assertNotIn('"s01"', text)
+
+
+class VizCiWordingUnified(unittest.TestCase):
+    VIZ = (
+        ROOT
+        / "02_data-processing"
+        / "advanced"
+        / "visualization"
+        / "visualization-architecture.md"
+    )
+
+    def test_no_active_ci_claim_alongside_deleted(self) -> None:
+        text = self.VIZ.read_text(encoding="utf-8")
+        self.assertNotIn("CI runs `--check` only", text)
+        self.assertIn("No in-repo", text)
+        self.assertNotIn("External fine ids", text)
+        self.assertIn("Fine ids", text)
+

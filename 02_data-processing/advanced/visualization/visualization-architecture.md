@@ -10,7 +10,7 @@ The renderer is the in-repo generator [`scripts/gen_visualization.py`](scripts/g
 
 The mapping contract is [`visualization-source-contract.yaml`](visualization-source-contract.yaml). The generator is [`scripts/gen_visualization.py`](scripts/gen_visualization.py). It reads [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd), [`runtime-flow.md`](../../../00_orchestrator/runtime-flow.md), [`gates.md`](../../../00_orchestrator/gates.md), [`ARCHITECTURE.md`](../../../ARCHITECTURE.md), and [`registry.yaml`](../../../00_orchestrator/registry.yaml). It reads only the in-repo files named above.
 
-Generated files live under the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. CI runs `--check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay. The retired `.github/workflows/visualization.yml` is a `{DEL}` park, not a repo path.
+Generated files live under the dir given by `--out` / `MY_SKILLS_VIZ_OUT` (required; no default; former `my-skills-viz` retired 2026-10-20) and carry a generated marker, a rebuild command, the source fingerprint, the IR schema versions, and a build status. Every page is rendered from the IR by the in-repo generator; no page comes from an external renderer. `architecture/status.html` and `workflow/status.html` are the architecture and workflow pages. Hand-authored sources are this note, the mapping contract, and the generator. MY-SKILLS must **not** keep a committed `docs/` tree. GitHub Pages settings are not changed. **No in-repo GitHub Actions CI** (the former `.github/workflows/visualization.yml` is a `{DEL}` park, not a repo path). Local rebuild uses `gen_visualization.py --check` only (no write / no commit). A shape failure exits before replacing lab OUT files, so the last good files stay.
 
 Delta output lists added, removed, and changed identifiers and labels. It does not assign merge risk.
 
@@ -21,7 +21,7 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 | Layer | Role |
 | --- | --- |
 | Fact source | `SKILL.md`, registry, runtime-flow, configuration, and the real repository structure |
-| Index | `00` discovers external packages, versions, and the fine-id index. It indexes. It does not rewrite external skill bodies |
+| Index | `00` indexes the in-repo fine-id registry and session-pick. It indexes. It does not rewrite skill bodies |
 | Schedule | `00` decides entry, Gate, QC, visualization build, and failure fallback |
 | Display | Generated HTML and skill documentation are derived from the IR. They can be deleted and rebuilt. They do not become the fact source |
 
@@ -29,8 +29,8 @@ Rendering is not a new MY-SKILLS layer. The generator is a read-only consumer of
 
 | Component | Owns | Does not own |
 | --- | --- | --- |
-| 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose; external package bodies |
-| 00 | orchestrator index: registry / session-pick / fine-id index and lifecycle | Treating a scan of external files as MY-SKILLS architecture facts |
+| 00 | When to generate; Architecture versus Workflow; Gate and QC; whether a failure blocks publish | Skill prose |
+| 00 | orchestrator index: registry / session-pick / fine-id index and lifecycle | Treating a scan of files outside the registry as MY-SKILLS architecture facts |
 | Generator (`scripts/gen_visualization.py`) | Render typed JSON IR to HTML pages | Deciding MY-SKILLS architecture; editing skills; deciding whether a PR merges |
 | Human | Review Delta, architecture changes, and the final PR | Hand-editing generated HTML |
 
@@ -46,7 +46,7 @@ Reverse dependency is forbidden. Generated HTML, previous generated HTML, screen
 | --- | --- | --- |
 | Architecture | 00 registry, 00 architecture metadata, repository structure | What the system is made of, and where the boundaries are |
 | Workflow | 00 runtime-flow, Gate, routing rules | How a task runs, including branches, exceptions, and loops |
-| External fine ids | 00 fine-id registry / version metadata | Which external packages are live, and which version is recorded |
+| Fine ids | 00 fine-id registry (`registry.yaml`) | Which in-repo fine ids are LIVE / PROPOSED, and the status recorded there |
 | Skill detail | `SKILL.md` and its supporting files | Documentation pages. Prose is not forced into a diagram |
 
 These are not fact sources:
@@ -67,9 +67,9 @@ Machine-readable copy: [`visualization-source-contract.yaml`](visualization-sour
 
 Show stable system components, about 6-12 primary components. Use a boundary only for a real ownership, trust, process, or deployment boundary. Do not turn every fine skill into a node.
 
-Primary chain: 00 Control / QC / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
+Primary chain: 00 Control / QC / Registry → 02 Data / Stats → 03 Literature → 05 Writing → 06 Review → 07 Response.
 
-Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance; propose only). External fine ids stay one index node fed by the registry, not one node per fine id.
+Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance; propose only). Fine ids stay one index node fed by the in-repo registry, not one node per fine id.
 
 ### 5.2 Workflow
 
@@ -96,9 +96,9 @@ Architecture documents use `components`, `boundaries`, and `connections` with `s
 
 There is no version record and no update policy, because nothing outside the repository is consumed. If a renderer is ever reintroduced, it must arrive with a pinned version, an offline build path, and a gate that fails closed.
 
-## 8. CI / build pipeline
+## 8. Local check / build (no in-repo CI)
 
-On relevant path changes, regenerate IR and docs from sources. Shape or schema failure does not overwrite the last good artifact. Rendering is local: no download, unzip, or external process runs at build time. This repository's CI does not fetch anything. GitHub Pages is not configured here.
+There is **no** committed `.github/workflows` CI in this repository (retired workflow parked under `{DEL}`). On relevant path changes, regenerate IR and docs locally from sources with `gen_visualization.py`. Shape or schema failure does not overwrite the last good artifact. Rendering is local: no download, unzip, or external process runs at build time. GitHub Pages is not configured here.
 
 Gates:
 
@@ -120,7 +120,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 | Page | Content |
 | --- | --- |
-| Homepage | Architecture, workflow, system status, external fine ids, build metadata |
+| Homepage | Architecture, workflow, system status, fine-id registry index, build metadata |
 | Skill index | Indexed by 00-07, status, source, and entry |
 | Skill detail | Generated from `SKILL.md` frontmatter, with a path back to the source file |
 | Design history | Decisions and this specification. Not the homepage |
@@ -154,14 +154,14 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 1. The visualization build does not rewrite MY-SKILLS skill prose.
 2. Fixes to a diagram go back to source, registry, or IR. Generated HTML is not hand-edited.
-3. External pack contents do not redefine architecture. External packages enter through the 00 registry first.
+3. Fine-id bodies outside the 00 registry do not redefine architecture. New fine ids enter through the 00 registry first.
 4. HTML is not a fact source. Deleting generated HTML and IR leaves the sources able to rebuild them (pass `--out DIR`; no default dir).
 5. Delta is evidence. A human decides merge.
 6. A layout failure does not justify deleting a semantic edge.
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 00 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. A fine-id registry change does not alter the architecture diagram unless the 00 seat map changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 
@@ -171,6 +171,6 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 
 What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 
-Local check/rebuild: `python 02_data-processing/advanced/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/_library/my-skills-viz`. A failed shape check returns before replacing last-good lab files. In-repo `.github` CI was removed (workflow archived under `D:/0del`).
+Local check/rebuild: `python 02_data-processing/advanced/visualization/scripts/gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT defaults to `D:/0Grok/0doc/_library/my-skills-viz`. A failed shape check returns before replacing last-good lab files. **No in-repo `.github` CI** (retired workflow archived under `{DEL}` / `D:/0del`).
 
 **Size note:** scripts/gen_visualization.py is ~55 KB (single generator). Prefer edits in place; split only if edit friction rises.
