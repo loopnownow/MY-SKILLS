@@ -1084,3 +1084,46 @@ class BaseContractOnly(unittest.TestCase):
             self.assertIn("post-QC revise", text, label)
             self.assertIn("`advanced/`", text, label)
         self.assertNotIn("Advanced layers do not host long procedure bodies", loops)
+
+class ReviewerResponseEntryRouting(unittest.TestCase):
+    """Active intake/entry files must not send reviewer response to 06 alone."""
+
+    ENTRY_GLOBS = (
+        "*/SKILL.md",
+        "*/advanced/intake.md",
+        "00_orchestrator/SKILL.md",
+    )
+
+    def test_active_entry_files_route_reviewer_response_to_07(self) -> None:
+        seats = (
+            "00_orchestrator",
+            "02_data-processing",
+            "03_research",
+            "05_manuscript",
+            "06_review",
+            "07_response",
+        )
+        files = []
+        for seat in seats:
+            skill = ROOT / seat / "SKILL.md"
+            if skill.is_file():
+                files.append(skill)
+            intake = ROOT / seat / "advanced" / "intake.md"
+            if intake.is_file():
+                files.append(intake)
+        self.assertTrue(files)
+        bad = []
+        for path in files:
+            for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                low = line.lower()
+                if "reviewer response" not in low and "response letter" not in low:
+                    continue
+                points_06 = ("06_review" in line) or ("→ `06" in line) or ("-> `06" in line)
+                mentions_07 = ("07_response" in line) or ("→ 07" in line) or ("-> 07" in line) or ("→ `07" in line) or ("-> `07" in line)
+                if points_06 and not mentions_07:
+                    # allow explicit contrast "not 06" / "06 only for review"
+                    if "not 06" in low or "enters through `07" in low or "enters 07" in low:
+                        continue
+                    bad.append(f"{path.relative_to(ROOT).as_posix()}:{i}: {line.strip()}")
+        self.assertEqual(bad, [], msg="reviewer response routed to 06 alone:\n" + "\n".join(bad))
+

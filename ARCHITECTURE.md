@@ -73,9 +73,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ## Domain boundaries (lab intent)
 
-- `02_data-processing`: raw → analysis-ready. Statistics/model fitting is not its role. Ethics forms are not here.
+- `02_data-processing`: raw → analysis-ready → statistical analysis / model evaluation / figures (`draw-flowchart` / `plot-figures`). Upstream data repair must remain traceable; do not silently modify upstream inputs during analysis. Ethics forms are not here.
 - `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol`, **seat Bai**), translational design, **journal selection**, **citation-verify** before 05 done and inside 06. Manuscript prose is not its role. Victor does not fill ethics forms.
-- `02_data-processing`: statistics and visualization (`draw-flowchart` / `plot-figures`). Upstream data repair is not its role.
 - `05_manuscript`: advanced writing layer. Literature retrieval and journal selection → `03_research`; figures → `02_data-processing`. de-AI at `05_manuscript/advanced/`. Mid-entry does not waive citation-verify.
 - `06_review`: advanced review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
 - `07_response`: advanced response-letter layer (**Aitee**). Changed wording → `05_manuscript`. Tone-only polish is an on-demand mode of `tighten-response`. Point-by-point structure stays `revise`.
