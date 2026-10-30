@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261029-deep-qc-pointers-flow-tests
+  change_id: CHG-20261030-deep-qc-github
   fine_id_count_canonical: 24
   coarse_id_count: 5
 
@@ -71,7 +71,7 @@ fine_ids:
   path: 03_research/base/lit-fulltext/
   a_domain: 03_research
   status: LIVE
-  note: 'Not mounted. Absorbed Aperivue fulltext-retrieval 2026-10-30. Project-start gate after verify-refs.'
+  note: 'Absorbed Aperivue fulltext-retrieval 2026-10-30. Project-start gate after verify-refs.'
 - id: design-study
   label: Study-design review
   source: my-skills

@@ -14,6 +14,23 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261030-deep-qc-github (2026-10-30)
+
+Ledger backfill plus deep QC of the three GitHub clones. The 2026-10-30 merges (PR #251-#255) had no ledger row, so `VERSION.txt` and this map are backfilled to the same `change_id`.
+
+- **Backfilled:** 03 true-absorb of `retraction-watcher` / `write-protocol` / `grant-builder` (-3 fine ids) and `lit-fulltext` going live; `fine_id_count_canonical` is 24.
+- **BOM:** `03_research/base/lit-fulltext/LICENSE_NOTE.txt` stripped (it was the only red test in the suite).
+- **Retired vocabulary:** the `Not mounted` clause left `00_orchestrator/registry.yaml` and `03_research/base/lit-fulltext/MODULE.md` (`mount` was retired 2026-10-25).
+- **Dead fixtures:** `tests/support.py` lost `REGISTRY` / `ALIASES` / `VERSION` / `INTEGRATION_MAP` / `SKIP_DIRS` / `ALLOW_*` / `md_files` / `load_yaml*` / `load_registry` / `load_aliases` (none imported by any test); the unused `QC_STUB` regex is gone.
+- **Moved to `D:\0del\_by-function\0doc-qc-20261030\MY-SKILLS\`** (relative paths kept, restore ledger is `MOVED.tsv` there):
+  `00_orchestrator/references/pack-execution-contract.md` (orphan; its text cited a `scripts/main.py` that never existed),
+  `03_research/base/lit-fulltext/references/upstream-skill.yml` (stale vendor metadata: `pdf_to_md.py`, `find_available_pdf.js`, layer A),
+  `03_research/base/lit-fulltext/scripts/VENDOR.md` (its two facts folded into `LICENSE_NOTE.txt`, which now names upstream `fetch_oa.py`),
+  and six `__pycache__` trees (27 `.pyc`).
+- **Dated test folded:** `tests/test_03_fineid_absorb_20261030.py` (dated one-off with duplicate coverage) became `test_retirements.Absorbed03Packs`.
+- **New guards:** pack side documents (`scripts/*.md`, `references/*.yml`) must be cited inside their own pack; retired `mount` vocabulary is banned from live prose; the `tests/README.md` table must equal the test files on disk; dated `test_*_YYYYMMDD.py` files are banned.
+- **Suite:** 212 tests green (was 211 with the BOM failure).
+
 ## CHG-20261029-deep-qc-pointers-flow-tests (2026-10-29)
 
 Deep QC: dead pointer word-edit; retired {doc_root}\03-research cited in find-journal, lab-ref-ranges, ethics, viz; 3 broken anchors; 05 route duplicate humanize step; punctuation wording aligned to ban-phrases.md; A/B residue; tests: fence-safe path regex, mmd comment-proof parity, git-less fallback, test_qc_guards.py; stats-analysis BOM removed.

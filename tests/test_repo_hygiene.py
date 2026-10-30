@@ -92,9 +92,6 @@ WORKFLOW_FORBIDDEN_DIRS = (
     ROOT / "03_research" / "workflows",
 )
 QC00 = ROOT / "00_orchestrator" / "qc"
-QC_STUB = re.compile(
-    r"(?i)(body moved to|moved to|pointer(?:\s+only)?|see\s+`?\.\./|stub\b)",
-)
 PROJECT_REF_TEMPLATE = ROOT / "00_orchestrator" / "references" / "project-ref-template"
 DEAD_STUBS = (
     ROOT / "00_orchestrator" / "references" / "cross-manuscript-qc.md",
@@ -374,3 +371,101 @@ class PackReferentialIntegrity(unittest.TestCase):
             [],
             "pack examples no pack doc cites:\n" + "\n".join(orphans),
         )
+
+    def test_pack_side_documents_are_cited(self) -> None:
+        """Script notes and reference sidecars must be reachable from a pack doc."""
+        orphans: list[str] = []
+        for pack in _packs():
+            docs = [
+                doc
+                for doc in pack.rglob("*")
+                if doc.is_file() and doc.suffix.lower() in DOC_SUFFIXES
+            ]
+            sides = sorted(
+                list(pack.glob("**/scripts/*.md"))
+                + list(pack.glob("**/references/*.yml"))
+                + list(pack.glob("**/references/*.yaml"))
+            )
+            for side in sides:
+                if not any(
+                    side.name in d.read_text(encoding="utf-8", errors="ignore")
+                    for d in docs
+                    if d != side
+                ):
+                    orphans.append(side.relative_to(ROOT).as_posix())
+        self.assertEqual(
+            orphans,
+            [],
+            "pack side documents no pack doc cites:\n" + "\n".join(orphans),
+        )
+
+
+MOUNT_VOCAB = re.compile(r"\bNot mounted\b|\bmounted pack\b|\bmount_status\b")
+MOUNT_VOCAB_ALLOW_LINE = re.compile(
+    r"legacy|historical|retired|archived|kept as history", re.I
+)
+MOUNT_VOCAB_GLOBS = (
+    "00_orchestrator/**/*.md",
+    "00_orchestrator/**/*.yaml",
+    "02_data-processing/**/*.md",
+    "03_research/**/*.md",
+    "05_manuscript/**/*.md",
+    "06_review/**/*.md",
+    "07_response/**/*.md",
+)
+MOUNT_VOCAB_ALLOW_FILES = {"00_orchestrator/legacy_aliases.yaml"}
+
+
+class MountVocabularyRetired(unittest.TestCase):
+    """`mount` was retired 2026-10-25: live prose says LIVE; only frontmatter `mount_status:` stays."""
+
+    def test_no_mount_vocabulary_in_live_prose(self) -> None:
+        violations: list[str] = []
+        for path in _iter_files(MOUNT_VOCAB_GLOBS):
+            rel = path.relative_to(ROOT).as_posix()
+            if rel in MOUNT_VOCAB_ALLOW_FILES or rel.startswith("tests/"):
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for i, line in enumerate(text.splitlines(), 1):
+                if not MOUNT_VOCAB.search(line):
+                    continue
+                if line.startswith("mount_status:"):
+                    continue
+                if MOUNT_VOCAB_ALLOW_LINE.search(line):
+                    continue
+                violations.append(f"{rel}:{i}: {line.strip()[:120]}")
+        self.assertEqual(
+            violations,
+            [],
+            "retired mount vocabulary outside history:\n" + "\n".join(violations[:40]),
+        )
+
+
+TESTS_DIR = ROOT / "tests"
+TESTS_README = TESTS_DIR / "README.md"
+TEST_ROW = re.compile(r"`(test_[a-z0-9_]+\.py)`")
+DATED_TEST = re.compile(r"^test_.*_\d{8}\.py$")
+
+
+class TestIndexMatchesDisk(unittest.TestCase):
+    """tests/README.md lists exactly the contract files that exist."""
+
+    def test_readme_table_matches_disk(self) -> None:
+        listed = set(TEST_ROW.findall(TESTS_README.read_text(encoding="utf-8")))
+        on_disk = {p.name for p in TESTS_DIR.glob("test_*.py")}
+        self.assertEqual(
+            sorted(listed - on_disk), [], "tests/README.md lists files that do not exist"
+        )
+        self.assertEqual(
+            sorted(on_disk - listed), [], "test files absent from tests/README.md"
+        )
+
+
+class NoDatedTestFile(unittest.TestCase):
+    """One file per contract domain: no dated one-off test files."""
+
+    def test_no_dated_test_filenames(self) -> None:
+        dated = sorted(
+            p.name for p in TESTS_DIR.glob("test_*.py") if DATED_TEST.match(p.name)
+        )
+        self.assertEqual(dated, [], "dated one-off test files:\n" + "\n".join(dated))

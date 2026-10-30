@@ -274,3 +274,73 @@ class CanonicalIdRule(unittest.TestCase):
             self.assertNotIn(banned, rad)
         aliases = yaml.safe_load((ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]
         self.assertEqual(aliases["02-tables"], "clean-data")
+
+
+ABSORBED_03_DIRS = (
+    "03_research/base/retraction-watcher",
+    "03_research/base/write-protocol",
+    "03_research/base/grant-builder",
+)
+DEAD_03_IDS = ("retraction-watcher", "write-protocol", "grant-builder")
+DEAD_03_ALLOW_FILES = {
+    "00_orchestrator/registry.yaml",
+    "00_orchestrator/legacy_aliases.yaml",
+    "VERSION.txt",
+    "INTEGRATION_MAP.md",
+    "NOTICE",
+    "03_research/base/README.md",
+    "03_research/base/verify-refs/LICENSE_NOTE.txt",
+    "03_research/base/verify-refs/references/retraction-audit.md",
+    "03_research/base/fill-protocol/MODULE.md",
+    "03_research/base/lit-fulltext/LICENSE_NOTE.txt",
+    "03_research/base/lit-fulltext/MODULE.md",
+    "03_research/base/lit-fulltext/scripts/fetch.py",
+}
+DEAD_03_SKIP_SUFFIXES = {".pyc", ".png", ".jpg", ".jpeg", ".pdf", ".docx"}
+
+
+class Absorbed03Packs(unittest.TestCase):
+    """Three 03 fine ids were truly absorbed (2026-10-30); `lit-fulltext` took the slot."""
+
+    def test_absorbed_dirs_are_gone(self) -> None:
+        present = [rel for rel in ABSORBED_03_DIRS if (ROOT / rel).exists()]
+        self.assertEqual(
+            present, [], "absorbed 03 packs still on disk:\n" + "\n".join(present)
+        )
+
+    def test_no_live_reference_to_absorbed_ids(self) -> None:
+        violations: list[str] = []
+        for path in sorted(ROOT.rglob("*")):
+            if not path.is_file():
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel in DEAD_03_ALLOW_FILES or rel.startswith("tests/"):
+                continue
+            if ".git" in path.parts or "__pycache__" in path.parts:
+                continue
+            if path.suffix.lower() in DEAD_03_SKIP_SUFFIXES:
+                continue
+            try:
+                text = path.read_text(encoding="utf-8")
+            except (UnicodeDecodeError, OSError):
+                continue
+            for dead in DEAD_03_IDS:
+                if re.search(rf"\b{re.escape(dead)}\b", text):
+                    violations.append(f"{rel}: {dead}")
+        self.assertEqual(violations, [], "\n".join(violations[:40]))
+
+    def test_lit_fulltext_is_live(self) -> None:
+        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
+        row = next(m for m in reg["fine_ids"] if m["id"] == "lit-fulltext")
+        self.assertEqual(row["path"].rstrip("/"), "03_research/base/lit-fulltext")
+        self.assertEqual(row["status"], "LIVE")
+        module = ROOT / "03_research/base/lit-fulltext/MODULE.md"
+        self.assertTrue(module.is_file())
+        self.assertNotIn("fetch_oa.py", module.read_text(encoding="utf-8"))
+        fetch = ROOT / "03_research/base/lit-fulltext/scripts/fetch.py"
+        self.assertTrue(fetch.is_file())
+        self.assertGreater(fetch.stat().st_size, 0)
+        aliases = yaml.safe_load(
+            (ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8")
+        )["aliases"]
+        self.assertNotIn("03-lit-fulltext", aliases)

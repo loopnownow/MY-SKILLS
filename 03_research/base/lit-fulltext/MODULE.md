@@ -8,7 +8,7 @@ owner: "03_research/base/lit-fulltext/MODULE.md"
 
 Batch open-access full-text retrieval for a DOI/PMID worklist from `lit-search` / `verify-refs`.
 True-absorbed from Aperivue `medsci-skills/skills/fulltext-retrieval` on 2026-10-30.
-Not mounted. Seat: `03_research`. Path: `03_research/base/lit-fulltext/`.
+Seat: `03_research`. Path: `03_research/base/lit-fulltext/`.
 
 > **Source**: [https://github.com/Aperivue/medsci-skills/tree/main/skills/fulltext-retrieval](https://github.com/Aperivue/medsci-skills/tree/main/skills/fulltext-retrieval)
 
