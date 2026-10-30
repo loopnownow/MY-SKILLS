@@ -29,7 +29,7 @@
 - Show uncertainty (CI band/error bars; state what they are). Show n. Show data points for
   small-n group comparisons (don't hide n behind a bar).
 - Don't truncate axes to dramatize; if a break is needed, mark it. ROC/calibration use full
-  0–1 square axes with the reference diagonal.
+  0-1 square axes with the reference diagonal.
 - Bars start at 0 for counts/magnitudes; log scale only when justified and labelled.
 
 ## Accessibility & reproduction

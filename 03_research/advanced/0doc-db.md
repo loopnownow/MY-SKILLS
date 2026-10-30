@@ -14,7 +14,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 |---|---|
 | `_library` (ex-`03-research`) | lit-bank library, 选刊, ethics (incl. PHI), ~~lab-ste / lab-ref-method / lit-bank-method / scanner-registry method~~ (→ methods park 20261023) / lab-ref-ranges, study-design (STROBE→templates; fill-protocol digest), figures; ~~papers/fulltext/grants~~ → `{DEL}\_by-project\0doc-library-ftp-20261023\` (digest: grant-* digests under `03_research/advanced/references/` + `papers-card-schema.md`; durable `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-ftp-20261023\`). Scanner gap (Skyra / Sensation **not found**; do not invent parameters): `references/scanner-registry-digest.md` |
 | `_bank` | machine layer JSONL/FTS/GATES/recovery text. Live review text `{doc_review_bank}\bank\review-text.jsonl` (+ `REVIEW-TEXT.tsv`); live replies `{doc_review_replies}\bank\flattened.jsonl` |
-| `_code` | runnable scripts by skill tree `NN-layer\<fine-id>` (**no** `base\` under `_code` 02–07). Do not vendor `.py` into MY-SKILLS. Stats library `{code_stats}` |
+| `_code` | runnable scripts by skill tree `NN-layer\<fine-id>` (**no** `base\` under `_code` 02-07). Do not vendor `.py` into MY-SKILLS. Stats library `{code_stats}` |
 | `templates` | skill-pinned gold templates; live scanner xlsx `templates\scanner-parameter-registry.xlsx` |
 | `mem` | long-term memos (not a second Rules/Skills tree) |
 | `GitHub` | clones: MY-SKILLS `{skills_git}`, MY-RULES `{rules_git}`; stats modules master `{code_modules_master}` (local git only) |
@@ -29,7 +29,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 1. Start from README + STRUCTURE + the relevant index when present: park grants `{DEL}\_by-project\0doc-library-ftp-20261023\grants\_index\00-master-index.md` / skill `grant-index-digest.md`; live review text `{doc_review_bank}\bank\review-text.jsonl`; `<topic>\INDEX.md`. Do not open retired `06-review\00-index.csv` as a live index.
 2. Prefer filename + index hits; open files only as needed (read-only).
-3. Reply in Chinese: **paths first**, then 2–6 lines of what was found; list approval numbers for ethics.
+3. Reply in Chinese: **paths first**, then 2-6 lines of what was found; list approval numbers for ethics.
 4. `_library\ethics`: minimize PHI in chat; never commit ethics originals to GitHub. JIEC2025-S79 follow-up review locked files — do not edit.
 
 ## Out of scope

@@ -19,11 +19,11 @@
 
 | Moment | Layers |
 |---|---|
-| **G-FACT** / numbers cited | 1–3 (compose forensic-consistency / claim-number-align — link, don’t redo) |
+| **G-FACT** / numbers cited | 1-3 (compose forensic-consistency / claim-number-align — link, don’t redo) |
 | **G-LIT** / **G-CIT-1/2** | 4 |
-| **Integrity · pre-06** | 1–4 as applicable + existing 05/06 qc subset in `gates.md` |
+| **Integrity · pre-06** | 1-4 as applicable + existing 05/06 qc subset in `gates.md` |
 | **G-06** / pre-submit | +5 when assurance ≥ conference-ready |
-| **Integrity · post-re-review lite** | Spot re-check 2–3 if numbers/claims changed |
+| **Integrity · post-re-review lite** | Spot re-check 2-3 if numbers/claims changed |
 
 ## Link instead of duplicate
 

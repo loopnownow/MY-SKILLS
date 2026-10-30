@@ -24,7 +24,7 @@ on training data only.
 
 1. Extract features from each reader's masks on the reproducibility subset.
 2. Compute per-feature ICC across readers (and intra-reader).
-3. **Retain** features above a pre-specified threshold (commonly ICC > 0.75–0.90; state it).
+3. **Retain** features above a pre-specified threshold (commonly ICC > 0.75-0.90; state it).
 4. Apply the filter **before** feature selection/modelling, fit on **training only** — never
    choose the threshold to maximise downstream performance.
 5. Report how many features entered and survived.

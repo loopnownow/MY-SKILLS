@@ -17,7 +17,7 @@ Short gate list for manuscripts that train or evaluate AI (especially imaging) o
 ## Statistics
 
 - [ ] **VIF / multicollinearity** — Report VIFs (and threshold) when claiming collinearity is not problematic; keep that claim in Results, not Methods.
-- [ ] **Multiple comparisons** — State multiplicity correction for Table-1–style between-group batteries, or justify unadjusted p-values.
+- [ ] **Multiple comparisons** — State multiplicity correction for Table-1-style between-group batteries, or justify unadjusted p-values.
 - [ ] **DeLong / pairwise AUC p** — Ranking CV or test AUCs by point estimate alone is insufficient; provide paired comparison p-values when claiming superiority.
 
 ## Leakage & metadata

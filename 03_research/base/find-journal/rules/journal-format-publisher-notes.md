@@ -19,15 +19,15 @@ Both live under `link.springer.com/journal/<number>`, both use numbered Vancouve
 - Structured abstract with bolded headers: Background, Methods, Results, Conclusions.
 - First main-text section heading is "Background" (not "Introduction").
 - Declarations section is headed exactly "Declarations", with subheadings: Ethics approval and consent to participate; Consent for publication; Availability of data and materials; Competing interests; Funding; Authors' contributions; Acknowledgements.
-- Keywords: typically 3–10.
+- Keywords: typically 3-10.
 - References: numbered Vancouver, e.g. `J Med Genet. 2022;59(7):632-643.` — year immediately after the journal abbreviation, not parenthesized at the end.
 
 **Springer "Discover" series** (e.g. Discover Oncology, Discover Applied Sciences, Discover Education, Discover Mental Health, Discover Sustainability, Green Technology Resilience and Sustainability):
-- Unstructured abstract, 150–250 words, no headed subsections — write it as one flowing paragraph.
-- Keywords: 4–6 (tighter range than BMC).
+- Unstructured abstract, 150-250 words, no headed subsections — write it as one flowing paragraph.
+- Keywords: 4-6 (tighter range than BMC).
 - First main-text section heading is conventionally "Introduction".
 - Declarations section is headed "Statements and Declarations" (not "Declarations"), listing the same kinds of statements (Funding, Competing Interests, Ethics approval, Consent to participate, Consent for publication, Data availability, Author contributions, Code availability where relevant).
-- References: same numbered Vancouver style as BMC — `Journal Abbrev. Year;Vol(Issue):Pages.` — confirmed from the guidelines' own example (`Smith JJ. The world of science. Am J Sci. 1999;36:234–5.`).
+- References: same numbered Vancouver style as BMC — `Journal Abbrev. Year;Vol(Issue):Pages.` — confirmed from the guidelines' own example (`Smith JJ. The world of science. Am J Sci. 1999;36:234-5.`).
 - Author-Contribution and Competing-Interest information is usually also collected via the submission portal interface separately from the manuscript text — the in-text statement is still required, but don't be surprised if the portal has its own version of the same fields.
 
 Because both families otherwise look similar (same publisher, similar reference style, similar declarations concept), the abstract structure and the "Declarations" vs. "Statements and Declarations" heading are the fastest tells for which one you're actually dealing with — check both early.

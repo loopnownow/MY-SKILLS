@@ -65,7 +65,7 @@ Machine-readable copy: [`visualization-source-contract.yaml`](visualization-sour
 
 ### 5.1 Architecture
 
-Show stable system components, about 6–12 primary components. Use a boundary only for a real ownership, trust, process, or deployment boundary. Do not turn every fine skill into a node.
+Show stable system components, about 6-12 primary components. Use a boundary only for a real ownership, trust, process, or deployment boundary. Do not turn every fine skill into a node.
 
 Primary chain: 00 Control / QC → 01 skill-integration / Registry → 02 Data → 03 Literature → 02 Statistics → 05 Writing → 06 Review → 07 Response.
 
@@ -121,7 +121,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 | Page | Content |
 | --- | --- |
 | Homepage | Architecture, workflow, system status, external fine ids, build metadata |
-| Skill index | Indexed by 00–07, status, source, and entry |
+| Skill index | Indexed by 00-07, status, source, and entry |
 | Skill detail | Generated from `SKILL.md` frontmatter, with a path back to the source file |
 | Design history | Decisions and this specification. Not the homepage |
 
@@ -161,7 +161,7 @@ A review compares Before, the structural diff, and After. Delta lists added, rem
 
 ## 13. Acceptance
 
-Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00–06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
+Deleting generated artifacts leaves a rebuild path from repository sources (`python3 02_data-processing/advanced/visualization/scripts/gen_visualization.py --out DIR`; no default dir). Editing a skill does not require a hand edit of HTML. An external fine id upgrade does not change the architecture diagram unless the 01 registry changes. A shape failure does not overwrite the last good artifact. A structural Delta can be shown beside the HTML diff. Visualization does not add a long-lived top-level skill beside 00-06. Generated artifacts can show generation time, source snapshot, IR schema versions, and build status.
 
 ## 14. Notes for a later pull request
 

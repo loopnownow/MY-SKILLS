@@ -4,7 +4,7 @@
 - **Registry `LIVE`:** catalog-approved and session-selectable. Not the same as selected.
 - **`session_picked_fine_ids`:** selected this run.
 - **Active:** actually loaded this run.
-- **Advertised:** `00`–`07` only.
+- **Advertised:** `00`-`07` only.
 - **Registry:** routing index only. GitHub MY-SKILLS is the framework + body source of truth.
 
 ## Resolve (in-repo)

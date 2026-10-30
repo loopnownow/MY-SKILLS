@@ -22,8 +22,8 @@ Write the strongest ~200-word rejection memo, then adjudicate point-by-point aga
 
 ## Protocol (short)
 
-1. **Attack (fresh):** one coherent rejection paragraph (~200 words), commit to the most damaging line (scope, methods, claim–evidence, assumptions).
-2. **Adjudicate (fresh, independent):** decompose into 3–7 points; each → `answered_by_current_text` | `partially_answered` | `still_unresolved` + severity.
+1. **Attack (fresh):** one coherent rejection paragraph (~200 words), commit to the most damaging line (scope, methods, claim-evidence, assumptions).
+2. **Adjudicate (fresh, independent):** decompose into 3-7 points; each → `answered_by_current_text` | `partially_answered` | `still_unresolved` + severity.
 3. **Skill maps** counts → six-state verdict (adjudicator does not self-grade overall).
 
 ## Clinical / radiology axes (pick most damaging)

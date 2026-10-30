@@ -78,8 +78,8 @@ This check is round 2 of journal selection. The pack does not number rounds else
 Do this check in round 2 only.
 
 1. Use the manuscript title and its key topic terms as the query.
-2. Search the candidate journal for articles with similar content from the last 3–5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
-3. If the search finds similar articles, cite them in 匹配理由 (match rationale). Give title, year, and DOI or link for each article. Cite 1–3 articles.
+2. Search the candidate journal for articles with similar content from the last 3-5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
+3. If the search finds similar articles, cite them in 匹配理由 (match rationale). Give title, year, and DOI or link for each article. Cite 1-3 articles.
 4. If the search finds no similar article, lower the recommendation tier of that journal. Rank it below each journal in the same layer that has similar articles. Write 「近年未见类似文章，已降级」 in 匹配理由.
 5. Do not invent articles, titles, years, DOIs, or links. List only articles that a real search returned.
 6. A failed search is not a search with no hits. Retry it. If it still fails, write that the search failed. Do not write 「近年未见类似文章，已降级」 for a failed search.

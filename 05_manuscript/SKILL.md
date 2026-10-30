@@ -66,7 +66,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 
 Literature search/evidence retrieval for Introduction/Discussion is executed through `03_research`. 05 consumes verified evidence (`advanced/process/evidence.md`) and applies Aitor quotas. Live packs may only raise an Evidence Request card (`advanced/process/evidence.md`); they do not choose the final citation. A 05 advanced owns Accept / Weaken / Delete after 03 returns candidates. Before the deliverable is done, call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`). 选题 stays in 03 (`find-journal` / `design-study` for question framing). 选刊 / where to submit → `03_research` (`03_research/advanced/journal-selection.md`); not this skill.
 
-**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/advanced/intro-evidence-pack.md`). 05 drafts elements 2–5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `05_manuscript/qc/manuscript-local-qc.md`.
+**Introduction handoff.** For each endpoint 05 raises the four Introduction cards (`guideline_definition`, `missing_prior_result`, `related_work_appraisal`, `scarcity_check`). 03 answers with an Evidence Pack (`03_research/advanced/intro-evidence-pack.md`). 05 drafts elements 2-5 only after every card has an exit. Reporting guidelines (TRIPOD and others) are writing standards and stay out of the Introduction. Independent scoring uses `05_manuscript/qc/manuscript-local-qc.md`.
 
 
 ## Core rule
@@ -79,7 +79,7 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 - Numbers attached to claims (`n`, AUC, 95% CI, *P*)
 - Observational → avoid causal overclaim (*associated with*)
 - Forbidden fluff: `05_manuscript/base/vocab/L1/ban-phrases.md`
-- Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X–X`; no em-dash punctuation; Vancouver+DOI as required
+- Prediction-model full papers: patient-level split (training / test; validation set = external only); dual-set main metrics; LASSO+RadScore formula in prose; `95% CI: X-X`; no em-dash punctuation; Vancouver+DOI as required
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`advanced/Aitor-format.md`**. If that file and any other note disagree, `advanced/Aitor-format.md` wins.
 

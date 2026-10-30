@@ -14,7 +14,7 @@
 | EL-4 | Asia/Shanghai (or project zone) stamps consistent on log faces | 02 |
 | EL-5 | No PHI / identifiable LIS dumps in log filenames or bodies (compose **G-PHI**) | stop; user |
 
-**PASS:** EL-1–5 clean or commented.
+**PASS:** EL-1-5 clean or commented.
 **FAIL:** invented conditions/results in the log, or PHI path → block until 02 / user clears.
 
 *Attribution: nature-experiment-log (MIT); lab 02 coding-qc / G-PHI remain authoritative. No MCP absorb.*

@@ -4,7 +4,7 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_
 
 ## elements
 - **Inputs for prediction models:** development n, event rate / outcome proportion, candidate variable count.
-- **Caliber:** events-per-variable (EPV, aim ≥10–15) and/or Riley / `pmsampsize` when the journal expects a minimum n; classical two-group formulas do **not** cover multivariable / radiomics models.
+- **Caliber:** events-per-variable (EPV, aim ≥10-15) and/or Riley / `pmsampsize` when the journal expects a minimum n; classical two-group formulas do **not** cover multivariable / radiomics models.
 - Fixed retrospective N → use pre-study power, EPV/Riley, MDES at 80%, or precision (CI half-width) — **not** observed / post-hoc power from the obtained p.
 
 ## process

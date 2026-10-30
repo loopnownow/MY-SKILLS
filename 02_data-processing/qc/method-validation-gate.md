@@ -25,7 +25,7 @@
 
 If the request is a **clinical case / CSR / safety** scaffold: use de-identified / aggregate inputs only; mark DRAFT; never diagnose or invent results. Prefer ethics / qualified-review path over this AMV gate. Source headings: K-Dense `clinical-reports` (MIT) — no runtime.
 
-**PASS:** AMV-1–6 clean or commented when domain-gated in.
+**PASS:** AMV-1-6 clean or commented when domain-gated in.
 **FAIL / NOT_APPLICABLE:** wrong domain → emit `NOT_APPLICABLE` with one-line reason (do not silent-skip at submission if AMV was claimed).
 
 *Attribution: K-Dense analytical-method-validation + clinical-reports boundaries (MIT). No CDS; no invented RI / acceptance thresholds.*

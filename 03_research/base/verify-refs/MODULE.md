@@ -77,7 +77,7 @@ python scripts/search_google_scholar.py "CRISPR gene editing" --limit 50 --outpu
 ```
 
 Prefer OpenAlex or PubMed as the primary source. Google Scholar has no API:
-`scholarly` scrapes it, sleeps 2–5 s between results, and is blocked often
+`scholarly` scrapes it, sleeps 2-5 s between results, and is blocked often
 enough that it should be a supplement rather than a dependency.
 
 Query operators, field tags, and MeSH-term construction are in

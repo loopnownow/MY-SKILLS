@@ -32,7 +32,7 @@
 
 `PASS | WARN | FAIL | BLOCKED | NOT_APPLICABLE | ERROR` — silent skip forbidden at `submission`.
 
-**PASS:** ML-ED-1–5 clean or commented; ML-H when hypotheses present.
+**PASS:** ML-ED-1-5 clean or commented; ML-H when hypotheses present.
 **FAIL:** training-as-test, missing primary split, or central ablation claim without control → rollback **02**.
 
 *Attribution: AutoResearchClaw builtin experiment skills (MIT); lab G-STATS / G-FACT remain authoritative.*

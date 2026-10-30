@@ -41,5 +41,5 @@ Fill this in for the specific scenario — it justifies the threshold.
 ## Reporting sentence
 
 *"At the predefined operating point (sensitivity 0.92), a positive result triggered [action];
-decision-curve analysis showed positive net benefit across threshold probabilities of 5–30%
+decision-curve analysis showed positive net benefit across threshold probabilities of 5-30%
 relative to treat-all and treat-none, with the model well-calibrated (calibration slope 0.97)."*

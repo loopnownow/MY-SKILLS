@@ -20,7 +20,7 @@
 | landscape | field / setting |
 | pivotal / crucial / critical (hype) | important / key (sparingly) or name the finding |
 | robust (vague) | name the metric (higher AUC, narrower CI) |
-| comprehensive | complete / included X–Y |
+| comprehensive | complete / included X-Y |
 | leverage | use |
 | framework (vague AI prose) | approach |
 | labeled / labelled (vague AI prose) | classified as / assigned to / named; abstract parts: headed Objective/Methods/… |
@@ -95,7 +95,7 @@ These used to appear as recommended conclusion templates. Harvest of 389 unique 
 | Avoid | Prefer |
 |-------|--------|
 | suggesting its potential | name the task (`could assist [task]`) or drop the clause |
-| demonstrated good performance | report `AUC of X (95% CI: X–X)` in training **and** test |
+| demonstrated good performance | report `AUC of X (95% CI: X-X)` in training **and** test |
 
 See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `phrase-bank.md` were merged into it on 2026-10-16).
 
@@ -103,7 +103,7 @@ See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `phrase-b
 
 - Throat-clearing: "Here is…", "In this section we…"
 - Binary contrast templates: "Not X, but Y" when Y alone suffices
-- Em-dash (—, Unicode U+2014) and spaced --: **hard ban**. Prefer parentheses (…). En-dash ranges (5–10 mm, 95% CI: X–X) stay. Owner 2026-10-28.
+- Em-dash (—, Unicode U+2014) and spaced --: **hard ban**. Prefer parentheses (…). En-dash ranges (5-10 mm, 95% CI: X-X) stay. Owner 2026-10-28.
 - Approximately-equal sign (≈, U+2248): **hard ban**. Prefer bout / pproximately / an exact number. Owner 2026-10-28.
 - Symmetrical three-item lists used as style filler
 - Pull-quote one-liners ending every paragraph
@@ -114,7 +114,7 @@ Prefer rewrite; do not fail a style gate on a single hit. Owner 2026-10-28.
 
 | Avoid / minimize | Prefer | Keep when |
 |------------------|--------|-----------|
-| Colon (:) as a mid-sentence or rhetorical hinge (The point: X.) | Period, or two short sentences | Title-page / abstract **labels** (Objective: Methods: Corresponding author:), 95% CI: X–X, Highlights / Abbreviations labels (bold through the colon) |
+| Colon (:) as a mid-sentence or rhetorical hinge (The point: X.) | Period, or two short sentences | Title-page / abstract **labels** (Objective: Methods: Corresponding author:), 95% CI: X-X, Highlights / Abbreviations labels (bold through the colon) |
 | Semicolon (;) joining clauses | Period; one fact per sentence | Rare list separators inside parentheses when a period would break the list |
 
 ## Keep (discipline-specific)

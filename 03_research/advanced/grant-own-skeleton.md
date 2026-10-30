@@ -23,7 +23,7 @@ PPT, budget sheets, finance, contract scans, title/talent tables, filled ethics 
 
 ## Justification (立项依据): fixed five steps
 
-1. **Disease burden + typology/grading.** Clarify the object first (including subtype controls). Give 1–2 epidemiology numbers — do not dump a review.
+1. **Disease burden + typology/grading.** Clarify the object first (including subtype controls). Give 1-2 epidemiology numbers — do not dump a review.
 2. **Mainstream theory and its gap.** Typical phrasing: traditional hypothesis “cannot explain” poor correlation of [marker] with clinical phenotype, poor response to usual care, or disease despite normal markers. Gaps must be concrete — avoid empty「尚未完全阐明」.
 3. **Prior work (literature + own).** 「文献和我们前期工作均显示」「我们前期研究发现」. Clinical phenomenon → imaging/omics evidence → animal or ex vivo validation — at least two of three chains.
 4. **One-sentence hypothesis.** 「故推测…可能是…的主要和起始因素」; or「基于前期研究提出如下假说：…是由 A 与 B 共同驱动的 C」.

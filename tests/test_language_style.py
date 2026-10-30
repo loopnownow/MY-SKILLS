@@ -189,8 +189,13 @@ class DashTests(unittest.TestCase):
         self.assertTrue(failed(sl.lint(doc("Discussion", "One \u2014 aside. Two \u2014 aside.")),
                                "dash_cadence"))
 
-    def test_en_dash_ranges_are_fine(self):
-        r = sl.lint(doc("Discussion", "Lesions of 5\u201310 mm and 20\u201330 mm were seen."))
+    def test_en_dash_ranges_fail(self):
+        # owner 2026-10-30: U+2013 banned; use ASCII hyphen for ranges
+        self.assertTrue(failed(sl.lint(doc("Discussion", "Lesions of 5\u201310 mm and 20\u201330 mm were seen.")),
+                               "dash_cadence"))
+
+    def test_ascii_hyphen_ranges_are_fine(self):
+        r = sl.lint(doc("Discussion", "Lesions of 5-10 mm and 20-30 mm were seen."))
         self.assertFalse(failed(r, "dash_cadence"))
 class TricolonTests(unittest.TestCase):
     FOUR = ("The model was faster, smarter, and better. The design was simple, clear, and useful. "

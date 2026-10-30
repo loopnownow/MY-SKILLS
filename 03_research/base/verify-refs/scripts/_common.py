@@ -218,7 +218,7 @@ def render_entry(entry_type: str, key: str, fields: Dict[str, str]) -> str:
     return '\n'.join(lines)
 
 
-_PAGE_RANGE = re.compile(r'^(\d+)\s*(?:-{1,3}|–|—)\s*(\d+)$')
+_PAGE_RANGE = re.compile(r'^(\d+)\s*(?:-{1,3}|-|—)\s*(\d+)$')
 
 
 def format_pages(raw: Optional[str]) -> str:

@@ -162,7 +162,7 @@ _SUPPLEMENT_OR_FRONT_MATTER_RE = re.compile(
     r"(?:electronic\s+|online\s+)?supplement(?:ary|al)?"
     r"(?:\s+(?:information|materials?|appendix|data|methods|figures?|tables?|file))?"
     r"|preface|front\s+matter|table\s+of\s+contents"
-    r")\s*(?:$|[:.—–-]|\s+(?:for|to|of)\b)",
+    r")\s*(?:$|[:.—--]|\s+(?:for|to|of)\b)",
     re.I,
 )
 

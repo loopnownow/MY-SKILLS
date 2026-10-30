@@ -13,7 +13,7 @@ Use this checklist when polishing Results and Methods sections.
 #### General
 - [ ] All P values reported as exact values when ≤ 0.05 (e.g., P = 0.002), and as comparison when > 0.05 (e.g., P = 0.12 or P > 0.05)
 - [ ] P is italicized: *P* (adjust per journal house style)
-- [ ] All CIs reported as 95% CI: X–X (en-dash, no spaces around dash)
+- [ ] All CIs reported as 95% CI: X-X (en-dash, no spaces around dash)
 - [ ] **Decimals:** Table 1 continuous/% cells → **1 or 2** places; *P*, AUC (+ 95% CI bounds), NRI/IDI, correlation (*r*/ρ and their *P*) → **3** places
 - [ ] All AUCs reported with 95% CI in parentheses
 - [ ] Sensitivity, specificity, NPV, PPV all reported as percentages with 1 decimal place
@@ -41,8 +41,8 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Never `Development set`; never `hold-out` as the test-set name
 
 #### Diagnostic performance
-- [ ] Default: `AUC of X (95% CI: X–X)` reported for **both** training and test
-- [ ] ROC curve AUC with 95% CI (en-dash, `95% CI: X–X`)
+- [ ] Default: `AUC of X (95% CI: X-X)` reported for **both** training and test
+- [ ] ROC curve AUC with 95% CI (en-dash, `95% CI: X-X`)
 - [ ] AUC comparison via DeLong method (paired *P*, not the CI)
 - [ ] Optimal threshold reported (typically Youden index; disclose per split)
 - [ ] Sensitivity + specificity + PPV + NPV at threshold
@@ -54,7 +54,7 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] LASSO lambda selected by 10-fold CV on the **training** set (minimum criteria; not nested CV)
 - [ ] Number of features before and after selection both stated
 - [ ] Rad-score formula in prose (no LASSO-feature table)
-- [ ] Training **and** test AUC of X (95% CI: X–X) both reported
+- [ ] Training **and** test AUC of X (95% CI: X-X) both reported
 - [ ] Feature stability: ICC or CV < 10% (if reported)
 
 #### Survival analysis (when applicable)
@@ -77,10 +77,10 @@ Use this checklist when polishing Results and Methods sections.
 |---|---|
 | "P < 0.05" for all significant results | Report exact P (P = 0.003) |
 | "Wilcoxon test" | "Wilcoxon signed-rank test" (paired) or "Mann-Whitney U test" (unpaired) |
-| "95%CI: 0.80-0.93" | "95% CI: 0.80–0.93" (en-dash, space before/after %) |
-| "AUC=0.86" (one set only) | "AUC of X (95% CI: X–X)" in training **and** test |
+| "95%CI: 0.80-0.93" | "95% CI: 0.80-0.93" (en-dash, space before/after %) |
+| "AUC=0.86" (one set only) | "AUC of X (95% CI: X-X)" in training **and** test |
 | Missing normality justification | Add Shapiro-Wilk result or note |
-| HR/OR without CI | Always add "(95% CI: X–X)" |
+| HR/OR without CI | Always add "(95% CI: X-X)" |
 | SD vs SEM confusion in figure legends | Clarify: "error bars represent SD" or "error bars represent SEM" |
 | "Significant difference" without test | Name the test and report statistic |
 | p value without effect size | Add Cohen's d / AUC / OR depending on context |
@@ -156,7 +156,7 @@ Raw measurement tables → `02_data-processing/advanced/table-signals.md`.
 - Rounding / one-sided / adjusted p can explain mild gaps
 
 #### Optional batch p-curve
-- Pile-up of significant p near 0.04–0.05 is a selective-reporting **risk signal** in a batch
+- Pile-up of significant p near 0.04-0.05 is a selective-reporting **risk signal** in a batch
 - Not a default gate for a single small study
 
 #### Statistic vs threshold (`stat_vs_threshold`)

@@ -27,7 +27,7 @@ Run capability steps in `doi-crossref-field-audit.md`. Gate uses these severity 
 Per-item confidence: `Verified` | `Check suggested` | `Needs fix` | `Unverifiable`.
 DOI-first: resolve Crossref `works/<DOI>` before title+author fallback. Non-Crossref (CNKI, old IEEE 404, theses) → fallback sources; do not invent DOI/PMID.
 
-**PASS:** RV-1–4 clean or commented.
+**PASS:** RV-1-4 clean or commented.
 **FAIL:** Critical unresolved refs → rollback **before Gate · 05 done / Integrity · pre-06** (03 re-audit; 05 does not self-certify lit).
 
 *Attribution: distilled from Yuan1z0825/nature-skills `nature-ref-verifier` (Apache-2.0).*

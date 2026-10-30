@@ -50,7 +50,7 @@ Record: `guideline_chosen:` (TRIPOD[+AI] | STARD[+AI] | STROBE | PRISMA | other+
 | RG-4 | Discrimination and/or accuracy metric matches study type (e.g. AUC for prediction) | 02 Loopnow / 05 prose |
 | RG-5 | Missing-data / exclusions handled or declared | 02/05 per source |
 
-**PASS:** RG-1 done + applicable RG-2–5 clean or Word-commented with owner.
+**PASS:** RG-1 done + applicable RG-2-5 clean or Word-commented with owner.
 **FAIL:** missing guideline choice or silent skip of applicable subset → rollback station **05** (or escalate if ambiguous).
 
 *Attribution: short must-check original; extended id→URL table metadata from K-Dense-AI/scientific-agent-skills `peer-review` (MIT).*

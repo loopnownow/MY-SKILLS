@@ -7,7 +7,7 @@
 
 ## Advanced peer-review style (English peer review)
 
-Source: 2014–2026 self-authored journal-review full-text bank, 57 deduplicated files. Keep structure, tone, and high-frequency attack points only — do not ingest others' unpublished titles, data, ethics IDs, or patient identifiers.
+Source: 2014-2026 self-authored journal-review full-text bank, 57 deduplicated files. Keep structure, tone, and high-frequency attack points only — do not ingest others' unpublished titles, data, ethics IDs, or patient identifiers.
 
 On-disk bank (internal review; source of the owner's comment style): `{doc_review_bank}\`. This file does not copy the bank body.
 
@@ -16,7 +16,7 @@ This file serves **English journal peer review** only (letters written for other
 | Task | File |
 |---|---|
 | Thesis / dissertation review | this file § Thesis review digest |
-| Chinese-journal 1–5 scores + A–F / academic review form | this file § Chinese journal score digest |
+| Chinese-journal 1-5 scores + A-F / academic review form | this file § Chinese journal score digest |
 
 Early Chinese review forms can be blunt («并无新意» / «选择偏倚» / «未交代»). **Do not import that bluntness into English.** English uses polite, direct, actionable imperatives.
 
@@ -48,8 +48,8 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 ### 0.1 Opinion-item localization (hard rules)
 
-- Every Major / Minor **body**: `Lines n–m:` (or figure/table/section locus) + what is wrong + Please how to fix.
-- **Prefer:** Proof/manuscript line numbers, e.g. `Lines 76–79:` / `Line 216:`.
+- Every Major / Minor **body**: `Lines n-m:` (or figure/table/section locus) + what is wrong + Please how to fix.
+- **Prefer:** Proof/manuscript line numbers, e.g. `Lines 76-79:` / `Line 216:`.
 - **When no reliable line numbers:** `Introduction, paragraph 2, line 3:`; or `Table 1 legend:` / `Figure 5A:` / `Section 2.3, paragraph 1:`.
 - **If line numbers are given, do not restate or quote the manuscript sentence.**
 - **Source tags** (e.g. `[self-review][advanced]`) go only at the Word **comment** lead-in; author field **A**. Write the Chinese reason in the same comment after the source tag. `cannot_invent` / G-LIT dual-track also go in comments only (not the envelope body).
@@ -73,23 +73,23 @@ For future **peer-review / pre-review / 06 re-review** on a manuscript `.docx`:
 
 | Approx. years | Form | How English peer review uses it |
 |---|---|---|
-| 2014–2018 | Chinese-journal review form | **Do not** use as an English-letter template. Use this file § Chinese journal score digest |
-| 2019–2023 | `Dear Editor` + line-number-first items (Lines n–m / Section, paragraph, line) | Only when the invitation/system still requires a salutation |
-| 2024–2026 | No salutation or one-line invite thanks; Opening → chapter Major/Minor | **Default envelope** |
+| 2014-2018 | Chinese-journal review form | **Do not** use as an English-letter template. Use this file § Chinese journal score digest |
+| 2019-2023 | `Dear Editor` + line-number-first items (Lines n-m / Section, paragraph, line) | Only when the invitation/system still requires a salutation |
+| 2024-2026 | No salutation or one-line invite thanks; Opening → chapter Major/Minor | **Default envelope** |
 
 Do not put Accept / Reject / Major revision scores in the body; scores go in internal notes or the Chinese review form.
 
 ---
 
-### 2. Default envelope (2024–2026)
+### 2. Default envelope (2024-2026)
 
 Issue items by the owner's eight-chapter template. Inside each chapter: **Major Issues** first, then **Minor Issues**. Major = can change conclusions / reproducibility / ethics / data consistency; Minor = wording, format, legend completion.
 
 ```text
-[Opening 2–4 sentences: design + clinical question + overall value + the methodological catch]
+[Opening 2-4 sentences: design + clinical question + overall value + the methodological catch]
 
 1. Title
-Major Issues: [Lines n–m: / Section, paragraph, line: + defect + Please fix]  (source tags go in comments; see §0.1)
+Major Issues: [Lines n-m: / Section, paragraph, line: + defect + Please fix]  (source tags go in comments; see §0.1)
 Minor Issues: …
 
 2. Abstract
@@ -123,11 +123,11 @@ Minor Issues:
 
 Add a `Major Comments` line when needed. Do not write a 25-item questionnaire (unless the editorial form forces it). Empty chapters: write `None` or omit — do not pad.
 
-**Per item:** `Lines n–m:` (or section) → defect → **Please** with a clear fix. Source tags and Chinese reasons go in comments (§0.1). Do not invent experiments not done; do not invent AUCs for the authors.
+**Per item:** `Lines n-m:` (or section) → defect → **Please** with a clear fix. Source tags and Chinese reasons go in comments (§0.1). Do not invent experiments not done; do not invent AUCs for the authors.
 
 ---
 
-### 3. Opening (2–4 sentences)
+### 3. Opening (2-4 sentences)
 
 Name the design + clinical question → overall value or not → but methods still have a catch. Avoid empty praise (*interesting*).
 
@@ -198,7 +198,7 @@ Scan by chapter when writing; write what applies, skip the rest. English = polit
 - Minor: loose structure; repeats Results.
 
 #### 4.7 References
-**Focus:** representative; key literature from last 2–3 years; format; no duplicate entries.
+**Focus:** representative; key literature from last 2-3 years; format; no duplicate entries.
 - Major: 同一 DOI / same title twice → Major: merge numbers or swap the reference; when swapping, **do not** copy numbers unique to the old paper (case counts, AUC, …) onto the new one.
 - Major: citation verify failed → comment with the **dual-track plan** (below); 00 QC decides whether to call `03_research`; do not invent PMIDs.
 - Minor: format, missing DOI.
@@ -256,7 +256,7 @@ Reusable requests (no unpublished results in the sentence):
 - English **must not** import blunt Chinese-form translations (*no novelty* / *selection bias* as insults). Write the same fact as an actionable request.
 
 Pre-submit self-check (four axes):
-1. **Precise and actionable** — has Lines n–m / Section, paragraph, line (or section) + a clear fix.
+1. **Precise and actionable** — has Lines n-m / Section, paragraph, line (or section) + a clear fix.
 2. **Clear structure** — Major / Minor separated.
 3. **Constructive** — academic respect; even a reject suggestion names improvement directions.
 4. **Editor-helpful** — Opening already summarizes core strengths and key weaknesses.
@@ -267,7 +267,7 @@ Pre-submit self-check (four axes):
 
 - Putting others' manuscript PDFs, supplements, CSVs, or unpublished titles into the skill or a public repo
 - Putting thesis-review or national-self-eval boilerplate into English peer review
-- Pasting whole Chinese-journal A–F score blocks into the English letter
+- Pasting whole Chinese-journal A-F score blocks into the English letter
 - Empty praise (*interesting*); emoji; padded compliments
 - Silently adopting fine id fixes that conflict with the lab (must go into comments; user decides)
 
@@ -388,7 +388,7 @@ Undecidable issues: Chinese 批注 plus English suggested wording and/or suggest
 
 ### 5.2 Chinese manuscript-comment five slots (稿面批注; Lab-STE CM-01)
 
-Journal English envelope stays in `review.md` (`Lines n–m:` + defect + Please…).
+Journal English envelope stays in `review.md` (`Lines n-m:` + defect + Please…).
 **Chinese Word face comments** (author field still **A**; source tag at text start) use five fixed slots, one problem per comment:
 
 1. **位置** — line range, or `节 第n段第m句`, or Figure/Table id. Prefer precise patterns; coarse location-only wording (e.g. methods section alone) is should_fix.

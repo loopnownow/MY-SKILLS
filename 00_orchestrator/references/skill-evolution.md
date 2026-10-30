@@ -1,6 +1,8 @@
 # Skill evolution (propose only)
 
-Applies to skills 00–07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
+Authoring punctuation (owner 2026-10-30): never use en-dash (U+2013); always ASCII hyphen `-` for ranges and compounds in skill prose.
+
+Applies to skills 00-07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
 
 **Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `0doc` trees.
 
@@ -33,7 +35,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 | Layer | Meaning | Physical home |
 |---|---|---|
 | Rules (R) | Cross-skill hard contracts | MY-RULES |
-| Skills (S) | 00–07 skill bodies / advanced | MY-SKILLS |
+| Skills (S) | 00-07 skill bodies / advanced | MY-SKILLS |
 | Registry (Reg) | fine-ID / fine-id registry | `00_orchestrator/registry.yaml` etc. |
 | Capabilities (Cap) | Live capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
 | Bank | Bank / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
@@ -71,7 +73,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 8 Promote or rollback
 ```
 
-### 1–2 Evidence intake and types
+### 1-2 Evidence intake and types
 
 | Evidence type | Default disposition | Auto-change runtime? |
 |---|---|---|
@@ -82,7 +84,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 
 Intake format pointer: collection standard `HARVEST-STANDARD.md` (fine-ID: **bank elements / process / cautions**; candidate fields attached, do not replace the three buckets).
 
-### 3–4 Ownership and minimal candidate fields
+### 3-4 Ownership and minimal candidate fields
 
 Candidate records (bank side) at least include:
 
@@ -96,7 +98,7 @@ Candidate records (bank side) at least include:
 
 Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
 
-### 5–6 Approval and scoped change · risk tiers
+### 5-6 Approval and scoped change · risk tiers
 
 | Risk tier | Examples | Gate |
 |---|---|---|

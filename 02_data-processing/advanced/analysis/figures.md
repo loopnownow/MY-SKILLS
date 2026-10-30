@@ -11,14 +11,14 @@
 
 **Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
 
-Generic journal palettes (ggsci NPG / Okabe–Ito / Morandi role maps) stay in live `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
+Generic journal palettes (ggsci NPG / Okabe-Ito / Morandi role maps) stay in live `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
 
 One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**. Auxiliary colors: remaining ROC curves, KM strata, unnamed models.
 
 | id | Label | Use | Main (5) | Aux (5) |
 |----|-------|-----|----------|---------|
 | `npg` | NPG current | **Default.** Revisions / extra panels so Combined / RadScore / Clinical do not jump | `#D55E00` `#B2182B` `#2166AC` `#762A83` `#117733` | `#44AA99` `#DDCC77` `#EE8866` `#AA4499` `#332288` |
-| `okabe` | Okabe–Ito | **New project first choice.** Color-blind safe | `#D55E00` `#0072B2` `#009E73` `#CC79A7` `#E69F00` | `#56B4E9` `#332288` `#882255` `#44AA99` `#999999` |
+| `okabe` | Okabe-Ito | **New project first choice.** Color-blind safe | `#D55E00` `#0072B2` `#009E73` `#CC79A7` `#E69F00` | `#56B4E9` `#332288` `#882255` `#44AA99` `#999999` |
 | `tol` | Paul Tol | Print / Radiology large figures | `#CC6677` `#332288` `#117733` `#88CCEE` `#DDCC77` | `#AA4499` `#44AA99` `#882255` `#6699CC` `#999933` |
 | `radiology` | teal-orange | Lab console / series papers | `#0F4C5C` `#C44E52` `#3B6EA5` `#E07A3D` `#2F6F4E` | `#7EB6A4` `#88B4D8` `#D4A373` `#6B5B95` `#8A8A8A` |
 | `ibm` | IBM | Projection / results HTML | `#DA1E28` `#0F62FE` `#198038` `#8A3FFC` `#B28600` | `#1192E8` `#009D9A` `#FA4D56` `#A56EFF` `#6F6F6F` |
@@ -39,7 +39,7 @@ Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cit
 | `magma` | Magma | continuous, warm | warm alternative to viridis; radiomics feature heatmaps avoid “green = normal” clinical cue | matplotlib built-in; `cmap="magma"` |
 | `cividis` | Cividis | continuous, color-blind optimized | first choice for continuous values when reviewers may be color-weak | matplotlib built-in; `cmap="cividis"` |
 | `rdbu` | RdBu Diverging | diverging | correlation / feature-selection heatmaps; signed symmetric values | ColorBrewer diverging; `cmap="RdBu_r"` |
-| `prgn` | PRGn Diverging | diverging, purple-green | diverging alternative when red–green associations (political/clinical) must be avoided | ColorBrewer diverging; `cmap="PRGn"` |
+| `prgn` | PRGn Diverging | diverging, purple-green | diverging alternative when red-green associations (political/clinical) must be avoided | ColorBrewer diverging; `cmap="PRGn"` |
 | `batlow` | Batlow (Crameri) | continuous, scientific | perceptually safe maps journals (Nature/Science family) increasingly expect; replaces jet/rainbow | Fabio Crameri scientific colour maps; BSD |
 | `grayscale-safe` | grayscale-safe ramp | mono gradient | some journals still require B&W print legibility; re-check with this ramp before submission | `#F7F7F7 #CCCCCC #969696 #636363 #252525` |
 | `ggsci-lancet` | ggsci Lancet | categorical, journal style | closer to Lancet-family visual norms | R package `ggsci::pal_lancet()`; MIT |
@@ -69,7 +69,7 @@ Before choosing a chart, ask: **which Discussion sentence must this figure prove
 
 If the claim is unclear, write the Discussion sentence first, then back into the chart — if the sentence will not write, the figure should not start.
 
-### 2. Figure–evidence checklist: build before drawing, not after reconciling
+### 2. Figure-evidence checklist: build before drawing, not after reconciling
 
 Before a submission, list planned figures (in `handoff.yaml` `outputs` or a `figure-manifest.md`). For each figure record three things:
 
@@ -100,10 +100,10 @@ This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and 
 
 1. **De-identify first:** crop burned-in patient identifiers — name (including Chinese names), MRN, and other PHI. Handle `Page x of y`, `IM/SE`, rulers/tick marks, edge bars, and extra black borders per this run's brief. **Standing (owner 2026-10-21):** before stripping **non-patient** burned-in labels/text (device params, sequence names, non-PHI notes, …), **ask the owner** whether to keep them; do not strip without explicit consent. **Open every cropped result and visually confirm** no residual patient ID — “coordinates were calculated” is not enough.
 2. **Do not change WL/WW or contrast:** crop + resample (Lanczos) only; leave pixel values untouched.
-3. **Grid:** rows×cols as the owner specifies; panel order follows the owner's original filenames a–f (after rename, map back by size etc.); do not reorder by sequence type.
+3. **Grid:** rows×cols as the owner specifies; panel order follows the owner's original filenames a-f (after rename, map back by size etc.); do not reorder by sequence type.
 4. **Cells:** equal squares; scale preserving aspect; **black fill** for empty margins.
 5. **Gutter:** per this run; default 6 px white; when the owner says “no gutter”, use 0 px and a black background (no white showing anywhere).
-6. **Labels:** A–F uppercase, **Arial Bold** (`arialbd.ttf`; PIL `ImageFont.truetype("arialbd.ttf", 48)` — not DejaVu defaults), white + thin black stroke (2 px), default **lower-left** of each cell; print size ~10–12 pt (~48 px tall at 300 dpi).
+6. **Labels:** A-F uppercase, **Arial Bold** (`arialbd.ttf`; PIL `ImageFont.truetype("arialbd.ttf", 48)` — not DejaVu defaults), white + thin black stroke (2 px), default **lower-left** of each cell; print size ~10-12 pt (~48 px tall at 300 dpi).
 7. **Size:** dual-column ~174 mm @ 300 dpi ≈ 2055 px wide (e.g. 6 px gutter → 677 px cells, 2055×1372; 0 gutter → 685 px cells, 2055×1370).
 
 #### 2. Default delivery

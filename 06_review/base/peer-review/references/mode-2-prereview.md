@@ -24,7 +24,7 @@ will accept.
 ## Letter
 
 ```text
-[Opening 2–4 sentences: design + clinical question + overall value + the methodological catch]
+[Opening 2-4 sentences: design + clinical question + overall value + the methodological catch]
 
 Major Comments
 
@@ -64,7 +64,7 @@ Numbered `#n` comments are optional, not the default.
 
 ## Forbidden
 
-Empty praise ("interesting"); scores without a fix; importing a Chinese A–F score sheet into
+Empty praise ("interesting"); scores without a fix; importing a Chinese A-F score sheet into
 the English letter; owning mode-3 response.
 
 ## Internal note (not submitted)

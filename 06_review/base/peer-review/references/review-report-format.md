@@ -7,7 +7,7 @@ fixable.
 
 ```
 SUMMARY ASSESSMENT
-  [3–5 sentences: what the study does, its genuine strength, its decisive weakness,
+  [3-5 sentences: what the study does, its genuine strength, its decisive weakness,
    and the readiness verdict.]
 
 MAJOR / BLOCKER COMMENTS

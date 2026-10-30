@@ -21,7 +21,7 @@
 
 - Sans: system-ui stack; mono: ui-monospace stack. Weights **400 / 500 / 600** only.
 - Rough scale: caption 12 · body-sm 14 · body 16 · H3 ~20 · H2 ~25 · H1 ~31.
-- Radii: **4 / 8 / 16 / pill**. Prefer padding inside cards ≈ 1.5–2× child gaps.
+- Radii: **4 / 8 / 16 / pill**. Prefer padding inside cards ≈ 1.5-2× child gaps.
 - Layout: Grid/Flex with `repeat(auto-fit, minmax(…, 1fr))`; avoid fragile fixed widths.
 
 ## Palette defaults

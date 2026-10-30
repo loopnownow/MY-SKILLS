@@ -30,7 +30,7 @@ Never upgrade suspicion to confirmed without proof from supplied material.
 - Ambiguity / not_assessable → Word comment; do not invent numbers.
 
 
-## Soft-check Hook C — lab physio (Layers 1–2)
+## Soft-check Hook C — lab physio (Layers 1-2)
 
 | Id | When | Fail → comment |
 |---|---|---|
@@ -38,7 +38,7 @@ Never upgrade suspicion to confirmed without proof from supplied material.
 
 Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\_library\lab-ref-ranges\qc\gate-hooks.md`. Soft ceilings from the lab-ref 06_qc_rules index; never auto-edit cells.
 
-**PASS:** layers 1–3 clean on cited numbers; 4–6 clean or commented.
+**PASS:** layers 1-3 clean on cited numbers; 4-6 clean or commented.
 **FAIL:** `confirmed_internal_error` on a central claim → block next node until 02/05 clears.
 
 *Attribution: distilled from Yuan1z0825/nature-skills `nature-reviewer` (Apache-2.0).*

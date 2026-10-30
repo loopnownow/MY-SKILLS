@@ -1,4 +1,4 @@
-# Pipeline stages (prediction papers, P0–P6)
+# Pipeline stages (prediction papers, P0-P6)
 
 Generic dual-set IMRAD constraints for prediction / radiomics papers. Advanced house format
 (word-count quotas, DOCX typography, title-page defaults) is **not** in this pack.
@@ -49,7 +49,7 @@ Missing exports → comments, not invented body text.
 
 ## P4 — Discussion
 
-What the result means, 2–3 comparators with numbers when available, bounded clinical
+What the result means, 2-3 comparators with numbers when available, bounded clinical
 implication, explicit limitations. No disclaimer stack.
 
 ## P5 — References + QC

@@ -28,7 +28,7 @@ figure guide before final submission; this file records durable, recently-verifi
 | Element | Spec |
 |---|---|
 | Single column | **89 mm** wide |
-| Column-and-a-half | 120–136 mm wide |
+| Column-and-a-half | 120-136 mm wide |
 | Double column (full width) | **183 mm** wide |
 | Maximum figure height | **170 mm** (leaves room for the legend beneath; full page depth is 247 mm) |
 
@@ -84,7 +84,7 @@ Nature-specific.
 ## QA checklist (Nature-family, run in addition to the shared checklist)
 
 - [ ] Panel letters lowercase, bold, upright (`case="lower"`), not uppercase.
-- [ ] Figure built at 89 mm / 120–136 mm / 183 mm width, ≤170 mm height.
+- [ ] Figure built at 89 mm / 120-136 mm / 183 mm width, ≤170 mm height.
 - [ ] Multi-panel figure exported as one assembled image file, not separate panel files.
 - [ ] Legend follows the target venue cap (≤250 words for the parsed Nature Partner guide;
       verify if the target journal specifies a different limit) and begins with a whole-figure

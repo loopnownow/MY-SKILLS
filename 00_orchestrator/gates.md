@@ -77,7 +77,7 @@ rewrites; Methods / Results are not scanned. Catalogue and rulings: `00_orchestr
 
 ## Transversal map (not a second gate set)
 
-ChatGPT-style Route/Fine id/Boundary/Evidence/Consistency/Artifact map onto existing gates — do **not** invent Q0–Q6 ids in runtime output:
+ChatGPT-style Route/Fine id/Boundary/Evidence/Consistency/Artifact map onto existing gates — do **not** invent Q0-Q6 ids in runtime output:
 
 | Cross-cut | Lives in |
 |---|---|
@@ -118,7 +118,7 @@ Documented on `runtime-flow.mmd` as **Integrity · pre-06** (`I25`) and **Integr
 
 | Station | Composes | HARD block? | Notes |
 |---|---|---|---|
-| **Integrity · pre-06** | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** + **05 reporting-guideline subset** (`reporting-guideline-route.md` + `reporting-guidelines-router.json`) + claim-number-align / anti-leak / manuscript-local-qc AI-fail lite + **figure-stats-legend** / **figure-qa-minima** / **refs-verified** / **data-code-availability** / **venue-compliance-minima** + **forensic-consistency** / **stats-failure-modes** + **assurance-audit-chain** L1–L4 as applicable (HARD compose with G-FACT on confirmed central numeric/stats P0) | **Yes** before Lee 06 if G-FACT or G-CIT/G-LIT or RG subset FAIL | Runs after Gate · 05 / N4→06 and on mid-entry Need06 before P06 |
+| **Integrity · pre-06** | **G-FACT** (when numbers cited) + **G-CIT-1** / **G-LIT** + **05 reporting-guideline subset** (`reporting-guideline-route.md` + `reporting-guidelines-router.json`) + claim-number-align / anti-leak / manuscript-local-qc AI-fail lite + **figure-stats-legend** / **figure-qa-minima** / **refs-verified** / **data-code-availability** / **venue-compliance-minima** + **forensic-consistency** / **stats-failure-modes** + **assurance-audit-chain** L1-L4 as applicable (HARD compose with G-FACT on confirmed central numeric/stats P0) | **Yes** before Lee 06 if G-FACT or G-CIT/G-LIT or RG subset FAIL | Runs after Gate · 05 / N4→06 and on mid-entry Need06 before P06 |
 | **Integrity · post-re-review lite** | G-FACT spot-check + AI-fail lite after `P06r` | Same HARD recovery if fact/lit broken | Not a full first-pass re-run |
 
 ### MANDATORY checkpoints (see also `runtime-flow.md`)

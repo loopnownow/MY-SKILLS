@@ -38,7 +38,7 @@ aliases:
   code_model_validation: "D:\\0Grok\\0doc\\GitHub\\stats-analysis\\model-validation"
   # 2026-10-25: independent repo is SSOT; {code_modules_master} == {code_modules} (former _code\04-analysis\stats-analysis retired)
   code_modules_master: "D:\\0Grok\\0doc\\GitHub\\stats-analysis\\modules"
-  # no base\ under _code 02–07 (fine-ID folders are direct children)
+  # no base\ under _code 02-07 (fine-ID folders are direct children)
   code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing"
   code_clean_data: "D:\\0Grok\\0doc\\_code\\02-data-processing\\clean-data"
   code_fill_protocol: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol"
@@ -56,7 +56,7 @@ notes:
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-10-23: 0script retired; code SSOT is {code_root}. 2026-10-25: stats SSOT is GitHub\\stats-analysis ({code_stats}/{code_modules}); {code_modules_master} equals {code_modules}; former _code\\04-analysis\\stats-analysis retired."
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
-  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02–07 use fine-ID folders (no base\\)."
+  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02-07 use fine-ID folders (no base\\)."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
   - "raw_root=D:\\00db (was 00ds)."

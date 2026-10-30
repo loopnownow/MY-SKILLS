@@ -18,7 +18,7 @@ Run when manuscript or HTML reports physical/lab units, ± intervals, or convert
 | UU-4 | Order-of-magnitude / physio plausibility soft-flag when value is impossible for the named unit (compose lab-ref Hook C when lab analyte) | 02 / 06 comment |
 | UU-5 | Do not invent coverage factor `k`, GUM budgets, or CODATA constants from memory | 02 |
 
-**PASS:** UU-1–5 clean or commented.
+**PASS:** UU-1-5 clean or commented.
 **FAIL:** unit mismatch on a central number → HARD with **G-FACT**.
 
 *Attribution: K-Dense-AI scientific-agent-skills `uncertainty-and-units` (MIT); distill headings only.*

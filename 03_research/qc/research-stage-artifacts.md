@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | W1 Idea discovery | Idea | `IDEA` — ranked idea + hypothesis + novelty note (e.g. `IDEA_REPORT`) | Victor (03) / user pick | User approve before W1.5; Type-B ACCEPT not by executor alone |
 | W1.5 Experiment bridge | Experiment | `EXPERIMENT` — plan + tracker + results (e.g. `EXPERIMENT_PLAN` / `EXPERIMENT_RESULTS` / `*-results.html`) | Loopnow (02) | **G-STATS** / **G-FACT** on numbers |
-| W2 Auto review loop | Internal QC | Round ledger + `REVIEW_STATE` (see `06_review/qc/review-loop-state.md`) | Lee (06) marks; Loopnow/Aitee repair | Compose assurance L1–L5; Lee does not self-revise ms by default |
+| W2 Auto review loop | Internal QC | Round ledger + `REVIEW_STATE` (see `06_review/qc/review-loop-state.md`) | Lee (06) marks; Loopnow/Aitee repair | Compose assurance L1-L5; Lee does not self-revise ms by default |
 | Summary / handoff | Narrative | `NARRATIVE` — evidence-bound story from IDEA+EXPERIMENT (e.g. `NARRATIVE_REPORT`) | Aitee (05) drafts; Victor cites | **G-FACT** / **G-LIT** before freeze |
 | W3 Paper writing | Paper | `paper` — venue-shaped manuscript (`Manuscript_*_house.docx` / TeX) | Aitee (05); Bai portal | **G-05** → Integrity · pre-06 → **G-06** |
 

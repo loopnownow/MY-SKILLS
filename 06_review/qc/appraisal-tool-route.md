@@ -26,7 +26,7 @@ Use this file when the task is evidence appraisal, systematic-review support, or
 | AT-2 | Appraisal unit recorded (result / outcome / model) — not whole-paper score | 06 |
 | AT-3 | No EQUATOR/Cochrane **item bodies** pasted into lab qc; link official source | 06 |
 
-**PASS:** AT-1–3 when appraisal is in scope; else `NOT_APPLICABLE`.
+**PASS:** AT-1-3 when appraisal is in scope; else `NOT_APPLICABLE`.
 **FAIL:** wrong tool or checklist-item dump → rollback **06** (re-route).
 
 *Attribution: routing distilled from K-Dense-AI/scientific-agent-skills `scientific-critical-thinking` (MIT).*

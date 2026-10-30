@@ -95,7 +95,7 @@ Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` 
 
 #### Chinese manuscript-comment (稿面批注) five slots → 06
 
-Face comments (Word author **A**) use the five-slot habit in `06_review/advanced/review.md` (CM-01). Journal English envelope stays `Lines n–m: + defect + Please…` in `06_review/advanced/review.md`. Lab-STE does not change the Word author field.
+Face comments (Word author **A**) use the five-slot habit in `06_review/advanced/review.md` (CM-01). Journal English envelope stays `Lines n-m: + defect + Please…` in `06_review/advanced/review.md`. Lab-STE does not change the Word author field.
 
 #### Profiles (when to open the full SPEC)
 

@@ -18,7 +18,7 @@
 | VC-9 | PDF / source package compiles or exports cleanly when applicable | 05 |
 | VC-10 | Submission-portal preview reviewed before final submit (Bai portal; not this gate's job to click) | user / Bai |
 
-**PASS:** VC-1–10 clean or Word-commented.
+**PASS:** VC-1-10 clean or Word-commented.
 **FAIL:** missing currency note or identity-leak risk → rollback **05** (and/or 03 find-journal re-check).
 
 Find-journal pointer: `03_research/base/find-journal/` (选刊); house style: `05_manuscript/base/write-paper/`.

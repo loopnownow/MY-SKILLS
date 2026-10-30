@@ -51,7 +51,7 @@ doi,pmid,year,citation_nlm,result_conclusion,themes,layer,kind,edition,verified_
 | `pmid` | Optional |
 | `year` | Publication year |
 | `citation_nlm` | Full NLM citation string |
-| `result_conclusion` | **Required.** Chinese or English, 1–3 sentences: main result **then** conclusion (use `\|` or `；` between 结果 and 结论). No abstract dump. |
+| `result_conclusion` | **Required.** Chinese or English, 1-3 sentences: main result **then** conclusion (use `\|` or `；` between 结果 and 结论). No abstract dump. |
 | `themes` | Pipe-separated tags, e.g. `ASL\|DSI` / `sarcopenia` / `RC` / `organoid-IF` |
 | `layer` | `advanced` \| `base` |
 | `kind` | `research` \| `guideline` \| `standard` \| `other` |
@@ -69,7 +69,7 @@ Optional per-DOI note file (still no PDF): `advanced\<doi-or-slug>.md` or `base\
 
 1. Confirm author match (Aitor's published name forms + 强金伟 / 石海峰).
 2. Build `citation_nlm` from Crossref/PubMed (no invented fields).
-3. Write `result_conclusion` from abstract or owner-supplied bullets (1–3 sentences).
+3. Write `result_conclusion` from abstract or owner-supplied bullets (1-3 sentences).
 4. Assign `themes`; append one row to `index.csv`.
 5. Do not download PDF.
 

@@ -14,7 +14,7 @@ only formatting and completeness (flag if a required element, e.g. a CI, is abse
 > target journal's current style guide before polishing a Nature-family manuscript — do not
 > silently apply the _Radiology_ rule below to a Nature submission. Reference style also differs
 > (Nature-family: numbered, in citation order → `write-paper` `05_manuscript/base/write-paper/radiology-citation/export-formats.md`; not the
-> author–year/AMA-numbered style assumed elsewhere in this file).
+> author-year/AMA-numbered style assumed elsewhere in this file).
 
 ## P-values (_Radiology_ / AMA style — confirm before reusing for a non-AMA venue)
 - Report **exact** p to two decimals (`P = .03`), or three when near .05 (`P = .047`).
@@ -33,12 +33,12 @@ only formatting and completeness (flag if a required element, e.g. a CI, is abse
 - **Do** use leading zero for values that can exceed 1 (HR 0.85 is wrong → HR can be <1 but
   the quantity scale exceeds 1, so write 0.85). Apply the "cannot exceed 1" rule: AUC/p/
   proportions → no leading zero; measurements/HR/OR/ratios → keep leading zero.
-- Match precision to measurement; don't over-report digits (AUC to 2–3 dp; percentages to
+- Match precision to measurement; don't over-report digits (AUC to 2-3 dp; percentages to
   whole or 1 dp).
 
 ## Counts, percentages, ranges
 - Percentages with the count: "27% (85 of 314)."
-- Ranges with units: "tumor size, 1.2–4.8 cm"; IQR or SD stated ("mean, 56 years ± 12 [SD]").
+- Ranges with units: "tumor size, 1.2-4.8 cm"; IQR or SD stated ("mean, 56 years ± 12 [SD]").
 - Specify the dispersion measure (SD vs SE vs IQR vs range) — ambiguity is a reviewer flag.
 
 ## Name the test

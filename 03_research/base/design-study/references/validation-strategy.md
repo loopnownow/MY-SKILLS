@@ -57,7 +57,7 @@ honestly. Discrimination on the training distribution proves almost nothing.
 
 ## Reporting sentence
 
-*"Models were developed on centers A–C (patient-level 5-fold nested cross-validation, all
+*"Models were developed on centers A-C (patient-level 5-fold nested cross-validation, all
 preprocessing and feature selection fit within training folds) and validated externally on
 center D (n=…, different vendor and period), with the pipeline frozen; per-center performance
 and ComBat-harmonised results are reported."*

@@ -35,7 +35,7 @@ Medical axis must cross-check (pointers; body in `02_data-processing/advanced/an
 - Stratified impute must not use outcome-derived Group; fit transformers on train, then apply to test
 
 ## Severity (primary label + report alias)
-| Primary (prefer in report) | Alias (P0–P3) | Meaning |
+| Primary (prefer in report) | Alias (P0-P3) | Meaning |
 |---|---|---|
 | **Critical** | P0 BLOCK | Startup failure, CV leakage, local console can read/write across projects, wrong/corrupt/leaked results, unsafe data handling, key step not reproducible → not release-/model-ready until fixed; **stop on Critical/P0** |
 | **Required** | P1 FIX | Stats implementation boundary, selection bias, silent except, no tests, missing lock, material reliability/verification gap → fix then re-test |
@@ -80,7 +80,7 @@ compileall syntax, no obvious os.system/exec/pickle, list-form subprocess, patie
 
 ## Relation to coding.md principles
 Keep: CONFIG-on-top, dry-run, checkpoint, modularity, brevity, comments.
-Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, Preflight→Verdict, P0–P3 aliases); refactor advice still “separate refactor from behavior change”.
+Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, Preflight→Verdict, P0-P3 aliases); refactor advice still “separate refactor from behavior change”.
 
 ### Submodule dry-run and no silent success
 - Every reviewed submodule must have a dry-run path, or an equivalent unit-testable dry path.

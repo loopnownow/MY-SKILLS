@@ -703,7 +703,7 @@ def render_skills(skills: list[dict], version: str, digest: str) -> dict[str, st
     }
     files["skills/index.html"] = shell(
         "Skill index",
-        "<p>Indexed by 00–07 (evolution policy: MY-RULES skills.md (skill-evolution)). Pages from SKILL.md frontmatter.</p>" + "".join(sections),
+        "<p>Indexed by 00-07 (evolution policy: MY-RULES skills.md (skill-evolution)). Pages from SKILL.md frontmatter.</p>" + "".join(sections),
         version,
         digest,
         nav_for(**links),
@@ -908,7 +908,7 @@ def build() -> dict:
         "<section class=\"card\"><h2>Registry</h2>"
         "<p>Fine ids are indexed in registry.yaml. Bodies live in-repo under NN_slug/base/.</p>"
         "<p><a href=\"fine_ids/index.html\">Open registry index</a></p></section>"
-        "<section class=\"card\"><h2>Skills</h2><p>Frontmatter pages for 00–07.</p>"
+        "<section class=\"card\"><h2>Skills</h2><p>Frontmatter pages for 00-07.</p>"
         "<p><a href=\"skills/index.html\">Open Skill index</a></p></section>"
         "</div>"
         "<h2>Build</h2><dl>"

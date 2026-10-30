@@ -31,7 +31,7 @@ be read as evidence against the row:
 - `could assist [task]` is the mandated replacement for the banned
   `suggesting its potential` (`05_manuscript/base/vocab/L1/ban-phrases.md`). Zero
   hits means the corpus predates the ban, not that the row is wrong.
-- `95% CI: X–X`, `n = N`, `training set` / `test set` and the Table 1 shape are
+- `95% CI: X-X`, `n = N`, `training set` / `test set` and the Table 1 shape are
   `Aitor-format.md` hard format, not habits. Statistics cannot retire them.
 
 Conversely, a high count never unlocks a banned word: `novel` may be frequent in
@@ -59,7 +59,7 @@ What it counts:
 - **Section-aware.** `section_idx` maps to Abstract / Introduction / Methods /
   Results / Discussion, and the `主要章节` column reports where a phrase lives. A
   phrase that only appears in Discussion is not an Abstract template.
-- **Sentence-edge windows** (2–6 words English, 2–10 characters Chinese), because
+- **Sentence-edge windows** (2-6 words English, 2-10 characters Chinese), because
   a sentence's sliding windows all carry the same count and would bury the table
   in fragments. Overlapping head/tail windows in a short sentence are emitted
   once; a shorter span is dropped when a longer one with an identical count
@@ -90,7 +90,7 @@ Three families are all in use. Do not collapse to one.
 
 | Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| The AUC was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set | 0 | 0 | Abstract Results | report both sides; lock: 格式锁; frequency does not decide |
+| The AUC was X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set | 0 | 0 | Abstract Results | report both sides; lock: 格式锁; frequency does not decide |
 
 ### Conclusion
 
@@ -115,7 +115,7 @@ Three families are all in use. Do not collapse to one.
 
 | Phrase | Count | Docs | Where | Note |
 |---|---:|---:|---|---|
-| The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) | 0 | 0 | Model performance | lock: 格式锁; frequency does not decide |
+| The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X-X]) | 0 | 0 | Model performance | lock: 格式锁; frequency does not decide |
 
 ## Discussion
 

@@ -279,9 +279,9 @@ class DiscoverySurface(unittest.TestCase):
         life = read("00_orchestrator/references/lifecycle-cache.md")
         evo = read("00_orchestrator/references/skill-evolution.md")
         self.assertIn("session_picked_fine_ids", zero)
-        self.assertIn('only `00_orchestrator`–`07_response`', zero)
+        self.assertIn('only `00_orchestrator`-`07_response`', zero)
         self.assertNotIn("and `skill-harvest`", zero)
-        self.assertIn("`00`–`07` only", life)
+        self.assertIn("`00`-`07` only", life)
         self.assertNotIn("and `skill-harvest` only", life)
         self.assertIn("skills.md", evo)
 

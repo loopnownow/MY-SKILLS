@@ -513,7 +513,7 @@ pages = {123}          % Single page
 ```bibtex
 pages = {123-145}      % Single hyphen (don't use)
 pages = {pp. 123-145}  % "pp." not needed
-pages = {123–145}      % Unicode en-dash (may cause issues)
+pages = {123-145}      % Unicode en-dash (may cause issues)
 ```
 
 ### Month Names

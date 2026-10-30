@@ -73,7 +73,7 @@ FENCE_RE = re.compile(r"```.*?```", re.S)
 # Each Pandoc key is one citation item.
 CITEKEY_RE = re.compile(r"\[[^\[\]]*@[^\[\]]*\]")
 _KEY_RE = re.compile(r"(?:^|(?<=[\s;\[-]))-?@(?P<key>[A-Za-z0-9_](?:[\w:.#$%&+?<>~/-]*\w)?)")
-NUMMARK_RE = re.compile(r"\[\d+(?:\s*[-–,]\s*\d+)*\]")
+NUMMARK_RE = re.compile(r"\[\d+(?:\s*[--,]\s*\d+)*\]")
 WORD_RE = re.compile(r"[A-Za-z0-9''-]+")
 # A numeric token: integer, decimal, or percentage. Thousands separators are dropped so that
 # "1,200" and "1200" compare equal. A LEADING minus (U+2212 or "-") is kept, because a rewrite

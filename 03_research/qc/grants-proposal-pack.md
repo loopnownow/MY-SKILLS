@@ -27,7 +27,7 @@
 - Not an absorb of autonovel / professor multi-agent scoring products.
 - Not ethics locked-file editing (`{doc_ethics}`).
 
-**PASS:** GP-1–5 acknowledged for proposal tasks.
+**PASS:** GP-1-5 acknowledged for proposal tasks.
 **NOT_APPLICABLE:** ordinary manuscript / review runs.
 
 *Attribution: nature-proposal-writer (MIT). Prefer project `ref/` layout for ledgers.*

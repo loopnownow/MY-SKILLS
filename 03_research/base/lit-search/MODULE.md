@@ -15,7 +15,7 @@ Advanced search logs and the lit bank stay in `03_research/advanced/`.
 
 | File | Open when |
 |---|---|
-| [references/literature.md](references/literature.md) | Searching, screening or organizing literature; concept combinations, source hierarchy, 2023–2026 evidence layer |
+| [references/literature.md](references/literature.md) | Searching, screening or organizing literature; concept combinations, source hierarchy, 2023-2026 evidence layer |
 | [references/public-datasets.md](references/public-datasets.md) | Public datasets (TCIA, TCGA, GEO, CPTAC, IDC), external-validation cohorts, public-data mechanism work |
 | [references/sources.md](references/sources.md) | The user asks why a rule exists, or advice turns on a current reporting guideline |
 

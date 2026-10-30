@@ -282,7 +282,7 @@ pages = {123}         % Single page
 ```bibtex
 pages = {123-145}     % Single hyphen (use --)
 pages = {pp. 123-145} % Remove "pp."
-pages = {123–145}     % Unicode en-dash (may cause issues)
+pages = {123-145}     % Unicode en-dash (may cause issues)
 ```
 
 #### URL Validation

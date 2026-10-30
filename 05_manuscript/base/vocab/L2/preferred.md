@@ -6,7 +6,7 @@
 
 **Status:** purpose / methods / results openers refreshed 2026-08-28 from
 **389 unique drafts** (414 candidates → 409 extracted → 20 exact duplicates
-removed; English ≈ **324**). Counts in §1–§1c are full-text grep on those
+removed; English ≈ **324**). Counts in §1-§1c are full-text grep on those
 English drafts (Methods/Results repeats included), not abstract-only.
 Discussion / limitations / ethics slots below still carry the earlier
 96-manuscript grep where this harvest did not re-count. §2 and §2b carry a
@@ -84,11 +84,11 @@ cohort is a validation set. Never `Development set`.
 | `demonstrated good performance` | **0** | 0 |
 | `suggesting its potential` | **0** | 0 |
 
-**Results default:** report `AUC of X (95% CI: X–X)` for **both** training
+**Results default:** report `AUC of X (95% CI: X-X)` for **both** training
 and test.
 
-- `The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set.`
-- `The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) and the test set (AUC X [95% CI, X–X]).`
+- `The AUC of the [model] was X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set.`
+- `The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X-X]) and the test set (AUC X [95% CI, X-X]).`
 
 Direct side-by-side AUCs are more common than `outperformed`.
 
@@ -234,7 +234,7 @@ As of 2026-08-29 these four words are **Forbidden**. See `05_manuscript/base/voc
 
 ### Provenance / method
 
-§1–§1c: 2026-08-28 harvest on 389 unique drafts (324 English); phrase
+§1-§1c: 2026-08-28 harvest on 389 unique drafts (324 English); phrase
 counts only — unpublished full texts and title dumps stay off GitHub.
 
 Older slots (discussion openers, limitations, ethics, §8 word counts)
@@ -287,16 +287,16 @@ Harvest 2026-08-28, 324 English unique drafts, full-text grep:
 - Radiomics / prediction papers default to **training/test + LASSO + nomogram**. BODY split is training/test; Figure 1 labels Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort. Other-hospital only = validation set.
 
 #### Results sentence
-Default: report **AUC of X (95% CI: X–X)** for **both** training and test.
-- "The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
-- "The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X–X]) and the test set (AUC X [95% CI, X–X])."
+Default: report **AUC of X (95% CI: X-X)** for **both** training and test.
+- "The AUC of the [model] was X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set."
+- "The nomogram exhibited good discrimination in the training set (AUC X [95% CI, X-X]) and the test set (AUC X [95% CI, X-X])."
 - Direct side-by-side AUCs are more common than `outperformed` (12 hits / 7 papers).
 - "Significant [differences/elevations/reductions] were observed in [Group A] and [Group B], but not in [Group C]."
 
 #### Conclusion sentence
 Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits in 389 unique drafts; see `05_manuscript/base/vocab/L1/ban-phrases.md`).
 - "The radiomics nomogram could improve [clinical decision/patient selection] for [treatment/procedure] in [population]."
-- "In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."
+- "In conclusion, the [model] achieved an AUC of X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set."
 - "Both [A] and [B] play roles in [pathophysiology], with [specific conclusion]."
 
 ---
@@ -315,7 +315,7 @@ Do **not** use `demonstrated good performance` or `suggesting its potential` (0 
 - "Although [approach A] has been widely used, [limitation], which may lead to [adverse outcome]."
 
 #### Proposed approach
-- "Recently, radiomics — a method for high-throughput extraction of quantitative features from medical images — has been applied to [task] and shown promising results [X–X]."
+- "Recently, radiomics — a method for high-throughput extraction of quantitative features from medical images — has been applied to [task] and shown promising results [X-X]."
 - "[Technique] has been proposed as a [non-invasive/functional] method for assessing [biomarker], enabling [clinical benefit] without [limitation of current approach]."
 - "Intravoxel incoherent motion (IVIM) imaging can simultaneously reflect the [diffusion and perfusion] properties of tissue, providing additional [physiological] information beyond conventional DWI."
 
@@ -374,8 +374,8 @@ Keep the same three purpose-sentence families as the abstract (do not collapse t
 - "After LASSO feature selection, N features with non-zero coefficients were retained and used to construct the radiomics signature (Figure X)."
 
 #### Model performance
-Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI: X–X) for **both** training and test.
-- "The AUC of the radiomics nomogram was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set, with sensitivity of X% and specificity of X% in the training set."
+Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI: X-X) for **both** training and test.
+- "The AUC of the radiomics nomogram was X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set, with sensitivity of X% and specificity of X% in the training set."
 - "The combination model was compared with the clinical model alone in the training set (AUC: X vs. X; P < 0.001 by DeLong test) and in the test set (AUC: X vs. X)."
 - "The Hosmer-Lemeshow test indicated good calibration of the nomogram (P = X)."
 - "Decision curve analysis showed that the radiomics nomogram provided greater net benefit than either the clinical model or the treat-all/treat-none strategies across a wide range of threshold probabilities (Figure X)."
@@ -389,7 +389,7 @@ Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI
 ### Discussion Templates
 
 #### Opening summary
-- "In this study, we demonstrated that [technique/model] could accurately [predict/differentiate/identify] [outcome] in [population], with AUC values of X–X across independent cohorts."
+- "In this study, we demonstrated that [technique/model] could accurately [predict/differentiate/identify] [outcome] in [population], with AUC values of X-X across independent cohorts."
 - "The main finding of this study was that [key result], suggesting that [clinical implication]."
 
 #### Literature comparison
@@ -412,5 +412,5 @@ Radiomics default: **training/test + LASSO + nomogram**. Report AUC of X (95% CI
 
 #### Conclusion sentence
 Do **not** close with `demonstrated good performance` or `suggesting its potential`.
-- "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set and could assist [clinical application] in [population]."
+- "In conclusion, the radiomics nomogram achieved an AUC of X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set and could assist [clinical application] in [population]."
 - "In summary, both [A] and [B] play roles in [condition], with [specific mechanistic conclusion], providing new insights into the pathogenesis of [disease]."
