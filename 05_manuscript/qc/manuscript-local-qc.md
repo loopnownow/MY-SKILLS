@@ -77,7 +77,7 @@ Fix cells are anchors only. The recipe (what to write, how many sentences, which
 
 ### Procedure
 
-1. Run the Introduction lint (`humanize`) and keep its table as evidence for FLU and CIT-1.
+1. Run the Introduction lint (advanced De-AI: `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass) and keep its table as evidence for FLU and CIT-1.
 2. Score each dimension and write the codes.
 3. The scorer is not the drafter: a different fine id (`simulate-reviewers`, isolated) or the user. A drafter's score is labelled *provisional*.
 4. Record the date, manuscript, scorer, and the scores with codes.
@@ -348,3 +348,7 @@ Internal splits are the **training set**, the **test set**, and, when external, 
 #### approach_not_framework
 
 Vague methodological "framework" is "approach" (`05_manuscript/base/vocab/L1/ban-phrases.md`). A named software library may keep its own name.
+
+## Reporting guidelines (qc-only; post-write)
+
+After major draft or number edits, run `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR / PROBAST stack) and `reporting-guideline-route.md`. Absorbed retired fine id `check-reporting` — not session-picked; Gate G-05 / Integrity · pre-06 loads this path.

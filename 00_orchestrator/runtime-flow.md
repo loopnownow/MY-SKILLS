@@ -22,7 +22,7 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 Post-QC advanced revise loops (as needed):
 
 - **03** -- may trigger `verify-refs` (integrity stage) (bodies under `NN_slug/base/`)
-- **05** -- `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice; vocab on first write
+- **05** -- advanced De-AI (report-only lint, then de-AI pass; absorbed retired `humanize`) alongside Aitor-format/voice; vocab on first write
 - **06** -- post-QC **re-review only**
 - **07** -- **final authority for response** (`revise`/`tighten-response` source my-skills (in-repo base); tone-polish is on-demand inside tighten-response)
 

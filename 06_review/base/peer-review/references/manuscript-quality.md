@@ -8,7 +8,7 @@ Advanced review voice stays in A.
 ## Job
 
 Write a submittable English review of **someone else's** manuscript. Do not rewrite the paper
-(sentence edits belong in `write-paper` / `humanize`).
+(sentence edits belong in `write-paper` / advanced De-AI (absorbed retired `humanize`)).
 
 ## Path
 

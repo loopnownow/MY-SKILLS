@@ -13,4 +13,4 @@ The `05_manuscript/advanced/` layer owns the shape. Authority for the funnel, th
 
 ## Handoff
 
-Evidence: `meta-analysis` (`02_data-processing/base/meta-analysis/`) and `lit-search`. Language: `humanize`. Reporting: `check-reporting`. Citation authenticity: `verify-refs`. Self-audit: `self-review`. Scorecard and deduction codes: `05_manuscript/qc/manuscript-local-qc.md` Part A. House shape: `05_manuscript/advanced/Aitor-format.md` § Introduction.
+Evidence: `stats-analysis` (`02_data-processing/base/stats-analysis/`; absorbed retired `meta-analysis`) and `lit-search`. Language: advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`). Reporting: `check-reporting`. Citation authenticity: `verify-refs`. Self-audit: `self-review`. Scorecard and deduction codes: `05_manuscript/qc/manuscript-local-qc.md` Part A. House shape: `05_manuscript/advanced/Aitor-format.md` § Introduction.

@@ -178,7 +178,7 @@ impute_qc present
 
 Impute after merging clinical+features and **before** LASSO. After a train/test split, fit the
 imputer on train and transform test (the CLI imputes the whole table by group; post-split use
-needs a custom call). Modelling → `meta-analysis` / `stats-analysis`.
+needs a custom call). Modelling → `stats-analysis`.
 
 **Leakage note for multiple imputation.** The same train-only rule applies: fit the imputation
 model on the training rows and draw from it for the test rows. Do not impute the pooled table and

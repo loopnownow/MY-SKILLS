@@ -27,7 +27,7 @@ review is `peer-review`. Contract only: the letter voice, opener templates, and 
 ## Hard rules
 
 - One comment → one response. Do not invent unrun experiments.
-- Sentence rewrites → `write-paper` / `humanize`.
+- Sentence rewrites → `write-paper` / advanced De-AI (absorbed retired `humanize`).
 - Tone-only softening of an existing letter → `tighten-response` mode `tone-polish`. This pack keeps point-by-point structure.
 - After letter changes numbers → `06_review/base/self-review/references/paper-claim-audit.md`.
 - **Negation / incompleteness (owner 2026-10-23):** Process 否定句 that flag work not done or CYA hedges (e.g. 「某某未做」「我们未做」「未进行…»; *we did not* / *not performed* / *was not done* / *not examined*) **must not appear in 正文** (manuscript, revised manuscript, or response letter). Put them **only** in Word 批注 (author **A**), and every such 批注 **must** include **建议修改后内容**. Bare flags fail. Does **not** ban empirical negative findings that are study results (e.g. *no significant difference*, *X was not associated with Y*). Canonical: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.

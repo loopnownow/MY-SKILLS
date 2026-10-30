@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Advanced house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → `humanize`. Venue shape → this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`). Reporting checklists → `check-reporting`.
+Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`). Reporting checklists → `05_manuscript/qc/check-reporting/` (qc-only).
 
 ## 1.1 When to use
 
@@ -23,11 +23,11 @@ Polish → `humanize`. Venue shape → this pack (`05_manuscript/base/write-pape
 | Subtask | Open |
 |--------|------|
 | Section draft | `section-templates.md`, `radiology-writing/*` |
-| Prediction full paper | `pipeline-stages.md`, `section-templates.md`, then `check-reporting` |
+| Prediction full paper | `pipeline-stages.md`, `section-templates.md`, then `05_manuscript/qc/check-reporting/` (qc-only) |
 | Ethics sentence | `05_manuscript/base/write-paper/radiology-ethics/approval-consent.md` (placeholders; no lab IRB default) |
 | Claim/citation gate | `radiology-citation/*` |
 | Outline | `mode-academic-pipeline.md` |
-| Language polish | **handoff** `humanize` |
+| Language polish | **handoff** advanced De-AI (absorbed retired `humanize`) |
 
 ## 1.3 Honesty
 

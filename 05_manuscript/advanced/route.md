@@ -5,8 +5,8 @@
 ## Layering (2026-10-30 rebind)
 
 - **base thin first pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting; the pack itself carries scope, bans, and pointers only. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
-- **00 QC** - gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested; scores come from `05_manuscript/qc/` and cite the advanced anchor to fix at.
-- **05 advanced revise loop:** post-QC `humanize` (report-only lint, then de-AI) plus Aitor-format / voice. Procedure: `process/polisher-sections.md` § De-AI pass. This layer owns the recipe and the authority; base keeps the contract.
+- **00 QC** - gates.md checks **(b)** vocab loaded; **(d)** polish / De-AI when requested (advanced De-AI pass; absorbed retired `humanize`); scores come from `05_manuscript/qc/` and cite the advanced anchor to fix at.
+- **05 advanced revise loop:** post-QC De-AI (report-only lint, then de-AI; absorbed retired `humanize`) plus Aitor-format / voice. Procedure: `process/polisher-sections.md` section De-AI pass. This layer owns the recipe, contract, and authority (no registry fine id).
 
 ## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
 
@@ -27,7 +27,7 @@
 
 When polish requested after 00 QC:
 
-1. Run `humanize` (report-only lint table first, then the de-AI pass)
+1. Run De-AI pass (report-only lint table first, then the de-AI pass; `process/polisher-sections.md`)
 2. Apply / adjudicate with `Aitor-format.md` + `voice-portrait.md` (advanced authority)
 
 ## Cooperation

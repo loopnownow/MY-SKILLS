@@ -14,6 +14,16 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261030-fine-id-merge-imaging-stats-humanize-qc-grant (2026-10-30)
+
+Owner t1418u / t1420u / t1421u / t1424u / t1425u / t1427u: fine-id folds + grant absorb; LIVE count **20**.
+
+- **imaging-io -> preprocess-imaging; meta-analysis -> stats-analysis** (as prior).
+- **humanize retired (advanced-only):** De-AI into `polisher-sections.md`; assets under `advanced/references/` + `advanced/process/scripts/`; comment-only aliases (not write-paper).
+- **check-reporting retired (qc-only):** body stays `05_manuscript/qc/check-reporting/`; removed from LIVE; comment-only aliases (not write-paper); wired via `qc/README.md` + `manuscript-local-qc.md` for post-write Gate G-05 without session-pick.
+- **grant-* absorb:** bodies of `grant-writing` / `grant-review` / `grant-own-skeleton` / `method-upgrade-into-grant` folded into `03_research/advanced/intake.md` sections; originals left as one-line stubs. **Did not** rewrite `radiology-design` / `radiology-frontier` / `multicenter` (t1427u). Grant refs retargeted to intake sections.
+
+
 ## CHG-20261030-helper-code-stale-purge (2026-10-30)
 
 Owner t1414u / t1415u: **skills may hold thin helper scripts**; heavy analysis stays in stats-analysis / `{code_root}`. Stale purge + Deep-QC P1 guards.
@@ -29,7 +39,7 @@ Owner t1414u / t1415u: **skills may hold thin helper scripts**; heavy analysis s
 Owner lock t1408u / t1409u: **base = thin contract, `advanced/` = detail and revision authority, `qc/` = score and cite, post-QC revise runs via `advanced/` then re-gates at 00.**
 
 - **00:** `references/base-vs-advanced-top-loops.md` rewritten as a three-column base/advanced/qc contract; the retired line "Advanced layers do not host long procedure bodies" is gone. `runtime-flow.md` main loop and layer table now state `base thin first pass -> 00 QC (score, cite the advanced anchor) -> post-QC revise via advanced -> re-gate`; `gates.md` (d) retargeted.
-- **05:** `05_manuscript/base/write-paper/MODULE.md` loses the funnel beats, the 10-30 word band and the triplet rule (all already authoritative in `05_manuscript/advanced/Aitor-format.md` § Introduction / § Discussion); `05_manuscript/base/write-paper/radiology-writing/introduction.md` reduced to a contract stub; `05_manuscript/base/humanize/MODULE.md` (15k) reduced to scope + invariants + phase names, with the phases, fix rules, gate verdicts, detector status and language lint moved into `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass; the stale four-step Introduction card in the polisher quick reference now points at the five-paragraph / eight-beat funnel (t1404u).
+- **05:** `05_manuscript/base/write-paper/MODULE.md` loses the funnel beats, the 10-30 word band and the triplet rule (all already authoritative in `05_manuscript/advanced/Aitor-format.md` § Introduction / § Discussion); `05_manuscript/base/write-paper/radiology-writing/introduction.md` reduced to a contract stub; `05_manuscript/advanced/ (De-AI; absorbed retired humanize)/MODULE.md` (15k) reduced to scope + invariants + phase names, with the phases, fix rules, gate verdicts, detector status and language lint moved into `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass; the stale four-step Introduction card in the polisher quick reference now points at the five-paragraph / eight-beat funnel (t1404u).
 - **05 qc:** every `Fix at writing time` cell in the Introduction and Discussion scorecards became a concrete `advanced/` anchor; four writing-craft ids added by t1404u got their `####` sections; `REQUIRED_IDS` split from 05-only `WRITING_ONLY_IDS` in `tests/test_seat_packs.py` (baseline red fixed).
 - **06 / 07:** layer models, advanced routes, base READMEs and pack MODULEs now say base is the contract and `06_review/advanced/review.md` (`07_response/advanced/response.md`) holds the recipe; qc READMEs state that a check cites an advanced anchor and never restates it.
 - **03 / 02:** layer models, routes and base READMEs rebound; `03_research/SKILL.md` inverts the old "prefer a pointer to base, no bulk-move" rule; ten 02 base MODULEs and eight 03 base MODULE/SKILL files carry a pack-specific contract banner naming their advanced anchor. Pack data (`rules/`, `data/`, `references/`, `scripts/`) stays put and is labelled data, not contract.
@@ -349,7 +359,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 
 ## CHG-20261025-absorb-polish-language — language lint into humanize
 
-- Absorbed `05_manuscript/base/polish-language/` into `05_manuscript/base/humanize/` (humanize wins).
+- Absorbed `05_manuscript/base/polish-language/` into `05_manuscript/advanced/ (De-AI; absorbed retired humanize)/` (humanize wins).
 - Kept: `references/stat-reporting.md` (house-style authority stays `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`), `references/style-guardrails.md`. The lint table moved into humanize `MODULE.md` as `## Language lint (report-only)`. Source `MODULE.md` + pointer `SKILL.md` removed with the directory.
 - Retired id: `legacy_aliases.yaml` `polish-language` → `humanize`; alias keys `nature-polishing` / `polish-latex` retargeted. Dropped the MOUNTED row. Canonical count 25.
 - Coarse `language-polish` keeps one fine id (`humanize`). Call sites that hand language work to `polish-language` now point at `humanize`.

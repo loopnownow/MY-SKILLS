@@ -19,14 +19,14 @@ cohort columns. Nested `impute/` points at the fill/outlier code in `{code_model
 Writing the workbook itself (formulas, styling, formatting) is ordinary `openpyxl` work — do it in
 the analysis script, not here.
 
-Imaging data-availability statements live in `imaging-io` [`data.md`](../imaging-io/references/data.md),
+Imaging data-availability statements live in `preprocess-imaging` [`data.md`](../preprocess-imaging/references/data.md),
 not here.
 
 ## Scope
 
 | In | Out |
 |---|---|
-| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`meta-analysis` / `model-evaluation`) |
+| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`stats-analysis` / `model-evaluation`) |
 | Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
@@ -89,7 +89,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 
 ## What not to do
 
-- **No LASSO / paper model fitting** here — that is `meta-analysis` / `model-evaluation` /
+- **No LASSO / paper model fitting** here — that is `stats-analysis` / `model-evaluation` /
   `stats-analysis` (preparation only).
 - **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
   table files.
@@ -116,7 +116,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 
 - Missing/outlier implementation → `clean-data` `impute/`
 - Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py`
-- Imaging I/O + availability statements → `imaging-io` (including `data.md`)
+- Imaging I/O + availability statements → `preprocess-imaging` (including `data.md`)
 - Radiomics / leakage audit on feature matrices → `stats-analysis`
-- Modelling / calibration / DCA → `meta-analysis` / `model-evaluation`
+- Modelling / calibration / DCA → `stats-analysis` / `model-evaluation`
 - Reporting checklists → `check-reporting`

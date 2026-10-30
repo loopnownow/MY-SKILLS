@@ -32,7 +32,7 @@ The advanced layer carries the recipe (coding/extract/workspace protocols, analy
 
 | Layer | Owns |
 |---|---|
-| `base/` (pilot) | Thin contracts for `clean-data`, `imaging-io`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
+| `base/` (pilot) | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
 | 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
 | `advanced/` | The recipe and the authority: route/handoff, workspace/extract/coding/table-signals, analysis pipeline/console-ui/methods/figures, and the per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
 
@@ -70,12 +70,10 @@ A base pack that grows a long procedure has drifted: the procedure belongs in `0
 **This-run pick:** wait for the 00 session fine-id pick (`00_orchestrator/references/session-pick.md`). Registry fine-id menu (SSOT) = pick list.
 
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); `batch-cohort` resolves here as a retired alias
-- `imaging-io` -- CT/MRI I/O DICOM/NIfTI (`02_data-processing/base/imaging-io/`)
-- `preprocess-imaging` -- ROI / reader QC (`02_data-processing/base/preprocess-imaging/`)
-- `stats-analysis` -- test selection / effect sizes (`02_data-processing/base/stats-analysis/`)
+- `preprocess-imaging` -- Imaging I/O and ROI/reader QC (`02_data-processing/base/preprocess-imaging/`); absorbed retired `imaging-io`
+- `stats-analysis` -- test selection / assumptions / Bayesian notes (`02_data-processing/base/stats-analysis/`); absorbed retired `meta-analysis`
 - `calc-sample-size` -- sample size / power (`02_data-processing/base/calc-sample-size/`)
 - `model-evaluation` -- calibration / DCA / external validation + leakage gates (`02_data-processing/base/model-evaluation/`)
-- `meta-analysis` -- implementation (`02_data-processing/base/meta-analysis/`); lab advanced still wins
 - `draw-flowchart` -- STROBE / patient-flow (`02_data-processing/base/draw-flowchart/`)
 - `plot-figures` -- statistical plots / imaging panels (`02_data-processing/base/plot-figures/`)
 - Radiomics / habitat **prep** -- via `stats-analysis` / `preprocess-imaging` (former `radiomics-ml` absorbed into `stats-analysis`; no live radiomics-habitat path)
@@ -129,7 +127,7 @@ When writing batch scripts, follow `advanced/coding.md` (CONFIG on top, dry-run)
 
 ## Boundaries
 
-- Data cleaning / Excel / imaging I/O -> this skill (`advanced/extract.md`, `base/clean-data`, `base/imaging-io`)
+- Data cleaning / Excel / imaging I/O -> this skill (`advanced/extract.md`, `base/clean-data`, `base/preprocess-imaging`)
 - Feature selection / model fitting / NHST / figures -> this skill (`base/stats-analysis`, `base/model-evaluation`, `advanced/analysis/`)
 - Literature -> `03_research`
 - Manuscript prose -> `05_manuscript`

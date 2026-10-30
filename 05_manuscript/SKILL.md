@@ -28,8 +28,8 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 
 | Layer | Owns |
 |---|---|
-| `base/` | Thin contract: `write-paper` scope + bans, `humanize` invariants + phase names, vocab data under `05_manuscript/base/vocab/` |
-| `qc/` | `check-reporting` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR); scorecards and deduction codes that cite advanced anchors |
+| `base/` | Thin contract: `write-paper` scope + bans; vocab data under `05_manuscript/base/vocab/`. De-AI contract+procedure: `advanced/process/polisher-sections.md` section De-AI pass (absorbed retired `humanize`) |
+| `qc/` | `check-reporting/` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR; qc-only, not a registry fine id); scorecards and deduction codes that cite advanced anchors |
 | 00 | Final QC |
 | `advanced/` | Every recipe: Aitor-format beats/bands/typography, voice, de-AI procedure, evidence and citation protocol; final wording authority |
 
@@ -48,13 +48,13 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |
 
 
-## Live capability ids (bodies in `05_manuscript/base/`, except `check-reporting` under `qc/`)
+## Live capability ids (bodies in `05_manuscript/base/`; reporting checks under `qc/` are qc-only, not a registry fine ids)
 
 **This-run pick:** do not load any live id until the 00 session-fine-id pick is confirmed for this run. Registry `LIVE` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
-- `check-reporting` — TRIPOD / CLAIM / CLEAR (`qc/check-reporting/`)
-- `humanize` — generic academic English / de-AI (`05_manuscript/base/humanize/`): report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`.
+- Reporting checks (absorbed retired fine id `check-reporting`): `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR). Not session-picked; Gate G-05 loads via `qc/`.
+- De-AI / language lint (absorbed retired `humanize`): `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass. Report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`. Not a registry fine id.
 
 选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-paper/`. Advanced de-AI stays in A (`advanced/`).
 
@@ -108,7 +108,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 - Do **not** change Word format on an existing `.docx`. If a sentence differs from the last agent wording, ask the user; do not restore the old sentence. HTML / PDF / scripts are out of scope (`06_review/advanced/word-edit.md`).
 - After a 05/06 Word pass, append the project `ref/manuscript-revision.md`. Do not re-polish logged sections.
 - Project `ref/` subfolders: follow `00_orchestrator/references/project-ref-layout.md` (keep manuscript-revision + settings.ini at root).
-- Word comments: author **A**, never yellow. Tag source (`[advanced]`, `[base:humanize]`, …).
+- Word comments: author **A**, never yellow. Tag source (`[advanced]`, `[advanced:de-AI]`, …).
 - Fine id advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `advanced/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.

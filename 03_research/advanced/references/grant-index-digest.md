@@ -10,8 +10,8 @@
 | Durable full originals | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-ftp-20261023\` |
 | Park (pending purge) | `{DEL}\_by-project\0doc-library-ftp-20261023\` |
 | Word archives (unchanged) | `{DEL}\_by-project\0doc-word-sources\03-research\grants\` |
-| Writing skeleton (Voice B) | `03_research/advanced/grant-own-skeleton.md` |
-| Writing voice | `03_research/advanced/grant-writing.md` |
+| Writing skeleton (Voice B) | `03_research/advanced/intake.md` § Grant Voice B chapter skeleton |
+| Writing voice | `03_research/advanced/intake.md` § Grant Voice B |
 
 ## Slug → title (papers cards / INDEX)
 
@@ -49,5 +49,5 @@
 
 - Do **not** paste full grant/application bodies into GitHub / skills.
 - Ethics / PHI: out of FTS/GitHub (NOT_APPLICABLE for these nine unless PHI found — then park only).
-- Prefer `grant-own-skeleton.md` + this index for structure; open park/`_bank` only when needing verbatim paragraphs.
+- Prefer `intake.md` § Grant Voice B chapter skeleton + this index for structure; open park/`_bank` only when needing verbatim paragraphs.
 - Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in park); `{raw_root}\…` paths in that log are **void**.

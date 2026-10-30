@@ -52,7 +52,7 @@ Only after this chain may route continue to statistics / writing / deeper analys
 | live `verify-refs` | **Post-QC 03-triggered** verify |
 | live `lit-fulltext` | OA full-text gate after verify-refs (project-start) |
 | `lit-bank.md` | Lab citation bank (NLM store / Vancouver cite; advanced=group SCI; base=DOI-verified 5y or current guideline) |
-| `references/grant-fulltext-skeleton.md` | Grant full-text section outlines by scheme (absorbed from `_library/fulltext/`; pairs with `grant-own-skeleton.md`) |
+| `references/grant-fulltext-skeleton.md` | Grant full-text section outlines by scheme (absorbed from `_library/fulltext/`; pairs with `intake.md` § Grant Voice B chapter skeleton) |
 | `references/lab-ref-method-digest.md` | Lab reference-range methodology digest; number-plausibility checks in manuscripts and reviews (not clinical decisions, not an LIS RI replacement) |
 
 ## Design & exploration
@@ -61,7 +61,8 @@ Only after this chain may route continue to statistics / writing / deeper analys
 |---|---|
 | `radiology-design.md` / `radiology-frontier.md` | Imaging design / novelty |
 | `ethics.md` / `intake.md` / `multicenter.md` | Protocol ethics / triage / multicentre |
-| `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Grants (review voice vs own-proposal voice, inside each file) |
+| `intake.md` (Grant Voice A/B sections) | Grants body (absorbed 2026-10-30 from grant-* packs) |
+| `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Pointer stubs to `intake.md` Grant Voice sections (design/frontier links unchanged) |
 | `handoff.md` | Layering + advanced-file authority; read before moving advanced files |
 | `clinical-translation/` | Reader study / deployment design |
 | `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |

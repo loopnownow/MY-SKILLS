@@ -119,6 +119,6 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - Which checklist the design must satisfy → `check-reporting`.
 - Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
 - Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/`.
-- Own funding proposal → advanced grant Voice A/B (`03_research/advanced/grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md`). Do not copy grant skeletons into this pack.
+- Own funding proposal → advanced grant Voice A/B (`03_research/advanced/intake.md` Grant Voice A/B sections; stubs remain at grant-*.md). Do not copy grant skeletons into this pack.
 - English journal peer review → `peer-review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.

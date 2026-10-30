@@ -304,7 +304,7 @@ Conclusion : 1-2 sentences, echo objective, affirm clinical value
 ```
 
 For extended examples and sentence-level templates, see `05_manuscript/base/write-paper/references/section-templates.md`.
-For statistical reporting checklists, see `05_manuscript/base/humanize/references/stat-reporting.md`.
+For statistical reporting checklists, see `05_manuscript/advanced/references/stat-reporting.md`.
 
 ### Bank patterns (2026-10-23)
 
@@ -312,9 +312,27 @@ See `../references/bank-patterns.md` for the tagged revision taxonomy when routi
 
 ---
 
-## De-AI pass (absorbed from `05_manuscript/base/humanize/` 2026-10-30)
+## De-AI pass (absorbed retired `humanize` 2026-10-30)
 
-Owner: 05 advanced. The base pack keeps the contract only (purpose, phase names, bans, pointers); the procedure lives here. Pattern catalogue: `05_manuscript/base/humanize/references/ai_patterns.md`. Scripts: `05_manuscript/base/humanize/scripts/`.
+Owner: 05 advanced (advanced-only; no registry fine id). Contract invariants, phase names, and procedure live here. Do not dispatch `write-paper` for de-AI. Pattern catalogue: `05_manuscript/advanced/references/ai_patterns.md`. Scripts: `05_manuscript/advanced/process/scripts/`. Voice/vocab: `05_manuscript/advanced/voice-portrait.md` + `05_manuscript/base/vocab/` + advanced vocab overrides.
+
+### Contract (absorbed from retired base pack)
+
+Phase names: `Scan` -> `Report` -> `Fix` -> `Verify`.
+
+Hard bans (invariants):
+
+1. Numbers, statistics, P values, confidence intervals, and clinical facts come out **identical**.
+2. Citations are **never** added, removed, or relocated.
+3. No new claim, no removed claim, no reinterpretation. A passage that cannot be fixed without changing meaning is left as it is and flagged for the user.
+4. Domain terminology stays intact ("convolutional neural network", "apparent diffusion coefficient", "Fleiss' kappa").
+5. Out of scope: journal formatting, house style, scientific judgement, translation (use `write-paper` for venue house style).
+6. de-AI ban lists: `05_manuscript/base/vocab/L1/ban-phrases.md` plus advanced overrides in `05_manuscript/advanced/vocab/`.
+
+Also: `05_manuscript/advanced/references/style-guardrails.md` (overclaim / hedging), `05_manuscript/advanced/references/stat-reporting.md` (number formatting; house authority `Aitor-format.md`).
+Scored checklist: `05_manuscript/qc/manuscript-local-qc.md`.
+
+
 
 ### Phases
 
@@ -324,8 +342,8 @@ Owner: 05 advanced. The base pack keeps the contract only (purpose, phase names,
 4. **Verify.** Keep the pre-rewrite text where the fidelity check can read it before editing in place, otherwise Phase 4 cannot tell whether numbers and citations survived. Re-scan the rewrite on the same 27 patterns, run both detectors, and return a Verification Report (before/after: total instances, density, HIGH, MEDIUM, remaining issues, verdict). Density still above 2.0 means another fix-verify cycle, max 3 rounds. When another skill calls the pass, return the report so the caller can read pass/fail.
 
 ```bash
-python3 "05_manuscript/base/humanize/scripts/check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
-python3 "05_manuscript/base/humanize/scripts/check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
+python3 "05_manuscript/advanced/process/scripts/check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
+python3 "05_manuscript/advanced/process/scripts/check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
 ```
 
 `NUMBER_DRIFT`, `NUMBER_REASSIGNED`, `CITATION_DROP` or `CITATION_MOVED` means the rewrite broke an invariant: revert that passage, redo it, flag it for the user. `EDIT_FOOTPRINT_HIGH` is advisory (Patterns 6 and 18 replace whole paragraphs by design); read the diff and confirm the argument survived instead of treating the percentage as a defect. Known limits: the fidelity gate does not check an added or removed negation, a number written in words, a changed unit, or a direction word next to a non-percentage; read the diff for those.
