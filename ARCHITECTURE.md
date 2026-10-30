@@ -6,7 +6,7 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 
 **Routing SSOT:** `00_orchestrator/registry.yaml`
 
-Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `00_orchestrator/registry.yaml` (not `fine ids: []`; do not restate totals here); no live figure engine; `session_fine_id_pick: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Figures: `draw-flowchart` / `plot-figures`. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
+Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: `check-reporting` at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `00_orchestrator/registry.yaml` (not `fine ids: []`; do not restate totals here); no separate `figure-engine` skill (figures are live fine ids `draw-flowchart` / `plot-figures`); `session_fine_id_pick: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
 
 ---
 

@@ -14,6 +14,17 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261030-bai-stale-seat-viz-ci (2026-10-30)
+
+Bai handoff t1431 follow-ups after tip e584007 (Bai baseline a62914c was stale).
+
+- **Seat 01 routes:** `00_orchestrator/references/runtime-flow.md`, `00_orchestrator/workflows/statistics.md`, `00_orchestrator/workflows/sci-manuscript.md`, `00_orchestrator/references/plan-and-grilling.md`, and viz workflow edge now say `00` session-pick / FineId (not enter/Re-enter 01).
+- **Viz:** `SKILL_TOPS` deduped; architecture IR drops duplicate seat-02 `c04` and the "External fine-id index" model; CI wording unified to no in-repo Actions + local `--check`.
+- **Naming:** `base-vs-advanced-top-loops.md` Advanced (not Personal); `ARCHITECTURE.md` clarifies no separate figure-engine skill vs live `draw-flowchart` / `plot-figures`.
+- **Tests:** extend `test_gates_contract.py` bans for enter-01, SKILL_TOPS uniqueness, CI/external-fine-id, Advanced naming.
+
+Do not reopen humanize/check-reporting as LIVE. radiology-design/frontier/multicenter/clinical-translation untouched.
+
 ## CHG-20261030-fine-id-merge-imaging-stats-humanize-qc-grant (2026-10-30)
 
 Owner t1418u / t1420u / t1421u / t1424u / t1425u / t1427u: fine-id folds + grant absorb; LIVE count **20**.

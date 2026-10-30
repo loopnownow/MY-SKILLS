@@ -6,7 +6,7 @@ Owner lock 2026-10-30 (t1408u / t1409u): **base is a thin contract, detail lives
 
 | | **base** | **advanced** | **qc** |
 |---|---|---|---|
-| Role | Thin contract for one fine id (`NN_slug/base/<pack>/`) | Personal revision authority (lab / Aitor / Jinshan) | Gate standard and scorecard |
+| Role | Thin contract for one fine id (`NN_slug/base/<pack>/`) | Advanced revision authority (lab / Aitor / Jinshan) | Gate standard and scorecard |
 | Holds | Purpose, inputs/outputs, hard bans, phase names, handoff card, `{code_*}` and path pointers | The detail: step order, word bands, typography, funnel beats, lab numbers, form fields, voice templates, polish procedures | Check ids, deduction codes, pass/fail, fail to rollback station, and the `advanced/` anchor to fix at |
 | Does not hold | Step recipes, word bands, typography, funnel beats, lab numbers, form fields, voice templates, polish procedures | Gate pass/fail ownership (that stays with `qc/` plus 00) | Prose authority, or a second fix recipe |
 | Read by | Specialist first pass | Specialist revise loop after QC | 00 at gate time |
