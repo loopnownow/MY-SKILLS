@@ -15,6 +15,7 @@ Abstract claims, Results text, tables, figures, and Conclusions must use the **s
 | CN-2 | Table numbers match the same endpoint HTML | 05 / 02 |
 | CN-3 | Figure values / captions do not contradict tables or Results | 05 / 02 |
 | CN-4 | Conclusions do not over-claim beyond Results | 05 Aitee |
+| CN-5 | Observational designs: no causal verbs (*causes*, *leads to*, *proves*) for associations; Conclusions stay within Results scope | 05 Aitee |
 
 Points to **G-FACT** composition in `00_orchestrator/gates.md`. Integrity · pre-06 reuses this when numbers are cited.
 
@@ -27,5 +28,10 @@ Points to **G-FACT** composition in `00_orchestrator/gates.md`. Integrity · pre
 
 Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers): `{doc_root}\_library\lab-ref-ranges\qc\gate-hooks.md`. Detect only; do not demand RI for Table-1 cohort stats or `path_category` labels.
 
-**PASS:** CN-1…4 clean or commented with edit plan.
+**PASS:** CN-1-5…4 clean or commented with edit plan.
 **FAIL:** silent mismatch → HARD block (G-FACT) before next node / before 06.
+
+
+## Logic absorb (2026-10-30 t1404u)
+
+CN-5 pairs with `result-to-claim.md` RC-7 and `manuscript-local-qc.md` D-MECH-1 / LOG-5. Do not duplicate reporting-guideline names in Introduction.

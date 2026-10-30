@@ -222,6 +222,8 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 ## Discussion (800-1000 words)
 
+Inverted funnel (owner 2026-10-30 t1404u): key findings (no cites/numbers) → literature contrast per finding → hedged mechanism if any → one clinical use-case → Limitations own paragraph → Conclusion. Every Introduction aim/hypothesis must be answered here (finding, limitation, or explicit deferral); QC: `manuscript-local-qc.md` Part A2 / LOG-5.
+
 Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length follows the word band and content need.
 
 1. Key findings — **no citations, no result numbers**.

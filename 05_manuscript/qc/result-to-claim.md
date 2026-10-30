@@ -32,6 +32,7 @@ Does the **scientific claim** follow from the reported result (scope, direction,
 | RC-4 | Suggested claim revision if overstated | Scope / hedge / reframe |
 | RC-5 | Attach Layer-1 integrity_status | fail → confidence low; tag `[INTEGRITY CONCERN]` |
 | RC-6 | Single-dataset / pilot ≠ general claim | Partial or no |
+| RC-7 | Causal wording on observational / associative evidence | `claim_supported: no` or revise to *associated with* / hedged mechanism |
 
 ## Pass / fail
 

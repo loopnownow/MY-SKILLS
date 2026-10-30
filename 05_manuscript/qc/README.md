@@ -7,7 +7,7 @@ QC **standards** (pass/fail + fail→rollback station) are the table below. Repo
 
 | File | Gate(s) |
 |---|---|
-| `manuscript-local-qc.md` | **G-05** — writing-seat scorecard + pre-submit check ids |
+| `manuscript-local-qc.md` | **G-05** - Intro five-para scorecard + Discussion inverted-funnel / Intro loop (Part A2) + pre-submit check ids |
 | `reporting-guideline-route.md` | **G-05** / **Integrity · pre-06** — TRIPOD/STARD/STROBE/PRISMA + JSON router |
 | `reporting-guidelines-router.json` | **G-05** / Integrity · pre-06 — id→study_type→URL metadata only (MIT upstream) |
 | `claim-number-align.md` | **G-05** / **G-FACT** — claim↔number/table/figure align |
