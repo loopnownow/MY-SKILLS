@@ -296,7 +296,7 @@ Search and claim-to-DOI for I/D: `evidence.md`. Counts and settled paragraphs: `
 
 ```
 Abstract   : Objective → Methods (n=N) → Results (AUC, 95%CI) → Conclusion (hedged)
-Intro      : Disease def [ref] → Gap (hedged) → Existing approaches → Aim
+Intro      : five paragraphs / eight beats per `../Aitor-format.md` § Introduction (not a four-step card)
 Methods    : Ethics → Cohort (n=N) → Imaging → ROI → Pipeline → Stats (passive voice)
 Results    : Table leads → Prose annotates → AUC(95%CI) → P exact → Non-sig explicit
 Discussion : Summary → Literature → Mechanism (hedged) → Clinical → Limitations → Future
@@ -309,3 +309,81 @@ For statistical reporting checklists, see `05_manuscript/base/humanize/reference
 ### Bank patterns (2026-10-23)
 
 See `../references/bank-patterns.md` for the tagged revision taxonomy when routing polish edits.
+
+---
+
+## De-AI pass (absorbed from `05_manuscript/base/humanize/` 2026-10-30)
+
+Owner: 05 advanced. The base pack keeps the contract only (purpose, phase names, bans, pointers); the procedure lives here. Pattern catalogue: `05_manuscript/base/humanize/references/ai_patterns.md`. Scripts: `05_manuscript/base/humanize/scripts/`.
+
+### Phases
+
+1. **Scan.** Read `ai_patterns.md` first: definitions, watch words, examples, detection greps, per-pattern fixes, and the per-section priorities for all 27 patterns live only there. Scan the supplied sections; for response letters and cover letters prioritise Patterns 22-24. Record pattern number, name, count, exact passage, location. Output a Pattern Frequency Table (pattern, count, severity, one example per row) plus `Total AI pattern instances` and `AI pattern density (N per 1000 words)`.
+2. **Report.** Severity: HIGH (more than 3 occurrences), MEDIUM (1-3), LOW (0, clean). Density is total instances across the 27 patterns per 1000 words; target below 2.0. Present the table and ask which patterns to fix; default is all HIGH and MEDIUM.
+3. **Fix.** Rewrite flagged passages with each pattern's fix under the fix rules below. Output the rewritten text as a diff or tracked changes.
+4. **Verify.** Keep the pre-rewrite text where the fidelity check can read it before editing in place, otherwise Phase 4 cannot tell whether numbers and citations survived. Re-scan the rewrite on the same 27 patterns, run both detectors, and return a Verification Report (before/after: total instances, density, HIGH, MEDIUM, remaining issues, verdict). Density still above 2.0 means another fix-verify cycle, max 3 rounds. When another skill calls the pass, return the report so the caller can read pass/fail.
+
+```bash
+python3 "05_manuscript/base/humanize/scripts/check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
+python3 "05_manuscript/base/humanize/scripts/check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
+```
+
+`NUMBER_DRIFT`, `NUMBER_REASSIGNED`, `CITATION_DROP` or `CITATION_MOVED` means the rewrite broke an invariant: revert that passage, redo it, flag it for the user. `EDIT_FOOTPRINT_HIGH` is advisory (Patterns 6 and 18 replace whole paragraphs by design); read the diff and confirm the argument survived instead of treating the percentage as a defect. Known limits: the fidelity gate does not check an added or removed negation, a number written in words, a changed unit, or a direction word next to a non-percentage; read the diff for those.
+
+### Fix rules
+
+1. **Preserve technical accuracy.** Every number, statistic, P value, confidence interval, and clinical fact stays identical.
+2. **Preserve citations.** Never add, remove, or relocate a citation.
+3. **Keep the register.** Formal academic prose from an experienced radiologist writing for peers at a top-tier journal; never casual.
+4. **Keep domain terminology intact** ("convolutional neural network", "apparent diffusion coefficient", "Fleiss' kappa").
+5. **Never change meaning.** No new claim, no removed claim, no reinterpretation. If a passage cannot be fixed without changing meaning, leave it and flag it for the user.
+6. **Active voice** where natural ("We analyzed", not "Analysis was performed").
+7. **Vary rhythm.** Keep short declarative sentences (8-12 words) and longer ones (25-35 words). A de-AI pass tends to flatten rhythm, which is itself a tell. `check_sentence_variety.py` verifies this.
+8. **Thin antithesis and clefts (Pattern 27).** For each "X rather than Y", "not X but Y", "X, not Y", delete the negative half and rewrite the clause positively: if a fact disappears the contrast was functional and stays; if nothing disappears it was decoration. Judge the manuscript's overall rate, keep two or three for emphasis. Rewrite clefts ("What ... is ...", "It is ... that ...") to plain subject-verb order. Rate checked by hand in Phase 4.
+
+### Gate verdicts
+
+| Gate | Severity | Trigger | Verdict |
+|---|---|---|---|
+| AI-pattern density target | ADVISORY | density above 2.0 patterns per 1000 words after the sweep | warn; surface remaining flagged passages for manual review |
+| Pattern 13 - paren-span corruption after em-dash conversion (U+2014) | ENFORCED · manual | after converting a spaced-U+2014 appositive to parentheses | per-sentence scan by hand; `PAREN_SPAN_ORDINAL` / `PAREN_SPAN_SENTENCE` means a conversion wrapped a sentence or an ordinal inside one parenthesis (paren-balanced but broken). Operate per sentence; never match across a sentence boundary |
+| Pattern 19 - `§` symbol | ENFORCED (senior MA reviewer prep) | `grep -c "§" manuscript.md` above 0 | auto-strip; post-rewrite count must be 0 |
+| Pattern 20 - `(see Methods §X)` self-reference | ENFORCED | match found | rewrite to a direct section-name reference |
+| Pattern 21 - AI disclosure in the wrong place | ENFORCED | a disclosure in the body of a journal that wants it elsewhere, or repeated in several places | move it where the target journal asks (journal profile `Disclosure location`); never reword a required disclosure to hide the tool |
+| Pattern 25 - inline-emphasis over-use | ENFORCED · manual | italic-emphasis density over threshold after allowlist | `EMPHASIS_OVERUSE` (Minor): strip inline italics (keep stat symbols, Latin, gene-species); whole-clause italics are the strongest tell |
+| Pattern 26 - aphorism density | ENFORCED · manual | negative-definition rate AND short-declarative share both over threshold | `APHORISM_DENSITY` (Minor): absorb most epigrams into the neighbouring sentence and write the explanation back, keep two or three; do not simply delete them |
+| Pattern 27 - antithesis / cleft density | ENFORCED · manual | "rather than" / "not X but Y" / "X, not Y" or "What ... is ..." / "It is ... that ..." over a per-1000 threshold AND a raw-count floor | `ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (Minor): apply fix rule 8. A lone functional "rather than" or "instead of" never fires |
+| Patterns 22-24 - R2R editing mechanism / draft line number / tooling leak | TRIAGE (response letters); `§` count 0 stays hard | detection greps in the `ai_patterns.md` R2R section | review each hit (analysis narration, quoted additions, and a revised-manuscript page or line reference are NOT tells); rewrite confirmed tells to substantive prose |
+| Citation preservation invariant | ENFORCED | a citation item (each key of a multi-key or locator citation, or a numeric marker) removed or changed, or moved out of the sentence of the word it was attached to while that word kept its place | `check_rewrite_fidelity.py --strict` gives `CITATION_DROP` / `CITATION_MOVED` (Major); revert that single rewrite and flag it |
+| Numerical preservation invariant | ENFORCED | a numeric token's count changed (sign, inequality sign, and percent direction are part of the token), or values traded places while the words stayed | same script gives `NUMBER_DRIFT` / `NUMBER_REASSIGNED` (Major); revert and flag. Known limits: a negation, a number in words, a unit, or a direction word next to a non-percentage is not checked |
+| Rewrite footprint | ADVISORY | word tokens changed above `--warn-pct` (default 70) | `EDIT_FOOTPRINT_HIGH` (Minor); never blocks, read the diff |
+| Fix rule 7 - sentence-length uniformity | ADVISORY | prose has no short (12 words or fewer) or no long (25 words or more) sentence | `check_sentence_variety.py` gives `SENTENCE_UNIFORM` (Minor); break up or combine until both bands exist. Silent below 15 sentences |
+
+### Detector status
+
+Two detectors ship with the pack and are its only runnable commands:
+
+| Script | Covers |
+|---|---|
+| `check_rewrite_fidelity.py` | citation and numerical preservation, rewrite footprint |
+| `check_sentence_variety.py` | fix rule 7 sentence-length bands |
+
+**Deliberately not shipped** (owner decision 2026-10-25, do not vendor): `check_paren_spans.py` (Pattern 13), `check_emphasis_density.py` (25), `check_aphorism_density.py` (26), `check_rhetorical_density.py` (27), `check_classical_style.py` (Pattern 21 body disclosure). Those gates stay ENFORCED · manual, checked by hand against `ai_patterns.md`; Pattern 21 detection is a body grep for the disclosure strings plus a journal-profile location check. Detector names are kept only so a verdict code in a report traces to its pattern. Only a new owner decision reopens this; no agent may add them.
+
+### Language lint (report-only)
+
+Run it before Phase 1 and again after Phase 4. Output one table (check, result, sentences affected). The lint never changes numbers or citations.
+
+| Check | Rule |
+|---|---|
+| Sentence length | Target 10-30 words; list sentences outside it. Bands are short (12 words or fewer) / long (25 or more) / ceiling 70, identical to `check_sentence_variety.py`, so the lint table and fix rule 7 cannot disagree |
+| Repeated openers | Same first two words in three or more sentences of a paragraph |
+| Triplets | More than one "X, Y, and Z" series in a paragraph |
+| Number-and-cite chain | Three consecutive sentences that each carry a number and a citation |
+| Connector chain | Consecutive sentences opened by However, Moreover, Therefore, In addition |
+| Uniform length | Three consecutive sentences within plus or minus 3 words of each other; the formal verdict is `SENTENCE_UNIFORM`, silent below 15 sentences |
+| Reporting standards | TRIPOD, CLAIM, or CLEAR named in the Introduction |
+| Abbreviations | Defined at first use in the body |
+| Claim coverage | Literature claims with no citation in their sentence or same-source group (listed, not gated) |
+
+Fixes are proposals at sentence unit: merge, split, or restructure. Never rewrite a whole paragraph. The lint reports rhythm; phases 1-4 measure and rewrite it. Do not score the same sentence twice in one round.

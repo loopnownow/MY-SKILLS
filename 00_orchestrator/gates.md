@@ -99,14 +99,14 @@ Writing-seat scorecard + pre-submit checks: `05_manuscript/qc/manuscript-local-q
 
 ## Top-layer QC checks (2026-10-17)
 
-After base fine-ID first-pass and before / during advanced/top re-loops, 00 verifies:
+After the base thin first pass and before / during the advanced revise loops, 00 verifies:
 
 | Check | What | Fail -> |
 |---|---|---|
 | **(a) Isolated dual-review artifacts** | When `simulate-reviewers` / dual engines (`self-review` \|\| `peer-review`) ran: finding sets are **isolated**; artifacts labeled by source prefix before 06 merges | base engines re-run; 06 does not invent isolation |
 | **(b) Vocab loaded on first write** | First-pass `write-paper` / `check-reporting` loaded `05_manuscript/base/vocab/` before drafting. `05_manuscript/advanced/vocab/` holds the advanced L1 overrides and the L2 advanced phrase table (base stays canonical) | bounce to base write path |
 | **(c) 03 verify-refs / retraction re-run needed?** | Post-QC: if refs changed or G-LIT/G-CIT failed -> 03 triggers `verify-refs` (integrity stage) (bodies under `03_research/base/`); else skip | 03 / base verify-refs |
-| **(d) 05 polish / humanize** | Post-QC: `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice. Bodies under `05_manuscript/base/`; 05 owns order | 05 Aitee |
+| **(d) 05 polish / humanize** | Post-QC: `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice. Procedure and voice live in `05_manuscript/advanced/`; the base pack keeps the contract and the pointer | 05 Aitee |
 | **(e) 07 response** | Response enters **07** (not 06). 07 final authority; revise/tighten-response stay `source: my-skills` under `07_response/base/` (tone-polish is on-demand inside tighten-response) | 07 |
 
 These are checks on the existing gate set, not new gate ids.

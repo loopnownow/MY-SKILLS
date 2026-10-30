@@ -1,10 +1,10 @@
 # 02_data-processing advanced route -- top layer
 
-## Top-layer flow (2026-10-17)
+## Top-layer flow (2026-10-30 rebind)
 
-1. **base first-pass** stats/figures fine-IDs (`stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, ...)
-2. **00 QC** (G-FACT / G-STATS)
-3. **02 re-loop** -- advanced lab pipeline / report-checks / figures; may re-trigger base fine ids when 00 says needed
+1. **base thin first pass** stats/figures fine-IDs (`stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, ...): contracts only, pack data beside them
+2. **00 QC** (G-FACT / G-STATS; score, cite the advanced anchor)
+3. **02 advanced revise loop** -- lab pipeline / report-checks / figures (the recipe lives here); may re-trigger a base fine id when 00 says needed -> re-gate at 00
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 

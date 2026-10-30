@@ -24,17 +24,17 @@ Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02
 
 Live lab modules **v4.3.1** are the lab default (`{code_modules}`; version SSOT is `modules/__init__.py`). Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
-## Layer model (2026-10-17)
+## Layer model (2026-10-30 rebind)
 
-**Flow:** fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **02** top-layer re-loops
+**Flow:** base thin-contract first pass (`02_data-processing/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `02_data-processing/advanced/`** -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-(advanced coding/extract/workspace protocols + analysis pipeline/figures; may re-trigger base fine ids when 00 says needed).
+The advanced layer carries the recipe (coding/extract/workspace protocols, analysis pipeline, console UI, methods, figures) and may re-trigger a base fine id when 00 says so.
 
 | Layer | Owns |
 |---|---|
-| `base/` (pilot) | `clean-data`, `imaging-io`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
-| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers base fine ids |
-| 02 | Advanced route/handoff/authority; workspace/extract/coding/table-signals; analysis pipeline/console-ui/methods/figures; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
+| `base/` (pilot) | Thin contracts for `clean-data`, `imaging-io`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `meta-analysis`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
+| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
+| `advanced/` | The recipe and the authority: route/handoff, workspace/extract/coding/table-signals, analysis pipeline/console-ui/methods/figures, and the per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
 
 ## Advanced assets (top layer)
 
@@ -63,7 +63,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 | Soft-coding / dry-run / CONFIG on top | `{code_root}\_infra\_templates\soft_code_template.py` (see `advanced/coding.md`) |
 
 Advanced scripts are not replaced by a live pack.
-Do not rewrite live data-processing capability bodies (now under `base/`) inside these advanced files.
+A base pack that grows a long procedure has drifted: the procedure belongs in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files) and the base pack keeps scope, bans, and the pointer.
 
 ## Live capability ids (bodies under `NN_slug/base/`; fine IDs unchanged)
 

@@ -6,218 +6,37 @@ outputs: ["pattern_scan", "rewritten_prose"]
 owner: "05_manuscript/base/humanize/MODULE.md"
 ---
 
-
 Generic AI-pattern removal for manuscripts and response letters, plus a report-only language lint.
-Does **not** replace the advanced de-AI lists (`05_manuscript/advanced/` still wins).
-Not general copy-editing: venue house style is `write-paper`.
+
+**Contract only.** This pack owns the phase names, the invariants, and the pointers. The procedure (phase detail, fix rules, gate verdicts, detector status, language-lint table) lives in `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass. Advanced de-AI lists win over this pack.
+
+Not general copy-editing: venue house style is `write-paper`. Not scientific-quality review, not journal formatting, not translation.
 
 Absorbed 2026-10-17 (MIT). See `LICENSE_NOTE.txt`.
-Absorbed 2026-10-25: the `polish-language` pack (its Introduction/Discussion lint is now
-"Language lint" below; that directory was removed).
+Absorbed 2026-10-25: the `polish-language` pack (its Introduction/Discussion lint is the advanced language lint).
 
-# Humanize Skill
+# Humanize (thin contract)
 
-This skill only removes AI patterns; it does not perform general copy-editing, evaluate
-scientific quality, check journal formatting, or translate.
+## Phase names
 
-Read `references/ai_patterns.md` at the start of every session, before
-scanning: the definitions, watch words, examples, detection greps, per-pattern fixes and the
-section-by-section priorities for all 27 patterns live only there.
+`Scan` -> `Report` -> `Fix` -> `Verify`. Numbers, severity bands, density target, verdict codes, and the two detector commands are in the advanced De-AI pass section; do not restate them here.
 
----
+## Hard bans (invariants)
 
-## Workflow
+1. Numbers, statistics, P values, confidence intervals, and clinical facts come out **identical**.
+2. Citations are **never** added, removed, or relocated.
+3. No new claim, no removed claim, no reinterpretation. A passage that cannot be fixed without changing meaning is left as it is and flagged for the user.
+4. Domain terminology stays intact ("convolutional neural network", "apparent diffusion coefficient", "Fleiss' kappa").
+5. Out of scope: journal formatting, house style, scientific judgement, translation.
+6. de-AI ban lists are not restated here: `05_manuscript/base/vocab/L1/ban-phrases.md` plus the advanced overrides in `05_manuscript/advanced/vocab/`.
 
-### Phase 1: Scan
+## Pointers
 
-Scan the section(s) the user provides for all 27 patterns. For response-to-reviewers letters and
-cover letters, prioritise Patterns 22-24. For a full manuscript, follow the per-section priorities
-in `ai_patterns.md` (Section-Specific Application Guide). For each pattern found, record its number
-and name, the count, the exact passage, and its location (paragraph number or line range).
-
-**Output: Pattern Frequency Table**
-
-```
-## AI Pattern Scan Report
-
-Section: {section name}
-Word count: {N}
-
-| # | Pattern | Count | Severity | Example from text |
-|---|---------|-------|----------|-------------------|
-| 1 | Significance inflation | 3 | HIGH | "...pivotal role in diagnostic imaging..." |
-|... |... |... |... |... |
-
-Patterns not detected: 2, 4, 9, 14, 15
-
-Total AI pattern instances: {N}
-AI pattern density: {N per 1000 words}
-```
-
-### Phase 2: Report
-
-- Severity per pattern: **HIGH** (>3 occurrences), **MEDIUM** (1-3), **LOW** (0, clean).
-- Density: total instances across all 27 patterns per 1000 words. Target: < 2.0.
-
-**Gate:** Present the report and ask the user which patterns to fix. Default: fix all HIGH and MEDIUM.
-
-### Phase 3: Fix
-
-Rewrite flagged passages with each pattern's fix from `ai_patterns.md`, under these rules:
-
-1. **Preserve technical accuracy.** Every number, statistic, p-value, confidence interval, and
- clinical fact must remain identical.
-2. **Preserve citations.** Never add, remove, or relocate a citation.
-3. **Keep the formal academic register** of an experienced radiologist writing for peers in a
- top-tier journal. Never make the text casual or conversational.
-4. **Keep domain-specific terminology intact.** "Convolutional neural network," "apparent diffusion
- coefficient," "Fleiss' kappa" stay as-is.
-5. **Never introduce new claims, remove existing ones, or change a sentence's meaning** — rephrase,
- never reinterpret. If a passage cannot be fixed without changing its meaning, leave it and flag
- it for the user.
-6. **Use active voice** where natural: "We analyzed" rather than "Analysis was performed."
-7. **Vary sentence structure.** Mix short declarative sentences (8-12 words) with longer ones
- (25-35 words). A de-AI pass tends to *flatten* rhythm — it shortens the long sentences and pads
- the short ones toward a comfortable middle, which is itself a tell.
- `scripts/check_sentence_variety.py` verifies this rule in Phase 4.
-8. **Thin out antithesis and cleft constructions (Pattern 27, the M2 heuristic).** For each "X
- rather than Y", "not X but Y" or "X, not Y", apply the negative-form test: delete the negative
- half and rewrite the clause in the positive. If a fact disappears, the contrast was functional —
- keep it; if nothing disappears, it was decoration — cut it. Judge by the manuscript's overall
- rate, not instance by instance, and keep two or three for emphasis. Rewrite clefts ("What … is
- …", "It is … that …") in plain subject-verb order ("What matters is X" → "X matters").
- the antithesis/cleft rate is checked by hand in Phase 4 (detector not shipped — see
-**Detector status**).
-
-**Output:** Present the rewritten text with changes highlighted using diff format or tracked changes.
-
-### Phase 4: Verify
-
-**Keep the pre-rewrite text.** Before editing in place, copy the original somewhere the fidelity
-check can read it (`cp manuscript.md /tmp/pre_humanize.md`). Without it Phase 4 can only re-scan
-for patterns — it cannot tell whether the rewrite preserved numbers and citations.
-
-Run both deterministic checks, then re-scan the rewritten text using the same 27 patterns.
-
-```bash
-python3 "scripts/check_rewrite_fidelity.py" \
- --before /tmp/pre_humanize.md --after manuscript.md \
- --out qc/rewrite_fidelity.json --strict
-python3 "scripts/check_sentence_variety.py" \
- --manuscript manuscript.md --out qc/sentence_variety.json
-```
-
-`NUMBER_DRIFT`, `NUMBER_REASSIGNED`, `CITATION_DROP` or `CITATION_MOVED` means the rewrite broke an
-invariant — revert that passage, redo it, and flag it for the user. `EDIT_FOOTPRINT_HIGH` is advisory: Patterns 6 and 18 replace whole
-paragraphs by design, so a correct pass over an inflated draft can exceed 60% of words changed.
-Read the diff and confirm the author's argument survived rather than assuming the percentage is a
-defect.
-
-**Known limits:** the fidelity gate does not check an added or removed negation, a number written
-in words, a changed unit, or a direction word next to a non-percentage. A clean exit does not
-clear these; read the diff for them.
-
-**Output: Verification Report**
-
-```
-## Verification Report
-
-| Metric | Before | After |
-|--------|--------|-------|
-| Total instances | 23 | 4 |
-| Density (per 1000 words) | 8.2 | 1.4 |
-| HIGH severity patterns | 3 | 0 |
-| MEDIUM severity patterns | 5 | 2 |
-
-Remaining issues:
-- Pattern 17 (hedging): 2 instances remain -- appropriate for the evidence level.
-
-Verdict: PASS (density < 2.0)
-```
-
-If the density remains above 2.0, run another fix-verify cycle (max 3 rounds). When called by
-another skill, return the verification report so the calling skill can check the pass/fail status.
-
----
-
-## The 27 Detection Patterns
-
-All 27 are defined in `references/ai_patterns.md`. Two carry rules to apply exactly as written:
-
-| # | Pattern | What to look for | Fix |
-|---|---------|------------------|-----|
-| 13 | Em dash overuse | Any em dash (U+2014 or spaced `--`); hard ban since 2026-10-28, `style_lint.py` `EMDASH_MAX_PER_SENTENCE = 0` (the upstream per-1000-word tolerance is superseded) | Use parentheses or restructure. **After converting `— X —` appositives to `(X)`, run the paren-span safety scan by hand** (detector not shipped — see **Detector status**): a bulk conversion can pair two *unrelated* dashes across a sentence boundary and wrap a whole sentence (or an ordinal "Sixth, …" limitation) inside one parenthesis — paren-balanced but broken, so a balance check misses it. Operate per-sentence; never match across `. ` |
-| 21 | AI Disclosure boilerplate (body) | "## Artificial Intelligence Disclosure", "Generative AI was not used to create..." in manuscript body | Put it where the target journal asks (the journal profile's `Disclosure location`): Methods or Acknowledgments for some journals, cover letter, title page or submission form only for others. Do not delete a disclosure the journal requires in the body |
-
-Patterns 22-24 apply only to response-to-reviewers letters and editor cover letters, not
-manuscript bodies. They are defined once in `ai_patterns.md` (Response-Letter Patterns); for
-authoring guidance, see the revise skill's `07_response/base/revise/references/response.md`.
-
----
-
-## Gates
-
-| Gate | Severity | Trigger | Action on fail |
-|---|---|---|---|
-| AI-pattern density target | ADVISORY | density > 2.0 patterns / 1000 words after sweep | warn; surface remaining flagged passages for manual review |
-| Pattern 13 — paren-span corruption after em-dash conversion | ENFORCED · manual | after a `— X —` → `(X)` sweep | per-sentence scan by hand (detector not shipped — see **Detector status**); `PAREN_SPAN_ORDINAL` / `PAREN_SPAN_SENTENCE` means a conversion wrapped a sentence/ordinal inside parens — fix before finalizing |
-| Pattern 19 — `§` symbol | ENFORCED (senior MA reviewer prep) | `grep -c "§" manuscript.md` > 0 | auto-strip; verify post-rewrite count == 0 |
-| Pattern 20 — `(see Methods §X)` self-reference | ENFORCED | match found | rewrite to direct section name reference |
-| Pattern 21 — AI disclosure in the wrong place | ENFORCED | an AI-use disclosure in the body of a journal that wants it elsewhere, or repeated in several places | move it to where the target journal asks (journal profile); never reword a required disclosure to hide the tool |
-| Pattern 26 — aphorism density | ENFORCED · manual | negative-definition rate AND short-declarative share both over threshold | rate check by hand (detector not shipped — see **Detector status**); `APHORISM_DENSITY` (Minor) means the prose is a run of epigrams with the explanatory sentences compressed out — absorb most of them into the neighbouring sentence and write the explanation back, keeping two or three for emphasis; do NOT simply delete them, which shortens the prose further |
-| Pattern 27 — antithesis / cleft density | ENFORCED · manual | "rather than" / "not X but Y" / "X, not Y" or "What … is …" / "It is … that …" over a per-1000 threshold AND raw-count floor | rate check by hand (detector not shipped — see **Detector status**); `ANTITHESIS_DENSITY` / `CLEFT_DENSITY` (both Minor) — apply Fix rule 8 (the M2 test). A lone functional "rather than" or "instead of" never fires |
-| Pattern 25 — inline-emphasis over-use | ENFORCED · manual | italic-emphasis density over threshold after allowlist | rate check by hand (detector not shipped — see **Detector status**); `EMPHASIS_OVERUSE` (Minor) means strip inline italics (keep only stat symbols / Latin / gene-species); whole-clause italics are the strongest tell |
-| Patterns 22-24 — R2R editing-mechanism / draft line-number / tooling leak | TRIAGE (response letters); `§` = 0 hard | detection greps in ai_patterns.md R2R section surface candidates | review each hit (analysis narration, quoted additions, revised-manuscript page/line are NOT tells); rewrite confirmed tells to substantive prose |
-| Citation preservation invariant | ENFORCED | a citation item (each key of a multi-key or locator Pandoc citation, or a numeric marker) removed or changed, or moved out of the sentence of the word it was attached to while that word kept its place | `scripts/check_rewrite_fidelity.py --before <pre> --after <post> --strict` → `CITATION_DROP` / `CITATION_MOVED` (Major); revert that single rewrite and flag for the user |
-| Numerical preservation invariant | ENFORCED | a numeric token's count changed (sign, inequality sign and %-direction are part of the token; writing a sign out in words also fires), or values traded places while the words around them stayed | same script → `NUMBER_DRIFT` / `NUMBER_REASSIGNED` (Major); revert and flag. Known limits: a negation, a number written in words, a unit, or a direction word next to a non-percentage is not checked — read the diff for these |
-| Rewrite footprint | ADVISORY | fraction of word tokens changed exceeds `--warn-pct` (default 70) | `EDIT_FOOTPRINT_HIGH` (Minor) — never blocks; read the diff (Phase 4) |
-| Fix rule 7 — sentence-length uniformity | ADVISORY | prose has no short (≤12 words) or no long (≥25 words) sentences | `scripts/check_sentence_variety.py --manuscript <file>` → `SENTENCE_UNIFORM` (Minor); break up or combine sentences until both bands exist. Silent below 15 sentences |
-
-## Detector status
-
-Two detectors ship with this pack and are the only runnable commands in it:
-
-| Script | Covers |
+| Need | Path |
 |---|---|
-| `scripts/check_rewrite_fidelity.py` | citation + numerical preservation, rewrite footprint |
-| `scripts/check_sentence_variety.py` | Fix rule 7 sentence-length bands |
-
-**Deliberately not shipped** (owner decision, 2026-10-25 — do not vendor them): `check_paren_spans.py`
-(Pattern 13), `check_emphasis_density.py` (25), `check_aphorism_density.py` (26),
-`check_rhetorical_density.py` (27), `check_classical_style.py` (Pattern 21 body disclosure). They exist in
-the upstream `self-review` pack this text was absorbed from, which this repo does not carry, and the owner
-ruled against importing them. The four gates above stay `ENFORCED · manual`, checked by hand against
-`references/ai_patterns.md`; Pattern 21 detection is a body grep for the disclosure strings plus a
-journal-profile location check, also by hand. The detector names are kept only so a verdict code in a
-report can be traced to its pattern. Only a new owner decision can reopen this; no agent may add them.
-Do not run the old `../self-review/scripts/...` paths — they do not resolve from this pack. <!-- negative-example -->
-
-## Language lint (report-only)
-
-Absorbed from `polish-language` on 2026-10-25. Run it before Phase 1 and again after Phase 4.
-Output one table: check, result, sentences affected. The lint never changes numbers or citations.
-
-| Check | Rule |
-|---|---|
-| Sentence length | Target 10-30 words; list sentences outside it. Measurable bands are short ≤ 12 words / long ≥ 25 words / ceiling 70, identical to `scripts/check_sentence_variety.py`, so the lint table and Fix rule 7 cannot disagree |
-| Repeated openers | Same first two words in three or more sentences of a paragraph |
-| Triplets | More than one "X, Y, and Z" series in a paragraph |
-| Number-and-cite chain | Three consecutive sentences that each carry a number and a citation |
-| Connector chain | Consecutive sentences opened by However, Moreover, Therefore, In addition |
-| Uniform length | Three consecutive sentences within ±3 words of each other. The formal verdict is `SENTENCE_UNIFORM` from `scripts/check_sentence_variety.py`; it is silent below 15 sentences |
-| Reporting standards | TRIPOD, CLAIM, or CLEAR named in the Introduction |
-| Abbreviations | Defined at first use in the body |
-| Claim coverage | Literature claims with no citation in their sentence or same-source group (listed, not gated) |
-
-Fixes are proposals at sentence unit: merge, split, or restructure. Never rewrite a whole paragraph.
-
-The lint **reports** rhythm items; Phases 1-4 **measure and rewrite** them (Fix rule 7,
-Patterns 25-27). Do not score the same sentence twice in one round: the lint table feeds the
-report, the scripts plus the de-AI pass drive the fix.
-
-| File | Open when |
-|---|---|
-| `references/style-guardrails.md` | Overclaiming / causation / hedging sweep while polishing prose |
-| `references/stat-reporting.md` | Radiology/AMA number formatting. House-style authority is `05_manuscript/base/write-paper/radiology-polishing/radiology-house-style.md`; on conflict that file wins |
-| `05_manuscript/base/vocab/L1/ban-phrases.md` | de-AI ban lists (they are not restated here) |
-
+| Procedure, fix rules, gate verdicts, language lint | `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass |
+| All 27 pattern definitions, watch words, examples, detection greps, per-pattern fixes, section priorities | `references/ai_patterns.md` (read before scanning) |
+| Runnable checks | `scripts/check_rewrite_fidelity.py`, `scripts/check_sentence_variety.py` |
+| Overclaim / hedging sweep while polishing | `references/style-guardrails.md` |
+| Number formatting | `references/stat-reporting.md` (house authority: `05_manuscript/advanced/Aitor-format.md`) |
+| Scored checklist at gate time | `05_manuscript/qc/manuscript-local-qc.md` |

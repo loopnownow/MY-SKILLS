@@ -8,6 +8,8 @@ owner: "03_research/base/lit-search/MODULE.md"
 
 # Literature search
 
+Contract only for lit-search (query and screening): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+
 Generic search / source hierarchy / public datasets for radiology AI.
 Advanced search logs and the lit bank stay in `03_research/advanced/`.
 

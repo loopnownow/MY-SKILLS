@@ -2,11 +2,11 @@
 
 **Canonical entry:** `../SKILL.md`.
 
-## Layering (2026-10-17)
+## Layering (2026-10-30 rebind)
 
-- **base first-pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
-- **00 QC** -- gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested.
-- **05 re-loop:** post-QC `humanize` (report-only lint, then de-AI) alongside Aitor-format / voice. Bodies stay in `base/`; this layer owns order and advanced authority.
+- **base thin first pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting; the pack itself carries scope, bans, and pointers only. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
+- **00 QC** - gates.md checks **(b)** vocab loaded; **(d)** polish/humanize when requested; scores come from `05_manuscript/qc/` and cite the advanced anchor to fix at.
+- **05 advanced revise loop:** post-QC `humanize` (report-only lint, then de-AI) plus Aitor-format / voice. Procedure: `process/polisher-sections.md` § De-AI pass. This layer owns the recipe and the authority; base keeps the contract.
 
 ## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
 

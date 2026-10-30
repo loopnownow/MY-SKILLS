@@ -2,11 +2,11 @@
 
 **Canonical entry:** `../SKILL.md`.
 
-## Flow
+## Flow (2026-10-30 rebind)
 
-1. base first-pass fine ids draft response (`revise`, optional `tighten-response`, including on-demand tone-polish)
-2. **00 QC** (gates.md check **(e)**)
-3. **07** loads `response.md` -- letter voice + resolution status (final authority)
+1. base thin first pass: fine ids draft the response (`revise`, optional `tighten-response`, including on-demand tone-polish). Contracts in `07_response/base/`.
+2. **00 QC** (gates.md check **(e)**); scores cite the advanced anchor to fix at.
+3. **07 advanced** loads `response.md`: letter voice, opener templates, resolution status (final authority).
 
 ## Load order
 

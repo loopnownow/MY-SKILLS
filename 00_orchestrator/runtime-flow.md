@@ -10,15 +10,16 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 
 ## Base / advanced layering
 
-**Main loop:** base fine-ID **first-pass** capability loops -> **00 QC gate** -> advanced/top **re-loops**.
+**Main loop:** base thin-contract **first pass** -> **00 QC gate** (score, cite the `advanced/` anchor) -> post-QC revise **via `advanced/`** -> re-gate at 00.
 
 | Layer | Repo | Owns |
 |---|---|---|
-| **base** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
-| **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and advanced/top re-loop |
-| **advanced / top** | MY-SKILLS | Advanced top-layer route/handoff/authority (03-07). Capability bodies for 02-07 live under `NN_slug/base/` |
+| **base** | MY-SKILLS `NN_slug/base/` | Thin contract per fine id: purpose, inputs/outputs, hard bans, phase names, handoff card, path pointers. No step recipes, word bands, typography, funnel beats, lab numbers, form fields, voice templates, polish procedures |
+| **00** | MY-SKILLS `00_orchestrator` | QC gate between the base first pass and the advanced revise loop |
+| **advanced** | MY-SKILLS `NN_slug/advanced/` | The detail and the revision authority (lab / Aitor / Jinshan): recipes, quotas, format, voice, forms, polish procedures |
+| **qc** | MY-SKILLS `NN_slug/qc/` | Gate standards and scorecards only; each check id carries the `advanced/` anchor it cites |
 
-Post-QC A re-loops (as needed):
+Post-QC advanced revise loops (as needed):
 
 - **03** -- may trigger `verify-refs` (integrity stage) (bodies under `NN_slug/base/`)
 - **05** -- `humanize` (report-only lint, then de-AI pass) alongside Aitor-format/voice; vocab on first write

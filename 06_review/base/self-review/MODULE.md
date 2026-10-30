@@ -14,7 +14,7 @@ Find holes in **the user's own** manuscript before submission. Other-paper revie
 `peer-review`. Point-by-point **response** is `revise` — this pack does not
 own 回复审稿人 (response to reviewers).
 
-Advanced review voice stays in A.
+Contract only: this pack states scope, bans, and pointers. Review voice, opener templates, and the statement-then-data protocol are `06_review/advanced/review.md`; gate scores are `06_review/qc/`.
 
 ## When to open
 

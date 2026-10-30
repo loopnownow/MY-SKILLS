@@ -8,6 +8,8 @@ owner: 03_research/base/find-journal/MODULE.md
 
 # find-journal
 
+Contract only for find-journal engine: scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+
 Capability body: [SKILL.md](SKILL.md). Rules under `rules/`; list gates under `data/2026/`; post-choice format under `journal-format-compliance/`.
 
 Victor seat routing lives in this pack; advanced submission priors live in `{find_journal_submission}`. Do not vendor PHI / 投过 priors here.

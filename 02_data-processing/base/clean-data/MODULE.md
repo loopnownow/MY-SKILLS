@@ -12,6 +12,8 @@ trigger is documentation only; not independently discoverable.
 
 # Clinical tables (Excel / CSV)
 
+Contract only for clean-data: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 **clean-data** front: research **clinical Excel/CSV** — headers, missingness, ID integrity, and
 cohort columns. Nested `impute/` points at the fill/outlier code in `{code_model_validation}`.
 Writing the workbook itself (formulas, styling, formatting) is ordinary `openpyxl` work — do it in

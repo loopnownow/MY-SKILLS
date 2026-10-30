@@ -1,6 +1,6 @@
-# 07_response/base — capability bodies for 07
+# 07_response/base - thin contracts for 07
 
-Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 for symmetry with 06).
+Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 for symmetry with 06). The packs carry scope, bans, mode names, and load order; the letter voice, opener templates, and resolution protocol are `07_response/advanced/response.md`.
 
 | Fine id | Path | Role |
 |---|---|---|
@@ -11,6 +11,6 @@ Former fine id `response-tone-polisher` was absorbed into `tighten-response` on 
 
 Routing table (decision-type × task-mode): [`routing.md`](routing.md). Does not move ownership off Aitee.
 
-**Flow:** base first-pass -> 00 QC -> **07** (`07_response`) advanced final authority.
+**Flow:** base thin first pass -> 00 QC -> **07 advanced** revise loop and final authority.
 
 Review / re-review bodies stay under `06_review/base/`.

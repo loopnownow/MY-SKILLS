@@ -10,6 +10,8 @@ trigger is documentation only; not independently discoverable.
 
 # Study / patient flow figures
 
+Contract only for draw-flowchart: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/draw-flowchart-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 STROBE-style enrolment flow, study-workflow diagrams, and methods-pipeline cartoons.
 Statistical plots live in `plot-figures`.
 

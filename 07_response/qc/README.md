@@ -1,7 +1,7 @@
 # 07_response / qc
 
 **Owner:** `00_orchestrator` only loads these at Gate time.
-**Domains/specialists do not self-certify via this folder.** Response drafting tools stay in `base/` fine-ID packs; these are thin pointers to existing gate-ish references (not duplicated bodies).
+**Domains/specialists do not self-certify via this folder.** Response drafting tools stay in `base/` fine-ID packs; these are thin pointers to existing gate-ish references (not duplicated bodies). A check that needs a fix recipe cites the `07_response/advanced/` anchor (file plus heading); this folder never restates it.
 
 | File | Gate(s) / use |
 |---|---|

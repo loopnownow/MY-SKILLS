@@ -13,6 +13,8 @@ metadata:
 
 # Medical Journal Submit
 
+Contract only for find-journal (list gates and layer policy): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+
 ## Owner / routing
 
 - Lives in `03_research/base/find-journal/` (capability). The former advanced `find-journal/` stub was removed 2026-10-17; do not recreate it.

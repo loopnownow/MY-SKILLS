@@ -8,6 +8,8 @@ owner: "02_data-processing/base/imaging-io/MODULE.md"
 
 # CT/MRI I/O (DICOM / NIfTI)
 
+Contract only for imaging-io: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 Read, convert, and organise volumetric series. QC / ROI / reader protocol lives in
 `preprocess-imaging` (`02_data-processing/base/preprocess-imaging/`). Advanced MATLAB preprocess stays in A.
 

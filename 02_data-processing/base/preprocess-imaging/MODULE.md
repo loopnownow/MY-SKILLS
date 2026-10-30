@@ -13,6 +13,8 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging ROI / reader / mask QC
 
+Contract only for preprocess-imaging: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 Quality-control the **region of interest**, **reader protocol**, and **mask geometry** before
 radiomics or modelling. This pack does **not** translate papers and does **not** launch a
 bilingual reader. Full-text retrieve is `lit-search`. I/O is `imaging-io`.

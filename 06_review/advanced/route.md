@@ -2,11 +2,11 @@
 
 **Canonical entry:** `../SKILL.md`.
 
-## Flow (layering 2026-10-17)
+## Flow (layering 2026-10-30 rebind)
 
-1. base first-pass: `simulate-reviewers` **isolation** -> `self-review` || `peer-review` (finding sets kept separate)
-2. **00 QC** -- gates.md check **(a)** isolated dual-review artifacts
-3. **06 re-review only** -- merge / grade / English envelope via `review.md`
+1. base thin first pass: `simulate-reviewers` **isolation** -> `self-review` || `peer-review` (finding sets kept separate; contracts only, recipe lives here)
+2. **00 QC** - gates.md check **(a)** isolated dual-review artifacts; scores come from `qc/` and cite the advanced anchor to fix at
+3. **06 advanced re-review only** - merge / grade / English envelope via `review.md`
 4. Response letter -> **`07_response`** (not this route)
 
 ## Load order

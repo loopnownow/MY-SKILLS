@@ -19,17 +19,16 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Capability **bodies** for lit/design fine ids live in **`03_research/base/`** (merged 2026-10-17).
 
-## Layer model (2026-10-17)
+## Layer model (2026-10-30 rebind)
 
-**Flow:** lit/design fine-ID **first-pass** (`base/` bodies) -> **00 QC** -> **03** top-layer re-loops
+**Flow:** base thin-contract first pass (`03_research/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `03_research/advanced/`** -> re-gate at 00. May trigger `verify-refs` (integrity stage).
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-(may trigger `verify-refs` (integrity stage); bodies under `03_research/base/`).
 
 | Layer | Owns |
 |---|---|
-| `base/` | lit-search, design-study fine ids, verify-refs, lit-fulltext, other 03 capability bodies under `03_research/base/` |
+| `base/` | Thin contracts for lit-search, design-study, verify-refs, lit-fulltext, find-journal, fill-protocol; pack data (`rules/`, `data/`, `references/`) |
 | 00 | QC gate; decides whether 03 re-triggers verify/retraction |
-| 03 | Advanced route/handoff/authority; citation-verify advanced protocol; grants/ethics/intake/translation advanced files; post-QC trigger of verify-refs / lit-fulltext (bodies in `base/`) |
+| `advanced/` | The recipe and the authority: citation-verify protocol, journal-selection SOP, radiology design, grants/ethics/intake/translation, Jinshan fill forms |
 
 ## Three pillars
 
@@ -63,7 +62,7 @@ See `advanced/route.md` for the full pointer table.
 | Question-to-reference spine | `00_orchestrator/workflows/question-to-reference.md` |
 
 Do not rewrite live literature/systematic-review capability bodies inside these files.
-Where a `advanced/` file only duplicates a long base procedure, prefer a short pointer to base (no bulk-move this round).
+Where a base pack carries a long procedure, the procedure belongs in `03_research/advanced/` and the base pack keeps the scope, bans, phase names, and pointer. A pack data library (`rules/`, `data/`, `references/`) stays where it is and is not the contract.
 
 ## Live capability ids (bodies under `NN_slug/base/`)
 

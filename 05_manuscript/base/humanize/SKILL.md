@@ -7,6 +7,6 @@ owner: "05_manuscript/base/humanize/MODULE.md"
 
 # humanize
 
-Capability body: [MODULE.md](MODULE.md). Scripts under `scripts/`; pattern catalogue in `references/ai_patterns.md`;
-language lint in `MODULE.md` `## Language lint` with `references/style-guardrails.md` and `references/stat-reporting.md`.
-Advanced de-AI stays in `05_manuscript/advanced/` — do not move forbidden lists here.
+Contract: [MODULE.md](MODULE.md). Scripts under `scripts/`; pattern catalogue in `references/ai_patterns.md`.
+Procedure (phase detail, fix rules, gate verdicts, language lint): `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass.
+Advanced de-AI lists win; do not restate them here.

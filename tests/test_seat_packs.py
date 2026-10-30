@@ -105,6 +105,14 @@ REQUIRED_IDS = (
     "split_names_are_sets",
     "approach_not_framework",
 )
+# 05-only writing-craft checks (Introduction / Discussion shape); not part of the
+# cross-manuscript set that 06 re-runs, so they are asserted on the 05 file only.
+WRITING_ONLY_IDS = (
+    "intro_funnel_five_para",
+    "intro_discussion_loop",
+    "discussion_inverted_funnel",
+    "no_causal_overclaim_observational",
+)
 REQUIRED_CLASSES = (
     "stats_text",
     "cross_manuscript",
@@ -684,10 +692,11 @@ class PreSubmitFrontmatter(unittest.TestCase):
         self.assertIsInstance(checks, list)
         ids = [item["id"] for item in checks]
         classes = [item["class"] for item in checks]
-        self.assertCountEqual(ids, REQUIRED_IDS)
+        expected = tuple(REQUIRED_IDS) + WRITING_ONLY_IDS
+        self.assertCountEqual(ids, expected)
         self.assertEqual(len(ids), len(set(ids)))
         self.assertCountEqual(set(classes), REQUIRED_CLASSES)
-        for cid in REQUIRED_IDS:
+        for cid in expected:
             self.assertIn(f"### {cid}", body)
 
     def test_review_frontmatter_parse_and_load_order(self) -> None:
@@ -1037,3 +1046,41 @@ class AdvancedL2PhraseTable(unittest.TestCase):
         self.assertIn("could assist [task]", text)
         self.assertIn("格式锁", text, "the Locked tier must be documented in the table")
         self.assertIn("Frequency never overrides a lock", text)
+
+
+class BaseContractOnly(unittest.TestCase):
+    """Owner lock 2026-10-30 (t1408u/t1409u): base is a thin contract, detail lives in advanced."""
+
+    BASE_MODULES = sorted(
+        p for p in ROOT.rglob("base/*/MODULE.md")
+        if not any(part in SKIP_PARTS for part in p.parts)
+    )
+
+    def test_every_base_module_declares_the_contract(self) -> None:
+        self.assertGreaterEqual(len(self.BASE_MODULES), 20)
+        missing = []
+        for path in ROOT.rglob("*/base/**/MODULE.md"):
+            if any(part in SKIP_PARTS for part in path.parts):
+                continue
+            text = path.read_text(encoding="utf-8")
+            if "Contract only" not in text and "thin contract" not in text.lower():
+                missing.append(path.relative_to(ROOT).as_posix())
+        self.assertEqual(missing, [], "base MODULE without a contract line: " + ", ".join(missing))
+
+    def test_qc_does_not_restate_the_fix_recipe(self) -> None:
+        offenders = []
+        for path in ROOT.rglob("*/qc/**/*.md"):
+            if any(part in SKIP_PARTS for part in path.parts):
+                continue
+            if "Fix at writing time" in path.read_text(encoding="utf-8"):
+                offenders.append(path.relative_to(ROOT).as_posix())
+        self.assertEqual(offenders, [], "qc still carries a fix recipe column: " + ", ".join(offenders))
+
+    def test_runtime_docs_state_the_loop(self) -> None:
+        loops = (ROOT / "00_orchestrator/references/base-vs-advanced-top-loops.md").read_text(
+            encoding="utf-8")
+        flow = (ROOT / "00_orchestrator/runtime-flow.md").read_text(encoding="utf-8")
+        for text, label in ((loops, "base-vs-advanced-top-loops.md"), (flow, "runtime-flow.md")):
+            self.assertIn("post-QC revise", text, label)
+            self.assertIn("`advanced/`", text, label)
+        self.assertNotIn("Advanced layers do not host long procedure bodies", loops)

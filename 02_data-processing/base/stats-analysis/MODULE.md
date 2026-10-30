@@ -13,6 +13,8 @@ trigger is documentation only; not independently discoverable.
 
 # Statistical test selection
 
+Contract only for stats-analysis: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/stats-analysis-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 Choose an appropriate test and check the assumptions that justify it. This pack does **not**
 teach sample-size/power (→ `calc-sample-size`), Bayesian/model implementation (→ `meta-analysis`),
 or the `assumption_checks.py` script (that file lives in `meta-analysis`).

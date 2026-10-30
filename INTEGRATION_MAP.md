@@ -14,6 +14,17 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261030-layer-rebind (2026-10-30)
+
+Owner lock t1408u / t1409u: **base = thin contract, `advanced/` = detail and revision authority, `qc/` = score and cite, post-QC revise runs via `advanced/` then re-gates at 00.**
+
+- **00:** `references/base-vs-advanced-top-loops.md` rewritten as a three-column base/advanced/qc contract; the retired line "Advanced layers do not host long procedure bodies" is gone. `runtime-flow.md` main loop and layer table now state `base thin first pass -> 00 QC (score, cite the advanced anchor) -> post-QC revise via advanced -> re-gate`; `gates.md` (d) retargeted.
+- **05:** `05_manuscript/base/write-paper/MODULE.md` loses the funnel beats, the 10-30 word band and the triplet rule (all already authoritative in `05_manuscript/advanced/Aitor-format.md` § Introduction / § Discussion); `05_manuscript/base/write-paper/radiology-writing/introduction.md` reduced to a contract stub; `05_manuscript/base/humanize/MODULE.md` (15k) reduced to scope + invariants + phase names, with the phases, fix rules, gate verdicts, detector status and language lint moved into `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass; the stale four-step Introduction card in the polisher quick reference now points at the five-paragraph / eight-beat funnel (t1404u).
+- **05 qc:** every `Fix at writing time` cell in the Introduction and Discussion scorecards became a concrete `advanced/` anchor; four writing-craft ids added by t1404u got their `####` sections; `REQUIRED_IDS` split from 05-only `WRITING_ONLY_IDS` in `tests/test_seat_packs.py` (baseline red fixed).
+- **06 / 07:** layer models, advanced routes, base READMEs and pack MODULEs now say base is the contract and `06_review/advanced/review.md` (`07_response/advanced/response.md`) holds the recipe; qc READMEs state that a check cites an advanced anchor and never restates it.
+- **03 / 02:** layer models, routes and base READMEs rebound; `03_research/SKILL.md` inverts the old "prefer a pointer to base, no bulk-move" rule; ten 02 base MODULEs and eight 03 base MODULE/SKILL files carry a pack-specific contract banner naming their advanced anchor. Pack data (`rules/`, `data/`, `references/`, `scripts/`) stays put and is labelled data, not contract.
+- **Guards (3 new tests):** every `*/base/**/MODULE.md` must declare the contract; no `qc/` file may carry a `Fix at writing time` recipe column; both runtime documents must state the post-QC revise loop and must not restore the retired sentence. Suite: 216 green.
+
 ## CHG-20261030-deep-qc-github (2026-10-30)
 
 Ledger backfill plus deep QC of the three GitHub clones. The 2026-10-30 merges (PR #251-#255) had no ledger row, so `VERSION.txt` and this map are backfilled to the same `change_id`.

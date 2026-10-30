@@ -1,10 +1,10 @@
 # 02_data-processing advanced route -- top layer
 
-## Top-layer flow (2026-10-17)
+## Top-layer flow (2026-10-30 rebind)
 
-1. **base first-pass** data-processing fine-IDs (`clean-data`, `imaging-io`, `preprocess-imaging`, ...)
-2. **00 QC**
-3. **02 re-loop** -- advanced workspace/extract/coding protocols; may re-trigger base fine ids when 00 says needed
+1. **base thin first pass** data-processing fine-IDs (`clean-data`, `imaging-io`, `preprocess-imaging`, ...): contracts only, pack data beside them
+2. **00 QC** (score, cite the `advanced/` anchor)
+3. **02 advanced revise loop** -- workspace/extract/coding protocols, per-pack digests, analysis pipeline; may re-trigger a base fine id when 00 says needed -> re-gate at 00
 
 **Stats / figures half of 02** (merged 2026-10-25): `analysis/route.md`.
 
