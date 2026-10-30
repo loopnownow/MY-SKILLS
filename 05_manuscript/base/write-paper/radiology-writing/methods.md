@@ -39,7 +39,7 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 
 ## Tense & style
 Past tense; specific not vague ("3-T MRI" not "high-field"); name versions; one method, one
-place (don't scatter the same detail). Hand wording to `humanize`.
+place (don't scatter the same detail). Hand wording to advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`).
 
 ## Self-check
 `design+ethics? · eligibility+flow? · scanner+protocol? · reference standard+reader blinding+

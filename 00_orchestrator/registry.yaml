@@ -10,8 +10,8 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261030-helper-code-stale-purge
-  fine_id_count_canonical: 24
+  change_id: CHG-20261030-fine-id-merge-imaging-stats-humanize-qc-grant
+  fine_id_count_canonical: 20
   coarse_id_count: 5
 
 empty_fine_ids: notify-then-research-confirm
@@ -91,13 +91,6 @@ fine_ids:
   path: 05_manuscript/base/write-paper/
   a_domain: 05_manuscript
   status: LIVE
-- id: check-reporting
-  label: Reporting-guideline check
-  source: my-skills
-  path: 05_manuscript/qc/check-reporting/
-  a_domain: 05_manuscript
-  status: LIVE
-  note: QC body under 05_manuscript/qc/check-reporting/ (owner 2026-10-25). Fine id unchanged.
 - id: find-journal
   label: Journal recommendation
   source: my-skills
@@ -106,42 +99,26 @@ fine_ids:
   status: LIVE
   note: 'Coarse bucket = seat 03_research (no override). Body: 03_research/base/find-journal/. Companion
     house style: 05_manuscript/base/write-paper/ (not the engine).'
-- id: humanize
-  label: De-AI tone
-  source: my-skills
-  path: 05_manuscript/base/humanize/
-  a_domain: 05_manuscript
-  status: LIVE
 - id: clean-data
   label: Three-stage confirm cleaning
   source: my-skills
   path: 02_data-processing/base/clean-data/
   a_domain: 02_data-processing
   status: LIVE
-- id: imaging-io
-  label: CT/MRI DICOM and NIfTI I/O
-  source: my-skills
-  path: 02_data-processing/base/imaging-io/
-  a_domain: 02_data-processing
-  status: LIVE
 - id: preprocess-imaging
-  label: ROI and reader QC
+  label: Imaging I/O and ROI/reader QC
   source: my-skills
   path: 02_data-processing/base/preprocess-imaging/
+  note: 'Absorbed imaging-io 2026-10-30 (I/O + ROI/reader/mask QC).'
   a_domain: 02_data-processing
   status: LIVE
 - id: stats-analysis
-  label: Test selection and weighted survey data
+  label: Test selection and Bayesian/assumption notes
   source: my-skills
   path: 02_data-processing/base/stats-analysis/
   a_domain: 02_data-processing
   status: LIVE
-- id: meta-analysis
-  label: Meta-analysis anti-manipulation
-  source: my-skills
-  path: 02_data-processing/base/meta-analysis/
-  a_domain: 02_data-processing
-  status: LIVE
+  note: 'Absorbed meta-analysis 2026-10-30 (Bayesian notes + assumption_checks). Test-selection core kept.'
 - id: model-evaluation
   label: Model-task correct metric selection
   source: my-skills

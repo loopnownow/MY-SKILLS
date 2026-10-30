@@ -3,10 +3,11 @@
 **Owner:** `00_orchestrator` only loads these at Gate time.
 **Domains/specialists do not self-certify via this folder.** 05 first-pass and polish use `base/` and `advanced/`; they do not self-certify lit or pre-submit via `qc/`.
 
-QC **standards** (pass/fail + fail→rollback station) are the table below. Reporting-checklist body: `check-reporting/` (fine id `check-reporting`; TRIPOD / CLAIM / CLEAR). Other capability bodies stay in `advanced/` and `base/`.
+QC **standards** (pass/fail + fail→rollback station) are the table below. Reporting-checklist body: `check-reporting/` (qc-only; absorbed retired fine id `check-reporting`; TRIPOD / CLAIM / CLEAR). Not session-picked. Other capability bodies stay in `advanced/` and `base/`.
 
 | File | Gate(s) |
 |---|---|
+| `check-reporting/` | **G-05** / Integrity · pre-06 — TRIPOD / CLAIM / CLEAR writing-audit stack (qc-only; not a registry fine id) |
 | `manuscript-local-qc.md` | **G-05** - Intro five-para scorecard + Discussion inverted-funnel / Intro loop (Part A2) + pre-submit check ids |
 | `reporting-guideline-route.md` | **G-05** / **Integrity · pre-06** — TRIPOD/STARD/STROBE/PRISMA + JSON router |
 | `reporting-guidelines-router.json` | **G-05** / Integrity · pre-06 — id→study_type→URL metadata only (MIT upstream) |

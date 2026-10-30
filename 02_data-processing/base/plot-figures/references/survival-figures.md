@@ -79,7 +79,7 @@ model?"* Show it consistently:
 - Calibration: both models near the diagonal.
 - DCA: augmented model ≥ clinical across the threshold range.
 - Curve/percentages must match the manuscript's C-index / NRI / IDI (computed in
-  `meta-analysis` / `model-evaluation`) — cross-check before export (`figure-set-consistency.md`).
+  `stats-analysis` / `model-evaluation`) — cross-check before export (`figure-set-consistency.md`).
 
 ## QA (survival panels)
 - Curve flat-extended to last follow-up; x truncated to horizon.
@@ -88,5 +88,5 @@ model?"* Show it consistently:
 - Time-to-event discrimination uses **time-dependent** AUC/ROC, not binary.
 - Same palette/roles as the rest of the figure set.
 
-→ Effect sizes, IPCW formulas, NRI/IDI, C-index → `meta-analysis` / `model-evaluation`. Cross-figure number checks →
+→ Effect sizes, IPCW formulas, NRI/IDI, C-index → `stats-analysis` / `model-evaluation`. Cross-figure number checks →
 `figure-set-consistency.md`.

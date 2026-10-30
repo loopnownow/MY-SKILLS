@@ -5,7 +5,7 @@ Thin contracts for 05 manuscript. No domain-level SKILL.md. The recipe (beats, b
 | Pack | Path | Role |
 |---|---|---|
 | `write-paper` | `write-paper/` | Generic writing + venue templates / house style (not 选刊); shape authority is `05_manuscript/advanced/Aitor-format.md` |
-| `humanize` | `humanize/` | Contract for AI-pattern removal + report-only Intro/Discussion lint (2 gates ship as scripts); procedure is `05_manuscript/advanced/process/polisher-sections.md` § De-AI pass |
+| *(absorbed retired `humanize`)* | — | De-AI + Intro/Discussion lint now advanced-only: `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass; patterns/scripts under `advanced/references/` and `advanced/process/scripts/` |
 | `vocab` | `vocab/` | L1/L2/L3 vocabulary layers |
 
 Advanced Aitor-format / de-AI / vocab overrides stay in `05_manuscript/advanced/`.

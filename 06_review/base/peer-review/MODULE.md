@@ -22,7 +22,7 @@ Retired id `peer-review-pdf-scan` (PDF inject/attack scan, Phase 1.5) resolves h
 
 - Self-audit / pre-submission of the user's own draft → `self-review`
 - Point-by-point response letter → `revise` (this MODULE does **not** own mode-3)
-- Sentence rewrite → `write-paper` / `humanize`
+- Sentence rewrite → `write-paper` / advanced De-AI (absorbed retired `humanize`)
 - Advanced review voice stays in `06_review/advanced/`
 
 ## When to use

@@ -12,7 +12,7 @@ Contract only for model-evaluation: scope, bans, phase names, and pointers. The 
 
 Umbrella fine id: **`model-evaluation`** (covers former `model-validation`).
 
-Not test selection (`stats-analysis`) and not model fitting (`meta-analysis`).
+Not test selection or Bayesian notes (`stats-analysis`). Model fitting recipes stay in `02_data-processing/advanced/analysis/`.
 Lab pipeline / DeLong / Cox policy stays in `02_data-processing/advanced/analysis/`.
 
 ## Workflow

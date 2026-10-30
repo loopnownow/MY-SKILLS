@@ -22,9 +22,9 @@ Discussion), plus venue house style and article shape once a journal family is k
 - Advanced house format / title-page defaults
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
-- Language polish → [`humanize`](../humanize/MODULE.md)
+- Language polish / De-AI → `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass (absorbed retired `humanize`)
 - 选刊 / where to submit → `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
-- TRIPOD / CLAIM / CLEAR checklists → [`check-reporting`](../../qc/check-reporting/MODULE.md)
+- TRIPOD / CLAIM / CLEAR checklists → `05_manuscript/qc/check-reporting/` (qc-only; absorbed retired fine id check-reporting)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
 
 ## When to use
@@ -48,7 +48,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 8. **Negation / incompleteness (owner 2026-10-23):** Process-negation sentences that flag work not done or CYA hedges (e.g. 「某某未做」「我们未做」「未进行…」; *we did not* / *not performed* / *was not done* / *not examined*) **must not appear in 正文** (manuscript, revised manuscript, or response letter). Put them **only** in Word 批注 (author **A**), and every such 批注 **must** include **建议修改后内容**. Bare flags fail. Does **not** ban empirical negative findings that are study results (e.g. *no significant difference*, *X was not associated with Y*). Canonical: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
 9. Patient-level split language when the study is predictive
 10. Dual-set reporting when the user supplied both training and test metrics
-11. Reporting guidelines (TRIPOD, CLAIM, CLEAR) are not named in the Introduction; route to `check-reporting`
+11. Reporting guidelines (TRIPOD, CLAIM, CLEAR) are not named in the Introduction; route to `05_manuscript/qc/check-reporting/` (qc-only)
 12. Related studies are synthesized, not listed: structure bans (no repeated frames, at most one triplet per paragraph) live in `05_manuscript/advanced/Aitor-format.md` § Introduction
 
 
@@ -61,9 +61,9 @@ Discussion), plus venue house style and article shape once a journal family is k
 | `methods-skeleton` | [methods_template_export.md](references/methods_template_export.md) + [radiology-writing/methods.md](radiology-writing/methods.md) |
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
-| `polish` | **handoff** → `humanize` |
+| `polish` | **handoff** → advanced De-AI (absorbed retired `humanize`) |
 | `venue-shape` | this file + [journal-family-writing-style.md](radiology-writing/journal-family-writing-style.md) + [nature-family-shape.md](radiology-writing/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
-| `reporting` | **handoff** → `check-reporting` |
+| `reporting` | **handoff** → `05_manuscript/qc/check-reporting/` (qc-only) |
 
 ## IMRAD map
 
@@ -105,5 +105,5 @@ Venue: (unknown unless user named one)
 Missing inputs:
 - ...
 
-Next: humanize (language) · venue-shape (in this pack) · self-review (self-audit)
+Next: advanced De-AI (language; absorbed retired `humanize`) · venue-shape (in this pack) · self-review (self-audit)
 ```

@@ -100,7 +100,8 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("session_fine_id_pick: ask-each-run", text)
         self.assertIn("session_pick_unit: fine_id", text)
         self.assertIn("write-paper", text)
-        self.assertIn("humanize", text)
+        self.assertNotIn("id: humanize", text)  # absorbed retired -> advanced De-AI
+        self.assertNotIn("05_manuscript/advanced/ (De-AI; absorbed retired humanize)/", text)
         self.assertIn("draw-flowchart", text)
         self.assertNotIn("04-explainability", text)
         self.assertNotIn("05-de-ai", text)

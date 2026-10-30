@@ -1,7 +1,7 @@
 # Generic academic paper pipeline (outline)
 
 Condensed planning modes for non-imaging or cross-disciplinary outlines. Imaging prediction
-full papers prefer `pipeline-stages.md`. Language polish → `humanize`. Reviewer
+full papers prefer `pipeline-stages.md`. Language polish → advanced De-AI (absorbed retired `humanize`). Reviewer
 response → `revise`.
 
 ## Priority
@@ -17,7 +17,7 @@ Supplied facts > venue format > generic English. Do not invent results or citati
 | `outline-only` | Outline only | Outline + evidence map |
 | `revision` | Revise body after review | Revised prose (the letter itself → `revise`) |
 | `abstract-only` | Abstract only | Abstract + keywords |
-| `lit-review` | Review article | Annotated synthesis (`meta-analysis`) |
+| `lit-review` | Review article | Annotated synthesis (`stats-analysis`; absorbed retired `meta-analysis`) |
 | `citation-check` | Check citations | Citation audit (`verify-refs`) |
 
 Default when unsure: **`plan`**.

@@ -344,3 +344,16 @@ class Absorbed03Packs(unittest.TestCase):
             (ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8")
         )["aliases"]
         self.assertNotIn("03-lit-fulltext", aliases)
+
+
+class HumanizeRetired(unittest.TestCase):
+    """2026-10-30: humanize absorbed into advanced De-AI; base tree gone."""
+
+    def test_humanize_tree_gone(self) -> None:
+        self.assertFalse((ROOT / "05_manuscript" / "base" / "humanize").exists())
+
+    def test_advanced_owns_assets(self) -> None:
+        self.assertTrue((ROOT / "05_manuscript/advanced/references/ai_patterns.md").is_file())
+        self.assertTrue((ROOT / "05_manuscript/advanced/process/scripts/check_rewrite_fidelity.py").is_file())
+        self.assertTrue((ROOT / "05_manuscript/advanced/process/scripts/check_sentence_variety.py").is_file())
+

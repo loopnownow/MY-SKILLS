@@ -2,7 +2,7 @@
 
 **Absorbed:** 2026-10-23 from `_library/fulltext/` (9 md). **Only section outlines** — no narrative bodies.
 
-Reuse with `grant-own-skeleton.md` / `grant-writing.md`. Do not triplicate Voice B prose here.
+Reuse with `intake.md` § Grant Voice B chapter skeleton / `intake.md` § Grant Voice B. Do not triplicate Voice B prose here.
 
 ## By scheme (repeated headings)
 
