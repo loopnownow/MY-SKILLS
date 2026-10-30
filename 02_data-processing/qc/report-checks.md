@@ -13,7 +13,7 @@ Use this checklist when polishing Results and Methods sections.
 #### General
 - [ ] All P values reported as exact values when ≤ 0.05 (e.g., P = 0.002), and as comparison when > 0.05 (e.g., P = 0.12 or P > 0.05)
 - [ ] P is italicized: *P* (adjust per journal house style)
-- [ ] All CIs reported as 95% CI: X-X (en-dash, no spaces around dash)
+- [ ] All CIs reported as 95% CI: X-X (ASCII hyphen `-`, no spaces around dash)
 - [ ] **Decimals:** Table 1 continuous/% cells → **1 or 2** places; *P*, AUC (+ 95% CI bounds), NRI/IDI, correlation (*r*/ρ and their *P*) → **3** places
 - [ ] All AUCs reported with 95% CI in parentheses
 - [ ] Sensitivity, specificity, NPV, PPV all reported as percentages with 1 decimal place
@@ -42,7 +42,7 @@ Use this checklist when polishing Results and Methods sections.
 
 #### Diagnostic performance
 - [ ] Default: `AUC of X (95% CI: X-X)` reported for **both** training and test
-- [ ] ROC curve AUC with 95% CI (en-dash, `95% CI: X-X`)
+- [ ] ROC curve AUC with 95% CI (ASCII hyphen, `95% CI: X-X`)
 - [ ] AUC comparison via DeLong method (paired *P*, not the CI)
 - [ ] Optimal threshold reported (typically Youden index; disclose per split)
 - [ ] Sensitivity + specificity + PPV + NPV at threshold
@@ -77,7 +77,7 @@ Use this checklist when polishing Results and Methods sections.
 |---|---|
 | "P < 0.05" for all significant results | Report exact P (P = 0.003) |
 | "Wilcoxon test" | "Wilcoxon signed-rank test" (paired) or "Mann-Whitney U test" (unpaired) |
-| "95%CI: 0.80-0.93" | "95% CI: 0.80-0.93" (en-dash, space before/after %) |
+| "95%CI: 0.80-0.93" | "95% CI: 0.80-0.93" (ASCII hyphen, space before/after %) |
 | "AUC=0.86" (one set only) | "AUC of X (95% CI: X-X)" in training **and** test |
 | Missing normality justification | Add Shapiro-Wilk result or note |
 | HR/OR without CI | Always add "(95% CI: X-X)" |

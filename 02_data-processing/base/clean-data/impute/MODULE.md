@@ -15,8 +15,8 @@ trigger is documentation only; not independently discoverable.
 
 Contract only for clean-data impute: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
 
-**Prose only — the code lives in `stats-analysis`.** This pack says when to impute, which
-method, and what to check; `{code_stats}` runs it.
+**Prose SSOT - the analysis code lives in `stats-analysis`.** This pack says when to impute, which
+method, and what to check; `{code_stats}` runs it. Do not copy those engines into the skill tree.
 
 ```text
 {code_model_validation}\impute_excel.py   # CLI: backup, per-sheet run, impute_qc
@@ -24,8 +24,7 @@ method, and what to check; `{code_stats}` runs it.
 {code_modules}\utils\u_outlier_detection.py
 ```
 
-`stats-analysis` is the script half of seat 02 (`MY-SKILLS` is prose only); do not copy these
-files back into the skill tree, and do not edit the copy in a project.
+`stats-analysis` is the heavy script half of seat 02; MY-SKILLS keeps prose plus thin helpers only. Do not copy these engines back into the skill tree, and do not edit a project-local fork as if it were SSOT.
 
 Nested under `clean-data`. Not an analysis-domain pack.
 Header / ID / cohort QC before fill → parent [`../MODULE.md`](../MODULE.md).
