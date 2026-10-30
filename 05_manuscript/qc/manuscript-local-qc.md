@@ -17,6 +17,8 @@
 
 **Owner (checklist body):** `05_manuscript`. Use as a self-check after drafting and as an independent score before submission. A drafter's own score is provisional; **final Gate / scoring authority = `00_orchestrator`** (seats do not self-certify).
 
+**Funnel contract (owner 2026-10-30 t1402u/t1404u):** five paragraphs / eight beats in `05_manuscript/base/write-paper/radiology-writing/introduction.md` and house `05_manuscript/advanced/Aitor-format.md` Introduction. Para 1 = burden + clinical significance; para 2 = guideline (diagnostic or examination criteria) + current standards/methods; para 3 = this-study methods + related studies; para 4 = gap and method link; para 5 = aim/hypothesis (**no citations**). Score Logic against that map; do not invent a sixth body paragraph for the aim.
+
 Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the deductions below, floor at 0, then apply the caps. Write the deduction codes next to each score.
 
 | # | Dimension | Question |
@@ -33,9 +35,12 @@ Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the de
 
 | Code | Dim | Trigger | Deduct | Fix at writing time |
 |---|---|---|---|---|
-| LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | Fix the frame first: element 2 states the construct, element 6 names the endpoint, one clause states the relation; algorithm details stay in Methods |
+| LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | Fix the frame first: beat 3 (para 2) states the construct, beat 8 (para 5) names the endpoint, one clause states the relation; algorithm details stay in Methods |
 | LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | Claim-source fit outranks numbering; renumber by script; no reporting standards in the Introduction |
 | LOG-3 | 1 | A paragraph reports studies one after another with no group appraisal | 1.5 | One or two sentences: the strength this study keeps, the weakness it targets |
+| LOG-4 | 1 | Paragraph order or beat placement breaks the five-paragraph funnel (e.g. aim before gap; related studies before guideline; this-study method missing from para 3) | 2 | Reorder to para 1-5 map; see Funnel contract above |
+| LOG-5 | 1 | An Introduction aim or hypothesis is never answered in Discussion (no matching finding, limitation, or explicit deferral) | 2 | Close the loop in Discussion key findings / per-finding blocks, or weaken the Intro claim |
+| LOG-6 | 1 | Clinical significance (beat 2) is missing from para 1, or current standards/methods (beat 4) are missing from para 2 | 1 | Restore the missing beat inside the correct paragraph |
 | FLU-1 | 2 | Three or more sentences in a paragraph open with the same words or the same frame | 2 | Change the subject and the structure; put the number inside a comparison |
 | FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | Merge into one comparative sentence, or drop the weakest |
 | FLU-3 | 2 | More than 10% of sentences outside 10-30 words | 1 per 10%, max 3 | Split or merge |
@@ -44,12 +49,12 @@ Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the de
 | CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | Budget before drafting; complete the entry |
 | CIT-3 | 3 | Numbers verified below L2, or a guideline definition or appraisal verified below L3 | 1 | Read the full text, or weaken to "reported" |
 | CIT-4 | 3 | No retraction and correction check on the reference list | 1 | Run it |
-| CIT-5 | 3 | Introduction opening paragraph has no citation although a verified source for that claim exists | 2 | Cite the evidence-pack source; element 6 stays uncited |
+| CIT-5 | 3 | Introduction opening paragraph has no citation although a verified source for that claim exists | 2 | Cite the evidence-pack source; para 5 / beat 8 stays uncited |
 | CIT-6 | 3 | Consecutive sentences cite the same paper without a new claim that paper supports | 1 | Cite once, or add the distinct claim |
 | CIT-7 | 3 | DOI, author list, year, or volume copied from another manuscript, or a year/volume change without a source check | 2 | Verify against the work before keeping the entry |
 | RES-1 | 4 | Only favourable results are reported | 1.5 | Include one weaker or limited result if one exists |
 | RES-2 | 4 | Fewer than two of the three result classes covered, or the search log lacks a second source | 1.5 | Raise `missing_prior_result`; log the search |
-| GLD-1 | 5 | Element 2 is missing, cites a superseded edition, or the gap is not traceable to the guideline | 2 | Raise `guideline_definition`; mine the open issue |
+| GLD-1 | 5 | Beat 3 (guideline definition, para 2) is missing, cites a superseded edition, or the gap is not traceable to the guideline | 2 | Raise `guideline_definition`; mine the open issue |
 | GAP-1 | 5 | A scarcity claim with no logged search | 1 | Raise `scarcity_check` |
 | GAP-2 | 5 | A field-wide statement drawn from one study | 1 | Write "in the studies we identified", or find a second |
 | GAP-3 | 5 | The gap does not say what existing evidence already shows | 1 | State the settled part, then the unknown |
@@ -80,6 +85,47 @@ Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the de
 Logic 6 (LOG-1, LOG-2, LOG-3) · Fluency 7 (FLU-1, FLU-2) · Citation use 7 (CIT-2, CIT-3, CIT-4) · Prior results 7 (RES-1, RES-2) · Gap 7 (GAP-1, GAP-2, GAP-3) · Method link 6 (MET-1, MET-3) · Aim 8 (AIM-1) · total 48/70.
 
 The 25% sentence-level uncited gate used at that time is replaced by claim coverage (`05_manuscript/advanced/process/evidence.md`). Re-scored with GLD-1 (the rewrite cited the 2016 consensus, not the latest guideline): Gap 5, total 46/70.
+
+
+
+---
+
+## Part A2 - Discussion scorecard (inverted funnel)
+
+**Owner (checklist body):** `05_manuscript`. House shape: `Aitor-format.md` Discussion. Run after Introduction scorecard on the same draft.
+
+Five content beats + loop + craft, 0-10 each, total 70. Start at 10, deduct, floor at 0.
+
+| # | Dimension | Question |
+|---|---|---|
+| 1 | Key findings | First paragraph states main findings without citations and without result numbers (AUC/CI/*n*/*P*)? |
+| 2 | Literature contrast | Each load-bearing finding is compared to representative prior work, with agreement or disagreement explained? |
+| 3 | Mechanism | Any mechanism claim is hedged and not presented as proven causality from an observational design? |
+| 4 | Clinical application | One short use-case sentence; no disclaimer / CYA stack in body? |
+| 5 | Limitations | Own paragraph; facts only; label circularity First when a predictor is part of the endpoint? |
+| 6 | Intro loop | Every Intro aim/hypothesis has a matching Discussion response (finding, limitation, or explicit deferral)? |
+| 7 | Craft | No listing cadence; sentences mostly 10-30 words; Conclusion echoes objective without AUC/CI/*n*? |
+
+### Discussion deduction codes
+
+| Code | Dim | Trigger | Deduct | Fix at writing time |
+|---|---|---|---|---|
+| D-KEY-1 | 1 | First Discussion paragraph has citations or result numbers | 2 | Move numbers to Results; drop cites from para 1 |
+| D-KEY-2 | 1 | Key findings omit a load-bearing Intro aim with no deferral | 2 | Add finding sentence or explicit limitation / deferral (see LOG-5) |
+| D-LIT-1 | 2 | No comparison to prior work for a load-bearing finding | 1.5 | Add one contrast block with reason for agreement/disagreement |
+| D-LIT-2 | 2 | Discussion reuses Introduction references as the only "new" lit without appraisal | 1 | Prefer non-overlapping refs per Aitor-format quota; appraise |
+| D-MECH-1 | 3 | Observational association worded as *causes* / *proves* / *demonstrates that X leads to* | 2 | *associated with* / *may reflect*; see `result-to-claim.md` |
+| D-CLIN-1 | 4 | Missing clinical use-case, or disclaimer stack in body | 1.5 | One use-case sentence; disclaimers to Word comment + rewrite (AL-5) |
+| D-LIM-1 | 5 | Limitations not its own paragraph, or ends with tool-readiness CYA | 1.5 | Own paragraph; facts only |
+| D-LOOP-1 | 6 | Intro hypothesis unanswered in Discussion | 2 | Same as LOG-5; fix Discussion or weaken Intro |
+| D-CRAFT-1 | 7 | Conclusion carries AUC / CI / *n*, or does not echo the objective | 1 | Echo aim; strip metrics |
+
+### Discussion procedure
+
+1. List Intro aims/hypotheses (para 5); tick each against Discussion.
+2. Score dimensions; record codes.
+3. Scorer is not the drafter (`simulate-reviewers` isolated, or the user).
+4. Pair with `claim-number-align.md` (CN-4) and `result-to-claim.md` before freezing Conclusions.
 
 
 ---
@@ -142,6 +188,14 @@ checks:
   - id: paragraph_lock
     class: writing_craft
   - id: intro_opening_has_citations
+    class: writing_craft
+  - id: intro_funnel_five_para
+    class: writing_craft
+  - id: intro_discussion_loop
+    class: writing_craft
+  - id: discussion_inverted_funnel
+    class: writing_craft
+  - id: no_causal_overclaim_observational
     class: writing_craft
   - id: split_names_are_sets
     class: writing_craft
