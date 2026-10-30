@@ -6,6 +6,8 @@ owner: "05_manuscript/base/vocab/MODULE.md"
 
 # vocab
 
+Thin contract: layer names, load order, and pointers. The word lists are pack data; the advanced overrides live in `05_manuscript/advanced/vocab/`.
+
 Lab vocabulary capability body. Load layers in order before drafting:
 
 | Layer | Path | Role |

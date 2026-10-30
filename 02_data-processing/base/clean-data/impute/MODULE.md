@@ -13,6 +13,8 @@ trigger is documentation only; not independently discoverable.
 
 # Group-stratified missing-value imputation
 
+Contract only for clean-data impute: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+
 **Prose only — the code lives in `stats-analysis`.** This pack says when to impute, which
 method, and what to check; `{code_stats}` runs it.
 

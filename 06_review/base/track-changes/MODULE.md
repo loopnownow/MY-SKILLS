@@ -16,6 +16,7 @@ trigger is documentation only; not independently discoverable.
 Mechanical tooling for the rule in MY-RULES `My rule.md` §5.1 and
 `06_review/advanced/word-edit.md`: **every `.docx` edit lands under Track Changes with author
 `A`; word/sentence grain; never a silent overwrite.** This pack proves that rule was followed.
+Contract only: the invariant plus the unpack / validate / pack commands; every text decision belongs to `05_manuscript/advanced/`, `06_review/advanced/`, or `07_response/advanced/`.
 
 Not a Word editor. Text decisions belong to `05_manuscript` (`Aitor-format.md`, `humanize`), to
 `06_review/advanced/review.md` for findings, and to `07_response/base/revise/` for letters. This

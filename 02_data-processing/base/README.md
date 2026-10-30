@@ -1,6 +1,6 @@
 # 02_data-processing/base
 
-Capability bodies for 02 (data processing + analysis). No domain-level SKILL.md.
+Thin contracts for 02 (data processing + analysis). No domain-level SKILL.md. The recipe and the revision authority live in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files); each pack keeps its prose data (`references/`, `scripts/`) beside it.
 
 **Prose only.** Runnable code for this seat lives in `stats-analysis` (`{code_stats}`):
 `modules/` is the library, `model-validation/` is the CLI half. Never vendor `.py` here.
@@ -20,6 +20,6 @@ Capability bodies for 02 (data processing + analysis). No domain-level SKILL.md.
 In-pack `scripts/` is reserved for code that is meaningful only as skill prose (a flowchart
 drawer, a citation validator). Anything that touches patient tables belongs in `stats-analysis`.
 
-Lab pipeline policy stays in `advanced/analysis/`.
+Lab pipeline policy stays in `advanced/analysis/` and is the authority; a base pack that grows a long procedure points there instead of restating it.
 
 Retired directory names — never recreate: `pictures`, `fmri`, `radiomics-habitat`. They resolve through `00_orchestrator/legacy_aliases.yaml`.

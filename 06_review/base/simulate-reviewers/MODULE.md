@@ -7,6 +7,7 @@ owner: "06_review/base/simulate-reviewers/MODULE.md"
 ---
 
 Multi-reviewer blind isolation for practice / meta-review.
+Contract only: stance, bans, isolation rules, and pointers. The review envelope and comment habits are `06_review/advanced/review.md`; the scores are `06_review/qc/`.
 Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
 Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
 
