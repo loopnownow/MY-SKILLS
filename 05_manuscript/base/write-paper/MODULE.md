@@ -37,7 +37,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 ## Hard rules
 
 1. Numbers stick to assertions (n, AUC, CI, *P*); no empty claims
-2. Introduction: problem → guideline definition → gap → approach (`radiology-writing/introduction.md`)
+2. Introduction: five-paragraph funnel in `radiology-writing/introduction.md` (burden+significance → guideline+current methods → this-study methods+related work → gap → aim/hypothesis; last para no citations)
 3. Observational designs: *associated with*, not causal verbs
 4. Consistent terms; expand abbreviations at first use
 5. Introduction and Discussion sentences run 10-30 words, one main proposition each; no run of short sentences (an advanced layer may override)

@@ -140,14 +140,16 @@ Methods still opens with Ethics even if ethics is on the title page.
 
 ## Introduction (800-1000 words)
 
-Six elements, in funnel order. Each element is one to three sentences except element 4.
+Five paragraphs, eight beats, in funnel order (owner 2026-10-30 t1401u/t1402u). Beats in the same paragraph are one to three sentences each; related studies may run longer inside para 3.
 
-1. **Disease / burden.** This opening paragraph cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/manuscript-local-qc.md`, `intro_opening_has_citations`).
-2. **Guideline definition.** Name the latest edition of the guideline that defines the endpoint or the clinical decision (issuing body and year, verified by 03 in the same session; see `05_manuscript/advanced/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
-3. **Limits of current practice.** Mine the gap from the guideline itself: what it leaves open (low level of evidence, information available only after surgery, "insufficient data", not recommended outside trials) and what the routine tests it relies on cannot resolve.
-4. **Related studies.** Main results of the two or three most relevant studies (n, design, effect). Then one or two sentences that appraise them as a group: the strength this study keeps and the weakness this study targets. No study-by-study list.
-5. **Missing piece and method link.** One open question stated as an unknown, then one sentence on why this study's method may address it. Inference is allowed and must be hedged (*may*, *could*). Never *solves*, *overcomes*, *resolves*.
-6. **Aim and hypothesis — no citations.** One endpoint name, identical in the Abstract, Methods (Outcomes), and here. The hypothesis names the set (test set) and the comparator.
+1. **Disease / burden** (para 1). Opening cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/manuscript-local-qc.md`, `intro_opening_has_citations`).
+2. **Clinical significance** (para 1). Why the disease or decision matters for patients or practice.
+3. **Guideline definition** (para 2). Latest edition that defines the endpoint or clinical decision as **diagnostic criteria or examination criteria** (issuing body and year, verified by 03 in the same session; see `05_manuscript/advanced/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
+4. **Current standards / methods** (para 2). Routine standards or tests the guideline relies on, and what they leave open or cannot resolve.
+5. **Latest research methods (this study)** (para 3). Name the method family this study uses, as current research practice (hedged), not as a solved problem.
+6. **Related studies** (para 3). Main results of the two or three most relevant studies (n, design, effect). Then one or two sentences that appraise them as a group: the strength this study keeps and the weakness this study targets. No study-by-study list.
+7. **Gap and method link** (para 4). One open question stated as an unknown, then one sentence on why this study's method may address it. Inference is allowed and must be hedged (*may*, *could*). Never *solves*, *overcomes*, *resolves*.
+8. **Aim and hypothesis - no citations** (para 5). One endpoint name, identical in the Abstract, Methods (Outcomes), and here. The hypothesis names the set (test set) and the comparator.
 
 Sentence length (Introduction and Discussion)
 
@@ -159,11 +161,11 @@ Structure bans (Introduction first; Discussion deferred until explicitly extende
 - Do not cite the same paper in consecutive sentences unless the second sentence adds a distinct claim that paper supports.
 - Related short sentences stay in one paragraph (Paragraph lock in `voice-portrait.md`). Do not flatten the Introduction into one sentence per paragraph.
 - Reporting guidelines (TRIPOD, TRIPOD+AI, CLAIM, CLEAR) are writing standards. Do not name or cite them in the Introduction. A required statement goes in the checklist file or the submission form.
-- Claim-source fit outranks citation numbering. Never place or reorder a sentence only to keep numbers ascending. Renumber afterwards by script.
+- Claim-source fit outranks citation numbering. Never place or reorder a sentence only to keep numbers ascending. Renumber afterwards by script (appearance order vs reference list). Authenticity: `verify-refs`.
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
-Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`.
+Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`. Base contract: `05_manuscript/base/write-paper/radiology-writing/introduction.md`.
 
 
 ---
@@ -348,7 +350,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - No *coded* / *displayed* endpoint prefix
 - No raw pre-stats coding (`Positive = 1, Negative = 0` and kin)
 - Missing products / unused recorded variables: Word comment only, not body `not generated` / `not included`
-- Intro last paragraph and Discussion first paragraph: no citations
+- Intro para 5 (aim/hypothesis) and Discussion first paragraph: no citations
 - Methods: no `[n]`; no seed; `Python 3.13`
 - Sample size: α, β, *p*, *n*, adequacy — once in Methods; do not re-elaborate elsewhere
 - Discussion / Conclusion: no result numbers
