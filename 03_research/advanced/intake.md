@@ -3,7 +3,7 @@
 Use this file first when the user gives an incomplete, mixed, or high-level radiology
 AI request.
 
-Writing / figures → `05_manuscript`. Pre-submission / **journal** peer review / reviewer response → `06_review`.
+Writing / figures → `05_manuscript`. Pre-submission / **journal** peer review → `06_review`. Reviewer response / response letter → `07_response`.
 Reviewing someone else's NSFC → Voice A (this file § Grant Voice A) (this skill, not 06_review). Writing your own → Voice B (this file § Grant Voice B). Do not mix the two voice habits.
 Clinical translation / reader studies → `clinical-translation/` (under `advanced/`). Ethics form packs → `fill-protocol`.
 

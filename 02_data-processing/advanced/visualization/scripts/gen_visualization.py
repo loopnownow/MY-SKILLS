@@ -360,14 +360,15 @@ def workflow_ir() -> dict:
         node("task", "control", 0, "external", "Task", "entry"),
         node("detect", "control", 1, "security", "00 Detect", "gate"),
         node("single", "control", 4, "backend", "One domain", "named entry"),
-        node("done", "control", 5, "backend", "Done", "terminal PASS"),
+        node("done", "control", 6, "backend", "Done", "terminal PASS"),
         node("fine_id_check", "fine_id", 1, "security", "Fine ids", "coverage"),
         node("s_pick", "fine_id", 3, "backend", "Fine ids", "session-pick"),
         node("dispatch", "fine_id", 2, "backend", "Dispatch", "after G0"),
         node("p02", "produce", 2, "backend", "02 Data", "processing"),
-        node("p04", "produce", 3, "backend", "02 Statistics", "figures"),
+        node("p02_stats", "produce", 3, "backend", "02 Statistics", "figures"),
         node("p05", "produce", 4, "backend", "05 Writing", "manuscript"),
         node("p06", "produce", 5, "backend", "06 Review", "review"),
+        node("p07", "produce", 6, "backend", "07 Response", "response letter"),
         node("p03", "literature", 2, "backend", "03 Literature", "evidence"),
         node("lit05", "literature", 4, "security", "Lit05", "G-CIT-1 before Gate 05"),
         node("lit06", "literature", 5, "security", "Lit06", "G-CIT-2 inside 06"),
@@ -384,28 +385,32 @@ def workflow_ir() -> dict:
         {"id": "e-covered", "from": "fine_id_check", "to": "dispatch", "label": "fine ids already covered", "role": "main"},
         {"id": "e-d02", "from": "dispatch", "to": "p02", "label": "entry 02", "role": "branch"},
         {"id": "e-d03", "from": "dispatch", "to": "p03", "label": "entry 03 independent literature", "role": "branch"},
-        {"id": "e-d04", "from": "dispatch", "to": "p04", "label": "entry 02 or mid-entry", "role": "branch"},
+        {"id": "e-d02_stats", "from": "dispatch", "to": "p02_stats", "label": "entry 02 stats or mid-entry", "role": "branch"},
         {"id": "e-d05", "from": "dispatch", "to": "p05", "label": "entry 05 or mid-entry", "role": "branch"},
         {"id": "e-d06", "from": "dispatch", "to": "p06", "label": "entry 06 or mid-entry", "role": "branch"},
+        {"id": "e-d07", "from": "dispatch", "to": "p07", "label": "entry 07 or mid-entry", "role": "branch"},
         {"id": "e-dsingle", "from": "dispatch", "to": "single", "label": "named single domain", "role": "branch"},
-        {"id": "e-02-04", "from": "p02", "to": "p04", "label": "02 exit PASS, not terminal", "role": "main"},
-        {"id": "e-04-05", "from": "p04", "to": "p05", "label": "Gate 02 PASS, not terminal", "role": "main"},
+        {"id": "e-02-stats", "from": "p02", "to": "p02_stats", "label": "02 exit PASS, not terminal", "role": "main"},
+        {"id": "e-stats-05", "from": "p02_stats", "to": "p05", "label": "Gate 02 PASS, not terminal", "role": "main"},
         {"id": "e-05-lit", "from": "p05", "to": "lit05", "label": "required before Gate 05", "role": "main"},
         {"id": "e-lit-06", "from": "lit05", "to": "p06", "label": "Gate 05 PASS, not terminal", "role": "main"},
         {"id": "e-06-lit", "from": "p06", "to": "lit06", "label": "required inside 06", "role": "main"},
         {"id": "e-lit-done", "from": "lit06", "to": "done", "label": "Gate 06 PASS at terminal", "role": "main"},
+        {"id": "e-06-07", "from": "p06", "to": "p07", "label": "optional response (06 to 07 conditional; not every review)", "role": "branch", "variant": "dashed"},
+        {"id": "e-07-done", "from": "p07", "to": "done", "label": "response complete", "role": "branch"},
         {"id": "e-03-05", "from": "p03", "to": "p05", "label": "evidence does not replace Lit05", "role": "branch", "variant": "dashed"},
         {"id": "e-03-06", "from": "p03", "to": "p06", "label": "evidence does not replace Lit06", "role": "branch", "variant": "dashed"},
         {"id": "e-02-done", "from": "p02", "to": "done", "label": "terminal PASS", "role": "branch"},
         {"id": "e-03-done", "from": "p03", "to": "done", "label": "terminal PASS", "role": "branch"},
-        {"id": "e-04-done", "from": "p04", "to": "done", "label": "terminal PASS", "role": "branch"},
+        {"id": "e-stats-done", "from": "p02_stats", "to": "done", "label": "terminal PASS", "role": "branch"},
         {"id": "e-lit05-done", "from": "lit05", "to": "done", "label": "Gate 05 terminal PASS", "role": "branch"},
         {"id": "e-single-done", "from": "single", "to": "done", "label": "target gate PASS", "role": "branch"},
         {"id": "e-fail-02", "from": "p02", "to": "locate", "label": "02 exit FAIL", "role": "error"},
         {"id": "e-fail-03", "from": "p03", "to": "locate", "label": "03 exit FAIL", "role": "error"},
-        {"id": "e-fail-04", "from": "p04", "to": "locate", "label": "Gate 02 FAIL", "role": "error"},
+        {"id": "e-fail-stats", "from": "p02_stats", "to": "locate", "label": "Gate 02 FAIL", "role": "error"},
         {"id": "e-fail-lit05", "from": "lit05", "to": "locate", "label": "Lit05 FAIL", "role": "error"},
         {"id": "e-fail-06", "from": "p06", "to": "locate", "label": "Gate 06 FAIL", "role": "error"},
+        {"id": "e-fail-07", "from": "p07", "to": "locate", "label": "Gate 07 FAIL", "role": "error"},
         {"id": "e-fail-lit06", "from": "lit06", "to": "locate", "label": "Lit06 FAIL", "role": "error"},
         {"id": "e-fail-single", "from": "single", "to": "locate", "label": "target gate FAIL", "role": "error"},
         {"id": "e-locate-rework", "from": "locate", "to": "rework", "label": "local rework or rollback", "role": "error"},
@@ -417,7 +422,7 @@ def workflow_ir() -> dict:
         "diagram_type": "workflow",
         "meta": {
             "title": "MY-SKILLS Workflow",
-            "subtitle": "Task, gates, fine ids, mid-entry, Lit05, Lit06, QC loop",
+            "subtitle": "Task, gates, fine ids, mid-entry, Lit05, Lit06, optional 07 Response, QC loop",
             "locale": "zh-CN",
             "output": "workflow/status.html",
         },
@@ -425,14 +430,14 @@ def workflow_ir() -> dict:
         "phases": [
             {"id": "intake", "label": "Detect", "fromCol": 0, "toCol": 0},
             {"id": "session", "label": "Fine id", "fromCol": 1, "toCol": 2},
-            {"id": "domains", "label": "02-06", "fromCol": 3, "toCol": 5},
+            {"id": "domains", "label": "02-07", "fromCol": 3, "toCol": 6},
         ],
         "groups": [
-            {"id": "forward", "label": "PASS forward", "lane": "produce", "fromCol": 2, "toCol": 5},
+            {"id": "forward", "label": "PASS forward", "lane": "produce", "fromCol": 2, "toCol": 6},
             {"id": "lit-gates", "label": "Lit05 Lit06", "lane": "literature", "fromCol": 4, "toCol": 5},
-            {"id": "qc-loop", "label": "QC loop", "lane": "qc", "fromCol": 3, "toCol": 5, "variant": "dashed"},
+            {"id": "qc-loop", "label": "QC loop", "lane": "qc", "fromCol": 3, "toCol": 6, "variant": "dashed"},
         ],
-        "mainPath": ["task", "detect", "fine_id_check", "dispatch", "p02", "p04", "p05", "lit05", "p06", "lit06", "done"],
+        "mainPath": ["task", "detect", "fine_id_check", "dispatch", "p02", "p02_stats", "p05", "lit05", "p06", "lit06", "done"],
         "semanticChecks": {
             "allowedRoots": ["task"],
             "allowedTerminals": ["done", "escalate"],
@@ -440,9 +445,11 @@ def workflow_ir() -> dict:
                 {"from": "p05", "to": "lit05"},
                 {"from": "p06", "to": "lit06"},
                 {"from": "dispatch", "to": "p03"},
-                {"from": "dispatch", "to": "p04"},
+                {"from": "dispatch", "to": "p02_stats"},
                 {"from": "dispatch", "to": "p05"},
                 {"from": "dispatch", "to": "p06"},
+                {"from": "dispatch", "to": "p07"},
+                {"from": "p06", "to": "p07"},
             ],
             "requiredPaths": [
                 {"from": "task", "to": "done"},
@@ -466,6 +473,39 @@ def _check_output(path: str) -> None:
         raise GateFailure("G-VIZ-02", f"meta.output is not a portable html path: {path}")
     if any(part in {".", ".."} for part in path.split("/")):
         raise GateFailure("G-VIZ-02", f"meta.output has a dot segment: {path}")
+
+
+
+def _enforce_must_show(wf: dict) -> None:
+    """Apply visualization-source-contract.yaml views.workflow.must_show to the IR."""
+    contract = read_yaml(CONTRACT)
+    must = ((contract.get("views") or {}).get("workflow") or {}).get("must_show") or []
+    if not must:
+        raise GateFailure("G-VIZ-02", "source contract workflow.must_show is empty")
+    label_blob = " | ".join(
+        f"{n.get('id', '')} {n.get('label', '')} {n.get('sublabel', '')}" for n in wf["nodes"]
+    )
+    edge_blob = " | ".join(str(e.get("label", "")) for e in wf["edges"])
+    blob = f"{label_blob} || {edge_blob}"
+    for item in must:
+        spec = str(item).strip()
+        if spec.startswith("layers 00 through 07"):
+            for layer, needle in (
+                ("00", "00 "),
+                ("02", "02 "),
+                ("03", "03 "),
+                ("05", "05 "),
+                ("06", "06 "),
+                ("07", "07 "),
+            ):
+                if needle not in label_blob:
+                    raise GateFailure(
+                        "G-VIZ-02",
+                        f"must_show missing layer {layer} node (need label containing {needle!r})",
+                    )
+            continue
+        if spec not in blob:
+            raise GateFailure("G-VIZ-02", f"must_show missing {spec!r} in workflow IR")
 
 
 def validate_ir(arch: dict, wf: dict) -> None:
@@ -517,7 +557,7 @@ def validate_ir(arch: dict, wf: dict) -> None:
         _check_id(node["id"], "node")
         if node["lane"] not in lanes:
             raise GateFailure("G-VIZ-02", f"node {node['id']} lane missing")
-        if not isinstance(node["col"], int) or not 0 <= node["col"] <= 5:
+        if not isinstance(node["col"], int) or not 0 <= node["col"] <= 6:
             raise GateFailure("G-VIZ-02", f"node {node['id']} col out of range")
         if node["type"] not in COMPONENT_TYPES or not node.get("label"):
             raise GateFailure("G-VIZ-02", f"bad node {node['id']}")
@@ -541,7 +581,7 @@ def validate_ir(arch: dict, wf: dict) -> None:
         if (left, right) not in edge_pairs:
             raise GateFailure("G-VIZ-02", f"mainPath has no edge {left} -> {right}")
     for phase in wf["phases"] + wf["groups"]:
-        if not 0 <= phase["fromCol"] <= phase["toCol"] <= 5:
+        if not 0 <= phase["fromCol"] <= phase["toCol"] <= 6:
             raise GateFailure("G-VIZ-02", f"bad column span {phase['id']}")
     for group in wf["groups"]:
         if group["lane"] not in lanes:
@@ -550,11 +590,37 @@ def validate_ir(arch: dict, wf: dict) -> None:
     for key in ("allowedRoots", "allowedTerminals"):
         if any(item not in node_ids for item in checks[key]):
             raise GateFailure("G-VIZ-02", f"semanticChecks.{key} references an unknown node")
-    for rel in checks["requiredEdges"] + checks["requiredPaths"]:
+    for rel in checks["requiredEdges"]:
         if rel["from"] not in node_ids or rel["to"] not in node_ids:
             raise GateFailure("G-VIZ-02", "semanticChecks relation references an unknown node")
-        if (rel["from"], rel["to"]) not in edge_pairs and rel in checks["requiredEdges"]:
+        if (rel["from"], rel["to"]) not in edge_pairs:
             raise GateFailure("G-VIZ-02", f"required edge missing {rel['from']} -> {rel['to']}")
+    adj: dict[str, list[str]] = {nid: [] for nid in node_ids}
+    for edge in wf["edges"]:
+        adj[edge["from"]].append(edge["to"])
+
+    def _reachable(src: str, dst: str) -> bool:
+        seen = {src}
+        stack = [src]
+        while stack:
+            cur = stack.pop()
+            if cur == dst:
+                return True
+            for nxt in adj.get(cur, []):
+                if nxt not in seen:
+                    seen.add(nxt)
+                    stack.append(nxt)
+        return False
+
+    for rel in checks["requiredPaths"]:
+        if rel["from"] not in node_ids or rel["to"] not in node_ids:
+            raise GateFailure("G-VIZ-02", "semanticChecks relation references an unknown node")
+        if not _reachable(rel["from"], rel["to"]):
+            raise GateFailure(
+                "G-VIZ-02",
+                f"required path not reachable {rel['from']} -> {rel['to']}",
+            )
+    _enforce_must_show(wf)
     json.loads(dump_json(arch))
     json.loads(dump_json(wf))
 
@@ -892,7 +958,7 @@ def build() -> dict:
         "<p>This page is generated from in-repo IR with no external renderer. Fields below come from the same IR."
         " IR file: <a href=\"runtime.workflow.json\"><code>runtime.workflow.json</code></a>."
         f" schema_version {wf['schema_version']}. Fields: lanes / phases / groups / mainPath / nodes / edges."
-        " 03, Lit05, Lit06, and mid-entry appear on nodes and edges.</p>"
+        " 03, 07 Response, Lit05, Lit06, and mid-entry appear on nodes and edges.</p>"
     )
     home_body = (
         "<div class=\"grid\">"
@@ -950,7 +1016,7 @@ def build() -> dict:
         ),
         "workflow/status.html": render_status(
             "Workflow IR status",
-            "Structural mapping of runtime-flow.mmd, including mid-entry, Lit05, and Lit06.",
+            "Structural mapping of runtime-flow.mmd, including mid-entry, Lit05, Lit06, and optional 07 Response.",
             node_rows,
             wf_extra,
             version,

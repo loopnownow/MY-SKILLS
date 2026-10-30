@@ -75,7 +75,7 @@ SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".py", ".mmd", ".json", ".ini", ".me
 PATTERNS = (
     ("folder", re.compile(r"04_analysis")),
     ("gate", re.compile(r"G-04(?![0-9])")),
-    ("node", re.compile(r"Need04|\bP04\b|GF04|GA04")),
+    ("node", re.compile(r"Need04|\bP04\b|\bp04\b|GF04|GA04")),
 )
 DUP_FORM = re.compile(r"02\s*[/+→]\s*02|02\s+02")
 def tracked_files() -> list[str]:

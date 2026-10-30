@@ -5,7 +5,7 @@ description: >
  then valid statistics, prediction, survival, diagnostic accuracy, and publication figures.
  Triggers: Excel/CSV clean, DICOM/NIfTI, radiomics prep, extraction, coding, leakage checks,
  stats, AUC, DeLong, DCA, KM, calc-sample-size, plot-figures, draw-flowchart.
- Capability bodies for 02 fine ids live in 02_data-processing/base/ (pilot).
+ Capability bodies for 02 fine ids live in 02_data-processing/base/.
  Literature -> 03. Writing -> 05. Review -> 06. Response -> 07.
 ---
 
@@ -20,7 +20,7 @@ Convert raw clinical, imaging, picture, and fMRI data into **analysis-ready** da
 then transform analysis-ready data into valid statistical results, predictive-model results, and publication-ready figures.
 
 **02 is the advanced top layer** (like 03/05/06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
-Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02_data-processing/base/`** (pilot 2026-10-17; analysis packs merged 2026-10-25). Fine IDs are not renamed.
+Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02_data-processing/base/`** (analysis packs merged 2026-10-25). Fine IDs are not renamed.
 
 Live lab modules **v4.3.1** are the lab default (`{code_modules}`; version SSOT is `modules/__init__.py`). Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
 
@@ -32,7 +32,7 @@ The advanced layer carries the recipe (coding/extract/workspace protocols, analy
 
 | Layer | Owns |
 |---|---|
-| `base/` (pilot) | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
+| `base/` | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
 | 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
 | `advanced/` | The recipe and the authority: route/handoff, workspace/extract/coding/table-signals, analysis pipeline/console-ui/methods/figures, and the per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
 
