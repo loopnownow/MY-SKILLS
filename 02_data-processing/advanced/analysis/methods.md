@@ -291,8 +291,8 @@ brier = np.mean((y_prob - y_true)**2)
 Pre-specify (clinical target sensitivity), or derive on training. **Never** pick the
 threshold that maximises test-set accuracy.
 
-Lab pipeline implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_threshold`
-(features never re-selected). Youden is **per split** unless locked. Definitions:
+Lab pipeline implements this as `VAL_MODE` = `lock_threshold` (default) | `apply_formula` | `refit` (opt-in model update; not independent validation)
+(features never re-selected). Default `lock_threshold` is for independent test/external performance; do not report `refit` metrics as independent validation. Illegal modes raise ValueError. Youden is **per split** unless locked. Definitions:
 `02_data-processing/advanced/analysis/pipeline.md`.
 
 ### Reporting sentence
