@@ -11,7 +11,7 @@ tables + underlying data as one object that must agree.
 | Palette | One system, semantic roles (`color-systems.md`); identical hex per role across all panels |
 | Font | One sans-serif (Arial / Liberation Sans); **one size ladder** reused everywhere |
 | Font sizes | At final print size, nothing below ~7 pt; titles/labels/ticks/legend in fixed steps. Small text reads as "unfinished" — size up until legible at column width |
-| Axes | Same spine weight (e.g. 0.8–1.0 pt print; thicker for on-screen teaching decks); top/right spines off; ticks outward |
+| Axes | Same spine weight (e.g. 0.8-1.0 pt print; thicker for on-screen teaching decks); top/right spines off; ticks outward |
 | Panel letters | Same size/weight/position (e.g. bold, top-left) in every figure |
 | CI bands / line weights | Same alpha and lw conventions across panels |
 | Whitespace | Don't crowd: consistent inter-panel `wspace/hspace`; if elements collide (title vs legend), move them apart rather than shrink |
@@ -19,7 +19,7 @@ tables + underlying data as one object that must agree.
 A practical workflow: keep a tiny shared style module (`rcParams` + `C` palette dict + helper
 fns) and `import` it in every figure script, so a single edit re-themes the whole paper.
 
-> On-screen teaching decks vs print: a print figure uses ~7–9 pt; a slide/teaching figure can use
+> On-screen teaching decks vs print: a print figure uses ~7-9 pt; a slide/teaching figure can use
 > a larger ladder (and thicker axes). Pick one ladder per deliverable and keep it uniform.
 
 ## Number cross-validation (do this before every export)

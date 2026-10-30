@@ -1,7 +1,7 @@
 # Structured abstract + Summary statement + Key Results
 
 ## Structured abstract (headings)
-- **Background** — 1–2 sentences: the clinical/scientific gap (not a textbook intro).
+- **Background** — 1-2 sentences: the clinical/scientific gap (not a textbook intro).
 - **Purpose** — the specific objective ("To evaluate whether …").
 - **Materials and Methods** — design (retro/prospective), dates, setting; participants (n,
   inclusion); reference standard; key technique; **primary analysis**; ethics/registration.

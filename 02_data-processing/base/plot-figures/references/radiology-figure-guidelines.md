@@ -13,7 +13,7 @@
 - **Vector** for charts/diagrams: `.svg`/`.pdf`/`.eps` (editable; text as text). This skill
   produces `.svg` as primary.
 - **Raster** for images/photographs: **TIFF/PNG**, **≥ 300 dpi** (line art / combination art
-  often **600–1200 dpi**). Export a raster companion of every chart too.
+  often **600-1200 dpi**). Export a raster companion of every chart too.
 - Do not upscale a low-res raster; do not save charts only as low-dpi PNG.
 
 ## Size & layout
@@ -43,7 +43,7 @@
 ## Statistical graphics honesty
 - Show **uncertainty** (CI bands, error bars — define whether SD/SE/CI) and **n**.
 - Don't truncate axes to exaggerate; if truncated for clarity, make it obvious.
-- ROC: plot to (0,0)–(1,1), square aspect, diagonal reference; annotate AUC + CI.
+- ROC: plot to (0,0)-(1,1), square aspect, diagonal reference; annotate AUC + CI.
 - Kaplan-Meier: include a **numbers-at-risk** table beneath the x-axis; mark censoring.
 
 ## Legends/captions

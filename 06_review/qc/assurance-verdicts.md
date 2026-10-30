@@ -67,7 +67,7 @@ One-liner: **a loop may DRIVE; it must not ACQUIT.**
 
 ## Soft wiring (no new G-* ids)
 
-- **G-FACT** / **Integrity · pre-06**: when numbers cited, compose layers 1–3 per `assurance-audit-chain.md`.
+- **G-FACT** / **Integrity · pre-06**: when numbers cited, compose layers 1-3 per `assurance-audit-chain.md`.
 - **G-LIT** / **G-CIT**: compose layer 4 (`citation-audit-gate.md` + `refs-verified.md`).
 - **G-06** / Lee pre-review: layer 5 (`kill-argument-preflight.md`) before external / Bai when assurance ≥ conference-ready.
 

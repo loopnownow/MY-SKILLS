@@ -8,7 +8,7 @@ Do **not** treat JIF / quartile / JCI alone as “how easy to get in.” JIF and
 JEI = f(JDI, Capacity, Reviewability)
 ```
 
-JEI is **not** merely `100 − JIF`. **MJF** = **MFI** (Manuscript–Journal Fit).
+JEI is **not** merely `100 − JIF`. **MJF** = **MFI** (Manuscript-Journal Fit).
 
 ## Weight policy (ChatGPT + Gemini)
 
@@ -20,7 +20,7 @@ Primary composite (three-index form — default):
 JESI = 0.50 × (100 − JDI) + 0.20 × JCI-C + 0.30 × MJF
 ```
 
-(`MJF` interchangeable with `MFI`.) All component scores on a 0–100 scale unless noted. When rates are missing, Phase-1 still approximates from available metrics and **marks** incompleteness in-cell (no separate 置信度 column). Attach Evidence/Confidence (`value | source | date | confidence`) to inputs when available.
+(`MJF` interchangeable with `MFI`.) All component scores on a 0-100 scale unless noted. When rates are missing, Phase-1 still approximates from available metrics and **marks** incompleteness in-cell (no separate 置信度 column). Attach Evidence/Confidence (`value | source | date | confidence`) to inputs when available.
 
 ## Three indices
 
@@ -46,9 +46,9 @@ P = 100 × log(1+N) / log(1+Nmax)   # normalize within the comparison pool
 
 **Warning:** annual publications ≠ accepts. A mega-journal with huge N can still be hard if submissions dwarf accepts. Prefer acceptance / review rates over raw volume. Volume values are **query-only** — never durable skill/DB data.
 
-### MJF (= MFI) — Manuscript–Journal Fit
+### MJF (= MFI) — Manuscript-Journal Fit
 
-“Does *this* manuscript belong here?” Scope similarity; similar papers in ~3 years (topic / disease / modality / design / methods / endpoints); article-type fit; clinical vs basic; audience. Output 0–100. Match outweighs ease when ranking inside a layer (see `SKILL.md`).
+“Does *this* manuscript belong here?” Scope similarity; similar papers in ~3 years (topic / disease / modality / design / methods / endpoints); article-type fit; clinical vs basic; audience. Output 0-100. Match outweighs ease when ranking inside a layer (see `SKILL.md`).
 
 Rough relation:
 
@@ -65,7 +65,7 @@ Alternate transparent form used to build or explain JDI / capacity / citation bu
 JESI_components = 35A + 20R + 20P + 15Q + 10C   # default sum 100 when all present
 ```
 
-| Symbol | Meaning | Scoring (0–100) |
+| Symbol | Meaning | Scoring (0-100) |
 |---|---|---|
 | A | Acceptance | `A = min(100, Acceptance_Rate / 0.30 × 100)` (e.g. 5%→16.7, 10%→33.3, 15%→50, 20%→66.7, 30%→100) |
 | R | Review (survives desk) | `R = Review_Rate × 100` |
@@ -77,7 +77,7 @@ Priority when gathering inputs:
 
 **Acceptance rate > Desk reject / Review rate > annual volume > quartile / JIF / JCI**
 
-Rough acceptance bands (context only; cohort bias possible): ~5% very hard; ~10% hard; ~15–20% mid; ~20–30% relatively easier; ≥30% comparatively easy. Prefer 3-year averages when available.
+Rough acceptance bands (context only; cohort bias possible): ~5% very hard; ~10% hard; ~15-20% mid; ~20-30% relatively easier; ≥30% comparatively easy. Prefer 3-year averages when available.
 
 ## Phase-1 approximation (rates often missing)
 
@@ -108,7 +108,7 @@ Journal Difficulty + Capacity + Manuscript Fit + Advanced Prior → Predicted P(
 Submission Utility ≈ JEI + MJF + PAI + Practicality + Strategic Value − Risk
 ```
 
-First phase stays on transparent JESI 1.0; do not jump to ML until dozens–hundreds of journal-level datapoints exist.
+First phase stays on transparent JESI 1.0; do not jump to ML until dozens-hundreds of journal-level datapoints exist.
 
 ## Explicitly deleted from external tools
 

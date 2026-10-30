@@ -86,7 +86,7 @@ python "{code_model_validation}\mi_impute.py" draw --input data.xlsx --group Gro
 python "{code_model_validation}\mi_impute.py" pool --table estimates.csv --n-complete 150
 ```
 
-`pool` applies Rubin's rules with Barnard–Rubin degrees of freedom and reports FMI; FMI above
+`pool` applies Rubin's rules with Barnard-Rubin degrees of freedom and reports FMI; FMI above
 about 0.5 means the result still leans on the imputation model and should be stated as such.
 `m = 20` is the usual floor; more is needed when FMI is high.
 
@@ -190,7 +190,7 @@ variance would also have to carry the selection step, so a "pooled AUC" from Rub
 valid standard error. Options, in order of preference:
 
 1. Run the **whole** pipeline (selection + fit + evaluate) inside each imputed dataset, then report
-   the mean metric with its **range or 2.5th–97.5th percentile across imputations**, and say that
+   the mean metric with its **range or 2.5th-97.5th percentile across imputations**, and say that
    is what you did. This is the Marshall et al. (2009) recommendation for prognostic modelling.
 2. Report the metric from each imputation in a supplementary table and do not attach a CI.
 3. Do not run MI for the model metric at all; keep MI for the coefficients you report alongside it.

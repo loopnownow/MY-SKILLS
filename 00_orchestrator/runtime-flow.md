@@ -4,7 +4,7 @@
 
 Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** on that diagram — do not maintain a second master map. When updating entry / QC / rollback rules, revise only the `.mmd`.
 
-00 = control layer (entry, dispatch, Gate, rollback). Domain work lives in 02–07; the routing index lives in **00**; skill-evolution policy is in `references/skill-evolution.md` — observe and propose only; do not execute flows there.
+00 = control layer (entry, dispatch, Gate, rollback). Domain work lives in 02-07; the routing index lives in **00**; skill-evolution policy is in `references/skill-evolution.md` — observe and propose only; do not execute flows there.
 
 
 
@@ -16,7 +16,7 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 |---|---|---|
 | **base** | MY-SKILLS `NN_slug/base/` | Capability bodies / fine-ID loops |
 | **00** | MY-SKILLS `00_orchestrator` | QC gate between base first-pass and advanced/top re-loop |
-| **advanced / top** | MY-SKILLS | Advanced top-layer route/handoff/authority (03-07). Capability bodies for 02–07 live under `NN_slug/base/` |
+| **advanced / top** | MY-SKILLS | Advanced top-layer route/handoff/authority (03-07). Capability bodies for 02-07 live under `NN_slug/base/` |
 
 Post-QC A re-loops (as needed):
 

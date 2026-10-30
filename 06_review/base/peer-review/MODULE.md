@@ -40,7 +40,7 @@ The user is a reviewer of **another** group's paper and needs a submittable Engl
 ## Letter shape
 
 ```text
-[Opening 2–4 sentences: design + clinical question + value + methodological catch]
+[Opening 2-4 sentences: design + clinical question + value + methodological catch]
 
 Major Comments
 Abstract / Introduction / Methods / Results / Discussion / Limitations

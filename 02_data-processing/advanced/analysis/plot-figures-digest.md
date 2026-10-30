@@ -3,7 +3,7 @@
 Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` (figures lane). Cap stays `base/plot-figures`. No new fine-id.
 
 ## elements
-- **In-figure text default = Arial** (axes, ticks, panel A–F labels, legends inside the image). Body/manuscript shell stays Times New Roman (dual track; see `Aitor-format.md`).
+- **In-figure text default = Arial** (axes, ticks, panel A-F labels, legends inside the image). Body/manuscript shell stays Times New Roman (dual track; see `Aitor-format.md`).
 - Lab palettes + claim planning remain in `figures.md`; chart recipes in `base/plot-figures/references/`.
 
 ## process

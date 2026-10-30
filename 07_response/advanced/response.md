@@ -57,7 +57,7 @@ Thank you for the chance to revise our manuscript and for the insightful comment
 Thank you for your comments. Our responses follow.
 ```
 
-**Default to A.** Measured across 42 responses: A ≈ 21; B (chance to revise / insightful comments) ≈ 0–2, almost unused; C ≈ 1. Do **not** switch to B just because of Major Revision / multiple rounds / R2 — multi-round revise still stays on A unless the user asks.
+**Default to A.** Measured across 42 responses: A ≈ 21; B (chance to revise / insightful comments) ≈ 0-2, almost unused; C ≈ 1. Do **not** switch to B just because of Major Revision / multiple rounds / R2 — multi-round revise still stays on A unless the user asks.
 
 ### 2. Per-point thank-you openers — by comment type
 

@@ -17,7 +17,7 @@
 
 **Owner (checklist body):** `05_manuscript`. Use as a self-check after drafting and as an independent score before submission. A drafter's own score is provisional; **final Gate / scoring authority = `00_orchestrator`** (seats do not self-certify).
 
-Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the deductions below, floor at 0, then apply the caps. Write the deduction codes next to each score.
+Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the deductions below, floor at 0, then apply the caps. Write the deduction codes next to each score.
 
 | # | Dimension | Question |
 |---|---|---|
@@ -34,11 +34,11 @@ Seven dimensions, 0–10 each, total 70. Start every dimension at 10, apply the 
 | Code | Dim | Trigger | Deduct | Fix at writing time |
 |---|---|---|---|---|
 | LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | Fix the frame first: element 2 states the construct, element 6 names the endpoint, one clause states the relation; algorithm details stay in Methods |
-| LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | Claim–source fit outranks numbering; renumber by script; no reporting standards in the Introduction |
+| LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | Claim-source fit outranks numbering; renumber by script; no reporting standards in the Introduction |
 | LOG-3 | 1 | A paragraph reports studies one after another with no group appraisal | 1.5 | One or two sentences: the strength this study keeps, the weakness it targets |
 | FLU-1 | 2 | Three or more sentences in a paragraph open with the same words or the same frame | 2 | Change the subject and the structure; put the number inside a comparison |
 | FLU-2 | 2 | A run of three sentences that each carry a number and a citation | 1 | Merge into one comparative sentence, or drop the weakest |
-| FLU-3 | 2 | More than 10% of sentences outside 10–30 words | 1 per 10%, max 3 | Split or merge |
+| FLU-3 | 2 | More than 10% of sentences outside 10-30 words | 1 per 10%, max 3 | Split or merge |
 | FLU-4 | 2 | IMRAD body laid out as one sentence per line or one sentence per paragraph | 2 | Keep short sentences inside a continuous paragraph (`voice-portrait.md` paragraph lock) |
 | CIT-1 | 3 | A literature claim with no citation in its sentence or its same-source group | 1 per 2 claims | Cite, weaken, or delete (`05_manuscript/advanced/process/evidence.md`) |
 | CIT-2 | 3 | More than 15 references without a recorded ranking, or an incomplete entry (volume, pages, DOI) | 1 | Budget before drafting; complete the entry |

@@ -62,7 +62,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 3. Start the script with the rcParams preamble (`api.md`).
 4. Build panels; add CI, n, units; label via helpers — never hardcode `chr(65+i)` per script.
 5. Imaging panels: de-identify, windowing, scale bar.
-6. Export `.svg` (text-as-text) **and** a 300–600 dpi raster.
+6. Export `.svg` (text-as-text) **and** a 300-600 dpi raster.
 7. QA at final print width.
 
 ## Output contract

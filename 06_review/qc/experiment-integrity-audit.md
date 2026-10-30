@@ -34,7 +34,7 @@ Is the evaluation honest? No fake GT, no phantom metrics, no self-normalized sco
 
 ## Pass / fail
 
-- **PASS:** EI-A–C green; E–G clean or disclosed; D dead-code absent or WARN only.
+- **PASS:** EI-A-C green; E-G clean or disclosed; D dead-code absent or WARN only.
 - **WARN:** Scope language soft; dead code; proxy labeled but claim ceiling unclear.
 - **FAIL:** Fake GT, self-norm fraud, phantom results, or undeclared proxy sold as real performance.
 - **BLOCKED:** Claims present; no primary result artifacts to audit.

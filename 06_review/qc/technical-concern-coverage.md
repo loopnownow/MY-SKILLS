@@ -31,7 +31,7 @@ For every axis record: `APPLICABLE` | `NOT_APPLICABLE` | `NOT_ASSESSABLE`. Absen
 | TC-3 | Emitted concerns carry axis + severity (major/minor) + evidence pointer | 06 |
 | TC-4 | No invented concerns to fill quotas; empty tier allowed | 06 |
 
-**PASS:** TC-1–4 clean.
+**PASS:** TC-1-4 clean.
 **FAIL:** silent skip of clearly applicable axes (esp. statistical-rigor / claim-moderation / causal-vs-correlative on prediction papers) → re-run 06 coverage pass.
 
 *Attribution: distilled from Yuan1z0825/nature-skills `nature-reviewer` (Apache-2.0).*

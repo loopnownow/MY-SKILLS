@@ -64,5 +64,5 @@ Full-text search should ideally hit 0:
 - [ ] Interventional studies: team list includes a physician
 - [ ] Scientific-review approval letter: required for hospital-level initiation / investigator-initiated optional (interventional); optional observational may waive
 - [ ] Participating sites: protocol uses lead-site version + this site signature page
-- [ ] When new technology / industry sponsor / drug-device / EDC or outsourced stats apply, items 8–14 are complete
+- [ ] When new technology / industry sponsor / drug-device / EDC or outsourced stats apply, items 8-14 are complete
 - [ ] Email subject =「申请类型＋申请人姓名」

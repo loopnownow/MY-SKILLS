@@ -8,7 +8,7 @@
 | `mean` | ~0.2 s | Within-group mean | Near-symmetric continuous variables |
 | `iterative` | ~seconds | IterativeImputer + BayesianRidge | **Default**; joint modeling of continuous features |
 | `mice` | = `iterative` | Legacy alias — **single** chained imputation, not MICE / Rubin pooling | Name only if the Methods section really says MICE |
-| `missForest` | tens of seconds–minutes | IterativeImputer + RandomForest | Strong nonlinearity/interactions; when the paper method name requires it |
+| `missForest` | tens of seconds-minutes | IterativeImputer + RandomForest | Strong nonlinearity/interactions; when the paper method name requires it |
 
 ## missForest speed knobs
 

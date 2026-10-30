@@ -35,7 +35,7 @@
 1. Keep **原文** columns beside **规范** columns; normalize synonyms only — no invented facts.
 2. Missing in source → `未标注`. Do not invent vendor country of origin; do not deanonymize centers.
 3. `生产地(原文)` is often HQ address ≠ manufacturing site.
-4. Numeric cells may hold ranges/multi-values (`4000 或 8000`, `150–320`) — preserve; split before any calc.
+4. Numeric cells may hold ranges/multi-values (`4000 或 8000`, `150-320`) — preserve; split before any calc.
 5. `核对状态` = four enums only; conflict detail → `备注`.
 6. Every row must trace via `来源文件` + `来源位置`; `04_sources` holds full names.
 7. Ultrasound = diagnostic/guidance only; exclude NMR spectrometer, LC-MS, DSA, PET. MRS sequences attach to MRI devices.

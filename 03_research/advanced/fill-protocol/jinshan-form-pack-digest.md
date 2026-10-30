@@ -1,7 +1,7 @@
 # jinshan-form-pack-digest
 
 **Absorbed:** 2026-10-23 from `_library/study-design/fill-protocol/jinshan-form-pack.md`.
-**Dedupe:** default-pack self-check → `checklist.md`; registration fixed columns + 10 blanks + pair table → `form-boilerplate.md`. This digest keeps **per-form field tips**, **official submit extras (0–14)**, and **common-error traps** only.
+**Dedupe:** default-pack self-check → `checklist.md`; registration fixed columns + 10 blanks + pair table → `form-boilerplate.md`. This digest keeps **per-form field tips**, **official submit extras (0-14)**, and **common-error traps** only.
 
 ## Live pointers (after move)
 
@@ -20,7 +20,7 @@
 Work-folder 「填写说明」8-file delivery map (observational path; swap intervention pair if needed):
 
 1. 登记表 `.xls`  2. 初审申请表  3. **立项申请表** (not in zip; required in default pack; master from work-folder blank; clear old project before fill)
-4–5. Protocol + ICF **matching pair**  6. CV  7. Declaration  8. Roster
+4-5. Protocol + ICF **matching pair**  6. CV  7. Declaration  8. Roster
 
 Hard rule: change text only — do not alter table structure/layout; dedupe `(1)` same-name files by basename — never treat as a second master.
 
@@ -32,12 +32,12 @@ Hard rule: change text only — do not alter table structure/layout; dedupe `(1)
 |---|---|---|
 | 0 | 登记表 | email only — value in the local ethics contact library (outside the repo); never print |
 | 1 | 初审申请表 | PI hand-sign; date = submit day |
-| 2–3 | Protocol / ICF or 免知情 | version+date; multi-site = lead-site protocol + local sign page |
-| 4–6 | CV / declaration / roster | interventional must include a physician; multicenter attach site + PI |
+| 2-3 | Protocol / ICF or 免知情 | version+date; multi-site = lead-site protocol + local sign page |
+| 4-6 | CV / declaration / roster | interventional must include a physician; multicenter attach site + PI |
 | 7 | 科学性审查批件 | required for hospital-level initiation / investigator-initiated optional **intervention**; optional observational may waive |
 | 8 | 新技术可行性与安全性 | if applicable |
 | 9 | 组长单位批件 | if this hospital is a participating site |
-| 10–14 | Sponsor quals, CRF/EDC export, insurance, drug/device registration | if applicable |
+| 10-14 | Sponsor quals, CRF/EDC export, insurance, drug/device registration | if applicable |
 
 Email subject: `申请类型＋申请人姓名`. Paper: two copies, double-sided separately bound → Science Building 313 (after form check passes).
 

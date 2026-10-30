@@ -79,7 +79,7 @@ Do not treat these as a fixed recommendation list. Re-filter by topic, recent pu
 When the user asks to “select journals from existing papers and publication patterns”:
 
 1. Build a query from keywords: disease + modality + task + method + endpoint.
-2. Search similar papers in target journals over the last 3–5 years; prefer same disease/modality/task.
+2. Search similar papers in target journals over the last 3-5 years; prefer same disease/modality/task.
 3. Extract per paper: journal, year, disease, modality, n, validation, main method, main conclusion.
 4. Compare strengths and gaps vs the user's manuscript.
 5. Bucket journals as `high match`, `worth trying`, `do not prioritize`.
@@ -100,7 +100,7 @@ Recent publication contrast
 | Journal | Recent similar-paper traits | Vs this manuscript |
 
 Evidence-pattern gap
-- Vs 2023–2026 high-tier journal patterns:
+- Vs 2023-2026 high-tier journal patterns:
 - Representative PMID seeds:
 
 Pre-submit revision advice
@@ -156,7 +156,7 @@ This file only owns the trade-off “evidence strength vs journal preference.”
 
 ## Journal pattern table
 
-| Journal-family signal table (2023–2026 seeds) | See `05_manuscript/base/write-paper/references/journal-patterns-2023-2026.md` (SSOT; not copied here) |
+| Journal-family signal table (2023-2026 seeds) | See `05_manuscript/base/write-paper/references/journal-patterns-2023-2026.md` (SSOT; not copied here) |
 
 Representative PMID seeds used for this pattern map include 37690911, 38876123,
 39775040, 41876649, 37268451, 38519154, 39070173, 37557177, 39244594, 39112796,

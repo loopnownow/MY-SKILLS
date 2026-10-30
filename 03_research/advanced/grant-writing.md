@@ -60,7 +60,7 @@ If the user only has a rough idea, fill the research logic first; if they gave c
 | Justification | Clinical need, domestic/international status, key gap, this project's entry | Literature dump; weak problem condensation |
 | Scientific question | Core mechanism / law / generalization / interpretability / translation question | Written as an engineering task or “build a model” |
 | Aims | What question is answered when the project finishes | Aims too large or unverifiable |
-| Content | 2–4 progressive work packages; each has input, method, output | Parallel pile-up; no progression |
+| Content | 2-4 progressive work packages; each has input, method, output | Parallel pile-up; no progression |
 | Technical route | Data, model, validation, explanation, statistics, risk control | Flowchart only; no critical nodes |
 | Innovation | Problem / data / method / validation / mechanism novelty | “First / fills a gap” without evidence |
 | Feasibility | Prior data, team, tech base, platform, ethics, collaboration | “We have conditions” without evidence |
@@ -77,7 +77,7 @@ Do not mix paragraph duties:
 | Justification | Argue the gap: problem → status → this entry. Highest review weight | Literature dump |
 | Research content | Actual work packages | Synonym restatement of aims |
 | Aims | What will be proven / delivered | Another task list |
-| Key scientific questions | 1–3 falsifiable sentences | Title restated |
+| Key scientific questions | 1-3 falsifiable sentences | Title restated |
 | Plan and technical route | Methods detailed enough to judge feasibility; usually with a route figure | Empty flowchart |
 | Feasibility analysis | Forward: can this team, these pilots, these methods finish now | A copy of “research basis” |
 | Features and innovation | What is new vs cited work | “First / fills a gap” without contrast |
@@ -203,7 +203,7 @@ We plan to establish [animal] and [cell] models; [analyte] would be quantified b
 Through systematic research, we hope to clarify the mechanism of [A] in regulating [B] in [phenotype].
 ```
 
-关键词中英各 4–5 个，顺序：疾病、机制词、方法、表型。不要把医院名和基金类型写进关键词。
+关键词中英各 4-5 个，顺序：疾病、机制词、方法、表型。不要把医院名和基金类型写进关键词。
 
 ### Hypothesis (ZH templates)
 

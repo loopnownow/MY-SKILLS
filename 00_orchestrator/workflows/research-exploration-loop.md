@@ -51,7 +51,7 @@ Structural fields 00 may compute itself:
 
 **Resume point** = first stage with `status != complete`, or `trace_ok == false`, or `classification_confidence` below threshold (default **0.6**, calibrate later).
 
-Optional sketch (illustrative / **non-normative** — stage names align with 03 `question-to-reference` **R1–R5**; `lit-search` is a tool under **R2 only**, not its own stage):
+Optional sketch (illustrative / **non-normative** — stage names align with 03 `question-to-reference` **R1-R5**; `lit-search` is a tool under **R2 only**, not its own stage):
 
 ```yaml
 project_state:   # existing file; exploration uses exploration_state below
@@ -64,7 +64,7 @@ exploration_state:
     R3_design: { status: complete, trace_ok: true }
     R4_data_need: { status: partial, classification_confidence: 0.42 }
     R5_research_brief: { status: not_started }
-    # Downstream of 03 spine (not R1–R5 content stages):
+    # Downstream of 03 spine (not R1-R5 content stages):
     writing: { status: not_started }
     review: { status: not_started }
 ```
@@ -104,7 +104,7 @@ Unlock re-call of upstream skills only on:
 
 ## 4. Dispatch existing skills (no new pipeline nodes)
 
-When the missing work is **research content** (question / evidence / design / data need / planning brief), dispatch **03** on [`question-to-reference.md`](question-to-reference.md) at the right **R1–R5** stage. 00 still chooses entry and STOP; 03 fills the cards.
+When the missing work is **research content** (question / evidence / design / data need / planning brief), dispatch **03** on [`question-to-reference.md`](question-to-reference.md) at the right **R1-R5** stage. 00 still chooses entry and STOP; 03 fills the cards.
 
 
 | Gap type | Layer | Live fine ids / paths (examples) | Question answered |
@@ -149,7 +149,7 @@ exploration_state:
 
 - `resolved` — return to the calling Main Pipeline node (03→02→05→06 as appropriate).
 - `stalled` — L2 cap or oscillation; partial report; human.
-- `handoff` — missing work outside this loop → normal coarse routing (02–07).
+- `handoff` — missing work outside this loop → normal coarse routing (02-07).
 
 ## 8. Interfaces
 

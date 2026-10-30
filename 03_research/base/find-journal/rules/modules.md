@@ -9,7 +9,7 @@ These are **modules inside** `find-journal`, not separate top-level skills yet. 
 | **JDI** | Journal Difficulty Index | Objective journal hardness |
 | **JEI** | Journal Ease Index | Same family as **JESI**; `JEI = f(JDI, Capacity, Reviewability)` — not merely `100 − JIF` |
 | **JESI** | Journal Ease-of-Submission Index | Composite used in Phase-1 tables; see `jesi-model.md` |
-| **MJF** | Manuscript–Journal Fit | **= MFI** (Manuscript Fit Index); prefer MJF in new prose, accept MFI |
+| **MJF** | Manuscript-Journal Fit | **= MFI** (Manuscript Fit Index); prefer MJF in new prose, accept MFI |
 | **PAI** | Advanced Acceptance Index / Prior | From `submission-prior.jsonl` |
 | **JCI-C** | Journal Capacity Index | Capacity slots; **not** Clarivate JCI |
 
@@ -42,7 +42,7 @@ Each pulled value should carry Evidence/Confidence: `value | source | retrieval_
 
 ## 2. manuscript-fit-analyzer
 
-Extract abstract/manuscript keywords, design, disease, modality/tech (e.g. radiomics, 4D Flow MRI). Search target-journal ~3y papers (OpenAlex / Europe PMC), compute similarity and method coverage → **MJF (=MFI)** 0–100.
+Extract abstract/manuscript keywords, design, disease, modality/tech (e.g. radiomics, 4D Flow MRI). Search target-journal ~3y papers (OpenAlex / Europe PMC), compute similarity and method coverage → **MJF (=MFI)** 0-100.
 
 Prioritize: Scope Fit, Methodological Fit, Recent-Paper Similarity (over IF). Also consider Article Type, Population/Disease, Audience, Impact/Tier Fit, Practicality Fit, and Risk.
 

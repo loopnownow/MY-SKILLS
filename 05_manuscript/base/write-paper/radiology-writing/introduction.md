@@ -15,7 +15,7 @@ Aligned with `05_manuscript` Introduction v3 (six elements, claim coverage, Fron
 
 ## Writing rules
 
-- Sentences of 10–30 words, one main proposition each.
+- Sentences of 10-30 words, one main proposition each.
 - Synthesize; do not list. No run of sentences that each report one study. At most one triplet per paragraph. No repeated sentence openers.
 - Scarcity is worded as what a logged search found ("in the studies we identified"), not as what exists.
 - Inference about why a method may help is allowed. Hedge it, and keep the gap → method → expected benefit → measured output map in a comment.

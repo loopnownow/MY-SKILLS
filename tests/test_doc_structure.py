@@ -153,7 +153,7 @@ class ModuleHeaderTests(unittest.TestCase):
                 b_paths.append(path)
             elif m.get("source") == "my-skills":
                 a_paths.append(path)
-        # Domains 02–07 in-repo: no my-skills-base primary paths.
+        # Domains 02-07 in-repo: no my-skills-base primary paths.
         self.assertEqual(b_paths, [], msg=str(b_paths))
         self.assertEqual(len(a_paths), len(set(a_paths)), msg=str(a_paths))
         self.assertGreaterEqual(len(a_paths), 20)

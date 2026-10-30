@@ -69,7 +69,7 @@ Bold is a content mark, not a restyle pass:
 
 There is **no 16 pt title** and **no 14 pt section title**. Do not restyle table cells on revision.
 
-- *P* italic. `n = N`. `95% CI: X–X` (en-dash, no spaces). Not `X to X`. **Hard ban** em-dash (— / spaced `--`); replace with **parentheses**. **Hard ban** `≈` (write `about` / exact). En-dash ranges stay. Colon and semicolon are **discourage** (不推荐) in running prose — keep label colons (`Objective:` `95% CI:`).
+- *P* italic. `n = N`. `95% CI: X-X` (ASCII hyphen `-`, no spaces). Not `X to X`. **Hard ban** em-dash (U+2014 / spaced `--`); replace with **parentheses**. **Hard ban** en-dash (U+2013); use ASCII `-` for all ranges (owner 2026-10-30). **Hard ban** `≈` (write `about` / exact). Colon and semicolon are **discourage** (不推荐) in running prose — keep label colons (`Objective:` `95% CI:`).
 - **English punctuation only.**
 - English sentence ≤55 words. **One fact per sentence.** Do not merge adjacent sentences with semicolons (不推荐) or stacked *and*; prefer a period. Related short sentences still belong in the **same paragraph** (as paragraphs); do not lay out one sentence per line or one sentence per paragraph — see `voice-portrait.md` Paragraph lock.
 - Software: `Analyses were performed in Python 3.13.` (version after Python; no parentheses unless the user adds a build, e.g. 3.13.9).
@@ -128,17 +128,17 @@ Methods still opens with Ethics even if ethics is on the title page.
 - Vancouver / NLM + DOI on every entry. Number by first appearance.
 - Do not cite every sentence. Shared source on neighbouring sentences: cite once.
 - Do not reuse an earlier number after a later number has entered.
-- No `[1–3]` clusters.
-- Introduction 800–1000 words, 10–15 refs. **Last paragraph (aim / hypothesis): no citations.**
-- Discussion 800–1000 words, 10–15 **new** refs (no overlap with Introduction). **First paragraph: no citations.**
-- Those 10–15 / 10–15-new quotas apply when **writing new** Introduction / Discussion. When **checking an already-written** manuscript, do **not** delete genuine references to hit the quota; note over-quota only.
+- No `[1-3]` clusters.
+- Introduction 800-1000 words, 10-15 refs. **Last paragraph (aim / hypothesis): no citations.**
+- Discussion 800-1000 words, 10-15 **new** refs (no overlap with Introduction). **First paragraph: no citations.**
+- Those 10-15 / 10-15-new quotas apply when **writing new** Introduction / Discussion. When **checking an already-written** manuscript, do **not** delete genuine references to hit the quota; note over-quota only.
 - When **revising an existing** manuscript, reorder in-text Vancouver numbers to appearance order against the reference list. If the reference list contains a duplicate entry, replace that duplicate with an already-verified substitute (author **A**). This duplicate-list exception only.
 - **Methods: no citations.**
 - References: flush left, **no hanging indent**.
 
 ---
 
-## Introduction (800–1000 words)
+## Introduction (800-1000 words)
 
 Six elements, in funnel order. Each element is one to three sentences except element 4.
 
@@ -151,7 +151,7 @@ Six elements, in funnel order. Each element is one to three sentences except ele
 
 Sentence length (Introduction and Discussion)
 
-- Every sentence 10–30 words. None over 30. None under 10 except a fixed technical expression.
+- Every sentence 10-30 words. None over 30. None under 10 except a fixed technical expression.
 
 Structure bans (Introduction first; Discussion deferred until explicitly extended)
 
@@ -159,7 +159,7 @@ Structure bans (Introduction first; Discussion deferred until explicitly extende
 - Do not cite the same paper in consecutive sentences unless the second sentence adds a distinct claim that paper supports.
 - Related short sentences stay in one paragraph (Paragraph lock in `voice-portrait.md`). Do not flatten the Introduction into one sentence per paragraph.
 - Reporting guidelines (TRIPOD, TRIPOD+AI, CLAIM, CLEAR) are writing standards. Do not name or cite them in the Introduction. A required statement goes in the checklist file or the submission form.
-- Claim–source fit outranks citation numbering. Never place or reorder a sentence only to keep numbers ascending. Renumber afterwards by script.
+- Claim-source fit outranks citation numbering. Never place or reorder a sentence only to keep numbers ascending. Renumber afterwards by script.
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
@@ -202,7 +202,7 @@ Do **not** put the pipeline all-data dump (single-cohort only, no split) as Tabl
 
 **Decimal places (house):**
 - **Table 1** continuous / percentage cells: **1 or 2** decimal places (pick one depth per variable family and keep it; do not spray 3+ decimals in baseline tables).
-- ***P* values**, **AUC** and AUC-related metrics (95% CI bounds for AUC, DeLong *P*, and the same family), **NRI / IDI**, and **correlation** coefficients (*r* / ρ and their *P*): **3** decimal places (e.g. `P = 0.002`, `AUC of 0.812 (95% CI: 0.745–0.879)`, `NRI = 0.123`).
+- ***P* values**, **AUC** and AUC-related metrics (95% CI bounds for AUC, DeLong *P*, and the same family), **NRI / IDI**, and **correlation** coefficients (*r* / ρ and their *P*): **3** decimal places (e.g. `P = 0.002`, `AUC of 0.812 (95% CI: 0.745-0.879)`, `NRI = 0.123`).
 - Do not round these 3-decimal metrics down to 2 in prose or tables just for neatness.
 
 **Do not create these tables** (numbers go in Results prose and/or the matching figure):
@@ -218,7 +218,7 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 ---
 
-## Discussion (800–1000 words)
+## Discussion (800-1000 words)
 
 Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length follows the word band and content need.
 
@@ -226,7 +226,7 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 2. One block per finding — new literature; still no copied AUCs.
 3. Clinical application — **one** short use-case sentence. No disclaimer stack (*It is not a replacement… A high score should not…*).
 4. **Limitations: its own paragraph**, First… Second… Put label circularity **First** when a predictor is part of the endpoint. Facts only. No closer *rather than a ready clinical tool*.
-5. **Conclusion** — 2–3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* / *No validation set was available* go in a **Word comment only** — never in Conclusion, Limitations, Highlights, or Figure 1.
+5. **Conclusion** — 2-3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* / *No validation set was available* go in a **Word comment only** — never in Conclusion, Limitations, Highlights, or Figure 1.
 
 ---
 
@@ -340,7 +340,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Images embedded
 - First Results paragraph has Figure 1 sentence + binary-percentage sentence (period between them)
 - Table 1 = training vs test wide table; no LASSO / logistic-coeff / SHAP / correlation / mediation tables
-- Decimals: Table 1 → 1–2 places; *P* / AUC(+CI) / NRI/IDI / correlation → 3 places
+- Decimals: Table 1 → 1-2 places; *P* / AUC(+CI) / NRI/IDI / correlation → 3 places
 - No `hold-out`; training = internal fitting; test = internal evaluation; validation set = external cohort only
 - No results.html / QC / STROBE path footers
 - Highlights do not advertise a missing validation set
@@ -354,7 +354,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Discussion / Conclusion: no result numbers
 - Limitations own paragraph; no disclaimer closer
 - No disclaimer / no repeated hedge
-- `95% CI: X–X`; one fact per sentence
+- `95% CI: X-X`; one fact per sentence
 - Incremental *improved* only with same-sentence DeLong caveat
 - Implausible labs: *P* = NC, note once
 - No yellow empty slots; missing method/product facts in Word comments (author **A**)

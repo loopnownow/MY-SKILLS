@@ -485,8 +485,8 @@ could be pulled out and put on a slide.
 | 3 | "Involvement is not independence. Partial decorrelation is not independence either." | "Involvement is not independence, and partial decorrelation does not close the gap either, since the bound assumes the stronger property." |
 
 **Calibration.** Across eight published *npj Digital Medicine* Perspectives, cleaned to body
-prose, the negative-definition rate ran 0.00–0.45% of sentences (seven of eight were 0.00%)
-and the short-declarative share 0.94–10.47%. A manuscript at 2% and 24% is outside that
+prose, the negative-definition rate ran 0.00-0.45% of sentences (seven of eight were 0.00%)
+and the short-declarative share 0.94-10.47%. A manuscript at 2% and 24% is outside that
 range on both axes.
 
 **Detection (manual — detector not shipped, see `MODULE.md` › Detector status):** rate of
@@ -527,7 +527,7 @@ sibling of "rather than" and its presence is not a tell.
 | 3 | "It is the disagreement that informs, not the agreement." | "Disagreement between the two readers is what carries the information here." |
 
 **Calibration.** Across this toolkit's three published-quality demo manuscripts, "rather
-than" runs 1.4–3.8 per 1,000 body words and sentence-initial clefts are absent. The gate's
+than" runs 1.4-3.8 per 1,000 body words and sentence-initial clefts are absent. The gate's
 thresholds (antithesis 6.0 / 1,000, cleft 2.5 / 1,000, each behind a raw-count floor) sit
 above that range, so a lone functional "rather than" or one pseudo-cleft never trips it.
 
@@ -595,20 +595,20 @@ revision changes", bare "No further manuscript change" stubs, "reframed via the 
 ### Pattern 23: Internal Line-Number Reference Tone
 
 Pointing reviewers to internal draft/markdown line numbers ("(line 43)", "at lines 43, 49,
-58, 60, 77–79"). These never match the reviewer's view of the revised manuscript and read as
+58, 60, 77-79"). These never match the reviewer's view of the revised manuscript and read as
 a diff log. Section names are what authors actually use.
 
 | # | BAD | GOOD |
 |---|-----|------|
 | 1 | "We clarified this at line 43." | "We clarified this in the Methods (Design subsection)." |
-| 2 | "Single-sentence clarifications were added at lines 43, 49, 58, 60, and 77–79." | "We added short clarifications to the Methods covering the design, the intervention, and the outcome definitions." |
+| 2 | "Single-sentence clarifications were added at lines 43, 49, 58, 60, and 77-79." | "We added short clarifications to the Methods covering the design, the intervention, and the outcome definitions." |
 | 3 | "v2 line 127 retains this sentence and adds the adjustment after it." | "In the Results (Between-group comparison) we retained the original sentence and added the adjustment immediately after." |
 
 **Not a tell:** a **revised-manuscript** page/line ("page 7, lines 177-178") when the letter
 states once that all page/line numbers refer to the revised manuscript the reviewer is reading.
 The tell is the *internal draft* line number that will not match the reviewer's PDF.
 
-**Detection:** `grep -inE "\(line [0-9]+|at lines? [0-9]+|line [0-9]+(–|-)[0-9]+" response_to_reviewers.md` → review each hit; keep only those that demonstrably point to the revised manuscript.
+**Detection:** `grep -inE "\(line [0-9]+|at lines? [0-9]+|line [0-9]+(-|-)[0-9]+" response_to_reviewers.md` → review each hit; keep only those that demonstrably point to the revised manuscript.
 **Fix strategy:** Replace internal/draft line numbers with a section name; keep revised-manuscript page/line only if it matches what the reviewer sees.
 
 ### Pattern 24: Tooling / Scaffolding Leak

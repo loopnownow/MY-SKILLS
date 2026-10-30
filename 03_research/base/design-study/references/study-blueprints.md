@@ -67,7 +67,7 @@ Clinical question:
 Target population / setting:
 Primary endpoint (estimand):
 Comparator / baseline:
-Design type: [1–7 above]
+Design type: [1-7 above]
 MVP version:        [what's publishable now]
 Stronger version:   [what raises the tier] + extra cost
 Unit of analysis:   patient / lesion / slice  (default: patient)

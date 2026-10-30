@@ -38,7 +38,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 ## When to use
 
-- "Give me frontier directions for [disease/modality] I can publish in the next 1–2 years."
+- "Give me frontier directions for [disease/modality] I can publish in the next 1-2 years."
 - "找近三年的前沿方向和创新点" / "结合我的数据找创新点。"
 - "Is [foundation models / self-supervised / VLM / multimodal / federated] right for my data?"
 - "What's the evidence/publication-pattern basis for this recommendation?" / "有什么文献依据？"
@@ -68,7 +68,7 @@ worth doing and likely to be accepted at a high-impact venue*.
    kind, validation, venues) and the methodological bar. Flag every concrete claim that needs
    **live verification**.
 5. **Convert to questions** — with live `design-study` (and `radiology-design` when imaging-
-   specific), turn the best 2–4 directions into specific research questions with endpoint,
+   specific), turn the best 2-4 directions into specific research questions with endpoint,
    comparator, and the minimum evidence to be competitive.
 6. **Trigger live search** — hand the chosen direction to live `lit-search` to retrieve and
    verify current seed papers (PMID/DOI) and confirm the gap is still open.
@@ -80,7 +80,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 1. **`Data-fit summary`** — the inventory and the binding constraint, reused or restated.
 2. **`Frontier shortlist`** — ranked directions, each with: fit (yes/conditional/no + reason),
    the publication-pattern evidence, and the methodological bar.
-3. **`Executable questions`** — 2–4 concrete questions (endpoint, comparator, minimum evidence),
+3. **`Executable questions`** — 2-4 concrete questions (endpoint, comparator, minimum evidence),
    each mapped to a candidate venue tier (→ `03_research/advanced/journal-selection.md`).
 4. **`Hot-but-unsuitable`** — trendy directions to avoid for this data, with the reason.
 5. **`Verify now`** — the explicit list of claims/papers to confirm via live search today

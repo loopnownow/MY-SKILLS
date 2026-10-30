@@ -45,7 +45,7 @@ science; and overall transparency. Items are weighted; total is reported as a **
 with a quality band. Use METRICS to *strengthen Methods*, not just to score.
 
 ## RQS — 16 components (max 36)
-Notable point-bearing items: image protocol quality; **test–retest / phantom** repeatability;
+Notable point-bearing items: image protocol quality; **test-retest / phantom** repeatability;
 **multiple segmentations**; feature reduction / overfitting control; **multivariable analysis
 with non-radiomic features**; **biological correlates** (radiogenomics earns points here);
 cut-off analyses; discrimination + **calibration**; **prospective** design; **validation**

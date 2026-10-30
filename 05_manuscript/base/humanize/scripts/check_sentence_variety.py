@@ -66,7 +66,7 @@ DETECTOR_ID = "check_sentence_variety"
 FENCE_RE = re.compile(r"```.*?```", re.S)
 FRONTMATTER_RE = re.compile(r"\A---\n.*?\n---\n", re.S)
 SKIP_LINE_RE = re.compile(r"^\s*(#{1,6}\s|[-*+]\s|\d+\.\s|\||>\s|!\[|\[.*\]:)")
-CITE_RE = re.compile(r"\[@[^\]\s]+\]|\[\d+(?:\s*[-–,]\s*\d+)*\]")
+CITE_RE = re.compile(r"\[@[^\]\s]+\]|\[\d+(?:\s*[--,]\s*\d+)*\]")
 WORD_RE = re.compile(r"[A-Za-z0-9''-]+")
 SENT_SPLIT_RE = re.compile(r"(?<=[.!?])\s+(?=[\"'(]?[A-Z0-9])")
 

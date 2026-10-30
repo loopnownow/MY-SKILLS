@@ -31,7 +31,7 @@ Words are organized into three tiers based on how reliably they signal AI-genera
 - **Process language in final prose:** ban pipeline tokens (`TRAIN_RATIO`, `VAL_MODE`), "as stated by the source", 待补, internal QC labels such as 标签未与方案核对, empty retrieval strings, and placeholder scan parameters. The same disclaimer stays once. Detail: `05_manuscript/base/vocab/L1/ban-phrases.md` and `05_manuscript/qc/manuscript-local-qc.md`.
 - **Attenuated:** always replace with *reduced*, *lower*, or *decreased*. Do not flag the imaging noun *attenuation* (attenuation correction, beam attenuation). Detail: `05_manuscript/base/vocab/L1/ban-phrases.md`.
 - **Comparison wording:** prefer *Compared with* / *Compared to* over *Relative* / *relative to* when *relative* is a comparison word. Do not rewrite metric names (*relative CBF*, *relCBF*). Detail: `05_manuscript/base/vocab/L1/ban-phrases.md`.
-- **Tier 1 — Always flag.** These words appear 5–20x more often in AI text than human text. Replace on sight.
+- **Tier 1 — Always flag.** These words appear 5-20x more often in AI text than human text. Replace on sight.
 - **Tier 2 — Flag in clusters.** Individually fine, but two or more in the same paragraph is a strong AI signal. Flag when they appear together.
 - **Tier 3 — Flag by density.** Common words that AI simply overuses. Only flag when they make up a noticeable fraction of the text (roughly 3%+ of total words).
 
@@ -299,8 +299,8 @@ These aren't individual word or phrase problems — they're patterns in how the 
 
 **Structure is the #1 detection signal.** AI detection tools (including Pangram, which trains a classifier on 28M human documents) weight structural regularity higher than vocabulary. Consistent sentence construction, uniform pacing, and symmetrical phrasing patterns are harder to mask than swapping out a few flagged words. If you fix every word on the Tier 1 list but leave the rhythm untouched, the text still reads as AI-generated.
 
-- **Sentence length uniformity**: If most sentences are 15–25 words, the text sounds robotic. Mix short punchy sentences (3–8 words) with longer flowing ones (20+). Fragments work. Questions break the monotony.
-- **Paragraph length uniformity**: If every paragraph is 3–5 sentences and roughly the same size, vary deliberately. Some paragraphs should be one sentence. Some should be longer.
+- **Sentence length uniformity**: If most sentences are 15-25 words, the text sounds robotic. Mix short punchy sentences (3-8 words) with longer flowing ones (20+). Fragments work. Questions break the monotony.
+- **Paragraph length uniformity**: If every paragraph is 3-5 sentences and roughly the same size, vary deliberately. Some paragraphs should be one sentence. Some should be longer.
 - **Vocabulary repetition vs. synonym cycling**: AI either repeats the same word mechanically or cycles through synonyms conspicuously. Human writers repeat when the word is right and vary when it's natural — there's no formula.
 - **Read-aloud test**: If the text sounds like it could be read by a text-to-speech engine without sounding weird, it's probably too uniform. Human writing has rhythm that resists robotic delivery.
 - **Missing first-person perspective**: Where appropriate, the writer should have opinions, preferences, and reactions. AI is relentlessly neutral. If the piece is supposed to have a voice, the absence of "I think," "in my experience," or a stated preference is itself an AI tell.

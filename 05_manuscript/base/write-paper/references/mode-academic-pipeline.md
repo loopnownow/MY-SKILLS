@@ -28,7 +28,7 @@ Default when unsure: **`plan`**.
 0 CONFIG   type / field / venue / citation style / existing materials → confirm
 1 RESEARCH search strategy + pool (skip if the user brought the library)
 2 ARCH     structure + outline + evidence map → confirm
-3 ARGUMENT claim–evidence chain
+3 ARGUMENT claim-evidence chain
 4 DRAFT    section drafts (do not invent data/citations)
 5 CITE     format + DOI check
 6 REVIEW   self-audit → `self-review`

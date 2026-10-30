@@ -67,7 +67,7 @@ def plot_roc(ax, curves):
         fpr, tpr, _ = roc_curve(c["y_true"], c["y_score"])
         auc = roc_auc_score(c["y_true"], c["y_score"])
         lab = f'{c["label"]} (AUC {auc:.2f}'
-        lab += f', 95% CI {c["auc_ci"][0]:.2f}–{c["auc_ci"][1]:.2f})' if c.get("auc_ci") else ')'
+        lab += f', 95% CI {c["auc_ci"][0]:.2f}-{c["auc_ci"][1]:.2f})' if c.get("auc_ci") else ')'
         ax.plot(fpr, tpr, color=c.get("color", PALETTE["blue"]), label=lab)
     ax.plot([0,1],[0,1], ls="--", lw=0.8, color=PALETTE["grey"])
     ax.set(xlim=(0,1), ylim=(0,1), xlabel="1 − Specificity", ylabel="Sensitivity")

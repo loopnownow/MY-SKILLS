@@ -75,7 +75,7 @@ CONFIG = {
     # Limited vocabulary is "fine once, damning when repeated".
     "TIER2_MAX_PER_TERM": 1,      # the same word may appear this many times
     "TIER2_MAX_TOTAL": 3,         # all limited words together may appear this many times
-    "EMDASH_MAX_PER_SENTENCE": 0,  # any em-dash fails; prefer parentheses (owner 2026-10-28)
+    "EMDASH_MAX_PER_SENTENCE": 0,  # any em/en-dash fails; prefer parentheses; ranges use ASCII - (owner 2026-10-30)
     "TRICOLON_MAX_ALLOWED": 3,    # rule-of-three lists tolerated in the scanned text
 
     # ---- 3. Input guards (fail closed) ----------------------------------------
@@ -126,7 +126,7 @@ CONFIG = {
 GROUPS = ("vocabulary", "constructions", "dash_cadence", "tricolon")
 
 # Not user-tunable: syntax-level building blocks.
-_EMDASH = re.compile(r"\u2014|(?<=\s)--(?=\s)")        # em-dash or spaced "--"; en-dash (ranges) is fine
+_EMDASH = re.compile(r"\u2014|\u2013|(?<=\s)--(?=\s)")  # em-dash, en-dash, or spaced "--"; ranges use ASCII -
 _TRICOLON = re.compile(r"\b[a-z][a-z-]{2,}, [a-z][a-z-]{2,},? (?:and|or) [a-z][a-z-]{2,}\b")
 _MD_HEADING = re.compile(r"^\s{0,3}#{1,6}\s*(.+?)\s*#*\s*$")
 _NUMBERING = re.compile(r"^\(?\d+(?:\.\d+)*[.)]?\s+")
@@ -414,7 +414,7 @@ def lint(text, config=None):
     # -- group 3: dash cadence ------------------------------------------------
     for rec in sentences:
         if len(_EMDASH.findall(rec["text"])) > cfg["EMDASH_MAX_PER_SENTENCE"]:
-            groups["dash_cadence"]["hits"].append(mk("dash_cadence", "em-dash pile-up", rec))
+            groups["dash_cadence"]["hits"].append(mk("dash_cadence", "em/en-dash", rec))
     groups["dash_cadence"]["failed"] = bool(groups["dash_cadence"]["hits"])
 
     # -- group 4: rule-of-three rhythm ---------------------------------------

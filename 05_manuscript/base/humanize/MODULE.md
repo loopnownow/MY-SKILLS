@@ -199,7 +199,7 @@ Output one table: check, result, sentences affected. The lint never changes numb
 
 | Check | Rule |
 |---|---|
-| Sentence length | Target 10–30 words; list sentences outside it. Measurable bands are short ≤ 12 words / long ≥ 25 words / ceiling 70, identical to `scripts/check_sentence_variety.py`, so the lint table and Fix rule 7 cannot disagree |
+| Sentence length | Target 10-30 words; list sentences outside it. Measurable bands are short ≤ 12 words / long ≥ 25 words / ceiling 70, identical to `scripts/check_sentence_variety.py`, so the lint table and Fix rule 7 cannot disagree |
 | Repeated openers | Same first two words in three or more sentences of a paragraph |
 | Triplets | More than one "X, Y, and Z" series in a paragraph |
 | Number-and-cite chain | Three consecutive sentences that each carry a number and a citation |

@@ -2,7 +2,7 @@
 name: question-to-reference
 description: >
   03 default research spine (not a fine id; not a lit-search mega-skill).
-  Stages R1–R5: Question → Evidence/Mechanism → Design → Data need → Research Brief.
+  Stages R1-R5: Question → Evidence/Mechanism → Design → Data need → Research Brief.
   Each stage emits a card; later stages consume prior cards. Mid-chain entry allowed.
   00 chooses entry / rollback / stop; 03 owns content. lit-search is a tool under R2 only.
 triggers:
@@ -36,10 +36,10 @@ R1 Question → R2 Evidence & Mechanism → R3 Design → R4 Data need → R5 Re
 
 **Hard split with 00**
 
-- **03** = research content chain (R1–R5) and card quality.
+- **03** = research content chain (R1-R5) and card quality.
 - **00** = which stage to enter, whether to reuse completed cards, when to roll back, when to STOP, L1/L2 budgets (`00_orchestrator/workflows/research-exploration-loop.md`).
 
-Stage ids are **R1–R5** (research). Do **not** call them G1–G5 — that collides with QC gates (`G0`, `G-PHI`, `G-STATS`, …).
+Stage ids are **R1-R5** (research). Do **not** call them G1-G5 — that collides with QC gates (`G0`, `G-PHI`, `G-STATS`, …).
 
 **One workflow file only.** Do not re-implement PubMed search, MA, design engines, stats, or ETL here. Dispatch live fine ids / advanced supplements.
 
@@ -240,7 +240,7 @@ Then **HANDOFF** (02/05 as appropriate). Never emit Introduction/Discussion pros
 | R4 | emit Data Requirement Card → **02** | Run 02 ETL / models inside 03 |
 | R5 | synthesize cards → Research Brief | Paper Conclusion section |
 
-No new fine ids for R1–R5.
+No new fine ids for R1-R5.
 
 ---
 

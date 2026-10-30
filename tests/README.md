@@ -29,4 +29,4 @@ python -B -m unittest tests.test_gates_contract -v  # one domain
 | `test_vocab_harvest_sections.py` | paragraph-layer section rebuild and phrase counter |
 
 Conventions: `unittest` only, `from __future__ import annotations`, constants at the
-top of each file, no network or LLM calls, failure lists truncated to 20–40 items.
+top of each file, no network or LLM calls, failure lists truncated to 20-40 items.

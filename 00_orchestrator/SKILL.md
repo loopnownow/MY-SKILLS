@@ -63,7 +63,7 @@ Look in the working project folder. Echo one lock line when the artifact is clea
 
 If detection is unclear, ask **one** question or render **one** decision node. Never two in the same turn. (Plan-card exception: [`references/plan-and-grilling.md`](references/plan-and-grilling.md).)
 
-**Plan card / flowchart approval / N1–N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). **Grilling policy:** MY-RULES `My rule.md` §2.1 (grilling). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
+**Plan card / flowchart approval / N1-N4:** [`references/plan-and-grilling.md`](references/plan-and-grilling.md). **Grilling policy:** MY-RULES `My rule.md` §2.1 (grilling). Never `--e2e`. N2 (PHI) applies before 02 tables or clinical extraction.
 
 ### Fast routing (single-skill)
 
@@ -79,7 +79,7 @@ Ids: `02_data-processing` · `03_research` · `05_manuscript` · `06_review` · 
 
 Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `LIVE` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all live ids. Advanced layers are not a fine-id pick. A single-node advanced-layer task with no live dependency does not ask.
 
-**Auto-discovery:** only `00_orchestrator`–`07_response` (including nested packs).
+**Auto-discovery:** only `00_orchestrator`-`07_response` (including nested packs).
 
 **Review / polish on a `.docx`:** follow [`references/fine-id-review-polish-recipe.md`](references/fine-id-review-polish-recipe.md).
 
@@ -138,7 +138,7 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 ## Boundaries
 
-**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`–`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/advanced/visualization/`.
+**00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`-`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/advanced/visualization/`.
 
 **Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 

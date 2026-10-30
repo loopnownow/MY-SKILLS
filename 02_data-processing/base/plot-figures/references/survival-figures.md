@@ -19,7 +19,7 @@ So if the curve is nearly flat (few events) but numbers-at-risk fall steeply, th
 > plummeting at-risk row with nothing to explain the gap — it looks self-contradictory.
 
 If ticks are too dense (large cohorts), **thin them, don't delete them**: cap the number drawn
-per curve (e.g. ≤ 12–15, evenly/randomly sampled) so they still indicate censoring throughout.
+per curve (e.g. ≤ 12-15, evenly/randomly sampled) so they still indicate censoring throughout.
 This is purely cosmetic — KM estimate, P, HR, numbers-at-risk are always computed from **all**
 patients.
 

@@ -11,7 +11,7 @@ The machine-readable lists live in ONE place: `05_manuscript/base/vocab/L1/ban-t
 1. **vocabulary** -- ALWAYS-flag words, plus LIMITED words (fine once, damning when repeated)
 2. **constructions** -- "not just X, but Y", "more than just", "that's where X comes in",
    stacked hedges ("may potentially"), self-answering questions ("The result?")
-3. **dash cadence** -- any em-dash fails (prefer parentheses; en-dash ranges are fine). Colon/semicolon: discourage in running prose (see ban-phrases.md)
+3. **dash cadence** -- any em-dash (U+2014) or en-dash (U+2013) fails (prefer parentheses; ranges use ASCII hyphen `-`). Colon/semicolon: discourage in running prose (see ban-phrases.md)
 4. **rule-of-three rhythm** -- more than 3 lowercase triples ("faster, smarter, and better");
    parenthetical covariate lists and acronym lists are ignored
 
@@ -20,6 +20,7 @@ The machine-readable lists live in ONE place: `05_manuscript/base/vocab/L1/ban-t
 - `robustness` is NOT matched: "feature robustness" (ICC / test-retest) is standard radiomics wording.
 - `elevate` / `enhance` are not listed: "elevated ALT", "contrast-enhanced".
 - Calibrated hedging is house style: one may / suggest is fine; only *stacked* hedges are flagged.
+- En-dash (U+2013) is banned in skill prose and scanned manuscript text: always use ASCII hyphen `-` for ranges (owner 2026-10-30). Em-dash stays banned (prefer parentheses).
 - A genuine term of art (e.g. "high-leverage point") is exempted per phrase via `ALLOW_PHRASES`, never by deleting the rule.
 
 ## Fix rule

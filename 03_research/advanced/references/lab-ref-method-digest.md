@@ -17,7 +17,7 @@
 - 75 docx: indicators appear as narrative + embedded Word tables — **no** cohort-level xlsx/csv in bodies.
 - Indicator-family hits (any alias): special 39 · coag 29 · liver 28 · pathology 27 · renal 19 · tumor 17 · heme 14 · clinical 9.
 - Theme skew imaging-first; labs often covariates / secondary endpoints.
-- Magnitude after synonym merge: ~**40–80** independent concepts (not hundreds of fillable mean/SD/IQR rows).
+- Magnitude after synonym merge: ~**40-80** independent concepts (not hundreds of fillable mean/SD/IQR rows).
 
 ## Feasibility bans (why full mean/SD/IQR/min/max per indicator usually fails)
 

@@ -1,8 +1,8 @@
 # Aitor section polishing rules (appendix)
 
 **Canonical entry:** parent `../../SKILL.md` (manuscript advanced upper layer).
-Use this file for **section-by-section polish templates** (§1–§9).
-If anything conflicts with `Aitor-format.md` or top-level `05_manuscript` hard rules, **prefer Aitor-format / top-level** (e.g. prediction-model CI is `95% CI: X–X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
+Use this file for **section-by-section polish templates** (§1-§9).
+If anything conflicts with `Aitor-format.md` or top-level `05_manuscript` hard rules, **prefer Aitor-format / top-level** (e.g. prediction-model CI is `95% CI: X-X` in `Aitor-format.md`; no em-dash; one fact per sentence). Full-paper second pass: de-pipeline + results.html numbers only; do not reorder IMRAD; do not fuse short sentences.
 
 Source: former `ying-li-polisher` skill (merged P1).
 
@@ -36,11 +36,11 @@ If the user provides raw text without labeling the section, infer from content s
 1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. Counts by family: `05_manuscript/base/vocab/L2/preferred.md` §1; the owner's own usage: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
-4. **Conclusion sentence** — 1–2 sentences. Clinically grounded. Use *"may provide"*, *"could assist [task]"* — never absolute claims, and never `demonstrated potential` (lab-unused stock; `05_manuscript/base/vocab/L1/ban-phrases.md`).
+4. **Conclusion sentence** — 1-2 sentences. Clinically grounded. Use *"may provide"*, *"could assist [task]"* — never absolute claims, and never `demonstrated potential` (lab-unused stock; `05_manuscript/base/vocab/L1/ban-phrases.md`).
 
 **Characteristic phrase patterns to preserve or introduce:**
 - *"A total of N [subjects] were divided into / reviewed / enrolled…"*
-- *"The AUC of the [model] was X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort (`Aitor-format.md`). Other-hospital only = validation set.
+- *"The AUC of the [model] was X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set."* BODY split is training/test; Figure 1 is Training Cohort / Test Cohort, plus Validation Cohort only when Methods states an external cohort (`Aitor-format.md`). Other-hospital only = validation set.
 - *"Both A and B play roles in…"*
 
 **Language rules for abstracts:**
@@ -67,7 +67,7 @@ If the user provides raw text without labeling the section, infer from content s
 **Language rules**
 
 - Hedged language for unknowns: *remains unclear*, *remains controversial*, *has not been established*. Never *elucidate / elucidating / elucidated*.
-- Sentences 10–30 words. Prefer one main proposition per sentence; if a sentence runs past 20 words, check that it holds one.
+- Sentences 10-30 words. Prefer one main proposition per sentence; if a sentence runs past 20 words, check that it holds one.
 - No hyperbole (*groundbreaking*, *novel*, *first ever*) without evidence. Scarcity is worded as what the search found.
 - No enumeration of studies, no parallel frames, no more than one triplet per paragraph (`05_manuscript/advanced/vocab/L1/sci-overrides.md`, structure-level tells).
 - Do not name reporting guidelines (TRIPOD and others) in the Introduction.
@@ -78,7 +78,7 @@ If the user provides raw text without labeling the section, infer from content s
 
 This is the most technically precise section. Follow all sub-rules below.
 
-**Section order for full papers is not this 3.1–3.5 list.** Use `Aitor-format.md` (Ethics → design/N → patients → eligibility → criteria → endpoints → labs → imaging → processing → model → stats). The subsections below are wording templates only.
+**Section order for full papers is not this 3.1-3.5 list.** Use `Aitor-format.md` (Ethics → design/N → patients → eligibility → criteria → endpoints → labs → imaging → processing → model → stats). The subsections below are wording templates only.
 
 #### 3.1 Patient / Subject Selection
 - Report enrollment window, institution, IRB approval number, retrospective vs. prospective label.
@@ -123,7 +123,7 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
 - Subgroup results follow the exact Methods order.
 
 **Statistical reporting format:**
-- AUC: *"0.86 (95% CI: 0.80–0.93)"* — always with CI
+- AUC: *"0.86 (95% CI: 0.80-0.93)"* — always with CI
 - P values: exact when ≤0.05 (*P = 0.002*); threshold when >0.05 (*P > 0.05*) or non-significant (*P = 0.12*)
 - Sensitivity/specificity: as percentages with 1 decimal place
 - Always report both significant AND non-significant findings explicitly
@@ -144,12 +144,12 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
 
 Do **not** compress Discussion by page count. Structure and word band win over “cut to N pages”.
 
-**Discussion structure** for full papers: `Aitor-format.md` (key findings → per-finding literature with **new** refs → clinical → limitations → conclusion; 800–1000 words). Sentence templates below still apply.
+**Discussion structure** for full papers: `Aitor-format.md` (key findings → per-finding literature with **new** refs → clinical → limitations → conclusion; 800-1000 words). Sentence templates below still apply.
 
-**Discussion structure** (4–6 paragraphs):
+**Discussion structure** (4-6 paragraphs):
 
 **¶1 — Summary**
-- Restate the main finding in 1–2 sentences. Active voice.
+- Restate the main finding in 1-2 sentences. Active voice.
 - Template: *"In this study, we found that / demonstrated that / showed that…"* Finding openers may use *"The first finding concerns…"* (verb only; do not weld the next sentence onto it).
 
 **¶2 — Literature contextualization**
@@ -169,7 +169,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 - DCA framing: *"Decision curve analysis showed that the radiomics nomogram provided a greater net benefit than…"*
 
 **¶5 — Limitations**
-- Always present. Never defensive. Standard 3–5 items:
+- Always present. Never defensive. Standard 3-5 items:
   1. Retrospective design / selection bias
   2. Single-center cohort / limited generalizability
   3. Relatively small sample size
@@ -178,9 +178,9 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 - Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. Counts: `05_manuscript/base/vocab/L2/preferred.md` §5.
 
 **¶6 / Conclusion (separate section)**
-- 1–2 sentences maximum.
+- 1-2 sentences maximum.
 - Mirror the abstract objective + affirm clinical value.
-- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X–X) in the training set and X (95% CI: X–X) in the test set."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `05_manuscript/base/vocab/L1/ban-phrases.md`).
+- Template: *"In conclusion, the [model] achieved an AUC of X (95% CI: X-X) in the training set and X (95% CI: X-X) in the test set."* Do **not** use `demonstrated good performance` or `suggesting its potential` (0 hits; `05_manuscript/base/vocab/L1/ban-phrases.md`).
 
 ---
 
@@ -195,7 +195,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 - No superlatives (*"a novel"*, *"the first"*) unless factually verified.
 
 **Keywords:**
-- 5–8 keywords
+- 5-8 keywords
 - Include: imaging modality, technique (radiomics/nomogram/IVIM/4D flow), pathology name, clinical endpoint
 - Abbreviations expanded: write *"magnetic resonance imaging"* not *"MRI"* unless journal specifies otherwise
 
@@ -214,7 +214,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 | Clinical entities | Abbreviate from first sentence and maintain throughout |
 | Group sizes | Always *(n = N)* in parentheses |
 | P values | Italic P, space before operator: *P* < 0.05 (or per journal style) |
-| Confidence intervals | 95% CI: X–X (en-dash, no spaces) |
+| Confidence intervals | 95% CI: X-X (en-dash, no spaces) |
 
 #### Hedging vocabulary (use in Discussion only, not in Results)
 
@@ -239,8 +239,8 @@ written. Authority: `05_manuscript/base/vocab/L1/ban-terms.yaml`, human table in
 enforces it. Delete the word and state the fact instead.
 
 #### Sentence structure targets
-- **Methods/Results:** 20–30 words average. Short conclusion sentences (≤15 words).
-- **Introduction/Discussion:** 10–30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/manuscript-local-qc.md`).
+- **Methods/Results:** 20-30 words average. Short conclusion sentences (≤15 words).
+- **Introduction/Discussion:** 10-30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/manuscript-local-qc.md`).
 - No sentence > 55 words anywhere.
 
 #### Clinical translation phrases (use in Discussion ¶4)
@@ -258,7 +258,7 @@ For each piece of submitted text:
 
 1. **Identify section** (Abstract / Intro / M&M / Results / Discussion / Conclusion)
 2. **Check structure** — does it follow the section template? Reorder if needed.
-3. **Apply section-specific rules** (§1–§5)
+3. **Apply section-specific rules** (§1-§5)
 4. **Apply universal language rules** (§7)
 5. **Check statistical reporting** — every numeric result must include CI or P value
 6. **Check hedging calibration** — Results: no hedges; Discussion: calibrated hedges
@@ -285,7 +285,7 @@ For each piece of submitted text:
 Search and claim-to-DOI for I/D: `evidence.md`. Counts and settled paragraphs: `Aitor-format.md` (do not copy here).
 
 - Vancouver/NLM style (numbered, order of appearance)
-- No reference inflation — Introductions: follow Aitor (10–15), not a second quota
+- No reference inflation — Introductions: follow Aitor (10-15), not a second quota
 - Self-citation: functional only (*"as previously described [X]"*)
 - Every factual claim in Introduction and Discussion must be cited
 - Funding: grant number + granting body always explicit

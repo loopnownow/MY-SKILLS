@@ -267,7 +267,7 @@ were the lab runner.
   binned curve; ideal = diagonal. Lab: `modules.stats.curves_calibration.plot_calibration`.
 - **Calibration slope** (ideal 1) and **intercept / calibration-in-the-large** (ideal 0).
 - **Brier score** (lower better); decompose if useful.
-- **Hosmer–Lemeshow (lab)**: quantile bins matching the calibration curve (default **8**),
+- **Hosmer-Lemeshow (lab)**: quantile bins matching the calibration curve (default **8**),
   χ² with **df = G−2**, table in `*-results.html` via `HL_METRICS` — **not** drawn on the
   figure. Still do **not** report HL alone; always show the curve. Do not claim the lab has
   “no HL”.
@@ -299,7 +299,7 @@ Lab pipeline implements this as `VAL_MODE` = `refit` | `apply_formula` | `lock_t
 
 *"The Combined model discriminated well (AUC 0.88; 95% CI: 0.84, 0.92; 1000 bootstrap) and
 was well calibrated (slope 0.96, intercept 0.02; Brier 0.11). Decision-curve analysis showed
-positive net benefit across threshold probabilities of 0.10–0.40. Versus the clinical model,
+positive net benefit across threshold probabilities of 0.10-0.40. Versus the clinical model,
 DeLong P = .004."*
 
 ### Reviewer hot-spots
@@ -320,7 +320,7 @@ Use when the endpoint is **time-to-event** (OS, PFS, recurrence). Common in radi
 
 ### Lab pipeline (v4.3.1) — what actually runs
 
-- **Always:** Kaplan–Meier curves + **log-rank** for group comparison. Report median
+- **Always:** Kaplan-Meier curves + **log-rank** for group comparison. Report median
   survival with 95% CI and numbers-at-risk under the x-axis (a _Radiology_ figure
   expectation). HTML: if a curve is drawn twice (sidebar + main), keep the **main** pane only.
 - **Optional Cox (off by default):** univariable Cox via `statsmodels.duration.hazard_regression.PHReg`,
@@ -357,7 +357,7 @@ from statsmodels.duration.hazard_regression import PHReg
 - **Dichotomising a continuous score** at an "optimal" cutpoint inflates significance. The
   lab cut is **train-median**, not an outcome-optimised Youden cut on the same survival data.
   Also report the per-1-SD HR (keeps the score continuous).
-- **EPV** for Cox = events per variable (aim ≥ 10–15, or use Riley). Imaging/omics
+- **EPV** for Cox = events per variable (aim ≥ 10-15, or use Riley). Imaging/omics
   signatures: build the signature on TRAIN, then optional univariable Cox on that score — not
   800 raw features.
 - **Immortal-time / lead-time bias** — define time-zero and exposure carefully.
@@ -480,7 +480,7 @@ that invents n, an effect size, or a power.
    that the enrolled N meets it. Alpha 0.05, two-sided; power 0.80 or 0.90. Tools:
    G*Power, PASS, or R `pwr` (`pwr.t.test`, `pwr.2p.test`).
 2. **Events, not a two-group formula.** Multivariable logistic or Cox, radiomics, and
-   prediction models use events-per-variable **10–15**, and Riley / R `pmsampsize` when
+   prediction models use events-per-variable **10-15**, and Riley / R `pmsampsize` when
    the journal expects a minimum sample size. A classical two-group formula does not
    cover these.
 3. **Minimum detectable effect (N already fixed).** Report the MDES at 80% power and
@@ -489,7 +489,7 @@ that invents n, an effect size, or a power.
 4. **Precision.** When the aim is an estimate rather than a test, size N from the CI
    half-width. The sensitivity formula below is this case.
 
-A **10–20%** drop-out allowance is only a planned exclusion (some enrolled cases will
+A **10-20%** drop-out allowance is only a planned exclusion (some enrolled cases will
 not enter the analysis). It is not a new gate, and it is not added after the fact to a
 retrospective cohort whose N is already the analysis N.
 
@@ -524,7 +524,7 @@ Inputs: expected AUCs, correlation (paired), allocation, prevalence. R `pROC::po
 MDES on the AUC difference (approach 3). Do not report observed power.
 
 ### Prediction models — EPV and Riley
-Approach 2. Rule of thumb: **events-per-variable (EPV) 10–15** (development) — still crude.
+Approach 2. Rule of thumb: **events-per-variable (EPV) 10-15** (development) — still crude.
 - Use **Riley et al. minimum sample size** for prediction models when the journal expects
   it: targets small optimism, precise overall risk, and a calibration-slope ~1. R
   **`pmsampsize`** (dev) and **`pmvalidsize`** (validation). For **external validation**,
@@ -557,7 +557,7 @@ cohort. Do not invent them.
 
 ### Reviewer hot-spots
 No sample-size justification; EPV below 10; post-hoc / observed power from the obtained p;
-a two-group formula on a prediction model; an MDES written up as observed power; a 10–20%
+a two-group formula on a prediction model; an MDES written up as observed power; a 10-20%
 drop-out tacked on after N is fixed; reader study with too few readers; test / validation
 set with too few events for calibration.
 

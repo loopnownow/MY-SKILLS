@@ -37,7 +37,7 @@ Deep QC: dead pointer word-edit; retired {doc_root}\03-research cited in find-jo
 
 ## CHG-20261028-punct-ban-discourage (2026-10-28)
 
-Owner punctuation standing (t1251–t1253):
+Owner punctuation standing (t1251-t1253):
 
 - **Hard ban:** em-dash (— / spaced `--`) — replace with **parentheses**; approximately-equal `≈` — write `about` / exact. En-dash ranges stay.
 - **Discourage (不推荐):** colon and semicolon in running prose; keep label colons (`Objective:` / `95% CI:` / Highlights).
@@ -85,7 +85,7 @@ missing section index is rebuilt instead of trusted.
   ships `section_idx = 0` on every row, so `harvest_write_phrases.py --section` returns
   nothing. This companion rebuilds IMRAD sections from heading paragraphs (numbering stripped,
   heading detection ahead of the length floor), drops the References section, counts
-  sentence-head / sentence-tail windows per section, uses 3–8 character Chinese windows with
+  sentence-head / sentence-tail windows per section, uses 3-8 character Chinese windows with
   dominance collapse, and reports `docs per section` / `paragraphs per section`.
 - **Measured (05 manuscripts, 75 docs, 4,435 prose paragraphs):** Methods 73, Results 73,
   Discussion 71, Introduction 71, front 65, Abstract 63, Conclusion 48 docs.
@@ -107,7 +107,7 @@ Personal L2 phrase table, plus the three live contradictions it exposed.
   ≥5 occurrences; B = record only; C = discard). Base L2 stays canonical; banned
   words are never restated in L2 (single authority: `L1/ban-terms.yaml`).
 - **New:** `05_manuscript/personal/vocab/scripts/harvest_write_phrases.py` —
-  offline stdlib counter over `{doc_review_bank}`; 2–6-gram + sentence-edge
+  offline stdlib counter over `{doc_review_bank}`; 2-6-gram + sentence-edge
   discovery, CJK n-grams gated on CJK presence, chain collapse so `这个` / `这个结`
   / `这个结果` and `thank you` / `thank you for` keep only the longest form.
   Dry-run by default; `--execute --out` writes the table. No YAML dependency.
@@ -135,7 +135,7 @@ Multiple imputation replaces the "MICE" claim that the code never implemented.
 
 - **Problem:** the `impute` pack documented `mice` / "multiple imputation", but `z_impute` runs one `IterativeImputer` pass and returns one table. No between-imputation variance exists, so no Rubin pooling is possible and any CI built on that table is too narrow.
 - **Measured (40 replications, n=150, 30% MCAR in two predictors, beta1 true = 0.30):** single imputation bias +0.057 (+18.2%, p=0.002), RMSE 0.121; multiple imputation (m=20) bias +0.002 (+0.6%, p=0.85), RMSE 0.063; mean FMI 0.33. Single imputation is biased in this setting, not merely over-confident.
-- **Code (stats-analysis):** `modules/utils/u_mi.py` — `z_impute_mi` draws with `sample_posterior=True`, asserts observed cells never move; `rubin_pool` implements Rubin's rules with Barnard–Rubin df, FMI and RIV. CLI `model-validation/mi_impute.py draw|pool`.
+- **Code (stats-analysis):** `modules/utils/u_mi.py` — `z_impute_mi` draws with `sample_posterior=True`, asserts observed cells never move; `rubin_pool` implements Rubin's rules with Barnard-Rubin df, FMI and RIV. CLI `model-validation/mi_impute.py draw|pool`.
 - **Pack:** `02_data-processing/base/clean-data/impute/MODULE.md` now opens STEP 1 with single-vs-multiple as the first decision, states the simulation numbers, and separates `mice` (alias of single chained imputation) from MI. Checklist gains one Methods sentence per case plus four new forbidden items; `02_data-processing/qc/report-checks.md` gains the matching error rows.
 - **Documented limit:** Rubin's rules do not cover a pipelined metric (LASSO then AUC). The pack says to repeat the whole pipeline per imputation and report mean + range, and forbids a "pooled AUC CI".
 
@@ -228,7 +228,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
   `external: true` instead of leaving a path that does not resolve in-repo.
 - **Tests:** new `PackReferentialIntegrity` (2) fails on an uncited pack `scripts/*.py` or
   `examples/*`; `test_lab_paths` split into key-format + skip-guarded existence; `test_seat_packs`
-  pins the 00–07 layer bound and the live-`0result` ban; `test_frontmatter` drops a commented
+  pins the 00-07 layer bound and the live-`0result` ban; `test_frontmatter` drops a commented
   workflow row; `07_response/base/tighten-response/MODULE.md` registers its three worked examples.
 - **Drift:** README test command carries `-B`; this file's header no longer claims an empty roll.
 - Suite 172 → 174. No push, no merge.
@@ -355,7 +355,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - Registry `change_id` is `CHG-20261025-inrepo-index`. Source-menu keys are gone. Live rows stay `source: my-skills` under `NN_slug/base/`.
 - Deleted root `.cursorignore`, `.gitattributes`, `.gitignore`, and `pytest.ini`.
 - Deleted the non-base pointer under `01_skill-integration/references/`.
-- README describes seats `00`–`07`. Visualization reads the in-repo registry only.
+- README describes seats `00`-`07`. Visualization reads the in-repo registry only.
 - Deleted `02_data-processing/personal/workspace.md` and `02_data-processing/personal/coding-qc.md`. Folder layout cites `{RULES}/workspace-layout.md`. `02_data-processing/qc/coding-qc.md` stays.
 - Tests: assertions that required the deleted files or source-menu keys were rewritten or dropped. Command: `python -m unittest discover -s tests`.
 
@@ -381,7 +381,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - Branch `chore/scan-fix-p0-p2-20261019`: apply SCAN-REPORT P0/P1/P2 (Asia/Shanghai 2026-10-19).
 - P0: rewrite live `~/.grok/AGENTS.md` required reads → My rule / network-security / skills (+ optional workspace-layout); replace all bare qc/local-checks cites cites → `05_manuscript/qc/manuscript-local-qc.md`; Aitor-format ban-phrases → `05_manuscript/base/vocab/L1/ban-phrases.md` (+ sci-overrides).
 - P1: cross-link qc `reporting-guideline-route` ↔ base `guideline-router` (Gate SSOT vs writing audit; CLAIM/CLEAR footnotes); align Integrity·pre-06 mid-entry G-CIT wording with gates.md; add `nature-reporting-summary.md` stub; add **G-07** QUALITY row; fix manuscript-local-qc / cross-manuscript-qc ownership/move headers; retarget paper-claim-audit / external-principles cites to `references/…` and shrink `ALLOW_MISSING`; NOTICE Archify → `02_data-processing/personal/visualization/`.
-- P2: mmd `LayerBasease`→`LayerBase`; NOTICE pack 00–07 + ARS topology-inspiration line; bare-relative cite regression in `test_inline_paths_exist.py`.
+- P2: mmd `LayerBasease`→`LayerBase`; NOTICE pack 00-07 + ARS topology-inspiration line; bare-relative cite regression in `test_inline_paths_exist.py`.
 - Also documents prior same-day merges already on main: Integrity pre-06 + R&R (PR #156), P0 nature-stats/reviewer/figure + K-Dense router, P1 ref-verify/response/venue/data-avail/lit-appraisal (PR #157).
 - Sync whitelist post-merge: changed skill bodies + `INTEGRATION_MAP.md` + `VERSION.txt` → `{SKILLS}` per skills.md §1b.
 
@@ -419,16 +419,16 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - Batch5: four regression tests under `tests/`.
 - Do **not** sync `.grok/skills`.
 
-## CHG-20261018-batch2 — QC Batch 2 metadata + old names (F15–F36)
+## CHG-20261018-batch2 — QC Batch 2 metadata + old names (F15-F36)
 
 - PR #152 (`fix/qc-batch2-old-names`, merge `71c74f3`, commit `e9a2c2d`).
 - Owner paths → `NN_slug/base/`; hyphen B paths → underscore/base; retired fine-ids → §7 map; clear (was B) residue.
-- Registry chassis 00–07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1).
+- Registry chassis 00-07; review-response specialist_hint Aitee; archived.old_path + historical: true (E1).
 - README layout + 07; tests tighten.
 - Not A1 archive move / not full B2 fill trim / not D2 merge.
 - Do **not** sync `.grok/skills`.
 
-## CHG-20261018-batch1 — QC Batch 1 P0 dead links (F1–F14)
+## CHG-20261018-batch1 — QC Batch 1 P0 dead links (F1-F14)
 
 - PR #151 (`fix/qc-batch1-p0-deadlinks`, merge `84a7f8e`, commit `098166a`).
 - style_lint pack-cache fallback removed; sci-manuscript path fixes; presets C1 in-repo paths.
@@ -446,7 +446,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 
 ## CHG-20261008-001 — find-journal similar-article check
 
-- User rule 2026-10-08: for each candidate journal, search the last 3–5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in match rationale. None found → lower the tier and write 「no similar articles in recent years — demoted」. Never invent articles. A failed search is not a no-hit.
+- User rule 2026-10-08: for each candidate journal, search the last 3-5 years for articles similar to the manuscript title. Cite found articles (title, year, DOI/link) in match rationale. None found → lower the tier and write 「no similar articles in recent years — demoted」. Never invent articles. A failed search is not a no-hit.
 - Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.16 → v1.17). Pointers: `03_research/base/find-journal/rules/policy.md`, `03_research/base/find-journal/rules/recommendation-workflow.md`, `AGENTS.md`.
 - Regenerated `docs/` visualization HTML via `02_data-processing/personal/visualization/scripts/gen_visualization.py` (outputs were stale on main after #126).
 - `skill-harvest/scripts/repo_qc.py` (archived under `D:\0del\00_orchestrator_reorg_20261017\skill-harvest_MY-SKILLS\`): historical map files under the 0del `_medical-research-meta_history` tree count as historical (legacy-active-refs, stale-ids), like this stub and archive. The Oct-7 monthly file is at `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\INTEGRATION_MAP-20261007.md` (in-repo `history/` link removed).
@@ -454,5 +454,5 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 ## CHG-20261008-002 — find-journal similar-article check is round 2
 
 - User rule update 2026-10-08: the similar-article search is round 2 of journal selection, not a step before ranking.
-- Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3–5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link). Never invent articles. A failed search is not a no-hit.
+- Round 1 ranks by the existing criteria and does not search. Round 2 searches each candidate for similar articles from the last 3-5 years, then lowers a journal with no similar article inside its layer. Cite found articles (title, year, DOI/link). Never invent articles. A failed search is not a no-hit.
 - Canonical: `03_research/base/find-journal/SKILL.md` § Similar-article check (pack v1.17 → v1.18). Pointers: `03_research/base/find-journal/rules/policy.md`, `03_research/base/find-journal/rules/recommendation-workflow.md`, `AGENTS.md`.
