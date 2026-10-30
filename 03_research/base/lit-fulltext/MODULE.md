@@ -1,4 +1,4 @@
----
+﻿---
 name: "lit-fulltext"
 domain: "03_research"
 trigger: ["lit-fulltext", "全文", "fulltext", "PDF download", "open access PDF"]
@@ -45,23 +45,22 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 
 ## Outputs (always under `ref/refer/`)
 
-- OA PDFs (and optional `.md` conversions) landed in `ref/refer/`
+- OA PDFs landed in `ref/refer/`
 - `ref/refer/retrieval_report.json` — per-DOI report including `source_identity` and `file_sha256`
-- `ref/refer/manual_needed.txt` — paywalled / not-OA items (no bypass)
+- `ref/refer/manual_needed.txt` — paywalled / not-OA items (no bypass; library portal / ILL by owner)
 
 ## Scripts
 
 | Script | Role |
 |---|---|
 | `scripts/fetch.py` | **Required.** OA resolvers only (Unpaywall / PMC / EuropePMC / OpenAlex / Crossref / arXiv; optional DOAJ / medRxiv / bioRxiv). Paywalled -> `manual_needed.txt`. |
-| `scripts/pdf_to_md.py` | **Optional** (upstream AGPL dependency). Default: do not require; convert only when the same papers will be re-read often. |
 
 Contact email for Unpaywall ToS: read from **Vault** (owner contact / corresponding). Never hard-code an address in this pack.
 
+This fine id does **not** convert PDF to Markdown; use a separate skill when needed.
+
 ```bash
 python scripts/fetch.py worklist.tsv --output ref/refer/ --email "$(vault-contact-email)"
-# optional:
-python scripts/pdf_to_md.py ref/refer/ -v
 ```
 
 ## Hard rules
@@ -69,9 +68,11 @@ python scripts/pdf_to_md.py ref/refer/ -v
 - OA only. Never bypass a paywall or publisher access control.
 - Do not attach Zotero "Find Available PDF" or lit-sync flows in this pack.
 - Do not blind-download the full ~30 abstract/NLM cite list; gate first, then gap-fill.
+- No PDF→md in this pack.
 
 ## Handoffs
 
 - Need citations / NLM + abstracts only -> `verify-refs`
 - Need search expansion -> `lit-search`
 - Design change after reading full text -> `design-study`
+- Paywalled after OA fail -> owner library portal (Vault login) / ILL; not Sci-Hub
