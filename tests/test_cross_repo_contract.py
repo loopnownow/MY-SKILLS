@@ -1,6 +1,6 @@
-"""E3: lightweight cross-repo contract (Rules / Skills / stats-analysis).
+"""E3: lightweight cross-repo contract (Rules / Skills / MY-CODES).
 
-Runs inside MY-SKILLS pytest. Sibling checkouts (MY-RULES, stats-analysis beside
+Runs inside MY-SKILLS pytest. Sibling checkouts (MY-RULES, MY-CODES beside
 MY-SKILLS or via lab-paths aliases) are required by default. Set
 MY_SKILLS_ALLOW_MISSING_SIBLINGS=1 for partial checkouts (CI without clones).
 No new QC framework.
@@ -63,7 +63,7 @@ def _allow_missing_siblings() -> bool:
 
 
 def _sibling(name: str) -> Path | None:
-    """Resolve MY-RULES / stats-analysis / MY-SKILLS checkout paths.
+    """Resolve MY-RULES / MY-CODES / MY-SKILLS checkout paths.
 
     Prefer the git sibling layout (../NAME beside this repo) so directory-style
     lab-paths aliases still resolve when drive-letter paths are off-host.
@@ -75,7 +75,7 @@ def _sibling(name: str) -> Path | None:
     aliases = data.get("aliases") or {}
     key = {
         "MY-RULES": "rules_git",
-        "stats-analysis": "code_stats",
+        "MY-CODES": "code_stats",
         "MY-SKILLS": "skills_git",
     }.get(name)
     if key and key in aliases:
@@ -141,13 +141,13 @@ class CrossRepoContract(unittest.TestCase):
             "Rules->Skills broken cites:\n" + "\n".join(missing),
         )
 
-    def test_code_stats_layout_matches_stats_analysis(self) -> None:
-        """lab-paths {code_stats}/{code_modules} must match stats-analysis layout."""
+    def test_code_stats_layout_matches_my_codes(self) -> None:
+        """lab-paths {code_stats}/{code_modules} must match the MY-CODES layout."""
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
         for key in ("code_stats", "code_modules", "code_modules_master", "rules_git"):
             self.assertIn(key, aliases)
-        stats = _require_sibling(self, "stats-analysis")
+        stats = _require_sibling(self, "MY-CODES")
         modules = Path(str(aliases["code_modules"]))
         for rel in REQUIRED_STATS_REL:
             self.assertTrue((stats / rel).exists(), f"code_stats missing {rel}")
@@ -184,7 +184,7 @@ class CrossRepoContract(unittest.TestCase):
             [],
             "lab-paths still points at retired stats path:\n" + "\n".join(stale_alias),
         )
-        stats = _require_sibling(self, "stats-analysis")
+        stats = _require_sibling(self, "MY-CODES")
         prov = (stats / "modules" / "provenance.py").read_text(encoding="utf-8")
         self.assertIn("RAD_MODULES_STRICT", prov)
         self.assertIn("def enforce", prov)
@@ -306,8 +306,10 @@ class CrossRepoContract(unittest.TestCase):
         # Inject a false-green guard: affirmative D:\\0Grok\\0del must be detected.
         sample = "落点 `D:\\0Grok\\0del\\_by-function` 即可。"
         hit = False
-        for pat, _label, allow_if in mod.STALE_RULES:
-            if pat.search(sample) and not allow_if.search(sample):
+        for pat, _label, rule_kind in mod.STALE_RULES:
+            if pat.search(sample) and not mod.stale_line_allowed(
+                sample, pat, rule_kind
+            ):
                 hit = True
         self.assertTrue(hit, "stale scanner must catch affirmative D:\\0Grok\\0del")
 

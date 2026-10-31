@@ -10,7 +10,7 @@ python -B -m unittest discover -s tests -v          # whole suite
 python -B -m unittest tests.test_gates_contract -v  # one domain
 ```
 
-Cross-repo tests (`test_cross_repo_contract.py`) expect **MY-RULES** and **stats-analysis**
+Cross-repo tests (`test_cross_repo_contract.py`) expect **MY-RULES** and **MY-CODES**
 beside **MY-SKILLS** (or on lab drive aliases). On a partial checkout only, set
 `MY_SKILLS_ALLOW_MISSING_SIBLINGS=1` to skip those tests; default is **fail** (no silent skip).
 

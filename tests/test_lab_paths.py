@@ -199,7 +199,7 @@ class LabModulesVersionProse(unittest.TestCase):
     stats-analysis tree when it is present and compares.
     """
 
-    STATS_INIT = ROOT.parent / "stats-analysis" / "modules" / "__init__.py"
+    STATS_INIT = ROOT.parent / "MY-CODES" / "modules" / "__init__.py"
 
     def _library_version(self) -> str | None:
         if not self.STATS_INIT.is_file():
@@ -228,7 +228,7 @@ class LabModulesVersionProse(unittest.TestCase):
     def test_prose_matches_library_when_repo_is_present(self) -> None:
         expected = self._library_version()
         if expected is None:
-            self.skipTest("stats-analysis checkout not beside MY-SKILLS")
+            self.skipTest("MY-CODES checkout not beside MY-SKILLS")
         for rel in VERSION_PROSE:
             for line_no, line in enumerate(
                 (ROOT / rel).read_text(encoding="utf-8").splitlines(), 1
