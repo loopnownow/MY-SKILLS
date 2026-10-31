@@ -9,7 +9,7 @@ PLoS One, Scientific Reports, MEDICINE (LWW Baltimore). Never recommend.
 1. **Blacklist** — never recommend (`blacklist.csv`).
 2. **Graylist** — not recommended when better options exist (`graylist.csv`; includes **Frontiers family** by publisher/title pattern). Fill layers with non-gray first; only use gray if the layer would otherwise be short (reasonable fit) or the user asks; mark 「灰名单/不推荐」; no boost.
 3. **Submitted/选刊 whitelist** — `{find_journal_submission}\whitelist-submitted.csv` (seeded from `data/2026/submission-urls.csv`). Stronger boost inside layer after MJF.
-4. **BMC/Medicine pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
+4. **BMC/Medicine/MDPI pattern whitelist** — `whitelist-bmc-medicine.csv`: titles/ISO containing **BMC** or **Medicine**, or publisher/publisher_group **MDPI** (case-insensitive). Priority boost inside layer after MJF. Never include LWW MEDICINE.
 
 ## Decision flow (ChatGPT architecture mapped to this pack)
 
@@ -47,7 +47,7 @@ Note: default table order is 层2 → 层3 → 层4. 层2补 is Challenge/option
 
 Tier labels must be driven by **Journal Ease (JEI/JESI) × MJF × PAI × Practicality − Risk**, not IF/CAS alone.
 
-Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **submitted/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Prefer non-gray; skip Frontiers/graylist when better matches fill the layer. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
+Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **submitted/选刊 whitelist** (`whitelist-submitted.csv`) → **BMC/Medicine/MDPI pattern** (`whitelist-bmc-medicine.csv`) → **投稿易投指数** (JESI) → capacity signal. Prefer non-gray; skip Frontiers/graylist when better matches fill the layer. Do not use curated 易投指数. Use **dynamic weights** when the user states constraints (speed / Q1 / APC).
 
 **Similar-article check (2026-10-08), round 2:** round 1 ranks by the criteria above and does not search. Round 2 searches each candidate journal for similar articles from the last 3-5 years. No similar article → lower it inside its layer and write 「近年未见类似文章，已降级」 in 匹配理由. Full rule: `SKILL.md` § Similar-article check.
 
@@ -67,6 +67,6 @@ Details: `modules.md`, formulas: `jesi-model.md`, sources: `query-sources.md`, p
 
 ## Phase-1 HTML marks (v1.15)
 - Yellow highlight **only** when 投稿易投指数 ≥ 80.
-- Load blacklist → graylist → whitelist-submitted → BMC/Medicine pattern on every Phase-1 run.
-- **Submitted/选刊** boost stronger than BMC/Medicine pattern; **do not** mark 「可疑」 / red for either whitelist.
+- Load blacklist → graylist → whitelist-submitted → BMC/Medicine/MDPI pattern on every Phase-1 run.
+- **Submitted/选刊** boost stronger than BMC/Medicine/MDPI pattern; **do not** mark 「可疑」 / red for either whitelist.
 - Graylist (incl. Frontiers): use only if layer short or user asks; LWW MEDICINE stays blacklisted.

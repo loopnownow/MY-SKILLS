@@ -39,7 +39,7 @@ Load in this order on every Phase-1 run:
 1. `data/2026/blacklist.csv` — never list these titles.
 2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers family**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
 3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`). Stronger layer boost.
-4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine **pattern** boost (weaker than submitted whitelist).
+4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / **MDPI** **pattern** boost (weaker than submitted whitelist).
 
 ### Blacklist
 
@@ -68,7 +68,7 @@ Inside each layer rank by
 
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs medical-related categories (`医学相关学科`) (**MJF = MFI**; display **稿件匹配度**)
 2. **Submitted/选刊 whitelist first** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
-3. **BMC/Medicine pattern whitelist** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
+3. **BMC/Medicine/MDPI pattern whitelist** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
 4. **Graylist** (`data/2026/graylist.csv`, Frontiers family): skip when a better non-gray match exists; never boost
 3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
 4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
@@ -160,7 +160,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 10. `rules/jesi-model.md` - JESI / JEI / JDI / JCI-C / MJF
 11. `rules/persistence.md` - absorb / query / delete + what to save
 12. `rules/modules.md` - four logical modules + naming
-16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine pattern whitelist (LWW MEDICINE excluded)
+16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / MDPI pattern whitelist (LWW MEDICINE excluded)
 17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊 whitelist (seed: submission-urls)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
 17. `data/2026/submission-urls.csv` — URL fields only
@@ -170,7 +170,7 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 
 Load `{find_journal_submission}\whitelist-submitted.csv`. Seeded from journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
 
-Among comparable fit, **rank above** BMC/Medicine pattern whitelist. Boost, not auto-fill.
+Among comparable fit, **rank above** BMC/Medicine/MDPI pattern whitelist. Boost, not auto-fill.
 
 ## Graylist (not recommended)
 
@@ -178,11 +178,15 @@ Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontier
 
 **Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
 
-## BMC / Medicine pattern whitelist (secondary priority)
+## BMC / Medicine / MDPI pattern whitelist (secondary priority)
 
-Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive): title or ISO contains **BMC**, or title/ISO contains **Medicine**. **Exclude** live blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
+Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive):
+1. title or ISO contains **BMC**, or title/ISO contains **Medicine**; **or**
+2. publisher / publisher_group is **MDPI** (materialized rows use `标记原因=MDPI-publisher`; also tag `_library/journals/index.csv` `whitelist` with `mdpi`).
 
-User rule 2026-09-10: whitelist hits are **priority recommend** inside each layer (after 稿件匹配度). Do **not** label 「可疑」 and do **not** use a red HTML mark. This **replaces** the former v1.14 「刊名含 Medicine 层内降权」 rule.
+**Exclude** live blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
+
+User rule 2026-09-10 (BMC/Medicine) and 2026-10-31 t1472u (MDPI family): whitelist hits are **priority recommend** inside each layer (after 稿件匹配度). Do **not** label 「可疑」 and do **not** use a red HTML mark. This **replaces** the former v1.14 「刊名含 Medicine 层内降权」 rule.
 
 Whitelist is a boost, not auto-fill: still require reasonable scope match; still never recommend blacklist titles.
 

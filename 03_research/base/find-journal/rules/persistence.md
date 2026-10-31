@@ -9,7 +9,7 @@
 | Policy / workflow / framework formulas | `policy.md`, `recommendation-workflow.md`, `jesi-model.md`, `modules.md` |
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
-| BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
+| BMC/Medicine/MDPI priority whitelist | `whitelist-bmc-medicine.csv` |
 | 投过/选刊 whitelist | `{find_journal_submission}\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
 | Yearly screening cache (layer membership + metrics) | 0doc `{find_journal_pools}` = `_library\journals\index.csv` (+ `index.xlsx`, `l1-l2-map.csv`) — rebuilt annually; archive under `journals\archive\<year>\` |
