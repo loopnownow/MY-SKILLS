@@ -229,7 +229,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - **lab-paths.yaml** version 5 → 6.
 - `{code_figures}` → `D:\0Grok\0doc\_code\02-data-processing\draw-flowchart` (confirmed on disk; former `04-analysis\draw-flowchart` gone with 04 merge).
 - `{code_06_review}` **retired** — no `_code\06-review`; review seat is `{skills_git}\06_review` only. Alias removed (no live cites).
-- `{doc_lab_ste}` → `D:\0del\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste` (full SPEC/`config.yaml`; **not** `_library\lab-ref-ranges`). Live method SSOT remains `05_manuscript/base/vocab/L3/`.
+- `{doc_lab_ste}` → `D:\0Grok\0doc\skill-harvest\sources\library-methods-20261023\lab-ste` (full SPEC/`config.yaml`; **not** `_library\lab-ref-ranges`). Live method SSOT remains `05_manuscript/base/vocab/L3/`.
 - `{doc_grants}` → `...\library-ftp-20261023\grants` (same durable tree). Word originals also under `{doc_word_archive}\03-research\grants`. Digests stay in `03_research/personal/references/`.
 - `{doc_fill_protocol}` → `...\library-methods-20261023\study-design\fill-protocol`. Live Jinshan notes: `03_research/personal/fill-protocol`; scripts: `{code_fill_protocol}`; PHI blanks: `{doc_ethics}`.
 - Prose: `05_manuscript/base/vocab/L3/lab-ste.md` "Live library" → park + method SSOT wording.

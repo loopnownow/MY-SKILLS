@@ -1,7 +1,7 @@
 # Response-letter structure digest (0doc base absorb)
 
 > Digested 2026-10-23 from park `…/07-response/base/response-structure/README.md`.
-> Provenance（`{DEL}` 暂存、会定期清空；本文件才是耐久摘要）: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\0doc-base-absorbed-20261023\response-structure\README.md`.
+> Provenance（`{DEL}` 暂存、会定期清空；本文件才是耐久摘要）: `{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\response-structure\README.md`.
 > **Voice / opener / thanks bank SSOT remains** `../response.md` — this file is skeleton + unique bans only. Do not triplicate opener nouns.
 
 ## Letter skeleton (fixed order)
