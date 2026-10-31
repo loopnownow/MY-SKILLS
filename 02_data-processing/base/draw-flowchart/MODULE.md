@@ -10,18 +10,20 @@ trigger is documentation only; not independently discoverable.
 
 # Study / patient flow figures
 
-Contract only for draw-flowchart: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/draw-flowchart-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Contract only for draw-flowchart: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/draw-flowchart-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data. Runtime scripts resolve via `{code_figures}` (= this skill dir) until P3 moves them to MY-CODES/tools; do not recreate `_code\02-data-processing\draw-flowchart`.
 
 STROBE-style enrolment flow, study-workflow diagrams, and methods-pipeline cartoons.
 Statistical plots live in `plot-figures`.
 
-`scripts/draw_strobe_flow.py` draws **type A only**. Do not invent n.
+`scripts/draw_strobe_flow.py` draws **type A only**; `scripts/draw_strobe_flow_expanded.py`
+draws **type A′ only** (pre-split arms + downsample). Neither invents n.
 
 ## Figure 1 types (do not mix)
 
 | Type | When | Draw with |
 |---|---|---|
 | **A — published STROBE** (default) | Retrospective cohort / prediction patient selection | `scripts/draw_strobe_flow.py`. Inclusion arrow IN, exclusion arrow OUT with `(n=k)`, Training Cohort / Validation Cohort, no pipeline row. See [references/patient-flow.md](references/patient-flow.md) and [references/style.md](references/style.md). |
+| **A′ — expanded STROBE** | Split **before** resampling: a class-imbalance downsample sits inside one arm | `scripts/draw_strobe_flow_expanded.py`. Screened → pre-split arms → (downsample) → final cohorts → analyzed; same style as A. See [references/expanded-strobe.md](references/expanded-strobe.md). |
 | **B — study workflow** | Enrolment mixed with analysis steps | Rules only: [references/study-workflow.md](references/study-workflow.md). Do not extend `draw_strobe_flow`. |
 | **C — methods pipeline** | Radiomics-step / specimen-to-model cartoon | **Must not** call `draw_strobe_flow`. See [references/methods-pipeline.md](references/methods-pipeline.md). |
 
@@ -37,9 +39,11 @@ Caption: `Figure 1. Flowchart of patient selection and study design.`
 | File | Open when |
 |---|---|
 | [references/patient-flow.md](references/patient-flow.md) | Type A published STROBE Figure 1 (default), n-audit |
+| [references/expanded-strobe.md](references/expanded-strobe.md) | Type A′ expanded STROBE (pre-split arms + downsample), n-audit |
 | [references/style.md](references/style.md) | Type A box geometry (white, black squares, Arial, arrows IN/OUT) |
 | [references/study-workflow.md](references/study-workflow.md) | Type B study-workflow rules only |
 | [references/methods-pipeline.md](references/methods-pipeline.md) | Type C methods pipeline cartoon |
 | [scripts/draw_strobe_flow.py](scripts/draw_strobe_flow.py) | Draw type A (`--json` `--out`; `--no-audit` only for documented historical n mismatches) |
+| [scripts/draw_strobe_flow_expanded.py](scripts/draw_strobe_flow_expanded.py) | Draw type A′ (pre-split + downsample; `--json` `--out`; same `--no-audit` rule) |
 
 Plots (ROC, calibration, imaging panels) → `../plot-figures/`.

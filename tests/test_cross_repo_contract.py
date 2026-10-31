@@ -52,6 +52,10 @@ RETIRED_STATS_PATH = re.compile(
     r"_code[\\/]+04-analysis[\\/]+stats-analysis",
     re.I,
 )
+RETIRED_FIGURES_PATH = re.compile(
+    r"_code[\\/]+02-data-processing[\\/]+draw-flowchart",
+    re.I,
+)
 
 
 def _allow_missing_siblings() -> bool:
@@ -183,6 +187,29 @@ class CrossRepoContract(unittest.TestCase):
             stale_alias,
             [],
             "lab-paths still points at retired stats path:\n" + "\n".join(stale_alias),
+        )
+        # No live alias may still point at retired _code/02-data-processing/draw-flowchart.
+        stale_fig = [
+            f"{k}={v}"
+            for k, v in aliases.items()
+            if RETIRED_FIGURES_PATH.search(str(v))
+        ]
+        self.assertEqual(
+            stale_fig,
+            [],
+            "lab-paths still points at retired figures path:\n" + "\n".join(stale_fig),
+        )
+        fig = Path(str(aliases["code_figures"]))
+        skills = _require_sibling(self, "MY-SKILLS")
+        expected_fig = (skills / "02_data-processing" / "base" / "draw-flowchart").resolve()
+        self.assertEqual(
+            fig.resolve(),
+            expected_fig,
+            "code_figures must be MY-SKILLS draw-flowchart skill dir",
+        )
+        self.assertTrue(
+            (fig / "scripts" / "draw_strobe_flow.py").is_file(),
+            "code_figures/scripts/draw_strobe_flow.py missing",
         )
         stats = _require_sibling(self, "MY-CODES")
         prov = (stats / "modules" / "provenance.py").read_text(encoding="utf-8")

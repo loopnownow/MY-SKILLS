@@ -3,7 +3,7 @@
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 # Env: prefer STATS_ROOT ({code_stats}) and ODOC_CODE ({code_root}).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
-version: 7
+version: 8
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
@@ -49,7 +49,7 @@ aliases:
   code_data_processing: "D:\\0Grok\\0doc\\_code\\02-data-processing"
   code_clean_data: "D:\\0Grok\\0doc\\_code\\02-data-processing\\clean-data"
   code_fill_protocol: "D:\\0Grok\\0doc\\_code\\03-research\\fill-protocol"
-  code_figures: "D:\\0Grok\\0doc\\_code\\02-data-processing\\draw-flowchart"
+  code_figures: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS\\02_data-processing\\base\\draw-flowchart"  # scripts live in scripts/; P3 may move to MY-CODES/tools
   code_write_paper: "D:\\0Grok\\0doc\\_code\\05-manuscript\\write-paper"
   # 2026-10-27: code_md_bank retired with md-bank (scripts now in {DEL}\_by-function\0doc-deep-clean-20261027\removed);
   # alias deleted deliberately — nothing regenerates those views any more, so there is no path to resolve.
@@ -59,12 +59,13 @@ notes:
   - "2026-10-31 (owner): jcr flattened + journals single table. {doc_library_jcr} and {find_journal_submission} now resolve to _library\\journals (whitelist-submitted.csv / submission-prior.jsonl sit there); jcr\\<year>\\ retired, no per-year folders; journals\\index.xlsx retired (csv only)."
   - "HISTORIC (SUPERSEDED same day): 2026-10-31 t1458u interim — {find_journal_pools} -> _library\\journals (single index.csv with layer column + l1-l2-map.csv); {find_journal_submission} was briefly _library\\jcr\\2026\\submission (flattened into _library\\journals per owner note above; do not recreate jcr\\2026\\submission); _library\\find-journal retired (pools archived under journals\\archive\\2026; empty tree removed). New aliases: {doc_library_references}, {doc_library_journals}, {doc_library_jcr}, {doc_ethics_approvals}, {doc_ethics_index}. Ethics approvals: _library\\ethics\\approvals\\<L1>\\<L2>\\ (former 批件), index approvals-index.xlsx. Taxonomy: MY-RULES library-taxonomy.md."
   - "2026-10-27: code_md_bank alias retired — md-bank (0doc _code\\07-response\\tighten-response) moved to {DEL}\\_by-function\\0doc-deep-clean-20261027\\removed; alias removed because no live regenerator remains (skills read the digests, not the scripts)."
-  - "2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
+  - "HISTORIC (SUPERSEDED 2026-11-01 t1527u): 2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
   - "2026-10-24: harvest SSOT moved {_bank\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_git} = MY-RULES clone (rules_runtime dropped: same tree); Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
   - "2026-11-01: repo renamed GitHub\\stats-analysis -> GitHub\\MY-CODES (GitHub keeps a redirect from the old name). {code_stats}/{code_modules}/{code_modules_master}/{code_model_validation} now resolve under MY-CODES; skill fine-id `stats-analysis` and env STATS_ROOT keep their names — repo name and skill id are decoupled."
 
+  - "2026-11-01 t1527u: {code_figures}→GitHub\\MY-SKILLS\\02_data-processing\\base\\draw-flowchart (skill dir; scripts/ beside MODULE). Former _code\\02-data-processing\\draw-flowchart is HISTORIC (parked under 0del\\_by-function\\t1521u-mycodes-rename\\removed; do not recreate a live _code pointer-only shell). Scripts stay in Skills until P3 moves to MY-CODES/tools."
   - "HISTORIC (SUPERSEDED 2026-11-01): 2026-10-23: 0script retired; code SSOT is {code_root}. 2026-10-25: stats SSOT is GitHub\\stats-analysis ({code_stats}/{code_modules}); {code_modules_master} equals {code_modules}; former _code\\04-analysis\\stats-analysis retired."
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
   - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02-07 use fine-ID folders (no base\\)."
