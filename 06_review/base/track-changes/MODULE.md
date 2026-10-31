@@ -22,7 +22,7 @@ Not a Word editor. Text decisions belong to `05_manuscript` (`Aitor-format.md`, 
 `06_review/advanced/review.md` for findings, and to `07_response/base/revise/` for letters. This
 pack only inspects and repacks the file.
 
-**Scripts live here on purpose.** They are the exception to the "code goes to stats-analysis" rule:
+**Scripts live here on purpose.** They are the exception to the "code goes to MY-CODES" rule:
 they are Word-format mechanics with no patient data and no analysis, and they need to travel with
 the redlining contract. Attribution: `LICENSE.txt` (Anthropic).
 

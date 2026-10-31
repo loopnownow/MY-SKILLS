@@ -8,7 +8,7 @@
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 
-Algorithm library entity = `{code_stats}` (`GitHub\stats-analysis`). Do **not** split the `modules` package out of that tree (`{code_modules}` stays inside `{code_stats}`). Not under `base\stats-analysis`.
+Algorithm library entity = `{code_stats}` (`GitHub\MY-CODES`). Do **not** split the `modules` package out of that tree (`{code_modules}` stays inside `{code_stats}`). Not under `base\stats-analysis`.
 
 **Number conflict:** `Results*.html` wins over a companion `.xlsx`. Flag both loci; the workbook does not override the HTML. Detail: `console-ui.md` §6.
 
