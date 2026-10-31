@@ -19,4 +19,4 @@ description: "Lab imaging biostatistics index for 02_data-processing. Detail liv
 | Thin digest: calc-sample-size | `calc-sample-size-digest.md` |
 | Thin digest: draw-flowchart / plot-figures | `draw-flowchart-digest.md` / `plot-figures-digest.md` |
 
-Full former MODULE body archived in `{DEL}\02_data-processing_reorg_20261016\MODULE.md.bak`.
+Full former MODULE body was archived in HISTORIC `{DEL}\02_data-processing_reorg_20261016\MODULE.md.bak`（可能已清；t1490u；do not resolve）。

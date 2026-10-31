@@ -8,8 +8,8 @@
 | Role | Path |
 |---|---|
 | Durable full originals | `{doc_skill_harvest}\sources\library-ftp-20261023\` |
-| Park (pending purge) | `{DEL}\_by-project\0doc-library-ftp-20261023\` |
-| Word archives (unchanged) | `{DEL}\_by-project\0doc-word-sources\03-research\grants\` |
+| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-ftp-20261023\`~~ |
+| Word archives | `{doc_word_archive}\03-research\grants`（原 0del word-sources park 已清；t1490u） |
 | Writing skeleton (Voice B) | `03_research/advanced/intake.md` § Grant Voice B chapter skeleton |
 | Writing voice | `03_research/advanced/intake.md` § Grant Voice B |
 
