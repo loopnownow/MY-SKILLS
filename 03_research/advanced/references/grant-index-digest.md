@@ -7,7 +7,7 @@
 
 | Role | Path |
 |---|---|
-| Durable full originals | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-ftp-20261023\` |
+| Durable full originals | `{doc_skill_harvest}\sources\library-ftp-20261023\` |
 | Park (pending purge) | `{DEL}\_by-project\0doc-library-ftp-20261023\` |
 | Word archives (unchanged) | `{DEL}\_by-project\0doc-word-sources\03-research\grants\` |
 | Writing skeleton (Voice B) | `03_research/advanced/intake.md` § Grant Voice B chapter skeleton |

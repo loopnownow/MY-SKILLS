@@ -21,4 +21,4 @@ See `writing-rules-hard.md` (same absorb).
 ## Park provenance
 
 - Former seat README: `{DEL}\_by-project\0doc-03-07-seats-20261023\05-manuscript\base\writing-rules\README.md`
-- Durable copy: `{DEL}\_by-project\skill-harvest-sources-20261024\sources\0doc-base-absorbed-20261023\`
+- Durable copy: `{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\`

@@ -9,7 +9,7 @@
 
 | Role | Path |
 |---|---|
-| Durable full tree | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\lab-ste\` |
+| Durable full tree | `{doc_skill_harvest}\sources\library-methods-20261023\lab-ste\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\` |
 | Tools / HTML (run from park or restore) | `…\lab-ste\tools\`, `spec.html` — **not in MY-SKILLS** |
 

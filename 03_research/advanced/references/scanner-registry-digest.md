@@ -7,7 +7,7 @@
 
 | Role | Path |
 |---|---|
-| Durable original (README + xlsx) | `{DEL}\_by-project\skill-harvest-sources-20261024\sources\library-methods-20261023\scanner-registry\` |
+| Durable original (README + xlsx) | `{doc_skill_harvest}\sources\library-methods-20261023\scanner-registry\` |
 | Park | `{DEL}\_by-project\0doc-library-methods-20261023\scanner-registry\` |
 | Live xlsx (query) | `{doc_root}\templates\scanner-parameter-registry.xlsx` |
 | Build scripts (stay in `_code`) | `{code_root}\03-research\fill-protocol\lab-reference\scanner_registry_{extract,build,rows}.py` |
