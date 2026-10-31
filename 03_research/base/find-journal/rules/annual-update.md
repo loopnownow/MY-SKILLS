@@ -13,10 +13,10 @@ Derived only. Do not hand-edit 22k rows.
 
 - **Curated xlsx SSOT (0doc `mem\`, not in git):** `{jcr2026_xlsx}` (current: `{doc_root}\mem\医学投稿推荐_JCR2026.xlsx`). Mutable workbook lives under `mem\`, not the theme tree.
 - **List gates (skill pack):** `data/<YEAR>/` (current: `data/2026/`) — blacklist/graylist/whitelist + `submission-urls.csv` only.
-- **Runtime pools (0doc):** `{find_journal_pools}` = `{doc_root}\_library\journals\` — single `index.csv` (+ `index.xlsx`) with a `layer` column, plus `l1-l2-map.csv`; the old `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` are archived read-only under `journals\archive\<YEAR>\`.
+- **Runtime pools (0doc):** `{find_journal_pools}` = `{doc_root}\_library\journals\` — single `index.csv` with a `layer` column, plus `l1-l2-map.csv`; the old `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` are archived read-only under `journals\archive\<YEAR>\`. Selection-side private files (`whitelist-submitted.csv` / `submission-prior.jsonl`) live in the same folder since 2026-10-31 (the former `_library\jcr\<YEAR>\` level is retired; `index.xlsx` is retired too).
 - Rebuild the curated xlsx under `mem\`, rebuild `journals\index.csv` from the raw Clarivate tables, then **discard** the raw file from the skill pack (user keeps a private copy if needed).
 
-When the year rolls (e.g. 2027), create `data/2027/` for list gates, rebuild `{find_journal_pools}\index.csv` with `jcr_year=2027` / `metric_year=2026`, archive the previous table under `journals\archive\2026\`, put the new curated xlsx under `{doc_root}\mem\医学投稿推荐_JCR20XX.xlsx` (update `{jcr2026_xlsx}`), and create `{doc_root}\_library\jcr\2027\` for that year's submission priors (2026 stays as history).
+When the year rolls (e.g. 2027), create `data/2027/` for list gates, rebuild `{find_journal_pools}\index.csv` with `jcr_year=2027` / `metric_year=2026`, archive the previous table under `journals\archive\2026\`, put the new curated xlsx under `{doc_root}\mem\医学投稿推荐_JCR20XX.xlsx` (update `{jcr2026_xlsx}`), and **append** that year's new submission priors / whitelist rows to `{find_journal_submission}\submission-prior.jsonl` / `whitelist-submitted.csv` (both cumulative; do **not** create a new `jcr\<year>\` folder — retired 2026-10-31).
 
 **Timing:** the rebuild happens in **July**, after Clarivate ships the new JCR edition (the 2026 edition carries 2025 JIF values). Do not refresh mid-year.
 
