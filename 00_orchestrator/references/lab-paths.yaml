@@ -18,13 +18,13 @@ aliases:
   doc_lab_ste: "D:\\0del\\_by-project\\skill-harvest-sources-20261024\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
   # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
   jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
-  find_journal_submission: "D:\\0Grok\\0doc\\_library\\jcr\\2026\\submission"
+  find_journal_submission: "D:\\0Grok\\0doc\\_library\\journals"  # 2026-10-31: jcr\2026\submission flattened into journals\ (whitelist-submitted.csv / submission-prior.jsonl sit there)
   find_journal_pools: "D:\\0Grok\\0doc\\_library\\journals"
-  # 2026-10-31 t1458u: pools collapsed to _library\journals\index.csv (+index.xlsx, l1-l2-map.csv);
-  # archives under journals\archive\<year>\; jcr2026 -> jcr\2026 (per-year folders).
+  # 2026-10-31 t1458u: pools collapsed to _library\journals\index.csv (single table; xlsx retired same day);
+  # archives under journals\archive\<year>\; jcr\2026 -> flattened into journals (2026-10-31), no per-year folders.
   doc_library_references: "D:\\0Grok\\0doc\\_library\\references"
   doc_library_journals: "D:\\0Grok\\0doc\\_library\\journals"
-  doc_library_jcr: "D:\\0Grok\\0doc\\_library\\jcr"
+  doc_library_jcr: "D:\\0Grok\\0doc\\_library\\journals"  # 2026-10-31: jcr\ flattened into journals\ (alias kept resolvable, same dir as doc_library_journals)
   doc_ethics_approvals: "D:\\0Grok\\0doc\\_library\\ethics\\approvals"
   doc_ethics_index: "D:\\0Grok\\0doc\\_library\\ethics\\approvals-index.xlsx"
   # was 06-review/advanced (retired human seat 2026-10-23 → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\06-review).
@@ -56,6 +56,7 @@ aliases:
   code_bank_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-10-31 (owner): jcr flattened + journals single table. {doc_library_jcr} and {find_journal_submission} now resolve to _library\\journals (whitelist-submitted.csv / submission-prior.jsonl sit there); jcr\\<year>\\ retired, no per-year folders; journals\\index.xlsx retired (csv only)."
   - "2026-10-31 t1458u: {find_journal_pools} -> _library\\journals (single index.csv with layer column + l1-l2-map.csv); {find_journal_submission} -> _library\\jcr\\2026\\submission; _library\\find-journal retired (pools archived under journals\\archive\\2026; empty tree removed). New aliases: {doc_library_references}, {doc_library_journals}, {doc_library_jcr}, {doc_ethics_approvals}, {doc_ethics_index}. Ethics approvals: _library\\ethics\\approvals\\<L1>\\<L2>\\ (former 批件), index approvals-index.xlsx. Taxonomy: MY-RULES library-taxonomy.md."
   - "2026-10-27: code_md_bank alias retired — md-bank (0doc _code\\07-response\\tighten-response) moved to {DEL}\\_by-function\\0doc-deep-clean-20261027\\removed; alias removed because no live regenerator remains (skills read the digests, not the scripts)."
   - "2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
