@@ -98,7 +98,7 @@ There is no version record and no update policy, because nothing outside the rep
 
 ## 8. Local check / build (no in-repo CI)
 
-There is **no** committed `.github/workflows` CI in this repository (retired workflow parked under `{DEL}`). On relevant path changes, regenerate IR and docs locally from sources with `gen_visualization.py`. Shape or schema failure does not overwrite the last good artifact. Rendering is local: no download, unzip, or external process runs at build time. GitHub Pages is not configured here.
+There is **no** committed `.github/workflows` CI in this repository (retired workflow was parked under `{DEL}` (HISTORIC; may be cleared; t1490u)). On relevant path changes, regenerate IR and docs locally from sources with `gen_visualization.py`. Shape or schema failure does not overwrite the last good artifact. Rendering is local: no download, unzip, or external process runs at build time. GitHub Pages is not configured here.
 
 Gates:
 

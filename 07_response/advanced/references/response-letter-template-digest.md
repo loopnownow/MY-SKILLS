@@ -1,6 +1,6 @@
 # Response-letter template digest (type stubs only)
 
-> Digested 2026-10-23 from park `{DEL}\_meta\02-response-letter-template.md`（`{DEL}` 定期清空；本文件即其耐久摘要）.
+> Digested 2026-10-23 from HISTORIC park ~~`{DEL}\_meta\02-response-letter-template.md`~~（已清；本文件即耐久摘要；t1490u）.
 > **Not** a full dump: opener / thanks bank / closings / PII stay in `../response.md` (and mem for contact).
 > Use with `response-structure-digest.md` for order + bans.
 
