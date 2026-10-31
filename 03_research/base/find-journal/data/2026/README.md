@@ -6,7 +6,7 @@ Annual **list gates** for `find-journal`. Large runtime selection pools live in 
 
 - `blacklist.csv` / `blacklist-names.csv` — never recommend
 - `graylist.csv` / `graylist-names.csv` — not preferred when better matches exist
-- `whitelist-bmc-medicine.csv` — BMC / Medicine pattern boost
+- `whitelist-bmc-medicine.csv` — BMC / Medicine / **MDPI** pattern boost
 - `submission-urls.csv` — portal URL write-back only (no IF/quartile/volume)
 - `README.md`, `SUBMISSION_PRIVACY.md`
 

@@ -48,7 +48,7 @@ Owner: **Victor** - `03_research`. Bai owns 选刊 advancement after titles are 
 
 ## Display hard rules (v1.16)
 
-- BMC/Medicine whitelist priority (`data/2026/whitelist-bmc-medicine.csv`); no 「可疑」/红标; LWW MEDICINE stays blacklisted.
+- BMC/Medicine/MDPI whitelist priority (`data/2026/whitelist-bmc-medicine.csv`); no 「可疑」/红标; LWW MEDICINE stays blacklisted. MDPI via publisher/publisher_group.
 - Phase-1 HTML: only 投稿易投指数 >= 80 gets yellow highlight.
 
 ## Do not
