@@ -107,7 +107,7 @@ When drafting Introduction / Related Work / Discussion needs **group evidence**,
 
 - ORCID iD (public): `0000-0001-5062-0230` — works via `https://pub.orcid.org/v3.0/0000-0001-5062-0230/works`
 - Data SSOT: `{doc_root}\_library\lit-bank\index.csv` (`layer=advanced`). Skills hold **procedure only** — never mirror the paper list here.
-- ORCID backfill (2026-10-27 Asia/Shanghai): 48 ORCID work-groups → **42** already/newly in `index.csv`; disposition ledger `{doc_root}\_library\lit-bank\orcid-works-20261027\advanced-works.csv` (+ README). CN journals excluded; SSRN/Research Square preprints noted, not ingested as SCI.
+- ORCID iD roster: `{doc_root}\mem\NL.xlsx`（城城指定；含 ORCID 列）。Works backfill (2026-10-27 Asia/Shanghai): 48 ORCID work-groups → **42** already/newly in `index.csv`; disposition ledger `{doc_root}\_library\lit-bank\orcid-works-20261027\personal-works.csv` (+ README). CN journals excluded; SSRN/Research Square preprints noted, not ingested as SCI.
 - Prefer-cite: see section above (`layer=advanced` before `base`).
 
 ## Pointers
