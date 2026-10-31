@@ -1,7 +1,9 @@
 """E3: lightweight cross-repo contract (Rules / Skills / stats-analysis).
 
-Runs inside MY-SKILLS pytest. Sibling checkouts are optional: when absent, the
-related assertions skip so the suite stays portable. No new QC framework.
+Runs inside MY-SKILLS pytest. Sibling checkouts (MY-RULES, stats-analysis beside
+MY-SKILLS or via lab-paths aliases) are required by default. Set
+MY_SKILLS_ALLOW_MISSING_SIBLINGS=1 for partial checkouts (CI without clones).
+No new QC framework.
 """
 from __future__ import annotations
 
@@ -22,6 +24,8 @@ LAB_PATHS = ONE / "references" / "lab-paths.yaml"
 LEGACY = ONE / "legacy_aliases.yaml"
 REGISTRY = ONE / "registry.yaml"
 
+ALLOW_MISSING_SIBLINGS_ENV = "MY_SKILLS_ALLOW_MISSING_SIBLINGS"
+
 REQUIRED_STATS_REL = (
     "modules",
     "modules/__init__.py",
@@ -36,6 +40,11 @@ RULES_SKILL_PATH_RE = re.compile(
     r"[\\/]+"
     r"([A-Za-z0-9_.\\/-]+\.(?:md|yaml|yml|txt|mmd))",
 )
+RULES_SKILL_DIR_RE = re.compile(
+    r"(?:\{SKILLS\}|\{skills_git\}|\{skills_runtime\}|MY-SKILLS)"
+    r"[\\/]+"
+    r"((?:00|02|03|05|06|07)_[a-z0-9-]+(?:[\\/][A-Za-z0-9_.\\/-]+)*)(?:[\\/])?",
+)
 
 VERSION_MARK_RE = re.compile(r"__version__\s*=\s*[\"']([^\"']+)[\"']")
 SEAT_RE = re.compile(r"`((?:00|02|03|05|06|07)_[a-z0-9-]+)`")
@@ -45,7 +54,23 @@ RETIRED_STATS_PATH = re.compile(
 )
 
 
+def _allow_missing_siblings() -> bool:
+    return os.environ.get(ALLOW_MISSING_SIBLINGS_ENV, "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+    )
+
+
 def _sibling(name: str) -> Path | None:
+    """Resolve MY-RULES / stats-analysis / MY-SKILLS checkout paths.
+
+    Prefer the git sibling layout (../NAME beside this repo) so directory-style
+    lab-paths aliases still resolve when drive-letter paths are off-host.
+    """
+    cand = ROOT.parent / name
+    if cand.is_dir():
+        return cand
     data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
     aliases = data.get("aliases") or {}
     key = {
@@ -57,10 +82,21 @@ def _sibling(name: str) -> Path | None:
         p = Path(str(aliases[key]))
         if p.is_dir():
             return p
-    cand = ROOT.parent / name
-    if cand.is_dir():
-        return cand
     return None
+
+
+def _require_sibling(case: unittest.TestCase, name: str) -> Path:
+    path = _sibling(name)
+    if path is not None:
+        return path
+    if _allow_missing_siblings():
+        case.skipTest(
+            f"{name} sibling absent (allowed by {ALLOW_MISSING_SIBLINGS_ENV})"
+        )
+    raise case.failureException(
+        f"{name} sibling required for cross-repo contract "
+        f"(clone beside MY-SKILLS or set {ALLOW_MISSING_SIBLINGS_ENV}=1 on partial checkout)"
+    )
 
 
 def _load_check_paths(rules: Path):
@@ -76,9 +112,7 @@ def _load_check_paths(rules: Path):
 class CrossRepoContract(unittest.TestCase):
     def test_rules_skills_cited_paths_exist(self) -> None:
         """Rules docs that cite concrete Skills files / seats must resolve."""
-        rules = _sibling("MY-RULES")
-        if rules is None:
-            self.skipTest("MY-RULES sibling / rules_git absent")
+        rules = _require_sibling(self, "MY-RULES")
         missing: list[str] = []
         for name in ("skills.md", "My rule.md", "README.md"):
             path = rules / name
@@ -91,6 +125,11 @@ class CrossRepoContract(unittest.TestCase):
                 target = ROOT / rel
                 if not target.exists():
                     missing.append(f"{name}: {rel}")
+            for m in RULES_SKILL_DIR_RE.finditer(text):
+                rel = m.group(1).replace("\\", "/").rstrip("/")
+                target = ROOT / rel
+                if not (target.is_dir() or target.is_file()):
+                    missing.append(f"{name}: dir {rel}")
             if name in ("skills.md", "My rule.md"):
                 for m in SEAT_RE.finditer(text):
                     seat = m.group(1)
@@ -108,10 +147,8 @@ class CrossRepoContract(unittest.TestCase):
         aliases = data["aliases"]
         for key in ("code_stats", "code_modules", "code_modules_master", "rules_git"):
             self.assertIn(key, aliases)
-        stats = Path(str(aliases["code_stats"]))
+        stats = _require_sibling(self, "stats-analysis")
         modules = Path(str(aliases["code_modules"]))
-        if not stats.is_dir():
-            self.skipTest(f"code_stats absent: {stats}")
         for rel in REQUIRED_STATS_REL:
             self.assertTrue((stats / rel).exists(), f"code_stats missing {rel}")
         self.assertEqual(
@@ -147,9 +184,7 @@ class CrossRepoContract(unittest.TestCase):
             [],
             "lab-paths still points at retired stats path:\n" + "\n".join(stale_alias),
         )
-        stats = _sibling("stats-analysis")
-        if stats is None:
-            self.skipTest("stats-analysis sibling / code_stats absent")
+        stats = _require_sibling(self, "stats-analysis")
         prov = (stats / "modules" / "provenance.py").read_text(encoding="utf-8")
         self.assertIn("RAD_MODULES_STRICT", prov)
         self.assertIn("def enforce", prov)
@@ -163,9 +198,7 @@ class CrossRepoContract(unittest.TestCase):
         self.assertIn("Public-path policy", readme)
         self.assertIn("{code_stats}", readme)
         # Rules pointers must not contradict public stats path.
-        rules = _sibling("MY-RULES")
-        if rules is None:
-            return
+        rules = _require_sibling(self, "MY-RULES")
         for name in ("workspace-layout.md", "My rule.md", "skills.md", "README.md"):
             text = (rules / name).read_text(encoding="utf-8")
             for i, line in enumerate(text.splitlines(), 1):
@@ -182,9 +215,7 @@ class CrossRepoContract(unittest.TestCase):
 
     def test_rules_check_paths_fail_loud(self) -> None:
         """N8: check_paths must not false-green when skills or required MD missing."""
-        rules = _sibling("MY-RULES")
-        if rules is None:
-            self.skipTest("MY-RULES sibling / rules_git absent")
+        rules = _require_sibling(self, "MY-RULES")
         cp = rules / "check_paths.py"
         self.assertTrue(cp.is_file())
         mod = _load_check_paths(rules)
@@ -266,9 +297,7 @@ class CrossRepoContract(unittest.TestCase):
 
     def test_rules_md_path_scan_coverage(self) -> None:
         """N14: Rules check_paths scans MD for stale path claims; green = real pass."""
-        rules = _sibling("MY-RULES")
-        if rules is None:
-            self.skipTest("MY-RULES sibling / rules_git absent")
+        rules = _require_sibling(self, "MY-RULES")
         mod = _load_check_paths(rules)
         self.assertTrue(hasattr(mod, "check_stale_md_paths"))
         # Live tree should be clean.
@@ -297,6 +326,24 @@ class CrossRepoContract(unittest.TestCase):
         text = ver.read_text(encoding="utf-8").strip()
         self.assertTrue(text, "VERSION.txt empty")
         self.assertRegex(text, r"CHG-|20\d{6}")
+
+    def test_sibling_absence_fails_unless_env_opt_in(self) -> None:
+        """Partial checkout must not silently skip cross-repo contract tests."""
+        if _sibling("MY-RULES") is not None:
+            self.skipTest("MY-RULES present; default-fail guard not applicable here")
+        prev = os.environ.get(ALLOW_MISSING_SIBLINGS_ENV)
+        try:
+            os.environ.pop(ALLOW_MISSING_SIBLINGS_ENV, None)
+            with self.assertRaises(unittest.TestCase.failureException):
+                _require_sibling(self, "MY-RULES")
+            os.environ[ALLOW_MISSING_SIBLINGS_ENV] = "1"
+            with self.assertRaises(unittest.SkipTest):
+                _require_sibling(self, "MY-RULES")
+        finally:
+            if prev is None:
+                os.environ.pop(ALLOW_MISSING_SIBLINGS_ENV, None)
+            else:
+                os.environ[ALLOW_MISSING_SIBLINGS_ENV] = prev
 
 
 if __name__ == "__main__":
