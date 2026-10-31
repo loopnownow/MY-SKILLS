@@ -27,9 +27,10 @@ Contract only for find-journal (list gates and layer policy): scope, bans, phase
 
 - **Rules / methods:** `SKILL.md` + `rules/` (policy, workflow, JESI, persistence, …)
 - **List gates (in-repo SSOT):** `data/2026/` — blacklist / graylist / whitelist-bmc-medicine + `submission-urls.csv` write-back. Do not duplicate under `references/` or `artifacts/`.
-- **Runtime selection pools (0doc):** `{find_journal_pools}` — `full-pool.csv`, `category-index.csv`, `layer1-*` … `layer4-*`, `priority-compact.json`, `publisher-fees.csv`. **Pools live in 0doc; skill keeps list gates only.**
+- **Runtime selection pools (0doc):** `{find_journal_pools}` = `{doc_library_journals}` — **single table** `index.csv` (+ `index.xlsx`) with a `layer` column, plus `l1-l2-map.csv`; superseded `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` stay read-only in `journals\archive\<year>\`. **Pools live in 0doc; skill keeps list gates only.**
+- **Annual refresh:** rebuild `journals\index.csv` once a year, in **July after the new JCR release** (current edition 2026 / metric year 2025); `{doc_library_jcr}\<year>\` holds per-year submission priors.
 - **`references/`:** retired mix; pointer README only.
-- **Per-project 选刊/已投:** `<project>/ref/` (e.g. `journals-submitted.md`) — not in MY-SKILLS.
+- **Per-project 选刊/已投:** `<project>/ref/citation/journals.csv` (+ `_notes.md`) — not in MY-SKILLS; never scatter journal notes as md/json/html in `ref/`.
 
 ## Live lists (always on)
 
@@ -54,10 +55,12 @@ Name-only fine id list: `data/2026/blacklist-names.csv` (subset of `data/2026/bl
 
 Read the uploaded manuscript. Output three tables, **10 journals each**, in this default layer order
 
-1. 层2 — Q1 and IF < 5 — Target/primary — 10 titles — `{find_journal_pools}\layer2-q1-if-lt5.csv`
-2. 层3 — Q2 — Safer/steady — 10 titles — `{find_journal_pools}\layer3-q2.csv`
-3. 层4 — **Q3 — default on** — 10 titles — `{find_journal_pools}\layer4-q3.csv`
-4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{find_journal_pools}\layer2b-q1-if-5to10.csv`
+1. 层2 — Q1 and IF < 5 — Target/primary — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `2-Q1且IF小于5`
+2. 层3 — Q2 — Safer/steady — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `3-Q2`
+3. 层4 — **Q3 — default on** — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `4-Q3`
+4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{find_journal_pools}\index.csv` where `layer` = `2补-Q1且IF5到10`
+
+Layer labels are the `layer` column values in the single pool table (`{find_journal_pools}\index.csv`); `jif_2025` is the metric year and `jcr_year` the JCR edition.
 
 Default total **30** titles (10+10+10) unless a layer has fewer acceptable matches. Do not use layer 1 (IF>10) unless the user asks. **Comprehensive / general medical journals** (e.g. Medicine, General & Internal / multidisciplinary clinical) may be recommended when scope match is reasonable — not specialty-only.
 
@@ -147,19 +150,16 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 
 1. `data/2026/blacklist.csv`
 2. `rules/recommendation-workflow.md`
-3. `{find_journal_pools}\category-index.csv` (0doc runtime pool)
-4. `{find_journal_pools}\layer2-q1-if-lt5.csv`
-5. `{find_journal_pools}\layer3-q2.csv`
-6. `{find_journal_pools}\layer4-q3.csv` — default Q3 layer
-7. `{find_journal_pools}\layer2b-q1-if-5to10.csv` — Challenge; ask-first default OFF
-8. `rules/aim-author-checklist.md` — phase 2 only
-9. `{jcr2026_xlsx}` — curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
-10. `rules/policy.md` — stable rules
-11. `rules/annual-update.md` — yearly table refresh
-12. `rules/query-sources.md` — evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)
-13. `rules/jesi-model.md` — JESI / JEI / JDI / JCI-C / MJF
-14. `rules/persistence.md` — absorb / query / delete + what to save
-15. `rules/modules.md` — four logical modules + naming
+3. `{find_journal_pools}\l1-l2-map.csv` (0doc pool; discipline -> l1/l2)
+4. `{find_journal_pools}\index.csv` - single pool table; select rows by `layer` (`2-Q1且IF小于5` / `3-Q2` / `4-Q3` / opt-in `2补-Q1且IF5到10`)
+5. `rules/aim-author-checklist.md` - phase 2 only
+6. `{jcr2026_xlsx}` - curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
+7. `rules/policy.md` - stable rules
+8. `rules/annual-update.md` - yearly table refresh (July, after the new JCR release)
+9. `rules/query-sources.md` - evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)
+10. `rules/jesi-model.md` - JESI / JEI / JDI / JCI-C / MJF
+11. `rules/persistence.md` - absorb / query / delete + what to save
+12. `rules/modules.md` - four logical modules + naming
 16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine pattern whitelist (LWW MEDICINE excluded)
 17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊 whitelist (seed: submission-urls)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended

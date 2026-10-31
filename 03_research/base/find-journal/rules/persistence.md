@@ -12,7 +12,7 @@
 | BMC/Medicine priority whitelist | `whitelist-bmc-medicine.csv` |
 | 投过/选刊 whitelist | `{find_journal_submission}\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
-| Yearly screening cache (layer membership) | 0doc `{find_journal_pools}` (`layer2-*.csv`, `layer3-*.csv`, …) + curated xlsx — rebuilt annually |
+| Yearly screening cache (layer membership + metrics) | 0doc `{find_journal_pools}` = `_library\journals\index.csv` (+ `index.xlsx`, `l1-l2-map.csv`) — rebuilt annually; archive under `journals\archive\<year>\` |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |
 
 ## DO NOT SAVE into CSV / DB-like persist files
@@ -24,6 +24,8 @@
 - APC, indexing status, review-time values, self-citation rates, author-experience values
 
 These metrics may appear in **HTML or Markdown delivery reports only**, queried or joined at **run time** from the yearly screening cache or live sources. They must **not** be merged into `data/2026/submission-urls.csv` or baked into skill text as durable delivery data. Retain **query capability** only (`query-sources.md` / module 03 path).
+
+**Single approved exception (2026-10-31, t1458u):** the yearly screening cache `_library\journals\index.csv` (rebuilt in July, never hand-edited) may carry `jif_2025`, quartiles, `articles` and `layer`. It is a screening pool, not a submission ledger; the ban above still applies to `submission-urls.csv`, `submission-prior.jsonl` and skill prose.
 
 ## Absorb / Query / Delete (ChatGPT 2026-09 + Gemini)
 

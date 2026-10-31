@@ -28,7 +28,7 @@ Fixed order (do not skip when this id is on the chain):
 
 ## Step 0 — gate (every run)
 
-Before any download, inspect `ref/refer/` for non-duplicate fulltext files (`.pdf` | `.html` | `.md`).
+Before any download, inspect `ref/refer/` (pointers) **and** the library (`_library\references\index.csv`) for non-duplicate fulltext entities (`.pdf` | `.html`).
 Deduplicate by DOI, PMID, and file hash (sha256).
 
 **Skip download and only ledger/account** when **all** hold:
@@ -47,9 +47,9 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 
 ## Outputs (always under `ref/refer/`)
 
-- OA PDFs landed in `ref/refer/`
-- `ref/refer/retrieval_report.json` — per-DOI report including `source_identity` and `file_sha256`
-- `ref/refer/manual_needed.txt` — paywalled / not-OA items (one line per item with DOI and/or PMID and Title when known)
+- Full-text **entities land in the library**, not the project: `{doc_library_references}\<L1>\<L2>\<doi-slug>.pdf` (or `.html`), one physical file per paper; register the row in `{doc_library_references}\index.csv` (`doi,pmid,l1,l2,rel_path,sha256,source_project,fetched_at,notes`). L1/L2 per `{RULES}\library-taxonomy.md`.
+- `ref/refer/` keeps **pointers only**: `DOI_<doi>.md` per paper (`fulltext:` = library path), plus `fulltext-pointers.csv`; optional `ref/refer/retrieval_report.json` (per-DOI `source_identity` + `file_sha256`) and `ref/refer/manual_needed.txt` (paywalled / not-OA items).
+- Never keep a second copy of the PDF inside the project; the library file is the SSOT.
 
 ## Scripts
 
@@ -62,8 +62,9 @@ Contact email for Unpaywall ToS: read from **Vault** (owner contact / correspond
 This fine id does **not** convert PDF to Markdown; use a separate skill when needed.
 
 ```bash
-python scripts/fetch.py worklist.tsv --output ref/refer/ --email "$(vault-contact-email)"
+python scripts/fetch.py worklist.tsv --output "{doc_library_references}\<L1>\<L2>" --email "$(vault-contact-email)"
 ```
+Then write `DOI_<doi>.md` pointers into `ref/refer/` and append rows to `_library\references\index.csv`.
 
 ## Hard rules
 
