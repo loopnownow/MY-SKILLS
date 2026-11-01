@@ -44,7 +44,7 @@ reply lanes: those hold other people's manuscripts and the owner's letters, and
 their wording does not belong in this table.
 
 ```text
-python3 {skills_git}\05_manuscript\advanced\vocab\scripts\harvest_write_phrases.py --bank "{doc_review_bank}\bank\paras.jsonl" --limit 80
+python3 {code_stats}\tools\vocab-harvest\harvest_write_phrases.py --bank "{doc_review_bank}\bank\paras.jsonl" --limit 80
 python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --execute --out <temp>.md
 python3 ... --bank "{doc_review_bank}\bank\paras.jsonl" --execute --out <temp>.md
 ```

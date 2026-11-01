@@ -342,9 +342,11 @@ Scored checklist: `05_manuscript/qc/manuscript-local-qc.md`.
 4. **Verify.** Keep the pre-rewrite text where the fidelity check can read it before editing in place, otherwise Phase 4 cannot tell whether numbers and citations survived. Re-scan the rewrite on the same 27 patterns, run both detectors, and return a Verification Report (before/after: total instances, density, HIGH, MEDIUM, remaining issues, verdict). Density still above 2.0 means another fix-verify cycle, max 3 rounds. When another skill calls the pass, return the report so the caller can read pass/fail.
 
 ```bash
-python3 "05_manuscript/advanced/process/scripts/check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
-python3 "05_manuscript/advanced/process/scripts/check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
+python3 "{code_stats}\tools\manuscript-qc\check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
+python3 "{code_stats}\tools\manuscript-qc\check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
 ```
+Both detectors live in `{code_stats}\tools\manuscript-qc\`; this pack keeps the pointer
+`scripts/README.md` (moved 2026-11-01, t1521u P3-C). Offline, stdlib only.
 
 `NUMBER_DRIFT`, `NUMBER_REASSIGNED`, `CITATION_DROP` or `CITATION_MOVED` means the rewrite broke an invariant: revert that passage, redo it, flag it for the user. `EDIT_FOOTPRINT_HIGH` is advisory (Patterns 6 and 18 replace whole paragraphs by design); read the diff and confirm the argument survived instead of treating the percentage as a defect. Known limits: the fidelity gate does not check an added or removed negation, a number written in words, a changed unit, or a direction word next to a non-percentage; read the diff for those.
 

@@ -360,6 +360,22 @@ class HumanizeRetired(unittest.TestCase):
 
     def test_advanced_owns_assets(self) -> None:
         self.assertTrue((ROOT / "05_manuscript/advanced/references/ai_patterns.md").is_file())
-        self.assertTrue((ROOT / "05_manuscript/advanced/process/scripts/check_rewrite_fidelity.py").is_file())
-        self.assertTrue((ROOT / "05_manuscript/advanced/process/scripts/check_sentence_variety.py").is_file())
+        for pointer in (
+            "05_manuscript/advanced/process/scripts/README.md",
+            "05_manuscript/advanced/vocab/scripts/README.md",
+            "05_manuscript/advanced/process/polisher-sections.md",
+        ):
+            self.assertTrue((ROOT / pointer).is_file(), pointer)
+
+    def test_manuscript_qc_scripts_resolve_in_my_codes(self) -> None:
+        """t1521u P3-C: the two detectors leave this repo; resolve them via {code_stats}."""
+        data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+        root = str((data.get("aliases") or {}).get("code_stats") or "")
+        if not root:
+            raise unittest.SkipTest("{code_stats} unresolved on this checkout")
+        for name in ("check_rewrite_fidelity.py", "check_sentence_variety.py"):
+            script = Path(root) / "tools" / "manuscript-qc" / name
+            if not script.is_file():
+                raise unittest.SkipTest("{code_stats}/tools/manuscript-qc not on this checkout")
+            self.assertGreater(script.stat().st_size, 0)
 

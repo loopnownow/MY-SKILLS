@@ -45,7 +45,7 @@ Script the check rather than eyeballing it. Resolve the script relative to this 
 then pass the actual package paths:
 
 ```bash
-python scripts/check_package_consistency.py \
+python {code_stats}\tools\response-qc\check_package_consistency.py \
   --manuscript main.tex \
   --response response.tex \
   --clean main-clean.tex \

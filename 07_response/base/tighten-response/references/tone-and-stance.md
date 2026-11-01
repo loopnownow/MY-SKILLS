@@ -125,4 +125,4 @@ If the reviewer challenges causality and the evidence is associative, soften cau
 
 ## Tone-polish catalog
 
-Task mode `tone-polish` loads [tone_patterns.md](tone_patterns.md) and [polite_expressions.json](polite_expressions.json), with optional `scripts/tone_polish_main.py`. Those files are a phrase catalog for an already structured draft. This file remains the stance SSOT: if a catalog sentence conflicts with a rule above, keep the rule here. Point-by-point structure stays `revise`.
+Task mode `tone-polish` loads [tone_patterns.md](tone_patterns.md) and [polite_expressions.json](polite_expressions.json), with optional `{code_stats}\tools\response-qc\tone_polish_main.py`. Those files are a phrase catalog for an already structured draft. This file remains the stance SSOT: if a catalog sentence conflicts with a rule above, keep the rule here. Point-by-point structure stays `revise`.
