@@ -60,7 +60,7 @@ The advanced layer carries the recipe (coding/extract/workspace protocols, analy
 | Lab MATLAB preprocess | `{code_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`, `{code_data_processing}\preprocess-imaging\fmri\run_preprocess.m` |
 | Leakage / split / radiology audit | `{code_model_validation}\split_leakage_check.py`, `{code_model_validation}\radiology_audit.py` |
 | Clinical / HIS extraction scripts | `{code_clean_data}\clinical-data-extraction\` |
-| Soft-coding / dry-run / CONFIG on top | `{code_root}\_infra\_templates\soft_code_template.py` (see `advanced/coding.md`) |
+| Soft-coding / dry-run / CONFIG on top | `{code_data_processing}\templates\soft_code_template.py` (see `advanced/coding.md`) |
 
 Advanced scripts are not replaced by a live pack.
 A base pack that grows a long procedure has drifted: the procedure belongs in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files) and the base pack keeps scope, bans, and the pointer.

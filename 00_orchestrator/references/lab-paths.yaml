@@ -1,14 +1,14 @@
 # Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
 # Agents expand from this file at read time. Do not vendor 0doc\_code / 0doc into git.
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
-# Env: prefer STATS_ROOT ({code_stats}) and ODOC_CODE ({code_root}).
+# Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
 version: 9
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
   raw_root: "D:\\00db"  # organized raw DB (was 00ds); read-only unless named
-  code_root: "D:\\0Grok\\0doc\\_code"
+  code_root: "D:\\0Grok\\0doc\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
   doc_root: "D:\\0Grok\\0doc"
   doc_skill_harvest: "D:\\0Grok\\0doc\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
   skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
@@ -63,15 +63,16 @@ notes:
   - "2026-10-24: harvest SSOT moved {_bank\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_git} = MY-RULES clone (rules_runtime dropped: same tree); Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
   - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
-  - "2026-11-01 t1521u P2: _code usable code moved to MY-CODES/tools/<fine-id> (flat, no seat-number folders); {code_data_processing} now = MY-CODES/tools, {code_clean_data}/{code_fill_protocol}/{code_write_paper} repointed, no {code_lab_reference} alias yet (add+cite together when needed); the retired _code tree holds README only (shell removal in P4)."
+  - "2026-11-01 t1521u P2: _code usable code moved to MY-CODES/tools/<fine-id> (flat, no seat-number folders); {code_data_processing} now = MY-CODES/tools, {code_clean_data}/{code_fill_protocol}/{code_write_paper} repointed, no {code_lab_reference} alias yet (add+cite together when needed); the _code shell was retired 2026-11-01 (P4) and moved to {DEL}\\_by-function\\t1521u-mycodes-rename\\removed\\_code."
   - "2026-11-01: repo renamed GitHub\\stats-analysis -> GitHub\\MY-CODES (GitHub keeps a redirect from the old name). {code_stats}/{code_modules}/{code_modules_master}/{code_model_validation} now resolve under MY-CODES; skill fine-id `stats-analysis` and env STATS_ROOT keep their names — repo name and skill id are decoupled."
 
   - "2026-11-01 t1527u: {code_figures}→GitHub\\MY-SKILLS\\02_data-processing\\base\\draw-flowchart (skill dir; scripts/ beside MODULE). Former _code\\02-data-processing\\draw-flowchart is HISTORIC (parked under 0del\\_by-function\\t1521u-mycodes-rename\\removed; do not recreate a live _code pointer-only shell). Scripts stay in Skills until P3 moves to MY-CODES/tools."
   - "2026-11-01 t1521u P3-A: draw-flowchart generators (draw_strobe_flow / draw_strobe_flow_expanded), visualization gen_visualization.py and stats-analysis assumption_checks.py moved to MY-CODES/tools/{draw-flowchart,visualization,stats-analysis}; {code_figures} repointed to MY-CODES/tools/draw-flowchart; gen_visualization resolves the skills tree via SKILLS_ROOT/MY_SKILLS (fail loud); no new alias added."
+  - '2026-11-01 t1521u P4: 0doc _code shell retired (moved to {DEL}); {code_root} repointed to MY-CODES (== {code_stats}); ODOC_CODE env retired (read STATS_ROOT); skill docs that cited _code-internal _infra/_templates and 03-research\fill-protocol paths now cite {code_data_processing}\templates and \lab-reference.'
   - "2026-11-01 t1521u P3-B: verify-refs / lit-fulltext runnable packs (9 + 1 py with their LICENSE_NOTE.txt) moved to MY-CODES/tools/verify-refs and MY-CODES/tools/lit-fulltext; the skills packs keep scripts/README.md pointers and cite {code_stats}\\tools\\<pack>\\<script>.py. Network gate on the 7 API-facing scripts: SKILLS_ALLOW_NETWORK=1 or --allow-network (default exit 1, 'network disabled'); no new alias added (add+cite together when needed)."
   - "2026-11-01 t1521u P3-C: manuscript-qc (check_rewrite_fidelity / check_sentence_variety), vocab-harvest (harvest_sections / harvest_write_phrases), response-qc (check_package_consistency / tone_polish_main + LICENSE_NOTE.txt) moved to MY-CODES/tools/{manuscript-qc,vocab-harvest,response-qc}; skills packs keep scripts/README.md pointers and cite {code_stats}\\tools\\<pack>\\<script>.py. vocab-harvest needs DOC_BANK_ROOT + SKILLS_ROOT (no lab default; missing env exits 1). Offline/stdlib; no new alias (add+cite together when needed)."
 
-  - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
+  - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). ODOC_CODE is retired with _code (2026-11-01 P4) — read STATS_ROOT instead. OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
   - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02-07 use fine-ID folders (no base\\)."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."

@@ -14,6 +14,21 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261101-t1521u-p4-retire-code-shell (2026-11-01)
+
+t1521u P4: the `_code` layer is gone; every alias and doc now points at MY-CODES.
+
+- **Retired:** `0doc\_code` (shell + 203-file-era index) -> `{DEL}\_by-function\t1521u-mycodes-rename\removed\_code`
+  with `MOVED-_code.tsv` and `_code-RETIRED.md`; the skills `validators/__pycache__` parked likewise.
+- **0doc gates:** `structure_check` S8/S12 assert the retirement (no live manifest/layout), `ROOT_DIR_ALLOW`
+  drops `_code`, `ROOT_FILE_ALLOW` gains `console.projects.json`; `path_audit` allowlists only the bare
+  retired layer root so MIGRATION.md keeps its build-time wording (STALE 0).
+- **Aliases:** `{code_root}` -> `MY-CODES` (== `{code_stats}`); `ODOC_CODE` retired — read `STATS_ROOT`;
+  `{code_data_processing}` remains `MY-CODES\tools`.
+- **Docs:** `_infra\_templates` / `_infra\lab-reference` / `03-research\fill-protocol\lab-reference`
+  citations now use `{code_data_processing}`; MY-RULES `workspace-layout` and MY-CODES README drop `_code`
+  from the live tops.
+
 ## CHG-20261101-t1521u-p3a-generators (2026-11-01)
 
 t1521u P3-A: the last four skill-tree scripts move to MY-CODES; the skills repo is now prose-only.
