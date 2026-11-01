@@ -29,7 +29,7 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 Source: de-duplicated bank of 42 external-review responses (Qiang lab, Aitor/Ju lab, and other groups). Skeleton and thank-you distributions only — no full-letter dumps, no unpublished results. Goal: drafted replies should read like the user wrote them.
 **This file is the letter skeleton and voice source of truth** (old `mode-3-response.md` was never split out). Opener defaults to A; B is almost never used. Triage and adjudication: see this file Part B / resolution protocol.
 
-Disk bank (external reviews and revise replies): `{doc_glossary_banks}\`（`flattened.jsonl` + `FLATTENED.tsv`）。
+Disk bank (external reviews and revise replies): `{doc_glossary}\banks\`（`flattened.jsonl` + `FLATTENED.tsv`）。
 
 ### 1. Opening letter templates (default A; B almost unused)
 
@@ -226,7 +226,7 @@ Specialist packs **propose** findings. They do **not** free-collaborate with eac
 
 Related: English peer-review envelope `06_review/advanced/review.md`; response letter voice this file; claim gaps while writing `05_manuscript/advanced/process/evidence.md`.
 
-Disk bank (external reviewer comments and revise replies; pointer only): `{doc_glossary_banks}\` (`flattened.jsonl`, `FLATTENED.tsv`, `review-text.jsonl`).
+Disk bank (external reviewer comments and revise replies; pointer only): `{doc_glossary}\banks\` (`flattened.jsonl`, `FLATTENED.tsv`, `review-text.jsonl`).
 
 ### When to use
 

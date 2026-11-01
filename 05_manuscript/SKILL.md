@@ -83,6 +83,17 @@ Write from evidence and supplied results. Missing info → Word comment (author 
 
 Word counts, citation placement, typography, and Table 1 layout live only in **`advanced/Aitor-format.md`**. If that file and any other note disagree, `advanced/Aitor-format.md` wins.
 
+
+
+## Glossary evidence vs vocab criteria (2026-11-01)
+
+| Role | Location | Notes |
+|---|---|---|
+| **Evidence / instances** (four layers + index) | `GLOSSARY_ROOT` = `0doc\_library\glossary` | Layers per glossary README **四层**: `words/` `sentences/` `paragraphs/` + `sections/*.md` pointer pages; machine index `index.csv` (13 cols). `banks\` is evidence-only (jsonl / `glossary.db`; gitignored). Env: **`GLOSSARY_ROOT`** (not a second banks alias). |
+| **Criteria / rules** (lint / execute) | `05_manuscript/base/vocab/` (+ named advanced) | SSOT for bans and preferred forms: `base/vocab/L1/ban-terms.yaml` (+ human `ban-phrases.md`), `L2/preferred.md`, `L3/lab-ste.md` + lexicons; advanced: `advanced/vocab/L2/preferred-advanced.md`, `advanced/references/ai_patterns.md`, de-AI lexicons under `base/vocab/L3/lexicons/`. Glossary rows only **`rule_ptr`** back here — never copy rule bodies into `GLOSSARY_ROOT`. |
+
+Route / load order: `advanced/route.md`. Do not harvest or move rule bodies into the glossary seat from this skill.
+
 ## Not this skill
 
 - Pre-submission / 模拟审稿 / 评阅 → `06_review` (response -> `07_response`)

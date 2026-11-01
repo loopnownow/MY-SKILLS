@@ -12,6 +12,7 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Cross-skill exit QC / scoring Gates | `00_orchestrator` |
 | Manuscript local QC checklists (scorecard + pre-submit) | `05_manuscript/qc/manuscript-local-qc.md` |
 | Controllable-language tools | Lab-STE disk via `05_manuscript/base/vocab/L3/lab-ste.md` |
+| Glossary evidence (instances only) | `GLOSSARY_ROOT` four layers + `index.csv`; criteria = `base/vocab/` (+ named advanced); `rule_ptr` only |
 
 ## Evidence
 - Use `process/evidence.md`: raise gaps → 03 searches → 05 Accept / Weaken / Delete.
