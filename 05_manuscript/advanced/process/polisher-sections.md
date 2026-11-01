@@ -235,7 +235,7 @@ Do **not** compress Discussion by page count. Structure and word band win over â
 *"importantly"*. The bank does hold old occurrences (59 / 21 / 13 / 9), and that
 count is history, not a licence: the ban was decided after those manuscripts were
 written. Authority: `05_manuscript/base/vocab/L1/ban-terms.yaml`, human table in
-`05_manuscript/base/vocab/L1/ban-phrases.md`. `00_orchestrator/scripts/style_lint.py`
+`05_manuscript/base/vocab/L1/ban-phrases.md`. `{code_stats}\tools\orchestrator\style_lint.py`
 enforces it. Delete the word and state the fact instead.
 
 #### Sentence structure targets
