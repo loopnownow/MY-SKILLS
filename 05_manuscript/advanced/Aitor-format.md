@@ -53,6 +53,8 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 
 **Times New Roman, 12 pt, black.** Line spacing **1.5**. Alignment **justified**. Direction **left to right**. Space before/after paragraph **0**. Space before/after text **0**. **Special paragraph format: none** (special format: none). Same typography for manuscript, comments shell, and response letter.
 
+**Exception — response-letter reply bodies are blue (owner 2026-11-01 t1588u):** the author reply text under each `Response:` block in the response letter is **blue font** (RGB 0,0,255 or theme `Blue`); quoted reviewer comments stay black. Color overlay only — the font/spacing above still applies. Manuscript body and comments shell stay **black**. Rule SSOT: `07_response/advanced/response.md`. Do not make manuscript body blue.
+
 **Dual track (2026-10-24):** body / legends shell = Times New Roman; **in-figure text (axes, panel labels, flowchart boxes) = Arial**. Do not mix the two inside one surface.
 
 When **revising an existing `.docx`**: do **not** change Word format unless the owner asks this turn. Wording only via **Track Changes**, at **word- or sentence-level** (no large-block overwrite). See `06_review/advanced/word-edit.md`.
