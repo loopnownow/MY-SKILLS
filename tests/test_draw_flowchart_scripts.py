@@ -12,11 +12,30 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tests.support import ROOT
+import yaml
 
-SCRIPTS = ROOT / "02_data-processing" / "base" / "draw-flowchart" / "scripts"
+from tests.support import ONE
+
 EXPANDED_NAME = "draw_strobe_flow_expanded"
 BASE_NAME = "draw_strobe_flow"
+
+
+def _resolve_scripts() -> Path | None:
+    """The generators live in MY-CODES (t1521u P3-A); resolve {code_stats} from lab-paths."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "draw-flowchart"
+    return hit if hit.is_dir() else None
+
+
+SCRIPTS = _resolve_scripts()
+if SCRIPTS is None:
+    raise unittest.SkipTest(
+        "MY-CODES tools/draw-flowchart not found ({code_stats}); "
+        "generator contract skipped on a partial checkout"
+    )
 
 # 200 screened = 150 + 50 pre-split; training 150 - 40 downsampled = 110;
 # cohorts 110 + 50 = 160 analyzed; positives 50 + 20 = 70; negatives 60 + 30 = 90.

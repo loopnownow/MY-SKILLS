@@ -49,7 +49,7 @@ aliases:
   code_data_processing: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools"  # 2026-11-01 P2: _code 的运维/加工脚本并入 MY-CODES\tools（<fine-id> 平铺，不镜像 02-/03- 座位名）
   code_clean_data: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\clean-data"
   code_fill_protocol: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\fill-protocol"
-  code_figures: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS\\02_data-processing\\base\\draw-flowchart"  # scripts live in scripts/; P3 may move to MY-CODES/tools
+  code_figures: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\draw-flowchart"  # 2026-11-01 P3-A: generators live in MY-CODES/tools/draw-flowchart; pack keeps scripts/README.md
   code_write_paper: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\write-paper"
   # 2026-10-27: code_md_bank retired with md-bank (scripts now in {DEL}\_by-function\0doc-deep-clean-20261027\removed);
   # alias deleted deliberately — nothing regenerates those views any more, so there is no path to resolve.
@@ -67,6 +67,7 @@ notes:
   - "2026-11-01: repo renamed GitHub\\stats-analysis -> GitHub\\MY-CODES (GitHub keeps a redirect from the old name). {code_stats}/{code_modules}/{code_modules_master}/{code_model_validation} now resolve under MY-CODES; skill fine-id `stats-analysis` and env STATS_ROOT keep their names — repo name and skill id are decoupled."
 
   - "2026-11-01 t1527u: {code_figures}→GitHub\\MY-SKILLS\\02_data-processing\\base\\draw-flowchart (skill dir; scripts/ beside MODULE). Former _code\\02-data-processing\\draw-flowchart is HISTORIC (parked under 0del\\_by-function\\t1521u-mycodes-rename\\removed; do not recreate a live _code pointer-only shell). Scripts stay in Skills until P3 moves to MY-CODES/tools."
+  - "2026-11-01 t1521u P3-A: draw-flowchart generators (draw_strobe_flow / draw_strobe_flow_expanded), visualization gen_visualization.py and stats-analysis assumption_checks.py moved to MY-CODES/tools/{draw-flowchart,visualization,stats-analysis}; {code_figures} repointed to MY-CODES/tools/draw-flowchart; gen_visualization resolves the skills tree via SKILLS_ROOT/MY_SKILLS (fail loud); no new alias added."
   - "2026-11-01 t1521u P3-B: verify-refs / lit-fulltext runnable packs (9 + 1 py with their LICENSE_NOTE.txt) moved to MY-CODES/tools/verify-refs and MY-CODES/tools/lit-fulltext; the skills packs keep scripts/README.md pointers and cite {code_stats}\\tools\\<pack>\\<script>.py. Network gate on the 7 API-facing scripts: SKILLS_ALLOW_NETWORK=1 or --allow-network (default exit 1, 'network disabled'); no new alias added (add+cite together when needed)."
   - "2026-11-01 t1521u P3-C: manuscript-qc (check_rewrite_fidelity / check_sentence_variety), vocab-harvest (harvest_sections / harvest_write_phrases), response-qc (check_package_consistency / tone_polish_main + LICENSE_NOTE.txt) moved to MY-CODES/tools/{manuscript-qc,vocab-harvest,response-qc}; skills packs keep scripts/README.md pointers and cite {code_stats}\\tools\\<pack>\\<script>.py. vocab-harvest needs DOC_BANK_ROOT + SKILLS_ROOT (no lab default; missing env exits 1). Offline/stdlib; no new alias (add+cite together when needed)."
 

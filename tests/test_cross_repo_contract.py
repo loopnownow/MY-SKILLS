@@ -200,17 +200,18 @@ class CrossRepoContract(unittest.TestCase):
             "lab-paths still points at retired figures path:\n" + "\n".join(stale_fig),
         )
         fig = Path(str(aliases["code_figures"]))
-        skills = _require_sibling(self, "MY-SKILLS")
-        expected_fig = (skills / "02_data-processing" / "base" / "draw-flowchart").resolve()
+        codes = _require_sibling(self, "MY-CODES")
+        expected_fig = (codes / "tools" / "draw-flowchart").resolve()
         self.assertEqual(
             fig.resolve(),
             expected_fig,
-            "code_figures must be MY-SKILLS draw-flowchart skill dir",
+            "code_figures must be MY-CODES tools/draw-flowchart (t1521u P3-A)",
         )
-        self.assertTrue(
-            (fig / "scripts" / "draw_strobe_flow.py").is_file(),
-            "code_figures/scripts/draw_strobe_flow.py missing",
-        )
+        for name in ("draw_strobe_flow.py", "draw_strobe_flow_expanded.py"):
+            self.assertTrue(
+                (fig / name).is_file(),
+                f"code_figures/{name} missing",
+            )
         stats = _require_sibling(self, "MY-CODES")
         prov = (stats / "modules" / "provenance.py").read_text(encoding="utf-8")
         self.assertIn("RAD_MODULES_STRICT", prov)

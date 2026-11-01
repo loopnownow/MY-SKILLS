@@ -7,6 +7,9 @@ from __future__ import annotations
 
 import re
 import unittest
+from pathlib import Path
+
+import yaml
 
 from tests.support import (
     GATES,
@@ -317,18 +320,29 @@ class AdvancedNamingAndFigureEngine(unittest.TestCase):
         self.assertIn("figure-engine", text)  # named as absent skill
 
 
+def _resolve_generator() -> Path | None:
+    """The generator lives in MY-CODES (t1521u P3-A); resolve {code_stats} from lab-paths."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "visualization" / "gen_visualization.py"
+    return hit if hit.is_file() else None
+
+
+def _generator_text(case: unittest.TestCase) -> str:
+    generator = _resolve_generator()
+    if generator is None:
+        raise unittest.SkipTest(
+            "MY-CODES tools/visualization/gen_visualization.py not on this checkout ({code_stats})"
+        )
+    return generator.read_text(encoding="utf-8")
+
+
 class VizGeneratorSeatHygiene(unittest.TestCase):
-    GEN = (
-        ROOT
-        / "02_data-processing"
-        / "advanced"
-        / "visualization"
-        / "scripts"
-        / "gen_visualization.py"
-    )
 
     def test_skill_tops_unique_current_seats(self) -> None:
-        text = self.GEN.read_text(encoding="utf-8")
+        text = _generator_text(self)
         m = re.search(r"SKILL_TOPS\s*=\s*\((.*?)\)", text, re.S)
         self.assertIsNotNone(m)
         tops = re.findall(r'"([^"]+)"', m.group(1))
@@ -348,7 +362,7 @@ class VizGeneratorSeatHygiene(unittest.TestCase):
         self.assertNotIn("04_analysis", tops)
 
     def test_no_duplicate_seat02_component_and_no_external_fineid_model(self) -> None:
-        text = self.GEN.read_text(encoding="utf-8")
+        text = _generator_text(self)
         self.assertNotIn('"id": "c04"', text)
         self.assertNotIn("External fine-id index", text)
         self.assertIn("Fine-id registry (in-repo)", text)

@@ -12,7 +12,7 @@ screened ─▶ pre-split arm 1 ─▶ (downsample) ─▶ final cohort 1 ┐
 Use it when the study splits **before** resampling: a class-imbalance downsample is
 applied inside one arm, so `screened → analyzed` does not close without the dropped n.
 
-Draw with `scripts/draw_strobe_flow_expanded.py --json spec.json --out Figure1_flow.pdf`.
+Draw with `{code_stats}\tools\draw-flowchart\draw_strobe_flow_expanded.py --json spec.json --out Figure1_flow.pdf`.
 Do not drive type B or C from it, and do not put a pipeline row in the spec.
 
 ## Spec
