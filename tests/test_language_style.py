@@ -11,6 +11,7 @@ import contextlib
 import importlib.util
 import io
 import json
+import os
 import re
 import tempfile
 import unittest
@@ -23,9 +24,27 @@ from tests.support import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SCRIPT_PATH = REPO_ROOT / "00_orchestrator" / "scripts" / "style_lint.py"
+os.environ.setdefault("SKILLS_ROOT", str(REPO_ROOT))  # the linter reads the ban list from here
+
+
+def _resolve_script() -> Path | None:
+    """The linter lives in MY-CODES (t1521u P3); resolve {code_stats} from lab-paths."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "orchestrator" / "style_lint.py"
+    return hit if hit.is_file() else None
+
+
+SCRIPT_PATH = _resolve_script()
+if SCRIPT_PATH is None:
+    raise unittest.SkipTest(
+        "MY-CODES checkout with tools/orchestrator/style_lint.py not found ({code_stats}); "
+        "cross-repo lint contract skipped on a partial checkout"
+    )
 BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml"
-ALLOWED_IMPORTS = {"argparse", "copy", "json", "re", "sys", "pathlib"}
+ALLOWED_IMPORTS = {"argparse", "copy", "json", "os", "re", "sys", "pathlib"}
 FILLER = "We studied a cohort of patients with cirrhosis and recorded outcomes over two years."
 DECIDED_AI_WORDS = ("robust", "landscape", "leverage")
 def _load_module():

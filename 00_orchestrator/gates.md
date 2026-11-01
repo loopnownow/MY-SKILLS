@@ -64,7 +64,7 @@ State: `templates/project-state.yaml` fields `pipeline` (stage includes `03`), `
 Runs on the 05 polish output, before hand-off to 06. Export the manuscript to text/markdown first
 (keep the headings, so Methods / Results can be skipped).
 
-    python3 00_orchestrator/scripts/style_lint.py <manuscript.md> --json
+    SKILLS_ROOT=<MY-SKILLS> python3 {code_stats}\tools\orchestrator\style_lint.py <manuscript.md> --json
 
 | exit | meaning | action |
 |------|---------|--------|
