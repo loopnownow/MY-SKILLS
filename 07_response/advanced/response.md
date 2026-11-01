@@ -12,6 +12,9 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 - **Do not** add invented subheadings (no extra `Editor comment N` / thematic mini-titles unless already in the shell).
 - Editing an existing `.docx` response or comments shell: use **Track Changes**; word- or sentence-level inserts only—**no** large-block overwrite.
 - Typography (manuscript = comments = response): Times New Roman, 12 pt, 1.5 line spacing, paragraph before/after 0, text before/after 0, justify, LTR, **no special paragraph format**. Do not change fonts/layout unless the owner asks this turn.
+- **Color overlay — Response bodies are blue (owner 2026-11-01 t1588u).** In the response letter `.docx`, the **author reply content** — the answer text under each `Response:` / `**Response:**` / reply block — must be **blue font** (standard Word blue, e.g. RGB 0,0,255 or theme `Blue`). This is a color overlay on the TNR 12 / 1.5 layout above, **not** a new format family.
+- Reviewer/editor **quoted comments stay black** (default body color). Do not recolor the verbatim comment text.
+- Opening *Dear Editor* letter and closing thanks stay default **black** unless the gold template already sets blue there; when ambiguous, put blue only on the per-point Response bodies.
 
 
 ## Part A — Response letter voice

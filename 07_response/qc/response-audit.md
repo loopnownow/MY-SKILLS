@@ -14,6 +14,7 @@
 - [ ] No invented letter format (shell/template only)
 - [ ] Edits via Track Changes; word/sentence units; no large-block overwrite
 - [ ] Uniform typography: TNR 12 / 1.5 / spacing 0 / justify / LTR / no special format
+- [ ] Response **bodies blue**, reviewer/editor quoted comments **black** (color overlay only; layout unchanged)
 
 ## Disclaimer / incompleteness (owner 2026-10-21)
 
