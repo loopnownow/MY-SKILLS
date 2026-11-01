@@ -10,7 +10,7 @@
 | Durable original (README + xlsx) | `{doc_skill_harvest}\sources\library-methods-20261023\scanner-registry\` |
 | HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\scanner-registry\`~~ |
 | Live xlsx (query) | `{doc_root}\templates\scanner-parameter-registry.xlsx` |
-| Build scripts (stay in `_code`) | `{code_root}\03-research\fill-protocol\lab-reference\scanner_registry_{extract,build,rows}.py` |
+| Build scripts (MY-CODES tools) | `{code_data_processing}\lab-reference\scanner_registry_{extract,build,rows}.py` |
 | Word archives | `{doc_word_archive}`（原 0del word-sources park 已清；t1490u） |
 
 ## Coverage snapshot (as of README 2026-10-17)
@@ -44,8 +44,8 @@
 ## Rebuild / extend (path pointers — do not vendor `.py`)
 
 ```text
-python {code_root}\_infra\lab-reference\scanner_registry_extract.py --stage all
-python {code_root}\_infra\lab-reference\scanner_registry_build.py
+python {code_data_processing}\lab-reference\scanner_registry_extract.py --stage all
+python {code_data_processing}\lab-reference\scanner_registry_build.py
 ```
 
 Extract scratch → `{DEL}\harvested\scanner-registry\`（t1490u；可清）。 New study: append `ROWS` in `scanner_registry_rows.py` as `记录ID|key=value|…` (ID like `MR17-01`). New enums → `DICT_ROWS`. New field → `COLS` then rebuild; `01_query` row count must equal non-empty `ROWS`.

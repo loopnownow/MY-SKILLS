@@ -16,7 +16,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 
 | Task | Path |
 |---|---|
-| Soft-coding + dry-run template | `{code_root}\_infra\_templates\soft_code_template.py` |
+| Soft-coding + dry-run template | `{code_data_processing}\templates\soft_code_template.py` |
 | Deep code QC (five axes / severity / Critical + Code QC Core) | `../qc/coding-qc.md` |
 | Write-time ladder + intensity / guardrails | “Complexity ladder” below |
 
@@ -61,7 +61,7 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - 00 routing: `gates.md` **G-CODE**
 
 ## Bundled template
-- `{code_root}\_infra\_templates\soft_code_template.py` — soft-coding + checkpoint resume + dry-run template
+- `{code_data_processing}\templates\soft_code_template.py` — soft-coding + checkpoint resume + dry-run template
 
 ---
 

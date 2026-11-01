@@ -25,7 +25,7 @@ Live medical and imaging research skill library for Grok Bot seats `00`-`07`.
 | 06 review | `06_review` | Peer review (Lee) |
 | 07 response | `07_response` | Reviewer response (Aitee) |
 
-Capability bodies for seats 02-07 live in-repo under `NN_slug/base/`. The routing index is `00_orchestrator/registry.yaml`. Lab path aliases (`{code_root}`, `{doc_root}`, `STATS_ROOT`, and the rest) are in `00_orchestrator/references/lab-paths.yaml`. Heavy / reusable analysis stays on `{code_root}` (02 operations) and `{code_stats}` (stats engine + modeling CLIs); human docs stay on `{doc_root}`. This repo may keep **thin helper scripts** under seat `**/scripts/` and `00_orchestrator/scripts/`; it is not a vendor of full `0doc\_code` trees or the MY-CODES library.
+Capability bodies for seats 02-07 live in-repo under `NN_slug/base/`. The routing index is `00_orchestrator/registry.yaml`. Lab path aliases (`{code_root}`, `{doc_root}`, `STATS_ROOT`, and the rest) are in `00_orchestrator/references/lab-paths.yaml`. Heavy / reusable analysis stays on `{code_root}` (02 operations) and `{code_stats}` (stats engine + modeling CLIs); human docs stay on `{doc_root}`. This repo may keep **thin helper scripts** under seat `**/scripts/` and `00_orchestrator/scripts/`; it is not a vendor of full `_code` trees (that layer was retired 2026-11-01) or the MY-CODES library.
 
 Paths under `00`-`07` are at most five parts from the repo root, except `NN_slug/base/**`.
 
