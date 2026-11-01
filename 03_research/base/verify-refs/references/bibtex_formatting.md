@@ -718,7 +718,7 @@ Check for:
 
 Use automated tools:
 ```bash
-python scripts/format_bibtex.py references.bib
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib
 ```
 
 Benefits:
@@ -901,7 +901,7 @@ BibTeX formatting essentials:
 
 Use formatting tools to ensure consistency:
 ```bash
-python scripts/format_bibtex.py references.bib
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib
 ```
 
 Properly formatted BibTeX ensures correct, consistent citations across all bibliography styles!

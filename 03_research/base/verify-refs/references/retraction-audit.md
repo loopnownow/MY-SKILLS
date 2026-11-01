@@ -8,8 +8,8 @@
 
 ## Supported Audit Paths
 
-- `python -m py_compile scripts/retraction_scan.py`
-- `python scripts/retraction_scan.py --help`
+- `python -m py_compile {code_stats}\tools\verify-refs\retraction_scan.py`
+- `python {code_stats}\tools\verify-refs\retraction_scan.py --help`
 
 ## Fallback Boundary
 

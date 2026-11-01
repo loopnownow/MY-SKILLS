@@ -55,14 +55,18 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 
 | Script | Role |
 |---|---|
-| `scripts/fetch.py` | **Required.** OA resolvers only (Unpaywall / PMC / EuropePMC / OpenAlex / Crossref / arXiv; optional DOAJ / medRxiv / bioRxiv). Paywalled -> `manual_needed.txt`. |
+| `{code_stats}\tools\lit-fulltext\fetch.py` | **Required.** OA resolvers only (Unpaywall / PMC / EuropePMC / OpenAlex / Crossref / arXiv; optional DOAJ / medRxiv / bioRxiv). Paywalled -> `manual_needed.txt`. |
+
+Moved out of this pack on 2026-11-01 (t1521u P3-B) with its `LICENSE_NOTE.txt`; this pack keeps
+the pointer `scripts/README.md`. **Network gate:** the script refuses to run by default
+(`network disabled`, exit 1) — add `--allow-network` per call or set `SKILLS_ALLOW_NETWORK=1`.
 
 Contact email for Unpaywall ToS: read from **Vault** (owner contact / corresponding). Never hard-code an address in this pack.
 
 This fine id does **not** convert PDF to Markdown; use a separate skill when needed.
 
 ```bash
-python scripts/fetch.py worklist.tsv --output "{doc_library_references}\<L1>\<L2>" --email "$(vault-contact-email)"
+python {code_stats}\tools\lit-fulltext\fetch.py worklist.tsv --output "{doc_library_references}\<L1>\<L2>" --email "$(vault-contact-email)" --allow-network
 ```
 Then write `DOI_<doi>.md` pointers into `ref/refer/` and append rows to `_library\references\index.csv`.
 

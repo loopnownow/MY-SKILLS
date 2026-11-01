@@ -551,10 +551,10 @@ is separate from the retired PMC OA Web Service.
 
 ```bash
 # Single DOI
-python scripts/extract_metadata.py --doi 10.1038/s41586-021-03819-2
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi 10.1038/s41586-021-03819-2
 
 # Multiple DOIs
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --doi 10.1038/nature12345 \
   --doi 10.1126/science.abc1234 \
   --output refs.bib
@@ -574,10 +574,10 @@ python scripts/extract_metadata.py \
 
 ```bash
 # Single PMID
-python scripts/extract_metadata.py --pmid 34265844
+python {code_stats}\tools\verify-refs\extract_metadata.py --pmid 34265844
 
 # Multiple PMIDs
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --pmid 34265844 \
   --pmid 28445112 \
   --output refs.bib
@@ -596,7 +596,7 @@ python scripts/extract_metadata.py \
 **For preprints**:
 
 ```bash
-python scripts/extract_metadata.py --arxiv 2103.14030
+python {code_stats}\tools\verify-refs\extract_metadata.py --arxiv 2103.14030
 ```
 
 **Process**:
@@ -614,7 +614,7 @@ python scripts/extract_metadata.py --arxiv 2103.14030
 **When you only have URL**:
 
 ```bash
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --url "https://www.nature.com/articles/s41586-021-03819-2"
 ```
 
@@ -653,7 +653,7 @@ https://arxiv.org/pdf/2103.14030.pdf
 #   2103.14030
 #   https://doi.org/10.1126/science.abc123
 
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --input identifiers.txt \
   --output references.bib
 ```
@@ -811,7 +811,7 @@ author = {Smith, John A.}
 Always validate extracted metadata:
 
 ```bash
-python scripts/validate_citations.py extracted_refs.bib
+python {code_stats}\tools\verify-refs\validate_citations.py extracted_refs.bib
 ```
 
 **Check**:

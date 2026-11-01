@@ -55,7 +55,7 @@ Invalid: doi:10.1038/... (should omit "doi:" prefix in BibTeX)
 
 **Automated check** (recommended):
 ```bash
-python scripts/validate_citations.py references.bib --check-dois
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --check-dois
 ```
 
 **Process**:
@@ -152,7 +152,7 @@ doi OR url    % At least one required
 #### Validation Script
 
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 **Output**:
@@ -219,7 +219,7 @@ author = {{World Health Organization}}
 
 **Automated validation**:
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 **Checks for**:
@@ -371,7 +371,7 @@ url = {bit.ly/...}  % URL shortener (not permanent)
 
 **Automated detection**:
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 **Output**:
@@ -458,7 +458,7 @@ title = {Title with {Protected} Text}
 #### Validation
 
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 The bundled parser checks entries it can parse and duplicate keys; it is not
@@ -473,7 +473,7 @@ bibliography with the actual BibTeX/Biber toolchain before submission.
 Run comprehensive validation:
 
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 **Checks**:
@@ -547,7 +547,7 @@ Examine validation report:
 Send the result to a new file so the original survives a bad run:
 
 ```bash
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --output fixed_references.bib
 ```
 
@@ -582,7 +582,7 @@ grep -A 10 "Smith2024" fixed_references.bib
 Validate after fixes:
 
 ```bash
-python scripts/validate_citations.py fixed_references.bib --verbose
+python {code_stats}\tools\verify-refs\validate_citations.py fixed_references.bib --verbose
 ```
 
 Inspect `errors`, `warnings`, and `duplicates` in the JSON report. Zero high-severity
@@ -633,14 +633,14 @@ Use this checklist before final submission:
 
 ```bash
 # After extraction
-python scripts/extract_metadata.py --doi ... --output refs.bib
-python scripts/validate_citations.py refs.bib
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi ... --output refs.bib
+python {code_stats}\tools\verify-refs\validate_citations.py refs.bib
 
 # After manual edits
-python scripts/validate_citations.py refs.bib
+python {code_stats}\tools\verify-refs\validate_citations.py refs.bib
 
 # Before submission
-python scripts/validate_citations.py refs.bib --check-dois
+python {code_stats}\tools\verify-refs\validate_citations.py refs.bib --check-dois
 ```
 
 ### 2. Use Automated Tools
@@ -658,7 +658,7 @@ nor `--in-place` it prints to stdout and leaves the input alone.
 
 ```bash
 # Reformat into a separate file
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --output references_fixed.bib
 
 # Review changes
@@ -820,7 +820,7 @@ Validation ensures citation quality:
 
 Use automated tools:
 ```bash
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 ```
 
 Follow workflow:
