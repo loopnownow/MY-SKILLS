@@ -52,10 +52,10 @@ references:
       path: references/package-consistency-audit.md
 
 quality_tools:
-  package_consistency_script: scripts/check_package_consistency.py
+  package_consistency_script: '{code_stats}\tools\response-qc\check_package_consistency.py'
   use_when: after the first complete LaTeX revision package, after every manuscript edit, and immediately before delivery
   purpose: expand static LaTeX inputs, check response-letter quotes and declared rendered substitutions against the manuscript, pair reviewer comments with author responses, and compare clean and marked manuscript text after additions and deletions are normalized
-  script_resolution: resolve relative to the loaded SKILL.md directory, never the user working directory
-  tone_polish_script: scripts/tone_polish_main.py
+  script_resolution: resolve {code_stats} via lab-paths (tools/response-qc), never the user working directory
+  tone_polish_script: '{code_stats}\tools\response-qc\tone_polish_main.py'
   tone_polish_use_when: optional mechanical pass during task mode tone-polish; does not replace tone-and-stance.md or the qa checklist
-  tone_polish_resolution: resolve relative to the loaded SKILL.md directory, never the user working directory
+  tone_polish_resolution: resolve {code_stats} via lab-paths (tools/response-qc), never the user working directory

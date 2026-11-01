@@ -958,14 +958,31 @@ class AdvancedMirrorDedupe(unittest.TestCase):
 
 
 ADVANCED_VOCAB = ROOT / "05_manuscript" / "advanced" / "vocab"
-HARVEST_SCRIPT = ADVANCED_VOCAB / "scripts" / "harvest_write_phrases.py"
 ADVANCED_L2 = ADVANCED_VOCAB / "L2" / "preferred-advanced.md"
+HARVEST_SCRIPT_NAME = "harvest_write_phrases.py"
+SKIP_MISSING_COUNTER = (
+    "{code_stats}/tools/vocab-harvest/harvest_write_phrases.py not on this checkout "
+    "(t1521u P3-C moved it to MY-CODES)"
+)
+
+
+def _harvest_script() -> Path | None:
+    """The counter lives in MY-CODES (t1521u P3-C); resolve {code_stats} from lab-paths."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "vocab-harvest" / HARVEST_SCRIPT_NAME
+    return hit if hit.is_file() else None
 
 
 def _load_harvest():
     import importlib.util
 
-    spec = importlib.util.spec_from_file_location("harvest_under_test", HARVEST_SCRIPT)
+    script = _harvest_script()
+    if script is None:
+        raise unittest.SkipTest(SKIP_MISSING_COUNTER)
+    spec = importlib.util.spec_from_file_location("harvest_under_test", script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -998,8 +1015,11 @@ class AdvancedL2PhraseTable(unittest.TestCase):
     def test_counter_is_cited_and_offline(self) -> None:
         cited = ADVANCED_L2.read_text(encoding="utf-8") + (
             ADVANCED_VOCAB / "README.md").read_text(encoding="utf-8")
-        self.assertIn(HARVEST_SCRIPT.name, cited)
-        source = HARVEST_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn(HARVEST_SCRIPT_NAME, cited)
+        script = _harvest_script()
+        if script is None:
+            raise unittest.SkipTest(SKIP_MISSING_COUNTER)
+        source = script.read_text(encoding="utf-8")
         imports = {
             line.split()[1].split(".")[0]
             for line in source.splitlines()

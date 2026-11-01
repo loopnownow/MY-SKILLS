@@ -14,5 +14,5 @@ former_directory: 07_response/base/response-tone-polisher/ (removed 2026-10-25)
 files:
   references/tone_patterns.md
   references/polite_expressions.json
-  scripts/tone_polish_main.py
+  {code_stats}\tools\response-qc\tone_polish_main.py
 note: Retain MIT notice with substantial portions. On conflict with references/tone-and-stance.md, tone-and-stance.md wins. Point-by-point structure stays revise.

@@ -2,7 +2,8 @@
 
 Config
 ------
-SCRIPT : `05_manuscript/advanced/vocab/scripts/harvest_sections.py`
+SCRIPT : `{code_stats}/tools/vocab-harvest/harvest_sections.py` (moved out of this repo
+         2026-11-01, t1521u P3-C; resolved through lab-paths `{code_stats}`)
 BANK   : synthetic JSONL fixtures written into a temporary directory
 
 Run
@@ -17,8 +18,29 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
+from tests.support import ONE
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = REPO_ROOT / "05_manuscript" / "advanced" / "vocab" / "scripts" / "harvest_sections.py"
+
+
+def _resolve_script() -> Path | None:
+    """The counter lives in MY-CODES (t1521u P3-C); resolve {code_stats} from lab-paths."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "vocab-harvest" / "harvest_sections.py"
+    return hit if hit.is_file() else None
+
+
+SCRIPT = _resolve_script()
+if SCRIPT is None:
+    raise unittest.SkipTest(
+        "MY-CODES checkout with tools/vocab-harvest/harvest_sections.py not found ({code_stats}); "
+        "cross-repo contract skipped on a partial checkout"
+    )
 
 
 def _load_module():

@@ -9,4 +9,4 @@ owner: "07_response/base/tighten-response/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md).
 
-Tone-only pass: task mode `tone-polish` (`references/tone_patterns.md`, `references/polite_expressions.json`, `scripts/tone_polish_main.py`). Stance conflicts defer to `references/tone-and-stance.md`. Point-by-point structure stays `revise`. Legacy alias `response-tone-polisher` was absorbed here (2026-10-25).
+Tone-only pass: task mode `tone-polish` (`references/tone_patterns.md`, `references/polite_expressions.json`, `{code_stats}\tools\response-qc\tone_polish_main.py`). Stance conflicts defer to `references/tone-and-stance.md`. Point-by-point structure stays `revise`. Legacy alias `response-tone-polisher` was absorbed here (2026-10-25).
