@@ -16,9 +16,34 @@ import unittest
 import zipfile
 from pathlib import Path
 
+import yaml
+
 from tests.support import ROOT
 
-OFFICE = ROOT / "06_review" / "base" / "track-changes" / "scripts" / "office"
+
+def _resolve_office() -> Path | None:
+    """The office package lives in MY-CODES (t1521u P3-D); resolve {code_stats} from lab-paths."""
+    data = (
+        yaml.safe_load(
+            (ROOT / "00_orchestrator" / "references" / "lab-paths.yaml").read_text(
+                encoding="utf-8"
+            )
+        )
+        or {}
+    )
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "office"
+    return hit if hit.is_dir() else None
+
+
+OFFICE = _resolve_office()
+if OFFICE is None:
+    raise unittest.SkipTest(
+        "MY-CODES checkout with tools/office not found ({code_stats}); "
+        "office validator contract skipped on a partial checkout"
+    )
 
 try:
     sys.path.insert(0, str(OFFICE))

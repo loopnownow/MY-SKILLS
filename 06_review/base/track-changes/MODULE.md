@@ -22,14 +22,16 @@ Not a Word editor. Text decisions belong to `05_manuscript` (`Aitor-format.md`, 
 `06_review/advanced/review.md` for findings, and to `07_response/base/revise/` for letters. This
 pack only inspects and repacks the file.
 
-**Scripts live here on purpose.** They are the exception to the "code goes to MY-CODES" rule:
-they are Word-format mechanics with no patient data and no analysis, and they need to travel with
-the redlining contract. Attribution: `LICENSE.txt` (Anthropic).
+**Scripts moved out (2026-11-01, t1521u P3).** They used to sit in `scripts/office/` as a
+deliberate exception to the "code goes to MY-CODES" rule: Word-format mechanics, no patient data,
+and they travel with the redlining contract. They now live in `{code_stats}\tools\office\`, and the
+Anthropic attribution moved with them (`{code_stats}\tools\office\LICENSE.txt`). This pack keeps the
+contract plus a pointer (`scripts/README.md`) — no second copy in this repo.
 
 ## Tools
 
 ```text
-scripts/office/
+{code_stats}\tools\office\
   unpack.py     # .docx -> directory of XML (optionally merge runs / simplify redlines)
   validate.py   # structural checks + "was every change tracked by --author?"
   pack.py       # directory -> .docx (condense XML, validate, write)
@@ -44,7 +46,7 @@ scripts/office/
 requested author's revisions. If anything still differs, the edit was not tracked:
 
 ```bash
-python scripts/office/validate.py edited.docx --original comments-org.docx --author A
+python {code_stats}\tools\office\validate.py edited.docx --original comments-org.docx --author A
 ```
 
 Exit `0` = every change is under Track Changes by `A`. Exit `1` = something was overwritten silently
@@ -59,14 +61,14 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
    (`ref/review/`); `{RULES}\project-ref-layout.md`.
 2. **Unpack** when an edit needs XML-level surgery:
    ```bash
-   python scripts/office/unpack.py comments-org.docx unpacked/
+   python {code_stats}\tools\office\unpack.py comments-org.docx unpacked/
    ```
 3. Edit the XML. Every changed run goes inside `<w:ins w:author="A" …>`; every removed run inside
    `<w:del w:author="A" …>`. To reject someone else's insertion, nest `<w:del>` inside their
    `<w:ins>` rather than deleting their tag.
 4. **Pack** back:
    ```bash
-   python scripts/office/pack.py unpacked/ revised.docx --original comments-org.docx
+   python {code_stats}\tools\office\pack.py unpacked/ revised.docx --original comments-org.docx
    ```
    `pack.py` re-validates before writing and refuses on failure.
 5. **Re-validate** the delivered file against the original (step above). Record the outcome in the
