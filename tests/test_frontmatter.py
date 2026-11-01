@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import importlib.util
+import os
 import unittest
 import yaml
 
@@ -15,7 +16,18 @@ from tests.support import (
     ROOT,
 )
 
-SCRIPT = ROOT / "02_data-processing" / "advanced" / "visualization" / "scripts" / "gen_visualization.py"
+# gen_visualization lives in MY-CODES (t1521u P3-A) and reads the skills tree from SKILLS_ROOT.
+os.environ.setdefault("SKILLS_ROOT", str(ROOT))
+
+
+def _resolve_script() -> Path | None:
+    """Resolve {code_stats} from lab-paths; the generator is a MY-CODES tool now."""
+    data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+    root = str((data.get("aliases") or {}).get("code_stats") or "")
+    if not root:
+        return None
+    hit = Path(root) / "tools" / "visualization" / "gen_visualization.py"
+    return hit if hit.is_file() else None
 FORBIDDEN_FACT_SOURCES = (
     "LLM inference",
     "generated HTML",
@@ -26,7 +38,12 @@ FORBIDDEN_FACT_SOURCES = (
     "unvalidated JSON",
 )
 def load_generator():
-    spec = importlib.util.spec_from_file_location("gen_visualization", SCRIPT)
+    script = _resolve_script()
+    if script is None:
+        raise unittest.SkipTest(
+            "MY-CODES tools/visualization/gen_visualization.py not on this checkout ({code_stats})"
+        )
+    spec = importlib.util.spec_from_file_location("gen_visualization", script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -46,7 +63,7 @@ class VisualizationContract(unittest.TestCase):
         for rel in (
             "02_data-processing/advanced/visualization/visualization-architecture.md",
             "02_data-processing/advanced/visualization/visualization-source-contract.yaml",
-            "02_data-processing/advanced/visualization/scripts/gen_visualization.py",
+            "02_data-processing/advanced/visualization/scripts/README.md",
         ):
             self.assertTrue((ROOT / rel).is_file(), rel)
 

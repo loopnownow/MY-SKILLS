@@ -14,6 +14,24 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261101-t1521u-p3a-generators (2026-11-01)
+
+t1521u P3-A: the last four skill-tree scripts move to MY-CODES; the skills repo is now prose-only.
+
+- **Movers:** `draw_strobe_flow.py` / `draw_strobe_flow_expanded.py` (draw-flowchart),
+  `gen_visualization.py` (visualization), `assumption_checks.py` (stats-analysis) ->
+  `{code_stats}\tools\{draw-flowchart,visualization,stats-analysis}\`; each pack keeps a
+  `scripts/README.md` pointer and cites it (repo-hygiene side-doc rule).
+- **Paths:** `{code_figures}` now resolves to `MY-CODES\tools\draw-flowchart`;
+  `test_cross_repo_contract` asserts that dir plus both generators.
+- **Env:** `gen_visualization.py` reads registry / runtime-flow / gates / ARCHITECTURE and the
+  visualization contract through `SKILLS_ROOT` (or `MY_SKILLS`) and exits 1 when unset;
+  `pyyaml>=6.0` added to MY-CODES dev extras.
+- **Tests:** `test_frontmatter`, `test_draw_flowchart_scripts` resolve `{code_stats}` and skip on a
+  skills-only checkout; `test_retirements` / `test_seat_packs` keep the pointer assertions.
+- **Ledger:** this entry is the new head for `registry.meta.change_id`; it also closes the P3-C
+  VERSION.txt line that was added without a registry/INTEGRATION_MAP counterpart.
+
 ## CHG-20261030-bai-stale-seat-viz-ci (2026-10-30)
 
 Bai handoff t1431 follow-ups after tip e584007 (Bai baseline a62914c was stale).

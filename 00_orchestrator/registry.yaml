@@ -10,7 +10,7 @@
 
 meta:
   version: '5.0'
-  change_id: CHG-20261030-bai-stale-seat-viz-ci
+  change_id: CHG-20261101-t1521u-p3a-generators
   fine_id_count_canonical: 20
   coarse_id_count: 5
 

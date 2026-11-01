@@ -2,7 +2,7 @@
 
 Radiomics-step cartoons, mechanism panels, animal/cell pipelines, and "how the model was built" figures.
 
-**Do not call `scripts/draw_strobe_flow.py`.** That script draws type A published STROBE patient selection only. Passing a `pipeline` list is rejected.
+**Do not call `{code_stats}\tools\draw-flowchart\draw_strobe_flow.py`.** That script draws type A published STROBE patient selection only. Passing a `pipeline` list is rejected.
 
 Type C is a different figure: boxes for MRI / segmentation / feature extraction / LASSO / nomogram, or cell → mouse → MRS. It has no screened-n audit and no inclusion/exclusion arrows.
 

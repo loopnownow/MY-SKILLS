@@ -4,7 +4,7 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archiv
 
 ## elements
 - Figure 1 = enrollment / selection flow only (screen → include/exclude → enrolled → Training | Validation).
-- Type A′ (split **before** resampling): `scripts/draw_strobe_flow_expanded.py` — one more
+- Type A′ (split **before** resampling): `{code_stats}\tools\draw-flowchart\draw_strobe_flow_expanded.py` — one more
   arithmetic level (arm − downsample = final cohort); same style, same caption.
 - Generate via `modules/` py (or skill scripts); do not hand-drag final art.
 - Look: white fill, black 1 pt rules, square corners; box size follows text.

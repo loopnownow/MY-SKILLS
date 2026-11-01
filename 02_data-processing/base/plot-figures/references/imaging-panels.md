@@ -63,5 +63,5 @@ that images are de-identified. (Prose → `write-paper`.)
 
 Annotated imaging montages are **not** STROBE diagrams. Enrolment / patient-selection
 (type A), study-workflow (type B), and methods-pipeline cartoons (type C) belong in
-`draw-flowchart`. `patient-flow.md`, `methods-pipeline.md`, and `scripts/draw_strobe_flow.py`
+`draw-flowchart`. `patient-flow.md`, `methods-pipeline.md`, and `{code_stats}\tools\draw-flowchart\draw_strobe_flow.py`
 live there — they are not local to plot-figures.

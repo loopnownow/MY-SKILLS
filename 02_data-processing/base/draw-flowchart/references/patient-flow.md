@@ -3,7 +3,7 @@
 Default Figure 1 for retrospective cohort / radiomics prediction papers.
 Gold standard: **2023 BJR POLE Fig.1**, not auto-generated lab figures.
 
-Draw with `scripts/draw_strobe_flow.py`. Do not mix type B or C into this script.
+Draw with `{code_stats}\tools\draw-flowchart\draw_strobe_flow.py`. Do not mix type B or C into this script.
 
 ## Layout (top → bottom)
 

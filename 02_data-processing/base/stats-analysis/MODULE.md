@@ -35,7 +35,7 @@ Lab stats policy stays in `02_data-processing/advanced/analysis/`.
 | [references/assumptions_and_diagnostics.md](references/assumptions_and_diagnostics.md) | Assumption violations and remedies |
 | [references/reporting_standards.md](references/reporting_standards.md) | Result sentences |
 | [references/bayesian_statistics.md](references/bayesian_statistics.md) | Bayesian re-analysis, priors, credible intervals, sensitivity |
-| [scripts/assumption_checks.py](scripts/assumption_checks.py) | Programmatic normality / variance / outlier checks |
+| `{code_stats}\tools\stats-analysis\assumption_checks.py` | Programmatic normality / variance / outlier checks |
 
 Power / effect-size planning - `../calc-sample-size/references/effect_sizes_and_power.md`.
 
@@ -68,7 +68,9 @@ Always state which assumptions were checked and what was done if they failed. Mi
 violations with n > 30 per group may still support a parametric test; otherwise use the
 non-parametric alternative or Welch variants (`assumptions_and_diagnostics.md`).
 
-Import the helper as `scripts.assumption_checks` from this pack (`scripts/assumption_checks.py`).
+The checker lives in `{code_stats}\tools\stats-analysis\`; this pack keeps the pointer `scripts/README.md` (moved 2026-11-01, t1521u P3-A).
+
+Import the helper from `{code_stats}\tools\stats-analysis\assumption_checks.py` (module name `assumption_checks`); this pack keeps the pointer `scripts/README.md`.
 
 ## Handoffs
 
