@@ -1,4 +1,4 @@
-# Writing-rules authority map (retargeted 2026-10-23)
+﻿# Writing-rules authority map (retargeted 2026-10-23)
 
 > Digested from park writing-rules README §2. Dead `0doc/05-manuscript/advanced/…` seats are **retargeted** to current SSOT. Do not invent missing banks.
 
@@ -10,7 +10,7 @@
 | **Revision unit cards** (before→after) | Read-only: `s19_patterns.py` retired with md-bank on 2026-10-27, do not regenerate. HISTORIC parked bulk cleared — do not resolve (t1490u) |
 | **Source fulltext / papers** | Live library: `{doc_root}\_library\fulltext\`, `{doc_root}\_library\papers\`. Roles park mirror (purge risk): `…/0doc-05-07-roles-20261023/05-manuscript/advanced/{fulltext,papers}/` | Read before revising claims |
 | **Thesis quotes** | Raw sample `references/voice-cards.md`; habits `references/bank-voice.md`. Parked cards (purge risk): roles park `…/quotes/`, `INDEX-thesis.md` | |
-| **Figure palettes** | `{doc_root}\templates\lab-palettes.md` | |
+| **Figure palettes** | `{doc_root}\_library\figures\lab-palettes.md` | |
 | **Claim ↔ number align** | Skill `05_manuscript/qc/claim-number-align.md` | CN-1…4 |
 | **Manuscript local QC bans** | Skill `05_manuscript/qc/manuscript-local-qc.md` | Fabrication / causal overclaim / unverified cite |
 

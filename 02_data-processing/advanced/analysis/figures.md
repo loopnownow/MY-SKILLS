@@ -1,4 +1,4 @@
-# Figures (palettes + claim planning)
+﻿# Figures (palettes + claim planning)
 
 ## Standing defaults (2026-10-24)
 
@@ -9,7 +9,7 @@
 
 ## Lab figure palettes (lab console)
 
-**Owner:** `05_manuscript` (`{doc_root}\\templates\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
+**Owner:** `05_manuscript` (`{doc_root}\\_library\\figures\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
 
 Generic journal palettes (ggsci NPG / Okabe-Ito / Morandi role maps) stay in live `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
 
@@ -53,7 +53,7 @@ Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continu
 
 ## Figure claim planning (radiomics / clinical prediction)
 
-**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `{doc_root}\templates\lab-palettes.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
+**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `{doc_root}\_library\figures\lab-palettes.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
 
 ### 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 

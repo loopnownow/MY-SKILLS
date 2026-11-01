@@ -1,4 +1,4 @@
-# Architecture and Handoff Contract
+﻿# Architecture and Handoff Contract
 
 This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
 
@@ -44,7 +44,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Ethics application form fill | `03_research` → `base/fill-protocol/` |
 | Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/advanced/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
-| Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures` + `{doc_root}\\templates\\lab-palettes.md`) |
+| Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures` + `{doc_root}\\_library\\figures\\lab-palettes.md`) |
 | STROBE / patient-flow / Figure 1 | `02_data-processing` (`draw-flowchart`) |
 
 ---
