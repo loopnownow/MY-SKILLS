@@ -140,6 +140,6 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 **00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`-`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/advanced/visualization/`.
 
-**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `0doc\_code` / `0doc`. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
+**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `MY-CODES\tools` or `0doc` into this repo. Env: prefer `STATS_ROOT` / `ODOC_CODE`; `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Fine ids: [`registry.yaml`](registry.yaml) — **this-run pick first**. 00 does not write prose, invent numbers, click submission, or absorb harvest implementation.
