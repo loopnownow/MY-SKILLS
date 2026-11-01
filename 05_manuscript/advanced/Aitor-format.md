@@ -5,10 +5,11 @@ Formerly `house-format.md`.
 **Owner:** `05_manuscript/advanced/`. Single source for **every English SCI full paper** in this lab.
 
 **Gold reference (reply-letter template, Markdown):**
-`{doc_review_replies}\_templates\01-response-letter-template.md`
+`{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\_meta\02-response-letter-template.md`
+（digest: `07_response/advanced/references/response-letter-template-digest.md`）
 
 **Gold reference (Word typography and page geometry):**
-`{doc_review_replies}\_templates\02-layout-template.docx`
+`{doc_root}\templates\Aitor-format-gold-response.docx`（唯一在手的排版金样；原 `_templates\02-layout-template.docx` 已无副本，勿再引用）
 
 **Voice and revision marks (same Aitor-format, do not fork):**
 `{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·

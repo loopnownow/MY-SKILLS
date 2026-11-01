@@ -240,8 +240,6 @@ class BareMdCites(unittest.TestCase):
 BARE_SKIP_PREFIXES = (
     "ref/",
     "_library/",
-    "_code/",
-    "_bank/",
     "_meta/",
     "MY-SKILLS/",
     "~/",

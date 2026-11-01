@@ -31,7 +31,7 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 | `lexicons/*.tsv` | `L3/lexicons/` (vendored — small) |
 | `term-lock-default.tsv` | `L3/term-lock-default.tsv` |
 | `approved-en.tsv` | `L2/approved-en.tsv` (already mirrored) |
-| Full SPEC + `config.yaml` + CHANGELOG | park / `_bank` durable only |
+| Full SPEC + `config.yaml` + CHANGELOG | park `{doc_lab_ste}`（耐久；2026-11-01 起不在任何 bank 内） |
 | `tools/` + `spec.html` | park / durable only — **do not** vendor into MY-SKILLS |
 
 Project term-lock tables stay with each study folder. Per-project specialty nouns never enter L2.

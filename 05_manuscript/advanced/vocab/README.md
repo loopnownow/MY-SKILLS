@@ -14,5 +14,5 @@ This A folder carries what base cannot hold:
 Base stays canonical: where an advanced row and a base row disagree, base wins. Banned words are never restated in L2; the only authority is `05_manuscript/base/vocab/L1/ban-terms.yaml`.
 
 Both counters live in `{code_stats}\tools\vocab-harvest\`; this pack keeps the pointer
-`scripts/README.md`. They read `<DOC_BANK_ROOT>\bank\paras.jsonl` and need `SKILLS_ROOT` for the
+`scripts/README.md`. They read `<GLOSSARY_ROOT>\banks\paras.jsonl` and need `SKILLS_ROOT` for the
 ban list — both env vars, no lab default; a missing env exits 1.
