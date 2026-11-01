@@ -182,7 +182,7 @@ Personal L2 phrase table, plus the three live contradictions it exposed.
   ≥5 occurrences; B = record only; C = discard). Base L2 stays canonical; banned
   words are never restated in L2 (single authority: `L1/ban-terms.yaml`).
 - **New:** `05_manuscript/personal/vocab/scripts/harvest_write_phrases.py` —
-  offline stdlib counter over `0doc\_bank`（HISTORIC；2026-11-01 并入 `_library\glossary\banks`，现用 `{doc_glossary_banks}`）; 2-6-gram + sentence-edge
+  offline stdlib counter over `0doc\_bank`（HISTORIC；2026-11-01 并入 `_library\glossary\banks`，现用 `{doc_glossary}\banks`）; 2-6-gram + sentence-edge
   discovery, CJK n-grams gated on CJK presence, chain collapse so `这个` / `这个结`
   / `这个结果` and `thank you` / `thank you for` keep only the longest form.
   Dry-run by default; `--execute --out` writes the table. No YAML dependency.
