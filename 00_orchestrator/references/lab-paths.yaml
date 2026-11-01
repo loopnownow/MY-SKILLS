@@ -3,7 +3,7 @@
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 # Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
-version: 9
+version: 10
 aliases:
   lab_root: "D:\\0Grok"
   del_root: "D:\\0del"
@@ -27,13 +27,14 @@ aliases:
   doc_library_jcr: "D:\\0Grok\\0doc\\_library\\journals"  # 2026-10-31: jcr\ flattened into journals\ (alias kept resolvable, same dir as doc_library_journals)
   doc_ethics_approvals: "D:\\0Grok\\0doc\\_library\\ethics\\approvals"
   doc_ethics_index: "D:\\0Grok\\0doc\\_library\\ethics\\approvals-index.xlsx"
-  # was 06-review/advanced (retired human seat 2026-10-23 → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\06-review).
-  # Live review-text SSOT: _bank\\bank\\review-text.jsonl (+ REVIEW-TEXT.tsv).
-  doc_review_bank: "D:\\0Grok\\0doc\\_bank"
-  # was 07-response/advanced (retired human seat → D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023\\07-response;
-  # Word reply originals also under D:\\00db\\_lab\\doc-word\\07-response).
-  # Live flattened SSOT: _bank\\bank\\flattened.jsonl.
-  doc_review_replies: "D:\\0Grok\\0doc\\_bank"
+  # 2026-11-01: 0doc `_bank` retired → `_library\glossary`（四层条目）+ `_library\glossary\banks`（证据层）。
+  # {doc_glossary} = 四层 md（words/sentences/paragraphs/sections）+ index.csv；
+  # {doc_glossary_banks} = 9 个 jsonl + glossary.db + MANIFEST/ARCHIVE-MANIFEST/GATES 等台账。
+  # was 06-review/advanced（人席 2026-10-23 迁出）；review-text SSOT = {doc_glossary_banks}\review-text.jsonl（+ REVIEW-TEXT.tsv）。
+  doc_glossary: "D:\\0Grok\\0doc\\_library\\glossary"
+  # was 07-response/advanced（人席迁出；Word 回复原件在 {doc_word_archive}\07-response）；
+  # flattened SSOT = {doc_glossary_banks}\flattened.jsonl；段落层 = {doc_glossary_banks}\paras.jsonl。
+  doc_glossary_banks: "D:\\0Grok\\0doc\\_library\\glossary\\banks"
   doc_grants: "D:\\0Grok\\0doc\\skill-harvest\\sources\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
   # Thesis Word originals live under D:\\00db\\_lab\\doc-word (archive); no dedicated alias.
   doc_word_archive: "D:\\00db\\_lab\\doc-word"
@@ -56,6 +57,7 @@ aliases:
   code_bank_qc: "D:\\0Grok\\0doc\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-11-01: 0doc `_bank` → `_library\\glossary`（四层 words/sentences/paragraphs/sections + index.csv；证据层 banks 含 glossary.db）。别名**改名不留旧名**：删除 `doc_review_bank` / `doc_review_replies` 两个旧别名，新增 `{doc_glossary}` / `{doc_glossary_banks}`。vocab-harvest env `DOC_BANK_ROOT` → `GLOSSARY_ROOT`，段落层 = `{doc_glossary_banks}\\paras.jsonl`。旧名只在本条目历史叙述中出现，不得再作活别名。"
   - "2026-10-31 (owner): jcr flattened + journals single table. {doc_library_jcr} and {find_journal_submission} now resolve to _library\\journals (whitelist-submitted.csv / submission-prior.jsonl sit there); jcr\\<year>\\ retired, no per-year folders; journals\\index.xlsx retired (csv only)."
   - "HISTORIC (SUPERSEDED same day): 2026-10-31 t1458u interim — {find_journal_pools} -> _library\\journals (single index.csv with layer column + l1-l2-map.csv); {find_journal_submission} was briefly _library\\jcr\\2026\\submission (flattened into _library\\journals per owner note above; do not recreate jcr\\2026\\submission); _library\\find-journal retired (pools archived under journals\\archive\\2026; empty tree removed). New aliases: {doc_library_references}, {doc_library_journals}, {doc_library_jcr}, {doc_ethics_approvals}, {doc_ethics_index}. Ethics approvals: _library\\ethics\\approvals\\<L1>\\<L2>\\ (former 批件), index approvals-index.xlsx. Taxonomy: MY-RULES library-taxonomy.md."
   - "2026-10-27: code_md_bank alias retired — md-bank (0doc _code\\07-response\\tighten-response) moved to {DEL}\\_by-function\\0doc-deep-clean-20261027\\removed; alias removed because no live regenerator remains (skills read the digests, not the scripts)."

@@ -53,7 +53,7 @@ Checklist: `03_research/advanced/citation-verify.md`.
 
 **Owner:** Bai. **Router:** Aitor (does not self-search for general lookup/search/inventory asks).
 
-When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (live tops `_library`, `_bank`, `_code`, `templates`, `mem`, `test`, `skill-harvest`; ethics under `{doc_ethics}`; tree map in `03_research/advanced/0doc-db.md`), Aitor hands the ask to **Bai**.
+When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (live tops `_library`（含 `glossary`）, `templates`, `mem`, `test`, `skill-harvest`; ethics under `{doc_ethics}`; tree map in `03_research/advanced/0doc-db.md`), Aitor hands the ask to **Bai**.
 
 Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `{doc_ethics}` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 

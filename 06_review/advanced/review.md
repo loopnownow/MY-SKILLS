@@ -9,7 +9,7 @@
 
 Source: 2014-2026 self-authored journal-review full-text bank, 57 deduplicated files. Keep structure, tone, and high-frequency attack points only — do not ingest others' unpublished titles, data, ethics IDs, or patient identifiers.
 
-On-disk bank (internal review; source of the owner's comment style): `{doc_review_bank}\`. This file does not copy the bank body.
+On-disk bank (internal review; source of the owner's comment style): `{doc_glossary_banks}\review-text.jsonl`（+ `REVIEW-TEXT.tsv`）。This file does not copy the bank body.
 
 This file serves **English journal peer review** only (letters written for others and submittable to the system; lab pre-review may reuse the same chapter skeleton). The two tasks below use other templates — do not mix them into this envelope:
 
@@ -415,7 +415,7 @@ Strip leading source tags like `[advanced]` before counting slots; tags stay at 
 
 Full thresholds and regexes: `{doc_lab_ste}\` (`config.yaml` comment_schema; `Lab-STE-SPEC.md` CM-01). Summary pointer: `05_manuscript/base/vocab/L3/lab-ste.md`. Do not vendor the lab-ste tree.
 
-Internal-review bank (the user's own comments; style source only): `{doc_review_bank}\`. Do not vendor.
+Internal-review bank (the user's own comments; style source only): `{doc_glossary_banks}\review-text.jsonl`. Do not vendor.
 
 ### 6. What this file is not
 
