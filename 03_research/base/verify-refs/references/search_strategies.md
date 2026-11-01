@@ -16,13 +16,13 @@ signals, not evidence-quality thresholds.
 
 ```bash
 # Find recent reviews; examples are illustrative searches.
-python scripts/search_google_scholar.py 'CRISPR review' --year-start 2023 --year-end 2024
+python {code_stats}\tools\verify-refs\search_google_scholar.py 'CRISPR review' --year-start 2023 --year-end 2024
 
 # Author and topic
-python scripts/search_google_scholar.py 'author:Church "synthetic biology"'
+python {code_stats}\tools\verify-refs\search_google_scholar.py 'author:Church "synthetic biology"'
 
 # Citation sorting applies only to the retrieved sample.
-python scripts/search_google_scholar.py '"deep learning"' \
+python {code_stats}\tools\verify-refs\search_google_scholar.py '"deep learning"' \
   --year-start 2012 --year-end 2015 --sort-by citations --limit 50
 ```
 

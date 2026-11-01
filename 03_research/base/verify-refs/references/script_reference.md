@@ -1,6 +1,7 @@
 # Bundled Script Reference
 
-Purpose, arguments, and usage examples for each script in `scripts/`:
+Purpose, arguments, and usage examples for each script in `{code_stats}\tools\verify-refs\`
+(moved out of this pack on 2026-11-01; `scripts/README.md` keeps the pointer):
 `search_openalex.py`, `search_pubmed.py`, `search_google_scholar.py`,
 `extract_metadata.py`, `validate_citations.py`, `format_bibtex.py`, and
 `doi_to_bibtex.py`.
@@ -27,10 +28,10 @@ Search OpenAlex across disciplines. Casual keyless use is supported; an optional
 **Usage**:
 ```bash
 # Basic search
-python scripts/search_openalex.py "quantum computing"
+python {code_stats}\tools\verify-refs\search_openalex.py "quantum computing"
 
 # Most-cited work in a window
-python scripts/search_openalex.py "quantum computing" \
+python {code_stats}\tools\verify-refs\search_openalex.py "quantum computing" \
   --year-start 2020 \
   --year-end 2024 \
   --limit 100 \
@@ -38,7 +39,7 @@ python scripts/search_openalex.py "quantum computing" \
   --output quantum_papers.json
 
 # Reviews only, straight to BibTeX
-python scripts/search_openalex.py "CRISPR gene editing" \
+python {code_stats}\tools\verify-refs\search_openalex.py "CRISPR gene editing" \
   --type review \
   --limit 50 \
   --format bibtex \
@@ -61,10 +62,10 @@ Search Google Scholar and export results.
 **Usage**:
 ```bash
 # Basic search
-python scripts/search_google_scholar.py "quantum computing"
+python {code_stats}\tools\verify-refs\search_google_scholar.py "quantum computing"
 
 # Advanced search with filters
-python scripts/search_google_scholar.py "quantum computing" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "quantum computing" \
   --year-start 2020 \
   --year-end 2024 \
   --limit 100 \
@@ -72,7 +73,7 @@ python scripts/search_google_scholar.py "quantum computing" \
   --output quantum_papers.json
 
 # Export directly to BibTeX
-python scripts/search_google_scholar.py "machine learning" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "machine learning" \
   --limit 50 \
   --format bibtex \
   --output ml_papers.bib
@@ -96,10 +97,10 @@ Search PubMed using E-utilities API.
 **Usage**:
 ```bash
 # Simple keyword search
-python scripts/search_pubmed.py "CRISPR gene editing"
+python {code_stats}\tools\verify-refs\search_pubmed.py "CRISPR gene editing"
 
 # Complex query with filters
-python scripts/search_pubmed.py \
+python {code_stats}\tools\verify-refs\search_pubmed.py \
   --query '"CRISPR-Cas Systems"[MeSH] AND "therapeutic"[Title/Abstract]' \
   --date-start 2020-01-01 \
   --date-end 2024-12-31 \
@@ -108,7 +109,7 @@ python scripts/search_pubmed.py \
   --output crispr_therapeutic.json
 
 # Export to BibTeX
-python scripts/search_pubmed.py "Alzheimer's disease" \
+python {code_stats}\tools\verify-refs\search_pubmed.py "Alzheimer's disease" \
   --limit 100 \
   --format bibtex \
   --output alzheimers.bib
@@ -129,25 +130,25 @@ DOI, PMID, PMCID, arXiv ID, or article URL; raw OpenAlex IDs are not supported.
 **Usage**:
 ```bash
 # Single DOI
-python scripts/extract_metadata.py --doi 10.1038/s41586-021-03819-2
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi 10.1038/s41586-021-03819-2
 
 # Single PMID
-python scripts/extract_metadata.py --pmid 34265844
+python {code_stats}\tools\verify-refs\extract_metadata.py --pmid 34265844
 
 # Single arXiv ID
-python scripts/extract_metadata.py --arxiv 2103.14030
+python {code_stats}\tools\verify-refs\extract_metadata.py --arxiv 2103.14030
 
 # From URL
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --url "https://www.nature.com/articles/s41586-021-03819-2"
 
 # Batch processing (file with one identifier per line)
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --input paper_ids.txt \
   --output references.bib
 
 # Different output formats
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --doi 10.1038/nature12345 \
   --format json  # or bibtex
 ```
@@ -168,18 +169,18 @@ Validate BibTeX entries for accuracy, completeness, citation count standard comp
 **Usage**:
 ```bash
 # Basic validation
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 
 示例调用见 [`core_workflow.md`](core_workflow.md)（同一组命令，不在本文件重复）。
 
 # Validate with custom minimum citation count
-python scripts/validate_citations.py references.bib --min-count 40
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --min-count 40
 
 # Check references against a written manuscript file (detect missing or unused citations)
-python scripts/validate_citations.py references.bib --manuscript paper.md
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --manuscript paper.md
 
 # Combined full validation
-python scripts/validate_citations.py references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib \
   --venue nature \
   --manuscript paper.md \
   --report validation_report.json \
@@ -201,21 +202,21 @@ Format and clean BibTeX files.
 **Usage**:
 ```bash
 # Basic formatting
-python scripts/format_bibtex.py references.bib
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib
 
 # Sort by year (newest first)
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --sort year \
   --descending \
   --output sorted_refs.bib
 
 # Remove duplicates
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --deduplicate \
   --output clean_refs.bib
 
 # Complete cleanup
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --rekey \
   --deduplicate \
   --sort year \
@@ -235,17 +236,17 @@ Quick DOI to BibTeX conversion.
 **Usage**:
 ```bash
 # Single DOI
-python scripts/doi_to_bibtex.py 10.1038/s41586-021-03819-2
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/s41586-021-03819-2
 
 # Multiple DOIs
-python scripts/doi_to_bibtex.py \
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py \
   10.1038/nature12345 \
   10.1126/science.abc1234 \
   10.1016/j.cell.2023.01.001
 
 # From file (one DOI per line)
-python scripts/doi_to_bibtex.py --input dois.txt --output references.bib
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py --input dois.txt --output references.bib
 
 # Copy to clipboard (macOS; use xclip on Linux)
-python scripts/doi_to_bibtex.py 10.1038/nature12345 | pbcopy
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/nature12345 | pbcopy
 ```

@@ -621,18 +621,18 @@ unsupported PubmedBookArticle records. It does not export the full PubMed XML.
 
 **Basic search**:
 ```bash
-python scripts/search_pubmed.py "diabetes treatment"
+python {code_stats}\tools\verify-refs\search_pubmed.py "diabetes treatment"
 ```
 
 **With MeSH terms**:
 ```bash
-python scripts/search_pubmed.py \
+python {code_stats}\tools\verify-refs\search_pubmed.py \
   --query '"Diabetes Mellitus"[MeSH] AND "Drug Therapy"[MeSH]'
 ```
 
 **Date range filter**:
 ```bash
-python scripts/search_pubmed.py "CRISPR" \
+python {code_stats}\tools\verify-refs\search_pubmed.py "CRISPR" \
   --date-start 2020-01-01 \
   --date-end 2024-12-31 \
   --limit 200
@@ -640,14 +640,14 @@ python scripts/search_pubmed.py "CRISPR" \
 
 **Publication type filter**:
 ```bash
-python scripts/search_pubmed.py "cancer immunotherapy" \
+python {code_stats}\tools\verify-refs\search_pubmed.py "cancer immunotherapy" \
   --publication-types "Clinical Trial,Randomized Controlled Trial" \
   --limit 100
 ```
 
 **Export to BibTeX**:
 ```bash
-python scripts/search_pubmed.py "Alzheimer's disease" \
+python {code_stats}\tools\verify-refs\search_pubmed.py "Alzheimer's disease" \
   --limit 100 \
   --format bibtex \
   --output alzheimers.bib
@@ -665,7 +665,7 @@ AND English[Language]
 EOF
 
 # Run search
-python scripts/search_pubmed.py --query-file query.txt --limit 500
+python {code_stats}\tools\verify-refs\search_pubmed.py --query-file query.txt --limit 500
 ```
 
 ### Batch Searches
@@ -675,7 +675,7 @@ python scripts/search_pubmed.py --query-file query.txt --limit 500
 TOPICS=("diabetes treatment" "cancer immunotherapy" "CRISPR gene editing")
 
 for topic in "${TOPICS[@]}"; do
-  python scripts/search_pubmed.py "$topic" \
+  python {code_stats}\tools\verify-refs\search_pubmed.py "$topic" \
     --limit 100 \
     --output "${topic// /_}.json"
   sleep 1
@@ -686,10 +686,10 @@ done
 
 ```bash
 # Search returns PMIDs
-python scripts/search_pubmed.py "topic" --output results.json
+python {code_stats}\tools\verify-refs\search_pubmed.py "topic" --output results.json
 
 # Extract full metadata
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --input results.json \
   --output references.bib
 ```
@@ -770,7 +770,7 @@ python scripts/extract_metadata.py \
 
 3. **Validate retrieved citations**:
    ```bash
-   python scripts/validate_citations.py pubmed_results.bib
+   python {code_stats}\tools\verify-refs\validate_citations.py pubmed_results.bib
    ```
 
 ### Staying Current
@@ -820,7 +820,7 @@ python scripts/extract_metadata.py \
 
 **Solution**:
 ```bash
-python scripts/format_bibtex.py results.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py results.bib \
   --deduplicate \
   --output clean.bib
 ```

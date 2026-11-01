@@ -158,7 +158,7 @@ Filter by publication year:
 
 **In script**:
 ```bash
-python scripts/search_google_scholar.py "quantum computing" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "quantum computing" \
   --year-start 2020 \
   --year-end 2024
 ```
@@ -178,7 +178,7 @@ python scripts/search_google_scholar.py "quantum computing" \
 
 **By citation count** (local sort of the retrieved sample, not a Scholar-wide sort):
 ```bash
-python scripts/search_google_scholar.py "transformers" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "transformers" \
   --sort-by citations \
   --limit 50
 ```
@@ -219,7 +219,7 @@ Stay current with latest research:
 
 **Example**:
 ```bash
-python scripts/search_google_scholar.py "AlphaFold protein structure" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "AlphaFold protein structure" \
   --year-start 2023 \
   --year-end 2024 \
   --limit 50
@@ -292,7 +292,7 @@ For thorough coverage (e.g., systematic reviews):
 
 5. **Export results** for systematic analysis:
    ```bash
-   python scripts/search_google_scholar.py \
+   python {code_stats}\tools\verify-refs\search_google_scholar.py \
      '"machine learning" OR "deep learning" drug discovery' \
      --limit 500 \
      --output comprehensive_search.json
@@ -325,7 +325,7 @@ Each result shows:
 **Automated export** (using script):
 ```bash
 # Search and export to BibTeX
-python scripts/search_google_scholar.py "quantum computing" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "quantum computing" \
   --limit 50 \
   --format bibtex \
   --output quantum_papers.bib
@@ -481,11 +481,11 @@ time.sleep(random.uniform(2, 5))  # Client pacing, not a guaranteed safe quota
 4. **Export systematically**:
    ```bash
    # Save search results for later analysis
-   python scripts/search_google_scholar.py "your topic" \
+   python {code_stats}\tools\verify-refs\search_google_scholar.py "your topic" \
      --output topic_papers.json
 
    # Can re-process later without re-searching
-   python scripts/extract_metadata.py \
+   python {code_stats}\tools\verify-refs\extract_metadata.py \
      --input topic_papers.json \
      --output topic_refs.bib
    ```
@@ -525,14 +525,14 @@ machine learning
 carries an `eprint_url` when a free copy exists, so filter the JSON:
 
 ```bash
-python scripts/search_google_scholar.py "topic" --output papers.json
+python {code_stats}\tools\verify-refs\search_google_scholar.py "topic" --output papers.json
 python -c "import json;d=json.load(open('papers.json'));print(json.dumps([r for r in d['results'] if r['eprint_url']],indent=2))" > open_access_papers.json
 ```
 
 OpenAlex exposes this directly as a field:
 
 ```bash
-python scripts/search_openalex.py "topic" --output papers.json   # each result has is_open_access
+python {code_stats}\tools\verify-refs\search_openalex.py "topic" --output papers.json   # each result has is_open_access
 ```
 
 ### Tracking Research Impact
@@ -638,7 +638,7 @@ site:biorxiv.org CRISPR
 2. Choose version with best metadata
 3. Use deduplication in post-processing:
    ```bash
-   python scripts/format_bibtex.py results.bib \
+   python {code_stats}\tools\verify-refs\format_bibtex.py results.bib \
      --deduplicate \
      --output clean_results.bib
    ```
@@ -649,12 +649,12 @@ site:biorxiv.org CRISPR
 
 **Basic search**:
 ```bash
-python scripts/search_google_scholar.py "machine learning drug discovery"
+python {code_stats}\tools\verify-refs\search_google_scholar.py "machine learning drug discovery"
 ```
 
 **With year filter**:
 ```bash
-python scripts/search_google_scholar.py "CRISPR" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "CRISPR" \
   --year-start 2020 \
   --year-end 2024 \
   --limit 100
@@ -662,26 +662,26 @@ python scripts/search_google_scholar.py "CRISPR" \
 
 **Sort by citations**:
 ```bash
-python scripts/search_google_scholar.py "transformers" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "transformers" \
   --sort-by citations \
   --limit 50
 ```
 
 **Export to BibTeX**:
 ```bash
-python scripts/search_google_scholar.py "quantum computing" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "quantum computing" \
   --format bibtex \
   --output quantum.bib
 ```
 
 **Export to JSON for later processing**:
 ```bash
-python scripts/search_google_scholar.py "topic" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "topic" \
   --format json \
   --output results.json
 
 # Later: extract full metadata
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --input results.json \
   --output references.bib
 ```
@@ -696,7 +696,7 @@ For multiple topics:
 
 # Search each query
 while read query; do
-  python scripts/search_google_scholar.py "$query" \
+  python {code_stats}\tools\verify-refs\search_google_scholar.py "$query" \
     --limit 50 \
     --output "${query// /_}.json"
   sleep 10  # Delay between queries

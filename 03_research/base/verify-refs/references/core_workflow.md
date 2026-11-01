@@ -19,12 +19,12 @@ Google Scholar provides the most comprehensive coverage across disciplines.
 **Basic Search**:
 ```bash
 # Search for papers on a topic
-python scripts/search_google_scholar.py "CRISPR gene editing" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "CRISPR gene editing" \
   --limit 50 \
   --output results.json
 
 # Search with year filter
-python scripts/search_google_scholar.py "machine learning protein folding" \
+python {code_stats}\tools\verify-refs\search_google_scholar.py "machine learning protein folding" \
   --year-start 2020 \
   --year-end 2024 \
   --limit 100 \
@@ -53,12 +53,12 @@ PubMed specializes in biomedical and life sciences literature (35+ million citat
 **Basic Search**:
 ```bash
 # Search PubMed
-python scripts/search_pubmed.py "Alzheimer's disease treatment" \
+python {code_stats}\tools\verify-refs\search_pubmed.py "Alzheimer's disease treatment" \
   --limit 100 \
   --output alzheimers.json
 
 # Search with MeSH terms and filters
-python scripts/search_pubmed.py \
+python {code_stats}\tools\verify-refs\search_pubmed.py \
   --query '"Alzheimer Disease"[MeSH] AND "Drug Therapy"[MeSH]' \
   --date-start 2020 \
   --date-end 2024 \
@@ -91,13 +91,13 @@ For single DOIs, use the quick conversion tool:
 
 ```bash
 # Convert single DOI
-python scripts/doi_to_bibtex.py 10.1038/s41586-021-03819-2
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/s41586-021-03819-2
 
 # Convert multiple DOIs from a file
-python scripts/doi_to_bibtex.py --input dois.txt --output references.bib
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py --input dois.txt --output references.bib
 
 # Different output formats
-python scripts/doi_to_bibtex.py 10.1038/nature12345 --format json
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/nature12345 --format json
 ```
 
 #### Comprehensive Metadata Extraction
@@ -106,19 +106,19 @@ For DOIs, PMIDs, arXiv IDs, or URLs:
 
 ```bash
 # Extract from DOI
-python scripts/extract_metadata.py --doi 10.1038/s41586-021-03819-2
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi 10.1038/s41586-021-03819-2
 
 # Extract from PMID
-python scripts/extract_metadata.py --pmid 34265844
+python {code_stats}\tools\verify-refs\extract_metadata.py --pmid 34265844
 
 # Extract from arXiv ID
-python scripts/extract_metadata.py --arxiv 2103.14030
+python {code_stats}\tools\verify-refs\extract_metadata.py --arxiv 2103.14030
 
 # Extract from URL
-python scripts/extract_metadata.py --url "https://www.nature.com/articles/s41586-021-03819-2"
+python {code_stats}\tools\verify-refs\extract_metadata.py --url "https://www.nature.com/articles/s41586-021-03819-2"
 
 # Batch extraction from file (mixed identifiers)
-python scripts/extract_metadata.py --input identifiers.txt --output citations.bib
+python {code_stats}\tools\verify-refs\extract_metadata.py --input identifiers.txt --output citations.bib
 ```
 
 **Metadata Sources** (see `03_research/base/verify-refs/references/metadata_extraction.md`):
@@ -319,27 +319,27 @@ Use the formatter to standardize BibTeX files:
 
 ```bash
 # Format and clean BibTeX file
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --output formatted_references.bib
 
 # Sort entries by citation key
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --sort key \
   --output sorted_references.bib
 
 # Sort by year (newest first)
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --sort year \
   --descending \
   --output sorted_references.bib
 
 # Remove duplicates
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --deduplicate \
   --output clean_references.bib
 
 # Merge sources: one key scheme, then drop duplicates
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --rekey \
   --deduplicate \
   --output merged_references.bib
@@ -362,21 +362,21 @@ python scripts/format_bibtex.py references.bib \
 
 ```bash
 # Validate BibTeX file
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 
 # Validate against a venue standard (e.g., Nature, NeurIPS, Literature Review)
-python scripts/validate_citations.py references.bib --venue nature
-python scripts/validate_citations.py references.bib --venue neurips
-python scripts/validate_citations.py references.bib --venue review
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --venue nature
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --venue neurips
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --venue review
 
 # Validate with custom minimum citation count
-python scripts/validate_citations.py references.bib --min-count 40
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --min-count 40
 
 # Check references against a written manuscript file (detect missing or unused citations)
-python scripts/validate_citations.py references.bib --manuscript paper.md
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --manuscript paper.md
 
 # Generate detailed validation report
-python scripts/validate_citations.py references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib \
   --venue nature \
   --manuscript paper.md \
   --report validation_report.json \
@@ -462,7 +462,7 @@ Once the entire scientific report or paper has been drafted and written, perform
 Run all of these checks in one command:
 
 ```bash
-python scripts/validate_citations.py references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib \
   --venue <venue> \
   --manuscript paper.md \
   --report post_writing_check.json
@@ -476,30 +476,30 @@ Complete workflow for creating a bibliography:
 
 ```bash
 # 1. Search for papers on your topic
-python scripts/search_pubmed.py \
+python {code_stats}\tools\verify-refs\search_pubmed.py \
   '"CRISPR-Cas Systems"[MeSH] AND "Gene Editing"[MeSH]' \
   --date-start 2020 \
   --limit 200 \
   --output crispr_papers.json
 
 # 2. Extract DOIs from search results and convert to BibTeX
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --input crispr_papers.json \
   --output crispr_refs.bib
 
 # 3. Add specific papers by DOI
-python scripts/doi_to_bibtex.py 10.1038/nature12345 >> crispr_refs.bib
-python scripts/doi_to_bibtex.py 10.1126/science.abcd1234 >> crispr_refs.bib
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/nature12345 >> crispr_refs.bib
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1126/science.abcd1234 >> crispr_refs.bib
 
 # 4. Format and clean the BibTeX file
-python scripts/format_bibtex.py crispr_refs.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py crispr_refs.bib \
   --deduplicate \
   --sort year \
   --descending \
   --output references.bib
 
 # 5. Validate all citations
-python scripts/validate_citations.py references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib \
   --report validation.json
 
 # 6. Review validation report and fix any remaining issues
@@ -525,10 +525,10 @@ This skill complements the `literature-review` skill:
 ```bash
 # After completing literature review
 # Verify all citations in the review document
-python scripts/validate_citations.py my_review_references.bib --report review_validation.json
+python {code_stats}\tools\verify-refs\validate_citations.py my_review_references.bib --report review_validation.json
 
 # Normalise formatting (venue style is chosen by the .bst at build time)
-python scripts/format_bibtex.py my_review_references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py my_review_references.bib \
   --output formatted_refs.bib
 ```
 
@@ -552,10 +552,10 @@ When the user already keeps references in Zotero, treat the Zotero library as th
 #      returned bibtexparser object, and verify the exported item count.
 
 # 3. Validate the exported bibliography
-python scripts/validate_citations.py zotero_export.bib --report zotero_validation.json
+python {code_stats}\tools\verify-refs\validate_citations.py zotero_export.bib --report zotero_validation.json
 
 # 4. Normalise the export (venue style comes from the .bst at build time)
-python scripts/format_bibtex.py zotero_export.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py zotero_export.bib \
   --output formatted_refs.bib
 ```
 

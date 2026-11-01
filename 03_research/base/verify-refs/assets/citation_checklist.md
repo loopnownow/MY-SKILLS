@@ -27,7 +27,7 @@ Use this checklist to ensure your citations are accurate, complete, and properly
 - [ ] DOIs resolve correctly to the article
 - [ ] No DOI prefix in the BibTeX field (no "doi:" or "https://doi.org/")
 - [ ] Metadata from CrossRef matches your BibTeX entry
-- [ ] Run: `python scripts/validate_citations.py references.bib --check-dois`
+- [ ] Run: `python {code_stats}\tools\verify-refs\validate_citations.py references.bib --check-dois`
 
 ### ✓ Formatting Consistency
 
@@ -44,7 +44,7 @@ Use this checklist to ensure your citations are accurate, complete, and properly
 - [ ] No duplicate citation keys
 - [ ] No near-duplicate titles
 - [ ] Preprints updated to published versions when available
-- [ ] Run: `python scripts/validate_citations.py references.bib`
+- [ ] Run: `python {code_stats}\tools\verify-refs\validate_citations.py references.bib`
 
 ### ✓ Special Characters
 
@@ -58,21 +58,21 @@ Use this checklist to ensure your citations are accurate, complete, and properly
 - [ ] All entries have balanced braces {}
 - [ ] Fields are separated by commas (a trailing comma is valid)
 - [ ] Valid entry types (@article, @book, etc.)
-- [ ] Run: `python scripts/validate_citations.py references.bib`
+- [ ] Run: `python {code_stats}\tools\verify-refs\validate_citations.py references.bib`
 
 ### ✓ File Organization
 
 - [ ] Bibliography sorted in logical order (by year, author, or key)
 - [ ] Consistent formatting throughout
 - [ ] No formatting inconsistencies between entries
-- [ ] Run: `python scripts/format_bibtex.py references.bib --sort year`
+- [ ] Run: `python {code_stats}\tools\verify-refs\format_bibtex.py references.bib --sort year`
 
 ## Automated Validation
 
 ### Step 1: Format and Clean
 
 ```bash
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --deduplicate \
   --sort year \
   --descending \
@@ -88,7 +88,7 @@ python scripts/format_bibtex.py references.bib \
 ### Step 2: Validate
 
 ```bash
-python scripts/validate_citations.py clean_references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py clean_references.bib \
   --check-dois \
   --report validation_report.json \
   --verbose
@@ -115,7 +115,7 @@ cat validation_report.json
 ### Step 4: Final Check
 
 ```bash
-python scripts/validate_citations.py clean_references.bib --verbose
+python {code_stats}\tools\verify-refs\validate_citations.py clean_references.bib --verbose
 ```
 
 **Goal**: Zero errors, minimal warnings
@@ -255,27 +255,27 @@ If you discover issues at the last minute:
 # Option 3: Google Scholar
 
 # Re-extract metadata
-python scripts/extract_metadata.py --doi CORRECT_DOI
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi CORRECT_DOI
 ```
 
 ### Missing Information
 
 ```bash
 # Extract from DOI
-python scripts/extract_metadata.py --doi 10.xxxx/yyyy
+python {code_stats}\tools\verify-refs\extract_metadata.py --doi 10.xxxx/yyyy
 
 # Or from PMID (biomedical)
-python scripts/extract_metadata.py --pmid 12345678
+python {code_stats}\tools\verify-refs\extract_metadata.py --pmid 12345678
 
 # Or from arXiv
-python scripts/extract_metadata.py --arxiv 2103.12345
+python {code_stats}\tools\verify-refs\extract_metadata.py --arxiv 2103.12345
 ```
 
 ### Duplicate Entries
 
 ```bash
 # Auto-remove duplicates
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --deduplicate \
   --output fixed_references.bib
 ```
@@ -284,11 +284,11 @@ python scripts/format_bibtex.py references.bib \
 
 ```bash
 # Auto-fix common issues
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --output fixed_references.bib
 
 # Then validate
-python scripts/validate_citations.py fixed_references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py fixed_references.bib
 ```
 
 ## Long-Term Best Practices
@@ -320,10 +320,10 @@ python scripts/validate_citations.py fixed_references.bib
 
 ```bash
 # From DOI
-python scripts/doi_to_bibtex.py 10.1038/nature12345
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/nature12345
 
 # From multiple sources
-python scripts/extract_metadata.py \
+python {code_stats}\tools\verify-refs\extract_metadata.py \
   --doi 10.1038/nature12345 \
   --pmid 12345678 \
   --arxiv 2103.12345 \
@@ -334,13 +334,13 @@ python scripts/extract_metadata.py \
 
 ```bash
 # Basic validation
-python scripts/validate_citations.py references.bib
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib
 
 # With DOI checking (slow but thorough)
-python scripts/validate_citations.py references.bib --check-dois
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --check-dois
 
 # Generate report
-python scripts/validate_citations.py references.bib \
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib \
   --report validation.json \
   --verbose
 ```
@@ -349,10 +349,10 @@ python scripts/validate_citations.py references.bib \
 
 ```bash
 # Format and fix issues
-python scripts/format_bibtex.py references.bib
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib
 
 # Remove duplicates and sort
-python scripts/format_bibtex.py references.bib \
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib \
   --deduplicate \
   --sort year \
   --descending \

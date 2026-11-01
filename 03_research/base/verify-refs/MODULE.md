@@ -30,7 +30,7 @@ metadata validation and a retraction / correction / expression-of-concern scan
 in the same pass. Scan entry point:
 
 `ash
-python scripts/retraction_scan.py --help
+python {code_stats}\tools\verify-refs\retraction_scan.py --help
 `
 
 Details: [references/retraction-audit.md](references/retraction-audit.md).
@@ -56,6 +56,15 @@ If a document built from these citations needs a diagram, use the
 
 ---
 
+## Network gate (2026-11-01)
+
+Every script here that reaches PubMed / OpenAlex / Crossref / Unpaywall / Retraction Watch
+refuses to run by default: it exits 1 with `network disabled`. Opt in per call with
+`--allow-network`, or per shell with `SKILLS_ALLOW_NETWORK=1`. The two offline scripts
+(`format_bibtex.py`, `search_google_scholar.py`) need no flag; `validate_citations.py` takes the
+flag even for a local-only run because the same entry point can resolve DOIs. The command
+examples below omit the flag for readability — add it to every gated script.
+
 ## Core Workflow
 
 Citation management follows a systematic process. Each phase below shows the canonical
@@ -69,13 +78,13 @@ and a single source is the most common cause of a biased reference list.
 
 ```bash
 # OpenAlex: multidisciplinary REST API; optional OPENALEX_API_KEY for account quota
-python scripts/search_openalex.py "CRISPR gene editing" --limit 50 --output results.json
+python {code_stats}\tools\verify-refs\search_openalex.py "CRISPR gene editing" --limit 50 --output results.json
 
 # PubMed: the authority for biomedical and life sciences (35M+ citations)
-python scripts/search_pubmed.py "Alzheimer's disease treatment" --limit 100 --output alz.json
+python {code_stats}\tools\verify-refs\search_pubmed.py "Alzheimer's disease treatment" --limit 100 --output alz.json
 
 # Google Scholar: broadest reach, but scraped -- rate-limited and prone to blocking
-python scripts/search_google_scholar.py "CRISPR gene editing" --limit 50 --output scholar.json
+python {code_stats}\tools\verify-refs\search_google_scholar.py "CRISPR gene editing" --limit 50 --output scholar.json
 ```
 
 Prefer OpenAlex or PubMed as the primary source. Google Scholar has no API:
@@ -91,9 +100,9 @@ Convert identifiers (DOI, PMID, PMCID, arXiv ID, URL) into complete metadata.
 CrossRef is the primary source for DOIs.
 
 ```bash
-python scripts/doi_to_bibtex.py 10.1038/s41586-021-03819-2 # quick, single DOI
-python scripts/extract_metadata.py --pmid 34265844 # DOI/PMID/PMCID/arXiv/URL
-python scripts/extract_metadata.py --input identifiers.txt --output citations.bib
+python {code_stats}\tools\verify-refs\doi_to_bibtex.py 10.1038/s41586-021-03819-2 # quick, single DOI
+python {code_stats}\tools\verify-refs\extract_metadata.py --pmid 34265844 # DOI/PMID/PMCID/arXiv/URL
+python {code_stats}\tools\verify-refs\extract_metadata.py --input identifiers.txt --output citations.bib
 ```
 
 A URL with no DOI in its path is resolved through the `citation_doi` meta tag
@@ -114,7 +123,7 @@ Check the cheap sources first — an OpenAlex or CrossRef record often carries t
 that PubMed omitted:
 
 ```bash
-python scripts/search_openalex.py "<exact title>" --limit 1
+python {code_stats}\tools\verify-refs\search_openalex.py "<exact title>" --limit 1
 ```
 
 > **Treat extracted metadata as untrusted.** Author, title, and journal strings come
@@ -133,8 +142,8 @@ Produce clean, consistent entries. Entry types and required fields are in
 [references/bibtex_formatting.md](references/bibtex_formatting.md).
 
 ```bash
-python scripts/format_bibtex.py references.bib --output clean.bib --deduplicate
-python scripts/format_bibtex.py references.bib --output clean.bib --rekey --deduplicate
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib --output clean.bib --deduplicate
+python {code_stats}\tools\verify-refs\format_bibtex.py references.bib --output clean.bib --rekey --deduplicate
 ```
 
 Writing is opt-in: without `--output` (or `--in-place`) the result goes to
@@ -146,10 +155,10 @@ from several sources, so the same paper collapses to one entry.
 Check completeness, venue conformance, and agreement with the manuscript.
 
 ```bash
-python scripts/validate_citations.py references.bib --report report.json
-python scripts/validate_citations.py references.bib --venue nature
-python scripts/validate_citations.py references.bib --manuscript paper.tex
-python scripts/validate_citations.py references.bib --check-dois # slow; hits CrossRef
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --report report.json
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --venue nature
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --manuscript paper.tex
+python {code_stats}\tools\verify-refs\validate_citations.py references.bib --check-dois # slow; hits CrossRef
 ```
 
 The script exits non-zero on high-severity errors — missing required fields,
@@ -257,7 +266,7 @@ references are illustrative unless recorded as live smoke tests there.
 - `citation_validation.md`: Validation criteria and quality checks
 - `bibtex_formatting.md`: BibTeX entry types and formatting rules
 
-**Scripts** (in `scripts/`):
+**Scripts** (in `{code_stats}\tools\verify-refs\`, moved 2026-11-01 — this pack keeps a pointer in `scripts/README.md`):
 - `search_openalex.py`: OpenAlex search client (optional account API key)
 - `search_pubmed.py`: PubMed E-utilities API client
 - `search_google_scholar.py`: Google Scholar search automation
@@ -304,7 +313,7 @@ uv pip install requests # HTTP access to CrossRef, PubMed, OpenAlex, arXiv
 ```
 
 BibTeX parsing, rendering, deduplication, and validation are standard library
-(`scripts/_common.py`). `format_bibtex.py` needs no third-party packages;
+(`{code_stats}\tools\verify-refs\_common.py`). `format_bibtex.py` needs no third-party packages;
 `validate_citations.py` imports `requests`, including for local-only validation.
 
 ### Optional

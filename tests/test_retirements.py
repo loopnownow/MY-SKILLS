@@ -289,12 +289,9 @@ DEAD_03_ALLOW_FILES = {
     "INTEGRATION_MAP.md",
     "NOTICE",
     "03_research/base/README.md",
-    "03_research/base/verify-refs/LICENSE_NOTE.txt",
     "03_research/base/verify-refs/references/retraction-audit.md",
     "03_research/base/fill-protocol/MODULE.md",
-    "03_research/base/lit-fulltext/LICENSE_NOTE.txt",
     "03_research/base/lit-fulltext/MODULE.md",
-    "03_research/base/lit-fulltext/scripts/fetch.py",
 }
 DEAD_03_SKIP_SUFFIXES = {".pyc", ".png", ".jpg", ".jpeg", ".pdf", ".docx"}
 
@@ -337,13 +334,22 @@ class Absorbed03Packs(unittest.TestCase):
         module = ROOT / "03_research/base/lit-fulltext/MODULE.md"
         self.assertTrue(module.is_file())
         self.assertNotIn("fetch_oa.py", module.read_text(encoding="utf-8"))
-        fetch = ROOT / "03_research/base/lit-fulltext/scripts/fetch.py"
-        self.assertTrue(fetch.is_file())
-        self.assertGreater(fetch.stat().st_size, 0)
+        pointer = ROOT / "03_research/base/lit-fulltext/scripts/README.md"
+        self.assertTrue(pointer.is_file(), "t1521u P3-B: scripts/ keeps a pointer README")
+        self.assertIn("{code_stats}", pointer.read_text(encoding="utf-8"))
         aliases = yaml.safe_load(
             (ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8")
         )["aliases"]
         self.assertNotIn("03-lit-fulltext", aliases)
+
+    def test_lit_fulltext_script_resolves_in_my_codes(self) -> None:
+        """t1521u P3-B: fetch.py leaves this repo; resolve it through {code_stats}."""
+        data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
+        root = str((data.get("aliases") or {}).get("code_stats") or "")
+        script = Path(root) / "tools" / "lit-fulltext" / "fetch.py" if root else None
+        if script is None or not script.is_file():
+            raise unittest.SkipTest("{code_stats}/tools/lit-fulltext/fetch.py not on this checkout")
+        self.assertGreater(script.stat().st_size, 0)
 
 
 class HumanizeRetired(unittest.TestCase):
