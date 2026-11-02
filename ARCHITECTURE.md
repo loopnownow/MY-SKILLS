@@ -19,7 +19,7 @@ The orchestrator classifies the task and selects the **smallest** set of skills 
 | Intent | Route |
 |---|---|
 | Skill index / session pick | `00_orchestrator` (Aitor) |
-| Excel / batch workspace / cleaning / imaging prep / impute / extraction / coding principles | `02_data-processing` (Loopnow) |
+| Excel / batch workspace / cleaning / imaging prep / impute / extraction / coding / scripts / MY-CODES | `02_data-processing` (Loopnow; default coding seat) |
 | Literature research / evidence / study design / journal selection / citation-verify / translational design / ethics forms | `03_research` (Victor; ethics forms → **Bai**) |
 | Statistics / prediction / **figures** / sample size | `02_data-processing` (Loopnow) |
 | Scientific writing / advanced style / de-AI | `05_manuscript` (Aitee) |
@@ -42,7 +42,7 @@ Grants (Voice A reviewing others' proposals / Voice B your own) is an advanced 0
 | sample size | `02_data-processing` (`calc-sample-size`) |
 | AUC / DeLong / DCA / stats plan / figures | `02_data-processing` (Loopnow) |
 | Radiomics / ROI / leakage audit / preprocess | `02_data-processing` (Loopnow) |
-| Soft coding / dry-run | `02_data-processing` (Loopnow) → `02_data-processing/advanced/coding.md` |
+| Soft coding / dry-run / scripts | `02_data-processing` (Loopnow, default coding seat) → `02_data-processing/advanced/coding.md` |
 | Batch / Excel folders | `{RULES}/workspace-layout.md` |
 | VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `02_data-processing/advanced/analysis/pipeline.md` |
 | Ethics application form fill | `03_research` → `base/fill-protocol/` — **executor Bai** (`a_domain` `03_research`, the one route exception) |
@@ -80,7 +80,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 Who executes a coarse id or a LIVE fine id: `00_orchestrator/references/bot-route.md` (coarse|fine → bot). Who may revise what: `00_orchestrator/references/ownership-contract.md`.
 
-- `02_data-processing`: raw → analysis-ready → statistical analysis / model evaluation / figures (`draw-flowchart` / `plot-figures`). **Loopnow**. Upstream data repair must remain traceable; do not silently modify upstream inputs during analysis. Ethics forms are not here.
+- `02_data-processing`: raw → analysis-ready → statistical analysis / model evaluation / figures (`draw-flowchart` / `plot-figures`). **Loopnow**. Coding / scripts / `MY-CODES` also default here: Loopnow is the default coding seat, and Cursor takes coding only on 「交给cursor」. Upstream data repair must remain traceable; do not silently modify upstream inputs during analysis. Ethics forms are not here.
 - `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol` — `a_domain` `03_research` but **executor Bai**, the one route exception), translational design, **journal selection**, **citation-verify** before 05 done and inside 06. **Victor is the default bot**; the ethics-form exception does not move the body out of 03. Manuscript prose is not its role. Victor does not fill ethics forms.
 - `05_manuscript`: advanced writing layer (**Aitee**). Literature retrieval and journal selection → `03_research`; figures → `02_data-processing`. de-AI at `05_manuscript/advanced/`. Mid-entry does not waive citation-verify.
 - `06_review`: advanced review / re-review layer (**Lee**). Changed wording → `05_manuscript`.
