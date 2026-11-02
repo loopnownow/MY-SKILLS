@@ -36,6 +36,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
 | [`references/session-pick.md`](references/session-pick.md) | this-run pick, resolution order, empty-path protocol |
 | [`references/hard-rules.md`](references/hard-rules.md) | forbidden combinations, fine-id expansion |
+| [`references/bot-route.md`](references/bot-route.md) | bot route SSOT: coarse id → bot, LIVE fine id → bot (Bai exception) |
 | [`references/lifecycle-cache.md`](references/lifecycle-cache.md) | deploy sync after merge; one clone, no second runtime tree |
 | [`references/capability-contract.example.yaml`](references/capability-contract.example.yaml) | example contract for a new pack (proposal side) |
 | [`workflows/`](workflows/README.md) | 5 composite SOPs + README |

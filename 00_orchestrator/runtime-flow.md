@@ -43,6 +43,8 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 **Response → 07 / Aitee. Review → 06 / Lee.** Do not route response letters to 06. Gate ids (`G0`, `G-PHI`, `G-FACT`, `G-LIT`, `G-CODE`, `Gate · STATS/05/06/07`) stay stable.
 
+Bot per coarse id and per LIVE fine id (incl. the Bai `fill-protocol` exception): [`references/bot-route.md`](references/bot-route.md). This table stays seat-level; it does not list fine ids.
+
 
 ## How to read the map
 

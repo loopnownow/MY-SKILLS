@@ -7,6 +7,7 @@
 # Retired fine ids, retired coarse buckets and the retired 01 seat live in legacy_aliases.yaml only.
 # Live rows are status LIVE. Prefer merge into an existing fine id over opening a new one.
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
+# Bot names per coarse id and per LIVE fine id: 00_orchestrator/references/bot-route.md (ids stay SSOT here).
 
 meta:
   version: '5.0'
