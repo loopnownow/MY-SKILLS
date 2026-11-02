@@ -9,12 +9,14 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 | Role | Seat | Owns |
 |---|---|---|
 | Aitor | `00_orchestrator` | QC, intent classify, skill chain, gates, local recovery |
-| Loopnow | `02_data-processing` | data processing, stats, figures |
+| Loopnow | `02_data-processing` | data processing, stats, figures, **coding / scripts / `MY-CODES`** (the default coding seat) |
 | Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-bank** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
 | Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
-| Cursor | external pack | coding / tidying / extraction / form-fill / in-repo frontend-backend (UI, API, tests, PR) and former Cline data/script peers; bot handoff only via 「交给cursor」 (Cursor IDE; Cline may run as IDE plugin for the owner, bots do not call Cline) |
+| Cursor | external pack | tidying / extraction / form-fill / in-repo frontend-backend (UI, API, tests, PR) peer work, only via 「交给cursor」 (Cursor IDE; Cline may run as IDE plugin for the owner, bots do not call Cline). **Not the default coding seat.** Coding / scripts / `MY-CODES` are Loopnow on 02 |
+
+Every role above, plus CloudAgent, carries and obeys `{RULES}`; `{RULES}\My rule.md` is authoritative. This contract governs who may revise what and does not restate Rules text. Skills attach on concrete work only.
 
 Bot route table → [`bot-route.md`](bot-route.md) (coarse id → bot, LIVE fine id → bot, Bai exception).
 
@@ -23,7 +25,8 @@ Per-paper channel seats all six (max).
 ## Dispatch
 
 - One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to Cursor.
-- Aitee and Lee generally do not call Cursor. Any seat using Cursor needs prior user approval.
+- Coding / scripts / `MY-CODES` default to **Loopnow** (02). Cursor is not the default coding seat; it takes work only when the owner says 「交给cursor」, with approval.
+- Aitee and Lee generally do not call Cursor. Any seat using Cursor needs prior user approval. Bots never call Cline.
 - External-pack watch: `00_orchestrator/references/handoff-monitor.md` (only for that task window).
 
 ## Word Track Changes
@@ -59,6 +62,6 @@ When the owner asks to search, look up, locate, or inventory materials in the la
 
 Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `{doc_ethics}` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
-**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures); Cursor when the owner says 「交给cursor」 for bulk scripts. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
+**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures/scripts/coding). Cursor takes work only when the owner says 「交给cursor」 (tidying / extraction / form-fill / IDE work), never as the script or coding default. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
 
 Procedure: `03_research/advanced/0doc-db.md`.

@@ -33,7 +33,7 @@ Do not change fine IDs for stats-analysis / figures / data-processing / study-de
 
 | Coarse | Seat | On-map role |
 |---|---|---|
-| 02 | Loopnow | data / stats / figures |
+| 02 | Loopnow | data / stats / figures / coding |
 | 03 | Victor | research / lit / journal selection / citation-verify |
 | 05 | Aitee | manuscript prose + Track Changes |
 | **06** | **Lee** | **review / pre-review / re-review only** |
@@ -62,7 +62,7 @@ Diagram `Gate · NN` = the set chosen from the table below (detail and failure c
 | Task / node | Applicable gates |
 | --- | --- |
 | 00 external Skill / Fine id | G0. Enter only when this run needs a new fine-id pick |
-| 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 02. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop |
+| 02 data processing | Exit is G0 + G-PHI (when applicable) + artifact exists, then enter 02. No separate 02 gate id and no 02-local G-FACT. N2 = PHI stop. Coding / scripts / `MY-CODES` default to Loopnow here, never to Cursor |
 | 02 advanced/coding.md / deep code review | G-CODE |
 | 03 literature research | Exit is G0 + G-LIT + evidence/citation artifacts. No separate 03 gate id and no 03-local G-FACT |
 | 02 stats / figures | G0 + G-FACT (fact chain after 02 HTML) + G-STATS. Numbers and figures come from HTML / settings; reporting-guideline checklists are not G-STATS. N3 WRITE = stop at HTML or enter writing |
