@@ -34,7 +34,7 @@ These are real executors that are **not** seats in the 00 main loop. They are ro
 | ethics forms + portal submit + `{doc_root}` 0doc lookup/search/inventory | Bai · 打杂的 | fill-protocol body under 03; off 00 main loop |
 | coding/tidying/extraction/form-fill/scripts | Cursor IDE | only when owner says 「交给cursor」 and approved; bots do not call Cline |
 
-Bai's two jobs arrive differently. Ethics forms are reached through a fine id (`fill-protocol`) whose body sits under `03_research/base/`, so the seat stays 03 while the executor is Bai. Portal submit and the `{doc_root}` lookup/search/inventory asks carry no fine id at all; Aitor routes them directly and does not self-search for general lookup asks.
+Bai's work arrives in two shapes. Ethics forms are reached through a fine id (`fill-protocol`) whose body sits under `03_research/base/`, so the seat stays 03 while the executor is Bai. Portal submit and the `{doc_root}` lookup/search/inventory asks carry no fine id at all; Aitor routes them directly and does not self-search for general lookup asks.
 
 Cursor is an external pack, not a seat and not a bot. A handoff to it needs the owner's 「交给cursor」 plus approval; a bot never calls Cline on its own.
 
