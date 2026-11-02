@@ -16,6 +16,8 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 | Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
 | Cursor | external pack | coding / tidying / extraction / form-fill / in-repo frontend-backend (UI, API, tests, PR) and former Cline data/script peers; bot handoff only via 「交给cursor」 (Cursor IDE; Cline may run as IDE plugin for the owner, bots do not call Cline) |
 
+Bot route table → [`bot-route.md`](bot-route.md) (coarse id → bot, LIVE fine id → bot, Bai exception).
+
 Per-paper channel seats all six (max).
 
 ## Dispatch
