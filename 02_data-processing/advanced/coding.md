@@ -46,6 +46,20 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - **2026-10-24 decision kept**: comments = config-field meaning + how to run; **do not** write long business “why”. Authority → `{RULES}` `My rule.md` §3.
 - Comment **only**: (a) config-field meaning; (b) how to run the script. No long business-logic comments.
 
+### 5a. Docstring / `--help` on callable surfaces (t1628u → Rules t1622u)
+- Authority → `{RULES}` `My rule.md` §3 new bullet (t1622u; tip `97a13d3`). This section is the skill-side expansion.
+- **Required** on every new or changed callable surface:
+  - module header (files you create or materially change);
+  - every function / method;
+  - every CLI entry point.
+- **CLI**: must expose a usable `--help` (argparse `description` + `help=` on every argument; same for click/typer/optparse). If `--help` does not print the usage and arguments, the change is not done.
+- **Content = what + how to call**, not long business why:
+  - **what**: one line on what it does.
+  - **how to call**: arguments (with units/expected form), returns, raised exceptions, and a minimal usage example for CLIs / entry scripts.
+- **MATLAB `.m`**: use a `help` header block (function signature + description of inputs/outputs) at the top of the file; per-function header where the file defines local functions.
+- **Coexistence**: docstring/help and short inline comments are separate layers — inline comments stay limited to (a) config-field meaning and (b) how to run. Do not move config explanation into docstrings, and do not turn docstrings into business-narrative comments.
+- Scope: required for new/changed surfaces; do not mass-retrofit untouched legacy code in the same change.
+
 ### 5b. No fallback
 - No fallback / silent degrade; do not try-except-swallow then take a default path; failures must be loud
 
