@@ -34,7 +34,7 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
-- **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-blank.docx` into the outcome folder as `Manuscript_<slug>_V1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton.
+- **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-blank.docx` into the outcome folder as `Manuscript_<slug>_V1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton. Fill slots and their order: § Blank SCI manuscript skeleton (below).
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
 - Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<n>.docx` (e.g. `Manuscript_lxf_PP_V1.docx`). Same family: `Comments_` / `Response_` / `Supplementary_` with matching `V<n>`. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
@@ -195,6 +195,8 @@ Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors
 10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually fixed. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here. Variables that were recorded but **not** used as candidate predictors (e.g. treatment type, chemotherapy agent) go in a **Word comment only** — never Methods/Results body (“recorded … but were not included…”).
 11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, put **not generated / not exported** in a **Word comment only**. Do not invent them. Do not write that sentence in the body.
 
+Fill slots for each of these subtitles, in this order: § Blank SCI manuscript skeleton (`SCI-manuscript-blank.docx`). Owner slot names there map onto these subtitles; they never add a new subtitle.
+
 ---
 
 ## Results
@@ -242,6 +244,85 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 3. Clinical application — **one** short use-case sentence. No disclaimer stack (*It is not a replacement… A high score should not…*).
 4. **Limitations: its own paragraph**, First… Second… Put label circularity **First** when a predictor is part of the endpoint. Facts only. No closer *rather than a ready clinical tool*.
 5. **Conclusion** — 2-3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* / *No validation set was available* go in a **Word comment only** — never in Conclusion, Limitations, Highlights, or Figure 1.
+
+---
+
+## Blank SCI manuscript skeleton (SCI-manuscript-blank.docx)
+
+Fill-slot map for the blank manuscript at `{doc_root}\templates\SCI-manuscript-blank.docx`, for radiomics / clinical-plus-imaging prediction papers (owner t1643-t1645u, absorbed t1647u). This is **not** a second format: it is the slot checklist used to enrich that docx from corpus (Cline / agents). Page, typography, bans, quotas, bold marks, and the Methods fixed order above are unchanged and still govern. Spelling: **preprocessing**, **NRI/IDI** (never NIR). **Results subtitles mirror Methods subtitles.**
+
+Placeholders are the only fill values allowed in the skeleton: `[PLACEHOLDER: …]`. Never bake a real IRB number, AUC, scanner serial, or DOI into this skill as a required value. Jinshan defaults already in the title-page table and the scanner pair in Methods may stay as defaults; every project-specific value stays a placeholder until verified against the source.
+
+### Nesting rule (owner names ↔ existing Methods names)
+
+Owner slot names map onto the existing Methods fixed order; they do not add subtitles. Where a name differs, use the existing subtitle.
+
+| Blank slot (owner) | Existing Methods subtitle above |
+|---|---|
+| Ethics | `Ethics` |
+| Study design | `Study design and sample size` |
+| Patients | `Patients` |
+| Inclusion and exclusion | `Inclusion and exclusion` |
+| Outcomes | `Outcomes` (stays after inclusion/exclusion; not relocated) |
+| Laboratory tests | `Laboratory tests` |
+| Clinical feature selection | slot inside `Model building` |
+| Imaging scanning | `Imaging examinations` (one paragraph per modality) |
+| Imaging preprocessing | `Image processing` (ROI / ICC / software) |
+| Imaging feature extraction | inside `Image processing` |
+| Imaging feature selection | inside `Image processing` or `Model building` |
+| Model development, model evaluation | `Model building` (+ statistics evaluation slots) |
+| Statistical analysis | `Statistical analysis` |
+
+### Front matter slots
+
+Title · Running title · Authors · Affiliations · Corresponding author · Keywords · Abbreviations · structured Abstract. Abstract labels stay `Background:` or `Objective:`, then `Methods:` `Results:` `Conclusion:` per § Abstract, bold through the colon only. The Abstract sentence order follows the **Methods subsection names** written for that project, not a generic order.
+
+### Introduction scaffolds
+
+Beat labels only; the shape is § Introduction above (five paragraphs, eight beats). Each scaffold paragraph is annotated with its intra-paragraph logic: **topic → evidence → gap → bridge**. A corpus extract fills the beat, never a new funnel.
+
+### Methods fill slots
+
+1. **Ethics.** Committee full name; approval number; approval date; approval coverage time range; consent or waiver; Helsinki statement; optional registry ID. Missing values → **Word comment**, never a yellow fill.
+2. **Study design.** Collection window; retrospective or prospective; single or multicenter; study type; primary objective plus optional secondary objective; split (e.g. `7:3`); independent validation set yes or no; optional stratification note. A seed policy may be logged in the working file, but the seed itself never enters manuscript prose (**no random seed**, ban above).
+3. **Patients.** Consecutive or not; department; disease; clinical features list (age, sex, and the rest of the Table 1 baseline set); pointers to the flowchart (`Figure 1`) and `Table 1`.
+4. **Inclusion and exclusion.** One paragraph each, inline numbering. Add the **time-alignment rule** for imaging, labs, and outcome versus enrollment.
+5. **Outcomes.** Immediately after inclusion and exclusion. Primary definition plus reference standard; follow-up yes or no with its rules; optional secondary outcome. One endpoint name, identical in Abstract, Introduction aim, and here.
+6. **Laboratory tests.** Timing slot, e.g. `±7 days of enrollment`, with the existing pathology default of 30 days kept for pathologic endpoints; clustered panels (liver, renal, coagulation, others); optional units and missing-value handling.
+7. **Clinical feature selection.** Univariable screen, then multivariable logistic regression; entry *P*; collinearity handling; report OR with `95% CI: X-X`.
+8. **Imaging scanning** (one paragraph per modality). Timing; scanner model, company, country; sequences and parameters; contrast yes or no; agent trade name, company, country; injection rate and delay; optional acquisition QC note.
+9. **Imaging preprocessing.** Software name, version, URL; ROI yes or no; manual or automatic; intra- and inter-reader ICC with the 30-day re-ROI; optional resampling, normalization, registration, and reader blinding.
+10. **Imaging feature extraction.** Software name, version, URL; feature classes; optional IBSI compliance statement and feature count.
+11. **Imaging feature selection pipeline.** Fixed order: normalize → ICC filter → remove correlated features → LASSO or logistic selection → linear fit. Thresholds and the λ rule stay `[PLACEHOLDER: …]`.
+12. **Model development.** One paragraph each for the clinical model, the radiomics model, and the combined or nomogram model; training-set versus test-set reminder; cross-validation and calibration method placeholders. Primary model is the **nomogram**.
+13. **Model evaluation.** ROC with DeLong; calibration (nomogram only); DCA; NRI/IDI; sensitivity, specificity, accuracy, AUC with 95% CI; cutoff rule; bootstrap intervals.
+14. **Statistical analysis.** Software name, version, URL; normality check; parametric versus non-parametric choice; *P* adjustment; correlation and partial correlation; subgroup and sensitivity analyses; SHAP; two-sided α; missing-data strategy.
+
+### Results fill slots
+
+Subtitles parallel the Methods subtitles one for one. Fill flowchart counts, then table and figure cross-references in the first body paragraph (`The study flowchart is shown in Figure 1.`). An unfilled Results section keeps its heading and carries `Results pending [PLACEHOLDER: …]`; do not drop the heading in the blank. Never invent a count, AUC, or *P* to close a slot.
+
+### Discussion content checklist (radiomics blank)
+
+The inverted funnel in § Discussion is the **voice and QC rule** (word band 800-1000, first paragraph no citations or numbers, Limitations in its own paragraph with at most five `First…Second…` items, Conclusion with no AUC). The slots below are the **content checklist** for enriching the blank, and they nest inside that funnel:
+
+1. **Context 1** (clinical versus radiomics findings kept separate; contrast with published models and markers; concordant results → disease meaning; discordant results → reasons).
+2. **Context 2** (first modality).
+3. **Context 3** (second modality).
+4. **ROC comparison** paragraph.
+5. **Clinical utility** (DCA, NRI/IDI, nomogram) against the literature.
+6. **Limitations** (at most five items).
+7. **Conclusion**.
+
+Write a bridge sentence between consecutive Contexts. No number may appear here that is absent from Results.
+
+### Optional end matter
+
+Data availability · Code availability · Acknowledgments · Funding · Conflict of interest · Author contributions. Each is a placeholder line until the project supplies the fact; keep the title-page defaults only where § Title page order lists them.
+
+### Corpus enrich note (Cline / agents)
+
+When enriching `SCI-manuscript-blank.docx` from corpus: extract generalized scaffolds only; write an optional `{doc_root}\templates\EXTRACT-LOG.md` beside the templates recording what each extract came from; do not hard-code one project's ethics, device, or results into the blank; keep Aitor-format typography and the bold marks above.
 
 ---
 
@@ -377,3 +458,6 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - English punctuation
 - Ethics Date/NO empty: Word comment, not yellow; email(see mem:corresponding_email)
 - Numbers match the latest results file (nomogram row, not a Combined-figure leftover)
+- Blank skeleton fill: every project-specific slot is `[PLACEHOLDER: …]` until verified; no real IRB number, AUC, or scanner serial baked in as a required value
+- Blank skeleton fill: Results subtitles mirror Methods subtitles; an empty Results section keeps its heading with `Results pending [PLACEHOLDER: …]`
+- Blank skeleton fill: owner names stay nested under the existing Methods subtitles (no second format, no extra subtitles)
