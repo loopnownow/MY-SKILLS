@@ -4,15 +4,18 @@ Formerly `house-format.md`.
 
 **Owner:** `05_manuscript/advanced/`. Single source for **every English SCI full paper** in this lab.
 
+**Blank manuscript template (new SCI paper: copy, then fill):**
+`{doc_root}\templates\SCI-manuscript-blank.docx`（**空白 SCI 稿件骨架**，2026-11-04 建于 `0doc\templates`；A4 + 2.54 cm、TNR 12 / 1.5、comments author **A**、无 Heading 1/2/3、无黄底。新稿起手只用这一份）
+
+**Gold reference (reply letter: Word typography and page geometry):**
+`{doc_root}\templates\Aitor-format-gold-response.docx`（**回复信 / 字体版式金样**；不是新稿起手模板，字号、页边距、批注作者以它为准。原 `_templates\02-layout-template.docx` 已退休，勿再引用）
+
 **Gold reference (reply-letter template, Markdown):**
 `{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\_meta\02-response-letter-template.md`
 （digest: `07_response/advanced/references/response-letter-template-digest.md`）
 
-**Gold reference (Word typography and page geometry):**
-`{doc_root}\templates\Aitor-format-gold-response.docx`（唯一在手的排版金样；原 `_templates\02-layout-template.docx` 已无副本，勿再引用）
-
 **Voice and revision marks (same Aitor-format, do not fork):**
-`{doc_root}\templates\Aitor-format-gold-response.docx` (layout skeleton: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·
+`{doc_root}\templates\Aitor-format-gold-response.docx` (typography reference: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·
 `{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
 Later-polish live files follow `Manuscript_<project-slug>_V<n>.docx` (Rules SSOT) in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
@@ -31,6 +34,7 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
+- **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-blank.docx` into the outcome folder as `Manuscript_<slug>_V1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton.
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
 - Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<n>.docx` (e.g. `Manuscript_lxf_PP_V1.docx`). Same family: `Comments_` / `Response_` / `Supplementary_` with matching `V<n>`. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
