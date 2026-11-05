@@ -103,7 +103,7 @@ See `vocab/L2/preferred.md` §1c (the former `sentence-templates.md` / `phrase-b
 
 - Throat-clearing: "Here is…", "In this section we…"
 - Binary contrast templates: "Not X, but Y" when Y alone suffices
-- Em-dash (—, Unicode U+2014) and spaced --: **hard ban**. Prefer parentheses (…). En-dash ranges (5-10 mm, 95% CI: X-X) stay. Owner 2026-10-28.
+- Em-dash (—, Unicode U+2014) and spaced --: **hard ban**. Prefer parentheses (…). En-dash (U+2013) is **allowed** for ranges, CIs and page spans (`5–10 mm`, `95% CI: X–X`, `123–145`); ASCII hyphen is fine too (owner t1683u, 2026-11-06). Owner 2026-10-28 / 2026-11-06.
 - Approximately-equal sign (≈, U+2248): **hard ban**. Prefer bout / pproximately / an exact number. Owner 2026-10-28.
 - Symmetrical three-item lists used as style filler
 - Pull-quote one-liners ending every paragraph

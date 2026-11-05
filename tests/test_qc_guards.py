@@ -84,12 +84,26 @@ class FlowSteps(unittest.TestCase):
 
 class PunctuationWording(unittest.TestCase):
     RETIRED = ("More than 2 em dashes per 1000 words", "en dashes, and colons as routine",
-               "Prefer sentences, commas, semicolons", "comma, semicolon, parentheses")
+               "Prefer sentences, commas, semicolons", "comma, semicolon, parentheses",
+               # owner t1683u 2026-11-06 reversed the 2026-10-30 en-dash ban; these
+               # wordings must not come back into live prose.
+               "Hard ban** en-dash", "never use en-dash", "En-dash is banned",
+               "en-dash (U+2013) is banned", "En-dash (U+2013) is banned",
+               "use ASCII `-` for all ranges", "always ASCII hyphen")
 
     def test_superseded_wording_absent(self) -> None:
         bad = [f"{p.relative_to(ROOT)}: {s}" for p in live_files((".md",))
                for s in self.RETIRED if s in p.read_text(encoding="utf-8", errors="ignore")]
         self.assertEqual(bad, [])
+
+    def test_en_dash_allowed_rule_has_one_home(self) -> None:
+        # Rule home is ban-phrases.md; the derived docs must not reintroduce a ban.
+        home = (ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        self.assertIn("En-dash (U+2013) is **allowed**", home)
+        self.assertIn("t1683u", home)
+        aitor = (ROOT / "05_manuscript" / "advanced" / "Aitor-format.md").read_text(encoding="utf-8")
+        self.assertIn("**En dash allowed**", aitor)
+        self.assertIn("t1683u", aitor)
 
 
 if __name__ == "__main__":

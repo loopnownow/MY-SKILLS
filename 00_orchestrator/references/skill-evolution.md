@@ -1,6 +1,6 @@
 # Skill evolution (propose only)
 
-Authoring punctuation (owner 2026-10-30): never use en-dash (U+2013); always ASCII hyphen `-` for ranges and compounds in skill prose.
+Authoring punctuation (owner t1683u, 2026-11-06): en dash (U+2013) is **allowed** in skill prose, typically for numeric ranges, CIs and page spans (`0.80–0.93`, `5–10 mm`); ASCII hyphen `-` remains fine, so neither form is required. Em-dash (U+2014 / spaced `--`) stays banned (prefer parentheses); `≈` stays banned. This reverses the 2026-10-30 en-dash ban.
 
 Applies to skills 00-07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
 
