@@ -6,7 +6,7 @@
 
 This is the **folder map and skip/idempotent contract**. It does not invent clinical numbers. No PII in filenames or ledger rows beyond what the project already stores for science (paths, DOI, citekeys).
 
-**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; **t1321u/t1322u**: lock artifacts `hashes.tsv`/`ref/MANIFEST.md` (project artifact; not in this repo)/`pipeline_run.log` live under **`ref/pipeline/`** (not ref root); writing refs (pptx/doc/docx) may live under **`ref/refer/`** beside lit lists; analysis `false_classification*` stays at **subproject root** (ASL-class temps), not under ref; t1316u: retire shells `analysis/`/`materials/`, lift tables/figures to `ref/`; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` audit ledger only; t1309s6268: former `results/` briefly `analysis/`; t1307u: unaccepted packs at `ref/` root or `submission-*`; earlier writing-refs+raw-pre / code+gates merges unchanged in spirit).
+**SSOT:** the authoritative copy is the Chinese `{RULES}\project-ref-layout.md`. This page is the runtime mirror for skills; on conflict the Chinese page wins (2026-10-29; **t1321u/t1322u**: lock artifacts `hashes.tsv`/`ref/MANIFEST.md` (project artifact; not in this repo)/`pipeline_run.log` live under **`ref/pipeline/`** (not ref root); writing refs (pptx/doc/docx) may live under **`ref/refer/`** beside lit lists; analysis `false_classification*` stays under the **active results folder** `<project>/<endpoint>/` (resolved OUT_DIR / outcome subproject), not under ref (**t1660u, 2026-11-05**); t1316u: retire shells `analysis/`/`materials/`, lift tables/figures to `ref/`; literature + NLM+abstract lists under `ref/refer/`; `ref/citation/` audit ledger only; t1309s6268: former `results/` briefly `analysis/`; t1307u: unaccepted packs at `ref/` root or `submission-*`; earlier writing-refs+raw-pre / code+gates merges unchanged in spirit).
 
 ## Root invariants (do not relocate)
 
@@ -41,7 +41,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 
 - **Analysis temp results** (`ASL/`, `DKI/`, `DTI_IVIM/`, ...) sit **beside the subproject root**, **not under `ref/`**.
 - Stats **tables/figures** live under `ref/tables/` `ref/figures/`; **lock artifacts** `hashes.tsv` `ref/MANIFEST.md` (project artifact; not in this repo) `pipeline_run.log` live under **`ref/pipeline/`**; **do not** merge with `ASL/`-class trees.
-- **Analysis misclassification / temp tables** (e.g. `false_classification*`) stay at the **subproject root** with ASL-class temps; **not under `ref/`**.
+- **Analysis misclassification / temp tables** (e.g. `false_classification*`) stay under the **active results folder** `<project>/<endpoint>/` (resolved OUT_DIR / outcome subproject), i.e. with the run's own outputs, **not under `ref/`** and not at the subproject root (t1660u, 2026-11-05).
 - **Final manuscript / console finals** stay at the subproject root.
 - **Accepted** final manuscript stays at the subproject root; **unaccepted** submission packs go under `ref/` root or `submission-*` (see Submission packs below). When the owner says so, intermediate xlsx may also stay at the subproject root; do not move them on your own.
 
@@ -88,7 +88,7 @@ Once a project adopts this layout, keep a short **`ref/README.md`** at `ref/` ro
 - `code-gates/`: script notes + gate/hash reports (former `code/`+`gates/`).
 - Root `tables/` `figures/` `pipeline/`: stats tables/figures + pipeline folder; **hashes / MANIFEST / pipeline_run.log under `ref/pipeline/`** (former `analysis/`/`results/` locks); `qc.html` stays at `ref/` root.
 - Writing refs (may live under `refer/`), `submission-*`, data base tables: former `materials/` children (D-1: ask before moving base tables later).
-- Note: "analysis temp results and `false_classification*` live at subproject root (`<Modality>/` or root), not under ref".
+- Note: "analysis temp results (`ASL/`-class) live at subproject root (`<Modality>/` or root), not under ref; **`false_classification*` lives under the active results folder `<project>/<endpoint>/`** (resolved OUT_DIR / outcome subproject, t1660u 2026-11-05)".
 
 ## Skip / idempotent rules (read ledgers before re-run)
 
