@@ -21,5 +21,5 @@ Lee (06) annotates by default; does not own manuscript body TC (`word-edit.md`).
 
 ## Filename stems (standing)
 
-Reviewer comments shell: `Comments_<project-slug>_V<n>.docx` (e.g. `Comments_lxf_PP_V1.docx`). `V<n>` matches the manuscript revision those comments belong to. Same family as `Manuscript_` / `Response_` / `Supplementary_`. Rules SSOT → `{RULES}/project-ref-layout.md`.
+Reviewer comments shell: `Comments_<project-slug>_V<major>.<minor>.docx` (e.g. `Comments_lxf_PP_V1.1.docx`). `V<major>.<minor>` matches the manuscript revision those comments belong to. Same family as `Manuscript_` / `Response_` / `Supplementary_`. Rules SSOT → `{RULES}/project-ref-layout.md`.
 
