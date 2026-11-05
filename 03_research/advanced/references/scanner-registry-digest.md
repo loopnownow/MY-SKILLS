@@ -1,4 +1,4 @@
-﻿# scanner-registry-digest
+# scanner-registry-digest
 
 **Absorbed (historical):** 2026-10-23 from then-live `_library/scanner-registry/README.md` (method only). Method README/seat **retired 2026-10-23**; live workbook folder **restored 2026-11-01 t1553u** at `_library\scanner-registry\` (xlsx only — not the old method seat).
 **Data workbook:** live copy under `{doc_root}\_library\scanner-registry\scanner-parameter-registry.xlsx` (refreshing query table — not vendored into GitHub).

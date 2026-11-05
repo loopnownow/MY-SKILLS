@@ -1,4 +1,4 @@
-﻿# 0doc document-library lookup (Bai)
+# 0doc document-library lookup (Bai)
 
 **Standing rule (2026-10-21 owner):** searching / looking up / inventorying `{doc_root}` is **Bai’s** job. Aitor routes and monitors.
 
