@@ -14,6 +14,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261106-t1683u-endash-allow (2026-11-06)
+
+Owner t1683u (Asia/Shanghai 2026-11-06): **en dash (U+2013) is allowed**; the 2026-10-30 hard ban is reversed. Em-dash (U+2014 / spaced `--`) and `≈` stay hard-banned.
+
+- **Rule home:** `05_manuscript/base/vocab/L1/ban-phrases.md` now says en dash allowed for ranges, CIs and page spans; ASCII hyphen stays fine, so neither form is mandatory.
+- **Aligned:** `05_manuscript/advanced/Aitor-format.md` (format line, example shows `95% CI: X–X`), `00_orchestrator/references/style-tells.md` (dash cadence + en-dash bullet), `00_orchestrator/references/skill-evolution.md` (authoring punctuation), `05_manuscript/base/vocab/L1/patterns.md`, `05_manuscript/advanced/voice-portrait.md`, `05_manuscript/advanced/vocab/L1/sci-overrides.md`, `05_manuscript/advanced/process/citation-and-language.md` (Dashes/Ranges rows), `05_manuscript/advanced/process/polisher-sections.md` (CI row), `02_data-processing/qc/report-checks.md` (three CI lines).
+- **Also confirmed:** the 06/07 reviewer/response lines now read "en dash allowed in numeric ranges, ASCII hyphen also fine (t1683u)" instead of "en dashes stay". Unchanged: `03_research/base/verify-refs` BibTeX `--` page-range guidance and the em-dash / `≈` bans everywhere.
+- **Tests:** `test_language_style.DashTests` en-dash case flipped to expect a pass (skips while the MY-CODES `style_lint.py` `_EMDASH` regex still matches U+2013; that repo needs its own follow-up). `test_qc_guards.PunctuationWording` now bans the retired en-dash-ban wordings and asserts the allowed rule in `ban-phrases.md` / `Aitor-format.md`.
+
 ## CHG-20261101-t1521u-p4-retire-code-shell (2026-11-01)
 
 t1521u P4: the `_code` layer is gone; every alias and doc now points at MY-CODES.
@@ -75,7 +84,7 @@ Owner t1414u / t1415u: **skills may hold thin helper scripts**; heavy analysis s
 - **Contract:** README three-repo table and seat READMEs no longer say prose-only / ban all runnable code. Allowed: `**/scripts/` and `00_orchestrator/scripts/` thin helpers. Heavy analysis still external.
 - **Flow:** `runtime-flow.mmd` connects `SFineId --> GA0` (was dead-end `SFineId` + orphan `S01`).
 - **Viz:** `visualization-architecture.md` primary chain and registry references use current seats 00/02/03/05/06/07 (retired `01_skill-integration` / `04_analysis` not current).
-- **Stale:** report-checks CI dash wording → ASCII hyphen; impute / coding-qc / 0doc-db vendor lines softened for thin helpers.
+- **Stale:** report-checks CI dash wording → ASCII hyphen (**superseded 2026-11-06 by t1683u**, see the en-dash-allow entry above); impute / coding-qc / 0doc-db vendor lines softened for thin helpers.
 - **Tests:** Mermaid referenced-node + FineId→G0 + viz seat ban; merge `test_state_template` → `test_gates_contract`, `test_ledger_assurance` → `test_registry_contract`; drop duplicate 01/04 folder asserts from `test_doc_structure`. Keep DashTests / style_lint / seat packs.
 
 ## CHG-20261030-layer-rebind (2026-10-30)
