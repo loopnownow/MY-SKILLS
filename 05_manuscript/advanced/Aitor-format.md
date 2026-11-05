@@ -5,7 +5,9 @@ Formerly `house-format.md`.
 **Owner:** `05_manuscript/advanced/`. Single source for **every English SCI full paper** in this lab.
 
 **Blank manuscript template (new SCI paper: copy, then fill):**
-`{doc_root}\templates\SCI-manuscript-blank.docx`（**空白 SCI 稿件骨架**，2026-11-04 建于 `0doc\templates`；A4 + 2.54 cm、TNR 12 / 1.5、comments author **A**、无 Heading 1/2/3、无黄底。新稿起手只用这一份）
+`{doc_root}\templates\SCI-manuscript-scaffold.docx`（**空白 SCI 稿件骨架**，2026-11-04 建于 `0doc\templates`；A4 + 2.54 cm、TNR 12 / 1.5、comments author **A**、无 Heading 1/2/3、无黄底。新稿起手只用这一份）
+
+Canonical name is **`SCI-manuscript-scaffold.docx`**. An identical alias copy named `SCI-manuscript-blank.docx` may also sit in `{doc_root}\templates` after the local rewrite; it is the same file, not a second template. Point every fill at **scaffold** and do not edit the two apart.
 
 **Gold reference (reply letter: Word typography and page geometry):**
 `{doc_root}\templates\Aitor-format-gold-response.docx`（**回复信 / 字体版式金样**；不是新稿起手模板，字号、页边距、批注作者以它为准。原 `_templates\02-layout-template.docx` 已退休，勿再引用）
@@ -34,7 +36,7 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
-- **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-blank.docx` into the outcome folder as `Manuscript_<slug>_V1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton. Fill slots and their order: § Blank SCI manuscript skeleton (below).
+- **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-scaffold.docx` into the outcome folder as `Manuscript_<slug>_V1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton. Fill slots and their order: § Blank SCI manuscript skeleton (below).
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
 - Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<n>.docx` (e.g. `Manuscript_lxf_PP_V1.docx`). Same family: `Comments_` / `Response_` / `Supplementary_` with matching `V<n>`. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
@@ -195,7 +197,7 @@ Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors
 10. **Model building** — patient-level split; **training-set** selection only; **test set** for evaluation only. Primary model = **nomogram** (the Combined / combined logistic model; do not use those pipeline names). Youden is **split-specific** unless a training threshold was actually fixed. A predictor that is part of the label (MMSE in MCI, a symptom field that already contains infarction) is **not** an independent imaging biomarker — say so here. Variables that were recorded but **not** used as candidate predictors (e.g. treatment type, chemotherapy agent) go in a **Word comment only** — never Methods/Results body (“recorded … but were not included…”).
 11. **Statistical analysis** — start with `Analyses were performed in Python 3.13.` (no package list). Write **median and interquartile range**. If calibration, DCA, NRI, IDI, or mediation were not exported, put **not generated / not exported** in a **Word comment only**. Do not invent them. Do not write that sentence in the body.
 
-Fill slots for each of these subtitles, in this order: § Blank SCI manuscript skeleton (`SCI-manuscript-blank.docx`). Owner slot names there map onto these subtitles; they never add a new subtitle.
+Fill slots for each of these subtitles, in this order: § Blank SCI manuscript skeleton (`SCI-manuscript-scaffold.docx`). Owner slot names there map onto these subtitles; they never add a new subtitle.
 
 ---
 
@@ -247,11 +249,23 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 
 ---
 
-## Blank SCI manuscript skeleton (SCI-manuscript-blank.docx)
+## Blank SCI manuscript skeleton (SCI-manuscript-scaffold.docx)
 
-Fill-slot map for the blank manuscript at `{doc_root}\templates\SCI-manuscript-blank.docx`, for radiomics / clinical-plus-imaging prediction papers (owner t1643-t1645u, absorbed t1647u). This is **not** a second format: it is the slot checklist used to enrich that docx from corpus (Cline / agents). Page, typography, bans, quotas, bold marks, and the Methods fixed order above are unchanged and still govern. Spelling: **preprocessing**, **NRI/IDI** (never NIR). **Results subtitles mirror Methods subtitles.**
+Fill-slot map for the blank manuscript at `{doc_root}\templates\SCI-manuscript-scaffold.docx`, for radiomics / clinical-plus-imaging prediction papers (owner t1643-t1645u, absorbed t1647u). This is **not** a second format: it is the slot checklist used to enrich that docx from corpus (Cline / agents). Page, typography, bans, quotas, bold marks, and the Methods fixed order above are unchanged and still govern. Spelling: **preprocessing**, **NRI/IDI** (never NIR). **Results subtitles mirror Methods subtitles.**
 
 Placeholders are the only fill values allowed in the skeleton: `[PLACEHOLDER: …]`. Never bake a real IRB number, AUC, scanner serial, or DOI into this skill as a required value. Jinshan defaults already in the title-page table and the scanner pair in Methods may stay as defaults; every project-specific value stays a placeholder until verified against the source.
+
+### Paragraph lock when filling the blank
+
+Slots below are a **content checklist, not paragraph units**. Filling a slot never licenses one line per slot. `05_manuscript/advanced/voice-portrait.md` Paragraph lock governs; `05_manuscript/qc/manuscript-local-qc.md` FLU-4 scores it.
+
+- **Continuous paragraphs.** IMRAD body = continuous Word paragraphs. Ban one sentence per `w:p`, and ban soft-return fake breaks (Shift+Enter / `w:br` inside one `w:p`) posing as paragraph breaks.
+- **Slots 1-14 are a checklist.** The Methods fill slots 1-14 and the Discussion content checklist are content to cover, not one slot per paragraph. Merge related sentences inside one subsection into the same paragraph.
+- **Subsection titles** may be their own paragraph (**bold** Normal); never Heading 1/2/3.
+- **Body targets.** Methods 1-3 paragraphs per subsection; Results 1-2; Introduction = **4 real paragraphs**, with aim and hypothesis in the **same** paragraph. § Introduction's eight beats keep their order inside those four; a working draft already on its five-paragraph map is not re-cut for count. Abstract: each labeled block (`Objective:` `Methods:` `Results:` `Conclusion:`) stays one paragraph. Discussion: inverted funnel (§ Discussion), with Limitations as one paragraph using `First… Second…`, never bullet rows.
+- **Inclusion / exclusion:** inline `(1)(2)(3)` inside one paragraph each. Vertical `-` drafting bullets are deleted before submission.
+- **Teaching labels** (`Paragraph N`, `Move …`, `Context` meta lines) are deleted after fill; comments author **A** drafting notes may stay.
+- If the scaffold still shows one-sentence paragraphs, **this lock wins** and the filler merges them.
 
 ### Nesting rule (owner names ↔ existing Methods names)
 
@@ -322,7 +336,7 @@ Data availability · Code availability · Acknowledgments · Funding · Conflict
 
 ### Corpus enrich note (Cline / agents)
 
-When enriching `SCI-manuscript-blank.docx` from corpus: extract generalized scaffolds only; write an optional `{doc_root}\templates\EXTRACT-LOG.md` beside the templates recording what each extract came from; do not hard-code one project's ethics, device, or results into the blank; keep Aitor-format typography and the bold marks above.
+When enriching `SCI-manuscript-scaffold.docx` from corpus: extract generalized scaffolds only; write an optional `{doc_root}\templates\EXTRACT-LOG.md` beside the templates recording what each extract came from; do not hard-code one project's ethics, device, or results into the blank; keep Aitor-format typography and the bold marks above.
 
 ---
 
