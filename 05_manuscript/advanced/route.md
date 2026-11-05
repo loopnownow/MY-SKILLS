@@ -10,7 +10,7 @@
 
 ## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
 
-**Evidence seat (not criteria):** `GLOSSARY_ROOT` = `0doc\_library\glossary` — **四层** (`words` / `sentences` / `paragraphs` + `sections` pointer pages) + `index.csv`; `banks\` evidence-only. Criteria stay in `base/vocab/` (+ named advanced). Prefer env `GLOSSARY_ROOT`; do not use a separate `{doc_glossary_banks}` alias in new text (retired; use `GLOSSARY_ROOT\banks` or `{doc_glossary}\banks`).
+**Evidence seat (not criteria):** `GLOSSARY_ROOT` = `0doc\_library\glossary` — **四层** (`words` / `sentences` / `paragraphs` + `sections` pointer pages) + `index.csv`; `banks\` evidence-only. Criteria stay in `base/vocab/` (+ named advanced). Prefer env `GLOSSARY_ROOT`; do not use a separate glossary-banks alias in new text (that alias was retired 2026-11-01; use `GLOSSARY_ROOT\banks` or `{doc_glossary}\banks`).
 
 1. **L1 words:** `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
 2. **L1 patterns:** `05_manuscript/base/vocab/L1/patterns.md`

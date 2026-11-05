@@ -1,4 +1,4 @@
-﻿# Writing-rules authority map (retargeted 2026-10-23)
+# Writing-rules authority map (retargeted 2026-10-23)
 
 > Digested from park writing-rules README §2. Dead `0doc/05-manuscript/advanced/…` seats are **retargeted** to current SSOT. Do not invent missing banks.
 

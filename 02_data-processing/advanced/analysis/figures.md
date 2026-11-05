@@ -1,4 +1,4 @@
-﻿# Figures (palettes + claim planning)
+# Figures (palettes + claim planning)
 
 ## Standing defaults (2026-10-24)
 
