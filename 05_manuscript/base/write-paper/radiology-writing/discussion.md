@@ -11,7 +11,9 @@ _Radiology_ expects a structured Discussion, not a re-listing of Results.
    radiogenomics, bound association vs mechanism.
 4. **Limitations.** Honest and specific: retrospective, single-centre, sample size,
    prevalence/spectrum, label noise, scanner generalisability, lack of external validation,
-   multiplicity. Pair each limitation with its impact (and any mitigation).
+   multiplicity. Pair each limitation with its impact (and any mitigation). Prefer no
+   literature citations here. Number the items `First` / `Second` / `Third` … in sentence order
+   (house form: `05_manuscript/advanced/Aitor-format.md` § Discussion).
 5. **Conclusion / implication.** One or two sentences: what this enables and the next
    validation step. Bounded; no hype; no clinical-deployment claim beyond the evidence.
 

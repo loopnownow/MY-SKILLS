@@ -17,6 +17,8 @@ Recommended order:
 
 ## Results structure
 
+Results need not exhaust Methods: some Methods steps produce no result, and those need no Results subtitle. A Results subtitle with no Methods parent is still a defect (house form: `05_manuscript/advanced/Aitor-format.md` § Methods subtitle packs).
+
 Report:
 
 - cohort flow and baseline characteristics

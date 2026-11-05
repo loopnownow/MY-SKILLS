@@ -218,7 +218,7 @@ Pack rules:
 - **Evaluation splits into its own subtitle only in `A2`** (83% of that pack). In A / B / C / D it stays inside `Model building`.
 - Feature extraction and selection fold into `Image processing`; only `A2` keeps clinical feature selection and imaging feature selection as their own subtitles.
 - `Clinical usefulness` / diagnostic-performance subtitles are optional extras, never required slots.
-- **Results subtitles mirror the chosen pack one for one**; a Results subtitle with no Methods parent is a defect.
+- **Results subtitles follow the chosen pack order, not a one-for-one mirror** (owner t1671u). Some Methods steps produce no result. A Methods-only step may have no Results subtitle; do not invent Results to close it. Keep the asymmetric defect: a Results subtitle with no Methods parent is a defect.
 - Do not copy these corpus defects: `Ethics: Ethics`, a run-in `Ethics:` label inside the first paragraph, `Study design and sample size` moved into Results, and `Reporting guideline` / `General information` / `None` used as subtitles.
 
 Full tables (per-slot required / optional / absent, corpus aliases, evidence paths, corpus→canonical normalization): `{doc_skill_harvest}\methods-subtitle-variants\methods-subtitle-packs.md`. Heading frequency and the per-paper extraction log sit in the same folder (46 manuscripts, 2026-11-05).
@@ -268,14 +268,14 @@ Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length
 1. Key findings — **no citations, no result numbers**.
 2. One block per finding — new literature; still no copied AUCs.
 3. Clinical application — **one** short use-case sentence. No disclaimer stack (*It is not a replacement… A high score should not…*).
-4. **Limitations: its own paragraph**, First… Second… Put label circularity **First** when a predictor is part of the endpoint. Facts only. No closer *rather than a ready clinical tool*.
+4. **Limitations: its own paragraph**, First… Second… Put label circularity **First** when a predictor is part of the endpoint. Facts only. No closer *rather than a ready clinical tool*. Prefer **no citations** in Limitations; a needed literature contrast belongs in the earlier literature-contrast block, not here (owner t1671u). Check the ordinals: `First` / `Second` / `Third` … must be sequential, complete, and in the actual sentence order; the count of ordinals must match the number of limitation sentences.
 5. **Conclusion** — 2-3 sentences; echo the objective; **no AUC / CI / *n***. If no external cohort exists, *A validation set is required* / *No validation set was available* go in a **Word comment only** — never in Conclusion, Limitations, Highlights, or Figure 1.
 
 ---
 
 ## Blank SCI manuscript skeleton (SCI-manuscript-scaffold.docx)
 
-Fill-slot map for the blank manuscript at `{doc_root}\templates\SCI-manuscript-scaffold.docx`, for radiomics / clinical-plus-imaging prediction papers (owner t1643-t1645u, absorbed t1647u). This is **not** a second format: it is the slot checklist used to enrich that docx from corpus (Cline / agents). Page, typography, bans, quotas, bold marks, and the Methods fixed order above are unchanged and still govern. Spelling: **preprocessing**, **NRI/IDI** (never NIR). **Results subtitles mirror Methods subtitles.**
+Fill-slot map for the blank manuscript at `{doc_root}\templates\SCI-manuscript-scaffold.docx`, for radiomics / clinical-plus-imaging prediction papers (owner t1643-t1645u, absorbed t1647u). This is **not** a second format: it is the slot checklist used to enrich that docx from corpus (Cline / agents). Page, typography, bans, quotas, bold marks, and the Methods fixed order above are unchanged and still govern. Spelling: **preprocessing**, **NRI/IDI** (never NIR). **Results subtitles follow the Methods order. Some Methods steps produce no Results; leave those without a Results subtitle (owner t1671u).**
 
 Placeholders are the only fill values allowed in the skeleton: `[PLACEHOLDER: …]`. Never bake a real IRB number, AUC, scanner serial, or DOI into this skill as a required value. Jinshan defaults already in the title-page table and the scanner pair in Methods may stay as defaults; every project-specific value stays a placeholder until verified against the source.
 
@@ -338,7 +338,7 @@ Beat labels only; the shape is § Introduction above (five paragraphs, eight bea
 
 ### Results fill slots
 
-Subtitles parallel the Methods subtitles one for one. Fill flowchart counts, then table and figure cross-references in the first body paragraph (`The study flowchart is shown in Figure 1.`). An unfilled Results section keeps its heading and carries `Results pending [PLACEHOLDER: …]`; do not drop the heading in the blank. Never invent a count, AUC, or *P* to close a slot.
+Subtitles follow the Methods order, not a one-for-one mirror (owner t1671u). A Methods-only step may have no Results subtitle; do not invent one. A Results subtitle with no Methods parent is still a defect. Fill flowchart counts, then table and figure cross-references in the first body paragraph (`The study flowchart is shown in Figure 1.`). An unfilled Results section keeps its heading and carries `Results pending [PLACEHOLDER: …]`; do not drop the heading in the blank. Never invent a count, AUC, or *P* to close a slot.
 
 ### Discussion content checklist (radiomics blank)
 
@@ -349,7 +349,7 @@ The inverted funnel in § Discussion is the **voice and QC rule** (word band 800
 3. **Context 3** (second modality).
 4. **ROC comparison** paragraph.
 5. **Clinical utility** (DCA, NRI/IDI, nomogram) against the literature.
-6. **Limitations** (at most five items).
+6. **Limitations** (at most five items; prefer no citations; ordinals `First… Second…` sequential and in sentence order).
 7. **Conclusion**.
 
 Write a bridge sentence between consecutive Contexts. No number may appear here that is absent from Results.
@@ -486,7 +486,7 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Methods: no `[n]`; no seed; `Python 3.13`
 - Sample size: α, β, *p*, *n*, adequacy — once in Methods; do not re-elaborate elsewhere
 - Discussion / Conclusion: no result numbers
-- Limitations own paragraph; no disclaimer closer
+- Limitations own paragraph; no disclaimer closer; prefer no citations there; `First… Second…` ordinals sequential and in sentence order
 - No disclaimer / no repeated hedge
 - `95% CI: X-X`; one fact per sentence
 - Incremental *improved* only with same-sentence DeLong caveat
@@ -497,5 +497,5 @@ Do **not** take later-polish files as license to fuse sentences, add em-dashes, 
 - Ethics Date/NO empty: Word comment, not yellow; email(see mem:corresponding_email)
 - Numbers match the latest results file (nomogram row, not a Combined-figure leftover)
 - Blank skeleton fill: every project-specific slot is `[PLACEHOLDER: …]` until verified; no real IRB number, AUC, or scanner serial baked in as a required value
-- Blank skeleton fill: Results subtitles mirror Methods subtitles; an empty Results section keeps its heading with `Results pending [PLACEHOLDER: …]`
+- Blank skeleton fill: Results subtitles follow the Methods order; a Methods-only step may have no Results subtitle (no invented Results); a Results subtitle with no Methods parent is a defect; an empty Results section keeps its heading with `Results pending [PLACEHOLDER: …]`
 - Blank skeleton fill: owner names stay nested under the existing Methods subtitles (no second format, no extra subtitles)

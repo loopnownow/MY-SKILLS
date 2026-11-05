@@ -104,7 +104,7 @@ Five content beats + loop + craft, 0-10 each, total 70. Start at 10, deduct, flo
 | 2 | Literature contrast | Each load-bearing finding is compared to representative prior work, with agreement or disagreement explained? |
 | 3 | Mechanism | Any mechanism claim is hedged and not presented as proven causality from an observational design? |
 | 4 | Clinical application | One short use-case sentence; no disclaimer / CYA stack in body? |
-| 5 | Limitations | Own paragraph; facts only; label circularity First when a predictor is part of the endpoint? |
+| 5 | Limitations | Own paragraph; facts only; label circularity First when a predictor is part of the endpoint? Prefer no literature citations in Limitations? Ordinals (`First` / `Second` / `Third` …) sequential, complete, and in the actual sentence order, with the count matching the limitation sentences? |
 | 6 | Intro loop | Every Intro aim/hypothesis has a matching Discussion response (finding, limitation, or explicit deferral)? |
 | 7 | Craft | No listing cadence; sentences mostly 10-30 words; Conclusion echoes objective without AUC/CI/*n*? |
 
@@ -119,6 +119,8 @@ Five content beats + loop + craft, 0-10 each, total 70. Start at 10, deduct, flo
 | D-MECH-1 | 3 | Observational association worded as *causes* / *proves* / *demonstrates that X leads to* | 2 | `05_manuscript/advanced/voice-portrait.md` § 2 (voice) and `05_manuscript/advanced/process/citation-and-language.md` § Language |
 | D-CLIN-1 | 4 | Missing clinical use-case, or disclaimer stack in body | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 3); AL-5 comment rule |
 | D-LIM-1 | 5 | Limitations not its own paragraph, or ends with tool-readiness CYA | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 4) |
+| D-LIM-2 | 5 | Limitations cites literature (prefer none; move the cite to the lit-contrast block if it carries a point) | 1 | `05_manuscript/advanced/Aitor-format.md` § Discussion (Limitations) |
+| D-LIM-3 | 5 | Limitations ordinal labels missing, out of order, duplicated, or not matching sentence count/order | 1 | `05_manuscript/advanced/Aitor-format.md` § Discussion (Limitations) |
 | D-LOOP-1 | 6 | Intro hypothesis unanswered in Discussion | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (aim answered) |
 | D-CRAFT-1 | 7 | Conclusion carries AUC / CI / *n*, or does not echo the objective | 1 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 5) |
 
