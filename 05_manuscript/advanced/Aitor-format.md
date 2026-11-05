@@ -199,6 +199,28 @@ Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors
 
 Fill slots for each of these subtitles, in this order: § Blank SCI manuscript skeleton (`SCI-manuscript-scaffold.docx`). Owner slot names there map onto these subtitles; they never add a new subtitle.
 
+### Methods subtitle packs (corpus-derived, 2026-11-05)
+
+The 11-row order above **is** pack `A_imaging-radiomics`. Four further families exist in the corpus and keep the same anchors (Ethics → Study design and sample size → Patients → Inclusion and exclusion criteria → Diagnostic and treatment criteria → Outcomes → … → Statistical analysis last). Pick one pack per paper; only the **mid block** changes.
+
+| Pack | Use when | Mid block, in order |
+|---|---|---|
+| `A_imaging-radiomics` | imaging + radiomics / habitat features + a model, one `Model building` | `Imaging examinations` → `Image processing` → `Model building` |
+| `A2_radiomics-granular` | same content, pipeline split step by step | `Clinical feature selection` → `Imaging examinations` → `Image processing` → `Model building` (development) → `Model building` (evaluation) → optional `Clinical usefulness` |
+| `B_imaging-only` | imaging reading (US / CT / MRI), no feature matrix, no model | `Imaging examinations` → `Image processing` (image analysis) |
+| `C_clinical-lab` | no imaging model; the study's own assay / intervention / bench chain | assay, trial, bench, or measurement chain (see reference below) |
+| `D_neuroimaging-multimetric` | per-metric brain imaging (ASL / VBM / SBM / ALFF / ReHo / FC / DMN / Fazekas / SPM-LST) | `Imaging examinations` → `Image processing` → one subtitle per metric → optional correlation / mediation |
+
+Pack rules:
+
+- **Evaluation splits into its own subtitle only in `A2`** (83% of that pack). In A / B / C / D it stays inside `Model building`.
+- Feature extraction and selection fold into `Image processing`; only `A2` keeps clinical feature selection and imaging feature selection as their own subtitles.
+- `Clinical usefulness` / diagnostic-performance subtitles are optional extras, never required slots.
+- **Results subtitles mirror the chosen pack one for one**; a Results subtitle with no Methods parent is a defect.
+- Do not copy these corpus defects: `Ethics: Ethics`, a run-in `Ethics:` label inside the first paragraph, `Study design and sample size` moved into Results, and `Reporting guideline` / `General information` / `None` used as subtitles.
+
+Full tables (per-slot required / optional / absent, corpus aliases, evidence paths, corpus→canonical normalization): `{doc_skill_harvest}\methods-subtitle-variants\methods-subtitle-packs.md`. Heading frequency and the per-paper extraction log sit in the same folder (46 manuscripts, 2026-11-05).
+
 ---
 
 ## Results
