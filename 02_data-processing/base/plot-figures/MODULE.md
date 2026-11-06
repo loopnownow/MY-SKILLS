@@ -74,6 +74,23 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 3. Files — `figure.svg` + ≥ 300 dpi raster.
 4. QA notes — fonts as text, colour-blind check, n shown, de-identification.
 
+## Panel stitching (train + external validation)
+
+- Assemble panels with the helpers, never ad hoc: `{code_stats}\modules\stats\figure_panels.py`
+  (`stitch_row` / `stitch_grid` / `stitch_plain` / `stitch_train_ext`). Gap, panel-letter position and
+  DPI come from `FIGURE_PANEL_*` settings, not from literals in the calling script.
+- **Derivation + external validation is one standard figure**: `stitch_train_ext()` runs at the end of
+  `build_outcome_panels()` and writes `panel_<kind>_train_ext.png` (A = derivation, B = external; more
+  external cohorts extend the letters). Do not hand-stitch that pair.
+- **No in-figure titles by default** (`FIGURE_PANEL_TITLES=False`): ROC, calibration, DCA and the
+  nomogram carry no title, so cohort tokens (`train`, `ext_Validation`) never reach the artwork. Cohort
+  name, n and events belong in the caption; `true` restores the old behaviour.
+- Every panel must state **n and events** in the caption, and DeLong P values must be attributed to the
+  panel's own cohort (derivation and external P values are not interchangeable).
+- Verify before shipping: aspect ratio of the placed image must equal the file's (≤1% drift), and the
+  figure lock (`hashes.tsv` equivalent) must be recomputed. A one-command gate lives in the project
+  (`ref/code-gates/check_figure_swap.py` for zyj_OV); replicate rather than eyeball.
+
 ## Handoffs
 
 - Statistic behind the plot → `stats-analysis` / `model-evaluation`
