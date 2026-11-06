@@ -14,6 +14,24 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261106-t1721u-repo-qc (2026-11-06)
+
+Repo QC pass over Rules + Skills + MY-CODES (2026-11-06): live Skills tree back to green.
+
+- **P1 fixed:** `03_research/advanced/0doc-db.md` bare pointer `plot-figures/references/lab-palettes.md` → `02_data-processing/base/plot-figures/references/lab-palettes.md` (t1712u retargeted the header line but not the `templates` row; `test_paths_resolve` was red). Same file: the `_code` row is gone from the live-tops table (`_code` retired t1521u; use `GitHub` row + `{code_stats}`), and the retired `_library\figures` mention is removed. `templates` / `mem` rows kept.
+- **False green removed:** `tests/test_language_style.py` en-dash case no longer skips when the MY-CODES linter flags U+2013 (MY-CODES `style_lint.py` allows it since t1684u); a regression there now fails the contract.
+- **Cross-repo guards unified:** new `tests/support.require_resolved()` — a missing MY-CODES tool / sibling checkout fails the suite by default and skips only with `MY_SKILLS_ALLOW_MISSING_SIBLINGS=1` (partial checkout). Applied at 9 former unconditional-skip sites: `test_draw_flowchart_scripts`, `test_office_track_changes`, `test_vocab_harvest_sections`, `test_language_style`, `test_frontmatter`, `test_gates_contract`, `test_seat_packs` (2), `test_retirements` (2); dead `SKIP_MISSING_COUNTER` removed.
+- **Tests:** 267 passed / 1 skipped (the conditional meta-guard that only fires when the MY-RULES sibling is absent).
+- **`_archived` parking removed:** `03_research/advanced/lit-bank.md` no longer documents an `_archived\` subfolder (it never existed on disk); over-window research rows / superseded editions now drop from the active ledger or move to `{DEL}` per Rules §5, matching the no-skip/no-archive rule.
+- **Unchanged:** routing, registry, gate table, lab-paths, seat packs.
+
+## CHG-20261106-t1716u-t1720u-rp-workspace (2026-11-06)
+
+Ledger backfill: two live-sentence edits had shipped without a `VERSION.txt` / map entry.
+
+- **t1716u:** live workspace path retargeted `proposal` → `D:\0Grok\R&P` (mirrors Rules `workspace-layout.md` sibling root).
+- **t1720u:** R&P purpose sentences aligned with Rules (grant/project application packets + reviewing other authors' manuscripts; not a manuscript stage).
+
 ## CHG-20261106-t1712u-absorb-lab-palettes (2026-11-06)
 
 Owner t1712u (Asia/Shanghai 2026-11-06): park-stash absorb of 20 console `FIG_PALETTE` sets into `02_data-processing/base/plot-figures/references/lab-palettes.md` (t1560u work parked as t1584u stash). Live `_library\figures\lab-palettes.md` pointers retired; hex SSOT remains MY-CODES `style.py` (LabPalettesDrift). No disk 00ds/00db migrate.

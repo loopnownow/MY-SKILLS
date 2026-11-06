@@ -14,6 +14,7 @@ from tests.support import (
     GATES,
     ONE,
     ROOT,
+    require_resolved,
 )
 
 HIST_LINE = re.compile(
@@ -347,8 +348,10 @@ class Absorbed03Packs(unittest.TestCase):
         data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
         root = str((data.get("aliases") or {}).get("code_stats") or "")
         script = Path(root) / "tools" / "lit-fulltext" / "fetch.py" if root else None
-        if script is None or not script.is_file():
-            raise unittest.SkipTest("{code_stats}/tools/lit-fulltext/fetch.py not on this checkout")
+        script = require_resolved(
+            script if script is not None and script.is_file() else None,
+            "MY-CODES tools/lit-fulltext/fetch.py ({code_stats})",
+        )
         self.assertGreater(script.stat().st_size, 0)
 
 
@@ -371,11 +374,11 @@ class HumanizeRetired(unittest.TestCase):
         """t1521u P3-C: the two detectors leave this repo; resolve them via {code_stats}."""
         data = yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}
         root = str((data.get("aliases") or {}).get("code_stats") or "")
-        if not root:
-            raise unittest.SkipTest("{code_stats} unresolved on this checkout")
         for name in ("check_rewrite_fidelity.py", "check_sentence_variety.py"):
-            script = Path(root) / "tools" / "manuscript-qc" / name
-            if not script.is_file():
-                raise unittest.SkipTest("{code_stats}/tools/manuscript-qc not on this checkout")
+            script = Path(root) / "tools" / "manuscript-qc" / name if root else None
+            script = require_resolved(
+                script if script is not None and script.is_file() else None,
+                "MY-CODES tools/manuscript-qc/%s ({code_stats})" % name,
+            )
             self.assertGreater(script.stat().st_size, 0)
 

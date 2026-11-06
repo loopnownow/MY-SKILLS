@@ -10,7 +10,6 @@
 {doc_root}\_library\lit-bank\
   README.md
   index.csv                 # master ledger (one row per DOI)
-  _archived\                # base 过窗研究文（可选）
 ```
 
 Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Create the `lit-bank\` tree on 0doc only after owner consent (folder-create rule).
@@ -76,14 +75,14 @@ Optional per-DOI note file (still no PDF): `advanced\<doi-or-slug>.md` or `base\
 ### B. DOI verify pass → `base`
 
 1. Trigger: `verify-refs` / citation-verify row status pass for an external cite.
-2. Gate: if `kind=research` and `year < current_year - 5` → **skip** (or send to `_archived` only if owner asks to keep history).
-3. If guideline/standard: keep only latest `edition`; retire older editions to `_archived`.
+2. Gate: if `kind=research` and `year < current_year - 5` → do **not** ingest. If the owner wants the row kept anyway, it stays in the active ledger; retired material moves to `{DEL}` per Rules §5. No `_archived\` parking folder.
+3. If guideline/standard: keep only the latest `edition`; superseded editions move to `{DEL}` (Rules §5), never to a second copy inside the bank.
 4. Fill `citation_nlm` + `result_conclusion` + `verified_at`; `layer=base`.
 5. Dedup on `doi`: update in place, never second row.
 
 ### C. Annual prune (base)
 
-- Research rows older than 5 years → `_archived/` or drop from active `index.csv` (owner choice that year).
+- Research rows older than 5 years → drop from the active `index.csv`, or move the row/PDF to `{DEL}` when the owner keeps history that year. Never keep an `_archived\` subfolder in the bank.
 - Guidelines: drop superseded editions.
 
 ## Prefer-cite (standing)

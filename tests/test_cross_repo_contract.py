@@ -376,5 +376,25 @@ class CrossRepoContract(unittest.TestCase):
                 os.environ[ALLOW_MISSING_SIBLINGS_ENV] = prev
 
 
+    def test_require_resolved_fails_unless_env_opt_in(self) -> None:
+        """A missing MY-CODES tool must redden the suite; skip only on explicit opt-in."""
+        from tests import support
+
+        prev = os.environ.get(support.ALLOW_MISSING_SIBLINGS_ENV)
+        try:
+            os.environ.pop(support.ALLOW_MISSING_SIBLINGS_ENV, None)
+            with self.assertRaises(self.failureException):
+                support.require_resolved(None, "probe tool")
+            os.environ[support.ALLOW_MISSING_SIBLINGS_ENV] = "1"
+            with self.assertRaises(unittest.SkipTest):
+                support.require_resolved(None, "probe tool")
+            self.assertEqual(support.require_resolved("ok", "probe tool"), "ok")
+        finally:
+            if prev is None:
+                os.environ.pop(support.ALLOW_MISSING_SIBLINGS_ENV, None)
+            else:
+                os.environ[support.ALLOW_MISSING_SIBLINGS_ENV] = prev
+
+
 if __name__ == "__main__":
     unittest.main()

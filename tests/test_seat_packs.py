@@ -15,6 +15,7 @@ from tests.support import (
     GATES,
     ONE,
     ROOT,
+    require_resolved,
 )
 
 CLIN = ROOT / "02_data-processing" / "advanced"
@@ -960,10 +961,6 @@ class AdvancedMirrorDedupe(unittest.TestCase):
 ADVANCED_VOCAB = ROOT / "05_manuscript" / "advanced" / "vocab"
 ADVANCED_L2 = ADVANCED_VOCAB / "L2" / "preferred-advanced.md"
 HARVEST_SCRIPT_NAME = "harvest_write_phrases.py"
-SKIP_MISSING_COUNTER = (
-    "{code_stats}/tools/vocab-harvest/harvest_write_phrases.py not on this checkout "
-    "(t1521u P3-C moved it to MY-CODES)"
-)
 
 
 def _harvest_script() -> Path | None:
@@ -979,9 +976,9 @@ def _harvest_script() -> Path | None:
 def _load_harvest():
     import importlib.util
 
-    script = _harvest_script()
-    if script is None:
-        raise unittest.SkipTest(SKIP_MISSING_COUNTER)
+    script = require_resolved(
+        _harvest_script(), "MY-CODES tools/vocab-harvest/harvest_write_phrases.py ({code_stats})"
+    )
     spec = importlib.util.spec_from_file_location("harvest_under_test", script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -1016,9 +1013,9 @@ class AdvancedL2PhraseTable(unittest.TestCase):
         cited = ADVANCED_L2.read_text(encoding="utf-8") + (
             ADVANCED_VOCAB / "README.md").read_text(encoding="utf-8")
         self.assertIn(HARVEST_SCRIPT_NAME, cited)
-        script = _harvest_script()
-        if script is None:
-            raise unittest.SkipTest(SKIP_MISSING_COUNTER)
+        script = require_resolved(
+            _harvest_script(), "MY-CODES tools/vocab-harvest/harvest_write_phrases.py ({code_stats})"
+        )
         source = script.read_text(encoding="utf-8")
         imports = {
             line.split()[1].split(".")[0]

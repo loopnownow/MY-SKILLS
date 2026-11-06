@@ -14,6 +14,11 @@ Cross-repo tests (`test_cross_repo_contract.py`) expect **MY-RULES** and **MY-CO
 beside **MY-SKILLS** (or on lab drive aliases). On a partial checkout only, set
 `MY_SKILLS_ALLOW_MISSING_SIBLINGS=1` to skip those tests; default is **fail** (no silent skip).
 
+The same switch governs the other cross-repo guards: call
+`tests.support.require_resolved(value, what)` instead of `if value is None: raise
+unittest.SkipTest(...)`, so a deleted MY-CODES tool reddens the suite while a partial
+checkout can still opt out explicitly.
+
 | File | Covers |
 |---|---|
 | `test_registry_contract.py` | registry mirrors, fine id paths, alias targets, ledger freshness |
