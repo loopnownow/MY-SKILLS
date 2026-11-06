@@ -67,6 +67,9 @@ generalisable or single-center-anecdote.
 1. **Inventory the data.** Disease, modality(ies), n (patients and lesions), number of centers
    and scanners, label source and quality, presence of segmentation masks, clinical variables,
    follow-up time and event counts, pathology/molecular labels, time span. Mark every unknown.
+   Before fixing the collection window, read `03_research/advanced/ethics.md` § Ethics validity
+   period / 伦理期: prospective collection must sit inside the approval validity, retrospective
+   retrieval only needs to finish by its end date. Missing批件起止 dates → ask, never infer.
 2. **Feasibility triage** (feasibility-triage.md). Decide the realistic task ceiling and flag
    showstoppers (no reference standard, no external cohort, too few events, leakage-prone
    structure). Output a verdict: `Feasible as designed` / `Feasible with changes` / `Feasibility

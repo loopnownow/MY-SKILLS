@@ -15,6 +15,7 @@ Default pack = official 10 blank Kingsoft forms **plus** the project-initiation 
 - [ ] PI, department, title, phone, email consistent
 - [ ] Sample size (this site / total) consistent
 - [ ] Start/end dates consistent
+- [ ] 伦理期 = approval validity start/end as printed on the批件; prospective collection window inside it, retrospective retrieval finishing by its end date (`03_research/advanced/ethics.md`)
 - [ ] Protocol version/date = ICF version/date
 - [ ] Registration form materials list = actual files
 - [ ] Project-initiation application (1b) title/PI/n/duration/intervention-vs-observation matches the initial-review pack

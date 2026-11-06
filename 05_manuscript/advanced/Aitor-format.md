@@ -321,7 +321,7 @@ Beat labels only; the shape is § Introduction above (five paragraphs, eight bea
 
 ### Methods fill slots
 
-1. **Ethics.** Committee full name; approval number; approval date; approval coverage time range; consent or waiver; Helsinki statement; optional registry ID. Missing values → **Word comment**, never a yellow fill.
+1. **Ethics.** Committee full name; approval number; approval date; approval coverage time range (伦理期 = the approval's validity start–end; see `03_research/advanced/ethics.md` § Ethics validity period / 伦理期); consent or waiver; Helsinki statement; optional registry ID. Missing values → **Word comment**, never a yellow fill.
 2. **Study design.** Collection window; retrospective or prospective; single or multicenter; study type; primary objective plus optional secondary objective; split (e.g. `7:3`); independent validation set yes or no; optional stratification note. A seed policy may be logged in the working file, but the seed itself never enters manuscript prose (**no random seed**, ban above).
 3. **Patients.** Consecutive or not; department; disease; clinical features list (age, sex, and the rest of the Table 1 baseline set); pointers to the flowchart (`Figure 1`) and `Table 1`.
 4. **Inclusion and exclusion.** One paragraph each, inline numbering. Add the **time-alignment rule** for imaging, labs, and outcome versus enrollment.
