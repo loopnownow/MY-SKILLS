@@ -5,6 +5,7 @@ Merged from: `test_lab_paths_and_mounts.py`, `test_no_raw_lab_paths.py`.
 from __future__ import annotations
 
 from pathlib import Path
+import ast
 import re
 import unittest
 import yaml
@@ -245,3 +246,45 @@ class LabModulesVersionProse(unittest.TestCase):
                         expected,
                         f"{rel}:{line_no} says {match.group(1)} but the library is {expected}",
                     )
+
+
+PALETTE_MD = ROOT / "02_data-processing" / "base" / "plot-figures" / "references" / "lab-palettes.md"
+
+
+class LabPalettesDrift(unittest.TestCase):
+    """`references/lab-palettes.md` must mirror `style.py` `FIG_PALETTES`.
+
+    2026-11-01 (t1560u) / 2026-11-06 (t1712u): the 20-set table was absorbed from
+    ``_library/figures/lab-palettes.md``; the numeric SSOT stays in MY-CODES, so the
+    absorbed copy is allowed to repeat the hexes but never to disagree with them.
+    """
+
+    STYLE_PY = ROOT.parent / "MY-CODES" / "modules" / "config" / "style.py"
+
+    def _palettes(self) -> dict:
+        text = self.STYLE_PY.read_text(encoding="utf-8")
+        head = "FIG_PALETTES = "
+        start = text.index(head) + len(head)
+        end = text.index("\n}\n", start) + 3
+        return ast.literal_eval(text[start:end])
+
+    def _table_rows(self) -> list[str]:
+        return [
+            line.rstrip()
+            for line in PALETTE_MD.read_text(encoding="utf-8").splitlines()
+            if line.startswith("| `")
+        ]
+
+    def test_table_mirrors_style_py(self) -> None:
+        if not self.STYLE_PY.is_file():
+            self.skipTest("MY-CODES checkout not beside MY-SKILLS")
+        want: list[str] = []
+        for key, preset in self._palettes().items():
+            main = " ".join(f"`{hex_value}`" for hex_value in preset["main"])
+            aux = " ".join(f"`{hex_value}`" for hex_value in preset["aux"])
+            want.append(f"| `{key}` | {preset['label']} | {preset['tag']} | {main} | {aux} |")
+        self.assertEqual(
+            self._table_rows(),
+            want,
+            "lab-palettes.md drifted from style.py FIG_PALETTES (regenerate the table, do not hand-edit)",
+        )

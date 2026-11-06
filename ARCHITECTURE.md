@@ -49,7 +49,7 @@ Grants (Voice A reviewing others' proposals / Voice B your own) is an advanced 0
 | 0doc library lookup / portal submit | **Bai** (Aitor routes; off the 00 main loop; `03_research/advanced/0doc-db.md`) |
 | Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/advanced/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
-| Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures` + `{doc_root}\\_library\\figures\\lab-palettes.md`) |
+| Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures`; palettes: `02_data-processing/base/plot-figures/references/lab-palettes.md`) |
 | STROBE / patient-flow / Figure 1 | `02_data-processing` (`draw-flowchart`) |
 
 ---

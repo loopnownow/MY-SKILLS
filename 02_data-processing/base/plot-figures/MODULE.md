@@ -46,6 +46,7 @@ imaging panels.
 | [references/api.md](references/api.md) | matplotlib preamble, palette helpers |
 | [references/design-theory.md](references/design-theory.md) | Typography, grid, colour-blind palettes |
 | [references/color-systems.md](references/color-systems.md) | One palette (Okabe-Ito / NPG / Morandi) mapped to meaning |
+| [references/lab-palettes.md](references/lab-palettes.md) | Lab console sets: 20 `FIG_PALETTE` palettes, hex SSOT in `style.py` |
 | [references/survival-figures.md](references/survival-figures.md) | KM integrity, numbers-at-risk, time-dependent ROC |
 | [references/figure-set-consistency.md](references/figure-set-consistency.md) | Unify palette/fonts across the set |
 | [references/nature-figure-spec.md](references/nature-figure-spec.md) | Nature-portfolio column widths, lowercase panels |

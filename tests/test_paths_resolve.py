@@ -155,7 +155,6 @@ HIST_LINE = re.compile(
 # Documents that live on the lab disk (0doc), in an upstream skill, in MY-RULES,
 # or in a dated snapshot note, not in this repo.
 EXTERNAL = {
-    "lab-palettes.md",
     "Lab-STE-SPEC.md",
     "acceptance-gate.md",
     "gate_mechanical.md",
