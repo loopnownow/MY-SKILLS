@@ -16,6 +16,9 @@ Match the consent model to the design; report the approval honestly with author-
 
 - The approving body (institutional review board / ethics committee) — **named**.
 - The **approval number** and **date** (author-supplied; placeholder if unknown).
+- The **validity period / 伦理期** when the journal or form asks for it — the start and end dates
+  printed on the approval, not a study-date back-fill. Rules for prospective vs retrospective
+  windows: `03_research/advanced/ethics.md` § Ethics validity period / 伦理期.
 - The **consent status**: obtained, or waiver granted (+ basis).
 - For multi-center: the approval model and coverage.
 - Adherence to the Declaration of Helsinki (for studies involving human participants).

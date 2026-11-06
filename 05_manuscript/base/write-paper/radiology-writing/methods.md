@@ -5,7 +5,9 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 ## 1. Study design & ethics
 - Retrospective/prospective; single/multi-centre; dates of data collection.
 - IRB/ethics approval + consent (or waiver rationale); HIPAA/GDPR; trial/registry ID if
-  applicable. Reporting guideline named ("reported following CLAIM/TRIPOD+AI/STARD").
+  applicable. If a validity range (伦理期) is reported, it is the approval's own start–end, and
+  prospective collection must fit inside it (`03_research/advanced/ethics.md`). Reporting
+  guideline named ("reported following CLAIM/TRIPOD+AI/STARD").
 
 ## 2. Participants
 - Eligibility (inclusion/exclusion) at patient level; consecutive vs selected; source
