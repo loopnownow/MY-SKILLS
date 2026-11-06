@@ -14,6 +14,10 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261106-t1712u-absorb-lab-palettes (2026-11-06)
+
+Owner t1712u (Asia/Shanghai 2026-11-06): park-stash absorb of 20 console `FIG_PALETTE` sets into `02_data-processing/base/plot-figures/references/lab-palettes.md` (t1560u work parked as t1584u stash). Live `_library\figures\lab-palettes.md` pointers retired; hex SSOT remains MY-CODES `style.py` (LabPalettesDrift). No disk 00ds/00db migrate.
+
 ## CHG-20261106-t1708u-00ds-qc (2026-11-06)
 
 Owner t1708u (Asia/Shanghai 2026-11-06): live `00ds` is a **QC object**, not an allowed legacy alias.

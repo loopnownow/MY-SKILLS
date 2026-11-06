@@ -7,29 +7,22 @@
 
 ## Part A — Lab palettes
 
-## Lab figure palettes (lab console)
+**Owner:** `02_data-processing/base/plot-figures/references/lab-palettes.md` — 20 console sets
+(`FIG_PALETTE`); hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and
+`modules\console\console_schema.js` `PALETTES` (drift-tested). The `_library\figures` mirror was
+absorbed there on 2026-11-01 (t1560u) / landed 2026-11-06 (t1712u); that library folder is retired.
 
-**Owner:** `05_manuscript` (`{doc_root}\\_library\\figures\\lab-palettes.md`). Hex must match `{code_modules}\config\style.py` `FIG_PALETTES` and `modules\console\console_schema.js` `PALETTES`.
+One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**.
+Auxiliary colors: remaining ROC curves, KM strata, unnamed models. `npg` keeps the **legacy
+named** map for clinical covariates (LNM, FIGO, …) so old figures do not recolor.
 
-Generic journal palettes (ggsci NPG / Okabe-Ito / Morandi role maps) stay in live `plot-figures` (`color-systems.md`). This file is the **lab console five-set** used by the lab pipeline.
-
-One palette per manuscript. Main roles in order: **Combined, RadScore, Clinical, Reader, Age**. Auxiliary colors: remaining ROC curves, KM strata, unnamed models.
-
-| id | Label | Use | Main (5) | Aux (5) |
-|----|-------|-----|----------|---------|
-| `npg` | NPG current | **Default.** Revisions / extra panels so Combined / RadScore / Clinical do not jump | `#D55E00` `#B2182B` `#2166AC` `#762A83` `#117733` | `#44AA99` `#DDCC77` `#EE8866` `#AA4499` `#332288` |
-| `okabe` | Okabe-Ito | **New project first choice.** Color-blind safe | `#D55E00` `#0072B2` `#009E73` `#CC79A7` `#E69F00` | `#56B4E9` `#332288` `#882255` `#44AA99` `#999999` |
-| `tol` | Paul Tol | Print / Radiology large figures | `#CC6677` `#332288` `#117733` `#88CCEE` `#DDCC77` | `#AA4499` `#44AA99` `#882255` `#6699CC` `#999933` |
-| `radiology` | teal-orange | Lab console / series papers | `#0F4C5C` `#C44E52` `#3B6EA5` `#E07A3D` `#2F6F4E` | `#7EB6A4` `#88B4D8` `#D4A373` `#6B5B95` `#8A8A8A` |
-| `ibm` | IBM | Projection / results HTML | `#DA1E28` `#0F62FE` `#198038` `#8A3FFC` `#B28600` | `#1192E8` `#009D9A` `#FA4D56` `#A56EFF` `#6F6F6F` |
-
-`npg` keeps the **legacy named** map for clinical covariates (LNM, FIGO, …) so old figures do not recolor.
-
-Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swatches become custom; write-back goes to `ref/settings.ini`.
+Config keys: `FIG_PALETTE`, `FIG_COLORS_MAIN`, `FIG_COLORS_AUX`. Hand-edited swatches become
+custom; write-back goes to `ref/settings.ini`. Generic journal role maps (ggsci NPG / Okabe-Ito /
+Morandi) stay in live `plot-figures` (`color-systems.md`).
 
 ### Publication extension palettes (10 sets; not console-bound)
 
-Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not lab pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the five `lab-palettes` sets plus live `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
+Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cite manually for submission figures, not lab pipeline plots. All from public scientific color specs (ColorBrewer / matplotlib built-ins / Paul Tol / Crameri / ggsci). Grouped by chart type; covers continuous, diverging, and grayscale-safe cases that the twenty `lab-palettes` sets plus live `plot-figures` (Okabe-Ito/NPG/Morandi) do not cover.
 
 | id | Label | Type | Use | Values / source |
 |----|-------|------|-----|-----------------|
@@ -44,7 +37,7 @@ Not wired into `style.py` / `console.html` and not managed by `FIG_PALETTE`. Cit
 | `grayscale-safe` | grayscale-safe ramp | mono gradient | some journals still require B&W print legibility; re-check with this ramp before submission | `#F7F7F7 #CCCCCC #969696 #636363 #252525` |
 | `ggsci-lancet` | ggsci Lancet | categorical, journal style | closer to Lancet-family visual norms | R package `ggsci::pal_lancet()`; MIT |
 
-Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continuous (risk/probability/density) → `viridis` / `magma` / `cividis`; correlation / difference heatmaps → `rdbu` / `prgn`; grayscale pre-submission pass → `grayscale-safe`; journal-specific overlay → matching `ggsci-*`. Relation to the five `lab-palettes`: console plots (KM/ROC/risk strata) keep npg/okabe/tol/radiology/ibm; these 10 are for continuous/matrix figures or first-submission journal fit. Do not mix both on the same figure.
+Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continuous (risk/probability/density) → `viridis` / `magma` / `cividis`; correlation / difference heatmaps → `rdbu` / `prgn`; grayscale pre-submission pass → `grayscale-safe`; journal-specific overlay → matching `ggsci-*`. Relation to the twenty `lab-palettes` (console still defaults npg/okabe/tol/radiology/ibm among them): console plots (KM/ROC/risk strata) keep npg/okabe/tol/radiology/ibm; these 10 are for continuous/matrix figures or first-submission journal fit. Do not mix both on the same figure.
 
 
 ---
@@ -53,7 +46,7 @@ Selection: categorical (≤6 groups) → `brewer-set2` / `brewer-dark2`; continu
 
 ## Figure claim planning (radiomics / clinical prediction)
 
-**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `{doc_root}\_library\figures\lab-palettes.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
+**Owner:** `02_data-processing`. Use in the planning stage before submission figures are built — not as after-the-fact rescue. Pair with `02_data-processing/base/plot-figures/references/lab-palettes.md` (palettes) and live `plot-figures` (chart templates). This section only covers “think first”.
 
 ### 1. Ask for the claim, then pick the chart — not “how this data is usually plotted”
 
@@ -88,7 +81,7 @@ This reuses the `gates.md` rule “same defect ≤3 rounds, then unresolved and 
 
 ### 4. Style and palette are two independent switches — do not fuse them into one two-option question
 
-**Style** (console-internal vs journal submission; extra composite panels or not) and **palette** (five console `lab-palettes` vs the ten publication extensions) are unrelated and freely combinable. If both are unknown, one combined ask is fine; if either is already fixed for the project (e.g. submission style), ask only for the missing one — do not re-ask what is settled. Extra/reworked figures in the same task reuse both choices; do not re-ask per figure — same habit as the `00_orchestrator` Plan card “ask once, do not re-ask”.
+**Style** (console-internal vs journal submission; extra composite panels or not) and **palette** (twenty console `lab-palettes` vs the ten publication extensions) are unrelated and freely combinable. If both are unknown, one combined ask is fine; if either is already fixed for the project (e.g. submission style), ask only for the missing one — do not re-ask what is settled. Extra/reworked figures in the same task reuse both choices; do not re-ask per figure — same habit as the `00_orchestrator` Plan card “ask once, do not re-ask”.
 
 ---
 

@@ -1,6 +1,6 @@
 # Bank review habits (harvest 2026-10-23)
 
-> Curated from harvest draft **06-review-habits-candidates** (116 review-text files; ethics PDFs excluded). Draft parked 2026-11-01 under `{DEL}\_by-project\0doc-skill-harvest-prune-20261101\drafts\` — **this file is SSOT**.
+> Curated from harvest draft **06-review-habits-candidates** (116 review-text files; ethics PDFs excluded). Draft archived (parked) 2026-11-01 under `{DEL}\_by-project\0doc-skill-harvest-prune-20261101\drafts\` — **this file is SSOT**.
 > Additive checklist for `peer-review` / `self-review` / `simulate-reviewers`. Does not replace `review.md` envelope.
 
 ## Theme coverage (file-level hits)
