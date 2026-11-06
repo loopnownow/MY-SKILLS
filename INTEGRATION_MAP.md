@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261106-t1698u-manuscript-vr (2026-11-06)
+
+Owner t1698u (Asia/Shanghai 2026-11-06): Skills pointers follow Rules #98 / tip `e88bbb7` **V/R/P** manuscript tokens; supersedes the 2026-11-05 pure-V stage map (`V2.xx` / `V3.xx` / `V9.xx`).
+
+- **SSOT pointer:** `{RULES}/project-ref-layout.md` (SCI 稿件文件名). `V` = pre-submission (incl. post-submit edits before comments); `R` = after reviewer comments; `P` = optional proofs. No `R0`; reject-and-resubmit stays on V.
+- **Aligned:** `05_manuscript/advanced/Aitor-format.md` (Filename + Version tokens + canonical examples), `05_manuscript/advanced/handoff.md`, `06_review/advanced/handoff.md` (Comments example → `R1.1`), `07_response/advanced/handoff.md` + `response.md` (Response → `R…`).
+- **Unchanged:** tests; retired `_house` aliases; response-tone bullets; unrelated pre-submission review workflow wording.
+
 ## CHG-20261106-t1683u-endash-allow (2026-11-06)
 
 Owner t1683u (Asia/Shanghai 2026-11-06): **en dash (U+2013) is allowed**; the 2026-10-30 hard ban is reversed. Em-dash (U+2014 / spaced `--`) and `≈` stay hard-banned.
