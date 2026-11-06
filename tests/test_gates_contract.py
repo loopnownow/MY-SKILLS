@@ -15,6 +15,7 @@ from tests.support import (
     GATES,
     ONE,
     ROOT,
+    require_resolved,
 )
 
 ZERO = ROOT / "00_orchestrator" / "SKILL.md"
@@ -331,11 +332,9 @@ def _resolve_generator() -> Path | None:
 
 
 def _generator_text(case: unittest.TestCase) -> str:
-    generator = _resolve_generator()
-    if generator is None:
-        raise unittest.SkipTest(
-            "MY-CODES tools/visualization/gen_visualization.py not on this checkout ({code_stats})"
-        )
+    generator = require_resolved(
+        _resolve_generator(), "MY-CODES tools/visualization/gen_visualization.py ({code_stats})"
+    )
     return generator.read_text(encoding="utf-8")
 
 

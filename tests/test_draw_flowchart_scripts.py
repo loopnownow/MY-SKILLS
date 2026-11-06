@@ -14,7 +14,7 @@ from pathlib import Path
 
 import yaml
 
-from tests.support import ONE
+from tests.support import ONE, require_resolved
 
 EXPANDED_NAME = "draw_strobe_flow_expanded"
 BASE_NAME = "draw_strobe_flow"
@@ -30,12 +30,9 @@ def _resolve_scripts() -> Path | None:
     return hit if hit.is_dir() else None
 
 
-SCRIPTS = _resolve_scripts()
-if SCRIPTS is None:
-    raise unittest.SkipTest(
-        "MY-CODES tools/draw-flowchart not found ({code_stats}); "
-        "generator contract skipped on a partial checkout"
-    )
+SCRIPTS = require_resolved(
+    _resolve_scripts(), "MY-CODES tools/draw-flowchart ({code_stats})"
+)
 
 # 200 screened = 150 + 50 pre-split; training 150 - 40 downsampled = 110;
 # cohorts 110 + 50 = 160 analyzed; positives 50 + 20 = 70; negatives 60 + 30 = 90.

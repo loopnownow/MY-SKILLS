@@ -14,6 +14,7 @@ from tests.support import (
     GATES,
     ONE,
     ROOT,
+    require_resolved,
 )
 
 # gen_visualization lives in MY-CODES (t1521u P3-A) and reads the skills tree from SKILLS_ROOT.
@@ -38,11 +39,9 @@ FORBIDDEN_FACT_SOURCES = (
     "unvalidated JSON",
 )
 def load_generator():
-    script = _resolve_script()
-    if script is None:
-        raise unittest.SkipTest(
-            "MY-CODES tools/visualization/gen_visualization.py not on this checkout ({code_stats})"
-        )
+    script = require_resolved(
+        _resolve_script(), "MY-CODES tools/visualization/gen_visualization.py ({code_stats})"
+    )
     spec = importlib.util.spec_from_file_location("gen_visualization", script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

@@ -18,7 +18,7 @@ from pathlib import Path
 
 import yaml
 
-from tests.support import ROOT
+from tests.support import ROOT, require_resolved
 
 
 def _resolve_office() -> Path | None:
@@ -38,12 +38,9 @@ def _resolve_office() -> Path | None:
     return hit if hit.is_dir() else None
 
 
-OFFICE = _resolve_office()
-if OFFICE is None:
-    raise unittest.SkipTest(
-        "MY-CODES checkout with tools/office not found ({code_stats}); "
-        "office validator contract skipped on a partial checkout"
-    )
+OFFICE = require_resolved(
+    _resolve_office(), "MY-CODES tools/office ({code_stats})"
+)
 
 try:
     sys.path.insert(0, str(OFFICE))

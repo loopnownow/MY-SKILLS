@@ -20,7 +20,7 @@ from pathlib import Path
 
 import yaml
 
-from tests.support import ONE
+from tests.support import ONE, require_resolved
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -35,12 +35,9 @@ def _resolve_script() -> Path | None:
     return hit if hit.is_file() else None
 
 
-SCRIPT = _resolve_script()
-if SCRIPT is None:
-    raise unittest.SkipTest(
-        "MY-CODES checkout with tools/vocab-harvest/harvest_sections.py not found ({code_stats}); "
-        "cross-repo contract skipped on a partial checkout"
-    )
+SCRIPT = require_resolved(
+    _resolve_script(), "MY-CODES tools/vocab-harvest/harvest_sections.py ({code_stats})"
+)
 
 
 def _load_module():

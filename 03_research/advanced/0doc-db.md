@@ -12,12 +12,11 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 | Folder | Typical ask |
 |---|---|
-| `_library` (ex-`03-research`) | lit-bank library, 选刊, ethics (incl. PHI), ~~lab-ste / lab-ref-method / lit-bank-method / scanner-registry method~~ (→ methods park 20261023) / lab-ref-ranges, study-design (STROBE→templates; fill-protocol digest), figures; ~~papers/fulltext/grants~~ → HISTORIC `{DEL}\_by-project\0doc-library-ftp-20261023\`（已清；耐久 `{doc_skill_harvest}\sources\library-ftp-20261023\`） (digest: grant-* digests under `03_research/advanced/references/` + `papers-card-schema.md`; durable `{doc_skill_harvest}\sources\library-ftp-20261023\`). Scanner gap (Skyra / Sensation **not found**; do not invent parameters): `references/scanner-registry-digest.md` |
+| `_library` (ex-`03-research`) | lit-bank library, 选刊, ethics (incl. PHI), ~~lab-ste / lab-ref-method / lit-bank-method / scanner-registry method~~ (→ methods park 20261023) / lab-ref-ranges, study-design (STROBE→templates; fill-protocol digest); ~~papers/fulltext/grants~~ → HISTORIC `{DEL}\_by-project\0doc-library-ftp-20261023\`（已清；耐久 `{doc_skill_harvest}\sources\library-ftp-20261023\`） (digest: grant-* digests under `03_research/advanced/references/` + `papers-card-schema.md`; durable `{doc_skill_harvest}\sources\library-ftp-20261023\`). Scanner gap (Skyra / Sensation **not found**; do not invent parameters): `references/scanner-registry-digest.md` |
 | `_library\glossary`（ex-`_bank`, 2026-11-01） | 自有写作语料：四层 `words/` `sentences/` `paragraphs/` + `sections/` 指针页 + `index.csv` 13 列（全席位根 = `{doc_glossary}`）；证据层 `banks\`（jsonl + `glossary.db` FTS；GATES.md 已清）。审稿文本 `{doc_glossary}\banks\review-text.jsonl`（+ `REVIEW-TEXT.tsv`）；回复 `{doc_glossary}\banks\flattened.jsonl`；段落层 `{doc_glossary}\banks\paras.jsonl` |
-| `_code` | runnable scripts by skill tree `NN-layer\<fine-id>` (**no** `base\` under `_code` 02-07). Do not vendor heavy analysis `.py` into MY-SKILLS. Stats library `{code_stats}` |
-| `templates` | skill-pinned gold templates (`Aitor-format-gold-response.docx`, `ethics-blank`, STROBE); scanner xlsx live under `_library\scanner-registry\`；palettes → skill `plot-figures/references/lab-palettes.md` |
+| `templates` | skill-pinned gold templates (`Aitor-format-gold-response.docx`, `ethics-blank`, STROBE); scanner xlsx live under `_library\scanner-registry\`；palettes → `02_data-processing/base/plot-figures/references/lab-palettes.md` |
 | `mem` | long-term memos (not a second Rules/Skills tree) |
-| `GitHub` | clones: MY-SKILLS `{skills_git}`, MY-RULES `{rules_git}`; stats modules master `{code_modules_master}` (local git only) |
+| `GitHub` | clones: MY-SKILLS `{skills_git}`, MY-RULES `{rules_git}`; stats engine + tools `{code_stats}`（`0doc\_code` retired 2026-11-01, t1521u） |
 | `test` | bank QC `{code_bank_qc}` |
 | `skill-harvest` | harvest SSOT `{doc_skill_harvest}` |
 

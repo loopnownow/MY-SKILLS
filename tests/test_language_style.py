@@ -21,6 +21,7 @@ from tests.support import (
     GATES,
     ONE,
     ROOT,
+    require_resolved,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -37,12 +38,9 @@ def _resolve_script() -> Path | None:
     return hit if hit.is_file() else None
 
 
-SCRIPT_PATH = _resolve_script()
-if SCRIPT_PATH is None:
-    raise unittest.SkipTest(
-        "MY-CODES checkout with tools/orchestrator/style_lint.py not found ({code_stats}); "
-        "cross-repo lint contract skipped on a partial checkout"
-    )
+SCRIPT_PATH = require_resolved(
+    _resolve_script(), "MY-CODES tools/orchestrator/style_lint.py ({code_stats})"
+)
 BAN_TERMS_PATH = REPO_ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-terms.yaml"
 ALLOWED_IMPORTS = {"argparse", "copy", "json", "os", "re", "sys", "pathlib"}
 FILLER = "We studied a cohort of patients with cirrhosis and recorded outcomes over two years."
@@ -210,13 +208,9 @@ class DashTests(unittest.TestCase):
 
     def test_en_dash_ranges_are_allowed(self):
         # owner t1683u 2026-11-06: U+2013 allowed for ranges (reverses 2026-10-30).
-        # The MY-CODES linter still flags U+2013; the skills rule leads it, so this
-        # contract binds as soon as that follow-up lands instead of failing here.
+        # MY-CODES style_lint allows U+2013 as well (t1684u); a regression there must
+        # fail this contract, so there is no skip branch.
         r = sl.lint(doc("Discussion", "Lesions of 5\u201310 mm and 20\u201330 mm were seen."))
-        if failed(r, "dash_cadence"):
-            raise unittest.SkipTest(
-                "MY-CODES style_lint still bans U+2013; skills policy allows ranges (t1683u follow-up)"
-            )
         self.assertFalse(failed(r, "dash_cadence"))
 
     def test_ascii_hyphen_ranges_are_fine(self):
