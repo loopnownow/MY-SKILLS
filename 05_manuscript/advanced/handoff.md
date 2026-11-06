@@ -22,5 +22,5 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 
 ## Filename stems (standing)
 
-Manuscript / Comments / Response / Supplementary share `<Stem>_<project-slug>_V<major>.<minor>` (e.g. `Manuscript_lxf_PP_V1.1.docx`). Version aligns across the set; decimal phases: `V1.xx` pre-submission, `V2.xx` submitted-phase edits, `V3.xx` round-1 reviewer response (Rules SSOT). Rules SSOT → `{RULES}/project-ref-layout.md`; detail → `Aitor-format.md` Filename.
+Manuscript / Comments / Response / Supplementary share `<Stem>_<project-slug>_` + `V…` or `R…` (proofs optional `P`); e.g. `Manuscript_lxf_PP_V1.1.docx` (pre-submit), `Manuscript_lxf_PP_R1.1.docx` (revision after comments). Version aligns across the set. Rules SSOT → `{RULES}/project-ref-layout.md`; detail → `Aitor-format.md` Filename.
 

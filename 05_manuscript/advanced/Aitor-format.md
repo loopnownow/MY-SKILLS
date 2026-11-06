@@ -20,7 +20,7 @@ Canonical name is **`SCI-manuscript-scaffold.docx`**. An identical alias copy na
 `{doc_root}\templates\Aitor-format-gold-response.docx` (typography reference: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·
 `{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
 
-Later-polish live files follow `Manuscript_<project-slug>_V<major>.<minor>.docx` (Rules SSOT) in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
+Later-polish live files follow `Manuscript_<project-slug>_V<major>.<minor>.docx` or `_R<round>.<minor>.docx` (Rules SSOT) in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 
 If a rule is unclear, **ask the user**. Do not invent a second Aitor-format.
 Letters / short communications: apply only if the user asks.
@@ -31,16 +31,16 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 
 ## Filename (standing)
 
-`<Stem>_<project-slug>_V<major>.<minor>` with Stem = `Manuscript` | `Comments` | `Response` | `Supplementary` (Supplementary only when supplements exist). Version matches the manuscript revision. Prefer `.docx`. Rules SSOT → `{RULES}/project-ref-layout.md`.
+`<Stem>_<project-slug>_` + `V<major>.<minor>` or `R<round>.<minor>` (proofs optional `P1` / `P1.1`) with Stem = `Manuscript` | `Comments` | `Response` | `Supplementary` (Supplementary only when supplements exist). Version matches the manuscript revision token. Prefer `.docx`. Rules SSOT → `{RULES}/project-ref-layout.md`.
 
-**Decimal versioning (2026-11-05, Rules SSOT).** `V1.xx` pre-submission; the file uploaded keeps its `V1.xx` number. `V2.xx` edits made while under submission and before reviewer comments. `V3.xx` round-1 reviewer response; `V4.xx` round-2 response, then `V5.` and so on; `V9.xx` proofs. No zero padding (`V1.9` goes to `V1.10`); **sort numerically, never as strings**. `Comments_` / `Response_` / `Supplementary_` carry the same number as their manuscript.
+**Version tokens (2026-11-06 t1698u, Rules SSOT, covers 2026-11-05 V2/V3/V9 map).** `V` = pre-submission, including post-submit edits before reviewer comments (`V1.1`…`V1.10`; no zero-padding; **sort numerically**). Moving `drafting` → `pre-submit` does not renumber; the submitted file keeps its `V` token. After submit, before comments, bump the V minor (e.g. `V1.11`); do not invent `R0`. `R` = after reviewer comments (`R1.1`, `R1.2` same round; next comments start `R2.1`). `P` = optional proofs (`P1` or `P1.1`). `Comments_` / `Response_` / `Supplementary_` share the same R (or P) token as that round’s manuscript; pre-submit V files usually have no Comments/Response. Reject-and-resubmit stays on V (major may bump, e.g. `V2.1`). After acceptance keep the last R; proofs use P.
 
 ## How to use
 
 - Write or revise an SCI paper → follow this file.
 - **New blank paper** → copy `{doc_root}\templates\SCI-manuscript-scaffold.docx` into the outcome folder as `Manuscript_<slug>_V1.1.docx`, then fill it. Do not invent numbers or ethics Date/NO to fill the skeleton. Fill slots and their order: § Blank SCI manuscript skeleton (below).
 - Numbers only from the latest `*-results.html` / fixed tables. **Never invent** *n*, AUC, CI, *P*, ethics Date/NO, DOI, or unmade experiments. Never change an AUC/CI/*P* without re-reading that file. For ROC rows, take the **nomogram** (Combined) line, not a leftover pipeline `Combined` figure label that disagrees with Results.
-- Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<major>.<minor>.docx` (e.g. `Manuscript_lxf_PP_V1.1.docx`). Same family: `Comments_` / `Response_` / `Supplementary_` with matching `V<major>.<minor>`. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
+- Canonical filename (standing, Rules SSOT): `Manuscript_<project-slug>_V<major>.<minor>.docx` (e.g. `Manuscript_lxf_PP_V1.1.docx` pre-submit) or `Manuscript_<project-slug>_R<round>.<minor>.docx` (e.g. `Manuscript_lxf_PP_R1.1.docx` after comments), plus same-token `Comments_` / `Response_` / `Supplementary_` for that R (or P) round. Prefer `.docx`; md/pdf companions share the stem. **Overwrite in place.** Authoritative → `{RULES}/project-ref-layout.md` (SCI 稿件文件名). Legacy `_house` / `_polished` stems are retired for new files.
 - Embed current figures from the subproject `PNG/` (the paper must contain images).
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.

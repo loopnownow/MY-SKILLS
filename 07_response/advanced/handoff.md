@@ -14,5 +14,5 @@ Style (letter): standing opener + disclaimer/未做-class rule live in `response
 
 ## Filename stems (standing)
 
-Response letter: `Response_<project-slug>_V<major>.<minor>.docx` (e.g. `Response_lxf_PP_V1.1.docx`). `V<major>.<minor>` matches the manuscript revision. Same family as `Manuscript_` / `Comments_` / `Supplementary_`. Rules SSOT → `{RULES}/project-ref-layout.md`.
+Response letter: `Response_<project-slug>_R<round>.<minor>.docx` (e.g. `Response_lxf_PP_R1.1.docx`). Token matches that round’s manuscript (R after reviews). Same family as `Manuscript_` / `Comments_` / `Supplementary_`. Rules SSOT → `{RULES}/project-ref-layout.md`.
 
