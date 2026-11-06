@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261106-t1708u-00ds-qc (2026-11-06)
+
+Owner t1708u (Asia/Shanghai 2026-11-06): live `00ds` is a **QC object**, not an allowed legacy alias.
+
+- **Rule:** any live path, folder name, or filter/default still saying `00ds` must be corrected to `00db`. Do not retain `00ds` in live allowlists/filters "as legacy". Historic "was/formerly 00ds" changelog notes may stay. Disk tree migration is separate (owner must authorize).
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` (`raw_root` comment + notes). Rules SSOT: `{RULES}/workspace-layout.md` `{RAW}`.
+- **Unchanged:** unrelated historic notes; no bulk migrate of `D:\\00ds` / `D:\\00db`.
+
 ## CHG-20261106-t1698u-manuscript-vr (2026-11-06)
 
 Owner t1698u (Asia/Shanghai 2026-11-06): Skills pointers follow Rules #98 / tip `e88bbb7` **V/R/P** manuscript tokens; supersedes the 2026-11-05 pure-V stage map (`V2.xx` / `V3.xx` / `V9.xx`).
