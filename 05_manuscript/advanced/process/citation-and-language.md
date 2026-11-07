@@ -26,7 +26,7 @@ Check ids live in `05_manuscript/qc/manuscript-local-qc.md`. Apply them on every
 | Rule | Do | Don't |
 |------|----|-------|
 | Sentence length | Prefer ≤55 English words | Long nested slogans |
-| Dashes | Link clauses with periods or commas; math minus `−` in formulas only. En dash `–` is **allowed** for numeric ranges, CIs and page spans (`5–10 mm`, `0.80–0.93`, `123–145`); ASCII hyphen `-` is also fine | Em dash `—`, Chinese `——`, and en-dash stacks used as clause connectors |
+| Dashes | Link clauses with periods or commas; Unicode minus `−` (U+2212) is **allowed** for signed numbers / difference spans (`−0.32`, `Q3−Q1`) and formulas; ASCII `-` stays fine. En dash `–` is **allowed** for numeric ranges, CIs and page spans (`5–10 mm`, `0.80–0.93`, `123–145`); ASCII hyphen `-` is also fine | Em dash `—`, Chinese `——`, and en-dash stacks used as clause connectors |
 | Ranges | Size/time: `4–12 mm` (or `4 to 12 mm`). CI: `Aitor-format.md` (`95% CI: X–X`; ASCII hyphen also OK) | Em dash; CI written with `to` |
 | Numbers | Next to claim | Orphan AUC without set name |
 | Novelty | *few studies* / *remains limited* | *novel* / *first* / *groundbreaking* |

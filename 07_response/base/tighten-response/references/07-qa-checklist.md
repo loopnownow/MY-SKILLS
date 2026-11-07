@@ -76,7 +76,7 @@ Use this checklist before finalizing a response package or when auditing an exis
 
 ## Tone
 
-- No em dash, and no avoidable colon or semicolon, is used as a routine sentence connector (en dash allowed in numeric ranges, ASCII hyphen also fine; t1683u). Source-faithful
+- No em dash, and no avoidable colon or semicolon, is used as a routine sentence connector (en dash allowed in numeric ranges, Unicode minus U+2212 also allowed for signed numbers, ASCII hyphen also fine; t1683u / t1761u). Source-faithful
   reviewer quotations and required identifiers or syntax are unchanged.
 - No accusations of reviewer incompetence, bias, or misunderstanding unless the user is explicitly preparing an appeal and supplies evidence.
 - No excessive apologies.

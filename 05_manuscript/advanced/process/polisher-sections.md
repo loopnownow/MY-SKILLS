@@ -214,7 +214,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
 | Clinical entities | Abbreviate from first sentence and maintain throughout |
 | Group sizes | Always *(n = N)* in parentheses |
 | P values | Italic P, space before operator: *P* < 0.05 (or per journal style) |
-| Confidence intervals | 95% CI: X–X (en dash allowed, ASCII hyphen also OK; no spaces) |
+| Confidence intervals | 95% CI: X–X (en dash allowed, ASCII hyphen also OK; Unicode minus U+2212 also allowed for signed numbers; no spaces) |
 
 #### Hedging vocabulary (use in Discussion only, not in Results)
 

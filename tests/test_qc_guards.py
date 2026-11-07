@@ -89,7 +89,10 @@ class PunctuationWording(unittest.TestCase):
                # wordings must not come back into live prose.
                "Hard ban** en-dash", "never use en-dash", "En-dash is banned",
                "en-dash (U+2013) is banned", "En-dash (U+2013) is banned",
-               "use ASCII `-` for all ranges", "always ASCII hyphen")
+               "use ASCII `-` for all ranges", "always ASCII hyphen",
+               # owner t1761u 2026-11-07 allowed U+2212; do not reintroduce a ban.
+               "Unicode minus is banned", "U+2212) is banned", "hard ban** Unicode minus",
+               "math minus `−` in formulas only")
 
     def test_superseded_wording_absent(self) -> None:
         bad = [f"{p.relative_to(ROOT)}: {s}" for p in live_files((".md",))
@@ -104,6 +107,16 @@ class PunctuationWording(unittest.TestCase):
         aitor = (ROOT / "05_manuscript" / "advanced" / "Aitor-format.md").read_text(encoding="utf-8")
         self.assertIn("**En dash allowed**", aitor)
         self.assertIn("t1683u", aitor)
+
+    def test_unicode_minus_allowed_rule_has_one_home(self) -> None:
+        # owner t1761u 2026-11-07: U+2212 allowed beside en-dash; em-dash / ≈ stay banned.
+        home = (ROOT / "05_manuscript" / "base" / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
+        self.assertIn("Unicode minus (U+2212", home)
+        self.assertIn("is **allowed**", home)
+        self.assertIn("t1761u", home)
+        aitor = (ROOT / "05_manuscript" / "advanced" / "Aitor-format.md").read_text(encoding="utf-8")
+        self.assertIn("**Unicode minus allowed**", aitor)
+        self.assertIn("t1761u", aitor)
 
 
 if __name__ == "__main__":
