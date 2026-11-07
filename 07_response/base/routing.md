@@ -23,6 +23,7 @@
 | `cover-letter` | Editor-facing summary only | Preferred known |
 | `audit` / `revise` | Findings or tightened draft of supplied text | No (local) |
 | `tone-polish` | Soften defensive phrasing in an existing draft. Structure stays `revise`. Assets live in `tighten-response/` | No (local) |
+| `proof` | Journal proof (校样) queries answered in balloons plus Track Changes; no separate letter. Body in `revise/references/proof-mode.md` | No (local) |
 | `latex-template` | Templates / filled `.tex` when requested | No |
 | `appeal-like` | Route out; explain separate handling | `NOT_APPLICABLE` |
 
