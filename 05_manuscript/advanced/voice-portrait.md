@@ -112,6 +112,6 @@ This file is the **L2 writing slice** only (how paragraphs and set wording are p
 - Legends **below** figures (`voice-portrait.md`).
 
 ### Punctuation that affect wording
-- **Hard ban:** em-dash (— / spaced `--`) — replace with **parentheses**; `≈` — write `about` / exact. En-dash (U+2013) is **allowed** for ranges, CIs and page spans (`5–10 mm`, `0.80–0.93`); ASCII hyphen stays fine (owner t1683u, 2026-11-06). See `Aitor-format.md` and `base/vocab/L1/ban-phrases.md`.
+- **Hard ban:** em-dash (— / spaced `--`) — replace with **parentheses**; `≈` — write `about` / exact. En-dash (U+2013) is **allowed** for ranges, CIs and page spans (`5–10 mm`, `0.80–0.93`); ASCII hyphen stays fine (owner t1683u, 2026-11-06). Unicode minus (U+2212) is **allowed** for signed numbers / difference spans (`−0.32`, `Q3−Q1`) (owner t1761u, 2026-11-07). See `Aitor-format.md` and `base/vocab/L1/ban-phrases.md`.
 - **Discourage (不推荐):** colon and semicolon in running prose (label colons such as `Objective:` / `95% CI:` stay).
 

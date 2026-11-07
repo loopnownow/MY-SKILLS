@@ -118,7 +118,7 @@ R1-m1 [writing-clarity]
 ## Style rules
 
 - Keep tone formal, direct, and evidence-based.
-- Avoid em dashes, and avoid colons and semicolons as routine clause connectors in running prose (en dash allowed in numeric ranges such as `95% CI: X–X`, ASCII hyphen also fine; rule home `05_manuscript/base/vocab/L1/ban-phrases.md`, t1683u). Prefer sentences, commas, parentheses, or a short label followed by a new line. Keep necessary hyphens in compound terms and concern IDs. Preserve punctuation in faithful source text, formulas, identifiers, URLs, times, and required machine-readable syntax.
+- Avoid em dashes, and avoid colons and semicolons as routine clause connectors in running prose (en dash allowed in numeric ranges such as `95% CI: X–X`, Unicode minus U+2212 also allowed for signed numbers, ASCII hyphen also fine; rule home `05_manuscript/base/vocab/L1/ban-phrases.md`, t1683u / t1761u). Prefer sentences, commas, parentheses, or a short label followed by a new line. Keep necessary hyphens in compound terms and concern IDs. Preserve punctuation in faithful source text, formulas, identifiers, URLs, times, and required machine-readable syntax.
 - Make the scientific criticism as direct as the evidence warrants, but never use ridicule,
   hostility, insinuation, or exaggerated language as a substitute for severity.
 - Do not write as the authors.

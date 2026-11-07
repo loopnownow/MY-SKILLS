@@ -14,6 +14,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261107-t1761u-unicode-minus-allow (2026-11-07)
+
+Owner t1761u (Asia/Shanghai 2026-11-07): **Unicode minus (U+2212) is allowed** for signed numbers and difference spans (`−0.32`, `Q3−Q1`). Em-dash (U+2014 / spaced `--`) and `≈` stay hard-banned. ASCII hyphen and en dash (U+2013) stay fine. Do **not** force whole-library conversion to U+2212.
+
+- **Rule home:** `05_manuscript/base/vocab/L1/ban-phrases.md` now says Unicode minus allowed beside the existing en-dash allow.
+- **Aligned:** `05_manuscript/advanced/Aitor-format.md`, `00_orchestrator/references/style-tells.md`, `00_orchestrator/references/skill-evolution.md`, `05_manuscript/base/vocab/L1/patterns.md`, `05_manuscript/advanced/voice-portrait.md`, `05_manuscript/advanced/vocab/L1/sci-overrides.md`, `05_manuscript/advanced/process/citation-and-language.md` (broadens the former "math minus in formulas only"), `05_manuscript/advanced/process/polisher-sections.md`, `02_data-processing/qc/report-checks.md`, and the 06/07 reviewer/response lines that already said en dash allowed.
+- **Tests:** `test_qc_guards.PunctuationWording` asserts the allow wording in `ban-phrases.md` / `Aitor-format.md` and retires "formulas only" / hard-ban wordings for U+2212.
+- **Cross-repo:** MY-RULES `My rule.md` §8 carries a short standing pointer (separate PR). MY-CODES `style_lint` already does not ban U+2212; no code change this ticket.
+
 ## CHG-20261106-t1721u-repo-qc (2026-11-06)
 
 Repo QC pass over Rules + Skills + MY-CODES (2026-11-06): live Skills tree back to green.
