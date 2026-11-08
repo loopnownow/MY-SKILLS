@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261108-t1809u-rp-folders-to-database (2026-11-08)
+
+Owner t1809u (Asia/Shanghai 2026-11-08): **R*/P* whole-folder into `_DataBase`** on accepted closeout.
+
+- **Rule:** project-tree folders named `R*` / `P*` (revision/submission packs, e.g. R1/R2/P1/P1.1) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose / small-file pile -> 7z/zip + `.files.txt` first per t1800u); after QC move original folder to `D:\MyProjects\.Del\_by-project\<slug>\`. Root keeps only one current `Manuscript_*_{V|R|P}…` **file**.
+- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
+- **Unchanged:** no actual move/compress this ticket; MY-CODES untouched; Skills are pointer-only (no full restatement).
+
 ## CHG-20261108-t1806u-accepted-closeout (2026-11-08)
 
 Owner t1806u (Asia/Shanghai 2026-11-08): **accepted closeout** landing rules (slim `accepted\` then `archived\` + `ARCHIVED.md`).
@@ -30,6 +38,28 @@ Owner t1800u (Asia/Shanghai 2026-11-08): **zip-before-ingest** into `{raw_root}`
 - **syn:** unchanged from t1796u: `/XD .Del` only; `_DataBase` still syncs with the main tree.
 - **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` (zip-before-ingest section) + short pointer in `My rule.md`.
 - **Unchanged:** no actual compression/ingest this ticket; MY-CODES untouched.
+
+## CHG-20261108-t1796u-syn-xd-del-only (2026-11-08)
+
+Owner t1796u: `syn.bat` 的 `/XD` 只留 `.Del`（去掉 `/XD _DataBase`）；`_DataBase` 随 `D:\MyProjects` → `E:\Aitor` 主树一起同步。`synDB.bat` 仍单独镜像 `_DataBase`。
+
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` sync section + `My rule.md`.
+- **Unchanged:** 本票不动盘；MY-CODES untouched.
+
+## CHG-20261108-t1794u-dotdel-syn (2026-11-08)
+
+Owner t1794u: `{del_root}` = `D:\MyProjects\.Del`（was `D:\0del`；alias `0del` = `.Del`）。`syn.bat`: `D:\MyProjects` → `E:\Aitor`（Aitor 根，**不是** `E:\Aitor\MyProjects`）；`/XD _DataBase .Del`；`DEL.lnk` → `.Del`。t1791u 的 E 侧路径 typo 在本条改正。
+
+- **Aligned:** `lab-paths.yaml`（`del_root`）+ this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` sync section.
+- **Unchanged:** 本票不搬文件；MY-CODES untouched.
+
+## CHG-20261108-t1791u-myprojects-paths (2026-11-08)
+
+Owner t1791u: 根路径更名 —— 工程根 `D:\MyProjects`（原 `D:\0Grok`）、文档库 `D:\MyProjects\_Docs`（旧名 `0doc`）、原始库 `{raw_root}` = `D:\MyProjects\_DataBase`（旧名 `00db`；按后缀分桶，`_lab` 与其他 `_*` 留根）；`{del_root}` 见 t1794u。
+
+- **Aligned:** `lab-paths.yaml` 全量别名 + soft live path literals；Rules SSOT `{RULES}/workspace-layout.md` + `My rule.md` §1。
+- **History rule:** 历史条目 / `VERSION.txt` 旧盘符保留为 dated facts（`lab-paths.yaml` header）。
+- **Follow-up QC (2026-11-08, 改名后复检):** MY-CODES 的活默认值仍指旧根，已同步改正 —— `modules/console/paths.py` `DEFAULT_GROK_ROOT` → `D:\MyProjects`；`modules/console/const.py` `REGISTRY_PATH` `0doc` → `_Docs`；`tools/clean-data/tidy_paths.py` 与 `tools/sync/{batch_rerun_pipelines,smoke_test,sync_modules}.py` 的 `DEL_ROOT` → `D:\MyProjects\.Del`；`tools/lab-reference/*` 的 `00db` / `0doc` 默认值 → `_DataBase` / `_Docs`；文档/用法示例里的旧名同步（见下条 CHG）。
 
 ## CHG-20261107-t1761u-unicode-minus-allow (2026-11-07)
 

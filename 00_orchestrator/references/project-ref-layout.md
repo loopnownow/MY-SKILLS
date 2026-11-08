@@ -57,9 +57,9 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 - Raw / pre-clean base tables may live at `ref/` root or `ref/data/` (keep `data/` when clearer or on collision).
 - **Before moving base tables in future, ask 城城 first** (D-1); exception: a migrate round already approved to lift former `materials/` contents. No silent moves.
 
-### accepted closeout hard-keep (t1806u)
+### accepted closeout hard-keep (t1806u / t1809u)
 
-Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript_<slug>_{V|R|P}…` (project root) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Reproducible figs -> `.Del\_by-project\<slug>\`; non-reproducible -> `_DataBase`. Full list -> `{RULES}/workspace-layout.md` 「accepted 收工」 (Rules Chinese SSOT).
+Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript_<slug>_{V|R|P}…` **file** (project root) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase` (zip-first if >=20 loose); after QC originals -> `.Del\_by-project\<slug>\`. Reproducible figs -> `.Del\_by-project\<slug>\`; non-reproducible -> `_DataBase`. Full list -> `{RULES}/workspace-layout.md` 「accepted 收工」 (Rules Chinese SSOT).
 
 ### Cleanup (afterward; two tiers)
 
