@@ -57,6 +57,10 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 - Raw / pre-clean base tables may live at `ref/` root or `ref/data/` (keep `data/` when clearer or on collision).
 - **Before moving base tables in future, ask 城城 first** (D-1); exception: a migrate round already approved to lift former `materials/` contents. No silent moves.
 
+### accepted closeout hard-keep (t1806u)
+
+Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript_<slug>_{V|R|P}…` (project root) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Reproducible figs -> `.Del\_by-project\<slug>\`; non-reproducible -> `_DataBase`. Full list -> `{RULES}/workspace-layout.md` 「accepted 收工」 (Rules Chinese SSOT).
+
 ### Cleanup (afterward; two tiers)
 
 **Never** silent-delete. Ask 城城 before moving; prefer `{DEL}\_by-project\<project>\` (cross-project → `_by-function`); keep relative names when useful.

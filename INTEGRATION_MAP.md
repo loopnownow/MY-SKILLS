@@ -14,6 +14,14 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261108-t1806u-accepted-closeout (2026-11-08)
+
+Owner t1806u (Asia/Shanghai 2026-11-08): **accepted closeout** landing rules (slim `accepted\` then `archived\` + `ARCHIVED.md`).
+
+- **Rule:** hard-keep Manuscript + FinalData (+ optional `ref/settings.ini` -> raw bucket); what may go to `_DataBase` / `_Docs` buckets; figure routing; four archive gates unchanged; syn `/XD .Del` only. harvest-skill-library != closeout.
+- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` 「accepted 收工」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
+- **Unchanged:** no actual move/compress/rename this ticket; MY-CODES untouched; Skills are pointer-only (no full restatement).
+
 ## CHG-20261108-t1800u-database-zip-before-ingest (2026-11-08)
 
 Owner t1800u (Asia/Shanghai 2026-11-08): **zip-before-ingest** into `{raw_root}`=`D:\MyProjects\_DataBase`.
