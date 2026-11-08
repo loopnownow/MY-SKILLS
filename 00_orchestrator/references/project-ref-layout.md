@@ -65,7 +65,7 @@ Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript
 
 **Never** silent-delete. Ask 城城 before moving; prefer `{DEL}\_by-project\<project>\` (cross-project → `_by-function`); keep relative names when useful.
 
-**Default clear → 0del** (ask first):
+**Default clear → `{del_root}`** (ask first):
 
 - `ref/tmp/` (whole tree or named files)
 - Obsolete writing refs / expired pre-clean tables now under `ref/refer/` or formerly at `ref/` root

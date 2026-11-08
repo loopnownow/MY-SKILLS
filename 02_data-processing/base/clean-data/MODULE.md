@@ -32,7 +32,7 @@ not here.
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
 | Patient-level leakage check on the table | Radiomics extraction (`stats-analysis`) |
 | | Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py` |
-| | Reporting checklists CLAIM/TRIPOD/CLEAR → `check-reporting` |
+| | Reporting checklists CLAIM/TRIPOD/CLEAR → `05_manuscript/qc/check-reporting/` |
 
 ## Required columns
 
@@ -119,4 +119,4 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - Imaging I/O + availability statements → `preprocess-imaging` (including `data.md`)
 - Radiomics / leakage audit on feature matrices → `stats-analysis`
 - Modelling / calibration / DCA → `stats-analysis` / `model-evaluation`
-- Reporting checklists → `check-reporting`
+- Reporting checklists → `05_manuscript/qc/check-reporting/`

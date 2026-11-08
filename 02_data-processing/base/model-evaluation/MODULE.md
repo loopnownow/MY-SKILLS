@@ -24,6 +24,6 @@ Lab pipeline / DeLong / Cox policy stays in `02_data-processing/advanced/analysi
 4. **Calibration** — plot + slope/intercept or a named calibration metric when supplied.
 5. **Clinical utility** — decision-curve analysis **only** if the paper claims decision support.
 6. **External / temporal / geographic** validation when generalisability is claimed; otherwise bound the claim.
-7. **Plots** — `plot-figures`. Reporting checklists — `check-reporting`.
+7. **Plots** — `plot-figures`. Reporting checklists — `05_manuscript/qc/check-reporting/`.
 
 Legacy alias: `model-validation` → `model-evaluation` (2026-10-17 round 3).

@@ -64,7 +64,7 @@ evidence.
 5. **Plan prospective/real-world validation** (prospective-deployment.md) — temporal/prospective/
    RWE design, workflow position, monitoring for drift, failure handling.
 6. **Bound the claim** — state exactly what level of evidence supports what level of claim;
-   route statistics to `02_data-processing` (`stats-analysis` / `model-evaluation`) and reporting to `05_manuscript` (`check-reporting`).
+   route statistics to `02_data-processing` (`stats-analysis` / `model-evaluation`) and reporting to `05_manuscript` (`05_manuscript/qc/check-reporting/`).
 
 ## Output contract
 
@@ -87,7 +87,7 @@ evidence — and it never lets a retrospective AUC masquerade as clinical readin
 ## Handoffs
 
 - MRMC / net-benefit / decision-curve statistics → `02_data-processing` (`stats-analysis` / `model-evaluation`).
-- Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`check-reporting`).
+- Reader-study reporting, DECIDE-AI / CONSORT-AI for trials → `05_manuscript` (`05_manuscript/qc/check-reporting/`).
 - The validation cohort / temporal design → `03_research` (`design-study` / `fill-protocol`).
 - Reader-study figures, net-benefit plots → `02_data-processing` (live `plot-figures`).
 - Plans research and evaluation only; no individual-patient clinical or diagnostic advice.

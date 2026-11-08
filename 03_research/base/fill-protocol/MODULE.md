@@ -59,7 +59,7 @@ institutional template.
 | Advanced / Jinshan / PHI packs | `03_research/advanced/fill-protocol/` |
 | Registry fine id | `fill-protocol` (live under `03_research/base/fill-protocol/`) |
 
-**Companion fine ids:** `check-reporting`,
+**Companion body:** `05_manuscript/qc/check-reporting/`,
 `calc-sample-size`. Do not vendor missing scripts into this pack; if automation is
 needed later, add real files under `scripts/` and update this MODULE in the same PR.
 

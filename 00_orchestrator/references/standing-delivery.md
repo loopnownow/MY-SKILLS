@@ -40,7 +40,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 ## Reporting levels
 
 - Small task (single-file edit) → one line: result + absolute paths.
-- Multi-file / pipeline / move / needs verification → four parts: (1) status (2) changes (absolute path + new/modified/moved + reason) (3) verification (mark unverified) (4) next; then a cleanup list (original → 0del / size / reason) and a keep list. Result first, reason second.
+- Multi-file / pipeline / move / needs verification → four parts: (1) status (2) changes (absolute path + new/modified/moved + reason) (3) verification (mark unverified) (4) next; then a cleanup list (original → `{del_root}` / size / reason) and a keep list. Result first, reason second.
 - Report times and ETAs: Asia/Shanghai (UTC+08:00).
 
 ## Project `ref/` subfolders

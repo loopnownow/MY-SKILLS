@@ -96,7 +96,7 @@ generalisable or single-center-anecdote.
 3. **`Study blueprint`** — clinical question, population, primary endpoint/estimand, comparator,
    clinical-use scenario; design type.
 4. **`Method options`** — minimum-viable vs stronger, with the trade-off and which reporting
-   guideline each will be judged against (→ `check-reporting`).
+   guideline each will be judged against (→ `05_manuscript/qc/check-reporting/`).
 5. **`Validation plan`** — split scheme, internal + external/temporal/geographic/multi-center
    design, and the honest definition of "external" for this data.
 6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
@@ -119,7 +119,7 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 - Deep-learning architecture & training design → `03_research/advanced/` (not a fine id).
 - Imaging × omics mechanism design → `stats-analysis` / this pack.
 - ROI/mask annotation SOP → `preprocess-imaging`.
-- Which checklist the design must satisfy → `check-reporting`.
+- Which checklist the design must satisfy → `05_manuscript/qc/check-reporting/`.
 - Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
 - Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/`.
 - Own funding proposal → advanced grant Voice A/B (`03_research/advanced/intake.md` Grant Voice A/B sections; stubs remain at grant-*.md). Do not copy grant skeletons into this pack.

@@ -18,7 +18,7 @@ Canonical name is **`SCI-manuscript-scaffold.docx`**. An identical alias copy na
 
 **Voice and revision marks (same Aitor-format, do not fork):**
 `{doc_root}\templates\Aitor-format-gold-response.docx` (typography reference: A4, 2.54 cm margins, TNR 12, 1.5 spacing, comments author **A**) ·
-`{lab_root}\pre-submit\lya_WML\MCI\_house_unpack\Manuscript_MCI_house.docx` (circular labels; delete extra tables).
+(HISTORIC 2026-11-08: project sample of circular labels; the sample file is no longer on disk; delete extra tables).
 
 Later-polish live files follow `Manuscript_<project-slug>_V<major>.<minor>.docx` or `_R<round>.<minor>.docx` (Rules SSOT) in the outcome folder. Use them for de-pipeline + number realignment only; **do not copy** sentence fusion, em-dash, internal `development`/`validation`, or disclaimer stacks.
 

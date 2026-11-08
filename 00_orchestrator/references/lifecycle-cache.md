@@ -12,7 +12,7 @@
 00 owns path resolve (registry), gates provenance, and owns base -> QC -> advanced/top flow.
 
 1. **Resolve** fine id -> in-repo path via `registry.yaml` (`source: my-skills`).
-2. **Load** from the registry path (`NN_slug/base/...`, or `05_manuscript/qc/check-reporting/` for `check-reporting`; git working tree = `{skills_runtime}`).
+2. **Load** from the registry path (`NN_slug/base/...`, or the non-routable `05_manuscript/qc/check-reporting/` QC body; git working tree = `{skills_runtime}`).
 3. **Pick** -- user multi-selects fine ids (ask-each-run).
 4. **Post-pick QC** -- loaded bytes match registry source + path.
 

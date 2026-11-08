@@ -5,6 +5,7 @@ Merged from earlier registry contract modules + `test_ledger_assurance.py`.
 from __future__ import annotations
 
 import re
+import subprocess
 import unittest
 import yaml
 
@@ -67,14 +68,31 @@ class RegistryPaths(unittest.TestCase):
     def test_every_base_dir_is_registered(self) -> None:
         live = {_base_name(m["path"]) for m in REG["fine_ids"]}
         local = {p["id"] for p in REG.get("local_packs") or []}
+        registered = {
+            m["path"].replace("\\", "/").rstrip("/")
+            for m in REG["fine_ids"]
+        }
+        registered |= {
+            p["path"].replace("\\", "/").rstrip("/")
+            for p in REG.get("local_packs") or []
+        }
+        frontmatter = re.compile(r"^---\s*\n(.*?)\n---\s*$", re.S | re.M)
         missing = []
         for domain in sorted(p for p in ROOT.glob("0[0-7]_*") if p.is_dir()):
             base = domain / "base"
             if not base.is_dir():
                 continue
-            for pack in sorted(p for p in base.iterdir() if p.is_dir()):
-                if pack.name not in live | local:
-                    missing.append(f"{domain.name}/base/{pack.name}")
+            for skill in sorted(base.rglob("SKILL.md")):
+                pack = skill.parent
+                rel = pack.relative_to(ROOT).as_posix()
+                if rel in registered or pack.name in live | local:
+                    continue
+                text = skill.read_text(encoding="utf-8-sig", errors="ignore")
+                match = frontmatter.search(text)
+                data = (yaml.safe_load(match.group(1)) if match else None) or {}
+                if isinstance(data, dict) and data.get("routable") is False:
+                    continue
+                missing.append(rel)
         self.assertEqual(missing, [], "unregistered base packs: " + ", ".join(missing))
 
     def test_pack_frontmatter_name_matches_dir(self) -> None:
@@ -98,6 +116,8 @@ class RegistryPaths(unittest.TestCase):
                         problems.append(f"{doc.relative_to(ROOT).as_posix()}: no frontmatter")
                         continue
                     data = yaml.safe_load(match.group(1)) or {}
+                    if data.get("routable") is False and not str(data.get("name", "")).strip():
+                        continue
                     if str(data.get("name", "")).strip() != pack.name:
                         problems.append(
                             f"{doc.relative_to(ROOT).as_posix()}: name={data.get('name')!r} dir={pack.name!r}"
@@ -226,3 +246,52 @@ class LedgerFreshness(unittest.TestCase):
             reg_date,
             "VERSION.txt is older than the registry change_id",
         )
+
+    def test_integration_map_headings_are_unique_and_descending(self) -> None:
+        text = (ROOT / "INTEGRATION_MAP.md").read_text(encoding="utf-8")
+        entries = re.findall(r"^## (CHG-(\d{8})-[a-z0-9-]+)", text, re.M)
+        self.assertGreaterEqual(len(entries), 40, "INTEGRATION_MAP.md CHG entries not parsed")
+        ids = [entry[0] for entry in entries]
+        dupes = sorted({name for name in ids if ids.count(name) > 1})
+        self.assertEqual(dupes, [], "duplicate CHG headings:\n" + "\n".join(dupes))
+        dates = [entry[1] for entry in entries]
+        self.assertEqual(
+            dates,
+            sorted(dates, reverse=True),
+            "INTEGRATION_MAP.md is not strictly newest-first",
+        )
+
+    def test_head_commit_ticket_ids_reach_a_ledger(self) -> None:
+        try:
+            head = subprocess.run(
+                ["git", "log", "-1", "--format=%B"],
+                cwd=str(ROOT),
+                capture_output=True,
+                text=True,
+                timeout=15,
+                check=False,
+            )
+        except (OSError, subprocess.SubprocessError):
+            self.skipTest("git unavailable")
+        if head.returncode != 0:
+            self.skipTest("git log unavailable")
+        ticket_ids = sorted(set(re.findall(r"\bt(\d{4})u\b", head.stdout)))
+        self.assertTrue(ticket_ids, "no tNNNNu ticket id in HEAD commit message")
+        ledger = (ROOT / "VERSION.txt").read_text(encoding="utf-8") + (
+            ROOT / "INTEGRATION_MAP.md"
+        ).read_text(encoding="utf-8")
+        missing = [f"t{ticket}u" for ticket in ticket_ids if f"t{ticket}u" not in ledger]
+        self.assertEqual(missing, [], "HEAD ticket ids missing from ledgers: " + ", ".join(missing))
+
+
+class RetiredBodies(unittest.TestCase):
+    """Non-routable bodies stay out of the fine-id / alias routing tables."""
+
+    def test_retired_bodies_are_not_routable(self) -> None:
+        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
+        bodies = la.get("retired_bodies") or {}
+        live = {m["id"] for m in REG["fine_ids"]}
+        for name, rel in bodies.items():
+            self.assertNotIn(name, live, f"{name} is both live and a retired body")
+            self.assertNotIn(name, ALIASES, f"{name} must not be in aliases")
+            self.assertTrue((ROOT / str(rel)).is_dir(), f"{name} body path missing: {rel}")

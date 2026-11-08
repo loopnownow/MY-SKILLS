@@ -353,4 +353,4 @@ Vague methodological "framework" is "approach" (`05_manuscript/base/vocab/L1/ban
 
 ## Reporting guidelines (qc-only; post-write)
 
-After major draft or number edits, run `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR / PROBAST stack) and `reporting-guideline-route.md`. Absorbed retired fine id `check-reporting` — not session-picked; Gate G-05 / Integrity · pre-06 loads this path.
+After major draft or number edits, run `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR / PROBAST stack) and `reporting-guideline-route.md`. Retired fine id `check-reporting` (non-routable body) — not session-picked; Gate G-05 / Integrity · pre-06 loads this path.

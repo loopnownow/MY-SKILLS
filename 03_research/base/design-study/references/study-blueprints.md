@@ -5,7 +5,7 @@
 Pick the template that matches the clinical question. For each, the **minimum-viable (MVP)**
 version is what is publishable now; the **stronger** version is what reaches a higher tier.
 Every blueprint must end with a validation plan (validation-strategy.md) and a reporting
-guideline (→ `check-reporting`).
+guideline (→ `05_manuscript/qc/check-reporting/`).
 
 ## 1. Diagnostic accuracy (test vs reference standard)
 - **Question:** does the imaging/AI test correctly classify disease vs a reference standard?
@@ -72,6 +72,6 @@ MVP version:        [what's publishable now]
 Stronger version:   [what raises the tier] + extra cost
 Unit of analysis:   patient / lesion / slice  (default: patient)
 Validation:         [→ validation-strategy.md]
-Reporting guideline:[→ `check-reporting`]
+Reporting guideline:[→ `05_manuscript/qc/check-reporting/`]
 Binding constraint: [the one number everything hinges on]
 ```

@@ -86,8 +86,8 @@ Add: deep-review flow and severity; Code QC Core (Data Safety, Reproducibility, 
 - Every reviewed submodule must have a dry-run path, or an equivalent unit-testable dry path.
 - Do not swallow errors with bare `except Exception: pass` (or equivalent) so a failed run looks successful; failures must be visible.
 
-### QC scrap → 0del
-- After Deep QC / modules QC, unused caches and one-shot intermediates: class A under `{del_root}\<project>\`; others under `{del_root}` (or project `0del`). Do not leave them in `modules/` or the project root. Do not vendor the whole tree into this skill.
+### QC scrap → `{del_root}`
+- After Deep QC / modules QC, unused caches and one-shot intermediates: class A under `{del_root}\<project>\`; others under `{del_root}` (or project `{del_root}`). Do not leave them in `modules/` or the project root. Do not vendor the whole tree into this skill.
 
 ## Explicit do-nots
 - Do not vendor whole-tree heavy `.py` / patient tables / project Excel into GitHub (thin seat `scripts/` helpers are allowed)

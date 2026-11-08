@@ -53,7 +53,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 **This-run pick:** do not load any live id until the 00 session-fine-id pick is confirmed for this run. Registry `LIVE` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
-- Reporting checks (absorbed retired fine id `check-reporting`): `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR). Not session-picked; Gate G-05 loads via `qc/`.
+- Reporting checks (retired fine id `check-reporting`; non-routable body): `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR). Not session-picked; Gate G-05 loads via `qc/`.
 - De-AI / language lint (absorbed retired `humanize`): `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass. Report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`. Not a registry fine id.
 
 选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-paper/`. Advanced de-AI stays in A (`advanced/`).

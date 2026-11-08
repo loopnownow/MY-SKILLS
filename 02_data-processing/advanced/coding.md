@@ -68,7 +68,7 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 
 ### 7. Deep QC
 - Triggers, severity, Preflight→Verdict, Data Safety / Reproducibility: `../qc/coding-qc.md`
-- Scrap → `0del`, submodule dry-run, no silent success: `../qc/coding-qc.md`
+- Scrap → `{del_root}`, submodule dry-run, no silent success: `../qc/coding-qc.md`
 - Critical/Required/Optional are primary labels; P0-P3 are report aliases
 - Boundary: ≠ the retired `skill-harvest/qc` / MY-RULES `{RULES}\skills.md` (skill-evolution); ≠ `preprocess-imaging`; ≠ 02 model/figure QC; ≠ Copilot playbooks/`quality/`
 - Do not vendor the whole `{code_modules}` tree

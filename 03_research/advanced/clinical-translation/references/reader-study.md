@@ -41,4 +41,4 @@ secondary."*
 
 ## Handoff
 MRMC power → `02_data-processing` (live `calc-sample-size`); MRMC analysis → `02_data-processing` (live `stats-analysis`); reader-study reporting (CLAIM, DECIDE-AI for
-decision-support, CONSORT-AI for trials) → `05_manuscript` (live `check-reporting`); plots → `02_data-processing` (live `plot-figures`).
+decision-support, CONSORT-AI for trials) → `05_manuscript` (live `05_manuscript/qc/check-reporting/`); plots → `02_data-processing` (live `plot-figures`).

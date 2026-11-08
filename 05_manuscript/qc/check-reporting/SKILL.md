@@ -1,5 +1,7 @@
 ---
 name: "check-reporting"
+routable: false
+status: internal-qc-body
 domain: "05_manuscript"
 description: TRIPOD / CLAIM / CLEAR reporting.
 owner: "05_manuscript/qc/check-reporting/MODULE.md"
