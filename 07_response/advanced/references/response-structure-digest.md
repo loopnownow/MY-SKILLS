@@ -1,4 +1,4 @@
-# Response-letter structure digest (0doc base absorb)
+# Response-letter structure digest (_Docs base absorb)
 
 > Digested 2026-10-23 from park `…/07-response/base/response-structure/README.md`.
 > Provenance（`{DEL}` 暂存、会定期清空；本文件才是耐久摘要）: `{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\response-structure\README.md`.
@@ -26,7 +26,7 @@ Editor comments (if any) go **first** (`To the Editor` / `Additional Editor Comm
 
 Already covered in `../response.md` Hard rules — **do not fork:** no invent format; comments verbatim; no invented subheadings; Track Changes; typography locked to gold.
 
-**Also enforce (from 0doc structure):**
+**Also enforce (from _Docs structure):**
 
 1. **No promised-but-undone edits.** If not changed: write decline + reason (not "we will…").
 2. **No unread citations** in the letter; DOI / pages must be verified.

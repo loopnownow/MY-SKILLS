@@ -78,9 +78,9 @@ Only after this chain may route continue to statistics / writing / deeper analys
 
 Call order: `journal-selection.md` → `03_research/base/find-journal/SKILL.md`. Format after choice → `03_research/base/find-journal/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).
 
-## 0doc document DB (Bai)
+## _Docs document DB (Bai)
 
 | File | When |
 |---|---|
-| `0doc-db.md` | Owner asks to search/look up/inventory `{doc_root}` (Bai seat; Aitor routes only) |
+| `docs-db.md` | Owner asks to search/look up/inventory `{doc_root}` (Bai seat; Aitor routes only) |
 

@@ -27,7 +27,7 @@ Contract only for find-journal (list gates and layer policy): scope, bans, phase
 
 - **Rules / methods:** `SKILL.md` + `rules/` (policy, workflow, JESI, persistence, …)
 - **List gates (in-repo SSOT):** `data/2026/` — blacklist / graylist / whitelist-bmc-medicine + `submission-urls.csv` write-back. Do not duplicate under `references/` or `artifacts/`.
-- **Runtime selection pools (0doc):** `{find_journal_pools}` = `{doc_library_journals}` — **single table** `index.csv` (+ `index.xlsx`) with a `layer` column, plus `l1-l2-map.csv`; superseded `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` stay read-only in `journals\archive\<year>\`. **Pools live in 0doc; skill keeps list gates only.**
+- **Runtime selection pools (_Docs):** `{find_journal_pools}` = `{doc_library_journals}` — **single table** `index.csv` (+ `index.xlsx`) with a `layer` column, plus `l1-l2-map.csv`; superseded `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` stay read-only in `journals\archive\<year>\`. **Pools live in _Docs; skill keeps list gates only.**
 - **Annual refresh:** rebuild `journals\index.csv` once a year, in **July after the new JCR release** (current edition 2026 / metric year 2025); `{doc_library_jcr}\<year>\` holds per-year submission priors.
 - **`references/`:** retired mix; pointer README only.
 - **Per-project 选刊/已投:** `<project>/ref/citation/journals.csv` (+ `_notes.md`) — not in MY-SKILLS; never scatter journal notes as md/json/html in `ref/`.
@@ -150,10 +150,10 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 
 1. `data/2026/blacklist.csv`
 2. `rules/recommendation-workflow.md`
-3. `{find_journal_pools}\l1-l2-map.csv` (0doc pool; discipline -> l1/l2)
+3. `{find_journal_pools}\l1-l2-map.csv` (_Docs pool; discipline -> l1/l2)
 4. `{find_journal_pools}\index.csv` - single pool table; select rows by `layer` (`2-Q1且IF小于5` / `3-Q2` / `4-Q3` / opt-in `2补-Q1且IF5到10`)
 5. `rules/aim-author-checklist.md` - phase 2 only
-6. `{jcr2026_xlsx}` - curated pool (0doc SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
+6. `{jcr2026_xlsx}` - curated pool (_Docs SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
 7. `rules/policy.md` - stable rules
 8. `rules/annual-update.md` - yearly table refresh (July, after the new JCR release)
 9. `rules/query-sources.md` - evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)

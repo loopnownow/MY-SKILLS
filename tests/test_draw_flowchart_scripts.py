@@ -141,14 +141,15 @@ class ExpandedStrobeSpec(unittest.TestCase):
     def test_cli_writes_and_fails_loud(self) -> None:
         good = Path(self.tmp.name) / "spec.json"
         good.write_text(json.dumps(SPEC), encoding="utf-8")
-        self.mod.main(["--json", str(good), "--out", str(self.out)])
+        self.assertEqual(self.mod.main(["--json", str(good), "--out", str(self.out)]), 0)
         self.assertTrue(self.out.is_file())
+        kept = self.out.stat().st_mtime_ns
 
         bad = Path(self.tmp.name) / "bad.json"
         bad.write_text(json.dumps(self._spec(screened="n = 999")), encoding="utf-8")
-        with self.assertRaises(SystemExit) as caught:
-            self.mod.main(["--json", str(bad), "--out", str(self.out)])
-        self.assertEqual(caught.exception.code, 1)
+        # MY-CODES cli.main 返回退出码（test_flowfigure_render 锁住该契约）；__main__ 负责 sys.exit。
+        self.assertEqual(self.mod.main(["--json", str(bad), "--out", str(self.out)]), 1)
+        self.assertEqual(self.out.stat().st_mtime_ns, kept, "审计失败不得覆盖已落盘图")
 
 
 if __name__ == "__main__":

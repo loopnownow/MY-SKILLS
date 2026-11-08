@@ -1,4 +1,4 @@
-# 0doc writing-rules (pointer)
+# _Docs writing-rules (pointer)
 
 Lab hard constraints + authority map live in advanced:
 

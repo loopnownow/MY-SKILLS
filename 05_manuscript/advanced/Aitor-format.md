@@ -5,7 +5,7 @@ Formerly `house-format.md`.
 **Owner:** `05_manuscript/advanced/`. Single source for **every English SCI full paper** in this lab.
 
 **Blank manuscript template (new SCI paper: copy, then fill):**
-`{doc_root}\templates\SCI-manuscript-scaffold.docx`（**空白 SCI 稿件骨架**，2026-11-04 建于 `0doc\templates`；A4 + 2.54 cm、TNR 12 / 1.5、comments author **A**、无 Heading 1/2/3、无黄底。新稿起手只用这一份）
+`{doc_root}\templates\SCI-manuscript-scaffold.docx`（**空白 SCI 稿件骨架**，2026-11-04 建于 `_Docs\templates`；A4 + 2.54 cm、TNR 12 / 1.5、comments author **A**、无 Heading 1/2/3、无黄底。新稿起手只用这一份）
 
 Canonical name is **`SCI-manuscript-scaffold.docx`**. An identical alias copy named `SCI-manuscript-blank.docx` may also sit in `{doc_root}\templates` after the local rewrite; it is the same file, not a second template. Point every fill at **scaffold** and do not edit the two apart.
 

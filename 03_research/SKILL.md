@@ -38,7 +38,7 @@ See `advanced/route.md` for the full pointer table.
 |---|---|
 | Evidence & literature | citation-verify, intro-evidence-pack, journal-selection SOP, lit-search (`base/`) |
 | Design & exploration | radiology-design/frontier, ethics, intake, multicenter, grants, clinical-translation; ethics forms -> `03_research/base/fill-protocol/` (Bai) |
-| Journal selection | 选刊走 03 `find-journal` — Victor seats `03_research/base/find-journal/` (list gates in base/; runtime pools in 0doc) |
+| Journal selection | 选刊走 03 `find-journal` — Victor seats `03_research/base/find-journal/` (list gates in base/; runtime pools in _Docs) |
 
 ## Literature rule
 

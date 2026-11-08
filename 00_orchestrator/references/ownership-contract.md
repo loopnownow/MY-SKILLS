@@ -13,7 +13,7 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 | Victor | `03_research` | literature & evidence / study design & exploration / journal selection, Voice B grant, citation-verify / **lit-bank** (NLM ledger) |
 | Aitee | `05_manuscript` + `07_response` | manuscript prose, Evidence QC, all manuscript Track Changes (05); response letter final authority (07) |
 | Lee | `06_review` | re-review marks/comments; default is not to self-revise manuscript |
-| Bai | portal submit after review loop + ethics forms + **0doc library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
+| Bai | portal submit after review loop + ethics forms + **_Docs library query** | portal submit / Phase-1 checkbox HTML; ethics application **forms** via `03_research/base/fill-protocol/`; **lookup/search/inventory in `{doc_root}`** (Aitor routes/monitors); not the 00 loop. Aitee owns 07 response letter |
 | Cursor | external pack | tidying / extraction / form-fill / in-repo frontend-backend (UI, API, tests, PR) peer work, only via 「交给cursor」 (Cursor IDE; Cline may run as IDE plugin for the owner, bots do not call Cline). **Not the default coding seat.** Coding / scripts / `MY-CODES` are Loopnow on 02 |
 
 Every role above, plus CloudAgent, carries and obeys `{RULES}`; `{RULES}\My rule.md` is authoritative. This contract governs who may revise what and does not restate Rules text. Skills attach on concrete work only.
@@ -54,14 +54,14 @@ Semantic labels: **G-CIT-1** is draft evidence verification before Gate · 05. *
 
 Checklist: `03_research/advanced/citation-verify.md`.
 
-## 0doc database lookup
+## _Docs database lookup
 
 **Owner:** Bai. **Router:** Aitor (does not self-search for general lookup/search/inventory asks).
 
-When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (live tops `_library`（含 `glossary`）, `templates`, `mem`, `test`, `skill-harvest`; ethics under `{doc_ethics}`; tree map in `03_research/advanced/0doc-db.md`), Aitor hands the ask to **Bai**.
+When the owner asks to search, look up, locate, or inventory materials in the lab document database `{doc_root}` (live tops `_library`（含 `glossary`）, `templates`, `mem`, `test`, `skill-harvest`; ethics under `{doc_ethics}`; tree map in `03_research/advanced/docs-db.md`), Aitor hands the ask to **Bai**.
 
 Bai returns: exact paths, short Chinese summary, and approval numbers / filenames when ethics-related. Treat `{doc_ethics}` as PHI-capable: summarize in chat, do not paste identifiers into public channels or GitHub.
 
-**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures/scripts/coding). Cursor takes work only when the owner says 「交给cursor」 (tidying / extraction / form-fill / IDE work), never as the script or coding default. Live project folders under `{lab_root}\` outside `0doc` stay with the seat that owns that workstream.
+**Does not replace:** Victor (web/literature search); Aitee (manuscript Track Changes); Lee (re-review marks); Loopnow (stats/figures/scripts/coding). Cursor takes work only when the owner says 「交给cursor」 (tidying / extraction / form-fill / IDE work), never as the script or coding default. Live project folders under `{lab_root}\` outside `_Docs` stay with the seat that owns that workstream.
 
-Procedure: `03_research/advanced/0doc-db.md`.
+Procedure: `03_research/advanced/docs-db.md`.

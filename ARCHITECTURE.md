@@ -46,7 +46,7 @@ Grants (Voice A reviewing others' proposals / Voice B your own) is an advanced 0
 | Batch / Excel folders | `{RULES}/workspace-layout.md` |
 | VAL_MODE / pairwise compare / subgroup ROC | `02_data-processing` → `02_data-processing/advanced/analysis/pipeline.md` |
 | Ethics application form fill | `03_research` → `base/fill-protocol/` — **executor Bai** (`a_domain` `03_research`, the one route exception) |
-| 0doc library lookup / portal submit | **Bai** (Aitor routes; off the 00 main loop; `03_research/advanced/0doc-db.md`) |
+| _Docs library lookup / portal submit | **Bai** (Aitor routes; off the 00 main loop; `03_research/advanced/docs-db.md`) |
 | Clinical extraction (exported text) | `02_data-processing` → `02_data-processing/advanced/extract.md` |
 | Translational / reader study | `03_research` → `clinical-translation/` |
 | Journal-grade ROC/calibration/DCA figures | `02_data-processing` (`plot-figures`; palettes: `02_data-processing/base/plot-figures/references/lab-palettes.md`) |

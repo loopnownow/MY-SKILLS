@@ -28,7 +28,7 @@
 
 - High-volume language tags (`wording`, `tense-voice`, `sentence-polish`, `article-prep`) → advanced De-AI pass (`process/polisher-sections.md`; absorbed retired `humanize`) after content is locked.
 - `claim-down` / `limitation` / `hedge` → respect voice-portrait: Results unhedged; Discussion calibrated; process-negation → Word comment only.
-- Full pattern pages + units remain regenerable under 0doc (or the {raw_root}\_lab originals park after move); skills keep this summary.
+- Full pattern pages + units remain regenerable under _Docs (or the {raw_root}\_lab originals park after move); skills keep this summary.
 
 ## Pointers
 

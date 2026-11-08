@@ -1,5 +1,5 @@
 # Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
-# Agents expand from this file at read time. Do not vendor 0doc\_code / 0doc into git.
+# Agents expand from this file at read time. Do not vendor _Docs\GitHub\MY-CODES / _Docs into git.
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 # Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
@@ -14,7 +14,7 @@ aliases:
   skills_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   rules_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-RULES"
-  # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/advanced|base; live content under advanced\.
+  # _Docs — 2026-10-23: human-readable layer folded into <coarse-id>/advanced|base; live content under advanced\.
   doc_lab_ste: "D:\\MyProjects\\_Docs\\skill-harvest\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
   # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
   jcr2026_xlsx: "D:\\MyProjects\\_Docs\\mem\\医学投稿推荐_JCR2026.xlsx"
@@ -27,7 +27,7 @@ aliases:
   doc_library_jcr: "D:\\MyProjects\\_Docs\\_library\\journals"  # 2026-10-31: jcr\ flattened into journals\ (alias kept resolvable, same dir as doc_library_journals)
   doc_ethics_approvals: "D:\\MyProjects\\_Docs\\_library\\ethics\\approvals"
   doc_ethics_index: "D:\\MyProjects\\_Docs\\_library\\ethics\\approvals-index.xlsx"
-  # 2026-11-01: 0doc `_bank` retired → `_library\glossary`（**四层**：words/sentences/paragraphs + sections 指针页）+ `banks`（证据层；经 GLOSSARY_ROOT）。
+  # 2026-11-01: _Docs `_bank` retired → `_library\glossary`（**四层**：words/sentences/paragraphs + sections 指针页）+ `banks`（证据层；经 GLOSSARY_ROOT）。
   # {doc_glossary} = GLOSSARY_ROOT：四层 md（words/sentences/paragraphs + sections 指针页）+ index.csv（13 列）；
   # 证据层路径 = {doc_glossary}\banks（jsonl + glossary.db + MANIFEST；GATES.md 已清）。**已退役别名** `doc_glossary_banks` — 新文只用 GLOSSARY_ROOT / {doc_glossary}\banks。
   # was 06-review/advanced（人席 2026-10-23 迁出）；review-text SSOT = {doc_glossary}\banks\review-text.jsonl（+ REVIEW-TEXT.tsv）。
@@ -57,7 +57,7 @@ aliases:
   code_bank_qc: "D:\\MyProjects\\_Docs\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
-  - "2026-11-08 t1809u: accepted closeout R*/P* folders (revision/submission packs e.g. R1/R2/P1/P1.1): whole folder into {raw_root}\<suffix>\<prefix_suffix>\ (>=20 loose / small-file pile -> 7z/zip + .files.txt first); after QC original -> {del_root}\_by-project\<slug>\; root keeps one Manuscript_*_{V|R|P}… file only. Pointer only; Rules SSOT: {rules_git}/workspace-layout.md 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」."
+  - "2026-11-08 t1809u: accepted closeout R*/P* folders (revision/submission packs e.g. R1/R2/P1/P1.1): whole folder into {raw_root}\\<suffix>\\<prefix_suffix>\\ (>=20 loose / small-file pile -> 7z/zip + .files.txt first); after QC original -> {del_root}\\_by-project\\<slug>\\; root keeps one Manuscript_*_{V|R|P}… file only. Pointer only; Rules SSOT: {rules_git}/workspace-layout.md 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」."
   - "2026-11-08 t1806u: accepted closeout: after harvest slim accepted\\<prefix_suffix>\\ then move to archived\\<prefix>\\<prefix_suffix>\\ + ARCHIVED.md; hard-keep Manuscript + FinalData (+ optional settings.ini -> _DataBase\\<suffix>\\<prefix_suffix>\\). Pointer only; Rules SSOT: {rules_git}/workspace-layout.md 「accepted 收工」. harvest-skill-library != closeout."
   - "2026-11-08 t1800u: zip-before-ingest into {raw_root}: dirs with >=20 standalone files or small-file piles pack to one archive (prefer 7z -mx=5; else zip) + <name>.files.txt before landing; loose originals move to {del_root} after QC; syn still /XD .Del only. Rules SSOT: {rules_git}/workspace-layout.md 「进 _DataBase 多文件先压缩」."
   - "2026-11-08 t1796u: syn.bat /XD list is only .Del (drop /XD _DataBase); _DataBase now syncs with D:\\MyProjects -> E:\\Aitor main tree. synDB.bat remains separate DB sync. Rules SSOT: {rules_git}/workspace-layout.md sync section."
@@ -71,7 +71,7 @@ notes:
   - "HISTORIC (SUPERSEDED 2026-11-01 t1527u): 2026-10-25 QC P0: {code_figures}→_code\\02-data-processing\\draw-flowchart; {code_06_review} retired (no _code\\06-review; review seat={skills_git}\\06_review); {doc_lab_ste}/{doc_grants}/{doc_fill_protocol}→skill-harvest-sources durable parks ( _library lab-ste/grants/study-design retired 2026-10-23; not lab-ref-ranges)."
   - "2026-10-24: harvest SSOT moved {_bank\\skill-harvest} → {doc_skill_harvest} (= 0doc\\skill-harvest); 0del keeps README-skill-harvest.md pointer only."
   - "2026-10-23: {skills_runtime} = GitHub clone SSOT ({skills_git}); former C:\\\\Users\\\\loopn\\\\.grok\\\\skills retired (do not recreate). {rules_git} = MY-RULES clone (rules_runtime dropped: same tree); Cline Documents\\\\Cline\\\\Rules is a junction to that clone."
-  - "0doc\\_code / 0doc are never vendored into MY-SKILLS."
+  - "_Docs\\GitHub\\MY-CODES / _Docs are never vendored into MY-SKILLS."
   - "2026-11-01 t1521u P2: _code usable code moved to MY-CODES/tools/<fine-id> (flat, no seat-number folders); {code_data_processing} now = MY-CODES/tools, {code_clean_data}/{code_fill_protocol}/{code_write_paper} repointed, no {code_lab_reference} alias yet (add+cite together when needed); the _code shell was retired 2026-11-01 (P4) and moved to {DEL}\\_by-function\\t1521u-mycodes-rename\\removed\\_code."
   - "2026-11-01: repo renamed GitHub\\stats-analysis -> GitHub\\MY-CODES (GitHub keeps a redirect from the old name). {code_stats}/{code_modules}/{code_modules_master}/{code_model_validation} now resolve under MY-CODES; skill fine-id `stats-analysis` and env STATS_ROOT keep their names — repo name and skill id are decoupled."
 
