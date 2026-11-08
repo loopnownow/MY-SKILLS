@@ -245,7 +245,7 @@ class FiveFixes(unittest.TestCase):
         aliases = state["study_folder_stage_aliases"]
         self.assertEqual(aliases["preparing"], "drafting")
         self.assertEqual(aliases["polishing"], "pre-submit")
-        self.assertEqual(aliases["submitting"], "in-review")
+        self.assertEqual(aliases["submitting"], "reviewing")
         self.assertEqual(aliases["reseived"], "accepted")
         self.assertEqual(aliases.get("received"), "accepted")
         self.assertNotIn("reseived", (state.get("pipeline") or {}).get("stage", ""))
