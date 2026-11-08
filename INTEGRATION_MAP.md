@@ -38,7 +38,8 @@ Repo QC pass over Rules + Skills + MY-CODES (2026-11-06): live Skills tree back 
 
 Ledger backfill: two live-sentence edits had shipped without a `VERSION.txt` / map entry.
 
-- **t1716u:** live workspace path retargeted `proposal` → `D:\0Grok\R&P` (mirrors Rules `workspace-layout.md` sibling root).
+- **t1791u:** live roots retargeted `D:\MyProjects`→`D:\MyProjects`, `0doc`→`_Docs`, `D:\MyProjects\_DataBase`→`D:\MyProjects\_DataBase` (suffix buckets); lab-paths aliases updated; E mirror `E:\Aitor\MyProjects`.
+- **t1716u:** live workspace path retargeted `proposal` → `D:\MyProjects\R&P` (mirrors Rules `workspace-layout.md` sibling root).
 - **t1720u:** R&P purpose sentences aligned with Rules (grant/project application packets + reviewing other authors' manuscripts; not a manuscript stage).
 
 ## CHG-20261106-t1712u-absorb-lab-palettes (2026-11-06)
@@ -318,14 +319,14 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - **lab-paths.yaml** version 5 → 6.
 - `{code_figures}` → `D:\0Grok\0doc\GitHub\MY-SKILLS\02_data-processing\base\draw-flowchart` (2026-11-01 t1527u; scripts in `scripts/`). **HISTORIC:** former `_code\02-data-processing\draw-flowchart` (2026-10-25 P0; earlier `04-analysis\draw-flowchart`) - do not recreate a live `_code` pointer-only shell.
 - `{code_06_review}` **retired** — no `_code\06-review`; review seat is `{skills_git}\06_review` only. Alias removed (no live cites).
-- `{doc_lab_ste}` → `D:\0Grok\0doc\skill-harvest\sources\library-methods-20261023\lab-ste` (full SPEC/`config.yaml`; **not** `_library\lab-ref-ranges`). Live method SSOT remains `05_manuscript/base/vocab/L3/`.
+- `{doc_lab_ste}` → `D:\MyProjects\_Docs\skill-harvest\sources\library-methods-20261023\lab-ste` (full SPEC/`config.yaml`; **not** `_library\lab-ref-ranges`). Live method SSOT remains `05_manuscript/base/vocab/L3/`.
 - `{doc_grants}` → `...\library-ftp-20261023\grants` (same durable tree). Word originals also under `{doc_word_archive}\03-research\grants`. Digests stay in `03_research/personal/references/`.
 - `{doc_fill_protocol}` → `...\library-methods-20261023\study-design\fill-protocol`. Live Jinshan notes: `03_research/personal/fill-protocol`; scripts: `{code_fill_protocol}`; PHI blanks: `{doc_ethics}`.
 - Prose: `05_manuscript/base/vocab/L3/lab-ste.md` "Live library" → park + method SSOT wording.
 
 ## CHG-20261025-stats-path-github (2026-10-25)
 
-- **Stats SSOT:** `{code_stats}` / `{code_modules}` / `{code_model_validation}` → `D:\0Grok\0doc\GitHub\stats-analysis` (and `modules` / `model-validation`).
+- **Stats SSOT:** `{code_stats}` / `{code_modules}` / `{code_model_validation}` → `D:\MyProjects\_Docs\GitHub\stats-analysis` (and `modules` / `model-validation`).
 - Former `_code\04-analysis\stats-analysis` tree is gone; `{code_modules_master}` equals `{code_modules}`.
 - Prose: `02_data-processing/personal/analysis/stats-analysis-digest.md`, `route.md`.
 - MY-RULES `workspace-layout.md` already points at the GitHub tree (same change).
