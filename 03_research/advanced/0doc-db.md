@@ -22,7 +22,7 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 
 **Word originals** are not inside the `0doc` tree: `{doc_word_archive}`（原 `{DEL}\_by-project\0doc-word-sources\` park 已清；t1490u）。
 
-**Moved to 0del (not live):** `03-research\briefs (historical; now under D:\00db\_lab\originals)`, `07-response\reply-units`, `_bank\md-build` → `D:\00db\_lab\originals\0doc-struct-20261022\` (folder shrink 2026-10-23). Former `05-manuscript` / `06-review` / `07-response` human seats are in that same park class (`{raw_root}\_lab\originals\0doc-03-07-seats-20261023`), not live tops.
+**Moved to 0del (not live):** `03-research\briefs (historical; now under D:\MyProjects\_DataBase\_lab\originals)`, `07-response\reply-units`, `_bank\md-build` → `D:\MyProjects\_DataBase\_lab\originals\0doc-struct-20261022\` (folder shrink 2026-10-23). Former `05-manuscript` / `06-review` / `07-response` human seats are in that same park class (`{raw_root}\_lab\originals\0doc-03-07-seats-20261023`), not live tops.
 
 ## How
 

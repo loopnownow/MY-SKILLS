@@ -3,60 +3,61 @@
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 # Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
-version: 10
+version: 11
 aliases:
-  lab_root: "D:\\0Grok"
+  lab_root: "D:\\MyProjects"
   del_root: "D:\\0del"
-  raw_root: "D:\\00db"  # organized raw DB; read-only unless named. Live 00ds path/folder/filter = QC finding → correct to 00db (do not keep as legacy allowlist). Historic "was/formerly 00ds" notes OK.
-  code_root: "D:\\0Grok\\0doc\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
-  doc_root: "D:\\0Grok\\0doc"
-  doc_skill_harvest: "D:\\0Grok\\0doc\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
-  skills_git: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
-  skills_runtime: "D:\\0Grok\\0doc\\GitHub\\MY-SKILLS"
-  rules_git: "D:\\0Grok\\0doc\\GitHub\\MY-RULES"
+  raw_root: "D:\\MyProjects\\_DataBase"  # was D:\\00db; organized raw DB; suffix-bucket projects; _lab/_ stay root; read-only unless named. Live 00ds path/folder/filter = QC finding → correct to 00db (do not keep as legacy allowlist). Historic "was/formerly 00ds" notes OK.
+  code_root: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
+  doc_root: "D:\\MyProjects\\_Docs"
+  doc_skill_harvest: "D:\\MyProjects\\_Docs\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
+  skills_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
+  skills_runtime: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
+  rules_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-RULES"
   # 0doc — 2026-10-23: human-readable layer folded into <coarse-id>/advanced|base; live content under advanced\.
-  doc_lab_ste: "D:\\0Grok\\0doc\\skill-harvest\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
+  doc_lab_ste: "D:\\MyProjects\\_Docs\\skill-harvest\\sources\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
   # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
-  jcr2026_xlsx: "D:\\0Grok\\0doc\\mem\\医学投稿推荐_JCR2026.xlsx"
-  find_journal_submission: "D:\\0Grok\\0doc\\_library\\journals"  # 2026-10-31: jcr\2026\submission flattened into journals\ (whitelist-submitted.csv / submission-prior.jsonl sit there)
-  find_journal_pools: "D:\\0Grok\\0doc\\_library\\journals"
+  jcr2026_xlsx: "D:\\MyProjects\\_Docs\\mem\\医学投稿推荐_JCR2026.xlsx"
+  find_journal_submission: "D:\\MyProjects\\_Docs\\_library\\journals"  # 2026-10-31: jcr\2026\submission flattened into journals\ (whitelist-submitted.csv / submission-prior.jsonl sit there)
+  find_journal_pools: "D:\\MyProjects\\_Docs\\_library\\journals"
   # 2026-10-31 t1458u: pools collapsed to _library\journals\index.csv (single table; xlsx retired same day);
   # archives under journals\archive\<year>\; jcr\2026 -> flattened into journals (2026-10-31), no per-year folders.
-  doc_library_references: "D:\\0Grok\\0doc\\_library\\references"
-  doc_library_journals: "D:\\0Grok\\0doc\\_library\\journals"
-  doc_library_jcr: "D:\\0Grok\\0doc\\_library\\journals"  # 2026-10-31: jcr\ flattened into journals\ (alias kept resolvable, same dir as doc_library_journals)
-  doc_ethics_approvals: "D:\\0Grok\\0doc\\_library\\ethics\\approvals"
-  doc_ethics_index: "D:\\0Grok\\0doc\\_library\\ethics\\approvals-index.xlsx"
+  doc_library_references: "D:\\MyProjects\\_Docs\\_library\\references"
+  doc_library_journals: "D:\\MyProjects\\_Docs\\_library\\journals"
+  doc_library_jcr: "D:\\MyProjects\\_Docs\\_library\\journals"  # 2026-10-31: jcr\ flattened into journals\ (alias kept resolvable, same dir as doc_library_journals)
+  doc_ethics_approvals: "D:\\MyProjects\\_Docs\\_library\\ethics\\approvals"
+  doc_ethics_index: "D:\\MyProjects\\_Docs\\_library\\ethics\\approvals-index.xlsx"
   # 2026-11-01: 0doc `_bank` retired → `_library\glossary`（**四层**：words/sentences/paragraphs + sections 指针页）+ `banks`（证据层；经 GLOSSARY_ROOT）。
   # {doc_glossary} = GLOSSARY_ROOT：四层 md（words/sentences/paragraphs + sections 指针页）+ index.csv（13 列）；
   # 证据层路径 = {doc_glossary}\banks（jsonl + glossary.db + MANIFEST；GATES.md 已清）。**已退役别名** `doc_glossary_banks` — 新文只用 GLOSSARY_ROOT / {doc_glossary}\banks。
   # was 06-review/advanced（人席 2026-10-23 迁出）；review-text SSOT = {doc_glossary}\banks\review-text.jsonl（+ REVIEW-TEXT.tsv）。
-  doc_glossary: "D:\\0Grok\\0doc\\_library\\glossary"
+  doc_glossary: "D:\\MyProjects\\_Docs\\_library\\glossary"
   # was 07-response/advanced（人席迁出；Word 回复原件在 {doc_word_archive}\07-response）；
   # flattened SSOT = {doc_glossary}\banks\flattened.jsonl；段落层 = {doc_glossary}\banks\paras.jsonl。
   # doc_glossary_banks: RETIRED 2026-11-01 t1584u — use {doc_glossary}\banks or env GLOSSARY_ROOT\banks
-  doc_grants: "D:\\0Grok\\0doc\\skill-harvest\\sources\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
-  # Thesis Word originals live under D:\\00db\\_lab\\doc-word (archive); no dedicated alias.
-  doc_word_archive: "D:\\00db\\_lab\\doc-word"
-  doc_ethics: "D:\\0Grok\\0doc\\_library\\ethics"
-  doc_fill_protocol: "D:\\0Grok\\0doc\\skill-harvest\\sources\\library-methods-20261023\\study-design\\fill-protocol"  # method park; live Jinshan notes in 03_research/advanced/fill-protocol; scripts={code_fill_protocol}; PHI blanks under {doc_ethics}
+  doc_grants: "D:\\MyProjects\\_Docs\\skill-harvest\\sources\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
+  # Thesis Word originals live under D:\\MyProjects\\_DataBase\\_lab\\doc-word (archive); no dedicated alias.
+  doc_word_archive: "D:\\MyProjects\\_DataBase\\_lab\\doc-word"
+  doc_ethics: "D:\\MyProjects\\_Docs\\_library\\ethics"
+  doc_fill_protocol: "D:\\MyProjects\\_Docs\\skill-harvest\\sources\\library-methods-20261023\\study-design\\fill-protocol"  # method park; live Jinshan notes in 03_research/advanced/fill-protocol; scripts={code_fill_protocol}; PHI blanks under {doc_ethics}
   # stats engine SSOT (2026-10-25; repo renamed 2026-11-01: GitHub\MY-CODES, was stats-analysis with URL redirect)
-  code_stats: "D:\\0Grok\\0doc\\GitHub\\MY-CODES"
-  code_modules: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\modules"
-  code_model_validation: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\model-validation"
+  code_stats: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"
+  code_modules: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\modules"
+  code_model_validation: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\model-validation"
   # 2026-10-25: independent repo is SSOT; {code_modules_master} == {code_modules} (former _code\04-analysis\stats-analysis retired)
-  code_modules_master: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\modules"
+  code_modules_master: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\modules"
   # no base\ under _code 02-07 (fine-ID folders are direct children)
-  code_data_processing: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools"  # 2026-11-01 P2: _code 的运维/加工脚本并入 MY-CODES\tools（<fine-id> 平铺，不镜像 02-/03- 座位名）
-  code_clean_data: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\clean-data"
-  code_fill_protocol: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\fill-protocol"
-  code_figures: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\draw-flowchart"  # 2026-11-01 P3-A: generators live in MY-CODES/tools/draw-flowchart; pack keeps scripts/README.md
-  code_write_paper: "D:\\0Grok\\0doc\\GitHub\\MY-CODES\\tools\\write-paper"
+  code_data_processing: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\tools"  # 2026-11-01 P2: _code 的运维/加工脚本并入 MY-CODES\tools（<fine-id> 平铺，不镜像 02-/03- 座位名）
+  code_clean_data: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\tools\\clean-data"
+  code_fill_protocol: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\tools\\fill-protocol"
+  code_figures: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\tools\\draw-flowchart"  # 2026-11-01 P3-A: generators live in MY-CODES/tools/draw-flowchart; pack keeps scripts/README.md
+  code_write_paper: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES\\tools\\write-paper"
   # 2026-10-27: code_md_bank retired with md-bank (scripts now in {DEL}\_by-function\0doc-deep-clean-20261027\removed);
   # alias deleted deliberately — nothing regenerates those views any more, so there is no path to resolve.
-  code_bank_qc: "D:\\0Grok\\0doc\\test"
+  code_bank_qc: "D:\\MyProjects\\_Docs\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-11-08 t1791u: lab_root D:\\MyProjects (was D:\\MyProjects); doc_root D:\\MyProjects\\_Docs (alias 0doc=_Docs); raw_root D:\\MyProjects\\_DataBase (alias 00db=_DataBase; project buckets _DataBase\\<suffix>\\<prefix_suffix>\\; _lab and other _* stay at raw root). E mirror E:\\Aitor\\MyProjects (+ _DataBase). Rules SSOT: {rules_git}/workspace-layout.md."
   - "2026-11-06 t1716u/t1720u: sibling workspace root under {lab_root} is R&P (formerly proposal) for (1) 课题申请 / grant-or-project application packets and (2) owner reviews of other people's manuscripts (评阅他人稿) — NOT a manuscript stage; lab's own journal drafts/R&R/proofs stay in drafting/pre-submit/in-review/accepted; do not add R&P to study_folder_stage_aliases. Rules SSOT: {rules_git}/workspace-layout.md."
   - "2026-11-01: 0doc `_bank` → `_library\\glossary`（**四层** words/sentences/paragraphs + sections 指针页 + index.csv 13 列；证据层 banks 含 glossary.db；GATES.md 已清）。别名：`{doc_glossary}` = `GLOSSARY_ROOT`；**`doc_glossary_banks` 2026-11-01 t1584u 退役**（改写为 `{doc_glossary}\\banks` / `GLOSSARY_ROOT\\banks`）。vocab-harvest env 统一 `GLOSSARY_ROOT`。旧名 `doc_review_bank` / `doc_review_replies` / `doc_glossary_banks` 只在本条目历史叙述中出现，不得再作活别名。"
   - "2026-10-31 (owner): jcr flattened + journals single table. {doc_library_jcr} and {find_journal_submission} now resolve to _library\\journals (whitelist-submitted.csv / submission-prior.jsonl sit there); jcr\\<year>\\ retired, no per-year folders; journals\\index.xlsx retired (csv only)."
@@ -76,8 +77,8 @@ notes:
   - "2026-11-01 t1521u P3-C: manuscript-qc (check_rewrite_fidelity / check_sentence_variety), vocab-harvest (harvest_sections / harvest_write_phrases), response-qc (check_package_consistency / tone_polish_main + LICENSE_NOTE.txt) moved to MY-CODES/tools/{manuscript-qc,vocab-harvest,response-qc}; skills packs keep scripts/README.md pointers and cite {code_stats}\\tools\\<pack>\\<script>.py. vocab-harvest needs DOC_BANK_ROOT + SKILLS_ROOT (no lab default; missing env exits 1). Offline/stdlib; no new alias (add+cite together when needed)."
 
   - "Env (2026-10-25): prefer STATS_ROOT (same tree as {code_stats}) and ODOC_CODE (same tree as {code_root}). ODOC_CODE is retired with _code (2026-11-01 P4) — read STATS_ROOT instead. OSCRIPT_ROOT is retired with 0script; do not read or recreate it. script_root stays deleted."
-  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\00db\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02-07 use fine-ID folders (no base\\)."
+  - "2026-10-23: human seats 03-research/05-manuscript/06-review/07-response moved to D:\\MyProjects\\_DataBase\\_lab\\originals\\0doc-03-07-seats-20261023; live tops are _library/_bank/_code; {doc_review_bank}/{doc_review_replies} → {doc_root}\\_bank; _code 02-07 use fine-ID folders (no base\\)."
   - "Capability bodies SSOT is in-repo NN_slug/base/."
   - "Dated history files may keep raw D:\\\\0Grok strings."
   - "2026-11-06 t1708u QC: live path/folder/filter still saying 00ds is a QC object — correct to 00db; do not retain 00ds in live allowlists/filters as legacy. Historic was/formerly-00ds notes stay. Disk tree migration is separate (owner must authorize). Rules SSOT: {rules_git}/workspace-layout.md `{RAW}`."
-  - "raw_root=D:\\00db (was 00ds)."
+  - "raw_root=D:\\MyProjects\\_DataBase (was 00ds)."
