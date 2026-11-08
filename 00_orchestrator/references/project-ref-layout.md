@@ -59,7 +59,7 @@ Keep as few `ref/` subfolders as practical. Standard folders: `review/` `citatio
 
 ### accepted closeout hard-keep (t1806u / t1809u / t1817u)
 
-Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript_<slug>_{V|R|P}…` **file** (project root) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase` (zip-first if >=20 loose); after QC originals -> `.Del\_by-project\<slug>\`. Reproducible figs -> `.Del\_by-project\<slug>\`; non-reproducible -> `_DataBase`. Cold store path `archived\<suffix>\<prefix_suffix>\` (t1817u; align DB). Stage live path `reviewing` (alias `in-review`). Full list -> `{RULES}/workspace-layout.md` 「accepted 收工」 (Rules Chinese SSOT).
+Pointer only. After accepted closeout, project tree hard-keeps: live `Manuscript_<slug>_{V|R|P}…` **file** (project root) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase` (zip-first if >=20 loose); after QC originals -> `.Del\_by-project\<slug>\`. Reproducible figs -> `.Del\_by-project\<slug>\`; non-reproducible -> `_DataBase`. Cold store path `archived\<suffix>\<prefix_suffix>\` (t1817u; align DB). Disease shortcode SSOT `_DataBase\_diseases.csv`; L1 base shortcode (no trailing `_\d+` instance on L1; t1821u/t1822u). Pointer only. Stage live path `reviewing` (alias `in-review`). Full list -> `{RULES}/workspace-layout.md` 「accepted 收工」 (Rules Chinese SSOT).
 
 ### Cleanup (afterward; two tiers)
 
