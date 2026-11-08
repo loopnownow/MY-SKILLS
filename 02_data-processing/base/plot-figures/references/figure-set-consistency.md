@@ -59,4 +59,4 @@ Checklist:
 - [ ] Simulated/example data flagged; de-identification confirmed for imaging panels.
 
 → Palettes → `color-systems.md`. The statistics themselves → `stats-analysis` / `model-evaluation`. Whether a figure
-satisfies a reporting checklist → `check-reporting`.
+satisfies a reporting checklist → `05_manuscript/qc/check-reporting/`.

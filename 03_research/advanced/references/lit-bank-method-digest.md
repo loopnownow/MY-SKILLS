@@ -45,13 +45,13 @@ Batch artifacts (`ann-NN.tsv`, `batch-NN.txt`, `base-todo.csv`) live under the *
 | A candidates | `prepare_base`, `survey_*`, `gen_*`, `analyze_advanced`, `list_*` | no |
 | B metadata | `fetch_advanced`, `fetch_base_abstracts`, `verify_crossref`, `verify_base` | **`--net` required** |
 | C annotate/fix | `merge_ann`, `merge_base_ann`, `fix_base_rc`, `fix_base_tags`, `gen_needs_check` | no |
-| D ingest/QC | `build_index`, `build_base`, `validate_index`, `check_index`, `make_report` | no (report → 0del) |
+| D ingest/QC | `build_index`, `build_base`, `validate_index`, `check_index`, `make_report` | no (report → `{del_root}`) |
 
 Hosts when `--net`: `eutils.ncbi.nlm.nih.gov:443`, `api.crossref.org:443` only. Scripts default `NET_ENABLED = False`. Fail → leave field empty + `notes=待补`; **never invent** DOI/pages/authors. Log each round: host, port, data class, whether written.
 
 ## Do not put in skills / `_library` method tree
 
-- The 26 script bodies (middleware → 0del park)
+- The 26 script bodies (middleware → `{del_root}` park)
 - Intermediate TSV/JSONL/xlsx batches
 - Identity-filter person/org specifics (keep in `lit-bank.md` / advanced data only)
 - Any PDF / full text

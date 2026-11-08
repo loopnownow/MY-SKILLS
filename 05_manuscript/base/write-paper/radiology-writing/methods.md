@@ -29,7 +29,7 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 - Preprocessing (registration, resampling, normalisation) — **fit on training only**.
 - Radiomics: IBSI-compliant extraction (resampling, **discretisation**, filters, software +
   version), feature reproducibility filtering, harmonisation (ComBat, train-only). (→
-  `check-reporting`)
+  `05_manuscript/qc/check-reporting/`)
 - Model: architecture/algorithm, hyperparameter tuning (on validation), training details,
   seed, hardware; code/model availability.
 - Radiogenomics: omics source/processing, batch correction, integration/association method.

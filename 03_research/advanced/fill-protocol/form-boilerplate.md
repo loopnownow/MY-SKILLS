@@ -1,6 +1,6 @@
 # Registration-form fixed fields and five-site differences
 
-Aligned with `{doc_ethics}\raw\0空白_申请模板\人员信息汇总.xlsx` sheet「登记表要点」.
+Aligned with the blank ethics-form templates under `{doc_root}\templates\ethics-blank\` (HISTORIC 2026-11-08: the old raw personnel sheet was moved out on 2026-10-23).
 
 ## Fixed fields
 

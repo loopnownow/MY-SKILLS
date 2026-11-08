@@ -1,6 +1,6 @@
 # MY-SKILLS
 
-Live medical and imaging research skill library for Grok Bot seats `00`-`07`.
+Live medical and imaging research skill library for six Grok Bot seats (`00`, `02`, `03`, `05`, `06`, `07`).
 
 ## 三仓分工（2026-10-27 站立）
 
@@ -27,7 +27,7 @@ Live medical and imaging research skill library for Grok Bot seats `00`-`07`.
 
 Capability bodies for seats 02-07 live in-repo under `NN_slug/base/`. The routing index is `00_orchestrator/registry.yaml`. Lab path aliases (`{code_root}`, `{doc_root}`, `STATS_ROOT`, and the rest) are in `00_orchestrator/references/lab-paths.yaml`. Heavy / reusable analysis stays on `{code_root}` (02 operations) and `{code_stats}` (stats engine + modeling CLIs); human docs stay on `{doc_root}`. This repo may keep **thin helper scripts** under seat `**/scripts/` and `00_orchestrator/scripts/`; it is not a vendor of full `_code` trees (that layer was retired 2026-11-01) or the MY-CODES library.
 
-Paths under `00`-`07` are at most five parts from the repo root, except `NN_slug/base/**`.
+Paths under the six seat roots (`00_orchestrator`, `02_data-processing`, `03_research`, `05_manuscript`, `06_review`, `07_response`) are at most five parts from the repo root, except `NN_slug/base/**`.
 
 License: MIT (`LICENSE`). Third-party notices: `NOTICE`. Release notes: `VERSION.txt`.
 

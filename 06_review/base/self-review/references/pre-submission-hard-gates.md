@@ -19,7 +19,7 @@ Each gate is `PASS`, `CONDITIONAL`, or `FAIL`.
 | Validation | Internal/temporal/external/multicenter/prospective validation matches the claim level | `design-study`, `stats-analysis` |
 | Results-as-validation | Every major claim maps to a result/figure/table and does not exceed evidence | `write-paper`, `stats-analysis` |
 | Statistical completeness | CIs, calibration, DCA/clinical utility when relevant, multiplicity, survival assumptions, sample-size/event limits | `stats-analysis` / `model-evaluation` |
-| Reporting stack | CLAIM/TRIPOD+AI/CLEAR/STARD/IBSI/RQS/Nature Reporting Summary items are materially satisfied | `check-reporting` |
+| Reporting stack | CLAIM/TRIPOD+AI/CLEAR/STARD/IBSI/RQS/Nature Reporting Summary items are materially satisfied | `05_manuscript/qc/check-reporting/` |
 | Figure/data crosswalk | Figures match data and manuscript claims; no render/overlap defects | `plot-figures` / `draw-flowchart` |
 | Citation verification | Key background, novelty, comparison, and guideline claims are supported by a fixed two-pass claim audit | `verify-refs` / `write-paper` radiology-citation |
 | Ethics/data availability | IRB/consent/de-identification/data availability/code availability are consistent | `write-paper` radiology-ethics |

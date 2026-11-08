@@ -8,6 +8,9 @@ from __future__ import annotations
 import posixpath
 import re
 import unittest
+from pathlib import Path
+
+import yaml
 
 from tests.support import (
     GATES,
@@ -45,12 +48,46 @@ ALLOW_OWNER_VALUES: set[str] = set()
 HIST = re.compile(r"deleted|removed|former|archived|retired|no external renderer", re.I)
 ALLOW_FILES = {"INTEGRATION_MAP.md"}
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
+ALLOW_MISSING.add(r"{doc_root}\templates\EXTRACT-LOG.md")  # optional write target; may not exist yet
+
+ALIASES = (
+    (yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}).get("aliases")
+    or {}
+)
+ALIAS_TOKEN = re.compile(r"\{([a-z0-9_]+)\}([^\s`]*)")
+
+
+def _slash(value: str) -> str:
+    return value.replace(chr(92), "/")
+
+
+def _alias_problems(rel: str, tok: str) -> list[str]:
+    problems: list[str] = []
+    for match in ALIAS_TOKEN.finditer(tok):
+        key = match.group(1)
+        if key not in ALIASES:
+            continue
+        root = Path(_slash(str(ALIASES[key])))
+        rest = _slash(match.group(2)).lstrip("/")
+        if not rest or re.search(r"[<>*?\[\]{}]", rest):
+            continue
+        # Placeholders, not paths: "…" continuations and XX year/version slots.
+        if "…" in rest or re.search(r"X{2,}", rest):
+            continue
+        if "{" + key + "}" + match.group(2) in ALLOW_MISSING:
+            continue
+        if not root.exists():
+            continue
+        if not (root / rest).exists():
+            problems.append(f"{rel}: `{{{key}}}{match.group(2)}` (alias target missing)")
+    return problems
+
 
 class InlinePathsExist(unittest.TestCase):
     def test_backtick_repo_paths_exist_or_allowlisted(self) -> None:
         missing: list[str] = []
         for path in ROOT.rglob("*.md"):
-            if any(part in {".git", "__pycache__", ".pytest_cache"} for part in path.parts):
+            if any(part in SKIP_DIRS for part in path.parts):
                 continue
             if path.parts[0] == "tests":
                 continue
@@ -60,6 +97,9 @@ class InlinePathsExist(unittest.TestCase):
             text = path.read_text(encoding="utf-8", errors="ignore")
             for m in BT.finditer(FENCE.sub("", text)):
                 tok = m.group(1).strip()
+                missing.extend(_alias_problems(rel, tok))
+                if ALIAS_TOKEN.search(tok):
+                    continue
                 if "/" not in tok and "\\" not in tok:
                     continue
                 if tok.startswith(

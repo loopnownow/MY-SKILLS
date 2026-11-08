@@ -172,6 +172,6 @@ What is generated: IR JSON, homepage, status pages, skill pages from frontmatter
 
 What stays manual: this specification, `visualization-source-contract.yaml`, and the generator.
 
-Local check/rebuild: `python {code_stats}\tools\visualization\gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT must be explicitly supplied via `--out` or `MY_SKILLS_VIZ_OUT`; there is no default output directory. A failed shape check returns before replacing last-good lab files. **No in-repo `.github` CI** (retired workflow archived under `{DEL}` / `D:/0del`).
+Local check/rebuild: `python {code_stats}\tools\visualization\gen_visualization.py` (`--check` = in-memory gates, no write). Rendering is local; nothing is downloaded, unpacked, or executed from outside the repository. Lab OUT must be explicitly supplied via `--out` or `MY_SKILLS_VIZ_OUT`; there is no default output directory. A failed shape check returns before replacing last-good lab files. **No in-repo `.github` CI** (retired workflow archived under `{del_root}`).
 
 **Size note:** {code_stats}\tools\visualization\gen_visualization.py is ~55 KB (single generator). Prefer edits in place; split only if edit friction rises.

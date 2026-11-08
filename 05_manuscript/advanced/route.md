@@ -4,7 +4,7 @@
 
 ## Layering (2026-10-30 rebind)
 
-- **base thin first pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting; the pack itself carries scope, bans, and pointers only. `check-reporting` (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
+- **base thin first pass:** `write-paper` must **load vocab** (`05_manuscript/base/vocab/`) before drafting; the pack itself carries scope, bans, and pointers only. the non-routable `check-reporting` body (`05_manuscript/qc/check-reporting/`) loads the same vocab before a checklist pass.
 - **00 QC** - gates.md checks **(b)** vocab loaded; **(d)** polish / De-AI when requested (advanced De-AI pass; absorbed retired `humanize`); scores come from `05_manuscript/qc/` and cite the advanced anchor to fix at.
 - **05 advanced revise loop:** post-QC De-AI (report-only lint, then de-AI; absorbed retired `humanize`) plus Aitor-format / voice. Procedure: `process/polisher-sections.md` section De-AI pass. This layer owns the recipe, contract, and authority (no registry fine id).
 

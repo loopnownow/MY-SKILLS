@@ -40,7 +40,7 @@ Undecidable / missing-fact issues: state the reason in a Chinese comment, then a
 Word comments / Track Changes author field is **A** (never `Grok`, never yellow).
 
 **Verify, do not assume.** Before a `.docx` is delivered, run the tracked-changes gate:
-`python {SKILLS}\06_review\base\track-changes\scripts\office\validate.py <edited.docx> --original <pre-edit.docx> --author A`.
+`python {code_stats}\tools\office\validate.py <edited.docx> --original <pre-edit.docx> --author A`.
 Exit `0` = every text difference is wrapped in a revision by `A`; exit `1` = a silent overwrite
 happened and that span must be redone as a revision. Mechanics → `06_review/base/track-changes/`.
 

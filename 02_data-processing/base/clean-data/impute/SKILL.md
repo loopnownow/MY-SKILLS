@@ -1,5 +1,7 @@
 ---
 name: "impute"
+routable: false
+status: nested-body
 domain: "02_data-processing"
 description: Group-stratified missing-value imputation nested under clean-data (iterative / median / align_decimals); code runs from stats-analysis.
 owner: "02_data-processing/base/clean-data/impute/MODULE.md"

@@ -66,6 +66,16 @@ aliases:
   write-venue: write-paper
   # 2026-10-25: language-pack lint absorbed into humanize (directory removed); 2026-10-30 humanize itself retired to advanced De-AI.
 
+# Non-routable bodies (t1823u, 2026-11-08): kept for their module text, NOT a live fine id.
+# They carry `routable: false` and no `name:` in frontmatter, so the runtime cannot pick them;
+# cite the path instead of a bare id. Check-reporting is intentionally not in `aliases:`.
+# Non-routable internal bodies: real content, never a session-pick id.
+# check-reporting keeps frontmatter name: only for the visualization generator
+# (MY-CODES G-VIZ-01 scans every SKILL.md); routable: false marks it non-selectable.
+# Deliberately NOT in aliases: -- an alias would make it a routable retired fine id.
+retired_bodies:
+  check-reporting: 05_manuscript/qc/check-reporting/
+
 # Coarse ids are the execution seats (2026-10-25). Every retired bucket name, label or id
 # maps to the seat that now carries it; the 01 seat itself retired into 00_orchestrator.
 coarse_aliases:

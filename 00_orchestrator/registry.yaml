@@ -5,13 +5,15 @@
 # Canonical ID Rule: 00_orchestrator/references/id-rules.md. id is the only runtime identifier.
 # path labels / directory names must never be used to infer an id.
 # Retired fine ids, retired coarse buckets and the retired 01 seat live in legacy_aliases.yaml only.
+# Since t1823u (2026-11-08): check-reporting is a non-routable qc body (routable: false); cite 05_manuscript/qc/check-reporting/.
+# Its name: is kept only for the visualization generator G-VIZ-01 frontmatter scan; it is not a session-pick id.
 # Live rows are status LIVE. Prefer merge into an existing fine id over opening a new one.
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
 # Bot names per coarse id and per LIVE fine id: 00_orchestrator/references/bot-route.md (ids stay SSOT here).
 
 meta:
   version: '5.0'
-  change_id: CHG-20261108-t1817u-reviewing-archived-suffix
+  change_id: CHG-20261108-t1823u-qc-fixes
   fine_id_count_canonical: 20
   coarse_id_count: 5
 

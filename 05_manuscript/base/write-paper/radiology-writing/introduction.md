@@ -8,9 +8,9 @@ The `05_manuscript/advanced/` layer owns the shape. Authority for the funnel, th
 - Every literature claim carries a verified source at the level stated in `05_manuscript/advanced/process/evidence.md` (claim coverage, verification levels).
 - Missing evidence is an Evidence Request card (`missing_prior_result`, `guideline_definition`, `related_work_appraisal`, `scarcity_check`), never a guessed citation.
 - Citation numbering: claim-source fit outranks ascending numbers; renumber in-text Vancouver citations by script after drafting; authenticity stays with `verify-refs`.
-- Reporting guidelines (TRIPOD, CLAIM, CLEAR) do not appear here; route to `check-reporting`.
+- Reporting guidelines (TRIPOD, CLAIM, CLEAR) do not appear here; route to `05_manuscript/qc/check-reporting/`.
 - Numbers only from sources read at abstract level or above; guideline definitions and appraisals from the full text.
 
 ## Handoff
 
-Evidence: `stats-analysis` (`02_data-processing/base/stats-analysis/`; absorbed retired `meta-analysis`) and `lit-search`. Language: advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`). Reporting: `check-reporting`. Citation authenticity: `verify-refs`. Self-audit: `self-review`. Scorecard and deduction codes: `05_manuscript/qc/manuscript-local-qc.md` Part A. House shape: `05_manuscript/advanced/Aitor-format.md` § Introduction.
+Evidence: `stats-analysis` (`02_data-processing/base/stats-analysis/`; absorbed retired `meta-analysis`) and `lit-search`. Language: advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`). Reporting: `05_manuscript/qc/check-reporting/`. Citation authenticity: `verify-refs`. Self-audit: `self-review`. Scorecard and deduction codes: `05_manuscript/qc/manuscript-local-qc.md` Part A. House shape: `05_manuscript/advanced/Aitor-format.md` § Introduction.

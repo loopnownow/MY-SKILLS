@@ -100,4 +100,4 @@ Nature-specific.
 - Manuscript display-item plan, abstract/word budget → `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`.
 - Source Data / Extended Data availability wording, "condition of publication" language →
   `05_manuscript/advanced/`.
-- Reporting Summary cross-check for any figure that reports a statistic → `check-reporting`.
+- Reporting Summary cross-check for any figure that reports a statistic → `05_manuscript/qc/check-reporting/`.

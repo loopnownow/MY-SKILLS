@@ -25,7 +25,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 ~23 entries in `reporting-guidelines-router.json`: ARRIVE, CARE, CHEERS, CONSORT-2025, CONSORT-AI, COREQ, PRISMA, PRISMA-P, SPIRIT-2025, SPIRIT-AI, SQUIRE, SRQR, STARD, STARD-AI, STROBE, TRIPOD+AI, TRIPOD-LLM, plus domain metadata standards (MIAME, MIAPE, MIAPPE, MIFlowCyt, MINSEQE, MIxS). Fields: `id`, `name`, `version`, `status`, `study_types`, `report_kinds`, `required_features`, `url`.
 
 
-## Relation to check-reporting
+## Relation to the check-reporting body
 
 **Gate SSOT** for Integrity · pre-06 / Gate · 05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/qc/check-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the check-reporting stack for the gate subset, or the gate subset for a full writing audit.
 

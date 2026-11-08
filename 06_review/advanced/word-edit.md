@@ -7,7 +7,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Manuscript body revisions are landed by **Aitee (05)**. Lee (06) defaults to comments only and does not revise the body. Decidable issues become TC-fix comments for Aitee. Undecidable / missing facts: Chinese reason, then one English line starting with `Suggested ...` (or equivalent Suggested wording), and/or suggested literature (Victor supplies literature). Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
 - The revision modes below are how **Aitee lands edits**, not Lee's default for rewriting the paper.
 - Every change to a `.docx` uses **Track Changes**.
-- **Prove it before delivering.** `python {SKILLS}\06_review\base\track-changes\scripts\office\validate.py <edited.docx> --original <pre-edit.docx> --author A` must exit `0`. Exit `1` means a span was overwritten without a revision; redo it. Mechanics → `06_review/base/track-changes/` (fine id `track-changes`).
+- **Prove it before delivering.** `python {code_stats}\tools\office\validate.py <edited.docx> --original <pre-edit.docx> --author A` must exit `0`. Exit `1` means a span was overwritten without a revision; redo it. Mechanics → `06_review/base/track-changes/` (fine id `track-changes`).
 
 ## Revision grain (owner 2026-10-19)
 
@@ -20,7 +20,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 ## Files
 
 - **Prefer not creating new files**; revise the existing final the user named.
-- **Avoid intermediate files**; if unavoidable, move them into `0del` after the task (local usual `{del_root}`).
+- **Avoid intermediate files**; if unavoidable, move them into `{del_root}` after the task.
 - Do not make backup copies unless the user asks.
 - After Aitee applies Track Changes, or after Lee comments-only review of Word, append a record to that project's **`ref/manuscript-revision.md`** (date, file, revised / review-only / untouched / open). Later rounds must not re-polish or re-review already recorded spans unless upstream numbers changed, the user named them, or open comments remain.
 

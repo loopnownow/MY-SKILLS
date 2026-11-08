@@ -3,7 +3,7 @@
 **Owner:** `00_orchestrator` only loads these at Gate time.
 **Domains/specialists do not self-certify via this folder.** 05 first-pass and polish use `base/` and `advanced/`; they do not self-certify lit or pre-submit via `qc/`.
 
-QC **standards** (pass/fail + fail→rollback station) are the table below. Reporting-checklist body: `check-reporting/` (qc-only; absorbed retired fine id `check-reporting`; TRIPOD / CLAIM / CLEAR). Not session-picked. Other capability bodies stay in `advanced/` and `base/`.
+QC **standards** (pass/fail + fail→rollback station) are the table below. Reporting-checklist body: `05_manuscript/qc/check-reporting/` (qc-only; retired fine id `check-reporting`, non-routable; TRIPOD / CLAIM / CLEAR). Not session-picked. Other capability bodies stay in `advanced/` and `base/`.
 
 | File | Gate(s) |
 |---|---|

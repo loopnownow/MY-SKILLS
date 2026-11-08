@@ -36,7 +36,7 @@ Single source: `03_research/base/design-study/MODULE.md` — inventory → feasi
 Lab deltas when running that flow in this seat:
 
 - Sample size / EPV / power numbers are never computed here → `02_data-processing` (`calc-sample-size`).
-- `Method options` are judged against `05_manuscript` live `check-reporting`.
+- `Method options` are judged against `05_manuscript` live `05_manuscript/qc/check-reporting/`.
 
 ## Own-proposal chapter skeleton (Voice B only)
 
@@ -57,7 +57,7 @@ Compact contract (details in that file):
 - Hand-crafted radiomics pipeline design → `02_data-processing` (live `stats-analysis`; lab rules `02_data-processing/advanced/analysis/pipeline.md`).
 - Deep-learning architecture & training design → live `design-study` (`03_research`).
 - ROI/mask annotation SOP → `02_data-processing` (live `preprocess-imaging`).
-- Which checklist the design must satisfy → `05_manuscript` (live `check-reporting`).
+- Which checklist the design must satisfy → `05_manuscript` (live `05_manuscript/qc/check-reporting/`).
 - Ethics/consent/data-sharing feasibility → `03_research/advanced/ethics.md`.
 - Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/README.md`.
 - Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md` (sentence bank). Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
