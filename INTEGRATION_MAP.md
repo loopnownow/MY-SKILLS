@@ -14,6 +14,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261108-t1800u-database-zip-before-ingest (2026-11-08)
+
+Owner t1800u (Asia/Shanghai 2026-11-08): **zip-before-ingest** into `{raw_root}`=`D:\MyProjects\_DataBase`.
+
+- **Rule:** when landing a directory with ≥20 standalone files, or a clear small-file pile (DICOM series, slice exports, per-case intermediates, fragment logs), pack into **one** archive first (prefer `7z` `-mx=5`; solid DICOM may `-m0=LZMA2`; else `zip`); leave `<name>.files.txt`; after QC move the loose original dir to `{del_root}`=`D:\MyProjects\.Del`. Exceptions: root indexes/tables, already-single large files, owner-named live datasets. Hot in-progress data stays unpacked until finalized.
+- **syn:** unchanged from t1796u: `/XD .Del` only; `_DataBase` still syncs with the main tree.
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` (zip-before-ingest section) + short pointer in `My rule.md`.
+- **Unchanged:** no actual compression/ingest this ticket; MY-CODES untouched.
+
 ## CHG-20261107-t1761u-unicode-minus-allow (2026-11-07)
 
 Owner t1761u (Asia/Shanghai 2026-11-07): **Unicode minus (U+2212) is allowed** for signed numbers and difference spans (`−0.32`, `Q3−Q1`). Em-dash (U+2014 / spaced `--`) and `≈` stay hard-banned. ASCII hyphen and en dash (U+2013) stay fine. Do **not** force whole-library conversion to U+2212.

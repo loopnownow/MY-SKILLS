@@ -57,6 +57,7 @@ aliases:
   code_bank_qc: "D:\\MyProjects\\_Docs\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-11-08 t1800u: zip-before-ingest into {raw_root}: dirs with >=20 standalone files or small-file piles pack to one archive (prefer 7z -mx=5; else zip) + <name>.files.txt before landing; loose originals move to {del_root} after QC; syn still /XD .Del only. Rules SSOT: {rules_git}/workspace-layout.md 「进 _DataBase 多文件先压缩」."
   - "2026-11-08 t1796u: syn.bat /XD list is only .Del (drop /XD _DataBase); _DataBase now syncs with D:\\MyProjects -> E:\\Aitor main tree. synDB.bat remains separate DB sync. Rules SSOT: {rules_git}/workspace-layout.md sync section."
 - "2026-11-08 t1794u: {del_root}=D:\\MyProjects\\.Del (was D:\\0del; alias 0del=.Del). syn.bat: D:\\MyProjects -> E:\\Aitor (Aitor root, NOT E:\\Aitor\\MyProjects); /XD _DataBase .Del (do not sync .Del). DEL.lnk -> .Del. Rules SSOT: {rules_git}/workspace-layout.md sync section."
   - "2026-11-08 t1791u: lab_root D:\\MyProjects (was D:\\0Grok); doc_root D:\\MyProjects\\_Docs (alias 0doc=_Docs); raw_root D:\\MyProjects\\_DataBase (alias 00db=_DataBase; project buckets _DataBase\\<suffix>\\<prefix_suffix>\\; _lab and other _* stay at raw root). syn target clarified in t1794u note (E:\\Aitor root). Rules SSOT: {rules_git}/workspace-layout.md."
