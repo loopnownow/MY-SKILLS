@@ -47,7 +47,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 
 QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`](project-ref-layout.md) (map: `review/` `citation/` `refer/` (lit+writing refs) `code-gates/` `tmp/` + tables/figures/pipeline; **hashes/MANIFEST/pipeline_run.log under `ref/pipeline/`**; Cleanup two-tier; retired `analysis/`/`materials/`). Keep `settings.ini` and `manuscript-revision.md` at ref root; `false_classification*` under the active results folder `<project>/<endpoint>/` (resolved OUT_DIR / outcome subproject), not at subproject root (t1660u, 2026-11-05).
 
-## accepted closeout (t1806u)
+## accepted closeout (t1806u / t1809u)
 
-After harvest, slim `accepted\<prefix_suffix>\`, then move into `archived\<prefix>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Full landing (`_DataBase` / `_Docs` / figure routing) -> `{RULES}/workspace-layout.md` 「accepted 收工」. **Not** a harvest-skill-library step (harvest extracts how-to only).
+After harvest, slim `accepted\<prefix_suffix>\`, then move into `archived\<prefix>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` **file** + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders (revision/submission packs) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose -> zip-first); after QC originals -> `.Del\_by-project\<slug>\`. Full landing -> `{RULES}/workspace-layout.md` 「accepted 收工」. **Not** a harvest-skill-library step (harvest extracts how-to only).
 
