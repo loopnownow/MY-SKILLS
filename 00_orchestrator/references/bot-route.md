@@ -35,7 +35,7 @@ These are real executors that are **not** seats in the 00 main loop. They are ro
 
 | Role | Bot / pack | Notes |
 |---|---|---|
-| ethics forms + portal submit + `{doc_root}` 0doc lookup/search/inventory | Bai · 打杂的 | fill-protocol body under 03; off 00 main loop |
+| ethics forms + portal submit + `{doc_root}` _Docs lookup/search/inventory | Bai · 打杂的 | fill-protocol body under 03; off 00 main loop |
 | tidying / extraction / form-fill / in-repo IDE work | Cursor IDE | only when owner says 「交给cursor」 and approved; bots do not call Cline. Coding / scripts / `MY-CODES` are **not** here; they go to Loopnow on 02 |
 
 Bai's work arrives in two shapes. Ethics forms are reached through a fine id (`fill-protocol`) whose body sits under `03_research/base/`, so the seat stays 03 while the executor is Bai. Portal submit and the `{doc_root}` lookup/search/inventory asks carry no fine id at all; Aitor routes them directly and does not self-search for general lookup asks.

@@ -2,9 +2,9 @@
 
 **Standing (2026-10-21 owner):** maintain a reusable citation bank — **no PDF/full text**. Store bibliographic records in **NLM** form; when inserting into a manuscript, render as **Vancouver**. Every record must carry a short **主要结果|结论** line for next-time reuse.
 
-**Owner:** Victor (ingest / QC / theme tags). **Router:** Aitor. **Path lookup in 0doc:** Bai.
+**Owner:** Victor (ingest / QC / theme tags). **Router:** Aitor. **Path lookup in _Docs:** Bai.
 
-## SSOT location (0doc)
+## SSOT location (_Docs)
 
 ```
 {doc_root}\_library\lit-bank\
@@ -12,7 +12,7 @@
   index.csv                 # master ledger (one row per DOI)
 ```
 
-Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Create the `lit-bank\` tree on 0doc only after owner consent (folder-create rule).
+Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Create the `lit-bank\` tree on _Docs only after owner consent (folder-create rule).
 
 ## Layout note (2026-10-23)
 
@@ -94,7 +94,7 @@ When drafting Introduction / Related Work / Discussion needs **group evidence**,
 1. Filter `index.csv` by `themes` / `layer` / `year`. For group evidence, apply **Prefer-cite** (`advanced` before `base`).
 2. Read `result_conclusion` to decide if the claim fits.
 3. Emit **Vancouver** in the manuscript; keep NLM in the bank unchanged.
-4. Literature search still → Victor; path inventory in 0doc → Bai.
+4. Literature search still → Victor; path inventory in _Docs → Bai.
 
 ## Out of scope
 
@@ -113,4 +113,4 @@ When drafting Introduction / Related Work / Discussion needs **group evidence**,
 
 - Verify body: `03_research/base/verify-refs/`
 - Advanced verify protocol: `03_research/advanced/citation-verify.md`
-- 0doc map: `{doc_root}\README.md` (add lit-bank row when folder exists)
+- _Docs map: `{doc_root}\README.md` (add lit-bank row when folder exists)

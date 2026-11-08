@@ -152,7 +152,7 @@ HIST_LINE = re.compile(
     re.I,
 )
 
-# Documents that live on the lab disk (0doc), in an upstream skill, in MY-RULES,
+# Documents that live on the lab disk (_Docs), in an upstream skill, in MY-RULES,
 # or in a dated snapshot note, not in this repo.
 EXTERNAL = {
     "Lab-STE-SPEC.md",
@@ -234,7 +234,7 @@ class BareMdCites(unittest.TestCase):
 
 # Bare relative tokens (`references/x.md`, `advanced/y.md`) are resolved against the
 # citing file's directory first. When that fails they must carry an explicit seat or
-# module prefix, name an alias/0doc root, or sit on a line that marks the target as
+# module prefix, name an alias/_Docs root, or sit on a line that marks the target as
 # history. Guards the 2026-10-26 pointer sweep from regressing.
 BARE_SKIP_PREFIXES = (
     "ref/",

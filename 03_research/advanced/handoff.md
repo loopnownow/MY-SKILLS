@@ -22,7 +22,7 @@ Keep identical:
 
 ## find-journal data split
 
-Runtime selection pools live in **0doc**. Skill pack keeps list gates only.
+Runtime selection pools live in **_Docs**. Skill pack keeps list gates only.
 
 ## Project submission history
 

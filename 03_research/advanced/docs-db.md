@@ -1,4 +1,4 @@
-# 0doc document-library lookup (Bai)
+# _Docs document-library lookup (Bai)
 
 **Standing rule (2026-10-21 owner):** searching / looking up / inventorying `{doc_root}` is **Bai’s** job. Aitor routes and monitors.
 
@@ -16,13 +16,13 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 | `_library\glossary`（ex-`_bank`, 2026-11-01） | 自有写作语料：四层 `words/` `sentences/` `paragraphs/` + `sections/` 指针页 + `index.csv` 13 列（全席位根 = `{doc_glossary}`）；证据层 `banks\`（jsonl + `glossary.db` FTS；GATES.md 已清）。审稿文本 `{doc_glossary}\banks\review-text.jsonl`（+ `REVIEW-TEXT.tsv`）；回复 `{doc_glossary}\banks\flattened.jsonl`；段落层 `{doc_glossary}\banks\paras.jsonl` |
 | `templates` | skill-pinned gold templates (`Aitor-format-gold-response.docx`, `ethics-blank`, STROBE); scanner xlsx live under `_library\scanner-registry\`；palettes → `02_data-processing/base/plot-figures/references/lab-palettes.md` |
 | `mem` | long-term memos (not a second Rules/Skills tree) |
-| `GitHub` | clones: MY-SKILLS `{skills_git}`, MY-RULES `{rules_git}`; stats engine + tools `{code_stats}`（`0doc\_code` retired 2026-11-01, t1521u） |
+| `GitHub` | clones: MY-SKILLS `{skills_git}`, MY-RULES `{rules_git}`; stats engine + tools `{code_stats}`（`_Docs\_code` retired 2026-11-01, t1521u） |
 | `test` | bank QC `{code_bank_qc}` |
 | `skill-harvest` | harvest SSOT `{doc_skill_harvest}` |
 
-**Word originals** are not inside the `0doc` tree: `{doc_word_archive}`（原 `{DEL}\_by-project\0doc-word-sources\` park 已清；t1490u）。
+**Word originals** are not inside the `_Docs` tree: `{doc_word_archive}`（原 `{DEL}\_by-project\0doc-word-sources\` park 已清；t1490u）。
 
-**Moved to 0del (not live):** `03-research\briefs (historical; now under D:\MyProjects\_DataBase\_lab\originals)`, `07-response\reply-units`, `_bank\md-build` → `D:\MyProjects\_DataBase\_lab\originals\0doc-struct-20261022\` (folder shrink 2026-10-23). Former `05-manuscript` / `06-review` / `07-response` human seats are in that same park class (`{raw_root}\_lab\originals\0doc-03-07-seats-20261023`), not live tops.
+**Moved to `{DEL}`（`.Del`，旧名 `0del`）(not live):** `03-research\briefs (historical; now under D:\MyProjects\_DataBase\_lab\originals)`, `07-response\reply-units`, `_bank\md-build` → `D:\MyProjects\_DataBase\_lab\originals\0doc-struct-20261022\` (folder shrink 2026-10-23). Former `05-manuscript` / `06-review` / `07-response` human seats are in that same park class (`{raw_root}\_lab\originals\0doc-03-07-seats-20261023`), not live tops.
 
 ## How
 
@@ -38,4 +38,4 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 - Stats / puzzle assembly (拼图) → Loopnow
 - Bulk bank rebuild scripts → Loopnow (coding / scripts default to 02; bots never call Cline)
 
-Ownership SSOT: `00_orchestrator/references/ownership-contract.md` §0doc database lookup.
+Ownership SSOT: `00_orchestrator/references/ownership-contract.md` §_Docs database lookup.

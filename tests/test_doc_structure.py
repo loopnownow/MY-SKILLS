@@ -76,7 +76,7 @@ class ModuleHeaderTests(unittest.TestCase):
                 if "__pycache__" in p.parts or ".git" in p.parts:
                     continue
                 rel = p.relative_to(ROOT)
-                # Annual journal datasets lived under A find-journal/data; stub removed — pools in 0doc / B
+                # Annual journal datasets lived under A find-journal/data; stub removed — pools in _Docs / B
                 parts = rel.parts
                 data_year_ok = (
                     len(parts) == 5

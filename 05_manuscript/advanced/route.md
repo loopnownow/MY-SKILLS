@@ -10,7 +10,7 @@
 
 ## Vocabulary (body in base; advanced pointer at `vocab/README.md`)
 
-**Evidence seat (not criteria):** `GLOSSARY_ROOT` = `0doc\_library\glossary` — **四层** (`words` / `sentences` / `paragraphs` + `sections` pointer pages) + `index.csv`; `banks\` evidence-only. Criteria stay in `base/vocab/` (+ named advanced). Prefer env `GLOSSARY_ROOT`; do not use a separate glossary-banks alias in new text (that alias was retired 2026-11-01; use `GLOSSARY_ROOT\banks` or `{doc_glossary}\banks`).
+**Evidence seat (not criteria):** `GLOSSARY_ROOT` = `_Docs\_library\glossary` — **四层** (`words` / `sentences` / `paragraphs` + `sections` pointer pages) + `index.csv`; `banks\` evidence-only. Criteria stay in `base/vocab/` (+ named advanced). Prefer env `GLOSSARY_ROOT`; do not use a separate glossary-banks alias in new text (that alias was retired 2026-11-01; use `GLOSSARY_ROOT\banks` or `{doc_glossary}\banks`).
 
 1. **L1 words:** `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
 2. **L1 patterns:** `05_manuscript/base/vocab/L1/patterns.md`
@@ -46,8 +46,8 @@ When polish requested after 00 QC:
 - `references/bank-voice.md` — voice habits from quotes (pointer from `voice-portrait.md`)
 - `references/bank-patterns.md` — revision-pattern taxonomy (7255-unit summary)
 
-## 0doc writing-rules absorb (2026-10-23)
+## _Docs writing-rules absorb (2026-10-23)
 
 - Hard constraints: `references/writing-rules-hard.md` (Track Changes; no invented docx/pdf layout; do not alter outcome/cutoff/covariate/missingness semantics).
 - Authority map (retargeted after seat move): `references/writing-rules-map.md`.
-- Optional base pointer: `../base/write-paper/references/0doc-writing-rules-pointer.md`.
+- Optional base pointer: `../base/write-paper/references/docs-writing-rules-pointer.md`.

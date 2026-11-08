@@ -56,7 +56,7 @@ See workbook `05_gaps` (and parked README) for known missing device/params — n
 
 ## Named gap — MAGNETOM Skyra / SOMATOM Sensation (search 2026-10-19)
 
-Search scope then: 0doc lab-reference scanner-registry, related manuscripts, and the raw DB (`{raw_root}`, formerly 00ds). Record only what that search stated. Do **not** invent protocol parameters.
+Search scope then: _Docs lab-reference scanner-registry, related manuscripts, and the raw DB (`{raw_root}`, formerly 00ds). Record only what that search stated. Do **not** invent protocol parameters.
 
 - **Not found:** the literal model names MAGNETOM Skyra and SOMATOM Sensation, and no protocol table for either.
 - Closest hit in that search: manuscripts that name SOMATOM only (64-row / 128-slice). No Sensation subtype. No complete Ultravist / iopromide protocol.

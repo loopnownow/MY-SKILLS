@@ -1,6 +1,6 @@
 # Response letter (style + resolution)
 
-## Structure digest (0doc absorb 2026-10-23)
+## Structure digest (_Docs absorb 2026-10-23)
 
 Letter skeleton + unique bans: `references/response-structure-digest.md`. Type stubs: `references/response-letter-template-digest.md`. **Do not fork** opener nouns / thanks bank — this file remains SSOT.
 

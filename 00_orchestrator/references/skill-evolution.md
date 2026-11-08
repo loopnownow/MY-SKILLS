@@ -4,7 +4,7 @@ Authoring punctuation (owner t1683u / t1761u): en dash (U+2013) is **allowed** i
 
 Applies to skills 00-07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
 
-**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `0doc` trees.
+**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `_Docs` trees.
 
 ## Evidence
 

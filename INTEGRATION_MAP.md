@@ -59,7 +59,29 @@ Owner t1791u: 根路径更名 —— 工程根 `D:\MyProjects`（原 `D:\0Grok`�
 
 - **Aligned:** `lab-paths.yaml` 全量别名 + soft live path literals；Rules SSOT `{RULES}/workspace-layout.md` + `My rule.md` §1。
 - **History rule:** 历史条目 / `VERSION.txt` 旧盘符保留为 dated facts（`lab-paths.yaml` header）。
-- **Follow-up QC (2026-11-08, 改名后复检):** MY-CODES 的活默认值仍指旧根，已同步改正 —— `modules/console/paths.py` `DEFAULT_GROK_ROOT` → `D:\MyProjects`；`modules/console/const.py` `REGISTRY_PATH` `0doc` → `_Docs`；`tools/clean-data/tidy_paths.py` 与 `tools/sync/{batch_rerun_pipelines,smoke_test,sync_modules}.py` 的 `DEL_ROOT` → `D:\MyProjects\.Del`；`tools/lab-reference/*` 的 `00db` / `0doc` 默认值 → `_DataBase` / `_Docs`；文档/用法示例里的旧名同步（见下条 CHG）。
+- **Follow-up QC (2026-11-08, 改名后复检):** MY-CODES 的活默认值仍指旧根，已同步改正 —— `modules/console/paths.py` `DEFAULT_GROK_ROOT` → `D:\MyProjects`；`modules/console/const.py` `REGISTRY_PATH` `0doc` → `_Docs`；`tools/clean-data/tidy_paths.py` 与 `tools/sync/{batch_rerun_pipelines,smoke_test,sync_modules}.py` 的 `DEL_ROOT` → `D:\MyProjects\.Del`；`tools/lab-reference/*` 的 `00db` / `0doc` 默认值 → `_DataBase` / `_Docs`；文档/用法示例里的旧名同步（README、help/usage、HTML 占位符、Rules/Skills 活指针）。
+
+## CHG-20261108-t1796u-syn-xd-del-only (2026-11-08)
+
+Owner t1796u: `syn.bat` 的 `/XD` 只留 `.Del`（去掉 `/XD _DataBase`）；`_DataBase` 随 `D:\MyProjects` → `E:\Aitor` 主树一起同步。`synDB.bat` 仍单独镜像 `_DataBase`。
+
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` sync section + `My rule.md`.
+- **Unchanged:** 本票不动盘；MY-CODES untouched.
+
+## CHG-20261108-t1794u-dotdel-syn (2026-11-08)
+
+Owner t1794u: `{del_root}` = `D:\MyProjects\.Del`（was `D:\0del`；alias `0del` = `.Del`）。`syn.bat`: `D:\MyProjects` → `E:\Aitor`（Aitor 根，**不是** `E:\Aitor\MyProjects`）；`/XD _DataBase .Del`；`DEL.lnk` → `.Del`。t1791u 的 E 侧路径 typo 在本条改正。
+
+- **Aligned:** `lab-paths.yaml`（`del_root`）+ this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` sync section.
+- **Unchanged:** 本票不搬文件；MY-CODES untouched.
+
+## CHG-20261108-t1791u-myprojects-paths (2026-11-08)
+
+Owner t1791u: 根路径更名 —— 工程根 `D:\MyProjects`（原 `D:\0Grok`）、文档库 `D:\MyProjects\_Docs`（旧名 `0doc`）、原始库 `{raw_root}` = `D:\MyProjects\_DataBase`（旧名 `00db`；按后缀分桶，`_lab` 与其他 `_*` 留根）；`{del_root}` 见 t1794u。
+
+- **Aligned:** `lab-paths.yaml` 全量别名 + soft live path literals；Rules SSOT `{RULES}/workspace-layout.md` + `My rule.md` §1。
+- **History rule:** 历史条目 / `VERSION.txt` 旧盘符保留为 dated facts（`lab-paths.yaml` header）。
+- **Follow-up QC (2026-11-08, 改名后复检):** MY-CODES 活默认值仍指旧根，已同步改正 —— `modules/console/paths.py` `DEFAULT_GROK_ROOT` → `D:\MyProjects`；`modules/console/const.py` `REGISTRY_PATH` `0doc` → `_Docs`；`tools/clean-data/tidy_paths.py` 与 `tools/sync/{batch_rerun_pipelines,smoke_test,sync_modules}.py` 的 `DEL_ROOT` → `D:\MyProjects\.Del`；`tools/lab-reference/*` 的 `00db` / `0doc` 默认值 → `_DataBase` / `_Docs`；`flowfigure.spec` 补 fail-closed 校验（非对象 `pipeline`、`cohorts`≠臂数）。文档/用法示例旧名同步（README、help/usage、HTML 占位符、Rules/Skills 活指针）；`D:\0del` 残留并入 `.Del\_by-function`。
 
 ## CHG-20261107-t1761u-unicode-minus-allow (2026-11-07)
 
@@ -400,7 +422,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
   and `visualization/scripts/gen_repo_map.py` were cited nowhere (no pack doc, no test); bytes
   quarantined outside the repo. Tracked tree 481 → 478.
 - **Three docs kept:** `03_research/personal/references/grant-fulltext-skeleton.md`,
-  `lab-ref-method-digest.md` and `0doc-response-structure-pointer.md` are cited from `0doc`
+  `lab-ref-method-digest.md` and `docs-response-structure-pointer.md` are cited from `_Docs`
   (its `_library` INDEX + README, the root CURRENT pointer, and the skill-harvest plan), so they
   stay and are now registered in `03_research/personal/route.md`.
 - **Pointer fix:** `simulate-reviewers/manifest.yaml` marks the `../nature-shared/core/` sweep
