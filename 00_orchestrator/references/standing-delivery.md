@@ -14,7 +14,7 @@ Visualization is rendered locally from the repository's own IR. It is not a skil
 |---|---|---|
 | **Final** deliverable (manuscript / final table / final report) | by type | **Subproject root** (under `{lab_root}\<project>`); **no** `0result\` folder; else `{DEL}` unless user names Downloads |
 | **Intermediate** (QC / ledger / gate / draft) | by type | Subproject → `ref/` map (`review/`/`citation/`/`refer/` (lit + writing refs)/`code-gates/`/`tmp/` + tables/figures/pipeline; **locks under `ref/pipeline/`**; `submission-*`, base tables; `false_classification*` under the active results folder `<project>/<endpoint>/` (resolved OUT_DIR / outcome subproject, t1660u) per `project-ref-layout.md` (retired shells: `analysis/`/`materials/`/`results/`/`exec/`/`code/`/`gates/`/`writing-refs/`/`raw-pre/`)); else `{DEL}` |
-| Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`in-review\…`); else `{DEL}` unless user names Downloads |
+| Report / phase QC | HTML | Subproject → that project `ref` or stage folder (`reviewing\…`); else `{DEL}` unless user names Downloads |
 | Manuscript / Track Changes (final) | DOCX | Subproject **root** if any; else `{DEL}` unless user names Downloads |
 | Data table / filled form (final) | XLSX | Subproject **root** (do **not** create `0result\`); else same as manuscript |
 | Intermediate from derivatives | copy | When final, copy to **subproject root**; originals stay in `derivatives` |
@@ -49,5 +49,5 @@ QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`
 
 ## accepted closeout (t1806u / t1809u)
 
-After harvest, slim `accepted\<prefix_suffix>\`, then move into `archived\<prefix>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` **file** + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders (revision/submission packs) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose -> zip-first); after QC originals -> `.Del\_by-project\<slug>\`. Full landing -> `{RULES}/workspace-layout.md` 「accepted 收工」. **Not** a harvest-skill-library step (harvest extracts how-to only).
+After harvest, slim `accepted\<prefix_suffix>\`, then move into `archived\<suffix>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` **file** + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders (revision/submission packs) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose -> zip-first); after QC originals -> `.Del\_by-project\<slug>\`. Full landing -> `{RULES}/workspace-layout.md` 「accepted 收工」. **Not** a harvest-skill-library step (harvest extracts how-to only).
 

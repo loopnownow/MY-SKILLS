@@ -14,6 +14,15 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 Harvest must not invent a second evolution log file.
 
 
+## CHG-20261108-t1817u-reviewing-archived-suffix (2026-11-08)
+
+Owner t1817u (Asia/Shanghai 2026-11-08): **in-review → reviewing**; **R&P retired**; **archived L1 = `<suffix>`** (align `_DataBase`).
+
+- **Disk (this ticket):** `in-review` renamed `reviewing`; archived packs moved `fyh/ly/mlh` → `CAC/OSTEO/PXY`; empty prefix layers → `.Del\_by-project\archived-prefix-retired-t1817u\`; receipt `.Del\_by-project\archived\RENAMED-t1817u.md`.
+- **Rules:** live stage `reviewing`; aliases `submitting`/`in-review` → `reviewing`; grants → `_DataBase\_grants\`; peer reviews → `_DataBase\_reviews\`; archived `archived\<suffix>\<prefix_suffix>\`.
+- **Skills (pointer-only):** lab-paths / standing-delivery / handoff / project-state aliases / grants-proposal-pack / response.md / project-ref-layout / this map / VERSION.txt.
+- **Unchanged:** no `_diseases.csv`; no DB bucket renames; no accepted closeout resume; MY-CODES untouched; **PR open, not merged**.
+
 ## CHG-20261108-t1809u-rp-folders-to-database (2026-11-08)
 
 Owner t1809u (Asia/Shanghai 2026-11-08): **R*/P* whole-folder into `_DataBase`** on accepted closeout.
