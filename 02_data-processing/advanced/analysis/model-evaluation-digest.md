@@ -15,6 +15,9 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → `{doc_
 
 ## cautions
 - **No VIF on `Combined model covariates`.** VIF belongs to development-set Multivariate only (2026-08-04 · 019fca80).
+- **A calibration plot alone is not "well calibrated".** Report slope and intercept (and Brier when supplied); a curve without a calibration statistic supports only "graphically acceptable", never a quantitative claim.
+- **Bootstrap AUC CI needs an effective-`B` count.** Resamples that land on a single outcome class are `NA`; report how many of the 1000 were usable (small / imbalanced sets lose many).
+- **DCA grid:** sweep the full `0.01–0.99` range and mark the clinically relevant threshold band on the figure; a DCA clipped to 0.1–0.9 hides the crossing the reviewer wants to see.
 - Do not emit Edge list; DAG keeps mediation-relevant edges highlighted; group nodes use real class names.
 - Merge duplicate correlation panels; delete threshold-source columns that carry no meaning.
 - Do not invent CIs; lab AUC 95% CI = 1000 bootstrap (`_boot_auc_ci`), never DeLong analytic CI. Detail: `methods.md`, `pipeline.md`, `02_data-processing/base/model-evaluation/MODULE.md`.
