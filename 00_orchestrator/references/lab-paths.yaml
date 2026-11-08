@@ -3,10 +3,10 @@
 # History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
 # Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
-version: 11
+version: 12
 aliases:
   lab_root: "D:\\MyProjects"
-  del_root: "D:\\0del"
+  del_root: "D:\\MyProjects\\.Del"  # was D:\\0del; alias 0del=.Del; syn /XD .Del
   raw_root: "D:\\MyProjects\\_DataBase"  # was D:\\00db; organized raw DB; suffix-bucket projects; _lab/_ stay root; read-only unless named. Live 00ds path/folder/filter = QC finding → correct to 00db (do not keep as legacy allowlist). Historic "was/formerly 00ds" notes OK.
   code_root: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
   doc_root: "D:\\MyProjects\\_Docs"
@@ -57,7 +57,8 @@ aliases:
   code_bank_qc: "D:\\MyProjects\\_Docs\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
-  - "2026-11-08 t1791u: lab_root D:\\MyProjects (was D:\\MyProjects); doc_root D:\\MyProjects\\_Docs (alias 0doc=_Docs); raw_root D:\\MyProjects\\_DataBase (alias 00db=_DataBase; project buckets _DataBase\\<suffix>\\<prefix_suffix>\\; _lab and other _* stay at raw root). E mirror E:\\Aitor\\MyProjects (+ _DataBase). Rules SSOT: {rules_git}/workspace-layout.md."
+  - "2026-11-08 t1794u: {del_root}=D:\\MyProjects\\.Del (was D:\\0del; alias 0del=.Del). syn.bat: D:\\MyProjects -> E:\\Aitor (Aitor root, NOT E:\\Aitor\\MyProjects); /XD _DataBase .Del (do not sync .Del). DEL.lnk -> .Del. Rules SSOT: {rules_git}/workspace-layout.md sync section."
+  - "2026-11-08 t1791u: lab_root D:\\MyProjects (was D:\\0Grok); doc_root D:\\MyProjects\\_Docs (alias 0doc=_Docs); raw_root D:\\MyProjects\\_DataBase (alias 00db=_DataBase; project buckets _DataBase\\<suffix>\\<prefix_suffix>\\; _lab and other _* stay at raw root). syn target clarified in t1794u note (E:\\Aitor root). Rules SSOT: {rules_git}/workspace-layout.md."
   - "2026-11-06 t1716u/t1720u: sibling workspace root under {lab_root} is R&P (formerly proposal) for (1) 课题申请 / grant-or-project application packets and (2) owner reviews of other people's manuscripts (评阅他人稿) — NOT a manuscript stage; lab's own journal drafts/R&R/proofs stay in drafting/pre-submit/in-review/accepted; do not add R&P to study_folder_stage_aliases. Rules SSOT: {rules_git}/workspace-layout.md."
   - "2026-11-01: 0doc `_bank` → `_library\\glossary`（**四层** words/sentences/paragraphs + sections 指针页 + index.csv 13 列；证据层 banks 含 glossary.db；GATES.md 已清）。别名：`{doc_glossary}` = `GLOSSARY_ROOT`；**`doc_glossary_banks` 2026-11-01 t1584u 退役**（改写为 `{doc_glossary}\\banks` / `GLOSSARY_ROOT\\banks`）。vocab-harvest env 统一 `GLOSSARY_ROOT`。旧名 `doc_review_bank` / `doc_review_replies` / `doc_glossary_banks` 只在本条目历史叙述中出现，不得再作活别名。"
   - "2026-10-31 (owner): jcr flattened + journals single table. {doc_library_jcr} and {find_journal_submission} now resolve to _library\\journals (whitelist-submitted.csv / submission-prior.jsonl sit there); jcr\\<year>\\ retired, no per-year folders; journals\\index.xlsx retired (csv only)."

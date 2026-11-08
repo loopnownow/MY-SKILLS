@@ -38,7 +38,7 @@ Repo QC pass over Rules + Skills + MY-CODES (2026-11-06): live Skills tree back 
 
 Ledger backfill: two live-sentence edits had shipped without a `VERSION.txt` / map entry.
 
-- **t1791u:** live roots retargeted `D:\MyProjects`→`D:\MyProjects`, `0doc`→`_Docs`, `D:\MyProjects\_DataBase`→`D:\MyProjects\_DataBase` (suffix buckets); lab-paths aliases updated; E mirror `E:\Aitor\MyProjects`.
+- **t1791u / t1794u:** live roots `D:\MyProjects`, `_Docs`, `_DataBase` (suffix buckets); `{del_root}`=`D:\MyProjects\.Del` (was `D:\0del`); syn.bat `D:\MyProjects`→`E:\Aitor` (Aitor **root**, not `E:\Aitor\MyProjects`) with `/XD _DataBase .Del`.
 - **t1716u:** live workspace path retargeted `proposal` → `D:\MyProjects\R&P` (mirrors Rules `workspace-layout.md` sibling root).
 - **t1720u:** R&P purpose sentences aligned with Rules (grant/project application packets + reviewing other authors' manuscripts; not a manuscript stage).
 
