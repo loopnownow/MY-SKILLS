@@ -29,6 +29,7 @@ Covers volumetric **I/O** (DICOM/NIfTI read, convert, organise, geometry preserv
 
 | File | Open when |
 |---|---|
+| [references/acquisition-and-parametric-maps.md](references/acquisition-and-parametric-maps.md) | PACS export → patient folder, DICOM series grouping/splitting, DKI/IVIM maps, radiomics extractor settings, DPABI batch |
 | [references/data.md](references/data.md) | Imaging formats, labels, masks, privacy, repositories, availability wording |
 | [references/reader-protocol.md](references/reader-protocol.md) | Number of readers, blinding, independent vs consensus, adjudication |
 | [references/mask-geometry.md](references/mask-geometry.md) | Spacing/origin/direction mismatch; DICOM to NIfTI flips; mask resample |

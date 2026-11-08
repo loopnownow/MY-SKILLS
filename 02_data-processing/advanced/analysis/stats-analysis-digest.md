@@ -7,6 +7,7 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archiv
 - **Multivariable tables:** show all entered features, not only significant rows.
 - **DeLong:** paired model-comparison **p** columns live in `ROC summary — train & test`; drop meaningless `Thr source` (2026-08-28). AUC **CI** stays 1000-bootstrap — DeLong is not the CI.
 - **Type inference (all lab sub-projects):** all-numeric column → continuous by default; English/roman/ordinal tokens stay categorical; override via `CLIN_FORCE_CATEGORICAL` / `CLIN_FORCE_CONTINUOUS` (2026-08-19).
+- **Redundancy filter (optional, state it):** radiomics counterpart filter by `|r|` at a pre-specified cutoff (e.g. 0.75), greedily dropping the lower-variance member of each surviving pair; it is a **second** filter after ICC ≥ 0.75, not a substitute. If the cutoff differs from the lab default, write the number in Methods.
 
 ## process
 - Always report train | validation side-by-side; never merged-only results.
