@@ -24,7 +24,7 @@ Letter skeleton + unique bans: `references/response-structure-digest.md`. Type s
 - Deliver as `.docx` named `Response_<project-slug>_R<round>.<minor>.docx` (same token as that round’s manuscript; Rules SSOT → `{RULES}/project-ref-layout.md`). Requirements read `Please …`, never `Please fix:`.
 - Quote the reviewer comment in full; use past tense for changes already made.
 - Do not open a resolved item with `We agree that…`. Do not write `we will…` for a change already claimed.
-- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\in-review\<project>`).
+- `ACCEPT-*.html` only when the user names it this run. Delivery goes to the folder the user already used for the project (e.g. `{lab_root}\reviewing\<project>`).
 - Each point maps to one reply row and names its location; after revision re-check page, number, sample size, and citation.
 
 ## Advanced response-letter style (from historical letters)

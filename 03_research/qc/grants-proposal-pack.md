@@ -8,7 +8,7 @@
 
 | Task | Route |
 |---|---|
-| 研究计划 / 开题报告 / 科研项目申请书 | This pack pointer → application packet under `{lab_root}\R&P\`（formerly `proposal`） (or owner-named path). Owner reviews of other people's manuscripts also live under `R&P` (workspace sibling; not a 05/06 review workflow — do not route journal R&R here). |
+| 研究计划 / 开题报告 / 科研项目申请书 | This pack pointer → application packet under `{raw_root}\_grants\` (or owner-named path). Owner reviews of other people's manuscripts → `{raw_root}\_reviews\` (not a 05/06 review workflow; do not route journal R&R here). `R&P` retired (t1817u). |
 | Journal manuscript / R&R | **Do not** use this file — stay on 05/06/07 gates |
 
 ## Thin standards (host-agnostic)
