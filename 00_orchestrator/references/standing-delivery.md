@@ -54,3 +54,12 @@ Pointer only. **Relations / harvest authorization / divert map** → `{RULES}/wo
 **Landing detail** → `{RULES}/workspace-layout.md` 「accepted 收工」: after authorized harvest (or `skill_ref=none`), slim `accepted\<prefix_suffix>\`, then move into `archived\<family>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` **file** + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` → `_DataBase\<family>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase\<family>\<prefix_suffix>\` (>=20 loose → zip-first); after QC originals → `.Del\_by-project\<slug>\`.
 
 Disease shortcode + family L1 SSOT: `_DataBase\_diseases.csv` (`family` column). archived / `_DataBase` L1 = `<family>` (same-source aggregation; t1829u). Leaf suffix still base shortcode. Shared raw once: family raw pool `<family>\_share\` (`<leaf>` archives / `ethics\<CODE>` / `thesis\<slug>`), or primary leaf + `ref/settings.ini` pointer. Rules: `{RULES}/workspace-layout.md` 「同源聚合」/「按家族分桶」/「archived 冷库」.
+
+
+## ethics retention (t1849u)
+
+Pointer only. **Retention / retire `_lab\ethics`** → `{RULES}/workspace-layout.md` 「伦理材料留存（t1849u）」:
+批件原件 only date ≥ 2023-11-10 into `_DataBase\<family>\_share\ethics\`;
+clinical protocol + ICF keep all there; `_DataBase\_lab\ethics` retired → `.Del` (Bai moves disk).
+`_library\ethics\approvals` remains library SSOT for indexed 批件 PDF.
+

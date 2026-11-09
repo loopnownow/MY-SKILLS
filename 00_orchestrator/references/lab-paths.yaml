@@ -57,6 +57,7 @@ aliases:
   code_bank_qc: "D:\\MyProjects\\_Docs\\test"
 citation_form: "`{alias}` or `{alias}/relative/path` — expand via this YAML"
 notes:
+  - "2026-11-09 t1849u: ethics retention SSOT in MY-RULES workspace-layout.md 「伦理材料留存（t1849u）」; 批件原件 date>=2023-11-10 into {raw_root}\\<family>\\_share\\ethics\\; protocol+ICF all keep; {raw_root}\\_lab\\ethics retired -> {del_root} (Bai disk). Pointer only."
   - "2026-11-08 t1809u: accepted closeout R*/P* folders (revision/submission packs e.g. R1/R2/P1/P1.1): whole folder into {raw_root}\\<suffix>\\<prefix_suffix>\\ (>=20 loose / small-file pile -> 7z/zip + .files.txt first); after QC original -> {del_root}\\_by-project\\<slug>\\; root keeps one Manuscript_*_{V|R|P}… file only. Pointer only; Rules SSOT: {rules_git}/workspace-layout.md 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」."
   - "2026-11-08 t1806u: accepted closeout: after harvest slim accepted\\<prefix_suffix>\\ then move to archived\\<suffix>\\<prefix_suffix>\\ + ARCHIVED.md; hard-keep Manuscript + FinalData (+ optional settings.ini -> _DataBase\\<suffix>\\<prefix_suffix>\\). Pointer only; Rules SSOT: {rules_git}/workspace-layout.md 「accepted 收工」. harvest-skill-library != closeout."
   - "2026-11-08 t1800u: zip-before-ingest into {raw_root}: dirs with >=20 standalone files or small-file piles pack to one archive (prefer 7z -mx=5; else zip) + <name>.files.txt before landing; loose originals move to {del_root} after QC; syn still /XD .Del only. Rules SSOT: {rules_git}/workspace-layout.md 「进 _DataBase 多文件先压缩」."
