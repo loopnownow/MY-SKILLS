@@ -42,6 +42,7 @@ Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and tur
 
 **Hard gates**
 
+- **Workspace scope (t1840u):** harvest may run from drafting / pre-submit / reviewing / accepted / archived / `.Del`; **each time needs same-turn owner authorization**; never auto by stage. harvest ≠ closeout (disk moves). Authority: `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」.
 - **Extract ≠ promote**: extraction writes only bank / candidates; only **「进skills」 (promote into live skills)** may change runtime.
 - Bank update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `{RULES}\skills.md` §1b).
 - **No scoring system**; candidates record minimal fields only.

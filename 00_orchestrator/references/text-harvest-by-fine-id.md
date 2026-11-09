@@ -4,6 +4,9 @@
 
 **Standing (2026-10-24, 城城):** harvest **task flow** is owned by **00_orchestrator** and turned into a collection standard (not a new evolution tree). Flow body → `00_orchestrator/references/skill-evolution.md` "Harvest task flow". Candidate/evidence fields → collection standard §8.
 
+
+**Workspace (t1840u):** when/where harvest may run, and harvest ≠ closeout → `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (same-turn owner auth; pointer only).
+
 Disk SSOT: `{doc_root}\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
 
 | Bucket | Store |
