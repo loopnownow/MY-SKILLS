@@ -13,6 +13,8 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 
 逐项目记录：文件数 / 字节 / 每 sheet 行列 / sha256 / 名称版本簇 / mtime。产出 `out/inventory.tsv`。
 
+压缩档同轮盘点（`*.7z / *.zip / *.rar / *.tar.zst / *.tgz / *.gz / *.bz2 / *.xz`，叶内 + `_share\`）：逐档列成员清单与成员类型，标出「档内表格」（供解档入库）与「非表格件」（随档留 `_share`）。
+
 ## 2 去重三层（判据优先级从硬到软）
 
 1. **文件级 sha256**：字节全等 = 同一文件（本轮全库仅 1 组：`PCOSdata.xlsx` ≡ `PCOSdata (2).xlsx`）。
@@ -41,21 +43,22 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 
 `COLS` 用固定列序（例：姓名 / 性别 / 年龄 / 组别 / 部位 / 病程 / 电话 / …），缺列留空，不新增同义列。
 
-## 5 合并簿约定（工作簿即交付物）
+## 5 合并簿约定（入库中间件 / 点名交付）
 
 - sheet 顺序：`00_说明`（口径 / 数据源 / 处理 / 校验数字 / 限制）→ `01_合并_<主题>` → `02..NN_源_<文件或表>`（原样保留）→ `99_来源清单`。
 - `01_合并_*`：首行 note（唯一，写口径），第 2 行表头，第 3 行起数据；末三列 `列序布局` / `来源文件` / `源表`。
 - `99_来源清单`：`文件 / 大小 / mtime / sha256_12 / 工作表 / 行数 / 列数 / 处理 / 目标sheet`。
 - 原样保留 sheet 只保单元格值——**不保公式 / 样式 / 列宽 / 合并单元格**（说明段必须写明；原貌靠 `.Del` 原件）。
-- 文件名 `<项目名>_merged_YYYYMMDD.xlsx`；项目名 = 叶 slug（家族根直放的用家族名）。
+- 文件名 `<项目名>_merged_YYYYMMDD.xlsx`；项目名 = 叶 slug（无叶例外用家族名）。
+- 合并簿默认是**入库中间件**：入 `<family>\_db\<family>db`，入库后不留可读副本（Q5 默认）；只有用户点名交付才另存一份到叶根 / 家族根，并在 `目录说明.md` 写明交付口径。中间簿与源表同批落批次 staging，不落 `_DataBase`。
 
 ## 6 落盘 + 留痕
 
-1. 合并簿进叶根 / 家族根；原件移 `{DEL}\_by-function\<batch>\originals\<项目>\`（保留相对路径）。
+1. 合并簿默认入 `<family>\_db\<family>db`；点名交付的副本落叶根 / 家族根，其余不留（叶内最终只留 `目录说明.md`）。原件移 `{DEL}\_by-function\<batch>\originals\<code>\<family>\<leaf>\`（保留相对路径）。
 2. `*-MOVED-YYYYMMDD.tsv` 列：`from / to / bytes / sha256 / status`；移动后逐件复核 sha256（100% 通过才报完成）。
-3. 叶 / 家族 `目录说明.md` 末尾追加「## 散表归并（YYYY-MM-DD）」段：口径、重算文件数 / 大小、合并簿名、台账指针。
-4. `_index.csv` note：`YYYY-MM-DD 散表归并 → <叶>/<项目>_merged_YYYYMMDD.xlsx`。
-5. `structure_check.py` 24/24。
+3. 叶 / 家族 `目录说明.md` 末尾追加「## 散表归并（YYYY-MM-DD）」段：口径、重算文件数 / 大小、合并簿名 / 入库去向、台账指针；叶内只留说明，未入库例外写明原因。
+4. `_index.csv` note：`YYYY-MM-DD 散表归并 → <family>\_db\<family>db`（有点名交付副本时另注 `<叶>/<项目>_merged_YYYYMMDD.xlsx`）。
+5. `structure_check.py` 全门 PASS。
 
 ## 7 已完成实例（可对照）
 
@@ -66,4 +69,4 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 | OC 根 | 13 表（10 酶标 + 2 金属 + 1 临床） | 6 sheets；818 孔 | 5 检测项 × 2 批次；`metal ion` 主表 ⊃ `Manganese, iron, calcium`；`Sheet2` 与主表数值有差（未并） |
 | PCOS/zar_PCOS3D | 5 表 | 8 sheets；主表 119 行 | 两表行序一致（Age 118/118 相等；BMI 差异仅四舍五入） |
 
-剩余 `MHE/ly_THESIS` 77 表是整篇论文散件（色谱图 / 积分 / 行为学 / 免疫组化混放），须先按实验类型分桶再谈合并。
+`MHE/ly_THESIS` 77 表已随 `MHE_AN` 家族库入库（`MHE_AN/_db/MHE_ANdb`：23 表入库 / 12 件跳过，压缩档原档留 `MHE_AN/_share/thesis/ly_THESIS/`）；整篇论文散件（色谱图 / 积分 / 行为学 / 免疫组化混放）后续按实验类型分桶再谈合并。

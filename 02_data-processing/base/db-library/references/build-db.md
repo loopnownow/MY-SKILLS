@@ -4,9 +4,10 @@
 
 ## 1 硬约束
 
-- 只收表格（xlsx / xls / csv）；压缩档（`*.tar.zst` / `7z` / `zip`）**不入库、不移动**，原地留叶。
+- 只收表格（xlsx / xls / csv）；压缩档本身**不入库**（原档进 `<family>\_share\<leaf>\`，不入 `_db`、不留叶），**档内表格须解出入库**（`doc.rel_path` 带档名 + 成员），档内非表格件不入库；解包树逐件 sha256 校验后移 `{DEL}`（不就地解压）。
+- 入库后叶内只留 `目录说明.md`（未入库例外写明原因）；不得留散表 / 压缩档。
 - 值保真即可：不存公式 / 样式 / 列宽 / 合并单元格；原貌靠 `{DEL}` 原件回溯。
-- 库与 `目录说明.md` 同目录；`_db` 是 `_` 前缀桶，不参与 S23，但改完仍跑 `structure_check.py` 24/24。
+- 库与 `目录说明.md` 同目录；`_db` 是 `_` 前缀桶，不参与 S23，但改完仍跑 `structure_check.py` 全门 PASS。
 - 同家族多短码共用一个库；不要按短码拆库或拆子目录。
 
 ## 2 Schema（与现役 `build_code_db.py` 一致，逐字）
@@ -32,6 +33,7 @@ CREATE INDEX ix_entity ON entity(project_id, key_norm);
 - `sheet.blob` = 整表 `zlib` 压缩的 TSV（含表头）；宽表也存，保证「有多少数据可查」。
 - `sheet.status`：`ingested` / `dup` / `subset`；`sheet_dup.reason` 记重复或子集、`kept_bytes` 记省下字节。
 - `doc.rel_path` 保留 叶 slug 前缀（如 `MHE/ly_RI/IR-14-9-29.xlsx` 形式的相对 `_DataBase` 路径），便于回溯原文。
+- 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/_share/lmd_PHT.7z/PHT-data.xlsx`、`MHE_AN/_share/thesis/ly_THESIS/morris copy.7z/<成员>`；原档在 `_share`，靠该列回溯「哪张表来自哪个档的哪个成员」。
 
 ## 3 去重三层
 
@@ -58,13 +60,17 @@ IDCOL = re.compile(r"^(医技号|样本编号|样本号|编号|case\s*no\.?|mid|
 ## 5 构建命令（草案接口，CODES 提炼后生效）
 
 ```bash
-python tools/db-library/build_code_db.py --family MHE --code ly            # dry：只建 out/，不动盘
-python tools/db-library/build_code_db.py --family MHE --code ly --move     # + 移原件到 {DEL}、写台账
-python tools/db-library/build_code_db.py --family MHE --code ly --from-originals  # 从 {DEL}\originals 重建
-python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE/_db/MHEdb"
+python tools/db-library/build_code_db.py --family MHE_AN --code ly            # dry：只建 out/，不动盘
+python tools/db-library/build_code_db.py --family MHE_AN --code ly --apply    # + 移原件到 {DEL}、档移 _share、写台账
+python tools/db-library/build_code_db.py --family MHE_AN --code ly --share-archives  # 档内表格解出入库（G13 待落地）
+python tools/db-library/build_code_db.py --family MHE_AN --code ly --strict-leaf     # 叶内只留目录说明.md 门（G13 待落地）
+python tools/db-library/build_code_db.py --family MHE_AN --code ly --from-originals  # 从 {DEL}/originals 重建
+python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MHE_ANdb"
 ```
 
-现役脚本（本轮实例）：`.Del\_by-function\2026-11-db-sqlite\build_code_db.py`（`FAMILY` / `CODE` 常量写死 `MHE` / `ly`，`--from-originals` 从 `originals\ly\` 重建）。搬进 MY-CODES 时：常量改 `argparse`，`TAB` 扩展名与 `IDCOL` 提到模块级常量。
+`--share-archives` / `--strict-leaf` 属 G13 待落地接口：当前 `tools/db-library/` 尚无这两个开关，落地前按 MODULE.md 的「解档 → 入库 → 档移 `_share` → 解包树移 `{DEL}` → 记档 → 表映射」手工流程办。
+
+现役实例：2026-11-09 的 16 家族一次性收口器 `build_family_db.py`（批次脚本，非长期指针；`SPEC` / `CODE` 常量写死，`--dry` 默认 / `--apply` 落盘；档 dst = `<fam>\_share\<leaf>\<档名>`，原件 dst = `originals\<code>\<family>\<leaf>\`，台账 `<fam>-MOVED-20261109.tsv`，`kind` = `table` | `archive`）。搬进 MY-CODES 时：常量改 `argparse`，`TAB` / `ARC` 扩展名与 `IDCOL` 提到模块级常量，并补 `--share-archives` / `--strict-leaf`。
 
 ## 6 QA（全部过才报完成）
 
@@ -73,10 +79,12 @@ python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE/_db/MHEdb
 - [ ] fact / entity / blob 字节数与报告一致；entity 键分布可解释（医技号 41,979 / 样本编号 1,060 / …）
 - [ ] 行数守恒：入库存的表，`sheet.nrow` 之和 - 去重边 = 源表行数之和
 - [ ] 抽样查询能复现已知值（例：`001643` → 17 条部位记录；SCH 部位 Top3 = 头颅 19,320 / 腰椎 5,149 / 上腹部 MRI 4,264）
-- [ ] 原件 sha256 台账 100%；原件目录在 `{DEL}\_by-function\<batch>\originals\<family>\`
+- [ ] 原件 sha256 台账 100%；原件目录在 `{DEL}\_by-function\<batch>\originals\<code>\<family>\<leaf>\`
+- [ ] 归档不在叶内：压缩档只在 `<family>\_share\<leaf>\`；`_share` 层级 ≤2（`ethics` / `thesis` 打平，无子目录）
+- [ ] 档内表可溯源：`doc.rel_path` = 档相对路径 + `/<成员>`，与台账 `kind=table` 行逐条对齐；跳过件有 skip 清单
 - [ ] `_db\目录说明.md`：口径 / 表结构 / 查询示例 / 重建 / 限制
-- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段；`_index.csv` note 追加
-- [ ] `structure_check.py` 24/24
+- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段，叶内只留说明 + 未入库例外原因；`_share\目录说明.md` 件数 / MiB 与实盘一致；`_index.csv` note 追加
+- [ ] `structure_check.py` 全门 PASS
 
 ## 7 查询示例
 
@@ -99,3 +107,4 @@ SELECT status, COUNT(*) FROM sheet GROUP BY status;
 - entity 仅白名单表头 + `ncol ≤ 40` 的表；未命中表的行级检索不可用。
 - PHI 留本地库内，不外发；库不设加密（按本机规则）。
 - 同名表可能来自不同文件（`sheet_dup` 有边）；溯源看 `doc.rel_path`。
+- 档内表溯源跨一层：`doc.rel_path` 只到「档名 + 成员」，档本身在 `_share`；解包树不留 `_DataBase`，需复核时再解到 `{DEL}` staging。
