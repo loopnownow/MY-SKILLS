@@ -32,7 +32,7 @@ The advanced layer carries the recipe (coding/extract/workspace protocols, analy
 
 | Layer | Owns |
 |---|---|
-| `base/` | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures` under `02_data-processing/base/` |
+| `base/` | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, `db-library` under `02_data-processing/base/` |
 | 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
 | `advanced/` | The recipe and the authority: route/handoff, workspace/extract/coding/table-signals, analysis pipeline/console-ui/methods/figures, and the per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
 
@@ -70,6 +70,7 @@ A base pack that grows a long procedure has drifted: the procedure belongs in `0
 **This-run pick:** wait for the 00 session fine-id pick (`00_orchestrator/references/session-pick.md`). Registry fine-id menu (SSOT) = pick list.
 
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); `batch-cohort` resolves here as a retired alias
+- `db-library` -- `_DataBase` family SQLite library (`<family>\_db\<family>db`) + loose-table merge (`02_data-processing/base/db-library/`)
 - `preprocess-imaging` -- Imaging I/O and ROI/reader QC (`02_data-processing/base/preprocess-imaging/`); absorbed retired `imaging-io`
 - `stats-analysis` -- test selection / assumptions / Bayesian notes (`02_data-processing/base/stats-analysis/`); absorbed retired `meta-analysis`
 - `calc-sample-size` -- sample size / power (`02_data-processing/base/calc-sample-size/`)
