@@ -50,6 +50,6 @@ QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`
 ## accepted closeout (t1806u / t1809u)
 
 After harvest, slim `accepted\<prefix_suffix>\`, then move into `archived\<suffix>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: one `Manuscript_<slug>_{V|R|P}…` **file** + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` -> `_DataBase\<suffix>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders (revision/submission packs) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose -> zip-first); after QC originals -> `.Del\_by-project\<slug>\`. Full landing -> `{RULES}/workspace-layout.md` 「accepted 收工」.
-Disease shortcode SSOT: `_DataBase\_diseases.csv`. archived / `_DataBase` L1 = base shortcode (strip trailing `_\d+` instance; keep compounds like `SSD_DKI`). Pointer only; Rules: `{RULES}/workspace-layout.md` 「archived 冷库」(t1821u/t1822u).
+Disease shortcode + family L1 SSOT: `_DataBase\_diseases.csv` (`family` column). archived / `_DataBase` L1 = `<family>` (same-source aggregation; t1829u). Leaf suffix still base shortcode. Shared raw once (`_shared` or primary leaf + pointer). Pointer only; Rules: `{RULES}/workspace-layout.md` 「同源聚合」/「archived 冷库」.
  **Not** a harvest-skill-library step (harvest extracts how-to only).
 
