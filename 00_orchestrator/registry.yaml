@@ -14,7 +14,7 @@
 meta:
   version: '5.0'
   change_id: CHG-20261108-t1823u-qc-fixes
-  fine_id_count_canonical: 20
+  fine_id_count_canonical: 21
   coarse_id_count: 5
 
 empty_fine_ids: notify-then-research-confirm
@@ -106,6 +106,12 @@ fine_ids:
   label: Three-stage confirm cleaning
   source: my-skills
   path: 02_data-processing/base/clean-data/
+  a_domain: 02_data-processing
+  status: LIVE
+- id: db-library
+  label: Family SQLite library + loose-table merge
+  source: my-skills
+  path: 02_data-processing/base/db-library/
   a_domain: 02_data-processing
   status: LIVE
 - id: preprocess-imaging
