@@ -74,6 +74,14 @@ python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MH
 
 ## 6 QA（全部过才报完成）
 
+
+## 7 `{DEL}` 三根与台账（t1952u）
+
+- **三根**：`db_core.DEL = D:\MyProjects\.Del`；`DEL_ROOT = {DEL}\harvested`（台账 / 历史）；`WORK_ROOT = {DEL}\_by-function`（新批次写入，勿写终弃档）。
+- 取批次目录用 `core.batch_dir(name)`；回放历史批次用 `core.find_batch(name)`（依次 `WORK_ROOT` → `DEL_ROOT` → `<name>__bulk-*`）。
+- `verify_db` 缺省**同时扫**两个根；`--del-root` 仍可只指一个。
+- 台账 glob **一层深**（`*/*MOVED*.tsv`，即 `<batch>\*.tsv`）→ 批次可「留台账、搬 bulk」；搬走后台账 `dst` 缺失只报 warn、不 FAIL。
+
 - [ ] 文件 / 表计数：`doc`、`sheet`（ingested / dup / subset）、`sheet_dup` 与报告一致
 - [ ] `PRAGMA integrity_check` = ok；`PRAGMA journal_mode` 记录在 meta
 - [ ] fact / entity / blob 字节数与报告一致；entity 键分布可解释（医技号 41,979 / 样本编号 1,060 / …）
