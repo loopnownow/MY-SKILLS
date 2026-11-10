@@ -11,6 +11,8 @@
 8. Functional self-citation only: *as previously shown for whole-nodule radiomics [n].*
 8a. **Prefer advanced bank cites** when group evidence is needed: use `layer=advanced` rows from lit-bank before external `base` (standing rule: `03_research/advanced/lit-bank.md`).
 
+**Heading source comments.** When this round newly creates or changes citations (literature or numbers/tables from used paths), put one Word comment on each affected IMRAD major heading. Procedure: `heading-source-comment.md`. Do not copy that procedure here.
+
 ## Citation hygiene (pre-submit)
 
 Check ids live in `05_manuscript/qc/manuscript-local-qc.md`. Apply them on every reference pass. call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`). Aitee does not sign the claim→ref table.

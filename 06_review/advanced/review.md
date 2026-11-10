@@ -42,6 +42,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Undecidable facts (missing n, ethics, analysis not done): mark `cannot_invent`, ask the user. Chinese comment plus English suggested wording and/or suggested literature (see ownership-contract). Victor supplies suggested literature. Lee does not land manuscript edits; after the user chooses, Aitee applies Track Changes to the body.
 - **Process-negation / not-done class (owner 2026-10-23):** Process-negation sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **comments** only (author **A**), and every comment must include **建议修改后内容** (suggested revised content); bare flags are forbidden. True negative study results (e.g. *no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
 - Edit unit: **word or sentence**; forbid whole-paragraph rewrites.
+- This-round new or changed citation sources on the review report: one `[cite-src]` Word comment on that report's major heading (`05_manuscript/advanced/process/heading-source-comment.md`). Do not mix with comments aimed at the manuscript. Lee does not edit the manuscript body.
 
 ---
 

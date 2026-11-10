@@ -47,6 +47,10 @@ Field-verify severity (Critical/Warning/Info) and DOI-first Crossref steps: `ref
 
 Uncited bib entries (optional detect) are **advisory only** — never upgrade overall verdict alone. RV-* Critical unresolved still FAIL via `refs-verified.md`.
 
+## Heading source comments (this round only)
+
+If this round newly created or changed citations and the matching IMRAD heading comments (`[cite-src]`) are missing, emit **WARN** only. Do not FAIL this gate for missing heading source comments. Do not check or require backfill on old manuscripts. Procedure: `05_manuscript/advanced/process/heading-source-comment.md`. Missing heading comments alone must not upgrade a `PASS` into `FAIL`.
+
 ## Fail → rollback
 
 - FAIL → 03 Victor (verify/substitute) + 05 Aitee (wording); G-LIT recovery.

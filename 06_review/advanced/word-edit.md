@@ -36,3 +36,4 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Condensed review items (**精简**) → Word comments (**批注**) on the manuscript locus (原文); see `review.md` §0.2.
 - Localization rules: `review.md` section 0.1.
 - Source tags and Chinese reasons: `review.md` section 0.1 (comment lead-in; this file does not copy the rule body).
+- This-round new or changed citations: one `[cite-src]` comment on each affected major heading (`05_manuscript/advanced/process/heading-source-comment.md`). Aitee lands those comments on the manuscript. If the review report itself newly cites literature, Lee comments that report's major heading. Do not mix with comments aimed at the manuscript.

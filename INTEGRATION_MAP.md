@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t1943u (2026-11-10):** heading source comments. When this round creates or changes citations, put one Word comment (`[cite-src]`, author A) on each affected IMRAD major heading. Procedure: `05_manuscript/advanced/process/heading-source-comment.md`. No new CHG heading; registry `change_id` unchanged.
+
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
 ## CHG-20261108-t1823u-qc-fixes (2026-11-08)
