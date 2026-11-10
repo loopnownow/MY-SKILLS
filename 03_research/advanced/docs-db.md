@@ -36,6 +36,6 @@ Owner (or Aitor handoff) asks to 查 / 找 / 检索 / 盘点 / 定位 anything t
 - Web / PubMed literature → Victor
 - Writing Track Changes on a live manuscript → Aitee
 - Stats / puzzle assembly (拼图) → Loopnow
-- Bulk bank rebuild scripts → Loopnow (coding / scripts default to 02; bots never call Cline)
+- Bulk bank rebuild scripts → Loopnow (coding / scripts default to 02)
 
 Ownership SSOT: `00_orchestrator/references/ownership-contract.md` §_Docs database lookup.
