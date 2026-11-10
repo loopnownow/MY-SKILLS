@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
+
 ## CHG-20261108-t1823u-qc-fixes (2026-11-08)
 
 Owner t1823u (Asia/Shanghai 2026-11-08): **QC fix pass** closing the audit task-2 P1/P2 set.
