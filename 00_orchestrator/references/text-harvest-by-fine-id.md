@@ -9,6 +9,20 @@
 
 **Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\My rule.md` §5.3.1 + §5.3.2.
 
+**Evidence source priority by lane (t1953u, owner 2026-11-11):**
+
+| Lane | Primary | Secondary | Last resort |
+|---|---|---|---|
+| `calc-sample-size` | **LLM-derived** (formula / assumption set / worked example) | — | own archives |
+| `design-study` | **LLM-derived** | `_library\references` method sections | our own published methods |
+| `draw-flowchart`, `plot-figures` | **our published Figure 1** (`_library\references` full text) | — | — |
+| `track-changes` | **our `archived` manuscripts / replies** (revision marks) | project `ref\review` | — |
+
+**LLM-sourced drafts are not evidence of our practice.** Header must carry `evidence_type: AI假设` and
+`归属: Cap`; keep only "what the rule is / when it breaks"; never invent numbers, cutoffs, citations or
+DOIs. Promotion needs owner approval plus a real verification run. Figure-derived lanes record **layout
+parameters and criteria only** — never copy the image (copyright) — and cite the source DOI in the draft.
+
 Disk SSOT: `{doc_root}\skill-harvest\HARVEST-STANDARD.md` §7 + §8.
 
 | Bucket | Store |

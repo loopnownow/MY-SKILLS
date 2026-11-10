@@ -91,3 +91,22 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
   `06_review/advanced/review.md`
 - Response letters → `07_response/base/revise/`
 - Formatting contract → `05_manuscript/advanced/Aitor-format.md`
+
+## Reading archived manuscripts for harvest (t1953u)
+
+When a `harvest` round targets `archived\<family>\<slug>\`:
+
+| Source | Weight | What to count | What never leaves the machine |
+|---|---|---|---|
+| `Manuscript_*.docx` (with revisions) | **primary** | `w:ins` / `w:del` counts, author names on revisions, granularity (word / clause / whole paragraph), comment density | manuscript text, figures, patient-level numbers |
+| `Response_*.docx` | secondary | how edits are pointed at (section / line / table), wording of "we revised X" | reviewer text, identifying metadata |
+
+Procedure: unzip `word/document.xml` → count `w:ins`/`w:del`/`w:commentRangeStart` → derive ratios
+(revisions per 1,000 words, paragraph-level vs word-level share) → record the **pattern**, never the prose.
+Output to `skill-harvest/rounds/<round>/evidence/` as counts plus `sha256`; the fine-id draft keeps the
+three buckets only.
+
+Cautions: revision authors may include the reviewer or a co-author — record roles as `A` / `other`,
+not real names; archived trees are read-only (no saves back); a document with zero `w:ins` is not proof
+of "no changes" (edits may have been accepted already).
+
