@@ -7,7 +7,7 @@ version: 13
 aliases:
   lab_root: "D:\\MyProjects"
   del_root: "D:\\MyProjects\\.Del"  # was D:\\0del; alias 0del=.Del; syn /XD .Del
-  raw_root: "D:\\MyProjects\\_DataBase"  # was D:\\00db; organized raw DB; suffix-bucket projects; _lab/_ stay root; read-only unless named. Live 00ds path/folder/filter = QC finding → correct to 00db (do not keep as legacy allowlist). Historic "was/formerly 00ds" notes OK.
+  raw_root: "D:\\MyProjects\\_DataBase"  # was D:\\00db; organized raw DB; family-bucket projects (_DataBase\\<family>\\<prefix_suffix>\\); _lab/_ stay root; read-only unless named. Live 00ds/00db path/folder/filter = QC finding → correct to _DataBase (do not keep as legacy allowlist). Historic "was/formerly 00ds/00db" notes OK.
   code_root: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
   doc_root: "D:\\MyProjects\\_Docs"
   doc_skill_harvest: "D:\\MyProjects\\_Docs\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
