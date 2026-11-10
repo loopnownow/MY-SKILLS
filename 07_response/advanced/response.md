@@ -189,6 +189,7 @@ When drafting a reply:
 - Decidable body edits: Lee comments for Aitee TC-fix. Past tense only for edits already landed.
 - Still undecidable (missing source/analysis, ethics Date/NO unset): the **matching response point** must say pending and name the pending source. Do not write that point as already done. `Suggested …` stays in Word 批注 (see ownership-contract), not as invent/disclaimer in the letter body. Do not pretend experiments were done.
 - **Process-negation / 未做-class (owner 2026-10-23):** Sentences that flag work not done («未做 / 未进行 / 我们未…» or similar CYA) **must not enter the body** (manuscript, revision, response letter). Word **批注** only (author **A**), and every comment **must** include **建议修改后内容**; bare flags forbidden. Empirical negative findings (*no significant difference*, *was not associated with*) are not banned by this rule. QC: `05_manuscript/qc/anti-leak-placeholders.md` AL-5; `07_response/qc/disclaimer-comment-only.md`.
+- This-round new citations in the response letter: one `[cite-src]` comment on the letter's major heading (`05_manuscript/advanced/process/heading-source-comment.md`). New citations added into the manuscript are still placed by Aitee on the manuscript headings.
 
 ---
 

@@ -123,6 +123,7 @@ Route / load order: `advanced/route.md`. Do not harvest or move rule bodies into
 - Fine id advice vs lab rules: put conflict + before/after sentence in the comment; **user decides** before applying.
 - Literature verify fail: follow `advanced/process/evidence.md` exits when a card exists; always comment with G-LIT dual plan (revise/weaken/delete sentence; keep sentence + ask 00 whether to call 03 for substitute refs). Do not invent citations.
 - **New citation numbers:** before inserting `[n]`, scan the manuscript for existing `[digits]`, take `max + 1`, and confirm the new `n` is unused (grep). Never reuse a number that already points at another paper. When swapping a ref, do not copy the old paper’s unique numbers into the new paper.
+- This-round new or changed citations (literature `[n]` / bibliography, or numbers and tables taken from used paths such as `ref/refer/`, `result.html`, `ref/tables/`): one Word comment on each affected IMRAD major heading. Procedure: `advanced/process/heading-source-comment.md`. Pure wording edits get no heading comment. Do not recrawl already-recorded sections to backfill old manuscripts.
 
 ## Writing QC (domain)
 
