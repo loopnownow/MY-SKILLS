@@ -7,7 +7,7 @@ Monthly full log is archived. The live roll below is newest-first; entries dated
 - **Latest archive:** `INTEGRATION_MAP-20261007.md` — lives under `D:\0del\00_orchestrator_reorg_20261017\_medical-research-meta_history\MY-SKILLS_history\` (moved 2026-10-17 with `history/`; not restored in-repo). Parallel copy: `...\grok_history\`.
 - **Older archive:** `INTEGRATION_MAP.archive.md` — lives under `D:\0del\00_orchestrator_reorg_20261018\MY-SKILLS_history\` (moved 2026-10-18 QC Batch 3 A1; not restored in-repo).
 
-Append new CHG / decision rows **here** until the next monthly roll, then archive this file into `D:\00db\_lab\_ledgers\<dated-folder>\` (or a successor dated folder) as `INTEGRATION_MAP-YYYYMMDD.md` and replace with a fresh stub. Do not recreate an in-repo `history/` folder for the monthly roll.
+Append new CHG / decision rows **here** until the next monthly roll, then archive this file into `D:\MyProjects\_DataBase\_lab\_ledgers\<dated-folder>\` (or a successor dated folder) as `INTEGRATION_MAP-YYYYMMDD.md` and replace with a fresh stub. Do not recreate an in-repo `history/` folder for the monthly roll.
 
 > **2026-10-24:** the `D:\0del\00_orchestrator_reorg_2026*` / `D:\0del\my-skills-qc-*` archives named below went to the Recycle Bin when 0del was emptied. Paths are kept as history; restore from the Recycle Bin to read them.
 
