@@ -22,6 +22,10 @@ the analysis script, not here.
 Imaging data-availability statements live in `preprocess-imaging` [`data.md`](../preprocess-imaging/references/data.md),
 not here.
 
+Tables that report **only aggregates** (n, mean(SD), AUC, sens/spec, P) are not clean-data input:
+reconstruct subject-level **synthetic** rows per
+[`restore-from-summary.md`](../../advanced/restore-from-summary.md) (two precisions: simulation from SD/AUC, landing from the mean).
+
 ## Scope
 
 | In | Out |

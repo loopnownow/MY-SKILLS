@@ -16,5 +16,6 @@
 4. Deep code QC (Critical/Required/Optional) -> `../qc/coding-qc.md`
 5. Raw numeric table digit / smoothness signals -> `table-signals.md`
 6. Cooperation / raw->analysis-ready boundary -> `handoff.md`
+7. Summary table -> subject-level **synthetic** rows (meta-analysis input; two precisions) -> `restore-from-summary.md`
 
 **Seat:** Loopnow owns 02 execution. Modeling / feature selection / NHST stay in 02 -- `analysis/route.md` + `analysis/pipeline.md`.
