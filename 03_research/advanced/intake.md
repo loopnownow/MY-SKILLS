@@ -11,7 +11,7 @@ Clinical translation / reader studies → `clinical-translation/` (under `advanc
 
 | Mode | Use when | Default next module |
 |---|---|---|
-| `project-start-lit` | New project or unsettled endpoint / grouping: run full pre-analysis literature pipeline before stats / writing / deep analysis | `design-study` → `lit-search` → `verify-refs` (see `route.md` 项目启动前置); NLM + abstracts → `ref/refer/` |
+| `project-start-lit` | New project or unsettled endpoint / grouping: run full pre-analysis literature pipeline before stats / writing / deep analysis | `design-study` → `lit-search` → `verify-refs` (see `route.md` 项目启动前置); NLM + abstracts → `ref/refer/`; persist `ref/design-study.md` and `ref/design-lock.md`; owner must accept the lock before formal stats |
 | `guideline-first` | Endpoint / grouping needs a named guideline definition; usually the first step inside `project-start-lit` / `design-study` | Prefer `project-start-lit` for full chain; else 项目启动前置 → `route.md` then study card |
 | `frontier` | User wants new research directions, hotspots, or innovation points | Frontier |
 | `literature` | User wants recent papers, evidence maps, or search terms | Literature |

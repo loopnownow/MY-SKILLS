@@ -15,3 +15,5 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 - Name the guideline that defines the endpoint or clinical decision (issuing body + year) before `lit-search`.
 - Do not invent clinical numbers.
 - Project-start literature deliverables (NLM + abstracts) land under `ref/refer/` after `lit-search` / `verify-refs`.
+- Persist every `design-study` result in the project `ref/` folder: write `ref/design-study.md` from [references/design-study-result.md](references/design-study-result.md). Do not leave the result only in chat.
+- Before formal statistics, write `ref/design-lock.md` from [references/design-lock.md](references/design-lock.md) (keywords, research gap, hypothesis, partial citations, inclusion/exclusion, statistical path) and wait for the owner to accept it. Do not start `stats-analysis` or the statistics pipeline until that lock is accepted (`done` is not `accepted`).

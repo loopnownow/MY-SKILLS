@@ -19,6 +19,8 @@ Choose an appropriate test and check the assumptions that justify it. Absorbed f
 
 Lab stats policy stays in `02_data-processing/advanced/analysis/`.
 
+Do not start formal tests until `ref/design-study.md` exists and `ref/design-lock.md` has been owner-accepted (see `03_research/base/design-study/` pre-stats lock). If the lock is missing or unaccepted, stop and return to `design-study`.
+
 ## When to use
 
 - Which test matches the outcome, grouping, pairing, and normality?

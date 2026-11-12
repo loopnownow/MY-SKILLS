@@ -143,9 +143,11 @@ Host-agnostic process standards only — do **not** install ARIS runtime / Codex
 
 | Standard | Path |
 |---|---|
-| W1→W3 stage map + IDEA/EXPERIMENT/NARRATIVE/paper contracts → Victor/Loopnow/Aitee/Lee | `03_research/qc/research-stage-artifacts.md` |
+| W1→W3 stage map + IDEA/DESIGN_STUDY/DESIGN_LOCK/EXPERIMENT/NARRATIVE/paper contracts → Victor/Loopnow/Aitee/Lee | `03_research/qc/research-stage-artifacts.md` |
 | review→fix→re-review + resumable `REVIEW_STATE` | `06_review/qc/review-loop-state.md` |
 | Resubmit edit-whitelist + failure ledger | `07_response/qc/resubmit-edit-whitelist.md` |
 
 Compose with existing Assurance contract soft section above; no new `G-*` ids.
+
+Pre-stats design lock: `ref/design-study.md` must exist, and `ref/design-lock.md` (`DESIGN_LOCK`) must be owner-accepted before formal statistics. If missing or unaccepted, stop and do not run **G-STATS**; responsible seat is 03 (`design-study`) until the owner accepts. No new gate id.
 
