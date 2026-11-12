@@ -9,6 +9,7 @@
 | ARIS-ish stage | Lab alias | Primary artifact (contract) | Seat | Gate / station |
 |---|---|---|---|---|
 | W1 Idea discovery | Idea | `IDEA` — ranked idea + hypothesis + novelty note (e.g. `IDEA_REPORT`) | Victor (03) / user pick | User approve before W1.5; Type-B ACCEPT not by executor alone |
+| W1 Design record (pre-stats) | Design | `DESIGN_STUDY` — `ref/design-study.md` (feasibility, blueprint, validation, next actions) plus `DESIGN_LOCK` — `ref/design-lock.md` (keywords, gap, hypothesis, partial citations, inclusion/exclusion, statistical path) | Victor (03) drafts; owner accepts the lock | Required before W1.5 / formal stats; missing or unaccepted lock stops G-STATS |
 | W1.5 Experiment bridge | Experiment | `EXPERIMENT` — plan + tracker + results (e.g. `EXPERIMENT_PLAN` / `EXPERIMENT_RESULTS` / `*-results.html`) | Loopnow (02) | **G-STATS** / **G-FACT** on numbers |
 | W2 Auto review loop | Internal QC | Round ledger + `REVIEW_STATE` (see `06_review/qc/review-loop-state.md`) | Lee (06) marks; Loopnow/Aitee repair | Compose assurance L1-L5; Lee does not self-revise ms by default |
 | Summary / handoff | Narrative | `NARRATIVE` — evidence-bound story from IDEA+EXPERIMENT (e.g. `NARRATIVE_REPORT`) | Aitee (05) drafts; Victor cites | **G-FACT** / **G-LIT** before freeze |
@@ -21,6 +22,8 @@ Optional W3: skip when user locks “idea/experiment only.” Do not invent a ne
 | Artifact | Must carry | Forbidden |
 |---|---|---|
 | **IDEA** | Question, hypothesis, novelty/prior gap, pilot or kill criteria | Fabricated citations / stats |
+| **DESIGN_STUDY** | Feasibility, data read, blueprint, methods, validation, next actions, written to `ref/design-study.md` | Leaving the design-study result only in chat |
+| **DESIGN_LOCK** | Six sections in `ref/design-lock.md`; sources from `ref/refer` and project root or `ref/data`; unknowns marked; owner accepted before formal stats | Invented citations / n / ethics IDs; starting formal stats before acceptance |
 | **EXPERIMENT** | Design, n/split source, primary endpoint, result paths + hashes when assurance ≥ polished | Executor self-ACCEPT of eval honesty (Layer 1) |
 | **NARRATIVE** | Claim↔evidence links to EXPERIMENT artifacts; open TODOs listed | Numbers not in EXPERIMENT / HTML |
 | **paper** | Venue lock + currency note (`venue-currency.md`); refs RV-* / G-CIT | Silent skip of mandatory assurance layers at `submission` |

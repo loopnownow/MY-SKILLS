@@ -6,7 +6,7 @@
 | File | Gate(s) |
 |---|---|
 | `lit-verify-gate.md` | **G-LIT** (and G-05/G-06 lit sub-checks) — citation-verify was run; claim→ref table exists |
-| `research-stage-artifacts.md` | W1→W3 stage map and per-stage artifact contract (00 calls at long research loops) |
+| `research-stage-artifacts.md` | W1→W3 stage map and per-stage artifact contract (00 calls at long research loops); `ref/design-study.md` plus owner-accepted `ref/design-lock.md` required before formal stats |
 | `grants-proposal-pack.md` | Grants / 开题 / proposal writing pack pointer (funding drafts only; not 05/06 paper QC) |
 
 Do not move `03_research/advanced/citation-verify.md` into `qc/`.

@@ -100,3 +100,11 @@ exploration_state:
   # stages:            # optional per-stage sketch
   #   literature_search: { status: complete }
   #   gap: { status: partial, classification_confidence: 0.42 }
+
+# Optional — pre-stats design lock (see 03_research/base/design-study/ and qc/research-stage-artifacts.md).
+# Omit entirely or leave empty until drafted. Never invent acceptance.
+# design_lock:
+#   study_path: "ref/design-study.md"
+#   lock_path: "ref/design-lock.md"
+#   status: ""            # drafted | accepted | ""
+#   accepted_on: ""       # Asia/Shanghai date; leave blank until accepted

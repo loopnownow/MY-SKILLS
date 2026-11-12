@@ -9,6 +9,7 @@ If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/pr
 ## Sequence
 
 0. **Session fine-id pick (`00`)** — every independent run needs a fine-id pick. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise enter `00` session-pick and ask which registry live ids to attach. `PROPOSED` is not pickable. Load only the picked ids. Do not auto-load all live ids. Advanced layers are not a fine-id pick. Gate **G0**.
+0b. **Design lock** — `ref/design-study.md` must exist, and `ref/design-lock.md` must exist and be owner-accepted (`03_research/base/design-study/` and `03_research/qc/research-stage-artifacts.md`). If either file is missing or the lock is unaccepted, stop. Do not run methods, pipeline, or gate **G-STATS**.
 1. **PHI (`N2`)** — before tables or clinical extraction. Unknown PHI → stop. Gate **G-PHI**.
 2. **Workspace** — folder names, `exc` first, ID align: `{RULES}/workspace-layout.md`. Table batch stays `02_data-processing` (`clean-data` when picked this run). File check: analysis-ready table exists. Handoff `02`.
 3. **Methods / prep (`02_data-processing`)** — live `preprocess-imaging` for ROI/QC (if picked), then live `stats-analysis` / `preprocess-imaging` for IBSI/radiomics/habitat **preparation** (if picked; former radiomics-ml / radiomics-habitat absorb). Advanced MATLAB: `{code_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`.

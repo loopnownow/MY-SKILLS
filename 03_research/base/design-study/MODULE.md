@@ -51,6 +51,7 @@ generalisable or single-center-anecdote.
 - "Design a multi-center / external-validation / temporal-validation plan." / "多中心外部验证怎么设计？"
 - "How do I show generalisability across scanners/hospitals?" / center, scanner, batch effects.
 - Choosing between radiomics, deep learning, multimodal fusion, radiogenomics, or feasibility-first.
+- Pre-stats brainstorm / 开统计前的头脑风暴: lock keywords, gap, hypothesis, key citations, inclusion/exclusion, and the statistical path before formal tests.
 
 ## When to open extra files
 
@@ -67,6 +68,7 @@ generalisable or single-center-anecdote.
 1. **Inventory the data.** Disease, modality(ies), n (patients and lesions), number of centers
    and scanners, label source and quality, presence of segmentation masks, clinical variables,
    follow-up time and event counts, pathology/molecular labels, time span. Mark every unknown.
+   Read `ref/refer/` first, then any table in the project root or `ref/data` if present.
    Before fixing the collection window, read `03_research/advanced/ethics.md` § Ethics validity
    period / 伦理期: prospective collection must sit inside the approval validity, retrospective
    retrieval only needs to finish by its end date. Missing批件起止 dates → ask, never infer.
@@ -86,8 +88,19 @@ generalisable or single-center-anecdote.
    internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
    out and what "external" honestly means here.
 7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to `calc-sample-size`).
-8. **Return** the blueprint + feasibility verdict + validation plan + the prioritised list of
-   what to secure next.
+8. **Write the design-study result** to `ref/design-study.md` (template:
+   [references/design-study-result.md](references/design-study-result.md)): feasibility verdict,
+   data read, study blueprint, method options, validation plan, roadmap when relevant, and next
+   actions. Do not leave this result only in chat.
+9. **Write the pre-stats design lock** to `ref/design-lock.md` (template:
+   [references/design-lock.md](references/design-lock.md)). Required sections: keywords (zh/en
+   search terms); research gap (must point to `ref/refer` or search hits); testable hypothesis;
+   partial citations in three classes (diagnostic gold standard, last-5-year related work, latest
+   guideline with issuing body + year); inclusion/exclusion (paraphrase the named guideline and
+   map onto data fields when a table exists); statistical path (endpoint, grouping, tests or
+   models, missingness, validation), written from `ref/refer` and actual variables in the project
+   root or `ref/data`. Mark unknowns. Never invent n, ethics IDs, citations, or results. Formal
+   statistics start only after the owner accepts this file (`done` is not `accepted`).
 
 ## Output contract
 
@@ -102,6 +115,10 @@ generalisable or single-center-anecdote.
 6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
 7. **`Next actions`** — what to collect, label, or confirm before/while running it, in priority
    order. Questions only the author can answer go here.
+8. **`Design-study result`** — the items above are written to `ref/design-study.md`, not only
+   returned in chat.
+9. **`Design lock`** — `ref/design-lock.md` with the six sections complete or explicitly unknown;
+   owner acceptance recorded before handing to `stats-analysis`.
 
 
 ## Quality bar
@@ -114,6 +131,7 @@ inflating a single-center retrospective dataset into a claim it cannot support.
 ## Handoffs
 
 - Frontier framing / is this direction novel & publishable → `design-study`.
+- Pre-stats lock / formal stats gate → this pack writes `ref/design-study.md` and `ref/design-lock.md`; `stats-analysis` starts only after owner acceptance of the lock.
 - Sample size, EPV, power, Riley minimum sample size → `calc-sample-size`.
 - Hand-crafted radiomics pipeline design → `stats-analysis`.
 - Deep-learning architecture & training design → `03_research/advanced/` (not a fine id).

@@ -29,12 +29,18 @@ Standing pipeline. Run this **before** analysis or deep project work when the pr
      and latest international guideline: skip download, ledger only.
    - Else fill gaps; land under `ref/refer/`; dedupe DOI/PMID/hash; OA only.
 5. Return to **`design-study`** when full text forces a design change.
+6. Persist the `design-study` result as **`ref/design-study.md`** and the pre-stats lock as
+   **`ref/design-lock.md`** (keywords; research gap; hypothesis; partial citations in three
+   classes: diagnostic gold standard, last-5-year related work, latest guideline with issuing
+   body + year; inclusion/exclusion; statistical path). Victor (`design-study`) drafts both from
+   `ref/refer` and, when present, tables in the project root or `ref/data`. Do not leave the
+   design-study result only in chat.
 
-**Deliverable path:** store the NLM + abstract list under **`ref/refer/`** (literature + NLM cite lists + abstracts; formerly「参考文献」 / `materials/citation`). Do **not** put this list in `ref/citation/` — that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two.
+**Deliverable path:** store the NLM + abstract list under **`ref/refer/`** (literature + NLM cite lists + abstracts; formerly「参考文献」 / `materials/citation`). Do **not** put this list in `ref/citation/` — that folder remains the audit ledger only (`CITATION_AUDIT`, skip notes, journal / citation logs). Do not conflate the two. Design-study results and the pre-stats lock land at the `ref/` root as `design-study.md` and `design-lock.md`.
 
 Intake task mode: `project-start-lit` (chains the three fine ids). Mode `guideline-first` remains as the endpoint-definition step inside `design-study` for this chain (see `intake.md`).
 
-Only after this chain may route continue to statistics / writing / deeper analysis modes.
+Only after the owner accepts `ref/design-lock.md` may route continue to statistics / writing / deeper analysis modes. Loopnow does not start formal stats while the lock is missing or unaccepted (`done` is not `accepted`).
 
 
 1. **base first-pass** lit/design fine-IDs (`lit-search`, `design-study`,...)
