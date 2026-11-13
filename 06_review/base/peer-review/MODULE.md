@@ -34,7 +34,9 @@ The user is a reviewer of **another** group's paper and needs a submittable Engl
 1. Identify study type (DTA / prediction / radiomics / other).
 2. Scan [dealbreakers.md](references/dealbreakers.md) before cosmetic comments.
 3. Structure the letter with [review-report-format.md](references/review-report-format.md) and
-   [mode-2-prereview.md](references/mode-2-prereview.md) (other-paper path only).
+   [mode-2-prereview.md](references/mode-2-prereview.md) (other-paper path only). If the journal
+   supplies a review form, tick every field `Yes` / `No` / `NOT_APPLICABLE` and grade comments with
+   [journal-review-form.md](references/journal-review-form.md); never leave a field blank.
 4. Each comment: fact → why it is a problem → what the authors should do.
 5. Do not invent experiments, AUC, or ethics numbers. Do not rewrite the paper.
 
@@ -77,3 +79,4 @@ Principles extracted from cross-package research (not a fine id; rule reference 
 | File | Open when |
 |---|---|
 | `references/manuscript-quality.md` | What "quality" means in an other-paper review report |
+| `references/journal-review-form.md` | The journal supplies a review form, severity tiers are expected, or a contested claim needs the Claim / Challenge / Recommendation schema |

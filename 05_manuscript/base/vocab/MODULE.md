@@ -17,5 +17,7 @@ Lab vocabulary capability body. Load layers in order before drafting:
 | L3 | `L3/` | Specialty nouns (project term-lock) |
 
 See [README.md](README.md) for the live file list. Thin entry: [SKILL.md](SKILL.md).
+Glossary evidence seat (four layers + `index.csv`) maintenance and gates:
+[references/glossary-maintenance.md](references/glossary-maintenance.md).
 
 `05_manuscript/advanced/vocab/` holds the advanced L1 overrides plus the L2 advanced phrase table (`05_manuscript/advanced/vocab/L2/preferred-advanced.md`). Do not duplicate base lists here.

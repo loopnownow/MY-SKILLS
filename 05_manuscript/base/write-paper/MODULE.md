@@ -70,6 +70,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 | Section | File |
 |---------|------|
 | Abstract | [radiology-writing/structured-abstract.md](radiology-writing/structured-abstract.md) |
+| Front matter slots | [references/front-matter-spec.md](references/front-matter-spec.md) |
 | Architecture | [radiology-writing/article-architecture.md](radiology-writing/article-architecture.md) |
 | Methods | [radiology-writing/methods.md](radiology-writing/methods.md) |
 | Results | [radiology-writing/results.md](radiology-writing/results.md) |

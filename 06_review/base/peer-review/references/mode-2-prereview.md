@@ -16,6 +16,7 @@ will accept.
 2. Open:
    - [dealbreakers.md](dealbreakers.md)
    - [review-report-format.md](review-report-format.md)
+   - [journal-review-form.md](journal-review-form.md) when the journal supplies a form or tiers
    - Reporting checklists → `05_manuscript/qc/check-reporting/` (not a retired writing-generic fine id)
 3. Each comment: fact → why it is a problem → what the authors should do (point to Abstract /
    Methods / Table X). Do not invent unrun experiments or AUC.

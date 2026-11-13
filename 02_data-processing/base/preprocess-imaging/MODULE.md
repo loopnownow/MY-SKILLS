@@ -1,7 +1,7 @@
 ---
 name: "preprocess-imaging"
 domain: "02_data-processing"
-trigger: ["DICOM", "NIfTI", "nii", "读图", "格式转换", "ROI QC", "mask QC", "读片协议", "reader protocol", "ICC", "Dice", "mask geometry"]
+trigger: ["DICOM", "NIfTI", "nii", "读图", "格式转换", "ROI QC", "mask QC", "读片协议", "reader protocol", "ICC", "Dice", "mask geometry", "habitat", "生境", "配准", "delta-habitat"]
 inputs: ["images", "masks", "reader_logs"]
 outputs: ["volume_or_series", "qc_report"]
 tools: ["pydicom", "SimpleITK", "nibabel"]
@@ -24,6 +24,7 @@ Covers volumetric **I/O** (DICOM/NIfTI read, convert, organise, geometry preserv
 - Do image and mask share spacing / origin / direction / dimensions?
 - Inter- and intra-observer ICC, Dice, Hausdorff on a pre-specified subset?
 - Which lesion, 2D vs 3D, peritumoral ring, habitat sub-region?
+- Longitudinal pair: register follow-up to baseline, define habitats at baseline, propagate, then Δ?
 
 ## When to open extra files
 
@@ -35,6 +36,7 @@ Covers volumetric **I/O** (DICOM/NIfTI read, convert, organise, geometry preserv
 | [references/mask-geometry.md](references/mask-geometry.md) | Spacing/origin/direction mismatch; DICOM to NIfTI flips; mask resample |
 | [references/reproducibility-qc.md](references/reproducibility-qc.md) | ICC / Dice / HD95; feature-stability filter before selection |
 | [references/lesion-selection.md](references/lesion-selection.md) | 2D vs 3D, index lesion, multi-lesion rule, peritumoral ring |
+| [references/delta-habitat-radiomics.md](references/delta-habitat-radiomics.md) | Longitudinal pair: registration gates, baseline-defined habitats, mask/label propagation, Δ features |
 
 ## Workflow
 
@@ -54,6 +56,15 @@ Covers volumetric **I/O** (DICOM/NIfTI read, convert, organise, geometry preserv
 9. **Reproducibility** (`reproducibility-qc.md`) - ICC/Dice/HD on that subset, **training only**; drop unstable features before selection.
 10. **Lesion rule** (`lesion-selection.md`) - pre-specify index lesion / aggregation; do not change it after seeing AUC.
 11. **Hand off** feature extraction / habitat clustering - `stats-analysis`. Do not fit models here.
+
+### Phase C - Longitudinal (delta-habitat)
+
+12. **Register** follow-up onto baseline on the original grayscale images (affine 12 DOF, then
+    deformable) and pass the four gates — DSC, Hausdorff, Jacobian, visual — before any feature.
+13. **Define habitats at baseline**, pick K by ≥3 agreeing methods, then **propagate** labels
+    nearest-neighbour; verify per-habitat volume change <30% and inter-habitat DSC <0.1.
+14. **Δ features** per matched habitat from identically extracted ROI features; hand the Δ table to
+    `stats-analysis`. Recipe: [`references/delta-habitat-radiomics.md`](references/delta-habitat-radiomics.md).
 
 ## Output contract
 

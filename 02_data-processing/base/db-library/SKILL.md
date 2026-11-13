@@ -7,9 +7,11 @@ description: >
   <family>\_db\<family>db; archives to <family>\_share\<leaf>\ (in-archive tables
   unpacked into the db, non-table members stay with the archive; _share hierarchy ≤2,
   ethics/thesis flattened), leaf keeps only 目录说明.md, leaf raw packed per unit,
-  originals to {DEL} with sha256 ledger.
+  originals to {DEL} with sha256 ledger. Single-lab merge (multi-family → 1 lib,
+  core-6t schema: 7 real tables + 5 read-only compat views) and in-place db repair
+  (entity rebuild/drop, derived sheets, PHI pseudonymisation).
   Triggers: 散表合并, 去重, 建库, _db, 短码库, 家族库, 入库, 台账, REVOKED, merged,
-  压缩档, 解档, _share, 叶说明, raw 压档.
+  压缩档, 解档, _share, 叶说明, raw 压档, 单库, 6t, 修库, verify_db.
 owner: "02_data-processing/base/db-library/MODULE.md"
 ---
 
@@ -19,8 +21,10 @@ Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
 Recipes:
 
-- [references/merge-tables.md](references/merge-tables.md) — 散表归并（三类型、表头驱动、坑位、合并簿约定＝入库中间件 / 点名交付、台账）
+- [references/merge-tables.md](references/merge-tables.md) — 散表归并（三类型、表头驱动、坑位、合并簿约定＝入库中间件 / 点名交付、版本仲裁、台账三式）
 - [references/build-db.md](references/build-db.md) — 家族库（schema、三层去重、宽表规则、解档入库、QA、重建）
+- [references/single-lab-db.md](references/single-lab-db.md) — 单库化与 core-6t（结构、身份键 PRIO、分流、拼接四档、7 步、迁移四验）
+- [references/db-fix.md](references/db-fix.md) — 库内修库（铁律、四类修法、修后自检、假名纪律）
 
 Hard pointers:
 

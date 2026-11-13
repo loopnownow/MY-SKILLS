@@ -18,10 +18,16 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 ## 2 去重三层（判据优先级从硬到软）
 
 1. **文件级 sha256**：字节全等 = 同一文件（本轮全库仅 1 组：`PCOSdata.xlsx` ≡ `PCOSdata (2).xlsx`）。
-2. **整表级**：表头集合相同 + 行哈希集合全等 = 重复表；真子集 = `subset`。重复表只保留一份 blob，其余记 `sheet_dup` 边（`reason=dup|subset`，`kept_bytes`）。
+2. **整表级**：表头集合相同 + 行哈希集合全等 = 重复表；真子集 = `subset`。重复表只保留一份 blob，其余记 `sheet_dup` 边（`reason=dup|subset`，`kept_bytes`）；行哈希用 blake2b 逐行。
 3. **行级 / 实体级**：仅当自然键可识别（`_diseases` 无关；按表决定，如 医技号 / 检测项+批次+孔位 / 姓名缩写+文件夹名）且**整行全等**才去重；跨项目映射只人工建。
 
 **mtime 不作判据**：迁移 / 复制会刷新 mtime——本轮 258 张里 239 张挤在 13 个分钟桶；只能当留痕字段写进「来源清单」。
+
+**版本仲裁（文件层，不看 mtime）**：同归档 / 跨归档同名件按「文件内含最晚诊疗日期」→ 行数 → 字节 → sha256 依次取大；`sha256` 全同、仅容器不同 = 纯重复，不搬运。败者不删：移 `superseded\`，逐件记 `winner_src / date / lines / bytes / sha256 / losers` 到 `<档名>.files.txt`，可回滚。
+
+**同名工作单三档**：行集全等 → 副本，留 1 份（实测 7 组 / 14 张完全同表）；真子集 → 留大者；否则视为不同批次，按拼接处理、不删。
+
+**批量文件去重**：按内容 hash 建重复组，不按文件名 / mtime（一次 39,755 件的扫描中，完全重复 16,844 件 = 10,580 组 / 45.8 GB）。台账 `duplicates.tsv` 记组 id / 件数 / 字节；校验口径：计划数 = 磁盘数、缺失 0、随机抽 12 件复核 sha256。
 
 ## 3 三类型判定
 
@@ -59,6 +65,20 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 3. 叶 / 家族 `目录说明.md` 末尾追加「## 散表归并（YYYY-MM-DD）」段：口径、重算文件数 / 大小、合并簿名 / 入库去向、台账指针；叶内只留说明，未入库例外写明原因。
 4. `_index.csv` note：`YYYY-MM-DD 散表归并 → <family>\_db\<family>db`（有点名交付副本时另注 `<叶>/<项目>_merged_YYYYMMDD.xlsx`）。
 5. `structure_check.py` 全门 PASS。
+
+**台账三种格式（都 TSV、无表头，勿混用列名）**：
+
+| 台账 | 列 / 约定 |
+|---|---|
+| 移动台账 | `src dst kind bytes sha256 moved_at`；dir 行 sha256 空、文件行 64 hex，时间 ISO+0800 |
+| ref-pack 台账 | `kind=ref-packed`；dst = `<family>\_share\<leaf>\<FAM>__<slug>__ref.zip` |
+| 出库内账 | 记在库内 `meta.external`，每行 `doc|name|rows|cols|fact|archive|sha256|moved_at` |
+
+既有「搬库台账」列是 `kind rel_path dst size sha256 archive member`，与上表三种不是同一张表，别混用。
+
+**归档删除纪律**：逐件 copy → SHA-256 校验一致 → 才删源，状态 `copied_verified_source_deleted`；副本与正本同哈希只删副本、保留正本（`verified_match_source_deleted_canonical_kept`）；dest 已有不同 sha → 冲突跳过、不覆盖。
+
+**叶内压档**：zip 留叶内 + `<名>.files.txt`（size / md5 / 档内相对路径）；校验 zip 条目名 / 大小与清单完全一致且 `ZipFile.testzip()` 全通过。
 
 ## 7 已完成实例（可对照）
 

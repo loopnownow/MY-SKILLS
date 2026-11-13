@@ -1,7 +1,7 @@
 ---
 name: "plot-figures"
 domain: "02_data-processing"
-description: Statistical plots and imaging panels.
+description: Statistical plots and imaging panels; figure asset packaging (final set vs raw library, inventory sheet).
 owner: "02_data-processing/base/plot-figures/MODULE.md"
 ---
 

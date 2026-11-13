@@ -27,6 +27,22 @@ These metrics may appear in **HTML or Markdown delivery reports only**, queried 
 
 **Single approved exception (2026-10-31, t1458u):** the yearly screening cache `_library\journals\index.csv` (rebuilt in July, never hand-edited) may carry `jif_2025`, quartiles, `articles` and `layer`. It is a screening pool, not a submission ledger; the ban above still applies to `submission-urls.csv`, `submission-prior.jsonl` and skill prose.
 
+## Candidate shortlist (project-side process file)
+
+Two layers, never merged:
+
+| Layer | Lives where | Role |
+|---|---|---|
+| Candidate shortlist | project side, beside the manuscript's `ref/` working files | the decision trail for one paper: which titles were considered and why |
+| Global screening pool | `_library\journals\index.csv` (yearly cache, see SAVE) | the titles that exist and are citable; the only verifiable source for a recommendation |
+
+- Shortlist form: one journal per line, `<full journal name> (IF: x.xxx)`; observed 5–7 lines per paper. Add quartile, APC, review cycle only when confirmed — leave the field blank otherwise, never fill by guess.
+- Align the shortlist against `index.csv` by **normalized journal name**, never by IF value; a name that does not match a pool row is either misnamed or out of scope and does not get recommended.
+- An outward recommendation must be traceable to a pool row; the shortlist alone is a process artifact, not evidence.
+- IF and quartile change with the year: whenever a number is printed, print its `jcr_year` / `metric_year` beside it.
+- The source JCR / CAS table is not copied into the project tree and not parked in `{DEL}`; cite the pool row instead.
+- Private selection priors (why this lab likes a title) stay out of skill text and out of the shortlist.
+
 ## Absorb / Query / Delete (ChatGPT 2026-09 + Gemini)
 
 Stable methodology is rewritten into MY-SKILLS; changing journal numbers stay query-only; unsuitable prediction/fixed-scoring logic is deleted. Do **not** install `zero565656/journal-recommender` as a live skill.

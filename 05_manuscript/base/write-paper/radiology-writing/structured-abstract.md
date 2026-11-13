@@ -11,6 +11,13 @@
 
 Report past tense; include CIs; avoid undefined abbreviations.
 
+**Label mirroring:** the abstract's Materials and Methods sentence must name the same
+subsections the body Methods carries (design → participants → technique → analysis →
+statistics), so the abstract can be traced into the Methods one way. Keep the objective
+identical across the last Introduction paragraph, the abstract Purpose, and the
+Methods outcomes subsection. A four-part abstract may use a single **Objective:** in
+place of Background + Purpose; never keep both forms in one draft.
+
 ### Template
 > **Background:** [gap]. **Purpose:** To [objective]. **Materials and Methods:** In this
 > [design] study ([dates]), [n] [participants] ([selection]) were [analysed] with [technique];

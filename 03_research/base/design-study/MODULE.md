@@ -62,6 +62,7 @@ generalisable or single-center-anecdote.
 | [references/validation-strategy.md](references/validation-strategy.md) | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
 | [references/endpoints-and-estimands.md](references/endpoints-and-estimands.md) | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
 | [references/ai-radiogenomics-12-24-roadmap.md](references/ai-radiogenomics-12-24-roadmap.md) | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
+| [references/design-fidelity.md](references/design-fidelity.md) | Before locking the blueprint: design name must agree in four places, case-control needs its three parts, design must map to its reporting guideline (STROBE / TRIPOD), sampling window and selection bias must be in the design, ethics approval must match the design |
 
 ## Workflow
 
@@ -80,7 +81,10 @@ generalisable or single-center-anecdote.
    primary endpoint/estimand → comparator → intended clinical-use scenario.
 4. **Pick the blueprint** (study-blueprints.md). Choose the design template and give a
    **minimum-viable** version (what's publishable now) and a **stronger** version (what would
-   reach a higher tier), with the extra cost of each.
+   reach a higher tier), with the extra cost of each. Then run the fidelity check
+   (design-fidelity.md): one design name in four places, case-control's three parts, the
+   reporting guideline it will be judged against, sampling window, selection bias, and whether
+   the ethics approval dates cover this design.
 5. **For program-level AI/radiogenomics planning**, open `ai-radiogenomics-12-24-roadmap.md`
    and place the project on the staged route from cohort lock to baselines, fusion, external
    validation, and silent/reader/prospective evidence.

@@ -51,6 +51,17 @@ Score inside a layer by **稿件匹配度** (MJF/MFI, highest) → **submitted/�
 
 **Similar-article check (2026-10-08), round 2:** round 1 ranks by the criteria above and does not search. Round 2 searches each candidate journal for similar articles from the last 3-5 years. No similar article → lower it inside its layer and write 「近年未见类似文章，已降级」 in 匹配理由. Full rule: `SKILL.md` § Similar-article check.
 
+## Candidate shortlist (project-side, before formatting)
+
+When the ask is "which journals should I target" for one paper, the decision trail is a shortlist file on the project side; the pack's tables are not the trail.
+
+1. Filter the yearly pool (`_library\journals\index.csv`) by the paper's L1/L2 and quartile band, take 5–7 titles, write one per line: `<full journal name> (IF: x.xxx)`.
+2. Add quartile basis, APC and review cycle per title only when confirmed; uncertain fields stay blank (no invented numbers).
+3. Normalize names against `index.csv` and confirm each shortlist row matches a pool row; a name without a pool row is not recommended outward.
+4. After the author picks a target, move to author instructions and format for that one journal (`journal-format-compliance`); the shortlist stops being an output at that point.
+
+Shortlist persistence rules (two layers, year-stamped numbers): `persistence.md`.
+
 ## Four-module pipeline
 
 ```text

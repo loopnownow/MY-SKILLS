@@ -50,6 +50,20 @@ Otherwise fill **gaps only** (do not blindly download a ~30-item abstract/NLM ci
 - Full-text **entities land in the library**, not the project: `{doc_library_references}\<L1>\<L2>\<doi-slug>.pdf` (or `.html`), one physical file per paper; register the row in `{doc_library_references}\index.csv` (`doi,pmid,l1,l2,rel_path,sha256,source_project,fetched_at,notes`). L1/L2 per `{RULES}\library-taxonomy.md`.
 - `ref/refer/` keeps **pointers only**: `DOI_<doi>.md` per paper (`fulltext:` = library path), plus `fulltext-pointers.csv`; optional `ref/refer/retrieval_report.json` (per-DOI `source_identity` + `file_sha256`) and `ref/refer/manual_needed.txt` (paywalled / not-OA items).
 - Never keep a second copy of the PDF inside the project; the library file is the SSOT.
+- **Filename key:** DOI with `/` → `_` in the on-disk name. Items without a DOI use
+  `NOID_<sha8>_<slug>.pdf` (sha8 = first 8 hex chars of sha256) under the `other/theses`
+  fallback layer, and are registered in the index like any other entity.
+- **sha256 is the only "same file" test:** one sha256 = one entity row, regardless of the
+  filename. Preprint / accepted / publisher-final versions of one paper are **one paper**:
+  keep the final version, note the older ones in `notes`.
+
+## Library accounting gate
+
+Every landing run ends with three equal numbers: entity files on disk, rows in
+`{doc_library_references}\index.csv`, and the count in `_library/INDEX.md`. If they differ,
+stop and reconcile before continuing — do not add rows to make the numbers agree. Never
+create a 0-byte placeholder PDF for a failed fetch; record `unavailable` with the sources
+tried. Full landing recipe and naming rules: [references/library-landing.md](references/library-landing.md).
 
 ## Scripts
 
