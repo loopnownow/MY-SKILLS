@@ -17,6 +17,12 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261113-t20261113j-test-fixes-jfc (2026-11-13)
+
+- **Context:** follow-up to #344 (merged as `8e496a7`). That squash commit carries the task ticket `t20261113j`, so `LedgerFreshness` needs a ledger row naming it; without this row main fails the gate it just fixed for `/gate pr merge`-style merges.
+- **Same content as #344:** 6 pre-existing failures cleared (lit-bank ORCID roster pointer, skill-evolution round index, restore-from-summary figure path, design-study trailing whitespace, `meta-analysis` -> pooled analysis, `LedgerFreshness` accepting the round form `tYYYYMMDDx`); `journal-format-compliance` registered as fine id 22 with routing/ledger sync.
+- **Tests:** 271 passed, 1 skipped on main before this row (only `LedgerFreshness` failing on the new HEAD ticket); row added so the same run is green.
+
 ## CHG-20261113-t20261113i-promote-jfc (2026-11-13)
 
 - **Ledger backfill:** harvest round `t20261113i` merged as a PR commit whose message carries the round ticket (no `tNNNNu` task form). This row records the promotion so the freshness check has a ledger target.
