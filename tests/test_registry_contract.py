@@ -275,12 +275,17 @@ class LedgerFreshness(unittest.TestCase):
             self.skipTest("git unavailable")
         if head.returncode != 0:
             self.skipTest("git log unavailable")
-        ticket_ids = sorted(set(re.findall(r"\bt(\d{4})u\b", head.stdout)))
-        self.assertTrue(ticket_ids, "no tNNNNu ticket id in HEAD commit message")
+        # Task ids are `tNNNNu`; harvest rounds use the round form `tYYYYMMDDx` (e.g. t20261113i)
+        # and reach HEAD as a PR merge message, so both forms must be recognised.
+        ticket_re = re.compile(r"\bt((?:\d{4}u|\d{8}[a-z]))\b")
+        ticket_ids = sorted({m.group(1) for m in ticket_re.finditer(head.stdout)})
+        self.assertTrue(
+            ticket_ids, "no ticket id (tNNNNu or round tYYYYMMDDx) in HEAD commit message"
+        )
         ledger = (ROOT / "VERSION.txt").read_text(encoding="utf-8") + (
             ROOT / "INTEGRATION_MAP.md"
         ).read_text(encoding="utf-8")
-        missing = [f"t{ticket}u" for ticket in ticket_ids if f"t{ticket}u" not in ledger]
+        missing = [f"t{ticket}" for ticket in ticket_ids if f"t{ticket}" not in ledger]
         self.assertEqual(missing, [], "HEAD ticket ids missing from ledgers: " + ", ".join(missing))
 
 

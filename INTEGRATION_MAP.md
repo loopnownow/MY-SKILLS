@@ -17,6 +17,14 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261113-t20261113i-promote-jfc (2026-11-13)
+
+- **Ledger backfill:** harvest round `t20261113i` merged as a PR commit whose message carries the round ticket (no `tNNNNu` task form). This row records the promotion so the freshness check has a ledger target.
+- **Registry:** `journal-format-compliance` (body `03_research/base/find-journal/journal-format-compliance/`, `a_domain: 03_research`) added to `fine_ids` as LIVE id 22; `fine_id_count_canonical` 21 -> 22. The pack lost `routable: false` + `status: nested-body` (t1823u marking lifted for this pack only; `impute` under clean-data stays a nested body). `find-journal` keeps journal selection; the pack owns author-guideline formatting + Track Changes.
+- **Routing sync:** `bot-route.md` fine-id table gains `db-library` (02 / Loopnow) and `journal-format-compliance` (03 / Victor); it was still at 20 live ids while the registry had 21.
+- **Pointer + hygiene fixes:** `03_research/advanced/lit-bank.md` ORCID roster no longer cites the removed `NL.xlsx`; `00_orchestrator/references/skill-evolution.md` round keeps point at the round index by path; `02_data-processing/advanced/restore-from-summary.md` figure pointer uses the full plot-figures path; `03_research/base/design-study/references/design-lock.md` + `design-study-result.md` lose trailing whitespace; `02_data-processing` route + SKILL say pooled analysis instead of the retired `meta-analysis` id.
+- **Tests:** `test_head_commit_ticket_ids_reach_a_ledger` widened to accept the round form `tYYYYMMDDx`; it only understood `tNNNNu`, so a PR merge commit could never satisfy it.
+
 ## CHG-20261108-t1823u-qc-fixes (2026-11-08)
 
 Owner t1823u (Asia/Shanghai 2026-11-08): **QC fix pass** closing the audit task-2 P1/P2 set.

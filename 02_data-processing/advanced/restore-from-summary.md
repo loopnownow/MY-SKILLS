@@ -54,4 +54,4 @@ First use: `re.xlsx` (mT2 / mT1 / mFA / mADC / GA / SINBAD / Age / BMI; n = 56: 
 
 - Rounding of individual values and display-precision reporting → `02_data-processing/qc/report-checks.md`.
 - Method-validation gate for any downstream statistic computed on reconstructed rows → `02_data-processing/qc/method-validation-gate.md`.
-- Figure panels built on reconstructed data keep the `SYNTHETIC` statement → `02_data-processing/base/plot-figures/` + `references/figure-set-consistency.md`.
+- Figure panels built on reconstructed data keep the `SYNTHETIC` statement → `02_data-processing/base/plot-figures/references/figure-set-consistency.md`.
