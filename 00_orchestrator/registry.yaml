@@ -12,9 +12,9 @@
 # Bot names per coarse id and per LIVE fine id: 00_orchestrator/references/bot-route.md (ids stay SSOT here).
 
 meta:
-  version: '5.0'
-  change_id: CHG-20261108-t1823u-qc-fixes
-  fine_id_count_canonical: 21
+  version: '5.1'
+  change_id: CHG-20261113-t20261113i-promote-jfc
+  fine_id_count_canonical: 22
   coarse_id_count: 5
 
 empty_fine_ids: notify-then-research-confirm
@@ -102,6 +102,14 @@ fine_ids:
   status: LIVE
   note: 'Coarse bucket = seat 03_research (no override). Body: 03_research/base/find-journal/. Companion
     house style: 05_manuscript/base/write-paper/ (not the engine).'
+- id: journal-format-compliance
+  label: Journal author-guideline formatting
+  source: my-skills
+  path: 03_research/base/find-journal/journal-format-compliance/
+  a_domain: 03_research
+  status: LIVE
+  note: 'Nested body under find-journal; the parent owns journal selection, this pack owns
+    author-guideline formatting + Track Changes. Registered 2026-11-13 (t20261113i).'
 - id: clean-data
   label: Three-stage confirm cleaning
   source: my-skills

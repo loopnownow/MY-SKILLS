@@ -47,7 +47,7 @@ The advanced layer carries the recipe (coding/extract/workspace protocols, analy
 | Soft-coding / dry-run / complexity ladder | `advanced/coding.md` |
 | Deep code QC standards (00 / G-CODE) | `qc/coding-qc.md` |
 | Raw table digit / smoothness QC | `advanced/table-signals.md` |
-| Summary table -> subject-level synthetic rows (meta-analysis input) | `advanced/restore-from-summary.md` |
+| Summary table -> subject-level synthetic rows (pooled-analysis input) | `advanced/restore-from-summary.md` |
 | Analysis route | `advanced/analysis/route.md` |
 | Analysis handoff | `advanced/analysis/handoff.md` |
 | Lab pipeline (`VAL_MODE`, live modules v4.3.1) | `advanced/analysis/pipeline.md` |

@@ -2,13 +2,13 @@
 
 Copy this file to the project as `ref/design-lock.md` on first use (copy-on-need). Victor (`design-study`) drafts it. Formal statistics start only after the owner accepts it. `done` is not `accepted`.
 
-Project: 
+Project:
 Stage: drafted | accepted
-Drafted by: 
-Accepted by: 
-Accepted on: 
+Drafted by:
+Accepted by:
+Accepted on:
 
-Sources used (list files under `ref/refer/`, and any table in the project root or `ref/data/`): 
+Sources used (list files under `ref/refer/`, and any table in the project root or `ref/data/`):
 
 Mark a section unknown rather than inventing n, ethics IDs, citations, or results.
 
@@ -33,11 +33,11 @@ Never invent PMID, DOI, or year. Verify before listing.
 
 ### Diagnostic gold standard
 
-- 
+-
 
 ### Related research (last 5 years)
 
-- 
+-
 
 ### Latest guideline
 

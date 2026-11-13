@@ -2,7 +2,7 @@
 
 Copy this file to the project as `ref/design-study.md` on first use (copy-on-need). This is the durable record of a `design-study` run. Do not leave the result only in chat.
 
-Project: 
+Project:
 Drafted by: Victor (design-study)
 Updated:
 

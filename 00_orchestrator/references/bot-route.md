@@ -44,7 +44,7 @@ Local DeepSeek (DSH) and Cline are external packs, not seats and not bots. They 
 
 ## LIVE fine id → bot
 
-Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; currently **20** LIVE fine ids. Each id appears exactly once. Rewritten whenever the registry changes (see «Keeping this table in sync»).
+Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; currently **22** LIVE fine ids. Each id appears exactly once. Rewritten whenever the registry changes (see «Keeping this table in sync»).
 
 | Coarse id | Fine id | Bot |
 |---|---|---|
@@ -55,11 +55,13 @@ Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; currentl
 | 02_data-processing | `calc-sample-size` | Loopnow |
 | 02_data-processing | `draw-flowchart` | Loopnow |
 | 02_data-processing | `plot-figures` | Loopnow |
+| 02_data-processing | `db-library` | Loopnow |
 | 03_research | `verify-refs` | Victor |
 | 03_research | `lit-search` | Victor |
 | 03_research | `lit-fulltext` | Victor |
 | 03_research | `design-study` | Victor |
 | 03_research | `find-journal` | Victor |
+| 03_research | `journal-format-compliance` | Victor |
 | 03_research | `fill-protocol` | Bai (exception) |
 | 05_manuscript | `write-paper` | Aitee |
 | 06_review | `peer-review` | Lee |
@@ -69,7 +71,7 @@ Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; currentl
 | 07_response | `revise` | Aitee |
 | 07_response | `tighten-response` | Aitee |
 
-Per-seat tally: 02 = 7 · 03 = 6 (5 Victor + 1 Bai) · 05 = 1 · 06 = 4 · 07 = 2.
+Per-seat tally: 02 = 8 · 03 = 7 (6 Victor + 1 Bai) · 05 = 1 · 06 = 4 · 07 = 2.
 
 ### Fine-id notes
 
