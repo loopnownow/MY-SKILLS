@@ -21,3 +21,10 @@ Export only **verified** records; preserve fields exactly; never fabricate.
 - Don't auto-fill volume/issue/pages by guessing; leave blank + flag.
 - Protect title casing in BibTeX with braces for proper nouns/gene names ({IDH}, {MRI}).
 - One export file per request; report counts (verified / flagged / dropped).
+
+## Manuscript-side numbering
+- Number references in order of first appearance in the text, tables, and figure legends;
+  do not cluster several sources into one bracketed range to save space.
+- Give every entry a DOI when one exists; a citation that cannot be verified is removed,
+  not reworded.
+- Re-number after a section move rather than patching numbers by hand.

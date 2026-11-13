@@ -16,6 +16,13 @@ Past tense, quantitative, claim-first. Build an evidence ladder, not a lab diary
 6. **Subgroups / robustness / failure analysis** — pre-specified; don't fish.
 
 ## Rules
+- **Mirror Methods one-to-one:** same subsection titles, same order. A subsection whose
+  analysis is not finished keeps its heading plus one line (`Results pending`); never delete
+  the section to hide the gap. Keep an Ethics result subsection only when the journal reports
+  ethics in Results.
+- **Figure legends read the Methods boxes:** collection period and screened n, inclusion
+  beside exclusion, included patients with both group counts, training and test sets on one
+  row, and a validation set only when Methods states an external cohort.
 - Numbers carry the message: estimate + CI + n; don't say "significantly higher" without the
   value and test.
 - Don't interpret here (save meaning for Discussion); don't introduce methods here.

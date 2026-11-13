@@ -1,7 +1,7 @@
 ---
 name: "preprocess-imaging"
 domain: "02_data-processing"
-description: Imaging I/O and ROI/reader QC.
+description: Imaging I/O and ROI/reader QC; longitudinal delta-habitat (registration gates, baseline habitats, propagation, Δ).
 owner: "02_data-processing/base/preprocess-imaging/MODULE.md"
 ---
 

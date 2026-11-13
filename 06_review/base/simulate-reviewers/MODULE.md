@@ -155,6 +155,22 @@ Risk / unsupported claims
 - Do not hide confirmed internal contradictions merely because no reviewer identified them.
 - Do not present an audit finding as reviewer consensus unless at least two frozen reports independently raised the same underlying concern.
 
+## Calibration against archived review rounds
+
+When a real multi-reviewer round is available for comparison:
+
+- Real output is one file per reviewer per round (`R<n>__Reviewer <i>.docx`), and the editor's
+  comments are a separate seat. Keep that separation in the simulated package.
+- Reviewers legitimately disagree on the journal's form items: one marks statistical methods `No`,
+  another `Yes`. Preserve the split, and do not average, harmonize, or reassign a reviewer to make
+  the package look consistent.
+- Isolation input is the blinded manuscript plus the journal's review form only. Exclude
+  prior-round reviewer comments, the other reviewers' reports, and the authors' response.
+- Compare concern types and coverage against a real letter (recall), never the wording. A frozen
+  report is not edited to match a real reviewer's phrasing.
+- Report skeletons, form fields, and the Claim / Challenge / Recommendation vocabulary:
+  `06_review/base/peer-review/references/journal-review-form.md`.
+
 ## Related files
 
 | File | Open when |

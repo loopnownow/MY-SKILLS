@@ -22,6 +22,9 @@ the analysis script, not here.
 Imaging data-availability statements live in `preprocess-imaging` [`data.md`](../preprocess-imaging/references/data.md),
 not here.
 
+Column semantics for ingest — 22 core columns, measured alias table, value enums, the six per-sheet
+questions — live in [`references/column-dictionary.md`](references/column-dictionary.md); the gates stay in this MODULE.
+
 Tables that report **only aggregates** (n, mean(SD), AUC, sens/spec, P) are not clean-data input:
 reconstruct subject-level **synthetic** rows per
 [`restore-from-summary.md`](../../advanced/restore-from-summary.md) (two precisions: simulation from SD/AUC, landing from the mean).
@@ -32,6 +35,7 @@ reconstruct subject-level **synthetic** rows per
 |---|---|
 | Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`stats-analysis` / `model-evaluation`) |
 | Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
+| Column dictionary: 22 core columns, aliases, value enums → [`references/column-dictionary.md`](references/column-dictionary.md) | |
 | Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
 | Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
 | Patient-level leakage check on the table | Radiomics extraction (`stats-analysis`) |
@@ -60,6 +64,14 @@ Before any fill or model:
 3. Units in the header or a documented units row — do not silently mix mg/dL and mmol/L.
 4. Read IDs as string (`dtype={id_col: str}`) so leading zeros survive.
 5. Record sheet name, `shape`, dtypes, and a 5-row preview.
+6. Normalise the name before judging it: strip `\xa0` / spaces / full-width spaces, full-width →
+   half-width, peel punctuation and units off (`ALB (g/L)` → `ALB`, unit into a unit field).
+   Chinese name wins when variants disagree. Compress spellings only — never merge semantically
+   different columns.
+7. No empty header cell goes through: name it explicitly (`col_<i>`). Merged-cell residue is not a
+   column name, and unnamed trailing columns get the same treatment.
+8. The header is the raw first data row after dropping title / blank spacer rows; a header string
+   stored elsewhere is not authority when it disagrees with that row.
 
 ## Missingness
 
@@ -68,6 +80,11 @@ Inventory **before** imputing:
 - n columns with any NA, total missing cells, block vs scattered (whole modality missing vs holes).
 - Do not drop columns here because a modeller's NA threshold lives in the modelling pipeline.
 - Do not fill from the grand mean across outcome groups.
+- Missing rate first, cause second: a column missing >10% needs a cause check (multi-block
+  concatenation, sequence numbers only on the first row of a block) before deciding drop-column
+  vs complete-case.
+- Do not impute by default: 51% / 28% / 18% missing in one library went to complete-case analysis,
+  and a >10% 样本编号 case was a broken block layout, not missing data.
 
 Handoff implementation (group-stratified mice/median/missForest, decimal alignment, backup/QC)
 → [`impute/MODULE.md`](impute/MODULE.md).
@@ -79,6 +96,10 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 - Do not use Name/ID as a numeric feature. Do not impute ID.
 - Joins to imaging or feature tables are on patient ID (and timepoint if needed), never on row
   index.
+- Name alone is never a key. Name + sex + age (±1) is only a candidate-confirmation rule, and an
+  automatic key needs all attributes to match exactly.
+- The person ID column may be NULL: only ~50 of 1,063 headed sheets carried name + sex + age
+  together. Never force a person onto every row to make the table look tidy.
 
 ## Leakage / split integrity (patient-level)
 
@@ -111,7 +132,7 @@ Handoff implementation (group-stratified mice/median/missForest, decimal alignme
 ## Workflow
 
 1. Identify the file (xlsx/csv), sheet, and the three required columns.
-2. Header QC + ID uniqueness + missingness inventory. Write a short QC note.
+2. Normalise headers → header QC + ID uniqueness + missingness inventory. Write a short QC note.
 3. Confirm split column semantics (training/test; validation only if external).
 4. If fill/outliers are requested → `impute/`. If a hand-built workbook has formulas, recalculate and scan it with `{code_model_validation}\recalc_xlsx.py`.
 5. Hand modelling to `02_data-processing`. Do not fit LASSO here.

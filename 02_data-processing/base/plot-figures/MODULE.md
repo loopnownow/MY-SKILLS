@@ -54,6 +54,7 @@ imaging panels.
 | [references/journal-family-visual-style.md](references/journal-family-visual-style.md) | Family visual taste |
 | [references/plot_types.md](references/plot_types.md) | Generic plot catalogue |
 | [references/common_issues.md](references/common_issues.md) | Frequent render bugs |
+| [references/figure-asset-package.md](references/figure-asset-package.md) | Shipping a figure set: final vs raw library, inventory sheet, gaps and suspect files |
 
 Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-flowchart/`.
 
@@ -67,6 +68,8 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 5. Imaging panels: de-identify, windowing, scale bar.
 6. Export `.svg` (text-as-text) **and** a 300-600 dpi raster.
 7. QA at final print width.
+8. Package the set (`references/figure-asset-package.md`): final vs raw two layers, inventory sheet,
+   explicit gaps and suspect files.
 
 ## Output contract
 
@@ -74,6 +77,9 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 2. Script — runnable `.py` with real vs example data marked.
 3. Files — `figure.svg` + ≥ 300 dpi raster.
 4. QA notes — fonts as text, colour-blind check, n shown, de-identification.
+5. Asset package — final files in `01_终版/`, one junction per figure into `02_原始库/`, inventory
+   sheet (figure | dir | files | size | confidence | text match), gaps `⚠ 缺` and `[可疑]` rows
+   visible.
 
 ## Panel stitching (train + external validation)
 

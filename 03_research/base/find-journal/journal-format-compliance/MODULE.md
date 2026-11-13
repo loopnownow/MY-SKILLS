@@ -29,6 +29,8 @@ This skill assumes the `docx` skill is available for the actual file editing (un
 
 Produce a short table: requirement → what the journal wants → what the manuscript currently has. Then a bullet list of the concrete edits you intend to make.
 
+Where the guidelines are silent on a structural element, the house baseline is the left column of that comparison: page setup, per-paragraph typography, label bolding, running title, keyword count, abstract labels, Methods/Results section order, reference style — all in [references/house-style-defaults.md](references/house-style-defaults.md). Journal values override the baseline when stated; anything the guidelines do not state stays at baseline and is marked as such in the change list instead of being presented as journal-compliant.
+
 **Critical rule:** if anything you find is a *factual/content* inconsistency rather than a pure formatting gap — mismatched corresponding-author names, a funding recipient not on the author list, contradictory dates, author-order disputes, etc. — do NOT resolve it yourself, and do NOT silently pick the version that looks more plausible. List it separately as an open question and ask the user directly. Proceed to editing only for the items that are unambiguous formatting fixes; hold everything touching facts about people, money, or attribution until the user answers. Getting one of these wrong in a real submission is a much worse failure than asking one extra question.
 
 Also respect lab rule: if corresponding author, funding, ethics, or affiliations already exist in the manuscript, do not overwrite them with defaults/templates (`Aitor-format.md` / `06_review/advanced/word-edit.md`).
@@ -54,6 +56,10 @@ Once confirmed:
 ### 5. Deliver
 
 Present the final .docx via `present_files`. Summarize what was changed and, separately, what was left untouched because it already complied — don't just list the diffs.
+
+## House style defaults (baseline)
+
+[references/house-style-defaults.md](references/house-style-defaults.md) holds the group's baseline: A4 page with 2.54 cm margins; every paragraph `Normal` + justified + 1.5 line spacing (`line=360`) + 12 pt Times New Roman; Title bold-italic, Authors/Affiliation italic, statement labels bold with italic placeholders; running title ≤50 characters without abbreviation or colon; keywords 5–8 lowercase; alphabetical abbreviations used at least twice; three single-sentence highlights without numbers; six abstract labels with the abstract Methods sentence mirroring the Methods subsection names; Methods in a fixed 14-section order carrying no citations; Results subsections matching Methods titles and order; Vancouver references numbered by first appearance with a DOI on every entry. It also lists the conflict options (journal value / keep baseline and mark / author decision) and the acceptance evidence for a tracked pass (`w:ins` / `w:del` counts, paragraph and table counts, per-paragraph accepted spot-check). The baseline was distilled from five manuscripts and is not mapped journal by journal — a target journal's own guidelines always win.
 
 ## Things not to touch without being asked
 

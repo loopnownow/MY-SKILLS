@@ -37,6 +37,12 @@ Details: [references/retraction-audit.md](references/retraction-audit.md).
 Absorbed from AIPOCH Evidence Insight (MIT, absorbed 2026-10-17); the retraction
 stage now lives here.
 
+The integrity pass also covers the pointer layer: the library entity, its
+`references/index.csv` row and the project-side `DOI_<doi>.md` pointer must describe the
+same DOI. A DOI correction is a three-part move (entity filename, index row, pointer) done
+in one operation — details, assertions and target-journal reference checks:
+[references/library-pointer-sync.md](references/library-pointer-sync.md).
+
 ## When to Use This Skill
 
 Use this skill when:
@@ -190,6 +196,7 @@ references are illustrative unless recorded as live smoke tests there.
 - [references/example_workflows.md](references/example_workflows.md): four end-to-end worked examples.
 - [references/google_scholar_search.md](references/google_scholar_search.md), [references/pubmed_search.md](references/pubmed_search.md): advanced search syntax.
 - [references/metadata_extraction.md](references/metadata_extraction.md), [references/bibtex_formatting.md](references/bibtex_formatting.md), [references/citation_validation.md](references/citation_validation.md): per-topic detail.
+- [references/library-pointer-sync.md](references/library-pointer-sync.md): pointer naming, three-part DOI correction, assertions before rename, line-ending fidelity, change ledger, target-journal reference spot-checks.
 
 ## Common Pitfalls to Avoid
 

@@ -20,6 +20,7 @@ Advanced search logs and the lit bank stay in `03_research/advanced/`.
 | [references/literature.md](references/literature.md) | Searching, screening or organizing literature; concept combinations, source hierarchy, 2023-2026 evidence layer |
 | [references/public-datasets.md](references/public-datasets.md) | Public datasets (TCIA, TCGA, GEO, CPTAC, IDC), external-validation cohorts, public-data mechanism work |
 | [references/sources.md](references/sources.md) | The user asks why a rule exists, or advice turns on a current reporting guideline |
+| [references/library-intake.md](references/library-intake.md) | Sending search results into `_library`: the three-field intake gate (DOI, L1/L2, `source_project`), family L1/L2 choice, project-side pointers only, and the two-ledger split (bibliography pool vs entity index) |
 
 ## Handoffs
 

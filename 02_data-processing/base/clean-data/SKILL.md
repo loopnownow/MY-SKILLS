@@ -4,6 +4,7 @@ domain: "02_data-processing"
 description: >
   Clinical Excel/CSV: headers, missingness, ID integrity, cohort columns
   (training/test; validation = external only). Nested impute/.
+  Column dictionary v1 (22 core columns, aliases, value enums) in references/.
 owner: "02_data-processing/base/clean-data/MODULE.md"
 ---
 

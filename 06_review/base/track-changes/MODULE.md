@@ -74,6 +74,27 @@ relationship targets, whitespace preservation, `w:del`/`w:ins` nesting, comment 
 5. **Re-validate** the delivered file against the original (step above). Record the outcome in the
    project's `ref/manuscript-revision.md`.
 
+## Revision-round deliverable set
+
+A revision round is not one file.
+
+| File | Role |
+|---|---|
+| `Manuscript_marked_R<n>` | changes highlighted, for the editor |
+| `Manuscript_clean` | accepted view, the article file |
+| `Response to Reviewers` | point-by-point letter; body owned by `07_response/base/revise/` |
+| `_BLINDED` marked copy | only when the round is blind |
+
+1. Marked and clean come from the same round and the same source file. Continuing to edit the
+   clean copy and presenting it as marked is a false record, not a shortcut.
+2. Project names: `Manuscript_<slug>_V<n>.docx`, `Response_<slug>_V<n>.docx`,
+   `Supplementary_<slug>_V1.docx`. The current version sits in the project root; superseded and
+   intermediate copies in `ref/tmp/`; retired originals into `{DEL}` with the relative path kept.
+3. Renames run from an explicit plan (project, source name, target name, root or tmp). Dry-run by
+   default, write only on an explicit apply flag; a missing source or an occupied target is
+   reported, never overwritten.
+4. Move ledger: one row per file with from, to, bytes, sha256.
+
 ## Rules
 
 1. Author field is always **`A`**; source tags are a separate axis (`06_review/advanced/review.md`
@@ -109,4 +130,14 @@ three buckets only.
 Cautions: revision authors may include the reviewer or a co-author — record roles as `A` / `other`,
 not real names; archived trees are read-only (no saves back); a document with zero `w:ins` is not proof
 of "no changes" (edits may have been accepted already).
+
+More counting cautions:
+
+- Removed text sits in `w:delText`, not `w:t`; parse by element name instead of regexing the XML.
+- Formatting-only revisions (`rPrChange`, `pPrChange`) carry no `w:ins` / `w:del`; a count built only
+  from body insertions undercounts the real revision volume.
+- Comment count is not edit count: a heavily edited round can carry few comments, and a comment-only
+  file still changes the manuscript.
+- Proof rounds are typesetting; their revision density is not comparable with author-revision rounds
+  and must not enter the same baseline.
 

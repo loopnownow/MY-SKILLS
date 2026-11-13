@@ -34,6 +34,7 @@ CREATE INDEX ix_entity ON entity(project_id, key_norm);
 - `sheet.status`：`ingested` / `dup` / `subset`；`sheet_dup.reason` 记重复或子集、`kept_bytes` 记省下字节。
 - `doc.rel_path` 保留 叶 slug 前缀（如 `MHE/ly_RI/IR-14-9-29.xlsx` 形式的相对 `_DataBase` 路径），便于回溯原文。
 - 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/_share/lmd_PHT.7z/PHT-data.xlsx`、`MHE_AN/_share/thesis/ly_THESIS/morris copy.7z/<成员>`；原档在 `_share`，靠该列回溯「哪张表来自哪个档的哪个成员」。
+- 目标 core-6t 结构（7 实表 + 5 只读兼容视图、`val` 主键 `WITHOUT ROWID`）见 [single-lab-db.md](single-lab-db.md)；现役 21 库仍为上表旧 schema，切换前两种结构不得混写。
 
 ## 3 去重三层
 
@@ -56,6 +57,8 @@ IDCOL = re.compile(r"^(医技号|样本编号|样本号|编号|case\s*no\.?|mid|
 - 文件名含 U+00A0 → `norm()` 归一化后再匹配（否则整份文件漏读）。
 - 宽表判定：表头单元格数字占比 > 0.6（谱图 / 积分矩阵）→ `is_wide=1`，只存 blob，不展开 fact。
 - 全空表 / 单行说明表：照存 blob，`status=ingested`。
+- 表头只用 `sheet.blob` 首行：实测 `sheet.header` 与 blob 首行不一致 228/344；`len(data) > nrow` 有 190 张、共多 683 行（全空行 / 合并残留），不能按 `nrow` 直接切。
+- 仪器表对账别用 `nrow + 1`：blob 前有 30–88 行元数据，行数对不上，只能按 sha256 比对。
 
 ## 5 构建命令（草案接口，CODES 提炼后生效）
 
@@ -74,14 +77,6 @@ python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MH
 
 ## 6 QA（全部过才报完成）
 
-
-## 7 `{DEL}` 三根与台账（t1952u）
-
-- **三根**：`db_core.DEL = D:\MyProjects\.Del`；`DEL_ROOT = {DEL}\harvested`（台账 / 历史）；`WORK_ROOT = {DEL}\_by-function`（新批次写入，勿写终弃档）。
-- 取批次目录用 `core.batch_dir(name)`；回放历史批次用 `core.find_batch(name)`（依次 `WORK_ROOT` → `DEL_ROOT` → `<name>__bulk-*`）。
-- `verify_db` 缺省**同时扫**两个根；`--del-root` 仍可只指一个。
-- 台账 glob **一层深**（`*/*MOVED*.tsv`，即 `<batch>\*.tsv`）→ 批次可「留台账、搬 bulk」；搬走后台账 `dst` 缺失只报 warn、不 FAIL。
-
 - [ ] 文件 / 表计数：`doc`、`sheet`（ingested / dup / subset）、`sheet_dup` 与报告一致
 - [ ] `PRAGMA integrity_check` = ok；`PRAGMA journal_mode` 记录在 meta
 - [ ] fact / entity / blob 字节数与报告一致；entity 键分布可解释（医技号 41,979 / 样本编号 1,060 / …）
@@ -90,11 +85,20 @@ python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MH
 - [ ] 原件 sha256 台账 100%；原件目录在 `{DEL}\_by-function\<batch>\originals\<code>\<family>\<leaf>\`
 - [ ] 归档不在叶内：压缩档只在 `<family>\_share\<leaf>\`；`_share` 层级 ≤2（`ethics` / `thesis` 打平，无子目录）
 - [ ] 档内表可溯源：`doc.rel_path` = 档相对路径 + `/<成员>`，与台账 `kind=table` 行逐条对齐；跳过件有 skip 清单
-- [ ] `_db\目录说明.md`：口径 / 表结构 / 查询示例 / 重建 / 限制
-- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段，叶内只留说明 + 未入库例外原因；`_share\目录说明.md` 件数 / MiB 与实盘一致；`_index.csv` note 追加
+- [ ] `_db` 根 `目录说明.md`：口径 / 表结构 / 查询示例 / 重建 / 限制；`## QC` 段齐全（日期 / 标准 / 结论 / 未过项 / `- PHI：` / 影响 / 下次检查 / 明细报告路径）
+- [ ] 库内无 `sqlite_stat1`、无伦理表（D19）；`verify_db --quiet` 的 exit / P0 / P1 / P2 记入 QC 段
+- [ ] 修过库时 6 项自检全过：`integrity_check`、`Σdoc.n_sheets == COUNT(sheet)`、dup + subset 行数 = `COUNT(sheet_dup)`、五组孤儿 = 0、`dup_groups = 0`、`fact.entity_id` 键 100%
+- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段，叶内只留说明 + 未入库例外原因；`_share` 根 `目录说明.md` 件数 / MiB 与实盘一致；`_index.csv` note 追加
 - [ ] `structure_check.py` 全门 PASS
 
-## 7 查询示例
+## 7 `{DEL}` 三根与台账（t1952u）
+
+- **三根**：`db_core.DEL = D:\MyProjects\.Del`；`DEL_ROOT = {DEL}\harvested`（台账 / 历史）；`WORK_ROOT = {DEL}\_by-function`（新批次写入，勿写终弃档）。
+- 取批次目录用 `core.batch_dir(name)`；回放历史批次用 `core.find_batch(name)`（依次 `WORK_ROOT` → `DEL_ROOT` → `<name>__bulk-*`）。
+- `verify_db` 缺省**同时扫**两个根；`--del-root` 仍可只指一个。
+- 台账 glob **一层深**（`*/*MOVED*.tsv`，即 `<batch>\*.tsv`）→ 批次可「留台账、搬 bulk」；搬走后台账 `dst` 缺失只报 warn、不 FAIL。
+
+## 8 查询示例
 
 ```sql
 -- 某检查号的全部部位
@@ -109,10 +113,11 @@ SELECT p.slug, COUNT(*) FROM entity e JOIN project p ON p.id=e.project_id GROUP 
 SELECT status, COUNT(*) FROM sheet GROUP BY status;
 ```
 
-## 8 限制（写进 `目录说明.md`）
+## 9 限制（写进 `目录说明.md`）
 
 - 不保公式 / 样式 / 列宽；宽表只能整表取 blob。
 - entity 仅白名单表头 + `ncol ≤ 40` 的表；未命中表的行级检索不可用。
 - PHI 留本地库内，不外发；库不设加密（按本机规则）。
 - 同名表可能来自不同文件（`sheet_dup` 有边）；溯源看 `doc.rel_path`。
 - 档内表溯源跨一层：`doc.rel_path` 只到「档名 + 成员」，档本身在 `_share`；解包树不留 `_DataBase`，需复核时再解到 `{DEL}` staging。
+- core-6t 库里 `doc` / `sheet` / `sheet_dup` / `entity` / `fact` 是只读兼容视图；写入一律走实表（`src/item/val/person/person_key`）。

@@ -11,6 +11,7 @@
 - [LaTeX deliverables](#latex-deliverables)
 - [Manuscript change checklist](#manuscript-change-checklist)
 - [Missing information / risk flags](#missing-information--risk-flags)
+- [Letter phrasing evidence (corpus, retrieval only)](#letter-phrasing-evidence-corpus-retrieval-only)
 
 
 Use this file when drafting or auditing the output shape of a reviewer response package, revision cover letter, marked manuscript changes, or combined revision correspondence package.
@@ -193,3 +194,26 @@ Missing information / risk flags
 - R1.2: Need test name, replicate unit, sample size, and correction method.
 - R2.1: No line numbers supplied; using section names for now.
 ```
+
+## Letter phrasing evidence (corpus, retrieval only)
+
+Reply-phrase counts from the lab's flattened response letters (11 letters) are retrieval
+candidates, not a required style:
+
+| Opening | Occurrences |
+|---|---|
+| `We have` | 25 |
+| `Thank you` | 24 |
+| `We appreciate` | 10 |
+| `We thank` | 9 |
+
+- Locator pattern: state the action, then the section name and line, e.g.
+  *"We have clarified it in the text (Methods-Inclusion and Exclusion Criteria, line 8)."*
+- Keep source layers separate: flattened replies, tracked revision deltas (deleted vs
+  inserted wording), and reviewer sentences are three different corpora; a single claim
+  cites one layer only.
+- A fragment overview row (a frequent reply sentence) is **context-only**: it shows what
+  was written, never what should be written. Wording criteria come from the manuscript
+  vocabulary rules, and a frequency count is not evidence of acceptance.
+- Quote literals case-sensitively; `Thank you` and `thank you` are different strings when
+  the letter is checked against the corpus.

@@ -23,6 +23,7 @@ review is `peer-review`. Contract only: the letter voice, opener templates, and 
 | [response-audit-gate.md](references/response-audit-gate.md) | Provenance / commitment / coverage gates + locatable ledger |
 | [response.md](references/response.md) | Common imaging-AI comment routes |
 | [proof-mode.md](references/proof-mode.md) | Journal proof (校样) queries: taxonomy, reply skeletons, three gates, metadata checklist |
+| [docx-comment-repair.md](references/docx-comment-repair.md) | Filling placeholders, batch-inserting or cleaning Word comments, verifying tracked-change claims |
 | [external-principles.md](references/external-principles.md) | Cross-pack principles (non-fine id): reviewer isolation + anti-bloat |
 
 ## Hard rules

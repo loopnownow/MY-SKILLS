@@ -2,7 +2,7 @@
 name: "fill-protocol"
 domain: "03_research"
 description: "Fill institutional Word form templates (.doc/.docx) for IRB protocols, ethics applications and grant proposals, preserving original styles, table layouts, fonts and page geometry. Draft protocol content then fill the template. Absorbed former write-protocol draft step (2026-10-30)."
-trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol", "fill template", "fill IRB form", "ethics template", "grant template"]
+trigger: ["IRB", "伦理", "知情同意", "表单填充", "fill protocol", "fill template", "fill IRB form", "ethics template", "grant template", "申请包", "基金申请"]
 inputs: ["protocol_template"]
 outputs: ["filled_protocol"]
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
@@ -71,6 +71,18 @@ needed later, add real files under `scripts/` and update this MODULE in the same
 | `pandoc -f doc` / `textutil -convert docx` | Unsupported or corrupted tables |
 | `cell.text = "value"` single assign | Erases run-level styles / eastAsia font |
 | Coordinate-based `table.cell(r, c)` | Silent breakage when template rows reorder |
+
+## Application packets and intake (gate)
+
+When the job is an ethics application packet, a grant application, or archiving received forms,
+open [references/application-packets.md](references/application-packets.md). Gates it enforces:
+one packet per funder (templates from different funders have different fields and are never
+merged); packet file numbering follows review order (project form `0-`, initial review form
+`1-`, staff summary, ICF, protocol); received files are archived unmodified in a dated folder
+under the project's `ref/refer/` tree, same-name different versions kept side by side; CV and
+GCP certificates live in per-person subfolders; an approval is citable for a new application
+only at or after the current date cut-off (earlier ones move out, unreadable dates stay `待判`);
+count the four attachment classes (approval, protocol, ICF, other) and mark every gap `待补`.
 
 ## Anti-Hallucination
 
