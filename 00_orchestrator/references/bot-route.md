@@ -37,8 +37,9 @@ These are real executors that are **not** seats in the 00 main loop. They are ro
 |---|---|---|
 | ethics forms + portal submit + `{doc_root}` _Docs lookup/search/inventory | Bai · 打杂的 | fill-protocol body under 03; off 00 main loop |
 | tidying / extraction / form-fill / in-repo IDE work | local DeepSeek (DSH) or Cline | when the owner says 「交给 DS / DeepSeek / Cline」 or approves their use (desktop app or Cline CLI). Bots may call local DSH and Cline. Cursor IDE is uninstalled; do not route tasks to Cursor IDE, and do not use 「交给cursor」 as a routing trigger. Coding / scripts / `MY-CODES` are **not** here; they go to Loopnow on 02 |
+| viewing or checking the owner's email (including QQ/Foxmail) | Bai · 打杂的 | mailbox is Bai; SCI verification of journals named in those mails goes to Victor |
 
-Bai's work arrives in two shapes. Ethics forms are reached through a fine id (`fill-protocol`) whose body sits under `03_research/base/`, so the seat stays 03 while the executor is Bai. Portal submit and the `{doc_root}` lookup/search/inventory asks carry no fine id at all; Aitor routes them directly and does not self-search for general lookup asks.
+Bai's work arrives in two shapes. Ethics forms are reached through a fine id (`fill-protocol`) whose body sits under `03_research/base/`, so the seat stays 03 while the executor is Bai. Portal submit and the `{doc_root}` lookup/search/inventory asks carry no fine id at all; Aitor routes them directly and does not self-search for general lookup asks. Viewing or checking the owner's email (including QQ/Foxmail) is also Bai's job and has no fine id; SCI verification of journals named in those mails goes to Victor.
 
 Local DeepSeek (DSH) and Cline are external packs, not seats and not bots. They are not the default coding seat. Coding, scripts and `MY-CODES` are Loopnow on 02. A handoff to local DSH or Cline happens when the owner says 「交给 DS / DeepSeek / Cline」 or approves their use, for tidying, extraction, form-fill, or local IDE work. Bots may call local DSH and Cline (desktop app or Cline CLI). Cursor IDE is uninstalled; do not route tasks to Cursor IDE, and do not use 「交给cursor」 as a routing trigger.
 
