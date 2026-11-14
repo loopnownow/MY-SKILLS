@@ -3,7 +3,7 @@ name: find-journal
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.19"
+  version: "1.20"
   source_table: {jcr2026_xlsx}
   owner: "03_research/base/find-journal/MODULE.md"
   seat_route: A 03_research/find-journal (Victor)
@@ -13,213 +13,68 @@ metadata:
 
 # Medical Journal Submit
 
-Contract only for find-journal (list gates and layer policy): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Thin contract for find-journal (list gates, layer policy, output shape): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
-## Owner / routing
+## Mission
 
-- Lives in `03_research/base/find-journal/` (capability). The former advanced `find-journal/` stub was removed 2026-10-17; do not recreate it.
-- Called from `03_research/advanced/journal-selection.md` via A Victor pointer.
-- Journal selection (选刊) routes through 03 `find-journal`; formatting through `05_manuscript/base/write-paper/`.
-- Bai handles Phase-1 checkbox HTML → user export JSON handoff, then portal submit after a journal is chosen; Aitee `write-paper` only for formatting to the chosen family.
+Recommend journals from the lab's curated JCR pool with an auditable fit/ease rationale, then hand the chosen journal to formatting. It decides; external recommenders are data providers only. It does not write the manuscript (`05_manuscript/base/write-paper/`) or format it (`journal-format-compliance/`).
 
+## Scope / Out of scope
 
-## Layout (Logic / Dataset)
+In: 推荐杂志 / 选刊, layer and list gates, similar-article check, Phase-2 short table, portal-URL write-back.
+Out: journal formatting to author guidelines (nested `journal-format-compliance/`, a registered fine id since 2026-11-13); manuscript prose; APC/AIM lookups before the user confirms a shortlist.
 
-- **Rules / methods:** `SKILL.md` + `rules/` (policy, workflow, JESI, persistence, …)
-- **List gates (in-repo SSOT):** `data/2026/` — blacklist / graylist / whitelist-bmc-medicine + `submission-urls.csv` write-back. Do not duplicate under `references/` or `artifacts/`.
-- **Runtime selection pools (_Docs):** `{find_journal_pools}` = `{doc_library_journals}` — **single table** `index.csv` (+ `index.xlsx`) with a `layer` column, plus `l1-l2-map.csv`; superseded `full-pool.csv` / `layer*.csv` / `priority-compact.json` / `publisher-fees.csv` stay read-only in `journals\archive\<year>\`. **Pools live in _Docs; skill keeps list gates only.**
-- **Annual refresh:** rebuild `journals\index.csv` once a year, in **July after the new JCR release** (current edition 2026 / metric year 2025); `{doc_library_jcr}\<year>\` holds per-year submission priors.
-- **`references/`:** retired mix; pointer README only.
-- **Per-project 选刊/已投:** `<project>/ref/citation/journals.csv` (+ `_notes.md`) — not in MY-SKILLS; never scatter journal notes as md/json/html in `ref/`.
+Routing: lives in `03_research/base/find-journal/`; the former advanced `find-journal/` stub was removed 2026-10-17 — do not recreate it. Called from `03_research/advanced/journal-selection.md`. Bai handles Phase-1 checkbox HTML → export JSON; Aitee only for formatting.
 
-## Live lists (always on)
+## Input
 
-Load in this order on every Phase-1 run:
+Minimum: the manuscript (or its abstract + design), and the target layer order defaults. Ask the user **before each run** whether to include 层2补 (default OFF). If a rate/metric is unknown, leave it blank and mark it; never invent it.
 
-1. `data/2026/blacklist.csv` — never list these titles.
-2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers family**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
-3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`), **or** journals that invited the user to review / that the user has reviewed and that have a JCR quartile in the current `_library/journals/index.csv` (t2016u). Stronger layer boost.
-4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / **MDPI** **pattern** boost (weaker than submitted whitelist).
+## Workflow (decision nodes)
 
-### Blacklist
+1. **Load gates first**, in this order: `data/2026/blacklist.csv` (never list), `data/2026/graylist.csv`, `{find_journal_submission}\whitelist-submitted.csv` (submitted/选刊/审稿; stronger boost), `data/2026/whitelist-bmc-medicine.csv` (BMC/Medicine/MDPI pattern; secondary boost).
+2. **Build Phase-1 tables**: three default tables of 10, in layer order 层2 (Q1, IF<5) → 层3 (Q2) → 层4 (Q3, default on); 层2补 (Q1, 5≤IF≤10) only on opt-in; layer 1 (IF>10) only when asked. Default total 30. Layers come from the `layer` column of the single pool table `{find_journal_pools}\index.csv`. General/comprehensive titles are allowed when fit is reasonable.
+3. **Rank inside each layer**: 稿件匹配度 (MJF = MFI) highest; then submitted/选刊/审稿 whitelist; then BMC/Medicine/MDPI pattern whitelist; then 投稿易投指数 computed from **available** inputs only (formula in `rules/jesi-model.md`, never copied into prose; partial values marked e.g. `62.4*` + `缺:…`); annual volume only as a weak capacity tie-breaker.
+4. **Similar-article round** (round 2 of this check only): query the candidate journal for similar work from the last 3-5 years with a real tool (PubMed/OpenAlex/Europe PMC/Crossref/journal site); if found, cite 1-3 titles with year and DOI/link in 匹配理由; if none, lower that journal below same-layer journals with matches and write 「近年未见类似文章，已降级」. A failed search is not "no hits": retry, then say the search failed.
+5. **Phase-1 columns** (exact): 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). Chinese headers only for MJF/MFI→稿件匹配度 and JESI→投稿易投指数; no 分层/策略 column (keep `data-layer`/`data-tier` on checkboxes); always show the three rates (— if unknown); no AIM/instructions/APC in Phase 1. Then ask the user to circle 备选杂志.
+6. **Phase 2 short table** after confirmation: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs visible, author-instruction URLs allowed, no ISO/OA/置信/APC/分刊详情. Lookups follow `rules/aim-author-checklist.md`.
+7. **Persist and deliver**: only portal submission URLs go to `data/2026/submission-urls.csv`; JIF/quartile/volume/APC/review time are query-only and never persisted as durable lists; advanced outcomes append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields). Prefer HTML; generic HTML craft in `00_orchestrator/references/html-visual-design.md`.
+8. **Format the chosen journal** via nested [`journal-format-compliance/`](journal-format-compliance/): plan first, Track Changes author A, never silently fix identity/funding/ethics conflicts; publisher quirks in `rules/journal-format-publisher-notes.md`; house baseline `journal-format-compliance/references/house-style-defaults.md`.
 
-Load `data/2026/blacklist.csv` first; never list those titles. Name-only fine id list:
-`data/2026/blacklist-names.csv`. The list body is data, not prose: do not restate it here.
+## Constraints (never)
 
-## Every journal-recommendation (推荐杂志) request
+- **Never list blacklist titles** (also `data/2026/blacklist-names.csv`); the list body is data, not prose.
+- Never boost a graylisted title; use gray only when non-gray cannot fill the layer or the user asks, and label 「灰名单/不推荐」. Never move gray → submitted whitelist without approval (the review-invite/reviewed + JCR-quartile standing rule is the only exception).
+- Never treat **Unknown risk as Low Risk**.
+- Never invent rates, articles, titles, years, DOIs, or links; blank rate cells stay blank.
+- Never persist yearly metrics into `data/2026/submission-urls.csv` or skill text; never hand-edit the pool `index.csv` (tag at the July rebuild).
+- Never collapse the three layers into one top-N list; never recommend layer 1 by default; never offer 层2补 without asking.
+- Never install external journal-recommender skills or copy their fixed Fit-Score weights.
+- Never query AIM/instructions/APC before the shortlist is confirmed.
+- Wording: when pointing at journal-selection rules, say **this repo**; do not say 「空挂」.
 
-Read the uploaded manuscript. Output three tables, **10 journals each**, in this default layer order
+## Output and handoff
 
-1. 层2 — Q1 and IF < 5 — Target/primary — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `2-Q1且IF小于5`
-2. 层3 — Q2 — Safer/steady — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `3-Q2`
-3. 层4 — **Q3 — default on** — 10 titles — `{find_journal_pools}\index.csv` where `layer` = `4-Q3`
-4. 层2补 — Q1 and 5 ≤ IF ≤ 10 — Challenge — **default OFF**; **ask the user before each skill use** whether to show — `{find_journal_pools}\index.csv` where `layer` = `2补-Q1且IF5到10`
-
-Layer labels are the `layer` column values in the single pool table (`{find_journal_pools}\index.csv`); `jif_2025` is the metric year and `jcr_year` the JCR edition.
-
-Default total **30** titles (10+10+10) unless a layer has fewer acceptable matches. Do not use layer 1 (IF>10) unless the user asks. **Comprehensive / general medical journals** (e.g. Medicine, General & Internal / multidisciplinary clinical) may be recommended when scope match is reasonable — not specialty-only.
-
-Inside each layer rank by
-
-1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs medical-related categories (`医学相关学科`) (**MJF = MFI**; display **稿件匹配度**)
-2. **Submitted/选刊/审稿 whitelist first** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill). Includes review-invite / reviewed titles that have a JCR quartile (t2016u).
-3. **BMC/Medicine/MDPI pattern whitelist** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
-4. **Graylist** (`data/2026/graylist.csv`, Frontiers family): skip when a better non-gray match exists; never boost
-3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
-4. **Capacity signal** (log annual volume / 年发文量 as a weak tie-breaker; annual pubs ≠ accepts)
-
-### Similar-article check (user rule 2026-10-08)
-
-This check is round 2 of journal selection. The pack does not number rounds elsewhere. These two rounds apply only to this check.
-
-- Round 1 ranks each layer by the criteria above. Round 1 does not search for similar articles.
-- Round 2 searches each ranked candidate. Then it lowers a journal that has no similar articles.
-
-Do this check in round 2 only.
-
-1. Use the manuscript title and its key topic terms as the query.
-2. Search the candidate journal for articles with similar content from the last 3-5 years. Use a real search tool (PubMed, OpenAlex, Europe PMC, Crossref, or the journal site; see `rules/query-sources.md`).
-3. If the search finds similar articles, cite them in 匹配理由 (match rationale). Give title, year, and DOI or link for each article. Cite 1-3 articles.
-4. If the search finds no similar article, lower the recommendation tier of that journal. Rank it below each journal in the same layer that has similar articles. Write 「近年未见类似文章，已降级」 in 匹配理由.
-5. Do not invent articles, titles, years, DOIs, or links. List only articles that a real search returned.
-6. A failed search is not a search with no hits. Retry it. If it still fails, write that the search failed. Do not write 「近年未见类似文章，已降级」 for a failed search.
-
-**Dynamic weights:** numeric JESI defaults in `jesi-model.md` are **initial only** and must be overridable when the user prioritizes speed, Q1, APC/OA, etc. Do not copy fixed external Fit Score weights into this pack.
-
-Optional front door: external candidate pool (query fine ids) → Difficulty + Fit + Risk → **this pack decides** → Challenge / Target / Safety (see `recommendation-workflow.md`). External recommenders are data providers, not decision makers.
-
-Phase 1 columns for every layer table
-
-勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标)
-
-- **Chinese score headers:** MJF/MFI → **稿件匹配度**; JESI → **投稿易投指数**. Do **not** show curated **易投指数**.
-- **No 分层/策略 column (v1.11+):** layer/tier already appear in section titles（层2主攻 / 层3(Q2) / 层4(Q3)）. Keep `data-layer` / `data-tier` on checkboxes for export JSON.
-- **Removed from Phase-1 display:** 置信度, ISO缩写/ISO, 最佳JIF分区/JIF分区, 最佳JCI分区/JCI分区, 易投指数, 分层/策略.
-- **Always display** 接收率 / 初筛拒稿率 / 送审率 (empty/`—` if unknown; never invent). Attach `rates_source` in JSON/title when found. Do **not** persist rates into `data/2026/submission-urls.csv`.
-- JIF / 年发文量 / rates are **display-only runtime fields** in the report (HTML/Markdown). Do **not** persist them into `data/2026/submission-urls.csv` or other DB-like files (`rules/persistence.md`).
-- 稿件匹配度: keep from Phase-1 human MJF.
-- **投稿易投指数 (partial OK, marked):** always compute from available A（接收率）, R（送审率或 1−初筛拒稿率）, P（年发文量→JCI-C）, and 稿件匹配度.
-  - Full (rates available): formula and weights are in `rules/jesi-model.md`; do not copy them into prose.
-  - Partial: skip missing inputs and renormalize, or capacity+MJF fallback when A/R both absent; show in-cell marker e.g. `62.4*` + `缺:接收率,初筛拒稿率` (tooltip OK). Persist `投稿易投指数` + `jesi_missing: [...]` in Phase-1 JSON. **Never invent rates.**
-  - **Unknown ≠ Low Risk.**
-- **层4 (Q3):** included **by default** (10 titles).
-- **层2补 (Challenge):** ask the user **before each run** whether to include 层2补; **default OFF** (show 层2 + 层3 + 层4 unless user opts in to Challenge).
-- **General/comprehensive journals:** when fit is reasonable, general/comprehensive medical titles are allowed alongside specialty journals.
-- No AIM, author instructions, or APC in phase 1. After the tables, ask the user to circle shortlist journals (备选杂志).
-
-## Phase 2 — user short HTML (after confirmed shortlist / 备选)
-
-Phase 2 runs only after the user confirms titles. Lookups (AIM / author instructions / portal URLs; APC only if the user asks beyond the short table) follow `rules/aim-author-checklist.md`.
-
-**User-facing Phase-2 HTML is a per-paper short table (短表)** (one section per manuscript / paper id). Columns **only**:
-
-期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知
-
-Rules for that short table:
-
-- **投稿网址** and **作者须知** share the last column; show **full URLs** as visible text (and as `href`). Do **not** use bare link text like 「投稿须知」 without the URL.
-- **Do not** include: ISO/ISO缩写, OA, 置信度/置信, 「分刊详情（可勾选阅读）」, or **APC** in this short table.
-- JCR分区 / 影响因子 / 年发文量 remain **display-only** (query; do not write into `data/2026/submission-urls.csv`).
-- Persist **submission portal URLs** to `data/2026/submission-urls.csv` (URL fields only) as before; author-instruction URLs may be shown in HTML — only portal submission URLs are required in the CSV schema.
-- Prefer HTML delivery; follow `00_orchestrator/references/html-visual-design.md` when that file is on the tree (generic HTML craft — do not vendor lab console pages into this pack).
-
-Sample shape (skill-library): `extracts/03_research/journal-p2-phase2-short-2026-09-10.html`.
-
-## Modules (within pack)
-
-Logical pipeline (not separate top-level skills yet): `rules/modules.md`
-
-`sci-metrics-retriever` → `manuscript-fit-analyzer` → `jesi-calculator` → `submission-prior-logger`
-
-Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
-
-## Delivery
-
-- Prefer **HTML** for the user-facing recommendation.
-- **Phase-2 短表** (per paper): 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs; no ISO/OA/置信/APC/分刊详情.
-- Write **submission URLs only** back to `data/2026/submission-urls.csv` (schema: 期刊全称, ISO缩写, ISSN, eISSN, 投稿网址, 来源备注, updated).
-- Annually updated metrics (JCR quartile, IF, annual volume, APC, review time, …) must **not** be persisted as durable delivery data — **query capability only**.
-- Advanced outcomes → append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields).
+- Phase 1: three (optionally four) tables of 10 + shortlist request; Phase 2: per-paper short table + portal URL write-back.
+- Handoff: to `journal-format-compliance` after the journal is chosen; to 00 at G-06/G-05; to `write-paper` only for house style, not journal rules.
 
 ## Files
 
-1. `data/2026/blacklist.csv`
-2. `rules/recommendation-workflow.md`
-3. `{find_journal_pools}\l1-l2-map.csv` (_Docs pool; discipline -> l1/l2)
-4. `{find_journal_pools}\index.csv` - single pool table; select rows by `layer` (`2-Q1且IF小于5` / `3-Q2` / `4-Q3` / opt-in `2补-Q1且IF5到10`)
-5. `rules/aim-author-checklist.md` - phase 2 only
-6. `{jcr2026_xlsx}` - curated pool (_Docs SSOT; not in this git repo). Raw Clarivate `JCR20XX影响因子.xlsx` is build input only; do not store in the skill pack after rebuild.
-7. `rules/policy.md` - stable rules
-8. `rules/annual-update.md` - yearly table refresh (July, after the new JCR release)
-9. `rules/query-sources.md` - evolvable query sources (OpenAlex/Crossref/EuropePMC/journal sites/JCR primary; LetPub auxiliary)
-10. `rules/jesi-model.md` - JESI / JEI / JDI / JCI-C / MJF
-11. `rules/persistence.md` - absorb / query / delete + what to save
-12. `rules/modules.md` - four logical modules + naming
-16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / MDPI pattern whitelist (LWW MEDICINE excluded)
-17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊/审稿 whitelist (seed: submission-urls, plus review-invite / reviewed titles with a JCR quartile)
-18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
-17. `data/2026/submission-urls.csv` — URL fields only
-18. `{find_journal_submission}\submission-prior.jsonl` — advanced prior log (schema only until outcomes exist)
+| File | Use |
+|---|---|
+| `data/2026/blacklist.csv`, `blacklist-names.csv` | hard exclusion |
+| `data/2026/graylist.csv` | not recommended when better exists |
+| `data/2026/whitelist-bmc-medicine.csv` | pattern boost (LWW MEDICINE excluded) |
+| `{find_journal_submission}\whitelist-submitted.csv` | submitted / review-invite boost |
+| `data/2026/submission-urls.csv` | portal URLs only |
+| `{find_journal_pools}\index.csv` (+ `l1-l2-map.csv`) | single pool table in _Docs; select by `layer` |
+| `{doc_library_jcr}\<year>\` | per-year submission priors |
+| `rules/recommendation-workflow.md`, `rules/jesi-model.md` | workflow; JESI/JEI/JDI/JCI-C/MJF |
+| `rules/policy.md`, `rules/persistence.md`, `rules/modules.md` | stable rules; absorb/query/delete; four logical modules |
+| `rules/query-sources.md`, `rules/aim-author-checklist.md` | query sources; Phase-2 checklist |
+| `rules/annual-update.md`, `rules/graylist.fine-id.md` | July refresh; gray definition |
+| `journal-format-compliance/` | chosen-journal formatting (nested fine id) |
 
-## Submitted / 选刊 / 审稿 whitelist (stronger priority)
+## Annual refresh and provenance
 
-Load `{find_journal_submission}\whitelist-submitted.csv`. Seeds (t2016u extended):
-
-1. Journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title / ISSN / eISSN).
-2. **Review invite / reviewed:** a journal that invited the user to review, or that the user has already reviewed, **and** that has a JCR quartile (`quartile_jif` or `quartile_jci` is Q1–Q4) in the current `_library/journals/index.csv`. Append when such a title is identified (same dedupe). `seed_source` = `review-invite` or `reviewed`; if the row already has another seed, join with `;`. Do not write JIF or quartile into this CSV — check `index.csv` at append time only. Set `updated` to the date and a short `note` (invitation or completed review). If the journal is absent from the current JCR pool or has no quartile, do not add it.
-
-Never add live blacklist titles. This standing rule is approval to add a graylisted title that meets the review-invite / reviewed + JCR-quartile test; whitelist then outranks gray for that title (do not silently delete the graylist row). Blacklist still always wins.
-
-Among comparable fit, **rank above** BMC/Medicine/MDPI pattern whitelist. Boost, not auto-fill.
-
-The `index.csv` `whitelist` column may include `reviewed` (semicolon-joined with `submitted` / `bmc` / `mdpi` when applicable). Do not hand-edit `index.csv`; apply the tag at the July annual rebuild. Runtime boost still reads `whitelist-submitted.csv` directly.
-
-## Graylist (not recommended)
-
-Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.fine-id.md`).
-
-**Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval, except the t2016u review-invite / reviewed + JCR-quartile standing rule above.
-
-## BMC / Medicine / MDPI pattern whitelist (secondary priority)
-
-Load `data/2026/whitelist-bmc-medicine.csv`. Membership (case-insensitive):
-1. title or ISO contains **BMC**, or title/ISO contains **Medicine**; **or**
-2. publisher / publisher_group is **MDPI** (materialized rows use `标记原因=MDPI-publisher`; also tag `_library/journals/index.csv` `whitelist` with `mdpi`).
-
-**Exclude** live blacklist **MEDICINE (LWW Baltimore)** — never whitelist it.
-
-User rule 2026-09-10 (BMC/Medicine) and 2026-10-31 t1472u (MDPI family): whitelist hits are **priority recommend** inside each layer (after 稿件匹配度). Do **not** label 「可疑」 and do **not** use a red HTML mark. This **replaces** the former v1.14 「刊名含 Medicine 层内降权」 rule.
-
-Whitelist is a boost, not auto-fill: still require reasonable scope match; still never recommend blacklist titles.
-
-
-## Phase-1 HTML highlight
-
-Highlight **only** cells/rows where **投稿易投指数 ≥ 80** (yellow background). No other mandatory color marks in the checkbox table.
-
-## Wording (fine ids)
-
-When naming where journal-selection rules live, say **this repo** — do **not** say 「空挂」.
-
-## What not to do
-
-- Do not recommend the three live blacklist titles.
-- Do not collapse the default layers into a single top-N list; keep 层2 / 层3 / 层4 tables separate (10 each).
-- Do not query AIM / author instructions / APC before the user confirms 备选杂志.
-- Do not merge yearly IF / quartile / volume / APC into `data/2026/submission-urls.csv` or skill text as durable lists.
-- Do not install `zero565656/journal-recommender` (or similar) as a live skill; do not copy its fixed Fit Score weights or abstract→CAS prediction.
-- Do not treat Unknown risk as Low Risk.
-
-## Advice provenance
-
-Merged **Gemini + ChatGPT** private advice (2026-09). Absorb/query/delete table: `rules/persistence.md`. Extracts (absorbed 2026-09; that folder is no longer in the library): `jesi-gemini-2026-09.md`, `jesi-chatgpt-2026-09.md`.
-
-## Annual refresh
-
-When the user sends a new JCR workbook, follow `rules/annual-update.md`. Keep `rules/policy.md` unless they also change blacklist, layers, or the 10-per-layer / layer-order rules.
-
-## Journal format compliance
-
-After a journal is chosen, format the manuscript to that journal's author guidelines with the **nested pack** [`journal-format-compliance/`](journal-format-compliance/) (its own `SKILL.md` + frontmatter).
-
-**Discovery:** the pack is a nested MODULE under `find-journal/` and, since 2026-11-13, also a registered fine id (`journal-format-compliance`) — entry works via this parent skill, as a direct pick, or by explicit path/keyword ask (`fine_id_count_canonical` in `registry.yaml` stays the ceiling). Trigger when the user asks to format / check a manuscript against a named journal's author guidelines, or when 选刊 Phase-2 is done and Bai/Victor needs submission-ready Track Changes. Plan first; Track Changes author **A**; never silently fix factual identity/funding/ethics conflicts. Publisher quirks: `rules/journal-format-publisher-notes.md`. House baseline the guidelines are compared against (page setup, per-paragraph typography, label bolding, running title, keywords, abstract labels, Methods/Results order, reference style): `journal-format-compliance/references/house-style-defaults.md`.
+New JCR workbook → follow `rules/annual-update.md` (July, after the JCR release); keep `rules/policy.md` unless blacklist/layers/10-per-layer rules also change. Advice provenance: merged Gemini + ChatGPT private advice (2026-09); absorb/query/delete table in `rules/persistence.md`.
