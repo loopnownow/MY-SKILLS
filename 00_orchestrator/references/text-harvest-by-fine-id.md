@@ -23,7 +23,7 @@
 DOIs. Promotion needs owner approval plus a real verification run. Figure-derived lanes record **layout
 parameters and criteria only** — never copy the image (copyright) — and cite the source DOI in the draft.
 
-Disk SSOT: `{doc_root}\\skill-harvest\\HARVEST-STANDARD.md` §7 + §8.
+Disk SSOT: `{doc_root}\\harvest\\HARVEST-STANDARD.md` §7 + §8.
 
 | Bucket | Store |
 |---|---|
@@ -37,7 +37,7 @@ Optional add-on (does not replace the three buckets): `## candidates` — eviden
 
 1. Resolve fine-ID via `00_orchestrator` / skill tree (`NN_slug/base/<fine-id>/`).
 2. One text → possibly many fine-IDs; **split** — do not paste the whole text into every lane.
-3. Draft under `skill-harvest/` (prefer `<fine-id>-harvest.md` with the three bucket `##` headings). Absorb into skills only when the owner says 「进skills」 (promote into live skills) (**extract ≠ promote**).
+3. Draft under `harvest/` (prefer `<fine-id>-harvest.md` with the three bucket `##` headings). Absorb into skills only when the owner says 「进skills」 (promote into live skills) (**extract ≠ promote**).
 4. Drop sentences that fit no bucket for any fine-ID (or park as owner triage notes).
 5. Never harvest ethics/PHI, full grant/manuscript bodies, or `_code` `.py` trees into skills.
 6. Success cases default into bank; AI hypotheses never auto-change runtime. Dispatch and regression four questions → `00_orchestrator/harvest/SKILL.md`.

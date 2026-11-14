@@ -7,7 +7,7 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_skill_harvest}\sources\library-methods-20261023\study-design\fill-protocol\` |
+| Durable original | `{doc_harvest_sources}\library-methods-20261023\study-design\fill-protocol\` |
 | HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\`~~ |
 | Blank templates | `{doc_root}\templates\ethics-blank\` |
 | Filled/PHI | `{raw_root}\<family>\_share\ethics\` (t1849u; `_lab\ethics` retired) — **never GitHub** |
@@ -70,7 +70,7 @@ Email subject: `申请类型＋申请人姓名`. Paper: two copies, double-sided
 
 ## Harvest addenda (2026-11-08)
 
-> Promoted from `{doc_root}\skill-harvest\by-fine-id\fill-protocol.md` pending entries.
+> Promoted from `{doc_root}\harvest\by-fine-id\fill-protocol.md` pending entries.
 
 - (2026-11-08 | source: accepted/lln_BIAOSHU/区卫健委科研课题申请书（5.10）(1).doc) Chinese district health-commission grant form (金山区卫健委科研课题计划申请（任务）书): 简表（负责人学历/职称/单位/部门/学科代码/经费）→ 400 字研究内容与预期成果摘要 → 立论依据（研究意义 + 国内外现状 + 参考文献）→ 研究内容/目标/方案/技术路线 → 创新点与工作基础 → 进度与经费；同一 EAAT2/谷氨酸/带状疱疹神经痛课题另写一份院级版本。
 - (2026-11-08 | source: accepted/lln_BIAOSHU/院级课题申请书.doc) Hospital youth start-up fund form (复旦大学附属金山医院青年科研启动基金申请书): adds 教研室开题 / 科教科形式审查 / 院专家组评审 / 科技档案归档; cover page carries 项目名称/负责单位/科室/负责人/职称/起止年限/申请日期, then 立论依据/研究方案/预期成果/经费预算; dates follow the hospital cycle (2021-01-01 to 2023-12-31).

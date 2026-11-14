@@ -49,7 +49,7 @@ Prefer variety across points (suggestion vs inquiry vs comment) so the letter do
 
 ## Harvest addenda (2026-11-08)
 
-> Promoted from `{doc_root}\skill-harvest\by-fine-id\revise.md` pending entries.
+> Promoted from `{doc_root}\harvest\by-fine-id\revise.md` pending entries.
 
 ### elements
 

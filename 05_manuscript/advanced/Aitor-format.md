@@ -13,7 +13,7 @@ Canonical name is **`SCI-manuscript-scaffold.docx`**. An identical alias copy na
 `{doc_root}\templates\Aitor-format-gold-response.docx`（**回复信 / 字体版式金样**；不是新稿起手模板，字号、页边距、批注作者以它为准。原 `_templates\02-layout-template.docx` 已退休，勿再引用）
 
 **Gold reference (reply-letter template, Markdown):**
-`{doc_skill_harvest}\sources\0doc-base-absorbed-20261023\_meta\02-response-letter-template.md`
+`{doc_harvest_sources}\0doc-base-absorbed-20261023\_meta\02-response-letter-template.md`
 （digest: `07_response/advanced/references/response-letter-template-digest.md`）
 
 **Voice and revision marks (same Aitor-format, do not fork):**
