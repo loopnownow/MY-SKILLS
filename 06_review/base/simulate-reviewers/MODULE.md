@@ -6,194 +6,75 @@ outputs: ["skill_output"]
 owner: "06_review/base/simulate-reviewers/MODULE.md"
 ---
 
-Multi-reviewer blind isolation for practice / meta-review.
-Contract only: stance, bans, isolation rules, and pointers. The review envelope and comment habits are `06_review/advanced/review.md`; the scores are `06_review/qc/`.
-Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0).
-Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
-
-> **Source**: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
-
 # Nature Reviewer Assessment Skill
 
-Use this skill to simulate a `Nature`-style reviewer assessment package from the referee
-side.
+Thin contract for multi-reviewer blind simulation: stance, isolation rules, bans, and pointers. The review envelope and comment habits are `06_review/advanced/review.md`; the scores are `06_review/qc/`. Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
 
-This skill is for reviewer-style manuscript evaluation, not for drafting the authors'
-response. If the user wants rebuttal writing, route to `nature-response`.
+Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0). Source: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 
-## Default stance
+## Mission
 
-- Ground the review only in the local source basis plus manuscript facts supplied by the user.
-- Evaluate the manuscript against source-grounded axes: `originality`, `scientific importance`, `interdisciplinary readership`, `technical soundness`, and `readability for nonspecialists`.
-- Use the 12-axis technical concern taxonomy only as an internal coverage checklist; it supplements but never replaces the five source-grounded axes.
-- Return exactly `3 mutually blind reviewer reports + 1 post-review synthesis` unless the user explicitly asks for another structure.
-- Give every reviewer only the same immutable manuscript/source packet, the same journal criteria, and that reviewer's preassigned emphasis. Never provide another review, a shared concern ledger, a draft synthesis, or hints about what another reviewer noticed.
-- Run each reviewer in a genuinely separate context, subagent, process, or invocation. If the environment cannot isolate contexts, generate one reviewer report per invocation or explicitly state that mutual blindness cannot be guaranteed; never present shared-context drafting as independent peer review.
-- Define emphasis briefs before any report is generated. They are working lenses, not reviewer identities, specialties, institutions, or biographies.
-- Freeze each individual report before comparing them. Natural duplication or disagreement is valid evidence of independent review and must not be edited away to manufacture diversity.
-- After all reports are frozen, run `references/forensic-consistency-audit.md` as a separate editorial pass. Audit arithmetic, metric bounds, aggregation levels, prose-table ordering, duplicate displays, dispersion anomalies, provenance and reproducibility. Never feed audit findings back into reviewer contexts or edit frozen reports after comparison.
-- Identify who would be interested in the results and why.
-- Identify technical failings that must be addressed before the authors' case is established.
-- Give every substantive concern a stable ID, a faithful `claim_pointer`, and a verifiable `evidence_pointer`; mark missing locations instead of inventing them.
-- Separate user-visible concerns into `Major Concerns` and `Minor Comments`. Mark a Major Concern
- `Blocking Yes` only when the current manuscript cannot establish its central case until that
- concern is resolved; Minor Comments are never blocking.
-- Do not impose a concern quota. If no grounded concern exists at a level, state that explicitly
- instead of inventing one.
-- Keep the critique intellectually sharp but professionally phrased; severity comes from impact
- on the manuscript's case, not from hostile wording.
-- Avoid em dashes, and avoid colons and semicolons as routine clause connectors in running prose (en dash allowed in numeric ranges such as `95% CI: X–X`, Unicode minus U+2212 also allowed for signed numbers, ASCII hyphen also fine; rule home `05_manuscript/base/vocab/L1/ban-phrases.md`, t1683u / t1761u) throughout reviewer reports and synthesis. Prefer a new sentence, comma, parentheses, or a short heading followed by a new line. Retain ordinary hyphens in standard compound terms and stable IDs such as `R1-M1`. Preserve punctuation in source-faithful titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax when changing it would be inaccurate.
-- Distinguish clearly between what is supported, what is weak, and what is not assessable from the provided material.
-- When the manuscript has a clear technical domain, use claim-dependent domain gates as supporting checks, but keep the output inside the same 3-reviewer `nature-reviewer` structure.
-- Do not claim the editor's final decision or certainty about fit to `Nature`.
+Simulate a `Nature`-style referee package from the reviewer side: 3 mutually blind reviewer reports plus 1 synthesis, each grounded only in the supplied packet and verifiable evidence. It is not author rebuttal drafting (route to `07_response`) and not an editorial decision letter.
 
-## Accepted inputs
+## Scope / Out of scope
 
-The skill may receive:
+In: reviewer-style assessment of a full draft, abstract/summary text, section excerpts, figure legends/notes, or author positioning notes; bounded review with an explicit assessment boundary when material is partial. Out: rebuttal writing, editorial decisions, journal-fit certainty, and any shared concern ledger before reports are frozen.
 
-- full manuscript draft
-- abstract, summary paragraph, or cover-summary style text
-- introduction, results, discussion, or methods excerpts
-- figure legends, selected figures, or result notes
-- author notes in Chinese or English describing the claimed contribution
-- pre-submission positioning notes
+## Input
 
-If the provided material is partial, perform a bounded review and mark the assessment boundary explicitly.
+Minimum: the manuscript material + the journal criteria + the requested reviewer count (default 3 + synthesis). If the packet is partial, state what is missing and what became unassessable; never pad with invented context.
 
-## Workflow
+## Workflow (decision nodes)
 
-1. Identify the input scope and whether the job is a reviewer-style assessment rather than rebuttal drafting.
-2. Build one immutable review packet containing only the supplied manuscript, verified source anchors, assessment boundary, and common journal criteria. Do not add analytical conclusions or suspected concerns to this packet.
-3. Define the reviewer count and emphasis briefs before launching any reviewer.
-4. Launch each reviewer in an isolated context. Pass only the immutable review packet, that reviewer's emphasis brief, the common report skeleton, and the same grounding rules.
-5. Inside each isolated review, independently assess readiness and the source-grounded axes, then build that reviewer's own concern ledger using `references/technical-concern-taxonomy.md`. If relevant, load only the applicable section of `references/domain-specific-review-gates.md` inside that same isolated context.
-6. Finalize and freeze every reviewer report. Do not show a completed or partial report to another reviewer, and do not redistribute concerns to control overlap.
-7. After all reports are frozen, run the forensic consistency audit in a separate editorial pass using `references/forensic-consistency-audit.md`. Classify findings as confirmed internal error, aggregation ambiguity, provenance gap, suspected duplication, unresolved input needed, not assessable, or passed. Do not feed audit findings back into reviewer contexts or edit frozen reports after comparison.
-8. Compare the frozen reports in a separate synthesis pass. Reconcile independently created concerns to shared synthesis keys, and label consensus only when at least two reports independently raise the same underlying concern. Keep reviewer consensus and forensic audit findings separate.
-9. Generate `Cross-review synthesis (post-review; not shown to reviewers)` with consensus blocking concerns, other major concerns, forensic consistency findings, the minor-revision checklist, and genuine differences in emphasis or judgment.
-10. Run QA for reviewer isolation, severity calibration, blocking calibration, evidence anchoring, groundedness, coverage, role boundaries, non-invention, and forensic consistency. Overlap is measured only after freezing and must never trigger retroactive rewriting of individual reports.
+1. **Scope**: confirm this is reviewer-style assessment, not rebuttal; record the assessment boundary.
+2. **Build one immutable packet**: supplied manuscript, verified source anchors, boundary, common journal criteria. No analytical conclusions, no suspected concerns.
+3. **Define emphasis briefs** and the reviewer count before launching anyone; briefs are working lenses, not identities or specialties.
+4. **Run each reviewer in an isolated context** (subagent/process/invocation). Pass only the packet, that reviewer's brief, the common skeleton and grounding rules. If isolation is impossible, state that mutual blindness cannot be guaranteed.
+5. **Freeze** each report; never show a partial or complete report to another reviewer; never redistribute concerns to control overlap.
+6. **Forensic audit** (separate pass, after freezing) via `references/forensic-consistency-audit.md`; findings do not flow back into reviewer contexts.
+7. **Synthesize** in a separate pass: reconcile concerns to shared keys, label consensus only when at least two frozen reports independently raise the same underlying concern; keep consensus and audit findings separate.
+8. **QA** isolation, severity/blocking calibration, evidence anchoring, groundedness, coverage, role boundaries, non-invention.
 
-## Output format
+## Constraints (never)
 
-Unless the user asks for another format, return:
+- Never invent reviewer identities, specialty roles, or selection history.
+- Never let one reviewer read, cite, anticipate, or respond to another review.
+- Never build or distribute a shared concern ledger before reports are frozen.
+- Never rewrite independent reports after comparison to reduce duplication or manufacture disagreement.
+- Never call reports mutually blind when they were generated in a shared context without an explicit limitation notice.
+- Never invent experiments, validations, controls, citations, figure details, line numbers, or prior-work distinctions absent from the input.
+- Never silently turn assessment into rebuttal drafting, or present the output as an editorial decision letter.
+- Never state journal fit (`Nature`) as settled fact.
+- Never omit technical failings the supplied evidence cannot establish, and never create concerns to fill a quota.
+- Never downgrade a core evidence/validity/ethics/integrity problem to Minor, or upgrade a local presentation issue to sound severe.
+- Never label a numerical anomaly a confirmed error without arithmetic proof or source data; never hide a confirmed internal contradiction no reviewer raised.
+- Punctuation: avoid em dashes, and avoid colons/semicolons as routine clause connectors (en dash allowed in numeric ranges such as `95% CI: X–X`; Unicode minus U+2212 allowed for signed numbers; ASCII hyphen fine); rule home `05_manuscript/base/vocab/L1/ban-phrases.md`, t1683u / t1761u. Preserve punctuation in titles, quotations, formulas, identifiers, URLs, times, and required machine-readable syntax.
 
-```text
-Review setup
-- **Input scope** [value]
-- **Assessment boundary** [value]
-- **Shared manuscript claim summary** [value]
-- **Visible evidence base** [value]
-- **Missing materials affecting confidence** [value]
+## Output and handoff
 
-Reviewer 1
-- **Overall assessment** [text]
-- **Who would be interested in the results, and why** [text]
-- **Major strengths** [text]
-- **Major Concerns** [items]
-- **Minor Comments** [items]
-- **Technical failings that need to be addressed before the case is established** [IDs or summary]
-- **Assessment against Nature-style criteria** [text]
-- **Recommendation posture** [text]
+Return, unless another format is requested: review setup (scope, boundary, shared claim summary, visible evidence, missing materials), then per reviewer — overall assessment, interested readership, strengths, Major Concerns with ID/severity/blocking/axis/claim pointer/evidence pointer/resolution test, Minor Comments, technical failings, criteria assessment, recommendation posture — then a cross-review synthesis (consensus, differences in emphasis, forensic findings, minor-revision checklist) and a risk/unsupported section. Section anatomy: `references/report-structure.md`.
 
-For each Major Concern
-- **Concern ID** R1-M1
-- **Severity** Major
-- **Blocking** Yes / No
-- **Axis** [value]
-- **Claim pointer** [value]
-- **Evidence pointer** [value]
-- **Concern** [text]
-- **Why it matters** [text]
-- **Resolution test** [text]
+Handoff: to `06_review` base/`peer-review` for single-reviewer work; to `07_response` when the author wants a reply; to `00` at G-06.
 
-For each Minor Comment
-- **Concern ID** R1-m1
-- **Severity** Minor
-- **Axis** [value]
-- **Affected element** [value]
-- **Evidence pointer** [value]
-- **Issue** [text]
-- **Required correction** [text]
+## Calibration and sources
 
-Reviewer 2
-[Same structure]
+- Real rounds keep one file per reviewer and the editor as a separate seat; keep that separation. Preserve legitimate disagreement on form items; never average or reassign to look consistent.
+- Isolation input is the blinded manuscript plus the review form only; exclude prior rounds, other reports and the response.
+- Compare concern types and coverage (recall), never wording.
 
-Reviewer 3
-[Same structure]
-
-Cross-review synthesis (post-review; not shown to reviewers)
-- **Consensus strengths** [text]
-- **Consensus blocking concerns** [items]
-- **Other consensus major concerns** [items]
-- **Where emphasis differs across reviewers** [text]
-- **Forensic consistency findings** [confirmed errors, aggregation ambiguities, provenance gaps, suspected duplication, unresolved author input]
-- **Minor revision checklist** [items]
-- **Broad-interest / significance readout** [text]
-- **Most important issues to resolve before a strong Nature-style case is established** [items]
-
-Risk / unsupported claims
-- [specific unsupported or not-assessable items]
-```
-
-## Red lines
-
-- Do not invent reviewer identities, specialty roles, or selection history.
-- Do not let one reviewer read, cite, anticipate, agree with, or respond to another review.
-- Do not build or distribute a shared concern ledger before individual reports are frozen.
-- Do not rewrite independent reports after comparison merely to reduce duplication or create artificial disagreement.
-- Do not call reports mutually blind when they were generated in a shared context without an explicit limitation notice.
-- Do not use dash punctuation or colons as habitual sentence connectors when clearer punctuation, headings, or sentence boundaries work.
-- Do not invent experiments, validations, controls, citations, figure details, line numbers, or prior-work distinctions not present in the input.
-- Do not silently turn reviewer assessment into author rebuttal drafting.
-- Do not present the review as an editorial decision letter.
-- Do not state that the manuscript belongs in `Nature` as a settled fact.
-- Do not omit technical failings when the provided evidence does not establish the authors' case.
-- Do not create Major or Minor concerns merely to fill a quota or make reviewer reports look balanced.
-- Do not downgrade a core evidence, validity, ethics, or integrity problem to Minor because it is
- easy to describe, and do not upgrade a local presentation issue merely to sound severe.
-- Do not label a numerical anomaly a confirmed error without arithmetic proof or source data.
-- Do not hide confirmed internal contradictions merely because no reviewer identified them.
-- Do not present an audit finding as reviewer consensus unless at least two frozen reports independently raised the same underlying concern.
-
-## Calibration against archived review rounds
-
-When a real multi-reviewer round is available for comparison:
-
-- Real output is one file per reviewer per round (`R<n>__Reviewer <i>.docx`), and the editor's
-  comments are a separate seat. Keep that separation in the simulated package.
-- Reviewers legitimately disagree on the journal's form items: one marks statistical methods `No`,
-  another `Yes`. Preserve the split, and do not average, harmonize, or reassign a reviewer to make
-  the package look consistent.
-- Isolation input is the blinded manuscript plus the journal's review form only. Exclude
-  prior-round reviewer comments, the other reviewers' reports, and the authors' response.
-- Compare concern types and coverage against a real letter (recall), never the wording. A frozen
-  report is not edited to match a real reviewer's phrasing.
-- Report skeletons, form fields, and the Claim / Challenge / Recommendation vocabulary:
-  `06_review/base/peer-review/references/journal-review-form.md`.
+Source order: `references/editorial criteria and processes.md` → user-supplied manuscript facts → `references/06-source-basis.md` → `references/domain-specific-review-gates.md`. Beyond this local source, state the limit instead of improvising journal policy.
 
 ## Related files
 
 | File | Open when |
 |---|---|
-| [references/06-source-basis.md](references/06-source-basis.md) | You need source provenance, local rule summaries, or source-vs-implementation boundaries |
-| [references/reviewer-workflow.md](references/reviewer-workflow.md) | You need the invocation order, fact-base extraction flow, or synthesis rules |
-| [references/review-axes.md](references/review-axes.md) | You need the evaluation axes or reviewer weighting logic |
-| [references/technical-concern-taxonomy.md](references/technical-concern-taxonomy.md) | You need the internal 12-axis coverage check, concern ledger, or claim/evidence-pointer rules |
-| [references/domain-specific-review-gates.md](references/domain-specific-review-gates.md) | The manuscript has clear chemistry, engineering, materials, atmospheric, climate-ecology, hydrology, or remote-sensing evidence chains |
-| [references/report-structure.md](references/report-structure.md) | You need the default output contract or section anatomy |
-| [references/role-boundaries.md](references/role-boundaries.md) | You need constraints on reviewer differences and editor-versus-reviewer boundaries |
-| [references/06-qa-checklist.md](references/06-qa-checklist.md) | You are finalizing an output and need groundedness / non-invention checks |
-| [references/forensic-consistency-audit.md](references/forensic-consistency-audit.md) | You need the mandatory post-review audit of arithmetic, metric bounds, aggregation level, prose-table consistency, provenance, dispersion anomalies, or reproducibility gates |
-| the upstream nature-skills consistency sweep (not vendored) (upstream nature-skills; not vendored in-repo) | You are checking the manuscript against itself: headline counts that do not reconcile with the Methods, one metric at two precisions, a superlative contradicted by the paper's own table, overlapping error bars presented as an advantage, or internal summaries that disagree |
-| [references/editorial criteria and processes.md](<references/editorial criteria and processes.md>) | You need the primary local Nature source text |
-
-## Source hierarchy
-
-Use sources in this order:
-
-1. `references/editorial criteria and processes.md`
-2. manuscript facts supplied by the user
-3. conservative local implementation rules documented in `references/06-source-basis.md`
-4. domain-specific supporting gates in `references/domain-specific-review-gates.md`
-
-If a user asks for policy-level certainty beyond this local source, state the limit instead of improvising broader journal policy.
+| [references/06-source-basis.md](references/06-source-basis.md) | provenance and source-vs-implementation boundaries |
+| [references/reviewer-workflow.md](references/reviewer-workflow.md) | invocation order, fact-base extraction, synthesis rules |
+| [references/review-axes.md](references/review-axes.md) | evaluation axes and weighting |
+| [references/technical-concern-taxonomy.md](references/technical-concern-taxonomy.md) | 12-axis coverage, concern ledger, pointer rules |
+| [references/domain-specific-review-gates.md](references/domain-specific-review-gates.md) | chemistry/engineering/materials/atmospheric/climate-ecology/hydrology/remote-sensing chains |
+| [references/report-structure.md](references/report-structure.md) | default output contract |
+| [references/role-boundaries.md](references/role-boundaries.md) | reviewer differences and editor-versus-reviewer boundary |
+| [references/06-qa-checklist.md](references/06-qa-checklist.md) | groundedness and non-invention checks |
+| [references/forensic-consistency-audit.md](references/forensic-consistency-audit.md) | mandatory post-review arithmetic/provenance audit |
+| [references/editorial criteria and processes.md](<references/editorial criteria and processes.md>) | primary local Nature source text |
