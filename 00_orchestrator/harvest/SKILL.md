@@ -33,7 +33,7 @@ stage never triggers harvest by itself. Source and stage authority: `{RULES}\wor
 
 ## 2 Triage before extracting (H1-H4)
 
-Owner rule: `{RULES}\My rule.md` §5.3.1. Classify the batch first; only H1 reaches extraction.
+Owner rule: `{RULES}\del-and-harvest.md` §2（H1–H4）. Classify the batch first; only H1 reaches extraction.
 
 | Class | Test | Action |
 |---|---|---|

@@ -45,7 +45,7 @@ Voice and de-AI lists stay in `05_manuscript/advanced/route.md` + `05_manuscript
 - **No yellow fills.** Do not yellow-highlight empty slots (ethics Date/NO, author `[]`, missing *n*/AUC/DOI, unfinished phrases, placeholder cells). Missing method or product facts go in **Word comments only**, never in the body, never as yellow placeholders. Do not fabricate those facts. Same rule for **new writing and revision**.
 - Word **Track Changes** and **comments** author: **A**. Never `Grok`.
 - Ownership: see `00_orchestrator/references/ownership-contract.md`.
-- **Do not change Word format** on an existing `.docx`. If a sentence differs from text 城城 already edited (tracked changes / known owner edits), treat it as the owner’s edit: **ask before overwriting**; do not restore the old sentence. Global stop → `{RULES}` `My rule.md` §5.1. HTML / PDF / scripts are out of scope. See `06_review/advanced/word-edit.md`; `references/writing-rules-hard.md`.
+- **Do not change Word format** on an existing `.docx`. If a sentence differs from text 城城 already edited (tracked changes / known owner edits), treat it as the owner’s edit: **ask before overwriting**; do not restore the old sentence. Global stop → `{RULES}` `My rule.md` §3 交付与清理. HTML / PDF / scripts are out of scope. See `06_review/advanced/word-edit.md`; `references/writing-rules-hard.md`.
 - **Do not overwrite existing front-matter:** if the manuscript already states corresponding author, funding, ethics (Date/NO), or affiliations, keep that text. Never replace it with lab defaults/templates unless the user explicitly asks. Missing items → Word comment / ask; do not fill placeholders with defaults.
 
 ---

@@ -13,6 +13,10 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t20261114h (2026-11-14):** MY-RULES 分层后节号变动，技能侧 16 处 `My rule.md §x` 改指新节：§5.1 → 「§3 交付与清理」（Word / 城城已改先问）或「§2 写盘与授权」（新建文件 / 目录）；§5.3.1 / §5.3.2 → `{RULES}\del-and-harvest.md` §2（H1–H4）/ §6（对象与布局）；旧 §3 → 「§7 执行准则」。`00_orchestrator/references/project-ref-layout.md` 由完整英文副本降为索引页（只映射到 `{RULES}\project-ref-layout.md` 的节标题）。以后引用写「节号 + 标题名」，不要再只写数字。registry `change_id` 未变。
+
+- **t2033u (2026-11-13):** owner mailbox routed to Bai; SCI verification starts from those mails and hands findings to Victor. Ledger backfill only — the commit landed without a ledger row. No skill body change; registry `change_id` unchanged.
+
 - **t1943u (2026-11-10):** heading source comments. When this round creates or changes citations, put one Word comment (`[cite-src]`, author A) on each affected IMRAD major heading. Procedure: `05_manuscript/advanced/process/heading-source-comment.md`. No new CHG heading; registry `change_id` unchanged.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.

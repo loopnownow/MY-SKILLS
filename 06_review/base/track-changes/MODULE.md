@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Word Track Changes: unpack, edit, verify, pack
 
-Mechanical tooling for the rule in MY-RULES `My rule.md` §5.1 and
+Mechanical tooling for the rule in MY-RULES `My rule.md` §3 交付与清理 and
 `06_review/advanced/word-edit.md`: **every `.docx` edit lands under Track Changes with author
 `A`; word/sentence grain; never a silent overwrite.** This pack proves that rule was followed.
 Contract only: the invariant plus the unpack / validate / pack commands; every text decision belongs to `05_manuscript/advanced/`, `06_review/advanced/`, or `07_response/advanced/`.
@@ -101,7 +101,7 @@ A revision round is not one file.
    §0). `--author` defaults to `A` for this reason.
 2. Word or sentence grain. Never rewrap a whole paragraph in one `w:ins`.
 3. If the owner already edited that span, ask before touching it again — do not revert their text
-   (`My rule.md` §5.1 "城城已改先问").
+   (`My rule.md` §3 交付与清理 "城城已改先问").
 4. Do not restyle. Fonts, spacing, margins and table geometry change only when the owner names them
    this turn.
 5. No new files to hold an intermediate — unpack into a `{DEL}` scratch directory and remove it.
