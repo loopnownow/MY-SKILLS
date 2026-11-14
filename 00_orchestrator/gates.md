@@ -11,7 +11,7 @@ Light metadata on existing gate ids — **do not invent** `G-HARD` / `G-QUALITY`
 | class | Gates | On FAIL |
 |---|---|---|
 | **HARD** | G0, G-PHI, G-FACT | Block the next node until the responsible party clears the fail (or user stops). |
-| **QUALITY** | G-STATS, G-05, G-06, G-07, G-LIT, G-CODE | Local rework at the responsible node (existing recovery: max 3, then `unresolved`). Do not restart already-correct stages. |
+| **QUALITY** | G-STATS, G-05, G-06, G-07, G-LIT, G-CODE, G-DOC | Local rework at the responsible node (existing recovery: max 3, then `unresolved`). Do not restart already-correct stages. |
 
 | Id | class | When | Pass | Fail → node (max 3 recoveries) |
 |---|---|---|---|---|
@@ -24,6 +24,7 @@ Light metadata on existing gate ids — **do not invent** `G-HARD` / `G-QUALITY`
 | G-07 | QUALITY | after Aitee response / response letter (Need07) | entry was 07 (`Need07`); response resolves each reviewer point or records deferral with owner; no silent Accept of unresolved items; 07 final authority; revise / tighten-response under `07_response/base/` (tone-polish is on-demand inside tighten-response; structure stays revise); G-LIT when the letter or revised ms cites literature; numbers changed in letter → hand off claim/number audit; Lee does not draft responses | 07 Aitee (letter) / 05 Aitee (Track Changes) / 03 Victor (cites) |
 | G-LIT | QUALITY | citation-verify required before 05 done and inside 06; also on a literature verify fail | the verify pass itself is required (`03_research/advanced/citation-verify.md`); 05/06 do not self-certify lit; on fail, comments carry dual plan: revise/weaken/delete **and** optional further 03 substitute-ref search; Evidence Request card when used (`05_manuscript/advanced/process/evidence.md`); no invented PMID/DOI; 00 decides only whether that further search runs | 03 Victor (verify) / 05 Aitee (wording); user decides which plan |
 | G-CODE | QUALITY | when task is code review/deep QC/Deep QC/refactor release-ready processing scripts | code QC per `02_data-processing/qc/coding-qc.md`; no open Critical/P0 | 02 (advanced/coding.md / Loopnow) |
+| G-DOC | QUALITY | when QC or delivery touches a `目录说明.md` / README / doc under `{doc_root}` (`_DataBase`, `_library`, `test`), or a move/rename/count change lands in a data or library dir | run `python -B {doc_root}\test\structure_check.py` (S30 live-doc paths) and `python -B {doc_root}\test\audit_readme_counts.py` (counts) before claiming clean; live paths must resolve (no retired root, no dead stage pointer), counts/dates must match disk, history-only lines carry a marker word in the same sentence; stale claims are repaired in place, never left as-is | 00 (report to user) / 02 (data-dir readme) |
 
 ### G-FACT checklist
 
