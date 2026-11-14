@@ -102,3 +102,18 @@ fixture 要求：每份输入只描述事实，不暗示期望答案；同一份
 主 base pack 字节（旧 tip → 现在）：stats-analysis 58,222 → 9,583（−83.5%）；design-study 45,569 → 23,121（−49.3%）；write-paper 81,180 → 53,938（−33.6%）；peer-review 19,339 → 27,033（+39.8%，EXEMPT：通用 review envelope 由 advanced 迁入 base，属设计性承接）。
 
 结论：四个任务科学检出均无回退；advanced 的增益集中在表达、结构与审稿习惯；改写门槛必须区分必要重构与无谓改写，否则会误伤 house 修订。仍未覆盖：C 臂未跑、多评分人未做、journal-format-compliance 与 track-changes 的版式验收不在本矩阵内。
+
+## 10 C 臂对照（旧 tip `04a4c35`，2026-11-14 补跑）
+
+方法：用旧树同文件集做静态规则覆盖核对（不生成改写），逐条判断旧规则会把 fixture 的缺陷判为合格还是不合格；旧树 pack 字节来自 `git ls-tree` 同集统计。
+
+| 任务 | C 臂科学命中 | 臂 A 与臂 B | C 臂上下文 | A 臂上下文 |
+|---|---|---|---|---|
+| T1 stats-analysis | 1/11 | 11/11 | 90,777 B | 67,913 B（−25.2%） |
+| T2 design-study | 3/5 | 5/5 | 51,179 B | 57,481 B（+12.3%，base 接管判读与 design-lock 段） |
+| T3 write-paper | 2/4 | 4/4 | 82,600 B | 76,293 B（−7.6%） |
+| T4 peer-review | 6/7 | 7/7 | 47,042 B | 61,278 B（+30.3%，base 接管 review envelope） |
+
+关键差别不在“规则更严”，而在**旧规则会主动背书错误做法**：T1 的 HL 非显著=校准良好、DCA 做了就算临床价值、ICC>0.75=良好、正态性单因素决定检验选择，四条在 C 臂下都判 PASS；现盘把四条改成带 Applicability 与 Evidence_required 的检查后，同一 fixture 记为 FAIL/WARN。C 臂另外在 T3 把 5 条文风扣分混进科学报告（误报来源），现盘由 QCV 在 S4 单独承担。
+
+限制：C 臂为规则覆盖核对而非独立生成；T2/T4 的 base 字节上升是设计性承接，不构成回退。

@@ -17,6 +17,13 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114g-acceptance-baseline-arm-c (2026-11-14)
+
+- **Owner:** t20261114g (acceptance matrix, C-arm baseline).
+- **C arm:** old tip `04a4c35` rule-coverage check on the same T1-T4 fixtures; recall T1 1/11, T2 3/5, T3 2/4, T4 6/7; four over-broad rules (HL, DCA, ICC, normality-driven test choice) actively endorsed the fixture defects, which is the concrete failure the QC split fixed.
+- **Matrix:** `00_orchestrator/references/three-layer-acceptance-matrix.md` gains section 10 (C-arm table, byte comparison, limits).
+- **Tests:** 271 passed, 1 skipped.
+
 ## CHG-20261114-t20261114f-acceptance-metrics-and-design-thinning (2026-11-14)
 
 - **Owner:** t20261114f (three-layer acceptance, round 2).
