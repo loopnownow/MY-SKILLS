@@ -12,136 +12,52 @@ trigger is documentation only; not independently discoverable.
 
 # Clinical tables (Excel / CSV)
 
-Contract only for clean-data: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Thin contract for clean-data: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/`; pack data (`references/`, `scripts/`) stays beside it as data.
 
-**clean-data** front: research **clinical Excel/CSV** — headers, missingness, ID integrity, and
-cohort columns. Nested `impute/` points at the fill/outlier code in `{code_model_validation}`.
-Writing the workbook itself (formulas, styling, formatting) is ordinary `openpyxl` work — do it in
-the analysis script, not here.
+**clean-data** front: research **clinical Excel/CSV** — headers, missingness, ID integrity, and cohort columns. Nested `impute/` points at the fill/outlier code in `{code_model_validation}`. Writing the workbook itself (formulas, styling, formatting) is ordinary `openpyxl` work — do it in the analysis script, not here.
 
-Imaging data-availability statements live in `preprocess-imaging` [`data.md`](../preprocess-imaging/references/data.md),
-not here.
+Imaging data-availability statements live in `preprocess-imaging` [`data.md`](../preprocess-imaging/references/data.md), not here. Column semantics for ingest — 22 core columns, measured alias table, value enums, the six per-sheet questions — live in [`references/column-dictionary.md`](references/column-dictionary.md); the gates stay in this MODULE.
 
-Column semantics for ingest — 22 core columns, measured alias table, value enums, the six per-sheet
-questions — live in [`references/column-dictionary.md`](references/column-dictionary.md); the gates stay in this MODULE.
+Tables that report **only aggregates** (n, mean(SD), AUC, sens/spec, P) are not clean-data input: reconstruct subject-level **synthetic** rows per [`restore-from-summary.md`](../../advanced/restore-from-summary.md).
 
-Tables that report **only aggregates** (n, mean(SD), AUC, sens/spec, P) are not clean-data input:
-reconstruct subject-level **synthetic** rows per
-[`restore-from-summary.md`](../../advanced/restore-from-summary.md) (two precisions: simulation from SD/AUC, landing from the mean).
+## Mission
 
-## Scope
+Turn one clinical workbook into an analysis-ready table whose header, ID, cohort and missingness are proven, not assumed; write the QC note that later stages rely on. It does not model, select, or report.
 
-| In | Out |
-|---|---|
-| Header QC, units, duplicate/empty column names | LASSO, nomogram, ROC/DCA (`stats-analysis` / `model-evaluation`) |
-| Missingness inventory (block vs scattered) | Fill/outlier **implementation** → [`impute/`](impute/) |
-| Column dictionary: 22 core columns, aliases, value enums → [`references/column-dictionary.md`](references/column-dictionary.md) | |
-| Patient ID uniqueness and join keys | HIS login, HIS passwords, EMR credentials |
-| Cohort / split columns (training / test; validation = external only) | Naming the training set "Development set" |
-| Patient-level leakage check on the table | Radiomics extraction (`stats-analysis`) |
-| | Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py` |
-| | Reporting checklists CLAIM/TRIPOD/CLEAR → `05_manuscript/qc/check-reporting/` |
+Out of scope: LASSO / nomogram / ROC / DCA (`stats-analysis`); fill/outlier implementation (`impute/`); formulas/styling; HIS/EMR credentials; reporting checklists.
+
+## Input
+
+Minimum: the workbook (xlsx/csv) + which sheet + the analysis unit (usually patient). The three required columns below must exist or be mapped by the user. If the split column exists but its semantics are unclear (training/test vs external validation), ask before touching it.
 
 ## Required columns
 
-Every analysis table must name (or the user must map) these three:
+1. **Patient ID** — one identifier per analysis unit. Keep as text (`dtype={id_col: str}`) so leading zeros survive.
+2. **Split / cohort** — `training` / `test`. **Validation = external only** (another centre, time, or device). Never carve a random slice of the same pool and call it validation. Never label the training set "Development set".
+3. **Outcome** — the endpoint column used later. Do not recode it after seeing test AUC.
 
-1. **Patient ID** — one identifier per analysis unit (usually one row per patient). Keep as text.
-2. **Split / cohort** — `training` / `test`. **Validation = external only** (another centre, time,
-   or device). Do not carve a random slice of the same pool and call it validation. Never label
-   the training set **Development set**.
-3. **Outcome** — the endpoint column used later in `04-*`. Do not recode it after seeing test AUC.
+Optional but usual: site, timepoint, visit date, exclusion flag. Group-stratified impute also needs a group column ([`impute/`](impute/)).
 
-Optional but usual: site, timepoint, visit date, exclusion flag. Group-stratified impute also
-needs a group column (see [`impute/`](impute/)).
+## Workflow (decision nodes)
 
-## Header QC
+1. **Identify** file, sheet, analysis unit and the three required columns.
+2. **Header pass**: header = raw first data row after dropping title/spacer rows; unique non-empty names; units recorded; normalise before judging (`\xa0`/spaces, full-width, peel units off the name, Chinese name wins on variants); never merge semantically different columns; name empty cells explicitly (`col_<i>`). Check the 22-column dictionary.
+3. **Missingness inventory before imputing**: columns with NA, total missing cells, block vs scattered; missing rate first, cause second (a fixable block layout is not missing data).
+4. **ID pass**: unique at the declared unit; duplicates stop and are resolved, never averaged; joins on ID (+timepoint), never row index; name alone is never a key.
+5. **Split / leakage pass**: split patients, not rows/lesions/slices; after the split, every data-dependent step fits on training only; validation means external.
+6. **Write the QC note** (shape, dtypes, missingness table, ID verdict, split verdict), then hand off: fill/outliers → `impute/`; modelling → `02_data-processing`.
 
-Before any fill or model:
+## Constraints (never)
 
-1. Row 1 is the header. No stacked/merged title rows that `pandas` will treat as data.
-2. Headers unique and non-empty. Rename collisions (`x`, `x.1`) explicitly.
-3. Units in the header or a documented units row — do not silently mix mg/dL and mmol/L.
-4. Read IDs as string (`dtype={id_col: str}`) so leading zeros survive.
-5. Record sheet name, `shape`, dtypes, and a 5-row preview.
-6. Normalise the name before judging it: strip `\xa0` / spaces / full-width spaces, full-width →
-   half-width, peel punctuation and units off (`ALB (g/L)` → `ALB`, unit into a unit field).
-   Chinese name wins when variants disagree. Compress spellings only — never merge semantically
-   different columns.
-7. No empty header cell goes through: name it explicitly (`col_<i>`). Merged-cell residue is not a
-   column name, and unnamed trailing columns get the same treatment.
-8. The header is the raw first data row after dropping title / blank spacer rows; a header string
-   stored elsewhere is not authority when it disagrees with that row.
+- **No LASSO / paper model fitting** here — preparation only.
+- **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in table files.
+- Never invent or "repair" a missing value, ID, or cohort membership to make the table tidy.
+- Never force a person onto every row; the person-ID column may legitimately be NULL in most sheets.
+- Never drop or fill columns on a modeller's NA threshold here; that decision belongs to the modelling pipeline.
+- Never treat imaging `data.md` as this fine id's body.
+- Formula recalc / error scan on a hand-built workbook goes to `{code_model_validation}\recalc_xlsx.py`, not a manual recheck.
 
-## Missingness
+## Output and handoff
 
-Inventory **before** imputing:
-
-- n columns with any NA, total missing cells, block vs scattered (whole modality missing vs holes).
-- Do not drop columns here because a modeller's NA threshold lives in the modelling pipeline.
-- Do not fill from the grand mean across outcome groups.
-- Missing rate first, cause second: a column missing >10% needs a cause check (multi-block
-  concatenation, sequence numbers only on the first row of a block) before deciding drop-column
-  vs complete-case.
-- Do not impute by default: 51% / 28% / 18% missing in one library went to complete-case analysis,
-  and a >10% 样本编号 case was a broken block layout, not missing data.
-
-Handoff implementation (group-stratified mice/median/missForest, decimal alignment, backup/QC)
-→ [`impute/MODULE.md`](impute/MODULE.md).
-
-## ID integrity
-
-- IDs unique at the declared unit (patient, or patient×timepoint if longitudinal and documented).
-- Duplicate IDs → stop and resolve; do not average rows unless the user asks.
-- Do not use Name/ID as a numeric feature. Do not impute ID.
-- Joins to imaging or feature tables are on patient ID (and timepoint if needed), never on row
-  index.
-- Name alone is never a key. Name + sex + age (±1) is only a candidate-confirmation rule, and an
-  automatic key needs all attributes to match exactly.
-- The person ID column may be NULL: only ~50 of 1,063 headed sheets carried name + sex + age
-  together. Never force a person onto every row to make the table look tidy.
-
-## Leakage / split integrity (patient-level)
-
-1. Split **patients**, not rows/lesions/slices. The same patient must not appear in training and
-   test.
-2. After the split is locked, any data-dependent step (impute, scaler, selection) fits on
-   **training** only, then transforms test. The current impute CLI fills the whole table by group;
-   post-split use needs a custom call (see impute MODULE).
-3. `validation` in this pack means **external** (held-out site/time/device), not a third random
-   fold of the development pool.
-4. Do not rename training as Development set in column values, filenames, or Methods.
-
-## What not to do
-
-- **No LASSO / paper model fitting** here — that is `stats-analysis` / `model-evaluation` /
-  `stats-analysis` (preparation only).
-- **No HIS login** and no hospital-system passwords, tokens, or VPN secrets in this pack or in
-  table files.
-- **No financial-model color convention as the lab default** (blue RGB 0,0,255 inputs, yellow
-  assumption cells, 10-K source comments). This is a clinical-table pack; those conventions came
-  from a corporate-finance template and were removed on 2026-10-27.
-- Do not treat imaging `data.md` as this fine id's body.
-
-## Nested packs
-
-| Path | Role |
-|---|---|
-| [`impute/`](impute/) | Group-stratified missing/outlier contract; code in `{code_model_validation}` |
-
-## Workflow
-
-1. Identify the file (xlsx/csv), sheet, and the three required columns.
-2. Normalise headers → header QC + ID uniqueness + missingness inventory. Write a short QC note.
-3. Confirm split column semantics (training/test; validation only if external).
-4. If fill/outliers are requested → `impute/`. If a hand-built workbook has formulas, recalculate and scan it with `{code_model_validation}\recalc_xlsx.py`.
-5. Hand modelling to `02_data-processing`. Do not fit LASSO here.
-
-## Handoffs
-
-- Missing/outlier implementation → `clean-data` `impute/`
-- Formula recalc / error scan on a hand-built workbook → `{code_model_validation}\recalc_xlsx.py`
-- Imaging I/O + availability statements → `preprocess-imaging` (including `data.md`)
-- Radiomics / leakage audit on feature matrices → `stats-analysis`
-- Modelling / calibration / DCA → `stats-analysis` / `model-evaluation`
-- Reporting checklists → `05_manuscript/qc/check-reporting/`
+- Analysis-ready table + short QC note: sheet/shape/dtypes, header verdict, units, missingness table (block vs scattered), ID uniqueness, split semantics.
+- Handoff: missing/outlier implementation → `clean-data` `impute/`; radiomics/leakage audit on feature matrices → `stats-analysis`; imaging I/O + availability statements → `preprocess-imaging`; reporting checklists → `05_manuscript/qc/check-reporting/`.
