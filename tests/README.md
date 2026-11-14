@@ -36,6 +36,7 @@ checkout can still opt out explicitly.
 | `test_office_track_changes.py` | track-changes validator rejects a silent overwrite |
 | `test_draw_flowchart_scripts.py` | expanded STROBE spec, fail-closed n-audit, CLI writes / exits nonzero |
 | `test_vocab_harvest_sections.py` | paragraph-layer section rebuild and phrase counter |
+| `test_stub_policy.py` | pointer-only stubs must have a live consumer (else deleted) |
 
 Conventions: `unittest` only, `from __future__ import annotations`, constants at the
 top of each file, no network or LLM calls, failure lists truncated to 20-40 items.

@@ -51,7 +51,7 @@ worth doing and likely to be accepted at a high-impact venue*.
 | live `design-study` | Feasibility / study-design conversion for a candidate frontier direction |
 | live `lit-search` | Retrieve and verify seed papers (PMID/DOI); confirm the gap is still open |
 | `03_research/advanced/radiology-design.md` | Inventory already exists, or hand off to full design after a direction is chosen |
-| [method-upgrade-into-grant.md](method-upgrade-into-grant.md) | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
+| [intake.md](intake.md) · Grant Voice B method upgrade | **Voice B**: write method upgrade into justification (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML); sentence placement only |
 
 ## Workflow
 
@@ -91,12 +91,12 @@ worth doing and likely to be accepted at a high-impact venue*.
 
 When the user is writing **their own** justification and the method is moving along
 **MRS → hyperpolarized 13C / metabolic flux → multimodal + interpretable ML**,
-open `method-upgrade-into-grant.md`. Put the technical gap **in the justification**, not only in the innovation box.
+open `intake.md` § Grant Voice B method upgrade. Put the technical gap **in the justification**, not only in the innovation box.
 
 - Justification subsection titles are mechanism nodes; methods are evidence.
 - Name the gap (1H-MRS cannot quantify [molecule]; subjective scales) → this study uses the upgraded technique.
 - Do not write unfinished techniques as completed basis. Do not put Voice A critique into the justification.
-- Chapter skeleton / 确定·阐明·探讨 → `radiology-design`. CN/EN abstract sentence bank → `grant-writing.md`.
+- Chapter skeleton / 确定·阐明·探讨 → `radiology-design`. CN/EN abstract sentence bank → `intake.md` § Grant Voice B.
 
 ## Quality bar
 
@@ -111,8 +111,8 @@ that are fashionable but wrong for them, and never invents a citation to sound c
 - Which journal tier the question targets → `03_research/advanced/journal-selection.md`.
 - Method-specific feasibility → live `stats-analysis` / live `design-study`.
 - Citation export of verified seeds → live `manage-refs` (check with `verify-refs`).
-- The direction fits **own** funding proposal (Voice B) → `method-upgrade-into-grant.md` then
-  `radiology-design` `grant-own-skeleton.md` + `grant-writing.md` phrase bank.
-- Reviewing **other people's** NSFC (Voice A) → `../advanced/grant-review.md`.
+- The direction fits **own** funding proposal (Voice B) → `intake.md` § Grant Voice B method upgrade, then
+  `radiology-design`; `intake.md` § Grant Voice B chapter skeleton + phrase bank.
+- Reviewing **other people's** NSFC (Voice A) → `intake.md` § Grant Voice A.
   Never mix review tics (评议口癖) into the justification.
 - This skill advises on research strategy; specific recent claims must be verified live.

@@ -128,13 +128,13 @@ Ask before final wording when missing facts would otherwise fabricate:
 
 ## Absorbed grant packs (2026-10-30)
 
-Standalone `grant-review.md` / `grant-writing.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` are pointer stubs. Full bodies live below. `radiology-design` / `radiology-frontier` / `multicenter` left unchanged this round (their links resolve via stubs).
+Standalone `grant-*` pointer stubs were removed on 2026-11-14; the full bodies live below (design / frontier / route now point here). `radiology-design` / `radiology-frontier` / `multicenter` left unchanged this round (their links resolve via stubs).
 
 ### Grant Voice A (review others)
 
 **This is for reviewing someone else's NSFC / general / youth / cross / original / goal-oriented proposal. Not for writing your own.**
 
-- Writing your own justification / defense / protocol / abstract → § Grant Voice B (or stub `grant-writing.md`) + `radiology-design.md` + `radiology-frontier.md` (Voice B).
+- Writing your own justification / defense / protocol / abstract → § Grant Voice B (§ Grant Voice B) + `radiology-design.md` + `radiology-frontier.md` (Voice B).
 - English journal peer review / pre-submission / 回复审稿人 → `06_review`. Do not fill NSFC form fields with English imperatives like “Please clarify”.
 - Do **not** mix the two voice habits: 「创新性有限」「可行性欠佳」 here must never enter your own proposal.
 
@@ -240,7 +240,7 @@ Tone may be more direct than English peer review, but still about the work not t
 ### Grant Voice B (write your own)
 
 **This file is for writing your own proposal / proposal defense / protocol / abstract.**
-Reviewing someone else's NSFC / general / cross-disciplinary → § Grant Voice A (or stub `grant-review.md`) (Voice A). Do **not** mix voice habits: never put 「创新性有限」「可行性欠佳」「方案过于粗陋」 into your own draft.
+Reviewing someone else's NSFC / general / cross-disciplinary → § Grant Voice A (§ Grant Voice A) (Voice A). Do **not** mix voice habits: never put 「创新性有限」「可行性欠佳」「方案过于粗陋」 into your own draft.
 
 Chapter skeleton (five-step justification, two innovation columns, three feasibility blocks, three goal tiers) → § Grant Voice B chapter skeleton.
 Method upgrades into the proposal (MRS → hyperpolarized 13C / metabolic flux → multimodal+ML) → § Grant Voice B method upgrade into justification.
@@ -493,7 +493,7 @@ Through systematic research, we hope to clarify the mechanism of [A] in regulati
 ### Grant Voice B chapter skeleton
 
 **This is for writing your own NSFC / municipal science / health commission / hospital / proposal-defense / clinical protocol.**
-Reviewing someone else's NSFC → § Grant Voice A (or stub `grant-review.md`) (Voice A). Do not put 「创新性有限」「可行性欠佳」 into this draft.
+Reviewing someone else's NSFC → § Grant Voice A (§ Grant Voice A) (Voice A). Do not put 「创新性有限」「可行性欠佳」 into this draft.
 
 Placeholders: `[Title]` `[疾病]` `[表型]` `[技术]` `[n]` `[PI]` `[假说]` `[动物模型]` `[平台]`.
 Do not write unpublished patient-level result tables, ethics-scan PDFs, phone numbers, or full applicant pathway text.
@@ -505,7 +505,7 @@ Do not delete official subsection titles; below is the fill rhythm.
 | Doc type | Skeleton (do not delete official titles) |
 |---|---|
 | NSFC youth/general **报告正文** | （一）立项依据与研究内容 → 研究目标/关键科学问题 → 方案及可行性 → 特色与创新 → 年度计划及预期结果 → （二）研究基础与工作条件 |
-| NSFC **摘要** (CN + EN each one para) | Burden/gap → prior finding → hypothesis → planned methods + validation → expected theory/clinical meaning → keywords. Phrasing in § Grant Voice B (or stub `grant-writing.md`) |
+| NSFC **摘要** (CN + EN each one para) | Burden/gap → prior finding → hypothesis → planned methods + validation → expected theory/clinical meaning → keywords. Phrasing in § Grant Voice B (§ Grant Voice B) |
 | Municipal science **可行性方案** | Trend judgment and needs analysis (domestic/abroad status + innovation points) → research content / tech key points / implementation → duration and schedule → existing basis and conditions. Move the two innovation columns into part 1 |
 | City/district health commission **申请书正文** | Nearly isomorphic to NSFC body; annual plan in half-year blocks「完成 [n] 例 / 完成 XX 检测」; at district level write goals as measurable indicators |
 | Hospital / youth-start **申请书、任务书** | Rationale → purpose and significance → study design (content/methods/route/key points) → research basis → completion metrics (paper tier + talent training) |
@@ -575,7 +575,7 @@ Clinical feasibility also needs: **case source**（「每年接诊 [疾病] 超�
 
 Not the same document as the proposal body: the protocol must let ethics members judge risk — it does not need a full mechanism review.
 
-Required blocks: purpose (testable clinical question) → design (prospective/retrospective, n) → inclusion/exclusion/termination/withdrawal → intervention and outcomes → data and stats. Inclusion/exclusion as bullets, not paragraphs. Put n in the design sentence: `收集[疾病]患者[n]例。` Phrasing in § Grant Voice B (or stub `grant-writing.md`).
+Required blocks: purpose (testable clinical question) → design (prospective/retrospective, n) → inclusion/exclusion/termination/withdrawal → intervention and outcomes → data and stats. Inclusion/exclusion as bullets, not paragraphs. Put n in the design sentence: `收集[疾病]患者[n]例。` Phrasing in § Grant Voice B (§ Grant Voice B).
 
 ## Do / Don't
 
@@ -589,7 +589,7 @@ Required blocks: purpose (testable clinical question) → design (prospective/re
 ### Grant Voice B method upgrade into justification
 
 **Put the method upgrade into the justification narrative — do not start a parallel essay, and do not dump it only in the innovation box.**
-Reviewing someone else's NSFC → § Grant Voice A (or stub `grant-review.md`) (Voice A). Whether the topic is new enough / journal landscape → other files in this bundle; this chapter only answers how the upgraded method nests into the proposal justification.
+Reviewing someone else's NSFC → § Grant Voice A (§ Grant Voice A) (Voice A). Whether the topic is new enough / journal landscape → other files in this bundle; this chapter only answers how the upgraded method nests into the proposal justification.
 
 Placeholders: `[Title]` `[疾病]` `[表型]` `[技术]` `[n]` `[PI]` `[假说]`. Do not write unpublished patient tables, ethics scans, phones, or full pathway text.
 
@@ -623,7 +623,7 @@ The chain belongs in the **justification body** (tech-gap paragraph under a mech
 我们拟使用无创的[升级技术]，检测[对象]的[读出]。通过比较[因素]与[表型]的相关性，并使用[对照模型]加以验证。
 ```
 
-From 2022, abstracts can nail one sentence each (NSFC fields are short — these two earn their space; full bank in § Grant Voice B (or stub `grant-writing.md`)):
+From 2022, abstracts can nail one sentence each (NSFC fields are short — these two earn their space; full bank in § Grant Voice B (§ Grant Voice B)):
 
 ```
 技术上拟创新性使用[技术]对[分子/表型]进行定量。

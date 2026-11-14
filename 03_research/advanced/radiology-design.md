@@ -27,7 +27,7 @@ lab-specific pieces: extra-file map, own-proposal skeleton, and handoffs.
 | live `design-study` → `03_research/base/design-study/references/validation-strategy.md` | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
 | house estimands → `03_research/advanced/design/endpoints-and-estimands.md` | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
 | program roadmap → `03_research/advanced/design/ai-radiogenomics-12-24-roadmap.md` | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
-| [grant-own-skeleton.md](grant-own-skeleton.md) | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
+| [intake.md](intake.md) · Grant Voice B chapter skeleton | **Voice B writing your own proposal**: justification five steps, two innovation columns, three feasibility blocks, verbs 「确定/阐明/探讨」. Do not open this file when reviewing someone else's NSFC |
 
 ## Workflow and output contract
 
@@ -40,7 +40,7 @@ Lab deltas when running that flow in this seat:
 
 ## Own-proposal chapter skeleton (Voice B only)
 
-When the user is **writing their own** NSFC / opening / municipal science / health-commission / hospital-level / clinical protocol, open `grant-own-skeleton.md`. Do not use Voice A review tics.
+When the user is **writing their own** NSFC / opening / municipal science / health-commission / hospital-level / clinical protocol, open `intake.md` § Grant Voice B chapter skeleton. Do not use Voice A review tics.
 
 Compact contract (details in that file):
 
@@ -48,7 +48,7 @@ Compact contract (details in that file):
 2. **Two innovation columns**: academic-idea innovation (one step forward) + technical-method innovation (against the tech gap named in justification). Do not write 「我们用了 MRI」.
 3. **Three feasibility blocks**: mature model (name modeling / timepoints) + platform named to instruments + people ([PI], SCI [n] papers, ongoing grants). For clinical, also write case source「每年接诊 [疾病] 超过 [n] 例」.
 4. **Three goal verbs**: 确定 (whether change exists / intervention works) / 阐明 (mechanism, spectrum, pathway) / 探讨 (diagnostic grading, translation). Do not make 探讨 the only goal.
-5. Sentence bank (CN/EN abstracts, hypothesis, inclusion/exclusion) only from `grant-writing.md`. Method upgrade into justification → `radiology-frontier`.
+5. Sentence bank (CN/EN abstracts, hypothesis, inclusion/exclusion) only from `intake.md` § Grant Voice B. Method upgrade into justification → `radiology-frontier`.
 
 ## Handoffs
 
@@ -60,7 +60,7 @@ Compact contract (details in that file):
 - Which checklist the design must satisfy → `05_manuscript` (live `05_manuscript/qc/check-reporting/`).
 - Ethics/consent/data-sharing feasibility → `03_research/advanced/ethics.md`.
 - Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/README.md`.
-- Turning this design into **own** funding proposal (Voice B) → `grant-own-skeleton.md` + `grant-writing.md` (sentence bank). Method upgrades into 立项 → `radiology-frontier` `method-upgrade-into-grant.md`.
-- Reviewing **other people's** NSFC/general (Voice A) → `../advanced/grant-review.md`. Never mix those tics into own text.
+- Turning this design into **own** funding proposal (Voice B) → `intake.md` § Grant Voice B chapter skeleton + § Grant Voice B (sentence bank). Method upgrades into 立项 → `radiology-frontier`; `intake.md` § Grant Voice B method upgrade.
+- Reviewing **other people's** NSFC/general (Voice A) → `intake.md` § Grant Voice A. Never mix those tics into own text.
 - English journal peer review → `06_review`. Not this module.
 - This skill plans research; it does not provide clinical or diagnostic recommendations.
