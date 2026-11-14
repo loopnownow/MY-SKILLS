@@ -1,6 +1,6 @@
 # Bank submission package (harvest 2026-11-08)
 
-> Promoted from `{doc_root}\skill-harvest\by-fine-id\write-paper.md` pending entries
+> Promoted from `{doc_root}\harvest\by-fine-id\write-paper.md` pending entries
 > (owner「进skills」2026-11-08；来源 3 试点 + B1–B7 结项项目)。Content tier: bank addendum only.
 
 ## elements

@@ -17,6 +17,15 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114b-harvest-rename (2026-11-14)
+
+- **Disk (owner `m00435` authorization):** `_Docs\skill-harvest` -> `_Docs\harvest` (288 files / 5,854,775 B); `harvest\sources` -> `_Docs\harvest-sources-park` (110 files / 4,571,342 B; whole-tree move, never deleted); rounds `20261113i-del-harvest` and `20261113j-del-followups` -> `{DEL}\harvested\rounds\` (51 + 11 files). Moves recorded in a 460-row per-file sha256 manifest plus 10-column `{DEL}\harvested\MOVED.tsv` rows.
+- **Aliases:** `doc_skill_harvest` now points at `_Docs\harvest`; new `doc_harvest_sources` = park root; `doc_lab_ste` / `doc_grants` / `doc_fill_protocol` repointed into the park; historic alias rows keep their dated text.
+- **Pointers:** live references in this repo (harvest pack, text-harvest pointer, `docs-db.md` map, digests, `MODULE.md` evidence path) use the new names; historical `harvest-skill-library` / `skill-harvest/qc` sentences and the `tests` guards keep the old names on purpose.
+- **Rounds:** `rounds\LEDGER.tsv` holds one row per exited round; a promoted or H2 round now leaves the live floor in the same batch.
+- **Unchanged:** no skill-body change beyond path pointers; `fine_id_count_canonical: 22`; `methods-subtitle-variants` still resolves through the `{doc_skill_harvest}` alias.
+- **Tests:** `python -B -m unittest discover -s tests -v`.
+
 ## CHG-20261114-t20261114a-harvest-pack (2026-11-14)
 
 - **Rule:** the harvest task-flow body moves out of `00_orchestrator/references/skill-evolution.md` into the non-routable pack `00_orchestrator/harvest/SKILL.md` (`routable: false`, `status: internal-harvest-body`); 00 keeps scheduling, gates and the round review and points here. Collection-standard SSOT stays `{doc_skill_harvest}\HARVEST-STANDARD.md` on disk; `extract != promote`; `harvest != closeout`.

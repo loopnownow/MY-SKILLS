@@ -124,7 +124,7 @@ When a `harvest` round targets `archived\<family>\<slug>\`:
 
 Procedure: unzip `word/document.xml` → count `w:ins`/`w:del`/`w:commentRangeStart` → derive ratios
 (revisions per 1,000 words, paragraph-level vs word-level share) → record the **pattern**, never the prose.
-Output to `skill-harvest/rounds/<round>/evidence/` as counts plus `sha256`; the fine-id draft keeps the
+Output to `harvest/rounds/<round>/evidence/` as counts plus `sha256`; the fine-id draft keeps the
 three buckets only.
 
 Cautions: revision authors may include the reviewer or a co-author — record roles as `A` / `other`,

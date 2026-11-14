@@ -104,7 +104,7 @@ route and the close. Nothing is absorbed before that review.
 ## 8 Round shape, and leaving the floor
 
 ```text
-_Docs\skill-harvest\rounds\<YYYYMMDD><letter>-<slug>\
+_Docs\harvest\rounds\<YYYYMMDD><letter>-<slug>\
   HARVEST-*.md      three-bucket body
   INDEX.md          source, coverage, routing, authorization
   MANIFEST.tsv      per-item sha256 and decision
