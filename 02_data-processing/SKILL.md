@@ -54,7 +54,6 @@ The advanced layer carries the owner's confirmed working method and house habits
 | Console UI / results HTML / figure switches | `advanced/analysis/console-ui.md` |
 | Radiology-grade stats index | `advanced/analysis/module-notes.md` + `advanced/analysis/methods.md` |
 | Lab figure palettes / claim planning | `advanced/analysis/figures.md` |
-| Lab analysis rules (advanced, pre-computed) | `advanced/analysis/report-checks.md` |
 | Stats checklist / reported consistency (00 gate standards) | `qc/report-checks.md` |
 | Pre-submit check ids (writing actions; 05 owns prose) | `05_manuscript/qc/manuscript-local-qc.md` |
 | Visualization IR + rebuild scripts | `advanced/visualization/` |

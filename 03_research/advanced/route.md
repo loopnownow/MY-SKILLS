@@ -68,7 +68,7 @@ Only after the owner accepts `ref/design-lock.md` may route continue to statisti
 | `radiology-design.md` / `radiology-frontier.md` | Imaging design / novelty |
 | `ethics.md` / `intake.md` / `multicenter.md` | Protocol ethics / triage / multicentre |
 | `intake.md` (Grant Voice A/B sections) | Grants body (absorbed 2026-10-30 from grant-* packs) |
-| `grant-writing.md` / `grant-review.md` / `grant-own-skeleton.md` / `method-upgrade-into-grant.md` | Pointer stubs to `intake.md` Grant Voice sections (design/frontier links unchanged) |
+| `intake.md` § Grant Voice A / B | Grant voice bodies: review others, write your own, chapter skeleton, method upgrade |
 | `handoff.md` | Layering + advanced-file authority; read before moving advanced files |
 | `clinical-translation/` | Reader study / deployment design |
 | `03_research/base/fill-protocol/` | Ethics forms (Bai seat; no A stub) |

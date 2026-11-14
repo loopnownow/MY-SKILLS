@@ -19,6 +19,7 @@ Harvest must not invent a second evolution log file.
 
 - **t20261114k (2026-11-14, Lab-STE 并入技能仓):** 按主人指令「Lab-STE 并进 skill」，把 16 件全本放到 `05_manuscript/advanced/lab-ste/`（路径 4–5 段，满足核心路径 ≤5 段；避开 `references/` 下第 4 层的 6 段违规）。SPEC/CHANGELOG 里 5 处指向已退役 personal 档案的引用（de-ai / stop-slop-core / ai-writing-detector / forbidden-phrases / 06 批注样式）改为「旧档案（已退役）」文字，不再留裸 md 名。`{doc_lab_ste}` 改指 `{SKILLS}\05_manuscript\advanced\lab-ste`；`_library\lab-ste` 只留 MOVED 指针；park 只留 methods 6 件 + 根散件 10 件。registry `change_id` 未变。
 
+- **t20261114m (2026-11-14, stub 清理):** 按主人「rule，skill同样都QC掉stub」，技能树清掉 5 个指针壳：`02_data-processing/advanced/analysis/report-checks`、`03_research/base/find-journal/data/2026/SUBMISSION_PRIVACY`、`03_research/advanced/grant-own-skeleton` / `grant-review` / `grant-writing` / `method-upgrade-into-grant`（后四个正文已在 `intake.md`，`radiology-design` / `radiology-frontier` / `route` / `intake` 的引用改指 `intake.md` § Grant Voice A / B）；新增 `tests/test_stub_policy.py`（pointer-only 且无活消费者即失败，`ENTRY_NAMES` 豁免、`ALLOW` 须给理由）；`tests/README.md` 登记。无 fine-id 变更，registry `change_id` 未变。
 - **t2033u (2026-11-13):** owner mailbox routed to Bai; SCI verification starts from those mails and hands findings to Victor. Ledger backfill only — the commit landed without a ledger row. No skill body change; registry `change_id` unchanged.
 
 - **t1943u (2026-11-10):** heading source comments. When this round creates or changes citations, put one Word comment (`[cite-src]`, author A) on each affected IMRAD major heading. Procedure: `05_manuscript/advanced/process/heading-source-comment.md`. No new CHG heading; registry `change_id` unchanged.
@@ -454,7 +455,7 @@ Three-repo deep QC: delete dead files, purge stale names/pointers, pin the RULES
 - **Rules:** MY-RULES `skills.md` §6 — at QC, delete archived shells/refs; do not keep `archived` / page-not-on-disk labels in live prose. Retired ids remain only in `legacy_aliases.yaml`.
 - **P1 fix:** `question-to-reference.md` R1 calls `design-study` + `03_research/personal/intake.md` (was live `frontier-hypothesize`).
 - **Cleanup:** `research-exploration-loop.md` drops archived parenthetical; third-party absorb lands in `design-study`.
-- **Deleted archived pointers:** `radiology-frontier.md` / `method-upgrade-into-grant.md` — removed `find-cohort-gap` / `frontier-hypothesize` archived→missing-page rows; workflow uses live `design-study` / `lit-search` / in-file criteria.
+- **Deleted archived pointers:** `radiology-frontier` / `method-upgrade-into-grant` — removed `find-cohort-gap` / `frontier-hypothesize` archived→missing-page rows; workflow uses live `design-study` / `lit-search` / in-file criteria.
 - **Copy:** `design-study/MODULE.md` + `03_research/base/README.md` no longer list archived packs as covers; redirects → `legacy_aliases.yaml`.
 - Suite: run pytest after edit.
 
