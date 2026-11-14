@@ -8,7 +8,7 @@ owner: "06_review/base/simulate-reviewers/MODULE.md"
 
 # Nature Reviewer Assessment Skill
 
-Thin contract for multi-reviewer blind simulation: stance, isolation rules, bans, and pointers. The review envelope and comment habits are `06_review/advanced/review.md`; the scores are `06_review/qc/`. Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
+Thin contract for multi-reviewer blind simulation: stance, isolation rules, bans, and pointers. The generic review envelope is `06_review/base/peer-review/references/review-envelope.md`; opener voice and comment habits are `06_review/advanced/review.md`; the scores are `06_review/qc/`. Sibling of `peer-review`; isolation principles also in `06_review/base/peer-review/references/external-principles.md`.
 
 Absorbed from Nature `skills/nature-reviewer/` on 2026-10-17 (Apache-2.0). Source: [https://github.com/Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)
 

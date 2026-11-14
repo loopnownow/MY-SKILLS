@@ -11,7 +11,7 @@ trigger is documentation only; not independently discoverable.
 # Reviewer response (point-by-point)
 
 Draft a submittable point-by-point letter. Self-audit is `self-review`. Other-paper
-review is `peer-review`. Contract only: the letter voice, opener templates, and resolution protocol are `07_response/advanced/response.md`; scores are `07_response/qc/`.
+review is `peer-review`. Contract only: the letter voice and opener templates are `07_response/advanced/response.md`; the resolution protocol is `references/resolution-protocol.md`; scores are `07_response/qc/`.
 
 ## When to open
 

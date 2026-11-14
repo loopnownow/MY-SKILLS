@@ -17,6 +17,14 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114e-three-layer-acceptance (2026-11-14)
+
+- **Owner:** t20261114e. No fine-id change (22 stays), no gate-id change, no disk path change.
+- **06 split:** the generic English letter envelope (§2) and the per-chapter templates (§4.1-§4.8) move out of `06_review/advanced/review.md` into `06_review/base/peer-review/references/review-envelope.md`; section numbers are preserved so `§2` / `§4.7` anchors still resolve. The advanced file keeps §0-§0.2 house hard rules, §3 opener/AI-disclosure voice, §4.9 pre-submit asks, §5-§6 tone/forbidden lists and Part B comment habits, with moved-pointer stubs.
+- **07 split:** `Review Resolution protocol (thin)` (bot map, issue card, roles, resolution checklist, three exits, out of scope) moves from `07_response/advanced/response.md` to `07_response/base/revise/references/resolution-protocol.md`; letter voice and phrase banks stay advanced.
+- **Acceptance:** the §5 comparison matrix (arms A/B/C, fixtures, 7 metrics, pre-registered verdicts) now lives in `00_orchestrator/references/three-layer-acceptance-matrix.md`, linked from the contract pointers.
+- **Tests:** `271 passed, 1 skipped`; two test assertions now read the base envelope for the chapter headings and the `同一 DOI` rule.
+
 ## CHG-20261114-t20261114d-three-layer-contract (2026-11-14)
 
 - **Owner:** t20261114d; three-layer contract rewrite in place. No fine-id change (22 stays), no gate-id change, no disk path change.

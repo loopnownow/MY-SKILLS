@@ -80,7 +80,7 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 | cutoff_vs_included_distribution | Major when an included group's median, Q1, or minimum falls on the excluded side of the entry cutoff. |
 | iqr_scale_sanity | Major when IQR exceeds the instrument range or contradicts the cutoff. |
 | consecutive_same_cite | Minor. Cite once unless the next sentence adds a distinct claim. |
-| claim_matches_source | Major when the sentence asserts something the cited work does not claim. Dual plan per `06_review/advanced/review.md` §4.7. |
+| claim_matches_source | Major when the sentence asserts something the cited work does not claim. Dual plan per `06_review/base/peer-review/references/review-envelope.md` §4.7. |
 | no_unverified_cross_copy | Major. An author list or DOI copied from a sister manuscript is unverified. |
 | year_volume_from_source | Major if a year or volume was changed without a source check. Ask to verify. Do not supply the "correct" year from memory. |
 

@@ -32,7 +32,8 @@ Base packs draft; **07 advanced owns the house method**: letter voice, opener te
 
 | Task | Path |
 |---|---|
-| Response letter voice + resolution protocol | `advanced/response.md` |
+| Response letter voice + opener templates | `advanced/response.md` |
+| Resolution protocol (issue card, roles, exits) | `base/revise/references/resolution-protocol.md` |
 | Route | `advanced/route.md` |
 | Handoff | `advanced/handoff.md` |
 
