@@ -21,7 +21,7 @@ rebuilding a structured abstract into an unstructured one is easy but not the re
 | Main-text word limit | Verify current limit | Typically tighter than _Radiology_ and **excludes** Methods (see below) — verify live per venue |
 | Methods placement | Inline, ordered section (see methods.md) | Frequently placed **after References**, online-only, not counted in the main word limit — still needs the same content (design, cohort, technique, model/statistics) and the same reporting-guideline coverage; check the specific venue's current instructions for placement |
 | Display items in main text | Figures/tables within journal limits | A **small number of main display items** (figures/tables); everything else goes to **Extended Data** (peer-reviewed, published) or **Supplementary Information** (not typeset) — verify the current cap live; hand off figure-count planning to `plot-figures`/`nature-figure-spec.md` and `05_manuscript/advanced/` |
-| Reference style | Author-year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — see `../radiology-citation/export-formats.md` |
+| Reference style | Author-year or numbered per _Radiology_ house style | Numbered, in order of first citation (Vancouver-style superscripts) — see `../../base/write-paper/radiology-citation/export-formats.md` |
 | Statistics disclosure | Reported in Methods/Results prose | Prose **plus** a separate **Reporting Summary** for life-sciences submissions (→ `05_manuscript/qc/check-reporting/`) |
 
 ## Abstract (unstructured, one paragraph)
@@ -86,15 +86,15 @@ to stand alone from the main text.
    limit live if not already confirmed for this venue).
 3. **`Claim-evidence map`** — unchanged from the main workflow.
 4. **`Display-item plan`** — which results go to main figures/tables vs Extended Data/Supplementary
-   Information (→ `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`, `05_manuscript/advanced/`).
+   Information (→ `../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`, `05_manuscript/advanced/`).
 5. **`Reporting check`** — checklist items **plus** whether a Reporting Summary is required for this
    venue (→ `05_manuscript/qc/check-reporting/`).
 
 ## Handoffs
 - Figure sizing, panel-letter case, Extended Data figure limits → `plot-figures` /
-  `../../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`.
+  `../../../02_data-processing/base/plot-figures/references/nature-figure-spec.md`.
 - Source Data, Extended Data vs Supplementary Information, data/code as a condition of publication
   → `05_manuscript/advanced/`.
 - Reporting Summary / Editorial Policy Checklist → `05_manuscript/qc/check-reporting/`.
-- Numbered reference style, export format → `../radiology-citation/export-formats.md`.
+- Numbered reference style, export format → `../../base/write-paper/radiology-citation/export-formats.md`.
 - 选刊 / venue fit → `03_research` (`03_research/advanced/journal-selection.md` + `base/find-journal/`) / `lit-search`. Word/figure limits (house style) → this pack.

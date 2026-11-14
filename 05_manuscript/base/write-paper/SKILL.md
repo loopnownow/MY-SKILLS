@@ -11,7 +11,7 @@ owner: "05_manuscript/base/write-paper/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
-Venue shape is in this pack (MODULE mode `venue-shape`): `radiology-writing/journal-family-writing-style.md`, `radiology-writing/nature-family-shape.md`, `radiology-polishing/`, `references/journal-patterns-2023-2026.md`. Not a handoff. Not 选刊.
+Venue shape is in this pack (MODULE mode `venue-shape`): `05_manuscript/advanced/venue/journal-family-writing-style.md`, `05_manuscript/advanced/venue/nature-family-shape.md`, `radiology-polishing/`, `references/journal-patterns-2023-2026.md`. Not a handoff. Not 选刊.
 
 | Introduction | [radiology-writing/introduction.md](radiology-writing/introduction.md) |
 

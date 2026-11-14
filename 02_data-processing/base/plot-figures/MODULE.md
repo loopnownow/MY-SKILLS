@@ -102,7 +102,7 @@ Patient-flow / STROBE / study-workflow / methods-pipeline cartoons → `../draw-
 
 - Statistic behind the plot → `stats-analysis` / `model-evaluation`
 - Checklist item (STROBE flow) → `draw-flowchart` and `05_manuscript/qc/check-reporting/`
-- Captions / display-item plan → `write-paper` (`05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`)
+- Captions / display-item plan → `write-paper` (`05_manuscript/advanced/venue/nature-family-shape.md`)
 - Harsh read before submission → `self-review`
 
 Principles extracted from cross-package research (not a fine id; rule reference only): [external-principles.md](references/external-principles.md)
