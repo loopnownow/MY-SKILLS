@@ -12,8 +12,8 @@
 # Bot names per coarse id and per LIVE fine id: 00_orchestrator/references/bot-route.md (ids stay SSOT here).
 
 meta:
-  version: '5.5'
-  change_id: CHG-20261114-t20261114f-acceptance-metrics-and-design-thinning
+  version: '5.6'
+  change_id: CHG-20261114-t20261114g-acceptance-baseline-arm-c
   fine_id_count_canonical: 22
   coarse_id_count: 5
 
