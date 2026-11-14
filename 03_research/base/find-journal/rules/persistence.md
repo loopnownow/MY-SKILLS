@@ -10,7 +10,7 @@
 | Query-source list (capability, not values) | `query-sources.md` |
 | Blacklist names | `blacklist.csv` / `blacklist-names.csv` |
 | BMC/Medicine/MDPI priority whitelist | `whitelist-bmc-medicine.csv` |
-| 投过/选刊 whitelist | `{find_journal_submission}\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`) |
+| 投过/选刊/审稿 whitelist | `{find_journal_submission}\whitelist-submitted.csv` (seed / sync from `data/2026/submission-urls.csv`, and from review-invite / reviewed titles that have a JCR quartile; t2016u) |
 | Graylist (not recommended) | `graylist.csv` / `graylist-names.csv` |
 | Yearly screening cache (layer membership + metrics) | _Docs `{find_journal_pools}` = `_library\journals\index.csv` (+ `index.xlsx`, `l1-l2-map.csv`) — rebuilt annually; archive under `journals\archive\<year>\` |
 | Absorbed methodology (rewrite, not copy) | Fit / Risk / Evidence / Submission Tier logic in modules 04 path (`modules.md`, `jesi-model.md`) |
