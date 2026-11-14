@@ -1,0 +1,196 @@
+# =====================================================================
+# Lab-STE 配置文件（阈值、开关、档案全部在这里；规范正文不写数字）
+# 对应规范版本：0.2.1
+# 约定：只改本文件与 TSV，不改规则 ID。数字键名与 Lab-STE-SPEC.md 一致。
+# =====================================================================
+schema: lab-ste-config
+version: "0.2.1"
+
+# ---------------------------------------------------------------------
+# 1. 文件路径（相对本文件所在目录）
+# ---------------------------------------------------------------------
+paths:
+  approved_en: approved-en.tsv                 # 英文批准词典：lemma / pos / sense / note
+  approved_en_lemmas: approved-en.lemmas.txt   # 词元清单（由 approved-en.tsv 派生）
+  term_lock_default: term-lock-default.tsv     # 领域通用词默认锁定模板（所有课题共用）
+  term_lock: null                              # 课题术语锁定表：concept_id, canonical, aliases, lang, note
+  de_ai_en: lexicons/de-ai-en.tsv
+  de_ai_zh: lexicons/de-ai-zh.tsv
+  nominalization_en: lexicons/nominalization-en.tsv
+  nominalization_zh: lexicons/nominalization-zh.tsv
+  hedge_zh: lexicons/hedge-zh.tsv
+  idiom_zh: lexicons/idiom-zh.tsv
+
+# ---------------------------------------------------------------------
+# 2. 词典覆盖率（EN-L01）怎么算
+# ---------------------------------------------------------------------
+dictionary:
+  # 词形还原后再查词典；以下 token 不计入覆盖率分母
+  ignore_tokens:
+    - numeral
+    - numeral_with_unit
+    - proper_noun
+    - citation_span
+  count_term_lock_as_covered: true       # 课题锁定表命中视为已登录
+  count_term_lock_default_as_covered: true   # 默认锁定模板命中视为已登录
+  # 新词准入：通用操作词/评审词进词典；领域名词进锁定表。变更记入 CHANGELOG。
+  admission: "general_operation_or_review_word_only"
+
+# ---------------------------------------------------------------------
+# 3. 默认豁免（所有规则）
+# ---------------------------------------------------------------------
+exemptions:
+  skip_blocks:
+    - code_fence
+    - inline_code
+    - quotation          # 引号内文本（含批注里要粘贴的补写文本）
+    - citation_span
+    - equation
+    - table_cell_numeric
+    - registered_term
+    - numeral_with_unit
+  skip_if_quoted: true
+
+# ---------------------------------------------------------------------
+# 4. 严重度档位名
+# ---------------------------------------------------------------------
+severity:
+  must: must_fix
+  should: should_fix
+  hint: hint
+
+# ---------------------------------------------------------------------
+# 5. 数值阈值（只放数字；初值待 §11 抽检后校准）
+# ---------------------------------------------------------------------
+thresholds:
+  en:
+    sentence_words_step_max: 20
+    sentence_words_desc_max: 28
+    noun_stack_max: 3
+    subordinate_clauses_max: 1
+    which_nonrestrictive_max: 0
+    dummy_it_this_these_subject_max: 0
+    # Methods 被动句比例上限：按档案的 methods_voice 取键，见 profiles
+    passive_ratio_methods_max_ste_active: 0.40
+    passive_ratio_methods_max_conventional_passive: 0.85
+    passive_ratio_other_max: 0.35
+    phrasal_verb_per_1000w: 2
+    polysemy_unlisted_max: 0
+    # EN-T01：同一小节同时出现过去时限定动词与现在时限定动词 → should_fix
+    tense_mix_same_subsection: true
+    figure_present_tense_ok: true          # Figure N shows 允许现在时
+  zh:
+    sentence_chars_max: 60
+    sentence_chars_comment_max: 80       # 批注档案的句长上限（修改建议行较长）
+    comma_clauses_max: 3
+    dropped_subject_run_max: 3
+    de_nest_max: 2
+    bei_allowed_if_agent_unknown: true
+    idiom_per_1000c: 3
+    hedge_unquantified_max: 0
+  de_ai:
+    default_hits_per_1000: 1
+    triad_list_per_paragraph_max: 1
+    not_x_but_y_per_1000: 1
+    para_openers_same_pattern_run_max: 3
+    para_length_cv_min: 0.18
+    para_end_summary_ratio_max: 0.50
+    emdash_per_1000w: 0
+    bold_spans_per_section_max: 1
+    extra_heading_density_max: 0.08
+    bullet_block_ratio_max: 0.25
+
+# 破折号在这些档案里按 must_fix 处理（与实验室硬禁词同向）；其余档案 should_fix
+emdash_must_fix_profiles:
+  - manuscript-methods-en
+  - manuscript-id-en
+
+# ---------------------------------------------------------------------
+# 6. 批注体例 CM-01（场景 review-comment-zh）
+# ---------------------------------------------------------------------
+comment_schema:
+  # 五槽顺序固定，不可换
+  slots: [location, problem, basis, fix, severity]
+  # 切槽前剥掉文首来源标签（可重复），再按句号切五槽
+  source_tag_strip: '^(\[[^\]]+\])+\s*'
+  # 槽 1：位置的合法写法（正则，按顺序尝试）
+  location_patterns:
+    - '^(Abstract|Introduction|Methods|Results|Discussion|Conclusion)\s*第\s*\d+\s*段(第\s*\d+\s*句)?'
+    - '^(第\s*\d+\s*行|行\s*\d+(\s*[-–]\s*\d+)?)'
+    - '^(图|表|Figure|Table)\s*\d+'
+  # 槽 1 过粗：命中本表且未命中 location_patterns → should_fix；两表都不中 → must_fix
+  location_coarse_patterns:
+    - '^(方法|结果|讨论|引言|结论)部分'
+    - '^(Methods|Results|Discussion|Introduction|Conclusion)$'
+  # 槽 3：依据必须以这些词开头
+  basis_prefix: ["依据"]
+  # 槽 3 在规则 ID 之外须命中其一（数据源）
+  basis_source_patterns:
+    - 结果页
+    - 术语表
+    - 课题锁定
+    - HTML
+    - 'settings\.ini'
+    - '规则\s*[A-Z]+-[A-Z]*\d+'
+    - '[A-Z]+-[A-Z]*\d+'
+  # 槽 4：修改建议第一个词必须是动作动词
+  action_verbs: ["补写", "删除", "改为", "替换", "拆分", "合并", "核对", "补充数值", "写明", "统一", "移至", "重算", "增加", "标注", "改用"]
+  # 槽 4 中出现即判不可执行
+  vague_phrases: ["酌情", "适当", "进一步完善", "提升规范性", "注意语言润色", "有待改进", "建议完善"]
+  # 槽 2 一条多问：问题槽句号数 > 该值，或命中并列连接式
+  multi_problem:
+    max_sentences: 1
+    conjunction_re: '(同时|以及|并且).{0,12}(未|缺|错|建议)'
+  word_author_field: "A"            # 实验室硬规则，本规范不改
+
+# ---------------------------------------------------------------------
+# 7. 场景档案
+# ---------------------------------------------------------------------
+profiles:
+  manuscript-methods-en:
+    language: en
+    ste: high
+    de_ai: low
+    enable_rules: [EN-S01, EN-V01, EN-L01, EN-VB01, EN-R01, EN-N01, EN-T01, EN-C01]
+    methods_voice: ste_active          # 可选：ste_active | conventional_passive（对齐 05 现行体例）
+    # methods_voice -> 被动比例阈值键名（改体例只改 methods_voice，不改数字）
+    passive_ratio_key_by_voice:
+      ste_active: passive_ratio_methods_max_ste_active
+      conventional_passive: passive_ratio_methods_max_conventional_passive
+    notes: "步骤句用 sentence_words_step_max。"
+
+  review-comment-zh:
+    language: zh
+    ste: high
+    de_ai: mid
+    enable_rules: [ZH-S01, ZH-SUB01, ZH-R01, ZH-NOM01, ZH-DE01, ZH-BEI01, ZH-Q01, ZH-ID01, ZH-TERM01, ZH-PUN01, CM-01]
+    sentence_chars_key: sentence_chars_comment_max   # 覆盖 ZH-S01 默认键
+    comment_schema: location-problem-basis-fix-severity
+    notes: "一条批注一个问题。修改建议行以动作动词开头。"
+
+  llm-reply-zh:
+    language: zh
+    ste: mid
+    de_ai: high
+    enable_rules: [ZH-S01, ZH-NOM01, ZH-Q01, ZH-ID01, ZH-PUN01, AI-L01, AI-S01, AI-D01, AI-F01]
+    notes: "先管格式层和套话。"
+
+  manuscript-id-en:
+    language: en
+    ste: low
+    de_ai: high
+    enable_rules: [EN-S01, EN-R01, EN-C01, AI-L01, AI-S01, AI-D01, AI-F01]
+    skip_rules:
+      - EN-L01          # 不强制批准词典覆盖
+    notes: "只用可读性子集，不锁批准词表。"
+
+# ---------------------------------------------------------------------
+# 8. 冲突裁决顺序（自上而下，靠前者优先）
+# ---------------------------------------------------------------------
+conflict_order:
+  - term_lock_and_numerics_and_citations
+  - factual_accuracy
+  - ste_readability
+  - de_ai
+
+term_repeat_exemption: registered_terms_only

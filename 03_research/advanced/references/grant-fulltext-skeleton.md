@@ -214,4 +214,4 @@ Fixed spine from forms (ZH titles kept):
 - 五、完成指标
 
 ## NOT absorbed
-Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `{doc_harvest_sources}\library-ftp-20261023\fulltext\` and the {raw_root}\_lab park（`_bank` 已于 2026-11-01 退役，勿再引用）。
+Full grant narratives, references lists, budgets with person-specific figures, hospital capability paragraphs — stay in `{doc_grants}\`（Word 原件）；2026-10-23 的文本抽取件已退役（`{DEL}\_by-function\harvest-park-retired-20261114\`），`{raw_root}\_lab` park 的 `_bank` 已于 2026-11-01 退役，勿再引用。

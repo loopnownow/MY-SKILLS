@@ -58,4 +58,4 @@
 | `03-yangting-kaitibaogaotigang` | 开题报告提纲 | 杨婷 |
 
 ## NOT absorbed
-Quoted paragraph bodies inside cards (disease narratives, methods prose, person/hospital capability). Open `{doc_harvest_sources}\library-ftp-20261023\` park copy when needed（`_bank` retired 2026-11-01）。
+Quoted paragraph bodies inside cards (disease narratives, methods prose, person/hospital capability). Open the Word originals under `{doc_grants}` when needed（`_bank` retired 2026-11-01）。

@@ -9,7 +9,7 @@
 
 | Role | Path |
 |---|---|
-| Durable full tree | `{doc_harvest_sources}\library-methods-20261023\lab-ste\` |
+| Durable full tree | `{doc_lab_ste}\`（16 件全本，2026-11-14 由 park 归位） |
 | HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`~~ |
 | Tools / HTML (run from park or restore) | `…\lab-ste\tools\`, `spec.html` — **not in MY-SKILLS** |
 

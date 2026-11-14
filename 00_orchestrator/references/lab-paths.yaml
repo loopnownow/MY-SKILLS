@@ -11,12 +11,12 @@ aliases:
   code_root: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
   doc_root: "D:\\MyProjects\\_Docs"
   doc_skill_harvest: "D:\\MyProjects\\_Docs\\harvest"  # harvest SSOT; renamed from _Docs\\skill-harvest 2026-11-14 (owner disk authorization); task-flow body = {SKILLS}\\00_orchestrator\\harvest\\SKILL.md
-  doc_harvest_sources: "D:\\MyProjects\\_Docs\\harvest-sources-park"  # durable park (former _Docs\\skill-harvest\\sources; whole-tree migration 2026-11-14; never delete)
+  doc_harvest_sources: "D:\\MyProjects\\_Docs\\harvest-sources-park"  # durable park (former _Docs\\skill-harvest\\sources); 2026-11-14 slimmed — doc-salvage/library-ftp/0doc-base-absorbed/library-figures moved to {DEL}\\_by-function\\harvest-park-retired-20261114; lab-ste moved back to _library\\lab-ste; methods + root index kept
   skills_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   rules_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-RULES"
   # _Docs — 2026-10-23: human-readable layer folded into <coarse-id>/advanced|base; live content under advanced\.
-  doc_lab_ste: "D:\\MyProjects\\_Docs\\harvest-sources-park\\library-methods-20261023\\lab-ste"  # full SPEC/config park; method live in 05_manuscript/base/vocab/L3 ( _library\\lab-ste retired 2026-10-23 )
+  doc_lab_ste: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS\\05_manuscript\\advanced\\lab-ste"  # full SPEC/config/lexicons/tools home (absorbed into skills 2026-11-14; method page 05_manuscript/base/vocab/L3)
   # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
   jcr2026_xlsx: "D:\\MyProjects\\_Docs\\mem\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\MyProjects\\_Docs\\_library\\journals"  # 2026-10-31: jcr\2026\submission flattened into journals\ (whitelist-submitted.csv / submission-prior.jsonl sit there)
@@ -36,7 +36,7 @@ aliases:
   # was 07-response/advanced（人席迁出；Word 回复原件在 {doc_word_archive}\07-response）；
   # flattened SSOT = {doc_glossary}\banks\flattened.jsonl；段落层 = {doc_glossary}\banks\paras.jsonl。
   # doc_glossary_banks: RETIRED 2026-11-01 t1584u — use {doc_glossary}\banks or env GLOSSARY_ROOT\banks
-  doc_grants: "D:\\MyProjects\\_Docs\\harvest-sources-park\\library-ftp-20261023\\grants"  # library grant bodies; Word originals also under {doc_word_archive}\\03-research\\grants ( _library\\grants retired 2026-10-23 )
+  doc_grants: "D:\\MyProjects\\_DataBase\\_lab\\doc-word\\03-research\\grants"  # Word originals (park library-ftp retired 2026-11-14); index digest in 03_research/advanced/references/grant-index-digest.md
   # Thesis Word originals live under D:\\MyProjects\\_DataBase\\_lab\\doc-word (archive); no dedicated alias.
   doc_word_archive: "D:\\MyProjects\\_DataBase\\_lab\\doc-word"
   doc_ethics: "D:\\MyProjects\\_Docs\\_library\\ethics"
