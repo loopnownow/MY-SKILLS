@@ -1,6 +1,6 @@
 # 02_data-processing/base
 
-Thin contracts for 02 (data processing + analysis). No domain-level SKILL.md. The recipe and the revision authority live in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files); each pack keeps its prose data (`references/`, `scripts/`) beside it.
+Thin contracts for 02 (data processing + analysis). No domain-level SKILL.md. The personal revision authority and house habits live in `02_data-processing/advanced/` (per-pack digest or the analysis pipeline files); each pack keeps its prose data (`references/`, `scripts/`) beside it. Generic protocol belongs in base references or MY-CODES docs.
 
 **Prose SSOT.** Heavy / reusable analysis for this seat lives in `stats-analysis` (`{code_stats}`): `modules/` is the library, `model-validation/` is the CLI half. In-pack `scripts/` may hold **thin helpers** that are meaningful only beside the skill (flowchart drawer, assumption check). Do not vendor patient-table or modeling engines here.
 
