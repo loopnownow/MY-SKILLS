@@ -22,7 +22,7 @@
 4. Every row needs `result_conclusion` as `结果：…；结论：…；限制：…` (限制 optional; fullwidth `；`). Ban: paste abstract; infer from title; correlation→causation.
 5. Store **NLM** in `citation_nlm` (+ trailing `doi:`); convert to **Vancouver** at cite time — no second stored string.
 6. `base` rows require `verified_at` (ISO date of last metadata verify).
-7. Layers/windows: group SCI → `advanced` (keep all); external DOI-verified → `base` (research year ≥ now−5; guidelines/standards = current edition + `kind`/`edition`); QC moves research >10y to `_archived`.
+7. Layers/windows: group SCI → `advanced` (keep all); external DOI-verified → `base` (research year ≥ now−5; guidelines/standards = current edition + `kind`/`edition`); QC drops research rows older than `now−5` from the active ledger, and retired material goes to `{DEL}` per Rules §5 — no `_archived` folder.
 
 ## Rebuild order (one full round)
 
