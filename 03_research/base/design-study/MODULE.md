@@ -13,130 +13,53 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
-Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`references/`) stays beside it as data.
 
 Former pack names that resolved into this seat are retired aliases only — see `00_orchestrator/legacy_aliases.yaml`; do not reopen those trees.
 
-Use this skill at the **front of the research chain**: someone has imaging data (and maybe
-clinical/pathology/molecular labels) but no settled study. It (1) triages **feasibility** —
-can this data support a credible study at all? — and (2) converts a feasible idea into a
-**complete, submittable design**: clinical question, population, endpoint, methods (minimum
-viable → stronger), and the **validation strategy** that decides whether the work is
-generalisable or single-center-anecdote.
+Use this skill at the **front of the research chain**: someone has imaging data (and maybe clinical/pathology/molecular labels) but no settled study. It triages **feasibility** and converts a feasible idea into a **complete, submittable design**.
 
-## Core stance
+## Mission
 
-- **Clinical question first, model second.** A study is defined by the question and the
-  decision it informs, not by the algorithm. "Build a model" is not a study.
-- **Match data to task, honestly.** The same images support very different ceilings. Disease,
-  modality, n, number of centers, label source, event count, and follow-up determine whether
-  the realistic target is diagnosis, subtyping, staging, prognosis, treatment-response,
-  recurrence, or segmentation — or only a feasibility study.
-- **Validation is the spine.** Internal cross-validation alone is weak. State the validation
-  type explicitly and design it **before** modelling; external/temporal/geographic validation
-  is what separates _Radiology_-tier work from a desk reject.
-- **Surface the binding constraint.** Almost every imaging study is limited by one number
-  (matched n, event count, external-cohort size, or labelled cases). Name it up front; the
-  design must respect it.
-- **Pre-specify.** Primary endpoint, primary analysis, and the split scheme are decided before
-  looking at results. Retro-fitting the question to the result is the cardinal sin.
-- **Integrity.** Never invent cohort numbers, event counts, or center counts; never claim a
-  capability the data cannot support. If the honest answer is "not yet — do X first," say so.
+(1) Decide whether the data can support a credible study at all; (2) turn a feasible idea into a design with clinical question, population, endpoint, methods and a validation strategy. Clinical question and validation are the spine; the algorithm is not the study.
 
-## When to use
+## Scope / Out of scope
 
-- "I have [N] cases of [disease] [modality] — what can I actually study?" / "这批数据能不能做研究？"
-- "Turn my data into a complete, submittable project." / "帮我把现有数据设计成一个完整课题。"
-- "Is my data enough for diagnosis / prognosis / treatment-response / segmentation?"
-- "Design a multi-center / external-validation / temporal-validation plan." / "多中心外部验证怎么设计？"
-- "How do I show generalisability across scanners/hospitals?" / center, scanner, batch effects.
-- Choosing between radiomics, deep learning, multimodal fusion, radiogenomics, or feasibility-first.
-- Pre-stats brainstorm / 开统计前的头脑风暴: lock keywords, gap, hypothesis, key citations, inclusion/exclusion, and the statistical path before formal tests.
+In: feasibility verdict, design blueprint, validation plan, pre-stats design lock, roadmap when program-level.
+Out: sample size / power (`calc-sample-size`), formal statistics (`stats-analysis`), reporting-guideline checklists (`05_manuscript/qc/check-reporting/`), imaging preprocessing (`preprocess-imaging`).
 
-## When to open extra files
+## Input
 
-| File | Open when |
-|---|---|
-| [references/feasibility-triage.md](references/feasibility-triage.md) | Deciding if the data can support a study at all; what's the realistic task ceiling; what's missing |
-| [references/study-blueprints.md](references/study-blueprints.md) | Picking a design template (diagnostic accuracy, prediction/prognosis, treatment-response, segmentation, radiogenomics, reader study) and its minimum-viable vs stronger version |
-| [references/validation-strategy.md](references/validation-strategy.md) | Designing internal/temporal/geographic/external/multi-center/federated validation; center & scanner effects; what counts as "external" |
-| [references/endpoints-and-estimands.md](references/endpoints-and-estimands.md) | Choosing the clinical question, target population, endpoint, comparator, and clinical-use scenario |
-| [references/ai-radiogenomics-12-24-roadmap.md](references/ai-radiogenomics-12-24-roadmap.md) | The user wants a 12-24 month plan for radiology AI/deep radiomics/radiogenomics, or asks how to turn data into a staged publication and translation program |
-| [references/design-fidelity.md](references/design-fidelity.md) | Before locking the blueprint: design name must agree in four places, case-control needs its three parts, design must map to its reporting guideline (STROBE / TRIPOD), sampling window and selection bias must be in the design, ethics approval must match the design |
+Minimum: clinical question, modality, cohort sketch (n patients, centers, label source, event count, follow-up). Read `ref/refer/` first, then project tables. Missing ethics approval dates, n, events, or center counts: ask; never infer. Before fixing the collection window, check `03_research/advanced/ethics.md` § Ethics validity period.
 
-## Workflow
+## Workflow (decision nodes)
 
-1. **Inventory the data.** Disease, modality(ies), n (patients and lesions), number of centers
-   and scanners, label source and quality, presence of segmentation masks, clinical variables,
-   follow-up time and event counts, pathology/molecular labels, time span. Mark every unknown.
-   Read `ref/refer/` first, then any table in the project root or `ref/data` if present.
-   Before fixing the collection window, read `03_research/advanced/ethics.md` § Ethics validity
-   period / 伦理期: prospective collection must sit inside the approval validity, retrospective
-   retrieval only needs to finish by its end date. Missing批件起止 dates → ask, never infer.
-2. **Feasibility triage** (feasibility-triage.md). Decide the realistic task ceiling and flag
-   showstoppers (no reference standard, no external cohort, too few events, leakage-prone
-   structure). Output a verdict: `Feasible as designed` / `Feasible with changes` / `Feasibility
-   study only` / `Not yet — collect X first`.
-3. **Define the question** (endpoints-and-estimands.md). Clinical question → target population →
-   primary endpoint/estimand → comparator → intended clinical-use scenario.
-4. **Pick the blueprint** (study-blueprints.md). Choose the design template and give a
-   **minimum-viable** version (what's publishable now) and a **stronger** version (what would
-   reach a higher tier), with the extra cost of each. Then run the fidelity check
-   (design-fidelity.md): one design name in four places, case-control's three parts, the
-   reporting guideline it will be judged against, sampling window, selection bias, and whether
-   the ethics approval dates cover this design.
-5. **For program-level AI/radiogenomics planning**, open `ai-radiogenomics-12-24-roadmap.md`
-   and place the project on the staged route from cohort lock to baselines, fusion, external
-   validation, and silent/reader/prospective evidence.
-6. **Design the validation** (validation-strategy.md). Specify the split (patient-level),
-   internal scheme, and the external/temporal/geographic/multi-center plan. State what is held
-   out and what "external" honestly means here.
-7. **Name the binding constraint** and the sample-size / EPV question (hand the numbers to `calc-sample-size`).
-8. **Write the design-study result** to `ref/design-study.md` (template:
-   [references/design-study-result.md](references/design-study-result.md)): feasibility verdict,
-   data read, study blueprint, method options, validation plan, roadmap when relevant, and next
-   actions. Do not leave this result only in chat.
-9. **Write the pre-stats design lock** to `ref/design-lock.md` (template:
-   [references/design-lock.md](references/design-lock.md)). Required sections: keywords (zh/en
-   search terms); research gap (must point to `ref/refer` or search hits); testable hypothesis;
-   partial citations in three classes (diagnostic gold standard, last-5-year related work, latest
-   guideline with issuing body + year); inclusion/exclusion (paraphrase the named guideline and
-   map onto data fields when a table exists); statistical path (endpoint, grouping, tests or
-   models, missingness, validation), written from `ref/refer` and actual variables in the project
-   root or `ref/data`. Mark unknowns. Never invent n, ethics IDs, citations, or results. Formal
-   statistics start only after the owner accepts this file (`done` is not `accepted`).
+1. **Inventory the data** — disease, modality, n (patients/lesions), centers/scanners, label source, masks, follow-up/events, time span; mark unknowns.
+2. **Feasibility triage** → verdict: `Feasible as designed` / `Feasible with changes` / `Feasibility study only` / `Not yet — collect X first`. Detail: [references/feasibility-triage.md](references/feasibility-triage.md).
+3. **Define question and estimand** — question → population → primary endpoint → comparator → clinical-use scenario. House method: `03_research/advanced/design/endpoints-and-estimands.md`.
+4. **Pick the blueprint** — minimum-viable vs stronger, with cost; then fidelity check (one design name in four places, case-control's three parts, reporting guideline, sampling window, selection bias, ethics coverage). House templates: `03_research/advanced/design/study-blueprints.md`; fidelity detail: [references/design-fidelity.md](references/design-fidelity.md).
+5. **Design validation** — patient-level split, internal scheme, external/temporal/geographic/multi-center plan; define honestly what "external" means. Detail: [references/validation-strategy.md](references/validation-strategy.md).
+6. **Name the binding constraint** and hand n/EPV to `calc-sample-size`.
+7. **Write results** to `ref/design-study.md` (template: [references/design-study-result.md](references/design-study-result.md)) — never leave the blueprint only in chat.
+8. **Write the pre-stats lock** to `ref/design-lock.md` (template: [references/design-lock.md](references/design-lock.md)): keywords, gap pointing at `ref/refer`, testable hypothesis, three citation classes (gold standard / last-5-year work / latest guideline with body+year), inclusion-exclusion, statistical path. Mark unknowns; never invent n, ethics IDs, citations or results. **Formal statistics start only after the owner accepts this file (`done` is not `accepted`).**
+9. **Program-level plans** (12–24-month AI/radiogenomics route) follow the house roadmap in `03_research/advanced/design/ai-radiogenomics-12-24-roadmap.md`; do not copy a generic roadmap into base.
+
+## Constraints (never)
+
+- Never invent cohort numbers, event counts, center counts, ethics IDs, citations or results.
+- Never call an internal cross-validation "external"; never claim a capability the data cannot support.
+- Never start formal statistics before an owner-accepted `ref/design-lock.md`.
+- Never retro-fit the question to a result; pre-specify endpoint, primary analysis and split.
+- If the honest answer is "not yet — do X first", say that instead of a design.
 
 ## Output contract
 
-1. **`Feasibility verdict`** — one of the four verdicts above, with the one-line reason.
-2. **`Data read`** — the inventory, with the binding constraint surfaced and unknowns listed.
-3. **`Study blueprint`** — clinical question, population, primary endpoint/estimand, comparator,
-   clinical-use scenario; design type.
-4. **`Method options`** — minimum-viable vs stronger, with the trade-off and which reporting
-   guideline each will be judged against (→ `05_manuscript/qc/check-reporting/`).
-5. **`Validation plan`** — split scheme, internal + external/temporal/geographic/multi-center
-   design, and the honest definition of "external" for this data.
-6. **`Roadmap`** — when relevant: staged 0-3, 3-6, 6-9, 9-12, 12-18, and 18-24 month milestones.
-7. **`Next actions`** — what to collect, label, or confirm before/while running it, in priority
-   order. Questions only the author can answer go here.
-8. **`Design-study result`** — the items above are written to `ref/design-study.md`, not only
-   returned in chat.
-9. **`Design lock`** — `ref/design-lock.md` with the six sections complete or explicitly unknown;
-   owner acceptance recorded before handing to `stats-analysis`.
-
+1. Feasibility verdict + one-line reason. 2. Data read with the binding constraint surfaced. 3. Blueprint (question, population, endpoint/estimand, comparator, clinical-use scenario, design type). 4. Method options (minimum-viable vs stronger, trade-off, reporting guideline). 5. Validation plan with the honest "external" definition. 6. Roadmap when relevant. 7. Next actions in priority order. 8. `ref/design-study.md` written. 9. `ref/design-lock.md` with six sections complete or explicitly unknown, owner acceptance recorded.
 
 ## Handoffs
 
-- Frontier framing / is this direction novel & publishable → `design-study`.
-- Pre-stats lock / formal stats gate → this pack writes `ref/design-study.md` and `ref/design-lock.md`; `stats-analysis` starts only after owner acceptance of the lock.
-- Sample size, EPV, power, Riley minimum sample size → `calc-sample-size`.
-- Hand-crafted radiomics pipeline design → `stats-analysis`.
-- Deep-learning architecture & training design → `03_research/advanced/` (not a fine id).
-- Imaging × omics mechanism design → `stats-analysis` / this pack.
-- ROI/mask annotation SOP → `preprocess-imaging`.
-- Which checklist the design must satisfy → `05_manuscript/qc/check-reporting/`.
-- Ethics/consent/data-sharing feasibility → `write-paper` radiology-ethics (placeholders only).
-- Clinical-use scenario, reader study, prospective plan → `03_research/advanced/clinical-translation/`.
-- Own funding proposal → advanced grant Voice A/B (`03_research/advanced/intake.md` Grant Voice A/B sections; stubs remain at grant-*.md). Do not copy grant skeletons into this pack.
-- English journal peer review → `peer-review`. Not this module.
-- This skill plans research; it does not provide clinical or diagnostic recommendations.
+- Pre-stats lock → `stats-analysis` starts only after owner acceptance.
+- Sample size / EPV / Riley → `calc-sample-size`.
+- Deep-learning architecture → `03_research/advanced/`; clinical translation / reader study → `03_research/advanced/clinical-translation/`.
+- Ethics feasibility → `write-paper` radiology-ethics (placeholders only); reporting checklist → `05_manuscript/qc/check-reporting/`.
+- English peer review → `peer-review`. This skill plans research; it gives no clinical or diagnostic recommendations.

@@ -45,10 +45,10 @@ fixture 要求：每份输入只描述事实，不暗示期望答案；同一份
 | 科学错误数 | QCS blocker + major | 计数，越低越好 |
 | 无证据主张数 | QCS（claim / citation / AL-5 类） | 计数 |
 | 数值一致性错误 | QCS（claim-number-align / stat_vs_threshold 类） | 计数 |
-| 不必要改写 | 人工 diff：两臂各自相对输入改了多少不该改的句子 | 计数（改写率） |
+| 改写（二分） | 人工 diff 按句计数，再分两类：**必要重构**（house 结构、规则要求的改写）与**无谓改写**（同义替换、无依据润色） | 两列计数；门槛只对无谓改写 |
 | 个人偏好执行 | QCV 检查表命中数（Aitor 结构、vocab、句长、paragraph lock） | 计数；A 臂预期低、B 臂预期高 |
 | 误报 | QCV/QCS 报了但实际不成立 | 计数 |
-| 上下文负担 | 运行时实际加载的 skill 文件数与总字节数（从运行日志/工具调用统计） | 数值 |
+| 上下文负担 | 运行时加载的文件数，以及**主 base pack 字节**（任务入口所在 `NN_slug/base/<pack>/` 的 .md 合计，不含 00 共用开销） | 两列数值 |
 
 补充要求：每个产物同时记录"加载了哪些文件"（路径清单），用于第 7 项与复现。
 
@@ -57,8 +57,8 @@ fixture 要求：每份输入只描述事实，不暗示期望答案；同一份
 1. **科学不回退**：B 的科学错误数 ≤ A（允许 +0；若 B 比 A 多 1 个 blocker 即 FAIL）。
 2. **个人偏好确实执行**：B 的 QCV 命中数 ≥ A + 2（结构/vocab 层面），否则 advanced 层等于没用。
 3. **Style QC 不越界**：B 臂中 QCV 的 FAIL-SOFT 不得导致任何科学 gate 阻断；抽查 3 条 QCV 命中，误报 ≤ 1。
-4. **不必要改写不上升**：B 的改写率 ≤ A × 1.2。
-5. **上下文负担下降**：A 臂加载的 base 字节数比旧 tip `04a4c35` 同任务下降 ≥ 20%（用同一 fixture 复跑旧树 C 臂对照）。
+4. **无谓改写不上升**：B 的**无谓改写**句数 ≤ A + 1；必要重构不计入门槛，但须在 verdict 逐条列出触发它的规则或 house 结构。
+5. **上下文负担下降**：同任务**主 base pack 字节**比旧 tip `04a4c35` 下降 ≥ 20%（不含 00 共用文件；对照用 `git ls-tree` 统计同一目录，不要求复跑 C 臂）。若 base 主动承接了原 advanced 的通用内容（如 06 的 review envelope），该任务记为 EXEMPT 并在 verdict 说明，不计 FAIL。
 6. 任一条 FAIL：回到对应 PR 修规则或指针，修完重跑受影响任务（只重跑该项，不整批）。
 
 ## 5 执行顺序（建议两轮）
@@ -87,3 +87,18 @@ fixture 要求：每份输入只描述事实，不暗示期望答案；同一份
 - A 臂 = S0→S2（00 识别 → base 首跑 → 科学 QC）。
 - B 臂 = S0→S4（… → advanced 修订 → 增量 QC + 可选 QCV）；S5 复检只对 B 的 FAIL 项执行。
 - 契约 SSOT：`00_orchestrator/references/base-vs-advanced-top-loops.md` §2；本矩阵不重复其规则，只引用。
+
+## 9 实测快照（2026-11-14，单次运行）
+
+基线 main `c7781a0`；旧 tip `04a4c35`；产物在一次性目录（`.Del/_by-function/acceptance-20261114/`），不在仓库内。评分由同一模型自评、非盲法，仅作方向性证据。
+
+| 任务 | 科学命中（臂 A 与臂 B） | house 增量（臂 A 到臂 B） | 触发 FAIL 的判据 |
+|---|---|---|---|
+| T1 stats-analysis | 9/9 + 2/2 数值 + 2/2 主张 | 0 → 4 QCV | 无 |
+| T2 design-study | 5/5 缺口 + 3/3 约束冲突 | 0 → 4 QCV | 无（修 §4.5 定义后通过） |
+| T3 write-paper | 3/3 主张 + 1/1 数值 | 0 → 5 结构项 | 旧 §4.4（句级计数 9 vs 16）；拆分后无谓改写 0 与 0 |
+| T4 peer-review | 7/7 | 0 → 7 五槽 | 无 |
+
+主 base pack 字节（旧 tip → 现在）：stats-analysis 58,222 → 9,583（−83.5%）；design-study 45,569 → 23,121（−49.3%）；write-paper 81,180 → 53,938（−33.6%）；peer-review 19,339 → 27,033（+39.8%，EXEMPT：通用 review envelope 由 advanced 迁入 base，属设计性承接）。
+
+结论：四个任务科学检出均无回退；advanced 的增益集中在表达、结构与审稿习惯；改写门槛必须区分必要重构与无谓改写，否则会误伤 house 修订。仍未覆盖：C 臂未跑、多评分人未做、journal-format-compliance 与 track-changes 的版式验收不在本矩阵内。

@@ -17,6 +17,13 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114f-acceptance-metrics-and-design-thinning (2026-11-14)
+
+- **Owner:** t20261114f (three-layer acceptance, round 2).
+- **Acceptance metrics:** `00_orchestrator/references/three-layer-acceptance-matrix.md` — metric 4 split into necessary restructuring vs gratuitous rewrite (threshold only on the latter, A + 1); metric 5 redefined as main base pack bytes (excluding 00 shared overhead) with an EXEMPT clause for designed advanced-to-base moves; new §9 measured snapshot (T1–T4).
+- **Design thinning:** `03_research/base/design-study/` 45,569 → 23,121 bytes (−49.3%); method/blueprint/estimands/roadmap detail moved to `03_research/advanced/design/`; MODULE 142 → 108 lines; pointers in `03_research/advanced/radiology-design.md` updated.
+- **Tests:** 271 passed, 1 skipped.
+
 ## CHG-20261114-t20261114e-three-layer-acceptance (2026-11-14)
 
 - **Owner:** t20261114e. No fine-id change (22 stays), no gate-id change, no disk path change.
