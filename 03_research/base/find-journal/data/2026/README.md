@@ -25,7 +25,7 @@ Layer filter values: `1-Q1且IF大于10` / `2-Q1且IF小于5` / `2补-Q1且IF5�
 ## Other SSOT
 
 - **Curated xlsx (_Docs):** `{jcr2026_xlsx}`
-- Advanced prior / 投过 whitelist (_Docs, not in git): see `SUBMISSION_PRIVACY.md` and alias `find_journal_submission` in `00_orchestrator/references/lab-paths.yaml`.
+- Advanced prior / 投过 / 审稿 whitelist (_Docs, not in git): see `SUBMISSION_PRIVACY.md` and alias `find_journal_submission` in `00_orchestrator/references/lab-paths.yaml`. Review-invite / reviewed titles with a JCR quartile append here (t2016u).
 - Per-project 选刊/已投名单 -> `<project>/ref/citation/journals.csv` (+ `_notes.md`) — never in MY-SKILLS.
 - Rules / methods live in `../../rules/` and `../../SKILL.md`.
 - Alias removals (byte-identical): `secondary-journals.csv` → use `layer3-q2.csv`; `priority-journals.csv` → use `layer2b-q1-if-5to10.csv` (both now under _Docs pools).

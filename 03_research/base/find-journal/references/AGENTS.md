@@ -10,7 +10,7 @@ Aligned with **SKILL.md metadata.version 1.18** (10/10/10 + layer-4 default + ge
 
 - List gates: `data/2026/` (blacklist / graylist / whitelist-bmc-medicine / submission-urls) - in this pack.
 - Runtime selection pools: `{find_journal_pools}` = `{doc_library_journals}` - `index.csv` (`layer`, `jif_2025`, `jcr_year`, `l1`, `l2`, `whitelist`, `queried_at`), `index.xlsx`, `l1-l2-map.csv`; archive under `journals\archive\<year>\`.
-- Submitted / 选刊 whitelist + priors: `{find_journal_submission}` = `{doc_library_jcr}\<year>\submission\` (now 2026).
+- Submitted / 选刊 / 审稿 whitelist + priors: `{find_journal_submission}` (review-invite / reviewed + JCR quartile also seed `whitelist-submitted.csv`; t2016u).
 - Curated xlsx: `{jcr2026_xlsx}` (_Docs `mem\`, not in git).
 - Per-project candidates: `<project>/ref/citation/journals.csv` + `_notes.md`.
 - Ethics approvals (batch numbers / validity) are outside this pack: `{doc_ethics_approvals}` + `{doc_ethics_index}`.

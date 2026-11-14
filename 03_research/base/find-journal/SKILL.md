@@ -3,7 +3,7 @@ name: find-journal
 description: Recommend medical journals from the user's JCR2026 curated pool and format manuscripts to target-journal author instructions. Use when the user asks to 推荐杂志, 投稿, 选刊, JCR/JCI分区, 影响因子, 版面费, AIM, author instructions, or to tidy a medical paper for submission.
 metadata:
   type: workflow
-  version: "1.18"
+  version: "1.19"
   source_table: {jcr2026_xlsx}
   owner: "03_research/base/find-journal/MODULE.md"
   seat_route: A 03_research/find-journal (Victor)
@@ -38,7 +38,7 @@ Load in this order on every Phase-1 run:
 
 1. `data/2026/blacklist.csv` — never list these titles.
 2. `data/2026/graylist.csv` — not recommended when better options exist (includes **Frontiers family**). Fill with non-gray first; gray only if layer short or user asks; mark 「灰名单/不推荐」.
-3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`). Stronger layer boost.
+3. `{find_journal_submission}\whitelist-submitted.csv` — journals the lab has submitted to / used via 选刊 (seeded from `data/2026/submission-urls.csv`), **or** journals that invited the user to review / that the user has reviewed and that have a JCR quartile in the current `_library/journals/index.csv` (t2016u). Stronger layer boost.
 4. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / **MDPI** **pattern** boost (weaker than submitted whitelist).
 
 ### Blacklist
@@ -67,7 +67,7 @@ Default total **30** titles (10+10+10) unless a layer has fewer acceptable match
 Inside each layer rank by
 
 1. **稿件匹配度** (MJF/MFI, highest weight): topic, design, article type, clinical vs basic, specialty vs medical-related categories (`医学相关学科`) (**MJF = MFI**; display **稿件匹配度**)
-2. **Submitted/选刊 whitelist first** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill)
+2. **Submitted/选刊/审稿 whitelist first** (`{find_journal_submission}\whitelist-submitted.csv`): among comparable fit, strongest boost (not auto-fill). Includes review-invite / reviewed titles that have a JCR quartile (t2016u).
 3. **BMC/Medicine/MDPI pattern whitelist** (`data/2026/whitelist-bmc-medicine.csv`): secondary boost after submitted whitelist
 4. **Graylist** (`data/2026/graylist.csv`, Frontiers family): skip when a better non-gray match exists; never boost
 3. **投稿易投指数** (JESI/JEI; see `rules/jesi-model.md`). Always compute from **available** metrics (A/R/P + 稿件匹配度); when some rate inputs missing, still compute (skip/renormalize or capacity+MJF fallback) and **mark** incompleteness in-cell (`62.4*` + `缺:…`). Never invent rates; blank rate cells stay blank. Do not use quartile-only / curated 易投指数 as primary. `JEI = f(JDI, Capacity, Reviewability)`
@@ -161,22 +161,29 @@ Indices: **JDI**, **JEI/JESI**, **MJF (=MFI)**, **PAI**, **JCI-C** (capacity).
 11. `rules/persistence.md` - absorb / query / delete + what to save
 12. `rules/modules.md` - four logical modules + naming
 16. `data/2026/whitelist-bmc-medicine.csv` — BMC / Medicine / MDPI pattern whitelist (LWW MEDICINE excluded)
-17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊 whitelist (seed: submission-urls)
+17. `{find_journal_submission}\whitelist-submitted.csv` — submitted/选刊/审稿 whitelist (seed: submission-urls, plus review-invite / reviewed titles with a JCR quartile)
 18. `data/2026/graylist.csv` / `graylist-names.csv` — graylist not recommended
 17. `data/2026/submission-urls.csv` — URL fields only
 18. `{find_journal_submission}\submission-prior.jsonl` — advanced prior log (schema only until outcomes exist)
 
-## Submitted / 选刊 whitelist (stronger priority)
+## Submitted / 选刊 / 审稿 whitelist (stronger priority)
 
-Load `{find_journal_submission}\whitelist-submitted.csv`. Seeded from journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title; never add blacklist or graylist titles).
+Load `{find_journal_submission}\whitelist-submitted.csv`. Seeds (t2016u extended):
+
+1. Journals with a written-back submission URL in `data/2026/submission-urls.csv` (选刊用过 / 投过). When a new URL is written back, append here if missing (dedupe by title / ISSN / eISSN).
+2. **Review invite / reviewed:** a journal that invited the user to review, or that the user has already reviewed, **and** that has a JCR quartile (`quartile_jif` or `quartile_jci` is Q1–Q4) in the current `_library/journals/index.csv`. Append when such a title is identified (same dedupe). `seed_source` = `review-invite` or `reviewed`; if the row already has another seed, join with `;`. Do not write JIF or quartile into this CSV — check `index.csv` at append time only. Set `updated` to the date and a short `note` (invitation or completed review). If the journal is absent from the current JCR pool or has no quartile, do not add it.
+
+Never add live blacklist titles. This standing rule is approval to add a graylisted title that meets the review-invite / reviewed + JCR-quartile test; whitelist then outranks gray for that title (do not silently delete the graylist row). Blacklist still always wins.
 
 Among comparable fit, **rank above** BMC/Medicine/MDPI pattern whitelist. Boost, not auto-fill.
+
+The `index.csv` `whitelist` column may include `reviewed` (semicolon-joined with `submitted` / `bmc` / `mdpi` when applicable). Do not hand-edit `index.csv`; apply the tag at the July annual rebuild. Runtime boost still reads `whitelist-submitted.csv` directly.
 
 ## Graylist (not recommended)
 
 Load `data/2026/graylist.csv`. Includes **Frontiers family** (publisher Frontiers Media, or title/ISO Frontiers…; see `rules/graylist.fine-id.md`).
 
-**Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval.
+**Rule (2026-09-19):** if better non-gray matches can fill the layer, **do not** recommend graylist journals. Only use gray when the layer would otherwise be short (still need reasonable scope fit) or the user explicitly asks. When shown: 「灰名单/不推荐」; no boost. Never move gray → whitelist-submitted without approval, except the t2016u review-invite / reviewed + JCR-quartile standing rule above.
 
 ## BMC / Medicine / MDPI pattern whitelist (secondary priority)
 
