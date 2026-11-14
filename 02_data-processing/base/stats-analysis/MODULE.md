@@ -43,26 +43,7 @@ Power / effect-size planning - `../calc-sample-size/references/effect_sizes_and_
 
 ## Quick reference
 
-**Two groups**
-
-- Independent, continuous, normal - Independent t-test
-- Independent, continuous, non-normal - Mann-Whitney U
-- Paired, continuous, normal - Paired t-test
-- Paired, continuous, non-normal - Wilcoxon signed-rank
-- Binary - Chi-square or Fisher exact
-
-**3+ groups**
-
-- Independent, continuous, normal - One-way ANOVA
-- Independent, continuous, non-normal - Kruskal-Wallis
-- Paired, continuous, normal - Repeated-measures ANOVA
-- Paired, continuous, non-normal - Friedman
-
-**Relationships**
-
-- Two continuous - Pearson (normal) or Spearman
-- Continuous outcome + predictors - Linear regression
-- Binary outcome + predictors - Logistic regression
+Choose by design first (outcome type, grouping, pairing, events per variable), then check assumptions; normality is an input, not the decision rule. Full decision guidance: `02_data-processing/base/stats-analysis/references/test_selection_guide.md`. Report the test, the assumption check, and the effect size.
 
 ## Assumption rule
 

@@ -125,13 +125,6 @@ generalisable or single-center-anecdote.
    owner acceptance recorded before handing to `stats-analysis`.
 
 
-## Quality bar
-
-A good design read sounds like a senior imaging-AI mentor who has reviewed for _Radiology_:
-it tells the author honestly whether the data can carry the ambition, designs the validation
-that will survive review, and surfaces the one constraint everything hinges on — without
-inflating a single-center retrospective dataset into a claim it cannot support.
-
 ## Handoffs
 
 - Frontier framing / is this direction novel & publishable → `design-study`.

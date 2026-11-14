@@ -43,13 +43,8 @@ Load in this order on every Phase-1 run:
 
 ### Blacklist
 
-Load `data/2026/blacklist.csv` first. Never list these titles.
-
-- PLoS One / PLOS ONE
-- Scientific Reports / SCI REP-UK
-- MEDICINE (LWW Baltimore mega-journal; not NEJM; not Nature Medicine)
-
-Name-only fine id list: `data/2026/blacklist-names.csv` (subset of `data/2026/blacklist.csv`).
+Load `data/2026/blacklist.csv` first; never list those titles. Name-only fine id list:
+`data/2026/blacklist-names.csv`. The list body is data, not prose: do not restate it here.
 
 ## Every journal-recommendation (推荐杂志) request
 
@@ -104,7 +99,7 @@ Phase 1 columns for every layer table
 - JIF / 年发文量 / rates are **display-only runtime fields** in the report (HTML/Markdown). Do **not** persist them into `data/2026/submission-urls.csv` or other DB-like files (`rules/persistence.md`).
 - 稿件匹配度: keep from Phase-1 human MJF.
 - **投稿易投指数 (partial OK, marked):** always compute from available A（接收率）, R（送审率或 1−初筛拒稿率）, P（年发文量→JCI-C）, and 稿件匹配度.
-  - Full (rates available): `JESI = 0.50×(100−JDI) + 0.20×JCI-C + 0.30×稿件匹配度` (A/R/P components as in `rules/jesi-model.md`).
+  - Full (rates available): formula and weights are in `rules/jesi-model.md`; do not copy them into prose.
   - Partial: skip missing inputs and renormalize, or capacity+MJF fallback when A/R both absent; show in-cell marker e.g. `62.4*` + `缺:接收率,初筛拒稿率` (tooltip OK). Persist `投稿易投指数` + `jesi_missing: [...]` in Phase-1 JSON. **Never invent rates.**
   - **Unknown ≠ Low Risk.**
 - **层4 (Q3):** included **by default** (10 titles).
