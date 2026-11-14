@@ -123,6 +123,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 | G-DOC | any QC / delivery touching a `目录说明.md` / README / doc, or a move·rename·count change in data or library dirs |
+| G-JUNK | stage-project junk: `.bak` / `.bk` / `~$*` / `- copy` / `副本` are cleanup objects (move to `ref\tmp\` or `{DEL}` with ledger) |
 
 Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate). Harvest intake → [`harvest/SKILL.md`](harvest/SKILL.md) (extract ≠ promote; collection SSOT `{doc_skill_harvest}\HARVEST-STANDARD.md`).
 
