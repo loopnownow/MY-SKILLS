@@ -1,0 +1,42 @@
+pattern	layer	replace	exempt_if	hits_per_1000
+delve	lex	examine / assess	quotation	0
+dive deep	lex	examine	quotation	0
+leverage	lex	use	finance sense in methods of a finance paper	0
+pivotal	lex	name the finding	quotation	0
+underscore	lex	show	quotation	0
+tapestry	lex	name the parts	quotation	0
+it is worth noting	lex	delete; state the fact	quotation	0
+landscape	lex	field / setting	geographic caption	0
+robust	lex	name the metric	engineering material sense	1
+comprehensive	lex	complete / included X–Y	guideline title	1
+framework	lex	approach	software or library name	1
+seamless	lex	without extra steps	quotation	0
+groundbreaking	lex	drop or cite the novelty	quotation	0
+state-of-the-art	lex	name the comparator	quotation	0
+elucidate	lex	remain unclear / explore	quotation	0
+furthermore	lex	cut or vary	one per section	2
+moreover	lex	cut or vary	one per section	2
+notably	lex	delete	quotation	0
+interestingly	lex	delete	quotation	0
+importantly	lex	delete	quotation	0
+novel	lex	name what changed	quotation; device name	0
+utilize	lex	use	quotation	0
+holistic	lex	name what is included	quotation	0
+actionable	lex	concrete / practical	quotation	0
+impactful	lex	name the effect	quotation	0
+paradigm	lex	model / approach	named theory title	1
+realm	lex	area	quotation	0
+embark	lex	start	quotation	0
+meticulous	lex	careful	quotation	0
+not X, but Y	syntax	state Y	factual contrast with numbers	1
+It's not X — it's Y	syntax	state Y	quotation	0
+rule of three filler	syntax	use two or four items	inclusion criteria lists	1
+here is	syntax	cut opener	UI copy	0
+in this section we	syntax	start with the fact	textbook	0
+paragraph-final pull-quote	discourse	end with a fact	quotation	1
+same opener three paragraphs	discourse	vary the first verb	methods steps	0
+even paragraph length	discourse	mix sentence and paragraph length	numbered lists	0
+em dash	format	comma / period / two sentences	quoted source	0
+bold span	format	lead with the important phrase	UI labels	1
+extra heading	format	merge into prose	IMRAD required heads	0
+bullet stack	format	write paragraphs	true enumerations	1

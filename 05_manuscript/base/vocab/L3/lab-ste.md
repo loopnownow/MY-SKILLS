@@ -18,7 +18,7 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 **Skill SSOT (method):** this file + `lab-ste-spec-digest.md` + `lexicons/` + `term-lock-default.tsv`.
 **Approved EN lexicon:** `../L2/approved-en.tsv` (+ lemmas; hash-matched at absorb).
 **Live method SSOT:** this folder (`lab-ste.md` + `lab-ste-spec-digest.md` + lexicons).
-**Full SPEC / config / tools / HTML park** (`_library\lab-ste` retired 2026-10-23): `{doc_lab_ste}` (= durable harvest-sources-park `library-methods-20261023\lab-ste`). Older park copy may also exist under `{DEL}\_by-project\0doc-library-methods-20261023\lab-ste\`.
+**Full SPEC / config / lexicons / tools / HTML**（`{doc_lab_ste}` = `05_manuscript\advanced\lab-ste`，16 个文件；2026-11-14 由 park 吸收进技能仓）。
 **Spec version at absorb:** 0.2.1.
 **Not a Gate:** Lab-STE does not enter `00_orchestrator/gates.md`. Open it only when polishing Methods English, writing Chinese manuscript comments (稿面批注), or tuning controllable-language checks.
 
@@ -31,8 +31,8 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 | `lexicons/*.tsv` | `L3/lexicons/` (vendored — small) |
 | `term-lock-default.tsv` | `L3/term-lock-default.tsv` |
 | `approved-en.tsv` | `L2/approved-en.tsv` (already mirrored) |
-| Full SPEC + `config.yaml` + CHANGELOG | park `{doc_lab_ste}`（耐久；2026-11-01 起不在任何 bank 内） |
-| `tools/` + `spec.html` | park / durable only — **do not** vendor into MY-SKILLS |
+| Full SPEC + `config.yaml` + CHANGELOG | `{doc_lab_ste}`（=`05_manuscript\advanced\lab-ste`；16 件全本，2026-11-14 吸收） |
+| `tools/` + `spec.html` | 同目录 `{doc_lab_ste}\tools\`、`{doc_lab_ste}\spec.html`（随技能仓走，勿复制） |
 
 Project term-lock tables stay with each study folder. Per-project specialty nouns never enter L2.
 

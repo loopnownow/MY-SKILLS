@@ -1,0 +1,11 @@
+pattern	replace	exempt_if
+perform an analysis of	analyze	quotation
+perform an evaluation of	evaluate	quotation
+conduct an investigation of	investigate	quotation
+make a comparison of	compare	quotation
+make a decision	decide	quotation
+take into consideration	consider	quotation
+provide a description of	describe	quotation
+carry out a measurement of	measure	quotation
+the use of X	use X	quotation
+the extraction of features	extract features	software menu name

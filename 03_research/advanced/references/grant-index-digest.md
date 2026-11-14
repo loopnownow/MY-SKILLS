@@ -1,14 +1,14 @@
 # grant-index-digest
 
 **Absorbed:** 2026-10-23 from `_library/grants/_index` + `_library/INDEX.md` + papers/fulltext seats.
-**Bodies:** NOT absorbed (hospital/person-specific narrative stays in `{doc_harvest_sources}\library-ftp-20261023\` park only; `_bank` retired 2026-11-01).
+**Bodies:** NOT absorbed (hospital/person-specific narrative stays in the Word originals under `{doc_grants}`; `_bank` retired 2026-11-01).
 
 ## Live pointers (after move)
 
 | Role | Path |
 |---|---|
-| Durable full originals | `{doc_harvest_sources}\library-ftp-20261023\` |
-| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-ftp-20261023\`~~ |
+| Durable full originals | `{doc_grants}`（Word 原件） |
+| HISTORIC extraction park (retired 2026-11-14; do not resolve) | ~~`{DEL}\_by-function\harvest-park-retired-20261114\harvest-sources-park\library-ftp-20261023\`~~ |
 | Word archives | `{doc_word_archive}\03-research\grants`（原 0del word-sources park 已清；t1490u） |
 | Writing skeleton (Voice B) | `03_research/advanced/intake.md` § Grant Voice B chapter skeleton |
 | Writing voice | `03_research/advanced/intake.md` § Grant Voice B |
@@ -49,5 +49,5 @@
 
 - Do **not** paste full grant/application bodies into GitHub / skills.
 - Ethics / PHI: out of FTS/GitHub (NOT_APPLICABLE for these nine unless PHI found — then park only).
-- Prefer `intake.md` § Grant Voice B chapter skeleton + this index for structure; open `{doc_harvest_sources}\library-ftp-20261023\` park only when needing verbatim paragraphs（`_bank` retired 2026-11-01）。
-- Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in park); `{raw_root}\…` paths in that log are **void**.
+- Prefer `intake.md` § Grant Voice B chapter skeleton + this index for structure; open `{doc_grants}` (Word originals) only when needing verbatim paragraphs（`_bank` retired 2026-11-01）。
+- Historical removal ledger lived at `grants/_index/01-removal-log.md` (now in the retired park copy under `{DEL}\_by-function\harvest-park-retired-20261114\`); `{raw_root}\…` paths in that log are **void**.
