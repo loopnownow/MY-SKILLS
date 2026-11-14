@@ -14,7 +14,7 @@ Seat: `03_research`. Path: `03_research/base/lit-fulltext/`.
 
 # lit-fulltext
 
-Contract only for lit-fulltext (full-text retrieval): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for lit-fulltext (full-text retrieval): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 ## Project-start chain
 

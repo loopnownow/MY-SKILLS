@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
-Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 Former pack names that resolved into this seat are retired aliases only — see `00_orchestrator/legacy_aliases.yaml`; do not reopen those trees.
 

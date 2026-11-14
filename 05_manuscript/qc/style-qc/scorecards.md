@@ -28,7 +28,7 @@ Seven dimensions, 0-10 each, total 70. Start every dimension at 10, apply the de
 
 ### Deduction codes
 
-| Code | Dim | Trigger | Deduct | Fix anchor (advanced owns the recipe) |
+| Code | Dim | Trigger | Deduct | Fix anchor (advanced) |
 |---|---|---|---|---|
 | LOG-1 | 1 | The Introduction frames a guideline construct, but the aim or Methods name a different endpoint and no clause says how they relate | 1.5 | `05_manuscript/advanced/Aitor-format.md` § Introduction (beats 3 and 8) |
 | LOG-2 | 1 | A sentence sits where it does for citation numbering or for a writing standard (TRIPOD) rather than for the argument | 1 | `05_manuscript/advanced/Aitor-format.md` § Citation (claim-source fit, renumber by script) |
@@ -105,7 +105,7 @@ Five content beats + loop + craft, 0-10 each, total 70. Start at 10, deduct, flo
 
 ### Discussion deduction codes
 
-| Code | Dim | Trigger | Deduct | Fix anchor (advanced owns the recipe) |
+| Code | Dim | Trigger | Deduct | Fix anchor (advanced) |
 |---|---|---|---|---|
 | D-KEY-1 | 1 | First Discussion paragraph has citations or result numbers | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 1) |
 | D-KEY-2 | 1 | Key findings omit a load-bearing Intro aim with no deferral | 2 | `05_manuscript/advanced/Aitor-format.md` § Discussion (item 1, aim answered) |

@@ -8,7 +8,7 @@ owner: "02_data-processing/base/model-evaluation/MODULE.md"
 
 # Model evaluation (calibration / DCA / external validation + leakage gates)
 
-Contract only for model-evaluation: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/model-evaluation-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Contract only for model-evaluation: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/analysis/model-evaluation-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
 
 Umbrella fine id: **`model-evaluation`** (covers former `model-validation`).
 

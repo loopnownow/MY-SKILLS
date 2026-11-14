@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Statistical test selection (plus Bayesian / assumption notes)
 
-Contract only for stats-analysis: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/stats-analysis-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Contract only for stats-analysis: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/analysis/stats-analysis-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
 
 Choose an appropriate test and check the assumptions that justify it. Absorbed former fine id `meta-analysis` (Bayesian notes + `assumption_checks.py`; alias in `00_orchestrator/legacy_aliases.yaml`). This pack does **not** teach sample-size/power (use `calc-sample-size`) or calibration / DCA / external validation (use `model-evaluation`).
 

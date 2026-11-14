@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Statistical and imaging-panel figures
 
-Contract only for plot-figures: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/plot-figures-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Contract only for plot-figures: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/analysis/plot-figures-digest.md`; pack data (`references/`, `scripts/`) stays beside it as data.
 
 Build plots that pass a technical bar: vector-first export, legible type, color-blind-safe
 palettes, honest axes, and the chart types imaging-AI reviewers expect (ROC, calibration,

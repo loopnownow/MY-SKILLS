@@ -14,7 +14,7 @@ Also covers former manage-refs after round 2 absorb.
 
 # Citation Management
 
-Contract only for verify-refs (DOI-first integrity): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for verify-refs (DOI-first integrity): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # 06_review/base
 
-Thin contracts for 06 review. No domain-level SKILL.md. The recipe (English peer-review envelope, opener templates, comment habits, statement-then-data protocol) lives in `06_review/advanced/review.md`; these packs state stance, bans, phase names, and pointers.
+Thin contracts for 06 review. No domain-level SKILL.md. The house peer-review method (envelope, opener templates, comment habits, statement-then-data protocol) lives in `06_review/advanced/review.md`; these packs state stance, bans, phase names, and pointers.
 
 | Pack | Path | Role |
 |---|---|---|
