@@ -417,7 +417,7 @@ class AttributionAndFetch(unittest.TestCase):
         self.assertNotIn("[ARS:", text)
         self.assertIn("[Nature:simulate-reviewers]", text)
         self.assertIn("[self-review]", text)
-        self.assertIn("同一 DOI", text)
+        self.assertIn("同一 DOI", read("06_review/base/peer-review/references/review-envelope.md"))
         zero = read("00_orchestrator/SKILL.md")
         self.assertIn("06_review/advanced/review.md", zero)
         gates = read("00_orchestrator/gates.md")
@@ -427,6 +427,7 @@ class AttributionAndFetch(unittest.TestCase):
 class ReviewInteract(unittest.TestCase):
     def test_advanced_review_eight_sections(self) -> None:
         text = read("06_review/advanced/review.md")
+        envelope = read("06_review/base/peer-review/references/review-envelope.md")
         for h in (
             "1. Title",
             "2. Abstract",
@@ -437,8 +438,8 @@ class ReviewInteract(unittest.TestCase):
             "7. References",
             "8. Figures & Tables",
         ):
-            self.assertIn(h, text)
-        self.assertIn("Major Issues", text)
+            self.assertIn(h, envelope)
+        self.assertIn("Major Issues", envelope)
         self.assertIn("用户决定", text)
         self.assertIn("词或句", text)
         self.assertNotIn("mode-2-prereview.md", text)

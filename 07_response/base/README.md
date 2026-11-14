@@ -1,6 +1,6 @@
 # 07_response/base - thin contracts for 07
 
-Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 for symmetry with 06). The packs carry scope, bans, mode names, and load order; the letter voice, opener templates, and resolution protocol are `07_response/advanced/response.md`.
+Response-letter fine IDs live here (moved from `06_review/base/` on 2026-10-17 for symmetry with 06). The packs carry scope, bans, mode names, and load order; the letter voice and opener templates are `07_response/advanced/response.md`; the resolution protocol is `07_response/base/revise/references/resolution-protocol.md`.
 
 | Fine id | Path | Role |
 |---|---|---|

@@ -70,6 +70,8 @@ Every handoff names **to whom / what / what not**. Minimum set:
 
 ## 6 Pointers
 
+- Acceptance matrix for this split (A/B/C arms, fixtures, metrics, pre-registered verdicts): `three-layer-acceptance-matrix.md`.
+
 - Diagram: [`../runtime-flow.mmd`](../runtime-flow.mmd); reading guide [`../runtime-flow.md`](../runtime-flow.md).
 - Gates: [`../gates.md`](../gates.md). Registry: [`../registry.yaml`](../registry.yaml). Run selection: [`session-pick.md`](session-pick.md). Harvest: [`../harvest/SKILL.md`](../harvest/SKILL.md).
 - Base contracts: each `NN_slug/base/<fine-id>/MODULE.md`. QC standards: each `NN_slug/qc/`. Advanced packs: each `NN_slug/advanced/`.
