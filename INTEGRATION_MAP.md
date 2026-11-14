@@ -17,6 +17,13 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114d-three-layer-contract (2026-11-14)
+
+- **Owner:** t20261114d; three-layer contract rewrite in place. No fine-id change (22 stays), no gate-id change, no disk path change.
+- **Skill body:** `00_orchestrator/references/base-vs-advanced-top-loops.md` rewritten from the base=thin / advanced=detail split to a three-layer contract: base = thin protocol (mission, scope, inputs and what must be asked, decision nodes, constraints, output+handoff, discretion envelope Locked/Reasoned/Adaptive); qc = checks only (QCS science / QCV style / QCP process, `Evidence_required`, `UNVERIFIABLE` never a silent PASS; style never enters a science score or blocks a science gate); advanced = owner voice, personal locks and confirmed personal method only (generic knowledge and procedural manuals do not belong there). Adds normative run order S0 classify -> S1 base first pass -> S2 science QC -> S3 advanced revision (optional) -> S4 incremental QC + optional Style QC -> S5 re-gate, the handoff contract, and six drift rules.
+- **Docs aligned:** `ARCHITECTURE.md:5` no longer claims to be the layering SSOT and points at the contract; `00_orchestrator/SKILL.md` §0 indexes it; `runtime-flow.md` layer table compressed to one-line roles + pointer; `gates.md` top-layer QC cites the run order and states the QCS/QCV split; `README.md` / `session-pick.md` / `bot-route.md` terminology fixed (no retired `personal` or `A top` layer names; LIVE count not restated).
+- **Not done / next:** PR1 only (contract + docs). PR2 = QC science/style split + style-qc; PR3 = base slimming + vocab personal bank + dedupe + ledgers. Not pushed; no PR until the owner names it.
+
 ## CHG-20261114-t20261114c-harvest-qc-loop (2026-11-14)
 
 - **Owner:** t20261114c; QC evolution batch 1, no disk rename this round.

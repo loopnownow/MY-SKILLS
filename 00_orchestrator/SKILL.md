@@ -32,6 +32,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 | File | Role |
 |---|---|
 | [`registry.yaml`](registry.yaml) | fine-id SSOT: `coarse_ids` = the five seats, `fine_ids` (status `LIVE`), `local_packs` |
+| [`references/base-vs-advanced-top-loops.md`](references/base-vs-advanced-top-loops.md) | three-layer contract SSOT: base thin protocol -> QC gate -> advanced revision; run order S0-S5 |
 | [`legacy_aliases.yaml`](legacy_aliases.yaml) | alias → canonical id; retired fine ids, retired buckets, retired 01 seat |
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
 | [`references/session-pick.md`](references/session-pick.md) | this-run pick, resolution order, empty-path protocol |

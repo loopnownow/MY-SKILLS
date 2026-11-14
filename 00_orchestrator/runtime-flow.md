@@ -12,12 +12,14 @@ Sub-flows (writing chain, review chain, lab stats, R&R triage) are **branches** 
 
 **Main loop:** base thin-contract **first pass** -> **00 QC gate** (score, cite the `advanced/` anchor) -> post-QC revise **via `advanced/`** -> re-gate at 00.
 
-| Layer | Repo | Owns |
+| Layer | Repo | One-line role |
 |---|---|---|
-| **base** | MY-SKILLS `NN_slug/base/` | Thin contract per fine id: purpose, inputs/outputs, hard bans, phase names, handoff card, path pointers. No step recipes, word bands, typography, funnel beats, lab numbers, form fields, voice templates, polish procedures |
-| **00** | MY-SKILLS `00_orchestrator` | QC gate between the base first pass and the advanced revise loop |
-| **advanced** | MY-SKILLS `NN_slug/advanced/` | The detail and the revision authority (lab / Aitor / Jinshan): recipes, quotas, format, voice, forms, polish procedures |
-| **qc** | MY-SKILLS `NN_slug/qc/` | Gate standards and scorecards only; each check id carries the `advanced/` anchor it cites |
+| **base** | MY-SKILLS `NN_slug/base/` | Thin protocol per fine id: purpose, inputs, decision nodes, hard bans, output/handoff, discretion envelope. No recipes |
+| **00** | MY-SKILLS `00_orchestrator` | Classify, route, gate between the base first pass and the advanced revise loop, re-gate |
+| **advanced** | MY-SKILLS `NN_slug/advanced/` | Revision authority: owner voice, personal locks, confirmed personal method (not generic knowledge) |
+| **qc** | MY-SKILLS `NN_slug/qc/` | Checks only: QCS science / QCV style / QCP process; each check cites the `advanced/` anchor to fix at |
+
+Layer duties, normative run order (S0-S5), handoffs, and drift rules live in [`references/base-vs-advanced-top-loops.md`](references/base-vs-advanced-top-loops.md); do not restate them here.
 
 Post-QC advanced revise loops (as needed):
 

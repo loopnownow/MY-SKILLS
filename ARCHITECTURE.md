@@ -2,7 +2,7 @@
 
 This file is **integration metadata**: lab intent tables, handoff/QC loop, and ownership phrases pinned by tests.
 
-**Architecture SSOT** for this repo: this file (layers, lab homes, fine-id ceiling, base/advanced contract).
+**Repo architecture:** this file (skill layout, lab homes, fine-id ceiling, path rules). The three-layer contract (base / qc / advanced) is SSOT in `00_orchestrator/references/base-vs-advanced-top-loops.md`; this file points to it and does not restate it.
 
 **Routing SSOT:** `00_orchestrator/registry.yaml` — the **id SSOT**: ids, paths, statuses and counts are settled there.
 

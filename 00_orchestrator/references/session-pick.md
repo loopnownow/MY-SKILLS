@@ -14,7 +14,7 @@ Registry status `LIVE` = catalog-approved and session-selectable. It is not atta
 `PROPOSED` is not pickable.
 `session_picked_fine_ids` = selected this run. Active = actually loaded.
 
-Every independent run needs a selection. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node advanced-layer task with no in-repo dependency does not ask (example: polish one sentence). **A top layers are not capability fine ids.**
+Every independent run needs a selection. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node advanced-layer task with no in-repo dependency does not ask (example: polish one sentence). **Advanced layers are not capability fine ids.**
 
 1. Classify the task. Propose the **relevant seat(s)** (`a_domain`) then **LIVE candidate fine ids**.
 2. Show each candidate as one line: **fine ID · seat (a_domain) · registry path · role**. Paths are `NN_slug/base/...` except the non-routable `check-reporting` body at `05_manuscript/qc/check-reporting/`.
@@ -23,7 +23,7 @@ Every independent run needs a selection. If `session_picked_fine_ids` already co
 5. If a picked path is empty -> empty-path protocol. Do not silently substitute another path.
 6. Do not change `registry.yaml` just because this run wanted a path that is not in the index.
 
-Silence is not approval. Advanced layers and A top layers are not session picks.
+Silence is not approval. Advanced layers are not session picks.
 Say **bodies are in-repo under NN_slug/base/**.
 
 ## Empty-path protocol
