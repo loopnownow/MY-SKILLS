@@ -12,7 +12,7 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 ---
 
 **Bank harvest (2026-10-23):** additive notes in `05_manuscript/advanced/references/bank-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
-**Advanced L2 (2026-10-27):** the owner's recurring wording with bank counts lives in `05_manuscript/advanced/vocab/L2/preferred-advanced.md`. Base L2 stays canonical.
+**Advanced L2 (2026-10-27; bank moved 2026-11-14):** the frequency bank lives in `05_manuscript/advanced/vocab/L2/preferred-bank.md`; recurring wording with counts in `05_manuscript/advanced/vocab/L2/preferred-advanced.md`. Base keeps the machine lists and the canonical bans.
 
 ## 1. Overall portrait
 

@@ -15,7 +15,7 @@
 1. **L1 words:** `05_manuscript/base/vocab/L1/ban-phrases.md` + `ban-terms.yaml`
 2. **L1 patterns:** `05_manuscript/base/vocab/L1/patterns.md`
 3. **L1 SCI overrides:** `05_manuscript/base/vocab/L1/sci-overrides.md`
-4. **L2 preferred:** `05_manuscript/base/vocab/L2/preferred.md` + `approved-en.tsv`; advanced usage with counts: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`
+4. **L2 preferred:** base `05_manuscript/base/vocab/L2/preferred.md` (thin pointer) + `approved-en.tsv`; personal bank: `05_manuscript/advanced/vocab/L2/preferred-bank.md`; advanced usage with counts: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`
 5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
 6. **L3 specialty + Lab-STE:** `05_manuscript/base/vocab/L3/lab-ste.md`
 

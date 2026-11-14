@@ -1,6 +1,6 @@
 # L2 advanced writing phrases (owner's recurring usage)
 
-Advanced L2 layer. The lab-wide phrase bank stays in `05_manuscript/base/vocab/L2/preferred.md`;
+Advanced L2 layer. The personal frequency bank is `05_manuscript/advanced/vocab/L2/preferred-bank.md` (moved 2026-11-14; base `05_manuscript/base/vocab/L2/preferred.md` is a thin pointer);
 this file records only expressions **this owner** reuses, with the count that
 justifies each entry. Base wins on anything the two disagree about; nothing here
 may contradict `05_manuscript/advanced/Aitor-format.md` or `05_manuscript/advanced/voice-portrait.md`.

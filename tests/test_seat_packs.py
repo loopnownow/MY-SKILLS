@@ -621,9 +621,13 @@ class LabSte(unittest.TestCase):
         self.assertIn("{doc_lab_ste}", lab)
         self.assertIn("Do not", lab)
         self.assertIn("vendor", lab.lower())
-        self.assertIn("conventional_passive", lab)
-        self.assertIn("Compared", lab)
-        self.assertIn("attenuated", lab)
+        voices = (BASE_VOCAB.parent / "advanced" / "vocab" / "L3" / "voice-habits.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("voice-habits.md", lab)
+        self.assertIn("conventional_passive", voices)
+        self.assertIn("Compared", voices)
+        self.assertIn("attenuated", voices)
         five = lab_rules_read("05_manuscript", "SKILL.md")
         self.assertIn(
             "05_manuscript/base/vocab/L3/lab-ste.md",
