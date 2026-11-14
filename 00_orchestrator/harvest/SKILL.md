@@ -118,14 +118,22 @@ Once a round is promoted, or judged H2, the round leaves the floor: the whole fo
 `{DEL}\harvested\rounds\<round>\` and `rounds\LEDGER.tsv` keeps one row (round / date / source / lanes / promote
 PR / left date / `{DEL}` path / owner wording / retro). Put the recomputable evidence summary in the PR
 description before the folder leaves. Only the owner clears `harvested`. `rounds\LEDGER.tsv` is created by the
-first round that leaves under this body.
+first round that leaves under this body. The machine half of this shape is `{doc_root}\test\structure_check.py`
+S29 (`harvest-rounds`): ledger header and field count, exited round absent from the live floor and present under
+`{DEL}\harvested\rounds\`, live round folders carrying the four required members, and live pages not citing an
+exited round as a live path.
 
 ## 9 Self-evolution (owner habits and round QC)
 
 - **Owner wording**: one ledger row per owner correction that changes harvest behaviour (date, owner wording,
   affected rule, round). Repeated wording becomes a proposal; a single event does not.
-- **Round retro**: one ledger row per round (gap, over-abstraction, wrong lane, QC miss, candidate for a machine
-  check).
+- **Round retro**: the `retro` column of the round's `rounds\LEDGER.tsv` row is filled before the folder leaves
+  the floor (gap, over-abstraction, wrong lane, QC miss, candidate for a machine check). A retro is written for
+  the next owner reading the ledger, not for the current round.
+- **QC feeding back**: a miss that a script can decide becomes a gate in `{doc_root}\test\structure_check.py` plus a
+  `**SNN**` row in `{doc_root}\test\QC-REQUIREMENTS.md` with the incident it prevents; a miss that needs judgement stays a manual
+  gate. First instance: S29 `harvest-rounds`, 2026-11-14, prevents promoted rounds and dead round pointers from
+  coming back into the live floor.
 - Propose at most one core behaviour change per PR; answer the four regression questions from `skills.md` §3 and
   record the change in the version row below.
 
@@ -146,10 +154,14 @@ first round that leaves under this body.
 - Thin lane card: `00_orchestrator/references/text-harvest-by-fine-id.md`.
 - Rules gate: `{RULES}\skills.md` §3; source and stage authority: `{RULES}\workspace-layout.md`.
 - Library-shape gates: `{doc_root}\test\structure_check.py` with `{doc_root}\test\QC-REQUIREMENTS.md`; database
-  criteria: `{doc_root}\test\DB-QC-STANDARD.md`.
+  criteria: `{doc_root}\test\DB-QC-STANDARD.md`. Round shape and exit consistency: S29 `harvest-rounds`, with the
+  ledger at `{doc_skill_harvest}\rounds\LEDGER.tsv`.
 - Task flow scheduling and the round review: 00 (`00_orchestrator/SKILL.md` §3). This body does not schedule.
 
 ## Version
 
 - 1.0 (2026-11-14, t20261114a): first body, split out of the «Harvest task flow» section of
   `00_orchestrator/references/skill-evolution.md`; 00 keeps scheduling, gates and the round review and points here.
+- 1.1 (2026-11-14, t20261114c): round shape and exit consistency become the machine gate S29 in
+  `_Docs\test\structure_check.py`; the round retro is the `rounds\LEDGER.tsv` retro column; QC misses that a
+  script can decide become gates, judgement misses stay manual.
