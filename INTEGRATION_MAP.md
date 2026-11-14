@@ -17,6 +17,14 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114a-harvest-pack (2026-11-14)
+
+- **Rule:** the harvest task-flow body moves out of `00_orchestrator/references/skill-evolution.md` into the non-routable pack `00_orchestrator/harvest/SKILL.md` (`routable: false`, `status: internal-harvest-body`); 00 keeps scheduling, gates and the round review and points here. Collection-standard SSOT stays `{doc_skill_harvest}\HARVEST-STANDARD.md` on disk; `extract != promote`; `harvest != closeout`.
+- **Body:** authorization gate, H1-H4 triage, existing-fine-id lanes, three buckets, evidence rules, six intake gates, destination routing, round shape, leave-the-floor rule (`rounds\LEDGER.tsv` one row per promoted or H2 round), self-evolution and the learned-failure anti-regression list.
+- **Pointers:** `text-harvest-by-fine-id.md` now cites the harvest pack and drops `harvest-projects-cut.md` / `harvest-verified-links.md` (both exist only under `{DEL}`); `harvest/skill-library` naming is `harvest`; historical CHG rows keep their dated wording.
+- **Unchanged:** no disk path change (`_Docs\skill-harvest` stays until the owner authorizes the rename and the rounds move); no live junction; registry `change_id` unchanged.
+- **Tests:** `python -B -m unittest discover -s tests -v`.
+
 ## CHG-20261113-t20261113j-test-fixes-jfc (2026-11-13)
 
 - **Context:** follow-up to #344 (merged as `8e496a7`). That squash commit carries the task ticket `t20261113j`, so `LedgerFreshness` needs a ledger row naming it; without this row main fails the gate it just fixed for `/gate pr merge`-style merges.

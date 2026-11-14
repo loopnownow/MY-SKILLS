@@ -4,7 +4,7 @@ Authoring punctuation (owner t1683u / t1761u): en dash (U+2013) is **allowed** i
 
 Applies to skills 00-07. Never edit live skill bodies directly; post-merge deploy sync is the only write path (Rules `{RULES}\skills.md` §1b).
 
-**Harvest task flow** (section «Harvest task flow» below) is owned by **00_orchestrator**; collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `_Docs` trees.
+**Harvest task flow** is owned by the **harvest** pack (`00_orchestrator/harvest/SKILL.md`); the collection-standard SSOT is `{doc_skill_harvest}\HARVEST-STANDARD.md`. Do **not** add a top-level evolution skill / evolution agent / 5th knowledge base. Do not vendor `_code` / `_Docs` trees.
 
 ## Evidence
 
@@ -26,112 +26,14 @@ Applies to skills 00-07. Never edit live skill bodies directly; post-merge deplo
 
 ---
 
-## Harvest task flow (owned by 00)
+## Harvest task flow
 
-Owner (2026-10-24): harvest also updates the task flow; skill-00 owns it and turns it into a collection standard.
+Procedure body and intake gates: `00_orchestrator/harvest/SKILL.md`. This file keeps only the evolution contract;
+do not restate the harvest steps here.
 
-**Layers (keep; do not open a parallel tree)**
+## Pointers
 
-| Layer | Meaning | Physical home |
-|---|---|---|
-| Rules (R) | Cross-skill hard contracts | MY-RULES |
-| Skills (S) | 00-07 skill bodies / advanced | MY-SKILLS |
-| Registry (Reg) | fine-ID / fine-id registry | `00_orchestrator/registry.yaml` etc. |
-| Capabilities (Cap) | Live capability packs | MY-SKILLS `NN_slug/base/` + registry (**no** separate capabilities clone) |
-| Bank | Bank / harvest drafts | `{doc_root}\skill-harvest\` (SSOT); `{DEL}` = working copy |
-
-**Hard gates**
-
-- **Workspace scope (t1840u):** harvest may run from drafting / pre-submit / reviewing / accepted / archived / `.Del`; **each time needs same-turn owner authorization**; never auto by stage. harvest ≠ closeout (disk moves). Authority: `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」.
-- **Harvest leftovers (t1950u):** after extracting how-to, leftover items that triage into `{DEL}` land in `harvested\` (flat). Extracted how-to still goes to `{doc_root}\skill-harvest`. Non-harvest `.Del` landings unchanged. Authority: `{RULES}\My rule.md` §5.3.
-- **Decide harvest need first (t1952u):** classify every parked batch into H1 reusable how-to / **H2 no harvest (data, raw files, PHI, third-party source, build output, browser profiles, one-off ledger patches, logs) -> straight to `harvested`, never queued for harvest** / H3 live dependency (fix `DEL_ROOT` / `DEFAULT_BATCH` / live pointer first) / H4 project leftovers (`_by-project/<slug>/`). Authority: `{RULES}\My rule.md` §5.3.1 + §5.3.2.
-- **Harvest objects (t1952u):** `.Del` move-outs, `_library` (schema and how-to only), `_DataBase` (`_db` / `_share` / leaf readme). Lanes are **existing fine-ids only**; cross-cutting goes to that seat's `advanced/`; pure policy goes to `{RULES}`. **No mirror snapshots**: a round keeps only `HARVEST-*.md`, `MANIFEST.tsv`, `evidence/` and `tools/` next to `{doc_root}\skill-harvest\rounds\<round>\INDEX.md` — nothing is mirrored into the repo.
-- **Extract ≠ promote**: extraction writes only bank / candidates; only **「进skills」 (promote into live skills)** may change runtime.
-- Bank update ≠ runtime update; runtime changes only via MY-SKILLS PR → merge → `git pull` on the live clone (Rules `{RULES}\skills.md` §1b).
-- **No scoring system**; candidates record minimal fields only.
-
-### Steps
-
-```text
-1 Evidence intake
-      │  Format = collection standard HARVEST-STANDARD (fine-ID three buckets + candidate fields)
-      ▼
-2 Evidence type
-      │  user correction | failure rework | success case | AI hypothesis
-      ▼
-3 Ownership
-      │  R / S / Reg / Cap / Bank
-      ▼
-4 Candidate record
-      │  Minimal fields; land in bank; do not change live
-      ▼
-5 Human gate
-      │  城城 says 「进skills」 (or equivalent explicit approval)
-      ▼
-6 Scoped change
-      │  Change one place by ownership; respect budget; risk-tiered
-      ▼
-7 Regression four questions
-      │  All yes before merge
-      ▼
-8 Promote or rollback
-```
-
-### 1-2 Evidence intake and types
-
-| Evidence type | Default disposition | Auto-change runtime? |
-|---|---|---|
-| User correction | Candidate → await 「进skills」 | No |
-| Failure rework | Candidate → await 「进skills」 | No |
-| Success case | **Default into Bank** (may later candidate for promote) | No |
-| AI hypothesis | Record candidate / note only; **never** auto-change runtime | No |
-
-Intake format pointer: collection standard `HARVEST-STANDARD.md` (fine-ID: **bank elements / process / cautions**; candidate fields attached, do not replace the three buckets).
-
-### 3-4 Ownership and minimal candidate fields
-
-Candidate records (bank side) at least include:
-
-| Field | Notes |
-|---|---|
-| Evidence type | user correction / failure rework / success case / AI hypothesis |
-| Ownership | R / S / Reg / Cap / Bank |
-| Strength | low / mid / high (qualitative; not a score) |
-| Disposition | bank-only / awaiting approval / promoted / rejected / rolled back |
-| Summary | one sentence; may attach fine-ID / path pointer |
-
-Optional: `source`, `date`, `fine_id`, `risk_tier`. No scores, no leaderboards.
-
-### 5-6 Approval and scoped change · risk tiers
-
-| Risk tier | Examples | Gate |
-|---|---|---|
-| content | bank draft, advanced `bank-*.md` addenda | 「进skills」 + budget |
-| merge | edit existing skill body / merge PR | checklist + user agree to merge |
-| registry/ID | registry, fine-ID, fine-id map | explicit approval; never silently change IDs |
-| Rules | MY-RULES | highest gate; propose-only; explicit approval |
-
-Cap changes = edit `base/` and/or registry; do **not** create a capabilities repo.
-
-### 7 Regression four questions
-
-Before merge, answer in writing (PR description is fine):
-
-1. **Recurrence prevented**: which class of repeated failure / correction does this block?
-2. **Observable**: after merge, how will we know it works (one failure replay or checkpoint is enough)?
-3. **SSOT**: does it duplicate or steal another layer’s authority? Is the authority home unique?
-4. **Budget and boundary**: ≤1 core behaviour change, ≤3 new rules, no unapproved boundary expansion?
-
-Any “no” → do not promote; fall back to bank-only or revise the candidate.
-
-### 8 Promote / rollback
-
-- Promote: open/update PR by ownership → full change list → merge → live clone `git pull`.
-- Rollback: restore a recorded git point; **do not** stack a second evolution on a regression.
-- delete: needs explicit approval (see «Budget and outcome» above).
-
-### Pointers
-
-- Collection standard (SSOT): `{doc_skill_harvest}\HARVEST-STANDARD.md`
-- Fine-ID thin pointer: `00_orchestrator/references/text-harvest-by-fine-id.md`
-- Rules gate: `{RULES}\skills.md` §3 (propose-only; task-flow body lives in this file)
+- Harvest task flow: `00_orchestrator/harvest/SKILL.md` (extract ≠ promote; harvest ≠ closeout)
+- Collection standard: `{doc_skill_harvest}\HARVEST-STANDARD.md`
+- Rules gate: `{RULES}\skills.md` §3
+- Fine-id lane card: `00_orchestrator/references/text-harvest-by-fine-id.md`
