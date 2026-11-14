@@ -40,6 +40,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 | [`references/lifecycle-cache.md`](references/lifecycle-cache.md) | deploy sync after merge; one clone, no second runtime tree |
 | [`references/capability-contract.example.yaml`](references/capability-contract.example.yaml) | example contract for a new pack (proposal side) |
 | [`workflows/`](workflows/README.md) | 5 composite SOPs + README |
+| [`harvest/SKILL.md`](harvest/SKILL.md) | harvest extraction body (non-routable; intake QC and destinations) |
 
 Registry edits are propose-only: a proposal here, the user confirms. Never auto-add. Never change `registry.yaml` because one run wanted a path that is not indexed.
 
@@ -121,7 +122,7 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G-LIT | citation-verify before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 
-Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate). Harvest intake → that file, section «Harvest task flow»; collection SSOT `{doc_skill_harvest}\HARVEST-STANDARD.md` (extract ≠ promote).
+Cross-cut Consistency = **G-FACT**. Evolution QC → [`references/skill-evolution.md`](references/skill-evolution.md) (propose-only; Rules keeps the one-line gate). Harvest intake → [`harvest/SKILL.md`](harvest/SKILL.md) (extract ≠ promote; collection SSOT `{doc_skill_harvest}\HARVEST-STANDARD.md`).
 
 **Local recovery:** re-run **only the broken node**; reuse session fine-id lock. Re-read the registry here only for a missing dependency, stale provenance, or a new capability. Max **3** rounds on the **same defect** (`defects[].rounds`), then `status: unresolved` and stop. Do not advance `pipeline.stage` or rerun correct stages. Prose repair → **word/sentence** units only. Visual: FAIL → Locate → Impact → Local/Rollback → Budget → Resume in [`runtime-flow.mmd`](runtime-flow.mmd).
 

@@ -10,7 +10,7 @@ aliases:
   raw_root: "D:\\MyProjects\\_DataBase"  # was D:\\00db; organized raw DB; family-bucket projects (_DataBase\\<family>\\<prefix_suffix>\\); _lab/_ stay root; read-only unless named. Live 00ds/00db path/folder/filter = QC finding → correct to _DataBase (do not keep as legacy allowlist). Historic "was/formerly 00ds/00db" notes OK.
   code_root: "D:\\MyProjects\\_Docs\\GitHub\\MY-CODES"  # 2026-11-01 P4: was _code (retired); {code_root} == {code_stats} now
   doc_root: "D:\\MyProjects\\_Docs"
-  doc_skill_harvest: "D:\\MyProjects\\_Docs\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24)
+  doc_skill_harvest: "D:\\MyProjects\\_Docs\\skill-harvest"  # harvest SSOT (moved from _bank 2026-10-24); task-flow body = {SKILLS}\\00_orchestrator\\harvest\\SKILL.md; rename to _Docs\\harvest pending owner disk authorization (2026-11-14)
   skills_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   skills_runtime: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS"
   rules_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-RULES"
