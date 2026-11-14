@@ -17,4 +17,4 @@ This-round new citations in the response letter: heading source comment (`05_man
 
 ## Owner-edit stop (2026-10-24)
 
-If body differs from 城城 edits → **ask before overwrite**. Global: `{RULES}` `My rule.md` §5.1. Skill pointer: `../../advanced/references/ask-before-overwrite-pointer.md`.
+If body differs from 城城 edits → **ask before overwrite**. Global: `{RULES}` `My rule.md` §3 交付与清理. Skill pointer: `../../advanced/references/ask-before-overwrite-pointer.md`.

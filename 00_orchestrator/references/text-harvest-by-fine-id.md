@@ -7,7 +7,7 @@
 
 **Workspace (t1840u):** when/where harvest may run, and harvest ≠ closeout → `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (same-turn owner auth; pointer only).
 
-**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\\My rule.md` §5.3.1 + §5.3.2.
+**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\del-and-harvest.md` §2（H1–H4）+ §6（对象与布局）.
 
 **Evidence source priority by lane (t1953u, owner 2026-11-11):**
 

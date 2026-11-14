@@ -24,7 +24,7 @@ Medical / Statistical Integrity: **only reference** `02_data-processing/qc/repor
 
 ## Core principles
 
-Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume) → MY-RULES `My rule.md` §3. Below is the skill-side expansion and template pointers.
+Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume) → MY-RULES `My rule.md` §7 执行准则. Below is the skill-side expansion and template pointers.
 
 ### 1. Soft-coding (CONFIG on top)
 - Paths, keywords, and params live in a top-of-file config block (config before logic)
@@ -43,11 +43,11 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - Independent tasks may run in parallel; watch memory
 
 ### 5. Comment rules
-- **2026-10-24 decision kept**: comments = config-field meaning + how to run; **do not** write long business “why”. Authority → `{RULES}` `My rule.md` §3.
+- **2026-10-24 decision kept**: comments = config-field meaning + how to run; **do not** write long business “why”. Authority → `{RULES}` `My rule.md` §7 执行准则.
 - Comment **only**: (a) config-field meaning; (b) how to run the script. No long business-logic comments.
 
 ### 5a. Docstring / `--help` on callable surfaces (t1628u → Rules t1622u)
-- Authority → `{RULES}` `My rule.md` §3 new bullet (t1622u; tip `97a13d3`). This section is the skill-side expansion.
+- Authority → `{RULES}` `My rule.md` §7 执行准则 new bullet (t1622u; tip `97a13d3`). This section is the skill-side expansion.
 - **Required** on every new or changed callable surface:
   - module header (files you create or materially change);
   - every function / method;
