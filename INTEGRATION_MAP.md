@@ -17,6 +17,13 @@ Harvest must not invent a second evolution log file.
 
 - **t1902u QC (2026-11-10, Asia/Shanghai):** pointer-only `lab-paths.yaml` align to Rules — `_share\ethics\<CODE>__<file>` / `_share\thesis\<slug>__<file>` (flat, `_share` depth <=2; folder form HISTORIC); t1708u “correct 00ds to 00db” superseded (correct to `_DataBase`); t1796u synDB.bat claim dropped (sole sync entry `D:\MyProjects\syn.bat`). No skill body change; registry `change_id` unchanged.
 
+## CHG-20261114-t20261114c-harvest-qc-loop (2026-11-14)
+
+- **Owner:** t20261114c; QC evolution batch 1, no disk rename this round.
+- **Skill body:** `00_orchestrator/harvest/SKILL.md` 1.0 -> 1.1: §8 now names the machine half of the round shape (S29 `harvest-rounds`); §9 makes the round retro the `rounds\LEDGER.tsv` retro column and states the feedback path (a script-decidable miss becomes a gate in `_Docs\test\structure_check.py` plus a `**SNN**` row in `{doc_root}	est\QC-REQUIREMENTS.md`; judgement misses stay manual gates); §11 points at S29 and the ledger.
+- **Gates (outside this repo):** `_Docs\test\structure_check.py` gains S29 `harvest-rounds` (ledger header and 9 fields, unique round, exited round absent from live floor and present under `{DEL}\harvested\rounds\`, live round folders with HARVEST-*.md/INDEX.md/MANIFEST.tsv/evidence, live pages not citing an exited round as a live path, `harvested\rounds\` form exempt). S22 DEL-root bug fixed (`D:\0del` -> `D:\MyProjects\.Del` plus legacy prefix mapping), S8 manifest regenerated, allowlist registered 8 expired parks, 6 family readmes added under `_DataBase\ACN`-style roots (ACY/LAA/PAH/SLE/VEGF/WML); `structure_check.py` 29 checks PASS, `path_audit.py` STALE 0.
+- **Ledger:** `_Docs\harvest\rounds\LEDGER.tsv` retro column filled for 20261113i / 20261113j.
+- **Not done / next:** promotion of this PR needs the owner's merge word; the two by-fine-id pending increments were judged dropped (2026-11-14) and stay as evidence.
 ## CHG-20261114-t20261114b-harvest-rename (2026-11-14)
 
 - **Disk (owner `m00435` authorization):** `_Docs\skill-harvest` -> `_Docs\harvest` (288 files / 5,854,775 B); `harvest\sources` -> `_Docs\harvest-sources-park` (110 files / 4,571,342 B; whole-tree move, never deleted); rounds `20261113i-del-harvest` and `20261113j-del-followups` -> `{DEL}\harvested\rounds\` (51 + 11 files). Moves recorded in a 460-row per-file sha256 manifest plus 10-column `{DEL}\harvested\MOVED.tsv` rows.
