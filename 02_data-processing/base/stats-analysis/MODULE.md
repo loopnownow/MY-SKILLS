@@ -25,8 +25,8 @@ Do not start formal tests until `ref/design-study.md` exists and `ref/design-loc
 
 - Which test matches the outcome, grouping, pairing, and normality?
 - What to do when an assumption fails (Welch, non-parametric, transform)
-- How to report the chosen test (APA-style templates in `references/reporting_standards.md`)
-- Bayesian re-analysis, priors, credible intervals, or a reviewer Bayesian sensitivity check
+- How to report the chosen test (test, assumption check, effect size, CI; house wording in `05_manuscript/advanced/Aitor-format.md`)
+- Bayesian re-analysis, priors, credible intervals, or a reviewer Bayesian sensitivity check (allowed when pre-specified; report priors, ROPE and sensitivity)
 - Running the in-pack assumption-check helper
 
 ## Open these files
@@ -34,9 +34,6 @@ Do not start formal tests until `ref/design-study.md` exists and `ref/design-loc
 | File | Open when |
 |---|---|
 | [references/test_selection_guide.md](references/test_selection_guide.md) | Choosing the test |
-| [references/assumptions_and_diagnostics.md](references/assumptions_and_diagnostics.md) | Assumption violations and remedies |
-| [references/reporting_standards.md](references/reporting_standards.md) | Result sentences |
-| [references/bayesian_statistics.md](references/bayesian_statistics.md) | Bayesian re-analysis, priors, credible intervals, sensitivity |
 | `{code_stats}\tools\stats-analysis\assumption_checks.py` | Programmatic normality / variance / outlier checks |
 
 Power / effect-size planning - `../calc-sample-size/references/effect_sizes_and_power.md`.
@@ -49,7 +46,7 @@ Choose by design first (outcome type, grouping, pairing, events per variable), t
 
 Always state which assumptions were checked and what was done if they failed. Mild normality
 violations with n > 30 per group may still support a parametric test; otherwise use the
-non-parametric alternative or Welch variants (`assumptions_and_diagnostics.md`).
+non-parametric alternative or Welch variants. Assumption theory and remedy tables are general statistical knowledge and are not restated here; ask a statistician before departing from the pre-specified plan.
 
 The checker lives in `{code_stats}\tools\stats-analysis\`; this pack keeps the pointer `scripts/README.md` (moved 2026-11-01, t1521u P3-A).
 
