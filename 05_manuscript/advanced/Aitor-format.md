@@ -157,7 +157,7 @@ Methods still opens with Ethics even if ethics is on the title page.
 
 Five paragraphs, eight beats, in funnel order (owner 2026-10-30 t1401u/t1402u). Beats in the same paragraph are one to three sentences each; related studies may run longer inside para 3.
 
-1. **Disease / burden** (para 1). Opening cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/manuscript-local-qc.md`, `intro_opening_has_citations`).
+1. **Disease / burden** (para 1). Opening cites the verified source when one exists. Zero citations here is a fail (`05_manuscript/qc/style-qc/scorecards.md` § Introduction, intro-opening rule).
 2. **Clinical significance** (para 1). Why the disease or decision matters for patients or practice.
 3. **Guideline definition** (para 2). Latest edition that defines the endpoint or clinical decision as **diagnostic criteria or examination criteria** (issuing body and year, verified by 03 in the same session; see `05_manuscript/advanced/process/evidence.md`). Paraphrase the definition. State the decision that rests on it.
 4. **Current standards / methods** (para 2). Routine standards or tests the guideline relies on, and what they leave open or cannot resolve.
@@ -180,7 +180,7 @@ Structure bans (Introduction first; Discussion deferred until explicitly extende
 - A scarcity claim ("few studies", "remains uncommon") needs a logged search (two sources, dates, queries) and is worded as what was found, not as what exists.
 - No current-study AUC dump. Expand abbreviations at first use.
 
-Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors and deduction codes: `05_manuscript/qc/manuscript-local-qc.md`. Pre-submit number, placeholder, and sister-paper checks: `05_manuscript/qc/manuscript-local-qc.md`. Base contract: `05_manuscript/base/write-paper/radiology-writing/introduction.md`.
+Evidence handling: `05_manuscript/advanced/process/evidence.md`. Scoring anchors and deduction codes (QCV, soft): `05_manuscript/qc/style-qc/scorecards.md`. Pre-submit number, placeholder, and sister-paper checks (QCS): `05_manuscript/qc/manuscript-local-qc.md`. Base contract: `05_manuscript/base/write-paper/radiology-writing/introduction.md`.
 
 
 ---
@@ -261,7 +261,7 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 ## Discussion (800-1000 words)
 
-Inverted funnel (owner 2026-10-30 t1404u): key findings (no cites/numbers) → literature contrast per finding → hedged mechanism if any → one clinical use-case → Limitations own paragraph → Conclusion. Every Introduction aim/hypothesis must be answered here (finding, limitation, or explicit deferral); QC: `manuscript-local-qc.md` Part A2 / LOG-5.
+Inverted funnel (owner 2026-10-30 t1404u): key findings (no cites/numbers) → literature contrast per finding → hedged mechanism if any → one clinical use-case → Limitations own paragraph → Conclusion. Every Introduction aim/hypothesis must be answered here (finding, limitation, or explicit deferral); QC: `05_manuscript/qc/style-qc/scorecards.md` § Discussion scorecard / LOG-5.
 
 Do **not** compress Discussion by page quota (no “cut to 1.5 pages”). Length follows the word band and content need.
 
@@ -281,7 +281,7 @@ Placeholders are the only fill values allowed in the skeleton: `[PLACEHOLDER: �
 
 ### Paragraph lock when filling the blank
 
-Slots below are a **content checklist, not paragraph units**. Filling a slot never licenses one line per slot. `05_manuscript/advanced/voice-portrait.md` Paragraph lock governs; `05_manuscript/qc/manuscript-local-qc.md` FLU-4 scores it.
+Slots below are a **content checklist, not paragraph units**. Filling a slot never licenses one line per slot. `05_manuscript/advanced/voice-portrait.md` Paragraph lock governs; `05_manuscript/qc/style-qc/scorecards.md` FLU-4 scores it.
 
 - **Continuous paragraphs.** IMRAD body = continuous Word paragraphs. Ban one sentence per `w:p`, and ban soft-return fake breaks (Shift+Enter / `w:br` inside one `w:p`) posing as paragraph breaks.
 - **Slots 1-14 are a checklist.** The Methods fill slots 1-14 and the Discussion content checklist are content to cover, not one slot per paragraph. Merge related sentences inside one subsection into the same paragraph.

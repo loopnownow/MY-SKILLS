@@ -101,17 +101,12 @@ REQUIRED_IDS = (
     "claim_matches_source",
     "no_unverified_cross_copy",
     "year_volume_from_source",
-    "paragraph_lock",
-    "intro_opening_has_citations",
-    "split_names_are_sets",
-    "approach_not_framework",
 )
 # 05-only writing-craft checks (Introduction / Discussion shape); not part of the
 # cross-manuscript set that 06 re-runs, so they are asserted on the 05 file only.
+# 2026-11-14: voice/structure checks moved out of the QCS file into the QCV report
+# (05_manuscript/qc/style-qc/), so only the science classes remain here.
 WRITING_ONLY_IDS = (
-    "intro_funnel_five_para",
-    "intro_discussion_loop",
-    "discussion_inverted_funnel",
     "no_causal_overclaim_observational",
 )
 REQUIRED_CLASSES = (
@@ -121,7 +116,7 @@ REQUIRED_CLASSES = (
     "process_language",
     "inclusion_scale",
     "citation_hygiene",
-    "writing_craft",
+    "claim_semantics",
 )
 WRITING = ROOT / "05_manuscript" / "qc" / "manuscript-local-qc.md"
 REVIEW = ROOT / "06_review" / "qc" / "cross-manuscript-qc.md"
@@ -777,13 +772,18 @@ class PreSubmitWiring(unittest.TestCase):
 
         aitor = pre_submit_checks_read("05_manuscript/advanced/Aitor-format.md")
         self.assertIn("Methods: no citations", aitor)
-        self.assertIn("intro_opening_has_citations", aitor)
+        self.assertIn("scorecards.md", aitor)
         self.assertIn("training set", aitor)
 
         # Wave2: introduction-scorecard absorbed into manuscript-local-qc Part A
-        score = pre_submit_checks_read("05_manuscript/qc/manuscript-local-qc.md")
+        # 2026-11-14: moved to the QCV annex (style-qc/scorecards.md).
+        score = pre_submit_checks_read("05_manuscript/qc/style-qc/scorecards.md")
         for code in ("FLU-4", "CIT-5", "CIT-6", "CIT-7"):
             self.assertIn(code, score, code)
+        qcv = pre_submit_checks_read("05_manuscript/qc/style-qc/style-qc.md")
+        self.assertIn("QCV-VOC-1", qcv)
+        self.assertIn("FAIL-SOFT", qcv)
+        self.assertNotIn("writing_craft", WRITING.read_text(encoding="utf-8"))
 
         # Wave2: advanced-review-style.md -> review.md
         style = pre_submit_checks_read("06_review/advanced/review.md")
@@ -793,8 +793,9 @@ class PreSubmitWiring(unittest.TestCase):
         self.assertIn("voxel-wise or cluster-forming", style)
 
         # Wave2: structures.md archived; paragraph_lock lives in manuscript-local-qc
-        structures = pre_submit_checks_read("05_manuscript/qc/manuscript-local-qc.md")
-        self.assertIn("paragraph_lock", structures)
+        # 2026-11-14: paragraph lock is QCV (style-qc/style-qc.md) now.
+        structures = pre_submit_checks_read("05_manuscript/qc/style-qc/style-qc.md")
+        self.assertIn("paragraph lock", structures.lower())
         # Wave2: de-ai.md archived; TRAIN_RATIO / approach stay in ban-phrases
         deai = (pre_submit_checks_BASE_VOCAB / "vocab" / "L1" / "ban-phrases.md").read_text(encoding="utf-8")
         self.assertIn("TRAIN_RATIO", deai)

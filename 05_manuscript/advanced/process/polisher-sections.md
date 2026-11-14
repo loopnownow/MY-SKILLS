@@ -240,7 +240,7 @@ enforces it. Delete the word and state the fact instead.
 
 #### Sentence structure targets
 - **Methods/Results:** 20-30 words average. Short conclusion sentences (≤15 words).
-- **Introduction/Discussion:** 10-30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/manuscript-local-qc.md`).
+- **Introduction/Discussion:** 10-30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/style-qc/scorecards.md`).
 - No sentence > 55 words anywhere.
 
 #### Clinical translation phrases (use in Discussion ¶4)
@@ -330,7 +330,7 @@ Hard bans (invariants):
 6. de-AI ban lists: `05_manuscript/base/vocab/L1/ban-phrases.md` plus advanced overrides in `05_manuscript/advanced/vocab/`.
 
 Also: `05_manuscript/advanced/references/style-guardrails.md` (overclaim / hedging), `05_manuscript/advanced/references/stat-reporting.md` (number formatting; house authority `Aitor-format.md`).
-Scored checklist: `05_manuscript/qc/manuscript-local-qc.md`.
+Scored checklist: `05_manuscript/qc/style-qc/scorecards.md` (QCV, soft).
 
 
 
