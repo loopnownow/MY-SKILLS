@@ -36,18 +36,9 @@ Do **not** dump specialty nouns into L2 `approved-en.tsv`.
 
 Project term-lock tables stay with each study folder. Per-project specialty nouns never enter L2.
 
-### Standing overrides (05 / 06 win)
+### Standing overrides (moved)
 
-These already live in MY-SKILLS and **must not** be flipped by Lab-STE defaults:
-
-- Methods voice stays **conventional passive** (Aitor / `route.md` / `05_manuscript/base/vocab/L1/sci-overrides.md`). Lab-STE's `EN-V01` default is active; when writing SCI Methods here, treat the on-disk profile as `methods_voice: conventional_passive`.
-- Prose comparisons: **Compared** not Relative; metric names like `relCBF` / relative CBF stay (`05_manuscript/base/vocab/L1/ban-phrases.md`).
-- **attenuated** banned; imaging noun **attenuation** stays.
-- Split names use **set** (`training` / `test` / `validation set`), never rewrite set→group (`voice-portrait.md`).
-- Short sentences, inside continuous paragraphs (`voice-portrait.md`).
-- Track Changes: Aitee owns; Lee marks/comments only.
-- Do not overwrite corresponding-author / funding / ethics defaults on an existing `.docx` (`06_review/advanced/word-edit.md`).
-- Hard ban table and process/placeholder bans stay in `05_manuscript/base/vocab/L1/ban-phrases.md` (source of truth for English ban words).
+House overrides (Methods voice, compared/relative, attenuated, split names, short sentences, Track Changes ownership, author/funding/ethics defaults) moved to `05_manuscript/advanced/vocab/L3/voice-habits.md`. Ban tables stay in `05_manuscript/base/vocab/L1/ban-phrases.md`.
 
 ### Reusable rules (new relative to prior advanced files)
 
@@ -93,9 +84,9 @@ Numeric caps (words/sentence, passive ratio, etc.) live in parked `config.yaml` 
 - Cut empty four-character / stock phrases in comments (`至关重要`, `应运而生`, `综上所述` as empty openers, …). Full tables: `lexicons/hedge-zh.tsv`, `idiom-zh.tsv`, `nominalization-zh.tsv`, `de-ai-zh.tsv` (this folder).
 - Bare `该/其/此/这` need a unique antecedent; otherwise repeat the noun.
 
-#### Chinese manuscript-comment (稿面批注) five slots → 06
+#### Chinese manuscript-comment (稿面批注) five slots
 
-Face comments (Word author **A**) use the five-slot habit in `06_review/advanced/review.md` (CM-01). Journal English envelope stays `Lines n-m: + defect + Please…` in `06_review/advanced/review.md`. Lab-STE does not change the Word author field.
+Moved to `05_manuscript/advanced/vocab/L3/voice-habits.md`; Word author stays **A**.
 
 #### Profiles (when to open the full SPEC)
 

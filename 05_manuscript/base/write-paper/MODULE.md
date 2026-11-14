@@ -62,7 +62,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
 | `polish` | **handoff** → advanced De-AI (absorbed retired `humanize`) |
-| `venue-shape` | this file + [journal-family-writing-style.md](radiology-writing/journal-family-writing-style.md) + [nature-family-shape.md](radiology-writing/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
+| `venue-shape` | this file + [journal-family-writing-style.md](../../advanced/venue/journal-family-writing-style.md) + [nature-family-shape.md](../../advanced/venue/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
 | `reporting` | **handoff** → `05_manuscript/qc/check-reporting/` (qc-only) |
 
 ## IMRAD map
@@ -88,10 +88,10 @@ Use after the target journal family is known (Radiology-family vs Nature-family 
 
 | File | Open when |
 |---|---|
-| `radiology-writing/journal-family-writing-style.md` | Journal-family wording and counts for a named family (JCO, NEJM AI, ...); verify against the live guide |
-| `radiology-writing/nature-family-shape.md` | Nature-portfolio shape (unstructured abstract, Extended Data, Methods placement) |
+| `05_manuscript/advanced/venue/journal-family-writing-style.md` | Journal-family wording and counts for a named family (JCO, NEJM AI, ...); verify against the live guide |
+| `05_manuscript/advanced/venue/nature-family-shape.md` | Nature-portfolio shape (unstructured abstract, Extended Data, Methods placement) |
 | `radiology-polishing/radiology-house-style.md` | Radiology-family voice, spelling, abbreviations, and Nature-family deltas |
-| `radiology-polishing/venue-voice-and-house-style.md` | Venue voice and tone once the target venue is known |
+| `05_manuscript/advanced/venue/venue-voice-and-house-style.md` | Venue voice and tone once the target venue is known |
 | `references/journal-patterns-2023-2026.md` | Dated venue-family writing patterns (not a submit-here list) |
 
 ## Envelope

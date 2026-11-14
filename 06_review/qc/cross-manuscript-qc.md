@@ -83,10 +83,8 @@ Use the check ids in `05_manuscript/qc/manuscript-local-qc.md`. Review actions:
 | claim_matches_source | Major when the sentence asserts something the cited work does not claim. Dual plan per `06_review/advanced/review.md` §4.7. |
 | no_unverified_cross_copy | Major. An author list or DOI copied from a sister manuscript is unverified. |
 | year_volume_from_source | Major if a year or volume was changed without a source check. Ask to verify. Do not supply the "correct" year from memory. |
-| paragraph_lock | Minor. Short sentences may stay; one sentence per line or per paragraph in the body may not. |
-| intro_opening_has_citations | Minor, or Major if the opening claim is doing evidential work with no source. Element 6 stays uncited. |
-| split_names_are_sets | Minor. Training, test, and validation stay **set**. |
-| approach_not_framework | Minor. Vague "framework" becomes "approach". |
+
+Voice and structure checks (paragraph lock, Intro opening citations, split names, "framework" wording) are **QCV**, not science: they live in `05_manuscript/qc/style-qc/style-qc.md` and run only at S4. This review re-runs the science ids above; it does not score voice.
 
 ### Comment shape
 

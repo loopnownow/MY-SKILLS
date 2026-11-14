@@ -34,4 +34,4 @@ Lab-ref soft-check contract (detect only; **never** auto-edit manuscript numbers
 
 ## Logic absorb (2026-10-30 t1404u)
 
-CN-5 pairs with `result-to-claim.md` RC-7 and `manuscript-local-qc.md` D-MECH-1 / LOG-5. Do not duplicate reporting-guideline names in Introduction.
+CN-5 pairs with `result-to-claim.md` RC-7 and `05_manuscript/qc/style-qc/scorecards.md` D-MECH-1 / LOG-5. Do not duplicate reporting-guideline names in Introduction.

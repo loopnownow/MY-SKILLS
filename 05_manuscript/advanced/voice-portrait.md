@@ -7,12 +7,12 @@ Executable format remains `Aitor-format.md`. This file keeps the **overall portr
 
 **Paragraph lock (2026-10-01):** Write body as paragraphs; do not one-sentence-per-line / one-sentence-per-paragraph. Short sentences OK, but keep related sentences in the same paragraph. Abstract four-section labels, Methods/Results subheads, Highlights bullets, table/figure notes still follow `Aitor-format.md`.
 
-**Pre-submit (2026-10-02):** run `05_manuscript/qc/manuscript-local-qc.md` before a house draft is called final. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
+**Pre-submit (2026-10-02):** run science QC `05_manuscript/qc/manuscript-local-qc.md` before a house draft is called final; at S4 run style QCV `05_manuscript/qc/style-qc/style-qc.md`. Introduction opening paragraph cites when a verified source exists. Element 6 stays uncited. Final body and legends carry no pipeline tokens, source-attribution hedges, or placeholders.
 
 ---
 
 **Bank harvest (2026-10-23):** additive notes in `05_manuscript/advanced/references/bank-voice.md` (quote habits). Do not wipe this portrait; process 否定句 stay in Word 批注 only.
-**Advanced L2 (2026-10-27):** the owner's recurring wording with bank counts lives in `05_manuscript/advanced/vocab/L2/preferred-advanced.md`. Base L2 stays canonical.
+**Advanced L2 (2026-10-27; bank moved 2026-11-14):** the frequency bank lives in `05_manuscript/advanced/vocab/L2/preferred-bank.md`; recurring wording with counts in `05_manuscript/advanced/vocab/L2/preferred-advanced.md`. Base keeps the machine lists and the canonical bans.
 
 ## 1. Overall portrait
 
@@ -89,7 +89,7 @@ Detail templates stay in `polisher-sections.md` / `Aitor-format.md`. This sectio
 - Revise the original `.docx` in place with Track Changes; comments author **A**. Ownership: see `00_orchestrator/references/ownership-contract.md`.
 - Missing facts → comment / ask; never yellow fill; never silent overwrite of existing corresponding-author / funding / ethics text.
 - Full delivery rules: `06_review/advanced/word-edit.md`.
-- Before calling the draft final, run `05_manuscript/qc/manuscript-local-qc.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.
+- Before calling the draft final, run science QC `05_manuscript/qc/manuscript-local-qc.md` and, at S4, style QCV `05_manuscript/qc/style-qc/style-qc.md`. Number conflicts stay comments. Do not leave `TRAIN_RATIO`, "as stated by the source", 待补, or internal QC labels in the body or legends.
 
 ---
 

@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Advanced house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`). Reporting checklists → `05_manuscript/qc/check-reporting/` (qc-only).
+Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pack (`05_manuscript/advanced/venue/journal-family-writing-style.md`, `05_manuscript/advanced/venue/nature-family-shape.md`). Reporting checklists → `05_manuscript/qc/check-reporting/` (qc-only).
 
 ## 1.1 When to use
 
@@ -16,7 +16,7 @@ Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pa
 ## 1.2 Workflow
 
 1. Subtask: `draft-section` | `full-imrad` | `methods-skeleton` | `outline`
-2. If the user named a venue family, open venue-shape files in this pack (`05_manuscript/base/write-paper/radiology-writing/journal-family-writing-style.md`, `05_manuscript/base/write-paper/radiology-writing/nature-family-shape.md`, `radiology-polishing/`); do not load a advanced format file
+2. If the user named a venue family, open venue-shape files in this pack (`05_manuscript/advanced/venue/journal-family-writing-style.md`, `05_manuscript/advanced/venue/nature-family-shape.md`, `radiology-polishing/`); do not load a advanced format file
 3. Open the table below
 4. Output the envelope in `MODULE.md`
 

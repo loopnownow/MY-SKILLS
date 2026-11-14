@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging I/O and ROI/reader QC
 
-Contract only for preprocess-imaging: scope, bans, phase names, and pointers. The recipe and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
+Contract only for preprocess-imaging: scope, bans, phase names, and pointers. The house working method and the revision authority live in `02_data-processing/advanced/analysis/pipeline.md`; pack data (`references/`, `scripts/`) stays beside it as data.
 
 Covers volumetric **I/O** (DICOM/NIfTI read, convert, organise, geometry preserve) and **ROI / reader / mask QC** before radiomics or modelling. Absorbed former fine id `imaging-io` (alias in `00_orchestrator/legacy_aliases.yaml`). This pack does **not** translate papers and does **not** launch a bilingual reader. Full-text retrieve is `lit-search`.
 

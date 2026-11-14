@@ -1,10 +1,14 @@
-# Report checks (checklist + consistency)
+# Report checks (science QC: QCS)
+
+**Class:** QCS (science). Style, typography and voice are **not** checked here; they belong to QCV (`05_manuscript/qc/style-qc/style-qc.md`) and house format (`05_manuscript/advanced/Aitor-format.md` § Format).
+
+**Evidence rule:** every check must name the artifact it is checked against (data table, model output, results table, source full text). Missing artifact = `UNVERIFIABLE`, never `PASS`. A check with no evidence requirement is not a check.
+
+**Applicability tags:** `[universal]` any study; `[lab default]` this lab's convention, overridable by the design or the owner; `[study-specific]` only when the design or metadata require it; `[optional diagnostic]` run on request, not a gate.
 
 ## Part A — Statistical reporting checklist
 
-## Statistical Reporting Checklist — Aitor Style
-
-Use this checklist when polishing Results and Methods sections.
+Use when checking reported Results and Methods against the underlying outputs. Style and typography are out of scope here.
 
 ---
 
@@ -12,22 +16,17 @@ Use this checklist when polishing Results and Methods sections.
 
 #### General
 - [ ] All P values reported as exact values when ≤ 0.05 (e.g., P = 0.002), and as comparison when > 0.05 (e.g., P = 0.12 or P > 0.05)
-- [ ] P is italicized: *P* (adjust per journal house style)
-- [ ] All CIs reported as 95% CI: X–X or 95% CI: X-X (en dash allowed, ASCII hyphen also fine; Unicode minus U+2212 also allowed for signed numbers; no spaces around the dash)
-- [ ] **Decimals:** Table 1 continuous/% cells → **1 or 2** places; *P*, AUC (+ 95% CI bounds), NRI/IDI, correlation (*r*/ρ and their *P*) → **3** places
+- [ ] CI dash/encoding and decimal places follow house format, not a science rule: `05_manuscript/advanced/Aitor-format.md` § Format (en dash allowed, U+2212 allowed for signed numbers, no spaces around the dash)
 - [ ] All AUCs reported with 95% CI in parentheses
 - [ ] Sensitivity, specificity, NPV, PPV all reported as percentages with 1 decimal place
 - [ ] Effect sizes reported (OR, HR, RR) with 95% CI when applicable
-- [ ] ICC values reported for inter/intra-observer agreement (threshold: ICC > 0.75 = good)
+- [ ] ICC reported with model/type and 95% CI for inter/intra-observer agreement; **ICC > 0.75 is a lab default convention, not a universal cut-off** `[lab default]`
 
 #### Continuous variables
-- [ ] Normality test reported (Shapiro-Wilk or Kolmogorov-Smirnov)
-- [ ] Normal → mean ± SD
-- [ ] Non-normal → median (IQR)
-- [ ] Normal groups → independent t-test
-- [ ] Non-normal groups → Mann-Whitney U test (not "Wilcoxon rank-sum" unless two related groups)
-- [ ] Two related normal groups → paired t-test
-- [ ] Two related non-normal groups → Wilcoxon signed-rank test (always spelled out fully)
+- [ ] Distribution described with the statistic used (mean ± SD, or median (IQR)) and the reason `[universal]`
+- [ ] Normality checked and reported (Shapiro-Wilk for small *n*; D'Agostino-Pearson or QQ plot for larger *n*) as **one input, not the test-selection rule** `[universal]`
+- [ ] Test choice justified by design (paired vs independent, number of groups, event counts) **and** assumptions checked (independence, variance, distribution); normality alone does not force t-test vs Mann-Whitney `[universal]`
+- [ ] Effect size with 95% CI reported next to the test statistic `[universal]`
 
 #### Categorical variables
 - [ ] Reported as N (%)
@@ -41,21 +40,21 @@ Use this checklist when polishing Results and Methods sections.
 - [ ] Never `Development set`; never `hold-out` as the test-set name
 
 #### Diagnostic performance
-- [ ] Default: `AUC of X (95% CI: X-X)` reported for **both** training and test
+- [ ] AUC of X (95% CI: X-X) reported for training and test whenever a test set exists `[universal]`
 - [ ] ROC curve AUC with 95% CI (`95% CI: X–X`; en dash or ASCII hyphen, no spaces; Unicode minus U+2212 also allowed for signed numbers)
-- [ ] AUC comparison via DeLong method (paired *P*, not the CI)
+- [ ] AUC comparison by a stated method (DeLong, or a named paired bootstrap); DeLong is not the only valid method `[universal]`
 - [ ] Optimal threshold reported (typically Youden index; disclose per split)
 - [ ] Sensitivity + specificity + PPV + NPV at threshold
-- [ ] Calibration: Hosmer-Lemeshow P value reported (P > 0.05 = good calibration)
-- [ ] DCA performed and net benefit described qualitatively
+- [ ] Calibration: calibration plot + calibration-in-the-large / slope; Hosmer-Lemeshow P is one signal only, and **a non-significant P alone is not "good calibration"** (binning- and power-dependent) `[universal]`
+- [ ] DCA: net benefit across a plausible threshold range, **only when a decision threshold/utility is pre-specified**; without pre-specified utility it stays an optional diagnostic `[study-specific]`
 
 #### Radiomics-specific
-- [ ] Default narrative: **training/test + LASSO + nomogram**
-- [ ] LASSO lambda selected by 10-fold CV on the **training** set (minimum criteria; not nested CV)
+- [ ] Narrative states the modelling pipeline actually used (feature selection, model, validation); LASSO + nomogram is a **lab default template**, not a required narrative `[lab default]`
+- [ ] When LASSO is used: lambda selection stated (e.g. 10-fold CV on the training set); do not describe it as nested CV unless nested CV was run `[lab default]`
 - [ ] Number of features before and after selection both stated
 - [ ] Rad-score formula in prose (no LASSO-feature table)
 - [ ] Training **and** test AUC of X (95% CI: X-X) both reported
-- [ ] Feature stability: ICC or CV < 10% (if reported)
+- [ ] Feature stability reported if attempted (state the ICC or CV threshold used; `ICC or CV < 10%` is a lab default) `[lab default]`
 
 #### Survival analysis (when applicable)
 - [ ] HR (95% CI) reported, not just P value
@@ -64,7 +63,7 @@ Use this checklist when polishing Results and Methods sections.
 
 #### Metabolomics-specific
 - [ ] Multivariate model type stated (sPLS-DA, PLS-DA, OPLS-DA)
-- [ ] VIP threshold stated (typically VIP > 1.0)
+- [ ] VIP threshold stated (lab default: VIP > 1.0) `[lab default]`
 - [ ] Metabolite changes: direction (increase/decrease) + group comparison explicit
 - [ ] Enrichment analysis: database cited (KEGG, MetaboAnalyst)
 - [ ] Pathway names italicized if gene names involved
@@ -134,7 +133,8 @@ Raw measurement tables → `02_data-processing/advanced/table-signals.md`.
 | G-FACT (00) | Pipeline number drift across 02→05→06 |
 | This note | Academic reporting consistency signals |
 | `02_data-processing/advanced/table-signals.md` (02) | Raw measurement tables |
-| Part A of this file | Lab reporting style (body/figures) |
+| Part A of this file | Lab statistical reporting items; style/format out of scope (QCV) |
+| `05_manuscript/qc/style-qc/style-qc.md` | Style/voice report (QCV, soft; S4 only) |
 | `05_manuscript/qc/manuscript-local-qc.md` | Writing actions for the same check ids |
 | `06_review/qc/cross-manuscript-qc.md` | Review: annotate conflicts; do not invent numbers |
 
@@ -206,3 +206,4 @@ On conflict, annotate only. Never invent the replacement number.
 
 Cross-manuscript / sister-paper: `06_review/qc/cross-manuscript-qc.md`.
 Manuscript local QC: `05_manuscript/qc/manuscript-local-qc.md`.
+Style/voice QC report: `05_manuscript/qc/style-qc/style-qc.md`.

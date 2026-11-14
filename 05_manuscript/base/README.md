@@ -1,6 +1,6 @@
 # 05_manuscript/base
 
-Thin contracts for 05 manuscript. No domain-level SKILL.md. The recipe (beats, bands, typography, voice, polish procedure) lives in `05_manuscript/advanced/`; these packs state scope, bans, phase names, and pointers.
+Thin contracts for 05 manuscript. No domain-level SKILL.md. The house voice and personal locks (beats, bands, typography, voice, personal phrase bank) live in `05_manuscript/advanced/`; these packs state scope, bans, phase names, and pointers. Generic IMRAD teaching and machine bans stay in base.
 
 | Pack | Path | Role |
 |---|---|---|

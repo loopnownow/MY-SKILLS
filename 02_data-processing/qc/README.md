@@ -1,8 +1,8 @@
 # 02_data-processing / qc
 
 **Owner:** `00_orchestrator` only loads these at Gate time.
-**Domains/specialists do not self-certify via this folder.** First-pass and 02 re-loops use `base/` and `advanced/`; they do not invoke `qc/` themselves. A check that needs a fix recipe cites the `02_data-processing/advanced/` anchor; this folder never restates the recipe.
-First-pass stats/figures stay in `base/` (contracts) and `advanced/analysis/` (pipeline, methods, figures = the recipe).
+**Domains/specialists do not self-certify via this folder.** First-pass and 02 re-loops use `base/` and `advanced/`; they do not invoke `qc/` themselves. A check that needs fix guidance cites the `02_data-processing/advanced/` anchor; this folder never restates the fix.
+First-pass stats/figures stay in `base/` (contracts) and `advanced/analysis/` (pipeline, methods, figures = the house method).
 
 | File | Gate(s) |
 |---|---|

@@ -44,7 +44,7 @@ Local DeepSeek (DSH) and Cline are external packs, not seats and not bots. They 
 
 ## LIVE fine id → bot
 
-Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; currently **22** LIVE fine ids. Each id appears exactly once. Rewritten whenever the registry changes (see «Keeping this table in sync»).
+Must match the tip of [`../registry.yaml`](../registry.yaml) on `main`; the LIVE fine-id count is settled in the registry `meta` and is not restated here. Each id appears exactly once. Rewritten whenever the registry changes (see «Keeping this table in sync»).
 
 | Coarse id | Fine id | Bot |
 |---|---|---|

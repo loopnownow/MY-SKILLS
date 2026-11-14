@@ -4,7 +4,7 @@
 
 1. **base thin first pass** stats/figures fine-IDs (`stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, ...): contracts only, pack data beside them
 2. **00 QC** (G-FACT / G-STATS; score, cite the advanced anchor)
-3. **02 advanced revise loop** -- lab pipeline / report-checks / figures (the recipe lives here); may re-trigger a base fine id when 00 says needed -> re-gate at 00
+3. **02 advanced revise loop** -- lab pipeline / report-checks / figures (the house method lives here); may re-trigger a base fine id when 00 says needed -> re-gate at 00
 
 Fine IDs for stats-analysis / figures are **not** renamed.
 

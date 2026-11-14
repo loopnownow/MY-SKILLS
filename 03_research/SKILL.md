@@ -28,7 +28,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 |---|---|
 | `base/` | Thin contracts for lit-search, design-study, verify-refs, lit-fulltext, find-journal, fill-protocol; pack data (`rules/`, `data/`, `references/`) |
 | 00 | QC gate; decides whether 03 re-triggers verify/retraction |
-| `advanced/` | The recipe and the authority: citation-verify protocol, journal-selection SOP, radiology design, grants/ethics/intake/translation, Jinshan fill forms |
+| `advanced/` | The personal revision authority: house design/selection habits, Jinshan fill forms, owner-confirmed method. Generic protocol belongs in base references |
 
 ## Three pillars
 

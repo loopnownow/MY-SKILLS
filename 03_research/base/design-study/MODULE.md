@@ -13,7 +13,7 @@ trigger is documentation only; not independently discoverable.
 
 # Imaging Study Design & Feasibility
 
-Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 Former pack names that resolved into this seat are retired aliases only — see `00_orchestrator/legacy_aliases.yaml`; do not reopen those trees.
 
@@ -124,13 +124,6 @@ generalisable or single-center-anecdote.
 9. **`Design lock`** — `ref/design-lock.md` with the six sections complete or explicitly unknown;
    owner acceptance recorded before handing to `stats-analysis`.
 
-
-## Quality bar
-
-A good design read sounds like a senior imaging-AI mentor who has reviewed for _Radiology_:
-it tells the author honestly whether the data can carry the ambition, designs the validation
-that will survive review, and surfaces the one constraint everything hinges on — without
-inflating a single-center retrospective dataset into a claim it cannot support.
 
 ## Handoffs
 

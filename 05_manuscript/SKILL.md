@@ -31,7 +31,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 | `base/` | Thin contract: `write-paper` scope + bans; vocab data under `05_manuscript/base/vocab/`. De-AI contract+procedure: `advanced/process/polisher-sections.md` section De-AI pass (absorbed retired `humanize`) |
 | `qc/` | `check-reporting/` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR; qc-only, not a registry fine id); scorecards and deduction codes that cite advanced anchors |
 | 00 | Final QC |
-| `advanced/` | Every recipe: Aitor-format beats/bands/typography, voice, de-AI procedure, evidence and citation protocol; final wording authority |
+| `advanced/` | House voice and personal locks: Aitor-format beats/bands/typography, voice portrait, de-AI pass, personal phrase bank; final wording authority. Generic IMRAD teaching stays in base |
 
 ## Advanced assets
 
@@ -90,7 +90,7 @@ Word counts, citation placement, typography, and Table 1 layout live only in **`
 | Role | Location | Notes |
 |---|---|---|
 | **Evidence / instances** (four layers + index) | `GLOSSARY_ROOT` = `_Docs\_library\glossary` | Layers per glossary README **四层**: `words/` `sentences/` `paragraphs/` + `sections/*.md` pointer pages; machine index `index.csv` (13 cols). `banks\` is evidence-only (jsonl / `glossary.db`; gitignored). Env: **`GLOSSARY_ROOT`** (not a second banks alias). |
-| **Criteria / rules** (lint / execute) | `05_manuscript/base/vocab/` (+ named advanced) | SSOT for bans and preferred forms: `base/vocab/L1/ban-terms.yaml` (+ human `ban-phrases.md`), `05_manuscript/base/vocab/L2/preferred.md`, `05_manuscript/base/vocab/L3/lab-ste.md` + lexicons; advanced: `advanced/vocab/L2/preferred-advanced.md`, `advanced/references/ai_patterns.md`, de-AI lexicons under `base/vocab/L3/lexicons/`. Glossary rows only **`rule_ptr`** back here — never copy rule bodies into `GLOSSARY_ROOT`. |
+| **Criteria / rules** (lint / execute) | `05_manuscript/base/vocab/` (+ named advanced) | SSOT for bans and preferred forms: `base/vocab/L1/ban-terms.yaml` (+ human `ban-phrases.md`), `05_manuscript/base/vocab/L2/preferred.md` (thin pointer), `05_manuscript/base/vocab/L3/lab-ste.md` + lexicons; advanced: `advanced/vocab/L2/preferred-bank.md`, `advanced/vocab/L2/preferred-advanced.md`, `advanced/references/ai_patterns.md`, de-AI lexicons under `base/vocab/L3/lexicons/`. Glossary rows only **`rule_ptr`** back here — never copy rule bodies into `GLOSSARY_ROOT`. |
 
 Route / load order: `advanced/route.md`. Do not harvest or move rule bodies into the glossary seat from this skill.
 

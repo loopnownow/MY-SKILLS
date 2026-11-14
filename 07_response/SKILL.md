@@ -26,7 +26,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Flow: base thin-contract first pass (`revise` / `tighten-response`; contracts in `07_response/base/`) -> **00 QC** (score, cite the `advanced/` anchor) -> **07 advanced** revise loop and final authority -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Base packs draft; **07 advanced owns the recipe**: letter voice, opener templates, resolution status (`advanced/response.md`).
+Base packs draft; **07 advanced owns the house method**: letter voice, opener templates, resolution status (`advanced/response.md`).
 
 ## Advanced assets
 

@@ -12,7 +12,7 @@ owner: "03_research/base/fill-protocol/MODULE.md"
 
 # Fill-Protocol Skill
 
-Contract only for fill-protocol (ethics form intake): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for fill-protocol (ethics form intake): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 ## Draft first, then fill
 

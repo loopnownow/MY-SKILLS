@@ -20,4 +20,4 @@ See [README.md](README.md) for the live file list. Thin entry: [SKILL.md](SKILL.
 Glossary evidence seat (four layers + `index.csv`) maintenance and gates:
 [references/glossary-maintenance.md](references/glossary-maintenance.md).
 
-`05_manuscript/advanced/vocab/` holds the advanced L1 overrides plus the L2 advanced phrase table (`05_manuscript/advanced/vocab/L2/preferred-advanced.md`). Do not duplicate base lists here.
+`05_manuscript/advanced/vocab/` holds the owner's personal corpus: `05_manuscript/advanced/vocab/L2/preferred-bank.md` (frequency bank), `05_manuscript/advanced/vocab/L2/preferred-advanced.md` (recurring usage), `05_manuscript/advanced/vocab/L3/voice-habits.md` (house overrides and Chinese comment slots), and `05_manuscript/advanced/vocab/L1/sci-overrides.md`. Base keeps the machine-readable lists and the canonical bans; where an advanced row conflicts with a base ban, base wins. Do not duplicate base lists here.

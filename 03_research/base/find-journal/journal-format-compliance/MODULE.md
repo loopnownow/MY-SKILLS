@@ -5,7 +5,7 @@ owner: "03_research/base/find-journal/journal-format-compliance/MODULE.md"
 
 # Journal Format Compliance
 
-Contract only for journal-format-compliance (author instructions): scope, bans, phase names, and pointers. The recipe and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for journal-format-compliance (author instructions): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
 
 Bring an existing manuscript (usually a .docx) into compliance with a specific journal's author guidelines, deliver a plan before touching the file, and produce a submission-ready .docx with the changes visible as Word tracked changes.
 

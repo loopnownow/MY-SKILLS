@@ -26,7 +26,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Flow: base thin-contract first pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; contracts in `06_review/base/`) -> **00 QC** (score, cite the `advanced/` anchor) -> **06 advanced re-review only** -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
 
-Base packs may raise findings; **06 advanced owns the recipe and the English peer-review envelope** (`advanced/review.md`: opener templates, comment habits, statement-then-data protocol).
+Base packs may raise findings; **06 advanced owns the house peer-review method and the English envelope** (`advanced/review.md`: opener templates, comment habits, statement-then-data protocol).
 Resolution status for response letters -> **07**.
 
 ## Advanced assets

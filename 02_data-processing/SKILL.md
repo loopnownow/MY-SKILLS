@@ -28,13 +28,13 @@ Live lab modules **v4.3.1** are the lab default (`{code_modules}`; version SSOT 
 
 **Flow:** base thin-contract first pass (`02_data-processing/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `02_data-processing/advanced/`** -> re-gate at 00.
 Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-The advanced layer carries the recipe (coding/extract/workspace protocols, analysis pipeline, console UI, methods, figures) and may re-trigger a base fine id when 00 says so.
+The advanced layer carries the owner's confirmed working method and house habits; generic procedure belongs in base pack references or MY-CODES docs. It may re-trigger a base fine id when 00 says so.
 
 | Layer | Owns |
 |---|---|
 | `base/` | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, `db-library` under `02_data-processing/base/` |
 | 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
-| `advanced/` | The recipe and the authority: route/handoff, workspace/extract/coding/table-signals, analysis pipeline/console-ui/methods/figures, and the per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/` |
+| `advanced/` | The personal revision authority: owner-confirmed method, house console/figures habits, per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/`. Generic protocol belongs in base references or MY-CODES |
 
 ## Advanced assets (top layer)
 

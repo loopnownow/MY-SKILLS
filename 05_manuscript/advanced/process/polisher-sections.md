@@ -33,7 +33,7 @@ If the user provides raw text without labeling the section, infer from content s
 ### §1 — Abstract Polishing Rules
 
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
-1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. Counts by family: `05_manuscript/base/vocab/L2/preferred.md` §1; the owner's own usage: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`.
+1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. Counts by family: `05_manuscript/advanced/vocab/L2/preferred-bank.md` §1; the owner's own usage: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
 3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
 4. **Conclusion sentence** — 1-2 sentences. Clinically grounded. Use *"may provide"*, *"could assist [task]"* — never absolute claims, and never `demonstrated potential` (lab-unused stock; `05_manuscript/base/vocab/L1/ban-phrases.md`).
@@ -175,7 +175,7 @@ Do **not** compress Discussion by page count. Structure and word band win over �
   3. Relatively small sample size
   4. Need for external multicenter validation
   5. (If applicable) manual ROI segmentation variability
-- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. Counts: `05_manuscript/base/vocab/L2/preferred.md` §5.
+- Template: *"This study has several limitations. First,… Second,… Third,… Future research should [focus on / explore / validate]…"* — **"Future research should…" is the bank-dominant closer (18/96, vs. "Future studies should…" at 9/96, vs. any "warrant(ed)" phrasing at 14/96 total across all uses, not just closers)**. Prefer "Future research/studies should…" over "…are warranted…" as the default closing move. Counts: `05_manuscript/advanced/vocab/L2/preferred-bank.md` §5.
 
 **¶6 / Conclusion (separate section)**
 - 1-2 sentences maximum.
@@ -240,7 +240,7 @@ enforces it. Delete the word and state the fact instead.
 
 #### Sentence structure targets
 - **Methods/Results:** 20-30 words average. Short conclusion sentences (≤15 words).
-- **Introduction/Discussion:** 10-30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/manuscript-local-qc.md`).
+- **Introduction/Discussion:** 10-30 words (align `Aitor-format.md` / `voice-portrait.md`). One fact per sentence, inside a continuous paragraph; no long subordinate stacks. Do not lay the opening out as one sentence per paragraph, and do not leave that opening uncited when a verified source exists (`05_manuscript/qc/style-qc/scorecards.md`).
 - No sentence > 55 words anywhere.
 
 #### Clinical translation phrases (use in Discussion ¶4)
@@ -330,7 +330,7 @@ Hard bans (invariants):
 6. de-AI ban lists: `05_manuscript/base/vocab/L1/ban-phrases.md` plus advanced overrides in `05_manuscript/advanced/vocab/`.
 
 Also: `05_manuscript/advanced/references/style-guardrails.md` (overclaim / hedging), `05_manuscript/advanced/references/stat-reporting.md` (number formatting; house authority `Aitor-format.md`).
-Scored checklist: `05_manuscript/qc/manuscript-local-qc.md`.
+Scored checklist: `05_manuscript/qc/style-qc/scorecards.md` (QCV, soft).
 
 
 
