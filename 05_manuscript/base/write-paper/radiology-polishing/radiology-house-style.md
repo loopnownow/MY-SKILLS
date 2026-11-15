@@ -27,6 +27,7 @@
 
 ## Concision (cut these)
 - Keep prose concise; cut padding.
+- "here" (referring to the present work): write "this study".
 - "It is worth noting that," "It should be emphasized," "In order to" (→ "to"), "a total
   of," "very/quite," "novel/cutting-edge," "robust" as filler.
 - Nominalizations → verbs ("performed an evaluation of" → "evaluated").
