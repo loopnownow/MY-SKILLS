@@ -35,7 +35,7 @@ If the user provides raw text without labeling the section, infer from content s
 **Structure** (4 implicit parts, even if unheaded). Full papers: labels **Objective:** **Methods:** **Results:** **Conclusion:** are **bold and flush left** (`Aitor-format.md`):
 1. **Objective sentence** — Keep **three** purpose-sentence families; do not collapse to one: **"This study aimed to…"** / **"The aim of this study was to…"** / bare infinitive **"To investigate/explore/evaluate…"**. Never a rhetorical question. State clinical need immediately. Counts by family: `05_manuscript/advanced/vocab/L2/preferred-bank.md` §1; the owner's own usage: `05_manuscript/advanced/vocab/L2/preferred-advanced.md`.
 2. **Methods sentence(s)** — Lead with population: *"A total of N patients/animals were…"*. Then imaging/analytical pipeline, validation strategy. All abbreviations defined parenthetically at first use.
-3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Explicitly distinguish significant from non-significant findings: *"…but not in the X group."*
+3. **Results sentence(s)** — Report quantitative metrics in sentence form (not lists): AUC (95% CI), sensitivity, specificity, P values. Negative or non-significant findings may be omitted here (`Aitor-format.md` § Abstract); they remain in the body Results.
 4. **Conclusion sentence** — 1-2 sentences. Clinically grounded. Use *"may provide"*, *"could assist [task]"* — never absolute claims, and never `demonstrated potential` (lab-unused stock; `05_manuscript/base/vocab/L1/ban-phrases.md`).
 
 **Characteristic phrase patterns to preserve or introduce:**
