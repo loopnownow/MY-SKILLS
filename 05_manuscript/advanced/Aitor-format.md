@@ -146,8 +146,8 @@ Methods still opens with Ethics even if ethics is on the title page.
 - Do not cite every sentence. Shared source on neighbouring sentences: cite once.
 - Do not reuse an earlier number after a later number has entered.
 - No `[1-3]` clusters.
-- Introduction 800-1000 words, 10-15 refs. **Last paragraph (aim / hypothesis): no citations.**
-- Discussion 800-1000 words, 10-15 **new** refs (no overlap with Introduction). **First paragraph: no citations.**
+- Introduction ≤800 words (中文前言 ≤800 字), 10-15 refs. **Last paragraph (aim / hypothesis): no citations.**
+- Discussion ≤800 words (中文讨论 ≤800 字), 10-15 **new** refs (no overlap with Introduction). **First paragraph: no citations.**
 - Those 10-15 / 10-15-new quotas apply when **writing new** Introduction / Discussion. When **checking an already-written** manuscript, do **not** delete genuine references to hit the quota; note over-quota only.
 - When **revising an existing** manuscript, reorder in-text Vancouver numbers to appearance order against the reference list. If the reference list contains a duplicate entry, replace that duplicate with an already-verified substitute (author **A**). This duplicate-list exception only.
 - **Methods: no citations.**
@@ -155,7 +155,7 @@ Methods still opens with Ethics even if ethics is on the title page.
 
 ---
 
-## Introduction (800-1000 words)
+## Introduction (≤800 words)
 
 Five paragraphs, eight beats, in funnel order (owner 2026-10-30 t1401u/t1402u). Beats in the same paragraph are one to three sentences each; related studies may run longer inside para 3.
 
@@ -261,7 +261,7 @@ Impossible or biologically implausible lab cells: shown, not interpreted; *P* = 
 
 ---
 
-## Discussion (800-1000 words)
+## Discussion (≤800 words)
 
 Inverted funnel (owner 2026-10-30 t1404u): key findings (no cites/numbers) → literature contrast per finding → hedged mechanism if any → one clinical use-case → Limitations own paragraph → Conclusion. Every Introduction aim/hypothesis must be answered here (finding, limitation, or explicit deferral); QC: `05_manuscript/qc/style-qc/scorecards.md` § Discussion scorecard / LOG-5.
 
@@ -344,7 +344,7 @@ Subtitles follow the Methods order, not a one-for-one mirror (owner t1671u). A M
 
 ### Discussion content checklist (radiomics blank)
 
-The inverted funnel in § Discussion is the **voice and QC rule** (word band 800-1000, first paragraph no citations or numbers, Limitations in its own paragraph with at most five `First…Second…` items, Conclusion with no AUC). The slots below are the **content checklist** for enriching the blank, and they nest inside that funnel:
+The inverted funnel in § Discussion is the **voice and QC rule** (word band ≤800 words, first paragraph no citations or numbers, Limitations in its own paragraph with at most five `First…Second…` items, Conclusion with no AUC). The slots below are the **content checklist** for enriching the blank, and they nest inside that funnel:
 
 1. **Context 1** (clinical versus radiomics findings kept separate; contrast with published models and markers; concordant results → disease meaning; discordant results → reasons).
 2. **Context 2** (first modality).
