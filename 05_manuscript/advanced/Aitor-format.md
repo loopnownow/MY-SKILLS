@@ -128,6 +128,8 @@ Flush left, no indent. Objective → Methods (*n*) → Results (AUC, CI) → hed
 
 Lead Results with **test-set** AUC (training in parentheses if needed). If a nomogram, calibration, NRI, or RadScore was not exported, put that fact in a **Word comment** (author **A**); do not write it in Methods, Results, or Highlights. Do not invent those numbers.
 
+Keep the abstract ≤300 words (中文摘要 ≤300 字), and negative or non-significant findings may be omitted from Abstract `Results:` (they remain in the body Results).
+
 ---
 
 ## Document order
