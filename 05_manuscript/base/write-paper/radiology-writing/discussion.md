@@ -24,6 +24,7 @@ _Radiology_ expects a structured Discussion, not a re-listing of Results.
 ## Rules
 - Don't repeat Results figure-by-figure.
 - Don't introduce new results or methods.
+- First paragraph: do not state negative or non-significant findings.
 - Limitations are not a disclaimer dump — they are an honest scope statement; reviewers
   respect specificity.
 
