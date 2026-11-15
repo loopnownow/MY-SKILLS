@@ -37,7 +37,7 @@ Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body 
 
 Undecidable / missing-fact issues: state the reason in a Chinese comment, then an English suggestion line that starts with `Suggested …` (or equivalent Suggested wording), and/or suggested literature. Invent or disclaimer language stays in the comment. Never put it in the manuscript body.
 
-Word comments / Track Changes author field is **A** (never `Grok`, never yellow).
+Word comments / Track Changes author field is **A** (the owner's identity; never `Grok`, never yellow).
 
 **Verify, do not assume.** Before a `.docx` is delivered, run the tracked-changes gate:
 `python {code_stats}\tools\office\validate.py <edited.docx> --original <pre-edit.docx> --author A`.

@@ -9,6 +9,8 @@
 
 **Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\del-and-harvest.md` §2（H1–H4）+ §6（对象与布局）.
 
+**Standing (2026-11-15, t2073u, 城城):** Word comments (批注) and tracked changes (修改痕迹) whose author is **A** are the owner's own marks and first-class harvest content. Harvest the marks (decisions, wording, traps), never the full manuscript body.
+
 **Evidence source priority by lane (t1953u, owner 2026-11-11):**
 
 | Lane | Primary | Secondary | Last resort |
@@ -16,7 +18,7 @@
 | `calc-sample-size` | **LLM-derived** (formula / assumption set / worked example) | — | own archives |
 | `design-study` | **LLM-derived** | `_library\\references` method sections | our own published methods |
 | `draw-flowchart`, `plot-figures` | **our published Figure 1** (`_library\\references` full text) | — | — |
-| `track-changes` | **our `archived` manuscripts / replies** (revision marks) | project `ref\\review` | — |
+| `track-changes` | **A's 批注 and 修改痕迹** in our manuscripts / replies (author **A** = owner; live or `archived`) | project `ref\\review` | — |
 
 **LLM-sourced drafts are not evidence of our practice.** Header must carry `evidence_type: AI假设` and
 `归属: Cap`; keep only "what the rule is / when it breaks"; never invent numbers, cutoffs, citations or

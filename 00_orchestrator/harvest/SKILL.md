@@ -25,7 +25,7 @@ SSOT (`{RULES}`, `{SKILLS}`, `_Docs`, `_DataBase`); harvest is not their steward
 | Same-turn authorization | the owner named this round, this source, and this lane set in the current turn |
 | Source in scope | `.Del` move-outs, `_library` (schema and how-to only), `_DataBase` (`_db` / `_share` / leaf readme), project or archived tree, downloads folder; each named |
 | Not closeout | no byte move, rename, delete, or warehouse ingest in this run |
-| No PHI / PII | no patient identifiers, identifiable images, ethics annexes, or unpublished grant / manuscript bodies |
+| No PHI / PII | no patient identifiers, identifiable images, ethics annexes, or unpublished grant / manuscript bodies. Author **A** comments and tracked changes may be harvested (marks only) |
 
 `archived` is read-only by default: extracting from the cold store also needs the same-turn name. A lifecycle
 stage never triggers harvest by itself. Source and stage authority: `{RULES}\workspace-layout.md`
@@ -68,6 +68,7 @@ fourth bucket.
   round's evidence (aggregate, delta, moves plan, gate log).
 - Evidence types: 用户纠正 / 失败返工 / 成功案例 / AI假设. Success cases default into the bank; corrections and
   rework become candidates; AI hypotheses are recorded and never auto-promote.
+- Word comments and Track Changes by author **A** are the owner's marks and first-class harvest sources (用户纠正 / 成功案例). Extract the marks only, never the full manuscript body.
 - LLM-sourced lanes mark `evidence_type: AI假设` and `归属: Cap`, keep only what the rule is and when it breaks,
   and never invent numbers, cutoffs, citations or DOIs. Figure-derived lanes record layout parameters and criteria
   only, never the image, and cite the source DOI.
@@ -143,7 +144,7 @@ exited round as a live path.
    point into it. Never delete the folder; re-point the aliases before any move.
 2. `rounds\` is not a warehouse for promoted content; see §8.
 3. Never invent a lane or a fine id.
-4. Never harvest a data body, full manuscript or grant text, or PHI.
+4. Never harvest a data body, full manuscript or grant text, or PHI. Author **A** comments and tracked changes are marks, not the body.
 5. Never present an LLM hypothesis as lab practice.
 6. No mirror snapshots, no second evolution log, no fifth knowledge base.
 7. A round with no `evidence/` is not a finished round.
@@ -165,3 +166,4 @@ exited round as a live path.
 - 1.1 (2026-11-14, t20261114c): round shape and exit consistency become the machine gate S29 in
   `_Docs\test\structure_check.py`; the round retro is the `rounds\LEDGER.tsv` retro column; QC misses that a
   script can decide become gates, judgement misses stay manual.
+- 1.2 (2026-11-15, t2073u): author **A** Word comments and tracked changes are the owner's marks and first-class harvest sources; extract marks only, never the full body.
