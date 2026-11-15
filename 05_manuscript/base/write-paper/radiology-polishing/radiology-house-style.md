@@ -26,9 +26,12 @@
 - Add the **n** behind percentages: "65% (204 of 314)."
 
 ## Concision (cut these)
+- Keep prose concise; cut padding.
 - "It is worth noting that," "It should be emphasized," "In order to" (→ "to"), "a total
   of," "very/quite," "novel/cutting-edge," "robust" as filler.
 - Nominalizations → verbs ("performed an evaluation of" → "evaluated").
+- "described below" / "criterion described below" / "as follows": name the criterion or the Methods subsection.
+- "No uniformly accepted definition of X exists" (and kin): state the definition this study used; do not open with the negative.
 
 ## Structure-level
 - One idea per sentence; one message per paragraph (first sentence states it).
