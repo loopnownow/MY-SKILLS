@@ -144,7 +144,7 @@ Group sizes: always parenthetical — *(n = 158)*; two groups in running text: `
 
 Do **not** compress Discussion by page count. Structure and word band win over “cut to N pages”.
 
-**Discussion structure** for full papers: `Aitor-format.md` (key findings → per-finding literature with **new** refs → clinical → limitations → conclusion; 800-1000 words). Sentence templates below still apply.
+**Discussion structure** for full papers: `Aitor-format.md` (key findings → per-finding literature with **new** refs → clinical → limitations → conclusion; ≤800 words). Sentence templates below still apply.
 
 **Discussion structure** (4-6 paragraphs):
 

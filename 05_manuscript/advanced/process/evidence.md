@@ -112,7 +112,7 @@ No invented PMID/DOI. User decides which plan when both remain open.
 
 Gap discovery from live packs → `05_manuscript/advanced/process/evidence.md` (Part A) (A 05 judges; 03 searches).
 
-Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro 800-1000 words, 10-15 refs, last paragraph no citations; Discussion 800-1000 words, 10-15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `05_manuscript/qc/style-qc/scorecards.md`.
+Quotas and IMRAD locks live only in `Aitor-format.md` (do not copy): Intro ≤800 words, 10-15 refs, last paragraph no citations; Discussion ≤800 words, 10-15 **new** refs (no overlap with Intro), first paragraph no citations and no result numbers; Methods no citations. Scoring: `05_manuscript/qc/style-qc/scorecards.md`.
 
 ### When to load
 
