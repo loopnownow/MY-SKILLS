@@ -41,6 +41,9 @@ qc:
   rounds: 0
 
 defects: []
+  # this-run recovery only (open | recovered | unresolved; max 3 then unresolved).
+  # Standing cross-stage issues: ref/review/issue-ledger.yaml (00_orchestrator/references/issue-ledger.md).
+  # An unresolved defect must be registered or updated there; do not treat defects[] as that ledger.
   # - id: D1
   #   node: 02_data-processing
   #   gate: G-STATS

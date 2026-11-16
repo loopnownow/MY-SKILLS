@@ -1,0 +1,17 @@
+# Copy to {lab_root}\<stage>\<project>\ref\review\issue-ledger.yaml on the first standing issue.
+# Do not pre-create an empty file. Schema: 00_orchestrator/references/issue-ledger.md
+# defects[] in project-state.yaml remains this-run recovery only (max 3, then unresolved → a row here).
+
+issues: []
+  # - id: ISS-001
+  #   first_detected: 02_data-processing
+  #   first_gate: G-STATS
+  #   category: statistics
+  #   severity: major
+  #   summary: ""
+  #   evidence: ""
+  #   blocking: 05_manuscript
+  #   blocking_gate: G-FACT
+  #   resolution: ""
+  #   status: open
+  #   updated: ""          # YYYY-MM-DD
