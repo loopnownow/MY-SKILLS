@@ -4,6 +4,15 @@ Integrity moments only. Not a checkpoint after every node.
 00 checks; the specialist named in the fail column repairs. Never invent n / AUC / PMID / ethics.
 
 
+## Cross-stage issue ledger
+
+Standing problems for a project live in `ref/review/issue-ledger.yaml` (schema: [`references/issue-ledger.md`](references/issue-ledger.md); template: [`templates/issue-ledger.yaml`](templates/issue-ledger.yaml)). 00 owns the schema; seats `02`–`07` update rows. This is not a new gate id.
+
+Register or update a row when a gate FAIL is still open at the end of the run, when `defects[].status` becomes `unresolved`, or when a specialist or the owner names a problem that will outlive this run. Do not register a fail recovered in the same run. The same problem keeps one `id` across stages.
+
+`defects[]` in `project-state.yaml` remains this-run recovery (max 3). `accepted` means the limitation is disclosed in the manuscript, not silently closed. Response-letter items belong on `07`, not `06`.
+
+
 ### Gate class (HARD | QUALITY)
 
 Light metadata on existing gate ids — **do not invent** `G-HARD` / `G-QUALITY` ids.
