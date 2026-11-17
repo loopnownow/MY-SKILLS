@@ -18,5 +18,6 @@ Bank proposal source: Downloads `Grok会话-技能草案-20261024.md` → archiv
 ## cautions
 - Nomogram axes must show original string labels (incl. merged multi-level), never 0/1/2/3 codes; FIGO stays Roman.
 - Do not change outcome / inclusion / cutoff / covariates / missingness “to make it run”.
+- When analysis finds missing values: impute and record, or stop and ask if missingness is large-area; do not silently complete-case or drop columns (SSOT: `02_data-processing/base/clean-data/impute/MODULE.md`, analysis-time policy).
 - After an exclusion list fires, re-check denominators (n must drop in lockstep).
 - Algorithm library path is `{code_stats}` (`GitHub\MY-CODES`) — **not** under `base/stats-analysis/`. Detail: `methods.md`, `pipeline.md`, `../../qc/report-checks.md`.

@@ -99,7 +99,7 @@ Validation modes keep the clinical meanings: default `lock_threshold` locks coef
 
 ## Missingness and HTML
 
-- Drop columns above the missingness cutoff **before** imputation (`02_data-processing/base/clean-data/impute/`; default >50%).
+- Inventory missingness before the run. Impute and record, or stop and ask the owner if missingness is large-area (SSOT: `02_data-processing/base/clean-data/impute/MODULE.md`, analysis-time policy). Do not silently drop columns above a cutoff (the former >50% drop is withdrawn) or switch the primary analysis to complete-case.
 - Results HTML: if a survival curve is drawn twice (sidebar + main), keep the **main** pane only.
 
 ## Run

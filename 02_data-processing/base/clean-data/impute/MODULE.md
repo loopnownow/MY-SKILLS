@@ -1,11 +1,11 @@
 ---
 name: "impute"
 domain: "02_data-processing"
-trigger: ["插补", "补缺失", "MICE", "按组填"]
+trigger: ["插补", "补缺失", "MICE", "按组填", "缺失值", "大面积缺失"]
 inputs: ["excel_or_csv", "group_column"]
 outputs: ["imputed_table", "impute_qc", "backup"]
 tools: ["Python"]
-quality_control: "group-stratified; observed cells unchanged; align_decimals"
+quality_control: "group-stratified; observed cells unchanged; align_decimals; ask if large-area missing; record every fill"
 owner: "02_data-processing/base/clean-data/impute/MODULE.md"
 ---
 
@@ -36,9 +36,25 @@ Out of scope: modelling, LASSO, AUC/calibration (`stats-analysis` / `model-evalu
 
 Minimum: one Excel/CSV table + a group column (cohort or split) + the intended use of the filled table. If the group column is missing, **ask**; a dummy group is a discouraged fallback. Never fill silently with a grand mean across outcome groups.
 
+## Analysis-time policy
+
+When statistical analysis (the modelling pipeline, Table 1, models, or any reported estimate) finds missing values in the analysis table, do not ignore them, and do not silently switch the primary analysis to complete-case or drop a column so the run can proceed.
+
+1. **Inventory first.** For each involved variable, record n, the missing count and rate, the split (train/test separately once a split exists), and whether the pattern is scattered or block. Do not invent values.
+
+2. **Large-area missingness — stop and ask the owner.** Do not impute, drop the variable, or listwise-delete until the owner answers. Any one of the following is large-area:
+   - an analysis variable (a model covariate, a Table 1 or other reported clinical variable, or any variable that will enter the reported statistics) has a missing rate of **20% or more** in the analysis set (quote train and test separately if already split);
+   - listwise deletion of the intended analysis would drop **10% or more** of rows;
+   - block missingness (a whole modality missing, or a near-empty column);
+   - missing values in the **outcome**, the **split** indicator, or an **ID** (IDs are never imputed).
+
+   The former silent default of dropping columns with more than 50% missing is withdrawn. Those columns are large-area; ask.
+
+3. **Otherwise, impute and record.** Use this pack's default method (`iterative`, unless the paper or the owner named another). Backup the original table; do not overwrite the only original. After a train/test split, fit the imputer on training only and leave complete test-set values unchanged. Write `impute_qc` or an equivalent receipt: variables, n_miss before/after, method, seed, whether the fit was train-only, and a Methods sentence that matches what actually ran (do not call a single fill "MICE" or "multiple imputation"). Carry that record into the analysis run and, when a manuscript is updated, into Methods.
+
 ## Workflow (decision nodes)
 
-1. **Inspect**: shape, sheets, group levels and n, missingness pattern (block vs scattered), overwrite vs new file, backup. Detail: [`references/checklist.md`](references/checklist.md).
+1. **Inspect**: shape, sheets, group levels and n, missingness pattern (block vs scattered), overwrite vs new file, backup. Apply the analysis-time policy above: if missingness is large-area, stop and ask; otherwise plan to impute and record. Detail: [`references/checklist.md`](references/checklist.md).
 2. **Decide single vs multiple** — this decides whether a CI is honest. Single fill for a completed table going into feature work; multiple imputation + Rubin pooling when a β/OR/HR/mean difference with CI is reported. `iterative` alone is single imputation; `mice` is its legacy alias and is **not** multiple imputation.
 3. **Pick the single-table method**: default `iterative`; `median` for fast / block-missing / interpretable; `missForest` only if the paper specified it; `mean` only for a symmetric near-normal univariate. Detail and knobs: [`references/methods.md`](references/methods.md).
 4. **Run** with an explicit group column (an explicitly named group always stratifies, whatever its name). CLI/Python entries: `{code_model_validation}\impute_excel.py`, `z_impute` in `{code_modules}\utils\u_impute.py`.
@@ -52,7 +68,8 @@ Minimum: one Excel/CSV table + a group column (cohort or split) + the intended u
 - Never round new values away from the observed decimal places (`align_decimals=True` default).
 - Never skip the backup (default `<stem>_pre_impute.xlsx`).
 - Never impute Name/ID, and never use the group column as a numeric feature.
-- Never put drop-column thresholds in this pack; they belong to the modelling pipeline.
+- Never silently drop a high-missing column or run a complete-case primary analysis when missing values were found during statistical analysis; ask if large-area, otherwise impute and record.
+- Never put other drop-column thresholds in this pack; residual modelling-only filters belong to the modelling pipeline and still must not silently drop large-area missingness.
 - **Leakage**: after a train/test split, fit the imputer on training and transform test. Do not impute the pooled table and then split; do not impute test rows from a model fitted on both.
 - **MI reporting**: a Methods sentence that says only "MICE" or "multiple imputation" while the numbers came from one table is wrong. Say how many imputations and that they were pooled. For a model metric (e.g. AUC from a selection pipeline), do not attach a Rubin-pooled CI; run the whole pipeline inside each imputation and report the mean with the range or 2.5th-97.5th percentile across imputations.
 
