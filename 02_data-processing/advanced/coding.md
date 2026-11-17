@@ -6,7 +6,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 ## When it applies
 - Soft-coding (CONFIG on top)
 - Large trim / remove dead parts
-- Checkpoint resume / parallel / CUDA
+- Checkpoint resume / parallel / CUDA (probe host CPU / GPU / RAM before writing compute code)
 - dry-run
 - Smoke test before background / background-run monitor
 - **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 02)
@@ -25,7 +25,7 @@ Medical / Statistical Integrity: **only reference** `02_data-processing/qc/repor
 
 ## Core principles
 
-Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume / smoke test before background / background-run monitor) → MY-RULES `My rule.md` §7 执行准则. Below is the skill-side expansion and template pointers.
+Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume / smoke test before background / background-run monitor / probe host hardware then prefer parallel and CUDA) → MY-RULES `My rule.md` §7 执行准则. Below is the skill-side expansion and template pointers.
 
 ### 1. Soft-coding (CONFIG on top)
 - Paths, keywords, and params live in a top-of-file config block (config before logic)
@@ -41,7 +41,9 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - Skip already-processed results; check intermediate files or done markers
 
 ### 4. Parallel / CUDA
-- Independent tasks may run in parallel; watch memory
+- Before writing engineering or compute code, read the execution machine's CPU (cores / threads), RAM (total and available), and GPU (name, VRAM, whether CUDA is usable). Do not invent these from memory or from another machine.
+- Independent tasks may run in parallel; watch memory and do not oversubscribe when a library already uses all cores.
+- If the hardware allows and the work is suitable, prefer multithreading (or process parallelism) and CUDA acceleration. If there is no usable GPU / CUDA, or the job is tiny, I/O-bound, or inherently serial, keep a CPU path; do not force CUDA.
 
 ### 5. Comment rules
 - **2026-10-24 decision kept**: comments = config-field meaning + how to run; **do not** write long business “why”. Authority → `{RULES}` `My rule.md` §7 执行准则.
