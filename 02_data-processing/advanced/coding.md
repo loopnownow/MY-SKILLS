@@ -8,6 +8,7 @@ Deep code QC detail: `../qc/coding-qc.md`. Do not create a new top-level skill o
 - Large trim / remove dead parts
 - Checkpoint resume / parallel / CUDA
 - dry-run
+- Smoke test before background / background-run monitor
 - **Deep review / Deep QC / modules code QC** (five axes + medical integrity **by reference** to 02)
 - Write-time code ladder / post-write complexity check (stable method absorption, not an external fine id)
 - Research data-processing scripts (R/Python/MATLAB/shell; raw→analysis-ready) release-ready QC
@@ -24,7 +25,7 @@ Medical / Statistical Integrity: **only reference** `02_data-processing/qc/repor
 
 ## Core principles
 
-Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume) → MY-RULES `My rule.md` §7 执行准则. Below is the skill-side expansion and template pointers.
+Authoritative standing rules (CONFIG on top / comment only config + how-to-run / no fallback / multi-module optional via config / dry-run / checkpoint resume / smoke test before background / background-run monitor) → MY-RULES `My rule.md` §7 执行准则. Below is the skill-side expansion and template pointers.
 
 ### 1. Soft-coding (CONFIG on top)
 - Paths, keywords, and params live in a top-of-file config block (config before logic)
@@ -66,6 +67,10 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 ### 6. Dry Run
 - Trial run first; print the operations that would run for confirmation
 
+### 6a. Smoke test before background
+- Before a background or long job (expected runtime ≥2 min, or launched detached), run a smoke test first: a small real sample or the first step, not dry-run alone.
+- If smoke fails, fail loud and do not start the full background job.
+
 ### 7. Deep QC
 - Triggers, severity, Preflight→Verdict, Data Safety / Reproducibility: `../qc/coding-qc.md`
 - Scrap → `{del_root}`, submodule dry-run, no silent success: `../qc/coding-qc.md`
@@ -73,6 +78,15 @@ Authoritative standing rules (CONFIG on top / comment only config + how-to-run /
 - Boundary: ≠ the retired `skill-harvest/qc` / MY-RULES `{RULES}\skills.md` (skill-evolution); ≠ `preprocess-imaging`; ≠ 02 model/figure QC; ≠ Copilot playbooks/`quality/`
 - Do not vendor the whole `{code_modules}` tree
 - 00 routing: `gates.md` **G-CODE**
+
+### 8. Background-run monitor
+- When starting a background or long job (expected runtime ≥2 min, or launched detached), also start a visible console monitor.
+- Default refresh: 60 s; print the first line immediately.
+- Each tick shows: job name / PID, progress, ETA, CPU and RAM; GPU util + VRAM if a GPU is present, else `GPU: none`.
+- Write a percent and ETA only when a countable n/N is available; otherwise leave them unknown. Do not invent progress from CPU or similar.
+- Chat and handoff reports stay at milestone, stuck, or done (see `../../00_orchestrator/references/handoff-monitor.md`); do not flood the chat every 60 s.
+- The monitor exits when the job exits.
+- Prefer a reusable watcher under `{code_root}` when one exists; the job should expose n/N or a status file the watcher can read.
 
 ## Bundled template
 - `{code_data_processing}\templates\soft_code_template.py` — soft-coding + checkpoint resume + dry-run template
@@ -120,7 +134,7 @@ Severity: usually **Optional**; clear duplicate of an existing module may be **R
 Do **not** delete or weaken for shortness:
 
 - train/test (/ external) isolation; seeds; artifacts / reproducibility dumps
-- dry-run / `--execute`; CONFIG-on-top; checkpoint
+- dry-run / `--execute`; CONFIG-on-top; checkpoint; smoke test before background; visible console monitor for long or background jobs
 - Stats & data QC (point to `02_data-processing/advanced/analysis/pipeline.md` / `report-checks.md`; do not rewrite gold standards here)
 - Registration / habitat hard QC; Pictologics constraints
 
