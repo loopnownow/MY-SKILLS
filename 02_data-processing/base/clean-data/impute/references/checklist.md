@@ -4,7 +4,9 @@
 
 - [ ] Confirm input path and sheet name (`cln` / `rad` / single table)
 - [ ] Confirm group column (default `Group`) and levels (e.g. HC / SSD)
-- [ ] Preview missingness: column count, total missing cells, block missing?
+- [ ] Preview missingness: column count, total missing cells, rates by variable and split, block vs scattered
+- [ ] If missingness is large-area (see MODULE.md analysis-time policy): **stop and ask the owner** — do not impute or drop yet
+- [ ] If not large-area: plan imputation, the backup, and the record (impute_qc / receipt / Methods sentence)
 - [ ] Choose method (default `iterative`, alias `mice`; block missing may use `median`)
 - [ ] Plan backup path (default `<stem>_pre_impute.xlsx`)
 
@@ -18,7 +20,7 @@
 - [ ] Numeric missing-cell count dropped (ideally 0; low-variance columns may remain)
 - [ ] **Observed values unchanged** (non-missing positions match the backup)
 - [ ] New values’ decimal places ≈ mean decimal places of that column’s observed values
-- [ ] `impute_qc` (or equivalent table) has: column, miss_before/after, ndigits
+- [ ] `impute_qc` (or equivalent receipt) has: column, miss_before/after, n_filled, ndigits, method, seed, train-only fit or not, and a Methods sentence that matches the run
 - [ ] Do not narrate ID / label / group columns as predictors in a leakage write-up
 
 ## Methods-ready example sentence
@@ -42,6 +44,7 @@ Pick the one that matches what actually ran. They are not interchangeable.
 - Fill outcome-related missingness with the global mean across Group (unless the user explicitly asks)
 - Impute on the test set using information outside the training set (if train/test already split, **fit the imputer on train only** then transform test — current CLI is “whole table by group”; post-split needs an extra script)
 - Overwrite the only original file with no backup
+- Silently drop a high-missing column or switch the primary analysis to complete-case when missing values were found; large-area missingness must be asked first
 - Write “multiple imputation” or “MICE” while the numbers came from a single completed table
 - Average AUCs across imputations and attach a Rubin-pooled CI to the average (Rubin's rules do not cover a pipelined metric; report the range instead)
 
@@ -50,3 +53,4 @@ Pick the one that matches what actually ran. They are not interchangeable.
 - Fill outcome-related missingness with the global mean across Group (unless the user explicitly asks)
 - Impute on the test set using information outside the training set (if train/test already split, **fit the imputer on train only** then transform test — current CLI is “whole table by group”; post-split needs an extra script)
 - Overwrite the only original file with no backup
+- Silently drop a high-missing column or switch the primary analysis to complete-case when missing values were found; large-area missingness must be asked first

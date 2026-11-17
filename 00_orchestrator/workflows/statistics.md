@@ -14,7 +14,7 @@ If `ref/project-state.yaml` is missing, copy `../../00_orchestrator/templates/pr
 2. **Workspace** — folder names, `exc` first, ID align: `{RULES}/workspace-layout.md`. Table batch stays `02_data-processing` (`clean-data` when picked this run). File check: analysis-ready table exists. Handoff `02`.
 3. **Methods / prep (`02_data-processing`)** — live `preprocess-imaging` for ROI/QC (if picked), then live `stats-analysis` / `preprocess-imaging` for IBSI/radiomics/habitat **preparation** (if picked; former radiomics-ml / radiomics-habitat absorb). Advanced MATLAB: `{code_data_processing}\preprocess-imaging\fmri\parallel_preprocess.m`.
 4. **Feature matrix (`02_data-processing`)** — extraction / habitat prep. Hand a patient-level table to `02_data-processing`. No feature selection on the full cohort.
-5. **Missing-value handling (`02_data-processing`, live `clean-data` when picked) then pipeline (`02_data-processing`)** — drop >50% missing; `python -m modules.pipeline`. `VAL_MODE` and columns only from `settings.ini`.
+5. **Missing-value handling (`02_data-processing`, live `clean-data` when picked) then pipeline (`02_data-processing`)** — inventory missingness; impute and record, or stop and ask if large-area (SSOT: `02_data-processing/base/clean-data/impute/MODULE.md`, analysis-time policy). Do not silently drop columns or switch to complete-case. Then `python -m modules.pipeline`. `VAL_MODE` and columns only from `settings.ini`.
 6. **Stop for numbers** — one `*-results.html` per endpoint. File check + gate **G-STATS**. Do not write a manuscript in this SOP unless the user also picks `sci-manuscript` (node **N3**).
 
 ## Do not
