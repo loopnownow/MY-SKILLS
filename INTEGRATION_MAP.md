@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2154u (2026-11-19):** one-off scripts that have been used more than once for similar work are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not class them as H2 merely because they were written or filed as one-offs. A truly single-use patch remains H2. Detail in `00_orchestrator/harvest/SKILL.md` §2 and `00_orchestrator/references/text-harvest-by-fine-id.md`; standing rule in `{RULES}\del-and-harvest.md` §2 / §6. No fine-id change; registry `change_id` unchanged.
+
 - **t2110u (2026-11-17):** before writing engineering or compute code, read the execution machine's CPU / GPU / RAM; prefer multithreading (or process parallelism) and CUDA when the hardware allows and the work is suitable; otherwise keep a CPU path and do not force CUDA. Do not invent hardware from memory or from another machine. Detail in `02_data-processing/advanced/coding.md` §4; standing pointer in `{RULES}` `My rule.md` §7. No fine-id change; registry `change_id` unchanged.
 
 - **t2108u (2026-11-17):** long or background jobs (expected runtime ≥2 min, or detached) must smoke-test first and start a visible console monitor (default 60 s refresh; first line immediately; job name/PID, progress, ETA, CPU/RAM, GPU if present). Percent and ETA only when a countable n/N exists; otherwise leave them unknown — do not invent. Chat reports stay at milestone / stuck / done. Detail in `02_data-processing/advanced/coding.md` §6a / §8; standing pointer in `{RULES}` `My rule.md` §7. No fine-id change; registry `change_id` unchanged.

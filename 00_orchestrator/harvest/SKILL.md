@@ -38,9 +38,11 @@ Owner rule: `{RULES}\del-and-harvest.md` §2（H1–H4）. Classify the batch fi
 | Class | Test | Action |
 |---|---|---|
 | H1 reusable how-to | procedure, criterion, decision reason, trap, verification method, checklist or report shape | harvest (three buckets) |
-| H2 no harvest | data tables, raw files, PHI-adjacent files, third-party source trees, build output, browser or probe profiles, one-off ledger patches, logs | never queued; move to `harvested` after the three checks |
+| H2 no harvest | data tables, raw files, PHI-adjacent files, third-party source trees, build output, browser or probe profiles, single-use one-off patches, logs | never queued; move to `harvested` after the three checks |
 | H3 live dependency | an active script or doc depends on the path | fix code or pointer first, then move |
 | H4 project leftovers | one project's in-progress or closeout files | `_by-project/<slug>/` |
+
+Repeatedly used, functionally similar one-off scripts are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES. Do not class them as H2 just because they were written or filed as one-offs. A truly single-use patch remains H2.
 
 ## 3 Lanes
 
@@ -168,3 +170,4 @@ exited round as a live path.
   script can decide become gates, judgement misses stay manual.
 - 1.2 (2026-11-15, t2073u): author **A** Word comments and tracked changes are the owner's marks and first-class harvest sources; extract marks only, never the full body.
 - 1.3 (2026-11-19, t155u): the owner's Word author mark is **Adm**, not **A** (corrects 1.2 / t2073u); harvest Adm revisions and comments (marks only). Helper comments/TC remain author **A**.
+- 1.4 (2026-11-19, t2154u): repeatedly used, functionally similar one-off scripts are harvest objects (H1); single-use patches remain H2.
