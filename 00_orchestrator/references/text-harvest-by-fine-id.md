@@ -7,9 +7,11 @@
 
 **Workspace (t1840u):** when/where harvest may run, and harvest ≠ closeout → `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (same-turn owner auth; pointer only).
 
-**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\del-and-harvest.md` §2（H1–H4）+ §6（对象与布局）.
+**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / single-use one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\del-and-harvest.md` §2（H1–H4）+ §6（对象与布局）.
 
 **Standing (2026-11-19, t155u, 城城; corrects t2073u):** Word comments (批注) and tracked changes (修订/订正) whose author is **Adm** are the owner's own marks and first-class harvest content. Harvest the marks (decisions, wording, traps), never the full manuscript body. Helper/agent author **A** is not the owner and is not this lane's primary source.
+
+**Standing (2026-11-19, t2154u, 城城):** one-off scripts that have been used more than once for similar work are harvest objects (H1). Extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not treat them as H2 merely because they were written as one-offs. A truly single-use patch remains H2.
 
 **Evidence source priority by lane (t1953u, owner 2026-11-11):**
 
