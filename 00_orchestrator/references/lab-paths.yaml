@@ -17,8 +17,8 @@ aliases:
   rules_git: "D:\\MyProjects\\_Docs\\GitHub\\MY-RULES"
   # _Docs — 2026-10-23: human-readable layer folded into <coarse-id>/advanced|base; live content under advanced\.
   doc_lab_ste: "D:\\MyProjects\\_Docs\\GitHub\\MY-SKILLS\\05_manuscript\\advanced\\lab-ste"  # full SPEC/config/lexicons/tools home (absorbed into skills 2026-11-14; method page 05_manuscript/base/vocab/L3)
-  # Curated xlsx lives under mem\ (not the topic bank tree); submission priors sit beside it
-  jcr2026_xlsx: "D:\\MyProjects\\_Docs\\mem\\医学投稿推荐_JCR2026.xlsx"
+  # Curated xlsx lives under _library\journals\ (not in git; not a derived index.xlsx); t2167u moved from mem\
+  jcr2026_xlsx: "D:\\MyProjects\\_Docs\\_library\\journals\\医学投稿推荐_JCR2026.xlsx"
   find_journal_submission: "D:\\MyProjects\\_Docs\\_library\\journals"  # 2026-10-31: jcr\2026\submission flattened into journals\ (whitelist-submitted.csv / submission-prior.jsonl sit there)
   find_journal_pools: "D:\\MyProjects\\_Docs\\_library\\journals"
   # 2026-10-31 t1458u: pools collapsed to _library\journals\index.csv (single table; xlsx retired same day);
