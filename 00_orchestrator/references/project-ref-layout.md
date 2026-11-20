@@ -12,7 +12,7 @@ Read the SSOT before writing into a project `ref/`.
 | Results / scratch area | 「三区 / 临时结果区」 |
 | Submission packs (accepted vs not) | 「投稿包」 |
 | Manuscript names (`Manuscript_` / `Comments_` / `Response_` / `Supplementary_`, `V*` / `R*`) | 「SCI 稿件文件名」 |
-| Journal-specific format copy (do not overwrite the generic manuscript) | 「目标刊格式版（母本不动，按刊另存）」 |
+| Journal-specific format copy (generic 通稿 only at project root; format copy in `ref/submission-*`) | 「目标刊格式版（母本不动，按刊另存）」 |
 | Non-contract edit suffixes and `-org` originals | 「非契约编辑后缀稿」 / 「编辑前原件」 |
 | Detecting 城城 hand edits before overwrite | 「城城手改识别」 |
 | Data ledger table (D-1) | 「数据底表（D-1）」 |
