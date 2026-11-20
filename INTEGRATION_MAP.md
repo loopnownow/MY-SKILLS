@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2162u (2026-11-20):** the subproject root holds only the generic manuscript (通稿, no journal shortcode). Journal-formatted copies for a named target journal go in `ref/submission-<JournalShort>/` with that journal's upload pack, not beside the mother at the root. Still never overwrite the mother or let a builder write back to it. This updates the placement in t2159u; the mother-protection rule is unchanged. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
+
 - **t2159u (2026-11-20):** when formatting a manuscript for a named target journal, do not overwrite the generic current `Manuscript_<slug>_V…` at the subproject root; save a journal-specific copy as `Manuscript_<slug>_<JournalShort>_V…`, put the upload pack in `ref/submission-<JournalShort>/`, and never let a builder default or a wrong target switch write back to the mother file. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
 
 - **t2154u (2026-11-19):** one-off scripts that have been used more than once for similar work are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not class them as H2 merely because they were written or filed as one-offs. A truly single-use patch remains H2. Detail in `00_orchestrator/harvest/SKILL.md` §2 and `00_orchestrator/references/text-harvest-by-fine-id.md`; standing rule in `{RULES}\del-and-harvest.md` §2 / §6. No fine-id change; registry `change_id` unchanged.
