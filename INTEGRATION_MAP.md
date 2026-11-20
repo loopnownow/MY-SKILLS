@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2159u (2026-11-20):** when formatting a manuscript for a named target journal, do not overwrite the generic current `Manuscript_<slug>_V…` at the subproject root; save a journal-specific copy as `Manuscript_<slug>_<JournalShort>_V…`, put the upload pack in `ref/submission-<JournalShort>/`, and never let a builder default or a wrong target switch write back to the mother file. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
+
 - **t2154u (2026-11-19):** one-off scripts that have been used more than once for similar work are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not class them as H2 merely because they were written or filed as one-offs. A truly single-use patch remains H2. Detail in `00_orchestrator/harvest/SKILL.md` §2 and `00_orchestrator/references/text-harvest-by-fine-id.md`; standing rule in `{RULES}\del-and-harvest.md` §2 / §6. No fine-id change; registry `change_id` unchanged.
 
 - **t2110u (2026-11-17):** before writing engineering or compute code, read the execution machine's CPU / GPU / RAM; prefer multithreading (or process parallelism) and CUDA when the hardware allows and the work is suitable; otherwise keep a CPU path and do not force CUDA. Do not invent hardware from memory or from another machine. Detail in `02_data-processing/advanced/coding.md` §4; standing pointer in `{RULES}` `My rule.md` §7. No fine-id change; registry `change_id` unchanged.
