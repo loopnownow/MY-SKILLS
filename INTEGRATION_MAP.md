@@ -13,6 +13,10 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2191u (2026-11-23):** record the missed HEAD ticket t2167u in this map. The curated JCR 2026 xlsx pointer landed in #375 / lab-paths.yaml, but had no ledger row, so LedgerFreshness failed at that tip. No fine-id change; registry `change_id` unchanged.
+
+- **t2167u (2026-11-20):** point the curated JCR 2026 workbook at `{doc_root}\_library\journals\医学投稿推荐_JCR2026.xlsx` via `00_orchestrator/references/lab-paths.yaml` (#375). No fine-id change; registry `change_id` unchanged.
+
 - **t2162u (2026-11-20):** the subproject root holds only the generic manuscript (通稿, no journal shortcode). Journal-formatted copies for a named target journal go in `ref/submission-<JournalShort>/` with that journal's upload pack, not beside the mother at the root. Still never overwrite the mother or let a builder write back to it. This updates the placement in t2159u; the mother-protection rule is unchanged. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
 
 - **t2159u (2026-11-20):** when formatting a manuscript for a named target journal, do not overwrite the generic current `Manuscript_<slug>_V…` at the subproject root; save a journal-specific copy as `Manuscript_<slug>_<JournalShort>_V…`, put the upload pack in `ref/submission-<JournalShort>/`, and never let a builder default or a wrong target switch write back to the mother file. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
