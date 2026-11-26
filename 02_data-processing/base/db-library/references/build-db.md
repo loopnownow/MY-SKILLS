@@ -1,13 +1,13 @@
 # 家族库 SOP（build-db）
 
-适用：把一个 / 多个短码的表格数据收进家族 SQLite 库。**位置 `<family>\_db\<family>db`、一族一库、原件进 `{DEL}`** 是 RULES 契约（`workspace-layout.md`「家族库 `_db`」），本文件只讲 schema / 算法 / QA。
+适用：把一个 / 多个短码的表格数据收进家族 SQLite 库。**位置 `<family>\_PHI\<family>db`、一族一库、原件进 `{DEL}`** 是 RULES 契约（`workspace-layout.md`「家族库 `_PHI`」），本文件只讲 schema / 算法 / QA。
 
 ## 1 硬约束
 
-- 只收表格（xlsx / xls / csv）；压缩档本身**不入库**（原档进 `<family>\_share\<leaf>\`，不入 `_db`、不留叶），**档内表格须解出入库**（`doc.rel_path` 带档名 + 成员），档内非表格件不入库；解包树逐件 sha256 校验后移 `{DEL}`（不就地解压）。
+- 只收表格（xlsx / xls / csv）；压缩档本身**不入库**（原档进 `<family>\__zip\<leaf>\`，不入 `_PHI`、不留叶），**档内表格须解出入库**（`doc.rel_path` 带档名 + 成员），档内非表格件不入库；解包树逐件 sha256 校验后移 `{DEL}`（不就地解压）。
 - 入库后叶内只留 `目录说明.md`（未入库例外写明原因）；不得留散表 / 压缩档。
 - 值保真即可：不存公式 / 样式 / 列宽 / 合并单元格；原貌靠 `{DEL}` 原件回溯。
-- 库与 `目录说明.md` 同目录；`_db` 是 `_` 前缀桶，不参与 S23，但改完仍跑 `structure_check.py` 全门 PASS。
+- 库与 `目录说明.md` 同目录；`_PHI` 是 `_` 前缀桶，不参与 S23，但改完仍跑 `structure_check.py` 全门 PASS。
 - 同家族多短码共用一个库；不要按短码拆库或拆子目录。
 
 ## 2 Schema（与现役 `build_code_db.py` 一致，逐字）
@@ -33,7 +33,7 @@ CREATE INDEX ix_entity ON entity(project_id, key_norm);
 - `sheet.blob` = 整表 `zlib` 压缩的 TSV（含表头）；宽表也存，保证「有多少数据可查」。
 - `sheet.status`：`ingested` / `dup` / `subset`；`sheet_dup.reason` 记重复或子集、`kept_bytes` 记省下字节。
 - `doc.rel_path` 保留 叶 slug 前缀（如 `MHE/ly_RI/IR-14-9-29.xlsx` 形式的相对 `_DataBase` 路径），便于回溯原文。
-- 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/_share/lmd_PHT.7z/PHT-data.xlsx`、`MHE_AN/_share/thesis/ly_THESIS/morris copy.7z/<成员>`；原档在 `_share`，靠该列回溯「哪张表来自哪个档的哪个成员」。
+- 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/__zip/lmd_PHT.7z/PHT-data.xlsx`、`MHE_AN/_thesis/ly_THESIS/morris copy.7z/<成员>`；原档在 `__zip` 或 `_thesis`，靠该列回溯「哪张表来自哪个档的哪个成员」。
 - 目标 core-6t 结构（7 实表 + 5 只读兼容视图、`val` 主键 `WITHOUT ROWID`）见 [single-lab-db.md](single-lab-db.md)；现役 21 库仍为上表旧 schema，切换前两种结构不得混写。
 
 ## 3 去重三层
@@ -64,16 +64,16 @@ IDCOL = re.compile(r"^(医技号|样本编号|样本号|编号|case\s*no\.?|mid|
 
 ```bash
 python tools/db-library/build_code_db.py --family MHE_AN --code ly            # dry：只建 out/，不动盘
-python tools/db-library/build_code_db.py --family MHE_AN --code ly --apply    # + 移原件到 {DEL}、档移 _share、写台账
+python tools/db-library/build_code_db.py --family MHE_AN --code ly --apply    # + 移原件到 {DEL}、档移 __zip、写台账
 python tools/db-library/build_code_db.py --family MHE_AN --code ly --share-archives  # 档内表格解出入库（G13 待落地）
 python tools/db-library/build_code_db.py --family MHE_AN --code ly --strict-leaf     # 叶内只留目录说明.md 门（G13 待落地）
 python tools/db-library/build_code_db.py --family MHE_AN --code ly --from-originals  # 从 {DEL}/originals 重建
-python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MHE_ANdb"
+python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_PHI/MHE_ANdb"
 ```
 
-`--share-archives` / `--strict-leaf` 属 G13 待落地接口：当前 `tools/db-library/` 尚无这两个开关，落地前按 MODULE.md 的「解档 → 入库 → 档移 `_share` → 解包树移 `{DEL}` → 记档 → 表映射」手工流程办。
+`--share-archives` / `--strict-leaf` 属 G13 待落地接口：当前 `tools/db-library/` 尚无这两个开关，落地前按 MODULE.md 的「解档 → 入库 → 档移 `__zip` → 解包树移 `{DEL}` → 记档 → 表映射」手工流程办。
 
-现役实例：2026-11-09 的 16 家族一次性收口器 `build_family_db.py`（批次脚本，非长期指针；`SPEC` / `CODE` 常量写死，`--dry` 默认 / `--apply` 落盘；档 dst = `<fam>\_share\<leaf>\<档名>`，原件 dst = `originals\<code>\<family>\<leaf>\`，台账 `<fam>-MOVED-20261109.tsv`，`kind` = `table` | `archive`）。搬进 MY-CODES 时：常量改 `argparse`，`TAB` / `ARC` 扩展名与 `IDCOL` 提到模块级常量，并补 `--share-archives` / `--strict-leaf`。
+现役实例：2026-11-09 的 16 家族一次性收口器 `build_family_db.py`（批次脚本，非长期指针；`SPEC` / `CODE` 常量写死，`--dry` 默认 / `--apply` 落盘；档 dst = `<fam>\__zip\<leaf>\<档名>`，原件 dst = `originals\<code>\<family>\<leaf>\`，台账 `<fam>-MOVED-20261109.tsv`，`kind` = `table` | `archive`）。搬进 MY-CODES 时：常量改 `argparse`，`TAB` / `ARC` 扩展名与 `IDCOL` 提到模块级常量，并补 `--share-archives` / `--strict-leaf`。
 
 ## 6 QA（全部过才报完成）
 
@@ -83,12 +83,12 @@ python tools/db-library/verify_db.py --db "D:/MyProjects/_DataBase/MHE_AN/_db/MH
 - [ ] 行数守恒：入库存的表，`sheet.nrow` 之和 - 去重边 = 源表行数之和
 - [ ] 抽样查询能复现已知值（例：`001643` → 17 条部位记录；SCH 部位 Top3 = 头颅 19,320 / 腰椎 5,149 / 上腹部 MRI 4,264）
 - [ ] 原件 sha256 台账 100%；原件目录在 `{DEL}\_by-function\<batch>\originals\<code>\<family>\<leaf>\`
-- [ ] 归档不在叶内：压缩档只在 `<family>\_share\<leaf>\`；`_share` 层级 ≤2（`ethics` / `thesis` 打平，无子目录）
+- [ ] 归档不在叶内：压缩档只在 `<family>\__zip\<leaf>\`；`__zip` 层级 ≤2（一级只有 `<leaf>/`，无 `ethics` / `thesis` / `raw` 子夹）
 - [ ] 档内表可溯源：`doc.rel_path` = 档相对路径 + `/<成员>`，与台账 `kind=table` 行逐条对齐；跳过件有 skip 清单
-- [ ] `_db` 根 `目录说明.md`：口径 / 表结构 / 查询示例 / 重建 / 限制；`## QC` 段齐全（日期 / 标准 / 结论 / 未过项 / `- PHI：` / 影响 / 下次检查 / 明细报告路径）
+- [ ] `_PHI` 根 `目录说明.md`：口径 / 表结构 / 查询示例 / 重建 / 限制；`## QC` 段齐全（日期 / 标准 / 结论 / 未过项 / `- PHI：` / 影响 / 下次检查 / 明细报告路径）
 - [ ] 库内无 `sqlite_stat1`、无伦理表（D19）；`verify_db --quiet` 的 exit / P0 / P1 / P2 记入 QC 段
 - [ ] 修过库时 6 项自检全过：`integrity_check`、`Σdoc.n_sheets == COUNT(sheet)`、dup + subset 行数 = `COUNT(sheet_dup)`、五组孤儿 = 0、`dup_groups = 0`、`fact.entity_id` 键 100%
-- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段，叶内只留说明 + 未入库例外原因；`_share` 根 `目录说明.md` 件数 / MiB 与实盘一致；`_index.csv` note 追加
+- [ ] 相关叶 / 家族 `目录说明.md` 追加「表格数据入库」段，叶内只留说明 + 未入库例外原因；`__zip` 根 `目录说明.md` 件数 / MiB 与实盘一致；`_index.csv` note 追加
 - [ ] `structure_check.py` 全门 PASS
 
 ## 7 `{DEL}` 三根与台账（t1952u）
@@ -119,5 +119,5 @@ SELECT status, COUNT(*) FROM sheet GROUP BY status;
 - entity 仅白名单表头 + `ncol ≤ 40` 的表；未命中表的行级检索不可用。
 - PHI 留本地库内，不外发；库不设加密（按本机规则）。
 - 同名表可能来自不同文件（`sheet_dup` 有边）；溯源看 `doc.rel_path`。
-- 档内表溯源跨一层：`doc.rel_path` 只到「档名 + 成员」，档本身在 `_share`；解包树不留 `_DataBase`，需复核时再解到 `{DEL}` staging。
+- 档内表溯源跨一层：`doc.rel_path` 只到「档名 + 成员」，档本身在 `__zip`；解包树不留 `_DataBase`，需复核时再解到 `{DEL}` staging。
 - core-6t 库里 `doc` / `sheet` / `sheet_dup` / `entity` / `fact` 是只读兼容视图；写入一律走实表（`src/item/val/person/person_key`）。

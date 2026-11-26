@@ -23,7 +23,7 @@ SSOT (`{RULES}`, `{SKILLS}`, `_Docs`, `_DataBase`); harvest is not their steward
 | Gate | Pass condition |
 |---|---|
 | Same-turn authorization | the owner named this round, this source, and this lane set in the current turn |
-| Source in scope | `.Del` move-outs, `_library` (schema and how-to only), `_DataBase` (`_db` / `_share` / leaf readme), project or archived tree, downloads folder; each named |
+| Source in scope | `.Del` move-outs, `_library` (schema and how-to only), `_DataBase` (`_PHI` / `__zip` / leaf readme), project or archived tree, downloads folder; each named |
 | Not closeout | no byte move, rename, delete, or warehouse ingest in this run |
 | No PHI / PII | no patient identifiers, identifiable images, ethics annexes, or unpublished grant / manuscript bodies. Author **Adm** comments and tracked changes may be harvested (marks only) |
 
@@ -98,7 +98,7 @@ route and the close. Nothing is absorbed before that review.
 |---|---|---|
 | a cross-skill rule, a gate, or a hard contract | `{RULES}`, by PR | owner approves the PR; this skill only proposes |
 | a reusable method for one fine id | `{SKILLS}`, as a thin digest or `bank-*.md` | owner says 「进skills」, then a PR |
-| a library-shape or database criterion | `{doc_root}\STRUCTURE.md`, `{doc_root}\test`, or `_DataBase` (root note, `_db` readme) | separate write authorization |
+| a library-shape or database criterion | `{doc_root}\STRUCTURE.md`, `{doc_root}\test`, or `_DataBase` (root note, `_PHI` readme) | separate write authorization |
 | a data body | its own SSOT | never into harvest, skills, or rules |
 | nothing reusable | discard; remaining bytes go to `harvested` | three checks, then `MOVED.tsv` |
 
