@@ -70,7 +70,7 @@ A base pack that grows a long procedure has drifted: the procedure belongs in `0
 **This-run pick:** wait for the 00 session fine-id pick (`00_orchestrator/references/session-pick.md`). Registry fine-id menu (SSOT) = pick list.
 
 - `clean-data` -- clinical Excel/CSV cleaning and cohort tables (`02_data-processing/base/clean-data/`); `batch-cohort` resolves here as a retired alias
-- `db-library` -- `_DataBase` family SQLite library (`<family>\_db\<family>db`) + loose-table merge (`02_data-processing/base/db-library/`)
+- `db-library` -- `_DataBase` family SQLite library (`<family>\_PHI\<family>db`) + loose-table merge (`02_data-processing/base/db-library/`)
 - `preprocess-imaging` -- Imaging I/O and ROI/reader QC (`02_data-processing/base/preprocess-imaging/`); absorbed retired `imaging-io`
 - `stats-analysis` -- test selection / assumptions / Bayesian notes (`02_data-processing/base/stats-analysis/`); absorbed retired `meta-analysis`
 - `calc-sample-size` -- sample size / power (`02_data-processing/base/calc-sample-size/`)

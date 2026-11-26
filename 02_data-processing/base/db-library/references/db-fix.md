@@ -14,7 +14,7 @@
 
 ### A 整表出库（表不该在库里）
 
-1. `sheet.blob` zlib 解成 TSV → `zstd -19` 压到 `_share\<叶>\<源件名>__<sheet名>.tsv.zst`（`zstd` CLI 或 python `zstandard`）。
+1. `sheet.blob` zlib 解成 TSV → `zstd -19` 压到 `__zip\<叶>\<源件名>__<sheet名>.tsv.zst`（`zstd` CLI 或 python `zstandard`）。
 2. 回读解压件，与原文逐字节 + sha256 比对。
 3. 删 `fact` 行、`sheet_dup` 边、`sheet` 行，`doc.n_sheets` 递减。
 4. `meta.external` 记一行（列见 [merge-tables.md](merge-tables.md) §6 台账三式）。

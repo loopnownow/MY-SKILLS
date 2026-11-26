@@ -10,7 +10,7 @@
 | Durable original | `{doc_harvest_sources}\library-methods-20261023\study-design\fill-protocol\` |
 | HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\`~~ |
 | Blank templates | `{doc_root}\templates\ethics-blank\` |
-| Filled/PHI | `{raw_root}\<family>\_share\ethics\` (t1849u; `_lab\ethics` retired) — **never GitHub** |
+| Filled/PHI | `{doc_ethics}\`（批准件 `approvals\`、提取物 `extract\`；`_DataBase` 侧不留伦理夹）— **never GitHub** |
 | Seat | `03_research/advanced/fill-protocol/` (`README`, `checklist`, `form-boilerplate`) |
 
 ## Default pack (align with 填写说明 — do not drift)
