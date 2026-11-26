@@ -102,29 +102,54 @@ route and the close. Nothing is absorbed before that review.
 | a data body | its own SSOT | never into harvest, skills, or rules |
 | nothing reusable | discard; remaining bytes go to `harvested` | three checks, then `MOVED.tsv` |
 
-`by-fine-id/<fine-id>.md` is the cumulative draft layer: append after a promotion, never clear it.
+`by-fine-id` notes belong only under `{DEL}` (`{RULES}\del-and-harvest.md` §7). Do not treat
+`harvest\rounds` + `by-fine-id` as a live SSOT under `{doc_root}`.
+
+Deposit by type (still propose-only; live `{SKILLS}` needs 「进skills」, live `{RULES}` needs a PR):
+
+- Runnable, reusable scripts → `{code_root}\tools\<fine-id>\` (script plus that group's README). A one-off
+  script stays out of the code repo: record its SHA and move it to `{DEL}` unless it has already been reused
+  and is functionally similar (then it is H1, same as `{RULES}\del-and-harvest.md` §2).
+- Cross-skill hard contracts, gates, aliases, or disk policy → `{RULES}`.
+- Process how-to, criteria, and traps → `{SKILLS}`.
+
+Decision order: if it can run, it goes to the code repo; if not, and it is a cross-skill hard constraint, it
+goes to rules; otherwise it goes to skills. Do not copy tool variants: differences go through a CLI or the
+`[tools]` section of `settings.ini`; keep one implementation per function.
 
 ## 8 Round shape, and leaving the floor
 
+Round working directories live under `{DEL}`, not under `{doc_root}\harvest\`:
+
 ```text
-_Docs\harvest\rounds\<YYYYMMDD><letter>-<slug>\
+{DEL}\harvest-park\rounds\<YYYYMMDD><letter>-<slug>\
   HARVEST-*.md      three-bucket body
   INDEX.md          source, coverage, routing, authorization
   MANIFEST.tsv      per-item sha256 and decision
   evidence\         recomputable proof and gate logs
-  tools\            reusable scan and triage scripts
+  tools\            optional reusable scan and triage scripts
 ```
 
-No mirrored source tree and no snapshot: the body points at the source with `MANIFEST.tsv` relative paths.
+The collection standard stays at `{doc_root}\harvest\HARVEST-STANDARD.md`. The durable ledger is
+`{doc_root}\harvest\LEDGER.tsv` (one row per round). Do not create `{doc_root}\harvest\rounds\` or
+`{doc_root}\harvest\<lane>\` as a live working layer.
 
-Once a round is promoted, or judged H2, the round leaves the floor: the whole folder moves to
-`{DEL}\harvested\rounds\<round>\` and `rounds\LEDGER.tsv` keeps one row (round / date / source / lanes / promote
-PR / left date / `{DEL}` path / owner wording / retro). Put the recomputable evidence summary in the PR
-description before the folder leaves. Only the owner clears `harvested`. `rounds\LEDGER.tsv` is created by the
-first round that leaves under this body. The machine half of this shape is `{doc_root}\test\structure_check.py`
-S29 (`harvest-rounds`): ledger header and field count, exited round absent from the live floor and present under
-`{DEL}\harvested\rounds\`, live round folders carrying the four required members, and live pages not citing an
-exited round as a live path.
+No mirrored source tree and no snapshot: the body points at the source with `MANIFEST.tsv` relative paths.
+An H3 batch that a live report, handoff, or rule still cites by literal path is not moved; `MANIFEST.tsv`
+records `keep_due_to`. A batch already promoted is not harvested again: add a ledger row and an
+「已 promote」destination only.
+
+Once a round is promoted, or judged H2, the whole folder moves to `{DEL}\harvested\rounds\<round>\` and
+`{doc_root}\harvest\LEDGER.tsv` keeps one row (round / date / source / lanes / promote PR / left date /
+`{DEL}` path / owner wording / retro). Put the recomputable evidence summary in the PR description before
+the folder leaves. After the content has entered rules or skills, the owner may delete these round
+directories. Only the owner clears `{DEL}`; the executor must not empty it. PHI / PII, name lists, image
+binaries, HIS scrape scripts, and unpublished full texts are H2: leave a decision row in `MANIFEST.tsv`,
+do not extract them.
+
+The previous machine half of the old live-floor shape is `{doc_root}\test\structure_check.py` S29
+(`harvest-rounds`). That gate still has to be realigned to this `{DEL}` working-directory policy; until then
+do not treat S29 as proof that a `{doc_root}\harvest\rounds\` live floor is required.
 
 ## 9 Self-evolution (owner habits and round QC)
 
@@ -144,7 +169,7 @@ exited round as a live path.
 
 1. `sources\` is a durable park, not an empty folder: `{doc_lab_ste}`, `{doc_grants}`, `{doc_fill_protocol}` still
    point into it. Never delete the folder; re-point the aliases before any move.
-2. `rounds\` is not a warehouse for promoted content; see §8.
+2. Round directories are not a live SSOT under `{doc_root}\harvest`; see §8.
 3. Never invent a lane or a fine id.
 4. Never harvest a data body, full manuscript or grant text, or PHI. Author **Adm** comments and tracked changes are marks, not the body.
 5. Never present an LLM hypothesis as lab practice.
@@ -154,11 +179,11 @@ exited round as a live path.
 ## 11 Pointers
 
 - Collection standard (disk SSOT): `HARVEST-STANDARD.md` under `{doc_skill_harvest}`.
-- Thin lane card: `00_orchestrator/references/text-harvest-by-fine-id.md`.
-- Rules gate: `{RULES}\skills.md` §3; source and stage authority: `{RULES}\workspace-layout.md`.
+- Thin lane card: `00_orchestrator/references/text-harvest-by-fine-id.md` (notes only; the files themselves land in `{DEL}`).
+- Rules gate: `{RULES}\skills.md` §3 and `{RULES}\del-and-harvest.md` §6; source and stage authority: `{RULES}\workspace-layout.md`.
 - Library-shape gates: `{doc_root}\test\structure_check.py` with `{doc_root}\test\QC-REQUIREMENTS.md`; database
-  criteria: `{doc_root}\test\DB-QC-STANDARD.md`. Round shape and exit consistency: S29 `harvest-rounds`, with the
-  ledger at `{doc_skill_harvest}\rounds\LEDGER.tsv`.
+  criteria: `{doc_root}\test\DB-QC-STANDARD.md`. Durable ledger: `{doc_root}\harvest\LEDGER.tsv`. S29 still
+  describes an older live-floor layout and needs a follow-up in `_Docs`.
 - Task flow scheduling and the round review: 00 (`00_orchestrator/SKILL.md` §3). This body does not schedule.
 
 ## Version
@@ -171,3 +196,4 @@ exited round as a live path.
 - 1.2 (2026-11-15, t2073u): author **A** Word comments and tracked changes are the owner's marks and first-class harvest sources; extract marks only, never the full body.
 - 1.3 (2026-11-19, t155u): the owner's Word author mark is **Adm**, not **A** (corrects 1.2 / t2073u); harvest Adm revisions and comments (marks only). Helper comments/TC remain author **A**.
 - 1.4 (2026-11-19, t2154u): repeatedly used, functionally similar one-off scripts are harvest objects (H1); single-use patches remain H2.
+- 1.5: round working directories move to `{DEL}`; `harvest\rounds` + `by-fine-id` is not a live SSOT under `{doc_root}`; three-way deposit to skills / rules / code; after promote, the owner may delete the round folder.

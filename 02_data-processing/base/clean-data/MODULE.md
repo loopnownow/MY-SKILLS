@@ -61,3 +61,29 @@ Optional but usual: site, timepoint, visit date, exclusion flag. Group-stratifie
 
 - Analysis-ready table + short QC note: sheet/shape/dtypes, header verdict, units, missingness table (block vs scattered), ID uniqueness, split semantics.
 - Handoff: missing/outlier implementation → `clean-data` `impute/`; radiomics/leakage audit on feature matrices → `stats-analysis`; imaging I/O + availability statements → `preprocess-imaging`; reporting checklists → `05_manuscript/qc/check-reporting/`.
+
+## Disk and ledger cleanup loop
+
+When this fine id is used to clean or reconcile tables on disk (not the header / ID / cohort pass above), close the loop in five steps:
+
+1. Read-only evidence of the current baseline.
+2. Read-only scan that writes a candidate TSV.
+3. Dry-run plus a ledger skeleton, with no execute yet.
+4. After the owner agrees, run with an explicit `--execute`.
+5. Re-run the gates and paste the raw output.
+
+After execute, the on-disk file count and byte total must match the baseline except for additions that are already on the ledger. Do not use `mtime` to decide which copy is newer; cleanup of duplicate files (often under `ref\tmp\` backups, kept by default) must be named by the owner.
+
+Ledger reconciliation has three states:
+
+- On disk but missing from the ledger → add a row and set `needs_owner=1`.
+- In the ledger but missing on disk → keep the row and note where it went.
+- Counts disagree → recompute from the disk.
+
+Gates must not skip or go false-green. Moves are always "to `{DEL}` + ledger". Empty directories
+are removed only after a confirmed 0-file check. Unowned staging is neither a project tree nor an
+archive, and the folder name may carry PHI: assign ownership or pack it before moving. HIS /
+Selenium scrape implementations stay out of this skill and out of the repo; only offline replay
+acceptance belongs here (same wall as `{RULES}\network-security.md`). An archive is not encryption;
+identifiers printed by a gate are a warning, not a reason to send the file out; de-identification
+needs the owner to name it.
