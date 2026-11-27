@@ -81,10 +81,11 @@ Do not force every cell on every row. Introduction background usually needs a ve
 | After drafting | `05_manuscript/qc/result-to-claim.md` | Layer 2: does the reported result support the scientific claim |
 | After drafting | `05_manuscript/qc/paper-claim-audit-gate.md` | Layer 3: does the manuscript report numbers truthfully |
 | After drafting | `05_manuscript/qc/claim-number-align.md` | Prose / table / figure number alignment |
+| Downstream | `05_manuscript/advanced/process/figure-table-plan.md` | Which claims need a main-text display; do not copy that plan here |
 
 ## Out of scope
 
-- Study-type routing, quantitative style metrics, figure/table planning, method-experiment alignment, or an intake brief
+- Study-type routing, quantitative style metrics, method-experiment alignment, or an intake brief
 - New fine ids, new gates, or changes to 00 gate composition or 02 figure production
 - Restating the QC checklists in this file
 

@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2272u (2026-11-27):** 只吸收证据驱动的图表规划（主张需要哪张主文图/表、为何需要），医学化自写并入 `05_manuscript/advanced/process/figure-table-plan.md`，接到 Claim Map 与 `write-paper` 入口；05 负责需要与主张，02 负责按数据生成，不把制图规则拷进 05，不改 00，不新建细 ID，不另起表单/打分/总闸。M3 Style Metrics、Method-Experiment Alignment 与 Intake Brief 未做。registry `change_id` 未变。
+
 - **t2271u (2026-11-27):** 只吸收医学研究类型与论证路径路由（粗分类：观察性研究、诊断或预后模型、影像组学、机制研究），医学化自写并入 `05_manuscript/advanced/process/study-type.md`，接到现有 `05_manuscript/advanced/route.md` 与 `write-paper` 入口，不另起一套路由，不新建细 ID。报告规范只指向现有 `reporting-guideline-route.md` / check-reporting，不叠套全部清单。M3 / M4 与 Intake Brief、Method-Experiment Alignment 未做。registry `change_id` 未变。
 
 - **t2270u (2026-11-27):** 只吸收 Claim Map 方法（写作前主张—证据—统计支持—措辞—稿件位置对照），医学化自写并入 `05_manuscript/advanced/process/claim-map.md`；入口指针在 `write-paper` 与 `evidence.md`（及 05 `route.md`）；不新建细 ID，不另起审计门控，不替代 evidence / result-to-claim / paper-claim-audit / claim-number-align。M1 / M3 / M4 与 Intake Brief、Method–Experiment Alignment 未做。registry `change_id` 未变。

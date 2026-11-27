@@ -92,3 +92,5 @@ Item-3 nature-ref Crossref field axes extended in `05_manuscript/qc/refs-verifie
 The pre-draft Claim Map in `05_manuscript/advanced/process/claim-map.md` is an original lab rewrite in the medical-writing seat (claim to evidence, statistical support, wording, and manuscript location), wired to existing evidence and claim QC. Method reference only: https://github.com/gulucaptain/Best-Paper-Writing-Skill (repository original content is CC BY 4.0; parts of the base skill are MIT). No source-skill text, paper excerpts, templates, or checklists were copied.
 
 The coarse study-type writing route in `05_manuscript/advanced/process/study-type.md` is likewise an original lab rewrite, hooked into the existing `05_manuscript/advanced/route.md` (not a second router). Same method reference and licence note; no source-skill text copied.
+
+The evidence-driven figure and table plan in `05_manuscript/advanced/process/figure-table-plan.md` is an original lab rewrite on display needs (which claim a figure or table serves), not production rules. Same method reference and licence note; no source-skill text copied.

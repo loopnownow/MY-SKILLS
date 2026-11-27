@@ -43,7 +43,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 | Handoff (other skills) | `advanced/handoff.md` |
 | L1 / L2 / L3 vocabulary | `05_manuscript/base/vocab/` (`advanced/vocab/` = advanced L1 overrides + L2 advanced table) |
 | Lab-STE (CM-01 ZH comments) | `05_manuscript/base/vocab/L3/lab-ste.md` (`05_manuscript/advanced/vocab/` = overrides only) |
-| Process (study-type / claim map / evidence / citation / polish) | `advanced/process/` (`study-type.md` is coarse writing constraints on the existing 05 route; `claim-map.md` is the pre-draft plan; neither is a QC gate) |
+| Process (study-type / claim map / figure-table plan / evidence / citation / polish) | `advanced/process/` (`study-type.md` is coarse writing constraints on the existing 05 route; `claim-map.md` is the pre-draft plan; `figure-table-plan.md` is the display-need plan; none of these is a QC gate) |
 | Manuscript QC checklists | `qc/manuscript-local-qc.md` (invoked only by 00) |
 | Diff harvest | `{code_write_paper}\diff_harvest.py` |
 
@@ -60,7 +60,7 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 
 ## Figures
 
-**Figures → `02_data-processing`** (live `plot-figures` / `draw-flowchart`, + `02_data-processing/advanced/analysis/figures.md`). 05 writes captions and body callouts; it does not own the figure pack.
+**Figures → `02_data-processing`** (live `plot-figures` / `draw-flowchart`, + `02_data-processing/advanced/analysis/figures.md`). 05 plans why a display is needed (`advanced/process/figure-table-plan.md`) and writes captions and body callouts; it does not own the figure pack.
 
 ## Literature
 

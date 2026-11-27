@@ -27,3 +27,7 @@ Before `draft-section` / `full-imrad`, load coarse study-type constraints: `05_m
 
 Before `draft-section` / `full-imrad`, build or refresh the claim-evidence plan: `05_manuscript/advanced/process/claim-map.md`. It does not replace `evidence.md` or the claim QC files.
 
+## Figure and table plan
+
+After the Claim Map, plan which main-text displays are needed and why: `05_manuscript/advanced/process/figure-table-plan.md`. 02 still generates the graphics.
+
