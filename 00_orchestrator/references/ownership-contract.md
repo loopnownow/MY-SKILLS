@@ -25,6 +25,7 @@ Per-paper channel seats all six (max).
 ## Dispatch
 
 - One task → one executor (this line is authoritative). Short tasks Aitor can finish locally: do not hand to local DSH / Cline.
+- Before starting a project or task, estimate wall-clock runtime in good faith (do not inflate or deflate the estimate to force or avoid sub-agents). If the estimate exceeds 1 hour, Aitor (00, 总调度) opens sub-agents to accelerate: dispatch parallelizable parts so wall clock shortens. "Sub-agent" means a specialist bot / child agent dispatched by 00 under the current seats (Loopnow / Victor / Aitee / Lee / Bai and on-seat executor sub-agents). Do not create ad-hoc accounts or bypass seats. Each dispatched part still follows one task → one executor. Write-disk authorization and three-repo merge (「合」 / 「推合」) stay in `{RULES}\My rule.md`; this paragraph does not relax those gates. Rule SSOT: `{RULES}\My rule.md` §7.
 - Coding / scripts / `MY-CODES` default to **Loopnow** (02). Local DSH / Cline are not the default coding seat; they take tidying / extraction / form-fill / local IDE work when the owner says 「交给 DS / DeepSeek / Cline」 or approves their use.
 - Aitee and Lee generally do not call local DSH / Cline. Any seat using local DSH or Cline needs prior user approval. Bots may call local DSH and Cline.
 - External-pack watch: `00_orchestrator/references/handoff-monitor.md` (only for that task window).
