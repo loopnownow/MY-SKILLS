@@ -31,6 +31,7 @@ checkout can still opt out explicitly.
 | `test_frontmatter.py` | YAML / frontmatter parses, cited contract files exist |
 | `test_language_style.py` | language lint contract (vocabulary, sections, constructions) |
 | `test_seat_packs.py` | seat packs, routing, review interaction, pack dedupe |
+| `test_no_old_bucket_paths.py` | old bucket paths (`_db/`, `_share/`, bare `_db`, `modal_` prefix) stay out of skill docs; ledger lines with `PR #` exempt |
 | `test_repo_hygiene.py` | BOM, empty stubs, retired folders, mount vocabulary, pack side docs, test index match, cleanup invariants |
 | `test_qc_guards.py` | retired lab tree, anchors, flow steps, punctuation wording |
 | `test_claim_map.py` | Claim Map file, hard constraints, write-paper / evidence pointers; not a new fine id |
