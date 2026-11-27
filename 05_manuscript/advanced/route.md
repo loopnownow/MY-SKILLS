@@ -19,9 +19,14 @@
 5. **L2 paragraph/set habits:** `voice-portrait.md`; IMRAD/DOCX -- `Aitor-format.md`
 6. **L3 specialty + Lab-STE:** `05_manuscript/base/vocab/L3/lab-ste.md`
 
+## Study-type route (writing constraints)
+
+Load `process/study-type.md` before `write-paper` drafting, on this same route (not a second router). It names a coarse study type from the locked design and attaches wording and distinction constraints. Claim planning stays in `process/claim-map.md`. Reporting-guideline completeness stays in `05_manuscript/qc/reporting-guideline-route.md`.
+
 ## Process (05-owned)
 
-- `process/claim-map.md` -- pre-draft claim–evidence–wording–location plan (not a QC gate)
+- `process/study-type.md` -- coarse study-type writing constraints (not a second router)
+- `process/claim-map.md` -- pre-draft claim-evidence-wording-location plan (not a QC gate)
 - `process/evidence.md` -- evidence request + I/D consumption
 - `process/citation-and-language.md`
 - `process/polisher-sections.md`

@@ -14,6 +14,9 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Controllable-language tools | Lab-STE disk via `05_manuscript/base/vocab/L3/lab-ste.md` |
 | Glossary evidence (instances only) | `GLOSSARY_ROOT` four layers + `index.csv`; criteria = `base/vocab/` (+ named advanced); `rule_ptr` only |
 
+## Study-type route
+- Before drafting, use `process/study-type.md` (coarse writing constraints on the existing 05 route, not a second router).
+
 ## Claim Map
 - Before drafting, use `process/claim-map.md` (writing-prep plan, not a QC gate).
 

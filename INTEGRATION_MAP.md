@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2271u (2026-11-27):** 只吸收医学研究类型与论证路径路由（粗分类：观察性研究、诊断或预后模型、影像组学、机制研究），医学化自写并入 `05_manuscript/advanced/process/study-type.md`，接到现有 `05_manuscript/advanced/route.md` 与 `write-paper` 入口，不另起一套路由，不新建细 ID。报告规范只指向现有 `reporting-guideline-route.md` / check-reporting，不叠套全部清单。M3 / M4 与 Intake Brief、Method-Experiment Alignment 未做。registry `change_id` 未变。
+
 - **t2270u (2026-11-27):** 只吸收 Claim Map 方法（写作前主张—证据—统计支持—措辞—稿件位置对照），医学化自写并入 `05_manuscript/advanced/process/claim-map.md`；入口指针在 `write-paper` 与 `evidence.md`（及 05 `route.md`）；不新建细 ID，不另起审计门控，不替代 evidence / result-to-claim / paper-claim-audit / claim-number-align。M1 / M3 / M4 与 Intake Brief、Method–Experiment Alignment 未做。registry `change_id` 未变。
 
 - **t20261127a (2026-11-27, 维护轮):** 收口本轮三条主线。① **S33 稿件命名契约改为「根上两份」**：`structure_check.py` 的 `NAME_RE` 拆成 `SLUG` / `VER` / `_clean` 三支（`_tracked` 为版本号稿可选后缀），份数判据由「>1 份即 FAIL」改为「>2 份 FAIL；恰 2 份须为同 slug 的 `_clean` + 带版本号稿」；三个 `pre-submit/jfl_SSD_*` 的旧版稿（`V1.1` / `V1` / `V1`）移入各自 `ref/tmp/`，sha256 逐件复核相等。结构体检由 36/37 转 **37/37**。② **无 PHI 家族改家族编码**（`OTHERS` 类汇编族不建 `id` / `id_number`，子库记 `meta.family_code`，PHI 永不下沉）；口径在 `{RULES}` 与本仓 `02_data-processing/base/db-library/SKILL.md`。③ **稿件根上两份**（`_clean` + 最新带版本号稿，旧版进 `ref/tmp/`）同步到 `06_review/base/track-changes/MODULE.md`、`05_manuscript/advanced/Aitor-format.md`、`00_orchestrator/references/standing-delivery.md`。本行同时补记：本轮合并提交本身不带 ticket，故以维护轮号 `t20261127a` 登记，LedgerFreshness 在该 tip 恢复绿。registry `change_id` 未变。
