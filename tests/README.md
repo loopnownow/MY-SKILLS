@@ -33,6 +33,7 @@ checkout can still opt out explicitly.
 | `test_seat_packs.py` | seat packs, routing, review interaction, pack dedupe |
 | `test_repo_hygiene.py` | BOM, empty stubs, retired folders, mount vocabulary, pack side docs, test index match, cleanup invariants |
 | `test_qc_guards.py` | retired lab tree, anchors, flow steps, punctuation wording |
+| `test_claim_map.py` | Claim Map file, hard constraints, write-paper / evidence pointers; not a new fine id |
 | `test_office_track_changes.py` | track-changes validator rejects a silent overwrite |
 | `test_draw_flowchart_scripts.py` | expanded STROBE spec, fail-closed n-audit, CLI writes / exits nonzero |
 | `test_vocab_harvest_sections.py` | paragraph-layer section rebuild and phrase counter |

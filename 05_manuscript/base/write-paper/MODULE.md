@@ -36,6 +36,8 @@ Discussion), plus venue house style and article shape once a journal family is k
 
 **Do not use this module** for polish-only passes, 选刊, or 回复审稿人.
 
+**Before drafting:** load `05_manuscript/advanced/process/claim-map.md` and build or refresh the claim–evidence map. Literature gaps go through `05_manuscript/advanced/process/evidence.md`. Claim QC stays in `05_manuscript/qc/` (`result-to-claim.md`, `paper-claim-audit-gate.md`, `claim-number-align.md`).
+
 ## Hard bans
 
 1. Numbers stick to assertions (n, AUC, CI, *P*); no empty claims

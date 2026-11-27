@@ -21,6 +21,7 @@
 
 ## Process (05-owned)
 
+- `process/claim-map.md` -- pre-draft claim–evidence–wording–location plan (not a QC gate)
 - `process/evidence.md` -- evidence request + I/D consumption
 - `process/citation-and-language.md`
 - `process/polisher-sections.md`

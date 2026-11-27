@@ -5,7 +5,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Standard
 
-Abstract claims, Results text, tables, figures, and Conclusions must use the **same fact chain** as the upstream artifact (usually `*-results.html` / 02 handoff). Source = FILE / UPSTREAM / USER — never LLM guess.
+Abstract claims, Results text, tables, figures, and Conclusions must use the **same fact chain** as the upstream artifact (usually `*-results.html` / 02 handoff). Source = FILE / UPSTREAM / USER — never LLM guess. Pre-draft wording and placement are planned in `05_manuscript/advanced/process/claim-map.md`; this file still owns number / table / figure alignment.
 
 ## Must-check
 

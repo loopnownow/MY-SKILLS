@@ -19,7 +19,7 @@ Live pack (this-run pick: session fine ids from the 00 registry menu)
 
 Live packs **propose**; they do **not** choose the final citation or keep an over-strong verb. 03 **searches** only. A 05 **judges** whether a candidate supports the claim. 00 owns whether to invoke 03 again (G-LIT).
 
-Related: consume verified I/D rows via `05_manuscript/advanced/process/evidence.md` (Part B); quotas in `Aitor-format.md`; citation mechanics in `citation-and-language.md`.
+Related: consume verified I/D rows via `05_manuscript/advanced/process/evidence.md` (Part B); quotas in `Aitor-format.md`; citation mechanics in `citation-and-language.md`. Pre-draft claim planning (this study's results, wording, and location) is `05_manuscript/advanced/process/claim-map.md`; it calls this file for literature gaps and does not replace it.
 
 ### When to raise a card
 

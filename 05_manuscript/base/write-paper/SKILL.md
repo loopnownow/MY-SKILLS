@@ -19,3 +19,7 @@ Venue shape is in this pack (MODULE mode `venue-shape`): `05_manuscript/advanced
 
 **First-pass must load** `05_manuscript/base/vocab/` (L1/L2/L3) before drafting. On top of it, `05_manuscript/advanced/vocab/` supplies the advanced L1 overrides and the L2 advanced phrase table (`05_manuscript/advanced/vocab/L2/preferred-advanced.md`); base stays canonical. See A gates.md check (b).
 
+## Claim Map (pre-draft)
+
+Before `draft-section` / `full-imrad`, build or refresh the claim–evidence plan: `05_manuscript/advanced/process/claim-map.md`. It does not replace `evidence.md` or the claim QC files.
+

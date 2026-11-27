@@ -14,6 +14,9 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 | Controllable-language tools | Lab-STE disk via `05_manuscript/base/vocab/L3/lab-ste.md` |
 | Glossary evidence (instances only) | `GLOSSARY_ROOT` four layers + `index.csv`; criteria = `base/vocab/` (+ named advanced); `rule_ptr` only |
 
+## Claim Map
+- Before drafting, use `process/claim-map.md` (writing-prep plan, not a QC gate).
+
 ## Evidence
 - Use `process/evidence.md`: raise gaps → 03 searches → 05 Accept / Weaken / Delete.
 

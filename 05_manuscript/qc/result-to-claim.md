@@ -17,7 +17,7 @@ Does the **scientific claim** follow from the reported result (scope, direction,
 
 ## Inputs
 
-- Intended claims list (id, text, cited value, source path)
+- Intended claims list (id, text, cited value, source path); optional pre-draft plan from `05_manuscript/advanced/process/claim-map.md` (planning artifact only, not a substitute for this gate)
 - Primary results (`*-results.html`, tables)
 - Optional: `EXPERIMENT_AUDIT.json` (integrity_status)
 - Deterministic pre-check: value exists in source file before any merit judgment

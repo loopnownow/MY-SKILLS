@@ -18,6 +18,7 @@ Does the manuscript **report** numbers/comparisons/scope **truthfully** at displ
 ## Inputs (zero-context)
 
 - Manuscript only (docx→md with recorded track-changes view) + primary evidence globs
+- Optional writing-prep context from `05_manuscript/advanced/process/claim-map.md` does not replace this cold-read; the gate still traces the manuscript against primary evidence
 - **Exclude:** chat, narrative reports, prior audit “expected” answers, executor summaries
 
 ## Checklist (gate layer)
