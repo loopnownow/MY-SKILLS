@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **2026-11-27 稿件根上两份 + 无 PHI 家族编码（chore，无 ticket）:** 主人 2026-11-27 裁决的两条口径落进技能侧。① **子工程根恰留两份稿件**：`Manuscript_<slug>_clean.docx`（最新版、接受全部修订、无痕迹、不带版本号）与最新的带版本号稿 `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx`（`_tracked` 表示保留修订痕迹）；其余旧版本号稿、旧 tracked、根上 PDF → `ref/tmp/`，不删、不进 `{DEL}`；旧「根上唯一现行一份」作废。同步 `INTEGRATION_MAP` 旧行、`00_orchestrator/references/standing-delivery.md`、`06_review/base/track-changes/MODULE.md`、`05_manuscript/advanced/Aitor-format.md`。② **无 PHI 家族用家族编码**：有 PHI 家族照旧 `_PHI\<FAM>db`（`id` / `id_number`，PHI 永不下沉）；无 PHI 家族（如 `OTHERS` 汇编族）不建身份表，家族库只留 `meta` / `dict` / `ref_project`，家族级登记用家族编码 + `ref_project` 映射，子库 `meta.family_code` 记所属家族编码，跨库引用用家族编码；同步 `02_data-processing/base/db-library/SKILL.md`。规则 SSOT 同批：`{RULES}\workspace-layout.md` 家族库节、`{RULES}\project-ref-layout.md`「SCI 稿件文件名」。不新造 fine id；registry `change_id` 未变。
+
 - **t2261u (2026-11-27):** 总调度站立口径：工程 / 任务动工前先预计墙钟；预计超过 1 小时则由 00（Aitor）按现行座位开子代理并行加速；短任务仍就地做完；预计要实事。规则落点 `{RULES}\My rule.md` §7（§5 增加第一跳）；本仓同步 `00_orchestrator/SKILL.md` 与 `references/ownership-contract.md`。不新造 fine id。registry `change_id` 未变。
 
 - **2026-11-27 桶名切名 PR #378（chore，无 ticket）:** 机械切名 `_db`→`_PHI`、`_share`→`__zip`、`modal_`→`_modules_`，词边界对账后一次写盘，覆盖 11 个文件（标识符与占位符不动）；语义行按新布局重写：`__zip` 一级只收 `<leaf>/` 原始件压缩档 + `目录说明.md`；学位论文 / 博士后原件 → `<family>\_thesis\<slug>\`；伦理材料不再落 `_DataBase`（`{doc_ethics}` 只收 `approvals/` 与 `extract/`）。该 PR 是规则侧家族桶切名的落地 chore，本身不带 ticket id；本行即它的台账记录（其后首个带 ticket 的提交把 t2257u 补进台账，LedgerFreshness 在该 tip 恢复绿）。registry `change_id` 未变。
@@ -144,7 +146,7 @@ Owner t1817u (Asia/Shanghai 2026-11-08): **in-review → reviewing**; **R&P reti
 
 Owner t1809u (Asia/Shanghai 2026-11-08): **R*/P* whole-folder into `_DataBase`** on accepted closeout.
 
-- **Rule:** project-tree folders named `R*` / `P*` (revision/submission packs, e.g. R1/R2/P1/P1.1) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose / small-file pile -> 7z/zip + `.files.txt` first per t1800u); after QC move original folder to `D:\MyProjects\.Del\_by-project\<slug>\`. Root keeps only one current `Manuscript_*_{V|R|P}…` **file**.
+- **Rule:** project-tree folders named `R*` / `P*` (revision/submission packs, e.g. R1/R2/P1/P1.1) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose / small-file pile -> 7z/zip + `.files.txt` first per t1800u); after QC move original folder to `D:\MyProjects\.Del\_by-project\<slug>\`. Root keeps exactly two manuscript files (2026-11-27 supersedes "one current file"): `Manuscript_<slug>_clean.docx` (latest, all revisions accepted, no marks, no version number) plus the latest versioned `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx` (`_tracked` = marks kept); older versioned copies, older tracked copies and root PDFs go to `ref/tmp/` (kept, not deleted, not `{DEL}`).
 - **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
 - **Unchanged:** no actual move/compress this ticket; MY-CODES untouched; Skills are pointer-only (no full restatement).
 
