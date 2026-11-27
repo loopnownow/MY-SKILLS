@@ -31,3 +31,8 @@ Hard pointers:
 
 - 路径 / 留痕 / 门禁契约 → `{RULES}\workspace-layout.md`（「家族桶三类落点」「家族库 `_PHI`」「散表归并与表格入库」）
 - 临床底表清洗、缺失值、ID 完整性 → `clean-data`（本技能只做库化与归并）
+
+## 家族库两类（2026-11-27）
+
+- **有 PHI 的家族：** 照旧一 family 一 `<family>\_PHI\<family>db`，身份只落 `id` / `id_number`；PHI 永不下沉子库 `<slug>\<slug>db`。
+- **无 PHI 的家族**（如 `OTHERS` 这类汇编族）：不建 `id` / `id_number` 身份表，家族库只留 `meta` / `dict` / `ref_project`；家族级登记用**家族编码**（family code）+ `ref_project` 映射，子库在 `meta.family_code` 记录所属家族编码，跨库引用用家族编码而非 `family_uid`；`id` / `id_number` / `family_uid` 及依赖它们的 D24 / D27 / D54 / D63 / D75 只约束有 PHI 家族。落点 / 库文件命名 / 门禁 → `{RULES}\workspace-layout.md`（「家族桶三类落点」「家族库 `_PHI`」）。

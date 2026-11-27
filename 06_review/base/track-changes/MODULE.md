@@ -80,16 +80,20 @@ A revision round is not one file.
 
 | File | Role |
 |---|---|
-| `Manuscript_marked_R<n>` | changes highlighted, for the editor |
-| `Manuscript_clean` | accepted view, the article file |
+| `Manuscript_<slug>_R<n>.<m>[_tracked].docx` | latest versioned copy at the project root (same token rule for V / P); `_tracked` = changes retained, the marked copy for the editor |
+| `Manuscript_<slug>_clean.docx` | accepted view of that same version: no revisions, no comments, no version number; the article file |
 | `Response to Reviewers` | point-by-point letter; body owned by `07_response/base/revise/` |
 | `_BLINDED` marked copy | only when the round is blind |
 
 1. Marked and clean come from the same round and the same source file. Continuing to edit the
    clean copy and presenting it as marked is a false record, not a shortcut.
 2. Project names: `Manuscript_<slug>_V<n>.docx`, `Response_<slug>_V<n>.docx`,
-   `Supplementary_<slug>_V1.docx`. The current version sits in the project root; superseded and
-   intermediate copies in `ref/tmp/`; retired originals into `{DEL}` with the relative path kept.
+   `Supplementary_<slug>_V1.docx`. The project root keeps exactly two manuscript files:
+   `Manuscript_<slug>_clean.docx` (latest, all revisions accepted, no marks, no version number)
+   and the latest versioned `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx` (`_tracked` =
+   marks kept). Older versioned copies, older tracked copies and root PDFs go to `ref/tmp/`
+   (kept, not deleted, not `{DEL}`); other retired originals follow the `{DEL}` rule with the
+   relative path kept.
 3. Renames run from an explicit plan (project, source name, target name, root or tmp). Dry-run by
    default, write only on an explicit apply flag; a missing source or an occupied target is
    reported, never overwritten.
