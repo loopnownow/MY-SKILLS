@@ -25,6 +25,7 @@ Load `process/study-type.md` before `write-paper` drafting, on this same route (
 
 ## Process (05-owned)
 
+- `process/intake-brief.md` -- writing-entry summary of known constraints (not a QC gate)
 - `process/study-type.md` -- coarse study-type writing constraints (not a second router)
 - `process/claim-map.md` -- pre-draft claim-evidence-wording-location plan (not a QC gate)
 - `process/figure-table-plan.md` -- which claims need a main-text figure or table (not a QC gate)

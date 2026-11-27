@@ -38,6 +38,7 @@ checkout can still opt out explicitly.
 | `test_figure_table_plan.py` | Figure/table plan file, hard constraints, write-paper / route / Claim Map pointers; not a new fine id or QC gate |
 | `test_style_qc_metrics.py` | Style QC locatable metrics and section checks in existing style-qc.md; same QCV verdicts, not a second score or new fine id |
 | `test_method_experiment_align.py` | Method-experiment alignment file, two-way check, hard constraints, write-paper / QC pointers; not a new fine id or gate |
+| `test_intake_brief.py` | Intake Brief file, thin writing-entry summary, hard constraints, write-paper / route pointers; not a new form, fine id, or gate |
 | `test_office_track_changes.py` | track-changes validator rejects a silent overwrite |
 | `test_draw_flowchart_scripts.py` | expanded STROBE spec, fail-closed n-audit, CLI writes / exits nonzero |
 | `test_vocab_harvest_sections.py` | paragraph-layer section rebuild and phrase counter |

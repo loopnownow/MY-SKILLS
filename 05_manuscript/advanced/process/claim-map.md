@@ -77,6 +77,7 @@ Do not force every cell on every row. Introduction background usually needs a ve
 | Direction | File | Role |
 |---|---|---|
 | Entry | `05_manuscript/base/write-paper/MODULE.md` (and the thin `SKILL.md`) | Load this plan before `draft-section` / `full-imrad` |
+| Upstream | `05_manuscript/advanced/process/intake-brief.md` | Writing-entry summary of known constraints; do not copy that brief here |
 | Literature gaps | `05_manuscript/advanced/process/evidence.md` | Request, consume, and judge citations; do not copy that protocol here |
 | After drafting | `05_manuscript/qc/result-to-claim.md` | Layer 2: does the reported result support the scientific claim |
 | After drafting | `05_manuscript/qc/paper-claim-audit-gate.md` | Layer 3: does the manuscript report numbers truthfully |
@@ -86,7 +87,7 @@ Do not force every cell on every row. Introduction background usually needs a ve
 
 ## Out of scope
 
-- Study-type routing, quantitative style metrics, or an intake brief
+- Study-type routing or quantitative style metrics
 - New fine ids, new gates, or changes to 00 gate composition or 02 figure production
 - Restating the QC checklists in this file
 

@@ -74,11 +74,11 @@ Uncertainties / confirmation asked: ...
 
 ## Relation to Claim Map
 
-This route supplies design-level constraints (what wording and distinctions the locked design allows). `05_manuscript/advanced/process/claim-map.md` then traces each load-bearing claim to its evidence, statistical support, wording, and location. The two-way method-experiment trace is in `05_manuscript/advanced/process/method-experiment-align.md`. Do not copy those rule bodies here. After drafting, existing claim QC and reporting-guideline gates still run unchanged.
+This route supplies design-level constraints (what wording and distinctions the locked design allows). The writing-entry summary is in `05_manuscript/advanced/process/intake-brief.md`. `05_manuscript/advanced/process/claim-map.md` then traces each load-bearing claim to its evidence, statistical support, wording, and location. The two-way method-experiment trace is in `05_manuscript/advanced/process/method-experiment-align.md`. Do not copy those rule bodies here. After drafting, existing claim QC and reporting-guideline gates still run unchanged.
 
 ## Out of scope
 
-- Style metrics, figure/table planning, or an intake brief
+- Style metrics or figure/table planning
 - New fine ids, new gates, or a parallel 05 router
 - Changing 00 gate composition or 02 figure production
 - Pasting EQUATOR / TRIPOD / CLAIM item bodies into the manuscript or this file
