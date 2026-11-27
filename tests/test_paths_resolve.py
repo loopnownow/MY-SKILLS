@@ -49,6 +49,10 @@ HIST = re.compile(r"deleted|removed|former|archived|retired|no external renderer
 ALLOW_FILES = {"INTEGRATION_MAP.md"}
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 ALLOW_MISSING.add(r"{doc_root}\templates\EXTRACT-LOG.md")  # optional write target; may not exist yet
+# Explicit "do NOT create" ban in `00_orchestrator/harvest/SKILL.md` §8: round working directories
+# live under `{DEL}`, so a `{doc_root}\harvest\rounds\` floor must stay absent. Both cites are the
+# ban itself (a negative example), not a pointer; they cannot resolve by design.
+ALLOW_MISSING.add("{doc_root}\\harvest\\rounds\\")
 
 ALIASES = (
     (yaml.safe_load((ONE / "references" / "lab-paths.yaml").read_text(encoding="utf-8")) or {}).get("aliases")
