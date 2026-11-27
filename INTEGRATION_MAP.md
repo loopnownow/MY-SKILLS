@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2261u (2026-11-27):** 总调度站立口径：工程 / 任务动工前先预计墙钟；预计超过 1 小时则由 00（Aitor）按现行座位开子代理并行加速；短任务仍就地做完；预计要实事。规则落点 `{RULES}\My rule.md` §7（§5 增加第一跳）；本仓同步 `00_orchestrator/SKILL.md` 与 `references/ownership-contract.md`。不新造 fine id。registry `change_id` 未变。
+
 - **2026-11-27 桶名切名 PR #378（chore，无 ticket）:** 机械切名 `_db`→`_PHI`、`_share`→`__zip`、`modal_`→`_modules_`，词边界对账后一次写盘，覆盖 11 个文件（标识符与占位符不动）；语义行按新布局重写：`__zip` 一级只收 `<leaf>/` 原始件压缩档 + `目录说明.md`；学位论文 / 博士后原件 → `<family>\_thesis\<slug>\`；伦理材料不再落 `_DataBase`（`{doc_ethics}` 只收 `approvals/` 与 `extract/`）。该 PR 是规则侧家族桶切名的落地 chore，本身不带 ticket id；本行即它的台账记录（其后首个带 ticket 的提交把 t2257u 补进台账，LedgerFreshness 在该 tip 恢复绿）。registry `change_id` 未变。
 
 - **t2257u (2026-11-26):** harvest 轮次工作目录落 `{DEL}`，不把 `harvest\rounds` + `by-fine-id` 写成 `{doc_root}` 下的活 SSOT；保留 extract ≠ promote、harvest ≠ closeout。同轮写入三处口径：preprocess-imaging（MRI 黑名单、img/roi、配对 100%、GDCM 多进程与 gzip 回读）、db-library（db5t skipped / archive-moved / L2 去重 / 退役顺序）、clean-data（五步闭环、不以 mtime 判新旧、对账三态）。台账补记：PR #377 落地时本仓无台账行，LedgerFreshness 在该 tip 红。registry `change_id` 未变。
