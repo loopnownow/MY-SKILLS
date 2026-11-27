@@ -9,7 +9,7 @@ QC **standards** (pass/fail + fail→rollback station) are the table below. Repo
 |---|---|
 | `check-reporting/` | **G-05** / Integrity · pre-06 — TRIPOD / CLAIM / CLEAR writing-audit stack (qc-only; not a registry fine id) |
 | `manuscript-local-qc.md` | **G-05** — science pre-submit check ids (QCS: stats/number/citation/process classes; voice checks moved out) |
-| `style-qc/style-qc.md` | **S4 only** — Style QC report (QCV, soft; report-only; never merges into a science score, never blocks G-05) |
+| `style-qc/style-qc.md` | **S4 only** — Style QC report (QCV, soft; report-only; never merges into a science score, never blocks G-05; locatable metrics and section differences live here, not a second score) |
 | `style-qc/scorecards.md` | **S4 only** — Intro / Discussion house-voice scorecards (QCV annex, soft) |
 | `reporting-guideline-route.md` | **G-05** / **Integrity · pre-06** — TRIPOD/STARD/STROBE/PRISMA + JSON router |
 | `reporting-guidelines-router.json` | **G-05** / Integrity · pre-06 — id→study_type→URL metadata only (MIT upstream) |

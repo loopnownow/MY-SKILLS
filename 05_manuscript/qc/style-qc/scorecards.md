@@ -4,6 +4,8 @@
 
 Purpose: score the house voice and structure of a draft that has already passed science QC. Personal style is not a scientific error.
 
+Locatable style metrics and IMRAD section differences (Results / Discussion / Conclusion) are additional QCV checks in `style-qc.md`. They use the same PASS / WARN / FAIL-SOFT vocabulary. They do not add a third scorecard or a second pass band.
+
 
 ## Introduction scorecard
 
