@@ -45,6 +45,8 @@ place (don't scatter the same detail). Methods carries **no citations**: every c
 protocol fact, so a citation belongs in the Introduction or Discussion instead. Every fact is a
 slot to fill from supplied material — never invent a value to complete the sentence. Hand wording to advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`).
 
+Before freezing Methods, run the two-way alignment in `05_manuscript/advanced/process/method-experiment-align.md` (not a QC gate). Do not invent a missing step to close a gap.
+
 ## Self-check
 `design+ethics? · eligibility+flow? · scanner+protocol? · reference standard+reader blinding+
 ICC? · patient-level split+leakage controls? · IBSI/harmonisation train-only? · stats with CI

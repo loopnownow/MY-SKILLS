@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2274u (2026-11-27):** 只吸收方法-实验对齐（目的/假设 → 设计与方法 → 统计分析 → 结果 → 解释边界的双向核对），医学化自写并入 `05_manuscript/advanced/process/method-experiment-align.md`，接到 study-type、Claim Map、`write-paper` Methods/Results 与现有 G-FACT / 报告规范 / 02 统计 QC 指针，不复制这些规则全文，不另起独立 Skill、实验矩阵或新 Gate，不新建细 ID，不改 00 / 02。Intake Brief 未做。registry `change_id` 未变。
+
 - **t2273u (2026-11-27):** 只把定量风格检查与章节差异补进现有 `05_manuscript/qc/style-qc/style-qc.md`（及 scorecards / qc README 指针），沿用 PASS / WARN / FAIL-SOFT，不另起第二套风格评分或新细 ID，不搬外部字数/句数/段落硬阈值，不机械禁止标点或句式。可定位项须落到原文；论证是否成立等项不得自动判。Method-Experiment Alignment 与 Intake Brief 未做。registry `change_id` 未变。
 
 - **t2272u (2026-11-27):** 只吸收证据驱动的图表规划（主张需要哪张主文图/表、为何需要），医学化自写并入 `05_manuscript/advanced/process/figure-table-plan.md`，接到 Claim Map 与 `write-paper` 入口；05 负责需要与主张，02 负责按数据生成，不把制图规则拷进 05，不改 00，不新建细 ID，不另起表单/打分/总闸。M3 Style Metrics、Method-Experiment Alignment 与 Intake Brief 未做。registry `change_id` 未变。

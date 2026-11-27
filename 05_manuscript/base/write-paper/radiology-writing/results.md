@@ -16,7 +16,7 @@ Past tense, quantitative, claim-first. Build an evidence ladder, not a lab diary
 6. **Subgroups / robustness / failure analysis** — pre-specified; don't fish.
 
 ## Rules
-- **Mirror Methods one-to-one:** same subsection titles, same order. A subsection whose
+- **Mirror Methods one-to-one:** same subsection titles, same order. Trace Results back to Methods with `05_manuscript/advanced/process/method-experiment-align.md`; do not introduce an analysis that Methods did not describe. A subsection whose
   analysis is not finished keeps its heading plus one line (`Results pending`); never delete
   the section to hide the gap. Keep an Ethics result subsection only when the journal reports
   ethics in Results.

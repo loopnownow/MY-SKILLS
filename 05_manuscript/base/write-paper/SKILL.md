@@ -31,3 +31,7 @@ Before `draft-section` / `full-imrad`, build or refresh the claim-evidence plan:
 
 After the Claim Map, plan which main-text displays are needed and why: `05_manuscript/advanced/process/figure-table-plan.md`. 02 still generates the graphics.
 
+## Method-experiment alignment
+
+When drafting or revising Methods, Results, or Discussion, run the two-way trace: `05_manuscript/advanced/process/method-experiment-align.md`. It is not a QC gate.
+

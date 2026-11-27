@@ -3,7 +3,7 @@
 **Owner:** `00_orchestrator` (composes **G-FACT** / Integrity · pre-06).
 **Seat:** Aitee (05) drafts claim language; **independent reviewer** judges support. Loopnow (02) if more experiments needed. Victor (03) if claim needs lit framing.
 **Distill of:** ARIS `result-to-claim` + `evidence-precheck.md`.
-**Link, don’t duplicate:** number alignment → `claim-number-align.md`; forensic arithmetic → `06_review/qc/forensic-consistency.md`.
+**Link, don’t duplicate:** number alignment → `claim-number-align.md`; forensic arithmetic → `06_review/qc/forensic-consistency.md`; method-experiment trace → `05_manuscript/advanced/process/method-experiment-align.md` (not this gate).
 
 ## Purpose
 

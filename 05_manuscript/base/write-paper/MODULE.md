@@ -36,7 +36,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 
 **Do not use this module** for polish-only passes, 选刊, or 回复审稿人.
 
-**Before drafting:** first load `05_manuscript/advanced/process/study-type.md` (coarse study-type constraints on the existing 05 route, not a second router). Then build or refresh the claim-evidence map in `05_manuscript/advanced/process/claim-map.md`. Then plan main-text figures and tables in `05_manuscript/advanced/process/figure-table-plan.md` (why a display is needed; 02 generates it). Literature gaps go through `05_manuscript/advanced/process/evidence.md`. Claim QC stays in `05_manuscript/qc/` (`result-to-claim.md`, `paper-claim-audit-gate.md`, `claim-number-align.md`).
+**Before drafting:** first load `05_manuscript/advanced/process/study-type.md` (coarse study-type constraints on the existing 05 route, not a second router). Then build or refresh the claim-evidence map in `05_manuscript/advanced/process/claim-map.md`. Then plan main-text figures and tables in `05_manuscript/advanced/process/figure-table-plan.md` (why a display is needed; 02 generates it). When drafting Methods, Results, or Discussion, run the two-way alignment in `05_manuscript/advanced/process/method-experiment-align.md` (not a QC gate). Literature gaps go through `05_manuscript/advanced/process/evidence.md`. Claim QC stays in `05_manuscript/qc/` (`result-to-claim.md`, `paper-claim-audit-gate.md`, `claim-number-align.md`).
 
 ## Hard bans
 
@@ -74,8 +74,8 @@ Discussion), plus venue house style and article shape once a journal family is k
 | Abstract | [radiology-writing/structured-abstract.md](radiology-writing/structured-abstract.md) |
 | Front matter slots | [references/front-matter-spec.md](references/front-matter-spec.md) |
 | Architecture | [radiology-writing/article-architecture.md](radiology-writing/article-architecture.md) |
-| Methods | [radiology-writing/methods.md](radiology-writing/methods.md) |
-| Results | [radiology-writing/results.md](radiology-writing/results.md) |
+| Methods | [radiology-writing/methods.md](radiology-writing/methods.md); alignment: `05_manuscript/advanced/process/method-experiment-align.md` |
+| Results | [radiology-writing/results.md](radiology-writing/results.md); alignment: `05_manuscript/advanced/process/method-experiment-align.md` |
 | Discussion | [radiology-writing/discussion.md](radiology-writing/discussion.md) |
 | Citation gate | [radiology-citation/claim-verification-gate.md](radiology-citation/claim-verification-gate.md) |
 | Figures | need / claim: `05_manuscript/advanced/process/figure-table-plan.md`; production: patient-flow → `draw-flowchart`; plots → `plot-figures` |

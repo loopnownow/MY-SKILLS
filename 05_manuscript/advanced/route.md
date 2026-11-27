@@ -28,6 +28,7 @@ Load `process/study-type.md` before `write-paper` drafting, on this same route (
 - `process/study-type.md` -- coarse study-type writing constraints (not a second router)
 - `process/claim-map.md` -- pre-draft claim-evidence-wording-location plan (not a QC gate)
 - `process/figure-table-plan.md` -- which claims need a main-text figure or table (not a QC gate)
+- `process/method-experiment-align.md` -- two-way aim-methods-results-interpretation trace (not a QC gate)
 - `process/evidence.md` -- evidence request + I/D consumption
 - `process/citation-and-language.md`
 - `process/polisher-sections.md`

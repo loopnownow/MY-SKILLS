@@ -23,6 +23,9 @@ Use `00_orchestrator/templates/handoff.yaml` for formal handoffs.
 ## Figure and table plan
 - After the Claim Map, use `process/figure-table-plan.md` (why a display is needed; 02 generates it). This is not a QC gate.
 
+## Method-experiment alignment
+- When drafting Methods, Results, or Discussion, use `process/method-experiment-align.md` (two-way aim-methods-results-interpretation trace). This is not a QC gate.
+
 ## Evidence
 - Use `process/evidence.md`: raise gaps → 03 searches → 05 Accept / Weaken / Delete.
 
