@@ -62,24 +62,38 @@ PHI_EXCLUDED      P2  clean  列含 PHI，移入 `_PHI` 后删列
 
 ### 1.3 `schema.sql`
 
-由 `{code_root}\tools\db-library\db5t\schema-v1.md`（41,289 B）反编译生成，**不由现有库 dump**。内容：
+由 `{code_root}\tools\db-library\db5t\schema-v1.md` 反编译生成，**不由现有库 dump**。产物是
+`{code_root}\tools\db-library\db5t\schema.sql`（已生成，随代码仓提交；`mkschema.py --check` 校验是否与
+schema-v1.md 同步）。内容：
 
-- `meta` / `src` / `person` / `qc` / `clin` 五张核心表；
+- 家族库段（`@section family`）：`meta` / `id` / `id_number` / `ref_project` / `ref_study` / `ref_batch`，
+  **不含 `dict`**（契 3：目标态家族库不留 dict，词典读 `{RAW}\Family\dict.db`）；
+- 子库段（`@section project`）：`meta` / `src` / `person` / `clin` / `qc` + 7 组 `_modules_<mod>` 与 `<mod>_val`
+  （`<mod>` ∈ radiomics|us|mri|ct|pet|path|report，占位符已展开成 7 份）；
 - `clin` 的 11 个骨架列 + 15 个 `path_*`（`stage` 级 dict 行对应）；
-- `_modules_<mod>` 注册表 + `<mod>_val` 长表（`(exam_uid, entity, feature, value, unit)`）；
-- 索引：`clin(family_uid)`、`clin(period_month)`、`clin(src_id, src_row)`、`*_val(exam_uid)`。
+- 索引：`ux_clin_month` / `ix_clin_month` / `ix_modal_<mod>_month`（按模态各一条，名字须带模态，否则 7 份展开时撞名）。
 
 ### 1.4 dict 行（全局 `{RAW}\Family\dict.db`）
 
-建库前先把目标列的 dict 行写进去（`scope='proj:<slug>'`），再建表。骨架列走 `scope='stage'`，一次登记全库共用（现状 24,189 个 proj 键里有 2,463 个是该上提的骨架键）。
+建库前先把目标列的 dict 行写进去（`scope='proj:<slug>'`），再建表。骨架列走 `scope='stage'`，一次登记全库共用。
+2026-11-28 已用 `mkdict.py` 把这批旧 11 列 dict 归并成全局库（24,329 行，含 116 行 stage 骨架行），
+旧家族库里的 `dict` 表仍在（批 C 才删）。
 
 ## 2 阶段 1：建空库
 
 ```
-# 计划中（CLI 为约定，脚本落地前不存在）
-python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> \
-  --schema <schema.sql> --map map.csv --period-unit singleton --dry-run
+# 0) 先确认 schema.sql 与 schema-v1.md 同步（过期 rc=1）
+python -B tools/db-library/db5t/mkschema.py --check
+
+# 1) 看要建什么，不写盘
+python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> --dry-run
+
+# 2) 建空库（默认写 DB5T_ROOT = 批次 stage，不直接写真库）
+python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> --period-unit singleton
 ```
+
+`newdb.py` 建出的东西：家族库（6 表）+ 子库（19 表，7 组模态各一对）+ `meta` 六键 + `目录说明.md`；
+目标已存在就跳过、绝不覆盖。`--map` 不在本脚本里做（map.csv 是契约，阶段 2 才读它登 src）。
 
 建出来的目录（契 10）：
 
