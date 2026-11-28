@@ -14,8 +14,8 @@ trigger is documentation only; not independently discoverable.
 
 Contract only for db-library: scope, phases, bans, verification, and pointers. Recipes live in
 [references/merge-tables.md](references/merge-tables.md)（散表归并）、[references/build-db.md](references/build-db.md)（建库）、
-[references/single-lab-db.md](references/single-lab-db.md)（单库化与 core-6t）、[references/db-fix.md](references/db-fix.md)（库内修库）。
-Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶三类落点」「家族库 `_PHI`」「散表归并与表格入库」）— do not restate them here.
+[references/single-lab-db.md](references/single-lab-db.md)（单库化与 core-6t）、[references/db-fix.md](references/db-fix.md)（库内修库）、[references/load-pipeline.md](references/load-pipeline.md)（契约驱动建库）。
+Path / ledger / gate rules live in `{RULES}\zone-database.md`（「家族桶落点」「家族库 `_PHI`」「散表归并与表格入库」「台账落点」）；build contract in `{RULES}\db-build-contract.md` — do not restate them here.
 
 ## Scope
 
@@ -40,6 +40,22 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 5. **P4 落盘** — 库落 `<family>\_PHI\<family>db`；压缩档移 `__zip\<leaf>\`（原档不进 `_PHI`、不留叶）；解包树校验后移 `{DEL}`；原件移 `{DEL}\...\originals\<code>\<family>\<leaf>\` + 台账；叶 `目录说明.md` 改为「只留说明 + 档→表映射」；`_index.csv` note。
 6. **P5 收口** — `cd D:\MyProjects\_Docs && python -B test/structure_check.py` 全门 PASS；批次报告 `<batch>-REPORT.md`。
 
+## 契约驱动建库（与 P0–P5 并列）
+
+与上面「P0–P5 批量合并」并列，不合并：那是一批表进一个库，这是从零建标准库。硬约束只在 `{RULES}\db-build-contract.md`，判据见 `{RULES}\db-gates.md` D93–D99（尚未机器化 / report-only）。
+
+| 阶段 | 产物 | 卡口 |
+|---|---|---|
+| 0 契约 | `map.csv`（13 列）、`qc_codes.tsv`、`schema.sql` | 三份齐了才许建表 |
+| 1 空库 | `newdb.py` 由 `schema.sql` 生成，不抄现有库 | 空库 `gates` 只允许「无数据」类提示 |
+| 2 源登记 | `src` 一行一源 + sha256 | Σ`src.rows` 与源文件行数一致 |
+| 3 身份 | `id` / `id_number`，姓名只进 `id.name` | 9 段占位不判冲突 |
+| 4 清洗 | 列名归一、表头拼接、单位外置、枚举英文化 | 全部进 `map.csv`，不改语义 |
+| 5 回填 | 按列组八组顺序，每格写 `src_id` + `src_row` | dry-run 计数 → 审 → apply |
+| 6 收口 | `fix_sha` + `gates` 全绿 | D96 计数守恒（尚未机器化） |
+
+详细步骤见 `references/load-pipeline.md`。目录契约见 `{RULES}\db-build-contract.md` 契 10。
+
 ## 门禁（verify_db / 单库化 / 目录说明 QC）
 
 **verify_db 判级**：输出 `[P<级>][FAIL|WARN|INFO][D<号>] msg`，汇总行 `== 结果 == P0=.. P1=.. P2=..`，`exit 1` 仅当 `P0 > 0`。级别映射：D1/D2/D3/D5 → P0，D4/D6/D7 → P1，D8/D9 → P2；伦理进库（D19）→ P0；D20 表头一致性、D21 fact 层明文 PHI、D22 role 为新增门。D10–D18 属语义项（entity 键是否可用、结果表是否被拆、PHI 是否真脱敏），机器门判不了，必须人工过并留证据。
@@ -55,8 +71,8 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 压缩档是**数据来源**，不是库内对象：原档只留 `__zip`，档内表格才入库，解包树不留在 `_DataBase`。
 
 1. **解档** — 归档解到 `{DEL}\_by-function\<batch>\staging\_unpack\<leaf>\`（不就地解压、不解到 `_DataBase`）。
-2. **入库** — 档内表格按与散表相同的三层去重入库；`doc.rel_path` = 档在 `_DataBase` 下的相对路径 + `/<成员>`（例 `PHT/__zip/lmd_PHT.7z/PHT-data.xlsx`；叶档例 `MHE_AN/_thesis/ly_THESIS/morris copy.7z/<成员>`）；档内**非表格**件不入库。
-3. **档移 `__zip`** — 原档 → `<family>\__zip\<leaf>\`（自 `__zip` 起 ≤2 层）；学位论文 / 博士后 / 汇报稿原档 → `<family>\_thesis\<slug>\<文件>`；伦理材料不进 `_DataBase`（见禁忌）。
+2. **入库** — 档内表格按与散表相同的三层去重入库；`doc.rel_path` = 档在 `_DataBase` 下的相对路径 + `/<成员>`（例 `PHT/__zip/lmd_PHT.7z/PHT-data.xlsx`；论文档目标落点 `__zip/thesis/<slug>/...`（现行盘面在改挂前仍可能见 `_thesis`，实体未搬））；档内**非表格**件不入库。
+3. **档移 `__zip`** — 原档 → `<family>\__zip\<leaf>\`（自 `__zip` 起普通叶 ≤2 层）；学位论文 / 博士后 / 汇报稿原档目标落点 `<family>\__zip\thesis\<slug>\<文件>`（学位支为层级例外；勿再新建 `_thesis`；实体改挂待另点名）；伦理材料不进 `_DataBase`（见禁忌）。
 4. **解包树移 `{DEL}`** — 解包树逐件 sha256 与档内成员清单核对 100% 后，整树移 `{DEL}\_by-function\<batch>\unpack\`；不得在 `_DataBase` 任何层留解包副本。
 5. **记档** — 台账分行分记：`kind=archive`（档 → `__zip`）、`kind=table`（档内表 → `originals\<code>\<family>\__zip\<档相对路径>\`）；跳过件（库内同 sha / 两档互重）单列 skip 清单；readme 记「档 → 表」映射与跳过原因。
 6. **表映射** — 用 `doc.rel_path` 反查档名 + 成员；`__zip` 根 `目录说明.md` 记档清单（子层 / 件数 / MiB），叶 readme 记未入库例外。
@@ -72,7 +88,7 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 - **归档退役顺序固定**：先标依赖 → 再搬字节 → 同批改台账。反过来会留 dangling 指针，且「sha256 ok」会变成假绿。搬档前先按 archive 分组计数谁还指着它；有引用就先改状态，再搬。退役不是删除：整档进 `{DEL}`，保相对路径 + sha256 台账；内容指纹仍可证明「曾是什么」，只是字节不在 `__zip`。
 - **`archive-moved` 是状态不是新路径**：不要把 archive 字段改写成 `{DEL}` 绝对路径（违反「禁活指针指 `{DEL}`」）。体积账要写进说明与索引 note，否则下次巡检会把「缺档」当事故。退役前确认该档没有被库内 blob 依赖；清单文件必须跟档一起搬。同一批若既改索引又搬档，先把索引原件备份到批次夹并记 sha256。
 - **L2 内容去重**：文件级 sha256 只能抓同一字节，抓不到「同一张表存了两个文件」。内容级必须比表头归一 + 行哈希多重集。去重标记的空串按空值处理；`status='new'` 且尚未入库，不等于重复，也不等于已入库。同名不同 sha 可能是不同版本（保留），只有整表全等或真子集才记边。先用便宜签名（维度，不读单元格）分组，只在「签名相同且 sha 不同」的组里做完整 L2。名字信号（`copy/`、`old/`、副本后缀）只作候选，不是结论。`--apply` 只写去重边 + 说明，台账只追加不覆盖。去重是否做完，看指纹分组与重算的表级签名，不看库内自述字段。
-- **改库后必须重生成说明与预览**，否则页面数字是旧账。预览页口径与 `{RULES}\workspace-layout.md`「家族库 `_PHI`」一致。删行后必须 `VACUUM`，否则空闲页让库虚涨。空库不建假库：记一句后把空壳移 `{DEL}`，说明里留指针。
+- **改库后必须重生成说明与预览**，否则页面数字是旧账。预览页口径与 `{RULES}\zone-database.md`「家族库 `_PHI`」一致。删行后必须 `VACUUM`，否则空闲页让库虚涨。空库不建假库：记一句后把空壳移 `{DEL}`，说明里留指针。
 - schema 门若是子集判据：必须先加允许的 schema 集合再删表，顺序反了整批红。改 schema 必须与门同批改。
 
 ## Bans
@@ -82,7 +98,7 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 - 不得把压缩档原档入库；归档不进 `_PHI`、不留叶，一律 `<family>\__zip\<leaf>\`。
 - 不得就地解压：解包只到 `{DEL}` staging，校验后整树移 `{DEL}`，`_DataBase` 不留解包副本。
 - 叶内不得留散表 / 压缩档：入库后叶内只 `目录说明.md`；未入库例外（PHI 花名册、模板、解析失败件）留叶并在 readme 写明原因，不另存副本。
-- `__zip` 层级 ≤2：`__zip\<leaf>\<文件>`；一级只 `<leaf>/` 与 `目录说明.md`（无叶家族可 `__zip\<family>/`，须登记例外）。`_thesis` 一级只 `<slug>/`；伦理材料不落 `_DataBase`。
+- `__zip` 普通叶层级 ≤2：`__zip\<leaf>\<文件>`；一级只 `<leaf>/` 与 `目录说明.md`（无叶家族可 `__zip\<family>/`，须登记例外）。学位支例外为 `__zip\thesis\<slug>\<文件>`；勿再新建 `_thesis`。伦理材料不落 `_DataBase`。
 - 不得把 `_DataBase` 的件回流项目树（用户口径：不回流）。
 - 未获当轮点名不得写 `_DataBase`（写盘总闸）；不确定即停、先问。
 - 不得先切库、后补门：单库化 / 6t 结构切换的四处门禁须同批改（见「单库化切换门」）。
@@ -90,6 +106,8 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 - 不得为「每行都有唯一标识」硬塞 `person_id` / `entity`：无可靠个体键时宁可不建（置 NULL + 记理由）。
 - 出库归档原件须两份异盘；库内 blob 保留的明文 PHI 外发前必须再脱敏（假名 ≠ 已脱敏）。
 - 手工发现「台账 dst 不存在」时：先取证（回收站 → `E:\Aitor` 冻结快照 → 全盘落点），问过主人再动；确认清除才写 `REVOKED-*.tsv`，不得静默恢复或删除。
+- 契约未齐不得建表、dict 无行不得 ALTER：见 `{RULES}\db-build-contract.md` 契 1、律 4。
+- 中文映射与换算系数不进 `dict` / `qc`：见 `{RULES}\db-build-contract.md` 律 1。
 
 ## Failure modes（本轮实测）
 
@@ -121,8 +139,9 @@ Path / ledger / gate rules live in `{RULES}\workspace-layout.md`（「家族桶�
 - [ ] 库内无 `sqlite_stat1`、无伦理表（D19）；`verify_db --quiet` 的 exit / P0 / P1 / P2 记进 `目录说明.md` 的 QC 段
 - [ ] 叶内只留 `目录说明.md`；未入库例外在 readme 固定段写明（可机器判定）
 - [ ] 归档不在叶内：家族桶 depth≥2 无压缩档，压缩档只在 `__zip`
-- [ ] `__zip` 层级 ≤2（`__zip\<leaf>\<文件>`），一级无 `ethics` / `thesis` / `raw` 子夹
+- [ ] `__zip` 普通叶层级 ≤2（`__zip\<leaf>\<文件>`）；学位支允许 `__zip\thesis\<slug>\<文件>`；一级无 `ethics` / `raw` 子夹，勿再新建 `_thesis`
 - [ ] 台账号对齐：`doc.rel_path` ↔ 台账逐条对齐，档内表带档名 + 成员；`__zip` 根 `目录说明.md` 件数 / MiB 与实盘一致
 - [ ] `目录说明.md` 追加段含口径、重算文件数 / 大小、库路径、台账指针
 - [ ] `_index.csv` note 追加日期 + 落点，不留悬空 `→` 路径
 - [ ] `structure_check.py` 全门 PASS
+

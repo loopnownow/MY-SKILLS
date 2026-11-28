@@ -1,6 +1,6 @@
 # 家族库 SOP（build-db）
 
-适用：把一个 / 多个短码的表格数据收进家族 SQLite 库。**位置 `<family>\_PHI\<family>db`、一族一库、原件进 `{DEL}`** 是 RULES 契约（`workspace-layout.md`「家族库 `_PHI`」），本文件只讲 schema / 算法 / QA。
+适用：把一个 / 多个短码的表格数据收进家族 SQLite 库。**位置 `<family>\_PHI\<family>db`、一族一库、原件进 `{DEL}`** 是 RULES 契约（`{RULES}\zone-database.md`「家族库 `_PHI`」），本文件只讲 schema / 算法 / QA。
 
 ## 1 硬约束
 
@@ -33,7 +33,7 @@ CREATE INDEX ix_entity ON entity(project_id, key_norm);
 - `sheet.blob` = 整表 `zlib` 压缩的 TSV（含表头）；宽表也存，保证「有多少数据可查」。
 - `sheet.status`：`ingested` / `dup` / `subset`；`sheet_dup.reason` 记重复或子集、`kept_bytes` 记省下字节。
 - `doc.rel_path` 保留 叶 slug 前缀（如 `MHE/ly_RI/IR-14-9-29.xlsx` 形式的相对 `_DataBase` 路径），便于回溯原文。
-- 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/__zip/lmd_PHT.7z/PHT-data.xlsx`、`MHE_AN/_thesis/ly_THESIS/morris copy.7z/<成员>`；原档在 `__zip` 或 `_thesis`，靠该列回溯「哪张表来自哪个档的哪个成员」。
+- 档内表格的 `doc.rel_path` = **档在 `_DataBase` 下的相对路径 + `/<成员>`**：例 `PHT/__zip/lmd_PHT.7z/PHT-data.xlsx`；论文档目标落点 `__zip/thesis/<slug>/...`（现行盘面改挂前仍可能见 `_thesis`，实体未搬）。靠该列回溯「哪张表来自哪个档的哪个成员」。
 - 目标 core-6t 结构（7 实表 + 5 只读兼容视图、`val` 主键 `WITHOUT ROWID`）见 [single-lab-db.md](single-lab-db.md)；现役 21 库仍为上表旧 schema，切换前两种结构不得混写。
 
 ## 3 去重三层

@@ -1,6 +1,6 @@
 """禁止旧桶路径回归。
 
-口径（{RULES}/workspace-layout.md）：家族目录只认 `_PHI` / `__zip` / `_thesis`；
+口径（{RULES}/zone-database.md）：家族目录只认 `_PHI` / `__zip`（学位目标落点 `__zip\\thesis`；勿再新建 `_thesis`）；
 旧名 `_db` / `_share` / `modal_` 只允许出现在历史台账行（含 `PR #` 的说明）里。
 
 匹配只针对「路径形态」：
@@ -55,4 +55,4 @@ def test_no_old_bucket_paths():
                         f"{line.strip()[:140]}"
                     )
                     break
-    assert not hits, "旧桶路径残留（改用 _PHI / __zip / _thesis）：\n" + "\n".join(hits)
+    assert not hits, "旧桶路径残留（改用 _PHI / __zip，学位改挂 __zip/thesis）：\n" + "\n".join(hits)

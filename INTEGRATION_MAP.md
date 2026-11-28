@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2296u (2026-11-28):** 按建库补丁口径更新 `db-library`：新增 `references/load-pipeline.md`；硬约束与落点改指 `{RULES}\db-build-contract.md` 与 `{RULES}\zone-database.md`；目标态为 `{RAW}\Family\` 全局 `dict.db`、家族库不留 `dict`、学位改挂 `__zip\thesis\<slug>\`（勿再新建 `_thesis`）；`OTHERS` 按有 PHI 家族对待；D93–D99 仅在 RULES 作 report-only，本批未搬盘、未改 MY-CODES。不新造 fine id。registry `change_id` 未变。
+
 - **t2275u (2026-11-27):** 只吸收开写前的轻量 Intake Brief（把研究问题、研究类型、主要主张、已有数据/分析与图表约束收齐到一处），医学化自写并入 `05_manuscript/advanced/process/intake-brief.md`，接到 `write-paper`、`route.md` / `handoff.md` 与 study-type / Claim Map 入口；缺项标缺项，不允许用猜测填满；不另起表单、打分、细 ID 或 Gate，不改 00 / 02。registry `change_id` 未变。
 
 - **t2274u (2026-11-27):** 只吸收方法-实验对齐（目的/假设 → 设计与方法 → 统计分析 → 结果 → 解释边界的双向核对），医学化自写并入 `05_manuscript/advanced/process/method-experiment-align.md`，接到 study-type、Claim Map、`write-paper` Methods/Results 与现有 G-FACT / 报告规范 / 02 统计 QC 指针，不复制这些规则全文，不另起独立 Skill、实验矩阵或新 Gate，不新建细 ID，不改 00 / 02。Intake Brief 未做。registry `change_id` 未变。

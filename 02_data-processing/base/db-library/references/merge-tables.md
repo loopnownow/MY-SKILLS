@@ -1,7 +1,7 @@
 # 散表归并 SOP（merge-tables）
 
 适用：家族根 / 叶根散落 xlsx / xls / csv → 一个可查询的合并工作簿。路径、留痕、门禁契约见
-`{RULES}\workspace-layout.md`（「散表归并与表格入库」）；本文件只讲做法。
+`{RULES}\zone-database.md`（「散表归并与表格入库」）；本文件只讲做法。
 
 ## 1 盘点（只读）
 
@@ -89,4 +89,4 @@ find "/d/MyProjects/_DataBase/<FAMILY>" -maxdepth 2 -type f \
 | OC 根 | 13 表（10 酶标 + 2 金属 + 1 临床） | 6 sheets；818 孔 | 5 检测项 × 2 批次；`metal ion` 主表 ⊃ `Manganese, iron, calcium`；`Sheet2` 与主表数值有差（未并） |
 | PCOS/zar_PCOS3D | 5 表 | 8 sheets；主表 119 行 | 两表行序一致（Age 118/118 相等；BMI 差异仅四舍五入） |
 
-`MHE/ly_THESIS` 77 表已随 `MHE_AN` 家族库入库（`MHE_AN/_PHI/MHE_ANdb`：23 表入库 / 12 件跳过，压缩档原档留 `MHE_AN/_thesis/ly_THESIS/`）；整篇论文散件（色谱图 / 积分 / 行为学 / 免疫组化混放）后续按实验类型分桶再谈合并。
+`MHE/ly_THESIS` 77 表已随 `MHE_AN` 家族库入库（`MHE_AN/_PHI/MHE_ANdb`：23 表入库 / 12 件跳过，压缩档原档现行盘面仍可能在 `MHE_AN/_thesis/ly_THESIS/`，目标落点 `__zip/thesis/<slug>/`，实体未搬）；整篇论文散件（色谱图 / 积分 / 行为学 / 免疫组化混放）后续按实验类型分桶再谈合并。
