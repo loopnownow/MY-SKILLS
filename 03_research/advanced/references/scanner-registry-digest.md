@@ -7,11 +7,11 @@
 
 | Role | Path |
 |---|---|
-| Durable original (README + xlsx) | `{doc_harvest_sources}\library-methods-20261023\scanner-registry\` |
-| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\scanner-registry\`~~ |
+| Durable original (README + xlsx) | a retired harvest-sources park under `{del_root}` |
+| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\library-methods-20261023\scanner-registry\`~~ |
 | Live xlsx (query) | `{doc_root}\_library\scanner-registry\scanner-parameter-registry.xlsx` |
 | Build scripts (MY-CODES tools) | `{code_data_processing}\lab-reference\scanner_registry_{extract,build,rows}.py` |
-| Word archives | `{doc_word_archive}`（原 0del word-sources park 已清；t1490u） |
+| Word archives | `{doc_word_archive}`（原 word-sources park 已清） |
 
 ## Coverage snapshot (as of README 2026-10-17)
 
@@ -56,7 +56,7 @@ See workbook `05_gaps` (and parked README) for known missing device/params — n
 
 ## Named gap — MAGNETOM Skyra / SOMATOM Sensation (search 2026-10-19)
 
-Search scope then: _Docs lab-reference scanner-registry, related manuscripts, and the raw DB (`{raw_root}`, formerly 00ds). Record only what that search stated. Do **not** invent protocol parameters.
+Search scope then: _Docs lab-reference scanner-registry, related manuscripts, and the raw DB (`{raw_root}`). Record only what that search stated. Do **not** invent protocol parameters.
 
 - **Not found:** the literal model names MAGNETOM Skyra and SOMATOM Sensation, and no protocol table for either.
 - Closest hit in that search: manuscripts that name SOMATOM only (64-row / 128-slice). No Sensation subtype. No complete Ultravist / iopromide protocol.

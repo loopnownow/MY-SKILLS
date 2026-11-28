@@ -8,8 +8,8 @@
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_harvest_sources}\library-methods-20261023\lit-bank-method\` |
-| Park (archive leftover; `{DEL}\_by-project\0doc-library-methods-20261023\lit-bank-method\` **absent**) | `{raw_root}\_lab\originals\0doc-library-methods-20261023\lit-corpus-method\` (folder still named lit-corpus-method; live bank name remains **lit-bank**) |
+| Durable original | a retired harvest-sources park under `{del_root}` |
+| Park (archive leftover; `{DEL}\_by-project\library-methods-20261023\lit-bank-method\` **absent**) | `{raw_root}\_lab\originals` (retired lit-corpus-method originals) (folder still named lit-corpus-method; live bank name remains **lit-bank**) |
 | Data SSOT (stays live) | `{doc_root}\_library\lit-bank\` (`index.csv`, `themes.md`, layer READMEs) |
 | CSV header template | `03_research/advanced/references/lit-bank-index.template.csv` |
 | One-shot scripts (not in skills; archive leftover) | `{raw_root}\_lab\originals\_leftover-20261024\_by-project\lit-corpus\*.py` (working park `{DEL}\_by-project\lit-bank\` **absent**; leftover folder still named lit-corpus) |

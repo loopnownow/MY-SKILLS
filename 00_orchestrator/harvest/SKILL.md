@@ -167,7 +167,7 @@ do not treat S29 as proof that a `{doc_root}\harvest\rounds\` live floor is requ
 
 ## 10 Anti-regression (learned failures)
 
-1. `sources\` is a durable park, not an empty folder: `{doc_lab_ste}`, `{doc_grants}`, `{doc_fill_protocol}` still
+1. `sources\` is a durable park, not an empty folder: `{doc_lab_ste}`, `{doc_grants}`, `{doc_ethics}` still
    point into it. Never delete the folder; re-point the aliases before any move.
 2. Round directories are not a live SSOT under `{doc_root}\harvest`; see §8.
 3. Never invent a lane or a fine id.

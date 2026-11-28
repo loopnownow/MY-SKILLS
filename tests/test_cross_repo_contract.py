@@ -148,7 +148,7 @@ class CrossRepoContract(unittest.TestCase):
         """lab-paths {code_stats}/{code_modules} must match the MY-CODES layout."""
         data = yaml.safe_load(LAB_PATHS.read_text(encoding="utf-8"))
         aliases = data["aliases"]
-        for key in ("code_stats", "code_modules", "code_modules_master", "rules_git"):
+        for key in ("code_stats", "code_modules", "rules_git"):
             self.assertIn(key, aliases)
         stats = _require_sibling(self, "MY-CODES")
         modules = Path(str(aliases["code_modules"]))
@@ -158,11 +158,6 @@ class CrossRepoContract(unittest.TestCase):
             modules.resolve(),
             (stats / "modules").resolve(),
             "code_modules must be code_stats/modules",
-        )
-        self.assertEqual(
-            Path(str(aliases["code_modules_master"])).resolve(),
-            modules.resolve(),
-            "code_modules_master must equal code_modules",
         )
         init = (stats / "modules" / "__init__.py").read_text(encoding="utf-8")
         m = VERSION_MARK_RE.search(init)

@@ -41,7 +41,7 @@
 
 1. 先查重：DOI、PMID、题名三项比对已有两本账。
 2. 结果先落候选清单，再逐条核 DOI 真实性；核不到的不写进正式结果。
-3. 定 layer（personal / base / 其他）与 L1/L2；新 L2 前停下点名。
+3. 定 layer（advanced / base / 其他）与 L1/L2；新 L2 前停下点名。
 4. 去重后一行一条：citation_nlm、result_conclusion（一句）、themes，留 verified_at。
 5. 需要全文转 `lit-fulltext`；需要核对引用转 `verify-refs`。
 6. 入库前查三件套，缺项退回，不带着缺口登记。

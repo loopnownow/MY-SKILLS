@@ -312,7 +312,7 @@ See `../references/bank-patterns.md` for the tagged revision taxonomy when routi
 
 ---
 
-## De-AI pass (absorbed retired `humanize` 2026-10-30)
+## De-AI pass (de-AI 2026-10-30)
 
 Owner: 05 advanced (advanced-only; no registry fine id). Contract invariants, phase names, and procedure live here. Do not dispatch `write-paper` for de-AI. Pattern catalogue: `05_manuscript/advanced/references/ai_patterns.md`. Scripts: `05_manuscript/advanced/process/scripts/`. Voice/vocab: `05_manuscript/advanced/voice-portrait.md` + `05_manuscript/base/vocab/` + advanced vocab overrides.
 
@@ -342,7 +342,7 @@ Scored checklist: `05_manuscript/qc/style-qc/scorecards.md` (QCV, soft).
 4. **Verify.** Keep the pre-rewrite text where the fidelity check can read it before editing in place, otherwise Phase 4 cannot tell whether numbers and citations survived. Re-scan the rewrite on the same 27 patterns, run both detectors, and return a Verification Report (before/after: total instances, density, HIGH, MEDIUM, remaining issues, verdict). Density still above 2.0 means another fix-verify cycle, max 3 rounds. When another skill calls the pass, return the report so the caller can read pass/fail.
 
 ```bash
-python3 "{code_stats}\tools\manuscript-qc\check_rewrite_fidelity.py" --before /tmp/pre_humanize.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
+python3 "{code_stats}\tools\manuscript-qc\check_rewrite_fidelity.py" --before /tmp/pre_deai.md --after manuscript.md --out qc/rewrite_fidelity.json --strict
 python3 "{code_stats}\tools\manuscript-qc\check_sentence_variety.py" --manuscript manuscript.md --out qc/sentence_variety.json
 ```
 Both detectors live in `{code_stats}\tools\manuscript-qc\`; this pack keeps the pointer

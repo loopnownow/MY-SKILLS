@@ -47,7 +47,7 @@ Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loo
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
 - `journal-format-compliance` — format the manuscript against one journal's author guidelines (`05_manuscript/base/journal-format-compliance/`). 选刊 stays 03 `find-journal`. 05 applies the guideline Track Changes.
 - Reporting checks (retired fine id `check-reporting`; non-routable body): `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR). Not session-picked; Gate G-05 loads via `qc/`.
-- De-AI / language lint (absorbed retired `humanize`): `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass. Report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`. Not a registry fine id.
+- De-AI / language lint: `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass. Report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`. Not a registry fine id.
 
 选刊 → 03 `find-journal`; format after the journal is chosen → `journal-format-compliance`; house style → `05_manuscript/base/write-paper/`. Advanced de-AI stays in A (`advanced/`).
 

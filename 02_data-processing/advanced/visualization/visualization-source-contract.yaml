@@ -8,7 +8,7 @@ views:
   architecture:
     question: "What the system is made of and where the boundaries are."
     inputs:
-      - ARCHITECTURE.md
+      - README.md
       - 00_orchestrator/registry.yaml
       - top-level directories 00_orchestrator through 07_response
     ir_fields: [components, boundaries, connections]

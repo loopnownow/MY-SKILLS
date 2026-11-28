@@ -6,7 +6,7 @@ Style QC answers one question: does this draft read in the house voice and follo
 
 ## 1 When it runs
 
-- **S4 only**, after the advanced revision (S3) and after science QC (S2), when the run actually applied advanced/personal style revision.
+- **S4 only**, after the advanced revision (S3) and after science QC (S2), when the run actually applied advanced style revision.
 - On an explicit request: 去AI / de-AI, 润色, "check my voice", current-manuscript pass.
 - **Never** in S1 (base first pass, no advanced loaded) and never in S2 (science QC). A base-only run skips this report.
 - No new gate id: this is the S4 incremental checkpoint plus the existing G-05 `style-lint` sub-check. `00_orchestrator/gates.md` still owns WHEN / PASS-FAIL.

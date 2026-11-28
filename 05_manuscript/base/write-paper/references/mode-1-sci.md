@@ -3,7 +3,7 @@
 Generic drafting workflow for Title / Abstract / Intro / Methods / Results / Discussion.
 Advanced house format, de-AI lists, and lab author defaults are **not** in this pack.
 
-Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pack (`05_manuscript/advanced/venue/journal-family-writing-style.md`, `05_manuscript/advanced/venue/nature-family-shape.md`). Reporting checklists → `05_manuscript/qc/check-reporting/` (qc-only).
+Polish → advanced De-AI. Venue shape → this pack (`05_manuscript/advanced/venue/journal-family-writing-style.md`, `05_manuscript/advanced/venue/nature-family-shape.md`). Reporting checklists → `05_manuscript/qc/check-reporting/` (qc-only).
 
 ## 1.1 When to use
 
@@ -27,7 +27,7 @@ Polish → advanced De-AI (absorbed retired `humanize`). Venue shape → this pa
 | Ethics sentence | `05_manuscript/base/write-paper/radiology-ethics/approval-consent.md` (placeholders; no lab IRB default) |
 | Claim/citation gate | `radiology-citation/*` |
 | Outline | `mode-academic-pipeline.md` |
-| Language polish | **handoff** advanced De-AI (absorbed retired `humanize`) |
+| Language polish | **handoff** advanced De-AI |
 
 ## 1.3 Honesty
 

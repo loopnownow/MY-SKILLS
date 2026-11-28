@@ -314,7 +314,7 @@ class AdvancedNamingAndFigureEngine(unittest.TestCase):
         self.assertIn("Advanced revision authority", text)
 
     def test_architecture_figures_via_live_fine_ids(self) -> None:
-        text = (ROOT / "ARCHITECTURE.md").read_text(encoding="utf-8")
+        text = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertNotIn("no live figure engine", text)
         self.assertIn("draw-flowchart", text)
         self.assertIn("plot-figures", text)

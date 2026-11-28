@@ -16,7 +16,7 @@ Skills hold **this procedure only** — never mirror the CSV into MY-SKILLS. Cre
 
 ## Layout note (2026-10-23)
 
-On disk under `_library\lit-bank\` the old `advanced\` / `base\` **directory wrappers were flattened**. `layer=advanced|base` remains a **CSV column**, not a folder. Method docs: skill `advanced/references/lit-bank-method-digest.md` (absorbed 2026-10-23; originals in **archive leftover** `{raw_root}\_lab\originals\0doc-library-methods-20261023\lit-corpus-method\` — folder still named lit-corpus-method; `{DEL}` methods park / lit-bank-method path **absent**; live bank name remains **lit-bank**).
+On disk under `_library\lit-bank\` the old `advanced\` / `base\` **directory wrappers were flattened**. `layer=advanced|base` remains a **CSV column**, not a folder. Method docs: skill `advanced/references/lit-bank-method-digest.md` (absorbed 2026-10-23; originals in **archive leftover** `{raw_root}\_lab\originals` (retired lit-corpus-method originals) — folder still named lit-corpus-method; `{DEL}` methods park / lit-bank-method path **absent**; live bank name remains **lit-bank**).
 
 ## Layers
 

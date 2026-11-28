@@ -37,7 +37,7 @@ Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loo
 ## Live capability ids (bodies in `base/`; source my-skills)
 
 - `revise` -- point-by-point structure (`07_response/base/revise/`); includes the `proof` mode for journal proofs (校样批注), see `base/revise/references/proof-mode.md`
-- `tighten-response` -- tightening plus on-demand tone-polish (`07_response/base/tighten-response/`). Legacy alias `response-tone-polisher` was absorbed here; structure stays `revise`.
+- `tighten-response` -- tightening plus on-demand tone-polish (`07_response/base/tighten-response/`). A former tone-only pack was absorbed here; structure stays `revise`.
 
 07 is final authority for Resolved / Partially resolved / Unresolved / New issue and letter voice.
 

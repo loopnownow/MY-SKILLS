@@ -6,7 +6,7 @@ Reuse with `intake.md` § Grant Voice B chapter skeleton / `intake.md` § Grant 
 
 ## By scheme (repeated headings)
 
-### 院级科研基金 / 申请书（例：东院院级、金山院级）
+### 院级科研基金 / 申请书（例：院级科研基金）
 Common spine (official ZH titles kept):
 1. 申请人信息 / 简表
 2. 项目摘要（常限字）
@@ -31,7 +31,7 @@ Official-ish major blocks seen in bank (ZH titles are SSOT):
 - （三）其他需要说明的问题
 Keep official guideline as SSOT when drafting live applications.
 
-### 研究生开题报告 / 提纲（金山医院课题）
+### 研究生开题报告 / 提纲（医院研究生课题）
 Fixed spine from forms (ZH titles kept):
 1．课题的立项依据（意义、国内外现状；附参考文献）
 2．研究内容、研究目标，以及拟解决的关键科学问题
@@ -69,7 +69,7 @@ Fixed spine from forms (ZH titles kept):
 
 ## File → outline (thin; first headings only)
 
-### `03-001-03-shanghaishidiliurenminyiyuandongyuan-yuanjikeyanjijin.md`
+### `03-001-hospital-campus-research-fund.md`
 - H1 author line: 颜碧从
 - chars≈13506
 - 一、申请人信息
@@ -83,7 +83,7 @@ Fixed spine from forms (ZH titles kept):
 - 三、项目承担部门科主任意见
 - 四、医院领导及学术委员会意见
 
-### `03-002-03-guojiazirankexuejijin-qingnianxiangmu.md`
+### `03-002-national-science-foundation-youth.md`
 - H1 author line: 颜碧从
 - chars≈31207
 - （一）立项依据与研究内容（建议8000字以内）：
@@ -101,7 +101,7 @@ Fixed spine from forms (ZH titles kept):
 - 1. 申请人同年申请不同类型的国家自然科学基金项目情况（列明同年申请的其他项目的项目类型、项目名称信息，并说明与本项目之间的区别与联系）。
 - 4. 其他。
 
-### `03-003-03-fudandaxue-boshibaokao.md`
+### `03-003-university-phd-research-plan.md`
 - H1 author line: 颜碧从
 - chars≈13658
 - 一、立题依据
@@ -117,7 +117,7 @@ Fixed spine from forms (ZH titles kept):
 - 二、技术路线图：
 - 四、考核指标
 
-### `03-004-03-jinshanquweijianwei.md`
+### `03-004-district-health-commission.md`
 - H1 author line: 鞠帅
 - chars≈7451
 - 一、本课题计划申请（任务）书系金山区卫生健康委员会为所组织的科研课题研究而设计。
@@ -139,7 +139,7 @@ Fixed spine from forms (ZH titles kept):
 - 五、技术难点
 - 1、1、肝动脉与门静脉空间相对位置并不恒定且存在角度，影响穿刺。
 
-### `03-005-03-jinshanyiyuan-yanjiushengketi.md`
+### `03-005-hospital-graduate-proposal.md`
 - H1 author line: 丁逸凡
 - chars≈8978
 - 1．课题的立项依据（研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；附参考文献目录）；
@@ -152,7 +152,7 @@ Fixed spine from forms (ZH titles kept):
 - 8.经费预算：（实验直接费用，不包含业务费、劳务费）
 - 9.研究生导师评阅意见：
 
-### `03-006-03-jinshanyiyuan-yanjiushengketi-2.md`
+### `03-006-hospital-graduate-proposal-2.md`
 - H1 author line: 杨婷
 - chars≈7157
 - 1．课题的立项依据（研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；附参考文献目录）；
@@ -165,7 +165,7 @@ Fixed spine from forms (ZH titles kept):
 - 8.经费预算：（实验直接费用，不包含业务费、劳务费）
 - 9.研究生导师评阅意见：
 
-### `03-007-03-jinshanyiyuan-yanjiushengketi-3.md`
+### `03-007-hospital-graduate-proposal-3.md`
 - H1 author line: 陆丽娟
 - chars≈9713
 - 1.分析MRI上T1WI显示高信号和T1WI显示低信号的内膜异位囊肿的图像
@@ -187,7 +187,7 @@ Fixed spine from forms (ZH titles kept):
 - 2.观察囊液的颜色、黏稠度
 - 3.检测囊液中卵巢囊肿囊液中铁离子、锰离子等，蛋白质
 
-### `03-008-03-jinshanyiyuan-yuanjikeyanjijin.md`
+### `03-008-hospital-research-fund.md`
 - H1 author line: 李新
 - chars≈7575
 - 一、立论依据
@@ -201,7 +201,7 @@ Fixed spine from forms (ZH titles kept):
 - 十、院学术委员会评审意见
 - 十一、院领导审查意见
 
-### `03-009-03-jinshanyiyuan-qingniankeyanqidongjijin-linchuangketi.md`
+### `03-009-hospital-youth-startup-clinical.md`
 - H1 author line: 任盈盈
 - chars≈6758
 - 10、28、41；尖锐湿疣为HPV6、11、16、18、30、31、32、42等；而HPV3、5、8等则是疣状表皮发育不良主要的基因型型别[3]。

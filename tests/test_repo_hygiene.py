@@ -23,7 +23,6 @@ STATUS_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
     "VERSION.txt",
     "CHANGELOG.md",
-    "ARCHITECTURE.md",
     "README.md",
 }
 STATUS_ALLOW_PREFIXES = (
@@ -55,7 +54,6 @@ PACK_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
     "VERSION.txt",
     "CHANGELOG.md",
-    "ARCHITECTURE.md",
     "README.md",
 }
 PACK_ALLOW_PREFIXES = (

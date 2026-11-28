@@ -24,7 +24,7 @@ SKILL_DIRS = (
     "06_review",
     "07_response",
 )
-DOCS = ("README.md", "ARCHITECTURE.md")
+DOCS = ("README.md",)
 
 class ModuleHeaderTests(unittest.TestCase):
     def test_layout_core_and_archive(self):

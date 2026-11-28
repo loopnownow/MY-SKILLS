@@ -12,7 +12,7 @@ Annual **list gates** for `find-journal`. Large runtime selection pools live in 
 
 ## Runtime pools (_Docs — not in git)
 
-Path: `{find_journal_pools}` = `_library\journals\`
+Path: `{find_journal_submission}` = `_library\journals\`
 
 - `index.csv` + `index.xlsx` — **single table** (2026-10-31 t1458u): `layer`, `jcr_year`, `metric_year`, `jif_2025`, `quartile_jif`, `quartile_jci`, `articles`, `l1`, `l2`, `whitelist`, `gate`, `queried_at`
 - `l1-l2-map.csv` — 70 WoS disciplines -> `l1`,`l2`

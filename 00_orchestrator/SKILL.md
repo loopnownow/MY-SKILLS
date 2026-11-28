@@ -29,7 +29,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 ## 0 Index & registry
 
-00 owns the routing index. The former `01_skill-integration` seat retired here on 2026-10-25: **coarse id = execution seat** (`02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`). A fine id carries **no** coarse field — its bucket is its `a_domain`, so a bucket cannot drift from its seat. Bodies stay in-repo under `NN_slug/base/` (`source: my-skills`); this seat only indexes, routes, and gates.
+00 owns the routing index. **coarse id = execution seat** (`02_data-processing` · `03_research` · `05_manuscript` · `06_review` · `07_response`). A fine id carries **no** coarse field — its bucket is its `a_domain`, so a bucket cannot drift from its seat. Bodies stay in-repo under `NN_slug/base/` (`source: my-skills`); this seat only indexes, routes, and gates.
 
 | File | Role |
 |---|---|
@@ -144,6 +144,6 @@ Triggers 「这个研究还能做什么」 (what else can this study do) and pee
 
 **00 owns runtime decisions only:** schedule / route / pointers / flow order / QC. Domain knowledge stays in `02`-`07` (harvest for evolution). **Boundaries:** grilling policy → MY-RULES `My rule.md` §2.1 (grilling); visualization → `02_data-processing/advanced/visualization/`.
 
-**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `MY-CODES\tools` or `_Docs` into this repo. Env: prefer `STATS_ROOT`; `ODOC_CODE` is retired (read `STATS_ROOT`); `OSCRIPT_ROOT` is retired (do not recreate `script_root`). Before adding to `00`: **runtime decision vs domain knowledge?**
+**Lab SSOT:** [`references/lab-paths.yaml`](references/lab-paths.yaml). Do not vendor `MY-CODES\tools` or `_Docs` into this repo. Env: prefer `STATS_ROOT`. Do not recreate retired code-shell or script-root environment variables. Before adding to `00`: **runtime decision vs domain knowledge?**
 
 Do not create a top-level skill for a disease, package, manuscript section, statistical test, metric, or imaging modality. Load selected `SKILL.md` then only required files. Fine ids: [`registry.yaml`](registry.yaml) — **this-run pick first**. 00 does not write prose, invent numbers, click submission, or absorb harvest implementation.

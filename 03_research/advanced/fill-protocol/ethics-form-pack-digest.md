@@ -1,14 +1,14 @@
-# jinshan-form-pack-digest
+# ethics-form-pack-digest
 
-**Absorbed:** 2026-10-23 from `_library/study-design/fill-protocol/jinshan-form-pack.md`.
+**Absorbed:** 2026-10-23 from `_library/study-design/fill-protocol/ethics-form-pack.md`.
 **Dedupe:** default-pack self-check → `checklist.md`; registration fixed columns + 10 blanks + pair table → `form-boilerplate.md`. This digest keeps **per-form field tips**, **official submit extras (0-14)**, and **common-error traps** only.
 
 ## Live pointers (after move)
 
 | Role | Path |
 |---|---|
-| Durable original | `{doc_harvest_sources}\library-methods-20261023\study-design\fill-protocol\` |
-| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\0doc-library-methods-20261023\study-design\fill-protocol\`~~ |
+| Durable original | a retired harvest-sources park under `{del_root}` |
+| HISTORIC park (cleared; do not resolve) | ~~`{DEL}\_by-project\library-methods-20261023\study-design\fill-protocol\`~~ |
 | Blank templates | `{doc_root}\templates\ethics-blank\` |
 | Filled/PHI | `{doc_ethics}\`（批准件 `approvals\`、提取物 `extract\`；`_DataBase` 侧不留伦理夹）— **never GitHub** |
 | Seat | `03_research/advanced/fill-protocol/` (`README`, `checklist`, `form-boilerplate`) |

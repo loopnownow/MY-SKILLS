@@ -33,7 +33,7 @@ Minimum: the manuscript (or its abstract + design), and the target layer order d
 ## Workflow (decision nodes)
 
 1. **Load gates first**, in this order: `data/2026/blacklist.csv` (never list), `data/2026/graylist.csv`, `{find_journal_submission}\whitelist-submitted.csv` (submitted/选刊/审稿; stronger boost), `data/2026/whitelist-bmc-medicine.csv` (BMC/Medicine/MDPI pattern; secondary boost).
-2. **Build Phase-1 tables**: three default tables of 10, in layer order 层2 (Q1, IF<5) → 层3 (Q2) → 层4 (Q3, default on); 层2补 (Q1, 5≤IF≤10) only on opt-in; layer 1 (IF>10) only when asked. Default total 30. Layers come from the `layer` column of the single pool table `{find_journal_pools}\index.csv`. General/comprehensive titles are allowed when fit is reasonable.
+2. **Build Phase-1 tables**: three default tables of 10, in layer order 层2 (Q1, IF<5) → 层3 (Q2) → 层4 (Q3, default on); 层2补 (Q1, 5≤IF≤10) only on opt-in; layer 1 (IF>10) only when asked. Default total 30. Layers come from the `layer` column of the single pool table `{find_journal_submission}\index.csv`. General/comprehensive titles are allowed when fit is reasonable.
 3. **Rank inside each layer**: 稿件匹配度 (MJF = MFI) highest; then submitted/选刊/审稿 whitelist; then BMC/Medicine/MDPI pattern whitelist; then 投稿易投指数 computed from **available** inputs only (formula in `rules/jesi-model.md`, never copied into prose; partial values marked e.g. `62.4*` + `缺:…`); annual volume only as a weak capacity tie-breaker.
 4. **Similar-article round** (round 2 of this check only): query the candidate journal for similar work from the last 3-5 years with a real tool (PubMed/OpenAlex/Europe PMC/Crossref/journal site); if found, cite 1-3 titles with year and DOI/link in 匹配理由; if none, lower that journal below same-layer journals with matches and write 「近年未见类似文章，已降级」. A failed search is not "no hits": retry, then say the search failed.
 5. **Phase-1 columns** (exact): 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). Chinese headers only for MJF/MFI→稿件匹配度 and JESI→投稿易投指数; no 分层/策略 column (keep `data-layer`/`data-tier` on checkboxes); always show the three rates (— if unknown); no AIM/instructions/APC in Phase 1. Then ask the user to circle 备选杂志.
@@ -67,8 +67,8 @@ Minimum: the manuscript (or its abstract + design), and the target layer order d
 | `data/2026/whitelist-bmc-medicine.csv` | pattern boost (LWW MEDICINE excluded) |
 | `{find_journal_submission}\whitelist-submitted.csv` | submitted / review-invite boost |
 | `data/2026/submission-urls.csv` | portal URLs only |
-| `{find_journal_pools}\index.csv` (+ `l1-l2-map.csv`) | single pool table in _Docs; select by `layer` |
-| `{doc_library_jcr}\<year>\` | per-year submission priors |
+| `{find_journal_submission}\index.csv` (+ `l1-l2-map.csv`) | single pool table in _Docs; select by `layer` |
+| `{find_journal_submission}\<year>\` | per-year submission priors |
 | `rules/recommendation-workflow.md`, `rules/jesi-model.md` | workflow; JESI/JEI/JDI/JCI-C/MJF |
 | `rules/policy.md`, `rules/persistence.md`, `rules/modules.md` | stable rules; absorb/query/delete; four logical modules |
 | `rules/query-sources.md`, `rules/aim-author-checklist.md` | query sources; Phase-2 checklist |

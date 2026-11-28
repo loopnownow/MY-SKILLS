@@ -1,6 +1,6 @@
 # Writing / revision hard constraints (_Docs base absorb)
 
-> Digested 2026-10-23 from park `0doc-03-07-seats-20261023/05-manuscript/base/writing-rules/README.md`.
+> Digested 2026-10-23 from park `03-07-seats-20261023/05-manuscript/base/writing-rules/README.md`.
 > Provenance（原件公园 2026-11-14 退役并迁入 `{DEL}`；本文件才是耐久摘要，不再引用原件路径）。
 > Lab standing next to Aitor advanced authority — not a second copy of `Aitor-format.md`.
 

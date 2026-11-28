@@ -43,6 +43,7 @@ checkout can still opt out explicitly.
 | `test_office_track_changes.py` | track-changes validator rejects a silent overwrite |
 | `test_draw_flowchart_scripts.py` | expanded STROBE spec, fail-closed n-audit, CLI writes / exits nonzero |
 | `test_vocab_harvest_sections.py` | paragraph-layer section rebuild and phrase counter |
+| `test_banned_words.py` | banned leftover tokens (retired seats, pack slugs, mount/PROPOSED, machine-path stems) stay out of the live tree |
 | `test_stub_policy.py` | pointer-only stubs must have a live consumer (else deleted) |
 
 Conventions: `unittest` only, `from __future__ import annotations`, constants at the

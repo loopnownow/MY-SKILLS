@@ -22,7 +22,7 @@ Sources (grounding differs by pattern — treat accordingly):
 **How to read the GOOD columns.** A GOOD rewrite only removes or rephrases what the BAD text
 already says (SKILL.md Fix rules 1, 2 and 5). It never adds a number, a citation, a study name or
 a claim. Text in square brackets, such as `[metric and value from Results]` or `[CITE NEEDED]`,
-is a slot that only the author can fill from their own data or reference list. A humanize pass
+is a slot that only the author can fill from their own data or reference list. A de-AI pass
 leaves the slot in place and flags it for the user. It never fills the slot itself.
 
 ---
@@ -130,7 +130,7 @@ Several publications, The literature suggests, It has been reported, Research in
 | 5 | "It has been reported that CAD systems reduce reading time" | "CAD systems reduce reading time [CITE NEEDED]" |
 
 **Fix strategy:** Name the specific study only when the sentence already carries its citation;
-a humanize pass never adds a citation. If the attribution has no citation, flag it for the user
+a de-AI pass never adds a citation. If the attribution has no citation, flag it for the user
 to fill in with `[CITE NEEDED]`.
 
 ---
@@ -564,7 +564,7 @@ reviewer, or a separate cover letter on an R2+ round when its content belongs in
 response-letter head — is a succinctness / round-discipline issue, not a regex pattern, and is
 most common on R2+ rounds. The normative guidance lives in the revise skill (Step 5 +
 Response-Letter Voice), its `07_response/base/revise/references/response.md`, and the `rebuttal-letter-style` rule;
-humanize only cross-references it (no hard fail, no detection regex added here).
+de-AI only cross-references it (no hard fail, no detection regex added here).
 
 ### Pattern 22: Editing-Mechanism / Change-Log Narration
 
@@ -716,7 +716,7 @@ Run this checklist on the final manuscript before submission:
 - [ ] Aphorism density (Pattern 26) — manual rate check (`check_aphorism_density.py` not shipped); a run of negative definitions plus very short declaratives; absorb most into neighbouring sentences, keep two or three
 - [ ] Antithesis / cleft density (Pattern 27) — manual rate check (`check_rhetorical_density.py` not shipped); "rather than" / "not X but Y" / "X, not Y" and sentence-initial "What … is …" / "It is … that …"; delete the negative half and rewrite positive, keep two or three
 - [ ] Sentence-length variety (SKILL.md Fix rule 7) — `check_sentence_variety.py`; short (8-12 words) and long (25-35 words) sentences both present
-- [ ] Rewrite footprint reviewed — `check_rewrite_fidelity.py` when humanize rewrote a file; `EDIT_FOOTPRINT_HIGH` (over `--warn-pct`, default 70% of word tokens) means re-read the diff; it is advisory and never halts on its own
+- [ ] Rewrite footprint reviewed — `check_rewrite_fidelity.py` when de-AI rewrote a file; `EDIT_FOOTPRINT_HIGH` (over `--warn-pct`, default 70% of word tokens) means re-read the diff; it is advisory and never halts on its own
 
 ### Response letters / cover letters only (Patterns 22-24)
 

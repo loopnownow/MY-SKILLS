@@ -79,7 +79,7 @@ Only after the owner accepts `ref/design-lock.md` may route continue to statisti
 | Location | What |
 |---|---|
 | `03_research/base/find-journal/` | Victor seats engine (no A stub) |
-| Runtime pools | `{find_journal_pools}` (`_library\find-journal\data\2026`) |
+| Runtime pools | `{find_journal_submission}` (`_library\find-journal\data\2026`) |
 | `<project>/ref/` | Per-project submitted lists -- never in MY-SKILLS |
 
 Call order: `journal-selection.md` → `03_research/base/find-journal/SKILL.md`. Format after choice → `05_manuscript/base/journal-format-compliance/` (+ companion `05_manuscript/base/write-paper/` styles).

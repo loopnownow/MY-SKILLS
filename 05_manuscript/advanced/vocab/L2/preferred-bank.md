@@ -1,6 +1,6 @@
 # L2 personal phrase bank (advanced)
 
-**Class:** advanced (personal corpus / QCV source). This is the Aitor/Jinshan sentence-frequency bank: what the owner actually writes, with occurrence counts. It is **not** a rule that overrides the base bans; on any conflict the base machine list wins (`05_manuscript/base/vocab/L1/ban-terms.yaml`, `ban-phrases.md`). Use it at S3/S4 to sound like the owner, not to license a banned word. Counts are historical (recorded before the move) and do not lift a ban.
+**Class:** advanced (personal corpus / QCV source). This is the owner's sentence-frequency bank: what the owner actually writes, with occurrence counts. It is **not** a rule that overrides the base bans; on any conflict the base machine list wins (`05_manuscript/base/vocab/L1/ban-terms.yaml`, `ban-phrases.md`). Use it at S3/S4 to sound like the owner, not to license a banned word. Counts are historical (recorded before the move) and do not lift a ban.
 
 - Generic IMRAD templates: `05_manuscript/base/write-paper/references/section-templates.md` and `05_manuscript/base/write-paper/references/methods_template_export.md`.
 - House shape: `05_manuscript/advanced/Aitor-format.md`.

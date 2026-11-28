@@ -22,7 +22,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 - Advanced house format / title-page defaults
 - de-AI forbidden lists and detectors
 - Lab ethics IRB wording and author-line defaults
-- Language polish / De-AI → `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass (absorbed retired `humanize`)
+- Language polish / De-AI → `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass
 - 选刊 / where to submit → `03_research` (journal-selection) / `lit-search`. Do not add `journal-selection.md` here.
 - TRIPOD / CLAIM / CLEAR checklists → `05_manuscript/qc/check-reporting/` (qc-only; absorbed retired fine id check-reporting)
 - Self-audit → `self-review`; other-paper review → `peer-review`; response → `revise`
@@ -63,7 +63,7 @@ Discussion), plus venue house style and article shape once a journal family is k
 | `methods-skeleton` | [methods_template_export.md](references/methods_template_export.md) + [radiology-writing/methods.md](radiology-writing/methods.md) |
 | `ethics-sentence` | [radiology-ethics/approval-consent.md](radiology-ethics/approval-consent.md) — placeholders only; no lab default IRB |
 | `outline` | [mode-academic-pipeline.md](references/mode-academic-pipeline.md) |
-| `polish` | **handoff** → advanced De-AI (absorbed retired `humanize`) |
+| `polish` | **handoff** → advanced De-AI |
 | `venue-shape` | this file + [journal-family-writing-style.md](../../advanced/venue/journal-family-writing-style.md) + [nature-family-shape.md](../../advanced/venue/nature-family-shape.md) + [radiology-polishing/](radiology-polishing/) + [journal-patterns-2023-2026.md](references/journal-patterns-2023-2026.md) |
 | `reporting` | **handoff** → `05_manuscript/qc/check-reporting/` (qc-only) |
 
@@ -108,5 +108,5 @@ Venue: (unknown unless user named one)
 Missing inputs:
 - ...
 
-Next: advanced De-AI (language; absorbed retired `humanize`) · venue-shape (in this pack) · self-review (self-audit)
+Next: advanced De-AI (language) · venue-shape (in this pack) · self-review (self-audit)
 ```

@@ -208,10 +208,10 @@ class RegistryMenu(unittest.TestCase):
         self.assertGreaterEqual(len(want_pick), 10)
         self.assertFalse((ROOT / "00_orchestrator" / "MOUNTED_SKILLS.md").exists())
 class ArchitectureSsot(unittest.TestCase):
-    """Single root ARCHITECTURE.md = intent tables + QC/handoff + ownership + live routing keywords."""
+    """README.md holds intent tables + QC/handoff + ownership + live routing keywords."""
 
     def test_architecture_live_rules(self) -> None:
-        text = read("ARCHITECTURE.md")
+        text = read("README.md")
         low = text.lower()
         self.assertGreater(len(text), 500)
         self.assertRegex(text, r"(five parts|≤\s*5|at most five)")
@@ -237,7 +237,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertNotIn("Default candidate: `Imbad0202", text)
 
     def test_architecture_owns_intent_and_qc(self) -> None:
-        text = read("ARCHITECTURE.md")
+        text = read("README.md")
         self.assertIn("## Skill selection", text)
         self.assertIn("Lab-specific flows", text)
         self.assertIn("## Final QC", text)
@@ -255,7 +255,7 @@ class ArchitectureSsot(unittest.TestCase):
         self.assertIn("{code_root}", readme)
         self.assertIn("lab", readme.lower())
         self.assertIn("{doc_root}", readme)
-        text = read("ARCHITECTURE.md")
+        text = read("README.md")
         self.assertIn("find-journal", text)
         self.assertIn("fill-protocol", text)
 class RoutingFourTuple(unittest.TestCase):
@@ -275,7 +275,7 @@ class RoutingFourTuple(unittest.TestCase):
             "03_research/base/fill-protocol" in fp_note,
             fp_note,
         )
-        self.assertNotRegex(read("ARCHITECTURE.md"), r"(选刊|journal selection)\s*→\s*05")
+        self.assertNotRegex(read("README.md"), r"(选刊|journal selection)\s*→\s*05")
         self.assertNotRegex(read("00_orchestrator/SKILL.md"), r"(选刊|journal selection)\s*→\s*05")
 class DiscoverySurface(unittest.TestCase):
     def test_auto_discovery_rule_is_in_00(self) -> None:
@@ -294,8 +294,8 @@ class DiscoverySurface(unittest.TestCase):
         self.assertNotRegex(read(rel), r"52 fine", rel)
 class ReadmeSsot(unittest.TestCase):
     """CHG-20260913-002: README.md drifted to stale '30-id' wording while
-    registry.yaml/ARCHITECTURE.md had already moved to v4 (10 coarse + 52
-    fine). ArchitectureSsot only checked the two ARCHITECTURE.md files;
+    registry.yaml/README.md had already moved to v4 (10 coarse + 52
+    fine). ArchitectureSsot only checked README.md;
     this closes that blind spot for both README.md files."""
 
     def test_readme_match_v4(self) -> None:
@@ -862,8 +862,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "00_orchestrator/workflows/sci-manuscript.md",
         "00_orchestrator/runtime-flow.md",
         "00_orchestrator/runtime-flow.mmd",
-        # ARCHITECTURE.md is live ownership SSOT (scanned below)
-        "ARCHITECTURE.md",
+        # README.md is live ownership SSOT (scanned below)
         "00_orchestrator/registry.yaml",
     )
     SCAN_SKIP = {

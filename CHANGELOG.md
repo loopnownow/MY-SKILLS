@@ -2,6 +2,7 @@
 
 Newest first. One short line per recent change. Full history is in git.
 
+- 2026-11-28 t2307u PR4: slim lab-paths.yaml to aliases plus one-line glosses; merge architecture into README; seats 00/02/03/05/06/07 are stable ids; genericize institution pack slugs; move the acceptance matrix out of references; add banned-word tests.
 - 2026-11-28 t2307u PR3: replace the long VERSION and INTEGRATION_MAP ledgers with this short changelog; VERSION.txt is a one-line version number; delete legacy_aliases.yaml (retired ids live in tests; 激发词 stay at entry only).
 - 2026-11-28 t2307u PR2: move journal-format-compliance to 05_manuscript/base/; delete bot-route.md (registry specialist_hint is SSOT; fill-protocol → Bai); seat SKILL layer tables point at one contract; sink 02 hard rules to pipeline.md; G-VIZ-01 skips routable: false.
 - 2026-11-28 t2307u: long-table suffix is now `*_value` / `<mod>_value` (MY-RULES 21a1f63; leftover docs in PR2 load-pipeline.md and MY-CODES gen_readme.py). Old `*_val` is kept only on retired DBs because `val` was confused with validation.

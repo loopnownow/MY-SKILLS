@@ -1,7 +1,7 @@
 # Section templates (short-sentence English)
 
 Generic IMRAD sentence shapes. Prefer clauses and periods over dashes. Language polish →
-advanced De-AI (absorbed retired `humanize`).
+advanced De-AI.
 
 ## Introduction (4 paragraphs)
 

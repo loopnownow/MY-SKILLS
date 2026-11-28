@@ -225,13 +225,15 @@ EXTERNAL = {
     "HARVEST-STANDARD.md",
     "harvest-projects-cut.md",
     "harvest-verified-links.md",
-    "03-002-03-guojiazirankexuejijin-qingnianxiangmu.md",
-    "03-003-03-fudandaxue-boshibaokao.md",
-    "03-004-03-jinshanquweijianwei.md",
-    "03-005-03-jinshanyiyuan-yanjiushengketi.md",
-    "03-006-03-jinshanyiyuan-yanjiushengketi-2.md",
-    "03-007-03-jinshanyiyuan-yanjiushengketi-3.md",
-    "03-008-03-jinshanyiyuan-yuanjikeyanjijin.md",
+    "03-001-hospital-campus-research-fund.md",
+    "03-002-national-science-foundation-youth.md",
+    "03-003-university-phd-research-plan.md",
+    "03-004-district-health-commission.md",
+    "03-005-hospital-graduate-proposal.md",
+    "03-006-hospital-graduate-proposal-2.md",
+    "03-007-hospital-graduate-proposal-3.md",
+    "03-008-hospital-research-fund.md",
+    "03-009-hospital-youth-startup-clinical.md",
 }
 
 # Report artifacts the running task writes; they are names, not repo files.

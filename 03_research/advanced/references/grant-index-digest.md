@@ -9,7 +9,7 @@
 |---|---|
 | Durable full originals | `{doc_grants}`（Word 原件） |
 | HISTORIC extraction park (retired 2026-11-14; do not resolve) | ~~`{DEL}\_by-function\harvest-park-retired-20261114\harvest-sources-park\library-ftp-20261023\`~~ |
-| Word archives | `{doc_word_archive}\03-research\grants`（原 0del word-sources park 已清；t1490u） |
+| Word archives | `{doc_word_archive}\03-research\grants`（原 word-sources park 已清） |
 | Writing skeleton (Voice B) | `03_research/advanced/intake.md` § Grant Voice B chapter skeleton |
 | Writing voice | `03_research/advanced/intake.md` § Grant Voice B |
 
@@ -33,13 +33,13 @@
 |---|---|---|
 | 上海市第六人民医院东院-院级科研基金 | 颜碧从 | 申请书 |
 | 国家自然科学基金-青年项目 | 颜碧从 | 报告正文(03版) |
-| 复旦大学-博士报考 | 颜碧从 | 博士生科研计划书 |
-| 金山区卫健委 | 鞠帅 | 申请书 |
-| 金山医院-研究生课题 | 丁逸凡 | 开题报告 |
-| 金山医院-研究生课题 | 杨婷 | 开题报告提纲 |
-| 金山医院-研究生课题 | 陆丽娟 | 开题报告(2018-11) |
-| 金山医院-院级科研基金 | 李新 | 申请书(2017年度) |
-| 金山医院-青年科研启动基金(临床课题) | 任盈盈 | 临床研究方案 |
+| 高校-博士报考 | 颜碧从 | 博士生科研计划书 |
+| 区卫健委 | 鞠帅 | 申请书 |
+| 医院-研究生课题 | 丁逸凡 | 开题报告 |
+| 医院-研究生课题 | 杨婷 | 开题报告提纲 |
+| 医院-研究生课题 | 陆丽娟 | 开题报告(2018-11) |
+| 医院-院级科研基金 | 李新 | 申请书(2017年度) |
+| 医院-青年科研启动基金(临床课题) | 任盈盈 | 临床研究方案 |
 
 ## Naming (archive Word)
 

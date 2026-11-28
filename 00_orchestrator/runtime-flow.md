@@ -18,7 +18,7 @@ Layer duties, the normative run order, post-QC revise via `advanced/`, and drift
 6. **R&R.** 00 controls the loop. 05 applies body Track Changes. 07 writes the response letter. 06 re-reviews (verification only) and does not write letters. Loop cap and recovery are on the diagram / `gates.md`.
 7. **Done.** `结束`, or this run's file is on disk and the last gate PASS → `pipeline.stage: done`. Pause, or stop after the results page / before pre-review, leaves `stage` at the current station.
 
-The current manuscript file is 当前稿（按 `{RULES}/project-ref-layout`）, not a hardcoded `Manuscript_*_house.docx` trigger.
+The current manuscript file is 当前稿（按 `{RULES}/project-ref-layout`）, not a hardcoded house-copy filename trigger.
 
 ## SOP entry points
 

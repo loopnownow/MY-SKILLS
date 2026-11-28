@@ -1,6 +1,6 @@
 # Tone Transformation Patterns
 
-> Absorbed from AIPOCH `response-tone-polisher` (MIT; Copyright (c) 2026 AIpoch; upstream https://github.com/aipoch/medical-research-skills). See `../LICENSE_NOTE.txt`.
+> Absorbed from an upstream tone-polish pack (MIT; Copyright (c) 2026 AIpoch; upstream https://github.com/aipoch/medical-research-skills). See `../LICENSE_NOTE.txt`.
 > On conflict with [tone-and-stance.md](tone-and-stance.md), **tone-and-stance.md wins**.
 > On-demand `tone-polish` catalog only. Point-by-point structure stays `revise`. This file does not replace the stance rules.
 

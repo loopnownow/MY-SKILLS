@@ -66,11 +66,11 @@ Every handoff names **to whom / what / what not**. Minimum set:
 3. An advanced pack that teaches general professional knowledge has drifted -> it belongs in base or is simply deleted; "every medical researcher needs this" means it is not personal.
 4. A check without `Evidence_required` cannot pass: use `UNVERIFIABLE`, never a silent PASS.
 5. One occurrence never becomes a rule: base and QC changes need a repeated defect or a locked method; advanced needs repetition plus owner confirmation.
-6. Layer names are `base`, `qc`, `advanced`. Do not reintroduce the retired `personal` layer name; "personal revision authority" is a role phrase only.
+6. Layer names stay `base`, `qc`, and `advanced` only.
 
 ## 6 Pointers
 
-- Acceptance matrix for this split (A/B/C arms, fixtures, metrics, pre-registered verdicts): `three-layer-acceptance-matrix.md`.
+- Acceptance matrix for this split (A/B/C arms, fixtures, metrics, pre-registered verdicts): `00_orchestrator/three-layer-acceptance-matrix.md`.
 
 - Diagram: [`../runtime-flow.mmd`](../runtime-flow.mmd); reading guide [`../runtime-flow.md`](../runtime-flow.md).
 - Gates: [`../gates.md`](../gates.md). Registry: [`../registry.yaml`](../registry.yaml). Run selection: [`session-pick.md`](session-pick.md). Harvest: [`../harvest/SKILL.md`](../harvest/SKILL.md).

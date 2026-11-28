@@ -43,7 +43,7 @@ Write M&M so a reader can reproduce and a reviewer can tick the checklist. Order
 Past tense; specific not vague ("3-T MRI" not "high-field"); name versions; one method, one
 place (don't scatter the same detail). Methods carries **no citations**: every claim here is a
 protocol fact, so a citation belongs in the Introduction or Discussion instead. Every fact is a
-slot to fill from supplied material — never invent a value to complete the sentence. Hand wording to advanced De-AI (`polisher-sections.md`; absorbed retired `humanize`).
+slot to fill from supplied material — never invent a value to complete the sentence. Hand wording to advanced De-AI (`polisher-sections.md`).
 
 Before freezing Methods, run the two-way alignment in `05_manuscript/advanced/process/method-experiment-align.md` (not a QC gate). Do not invent a missing step to close a gap.
 

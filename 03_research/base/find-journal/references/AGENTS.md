@@ -9,7 +9,7 @@ Aligned with **SKILL.md metadata.version 1.18** (10/10/10 + layer-4 default + ge
 ## Data locations (single source)
 
 - List gates: `data/2026/` (blacklist / graylist / whitelist-bmc-medicine / submission-urls) - in this pack.
-- Runtime selection pools: `{find_journal_pools}` = `{doc_library_journals}` - `index.csv` (`layer`, `jif_2025`, `jcr_year`, `l1`, `l2`, `whitelist`, `queried_at`), `index.xlsx`, `l1-l2-map.csv`; archive under `journals\archive\<year>\`.
+- Runtime selection pools: `{find_journal_submission}` = `{find_journal_submission}` - `index.csv` (`layer`, `jif_2025`, `jcr_year`, `l1`, `l2`, `whitelist`, `queried_at`), `index.xlsx`, `l1-l2-map.csv`; archive under `journals\archive\<year>\`.
 - Submitted / 选刊 / 审稿 whitelist + priors: `{find_journal_submission}` (review-invite / reviewed + JCR quartile also seed `whitelist-submitted.csv`; t2016u).
 - Curated xlsx: `{jcr2026_xlsx}` (_Docs `_library\journals\`, not in git).
 - Per-project candidates: `<project>/ref/citation/journals.csv` + `_notes.md`.
@@ -25,7 +25,7 @@ Owner: **Victor** - `03_research`. Bai owns 选刊 advancement after titles are 
 
 1. Blacklist first (`data/2026/blacklist.csv`): never list PLoS One / Scientific Reports / MEDICINE (LWW Baltimore).
 2. Read the manuscript. **Ask before each run** whether to include 层2补 (Challenge); **default OFF**.
-   - 层2 - Q1 and IF < 5 - `{find_journal_pools}\index.csv` where `layer=2-Q1且IF小于5` (Target; 10 journals)
+   - 层2 - Q1 and IF < 5 - `{find_journal_submission}\index.csv` where `layer=2-Q1且IF小于5` (Target; 10 journals)
    - 层3 - Q2 - `layer=3-Q2` (safer/steady; 10 journals)
    - 层4 - Q3 - `layer=4-Q3` (**default on**; 10 journals)
    - 层2补 - Q1 and 5 <= IF <= 10 - `layer=2补-Q1且IF5到10` (Challenge; opt-in only)
