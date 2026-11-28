@@ -25,4 +25,4 @@ Read the SSOT before writing into a project `ref/`.
 
 - This page exists so a skill can find the right section fast. It is not a rule source and must not grow a second copy of the map.
 - New detail belongs in the SSOT; cite it as `{RULES}\project-ref-layout.md` + section title.
-- Cite by **section title**, not by number: the rules layer was renumbered in 2026-11 (old §5.1 → §3 交付与清理, old §5.3 → `{RULES}\del-and-harvest.md`).
+- Cite by **section title**, not by number: the rules layer was renumbered in 2026-11 (old §5.1 → §3 交付与清理, old §5.3 → 当时 `{RULES}\del-and-harvest.md`，现行 `{RULES}\zone-docs.md` §1 / §3，`{DEL}` 落点见 `{RULES}\zone-del.md`）。

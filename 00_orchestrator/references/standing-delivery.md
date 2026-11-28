@@ -49,16 +49,16 @@ QC/citation/gate ledgers inside a project `ref/` follow [`project-ref-layout.md`
 
 ## accepted closeout (t1806u / t1809u / t1840u)
 
-Pointer only. **Relations / harvest authorization / divert map** → `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (harvest ≠ closeout; harvest needs same-turn owner auth from drafting / pre-submit / reviewing / accepted / archived / `.Del`; closeout does not replace harvest; harvest does not replace disk moves).
+Pointer only. **Relations / harvest authorization / divert map** → `{RULES}/zone-projects.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (harvest ≠ closeout; harvest needs same-turn owner auth from drafting / pre-submit / reviewing / accepted / archived / `.Del`; closeout does not replace harvest; harvest does not replace disk moves).
 
-**Landing detail** → `{RULES}/workspace-layout.md` 「accepted 收工」: after authorized harvest (or `skill_ref=none`), slim `accepted\<prefix_suffix>\`, then move into `archived\<family>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: `Manuscript_<slug>_clean.docx` (latest, all revisions accepted, no marks, no version number) + the latest `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx` (`_tracked` = marks kept; older versioned / tracked copies and root PDFs → `ref/tmp/`, kept) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` → `_DataBase\<family>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase\<family>\<prefix_suffix>\` (>=20 loose → zip-first); after QC originals → `.Del\_by-project\<slug>\`.
+**Landing detail** → `{RULES}/zone-projects.md` 「accepted 收工」: after authorized harvest (or `skill_ref=none`), slim `accepted\<prefix_suffix>\`, then move into `archived\<family>\<prefix_suffix>\` + `ARCHIVED.md`. Hard-keep: `Manuscript_<slug>_clean.docx` (latest, all revisions accepted, no marks, no version number) + the latest `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx` (`_tracked` = marks kept; older versioned / tracked copies and root PDFs → `ref/tmp/`, kept) + `FinalData_<slug>.xlsx` (or data.xlsx pinned in `ref/README`) + optional `ref/settings.ini` → `_DataBase\<family>\<prefix_suffix>\`. Project-tree `R*` / `P*` folders go whole into `_DataBase\<family>\<prefix_suffix>\` (>=20 loose → zip-first); after QC originals → `.Del\_by-project\<slug>\`.
 
-Disease shortcode + family L1 SSOT: `_DataBase\_diseases.csv` (`family` column). archived / `_DataBase` L1 = `<family>` (same-source aggregation; t1829u). Leaf suffix still base shortcode. Shared raw once: family raw pool `<family>\__zip\<leaf>\` (archives), thesis raw `<family>\_thesis\<slug>\`, ethics material out of `_DataBase`, or primary leaf + `ref/settings.ini` pointer. Rules: `{RULES}/workspace-layout.md` 「`_DataBase` 非课题分支与家族分桶」/「家族桶三类落点」/「archived 冷库」.
+Disease shortcode + family L1 SSOT: `_DataBase\_diseases.csv` (`family` column). archived / `_DataBase` L1 = `<family>` (same-source aggregation; t1829u). Leaf suffix still base shortcode. Shared raw once: family raw pool `<family>\__zip\<leaf>\` (archives), thesis raw `<family>\_thesis\<slug>\`, ethics material out of `_DataBase`, or primary leaf + `ref/settings.ini` pointer. Rules: `{RULES}/zone-database.md` §2（非课题分支与家族分桶）/ §4（家族桶三类落点）；冷库 → `{RULES}/zone-projects.md` 「archived 冷库」.
 
 
 ## ethics retention (t1849u)
 
-Pointer only. **Retention / retire `_lab\ethics`** → `{RULES}/workspace-layout.md` 「伦理材料留存（t1849u）」:
+Pointer only. **Retention / retire `_lab\ethics`** → `{RULES}/library-taxonomy.md` §3:
 批件原件 only date ≥ 2023-11-10 into `_Docs\_library\ethics\approvals\`（`_DataBase` 侧不留伦理夹）;
 clinical protocol + ICF keep all there; `_DataBase\_lab\ethics` retired → `.Del` (Bai moves disk).
 `_library\ethics\approvals` remains library SSOT for indexed 批件 PDF.

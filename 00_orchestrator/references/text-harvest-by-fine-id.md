@@ -5,9 +5,9 @@
 **Standing (2026-10-24, 城城):** harvest **task flow** lives in the harvest pack (`00_orchestrator/harvest/SKILL.md`); this file is the thin lane card. Candidate/evidence fields → collection standard §8.
 
 
-**Workspace (t1840u):** when/where harvest may run, and harvest ≠ closeout → `{RULES}/workspace-layout.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (same-turn owner auth; pointer only).
+**Workspace (t1840u):** when/where harvest may run, and harvest ≠ closeout → `{RULES}/zone-projects.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」 (same-turn owner auth; pointer only).
 
-**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / single-use one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\del-and-harvest.md` §2（H1–H4）+ §6（对象与布局）.
+**Decide first (t1952u):** classify H1–H4 before extracting; **H2 (data / PHI / third-party source / build output / profiles / single-use one-off patches / logs) is never harvested — it goes straight to `harvested`**. Objects: `.Del`, `_library`, `_DataBase`; lanes = existing fine-ids only; no mirror snapshots. Authority: `{RULES}\zone-docs.md` §1（H1–H4）+ §3（对象与布局）.
 
 **Standing (2026-11-19, t155u, 城城; corrects t2073u):** Word comments (批注) and tracked changes (修订/订正) whose author is **Adm** are the owner's own marks and first-class harvest content. Harvest the marks (decisions, wording, traps), never the full manuscript body. Helper/agent author **A** is not the owner and is not this lane's primary source.
 

@@ -28,12 +28,12 @@ SSOT (`{RULES}`, `{SKILLS}`, `_Docs`, `_DataBase`); harvest is not their steward
 | No PHI / PII | no patient identifiers, identifiable images, ethics annexes, or unpublished grant / manuscript bodies. Author **Adm** comments and tracked changes may be harvested (marks only) |
 
 `archived` is read-only by default: extracting from the cold store also needs the same-turn name. A lifecycle
-stage never triggers harvest by itself. Source and stage authority: `{RULES}\workspace-layout.md`
+stage never triggers harvest by itself. Source and stage authority: `{RULES}\zone-projects.md`
 「工作区关系：阶段 · 分流 · harvest · 冷库」.
 
 ## 2 Triage before extracting (H1-H4)
 
-Owner rule: `{RULES}\del-and-harvest.md` §2（H1–H4）. Classify the batch first; only H1 reaches extraction.
+Owner rule: `{RULES}\zone-docs.md` §1（H1–H4）. Classify the batch first; only H1 reaches extraction.
 
 | Class | Test | Action |
 |---|---|---|
@@ -102,14 +102,14 @@ route and the close. Nothing is absorbed before that review.
 | a data body | its own SSOT | never into harvest, skills, or rules |
 | nothing reusable | discard; remaining bytes go to `harvested` | three checks, then `MOVED.tsv` |
 
-`by-fine-id` notes belong only under `{DEL}` (`{RULES}\del-and-harvest.md` §7). Do not treat
+`by-fine-id` notes belong only under `{DEL}` (`{RULES}\zone-docs.md` §3). Do not treat
 `harvest\rounds` + `by-fine-id` as a live SSOT under `{doc_root}`.
 
 Deposit by type (still propose-only; live `{SKILLS}` needs 「进skills」, live `{RULES}` needs a PR):
 
 - Runnable, reusable scripts → `{code_root}\tools\<fine-id>\` (script plus that group's README). A one-off
   script stays out of the code repo: record its SHA and move it to `{DEL}` unless it has already been reused
-  and is functionally similar (then it is H1, same as `{RULES}\del-and-harvest.md` §2).
+  and is functionally similar (then it is H1, same as `{RULES}\zone-docs.md` §1).
 - Cross-skill hard contracts, gates, aliases, or disk policy → `{RULES}`.
 - Process how-to, criteria, and traps → `{SKILLS}`.
 
@@ -180,7 +180,7 @@ do not treat S29 as proof that a `{doc_root}\harvest\rounds\` live floor is requ
 
 - Collection standard (disk SSOT): `HARVEST-STANDARD.md` under `{doc_skill_harvest}`.
 - Thin lane card: `00_orchestrator/references/text-harvest-by-fine-id.md` (notes only; the files themselves land in `{DEL}`).
-- Rules gate: `{RULES}\skills.md` §3 and `{RULES}\del-and-harvest.md` §6; source and stage authority: `{RULES}\workspace-layout.md`.
+- Rules gate: `{RULES}\skills.md` §3 and `{RULES}\zone-docs.md` §3; source and stage authority: `{RULES}\zone-projects.md` 「工作区关系：阶段 · 分流 · harvest · 冷库」.
 - Library-shape gates: `{doc_root}\test\structure_check.py` with `{doc_root}\test\QC-REQUIREMENTS.md`; database
   criteria: `{doc_root}\test\DB-QC-STANDARD.md`. Durable ledger: `{doc_root}\harvest\LEDGER.tsv`. S29 still
   describes an older live-floor layout and needs a follow-up in `_Docs`.

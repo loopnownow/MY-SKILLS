@@ -27,7 +27,7 @@ Harvest must not invent a second evolution log file.
 
 - **t20261127a (2026-11-27, 维护轮):** 收口本轮三条主线。① **S33 稿件命名契约改为「根上两份」**：`structure_check.py` 的 `NAME_RE` 拆成 `SLUG` / `VER` / `_clean` 三支（`_tracked` 为版本号稿可选后缀），份数判据由「>1 份即 FAIL」改为「>2 份 FAIL；恰 2 份须为同 slug 的 `_clean` + 带版本号稿」；三个 `pre-submit/jfl_SSD_*` 的旧版稿（`V1.1` / `V1` / `V1`）移入各自 `ref/tmp/`，sha256 逐件复核相等。结构体检由 36/37 转 **37/37**。② **无 PHI 家族改家族编码**（`OTHERS` 类汇编族不建 `id` / `id_number`，子库记 `meta.family_code`，PHI 永不下沉）；口径在 `{RULES}` 与本仓 `02_data-processing/base/db-library/SKILL.md`。③ **稿件根上两份**（`_clean` + 最新带版本号稿，旧版进 `ref/tmp/`）同步到 `06_review/base/track-changes/MODULE.md`、`05_manuscript/advanced/Aitor-format.md`、`00_orchestrator/references/standing-delivery.md`。本行同时补记：本轮合并提交本身不带 ticket，故以维护轮号 `t20261127a` 登记，LedgerFreshness 在该 tip 恢复绿。registry `change_id` 未变。（2026-11-27 补记：PR #389 加 `tests/test_no_old_bucket_paths.py` 防 `_db/`/`_share/`/`modal_` 旧桶路径回流，`tests/README.md` 登记；合并提交本身不带 ticket，本行以维护轮号登记。）
 
-- **2026-11-27 稿件根上两份 + 无 PHI 家族编码（chore，无 ticket）:** 主人 2026-11-27 裁决的两条口径落进技能侧。① **子工程根恰留两份稿件**：`Manuscript_<slug>_clean.docx`（最新版、接受全部修订、无痕迹、不带版本号）与最新的带版本号稿 `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx`（`_tracked` 表示保留修订痕迹）；其余旧版本号稿、旧 tracked、根上 PDF → `ref/tmp/`，不删、不进 `{DEL}`；旧「根上唯一现行一份」作废。同步 `INTEGRATION_MAP` 旧行、`00_orchestrator/references/standing-delivery.md`、`06_review/base/track-changes/MODULE.md`、`05_manuscript/advanced/Aitor-format.md`。② **无 PHI 家族用家族编码**：有 PHI 家族照旧 `_PHI\<FAM>db`（`id` / `id_number`，PHI 永不下沉）；无 PHI 家族（如 `OTHERS` 汇编族）不建身份表，家族库只留 `meta` / `dict` / `ref_project`，家族级登记用家族编码 + `ref_project` 映射，子库 `meta.family_code` 记所属家族编码，跨库引用用家族编码；同步 `02_data-processing/base/db-library/SKILL.md`。规则 SSOT 同批：`{RULES}\workspace-layout.md` 家族库节、`{RULES}\project-ref-layout.md`「SCI 稿件文件名」。不新造 fine id；registry `change_id` 未变。
+- **2026-11-27 稿件根上两份 + 无 PHI 家族编码（chore，无 ticket）:** 主人 2026-11-27 裁决的两条口径落进技能侧。① **子工程根恰留两份稿件**：`Manuscript_<slug>_clean.docx`（最新版、接受全部修订、无痕迹、不带版本号）与最新的带版本号稿 `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx`（`_tracked` 表示保留修订痕迹）；其余旧版本号稿、旧 tracked、根上 PDF → `ref/tmp/`，不删、不进 `{DEL}`；旧「根上唯一现行一份」作废。同步 `INTEGRATION_MAP` 旧行、`00_orchestrator/references/standing-delivery.md`、`06_review/base/track-changes/MODULE.md`、`05_manuscript/advanced/Aitor-format.md`。② **无 PHI 家族用家族编码**：有 PHI 家族照旧 `_PHI\<FAM>db`（`id` / `id_number`，PHI 永不下沉）；无 PHI 家族（如 `OTHERS` 汇编族）不建身份表，家族库只留 `meta` / `dict` / `ref_project`，家族级登记用家族编码 + `ref_project` 映射，子库 `meta.family_code` 记所属家族编码，跨库引用用家族编码；同步 `02_data-processing/base/db-library/SKILL.md`。规则 SSOT 同批：`{RULES}\zone-database.md` §5（家族库）、`{RULES}\project-ref-layout.md`「SCI 稿件文件名」。不新造 fine id；registry `change_id` 未变。
 
 - **t2261u (2026-11-27):** 总调度站立口径：工程 / 任务动工前先预计墙钟；预计超过 1 小时则由 00（Aitor）按现行座位开子代理并行加速；短任务仍就地做完；预计要实事。规则落点 `{RULES}\My rule.md` §7（§5 增加第一跳）；本仓同步 `00_orchestrator/SKILL.md` 与 `references/ownership-contract.md`。不新造 fine id。registry `change_id` 未变。
 
@@ -43,13 +43,13 @@ Harvest must not invent a second evolution log file.
 
 - **t2159u (2026-11-20):** when formatting a manuscript for a named target journal, do not overwrite the generic current `Manuscript_<slug>_V…` at the subproject root; save a journal-specific copy as `Manuscript_<slug>_<JournalShort>_V…`, put the upload pack in `ref/submission-<JournalShort>/`, and never let a builder default or a wrong target switch write back to the mother file. Detail in `{RULES}\project-ref-layout.md` 「目标刊格式版（母本不动，按刊另存）」. No fine-id change; registry `change_id` unchanged.
 
-- **t2154u (2026-11-19):** one-off scripts that have been used more than once for similar work are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not class them as H2 merely because they were written or filed as one-offs. A truly single-use patch remains H2. Detail in `00_orchestrator/harvest/SKILL.md` §2 and `00_orchestrator/references/text-harvest-by-fine-id.md`; standing rule in `{RULES}\del-and-harvest.md` §2 / §6. No fine-id change; registry `change_id` unchanged.
+- **t2154u (2026-11-19):** one-off scripts that have been used more than once for similar work are harvest objects (H1): extract the reusable procedure, interface and traps, and propose them to MY-CODES; do not class them as H2 merely because they were written or filed as one-offs. A truly single-use patch remains H2. Detail in `00_orchestrator/harvest/SKILL.md` §2 and `00_orchestrator/references/text-harvest-by-fine-id.md`; standing rule in `{RULES}\zone-docs.md` §1 / §3. No fine-id change; registry `change_id` unchanged.
 
 - **t2110u (2026-11-17):** before writing engineering or compute code, read the execution machine's CPU / GPU / RAM; prefer multithreading (or process parallelism) and CUDA when the hardware allows and the work is suitable; otherwise keep a CPU path and do not force CUDA. Do not invent hardware from memory or from another machine. Detail in `02_data-processing/advanced/coding.md` §4; standing pointer in `{RULES}` `My rule.md` §7. No fine-id change; registry `change_id` unchanged.
 
 - **t2108u (2026-11-17):** long or background jobs (expected runtime ≥2 min, or detached) must smoke-test first and start a visible console monitor (default 60 s refresh; first line immediately; job name/PID, progress, ETA, CPU/RAM, GPU if present). Percent and ETA only when a countable n/N exists; otherwise leave them unknown — do not invent. Chat reports stay at milestone / stuck / done. Detail in `02_data-processing/advanced/coding.md` §6a / §8; standing pointer in `{RULES}` `My rule.md` §7. No fine-id change; registry `change_id` unchanged.
 
-- **t20261114h (2026-11-14):** MY-RULES 分层后节号变动，技能侧 16 处 `My rule.md §x` 改指新节：§5.1 → 「§3 交付与清理」（Word / 城城已改先问）或「§2 写盘与授权」（新建文件 / 目录）；§5.3.1 / §5.3.2 → `{RULES}\del-and-harvest.md` §2（H1–H4）/ §6（对象与布局）；旧 §3 → 「§7 执行准则」。`00_orchestrator/references/project-ref-layout.md` 由完整英文副本降为索引页（只映射到 `{RULES}\project-ref-layout.md` 的节标题）。以后引用写「节号 + 标题名」，不要再只写数字。registry `change_id` 未变。
+- **t20261114h (2026-11-14):** MY-RULES 分层后节号变动，技能侧 16 处 `My rule.md §x` 改指新节：§5.1 → 「§3 交付与清理」（Word / 城城已改先问）或「§2 写盘与授权」（新建文件 / 目录）；§5.3.1 / §5.3.2 → 当时 `{RULES}\del-and-harvest.md` §2（H1–H4）/ §6（对象与布局），现行 `{RULES}\zone-docs.md` §1 / §3；旧 §3 → 「§7 执行准则」。`00_orchestrator/references/project-ref-layout.md` 由完整英文副本降为索引页（只映射到 `{RULES}\project-ref-layout.md` 的节标题）。以后引用写「节号 + 标题名」，不要再只写数字。registry `change_id` 未变。
 
 - **t20261114i (2026-11-14, park 瘦身):** 主人授权「db 中有这些内容，可以删」后核对：15 份 `.doc` 抢救正文的原件都在 `_DataBase\_lab\doc-word\`（grants 7 / thesis 5 / response 3），grant 类另在 `0doc-corpus.db`。据此把 `_Docs\harvest-sources-park` 的 `doc-salvage` / `library-ftp` / `library-figures` / `0doc-base-absorbed` 四个子档移入 `{DEL}\_by-function\harvest-park-retired-20261114\`，`library-methods\lab-ste`（16 件，唯一全本）最终并入技能仓 `05_manuscript\advanced\lab-ste`（见 t20261114k）；park 只留 methods 6 件 + 根散件 10 件。`lab-paths.yaml`：`doc_lab_ste` → `{SKILLS}\05_manuscript\advanced\lab-ste`，`doc_grants` → `_DataBase\_lab\doc-word\03-research\grants`，`doc_harvest_sources` 加瘦身注释。引用同步改指 `{doc_grants}` / `{doc_lab_ste}` / 吸收页 digest（`grant-index-digest`、`papers-card-schema`、`writing-rules-map`、`writing-rules-hard`、`response-structure-digest`、`Aitor-format`、`lab-ste`、`docs-db`）。无技能 id 或门变更；registry `change_id` 未变。
 
@@ -161,7 +161,7 @@ Owner t1817u (Asia/Shanghai 2026-11-08): **in-review → reviewing**; **R&P reti
 Owner t1809u (Asia/Shanghai 2026-11-08): **R*/P* whole-folder into `_DataBase`** on accepted closeout.
 
 - **Rule:** project-tree folders named `R*` / `P*` (revision/submission packs, e.g. R1/R2/P1/P1.1) go whole into `_DataBase\<suffix>\<prefix_suffix>\` (>=20 loose / small-file pile -> 7z/zip + `.files.txt` first per t1800u); after QC move original folder to `D:\MyProjects\.Del\_by-project\<slug>\`. Root keeps exactly two manuscript files (2026-11-27 supersedes "one current file"): `Manuscript_<slug>_clean.docx` (latest, all revisions accepted, no marks, no version number) plus the latest versioned `Manuscript_<slug>_{V|R|P}<x>[.<y>][_tracked].docx` (`_tracked` = marks kept); older versioned copies, older tracked copies and root PDFs go to `ref/tmp/` (kept, not deleted, not `{DEL}`).
-- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` 「accepted 收工」 / 「R*/P* 整夹进 _DataBase」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
+- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/zone-projects.md` 「accepted 收工」 / 「R*/P* 整夹进 `_DataBase`」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
 - **Unchanged:** no actual move/compress this ticket; MY-CODES untouched; Skills are pointer-only (no full restatement).
 
 ## CHG-20261108-t1806u-accepted-closeout (2026-11-08)
@@ -169,7 +169,7 @@ Owner t1809u (Asia/Shanghai 2026-11-08): **R*/P* whole-folder into `_DataBase`**
 Owner t1806u (Asia/Shanghai 2026-11-08): **accepted closeout** landing rules (slim `accepted\` then `archived\` + `ARCHIVED.md`).
 
 - **Rule:** hard-keep Manuscript + FinalData (+ optional `ref/settings.ini` -> raw bucket); what may go to `_DataBase` / `_Docs` buckets; figure routing; four archive gates unchanged; syn `/XD .Del` only. harvest-skill-library != closeout.
-- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` 「accepted 收工」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
+- **Aligned:** `lab-paths.yaml` note + `standing-delivery.md` + skills `project-ref-layout.md` pointers + this map + `VERSION.txt`. Rules SSOT: `{RULES}/zone-projects.md` 「accepted 收工」 + short pointers in `My rule.md` / Rules `project-ref-layout.md`.
 - **Unchanged:** no actual move/compress/rename this ticket; MY-CODES untouched; Skills are pointer-only (no full restatement).
 
 ## CHG-20261108-t1800u-database-zip-before-ingest (2026-11-08)
@@ -178,7 +178,7 @@ Owner t1800u (Asia/Shanghai 2026-11-08): **zip-before-ingest** into `{raw_root}`
 
 - **Rule:** when landing a directory with ≥20 standalone files, or a clear small-file pile (DICOM series, slice exports, per-case intermediates, fragment logs), pack into **one** archive first (prefer `7z` `-mx=5`; solid DICOM may `-m0=LZMA2`; else `zip`); leave `<name>.files.txt`; after QC move the loose original dir to `{del_root}`=`D:\MyProjects\.Del`. Exceptions: root indexes/tables, already-single large files, owner-named live datasets. Hot in-progress data stays unpacked until finalized.
 - **syn:** unchanged from t1796u: `/XD .Del` only; `_DataBase` still syncs with the main tree.
-- **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/workspace-layout.md` (zip-before-ingest section) + short pointer in `My rule.md`.
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` note + this map + `VERSION.txt`. Rules SSOT: `{RULES}/zone-database.md` §1（多文件先压缩） + short pointer in `My rule.md`.
 - **Unchanged:** no actual compression/ingest this ticket; MY-CODES untouched.
 
 ## CHG-20261108-t1796u-syn-xd-del-only (2026-11-08)
@@ -240,7 +240,7 @@ Owner t1712u (Asia/Shanghai 2026-11-06): park-stash absorb of 20 console `FIG_PA
 Owner t1708u (Asia/Shanghai 2026-11-06): live `00ds` is a **QC object**, not an allowed legacy alias.
 
 - **Rule:** any live path, folder name, or filter/default still saying `00ds` must be corrected to `00db`. Do not retain `00ds` in live allowlists/filters "as legacy". Historic "was/formerly 00ds" changelog notes may stay. Disk tree migration is separate (owner must authorize).
-- **Aligned:** `00_orchestrator/references/lab-paths.yaml` (`raw_root` comment + notes). Rules SSOT: `{RULES}/workspace-layout.md` `{RAW}`.
+- **Aligned:** `00_orchestrator/references/lab-paths.yaml` (`raw_root` comment + notes). Rules SSOT: `{RULES}/zone-database.md` `{RAW}`.
 - **Unchanged:** unrelated historic notes; no bulk migrate of `D:\\00ds` / `D:\\00db`.
 
 ## CHG-20261106-t1698u-manuscript-vr (2026-11-06)
