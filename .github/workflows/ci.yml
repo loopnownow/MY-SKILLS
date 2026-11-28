@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: checkout sibling repos
+        run: |
+          git clone --depth 1 https://github.com/loopnownow/MY-RULES.git "$env:RUNNER_WORKSPACE\MY-RULES"
+          git clone --depth 1 https://github.com/loopnownow/MY-CODES.git "$env:RUNNER_WORKSPACE\MY-CODES"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: install test deps
+        run: python -m pip install --upgrade pip pyyaml
+      - name: unittest
+        env:
+          MY_RULES: ${{ runner.workspace }}/MY-RULES
+          MY_CODES: ${{ runner.workspace }}/MY-CODES
+        run: python -B -m unittest discover -s tests -q

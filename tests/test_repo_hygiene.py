@@ -87,6 +87,7 @@ WORKFLOW_HOME = ROOT / "00_orchestrator" / "workflows"
 # Only 00_orchestrator/workflows is the formal SOP tree. Whitelist extras by role if needed.
 WORKFLOW_DIR_WHITELIST = {
     WORKFLOW_HOME.resolve(),
+    (ROOT / ".github" / "workflows").resolve(),  # GitHub Actions, not SOP tree
 }
 QC00 = ROOT / "00_orchestrator" / "qc"
 PROJECT_REF_TEMPLATE = ROOT / "00_orchestrator" / "references" / "project-ref-template"
