@@ -1,6 +1,6 @@
 # Appraisal tool route (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06 when formal RoB / certainty appraisal applies.
+**Owner:** `00_orchestrator` at G-06 when formal RoB / certainty appraisal applies.
 **Distill of:** K-Dense `scientific-critical-thinking` framework **routing** (MIT). Router only — **no** full Cochrane/GRADE essay text.
 
 ## When appraisal applies

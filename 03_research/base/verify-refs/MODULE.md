@@ -29,7 +29,7 @@ Minimum: a DOI / PMID / arXiv ID, a `.bib` file, or a reference list to audit. I
 3. **Integrity pass** (same pass as metadata validation): retraction / correction / expression-of-concern scan, plus the library pointer layer (entity, `references/index.csv` row and `DOI_<doi>.md` pointer must agree): `references/retraction-audit.md`, `references/library-pointer-sync.md`. Gate: `05_manuscript/qc/refs-verified.md`.
 4. **Format BibTeX** deterministically: `references/bibtex_formatting.md`; script arguments in `references/script_reference.md`.
 5. **Validate** every entry (resolve, completeness, duplicates): `references/citation_validation.md`.
-6. **Hand off**: claim→ref table and a strong-claim spot-check go to `03_research/advanced/citation-verify.md`; a missed citation is a 05 prose repair, not a verify-refs rewrite.
+6. **Hand off**: claim→ref table and a strong-claim spot-check go to `03_research/advanced/verify-refs.md`; a missed citation is a 05 prose repair, not a verify-refs rewrite.
 
 ## Constraints (never)
 
@@ -44,7 +44,7 @@ Minimum: a DOI / PMID / arXiv ID, a `.bib` file, or a reference list to audit. I
 
 - BibTeX file (or a diff to the existing `.bib`) plus a one-line PASS/FAIL per entry.
 - Integrity verdict: metadata match / mismatch (with field), retraction status, pointer agreement.
-- Handoff: to 05 `write-paper` for insertion; to 00 at G-LIT / G-CIT; to `lit-search` when the missing item is a search problem rather than a metadata problem.
+- Handoff: to 05 `write-paper` for insertion; to 00 at G-LIT; to `lit-search` when the missing item is a search problem rather than a metadata problem.
 
 ## References
 

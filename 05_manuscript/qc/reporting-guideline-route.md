@@ -1,10 +1,10 @@
 # Reporting guideline route (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06. Capability bodies other than `05_manuscript/qc/check-reporting/` stay in `05_manuscript/advanced/` and `base/`.
+**Owner:** `00_orchestrator` at G-05 / Integrity · pre-06. Capability bodies other than `05_manuscript/qc/check-reporting/` stay in `05_manuscript/advanced/` and `base/`.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 **Router metadata:** `05_manuscript/qc/reporting-guidelines-router.json` (K-Dense peer-review catalog, MIT — ids / study_types / official URLs only; **no checklist item text**).
 
-## How Gate · 05 / Integrity · pre-06 use this
+## How G-05 / Integrity · pre-06 use this
 
 1. Classify study type (or escalate if ambiguous).
 2. Lookup primary `id` in the JSON sidecar (and keep the short table below for common radiology/prediction routes).
@@ -27,7 +27,7 @@ Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Relation to the check-reporting body
 
-**Gate SSOT** for Integrity · pre-06 / Gate · 05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/qc/check-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the check-reporting stack for the gate subset, or the gate subset for a full writing audit.
+**Gate SSOT** for Integrity · pre-06 / G-05 must-check subset = this file (`05_manuscript/qc/reporting-guideline-route.md` + JSON sidecar). **Writing / audit stack** (CLAIM, CLEAR, PROBAST-AI, METRICS/RQS, IBSI, FUTURE-AI, …) = `05_manuscript/qc/check-reporting/radiology-reporting/guideline-router.md`. Do **not** substitute the check-reporting stack for the gate subset, or the gate subset for a full writing audit.
 
 Also-check when imaging AI / radiomics (record if applicable; not a substitute for the table above):
 - **CLAIM 2024** — DL/AI imaging methods reporting.

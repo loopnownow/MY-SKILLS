@@ -1,6 +1,6 @@
 # Venue compliance minima (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 (pre-submit). Capability: `03_research/base/find-journal/` + `05_manuscript/base/write-paper/`.
+**Owner:** `00_orchestrator` at G-05 (pre-submit). Capability: `03_research/base/find-journal/` + `05_manuscript/base/write-paper/`.
 **Distill of:** K-Dense `venue-templates` Final Compliance Checklist (MIT). Pass/fail lines only; **no** bundled LaTeX/BST.
 
 ## Checklist

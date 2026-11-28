@@ -90,6 +90,6 @@ Who executes a coarse id or a LIVE fine id: `00_orchestrator/references/bot-rout
 
 ## Session pick (pointer)
 
-Session pick steps live in `00_orchestrator/SKILL.md` (§0 registry) + `00_orchestrator/references/session-pick.md` / `00_orchestrator/references/lifecycle-cache.md`.
+Session pick steps live in `00_orchestrator/SKILL.md` (§0 registry) + `00_orchestrator/references/session-pick.md`.
 
 Order: `ask-each-run` fine-id pick → resolve against `registry.yaml` (in-repo `NN_slug/base/`) → empty path: notify, re-search, confirm.

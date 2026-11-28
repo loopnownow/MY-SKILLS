@@ -1,6 +1,6 @@
 # Technical concern coverage router (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06.
+**Owner:** `00_orchestrator` at G-06.
 **Distill of:** Yuan1z `nature-reviewer` → twelve-axis technical-concern taxonomy (Apache-2.0). **Coverage** router only — ensure the review addresses applicable axes; not a full essay or mock-review package.
 
 ## Twelve axes (mark each)

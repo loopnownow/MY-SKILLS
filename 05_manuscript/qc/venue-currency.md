@@ -1,6 +1,6 @@
 # Venue currency rule (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / find-journal runs.
+**Owner:** `00_orchestrator` at G-05 / find-journal runs.
 **Distill of:** K-Dense `venue-templates` mandatory currency rule (MIT).
 
 ## Rule

@@ -11,7 +11,7 @@ Does the manuscript **report** numbers/comparisons/scope **truthfully** at displ
 
 ## When
 
-- After house.docx / frozen tables; before Lee pre-review when numbers cited.
+- After the current manuscript (当前稿，按 `{RULES}/project-ref-layout`) / frozen tables; before Lee pre-review when numbers cited.
 - Re-run if numbers edited after a prior PASS.
 - Mandatory emit at `assurance: submission` / `conference-ready`.
 

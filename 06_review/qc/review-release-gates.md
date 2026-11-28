@@ -1,6 +1,6 @@
 # Review release gates (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06 / before releasing a review packet.
+**Owner:** `00_orchestrator` at G-06 / before releasing a review packet.
 **Distill of:** Yuan1z `nature-reviewer` → `qa-checklist` isolation / grounding / severity / final release rule (Apache-2.0). Short gates only.
 
 ## Isolation

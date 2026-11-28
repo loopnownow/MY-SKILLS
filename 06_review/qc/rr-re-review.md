@@ -1,6 +1,6 @@
 # R&R re-review verification (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at `P06r` / Gate · 06 re-review. Lee = verification only; Round-1 findings frozen.
+**Owner:** `00_orchestrator` at `P06r` / G-06 re-review. Lee = verification only; Round-1 findings frozen.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Template

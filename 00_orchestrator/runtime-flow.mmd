@@ -1,22 +1,23 @@
 %% MY-SKILLS · sole official runtime map (00)
 %% When updating flow/QC/entry, edit only this file. Sub-flows = branches here; no second master map.
-%% Gate detail SSOT: gates.md; external-pack lifecycle: 00
-%% Diagram node naming: Gate · NN ↔ gates.md G-NN; the merged 02 stats gate is `Gate · STATS` = `G-STATS`. G0 / G-PHI / G-FACT / G-LIT / G-CODE same names.
+%% Gate detail SSOT: gates.md. Diagram nodes use gate ids directly (G0, G-PHI, G-FACT, G-STATS, G-05, G-06, G-07, G-LIT, G-CODE).
 %% Mid-entry still allowed (existing stats→05, existing manuscript→06; do not re-run from 02).
-%% Any manuscript writing or review must pass 03 citation-verify before done / Gate·05 / Gate·06.
+%% Any manuscript writing or review must pass 03 verify-refs (G-LIT) before done / G-05 / G-06.
 %% 05 and 06 must not self-certify literature. Lee: statement consistency → data consistency; lit accuracy joint with Victor.
 %% Ownership: see 00_orchestrator/references/ownership-contract.md
-%% Seats: 02 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC) · Bai=ethics forms+portal submit (off 00 main loop)
+%% Seats: 02 Loopnow · 03 Victor · 05+07 Aitee · 06 Lee · 00 Aitor(QC, R&R control) · Bai=ethics forms+portal submit (off 00 main loop)
 %% Response → 07/Aitee. Review/re-review → 06/Lee. Ethics forms+portal submit → Bai.
 %% Layering: base fine-ID first-pass loops -> 00 QC gate -> advanced/top re-loops.
 %% inspired by ARS pipeline topology (Integrity pre-06 + review↔revise + R&R; short original text only).
 %% QC standards (pass/fail only) live under 05_manuscript/qc/ and 06_review/qc/; 00 loads at gates — not capability bodies.
 %% Capability bodies live under NN_slug/base/. Advanced layers keep route/handoff/authority only.
 %% 03 post-QC may trigger verify-refs integrity stage (bodies under 03_research/base/).
-%% 05 post-QC: advanced De-AI (report-only lint, then de-AI pass; absorbed retired humanize) alongside Aitor-format/voice.
-%% 06 post-QC: re-review only. 07 owns response (final authority).
+%% 05 post-QC: advanced De-AI (report-only lint, then de-AI pass) alongside Aitor-format/voice.
+%% 06 post-QC: re-review only. 07 writes the response (final authority). 00 controls the R&R loop.
 %% 02/03 exits are artifact or evidence checks, not a fact-lineage node.
 %% Rework budget is per same defect (defects[].rounds ≤ 3), not global qc.rounds.
+%% Design lock (seat 03): owner-accepted ref/design-lock.md required before G-STATS.
+%% Current manuscript = 当前稿 (RULES/project-ref-layout); not a hardcoded Manuscript_*_house.docx trigger.
 
 flowchart TD
     Start([Task enter]) --> Detect[00 · Detect materials / intent / entry / exit]
@@ -35,15 +36,15 @@ flowchart TD
     Entry -->|Data-processing results exist| NeedStats[Enter 02 · stats/figures · Loopnow]
     Entry -->|Stats/figures exist · mid-entry OK| Need05[Enter 05 · Aitee]
     Entry -->|Review/pre-review → 06 Lee| Need06[Enter 06 · Lee review]
-    Entry -->|R&R main loop → 06 Lee| R06[06 R&R control]
+    Entry -->|R&R main loop → 00| R00[00 R&R control]
     Entry -->|Reply/response → 07 Aitee| Need07[Enter 07 · Aitee reply]
     Entry -->|Standalone lit task| Need03[Enter 03 · Victor]
     Entry -->|Deep code QC| NeedCode[Enter 02 code QC]
     Entry -->|Other clear single domain| NeedS[Enter target Skill]
     Entry -->|Single-node advanced · no fine id dependency| Advanced[e.g. polish one sentence · no fine id ask]
 
-    %% R&R: triage then return to node; re-run only forward affected chain
-    R06 --> Decide{06 locate problem source}
+    %% R&R: 00 triages then returns to the node; re-run only forward affected chain
+    R00 --> Decide{00 locate problem source}
     Decide -->|Data| Need02
     Decide -->|Stats / figures| NeedStats
     Decide -->|Lit evidence| Need03
@@ -54,7 +55,7 @@ flowchart TD
     %% Independent run needs one fine-id pick. Reuse lock if covered; else enter 00.
     Need02 & Need03 & NeedStats & Need05 & Need06 & Need07 & NeedS & NeedCode --> FineIdQ{session_picked_fine_ids<br/>covers this task fine IDs?}
     FineIdQ -->|yes · reuse session lock| GA0
-    FineIdQ -->|no| SFineId[00 · Session fine-id pick / Lifecycle]
+    FineIdQ -->|no| SFineId[00 · Session fine-id pick]
     SFineId --> GA0{{G0}}
     GA0 -->|PASS| Ready[Fine ids ready]
     GA0 -->|FAIL| Locate
@@ -71,33 +72,35 @@ flowchart TD
     Dispatch -->|02 stats| PStats[02 stats/figures · Loopnow]
     Dispatch -->|05| P05[05 manuscript writing · Aitee]
     Dispatch -->|06| I25
-    I25[Integrity · pre-06<br/>G-FACT+G-CIT + RG subset + AI-fail lite] --> P06[06 review/pre-review · Lee]
+    I25[Integrity · pre-06<br/>G-FACT+G-LIT + RG subset + AI-fail lite] --> P06[06 review/pre-review · Lee]
     Dispatch -->|07| P07[07 reply to reviewers · Aitee]
     Dispatch -->|Deep code QC| PCode[02 · code QC]
     Dispatch -->|Single domain| Single[Target Skill]
 
-    subgraph CHAIN[Main production chain · advance only on PASS · mid-entry OK · writing/review must pass 03 citation-verify]
+    subgraph CHAIN[Main production chain · advance only on PASS · mid-entry OK · writing/review must pass 03 verify-refs]
         P02 --> N2{{N2 · G-PHI<br/>before table/clinical extract}}
         N2 -->|PASS| Exit02{{02 exit · G0 + G-PHI (when applicable) + artifact exists}}
         Exit02 -->|PASS · not at destination| PStats
-        PStats --> GFStats{{G-FACT · after 02 HTML}}
-        GFStats -->|PASS| GAStats{{Gate · STATS}}
+        PStats --> DLock{design-lock accepted? · seat 03}
+        DLock -->|no| StopLock[Stop · do not run G-STATS · 03 until owner accepts]
+        DLock -->|yes| GFStats{{G-FACT · after 02 HTML}}
+        GFStats -->|PASS| GAStats{{G-STATS}}
         GAStats -->|PASS · not at destination| N3{N3 WRITE<br/>Stop at HTML or enter sci-manuscript?}
         N3 -->|Enter writing| P05
         N3 -->|Stop at HTML| Out
-        P05 --> GF05{{G-FACT · after 05 house.docx}}
-        GF05 -->|PASS| Lit05[03 Victor · citation-verify<br/>G-CIT-1 draft evidence verify<br/>claim→ref table + spot-check strong claims vs full text]
+        P05 --> GF05{{G-FACT · after current manuscript}}
+        GF05 -->|PASS| Lit05[03 Victor · verify-refs<br/>G-LIT before G-05<br/>claim→ref table + spot-check strong claims vs full text]
         Lit05 -->|PASS| StyleLint{{G-05 · style-lint sub-check}}
-        StyleLint -->|PASS| GA05{{Gate · 05}}
+        StyleLint -->|PASS| GA05{{G-05}}
         GA05 -->|PASS · not at destination| N4{N4 PREVIEW<br/>Enter 06 or stop?}
         N4 -->|Enter 06| I25
         N4 -->|Stop| Out
         P06 --> Lee06[Lee · statement → data consistency<br/>comments only · no default auto-edit]
-        P06 --> Lit06[03 Victor · citation-verify<br/>G-CIT-2 post-revision / inside 06<br/>mandatory · G-CIT-1 does not waive G-CIT-2<br/>lit accuracy joint with Lee]
+        P06 --> Lit06[03 Victor · verify-refs<br/>G-LIT inside 06 · mandatory<br/>a prior G-05 pass does not waive<br/>lit accuracy joint with Lee]
         Lee06 --> Join06[06 complete · consistency + lit verify]
         Lit06 -->|PASS| GF06{{G-FACT · only when 06 cites numbers}}
         GF06 -->|PASS| Join06
-        Join06 --> GA06{{Gate · 06}}
+        Join06 --> GA06{{G-06}}
         GA06 -->|PASS · reply needed| P07
         GA06 -->|findings · revise needed| Rev{Revise needed?}
         Rev -->|Body TC · Aitee| Need05
@@ -112,28 +115,29 @@ flowchart TD
     end
 
     %% 07 conditional G-LIT: no new cites → GA07; cites appear → Lit07 (G-LIT) → GA07. No new Gate id.
-    P07 -->|no new cites| GA07{{Gate · 07 · response / Aitee}}
+    P07 -->|no new cites| GA07{{G-07}}
     P07 -->|cites appear| Lit07{{Lit07 · G-LIT when cites}}
     Lit07 -->|PASS| GA07
     GA07 -->|PASS| Out
 
     P03 --> Exit03{{03 exit · G0 + G-LIT + evidence/citation artifacts}}
-    Exit03 -.->|PASS · evidence supply at draft time · does not replace citation-verify| P05
-    Exit03 -.->|PASS · evidence supply at draft time · does not replace citation-verify| I25
+    Exit03 -.->|PASS · evidence supply at draft time · does not replace verify-refs| P05
+    Exit03 -.->|PASS · evidence supply at draft time · does not replace verify-refs| I25
     PCode --> GCODE{{G-CODE}}
     GCODE -->|PASS| Out
-    Single --> GAS{{Gate · target Skill}}
+    Single --> GAS{{target-skill gate}}
 
     %% At destination with last gate PASS, or user says end → stage: done; do not open next station.
-    %% Before 05 delivery done / Gate·05: Lit05 must PASS (claim→ref table + strong-claim spot-check).
+    %% Before 05 delivery done / G-05: Lit05 must PASS (claim→ref table + strong-claim spot-check).
     %% 06 review: Lit06 is mandatory; Lee still does statement then data consistency. Prior 05 verify does not waive 06.
     %% 07 response: Lit07 / G-LIT only when the letter or revised ms cites literature; otherwise P07 → GA07 directly.
-    %% Manuscript Track Changes are landed by Aitee.Ownership: see 00_orchestrator/references/ownership-contract.md
+    %% Manuscript Track Changes are landed by Aitee. Ownership: see 00_orchestrator/references/ownership-contract.md
     %% Pause, or stop after results page / before pre-review: leave stage at current station; do not write done.
     %% Later stations in the same approved run report one line; N2, results-page G-FACT, N4, G-06 still stop.
     Exit02 & GAStats & GA05 & GA06 & GA07 & Exit03 & GAS & GCODE -->|PASS · at destination| Out([Final output<br/>stage: done])
+    StopLock --> Wait
 
-    %% QC loop: return to failed node and reuse session lock. Re-enter 00 only on missing dependency / stale provenance / new capability.
+    %% QC loop: return to failed node and reuse session lock. Re-enter 00 only on missing dependency or new capability.
     Exit02 & N2 & GFStats & GAStats & GF05 & StyleLint & GA05 & GF06 & GA06 & GA07 & Exit03 & GAS & GCODE -->|FAIL| Locate[Locate minimal responsible node]
     I25 & I45 -->|FAIL · HARD integrity| Locate
     Lit05 & Lit06 & Lit07 -->|FAIL| Locate
@@ -143,7 +147,7 @@ flowchart TD
     Local --> Budget{Same defect defects[].rounds ≤ 3?}
     Rollback --> Budget
     Budget -->|yes| Resume[Re-enter failed node · reuse session fine-id lock]
-    Resume --> RePick{Missing dependency, stale provenance, or new capability needed?}
+    Resume --> RePick{Missing dependency or new capability needed?}
     RePick -->|no| BackNode[Return to failed node]
     BackNode --> Dispatch
     RePick -->|yes| SFineId

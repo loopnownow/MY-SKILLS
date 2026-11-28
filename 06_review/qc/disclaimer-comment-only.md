@@ -1,6 +1,6 @@
 # Disclaimer / incompleteness — comment only (06 qc · standards)
 
-**Owner:** `00_orchestrator` at Gate · **G-06** / Integrity · pre-06.
+**Owner:** `00_orchestrator` at **G-06** / Integrity · pre-06.
 **Canonical check ids:** `05_manuscript/qc/anti-leak-placeholders.md` **AL-5**; `05_manuscript/qc/manuscript-local-qc.md` `agent_disclaimer_and_incomplete_claims_banned`.
 
 ## Standard

@@ -1,6 +1,6 @@
 # Stats / reporting spot-check (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06. Stats definitions live in `02_data-processing`; this is a short review spot list.
+**Owner:** `00_orchestrator` at G-06. Stats definitions live in `02_data-processing`; this is a short review spot list.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 **Companion taxonomy:** `06_review/qc/stats-failure-modes.md` (P0/P1/P2 + fail→rollback). Legend minima: `05_manuscript/qc/figure-stats-legend.md`.
 

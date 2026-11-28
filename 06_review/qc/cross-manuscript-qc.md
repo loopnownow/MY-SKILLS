@@ -1,7 +1,7 @@
 # Cross-manuscript QC (standards checklist; gate authority = 00)
 
 **Prior path:** lived under `06_review` advanced/qc naming before domain `qc/` (2026-10-18). Related checklist: `05_manuscript/qc/manuscript-local-qc.md`.
-**Gate / scoring authority:** `00_orchestrator` (Gate · 06). Standards checklist invoked by 00; Lee executes comments but does not self-certify.
+**Gate / scoring authority:** `00_orchestrator` (G-06). Standards checklist invoked by 00; Lee executes comments but does not self-certify.
 **Owner (file seat):** `06_review` (checklist body); gate pass/fail = 00.
 
 ---
@@ -24,7 +24,7 @@ runs_checks_from: 05_manuscript/qc/manuscript-local-qc.md
 
 Load on every pre-review and peer-review, after `06_review/advanced/review.md`. Journal-facing envelope stays English (`06_review/advanced/review.md`). The reason inside the Word comment stays Chinese, after the source tag. A user-facing pre-review summary stays Chinese. Do not swap that split.
 
-call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
+call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/verify-refs.md`). Lee does not skip it and does not sign the claim→ref table. Literature accuracy is joint with Victor. Statement consistency still comes first, then data consistency.
 
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 

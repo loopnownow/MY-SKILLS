@@ -7,4 +7,4 @@ outputs: []
 constraints: []
 dependencies: []
 target: null
-lifecycle: DISCOVERED  # DISCOVERED → EVALUATED → PROPOSED → APPROVED → LIVE | DISABLED | REJECTED
+lifecycle: DISCOVERED  # DISCOVERED → EVALUATED → APPROVED → in-repo | DISABLED | REJECTED

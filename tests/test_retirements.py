@@ -210,26 +210,25 @@ class RouteContract(unittest.TestCase):
             for token in row["must_not_contain"]:
                 self.assertNotIn(token, section, row["intent"])
 class ProvenanceSchema(unittest.TestCase):
-    def test_schema_names_fine_id_provenance_fields(self) -> None:
-        fields = ["fine_id", "source", "resolved_commit", "path", "content_hash", "checked_at"]
+    def test_g0_provenance_fields_are_retired(self) -> None:
+        banned = ("fine_id_provenance", "resolved_commit", "content_hash", "cache_status")
         for rel in (
             "00_orchestrator/templates/project-state.yaml",
             "00_orchestrator/templates/handoff.yaml",
             "00_orchestrator/gates.md",
         ):
             text = (ROOT / rel).read_text(encoding="utf-8")
-            self.assertIn("fine_id_provenance", text, rel)
-            for field in fields:
-                self.assertIn(field, text, f"{rel} {field}")
+            for field in banned:
+                self.assertNotIn(field, text, f"{rel} still names retired G0 field {field}")
 class GateAlignment(unittest.TestCase):
-    def test_runtime_flow_has_no_g02_g03_and_names_citation_labels(self) -> None:
+    def test_runtime_flow_has_no_g02_g03_and_uses_g_lit_only(self) -> None:
         mmd = (ROOT / "00_orchestrator" / "runtime-flow.mmd").read_text(encoding="utf-8")
         md = (ROOT / "00_orchestrator" / "runtime-flow.md").read_text(encoding="utf-8")
         for text in (mmd, md):
             self.assertNotIn("G-02", text)
             self.assertNotIn("G-03", text)
-            self.assertIn("G-CIT-1", text)
-            self.assertIn("G-CIT-2", text)
+            self.assertNotIn("G-CIT", text)
+            self.assertIn("G-LIT", text)
         gates = (ROOT / "00_orchestrator" / "gates.md").read_text(encoding="utf-8")
         for token in (
             "event count",

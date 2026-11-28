@@ -155,4 +155,4 @@ exploration_state:
 
 - Extend `project-state.yaml` with optional top-level `exploration_state` (see template). Do not fork a second state schema.
 - Record changes with `CHG-YYYYMMDD-NNN`.
-- External absorb still: license → file diff → extract action/rules only → no whole-pack adoption; respect Cache ≠ Live ≠ Active and `fine_id_count_canonical` in `registry.yaml`.
+- External absorb still: license → file diff → extract action/rules only → no whole-pack adoption; respect selected ≠ loaded and `fine_id_count_canonical` in `registry.yaml`.

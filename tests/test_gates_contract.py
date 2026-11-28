@@ -102,14 +102,15 @@ class GateMmdMap(unittest.TestCase):
         missing = [gid for gid in GATE_IDS if gid not in tokens]
         self.assertEqual(missing, [], f"runtime-flow.mmd missing gate tokens: {missing}")
 
-    def test_mmd_gate_dot_maps_to_g_nn(self) -> None:
+    def test_mmd_uses_gate_ids_directly(self) -> None:
         mmd = MMD.read_text(encoding="utf-8")
-        for n in ("05", "06", "07"):
-            self.assertIn(f"Gate · {n}", mmd)
-        self.assertIn("Gate · STATS", mmd)
-        self.assertIn("Gate · NN ↔ gates.md G-NN", mmd)
+        for token in ("{{G-05}}", "{{G-06}}", "{{G-07}}", "{{G-STATS}}", "G-LIT"):
+            self.assertIn(token, mmd, token)
+        self.assertNotIn("Gate · NN", mmd)
+        self.assertNotIn("G-CIT", mmd)
         md = (ROOT / "00_orchestrator" / "runtime-flow.md").read_text(encoding="utf-8")
-        self.assertIn("Gate · NN` ↔ `gates.md` `G-NN`", md)
+        self.assertNotIn("Gate · NN", md)
+        self.assertIn("use gate ids directly", md)
 
     def test_mmd_has_plan_n_nodes_style_lint_and_defect_budget(self) -> None:
         mmd = MMD.read_text(encoding="utf-8")
@@ -265,8 +266,7 @@ class StateTemplate(unittest.TestCase):
         'stage: ""',
         "# classify | 02 | 03 | 05 | 06 | qc | done",
         "citation_verify:",
-        "g_cit_1:",
-        "g_cit_2:",
+        "g_lit:",
         "table_path:",
         "rounds:",
         "defects[].rounds",

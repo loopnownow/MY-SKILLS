@@ -1,11 +1,11 @@
 # DOI-first Crossref field audit (capability · short)
 
-**Owner:** Victor / `03_research/base/verify-refs`. Extends Vancouver + DOI spotcheck; does **not** replace `03_research/advanced/citation-verify.md` (claim→ref).
+**Owner:** Victor / `03_research/base/verify-refs`. Extends Vancouver + DOI spotcheck; does **not** replace `03_research/advanced/verify-refs.md` (claim→ref).
 **Distill of:** Yuan1z `nature-ref-verifier` workflow (Apache-2.0). Short original steps; no Zotero sync scripts.
 
 ## When
 
-Pre-submit bibliography field audit, or when Gate · 05 / Integrity · pre-06 needs `refs-verified` cleared. Pair with `05_manuscript/qc/refs-verified.md` (pass/fail) and `05_manuscript/qc/style-spotcheck.md` (Vancouver+DOI).
+Pre-submit bibliography field audit, or when G-05 / Integrity · pre-06 needs `refs-verified` cleared. Pair with `05_manuscript/qc/refs-verified.md` (pass/fail) and `05_manuscript/qc/style-spotcheck.md` (Vancouver+DOI).
 
 ## Steps (DOI-first)
 
@@ -26,11 +26,11 @@ Pre-submit bibliography field audit, or when Gate · 05 / Integrity · pre-06 ne
 
 ## Fail → gate
 
-Any Critical or unresolved `Needs fix` without Word comment → FAIL `05_manuscript/qc/refs-verified.md` → rollback before Gate · 05 done / Integrity · pre-06.
+Any Critical or unresolved `Needs fix` without Word comment → FAIL `05_manuscript/qc/refs-verified.md` → rollback before G-05 done / Integrity · pre-06.
 
 ## Cross-links
 
-- G-CIT / claim→ref: `03_research/advanced/citation-verify.md`
+- G-LIT / claim→ref: `03_research/advanced/verify-refs.md`
 - Style: `05_manuscript/qc/style-spotcheck.md`
 - Broader metadata tools: this pack's `MODULE.md` / scripts (optional)
 

@@ -1,6 +1,6 @@
 # Stats failure-mode taxonomy (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06 / Integrity · pre-06 (composition with G-FACT when numbers cited).
+**Owner:** `00_orchestrator` at G-06 / Integrity · pre-06 (composition with G-FACT when numbers cited).
 **Distill of:** Yuan1z `nature-statistics` → `common-failure-modes` + severity from `reviewer-checklist` (Apache-2.0). Original short taxonomy; state risk + rollback, do not accuse authors.
 
 ## Severity

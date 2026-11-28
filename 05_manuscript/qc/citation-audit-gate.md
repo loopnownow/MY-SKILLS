@@ -1,8 +1,8 @@
-# Citation audit gate (05 qc · Layer 4 · extends G-CIT)
+# Citation audit gate (05 qc · Layer 4 · extends G-LIT)
 
-**Owner:** `00_orchestrator` at G-LIT / G-CIT / Integrity · pre-06.
-**Seat:** Victor (03) runs verify; Aitee (05) wording; Lee (06) may require G-CIT-2 inside review.
-**Compose existing:** `refs-verified.md` (RV-*), `03_research/advanced/citation-verify.md` (G-CIT-1/2). Do not replace them — this gate adds three-axis + six-state emit.
+**Owner:** `00_orchestrator` at G-LIT / G-LIT / Integrity · pre-06.
+**Seat:** Victor (03) runs verify; Aitee (05) wording; Lee (06) may require G-LIT inside review.
+**Compose existing:** `refs-verified.md` (RV-*), `03_research/advanced/verify-refs.md` (G-LIT/2). Do not replace them — this gate adds three-axis + six-state emit.
 **Distill of:** ARIS `citation-audit`.
 
 ## Purpose
@@ -12,7 +12,7 @@ Every citation: **exists**, **metadata correct**, **context-appropriate** (suppo
 ## When
 
 - After bibliography/claim→ref table stable (not on half-draft placeholders).
-- G-CIT-1 before Gate · 05 done; G-CIT-2 inside 06 (G-CIT-1 does not waive G-CIT-2).
+- G-LIT before G-05 done; G-LIT inside 06 (G-LIT does not waive G-LIT).
 - Mandatory emit at `assurance: submission` / `conference-ready`.
 
 ## Inputs
@@ -61,6 +61,6 @@ If this round newly created or changed citations and the matching IMRAD heading 
 
 - `ref/citation/CITATION_AUDIT.json` (+ optional `.md` sibling); see `00_orchestrator/references/project-ref-layout.md`
 - `details.per_entry[]` with axis_failures
-- Cross-link RV-1…4 and G-CIT claim→ref table in summary
+- Cross-link RV-1…4 and G-LIT claim→ref table in summary
 
-*Attribution: ARIS citation-audit (wanshuiyin/Auto-claude-code-research-in-sleep); lab G-CIT / refs-verified remain authoritative for radiology workflow.*
+*Attribution: ARIS citation-audit (wanshuiyin/Auto-claude-code-research-in-sleep); lab G-LIT / refs-verified remain authoritative for radiology workflow.*

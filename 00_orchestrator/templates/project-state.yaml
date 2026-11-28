@@ -24,18 +24,9 @@ pipeline:
 
 fine_ids:
   session_picked_fine_ids: []  # selected this run; G0 checks "only picked ids loaded" against this field. Reuse when the next task's fine ids are already here.
-  # fine_id_provenance: one object per selected fine id when G0 records it. Do not invent hashes. Do not hash the whole cache.
-  # Required fields: fine_id, source, resolved_commit, path, content_hash, checked_at.
-  fine_id_provenance: []
-  # - fine_id: ""
-  #   source: ""
-  #   resolved_commit: ""
-  #   path: ""
-  #   content_hash: ""
-  #   checked_at: ""
 
 qc:
-  last_gate: ""      # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-STATS | G-05 | G-06
+  last_gate: ""      # G0 | G-PHI | G-FACT | G-LIT | G-CODE | G-STATS | G-05 | G-06 | G-07
   last_result: ""    # pass | fail
   # rounds: deprecated aggregate. Prefer defects[].rounds (same defect, max 3). Keep 0 unless a tool still writes it.
   rounds: 0
@@ -71,7 +62,7 @@ analysis_plan:
 manuscript:
   target_journal: ""
   format: "Aitor-format"
-  house_docx: ""     # Manuscript_<endpoint>_house.docx
+  current_manuscript: ""  # 当前稿（按 {RULES}/project-ref-layout）
   polished_docx: ""
   results_html: ""   # one HTML per endpoint; numbers only from here
   intro_discussion_lit: pending   # pending | done
@@ -81,10 +72,9 @@ manuscript:
   # - id: R1-1
   #   status: open | done | cannot_invent
   #   location: ""
-  # citation-verify (G-CIT-1 before Gate · 05; G-CIT-2 inside 06). Victor owns; 05/06 do not self-certify.
+  # verify-refs (G-LIT before G-05 and inside 06). Victor owns; 05/06 do not self-certify.
   citation_verify:
-    g_cit_1: ""       # pending | pass | fail
-    g_cit_2: ""       # pending | pass | fail | n/a
+    g_lit: ""          # pending | pass | fail
     table_path: ""    # claim→ref table path when written
 
 # Optional — used by workflows/research-exploration-loop.md (00 sub-component).

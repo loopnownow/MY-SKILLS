@@ -51,7 +51,7 @@ Only after the owner accepts `ref/design-lock.md` may route continue to statisti
 
 | File / fine id | When |
 |---|---|
-| `citation-verify.md` | Claim-ref table; required before 05 done and inside 06 |
+| `verify-refs.md` | Claim-ref table; required before 05 done and inside 06 |
 | `intro-evidence-pack.md` | 05 Introduction cards -> Evidence Pack |
 | `journal-selection.md` | Topic / fit SOP |
 | live `lit-search` | Generic retrieval (first-pass) |

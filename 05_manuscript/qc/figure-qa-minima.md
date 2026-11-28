@@ -1,6 +1,6 @@
 # Figure QA minima (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06.
+**Owner:** `00_orchestrator` at G-05 / Integrity · pre-06.
 **Distill of:** Yuan1z `nature-figure` → `qa-contract` pre-submission + image-integrity + stats-legend minima (Apache-2.0). Short pass/fail only; no gallery/scripts.
 
 ## Pre-submission (pass/fail)

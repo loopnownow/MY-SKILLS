@@ -1,6 +1,6 @@
 # Forensic consistency gates (06 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 06 / Integrity · pre-06 (compose with **G-FACT** when numbers cited).
+**Owner:** `00_orchestrator` at G-06 / Integrity · pre-06 (compose with **G-FACT** when numbers cited).
 **Distill of:** Yuan1z `nature-reviewer` → `forensic-consistency-audit` layers (Apache-2.0). Pass/fail gates only; not a fourth reviewer essay.
 
 ## When

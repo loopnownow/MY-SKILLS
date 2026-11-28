@@ -49,11 +49,11 @@ happened and that span must be redone as a revision. Mechanics → `06_review/ba
 
 Victor owns citation-verify (Lit05/Lit06) and supplies suggested literature for comments when needed.
 
-Semantic labels: **G-CIT-1** is draft evidence verification before Gate · 05. **G-CIT-2** is post-revision / inside 06. G-CIT-1 does not waive G-CIT-2. These names are labels, not new gate ids.
+The literature gate is **G-LIT** only: required before G-05 is done and again inside 06. A 05 pass does not waive the 06 pass. Do not invent G-LIT labels.
 
 05 and 06 call/require 03 citation-verify — do not self-certify lit.
 
-Checklist: `03_research/advanced/citation-verify.md`.
+Checklist: `03_research/advanced/verify-refs.md`.
 
 ## _Docs database lookup
 

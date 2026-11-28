@@ -280,7 +280,7 @@ class RoutingFourTuple(unittest.TestCase):
 class DiscoverySurface(unittest.TestCase):
     def test_auto_discovery_rule_is_in_00(self) -> None:
         zero = read("00_orchestrator/SKILL.md")
-        life = read("00_orchestrator/references/lifecycle-cache.md")
+        life = read("00_orchestrator/references/session-pick.md")
         evo = read("00_orchestrator/references/skill-evolution.md")
         self.assertIn("session_picked_fine_ids", zero)
         self.assertIn('only `00_orchestrator`-`07_response`', zero)
@@ -362,15 +362,15 @@ class OrchestratorLoop(unittest.TestCase):
         self.assertIn("citation-verify", zero)
         self.assertIn("do not self-certify lit", zero)
         mmd = read("00_orchestrator/runtime-flow.mmd")
-        self.assertIn("citation-verify", mmd)
+        self.assertIn("verify-refs", mmd)
         self.assertIn("claim→ref", mmd)
         self.assertIn("mandatory", mmd)
         self.assertIn("mid-entry OK", mmd)
         self.assertIn("Lee · statement", mmd)
-        self.assertLess(mmd.index("Lit05"), mmd.index("Gate · 05"))
-        self.assertLess(mmd.index("Lit06"), mmd.index("Gate · 06"))
-        self.assertIn("does not replace citation-verify", mmd)
-        # t1123: citation-verify ownership lives in ownership-contract, not registry meta
+        self.assertLess(mmd.index("Lit05"), mmd.index("GA05{{G-05}}"))
+        self.assertLess(mmd.index("Lit06"), mmd.index("GA06{{G-06}}"))
+        self.assertIn("does not replace verify-refs", mmd)
+        # t1123: verify-refs ownership lives in ownership-contract, not registry meta
         own = read("00_orchestrator/references/ownership-contract.md")
         self.assertIn("citation-verify", own.lower())
         self.assertTrue(
@@ -809,9 +809,9 @@ class CitationVerifyRequired(unittest.TestCase):
     PHRASE = "call/require 03 citation-verify \u2014 do not self-certify lit"
 
     def test_checklist_frontmatter_parses(self) -> None:
-        path = ROOT / "03_research" / "advanced" / "citation-verify.md"
+        path = ROOT / "03_research" / "advanced" / "verify-refs.md"
         data, body = embedded_frontmatter(path)
-        # citation-verify opens with frontmatter; embedded helper still works
+        # verify-refs opens with frontmatter; embedded helper still works
         self.assertEqual(data["owner"], "03_research")
         self.assertEqual(data["audience"], "Victor")
         self.assertEqual(data["self_certify"], "forbidden")
@@ -856,7 +856,7 @@ class WordTrackChangesOwnership(unittest.TestCase):
         "05_manuscript/SKILL.md",
         "05_manuscript/advanced/Aitor-format.md",
         "03_research/SKILL.md",
-        "03_research/advanced/citation-verify.md",
+        "03_research/advanced/verify-refs.md",
         "00_orchestrator/SKILL.md",
         "00_orchestrator/gates.md",
         "00_orchestrator/workflows/sci-manuscript.md",
@@ -876,8 +876,8 @@ class WordTrackChangesOwnership(unittest.TestCase):
             self.assertIn(phrase, text, f"contract missing {phrase!r}")
         for name in ("Aitor", "Aitee", "Lee", "Victor", "Loopnow", "Bai"):
             self.assertIn(name, text, name)
-        self.assertIn("G-CIT-1", text)
-        self.assertIn("G-CIT-2", text)
+        self.assertIn("G-LIT", text)
+        self.assertNotIn("G-CIT", text)
 
     def test_wired_files_point_at_contract(self) -> None:
         for rel in self.FILES:
@@ -933,8 +933,8 @@ class WordTrackChangesOwnership(unittest.TestCase):
         self.assertIn("Lee", own)
         mmd = pre_submit_checks_read("00_orchestrator/runtime-flow.mmd")
         self.assertIn("Lee · statement", mmd)
-        self.assertLess(mmd.index("Lit05"), mmd.index("Gate \u00b7 05"))
-        self.assertLess(mmd.index("Lit06"), mmd.index("Gate \u00b7 06"))
+        self.assertLess(mmd.index("Lit05"), mmd.index("GA05{{G-05}}"))
+        self.assertLess(mmd.index("Lit06"), mmd.index("GA06{{G-06}}"))
 class AdvancedMirrorDedupe(unittest.TestCase):
     def test_no_cross_file_long_paragraph(self) -> None:
         seen: dict[str, str] = {}

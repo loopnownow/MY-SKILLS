@@ -44,7 +44,7 @@ See `advanced/route.md` for the full pointer table.
 
 - Introduction evidence pack: on 05 cards -> `advanced/intro-evidence-pack.md`. Candidates only; 05 decides.
 - **Literature research -> 03 only.** Do not route literature through 05 or 06.
-- **Citation verify (required on writing and review).** G-CIT-1 before Gate 05; G-CIT-2 inside 06. See `advanced/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
+- **Citation verify (required on writing and review).** G-LIT before G-05; G-LIT inside 06. See `advanced/verify-refs.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit.
 - **Post-QC (03-triggered, bodies in `base/`):** when refs changed / G-LIT fail / 00 check (c) says needed -> run live `verify-refs` (integrity stage) and `lit-fulltext` when on the project-start chain.
 
 ## Advanced assets (top layer)
@@ -52,7 +52,7 @@ See `advanced/route.md` for the full pointer table.
 | Task | Path |
 |---|---|
 | Routing / handoff | `advanced/route.md`, `advanced/handoff.md` |
-| Citation verify (advanced protocol) | `advanced/citation-verify.md` |
+| Verify refs (advanced protocol) | `advanced/verify-refs.md` |
 | Intro evidence pack | `advanced/intro-evidence-pack.md` |
 | Journal-selection SOP | `advanced/journal-selection.md` |
 | Grants / ethics / intake / multicenter / radiology | under `advanced/` |

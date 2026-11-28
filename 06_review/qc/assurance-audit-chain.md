@@ -12,7 +12,7 @@
 | 1 | Eval honest? (no fake GT / phantom / self-norm) | `06_review/qc/experiment-integrity-audit.md` | `EXPERIMENT_AUDIT.json` | Lee collects paths; **independent** judges; Loopnow repairs code |
 | 2 | Claim follows from result scientifically? | `05_manuscript/qc/result-to-claim.md` | `RESULT_TO_CLAIM.json` | Independent judges; Aitee revises claim; Loopnow if more data |
 | 3 | Paper reports numbers truthfully? | `05_manuscript/qc/paper-claim-audit-gate.md` (+ base `paper-claim-audit.md`) | `PAPER_CLAIM_AUDIT.json` | Cold-read independent; Aitee/Loopnow fix |
-| 4 | Cite exists + metadata + context OK? | `05_manuscript/qc/citation-audit-gate.md` (+ `refs-verified.md`, G-CIT) | `CITATION_AUDIT.json` | Victor verify; Aitee wording |
+| 4 | Cite exists + metadata + context OK? | `05_manuscript/qc/citation-audit-gate.md` (+ `refs-verified.md`, G-LIT) | `CITATION_AUDIT.json` | Victor verify; Aitee wording |
 | 5 | Strongest rejection memo survive? | `06_review/qc/kill-argument-preflight.md` | `KILL_ARGUMENT.json` | Lee preflight; Aitee TC after user |
 
 ## Gate composition (existing ids — no new G-*)
@@ -20,7 +20,7 @@
 | Moment | Layers |
 |---|---|
 | **G-FACT** / numbers cited | 1-3 (compose forensic-consistency / claim-number-align — link, don’t redo) |
-| **G-LIT** / **G-CIT-1/2** | 4 |
+| **G-LIT** / **G-LIT/2** | 4 |
 | **Integrity · pre-06** | 1-4 as applicable + existing 05/06 qc subset in `gates.md` |
 | **G-06** / pre-submit | +5 when assurance ≥ conference-ready |
 | **Integrity · post-re-review lite** | Spot re-check 2-3 if numbers/claims changed |
@@ -39,7 +39,7 @@
 |---|---|
 | Aitor (00) | Loads standards; HARD recoveries; does not invent numbers |
 | Loopnow (02) | Eval/results repairs (L1); evidence gaps (L2/L3) |
-| Victor (03) | Citation verify L4; G-CIT |
+| Victor (03) | Citation verify L4; G-LIT |
 | Aitee (05) | Claim/prose TC; never self-certify lit or integrity |
 | Lee (06) | Path collection / cold-read / kill-argument; marks, does not self-revise ms by default |
 | Bai | Portal submit only after submission-level assurance green or user override recorded |

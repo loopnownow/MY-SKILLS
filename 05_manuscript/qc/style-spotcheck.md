@@ -1,6 +1,6 @@
 # Style spot-check (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 (with `style-lint` sub-check). Capability bodies: `Aitor-format.md`, vocab — not this file.
+**Owner:** `00_orchestrator` at G-05 (with `style-lint` sub-check). Capability bodies: `Aitor-format.md`, vocab — not this file.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Standard

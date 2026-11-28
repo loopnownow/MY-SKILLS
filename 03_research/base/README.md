@@ -6,7 +6,7 @@ Thin contracts in this repo (scope, bans, phase names, pointers). The recipe and
 - fill-protocol (Jinshan forms: `03_research/advanced/fill-protocol/`)
 - find-journal (selection SOP: `03_research/advanced/journal-selection.md`)
 - lit-search (workflow: `03_research/advanced/lit-bank.md`)
-- verify-refs (protocol: `03_research/advanced/citation-verify.md`)
+- verify-refs (protocol: `03_research/advanced/verify-refs.md`)
 - lit-fulltext
 
 勿新建这些目录名（退休名仅经 `00_orchestrator/legacy_aliases.yaml` 解析；live 正文不留归档标签）:

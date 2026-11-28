@@ -1,7 +1,7 @@
 # Manuscript local QC (standards checklist; gate authority = 00)
 
 **Prior path:** former `advanced/qc/local-checks.md` under 05_manuscript (moved 2026-10-18 into domain `qc/`).
-**Gate / scoring authority:** `00_orchestrator` (Gate · 05 / Integrity · pre-06). This file is a **standards checklist** invoked by 00; seats execute but do **not** self-certify. 05 keeps only pointers in `route.md` / `handoff.md`.
+**Gate / scoring authority:** `00_orchestrator` (G-05 / Integrity · pre-06). This file is a **standards checklist** invoked by 00; seats execute but do **not** self-certify. 05 keeps only pointers in `route.md` / `handoff.md`.
 **Owner (file seat):** `05_manuscript` (checklist body); gate pass/fail = 00.
 
 ---
@@ -80,7 +80,7 @@ Target-journal AI-use disclosure: check the author instructions and match any re
 
 Statistical definitions live in `02_data-processing/qc/report-checks.md` and the checkbox list in `02_data-processing/qc/report-checks.md`. Lee's annotation protocol lives in `06_review/qc/cross-manuscript-qc.md`.
 
-Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/citation-verify.md`).
+Citation rows below are writing actions only. call/require 03 citation-verify — do not self-certify lit (`03_research/advanced/verify-refs.md`).
 
 **Number conflict:** Word comment, author **A**. Do not choose a replacement *n*, *P*, *t*, cutoff, quartile, or overlap count. A back-calculated critical value, implied *n*, or adjusted *P* may appear in a comment only if it is labeled an estimate. It does not enter the manuscript.
 

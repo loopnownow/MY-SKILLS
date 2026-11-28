@@ -13,7 +13,7 @@ description: >
 00 is the lab dispatcher. The live loop is **intent classify → skill chain → QC gate → local recovery**.
 It does not duplicate research, statistical, imaging, writing, or discovery rules.
 
-**Sole official runtime map:** [`runtime-flow.mmd`](runtime-flow.mmd) (how to read the map [`runtime-flow.md`](runtime-flow.md)). Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md). Diagram nodes `Gate · NN` ↔ `G-NN`.
+**Sole official runtime map:** [`runtime-flow.mmd`](runtime-flow.mmd) (how to read the map [`runtime-flow.md`](runtime-flow.md)). Entry / QC / local rollback follow this diagram; when updating the flow **edit only this one mmd**. Gate text SSOT [`gates.md`](gates.md). Diagram nodes use gate ids directly (`G0`, `G-STATS`, `G-05`, `G-LIT`, …).
 
 **Seats (07_response owns response letters):** 03 Victor · 02 Loopnow · 05 Aitee · 06 Lee · 00 Aitor (QC) · portal submit + ethics forms Bai (`fill-protocol` path stays under 03; off 00 main loop). Mid-entry allowed. Per-paper channel seats all six (max). Ownership: see `00_orchestrator/references/ownership-contract.md`. Do not adopt an external `orchestrate` pack as a third SOP.
 
@@ -21,7 +21,7 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 **Comments / conflicts:** Word author field always **A**. Prefix rules → `06_review/advanced/review.md` §0. Assistant vs lab conflict stays in the comment with an edit plan; **the user decides**.
 
-**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/advanced/citation-verify.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/advanced/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
+**Citation / G-LIT:** before 05 done and inside every 06, 03 runs `03_research/advanced/verify-refs.md`. 05 and 06 call/require 03 citation-verify — do not self-certify lit. Mid-entry does not waive it. On fail: dual plan in comments (revise/weaken/delete + optional further 03 search); prefer `05_manuscript/advanced/process/evidence.md`. **00** decides at QC whether further search runs; **05** keeps Accept/Weaken/Delete on wording. Record `manuscript.citation_verify` in `templates/project-state.yaml`.
 
 **Standing delivery:** [`references/standing-delivery.md`](references/standing-delivery.md).
 **Project `ref/` layout:** [`references/project-ref-layout.md`](references/project-ref-layout.md).
@@ -37,10 +37,9 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 | [`references/base-vs-advanced-top-loops.md`](references/base-vs-advanced-top-loops.md) | three-layer contract SSOT: base thin protocol -> QC gate -> advanced revision; run order S0-S5 |
 | [`legacy_aliases.yaml`](legacy_aliases.yaml) | alias → canonical id; retired fine ids, retired buckets, retired 01 seat |
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
-| [`references/session-pick.md`](references/session-pick.md) | this-run pick, resolution order, empty-path protocol |
+| [`references/session-pick.md`](references/session-pick.md) | ask-each-run fine-id pick, resolution order, empty-path protocol; post-merge `git pull` on the clone |
 | [`references/hard-rules.md`](references/hard-rules.md) | forbidden combinations, fine-id expansion |
 | [`references/bot-route.md`](references/bot-route.md) | bot route SSOT: coarse id → bot, LIVE fine id → bot (Bai exception) |
-| [`references/lifecycle-cache.md`](references/lifecycle-cache.md) | deploy sync after merge; one clone, no second runtime tree |
 | [`references/capability-contract.example.yaml`](references/capability-contract.example.yaml) | example contract for a new pack (proposal side) |
 | [`workflows/`](workflows/README.md) | 5 composite SOPs + README |
 | [`harvest/SKILL.md`](harvest/SKILL.md) | harvest extraction body (non-routable; intake QC and destinations) |
@@ -59,7 +58,7 @@ Look in the working project folder. Echo one lock line when the artifact is clea
 |---|---|
 | `settings.ini` | lab project; 02, not a new scaffold |
 | `*-results.html` | numbers exist; may enter `sci-manuscript` |
-| `Manuscript_*_house.docx` | writing underway; 05, then maybe 06 |
+| 当前稿（按 `{RULES}/project-ref-layout`） | writing underway; 05, then maybe 06 |
 | reviewer letter / reviewer comments | `06_review` (review) or `07_response` (response letter) |
 | imaging / ROI / features, no HTML | `statistics` unless the user says otherwise |
 | `ref/project-state.yaml` | read `pipeline.stage` and `qc`; do not re-init |
@@ -82,7 +81,7 @@ Ids: `02_data-processing` · `03_research` · `05_manuscript` · `06_review` · 
 
 ### Session fine-id pick
 
-Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which `LIVE` fine ids to attach, then load only those. `PROPOSED` is not pickable. Do not auto-load all live ids. Advanced layers are not a fine-id pick. A single-node advanced-layer task with no live dependency does not ask.
+Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock. Otherwise read [`registry.yaml`](registry.yaml) and ask which catalog fine ids to attach, then load only those. Do not auto-load all catalog ids. Advanced layers are not a fine-id pick. A single-node advanced-layer task with no live dependency does not ask.
 
 **Auto-discovery:** only `00_orchestrator`-`07_response` (including nested packs).
 
@@ -90,7 +89,7 @@ Every independent run needs a fine-id pick. If `fine_ids.session_picked_fine_ids
 
 ### Composite workflows
 
-SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → registry proposal in this seat (§0); never auto-add. Writing/review SOP legs always require 03 citation-verify.
+SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detection locked it). `statistics` stops at HTML and **offers** `sci-manuscript` (N3). `sci-manuscript` requires HTML. New capability → registry proposal in this seat (§0); never auto-add. Writing/review SOP legs always require 03 verify-refs (G-LIT).
 
 ### Data-flow contract
 
@@ -98,7 +97,7 @@ SOPs in `workflows/` (ask which on "full-pipeline" / N1 unless directory detecti
 |---|---|---|
 | 02 (data) | analysis-ready table / aligned IDs | 02 (stats) |
 | 02 (stats) | one `*-results.html` per endpoint | 05 (numbers **only** from HTML) |
-| 05 | `Manuscript_<endpoint>_house.docx` | 06 |
+| 05 | 当前稿（按 `{RULES}/project-ref-layout`） | 06 |
 | 06 | pre-review / re-review; inventable items = questions | user, then 05 for sentences |
 | 07 | response letter / resolution status | user, then 05 for sentences |
 | 00 | `ref/project-state.yaml` + last `handoff.yaml` | every later node |
@@ -118,11 +117,11 @@ After each node, verify the expected output **file exists and is non-empty**. Mi
 | G0 | every run |
 | G-PHI | before 02 tables / extraction |
 | G-STATS | after `*-results.html` |
-| G-FACT | after 02 HTML; again after 05 house.docx; before 06 if numbers cited |
-| G-05 | after house.docx |
+| G-FACT | after 02 HTML; again after the current manuscript (当前稿，按 `{RULES}/project-ref-layout`); before 06 if numbers cited |
+| G-05 | after the current manuscript (当前稿，按 `{RULES}/project-ref-layout`) |
 | G-06 | after pre-review / re-review (not response; response → 07) |
 | G-07 | after the response letter (entry 07); qc standards in `07_response/qc/` |
-| G-LIT | citation-verify before 05 done and inside 06; on fail |
+| G-LIT | verify-refs before 05 done and inside 06; on fail |
 | G-CODE | code deep QC / refactor release-ready |
 | G-DOC | any QC / delivery touching a `目录说明.md` / README / doc, or a move·rename·count change in data or library dirs |
 | G-JUNK | stage-project junk: `.bak` / `.bk` / `~$*` / `- copy` / `副本` are cleanup objects (move to `ref\tmp\` or `{DEL}` with ledger) |

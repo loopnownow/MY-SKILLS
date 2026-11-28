@@ -1,6 +1,6 @@
 # Data / Code Availability (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06 (manuscript gate only).
+**Owner:** `00_orchestrator` at G-05 / Integrity · pre-06 (manuscript gate only).
 **Ethics forms stay with Bai** (`03_research/base/fill-protocol/`); this file does not own IRB/portal forms.
 **Distill of:** Yuan1z `nature-data` availability audit shape (Apache-2.0). Pass/fail only.
 

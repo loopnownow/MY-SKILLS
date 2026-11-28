@@ -5,7 +5,7 @@ Imaging-AI papers almost always need **more than one** guideline: a *reporting* 
 full stack first, then audit each.
 
 
-> **Gate SSOT** (Integrity · pre-06 / Gate · 05 must-check subset) = `05_manuscript/qc/reporting-guideline-route.md` + `reporting-guidelines-router.json`. This file is the **writing / audit stack** (CLAIM/CLEAR/PROBAST/…). Do not substitute one for the other.
+> **Gate SSOT** (Integrity · pre-06 / G-05 must-check subset) = `05_manuscript/qc/reporting-guideline-route.md` + `reporting-guidelines-router.json`. This file is the **writing / audit stack** (CLAIM/CLEAR/PROBAST/…). Do not substitute one for the other.
 
 ## Step 1 — answer six questions
 

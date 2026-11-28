@@ -24,7 +24,7 @@ QC **standards** (pass/fail + fail→rollback station) are the table below. Repo
 | `data-code-availability.md` | **G-05** / Integrity · pre-06 — Data/Code Availability statement gate |
 | `result-to-claim.md` | **G-FACT** / Integrity · pre-06 — Layer 2 scientific support |
 | `paper-claim-audit-gate.md` | **G-05** / **G-FACT** — Layer 3 cold-read number fidelity (+ base paper-claim-audit) |
-| `citation-audit-gate.md` | **G-LIT** / **G-CIT** — Layer 4 existence+metadata+context (extends refs-verified) |
+| `citation-audit-gate.md` | **G-LIT** / **G-LIT** — Layer 4 existence+metadata+context (extends refs-verified) |
 
 ### Attribution (P0 absorb 2026-10-19)
 

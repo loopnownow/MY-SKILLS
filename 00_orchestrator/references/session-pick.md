@@ -4,19 +4,19 @@
 
 Capability bodies live under `NN_slug/base/` (`source: my-skills`), except the non-routable `check-reporting` body at `05_manuscript/qc/check-reporting/`.
 
-Agents propose `LIVE` fine ids from `registry.yaml`. Still ask each run; the user may change picks. Attribution is per skill path.
+Agents propose catalog fine ids from `registry.yaml`. Still ask each run; the user may change picks. Attribution is per skill path.
 
-**A listed id is not loaded until this run selects it.** Status `PROPOSED` is not pickable.
+**A listed id is not loaded until this run selects it.**
+
+Advertised seats are `00`-`07` only.
 
 ## Session fine-id pick
 
-Registry status `LIVE` = catalog-approved and session-selectable. It is not attached until this run selects it.
-`PROPOSED` is not pickable.
-`session_picked_fine_ids` = selected this run. Active = actually loaded.
+`session_picked_fine_ids` = selected this run. Active = actually loaded this run. Catalog listing is not the same as selected.
 
 Every independent run needs a selection. If `session_picked_fine_ids` already covers the fine ids this task needs, reuse the session lock and do not ask. Otherwise enter this section. A single-node advanced-layer task with no in-repo dependency does not ask (example: polish one sentence). **Advanced layers are not capability fine ids.**
 
-1. Classify the task. Propose the **relevant seat(s)** (`a_domain`) then **LIVE candidate fine ids**.
+1. Classify the task. Propose the **relevant seat(s)** (`a_domain`) then **candidate fine ids**.
 2. Show each candidate as one line: **fine ID · seat (a_domain) · registry path · role**. Paths are `NN_slug/base/...` except the non-routable `check-reporting` body at `05_manuscript/qc/check-reporting/`.
 3. **Ask the user to multi-select fine ids**. Also offer: select all candidates / advanced layer only. Empty picked path -> tell the user; do not silent-fallback.
 4. Load **only** the picked fine ids from their registry paths (`NN_slug/base/...`, or the non-routable `check-reporting` body under `05_manuscript/qc/`). Unpicked stay unloaded.
@@ -25,6 +25,8 @@ Every independent run needs a selection. If `session_picked_fine_ids` already co
 
 Silence is not approval. Advanced layers are not session picks.
 Say **bodies are in-repo under NN_slug/base/**.
+
+After merge: `git pull` on the MY-SKILLS clone (`{SKILLS}` / `{skills_runtime}` / `{skills_git}` are the same working tree). Do not copy into a second runtime folder, and do not edit live skill bodies outside PR/merge.
 
 ## Empty-path protocol
 
@@ -42,4 +44,4 @@ Never invent a local copy.
 2. Resolve each fine id against `source: my-skills` (registry path; `NN_slug/base/` except `05_manuscript/qc/check-reporting/`). Retired ids (`legacy_aliases.yaml` only) are not on the menu.
 3. If that path is empty or missing -> empty-path protocol.
 4. Evaluate capability, boundaries, dependencies, and overlap.
-5. After approval the registry status becomes `LIVE`. Update `registry.yaml` only (no generated mirror).
+5. Update `registry.yaml` only when the user confirms a catalog change (no generated mirror).

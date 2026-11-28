@@ -1,6 +1,6 @@
 # Figure stats legend minima (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06.
+**Owner:** `00_orchestrator` at G-05 / Integrity · pre-06.
 **Distill of:** Yuan1z `nature-statistics` → `figure-statistics` (Apache-2.0). Original short minima; no Nature prose dump.
 
 ## Per quantitative panel (PASS required when panel supports a claim)

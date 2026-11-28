@@ -112,5 +112,5 @@ When drafting Introduction / Related Work / Discussion needs **group evidence**,
 ## Pointers
 
 - Verify body: `03_research/base/verify-refs/`
-- Advanced verify protocol: `03_research/advanced/citation-verify.md`
+- Advanced verify protocol: `03_research/advanced/verify-refs.md`
 - _Docs map: `{doc_root}\README.md` (add lit-bank row when folder exists)

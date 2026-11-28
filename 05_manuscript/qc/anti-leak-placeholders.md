@@ -1,6 +1,6 @@
 # Anti-leak / placeholders (05 qc · standards only)
 
-**Owner:** `00_orchestrator` at Gate · 05 / Integrity · pre-06. Capability bodies stay in advanced/base.
+**Owner:** `00_orchestrator` at G-05 / Integrity · pre-06. Capability bodies stay in advanced/base.
 Inspired by ARS topology/checklists (short original text; no ARS copy).
 
 ## Standard

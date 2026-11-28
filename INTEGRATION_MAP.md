@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2307u (2026-11-28):** Gate/process names use canonical ids only: `G-LIT` (drop G-CIT-1/2), diagram nodes `G-05`/`G-STATS`/`G-LIT` (drop `Gate · NN` mapping), `citation-verify.md` → `verify-refs.md`, G0 provenance/cache fields retired, runtime-flow.md is a short legend, current manuscript = 当前稿（按 `{RULES}/project-ref-layout`）, G-DOC/G-JUNK point at `{RULES}/QC.md`. registry `change_id` 未变。
+
 - **t2299u (2026-11-28):** `db-library` 阶段 3/5 从「计划中」落成可跑命令：新增 `db5t/mkid.py`（搬身份 + `ref_project` 登记 + 两库 meta）与 `db5t/fill.py`（13 列 `map.csv` 驱动回填，依赖序、无 dict 行不 ALTER、`src.rows` 只记并入 `clin` 的行数）；`gates.py` 统一读全局 `dict.db`（`D70` 家族期望集剔除 `dict`，`D95`/`D78` 豁免结构列），MY-CODES 测试 742 passed。`load-pipeline.md` 阶段 3/5 改为实名命令并记 2026-11-28 试点：28 家旧库移 `.Del\_by-function\db5t-build-20261128\retired-20261128\`，`MM/zy_MM` 重建后 gates 全绿。registry `change_id` 未变。
 
 - **t2298u (2026-11-28):** 跟进 t2296u：`load-pipeline.md` 将映射台账文件名统一为 `map.csv`（开工落 `_work\`，收口后随库）；`MODULE.md` 去掉过时「家族五表」表述（家族库不留 dict）。registry `change_id` 未变。

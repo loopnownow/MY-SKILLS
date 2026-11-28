@@ -47,7 +47,7 @@ Reverse dependency is forbidden. Generated HTML, previous generated HTML, screen
 | --- | --- | --- |
 | Architecture | 00 registry, 00 architecture metadata, repository structure | What the system is made of, and where the boundaries are |
 | Workflow | 00 runtime-flow, Gate, routing rules | How a task runs, including branches, exceptions, and loops |
-| Fine ids | 00 fine-id registry (`registry.yaml`) | Which in-repo fine ids are LIVE / PROPOSED, and the status recorded there |
+| Fine ids | 00 fine-id registry (`registry.yaml`) | Which in-repo fine ids are in the catalog, and the status recorded there |
 | Skill detail | `SKILL.md` and its supporting files | Documentation pages. Prose is not forced into a diagram |
 
 These are not fact sources:
@@ -76,7 +76,7 @@ Skill evolution stays MY-RULES `{RULES}\skills.md` (skill-evolution; governance;
 
 Task → 00 Detect / Gate → 00 Fine id pick / Dispatch → 02 data processing + statistics → 05 Writing → 06 Review → optional 07 Response → G-07 → QC / Loop.
 
-03 literature can be an independent entry, and it can be called during design, interpretation, or discussion. The main line does not mean every task must pass every layer. Not every Review must enter 07 Response; the 06→07 edge is conditional. Mid-entry stays: existing statistics may enter 05, an existing manuscript may enter 06. Writing and review still pass 03 citation-verify (`Lit05` before Gate · 05, `Lit06` inside 06).
+03 literature can be an independent entry, and it can be called during design, interpretation, or discussion. The main line does not mean every task must pass every layer. Not every Review must enter 07 Response; the 06→07 edge is conditional. Mid-entry stays: existing statistics may enter 05, an existing manuscript may enter 06. Writing and review still pass 03 citation-verify (`Lit05` before G-05, `Lit06` inside 06).
 
 The machine graph is [`runtime-flow.mmd`](../../../00_orchestrator/runtime-flow.mmd).
 
