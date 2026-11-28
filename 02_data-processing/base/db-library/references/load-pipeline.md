@@ -225,8 +225,9 @@ DB5T_ROOT={RAW}/Family DB5T_DICT={RAW}/Family/dict.db \
 每建完一个库，先出一张只读 HTML 放根目录（`D:\MyProjects\<slug>-库预览.html`），人看过再继续下一家：
 
 ```
-python -B tools/db-library/db5t/preview.py --root <stage> --family <FAM> --slug <slug> \
-    --out D:\MyProjects\<slug>-库预览.html [--gates]
+python -B tools/db-library/db5t/preview.py --root {RAW}/Family --family <FAM> --slug <slug> [--gates]
+# --out 可省：缺省落 <root>/<FAM>/<slug>/<slug>-库预览.html（叶内可重建预览页）
+# 临时放到 {lab_root} 的旧预览已按新口径移走；页面随库改必重生成
 ```
 
 页面固定回答七件事：person / clin / id 行数与列数、`identity_grain` 与 `period_unit`、
