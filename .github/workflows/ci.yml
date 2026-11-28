@@ -13,6 +13,9 @@ jobs:
       PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v5
+        with:
+          # PR merge refs have no ticket id; test the PR head (or the pushed SHA).
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: checkout sibling repos
         run: |
           git clone --depth 1 https://github.com/loopnownow/MY-RULES.git "$env:RUNNER_WORKSPACE\MY-RULES"
@@ -28,7 +31,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: install test deps
-        run: python -m pip install --upgrade pip pyyaml
+        run: python -m pip install --upgrade pip pyyaml matplotlib
       - name: unittest
         env:
           MY_RULES: ${{ runner.workspace }}/MY-RULES

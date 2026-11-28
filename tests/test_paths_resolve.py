@@ -82,6 +82,14 @@ def _alias_problems(rel: str, tok: str) -> list[str]:
             continue
         if not root.exists():
             continue
+        # {doc_root} is also the parent of GitHub clones. CI junctions create
+        # D:\MyProjects\_Docs as a hollow parent (only GitHub\). Inventory
+        # off-git lab files only when the real _Docs tree is present.
+        if key == "doc_root" and not any(
+            (root / marker).exists()
+            for marker in ("STRUCTURE.md", "harvest", "templates", "_library")
+        ):
+            continue
         if not (root / rest).exists():
             problems.append(f"{rel}: `{{{key}}}{match.group(2)}` (alias target missing)")
     return problems

@@ -2,6 +2,8 @@
 
 Newest first. One short line per recent change. Full history is in git.
 
+- 2026-11-28 t2314u: CI maps lab-paths git roots onto sibling checkouts, installs matplotlib, checks out the PR head (not the merge ref) for ticket-id checks, and does not treat a hollow `{doc_root}` that only exists as the parent of those junctions as the lab `_Docs` tree.
+
 - 2026-11-28 t2311u: add F15 `rules-mirror-of` header on the project-ref-layout runtime index; point manuscript-name / submission-pack rows at manuscript-docx.md; add GitHub Actions CI.
 
 - 2026-11-28 t2307u PR4: slim lab-paths.yaml to aliases plus one-line glosses; merge architecture into README; seats 00/02/03/05/06/07 are stable ids; genericize institution pack slugs; move the acceptance matrix out of references; add banned-word tests.
