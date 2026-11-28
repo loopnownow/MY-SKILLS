@@ -6,7 +6,7 @@ This file is **integration metadata**: lab intent tables, handoff/QC loop, and o
 
 **Routing SSOT:** `00_orchestrator/registry.yaml` — the **id SSOT**: ids, paths, statuses and counts are settled there.
 
-**Bot route SSOT:** `00_orchestrator/references/bot-route.md` — coarse id → bot and LIVE fine id → bot. Tables live there; this file names a bot only where a seat has a named specialist and does not duplicate the tables. Ownership (who may revise what) stays `00_orchestrator/references/ownership-contract.md`.
+**Specialist roster:** `00_orchestrator/registry.yaml` (`specialist_hint` on each coarse id). The only executor exception is `fill-protocol` → Bai. Do not maintain a separate bot-name table. Ownership (who may revise what) stays `00_orchestrator/references/ownership-contract.md`.
 
 Live rules: A skill path at most five parts from repo root (exception: `NN_slug/base/**` for in-repo capability bodies); bodies are in-repo `my-skills` under `NN_slug/base/` (exception: the non-routable `check-reporting` body at `05_manuscript/qc/check-reporting/`); ethics in `03_research`; menu shape is `00_orchestrator/registry.yaml` (not `fine ids: []`; do not restate totals here); no separate `figure-engine` skill (figures are live fine ids `draw-flowchart` / `plot-figures`); `session_fine_id_pick: ask-each-run`; G-FACT consistency; harvest-qc passive. One fine id uses one in-repo path. Journal selection via 03 `find-journal`; venue style via `05_manuscript/base/write-paper/`. sample size: `calc-sample-size`.
 
@@ -78,7 +78,7 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Requires 03 c
 
 ## Domain boundaries (lab intent)
 
-Who executes a coarse id or a LIVE fine id: `00_orchestrator/references/bot-route.md` (coarse|fine → bot). Who may revise what: `00_orchestrator/references/ownership-contract.md`.
+Who executes a seat: `specialist_hint` on `coarse_ids` in `00_orchestrator/registry.yaml` (only exception: `fill-protocol` → Bai). Who may revise what: `00_orchestrator/references/ownership-contract.md`.
 
 - `02_data-processing`: raw → analysis-ready → statistical analysis / model evaluation / figures (`draw-flowchart` / `plot-figures`). **Loopnow**. Coding / scripts / `MY-CODES` also default here: Loopnow is the default coding seat; local DeepSeek (DSH) and Cline take tidying / extraction / form-fill / local IDE work when the owner says 「交给 DS / DeepSeek / Cline」 or approves, not as the coding default. Upstream data repair must remain traceable; do not silently modify upstream inputs during analysis. Ethics forms are not here.
 - `03_research`: design, literature/evidence, ethics **forms** path (`fill-protocol` — `a_domain` `03_research` but **executor Bai**, the one route exception), translational design, **journal selection**, **citation-verify** before 05 done and inside 06. **Victor is the default bot**; the ethics-form exception does not move the body out of 03. Manuscript prose is not its role. Victor does not fill ethics forms.

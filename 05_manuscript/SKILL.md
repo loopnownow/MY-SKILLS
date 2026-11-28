@@ -21,17 +21,9 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`. Decidable iss
 
 **Every SCI full paper uses `advanced/Aitor-format.md` as the only Aitor-format.** If a rule is unclear, **ask the user**. Do not invent a second format.
 
-## Layer model (2026-10-30 rebind)
+## Layer model
 
-**Flow:** base thin-contract first pass (`05_manuscript/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the advanced anchor) -> post-QC revise **via `05_manuscript/advanced/`** -> re-gate at 00.
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-
-| Layer | Owns |
-|---|---|
-| `base/` | Thin contract: `write-paper` scope + bans; vocab data under `05_manuscript/base/vocab/`. De-AI contract+procedure: `advanced/process/polisher-sections.md` section De-AI pass (absorbed retired `humanize`) |
-| `qc/` | `check-reporting/` at `qc/check-reporting/` (TRIPOD / CLAIM / CLEAR; qc-only, not a registry fine id); scorecards and deduction codes that cite advanced anchors |
-| 00 | Final QC |
-| `advanced/` | House voice and personal locks: Aitor-format beats/bands/typography, voice portrait, de-AI pass, personal phrase bank; final wording authority. Generic IMRAD teaching stays in base |
+Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Do not restate the layer table here.
 
 ## Advanced assets
 
@@ -53,10 +45,11 @@ Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced
 **This-run pick:** do not load any live id until the 00 session-fine-id pick is confirmed for this run. Registry `LIVE` = available, not attached.
 
 - `write-paper` — manuscript/report draft and journal templates / house style while writing (`05_manuscript/base/write-paper/`). Not journal selection / 选刊. Not Aitor-format. `clinical-reports` is not this id.
+- `journal-format-compliance` — format the manuscript against one journal's author guidelines (`05_manuscript/base/journal-format-compliance/`). 选刊 stays 03 `find-journal`. 05 applies the guideline Track Changes.
 - Reporting checks (retired fine id `check-reporting`; non-routable body): `05_manuscript/qc/check-reporting/` (TRIPOD / CLAIM / CLEAR). Not session-picked; Gate G-05 loads via `qc/`.
 - De-AI / language lint (absorbed retired `humanize`): `05_manuscript/advanced/process/polisher-sections.md` section De-AI pass. Report-only Intro/Discussion lint, then the de-AI pass. Not venue house style (that is `write-paper`); does **not** replace `advanced/route.md` + `05_manuscript/base/vocab/L1/ban-phrases.md`. Not a registry fine id.
 
-选刊 → 03 `find-journal`; house style → `05_manuscript/base/write-paper/`. Advanced de-AI stays in A (`advanced/`).
+选刊 → 03 `find-journal`; format after the journal is chosen → `journal-format-compliance`; house style → `05_manuscript/base/write-paper/`. Advanced de-AI stays in A (`advanced/`).
 
 ## Figures
 

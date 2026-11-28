@@ -18,7 +18,7 @@ Single source for lab roles, manuscript Track Changes, and citation-verify. Othe
 
 Every role above, plus CloudAgent, carries and obeys `{RULES}`; `{RULES}\My rule.md` is authoritative. This contract governs who may revise what and does not restate Rules text. Skills attach on concrete work only.
 
-Bot route table → [`bot-route.md`](bot-route.md) (coarse id → bot, LIVE fine id → bot, Bai exception).
+Specialist roster is `specialist_hint` on each `coarse_ids` row in [`../registry.yaml`](../registry.yaml). The only executor exception is `fill-protocol` → Bai (body stays under 03). Do not maintain a separate bot-name table.
 
 Per-paper channel seats all six (max).
 
@@ -33,6 +33,8 @@ Per-paper channel seats all six (max).
 ## Word Track Changes
 
 All manuscript Track Changes are owned by Aitee (05). Lee must not self-revise as default. Lee marks/comments; Aitee applies Track Changes.
+
+05 applies Word Track Changes on the manuscript. 06 only mechanically unpacks, validates, and packs a `.docx` (`06_review/base/track-changes/`). 07 writes response letters; letters never route to 06.
 
 Decidable issues: Lee annotates for Aitee to TC-fix and does not apply the body revisions as default.
 

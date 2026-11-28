@@ -381,3 +381,36 @@ class HumanizeRetired(unittest.TestCase):
             )
             self.assertGreater(script.stat().st_size, 0)
 
+
+class NoBotNameTable(unittest.TestCase):
+    """registry.yaml is the specialist SSOT; do not reintroduce a bot-name table."""
+
+    BANNED_HEADERS = (
+        re.compile(r"^\|\s*Coarse id\s*\|\s*Fine id\s*\|\s*Bot\s*\|", re.I | re.M),
+        re.compile(r"^\|\s*Coarse id\s*\|\s*Bot\s*\|", re.I | re.M),
+        re.compile(r"^\|\s*Fine id\s*\|\s*Bot\s*\|", re.I | re.M),
+        re.compile(r"^\|\s*LIVE fine id\s*\|\s*Bot\s*\|", re.I | re.M),
+    )
+    SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
+    SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md", "INTEGRATION_MAP.archive.md"}
+
+    def test_bot_route_file_is_gone(self) -> None:
+        self.assertFalse(
+            (ROOT / "00_orchestrator" / "references" / "bot-route.md").exists(),
+            "do not reintroduce 00_orchestrator/references/bot-route.md; registry.yaml is SSOT",
+        )
+
+    def test_live_docs_have_no_bot_name_table(self) -> None:
+        bad = []
+        for path in ROOT.rglob("*.md"):
+            rel = path.relative_to(ROOT)
+            if self.SKIP_DIRS & set(rel.parts):
+                continue
+            if rel.as_posix() in self.SKIP_FILES or rel.name in self.SKIP_FILES:
+                continue
+            body = path.read_text(encoding="utf-8")
+            for pattern in self.BANNED_HEADERS:
+                if pattern.search(body):
+                    bad.append(rel.as_posix())
+                    break
+        self.assertEqual(bad, [], "bot-name table reintroduced in: " + ", ".join(bad))

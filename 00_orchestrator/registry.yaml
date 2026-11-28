@@ -5,11 +5,10 @@
 # Canonical ID Rule: 00_orchestrator/references/id-rules.md. id is the only runtime identifier.
 # path labels / directory names must never be used to infer an id.
 # Retired fine ids, retired coarse buckets and the retired 01 seat live in legacy_aliases.yaml only.
-# Since t1823u (2026-11-08): check-reporting is a non-routable qc body (routable: false); cite 05_manuscript/qc/check-reporting/.
-# Its name: is kept only for the visualization generator G-VIZ-01 frontmatter scan; it is not a session-pick id.
+# check-reporting is a non-routable qc body (routable: false) at 05_manuscript/qc/check-reporting/; it is not a session-pick id.
 # Live rows are status LIVE. Prefer merge into an existing fine id over opening a new one.
 # Ownership / Track Changes / citation-verify policy: 00_orchestrator/references/ownership-contract.md
-# Bot names per coarse id and per LIVE fine id: 00_orchestrator/references/bot-route.md (ids stay SSOT here).
+# Specialist roster is specialist_hint on each coarse_ids row. The only executor exception is fill-protocol -> Bai (body stays under 03). Do not maintain a separate bot-name table.
 
 meta:
   version: '5.6'
@@ -105,11 +104,11 @@ fine_ids:
 - id: journal-format-compliance
   label: Journal author-guideline formatting
   source: my-skills
-  path: 03_research/base/find-journal/journal-format-compliance/
-  a_domain: 03_research
+  path: 05_manuscript/base/journal-format-compliance/
+  a_domain: 05_manuscript
   status: LIVE
-  note: 'Nested body under find-journal; the parent owns journal selection, this pack owns
-    author-guideline formatting + Track Changes. Registered 2026-11-13 (t20261113i).'
+  note: 'Author-guideline formatting + Track Changes after find-journal selects the journal.
+    Body: 05_manuscript/base/journal-format-compliance/.'
 - id: clean-data
   label: Three-stage confirm cleaning
   source: my-skills

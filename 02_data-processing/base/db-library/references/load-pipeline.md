@@ -68,7 +68,7 @@ schema-v1.md 同步）。内容：
 
 - 家族库段（`@section family`）：`meta` / `id` / `id_number` / `ref_project` / `ref_study` / `ref_batch`，
   **不含 `dict`**（契 3：目标态家族库不留 dict，词典读 `{RAW}\Family\dict.db`）；
-- 子库段（`@section project`）：`meta` / `src` / `person` / `clin` / `qc` + 7 组 `_modules_<mod>` 与 `<mod>_val`
+- 子库段（`@section project`）：`meta` / `src` / `person` / `clin` / `qc` + 7 组 `_modules_<mod>` 与 `<mod>_value`
   （`<mod>` ∈ radiomics|us|mri|ct|pet|path|report，占位符已展开成 7 份）；
 - `clin` 的 11 个骨架列 + 15 个 `path_*`（`stage` 级 dict 行对应）；
 - 索引：`ux_clin_month` / `ix_clin_month` / `ix_modal_<mod>_month`（按模态各一条，名字须带模态，否则 7 份展开时撞名）。
@@ -173,14 +173,14 @@ python -B tools/db-library/db5t/mkid.py --from-person --root <stage> \
 5. 治疗（手术/药物/放疗列）
 6. 结局（`outcome_status` 可为 `pending`，此时该组留空）
 7. 病理与 ihc
-8. 派生与模块（`_modules_*` + `*_val`）
+8. 派生与模块（`_modules_*` + `*_value`）
 
 ```
 python -B tools/db-library/db5t/fill.py --map <批次>\_work\map.csv \
     --root <stage> --family <FAM> --slug <slug> --src-root <批次父目录> [--dry-run]
 ```
 
-`fill.py` 的硬约束：按物理依赖序 src→person→clin→`_modules_*`→`*_val` 落库；
+`fill.py` 的硬约束：按物理依赖序 src→person→clin→`_modules_*`→`*_value` 落库；
 源可以是 `.xlsx/.xls`（按 `src_sheet` + `src_header_row`）或 `.db`（按表名）；
 `transform` 两档：`const:<值>` 写常量（如 `period_month=UNK`）、`mint:<茎>` 发顺序号
 （`mint:MCI-900000` → `MCI-900001`，同一源值跨 sheet 复用，person 先发、clin 拿同一个）；
@@ -240,7 +240,7 @@ clin 抽样、门禁摘要。`--gates` 才就地跑门禁（默认不跑，避�
 
 按本轮决策，试点两处的操作口径是**直接重建现库 + 开工前备份**（不用影子库）。
 2026-11-28 已完成第一处：28 个旧家族库整体移到 `.Del\_by-function\db5t-build-20261128\retired-20261128\`（28/28 sha256 复核一致），
-`MM/zy_MM` 在 `.Del\_by-function\db5t-build-20261128\stage\` 重建：person 250 / clin 185 / `_modules_us` 370 / us_val 5,832，
+`MM/zy_MM` 在 `.Del\_by-function\db5t-build-20261128\stage\` 重建：person 250 / clin 185 / `_modules_us` 370 / us_value 5,832，
 与退役库逐格比对键差 0、仅 TEXT→REAL 类型升级，gates `CHECK 全库汇总：全部通过`（D98 1,775 项与 D97 1 列为 report-only）。
 
 2026-11-28 另加一处「根数据从零建」：`MCI/sw_CI`（无退役库，根 `archived/MCI/sw_CI/FinalData_sw_CI.xlsx` 98 行×11 列）

@@ -33,13 +33,12 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 
 | File | Role |
 |---|---|
-| [`registry.yaml`](registry.yaml) | fine-id SSOT: `coarse_ids` = the five seats, `fine_ids` (status `LIVE`), `local_packs` |
+| [`registry.yaml`](registry.yaml) | id SSOT: `coarse_ids` = the five seats (each with `specialist_hint`), `fine_ids` (status `LIVE`), `local_packs`. Only executor exception: `fill-protocol` → Bai. Do not maintain a separate bot-name table. |
 | [`references/base-vs-advanced-top-loops.md`](references/base-vs-advanced-top-loops.md) | three-layer contract SSOT: base thin protocol -> QC gate -> advanced revision; run order S0-S5 |
 | [`legacy_aliases.yaml`](legacy_aliases.yaml) | alias → canonical id; retired fine ids, retired buckets, retired 01 seat |
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
 | [`references/session-pick.md`](references/session-pick.md) | ask-each-run fine-id pick, resolution order, empty-path protocol; post-merge `git pull` on the clone |
 | [`references/hard-rules.md`](references/hard-rules.md) | forbidden combinations, fine-id expansion |
-| [`references/bot-route.md`](references/bot-route.md) | bot route SSOT: coarse id → bot, LIVE fine id → bot (Bai exception) |
 | [`references/capability-contract.example.yaml`](references/capability-contract.example.yaml) | example contract for a new pack (proposal side) |
 | [`workflows/`](workflows/README.md) | 5 composite SOPs + README |
 | [`harvest/SKILL.md`](harvest/SKILL.md) | harvest extraction body (non-routable; intake QC and destinations) |

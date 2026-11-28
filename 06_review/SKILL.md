@@ -21,13 +21,9 @@ Ownership: see `00_orchestrator/references/ownership-contract.md`.
 
 **Reviewer response enters through `07_response` only.**
 
-## Layer model (2026-10-30 rebind)
+## Layer model
 
-Flow: base thin-contract first pass (`simulate-reviewers` isolation -> `self-review` || `peer-review`; contracts in `06_review/base/`) -> **00 QC** (score, cite the `advanced/` anchor) -> **06 advanced re-review only** -> re-gate at 00.
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-
-Base packs may raise findings; **06 advanced owns the house peer-review method and the English envelope** (`advanced/review.md`: opener templates, comment habits, statement-then-data protocol).
-Resolution status for response letters -> **07**.
+Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Do not restate the layer table here.
 
 ## Advanced assets
 
@@ -46,7 +42,7 @@ Resolution status for response letters -> **07**.
 ## Live capability ids
 
 - `peer-review`, `self-review`, `simulate-reviewers` -- review first-pass (`06_review/base/`)
-- `revise` / `tighten-response` -- response path; **final authority 07**; bodies in `07_response/base/` (tone-polish is on-demand inside tighten-response)
+- `track-changes` -- mechanical unpack / validate / pack of a `.docx` (`06_review/base/track-changes/`). 05 applies manuscript Track Changes; 06 only validates and packs. Response letters are 07, not 06.
 
 ## Modes
 

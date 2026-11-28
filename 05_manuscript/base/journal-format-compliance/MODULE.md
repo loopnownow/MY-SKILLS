@@ -1,11 +1,11 @@
 ---
 name: journal-format-compliance
-owner: "03_research/base/find-journal/journal-format-compliance/MODULE.md"
+owner: "05_manuscript/base/journal-format-compliance/MODULE.md"
 ---
 
 # Journal Format Compliance
 
-Contract only for journal-format-compliance (author instructions): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`rules/`, `data/`, `references/`) stays beside it as data.
+Contract only for journal-format-compliance (author instructions): scope, bans, phase names, and pointers. Publisher-guideline quirks live in `03_research/base/find-journal/rules/`. House typography baseline: `references/house-style-defaults.md`. 05 applies the guideline Track Changes. This file does not restate a procedure.
 
 Bring an existing manuscript (usually a .docx) into compliance with a specific journal's author guidelines, deliver a plan before touching the file, and produce a submission-ready .docx with the changes visible as Word tracked changes.
 
@@ -17,8 +17,8 @@ This skill assumes the `docx` skill is available for the actual file editing (un
 
 - If given a URL, `web_fetch` it. Author-guidelines pages are frequently bot-blocked (this is common for Wiley's `onlinelibrary.wiley.com` pages) — if `web_fetch` is refused, fall back to `web_search` with the URL or journal name as the query; snippets from the guidelines page usually surface even when direct fetch fails. Issue several targeted searches (title page elements, abstract structure/word limit, keyword count, reference style, article-type word limits) rather than one broad query — guideline pages are long and a single search rarely surfaces everything.
 - If only a journal name is given, search for `"<journal name>" author guidelines` and confirm the publisher/journal identity (ISSN, submission-system code, e.g. Wiley's CAM4 for *Cancer Medicine*) before proceeding — don't assume from the name alone if it's ambiguous.
-- **Never infer the journal's identity from an uploaded manuscript's filename, a prior formatted version, or an offhand name mentioned earlier in the conversation — confirm it from the URL/journal number/ISSN itself.** A Springer `link.springer.com/journal/<number>` link does not tell you which journal *family* it belongs to by the number alone, and files are routinely misnamed after the wrong target (e.g. a file called `..._BMC_Cancer_....docx` submitted alongside a link to journal `12672`, which is actually *Discover Oncology*, not *BMC Cancer* — two journals with materially different formatting rules, see `../rules/journal-format-publisher-notes.md`). Fetch/search the actual guidelines page and check the journal's real name and publisher "brand" (Springer / BMC / Palgrave / Apress / Discover — shown in the page footer) before planning any edits. If the confirmed journal differs from what the file name or earlier conversation implied, say so plainly before proceeding.
-- See `../rules/journal-format-publisher-notes.md` for known quirks of specific publishers' guideline pages, including the BMC-series vs. Springer "Discover"-series template differences.
+- **Never infer the journal's identity from an uploaded manuscript's filename, a prior formatted version, or an offhand name mentioned earlier in the conversation — confirm it from the URL/journal number/ISSN itself.** A Springer `link.springer.com/journal/<number>` link does not tell you which journal *family* it belongs to by the number alone, and files are routinely misnamed after the wrong target (e.g. a file called `..._BMC_Cancer_....docx` submitted alongside a link to journal `12672`, which is actually *Discover Oncology*, not *BMC Cancer* — two journals with materially different formatting rules, see `03_research/base/find-journal/rules/journal-format-publisher-notes.md`). Fetch/search the actual guidelines page and check the journal's real name and publisher "brand" (Springer / BMC / Palgrave / Apress / Discover — shown in the page footer) before planning any edits. If the confirmed journal differs from what the file name or earlier conversation implied, say so plainly before proceeding.
+- See `03_research/base/find-journal/rules/journal-format-publisher-notes.md` for known quirks of specific publishers' guideline pages, including the BMC-series vs. Springer "Discover"-series template differences.
 
 ### 2. Read the manuscript
 

@@ -18,7 +18,7 @@ Calibration plots for `lock_threshold` / `refit` use the layer's predicted proba
 
 General threshold doctrine (never tune the cut on the test set to maximise accuracy) is in `02_data-processing/advanced/analysis/methods.md`. These three modes are how the lab implements it.
 
-## Live lab modules (v4.3.1; rules aligned 2026-09-12)
+## Live lab modules
 
 Version SSOT is `{code_modules}\__init__.py` `__version__`. Do not restate a different number here.
 

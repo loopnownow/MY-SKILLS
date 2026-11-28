@@ -67,4 +67,4 @@ Owner: **Victor** - `03_research`. Bai owns 选刊 advancement after titles are 
 
 ## Journal format compliance (nested)
 
-Registered fine id since 2026-11-13 (previously nested-only; parent `find-journal` still owns selection). After 备选杂志 are chosen, invoke `03_research/base/find-journal/journal-format-compliance/SKILL.md` by path/keyword. Parent owns 选刊; nested pack owns guideline plan + Track Changes. See `SKILL.md` section Journal format compliance.
+`find-journal` owns 选刊. After 备选杂志 are chosen, hand off to `05_manuscript/base/journal-format-compliance/SKILL.md` for guideline plan + Track Changes.

@@ -22,19 +22,11 @@ then transform analysis-ready data into valid statistical results, predictive-mo
 **02 is the advanced top layer** (like 03/05/06): route, handoff, post-QC triggers, and post-QC authority for lab numbers/figures.
 Capability **bodies** for clean/imaging/stats/figures fine ids all live in **`02_data-processing/base/`** (analysis packs merged 2026-10-25). Fine IDs are not renamed.
 
-Live lab modules **v4.3.1** are the lab default (`{code_modules}`; version SSOT is `modules/__init__.py`). Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran.
+Live lab modules are the lab default (`{code_modules}`; version SSOT is `modules/__init__.py`). Nested CV, multivariate Cox, lifelines, and DeLong *intervals* are **not** implemented as lab defaults -- say so if asked; never write them as what the lab ran. Imaging / stats hard rules live in `advanced/analysis/pipeline.md`, not in this seat SKILL.
 
-## Layer model (2026-10-30 rebind)
+## Layer model
 
-**Flow:** base thin-contract first pass (`02_data-processing/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `02_data-processing/advanced/`** -> re-gate at 00.
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-The advanced layer carries the owner's confirmed working method and house habits; generic procedure belongs in base pack references or MY-CODES docs. It may re-trigger a base fine id when 00 says so.
-
-| Layer | Owns |
-|---|---|
-| `base/` | Thin contracts for `clean-data`, `preprocess-imaging`, `stats-analysis`, `calc-sample-size`, `model-evaluation`, `draw-flowchart`, `plot-figures`, `db-library` under `02_data-processing/base/` |
-| 00 | QC gate (G-PHI / G-CODE / G-FACT / G-STATS); decides whether 02 re-triggers a fine id |
-| `advanced/` | The personal revision authority: owner-confirmed method, house console/figures habits, per-pack digests; Loopnow seat (QC standards in `qc/`, 00-only); visualization (IR to HTML) under `advanced/visualization/`. Generic protocol belongs in base references or MY-CODES |
+Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Do not restate the layer table here.
 
 ## Advanced assets (top layer)
 
@@ -50,7 +42,7 @@ The advanced layer carries the owner's confirmed working method and house habits
 | Summary table -> subject-level synthetic rows (pooled-analysis input) | `advanced/restore-from-summary.md` |
 | Analysis route | `advanced/analysis/route.md` |
 | Analysis handoff | `advanced/analysis/handoff.md` |
-| Lab pipeline (`VAL_MODE`, live modules v4.3.1) | `advanced/analysis/pipeline.md` |
+| Lab pipeline (hard rules, `VAL_MODE`, live modules) | `advanced/analysis/pipeline.md` |
 | Console UI / results HTML / figure switches | `advanced/analysis/console-ui.md` |
 | Radiology-grade stats index | `advanced/analysis/module-notes.md` + `advanced/analysis/methods.md` |
 | Lab figure palettes / claim planning | `advanced/analysis/figures.md` |
@@ -82,19 +74,6 @@ A base pack that grows a long procedure has drifted: the procedure belongs in `0
 Neither `plot-figures` nor `draw-flowchart` may be duplicated as a second figure stack inside 05.
 
 Retired ids stay off the menu; they resolve only through `00_orchestrator/legacy_aliases.yaml`.
-
-## Imaging hard rules (non-negotiable)
-
-- Patient-level splits; never treat slice-level random split as external validation.
-- AUC 95% CI = **1000 bootstrap** (`_boot_auc_ci`). **Not** DeLong intervals.
-- Paired model-comparison **p** = DeLong (Sun & Xu 2014 midranks). DeLong is a p, not a CI.
-- **Combined** is the named primary model. Youden is **per split**; `lock_threshold` keeps the training Youden.
-- Radiomics reproducibility filter: **ICC(A,1) >= 0.75**.
-- Clinical model: non-empty `FORCE_MODEL_FEATURES` is the model. Empty list selects candidate-pool multivariate p < `ROC_MV_P_THRESHOLD`. AIC stepwise stays informational and does not enter the model.
-- LASSO: **StratifiedKFold AUC path on TRAIN only**. The lab does **not** use nested CV.
-- Survival: KM + log-rank. Optional univariable Cox. Not multivariate; not lifelines.
-- Do not invent p/AUC/event counts; do not fake a priori power for pure retrospective work.
-- lab test-set scoring: `VAL_MODE` in {`refit`, `apply_formula`, `lock_threshold`} -- **never re-select features**. Details: `advanced/analysis/pipeline.md`.
 
 ## Precedence
 

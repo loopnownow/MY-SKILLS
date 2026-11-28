@@ -1,5 +1,4 @@
 ---
-name: "check-reporting"
 routable: false
 status: internal-qc-body
 domain: "05_manuscript"

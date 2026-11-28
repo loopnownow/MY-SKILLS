@@ -19,16 +19,9 @@ Turn a clinical/biomedical idea into a defensible protocol and evidence base.
 Ownership: see `00_orchestrator/references/ownership-contract.md`.
 Capability **bodies** for lit/design fine ids live in **`03_research/base/`** (merged 2026-10-17).
 
-## Layer model (2026-10-30 rebind)
+## Layer model
 
-**Flow:** base thin-contract first pass (`03_research/base/`: scope, bans, phase names, pointers) -> **00 QC** (score, cite the `advanced/` anchor) -> post-QC revise **via `03_research/advanced/`** -> re-gate at 00. May trigger `verify-refs` (integrity stage).
-Layering and `qc/` invocation SSOT: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Gates: `00_orchestrator/gates.md`. Checks: `qc/README.md`.
-
-| Layer | Owns |
-|---|---|
-| `base/` | Thin contracts for lit-search, design-study, verify-refs, lit-fulltext, find-journal, fill-protocol; pack data (`rules/`, `data/`, `references/`) |
-| 00 | QC gate; decides whether 03 re-triggers verify/retraction |
-| `advanced/` | The personal revision authority: house design/selection habits, Jinshan fill forms, owner-confirmed method. Generic protocol belongs in base references |
+Base / advanced / qc roles: `00_orchestrator/references/base-vs-advanced-top-loops.md`. Do not restate the layer table here.
 
 ## Three pillars
 

@@ -17,12 +17,12 @@ Thin contract for find-journal (list gates, layer policy, output shape): scope, 
 
 ## Mission
 
-Recommend journals from the lab's curated JCR pool with an auditable fit/ease rationale, then hand the chosen journal to formatting. It decides; external recommenders are data providers only. It does not write the manuscript (`05_manuscript/base/write-paper/`) or format it (`journal-format-compliance/`).
+Recommend journals from the lab's curated JCR pool with an auditable fit/ease rationale, then hand the chosen journal to formatting. It decides; external recommenders are data providers only. It does not write the manuscript (`05_manuscript/base/write-paper/`) or format it (`05_manuscript/base/journal-format-compliance/`).
 
 ## Scope / Out of scope
 
 In: 推荐杂志 / 选刊, layer and list gates, similar-article check, Phase-2 short table, portal-URL write-back.
-Out: journal formatting to author guidelines (nested `journal-format-compliance/`, a registered fine id since 2026-11-13); manuscript prose; APC/AIM lookups before the user confirms a shortlist.
+Out: journal formatting to author guidelines (`05_manuscript/base/journal-format-compliance/`); manuscript prose; APC/AIM lookups before the user confirms a shortlist.
 
 Routing: lives in `03_research/base/find-journal/`; the former advanced `find-journal/` stub was removed 2026-10-17 — do not recreate it. Called from `03_research/advanced/journal-selection.md`. Bai handles Phase-1 checkbox HTML → export JSON; Aitee only for formatting.
 
@@ -39,7 +39,7 @@ Minimum: the manuscript (or its abstract + design), and the target layer order d
 5. **Phase-1 columns** (exact): 勾选 | 期刊全称 | 2025 JIF | 年发文量 | 接收率 | 初筛拒稿率 | 送审率 | 匹配理由 | 稿件匹配度 | 投稿易投指数(可带缺标). Chinese headers only for MJF/MFI→稿件匹配度 and JESI→投稿易投指数; no 分层/策略 column (keep `data-layer`/`data-tier` on checkboxes); always show the three rates (— if unknown); no AIM/instructions/APC in Phase 1. Then ask the user to circle 备选杂志.
 6. **Phase 2 short table** after confirmation: 期刊全称｜JCR分区｜影响因子｜年发文量｜投稿网址/作者须知 — full URLs visible, author-instruction URLs allowed, no ISO/OA/置信/APC/分刊详情. Lookups follow `rules/aim-author-checklist.md`.
 7. **Persist and deliver**: only portal submission URLs go to `data/2026/submission-urls.csv`; JIF/quartile/volume/APC/review time are query-only and never persisted as durable lists; advanced outcomes append `{find_journal_submission}\submission-prior.jsonl` (no IF/quartile fields). Prefer HTML; generic HTML craft in `00_orchestrator/references/html-visual-design.md`.
-8. **Format the chosen journal** via nested [`journal-format-compliance/`](journal-format-compliance/): plan first, Track Changes author A, never silently fix identity/funding/ethics conflicts; publisher quirks in `rules/journal-format-publisher-notes.md`; house baseline `journal-format-compliance/references/house-style-defaults.md`.
+8. **Hand the chosen journal to formatting** at [`05_manuscript/base/journal-format-compliance/`](../../../05_manuscript/base/journal-format-compliance/): plan first, Track Changes author A, never silently fix identity/funding/ethics conflicts; publisher quirks in `rules/journal-format-publisher-notes.md`; house baseline `05_manuscript/base/journal-format-compliance/references/house-style-defaults.md`.
 
 ## Constraints (never)
 
@@ -56,7 +56,7 @@ Minimum: the manuscript (or its abstract + design), and the target layer order d
 ## Output and handoff
 
 - Phase 1: three (optionally four) tables of 10 + shortlist request; Phase 2: per-paper short table + portal URL write-back.
-- Handoff: to `journal-format-compliance` after the journal is chosen; to 00 at G-06/G-05; to `write-paper` only for house style, not journal rules.
+- Handoff: to 05 `journal-format-compliance` after the journal is chosen; to 00 at G-06/G-05; to `write-paper` only for house style, not journal rules.
 
 ## Files
 
@@ -73,7 +73,7 @@ Minimum: the manuscript (or its abstract + design), and the target layer order d
 | `rules/policy.md`, `rules/persistence.md`, `rules/modules.md` | stable rules; absorb/query/delete; four logical modules |
 | `rules/query-sources.md`, `rules/aim-author-checklist.md` | query sources; Phase-2 checklist |
 | `rules/annual-update.md`, `rules/graylist.fine-id.md` | July refresh; gray definition |
-| `journal-format-compliance/` | chosen-journal formatting (nested fine id) |
+| `05_manuscript/base/journal-format-compliance/` | chosen-journal formatting (05 fine id; this pack only selects the journal) |
 
 ## Annual refresh and provenance
 
