@@ -13,6 +13,8 @@ Append new CHG / decision rows **here** until the next monthly roll, then archiv
 
 Harvest must not invent a second evolution log file.
 
+- **t2299u (2026-11-28):** `db-library` 阶段 3/5 从「计划中」落成可跑命令：新增 `db5t/mkid.py`（搬身份 + `ref_project` 登记 + 两库 meta）与 `db5t/fill.py`（13 列 `map.csv` 驱动回填，依赖序、无 dict 行不 ALTER、`src.rows` 只记并入 `clin` 的行数）；`gates.py` 统一读全局 `dict.db`（`D70` 家族期望集剔除 `dict`，`D95`/`D78` 豁免结构列），MY-CODES 测试 742 passed。`load-pipeline.md` 阶段 3/5 改为实名命令并记 2026-11-28 试点：28 家旧库移 `.Del\_by-function\db5t-build-20261128\retired-20261128\`，`MM/zy_MM` 重建后 gates 全绿。registry `change_id` 未变。
+
 - **t2298u (2026-11-28):** 跟进 t2296u：`load-pipeline.md` 将映射台账文件名统一为 `map.csv`（开工落 `_work\`，收口后随库）；`MODULE.md` 去掉过时「家族五表」表述（家族库不留 dict）。registry `change_id` 未变。
 
 - **t2296u (2026-11-28):** 按建库补丁口径更新 `db-library`：新增 `references/load-pipeline.md`；硬约束与落点改指 `{RULES}\db-build-contract.md` 与 `{RULES}\zone-database.md`；目标态为 `{RAW}\Family\` 全局 `dict.db`、家族库不留 `dict`、学位改挂 `__zip\thesis\<slug>\`（勿再新建 `_thesis`）；`OTHERS` 按有 PHI 家族对待；D93–D99 仅在 RULES 作 report-only，本批未搬盘、未改 MY-CODES。不新造 fine id。registry `change_id` 未变。

@@ -121,6 +121,16 @@ python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> --period-u
 
 顺序：`id` 建人 → `id_number` 挂号 → 归一 `sex` / `birth_date`。
 
+```
+python -B tools/db-library/db5t/mkid.py --from-family-db <退役家族库> \
+    --root <stage> --family <FAM> --slug <slug> [--identity-grain person]
+```
+
+`mkid.py` 只做「搬身份 + 登记」：`id` / `id_number` 从退役家族库整表抄（已有键跳过），
+按子库现算 `longitudinal_n` / `multi_record_n` 写进 `ref_project` 一行，
+两库 `meta` 写 `subject_types` 与 `identity_grain`。**sha256 在 commit + `wal_checkpoint` 之后算**，
+否则镜像门永远差一版（踩过）。
+
 - `kind` 白名单：`inpatient` / `outpatient` / `mrn` / `imaging` / `pathology` / `sample` / `study` / `other`。
 - 段位：`0xxxxx` 人（真身份）/ `8xxxxx` 动物 / `9xxxxx` 占位（label_only）。9 段可多人共用同一号码，不判冲突。
 - 姓名只进 `id.name`，不参与判重（D41）；`id.name_pinyin` 可写，但不作键。
@@ -155,6 +165,16 @@ python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> --period-u
 7. 病理与 ihc
 8. 派生与模块（`_modules_*` + `*_val`）
 
+```
+python -B tools/db-library/db5t/fill.py --map <批次>\_work\map.csv \
+    --root <stage> --family <FAM> --slug <slug> --src-root <批次父目录> [--dry-run]
+```
+
+`fill.py` 的硬约束：按物理依赖序 src→person→clin→`_modules_*`→`*_val` 落库；
+目标列不在库里且 dict 无行 → 直接停（契 2），不偷偷 ALTER；
+`src.rows` 记**并入 `clin` 的行数**（不是整份源的文件行数，否则 D96 立刻红）；
+重跑先删本 `src_id` 的旧行，幂等；结尾写 `meta.src_records_n` 与 `meta.excluded_columns`。
+
 规则：
 
 - 每组先 dry-run：输出「目标列 × 源列 × 命中行数 × 失败行数」，人工看过再 `--apply`。
@@ -187,7 +207,10 @@ DB5T_ROOT={RAW}/Family DB5T_DICT={RAW}/Family/dict.db \
 
 ## 9 试点（验收用）
 
-按本轮决策，试点两处的操作口径是**直接重建现库 + 开工前备份**（不用影子库）。此条待另点名后执行：本批未备份、未重建、未改现行家族 `.db`。
+按本轮决策，试点两处的操作口径是**直接重建现库 + 开工前备份**（不用影子库）。
+2026-11-28 已完成第一处：28 个旧家族库整体移到 `.Del\_by-function\db5t-build-20261128\retired-20261128\`（28/28 sha256 复核一致），
+`MM/zy_MM` 在 `.Del\_by-function\db5t-build-20261128\stage\` 重建：person 250 / clin 185 / `_modules_us` 370 / us_val 5,832，
+与退役库逐格比对键差 0、仅 TEXT→REAL 类型升级，gates `CHECK 全库汇总：全部通过`（D98 1,775 项与 D97 1 列为 report-only）。
 
 - **B：从零建 `MM/zy_MM`**（最小：185 行 / 47 列 / 1 子库 / `_modules_lesion` 370 exam + 5,832 val）。跑通全流程，验收「空库 → 契约 → 回填 → 全绿」。
 - **A：重放 `EC/ybc_EC_clin`**（226 列 / 1,064 行）。与现库逐格 diff，允许差异只有两处：D92 已登记 1,291 格脏值、D93 已登记 71 个越界值。未登记差异必须为 0。
