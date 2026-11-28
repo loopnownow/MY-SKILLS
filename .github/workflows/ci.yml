@@ -8,12 +8,22 @@ on:
 jobs:
   test:
     runs-on: windows-latest
+    env:
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v5
       - name: checkout sibling repos
         run: |
           git clone --depth 1 https://github.com/loopnownow/MY-RULES.git "$env:RUNNER_WORKSPACE\MY-RULES"
           git clone --depth 1 https://github.com/loopnownow/MY-CODES.git "$env:RUNNER_WORKSPACE\MY-CODES"
+      - name: expose lab-paths git roots
+        run: |
+          $gitRoot = "D:\MyProjects\_Docs\GitHub"
+          New-Item -ItemType Directory -Force -Path $gitRoot | Out-Null
+          New-Item -ItemType Junction -Path (Join-Path $gitRoot "MY-CODES") -Target "$env:RUNNER_WORKSPACE\MY-CODES"
+          New-Item -ItemType Junction -Path (Join-Path $gitRoot "MY-RULES") -Target "$env:RUNNER_WORKSPACE\MY-RULES"
+          New-Item -ItemType Junction -Path (Join-Path $gitRoot "MY-SKILLS") -Target $env:GITHUB_WORKSPACE
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
