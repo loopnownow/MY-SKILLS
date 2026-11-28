@@ -131,6 +131,16 @@ python -B tools/db-library/db5t/mkid.py --from-family-db <退役家族库> \
 两库 `meta` 写 `subject_types` 与 `identity_grain`。**sha256 在 commit + `wal_checkpoint` 之后算**，
 否则镜像门永远差一版（踩过）。
 
+没有退役家族库可搬（根数据独有、旧库漏建）时，身份号从子库 `person` 发：
+
+```
+python -B tools/db-library/db5t/mkid.py --from-person --root <stage> \
+    --family <FAM> --slug <slug> --id-status label_only
+```
+
+`--from-person` 只写 `id`（`family_uid` = 回填时 `transform=mint:` 发出的号，`source='person:root-xlsx'`），
+`id_number` 留空；`period_unit` 未显式传就读子库 `meta.period_unit`（否则镜像门报 None ≠ '1'）。
+
 - `kind` 白名单：`inpatient` / `outpatient` / `mrn` / `imaging` / `pathology` / `sample` / `study` / `other`。
 - 段位：`0xxxxx` 人（真身份）/ `8xxxxx` 动物 / `9xxxxx` 占位（label_only）。9 段可多人共用同一号码，不判冲突。
 - 姓名只进 `id.name`，不参与判重（D41）；`id.name_pinyin` 可写，但不作键。
@@ -171,9 +181,16 @@ python -B tools/db-library/db5t/fill.py --map <批次>\_work\map.csv \
 ```
 
 `fill.py` 的硬约束：按物理依赖序 src→person→clin→`_modules_*`→`*_val` 落库；
+源可以是 `.xlsx/.xls`（按 `src_sheet` + `src_header_row`）或 `.db`（按表名）；
+`transform` 两档：`const:<值>` 写常量（如 `period_month=UNK`）、`mint:<茎>` 发顺序号
+（`mint:MCI-900000` → `MCI-900001`，同一源值跨 sheet 复用，person 先发、clin 拿同一个）；
+`missing_rule` 按源侧标记判缺：写 `NA|NR|.` 就把这些字面值转 `NULL`，`keep` 原样照写，`stop` 空就停（契 6）；
 目标列不在库里且 dict 无行 → 直接停（契 2），不偷偷 ALTER；
 `src.rows` 记**并入 `clin` 的行数**（不是整份源的文件行数，否则 D96 立刻红）；
 重跑先删本 `src_id` 的旧行，幂等；结尾写 `meta.src_records_n` 与 `meta.excluded_columns`。
+
+两个必踩的坑：源列名里有逗号（`Sex (1=M, 0=F)`）时 `map.csv` 要用 `csv.writer` 写，手写会被切成两列；
+源里用 `NA` 表示缺失时必须在 `missing_rule` 声明，否则文本落进 `REAL` 列，D97 立刻判「真混合」。
 
 规则：
 
@@ -191,6 +208,20 @@ DB5T_ROOT={RAW}/Family DB5T_DICT={RAW}/Family/dict.db \
 ```
 
 收口三查：`Σ merged_n = Σ src.rows`（D96）、dict 覆盖（D95）、qc 码受控（D94）。全绿才算完，不许「先把 P2 放着」。
+
+## 7b 阶段 7：建完先出预览（给人看，再往下走）
+
+每建完一个库，先出一张只读 HTML 放根目录（`D:\MyProjects\<slug>-库预览.html`），人看过再继续下一家：
+
+```
+python -B tools/db-library/db5t/preview.py --root <stage> --family <FAM> --slug <slug> \
+    --out D:\MyProjects\<slug>-库预览.html [--gates]
+```
+
+页面固定回答七件事：person / clin / id 行数与列数、`identity_grain` 与 `period_unit`、
+`src` 登记（kind / sha256 / rows）、两库表清单、clin 逐列 dict role/dtype/unit + NULL 行数 + 样例值、
+clin 抽样、门禁摘要。`--gates` 才就地跑门禁（默认不跑，避免每张预览拖 10 秒）。
+预览是只读产物，不进库、不改 meta；它不是验收门禁的替代品——门禁仍以 `gates.py` 全绿为准。
 
 ## 8 冲突处置
 
@@ -211,6 +242,12 @@ DB5T_ROOT={RAW}/Family DB5T_DICT={RAW}/Family/dict.db \
 2026-11-28 已完成第一处：28 个旧家族库整体移到 `.Del\_by-function\db5t-build-20261128\retired-20261128\`（28/28 sha256 复核一致），
 `MM/zy_MM` 在 `.Del\_by-function\db5t-build-20261128\stage\` 重建：person 250 / clin 185 / `_modules_us` 370 / us_val 5,832，
 与退役库逐格比对键差 0、仅 TEXT→REAL 类型升级，gates `CHECK 全库汇总：全部通过`（D98 1,775 项与 D97 1 列为 report-only）。
+
+2026-11-28 另加一处「根数据从零建」：`MCI/sw_CI`（无退役库，根 `archived/MCI/sw_CI/FinalData_sw_CI.xlsx` 98 行×11 列）
+用 `newdb --period-unit 1` → `fill`（`mint:MCI-900000` 发 `MCI-900001…900098`、`const:` 写 `period_month=UNK` /
+`id_status=label_only`、`missing_rule=NA` 把 31 个 `NA` 转 NULL）→ `mkid --from-person`，
+终态 person 98 / clin 98 / 38 列 / id 98 / id_number 0，gates 全绿（D97 已清、D98 1 项是 schema 自带列名）。
+预览：`D:\MyProjects\sw_CI-库预览.html`。
 
 - **B：从零建 `MM/zy_MM`**（最小：185 行 / 47 列 / 1 子库 / `_modules_lesion` 370 exam + 5,832 val）。跑通全流程，验收「空库 → 契约 → 回填 → 全绿」。
 - **A：重放 `EC/ybc_EC_clin`**（226 列 / 1,064 行）。与现库逐格 diff，允许差异只有两处：D92 已登记 1,291 格脏值、D93 已登记 71 个越界值。未登记差异必须为 0。
