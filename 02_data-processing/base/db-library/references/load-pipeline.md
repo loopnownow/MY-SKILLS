@@ -146,6 +146,17 @@ python -B tools/db-library/db5t/mkid.py --from-person --root <stage> \
 - 姓名只进 `id.name`，不参与判重（D41）；`id.name_pinyin` 可写，但不作键。
 - `sex` 归一 `M` / `F` / `U`（现状 8 种写法混装、41,060 个 NULL；NULL 允许，混写不允许）；`birth_date` 只 ISO，允许 `YYYY-MM`。
 - **PHI 边界**：子库零 PHI。`clin` / `qc` 里已有的 `姓名` / `电话` / `身份证` / `地址` 列，入库时进 `id` 后删列，记 `qc(PHI_EXCLUDED)`。
+- 姓名与号码从清洗副本导入（`person.csv` 只有 `family_uid`，不含 PHI）：
+
+```
+python -B tools/db-library/db5t/mkphi.py --root <stage> --family <FAM> --slug <slug> \
+    --phi <批次>\_work\<slug>\phi.csv
+```
+
+  `mkphi.py` 把 `name` / `pinyin` / `id_card` / `phone` / `address` 写进家族库 `id`，
+  号码按 `kind` 写 `id_number`；身份证、电话、地址默认脱敏（前 3 + `*` + 后 4，地址截到第 3 级行政区，
+  如 `北京市东城区某街道`）；脱敏后撞唯一索引只丢该字段、**不并身份**并记冲突；
+  写 `meta.phi_source` / `phi_sha256` / `phi_imported_at`；退出码 1 = 有 `family_uid` 缺号或不在册。
 
 ## 5 阶段 4：清洗（三级阶梯，不改语义）
 
@@ -292,3 +303,22 @@ python -B tools/sync/gen_code_manifest.py
 | 空库抄现有库 | 79 库的 15 个空 `path_*` 占位列 | 由 `schema.sql` 生成 |
 | `_thesis` 新建目录 | 勿再新建 | 论文目标落点 `__zip\thesis\<slug>\`；实体改挂待另点名 |
 
+## 12 旧库回放（一次性迁移，不适用于新源建库）
+
+把 `retired-<日期>\<fam>\<slug>\<slug>db` 整套搬进新 schema 时，`newdb → map → fill → mkid` 仍是主链，但要额外记住这几条（2026-11-28 全库 26 家族实跑）：
+
+| 环节 | 做法 | 为什么 |
+|---|---|---|
+| 模态列 | 旧库有 `_modules_nmr`、`_modules_qpcr`、`_modules_plate` 等非 7 模态表 | 用 `sqlite_master.sql` 克隆 `_modules_radiomics` 表与索引，只换表名与模态后缀；同一模态的两张表（如 `nmr`/`nmr2`）都映射到 `_modules_mri` |
+| 同源多表 | 一个源文件的多张表并进同一目标表 | `fill.py` 的「按 src_id 清表」只做一次（`cleaned` 集合），否则第二遍把第一遍删掉 |
+| 空表/空列 | map 里有、目标表没有该列，或源 sheet 只有表头 | `fill.py` 打印跳过提示并继续；不要让 `executemany([])` 抛 `near ")": syntax error` |
+| 旧值表 `feature IS NULL` | 新表 `feature` NOT NULL | 复制一份旧库到 `_work/<fam>/<slug>/src/` 再删这些行（不就地改退役库），删掉的值行记 `qc(ROWS_DROPPED)` |
+| 旧模块行挂在占位身份上 | 旧库把检查挂在 9 段占位 uid 上，`person` 里没有 | 在副本里补 `person` 行（`id_status='label_only'`、note `repaired: module owner missing from person`），保住检查与值 |
+| 家族级 `subject_types` | `mkid` 按 slug 写，后一个覆盖前一个 | 已改成并集合并；回放后再按每库 person 的 `id_status` 多数派复核一遍 |
+| 段位 | 0 段 = 有人身份键，8 段 = 动物，9 段 = 仅标签 | 旧库常见「0 段 label_only」「9 段却有号码」；用重编号脚本一次性对齐，再跑 gates |
+| 家族类型 | 一个子库里人/动物混放（BMP6 的 54 个动物占位在 0 段） | 动物占位一律进 9 段；`meta.subject_types[slug]='animal'` |
+| 号码重复 | 旧库同一人多个号（身份证 + 门诊号 + 病理号） | 保留首条、其余删并记 `qc(IDNUM_DUP_CONFLICT)` |
+| 时间列语义 | `followup_month`/`relative_day` 旧库没有 `time_origin` | dict 补 `unit` 与 `time_origin:<基准>`，否则 D55 报 |
+| 收尾顺序 | `fill` → `mkid` → 写 qc → `fix_sha` → `gates` | 写 qc 会改库，sha 必须最后算 |
+
+回放脚本与修复脚本按批次放在 `{DEL}\_work\replay\`（`replay_all.py` / `renumber.py` / `fixmeta.py` / `repair.py` / `add_qc.py`），**不入三仓**；它们依赖 `RETIRED` 与 `STAGE` 两个常数，换批次时改常量。
