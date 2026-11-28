@@ -19,4 +19,4 @@ drawer, a citation validator). Anything that touches patient tables belongs in `
 
 Lab pipeline policy stays in `advanced/analysis/` and is the authority; a base pack that grows a long procedure points there instead of restating it.
 
-Retired directory names — never recreate: `pictures`, `fmri`, `radiomics-habitat`, `imaging-io`, `meta-analysis`. They resolve through `00_orchestrator/legacy_aliases.yaml`.
+Retired directory names — never recreate: `pictures`, `fmri`, `radiomics-habitat`, `imaging-io`, `meta-analysis`. Do not treat those names as runtime ids (see `tests/retired_ids.py`).

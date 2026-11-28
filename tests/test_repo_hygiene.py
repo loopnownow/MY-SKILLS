@@ -21,9 +21,8 @@ SKIP_PARTS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
 STATUS_TOKENS = re.compile(r"\b(LIVE|PROPOSED|ARCHIVED)\b")
 STATUS_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
-    "00_orchestrator/legacy_aliases.yaml",
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "ARCHITECTURE.md",
     "README.md",
 }
@@ -55,7 +54,7 @@ PACK_EXTRA_LITERALS = ("B包", "A包", "B-pack", "A-pack")
 PACK_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "ARCHITECTURE.md",
     "README.md",
 }
@@ -419,7 +418,7 @@ MOUNT_VOCAB_GLOBS = (
     "06_review/**/*.md",
     "07_response/**/*.md",
 )
-MOUNT_VOCAB_ALLOW_FILES = {"00_orchestrator/legacy_aliases.yaml"}
+MOUNT_VOCAB_ALLOW_FILES = {"CHANGELOG.md"}
 
 
 class MountVocabularyRetired(unittest.TestCase):

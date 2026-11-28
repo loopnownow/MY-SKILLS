@@ -2,7 +2,7 @@
 name: medical-research-orchestrator
 description: >
   Intent-classify the task, run a skill chain, and close QC (file gates + local
-  recovery). Also owns the routing index: fine-id registry, alias table, session
+  recovery). Also owns the routing index: fine-id registry, session
   picks, and composite SOPs. Use for end-to-end or multi-stage work. Do not use
   when a single domain skill is enough. Do not do literature, stats, writing, or
   review here.
@@ -35,7 +35,6 @@ It does not duplicate research, statistical, imaging, writing, or discovery rule
 |---|---|
 | [`registry.yaml`](registry.yaml) | id SSOT: `coarse_ids` = the five seats (each with `specialist_hint`), `fine_ids` (status `LIVE`), `local_packs`. Only executor exception: `fill-protocol` → Bai. Do not maintain a separate bot-name table. |
 | [`references/base-vs-advanced-top-loops.md`](references/base-vs-advanced-top-loops.md) | three-layer contract SSOT: base thin protocol -> QC gate -> advanced revision; run order S0-S5 |
-| [`legacy_aliases.yaml`](legacy_aliases.yaml) | alias → canonical id; retired fine ids, retired buckets, retired 01 seat |
 | [`references/id-rules.md`](references/id-rules.md) | canonical ID rule |
 | [`references/session-pick.md`](references/session-pick.md) | ask-each-run fine-id pick, resolution order, empty-path protocol; post-merge `git pull` on the clone |
 | [`references/hard-rules.md`](references/hard-rules.md) | forbidden combinations, fine-id expansion |

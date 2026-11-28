@@ -73,7 +73,7 @@ A base pack that grows a long procedure has drifted: the procedure belongs in `0
 
 Neither `plot-figures` nor `draw-flowchart` may be duplicated as a second figure stack inside 05.
 
-Retired ids stay off the menu; they resolve only through `00_orchestrator/legacy_aliases.yaml`.
+Retired ids stay off the menu; they are not runtime ids (see `tests/retired_ids.py`).
 
 ## Precedence
 

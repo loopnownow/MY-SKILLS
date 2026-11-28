@@ -26,7 +26,7 @@ HIST_LINE = re.compile(
 )
 ALLOW_FILES = {
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "NOTICE",
     "00_orchestrator/references/lab-paths.yaml",
 }
@@ -148,7 +148,7 @@ class AliasMapIsTight(unittest.TestCase):
     """
 
     PATH_PREFIXES = ("code_", "doc_", "find_journal_", "jcr", "lab_", "raw_", "del_", "rules_", "skills_")
-    # Retired names may still appear in dated history lines (VERSION.txt / INTEGRATION_MAP.md).
+    # Retired names may still appear in dated history lines (CHANGELOG.md).
     HISTORY_ONLY = {"code_06_review", "doc_xml", "code_md_bank"}
 
     def test_no_dead_alias(self) -> None:

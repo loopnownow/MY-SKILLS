@@ -1,6 +1,6 @@
 # Lab path aliases (SSOT). Live skill text cites {alias} or {alias}/relative.
 # Agents expand from this file at read time. Do not vendor _Docs\GitHub\MY-CODES / _Docs into git.
-# History / VERSION / INTEGRATION_MAP archives may keep raw drive letters as dated facts.
+# History lines and CHANGELOG may keep raw drive letters as dated facts.
 # Env: STATS_ROOT ({code_stats}); ODOC_CODE retired with _code (2026-11-01 P4).
 # OSCRIPT_ROOT / script_root retired with 0script (2026-10-23). Do not recreate either.
 version: 13

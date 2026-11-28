@@ -387,7 +387,7 @@ EXEMPT_LINES = re.compile(
 )
 AB_SUFFIXES = {".md", ".mmd", ".yaml", ".yml"}
 AB_SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "fixtures"}
-AB_SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md"}
+AB_SKIP_FILES = {"VERSION.txt", "CHANGELOG.md"}
 
 
 class RetiredWorkspaceVocabulary(unittest.TestCase):

@@ -38,7 +38,7 @@ ALLOW_MISSING = {
 }
 SKIP_FILE_PREFIXES = (
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
 )
 FORBIDDEN_BARE_RELATIVE = (
     "qc/local-checks.md",
@@ -46,7 +46,7 @@ FORBIDDEN_BARE_RELATIVE = (
 OWNER_RE = re.compile(r"^owner:\s*[\"']?([^\"'\n]+)[\"']?\s*$", re.M)
 ALLOW_OWNER_VALUES: set[str] = set()
 HIST = re.compile(r"deleted|removed|former|archived|retired|no external renderer", re.I)
-ALLOW_FILES = {"INTEGRATION_MAP.md"}
+ALLOW_FILES = {"CHANGELOG.md"}
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 ALLOW_MISSING.add(r"{doc_root}\templates\EXTRACT-LOG.md")  # optional write target; may not exist yet
 # Explicit "do NOT create" ban in `00_orchestrator/harvest/SKILL.md` §8: round working directories

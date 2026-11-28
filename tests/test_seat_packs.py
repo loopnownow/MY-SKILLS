@@ -944,7 +944,7 @@ class AdvancedMirrorDedupe(unittest.TestCase):
             if set(path.parts) & skip:
                 continue
             rel = path.relative_to(ROOT).as_posix()
-            if rel == "INTEGRATION_MAP.md":
+            if rel in {"INTEGRATION_MAP.md", "CHANGELOG.md"}:
                 continue
             for para in re.split(r"\n\s*\n", path.read_text(encoding="utf-8-sig", errors="ignore")):
                 norm = re.sub(r"\s+", " ", para).strip()

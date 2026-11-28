@@ -14,7 +14,7 @@ import unittest
 from tests.support import ROOT
 
 SCAN_SUFFIX = (".md", ".yaml", ".py", ".json")
-SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md", "legacy_aliases.yaml"}
+SKIP_FILES = {"VERSION.txt", "CHANGELOG.md"}
 FENCE = re.compile(r"^```.*?^```", re.S | re.M)
 
 

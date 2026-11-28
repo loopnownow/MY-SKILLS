@@ -18,7 +18,6 @@ from tests.support import (
 def registry() -> dict:
     return yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
 REG = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8"))
-ALIASES = ((yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}).get("aliases") or {})
 def _base_name(path: str) -> str:
     return path.replace("\\", "/").rstrip("/").split("/")[-1]
 
@@ -44,26 +43,22 @@ class RegistryPaths(unittest.TestCase):
 
     def test_dir_equals_fine_id(self) -> None:
         for fine_id in REG["fine_ids"]:
-            name = _base_name(fine_id["path"])
-            if name == fine_id["id"]:
-                continue
             self.assertEqual(
-                ALIASES.get(fine_id["id"]),
-                name,
-                f"{fine_id['id']} points at {name}; declare it as an alias instead",
+                _base_name(fine_id["path"]),
+                fine_id["id"],
+                f"{fine_id['id']} path must end with the fine id (no alias table)",
             )
 
-    def test_shared_paths_are_aliased(self) -> None:
+    def test_live_paths_are_unique(self) -> None:
         seen: dict[str, str] = {}
         for fine_id in REG["fine_ids"]:
             key = fine_id["path"].replace("\\", "/").rstrip("/")
-            if key in seen:
-                self.assertIn(
-                    fine_id["id"],
-                    ALIASES,
-                    f"{fine_id['id']} shares {key} with {seen[key]} without an alias entry",
-                )
-            seen.setdefault(key, fine_id["id"])
+            self.assertNotIn(
+                key,
+                seen,
+                f"{fine_id['id']} shares {key} with {seen.get(key)}",
+            )
+            seen[key] = fine_id["id"]
 
     def test_every_base_dir_is_registered(self) -> None:
         live = {_base_name(m["path"]) for m in REG["fine_ids"]}
@@ -128,36 +123,10 @@ class RegistryPaths(unittest.TestCase):
         for pack in REG.get("local_packs") or []:
             self.assertEqual(_base_name(pack["path"]), pack["id"], pack["id"])
             self.assertTrue((ROOT / pack["path"]).is_dir(), pack["id"])
-class AliasTargets(unittest.TestCase):
-    def test_alias_values_are_known_ids(self) -> None:
-        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
-        ids = {
-            m["id"]
-            for m in (reg.get("fine_ids") or [])
-            if isinstance(m, dict) and m.get("id")
-        }
-        self.assertGreaterEqual(len(ids), 20, "registry fine_ids not parsed")
-
-        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
-        bad = [
-            f"{k} -> {v}"
-            for k, v in (la.get("aliases") or {}).items()
-            if str(v) not in ids
-        ]
-        self.assertEqual(bad, [], "alias targets that are not live fine ids:\n" + "\n".join(bad))
-
-    def test_coarse_alias_values_are_registry_coarse(self) -> None:
-        reg = yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
-        coarse = {
-            c["id"] for c in (reg.get("coarse_ids") or []) if isinstance(c, dict) and c.get("id")
-        }
-        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
-        bad = [
-            f"{k} -> {v}"
-            for k, v in (la.get("coarse_aliases") or {}).items()
-            if str(v) not in coarse
-        ]
-        self.assertEqual(bad, [], "coarse alias targets not in registry:\n" + "\n".join(bad))
+class NoAliasTable(unittest.TestCase):
+    def test_legacy_aliases_file_is_gone(self) -> None:
+        self.assertFalse((ONE / "legacy_aliases.yaml").exists())
+        self.assertFalse((ROOT / "INTEGRATION_MAP.md").exists())
 
 
 class SeatBuckets(unittest.TestCase):
@@ -199,69 +168,42 @@ class SeatBuckets(unittest.TestCase):
         for fine_id in REG["fine_ids"]:
             self.assertEqual(fine_id["path"].split("/")[0], fine_id["a_domain"], fine_id["id"])
 
-# --- Merged from test_ledger_assurance.py ---
-CHG_RE = re.compile(r"CHG-(\d{8})")
-CHG_FULL = re.compile(r"CHG-\d{8}-[a-z0-9-]+")
-VERSION_HEAD = re.compile(r"^(CHG-\d{8}-[a-z0-9-]+)", re.M)
+# --- Changelog / version (replaces ledger freshness) ---
+TICKET_RE = re.compile(r"\bt((?:\d{4}u|\d{8}[a-z]))\b")
+
+
 def _registry() -> dict:
     return yaml.safe_load((ONE / "registry.yaml").read_text(encoding="utf-8")) or {}
 
-class LedgerFreshness(unittest.TestCase):
-    def test_registry_change_id_reaches_both_ledgers(self) -> None:
+
+class ChangelogAndVersion(unittest.TestCase):
+    def test_version_txt_is_one_line(self) -> None:
+        text = (ROOT / "VERSION.txt").read_text(encoding="utf-8")
+        lines = [ln for ln in text.splitlines() if ln.strip()]
+        self.assertEqual(len(lines), 1, "VERSION.txt must be a single version line")
+        self.assertRegex(lines[0].strip(), r"^\d+\.\d+(\.\d+)?$")
+        self.assertNotIn("CHG-", text)
+
+    def test_registry_version_matches_version_txt(self) -> None:
         meta = _registry().get("meta") or {}
-        change_id = str(meta.get("change_id") or "")
-        self.assertTrue(CHG_RE.search(change_id), f"bad change_id: {change_id!r}")
+        ver = (ROOT / "VERSION.txt").read_text(encoding="utf-8").strip()
+        self.assertEqual(str(meta.get("version") or "").strip(), ver)
+        self.assertNotIn("change_id", meta)
 
-        for name in ("VERSION.txt", "INTEGRATION_MAP.md"):
-            text = (ROOT / name).read_text(encoding="utf-8")
-            self.assertIn(
-                change_id,
-                text,
-                f"{name} has no entry for registry change_id {change_id}",
-            )
+    def test_changelog_exists_newest_first(self) -> None:
+        path = ROOT / "CHANGELOG.md"
+        self.assertTrue(path.is_file())
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("t2307u", text)
+        dates = re.findall(r"^-\s+(20\d{2}-\d{2}-\d{2})", text, re.M)
+        self.assertTrue(dates, "CHANGELOG.md has no dated entries")
+        self.assertEqual(dates, sorted(dates, reverse=True), "CHANGELOG.md is not newest-first")
 
-        newest = CHG_FULL.findall((ROOT / "INTEGRATION_MAP.md").read_text(encoding="utf-8"))
-        self.assertTrue(newest, "INTEGRATION_MAP.md has no CHG-YYYYMMDD-slug entry")
-        self.assertEqual(
-            change_id,
-            newest[0],
-            "registry change_id must equal the newest INTEGRATION_MAP entry",
-        )
-        head = VERSION_HEAD.search((ROOT / "VERSION.txt").read_text(encoding="utf-8"))
-        self.assertIsNotNone(head, "VERSION.txt has no top CHG entry")
-        self.assertEqual(
-            change_id,
-            head.group(1),
-            "registry change_id must equal the top VERSION.txt entry",
-        )
+    def test_legacy_ledgers_are_gone(self) -> None:
+        self.assertFalse((ROOT / "INTEGRATION_MAP.md").exists())
+        self.assertFalse((ONE / "legacy_aliases.yaml").exists())
 
-    def test_version_top_is_not_older_than_registry(self) -> None:
-        meta = _registry().get("meta") or {}
-        reg_date = CHG_RE.search(str(meta.get("change_id") or "")).group(1)
-        version = (ROOT / "VERSION.txt").read_text(encoding="utf-8")
-        dates = CHG_RE.findall(version)
-        self.assertTrue(dates, "VERSION.txt has no CHG-YYYYMMDD block")
-        self.assertGreaterEqual(
-            max(dates),
-            reg_date,
-            "VERSION.txt is older than the registry change_id",
-        )
-
-    def test_integration_map_headings_are_unique_and_descending(self) -> None:
-        text = (ROOT / "INTEGRATION_MAP.md").read_text(encoding="utf-8")
-        entries = re.findall(r"^## (CHG-(\d{8})-[a-z0-9-]+)", text, re.M)
-        self.assertGreaterEqual(len(entries), 40, "INTEGRATION_MAP.md CHG entries not parsed")
-        ids = [entry[0] for entry in entries]
-        dupes = sorted({name for name in ids if ids.count(name) > 1})
-        self.assertEqual(dupes, [], "duplicate CHG headings:\n" + "\n".join(dupes))
-        dates = [entry[1] for entry in entries]
-        self.assertEqual(
-            dates,
-            sorted(dates, reverse=True),
-            "INTEGRATION_MAP.md is not strictly newest-first",
-        )
-
-    def test_head_commit_ticket_ids_reach_a_ledger(self) -> None:
+    def test_head_commit_ticket_ids_reach_changelog(self) -> None:
         try:
             head = subprocess.run(
                 ["git", "log", "-1", "--format=%B"],
@@ -275,28 +217,22 @@ class LedgerFreshness(unittest.TestCase):
             self.skipTest("git unavailable")
         if head.returncode != 0:
             self.skipTest("git log unavailable")
-        # Task ids are `tNNNNu`; harvest rounds use the round form `tYYYYMMDDx` (e.g. t20261113i)
-        # and reach HEAD as a PR merge message, so both forms must be recognised.
-        ticket_re = re.compile(r"\bt((?:\d{4}u|\d{8}[a-z]))\b")
-        ticket_ids = sorted({m.group(1) for m in ticket_re.finditer(head.stdout)})
+        ticket_ids = sorted({m.group(1) for m in TICKET_RE.finditer(head.stdout)})
         self.assertTrue(
             ticket_ids, "no ticket id (tNNNNu or round tYYYYMMDDx) in HEAD commit message"
         )
-        ledger = (ROOT / "VERSION.txt").read_text(encoding="utf-8") + (
-            ROOT / "INTEGRATION_MAP.md"
-        ).read_text(encoding="utf-8")
+        ledger = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
         missing = [f"t{ticket}" for ticket in ticket_ids if f"t{ticket}" not in ledger]
-        self.assertEqual(missing, [], "HEAD ticket ids missing from ledgers: " + ", ".join(missing))
+        self.assertEqual(missing, [], "HEAD ticket ids missing from CHANGELOG.md: " + ", ".join(missing))
 
 
 class RetiredBodies(unittest.TestCase):
-    """Non-routable bodies stay out of the fine-id / alias routing tables."""
+    """Non-routable bodies stay out of the fine-id routing table."""
 
     def test_retired_bodies_are_not_routable(self) -> None:
-        la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8")) or {}
-        bodies = la.get("retired_bodies") or {}
+        from tests.retired_ids import RETIRED_BODIES, RETIRED_FINE_IDS
         live = {m["id"] for m in REG["fine_ids"]}
-        for name, rel in bodies.items():
+        for name, rel in RETIRED_BODIES.items():
             self.assertNotIn(name, live, f"{name} is both live and a retired body")
-            self.assertNotIn(name, ALIASES, f"{name} must not be in aliases")
+            self.assertNotIn(name, RETIRED_FINE_IDS, f"{name} must not be a retired fine-id alias")
             self.assertTrue((ROOT / str(rel)).is_dir(), f"{name} body path missing: {rel}")

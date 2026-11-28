@@ -21,7 +21,7 @@ One chain: draft the protocol body (generic study-protocol text; not experimenta
 
 
 > **Provenance / on-disk status (Batch1 F9; Batch4 B2 trim):**
-> In-repo body under `03_research/base/fill-protocol/` (extracted 2026-09-13).
+> In-repo body under `03_research/base/fill-protocol/` (extracted 2026-09-13). Runnable tools: `{code_fill_protocol}`.
 > This MODULE keeps **principles + paths only**. The following assets are **not present**
 > in `03_research/base/fill-protocol/` — do not pretend they exist; do not invent paths:
 > - `setup.sh`

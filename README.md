@@ -29,7 +29,7 @@ Capability bodies for seats 02-07 live in-repo under `NN_slug/base/`. The routin
 
 Paths under the six seat roots (`00_orchestrator`, `02_data-processing`, `03_research`, `05_manuscript`, `06_review`, `07_response`) are at most five parts from the repo root, except `NN_slug/base/**`.
 
-License: MIT (`LICENSE`). Third-party notices: `NOTICE`. Release notes: `VERSION.txt`.
+License: MIT (`LICENSE`). Third-party notices: `NOTICE`. Release notes: `CHANGELOG.md`. Version number: `VERSION.txt`.
 
 Tests: `python -B -m pytest tests/` (or `unittest discover -s tests`; `-B` keeps `__pycache__` out; needs `pyyaml`).
 

@@ -16,6 +16,7 @@ from tests.support import (
     ROOT,
     require_resolved,
 )
+from tests.retired_ids import BANNED_UNALIASED_IDS, RETIRED_FINE_IDS
 
 HIST_LINE = re.compile(
     r"archived|historical|legacy|absorb|absorbed|formerly|old_path|"
@@ -25,21 +26,16 @@ HIST_LINE = re.compile(
 )
 ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
-    "00_orchestrator/legacy_aliases.yaml",
     "00_orchestrator/references/id-rules.md",
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "02_data-processing/base/README.md",  # archived — do not recreate list
     "03_research/base/README.md",  # archived — do not recreate list
 }
 PATH_UNIT_ALIAS_KEYS: set[str] = set()
 def _retired_ids() -> set[str]:
-    # t1123: retired set = legacy_aliases keys (registry no longer lists archived).
-    la = yaml.safe_load((ONE / "legacy_aliases.yaml").read_text(encoding="utf-8"))
-    alias_keys = set((la.get("aliases") or {}).keys())
-    # Keep path-style / still-on-disk unit names out of the retired scan set.
-    alias_keys -= PATH_UNIT_ALIAS_KEYS
-    return alias_keys
+    # Retired set lives in tests/retired_ids.py (no runtime alias table).
+    return set(RETIRED_FINE_IDS) - PATH_UNIT_ALIAS_KEYS
 def _scan_paths() -> list[Path]:
     out: list[Path] = []
     for pat in (
@@ -67,9 +63,8 @@ def _routing_lines(path: Path, text: str) -> list[tuple[int, str]]:
             rows.append((i, line))
     return rows
 no_retired_seat_04_ALLOW_FILES = {
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "VERSION.txt",
-    "00_orchestrator/legacy_aliases.yaml",
 }
 SKIP_PREFIXES = ("tests/",)
 SUFFIXES = {".md", ".yaml", ".yml", ".txt", ".py", ".mmd", ".json", ".ini", ".mermaid"}
@@ -94,10 +89,9 @@ def tracked_files() -> list[str]:
 B_PAT = re.compile(r"(?:\bB\s+0[0-7]-[a-z0-9-]+/?\b|\bforce_b\b|\bMY-SKILLS-base\b)")
 no_b_pack_residue_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
-    "00_orchestrator/legacy_aliases.yaml",
     "00_orchestrator/references/id-rules.md",
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
 }
 ALLOW_LINE = re.compile(
     r"archived|historical|legacy|old_path|was\s+B|formerly|0del|"
@@ -272,8 +266,7 @@ class CanonicalIdRule(unittest.TestCase):
         self.assertNotIn("`radiomics-ml`", rad)
         for banned in ("02-tables", "02-imaging-qc", "02-radiomics-habitat"):
             self.assertNotIn(banned, rad)
-        aliases = yaml.safe_load((ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8"))["aliases"]
-        self.assertEqual(aliases["02-tables"], "clean-data")
+        self.assertEqual(RETIRED_FINE_IDS["02-tables"], "clean-data")
 
 
 ABSORBED_03_DIRS = (
@@ -284,9 +277,8 @@ ABSORBED_03_DIRS = (
 DEAD_03_IDS = ("retraction-watcher", "write-protocol", "grant-builder")
 DEAD_03_ALLOW_FILES = {
     "00_orchestrator/registry.yaml",
-    "00_orchestrator/legacy_aliases.yaml",
     "VERSION.txt",
-    "INTEGRATION_MAP.md",
+    "CHANGELOG.md",
     "NOTICE",
     "03_research/base/README.md",
     "03_research/base/verify-refs/references/retraction-audit.md",
@@ -337,10 +329,8 @@ class Absorbed03Packs(unittest.TestCase):
         pointer = ROOT / "03_research/base/lit-fulltext/scripts/README.md"
         self.assertTrue(pointer.is_file(), "t1521u P3-B: scripts/ keeps a pointer README")
         self.assertIn("{code_stats}", pointer.read_text(encoding="utf-8"))
-        aliases = yaml.safe_load(
-            (ROOT / "00_orchestrator" / "legacy_aliases.yaml").read_text(encoding="utf-8")
-        )["aliases"]
-        self.assertNotIn("03-lit-fulltext", aliases)
+        self.assertNotIn("03-lit-fulltext", RETIRED_FINE_IDS)
+        self.assertIn("03-lit-fulltext", BANNED_UNALIASED_IDS)
 
     def test_lit_fulltext_script_resolves_in_my_codes(self) -> None:
         """t1521u P3-B: fetch.py leaves this repo; resolve it through {code_stats}."""
@@ -392,7 +382,7 @@ class NoBotNameTable(unittest.TestCase):
         re.compile(r"^\|\s*LIVE fine id\s*\|\s*Bot\s*\|", re.I | re.M),
     )
     SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "node_modules"}
-    SKIP_FILES = {"VERSION.txt", "INTEGRATION_MAP.md", "INTEGRATION_MAP.archive.md"}
+    SKIP_FILES = {"VERSION.txt", "CHANGELOG.md", "INTEGRATION_MAP.archive.md"}
 
     def test_bot_route_file_is_gone(self) -> None:
         self.assertFalse(

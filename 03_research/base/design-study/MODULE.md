@@ -15,7 +15,7 @@ trigger is documentation only; not independently discoverable.
 
 Contract only for design-study (protocol spine): scope, bans, phase names, and pointers. The house working method and the revision authority live in `03_research/advanced/`; this file does not restate a procedure. Pack data (`references/`) stays beside it as data.
 
-Former pack names that resolved into this seat are retired aliases only — see `00_orchestrator/legacy_aliases.yaml`; do not reopen those trees.
+Former pack names that resolved into this seat are retired names only, not runtime ids (see `tests/retired_ids.py`); do not reopen those trees.
 
 Use this skill at the **front of the research chain**: someone has imaging data (and maybe clinical/pathology/molecular labels) but no settled study. It triages **feasibility** and converts a feasible idea into a **complete, submittable design**.
 

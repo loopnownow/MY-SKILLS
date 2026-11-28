@@ -9,7 +9,7 @@ Thin contracts in this repo (scope, bans, phase names, pointers). The recipe and
 - verify-refs (protocol: `03_research/advanced/verify-refs.md`)
 - lit-fulltext
 
-勿新建这些目录名（退休名仅经 `00_orchestrator/legacy_aliases.yaml` 解析；live 正文不留归档标签）:
+勿新建这些目录名（退休名不是运行时 id，见 `tests/retired_ids.py`；live 正文不留归档标签）:
 lit-review, lit-cite, frontier-ideate, frontier-hypothesize.
 
 Thin routers (capability, not full products):

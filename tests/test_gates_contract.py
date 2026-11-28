@@ -285,7 +285,7 @@ class StaleSeat01ProseBan(unittest.TestCase):
     """Current-flow prose must not say enter/Re-enter 01; use 00 session-pick / FineId."""
 
     PAT = re.compile(r"(?i)\b(?:re-)?enter 01\b")
-    SKIP = {"VERSION.txt", "INTEGRATION_MAP.md", "legacy_aliases.yaml"}
+    SKIP = {"VERSION.txt", "CHANGELOG.md"}
 
     def test_no_enter_01_as_current_flow(self) -> None:
         bad = []

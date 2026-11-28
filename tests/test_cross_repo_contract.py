@@ -21,7 +21,6 @@ import yaml
 from tests.support import ONE, ROOT
 
 LAB_PATHS = ONE / "references" / "lab-paths.yaml"
-LEGACY = ONE / "legacy_aliases.yaml"
 REGISTRY = ONE / "registry.yaml"
 
 ALLOW_MISSING_SIBLINGS_ENV = "MY_SKILLS_ALLOW_MISSING_SIBLINGS"
@@ -342,9 +341,9 @@ class CrossRepoContract(unittest.TestCase):
         self.assertTrue(hit, "stale scanner must catch affirmative D:\\0Grok\\0del")
 
     def test_retired_ids_not_live_in_registry(self) -> None:
-        """legacy_aliases keys must not appear as LIVE registry fine ids."""
-        la = yaml.safe_load(LEGACY.read_text(encoding="utf-8")) or {}
-        retired = set((la.get("aliases") or {}).keys())
+        """Retired ids must not appear as LIVE registry fine ids."""
+        from tests.retired_ids import BANNED_UNALIASED_IDS, RETIRED_FINE_IDS
+        retired = set(RETIRED_FINE_IDS) | set(BANNED_UNALIASED_IDS)
         reg = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
         live = {row["id"] for row in reg.get("fine_ids") or []}
         overlap = sorted(retired & live)
@@ -355,7 +354,9 @@ class CrossRepoContract(unittest.TestCase):
         self.assertTrue(ver.is_file())
         text = ver.read_text(encoding="utf-8").strip()
         self.assertTrue(text, "VERSION.txt empty")
-        self.assertRegex(text, r"CHG-|20\d{6}")
+        lines = [ln for ln in text.splitlines() if ln.strip()]
+        self.assertEqual(len(lines), 1, "VERSION.txt must be a single version line")
+        self.assertRegex(lines[0].strip(), r"^\d+\.\d+")
 
     def test_sibling_absence_fails_unless_env_opt_in(self) -> None:
         """Partial checkout must not silently skip cross-repo contract tests."""

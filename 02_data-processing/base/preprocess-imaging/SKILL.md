@@ -9,4 +9,4 @@ owner: "02_data-processing/base/preprocess-imaging/MODULE.md"
 
 Capability body: [MODULE.md](MODULE.md). Do not duplicate it here.
 
-Retired id `imaging-io` resolves here via `00_orchestrator/legacy_aliases.yaml`; do not recreate that tree.
+Retired id `imaging-io` is not a runtime id; do not recreate that tree.

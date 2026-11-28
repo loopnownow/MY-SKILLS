@@ -123,10 +123,11 @@ class ModuleHeaderTests(unittest.TestCase):
         self.assertIn("NN_slug/base", skill)
         self.assertIn("routing index", skill.lower())
         self.assertNotIn("`fine_ids/`", skill)
-        # 2026-10-25: the 01 index seat merged here; registry / aliases / workflows live under 00.
+        # 2026-10-25: the 01 index seat merged here; registry / workflows live under 00.
         self.assertTrue((d / "registry.yaml").is_file())
-        self.assertTrue((d / "legacy_aliases.yaml").is_file())
+        self.assertFalse((d / "legacy_aliases.yaml").exists())
         self.assertTrue((d / "workflows" / "README.md").is_file())
+        self.assertTrue((ROOT / "CHANGELOG.md").is_file())
         # 01_skill-integration folder-gone: guarded in retirements / repo_hygiene
         self.assertFalse((d / "fine_ids").exists())
         self.assertFalse((d / "sources").exists())
@@ -182,6 +183,7 @@ class ModuleHeaderTests(unittest.TestCase):
             "INTEGRATION_MAP.archive.md",
             "MOUNTED_SKILLS.md",
             "VERSION.txt",
+            "CHANGELOG.md",
         }
         for p in ROOT.rglob("*.md"):
             if "__pycache__" in p.parts or ".git" in p.parts:

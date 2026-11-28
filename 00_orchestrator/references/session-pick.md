@@ -41,7 +41,7 @@ Never invent a local copy.
 ## Resolution order
 
 1. Read this skill's `registry.yaml` (the five seat rows + fine `fine ids:`).
-2. Resolve each fine id against `source: my-skills` (registry path; `NN_slug/base/` except `05_manuscript/qc/check-reporting/`). Retired ids (`legacy_aliases.yaml` only) are not on the menu.
+2. Resolve each fine id against `source: my-skills` (registry path; `NN_slug/base/` except `05_manuscript/qc/check-reporting/`). Retired ids are not on the menu (listed in `tests/retired_ids.py`). 激发词 at entry text are not runtime ids.
 3. If that path is empty or missing -> empty-path protocol.
 4. Evaluate capability, boundaries, dependencies, and overlap.
 5. Update `registry.yaml` only when the user confirms a catalog change (no generated mirror).
