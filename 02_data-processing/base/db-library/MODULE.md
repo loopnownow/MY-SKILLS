@@ -81,7 +81,7 @@ Path / ledger / gate rules live in `{RULES}\zone-database.md`（「家族桶落�
 
 ## 5t 口径下的 skipped、归档退役与内容去重
 
-下列做法按现行 db5t 书写（家族五表 / 子库 `clin` / `_modules_<mod>` / `qc` 等，空席不垫）。不得用精简登记册或 blob 库骨架替换现行五表；冻结旧库 core-6t 只读对账，不按旧骨架新建。
+下列做法按现行 db5t 书写（家族库不留 dict；子库 `clin` / `_modules_<mod>` / `qc` 等，空席不垫）。不得用精简登记册或 blob 库骨架替换现行骨架；冻结旧库 core-6t 只读对账，不按旧骨架新建。
 
 - **`skipped` 只用于体积闸或空表**：入库状态（5t 记在 `src` 或入库台账；冻结旧库若仍见 `doc.status` 同此执行）标 `skipped`，仅当该表因体积闸（例如 >2 MiB）或空表不入 blob，且必须在 note 写明判据与回溯口径。不得当作「暂不处理」的停放位（与 `{RULES}\skills.md` §6：skip 不是绕过）。
 - **可追溯**：原件进归档后，路径不一定还能直接打开；要能落到「哪只档 + 档内哪个成员」。用归档旁路清单（`.files.txt`）的成员名与 `src.rel_path`（旧库兼容视图则对 `doc.rel_path`）的 basename 匹配率衡量。归档校验三态：成员逐字节与记录的 sha256 相等 / 大档不解码 / 同名歧义未指派则留空。成员名按「全名 → 后缀 → 唯一 basename」三级解析；同名多成员必判歧义并留空，不可猜。

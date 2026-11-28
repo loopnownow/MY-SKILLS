@@ -16,9 +16,9 @@
 
 ## 1 阶段 0：立契约（不产库，只产三份文件）
 
-### 1.1 `<slug>.map.csv`（13 列固定）
+### 1.1 `map.csv`（13 列固定）
 
-列定义见 `{RULES}\db-build-contract.md` 契 1。写法要点：
+列定义见 `{RULES}\db-build-contract.md` 契 1。文件名即 `map.csv`（目录名已含 slug）；开工落 `_work\`，收口后随库（见 `{RULES}\zone-database.md` §8）。写法要点：
 
 - `src_header` 写**源文件里的原文**（可以是中文，这是唯一允许中文的位置）；`target_column` 写英文。
 - 多行表头：`src_header_row` 写起始行，`src_column` 写拼接后的子列（`行1|行2`）。
@@ -78,7 +78,7 @@ PHI_EXCLUDED      P2  clean  列含 PHI，移入 `_PHI` 后删列
 ```
 # 计划中（CLI 为约定，脚本落地前不存在）
 python -B tools/db-library/db5t/newdb.py --family <FAM> --slug <slug> \
-  --schema <schema.sql> --map <slug>.map.csv --period-unit singleton --dry-run
+  --schema <schema.sql> --map map.csv --period-unit singleton --dry-run
 ```
 
 建出来的目录（契 10）：
